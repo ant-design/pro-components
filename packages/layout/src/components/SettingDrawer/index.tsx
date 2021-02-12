@@ -6,7 +6,7 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { isBrowser } from '@ant-design/pro-utils';
-import { useUrlSearchParams } from 'use-url-search-params';
+import { useUrlSearchParams } from '@umijs/use-params';
 
 import { Button, Divider, Drawer, List, Switch, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
@@ -105,8 +105,8 @@ export const getFormatMessage = (): ((data: { id: string; defaultMessage?: strin
 const updateTheme = (
   dark: boolean,
   color?: string,
-  hideMessageLoading = false,
   publicPath = '/theme',
+  hideMessageLoading?: boolean,
 ) => {
   // ssr
   if (typeof window === 'undefined' || !(window as any).umi_plugin_ant_themeVar) {
@@ -293,7 +293,7 @@ const initState = (
 
   // 如果 url 中设置主题，进行一次加载。
   if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor, true, publicPath);
+    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor, publicPath, true);
     loadedStyle = true;
   }
   if (loadedStyle) {
@@ -302,7 +302,7 @@ const initState = (
 
   // 如果 url 中没有设置主题，并且 url 中的没有加载，进行一次加载。
   if (defaultSettings.navTheme !== settings.navTheme && settings.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', settings.primaryColor, true, publicPath);
+    updateTheme(settings.navTheme === 'realDark', settings.primaryColor, publicPath, true);
   }
 };
 
@@ -370,7 +370,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onChange: props.onCollapseChange,
   });
   const [language, setLanguage] = useState<string>(getLanguage());
-  const [urlParams, setUrlParams] = useUrlSearchParams({}, {});
+  const [urlParams, setUrlParams] = useUrlSearchParams({});
   const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
     () => getParamsFromUrl(urlParams, propsSettings),
     {
@@ -380,8 +380,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   );
   const preStateRef = useRef(settingState);
 
-  const { navTheme = 'dark', primaryColor = 'daybreak', layout = 'sidemenu', colorWeak } =
-    settingState || {};
+  const { navTheme, primaryColor, layout, colorWeak } = settingState || {};
 
   useEffect(() => {
     // 语言修改，这个是和 locale 是配置起来的
@@ -419,7 +418,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     nextState[key] = value;
 
     if (key === 'navTheme') {
-      updateTheme(value === 'realDark', undefined, hideMessageLoading, props.publicPath);
+      updateTheme(value === 'realDark', undefined, props.publicPath, !!hideMessageLoading);
       nextState.primaryColor = 'daybreak';
     }
 
@@ -427,8 +426,8 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       updateTheme(
         nextState.navTheme === 'realDark',
         value === 'daybreak' ? '' : (value as string),
-        hideMessageLoading,
         props.publicPath,
+        !!hideMessageLoading,
       );
     }
 
@@ -520,7 +519,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           <BlockCheckbox
             prefixCls={baseClassName}
             list={themeList.themeList}
-            value={navTheme}
+            value={navTheme!}
             configType="theme"
             key="navTheme"
             onChange={(value) => changeSetting('navTheme', value, hideLoading)}
@@ -534,7 +533,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           prefixCls={baseClassName}
         >
           <ThemeColor
-            value={primaryColor}
+            value={primaryColor!}
             colors={
               hideColors ? [] : themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
             }
@@ -548,7 +547,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         <Body prefixCls={baseClassName} title={formatMessage({ id: 'app.setting.navigationmode' })}>
           <BlockCheckbox
             prefixCls={baseClassName}
-            value={layout}
+            value={layout!}
             key="layout"
             configType="layout"
             list={[
@@ -623,10 +622,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             onClick={async () => {
               try {
                 await navigator.clipboard.writeText(genCopySettingJson(settingState));
-
                 message.success(formatMessage({ id: 'app.setting.copyinfo' }));
               } catch (error) {
-                console.log(error);
+                // console.log(error);
               }
             }}
           >

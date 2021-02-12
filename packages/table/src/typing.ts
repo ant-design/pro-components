@@ -173,7 +173,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   /** @name 渲染 table 视图，用于定制 ProList，不推荐直接使用 */
   tableViewRender?: (props: TableProps<T>, defaultDom: JSX.Element) => JSX.Element | undefined;
 
-  tableExtraRender?: (props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;
+  tableExtraRender?: (props: ProTableProps<T, U, ValueType>, dataSource: T[]) => React.ReactNode;
 
   /** @name 一个获得 dataSource 的方法 */
   request?: (

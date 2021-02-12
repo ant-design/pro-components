@@ -39,7 +39,9 @@ const LayoutSetting: React.FC<{
               value={contentWidth || 'Fixed'}
               size="small"
               className="content-width"
-              onSelect={(value) => changeSetting('contentWidth', value)}
+              onSelect={(value) => {
+                changeSetting('contentWidth', value);
+              }}
               style={{ width: 80 }}
             >
               {layout === 'side' ? null : (

@@ -10,7 +10,7 @@ import {
   transformKeySubmitValue,
   useMountMergeState,
 } from '@ant-design/pro-utils';
-import { useUrlSearchParams } from 'use-url-search-params';
+import { useUrlSearchParams } from '@umijs/use-params';
 
 import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';
@@ -91,7 +91,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const [form] = Form.useForm();
   /** 同步 url 上的参数 */
-  const [urlSearch, setUrlSearch] = useUrlSearchParams({}, {});
+  const [urlSearch, setUrlSearch] = useUrlSearchParams({});
   const formRef = useRef<FormInstance>(userForm || form);
 
   // 初始化给一个默认的 form

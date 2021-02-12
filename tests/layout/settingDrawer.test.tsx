@@ -158,6 +158,64 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith(false);
   });
 
+  it('content-width change', async () => {
+    const onSettingChange = jest.fn();
+    const wrapper = mount(
+      <SettingDrawer
+        collapse
+        settings={{
+          layout: 'top',
+        }}
+        getContainer={false}
+        onSettingChange={(setting) => {
+          onSettingChange(setting.contentWidth);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper
+        .find('div.ant-select.content-width')
+        .find('.ant-select-selector')
+        .simulate('mousedown');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-item').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith('Fluid');
+  });
+
+  it('splitMenu change', async () => {
+    const onSettingChange = jest.fn();
+    const wrapper = mount(
+      <SettingDrawer
+        collapse
+        settings={{
+          layout: 'mix',
+        }}
+        getContainer={false}
+        onSettingChange={(setting) => {
+          onSettingChange(setting.splitMenus);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.split-menus').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(true);
+
+    act(() => {
+      wrapper.find('button.split-menus').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith(false);
+  });
+
   it('fixed-header Change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
@@ -289,6 +347,12 @@ describe('settingDrawer.test', () => {
       { key: 'green', fileName: 'green.css', modifyVars: { '@primary-color': '#52C41A' } },
       { key: 'geekblue', fileName: 'geekblue.css', modifyVars: { '@primary-color': '#2F54EB' } },
       { key: 'purple', fileName: 'purple.css', modifyVars: { '@primary-color': '#722ED1' } },
+      {
+        key: 'qixian',
+        theme: 'dark',
+        fileName: 'dark-qixian.css',
+        modifyVars: { '@primary-color': '#F5222D' },
+      },
       {
         key: 'dust',
         theme: 'dark',

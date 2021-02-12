@@ -21,7 +21,7 @@ export type UseContainerProps = {
 
 function useContainer(props: UseContainerProps = {}) {
   const actionRef = useRef<ActionType>();
-  const propsRef = useRef<ProTableProps<any, any>>();
+  const propsRef = useRef<ProTableProps<any, any, any>>();
 
   // 共享状态比较难，就放到这里了
   const [keyWords, setKeyWords] = useState<string | undefined>('');

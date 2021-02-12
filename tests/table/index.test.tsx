@@ -95,7 +95,7 @@ describe('BasicTable', () => {
       />,
     );
 
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 2000);
     act(() => {
       expect(html.render()).toMatchSnapshot();
     });
