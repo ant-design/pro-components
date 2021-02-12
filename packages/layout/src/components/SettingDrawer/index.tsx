@@ -622,10 +622,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             onClick={async () => {
               try {
                 await navigator.clipboard.writeText(genCopySettingJson(settingState));
-
                 message.success(formatMessage({ id: 'app.setting.copyinfo' }));
               } catch (error) {
-                console.log(error);
+                // console.log(error);
               }
             }}
           >
