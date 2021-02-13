@@ -24,7 +24,7 @@ export default {
   },
   pagination: {
     total: {
-      range: '',
+      range: ' ',
       total: 'Toplam',
       item: 'Öğe',
     },
