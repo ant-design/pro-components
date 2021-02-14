@@ -69,6 +69,9 @@ const localStorageMock = (() => {
     setItem(key, value) {
       store[key] = value.toString();
     },
+    removeItem(key) {
+      store[key] = null;
+    },
     clear() {
       store = {};
     },
