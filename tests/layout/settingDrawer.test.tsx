@@ -48,10 +48,12 @@ describe('settingDrawer.test', () => {
   });
 
   it('hideLoading = true', () => {
+    window.localStorage.removeItem('umi_locale');
     const html = render(
       <SettingDrawer settings={defaultSettings} hideLoading getContainer={false} collapse />,
     );
     expect(html).toMatchSnapshot();
+    window.localStorage.setItem('umi_locale', 'zh-CN');
   });
 
   it('initState form query', async () => {
