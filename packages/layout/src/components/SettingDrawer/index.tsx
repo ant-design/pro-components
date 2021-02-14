@@ -85,10 +85,7 @@ const getDifferentSetting = (state: Partial<ProSettings>): Record<string, any> =
 export const getFormatMessage = (): ((data: { id: string; defaultMessage?: string }) => string) => {
   const formatMessage = ({ id }: { id: string; defaultMessage?: string }): string => {
     const locales = getLocales();
-    if (locales[id]) {
-      return locales[id];
-    }
-    return id;
+    return locales[id];
   };
   return formatMessage;
 };
