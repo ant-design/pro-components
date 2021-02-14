@@ -395,7 +395,11 @@ describe('settingDrawer.test', () => {
         key: 'qixian',
         theme: 'dark',
         fileName: 'dark-qixian.css',
+<<<<<<< HEAD
         modifyVars: { '@primary-color': '#F52225' },
+=======
+        modifyVars: { '@primary-color': '#F5222D' },
+>>>>>>> master
       },
       {
         key: 'dust',
