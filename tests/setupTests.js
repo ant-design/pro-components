@@ -58,7 +58,9 @@ global.cancelAnimationFrame =
   };
 // browserMocks.js
 const localStorageMock = (() => {
-  let store = {};
+  let store = {
+    umi_locale: 'zh-CN',
+  };
 
   return {
     getItem(key) {

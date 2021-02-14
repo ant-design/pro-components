@@ -105,7 +105,7 @@ describe('List', () => {
   it('🚏 expandable', async () => {
     const onExpand = jest.fn();
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<ReactText[]>([]);
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly ReactText[]>([]);
       return (
         <ProList
           dataSource={[
@@ -134,7 +134,7 @@ describe('List', () => {
   it('🚏 expandable support expandRowByClick', async () => {
     const onExpand = jest.fn();
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<ReactText[]>([]);
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly ReactText[]>([]);
       return (
         <ProList
           dataSource={[
@@ -195,7 +195,7 @@ describe('List', () => {
 
   it('🚏 expandable with expandedRowRender', async () => {
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<ReactText[]>([]);
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly ReactText[]>([]);
       return (
         <ProList
           dataSource={[

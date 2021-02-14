@@ -39,9 +39,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
 
   useEffect(() => {
     if (isMobile === true) {
-      if (onCollapse) {
-        onCollapse(true);
-      }
+      onCollapse?.(true);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
@@ -57,7 +55,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
       visible={!collapsed}
       placement="left"
       className={classNames(`${prefixCls}-drawer-sider`, className)}
-      onClose={() => onCollapse && onCollapse(true)}
+      onClose={() => onCollapse?.(true)}
       style={{
         padding: 0,
         height: '100vh',
@@ -81,10 +79,6 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
       style={style}
     />
   );
-};
-
-SiderMenuWrapper.defaultProps = {
-  onCollapse: () => undefined,
 };
 
 export default SiderMenuWrapper;

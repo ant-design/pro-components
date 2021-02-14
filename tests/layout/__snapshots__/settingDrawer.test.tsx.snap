@@ -2932,6 +2932,10 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
 </div>
 `;
 
+exports[`settingDrawer.test onLanguageChange support 1`] = `"整体风格设置"`;
+
+exports[`settingDrawer.test onLanguageChange support 2`] = `"Page style setting"`;
+
 exports[`settingDrawer.test settings = undefined 1`] = `
 <div
   class=""

@@ -130,7 +130,7 @@ function ProList<
               columns={columns}
               renderItem={renderItem}
               actionRef={actionRef}
-              dataSource={dataSource || []}
+              dataSource={(dataSource || []) as RecordType[]}
               size={size as 'large'}
               footer={footer}
               split={split}

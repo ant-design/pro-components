@@ -45,7 +45,7 @@
     "unstated-next": "^1.1.0",
     "use-json-comparison": "^1.0.3",
     "use-media-antd-query": "^1.0.6",
-    "use-url-search-params": "^2.3.13",
+    "@umijs/use-params": "^1.0.2",
     "warning": "^4.0.3"
   },
   "peerDependencies": {

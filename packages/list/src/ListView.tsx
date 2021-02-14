@@ -20,7 +20,7 @@ export type ListViewProps<RecordType> = AntdListProps<RecordType> &
     showActions?: 'hover' | 'always';
     rowSelection?: TableProps<RecordType>['rowSelection'];
     prefixCls: string;
-    dataSource: RecordType[];
+    dataSource: readonly RecordType[];
     actionRef: React.MutableRefObject<ActionType | undefined>;
   };
 
@@ -101,7 +101,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
   const [innerExpandedKeys, setInnerExpandedKeys] = React.useState<Key[]>(() => {
     if (defaultExpandedRowKeys) {
-      return defaultExpandedRowKeys;
+      return defaultExpandedRowKeys as Key[];
     }
     if (defaultExpandAllRows !== false) {
       return dataSource.map(getRowKey);
@@ -153,7 +153,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
         columns?.forEach((column: TableColumnType<RecordType>) => {
           PRO_LIST_KEYS.forEach((key) => {
             if (column.key === key) {
-              const dataIndex = column.dataIndex || key;
+              const dataIndex = (column.dataIndex || key) as string;
               const rawData = Array.isArray(dataIndex)
                 ? get(item, dataIndex as string[])
                 : item[dataIndex];

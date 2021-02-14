@@ -6,7 +6,7 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { isBrowser } from '@ant-design/pro-utils';
-import { useUrlSearchParams } from 'use-url-search-params';
+import { useUrlSearchParams } from '@umijs/use-params';
 
 import { Button, Divider, Drawer, List, Switch, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
@@ -75,7 +75,7 @@ const getDifferentSetting = (state: Partial<ProSettings>): Record<string, any> =
       stateObj[key] = undefined;
     }
     if (key.includes('Render')) {
-      stateObj[key] = state[key] === 'false' || state[key] === false ? false : undefined;
+      stateObj[key] = state[key] === false ? false : undefined;
     }
   });
   stateObj.menu = undefined;
@@ -105,8 +105,8 @@ export const getFormatMessage = (): ((data: { id: string; defaultMessage?: strin
 const updateTheme = (
   dark: boolean,
   color?: string,
-  hideMessageLoading = false,
   publicPath = '/theme',
+  hideMessageLoading?: boolean,
 ) => {
   // ssr
   if (typeof window === 'undefined' || !(window as any).umi_plugin_ant_themeVar) {
@@ -268,9 +268,7 @@ const initState = (
   onSettingChange: SettingDrawerProps['onSettingChange'],
   publicPath?: string,
 ) => {
-  if (!isBrowser()) {
-    return;
-  }
+  if (!isBrowser()) return;
 
   let loadedStyle = false;
 
@@ -278,9 +276,6 @@ const initState = (
   Object.keys(urlParams).forEach((key) => {
     if (defaultSettings[key] || defaultSettings[key] === undefined) {
       replaceSetting[key] = urlParams[key];
-      if (key.includes('Render')) {
-        replaceSetting[key] = urlParams[key] === 'false' ? false : undefined;
-      }
     }
   });
 
@@ -293,7 +288,7 @@ const initState = (
 
   // 如果 url 中设置主题，进行一次加载。
   if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor, true, publicPath);
+    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor, publicPath, true);
     loadedStyle = true;
   }
   if (loadedStyle) {
@@ -302,7 +297,7 @@ const initState = (
 
   // 如果 url 中没有设置主题，并且 url 中的没有加载，进行一次加载。
   if (defaultSettings.navTheme !== settings.navTheme && settings.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', settings.primaryColor, true, publicPath);
+    updateTheme(settings.navTheme === 'realDark', settings.primaryColor, publicPath, true);
   }
 };
 
@@ -310,26 +305,12 @@ const getParamsFromUrl = (
   urlParams: Record<string, any>,
   settings?: MergerSettingsType<ProSettings>,
 ) => {
-  if (!isBrowser()) {
-    return defaultSettings;
-  }
-  const params = {};
-  Object.keys(urlParams).forEach((key) => {
-    if (urlParams[key] === 'true') {
-      params[key] = true;
-      return;
-    }
-    if (urlParams[key] === 'false') {
-      params[key] = false;
-      return;
-    }
-    params[key] = urlParams[key];
-  });
+  if (!isBrowser()) return defaultSettings;
 
   return {
     ...defaultSettings,
     ...(settings || {}),
-    ...params,
+    ...urlParams,
   };
 };
 
@@ -370,7 +351,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onChange: props.onCollapseChange,
   });
   const [language, setLanguage] = useState<string>(getLanguage());
-  const [urlParams, setUrlParams] = useUrlSearchParams({}, {});
+  const [urlParams, setUrlParams] = useUrlSearchParams({});
   const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
     () => getParamsFromUrl(urlParams, propsSettings),
     {
@@ -380,8 +361,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   );
   const preStateRef = useRef(settingState);
 
-  const { navTheme = 'dark', primaryColor = 'daybreak', layout = 'sidemenu', colorWeak } =
-    settingState || {};
+  const { navTheme, primaryColor, layout, colorWeak } = settingState || {};
 
   useEffect(() => {
     // 语言修改，这个是和 locale 是配置起来的
@@ -392,9 +372,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     };
 
     /** 如果不是浏览器 都没有必要做了 */
-    if (!isBrowser()) {
-      return () => null;
-    }
+    if (!isBrowser()) return () => null;
     initState(
       getParamsFromUrl(urlParams, propsSettings),
       settingState,
@@ -419,7 +397,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     nextState[key] = value;
 
     if (key === 'navTheme') {
-      updateTheme(value === 'realDark', undefined, hideMessageLoading, props.publicPath);
+      updateTheme(value === 'realDark', undefined, props.publicPath, !!hideMessageLoading);
       nextState.primaryColor = 'daybreak';
     }
 
@@ -427,8 +405,8 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       updateTheme(
         nextState.navTheme === 'realDark',
         value === 'daybreak' ? '' : (value as string),
-        hideMessageLoading,
         props.publicPath,
+        !!hideMessageLoading,
       );
     }
 
@@ -464,18 +442,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
   useEffect(() => {
     /** 如果不是浏览器 都没有必要做了 */
-    if (!isBrowser()) {
-      return;
-    }
+    if (!isBrowser()) return;
     if (firstRender.current) {
       firstRender.current = false;
       return;
     }
-
     const diffParams = getDifferentSetting({ ...urlParams, ...settingState });
-    if (Object.keys(settingState).length < 1) {
-      return;
-    }
     setUrlParams(diffParams);
   }, [setUrlParams, settingState, urlParams, pathname]);
   const baseClassName = `${prefixCls}-setting`;
@@ -520,7 +492,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           <BlockCheckbox
             prefixCls={baseClassName}
             list={themeList.themeList}
-            value={navTheme}
+            value={navTheme!}
             configType="theme"
             key="navTheme"
             onChange={(value) => changeSetting('navTheme', value, hideLoading)}
@@ -534,7 +506,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           prefixCls={baseClassName}
         >
           <ThemeColor
-            value={primaryColor}
+            value={primaryColor!}
             colors={
               hideColors ? [] : themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
             }
@@ -548,7 +520,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         <Body prefixCls={baseClassName} title={formatMessage({ id: 'app.setting.navigationmode' })}>
           <BlockCheckbox
             prefixCls={baseClassName}
-            value={layout}
+            value={layout!}
             key="layout"
             configType="layout"
             list={[
@@ -623,10 +595,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             onClick={async () => {
               try {
                 await navigator.clipboard.writeText(genCopySettingJson(settingState));
-
                 message.success(formatMessage({ id: 'app.setting.copyinfo' }));
               } catch (error) {
-                console.log(error);
+                // console.log(error);
               }
             }}
           >

@@ -126,7 +126,14 @@ describe('mobile BasicLayout', () => {
     act(() => {
       html.find('span.ant-pro-global-header-collapsed-button').simulate('click');
     });
+    waitForComponentToPaint(html);
+    act(() => {
+      html.find('div.ant-drawer-mask').simulate('click');
+    });
+    waitForComponentToPaint(html);
     expect(onCollapse).toHaveBeenCalled();
+
+    waitForComponentToPaint(html);
     act(() => {
       html.unmount();
     });
