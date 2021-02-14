@@ -835,6 +835,7 @@ describe('BasicLayout', () => {
           menuItemRender={(item, dom) => (
             <a
               onClick={() => {
+                item.onClick();
                 setPathname(item.path || '/welcome');
               }}
             >
@@ -862,6 +863,7 @@ describe('BasicLayout', () => {
             },
             {
               name: '列表页',
+              icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
               path: '/list',
               routes: [
                 {
@@ -900,5 +902,81 @@ describe('BasicLayout', () => {
     });
 
     expect(html.find('.ant-menu-submenu-open').length).toBe(2);
+  });
+
+  it('🥩 BasicLayout menu support onSelect', async () => {
+    const fn = jest.fn();
+    const Demo = () => {
+      const [pathname, setPathname] = useState('/admin/sub-page1');
+      return (
+        <BasicLayout
+          menu={{
+            locale: false,
+          }}
+          onSelect={fn}
+          location={{ pathname }}
+          menuItemRender={(item, dom) => (
+            <a
+              onClick={() => {
+                item.onClick();
+                setPathname(item.path || '/welcome');
+              }}
+            >
+              {dom}
+            </a>
+          )}
+          menuDataRender={() => [
+            {
+              path: '/admin',
+              name: '管理页',
+              routes: [
+                {
+                  path: '/admin/sub-page1',
+                  name: '一级页面',
+                },
+                {
+                  path: '/admin/sub-page2',
+                  name: '二级页面',
+                },
+                {
+                  path: '/admin/sub-page3',
+                  name: '三级页面',
+                },
+              ],
+            },
+            {
+              name: '列表页',
+              path: '/list',
+              routes: [
+                {
+                  path: '/list/sub-page',
+                  name: '一级列表页面',
+                },
+                {
+                  path: '/list/sub-page2',
+                  name: '二级列表页面',
+                },
+                {
+                  path: '/list/sub-page3',
+                  name: 'antd',
+                },
+              ],
+            },
+          ]}
+        />
+      );
+    };
+    const html = mount(<Demo />);
+    await waitForComponentToPaint(html);
+    act(() => {
+      html.find('li.ant-menu-submenu').at(1).find('div.ant-menu-submenu-title').simulate('click');
+    });
+    await waitForComponentToPaint(html, 100);
+    act(() => {
+      html.find('ul.ant-menu-sub').at(1).find('.ant-menu-item-only-child').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(html, 100);
+
+    expect(fn).toBeCalled();
   });
 });

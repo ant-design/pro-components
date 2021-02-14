@@ -2626,6 +2626,12 @@ exports[`Field 🐴 options support one dom 1`] = `
 </div>
 `;
 
+exports[`Field 🐴 percent support unit string 1`] = `
+<span>
+  + 100.00%
+</span>
+`;
+
 exports[`Field 🐴 percent valueType is Object 1`] = `
 <div
   class="ant-input-number"

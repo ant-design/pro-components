@@ -75,7 +75,7 @@ const getDifferentSetting = (state: Partial<ProSettings>): Record<string, any> =
       stateObj[key] = undefined;
     }
     if (key.includes('Render')) {
-      stateObj[key] = state[key] === 'false' || state[key] === false ? false : undefined;
+      stateObj[key] = state[key] === false ? false : undefined;
     }
   });
   stateObj.menu = undefined;
@@ -83,21 +83,9 @@ const getDifferentSetting = (state: Partial<ProSettings>): Record<string, any> =
 };
 
 export const getFormatMessage = (): ((data: { id: string; defaultMessage?: string }) => string) => {
-  const formatMessage = ({
-    id,
-    defaultMessage,
-  }: {
-    id: string;
-    defaultMessage?: string;
-  }): string => {
+  const formatMessage = ({ id }: { id: string; defaultMessage?: string }): string => {
     const locales = getLocales();
-    if (locales[id]) {
-      return locales[id];
-    }
-    if (defaultMessage) {
-      return defaultMessage as string;
-    }
-    return id;
+    return locales[id];
   };
   return formatMessage;
 };
@@ -268,9 +256,7 @@ const initState = (
   onSettingChange: SettingDrawerProps['onSettingChange'],
   publicPath?: string,
 ) => {
-  if (!isBrowser()) {
-    return;
-  }
+  if (!isBrowser()) return;
 
   let loadedStyle = false;
 
@@ -278,9 +264,6 @@ const initState = (
   Object.keys(urlParams).forEach((key) => {
     if (defaultSettings[key] || defaultSettings[key] === undefined) {
       replaceSetting[key] = urlParams[key];
-      if (key.includes('Render')) {
-        replaceSetting[key] = urlParams[key] === 'false' ? false : undefined;
-      }
     }
   });
 
@@ -310,26 +293,12 @@ const getParamsFromUrl = (
   urlParams: Record<string, any>,
   settings?: MergerSettingsType<ProSettings>,
 ) => {
-  if (!isBrowser()) {
-    return defaultSettings;
-  }
-  const params = {};
-  Object.keys(urlParams).forEach((key) => {
-    if (urlParams[key] === 'true') {
-      params[key] = true;
-      return;
-    }
-    if (urlParams[key] === 'false') {
-      params[key] = false;
-      return;
-    }
-    params[key] = urlParams[key];
-  });
+  if (!isBrowser()) return defaultSettings;
 
   return {
     ...defaultSettings,
     ...(settings || {}),
-    ...params,
+    ...urlParams,
   };
 };
 
@@ -391,9 +360,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     };
 
     /** 如果不是浏览器 都没有必要做了 */
-    if (!isBrowser()) {
-      return () => null;
-    }
+    if (!isBrowser()) return () => null;
     initState(
       getParamsFromUrl(urlParams, propsSettings),
       settingState,
@@ -463,18 +430,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
   useEffect(() => {
     /** 如果不是浏览器 都没有必要做了 */
-    if (!isBrowser()) {
-      return;
-    }
+    if (!isBrowser()) return;
     if (firstRender.current) {
       firstRender.current = false;
       return;
     }
-
     const diffParams = getDifferentSetting({ ...urlParams, ...settingState });
-    if (Object.keys(settingState).length < 1) {
-      return;
-    }
     setUrlParams(diffParams);
   }, [setUrlParams, settingState, urlParams, pathname]);
   const baseClassName = `${prefixCls}-setting`;

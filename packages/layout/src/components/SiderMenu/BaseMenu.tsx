@@ -49,6 +49,7 @@ export type BaseMenuProps = {
     (
       item: MenuDataItem & {
         isUrl: boolean;
+        onClick: () => void;
       },
       defaultDom: React.ReactNode,
     ) => React.ReactNode
@@ -138,14 +139,9 @@ class MenuUtil {
 
   getIntlName = (item: MenuDataItem) => {
     const { name, locale } = item;
-    const {
-      menu = {
-        locale: false,
-      },
-      formatMessage,
-    } = this.props;
-    if (locale && menu.locale !== false && formatMessage) {
-      return formatMessage({
+    const { menu, formatMessage } = this.props;
+    if (locale && menu?.locale !== false) {
+      return formatMessage?.({
         id: locale,
         defaultMessage: name,
       });

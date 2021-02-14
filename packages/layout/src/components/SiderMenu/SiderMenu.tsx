@@ -27,11 +27,7 @@ export const defaultRenderLogoAndTitle = (
   props: SiderMenuProps,
   renderKey: string = 'menuHeaderRender',
 ): React.ReactNode => {
-  const {
-    logo = 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
-    title,
-    layout,
-  } = props;
+  const { logo, title, layout } = props;
   const renderFunction = props[renderKey || ''];
   if (renderFunction === false) {
     return null;

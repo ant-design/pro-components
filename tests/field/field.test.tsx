@@ -433,6 +433,40 @@ describe('Field', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('🐴 percent support unit string', async () => {
+    const html = render(
+      <Field
+        text="100%"
+        valueType={{
+          type: 'percent',
+          showSymbol: true,
+        }}
+        mode="read"
+      />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
+  it('🐴 percent support unit string', async () => {
+    const html = mount(
+      <Field
+        text="100%"
+        valueType={{
+          type: 'percent',
+          showSymbol: true,
+        }}
+        prefix="%"
+        mode="edit"
+      />,
+    );
+
+    html.find('.ant-input-number-input').simulate('change', {
+      target: {
+        value: '100',
+      },
+    });
+  });
+
   it('🐴 percent valueType is Object', async () => {
     let html = render(
       <Field
