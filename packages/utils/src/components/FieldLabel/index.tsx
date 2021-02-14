@@ -77,7 +77,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
         const isArrayValue = Array.isArray(aValue) && aValue.length > 1;
         const unitText = intl.getMessage('form.lightFilter.itemUnit', '项');
         if (str.length > 32 && isArrayValue) {
-          return `${aValue.length}${unitText}`;
+          return `...${aValue.length}${unitText}`;
         }
         return '';
       };
