@@ -88,6 +88,11 @@ const conversionSubmitValue = <T = any>(
 ): T => {
   const tmpValue = {} as T;
 
+  // 如果 value 是 string 或者null，直接返回
+  if (!isPlainObject(value)) {
+    return value;
+  }
+
   Object.keys(value).forEach((key) => {
     const namePath = parentKey ? [parentKey, key] : [key];
     const valueType = get(valueTypeMap, namePath) || 'text';
@@ -95,8 +100,16 @@ const conversionSubmitValue = <T = any>(
     if (isNil(itemValue) && omitNil) {
       return;
     }
-    if (isPlainObject(itemValue)) {
+    // 处理嵌套的情况
+    if (isPlainObject(itemValue) && !Array.isArray(itemValue)) {
       tmpValue[key] = conversionSubmitValue(itemValue, dateFormatter, valueTypeMap, omitNil, key);
+      return;
+    }
+    // 处理 FormList 的 value
+    if (Array.isArray(itemValue)) {
+      tmpValue[key] = itemValue.map((arrayValue) =>
+        conversionSubmitValue(arrayValue, dateFormatter, valueTypeMap, omitNil, key),
+      );
       return;
     }
     // 都没命中，原样返回

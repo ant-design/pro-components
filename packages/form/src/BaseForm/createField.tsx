@@ -9,6 +9,7 @@ import { noteOnce } from 'rc-util/lib/warning';
 import FieldContext from '../FieldContext';
 import LightWrapper from './LightWrapper';
 import type { ProFormItemProps } from '../interface';
+import { FormListContext } from '../components/List';
 
 export type ProFormItemCreateConfig = {
   /** 自定义类型 */
@@ -106,6 +107,9 @@ function createField<P extends ProFormItemProps = any>(
       valuePropName = 'value',
       ...defaultFormItemProps
     } = config || {};
+
+    // ProFromList 的 filed，里面有name和key
+    const formListField = useContext(FormListContext);
     /** 从 context 中拿到的值 */
     const { fieldProps, formItemProps, setFieldValueType } = React.useContext(FieldContext);
     useEffect(() => {
@@ -192,6 +196,7 @@ function createField<P extends ProFormItemProps = any>(
         tooltip={proFieldProps?.light !== true && tooltip}
         valuePropName={valuePropName}
         {...otherProps}
+        name={[formListField.name, otherProps.name].flat(1)}
         messageVariables={{
           label: label as string,
           ...otherProps?.messageVariables,
