@@ -83,7 +83,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
               }
             : undefined
         }
-        ellipsis={item.ellipsis && { tooltip: dom }}
+        ellipsis={item.ellipsis && text ? { tooltip: text } : false}
       >
         {dom}
       </Typography.Text>
