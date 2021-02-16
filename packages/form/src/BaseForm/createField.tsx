@@ -187,7 +187,6 @@ function createField<P extends ProFormItemProps = any>(
     if (ignoreFormItem) {
       return field;
     }
-
     return (
       <Form.Item
         // 全局的提供一个 tip 功能，可以减少代码量
@@ -196,7 +195,7 @@ function createField<P extends ProFormItemProps = any>(
         tooltip={proFieldProps?.light !== true && tooltip}
         valuePropName={valuePropName}
         {...otherProps}
-        name={[formListField.name, otherProps.name].flat(1)}
+        name={[formListField.name, otherProps.name].filter(Boolean).flat(1)}
         messageVariables={{
           label: label as string,
           ...otherProps?.messageVariables,
