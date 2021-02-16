@@ -15,7 +15,10 @@ const Demo = () => {
         console.log('Received values of form:', values);
       }}
     >
-      <ProFormList name="users">
+      <ProFormText width="sm" name="id" label="主合同编号" />
+      <ProFormText name="project" width="md" disabled label="项目名称" initialValue="xxxx项目" />
+      <ProFormText width="xs" name="mangerName" disabled label="商务经理" initialValue="启途" />
+      <ProFormList name="users" label="用户信息">
         <ProFormText
           rules={[
             {
