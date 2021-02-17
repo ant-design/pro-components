@@ -59,17 +59,14 @@ const convertMoment = (value: moment.Moment, dateFormatter: DateFormatter, value
  * @param valueType
  */
 const conversionMoment = (
-  value: moment.Moment | moment.Moment[],
+  value: moment.Moment,
   dateFormatter: DateFormatter,
   valueType: string,
 ) => {
   if (!dateFormatter) {
     return value;
   }
-  if (!Array.isArray(value)) {
-    return convertMoment(value, dateFormatter, valueType);
-  }
-  return value.map((item) => convertMoment(item, dateFormatter, valueType));
+  return convertMoment(value, dateFormatter, valueType);
 };
 
 /**
