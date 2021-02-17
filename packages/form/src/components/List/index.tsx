@@ -9,6 +9,14 @@ import './index.less';
 
 const FormListContext = React.createContext<FormListFieldData | Record<string, any>>({});
 
+type ChildrenFunction = (
+  fields: FormListFieldData[],
+  operation: FormListOperation,
+  meta: {
+    errors: React.ReactNode[];
+  },
+) => React.ReactNode;
+
 export type ProFormListProps = Omit<FormListProps, 'children'> & {
   creatorButtonText?: ReactNode;
   label?: ReactNode;
@@ -18,7 +26,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
     action: FormListOperation,
     defaultActionDom: ReactNode,
   ) => ReactNode[];
-  children: ReactNode;
+  children: ReactNode | ChildrenFunction;
 };
 
 const ProFormList: React.FC<ProFormListProps> = ({
@@ -37,7 +45,10 @@ const ProFormList: React.FC<ProFormListProps> = ({
         return (
           <div className={baseClassName}>
             <Form.List {...rest}>
-              {(fields, action) => {
+              {(fields, action, meta) => {
+                if (typeof children === 'function') {
+                  return (children as ChildrenFunction)(fields, action, meta);
+                }
                 return (
                   <div
                     style={{
