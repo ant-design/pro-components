@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useContext } from 'react';
+﻿import React, { useEffect, useContext, useMemo } from 'react';
 import type { FormItemProps } from 'antd';
 import { Form, ConfigProvider } from 'antd';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
@@ -9,6 +9,7 @@ import { noteOnce } from 'rc-util/lib/warning';
 import FieldContext from '../FieldContext';
 import LightWrapper from './LightWrapper';
 import type { ProFormItemProps } from '../interface';
+import { FormListContext } from '../components/List';
 
 export type ProFormItemCreateConfig = {
   /** 自定义类型 */
@@ -106,20 +107,12 @@ function createField<P extends ProFormItemProps = any>(
       valuePropName = 'value',
       ...defaultFormItemProps
     } = config || {};
+
+    // ProFromList 的 filed，里面有name和key
+    const formListField = useContext(FormListContext);
+
     /** 从 context 中拿到的值 */
     const { fieldProps, formItemProps, setFieldValueType } = React.useContext(FieldContext);
-    useEffect(() => {
-      // 如果 setFieldValueType 和 props.name 不存在不存入
-      if (!setFieldValueType || !props.name) {
-        return;
-      }
-      // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
-      // 写一个 ts 比较麻烦，用 any 顶一下
-      setFieldValueType(props.name, {
-        valueType: valueType || (rest as any).valueType || 'text',
-        transform,
-      });
-    }, [props.name, transform, valueType]);
 
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
@@ -147,6 +140,32 @@ function createField<P extends ProFormItemProps = any>(
       ...restFormItemProps,
       ...propsFormItemProps,
     };
+
+    const name = useMemo(() => {
+      if (ignoreFormItem) {
+        return [];
+      }
+      if (formListField.name !== undefined) {
+        return [formListField.name, otherProps.name].flat(1) as string[];
+      }
+      return otherProps.name as string[];
+    }, [formListField.name, otherProps.name]);
+
+    useEffect(() => {
+      // 如果 setFieldValueType 和 props.name 不存在不存入
+      if (!setFieldValueType || !props.name) {
+        return;
+      }
+      // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
+      // 写一个 ts 比较麻烦，用 any 顶一下
+      setFieldValueType(
+        [formListField.listName, name].flat(1).filter((itemName) => itemName !== undefined),
+        {
+          valueType: valueType || (rest as any).valueType || 'text',
+          transform,
+        },
+      );
+    }, [name, transform, valueType]);
 
     noteOnce(
       // eslint-disable-next-line @typescript-eslint/dot-notation
@@ -183,7 +202,6 @@ function createField<P extends ProFormItemProps = any>(
     if (ignoreFormItem) {
       return field;
     }
-
     return (
       <Form.Item
         // 全局的提供一个 tip 功能，可以减少代码量
@@ -192,6 +210,7 @@ function createField<P extends ProFormItemProps = any>(
         tooltip={proFieldProps?.light !== true && tooltip}
         valuePropName={valuePropName}
         {...otherProps}
+        name={name}
         messageVariables={{
           label: label as string,
           ...otherProps?.messageVariables,

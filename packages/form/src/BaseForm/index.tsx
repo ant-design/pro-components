@@ -172,9 +172,6 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             if (Array.isArray(name)) {
               transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
               fieldsValueType.current = namePathSet(fieldsValueType.current, name, valueType);
-            } else {
-              fieldsValueType.current[String(name)] = valueType;
-              transformKeyRef.current[String(name)] = transform;
             }
           },
         }}

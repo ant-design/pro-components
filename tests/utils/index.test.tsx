@@ -412,7 +412,7 @@ describe('utils', () => {
     const dataIn = {
       dataTime: '2019-11-16 12:50:26',
       time: '2019-11-16 12:50:26',
-      file: file,
+      file,
       files: [file],
     };
     const html = transformKeySubmitValue(dataIn, {

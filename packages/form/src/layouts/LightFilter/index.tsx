@@ -6,6 +6,8 @@ import { Form, ConfigProvider } from 'antd';
 import { FilterDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import { FilterOutlined } from '@ant-design/icons';
+import omit from 'omit.js';
+
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import './index.less';
@@ -87,10 +89,10 @@ const LightFilterContainer: React.FC<{
       })}
     >
       <div className={`${lightFilterClassName}-container`}>
-        {outsideItems.map((child: any) => {
+        {outsideItems.map((child: any, index) => {
           const { key } = child;
           return (
-            <div className={`${lightFilterClassName}-item`} key={key}>
+            <div className={`${lightFilterClassName}-item`} key={key || index}>
               {React.cloneElement(child, {
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
@@ -221,7 +223,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
           width: undefined,
         },
       }}
-      {...reset}
+      {...omit(reset, ['labelWidth'] as any[])}
       onValuesChange={(_, allValues) => {
         setValues(allValues);
         if (onValuesChange) {

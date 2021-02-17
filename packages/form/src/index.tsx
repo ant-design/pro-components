@@ -33,6 +33,8 @@ import type { ModalFormProps } from './layouts/ModalForm';
 import ModalForm from './layouts/ModalForm';
 import type { DrawerFormProps } from './layouts/DrawerForm';
 import DrawerForm from './layouts/DrawerForm';
+import type { ProFormListProps } from './components/List';
+import ProFormList from './components/List';
 import type { FormInstance, FormItemProps, FormProps } from './BaseForm';
 import './index.less';
 
@@ -50,6 +52,7 @@ export type {
   FormProps,
   FormItemProps,
   FormInstance,
+  ProFormListProps,
 };
 
 const ProFormGroup = ProForm.Group;
@@ -64,6 +67,7 @@ export {
   ProFormTextArea,
   ProFormSwitch,
   ProFormField,
+  ProFormList,
   ProFormSelect,
   ProFormDigit,
   ProFormCheckbox,
