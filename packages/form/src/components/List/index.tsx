@@ -61,7 +61,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
           <div className={baseClassName}>
             <Form.List {...rest}>
               {(fields, action, meta) => {
-                const creatorButton = (
+                const creatorButton = creatorButtonProps !== false && (
                   <Form.Item>
                     <Button
                       className={`${baseClassName}-creator-button-${
@@ -70,7 +70,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                       type="dashed"
                       block
                       icon={<PlusOutlined />}
-                      {...omit(creatorButtonProps || {}, ['position'])}
+                      {...omit(creatorButtonProps || {}, ['position', 'creatorButtonText'])}
                       onClick={() => action.add(creatorRecord)}
                     >
                       {creatorButtonProps?.creatorButtonText || '添加一行数据'}
@@ -86,7 +86,9 @@ const ProFormList: React.FC<ProFormListProps> = ({
                       width: 'max-content',
                     }}
                   >
-                    {creatorButtonProps?.position === 'top' && creatorButton}
+                    {creatorButtonProps !== false &&
+                      creatorButtonProps?.position === 'top' &&
+                      creatorButton}
                     {fields.map((field) => {
                       const defaultActionDom = (
                         <div className={`${baseClassName}-action`}>
@@ -127,7 +129,9 @@ const ProFormList: React.FC<ProFormListProps> = ({
                         </FormListContext.Provider>
                       );
                     })}
-                    {creatorButtonProps?.position !== 'top' && creatorButton}
+                    {creatorButtonProps !== false &&
+                      creatorButtonProps?.position !== 'top' &&
+                      creatorButton}
                   </div>
                 );
               }}
