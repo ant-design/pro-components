@@ -140,6 +140,7 @@ describe('ProForm List', () => {
         <ProFormList
           creatorButtonProps={{
             position: 'top',
+            creatorButtonText: '新建',
           }}
           name="users"
           label="用户信息"

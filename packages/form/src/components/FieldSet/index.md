@@ -30,6 +30,53 @@ const ProFormText = (props) => {
 
 除了展示型的表单项,我们还提供了用来组合数据的表单项:
 
+## ProFormList
+
+ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) API 基本相同，增加了自带的操作按钮：删除和复制，并且自带了了一个`新建一行`按钮。
+
+```tsx | pure
+<ProFormList
+  name="users"
+  initialValue={[
+    {
+      useMode: 'chapter',
+    },
+  ]}
+  creatorButtonProps={{
+    position: 'top',
+    creatorButtonText: '在建一行',
+  }}
+  creatorRecord={{
+    useMode: 'none',
+  }}
+>
+  <ProFormSelect
+    options={[
+      {
+        value: 'chapter',
+        label: '盖章后生效',
+      },
+      {
+        value: 'none',
+        label: '不生效',
+      },
+    ]}
+    width="md"
+    name="useMode"
+    label="合同约定生效方式"
+  />
+</ProFormList>
+```
+
+### ProFormList API
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| creatorRecord | 新建一行的默认值 | `Record<string, any>` | - |
+| creatorButtonProps | 新建一行按钮的配置 | `buttonProps & { creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"新建一行"}` |
+| label | 与 From.Item 相同 | `ReactNode` | - |
+| name | list 在 form 中的值，必填项 | `NamePath` | - |
+
 ## ProFormFieldSet
 
 ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 ProForm 中，并且可以通过 `transform` 在提交时转化。下面是一个简单的用法,可以方便的组合多个输入框，并且格式化为想要的数据。
@@ -65,7 +112,7 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
         ]}
         width="md"
         name="useMode"
-        label={`与《${name》合同约定生效方式`}
+        label={`与《${name}》合同约定生效方式`}
       />
     );
   }}
