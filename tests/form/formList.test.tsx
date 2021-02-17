@@ -81,6 +81,51 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith([]);
   });
 
+  it('♨️  ProForm.List render children', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values['users'][0]);
+        }}
+      >
+        <ProFormText name="name" label="姓名" />
+        <ProFormList
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+        >
+          {(fields) => {
+            return fields.map((filed) => (
+              <>
+                <ProFormText name={[filed.name, 'name']} />
+                <ProFormText name={[filed.name, 'nickName']} />
+              </>
+            ));
+          }}
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledWith({
+      name: '1111',
+      nickName: '1111',
+    });
+  });
+
   it('♨️  ProForm.List close button', async () => {
     const html = mount(
       <ProForm>
