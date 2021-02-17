@@ -81,6 +81,22 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith([]);
   });
 
+  it('♨️  ProForm.List close button', async () => {
+    const html = mount(
+      <ProForm>
+        <ProFormText name="name" label="姓名" />
+        <ProFormList name="users" label="用户信息" creatorButtonProps={false}>
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').exists()).toBeFalsy();
+  });
+
   it('♨️  ProForm.List add button when creatorRecord', async () => {
     const fn = jest.fn();
     const html = mount(

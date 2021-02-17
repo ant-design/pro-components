@@ -26,10 +26,12 @@ type ChildrenFunction = (
 ) => React.ReactNode;
 
 export type ProFormListProps = Omit<FormListProps, 'children'> & {
-  creatorButtonProps?: ButtonProps & {
-    creatorButtonText?: ReactNode;
-    position?: 'top' | 'bottom';
-  };
+  creatorButtonProps?:
+    | false
+    | (ButtonProps & {
+        creatorButtonText?: ReactNode;
+        position?: 'top' | 'bottom';
+      });
   creatorRecord?: Record<string, any>;
   label?: ReactNode;
   tooltip?: LabelTooltipType;
