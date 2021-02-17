@@ -113,6 +113,9 @@ const conversionSubmitValue = <T = any>(
     // 处理 FormList 的 value
     if (Array.isArray(itemValue)) {
       tmpValue[key] = itemValue.map((arrayValue, index) => {
+        if (moment.isMoment(arrayValue)) {
+          return conversionMoment(arrayValue, dateFormatter, valueType);
+        }
         return conversionSubmitValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [
           key,
           `${index}`,
