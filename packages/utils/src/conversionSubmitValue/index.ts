@@ -89,7 +89,7 @@ const conversionSubmitValue = <T = any>(
   const tmpValue = {} as T;
 
   // 如果 value 是 string 或者null，直接返回
-  if (!isPlainObject(value)) {
+  if (typeof value !== 'object') {
     return value;
   }
 
@@ -101,7 +101,13 @@ const conversionSubmitValue = <T = any>(
       return;
     }
     // 处理嵌套的情况
-    if (isPlainObject(itemValue) && !Array.isArray(itemValue)) {
+    if (
+      isPlainObject(itemValue) &&
+      // 不是数组
+      !Array.isArray(itemValue) &&
+      // 不是 moment
+      !moment.isMoment(itemValue)
+    ) {
       tmpValue[key] = conversionSubmitValue(itemValue, dateFormatter, valueTypeMap, omitNil, key);
       return;
     }
@@ -110,9 +116,7 @@ const conversionSubmitValue = <T = any>(
       tmpValue[key] = itemValue.map((arrayValue) =>
         conversionSubmitValue(arrayValue, dateFormatter, valueTypeMap, omitNil, key),
       );
-      return;
     }
-    // 都没命中，原样返回
     tmpValue[key] = conversionMoment(itemValue, dateFormatter, valueType);
   });
   return tmpValue;

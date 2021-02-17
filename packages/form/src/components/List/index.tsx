@@ -46,7 +46,11 @@ const ProFormList: React.FC<ProFormListProps> = ({
                   >
                     {fields.map((field) => {
                       const defaultActionDom = (
-                        <>
+                        <div
+                          style={{
+                            height: 14,
+                          }}
+                        >
                           <Tooltip title="复制此行">
                             <CopyOutlined
                               className={`${baseClassName}-action-icon`}
@@ -61,7 +65,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                               onClick={() => action.remove(field.name)}
                             />
                           </Tooltip>
-                        </>
+                        </div>
                       );
                       const dom =
                         actionRender?.(field, action, defaultActionDom) || defaultActionDom;
