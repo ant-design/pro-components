@@ -1,0 +1,38 @@
+﻿@import (reference) '~antd/lib/style/themes/default';
+
+@pro-table-prefix-cls: ~'@{ant-prefix}-pro-form';
+
+.@{pro-table-prefix-cls}-list {
+  .@{ant-prefix}-form-item-label {
+    display: none;
+  }
+
+  .@{ant-prefix}-space {
+    &:first-child {
+      .@{ant-prefix}-form-item {
+        .@{ant-prefix}-form-item-label {
+          display: inline-block;
+        }
+      }
+      .@{pro-table-prefix-cls}-list-action {
+        margin-bottom: 0;
+        vertical-align: bottom;
+      }
+    }
+  }
+  &-action {
+    height: 22px;
+    margin-bottom: 24px;
+  }
+  &-action-icon {
+    margin-right: 8px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+    &:hover {
+      color: @primary-color;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

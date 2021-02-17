@@ -59,17 +59,14 @@ const convertMoment = (value: moment.Moment, dateFormatter: DateFormatter, value
  * @param valueType
  */
 const conversionMoment = (
-  value: moment.Moment | moment.Moment[],
+  value: moment.Moment,
   dateFormatter: DateFormatter,
   valueType: string,
 ) => {
   if (!dateFormatter) {
     return value;
   }
-  if (!Array.isArray(value)) {
-    return convertMoment(value, dateFormatter, valueType);
-  }
-  return value.map((item) => convertMoment(item, dateFormatter, valueType));
+  return convertMoment(value, dateFormatter, valueType);
 };
 
 /**
@@ -84,22 +81,45 @@ const conversionSubmitValue = <T = any>(
   dateFormatter: DateFormatter,
   valueTypeMap: Record<string, any>,
   omitNil?: boolean,
-  parentKey?: string,
+  parentKey?: string[],
 ): T => {
   const tmpValue = {} as T;
+  // 如果 value 是 string 或者null，直接返回
+  if (typeof value !== 'object') {
+    return value;
+  }
 
   Object.keys(value).forEach((key) => {
-    const namePath = parentKey ? [parentKey, key] : [key];
+    const namePath = parentKey ? [parentKey, key].flat(1) : [key];
     const valueType = get(valueTypeMap, namePath) || 'text';
     const itemValue = value[key];
     if (isNil(itemValue) && omitNil) {
       return;
     }
-    if (isPlainObject(itemValue)) {
-      tmpValue[key] = conversionSubmitValue(itemValue, dateFormatter, valueTypeMap, omitNil, key);
+    // 处理嵌套的情况
+    if (
+      isPlainObject(itemValue) &&
+      // 不是数组
+      !Array.isArray(itemValue) &&
+      // 不是 moment
+      !moment.isMoment(itemValue)
+    ) {
+      tmpValue[key] = conversionSubmitValue(itemValue, dateFormatter, valueTypeMap, omitNil, [key]);
       return;
     }
-    // 都没命中，原样返回
+    // 处理 FormList 的 value
+    if (Array.isArray(itemValue)) {
+      tmpValue[key] = itemValue.map((arrayValue, index) => {
+        if (moment.isMoment(arrayValue)) {
+          return conversionMoment(arrayValue, dateFormatter, valueType);
+        }
+        return conversionSubmitValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [
+          key,
+          `${index}`,
+        ]);
+      });
+      return;
+    }
     tmpValue[key] = conversionMoment(itemValue, dateFormatter, valueType);
   });
   return tmpValue;

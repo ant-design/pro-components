@@ -30,6 +30,53 @@ So the props we set for ProFormText are actually for Form.Item, and the fieldPro
 
 In addition to display type form items, we also provide form items for combining data:
 
+## ProFormList
+
+ProFormList is basically the same as the [Form.List](https://ant.design/components/form-cn/#Form.List) API. It adds its own operation buttons: delete and copy, and it also includes a `new row` button.
+
+```tsx | pure
+<ProFormList
+  name="users"
+  initialValue={[
+    {
+      useMode: 'chapter',
+    },
+  ]}
+  creatorButtonProps={{
+    position: 'top',
+    creatorButtonText: 'Building a line',
+  }}
+  creatorRecord={{
+    useMode: 'none',
+  }}
+>
+  <ProFormSelect
+    options={[
+      {
+        value: 'chapter',
+        label: 'Valid after stamping',
+      },
+      {
+        value: 'none',
+        label: 'Not effective',
+      },
+    ]}
+    width="md"
+    name="useMode"
+    label="Contract agreement effective method"
+  />
+</ProFormList>
+```
+
+### ProFormList API
+
+| Parameters | Description | Type | Default Value |
+| --- | --- | --- | --- |
+| creatorRecord | Default value of a new line | `Record<string, any>` | - |
+| creatorButtonProps | Configuration of a new line of buttons | `buttonProps & {creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"Create a new line"}` |
+| label | Same as From.Item | `ReactNode` | - |
+| name | The value of list in the form, required | `NamePath` | - |
+
 ## ProFormFieldSet
 
 ProFormFieldSet can combine the values of multiple children inside and store them in ProForm, and can be transformed at commit time via `transform`. Here is a simple usage to easily combine multiple input fields and format them to the desired data.
