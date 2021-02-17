@@ -1,5 +1,7 @@
 ﻿import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
+import type { ButtonProps } from 'antd';
+import omit from 'omit.js';
 import { Button, Form, Space, Tooltip, ConfigProvider } from 'antd';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
@@ -18,7 +20,10 @@ type ChildrenFunction = (
 ) => React.ReactNode;
 
 export type ProFormListProps = Omit<FormListProps, 'children'> & {
-  creatorButtonText?: ReactNode;
+  creatorButtonProps?: ButtonProps & {
+    creatorButtonText?: ReactNode;
+    position?: 'top' | 'bottom';
+  };
   label?: ReactNode;
   tooltip?: LabelTooltipType;
   actionRender?: (
@@ -32,7 +37,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
 const ProFormList: React.FC<ProFormListProps> = ({
   children,
   actionRender,
-  creatorButtonText,
+  creatorButtonProps,
   label,
   tooltip,
   ...rest
@@ -46,6 +51,19 @@ const ProFormList: React.FC<ProFormListProps> = ({
           <div className={baseClassName}>
             <Form.List {...rest}>
               {(fields, action, meta) => {
+                const creatorButton = (
+                  <Form.Item>
+                    <Button
+                      type="dashed"
+                      block
+                      icon={<PlusOutlined />}
+                      {...omit(creatorButtonProps || {}, ['position'])}
+                      onClick={() => action.add()}
+                    >
+                      {creatorButtonProps?.creatorButtonText || '添加一行数据'}
+                    </Button>
+                  </Form.Item>
+                );
                 if (typeof children === 'function') {
                   return (children as ChildrenFunction)(fields, action, meta);
                 }
@@ -55,6 +73,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                       width: 'max-content',
                     }}
                   >
+                    {creatorButtonProps?.position === 'top' && creatorButton}
                     {fields.map((field) => {
                       const defaultActionDom = (
                         <div
@@ -93,16 +112,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                         </FormListContext.Provider>
                       );
                     })}
-                    <Form.Item>
-                      <Button
-                        type="dashed"
-                        onClick={() => action.add()}
-                        block
-                        icon={<PlusOutlined />}
-                      >
-                        {creatorButtonText || '添加一行数据'}
-                      </Button>
-                    </Form.Item>
+                    {creatorButtonProps?.position !== 'top' && creatorButton}
                   </div>
                 );
               }}
