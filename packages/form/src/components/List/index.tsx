@@ -5,11 +5,17 @@ import omit from 'omit.js';
 import { Button, Form, Space, Tooltip, ConfigProvider } from 'antd';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import type { NamePath } from 'antd/lib/form/interface';
 import { DeleteOutlined, PlusOutlined, CopyOutlined } from '@ant-design/icons';
 
 import './index.less';
 
-const FormListContext = React.createContext<FormListFieldData | Record<string, any>>({});
+const FormListContext = React.createContext<
+  | (FormListFieldData & {
+      listName: NamePath;
+    })
+  | Record<string, any>
+>({});
 
 type ChildrenFunction = (
   fields: FormListFieldData[],
@@ -76,11 +82,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                     {creatorButtonProps?.position === 'top' && creatorButton}
                     {fields.map((field) => {
                       const defaultActionDom = (
-                        <div
-                          style={{
-                            height: 14,
-                          }}
-                        >
+                        <div className={`${baseClassName}-action`}>
                           <Tooltip title="复制此行">
                             <CopyOutlined
                               className={`${baseClassName}-action-icon`}
@@ -100,7 +102,13 @@ const ProFormList: React.FC<ProFormListProps> = ({
                       const dom =
                         actionRender?.(field, action, defaultActionDom) || defaultActionDom;
                       return (
-                        <FormListContext.Provider key={field.name} value={field}>
+                        <FormListContext.Provider
+                          key={field.name}
+                          value={{
+                            ...field,
+                            listName: rest.name,
+                          }}
+                        >
                           <Space
                             style={{
                               display: 'flex',

@@ -14,21 +14,24 @@
           display: inline-block;
         }
       }
-      .@{pro-table-prefix-cls}-list-action-icon {
+      .@{pro-table-prefix-cls}-list-action {
         margin-bottom: 0;
+        vertical-align: bottom;
       }
     }
   }
-
-  &-action-icon {
+  &-action {
+    height: 22px;
     margin-bottom: 24px;
+  }
+  &-action-icon {
+    margin-right: 8px;
     cursor: pointer;
     transition: color 0.3s ease-in-out;
-    margin-right: 8px;
     &:hover {
       color: @primary-color;
     }
-    &:last-child{
+    &:last-child {
       margin-right: 0;
     }
   }

@@ -18,7 +18,20 @@ const Demo = () => {
       <ProFormText width="sm" name="id" label="主合同编号" />
       <ProFormText name="project" width="md" label="项目名称" initialValue="xxxx项目" />
       <ProFormText width="xs" name="mangerName" label="商务经理" initialValue="启途" />
-      <ProFormList name="users" label="用户信息">
+      <ProFormList
+        name="users"
+        label="用户信息"
+        initialValue={[
+          {
+            name: '1111',
+            nickName: '1111',
+            age: 111,
+            birth: '2021-02-18',
+            sex: 'man',
+            addr: ['taiyuan', 'changfeng'],
+          },
+        ]}
+      >
         <ProFormText
           rules={[
             {
