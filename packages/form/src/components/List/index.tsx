@@ -30,6 +30,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
     creatorButtonText?: ReactNode;
     position?: 'top' | 'bottom';
   };
+  creatorRecord?: Record<string, any>;
   label?: ReactNode;
   tooltip?: LabelTooltipType;
   actionRender?: (
@@ -46,6 +47,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   creatorButtonProps,
   label,
   tooltip,
+  creatorRecord,
   ...rest
 }) => {
   const context = useContext(ConfigProvider.ConfigContext);
@@ -60,11 +62,14 @@ const ProFormList: React.FC<ProFormListProps> = ({
                 const creatorButton = (
                   <Form.Item>
                     <Button
+                      className={`${baseClassName}-creator-button-${
+                        creatorButtonProps?.position || 'bottom'
+                      }`}
                       type="dashed"
                       block
                       icon={<PlusOutlined />}
                       {...omit(creatorButtonProps || {}, ['position'])}
-                      onClick={() => action.add()}
+                      onClick={() => action.add(creatorRecord)}
                     >
                       {creatorButtonProps?.creatorButtonText || '添加一行数据'}
                     </Button>
