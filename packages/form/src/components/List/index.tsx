@@ -71,7 +71,11 @@ const ProFormList: React.FC<ProFormListProps> = ({
                       block
                       icon={<PlusOutlined />}
                       {...omit(creatorButtonProps || {}, ['position', 'creatorButtonText'])}
-                      onClick={() => action.add(creatorRecord)}
+                      onClick={() => {
+                        let index;
+                        if (creatorButtonProps?.position === 'top') index = 0;
+                        action.add(creatorRecord, index);
+                      }}
                     >
                       {creatorButtonProps?.creatorButtonText || '添加一行数据'}
                     </Button>

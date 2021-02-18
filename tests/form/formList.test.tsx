@@ -194,7 +194,7 @@ describe('ProForm List', () => {
     const html = mount(
       <ProForm
         onFinish={async (values) => {
-          fn(Object.keys(values['users'][1]));
+          fn(Object.keys(values['users'][0] || {}));
         }}
       >
         <ProFormText name="name" label="姓名" />
