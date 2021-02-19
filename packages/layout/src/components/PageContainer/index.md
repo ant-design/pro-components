@@ -50,7 +50,7 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 ### 基本使用
 
-<code src="./demos/basic.tsx" iframe="500px" title="基本使用" desc="基本使用情况" />
+<code src="./demos/basic.tsx" iframe="500px" title="基本使用" desc="基本使用" />
 
 ### 固定表头
 

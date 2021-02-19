@@ -123,11 +123,11 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 全量的表单项
 
-<code src="./demos/components-other.tsx" heigh="1774px"/>
+<code src="./demos/components-other.tsx" heigh="1774px" title="全量的表单项"/>
 
 ### 表单项的只读
 
-<code src="./demos/components-other-readonly.tsx" heigh="1774px"/>
+<code src="./demos/components-other-readonly.tsx" heigh="1774px" title="表单项的只读" />
 
 ## API
 
