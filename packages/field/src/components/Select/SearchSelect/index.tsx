@@ -28,19 +28,7 @@ export interface SearchSelectProps<T = {}>
   value?: KeyLabel | KeyLabel[];
   /** 指定默认选中的条目 */
   defaultValue?: KeyLabel | KeyLabel[];
-  /**
-   * 多选模式
-   *
-   * @default false
-   */
-  multiple?: boolean;
 
-  /**
-   * 搜索请求发送的间隔时间，单位是毫秒
-   *
-   * @default 500
-   */
-  delay?: number;
   /**
    * 样式
    *
@@ -88,9 +76,8 @@ export interface SearchSelectProps<T = {}>
 const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
   const {
     optionItemRender,
-    multiple = false,
+    mode,
     onSearch,
-    onBlur,
     onFocus,
     onChange,
     searchOnFocus = false,
@@ -114,6 +101,29 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
     [`${prefixCls}-disabled`]: disabled,
   });
 
+  const getMergeValue: SelectProps<any>['onChange'] = (value, option) => {
+    // 聚合数据传递给上游消费
+    if (mode === 'multiple' && Array.isArray(value) && value.length > 0) {
+      // 多选情况且用户有选择
+      return value.map((item, index) => {
+        const optionItem = option?.[index];
+        const dataItem = optionItem?.['data-item'] || {};
+        return {
+          ...dataItem,
+          ...item,
+        };
+      });
+    }
+
+    if (value) {
+      // 单选情况且用户选择了选项
+      const dataItem = (option && option['data-item']) || {};
+      return { ...dataItem, ...value };
+    }
+
+    return value;
+  };
+
   return (
     <Select<any>
       ref={ref}
@@ -124,10 +134,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
       allowClear
       dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       disabled={disabled}
-      mode={multiple ? 'multiple' : undefined}
+      mode={mode}
       {...restProps}
       optionLabelProp="label"
-      onBlur={() => {}}
       onSearch={
         restProps?.showSearch
           ? (value) => {
@@ -136,31 +145,15 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
             }
           : undefined
       }
-      onChange={(value, option) => {
+      onChange={(value, optionList) => {
         if (!props.labelInValue) {
           onChange?.(value);
           return;
         }
-        let mergeValue = value;
-        // 聚合数据传递给上游消费
-        if (multiple) {
-          // 多选情况且用户有选择
-          if (Array.isArray(value) && value.length > 0) {
-            mergeValue = value.map((item, index) => {
-              const dataItem = (option && option[index] && option[index]['data-item']) || {};
-              return {
-                ...dataItem,
-                ...item,
-              };
-            });
-          }
-        } else if (value) {
-          // 单选情况且用户选择了选项
-          const dataItem = (option && option['data-item']) || {};
-          mergeValue = { ...dataItem, ...value };
-        }
-        onChange?.(mergeValue);
+        // 合并值
+        const mergeValue = getMergeValue(value, optionList) as any;
 
+        onChange?.(mergeValue);
         // 将搜索结果置空，重新搜索
         if (resetAfterSelect) resetData();
       }}

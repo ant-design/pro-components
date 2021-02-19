@@ -6,7 +6,22 @@ import { runFunction } from '@ant-design/pro-utils';
 import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
-export type ProFormSelectProps = ProFormItemProps<SelectProps<any>> & {
+export type ProFormSelectProps = ProFormItemProps<
+  SelectProps<any> & {
+    /**
+     * 是否在输入框聚焦时触发搜索
+     *
+     * @default false
+     */
+    searchOnFocus?: boolean;
+    /**
+     * 选择完一个之后是否清空搜索项重新搜索
+     *
+     * @default false
+     */
+    resetAfterSelect?: boolean;
+  }
+> & {
   valueEnum?: ProSchema['valueEnum'];
   request?: ProSchema['request'];
   options?: SelectProps<any>['options'];
