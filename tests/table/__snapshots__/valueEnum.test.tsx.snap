@@ -557,7 +557,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
 exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
 <div
   class="ant-select-dropdown"
-  style="opacity: 0; pointer-events: none; min-width: 0; width: 0px;"
+  style="opacity: 0; pointer-events: none; min-width: 0;"
 >
   <div>
     <div
@@ -588,7 +588,7 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
     >
       <div
         class="rc-virtual-list-holder"
-        style="max-height: 256px; overflow-y: hidden;"
+        style="max-height: 256px; overflow-y: auto;"
       >
         <div>
           <div
@@ -597,7 +597,8 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
           >
             <div
               aria-selected="false"
-              class="ant-select-item ant-select-item-option ant-select-item-option-active"
+              class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option ant-select-item-option-active"
+              data-item="[object Object]"
               label="关闭"
               title="关闭"
             >
@@ -615,7 +616,8 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="ant-select-item ant-select-item-option"
+              class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option"
+              data-item="[object Object]"
               label="运行中"
               title="运行中"
             >
@@ -633,7 +635,8 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="ant-select-item ant-select-item-option"
+              class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option"
+              data-item="[object Object]"
               label="已上线"
               title="已上线"
             >
@@ -651,7 +654,8 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="ant-select-item ant-select-item-option"
+              class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option"
+              data-item="[object Object]"
               label="异常"
               title="异常"
             >
@@ -669,15 +673,6 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
             </div>
           </div>
         </div>
-      </div>
-      <div
-        class="rc-virtual-list-scrollbar"
-        style="width: 8px; top: 0px; bottom: 0px; right: 0px; position: absolute; display: none;"
-      >
-        <div
-          class="rc-virtual-list-scrollbar-thumb"
-          style="width: 100%; height: 128px; top: 0px; left: 0px; position: absolute; background: rgba(0, 0, 0, 0.5); border-radius: 99px; cursor: pointer; user-select: none;"
-        />
       </div>
     </div>
   </div>

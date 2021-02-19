@@ -61,6 +61,47 @@ const Demo = () => (
         name="useMode"
         label="合同约定生效方式"
       />
+      <ProForm.Group>
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="查询选择器"
+          request={async () => [
+            { label: '全部', value: 'all' },
+            { label: '未解决', value: 'open' },
+            { label: '已解决', value: 'closed' },
+            { label: '解决中', value: 'processing' },
+          ]}
+        />
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="查询选择器"
+          valueEnum={{
+            all: { text: '全部', status: 'Default' },
+            open: {
+              text: '未解决',
+              status: 'Error',
+            },
+            closed: {
+              text: '已解决',
+              status: 'Success',
+            },
+            processing: {
+              text: '解决中',
+              status: 'Processing',
+            },
+          }}
+        />
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="查询选择器"
+          options={[
+            { label: '全部', value: 'all' },
+            { label: '未解决', value: 'open' },
+            { label: '已解决', value: 'closed' },
+            { label: '解决中', value: 'processing' },
+          ]}
+        />
+      </ProForm.Group>
       <ProFormSelect
         name="select-multiple"
         label="Select[multiple]"
