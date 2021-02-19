@@ -115,13 +115,9 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
       });
     }
 
-    if (value) {
-      // 单选情况且用户选择了选项
-      const dataItem = (option && option['data-item']) || {};
-      return { ...dataItem, ...value };
-    }
-
-    return value;
+    // 单选情况且用户选择了选项
+    const dataItem = (option && option['data-item']) || {};
+    return { ...dataItem, ...value };
   };
 
   return (
