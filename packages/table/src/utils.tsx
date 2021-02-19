@@ -1,6 +1,6 @@
 import React from 'react';
 import type { TablePaginationConfig, TableColumnType } from 'antd';
-import { Space, Tooltip, Form, Typography } from 'antd';
+import { Space, Form, Typography } from 'antd';
 
 import type {
   ProFieldValueType,
@@ -38,24 +38,6 @@ export const genColumnKey = (key?: React.ReactText | undefined, index?: number):
     return Array.isArray(key) ? key.join('-') : key.toString();
   }
   return `${index}`;
-};
-
-/**
- * 生成 Ellipsis 的 tooltip
- *
- * @param dom
- * @param item
- * @param text
- */
-export const genEllipsis = (dom: React.ReactNode, item: ProColumns<any>, text: string) => {
-  if (!item.ellipsis) {
-    return dom;
-  }
-  return (
-    <Tooltip title={text}>
-      <span>{dom}</span>
-    </Tooltip>
-  );
 };
 
 /**
