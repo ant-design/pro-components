@@ -87,12 +87,8 @@ export interface SearchSelectProps<T = {}>
 
 const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
   const {
-    request,
     optionItemRender,
     multiple = false,
-    notFoundContent,
-    delay,
-    style = {},
     onSearch,
     onBlur,
     onFocus,
@@ -121,7 +117,6 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
   return (
     <Select<any>
       ref={ref}
-      style={style}
       className={classString}
       showArrow={false}
       autoClearSearchValue
