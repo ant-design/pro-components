@@ -693,4 +693,69 @@ describe('ProForm', () => {
     });
     expect(wrapper.find('.ant-select-item-option-content div span').text()).toBe('全');
   });
+
+  it('📦 SearchSelect onSearch support valueEnum', async () => {
+    const onSearch = jest.fn();
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onValuesChange={async (values) => {
+          //  {"disabled": undefined, "key": "all", "label": "全部", "value": "all"}
+          onFinish(values['userQuery'].label);
+        }}
+        initialValues={{
+          select: '2020-09-10',
+        }}
+      >
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="查询选择器"
+          fieldProps={{
+            onSearch: (e) => onSearch(e),
+          }}
+          valueEnum={{
+            all: { text: '全部', status: 'Default' },
+            open: {
+              text: '未解决',
+              status: 'Error',
+            },
+            closed: {
+              text: '已解决',
+              status: 'Success',
+            },
+            processing: {
+              text: '解决中',
+              status: 'Processing',
+            },
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: '全',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(onSearch).toBeCalledWith('全');
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+    expect(wrapper.find('.ant-select-item-option-content div span').text()).toBe('全');
+
+    act(() => {
+      wrapper.find('.ant-select-item').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(onFinish).toBeCalledWith('全部');
+  });
 });
