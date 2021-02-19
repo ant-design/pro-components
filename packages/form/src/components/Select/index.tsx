@@ -16,7 +16,7 @@ export type ProFormSelectProps = ProFormItemProps<SelectProps<any>> & {
 };
 
 /**
- * 文本选择组件
+ * 选择框
  *
  * @param
  */
@@ -74,6 +74,8 @@ const ProFormSelect = createField<ProFormSelectProps>(ProFormSelectComponents, {
   SearchSelect: React.FunctionComponent<ProFormSelectProps>;
 };
 
-ProFormSelect.SearchSelect = SearchSelect;
+ProFormSelect.SearchSelect = createField<ProFormSelectProps>(SearchSelect, {
+  customLightMode: true,
+}) as React.FunctionComponent<ProFormSelectProps>;
 
 export default ProFormSelect;

@@ -260,7 +260,18 @@ export const useFieldFetchData = (
 
   return [
     loading,
-    props.request ? (data as SelectProps<any>['options']) : options,
+    props.request
+      ? (data as SelectProps<any>['options'])
+      : options?.filter((item) => {
+          if (!keyWords) return true;
+          if (
+            item?.label?.toString().includes(keyWords) ||
+            item.value.toString().includes(keyWords)
+          ) {
+            return true;
+          }
+          return false;
+        }),
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
       mutate(fetchData, false);
@@ -291,6 +302,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     proFieldKey,
     ...rest
   } = props;
+
   const inputRef = useRef();
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
@@ -300,16 +312,12 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   }, []);
 
   const [loading, options, fetchData, resetData] = useFieldFetchData(props);
-
   const size = useContext(ConfigProvider.SizeContext);
   useImperativeHandle(ref, () => ({
     ...(inputRef.current || {}),
     fetchData: () => fetchData(),
   }));
 
-  if (loading) {
-    return <Spin />;
-  }
   if (mode === 'read') {
     const optionsValueEnum: ProSchemaValueEnumObj = options?.length
       ? options?.reduce((pre: any, cur) => {
@@ -353,9 +361,9 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
           />
         );
       }
-
       return (
         <SearchSelect
+          key="SearchSelect"
           style={{
             minWidth: 100,
           }}
@@ -376,8 +384,8 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
           }}
           {...rest}
           placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
-          options={options}
           {...fieldProps}
+          options={options}
         />
       );
     };

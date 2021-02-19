@@ -117,6 +117,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
   const classString = classNames(prefixCls, className, {
     [`${prefixCls}-disabled`]: disabled,
   });
+
   return (
     <Select<any>
       ref={ref}
@@ -131,11 +132,20 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
       mode={multiple ? 'multiple' : undefined}
       {...restProps}
       optionLabelProp="label"
-      onSearch={(value) => {
-        fetchData(value);
-        if (onSearch) onSearch(value);
-      }}
+      onBlur={() => {}}
+      onSearch={
+        restProps?.showSearch
+          ? (value) => {
+              fetchData(value);
+              onSearch?.(value);
+            }
+          : undefined
+      }
       onChange={(value, option) => {
+        if (!props.labelInValue) {
+          onChange?.(value);
+          return;
+        }
         let mergeValue = value;
         // 聚合数据传递给上游消费
         if (multiple) {
@@ -154,7 +164,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
           const dataItem = (option && option['data-item']) || {};
           mergeValue = { ...dataItem, ...value };
         }
-        if (onChange) onChange(mergeValue);
+        onChange?.(mergeValue);
 
         // 将搜索结果置空，重新搜索
         if (resetAfterSelect) resetData();
