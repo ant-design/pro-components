@@ -9,14 +9,12 @@ group:
 
 # Change Log
 
-## @ant-design/pro-table@2.28.0
+## @ant-design/pro-list@1.5.0
 
-`2021-02-02`
+`2021-02-04`
 
-- 🐛 fix(table): LightFilter dosn't render if options={false} [#1802](https://github.com/ant-design/pro-components/pull/1802) [@ChenCheng220](https://github.com/ChenCheng220)
-- 🐛 fix(table): reset messageVariables to label [#1773](https://github.com/ant-design/pro-components/pull/1773) [@chenshuai2144](https://github.com/chenshuai2144)
-- 🐛 fix(table): fix fieldProps no has bug [#1776](https://github.com/ant-design/pro-components/pull/1776) [@chenshuai2144](https://github.com/chenshuai2144)
-- 🐛 fix(table): fix manualRequest always show loading error [#1767](https://github.com/ant-design/pro-components/pull/1767) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(list): fix list item no key error [#1836](https://github.com/ant-design/pro-components/pull/1836) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(list): ProList support renderItem [#1824](https://github.com/ant-design/pro-components/pull/1824) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-list@1.4.0
 

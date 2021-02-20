@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.14.1
+
+`2021-02-04`
+
+- 🐛 fix(layout): container add width:100% [#1845](https://github.com/ant-design/pro-components/pull/1845) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.14.0
 
 `2021-02-02`
