@@ -9,11 +9,12 @@ import React, {
 } from 'react';
 import type { SelectProps } from 'antd';
 import { Space, Spin, ConfigProvider } from 'antd';
-import type {
+import {
   ProFieldRequestData,
   ProFieldValueEnumType,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
+  useDebounceFn,
 } from '@ant-design/pro-utils';
 import { useDeepCompareEffect } from '@ant-design/pro-utils';
 import useSWR from 'swr';
@@ -249,13 +250,20 @@ export const useFieldFetchData = (
     setLoading(false);
     return loadData;
   };
-
   const { data, mutate } = useSWR(
     [proFieldKeyRef.current, JSON.stringify(props.params)],
     fetchData,
     {
       revalidateOnFocus: false,
     },
+  );
+
+  const fetchDebounce = useDebounceFn(
+    async () => {
+      mutate(fetchData, false);
+    },
+    [],
+    200,
   );
 
   return [
@@ -274,7 +282,7 @@ export const useFieldFetchData = (
         }),
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
-      mutate(fetchData, false);
+      fetchDebounce.run();
     },
     () => {
       setKeyWords(undefined);
