@@ -70,37 +70,37 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 ### 基本使用
 
-<code src="./demos/base.tsx" height="548px"/>
+<code src="./demos/base.tsx" height="548px" title="基本使用" />
 
 ### Form 的 layout 切换
 
-<code src="./demos/layout-change.tsx" height="548px"/>
+<code src="./demos/layout-change.tsx" height="548px" title="Form 的 layout 切换" />
 
 ### 登录
 
-<code src="./demos/login.tsx" height="300px"/>
+<code src="./demos/login.tsx" height="300px" title="登录" />
 
 ### 表单联动
 
-<code src="./demos/dependency.tsx" height="248px"/>
+<code src="./demos/dependency.tsx" height="248px" title="表单联动" />
 
 ### 同步提交结果到 url
 
 打开时也会把 url 的参数设置为默认值，支持 transform, 但是要注意字段的映射。
 
-<code src="./demos/sync-to-url.tsx" height="376px"/>
+<code src="./demos/sync-to-url.tsx" height="376px" title="同步提交结果到 url" />
 
 ### 固定页脚
 
-<code src="./demos/layout-base.tsx" iframe="764px" />
+<code src="./demos/layout-base.tsx" iframe="764px" title="固定页脚" />
 
 ### ProForm 和 EditableTable 同时使用
 
-<code src="./demos/pro-form-editableTable.tsx" heigh="1774px" />
+<code src="./demos/pro-form-editableTable.tsx" heigh="1774px" title="ProForm 和 EditableTable 同时使用"/>
 
 ### ProFormList 列表表单
 
-<code src="./demos/list.tsx" heigh="1774px" />
+<code src="./demos/list.tsx" heigh="1774px" title="ProForm.List" />
 
 ## Layouts API
 
