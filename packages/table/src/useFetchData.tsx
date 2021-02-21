@@ -86,7 +86,6 @@ const useFetchData = <T extends RequestData<any>>(
 
     // 需要手动触发的首次请求
     if (manualRequestRef.current) {
-      manualRequestRef.current = false;
       return [];
     }
 
@@ -159,7 +158,7 @@ const useFetchData = <T extends RequestData<any>>(
       }
       return msg;
     },
-    [manualRequestRef.current],
+    [],
     debounceTime,
   );
 
@@ -214,6 +213,9 @@ const useFetchData = <T extends RequestData<any>>(
     setDataSource: setList,
     loading,
     reload: async () => {
+      if (manualRequestRef.current) {
+        manualRequestRef.current = false;
+      }
       await fetchListDebounce.run(false);
     },
     pageInfo,
