@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import ProForm, { ProFormText, ProFormList } from '@ant-design/pro-form';
+import ProForm, { ProFormText, ProFormList, ProFormDependency } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
@@ -325,5 +325,54 @@ describe('ProForm List', () => {
       name: '2222',
       nickName: '2222',
     });
+  });
+
+  it('♨️  ProForm.List support ProFormDependency', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm>
+        <ProFormText name="name" label="姓名" />
+        <ProFormList
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+          <ProFormDependency name={['nickName']}>
+            {({ nickName }) => {
+              if (!nickName) {
+                return null;
+              }
+              fn(nickName);
+              return <ProFormText name="names" label="昵称详情" />;
+            }}
+          </ProFormDependency>
+        </ProFormList>
+      </ProForm>,
+    );
+
+    expect(html.find('input.ant-input').length).toBe(3);
+
+    act(() => {
+      html
+        .find('input.ant-input')
+        .at(2)
+        .simulate('change', {
+          target: {
+            value: '222',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('input.ant-input').length).toBe(4);
+
+    expect(fn).toBeCalledWith('222');
   });
 });
