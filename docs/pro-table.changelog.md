@@ -9,6 +9,25 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.29.0
+
+`2021-02-04`
+
+- 🐛 fix(table): fix toNumber will gen 0 start number [#1850](https://github.com/ant-design/pro-components/pull/1850) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix table unmount warning [#1840](https://github.com/ant-design/pro-components/pull/1840) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix editabletable initialValue alaway rewirte [#1834](https://github.com/ant-design/pro-components/pull/1834) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix table no close loading when error [#1832](https://github.com/ant-design/pro-components/pull/1832) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): actionRef add pageInfo [#1851](https://github.com/ant-design/pro-components/pull/1851) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.28.0
+
+`2021-02-02`
+
+- 🐛 fix(table): LightFilter dosn't render if options={false} [#1802](https://github.com/ant-design/pro-components/pull/1802) [@ChenCheng220](https://github.com/ChenCheng220)
+- 🐛 fix(table): reset messageVariables to label [#1773](https://github.com/ant-design/pro-components/pull/1773) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix fieldProps no has bug [#1776](https://github.com/ant-design/pro-components/pull/1776) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix manualRequest always show loading error [#1767](https://github.com/ant-design/pro-components/pull/1767) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.27.2
 
 `2021-01-25`

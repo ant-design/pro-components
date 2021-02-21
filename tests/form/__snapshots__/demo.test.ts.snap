@@ -98,7 +98,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
               style="min-width: 100px;"
               text=""
             >
@@ -131,32 +131,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   请选择
                 </span>
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select: none;"
-                unselectable="on"
-              >
-                <span
-                  aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="down"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                    />
-                  </svg>
-                </span>
-              </span>
             </div>
           </div>
         </div>
@@ -186,7 +160,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+              class="ant-select ant-pro-filed-search-select pro-field-md ant-select-single ant-select-allow-clear"
               style="min-width: 100px;"
               text=""
             >
@@ -219,32 +193,205 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   请选择
                 </span>
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select: none;"
-                unselectable="on"
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-form-group"
+    >
+      <div
+        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      >
+        <div
+          class="ant-space-item"
+          style="margin-right: 32px;"
+        >
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
+                for="validate_other_userQuery"
+                title="查询选择器"
               >
-                <span
-                  aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
-                  role="img"
+                查询选择器
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="down"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <div
+                    class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
+                    style="min-width: 100px;"
+                    text=""
                   >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                    />
-                  </svg>
-                </span>
-              </span>
+                    <div
+                      class="ant-select-selector"
+                    >
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-activedescendant="validate_other_userQuery_list_0"
+                          aria-autocomplete="list"
+                          aria-controls="validate_other_userQuery_list"
+                          aria-haspopup="listbox"
+                          aria-owns="validate_other_userQuery_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="validate_other_userQuery"
+                          role="combobox"
+                          type="search"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-placeholder"
+                      >
+                        请选择
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-space-item"
+          style="margin-right: 32px;"
+        >
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
+                for="validate_other_userQuery"
+                title="查询选择器"
+              >
+                查询选择器
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
+                    style="min-width: 100px;"
+                    text=""
+                  >
+                    <div
+                      class="ant-select-selector"
+                    >
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-activedescendant="validate_other_userQuery_list_0"
+                          aria-autocomplete="list"
+                          aria-controls="validate_other_userQuery_list"
+                          aria-haspopup="listbox"
+                          aria-owns="validate_other_userQuery_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="validate_other_userQuery"
+                          role="combobox"
+                          type="search"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-placeholder"
+                      >
+                        请选择
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-space-item"
+        >
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
+                for="validate_other_userQuery"
+                title="查询选择器"
+              >
+                查询选择器
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
+                    style="min-width: 100px;"
+                    text=""
+                  >
+                    <div
+                      class="ant-select-selector"
+                    >
+                      <span
+                        class="ant-select-selection-search"
+                      >
+                        <input
+                          aria-activedescendant="validate_other_userQuery_list_0"
+                          aria-autocomplete="list"
+                          aria-controls="validate_other_userQuery_list"
+                          aria-haspopup="listbox"
+                          aria-owns="validate_other_userQuery_list"
+                          autocomplete="off"
+                          class="ant-select-selection-search-input"
+                          id="validate_other_userQuery"
+                          role="combobox"
+                          type="search"
+                          value=""
+                        />
+                      </span>
+                      <span
+                        class="ant-select-selection-placeholder"
+                      >
+                        请选择
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -274,7 +421,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+              class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
               style="min-width: 100px;"
               text=""
             >
@@ -6309,7 +6456,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
+              class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
               style="width: 100%;"
               text=""
             >
@@ -6339,32 +6486,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   请选择
                 </span>
               </div>
-              <span
-                aria-hidden="true"
-                class="ant-select-arrow"
-                style="user-select: none;"
-                unselectable="on"
-              >
-                <span
-                  aria-label="down"
-                  class="anticon anticon-down ant-select-suffix"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="down"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                    />
-                  </svg>
-                </span>
-              </span>
             </div>
           </div>
         </div>
@@ -9067,7 +9188,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                       style="min-width: 100px;"
                       text="1"
                     >
@@ -9101,32 +9222,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           策略一
                         </span>
                       </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
                       <span
                         aria-hidden="true"
                         class="ant-select-clear"
@@ -9182,7 +9277,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                       style="min-width: 100px;"
                       text="2"
                     >
@@ -9216,32 +9311,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           策略二
                         </span>
                       </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
                       <span
                         aria-hidden="true"
                         class="ant-select-clear"
@@ -9602,7 +9671,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-pro-filed-search-select pro-field-sm ant-select-single ant-select-allow-clear"
                             style="min-width: 100px;"
                             text=""
                           >
@@ -9635,32 +9704,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 请选择
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-arrow"
-                              style="user-select: none;"
-                              unselectable="on"
-                            >
-                              <span
-                                aria-label="down"
-                                class="anticon anticon-down ant-select-suffix"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="down"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -9683,7 +9726,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-select pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                            class="ant-select ant-pro-filed-search-select pro-field-sm ant-select-single ant-select-allow-clear"
                             style="min-width: 100px;"
                             text=""
                           >
@@ -9716,32 +9759,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                                 请选择
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-arrow"
-                              style="user-select: none;"
-                              unselectable="on"
-                            >
-                              <span
-                                aria-label="down"
-                                class="anticon anticon-down ant-select-suffix"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="down"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -10114,7 +10131,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select pro-field-lg ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                      class="ant-select ant-pro-filed-search-select pro-field-lg ant-select-multiple ant-select-allow-clear ant-select-show-search"
                       style="min-width: 100px;"
                       text="吴家豪,周星星"
                     >
@@ -10768,7 +10785,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-pro-filed-search-select pro-field-md ant-select-single ant-select-allow-clear"
                       style="min-width: 100px;"
                       text="1"
                     >
@@ -10802,32 +10819,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           策略一
                         </span>
                       </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
                       <span
                         aria-hidden="true"
                         class="ant-select-clear"
@@ -10883,7 +10874,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-pro-filed-search-select pro-field-md ant-select-single ant-select-allow-clear"
                       style="min-width: 100px;"
                       text="2"
                     >
@@ -10917,32 +10908,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           策略二
                         </span>
                       </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
                       <span
                         aria-hidden="true"
                         class="ant-select-clear"
@@ -11901,7 +11866,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                       style="min-width: 100px;"
                       text="1"
                     >
@@ -11935,32 +11900,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           策略一
                         </span>
                       </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
                       <span
                         aria-hidden="true"
                         class="ant-select-clear"
@@ -12016,7 +11955,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                       style="min-width: 100px;"
                       text="2"
                     >
@@ -12050,32 +11989,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           策略二
                         </span>
                       </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
                       <span
                         aria-hidden="true"
                         class="ant-select-clear"
@@ -12556,7 +12469,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-pro-filed-search-select pro-field-xs ant-select-single ant-select-allow-clear"
                   style="min-width: 100px;"
                   text=""
                 >
@@ -12589,32 +12502,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                       请选择
                     </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select: none;"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>
@@ -13428,7 +13315,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-pro-filed-search-select pro-field-md ant-select-single ant-select-allow-clear"
             style="min-width: 100px;"
             text="chapter"
           >
@@ -13462,32 +13349,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
                 盖章后生效
               </span>
             </div>
-            <span
-              aria-hidden="true"
-              class="ant-select-arrow"
-              style="user-select: none;"
-              unselectable="on"
-            >
-              <span
-                aria-label="down"
-                class="anticon anticon-down ant-select-suffix"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </span>
-            </span>
             <span
               aria-hidden="true"
               class="ant-select-clear"
@@ -13543,7 +13404,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-pro-filed-search-select pro-field-md ant-select-single ant-select-allow-clear"
             style="min-width: 100px;"
             text="chapter"
           >
@@ -13577,32 +13438,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
                 盖章后生效
               </span>
             </div>
-            <span
-              aria-hidden="true"
-              class="ant-select-arrow"
-              style="user-select: none;"
-              unselectable="on"
-            >
-              <span
-                aria-label="down"
-                class="anticon anticon-down ant-select-suffix"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </span>
-            </span>
             <span
               aria-hidden="true"
               class="ant-select-clear"
@@ -14514,7 +14349,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-pro-filed-search-select pro-field-xs ant-select-single ant-select-allow-clear"
                                         style="min-width: 100px;"
                                         text=""
                                       >
@@ -14547,32 +14382,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                             请选择
                                           </span>
                                         </div>
-                                        <span
-                                          aria-hidden="true"
-                                          class="ant-select-arrow"
-                                          style="user-select: none;"
-                                          unselectable="on"
-                                        >
-                                          <span
-                                            aria-label="down"
-                                            class="anticon anticon-down ant-select-suffix"
-                                            role="img"
-                                          >
-                                            <svg
-                                              aria-hidden="true"
-                                              data-icon="down"
-                                              fill="currentColor"
-                                              focusable="false"
-                                              height="1em"
-                                              viewBox="64 64 896 896"
-                                              width="1em"
-                                            >
-                                              <path
-                                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                              />
-                                            </svg>
-                                          </span>
-                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -14606,7 +14415,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-pro-filed-search-select pro-field-xs ant-select-single ant-select-allow-clear"
                                         style="min-width: 100px;"
                                         text=""
                                       >
@@ -14639,32 +14448,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                             请选择
                                           </span>
                                         </div>
-                                        <span
-                                          aria-hidden="true"
-                                          class="ant-select-arrow"
-                                          style="user-select: none;"
-                                          unselectable="on"
-                                        >
-                                          <span
-                                            aria-label="down"
-                                            class="anticon anticon-down ant-select-suffix"
-                                            role="img"
-                                          >
-                                            <svg
-                                              aria-hidden="true"
-                                              data-icon="down"
-                                              fill="currentColor"
-                                              focusable="false"
-                                              height="1em"
-                                              viewBox="64 64 896 896"
-                                              width="1em"
-                                            >
-                                              <path
-                                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                              />
-                                            </svg>
-                                          </span>
-                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -14895,7 +14678,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-pro-filed-search-select pro-field-xs ant-select-single ant-select-allow-clear"
                                         style="min-width: 100px;"
                                         text="money"
                                       >
@@ -14929,32 +14712,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                             确认金额
                                           </span>
                                         </div>
-                                        <span
-                                          aria-hidden="true"
-                                          class="ant-select-arrow"
-                                          style="user-select: none;"
-                                          unselectable="on"
-                                        >
-                                          <span
-                                            aria-label="down"
-                                            class="anticon anticon-down ant-select-suffix"
-                                            role="img"
-                                          >
-                                            <svg
-                                              aria-hidden="true"
-                                              data-icon="down"
-                                              fill="currentColor"
-                                              focusable="false"
-                                              height="1em"
-                                              viewBox="64 64 896 896"
-                                              width="1em"
-                                            >
-                                              <path
-                                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                              />
-                                            </svg>
-                                          </span>
-                                        </span>
                                         <span
                                           aria-hidden="true"
                                           class="ant-select-clear"
@@ -15015,7 +14772,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       class="ant-form-item-control-input-content"
                                     >
                                       <div
-                                        class="ant-select pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                        class="ant-select ant-pro-filed-search-select pro-field-xs ant-select-single ant-select-allow-clear"
                                         style="min-width: 100px;"
                                         text="6"
                                       >
@@ -15049,32 +14806,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                             6%
                                           </span>
                                         </div>
-                                        <span
-                                          aria-hidden="true"
-                                          class="ant-select-arrow"
-                                          style="user-select: none;"
-                                          unselectable="on"
-                                        >
-                                          <span
-                                            aria-label="down"
-                                            class="anticon anticon-down ant-select-suffix"
-                                            role="img"
-                                          >
-                                            <svg
-                                              aria-hidden="true"
-                                              data-icon="down"
-                                              fill="currentColor"
-                                              focusable="false"
-                                              height="1em"
-                                              viewBox="64 64 896 896"
-                                              width="1em"
-                                            >
-                                              <path
-                                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                              />
-                                            </svg>
-                                          </span>
-                                        </span>
                                         <span
                                           aria-hidden="true"
                                           class="ant-select-clear"
@@ -17010,7 +16741,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-pro-filed-search-select pro-field-md ant-select-single ant-select-allow-clear"
                       style="min-width: 100px;"
                       text="1"
                     >
@@ -17044,32 +16775,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                           策略一
                         </span>
                       </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
                       <span
                         aria-hidden="true"
                         class="ant-select-clear"
@@ -17125,7 +16830,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      class="ant-select pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                      class="ant-select ant-pro-filed-search-select pro-field-md ant-select-single ant-select-allow-clear"
                       style="min-width: 100px;"
                       text="2"
                     >
@@ -17159,32 +16864,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                           策略二
                         </span>
                       </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
                       <span
                         aria-hidden="true"
                         class="ant-select-clear"
@@ -17254,212 +16933,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
 `;
 
 exports[`form demos 📸 renders ./packages/form/src/demos/list.tsx correctly 1`] = `
-<form
-  class="ant-form ant-form-vertical"
->
-  <input
-    style="display: none;"
-    type="text"
-  />
+Array [
   <div
     class="ant-row ant-form-item"
   >
-    <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class=""
-        for="id"
-        title="主合同编号"
-      >
-        主合同编号
-      </label>
-    </div>
-    <div
-      class="ant-col ant-form-item-control"
-    >
-      <div
-        class="ant-form-item-control-input"
-      >
-        <div
-          class="ant-form-item-control-input-content"
-        >
-          <span
-            class="ant-input-affix-wrapper pro-field-sm"
-          >
-            <input
-              class="ant-input"
-              id="id"
-              placeholder="请输入"
-              type="text"
-              value=""
-            />
-            <span
-              class="ant-input-suffix"
-            >
-              <span
-                aria-label="close-circle"
-                class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
-                role="button"
-                tabindex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-row ant-form-item"
-  >
-    <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class=""
-        for="project"
-        title="项目名称"
-      >
-        项目名称
-      </label>
-    </div>
-    <div
-      class="ant-col ant-form-item-control"
-    >
-      <div
-        class="ant-form-item-control-input"
-      >
-        <div
-          class="ant-form-item-control-input-content"
-        >
-          <span
-            class="ant-input-affix-wrapper pro-field-md"
-          >
-            <input
-              class="ant-input"
-              id="project"
-              placeholder="请输入"
-              type="text"
-              value="xxxx项目"
-            />
-            <span
-              class="ant-input-suffix"
-            >
-              <span
-                aria-label="close-circle"
-                class="anticon anticon-close-circle ant-input-clear-icon"
-                role="button"
-                tabindex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-row ant-form-item"
-  >
-    <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class=""
-        for="mangerName"
-        title="商务经理"
-      >
-        商务经理
-      </label>
-    </div>
-    <div
-      class="ant-col ant-form-item-control"
-    >
-      <div
-        class="ant-form-item-control-input"
-      >
-        <div
-          class="ant-form-item-control-input-content"
-        >
-          <span
-            class="ant-input-affix-wrapper pro-field-xs"
-          >
-            <input
-              class="ant-input"
-              id="mangerName"
-              placeholder="请输入"
-              type="text"
-              value="启途"
-            />
-            <span
-              class="ant-input-suffix"
-            >
-              <span
-                aria-label="close-circle"
-                class="anticon anticon-close-circle ant-input-clear-icon"
-                role="button"
-                tabindex="-1"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close-circle"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                  />
-                </svg>
-              </span>
-            </span>
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-row ant-form-item"
-  >
-    <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class=""
-        title="用户信息"
-      >
-        用户信息
-      </label>
-    </div>
     <div
       class="ant-col ant-form-item-control"
     >
@@ -17470,591 +16947,446 @@ exports[`form demos 📸 renders ./packages/form/src/demos/list.tsx correctly 1`
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-pro-form-list"
+            class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
           >
-            <div>
-              <div
-                class="ant-space ant-space-horizontal ant-space-align-center"
-                style="display: flex;"
+            <label
+              class="ant-radio-wrapper"
+            >
+              <span
+                class="ant-radio"
               >
+                <input
+                  class="ant-radio-input"
+                  type="radio"
+                  value="top"
+                />
+                <span
+                  class="ant-radio-inner"
+                />
+              </span>
+              <span>
+                顶部
+              </span>
+            </label>
+            <label
+              class="ant-radio-wrapper ant-radio-wrapper-checked"
+            >
+              <span
+                class="ant-radio ant-radio-checked"
+              >
+                <input
+                  checked=""
+                  class="ant-radio-input"
+                  type="radio"
+                  value="bottom"
+                />
+                <span
+                  class="ant-radio-inner"
+                />
+              </span>
+              <span>
+                底部
+              </span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <form
+    class="ant-form ant-form-vertical"
+  >
+    <input
+      style="display: none;"
+      type="text"
+    />
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="id"
+          title="主合同编号"
+        >
+          主合同编号
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper pro-field-sm"
+            >
+              <input
+                class="ant-input"
+                id="id"
+                placeholder="请输入"
+                type="text"
+                value=""
+              />
+              <span
+                class="ant-input-suffix"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                  role="button"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="project"
+          title="项目名称"
+        >
+          项目名称
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper pro-field-md"
+            >
+              <input
+                class="ant-input"
+                id="project"
+                placeholder="请输入"
+                type="text"
+                value="xxxx项目"
+              />
+              <span
+                class="ant-input-suffix"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle ant-input-clear-icon"
+                  role="button"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="mangerName"
+          title="商务经理"
+        >
+          商务经理
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-input-affix-wrapper pro-field-xs"
+            >
+              <input
+                class="ant-input"
+                id="mangerName"
+                placeholder="请输入"
+                type="text"
+                value="启途"
+              />
+              <span
+                class="ant-input-suffix"
+              >
+                <span
+                  aria-label="close-circle"
+                  class="anticon anticon-close-circle ant-input-clear-icon"
+                  role="button"
+                  tabindex="-1"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                    />
+                  </svg>
+                </span>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          title="用户信息"
+        >
+          用户信息
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-pro-form-list"
+            >
+              <div>
                 <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  style="display: flex;"
                 >
                   <div
-                    class="ant-row ant-form-item"
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
                   >
                     <div
-                      class="ant-col ant-form-item-label"
-                    >
-                      <label
-                        class="ant-form-item-required"
-                        for="users_0_name"
-                        title="姓名"
-                      >
-                        姓名
-                      </label>
-                    </div>
-                    <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-row ant-form-item"
                     >
                       <div
-                        class="ant-form-item-control-input"
+                        class="ant-col ant-form-item-label"
                       >
-                        <div
-                          class="ant-form-item-control-input-content"
+                        <label
+                          class="ant-form-item-required"
+                          for="users_0_name"
+                          title="姓名"
                         >
-                          <span
-                            class="ant-input-affix-wrapper"
-                          >
-                            <input
-                              class="ant-input"
-                              id="users_0_name"
-                              placeholder="请输入"
-                              type="text"
-                              value="1111"
-                            />
-                            <span
-                              class="ant-input-suffix"
-                            >
-                              <span
-                                aria-label="close-circle"
-                                class="anticon anticon-close-circle ant-input-clear-icon"
-                                role="button"
-                                tabindex="-1"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="close-circle"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
-                          </span>
-                        </div>
+                          姓名
+                        </label>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
-                >
-                  <div
-                    class="ant-row ant-form-item"
-                  >
-                    <div
-                      class="ant-col ant-form-item-label"
-                    >
-                      <label
-                        class=""
-                        for="users_0_nickName"
-                        title="昵称"
-                      >
-                        昵称
-                      </label>
-                    </div>
-                    <div
-                      class="ant-col ant-form-item-control"
-                    >
                       <div
-                        class="ant-form-item-control-input"
+                        class="ant-col ant-form-item-control"
                       >
                         <div
-                          class="ant-form-item-control-input-content"
-                        >
-                          <span
-                            class="ant-input-affix-wrapper"
-                          >
-                            <input
-                              class="ant-input"
-                              id="users_0_nickName"
-                              placeholder="请输入"
-                              type="text"
-                              value="1111"
-                            />
-                            <span
-                              class="ant-input-suffix"
-                            >
-                              <span
-                                aria-label="close-circle"
-                                class="anticon anticon-close-circle ant-input-clear-icon"
-                                role="button"
-                                tabindex="-1"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="close-circle"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
-                >
-                  <div
-                    class="ant-row ant-form-item"
-                  >
-                    <div
-                      class="ant-col ant-form-item-label"
-                    >
-                      <label
-                        class=""
-                        for="users_0_age"
-                        title="年龄"
-                      >
-                        年龄
-                      </label>
-                    </div>
-                    <div
-                      class="ant-col ant-form-item-control"
-                    >
-                      <div
-                        class="ant-form-item-control-input"
-                      >
-                        <div
-                          class="ant-form-item-control-input-content"
+                          class="ant-form-item-control-input"
                         >
                           <div
-                            class="ant-input-number"
-                            style="width: 100%;"
+                            class="ant-form-item-control-input-content"
                           >
-                            <div
-                              class="ant-input-number-handler-wrap"
-                            >
-                              <span
-                                aria-label="Increase Value"
-                                class="ant-input-number-handler ant-input-number-handler-up"
-                                role="button"
-                                unselectable="on"
-                              >
-                                <span
-                                  aria-label="up"
-                                  class="anticon anticon-up ant-input-number-handler-up-inner"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="up"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                              <span
-                                aria-label="Decrease Value"
-                                class="ant-input-number-handler ant-input-number-handler-down"
-                                role="button"
-                                unselectable="on"
-                              >
-                                <span
-                                  aria-label="down"
-                                  class="anticon anticon-down ant-input-number-handler-down-inner"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </div>
-                            <div
-                              class="ant-input-number-input-wrap"
+                            <span
+                              class="ant-input-affix-wrapper"
                             >
                               <input
-                                aria-valuemax="9007199254740991"
-                                aria-valuemin="0"
-                                aria-valuenow="111"
-                                autocomplete="off"
-                                class="ant-input-number-input"
-                                id="users_0_age"
-                                max="9007199254740991"
-                                min="0"
+                                class="ant-input"
+                                id="users_0_name"
                                 placeholder="请输入"
-                                role="spinbutton"
-                                step="1"
-                                value="111"
+                                type="text"
+                                value="1111"
                               />
-                            </div>
+                              <span
+                                class="ant-input-suffix"
+                              >
+                                <span
+                                  aria-label="close-circle"
+                                  class="anticon anticon-close-circle ant-input-clear-icon"
+                                  role="button"
+                                  tabindex="-1"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="close-circle"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </span>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
-                >
                   <div
-                    class="ant-row ant-form-item"
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
                   >
                     <div
-                      class="ant-col ant-form-item-label"
-                    >
-                      <label
-                        class=""
-                        for="users_0_sex"
-                        title="性别"
-                      >
-                        性别
-                      </label>
-                    </div>
-                    <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-row ant-form-item"
                     >
                       <div
-                        class="ant-form-item-control-input"
+                        class="ant-col ant-form-item-label"
+                      >
+                        <label
+                          class=""
+                          for="users_0_age"
+                          title="年龄"
+                        >
+                          年龄
+                        </label>
+                      </div>
+                      <div
+                        class="ant-col ant-form-item-control"
                       >
                         <div
-                          class="ant-form-item-control-input-content"
+                          class="ant-form-item-control-input"
                         >
                           <div
-                            class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                            style="min-width: 100px;"
-                            text="man"
+                            class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-select-selector"
+                              class="ant-input-number"
+                              style="width: 100%;"
                             >
-                              <span
-                                class="ant-select-selection-search"
+                              <div
+                                class="ant-input-number-handler-wrap"
+                              >
+                                <span
+                                  aria-label="Increase Value"
+                                  class="ant-input-number-handler ant-input-number-handler-up"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="up"
+                                    class="anticon anticon-up ant-input-number-handler-up-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="up"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  aria-label="Decrease Value"
+                                  class="ant-input-number-handler ant-input-number-handler-down"
+                                  role="button"
+                                  unselectable="on"
+                                >
+                                  <span
+                                    aria-label="down"
+                                    class="anticon anticon-down ant-input-number-handler-down-inner"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                              <div
+                                class="ant-input-number-input-wrap"
                               >
                                 <input
-                                  aria-activedescendant="users_0_sex_list_0"
-                                  aria-autocomplete="list"
-                                  aria-controls="users_0_sex_list"
-                                  aria-haspopup="listbox"
-                                  aria-owns="users_0_sex_list"
+                                  aria-valuemax="9007199254740991"
+                                  aria-valuemin="0"
+                                  aria-valuenow="111"
                                   autocomplete="off"
-                                  class="ant-select-selection-search-input"
-                                  id="users_0_sex"
-                                  readonly=""
-                                  role="combobox"
-                                  style="opacity: 0;"
-                                  type="search"
-                                  unselectable="on"
-                                  value=""
+                                  class="ant-input-number-input"
+                                  id="users_0_age"
+                                  max="9007199254740991"
+                                  min="0"
+                                  placeholder="请输入"
+                                  role="spinbutton"
+                                  step="1"
+                                  value="111"
                                 />
-                              </span>
-                              <span
-                                class="ant-select-selection-item"
-                                title="男性"
-                              >
-                                男性
-                              </span>
-                            </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-arrow"
-                              style="user-select: none;"
-                              unselectable="on"
-                            >
-                              <span
-                                aria-label="down"
-                                class="anticon anticon-down ant-select-suffix"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="down"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-clear"
-                              style="user-select: none;"
-                              unselectable="on"
-                            >
-                              <span
-                                aria-label="close-circle"
-                                class="anticon anticon-close-circle"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="close-circle"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
-                >
-                  <div
-                    class="ant-row ant-form-item"
-                  >
-                    <div
-                      class="ant-col ant-form-item-label"
-                    >
-                      <label
-                        class=""
-                        for="users_0_addr"
-                        title="地址"
-                      >
-                        地址
-                      </label>
-                    </div>
-                    <div
-                      class="ant-col ant-form-item-control"
-                    >
-                      <div
-                        class="ant-form-item-control-input"
-                      >
-                        <div
-                          class="ant-form-item-control-input-content"
-                        >
-                          <div
-                            class="ant-space ant-space-horizontal ant-space-align-center"
-                          >
-                            <div
-                              class="ant-space-item"
-                              style="margin-right: 8px;"
-                            >
-                              <div
-                                class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                style="min-width: 100px;"
-                                text="taiyuan"
-                              >
-                                <div
-                                  class="ant-select-selector"
-                                >
-                                  <span
-                                    class="ant-select-selection-search"
-                                  >
-                                    <input
-                                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
-                                      aria-autocomplete="list"
-                                      aria-controls="rc_select_TEST_OR_SSR_list"
-                                      aria-haspopup="listbox"
-                                      aria-owns="rc_select_TEST_OR_SSR_list"
-                                      autocomplete="off"
-                                      class="ant-select-selection-search-input"
-                                      id="rc_select_TEST_OR_SSR"
-                                      readonly=""
-                                      role="combobox"
-                                      style="opacity: 0;"
-                                      type="search"
-                                      unselectable="on"
-                                      value=""
-                                    />
-                                  </span>
-                                  <span
-                                    class="ant-select-selection-item"
-                                    title="山西"
-                                  >
-                                    山西
-                                  </span>
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-arrow"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                >
-                                  <span
-                                    aria-label="down"
-                                    class="anticon anticon-down ant-select-suffix"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="down"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-clear"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                >
-                                  <span
-                                    aria-label="close-circle"
-                                    class="anticon anticon-close-circle"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="close-circle"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
-                              </div>
-                            </div>
-                            <div
-                              class="ant-space-item"
-                            >
-                              <div
-                                class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                style="min-width: 100px;"
-                                text="changfeng"
-                              >
-                                <div
-                                  class="ant-select-selector"
-                                >
-                                  <span
-                                    class="ant-select-selection-search"
-                                  >
-                                    <input
-                                      aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
-                                      aria-autocomplete="list"
-                                      aria-controls="rc_select_TEST_OR_SSR_list"
-                                      aria-haspopup="listbox"
-                                      aria-owns="rc_select_TEST_OR_SSR_list"
-                                      autocomplete="off"
-                                      class="ant-select-selection-search-input"
-                                      id="rc_select_TEST_OR_SSR"
-                                      readonly=""
-                                      role="combobox"
-                                      style="opacity: 0;"
-                                      type="search"
-                                      unselectable="on"
-                                      value=""
-                                    />
-                                  </span>
-                                  <span
-                                    class="ant-select-selection-item"
-                                    title="长风街"
-                                  >
-                                    长风街
-                                  </span>
-                                </div>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-arrow"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                >
-                                  <span
-                                    aria-label="down"
-                                    class="anticon anticon-down ant-select-suffix"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="down"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  class="ant-select-clear"
-                                  style="user-select: none;"
-                                  unselectable="on"
-                                >
-                                  <span
-                                    aria-label="close-circle"
-                                    class="anticon anticon-close-circle"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="close-circle"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
                               </div>
                             </div>
                           </div>
@@ -18062,74 +17394,73 @@ exports[`form demos 📸 renders ./packages/form/src/demos/list.tsx correctly 1`
                       </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 8px;"
-                >
                   <div
-                    class="ant-row ant-form-item"
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
                   >
                     <div
-                      class="ant-col ant-form-item-label"
-                    >
-                      <label
-                        class=""
-                        for="users_0_birth"
-                        title="出生日期"
-                      >
-                        出生日期
-                      </label>
-                    </div>
-                    <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-row ant-form-item"
                     >
                       <div
-                        class="ant-form-item-control-input"
+                        class="ant-col ant-form-item-label"
+                      >
+                        <label
+                          class=""
+                          for="users_0_sex"
+                          title="性别"
+                        >
+                          性别
+                        </label>
+                      </div>
+                      <div
+                        class="ant-col ant-form-item-control"
                       >
                         <div
-                          class="ant-form-item-control-input-content"
+                          class="ant-form-item-control-input"
                         >
                           <div
-                            class="ant-picker"
+                            class="ant-form-item-control-input-content"
                           >
                             <div
-                              class="ant-picker-input"
+                              class="ant-select ant-pro-filed-search-select pro-field-xs ant-select-single ant-select-allow-clear"
+                              style="min-width: 100px;"
+                              text="man"
                             >
-                              <input
-                                autocomplete="off"
-                                id="users_0_birth"
-                                placeholder="请选择"
-                                readonly=""
-                                size="12"
-                                title="2021-02-18"
-                                value="2021-02-18"
-                              />
-                              <span
-                                class="ant-picker-suffix"
+                              <div
+                                class="ant-select-selector"
                               >
                                 <span
-                                  aria-label="calendar"
-                                  class="anticon anticon-calendar"
-                                  role="img"
+                                  class="ant-select-selection-search"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="calendar"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
-                                    />
-                                  </svg>
+                                  <input
+                                    aria-activedescendant="users_0_sex_list_0"
+                                    aria-autocomplete="list"
+                                    aria-controls="users_0_sex_list"
+                                    aria-haspopup="listbox"
+                                    aria-owns="users_0_sex_list"
+                                    autocomplete="off"
+                                    class="ant-select-selection-search-input"
+                                    id="users_0_sex"
+                                    readonly=""
+                                    role="combobox"
+                                    style="opacity: 0;"
+                                    type="search"
+                                    unselectable="on"
+                                    value=""
+                                  />
                                 </span>
-                              </span>
+                                <span
+                                  class="ant-select-selection-item"
+                                  title="男性"
+                                >
+                                  男性
+                                </span>
+                              </div>
                               <span
-                                class="ant-picker-clear"
+                                aria-hidden="true"
+                                class="ant-select-clear"
+                                style="user-select: none;"
+                                unselectable="on"
                               >
                                 <span
                                   aria-label="close-circle"
@@ -18157,99 +17488,363 @@ exports[`form demos 📸 renders ./packages/form/src/demos/list.tsx correctly 1`
                       </div>
                     </div>
                   </div>
-                </div>
-                <div
-                  class="ant-space-item"
-                >
                   <div
-                    class="ant-pro-form-list-action"
-                  >
-                    <span
-                      aria-label="copy"
-                      class="anticon anticon-copy ant-pro-form-list-action-icon"
-                      role="img"
-                      tabindex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="copy"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      aria-label="delete"
-                      class="anticon anticon-delete ant-pro-form-list-action-icon"
-                      role="img"
-                      tabindex="-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="delete"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
-                        />
-                      </svg>
-                    </span>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="ant-row ant-form-item"
-              >
-                <div
-                  class="ant-col ant-form-item-control"
-                >
-                  <div
-                    class="ant-form-item-control-input"
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
                   >
                     <div
-                      class="ant-form-item-control-input-content"
+                      class="ant-row ant-form-item"
                     >
-                      <button
-                        class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
-                        type="button"
+                      <div
+                        class="ant-col ant-form-item-label"
                       >
-                        <span
-                          aria-label="plus"
-                          class="anticon anticon-plus"
-                          role="img"
+                        <label
+                          class=""
+                          for="users_0_addr"
+                          title="地址"
                         >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="plus"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
+                          地址
+                        </label>
+                      </div>
+                      <div
+                        class="ant-col ant-form-item-control"
+                      >
+                        <div
+                          class="ant-form-item-control-input"
+                        >
+                          <div
+                            class="ant-form-item-control-input-content"
                           >
-                            <defs />
-                            <path
-                              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
-                            />
-                            <path
-                              d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
-                            />
-                          </svg>
-                        </span>
-                        <span>
-                          添加一行数据
-                        </span>
-                      </button>
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-right: 8px;"
+                              >
+                                <div
+                                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
+                                  style="min-width: 100px;"
+                                  text="taiyuan"
+                                >
+                                  <div
+                                    class="ant-select-selector"
+                                  >
+                                    <span
+                                      class="ant-select-selection-search"
+                                    >
+                                      <input
+                                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                                        aria-autocomplete="list"
+                                        aria-controls="rc_select_TEST_OR_SSR_list"
+                                        aria-haspopup="listbox"
+                                        aria-owns="rc_select_TEST_OR_SSR_list"
+                                        autocomplete="off"
+                                        class="ant-select-selection-search-input"
+                                        id="rc_select_TEST_OR_SSR"
+                                        readonly=""
+                                        role="combobox"
+                                        style="opacity: 0;"
+                                        type="search"
+                                        unselectable="on"
+                                        value=""
+                                      />
+                                    </span>
+                                    <span
+                                      class="ant-select-selection-item"
+                                      title="山西"
+                                    >
+                                      山西
+                                    </span>
+                                  </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-clear"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  >
+                                    <span
+                                      aria-label="close-circle"
+                                      class="anticon anticon-close-circle"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="close-circle"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                <div
+                                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
+                                  style="min-width: 100px;"
+                                  text="changfeng"
+                                >
+                                  <div
+                                    class="ant-select-selector"
+                                  >
+                                    <span
+                                      class="ant-select-selection-search"
+                                    >
+                                      <input
+                                        aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                                        aria-autocomplete="list"
+                                        aria-controls="rc_select_TEST_OR_SSR_list"
+                                        aria-haspopup="listbox"
+                                        aria-owns="rc_select_TEST_OR_SSR_list"
+                                        autocomplete="off"
+                                        class="ant-select-selection-search-input"
+                                        id="rc_select_TEST_OR_SSR"
+                                        readonly=""
+                                        role="combobox"
+                                        style="opacity: 0;"
+                                        type="search"
+                                        unselectable="on"
+                                        value=""
+                                      />
+                                    </span>
+                                    <span
+                                      class="ant-select-selection-item"
+                                      title="长风街"
+                                    >
+                                      长风街
+                                    </span>
+                                  </div>
+                                  <span
+                                    aria-hidden="true"
+                                    class="ant-select-clear"
+                                    style="user-select: none;"
+                                    unselectable="on"
+                                  >
+                                    <span
+                                      aria-label="close-circle"
+                                      class="anticon anticon-close-circle"
+                                      role="img"
+                                    >
+                                      <svg
+                                        aria-hidden="true"
+                                        data-icon="close-circle"
+                                        fill="currentColor"
+                                        focusable="false"
+                                        height="1em"
+                                        viewBox="64 64 896 896"
+                                        width="1em"
+                                      >
+                                        <path
+                                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                        />
+                                      </svg>
+                                    </span>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <div
+                      class="ant-row ant-form-item"
+                    >
+                      <div
+                        class="ant-col ant-form-item-label"
+                      >
+                        <label
+                          class=""
+                          for="users_0_birth"
+                          title="出生日期"
+                        >
+                          出生日期
+                        </label>
+                      </div>
+                      <div
+                        class="ant-col ant-form-item-control"
+                      >
+                        <div
+                          class="ant-form-item-control-input"
+                        >
+                          <div
+                            class="ant-form-item-control-input-content"
+                          >
+                            <div
+                              class="ant-picker"
+                            >
+                              <div
+                                class="ant-picker-input"
+                              >
+                                <input
+                                  autocomplete="off"
+                                  id="users_0_birth"
+                                  placeholder="请选择"
+                                  readonly=""
+                                  size="12"
+                                  title="2021-02-18"
+                                  value="2021-02-18"
+                                />
+                                <span
+                                  class="ant-picker-suffix"
+                                >
+                                  <span
+                                    aria-label="calendar"
+                                    class="anticon anticon-calendar"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="calendar"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                                <span
+                                  class="ant-picker-clear"
+                                >
+                                  <span
+                                    aria-label="close-circle"
+                                    class="anticon anticon-close-circle"
+                                    role="img"
+                                  >
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="close-circle"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <div
+                      class="ant-pro-form-list-action"
+                    >
+                      <span
+                        aria-label="copy"
+                        class="anticon anticon-copy ant-pro-form-list-action-icon"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="copy"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        aria-label="delete"
+                        class="anticon anticon-delete ant-pro-form-list-action-icon"
+                        role="img"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="delete"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M360 184h-8c4.4 0 8-3.6 8-8v8h304v-8c0 4.4 3.6 8 8 8h-8v72h72v-80c0-35.3-28.7-64-64-64H352c-35.3 0-64 28.7-64 64v80h72v-72zm504 72H160c-17.7 0-32 14.3-32 32v32c0 4.4 3.6 8 8 8h60.4l24.7 523c1.6 34.1 29.8 61 63.9 61h454c34.2 0 62.3-26.8 63.9-61l24.7-523H888c4.4 0 8-3.6 8-8v-32c0-17.7-14.3-32-32-32zM731.3 840H292.7l-24.2-512h487l-24.2 512z"
+                          />
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-row ant-form-item"
+                >
+                  <div
+                    class="ant-col ant-form-item-control"
+                  >
+                    <div
+                      class="ant-form-item-control-input"
+                    >
+                      <div
+                        class="ant-form-item-control-input-content"
+                      >
+                        <button
+                          class="ant-btn ant-btn-dashed ant-btn-block ant-pro-form-list-creator-button-bottom"
+                          type="button"
+                        >
+                          <span
+                            aria-label="plus"
+                            class="anticon anticon-plus"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="plus"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <defs />
+                              <path
+                                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                              />
+                              <path
+                                d="M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z"
+                              />
+                            </svg>
+                          </span>
+                          <span>
+                            添加一行数据
+                          </span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -18259,37 +17854,37 @@ exports[`form demos 📸 renders ./packages/form/src/demos/list.tsx correctly 1`
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-  >
     <div
-      class="ant-space-item"
-      style="margin-right: 8px;"
+      class="ant-space ant-space-horizontal ant-space-align-center"
     >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px;"
       >
-        <span>
-          提 交
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn"
-        type="button"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
       >
-        <span>
-          重 置
-        </span>
-      </button>
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            重 置
+          </span>
+        </button>
+      </div>
     </div>
-  </div>
-</form>
+  </form>,
+]
 `;
 
 exports[`form demos 📸 renders ./packages/form/src/demos/login.tsx correctly 1`] = `
@@ -18927,7 +18522,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                               class="ant-form-item-control-input-content"
                                             >
                                               <div
-                                                class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                                class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                                                 style="min-width: 100px;"
                                                 text="open"
                                               >
@@ -18961,32 +18556,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                                     未解决
                                                   </span>
                                                 </div>
-                                                <span
-                                                  aria-hidden="true"
-                                                  class="ant-select-arrow"
-                                                  style="user-select: none;"
-                                                  unselectable="on"
-                                                >
-                                                  <span
-                                                    aria-label="down"
-                                                    class="anticon anticon-down ant-select-suffix"
-                                                    role="img"
-                                                  >
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      data-icon="down"
-                                                      fill="currentColor"
-                                                      focusable="false"
-                                                      height="1em"
-                                                      viewBox="64 64 896 896"
-                                                      width="1em"
-                                                    >
-                                                      <path
-                                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                                      />
-                                                    </svg>
-                                                  </span>
-                                                </span>
                                                 <span
                                                   aria-hidden="true"
                                                   class="ant-select-clear"
@@ -19172,7 +18741,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                               class="ant-form-item-control-input-content"
                                             >
                                               <div
-                                                class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                                class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                                                 style="min-width: 100px;"
                                                 text="closed"
                                               >
@@ -19206,32 +18775,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                                     已解决
                                                   </span>
                                                 </div>
-                                                <span
-                                                  aria-hidden="true"
-                                                  class="ant-select-arrow"
-                                                  style="user-select: none;"
-                                                  unselectable="on"
-                                                >
-                                                  <span
-                                                    aria-label="down"
-                                                    class="anticon anticon-down ant-select-suffix"
-                                                    role="img"
-                                                  >
-                                                    <svg
-                                                      aria-hidden="true"
-                                                      data-icon="down"
-                                                      fill="currentColor"
-                                                      focusable="false"
-                                                      height="1em"
-                                                      viewBox="64 64 896 896"
-                                                      width="1em"
-                                                    >
-                                                      <path
-                                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                                      />
-                                                    </svg>
-                                                  </span>
-                                                </span>
                                                 <span
                                                   aria-hidden="true"
                                                   class="ant-select-clear"
@@ -19677,7 +19220,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-select pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
+            class="ant-select ant-pro-filed-search-select pro-field-sm ant-select-single ant-select-allow-clear"
             style="min-width: 100px;"
             text="chapter"
           >
@@ -19711,32 +19254,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
                 盖章后生效
               </span>
             </div>
-            <span
-              aria-hidden="true"
-              class="ant-select-arrow"
-              style="user-select: none;"
-              unselectable="on"
-            >
-              <span
-                aria-label="down"
-                class="anticon anticon-down ant-select-suffix"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="down"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                  />
-                </svg>
-              </span>
-            </span>
             <span
               aria-hidden="true"
               class="ant-select-clear"

@@ -527,6 +527,7 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-select-selection-item').text()).toEqual('蚂蚁');
+
     act(() => {
       // clear
       wrapper.find('.ant-btn-link').simulate('click');

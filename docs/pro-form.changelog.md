@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.15.4
+
+`2021-02-04`
+
+- 🐛 fix(form): fix form control error [#1833](https://github.com/ant-design/pro-components/pull/1833) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): modal and drawer form close not reset [#1827](https://github.com/ant-design/pro-components/pull/1827) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.15.2
 
 `2021-01-25`

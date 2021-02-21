@@ -182,7 +182,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                   hidden=""
                   name="sex"
                   style="width: 100%;"
@@ -217,32 +217,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       请选择
                     </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select: none;"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>
@@ -273,7 +247,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                   hidden=""
                   name="status"
                   style="width: 100%;"
@@ -308,32 +282,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                       请选择
                     </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select: none;"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>
@@ -7349,7 +7297,7 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                   hidden=""
                   name="sex"
                   style="width:100%"
@@ -7384,32 +7332,6 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
                       请选择
                     </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>
@@ -7440,7 +7362,7 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                   hidden=""
                   name="status"
                   style="width:100%"
@@ -7475,32 +7397,6 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
                       请选择
                     </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>
@@ -8510,7 +8406,7 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                   hidden=""
                   name="sex"
                   style="width:100%"
@@ -8545,32 +8441,6 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
                       请选择
                     </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>
@@ -8601,7 +8471,7 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                   hidden=""
                   name="status"
                   style="width:100%"
@@ -8636,32 +8506,6 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
                       请选择
                     </span>
                   </div>
-                  <span
-                    aria-hidden="true"
-                    class="ant-select-arrow"
-                    style="user-select:none;-webkit-user-select:none"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down ant-select-suffix"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
                 </div>
               </div>
             </div>
@@ -18096,7 +17940,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                    class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear"
                     name="status"
                     style="width: 100%;"
                     text=""
@@ -18130,32 +17974,6 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         请选择
                       </span>
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow"
-                      style="user-select: none;"
-                      unselectable="on"
-                    >
-                      <span
-                        aria-label="down"
-                        class="anticon anticon-down ant-select-suffix"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
                   </div>
                 </div>
               </div>
@@ -18179,7 +17997,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
+                    class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-open"
                     name="status"
                     style="width: 100%;"
                     text=""
@@ -18214,32 +18032,6 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         请选择
                       </span>
                     </div>
-                    <span
-                      aria-hidden="true"
-                      class="ant-select-arrow"
-                      style="user-select: none;"
-                      unselectable="on"
-                    >
-                      <span
-                        aria-label="down"
-                        class="anticon anticon-down ant-select-suffix"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                          />
-                        </svg>
-                      </span>
-                    </span>
                   </div>
                 </div>
               </div>
