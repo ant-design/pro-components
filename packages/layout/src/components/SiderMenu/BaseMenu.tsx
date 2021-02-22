@@ -105,12 +105,14 @@ class MenuUtil {
       const { subMenuItemRender, prefixCls, menu, iconPrefixes } = this.props;
       //  get defaultTitle by menuItemRender
       const defaultTitle = item.icon ? (
-        <span className={`${prefixCls}-menu-item`}>
+        <span className={`${prefixCls}-menu-item`} title={name}>
           {!isChildren && getIcon(item.icon, iconPrefixes)}
           <span className={`${prefixCls}-menu-item-title`}>{name}</span>
         </span>
       ) : (
-        <span className={`${prefixCls}-menu-item`}>{name}</span>
+        <span className={`${prefixCls}-menu-item`} title={name}>
+          {name}
+        </span>
       );
 
       // subMenu only title render
@@ -179,6 +181,7 @@ class MenuUtil {
     if (isHttpUrl) {
       defaultItem = (
         <span
+          title={name}
           onClick={() => {
             window.open(itemPath);
           }}

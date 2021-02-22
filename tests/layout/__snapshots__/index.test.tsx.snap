@@ -536,6 +536,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               >
                 <span
                   class="ant-pro-menu-item"
+                  title="管理页"
                 >
                   管理页
                 </span>
@@ -804,6 +805,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               >
                 <span
                   class="ant-pro-menu-item"
+                  title="汇总数据"
                 >
                   汇总数据
                 </span>
