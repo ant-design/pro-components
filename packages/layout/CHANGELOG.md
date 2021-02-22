@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.14.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.1...@ant-design/pro-layout@6.14.2) (2021-02-22)
+
+### Bug Fixes
+
+- **layout:** delete basiclayout.less unnecessary semicolon ([#1877](https://github.com/ant-design/pro-components/issues/1877)) ([b6031f2](https://github.com/ant-design/pro-components/commit/b6031f2347c0a3aa4cbd3e24b4ef812a5b812d9a))
+- **layout:** use @umijs/use-params ([#1895](https://github.com/ant-design/pro-components/issues/1895)) ([80aac76](https://github.com/ant-design/pro-components/commit/80aac7665115c8f884c473d78c2fcc12ac042bb3))
+
 ## [6.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.0...@ant-design/pro-layout@6.14.1) (2021-02-04)
 
 ### Bug Fixes

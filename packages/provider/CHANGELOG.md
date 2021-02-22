@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.4...@ant-design/pro-provider@1.4.5) (2021-02-22)
+
+### Bug Fixes
+
+- **provide:** set default locale zh-CN ([#1868](https://github.com/ant-design/pro-components/issues/1868)) ([adaa126](https://github.com/ant-design/pro-components/commit/adaa126e9f508620baf5b814fb1cd858bc5344f4))
+
 ## [1.4.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.3...@ant-design/pro-provider@1.4.4) (2021-01-25)
 
 **Note:** Version bump only for package @ant-design/pro-provider

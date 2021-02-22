@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.0...@ant-design/pro-list@1.5.1) (2021-02-22)
+
+### Bug Fixes
+
+- **layout:** use @umijs/use-params ([#1895](https://github.com/ant-design/pro-components/issues/1895)) ([80aac76](https://github.com/ant-design/pro-components/commit/80aac7665115c8f884c473d78c2fcc12ac042bb3))
+
 # [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.4.0...@ant-design/pro-list@1.5.0) (2021-02-04)
 
 ### Bug Fixes
