@@ -733,4 +733,6 @@ const ProviderWarp = <
   );
 };
 
+ProviderWarp.Summary = Table.Summary;
+
 export default ProviderWarp;
