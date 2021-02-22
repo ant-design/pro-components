@@ -158,7 +158,7 @@ const useFetchData = <T extends RequestData<any>>(
       }
       return msg;
     },
-    [],
+    [manualRequestRef.current],
     debounceTime,
   );
 
