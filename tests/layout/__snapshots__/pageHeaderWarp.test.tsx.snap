@@ -50,6 +50,7 @@ exports[`BasicLayout base use 1`] = `
               >
                 <span
                   class="ant-pro-menu-item"
+                  title="welcome"
                 >
                   welcome
                 </span>
@@ -205,6 +206,7 @@ exports[`BasicLayout content is text 1`] = `
               >
                 <span
                   class="ant-pro-menu-item"
+                  title="welcome"
                 >
                   welcome
                 </span>

@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.14.2
+
+`2021-02-22`
+
+- 🐛 fix(layout): use @umijs/use-params [#1895](https://github.com/ant-design/pro-components/pull/1895) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): remove BasicLayout.less unnecessary semicolon [#1877](https://github.com/ant-design/pro-components/pull/1877) [@janyin](https://github.com/janyin)
+
 ## @ant-design/pro-layout@6.14.1
 
 `2021-02-04`

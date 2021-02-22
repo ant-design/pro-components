@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.16.0
+
+`2021-02-22`
+
+- 🐛 fix(form): fix error message no work error [#1875](https://github.com/ant-design/pro-components/pull/1875) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix searchText and resetText no work error [#1872](https://github.com/ant-design/pro-components/pull/1872) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): support form list [#1908](https://github.com/ant-design/pro-components/pull/1908) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.15.4
 
 `2021-02-04`

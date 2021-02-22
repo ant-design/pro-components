@@ -17,7 +17,7 @@ const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
   sm: 513,
   md: 785,
-  lg: 1057,
+  lg: 992,
   xl: 1057,
   xxl: Infinity,
 };

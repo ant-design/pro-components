@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.29.0...@ant-design/pro-table@2.30.0) (2021-02-22)
+
+### Bug Fixes
+
+- **field:** omit fieldProps and support onChange ([#1886](https://github.com/ant-design/pro-components/issues/1886)) ([8d7c963](https://github.com/ant-design/pro-components/commit/8d7c9639073822daa554db07a5f0c8c0ea334a65))
+- **form:** fix error message no work error ([#1875](https://github.com/ant-design/pro-components/issues/1875)) ([584a73a](https://github.com/ant-design/pro-components/commit/584a73a18aadc339202f34306edaa20d849e6c23))
+- **layout:** use @umijs/use-params ([#1895](https://github.com/ant-design/pro-components/issues/1895)) ([80aac76](https://github.com/ant-design/pro-components/commit/80aac7665115c8f884c473d78c2fcc12ac042bb3))
+- **table:** no has colSize on renderFormItem ([#1876](https://github.com/ant-design/pro-components/issues/1876)) ([98b6afd](https://github.com/ant-design/pro-components/commit/98b6afd93248a33e457c71234d7f4dbc9ce77bf0))
+- **table:** set function to aysnc ([8751290](https://github.com/ant-design/pro-components/commit/8751290d02b706db1d9f435c97af2a9e71b1d59d))
+
+### Features
+
+- **table:** editable support form config ([#1879](https://github.com/ant-design/pro-components/issues/1879)) ([2fd7dff](https://github.com/ant-design/pro-components/commit/2fd7dff2c163fc9f5cd7f98739130ba4f7b4a9ee))
+
 # [2.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.28.0...@ant-design/pro-table@2.29.0) (2021-02-04)
 
 ### Bug Fixes

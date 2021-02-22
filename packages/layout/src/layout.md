@@ -21,7 +21,7 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 ### 基础使用
 
-<code src="./demos/base.tsx" iframe="650px" />
+<code src="./demos/base.tsx" iframe="650px" title="基础使用"/>
 
 ### 从服务器加载 menu
 
@@ -29,65 +29,65 @@ ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，�
 
 从服务器加载 menu 主要使用的 API 是 `menuDataRender` 和 `menuRender`,`menuDataRender`可以控制当前的菜单数据，`menuRender`可以控制菜单的 dom 节点。
 
-<code src="./demos/dynamicMenu.tsx" iframe="500px" />
+<code src="./demos/dynamicMenu.tsx" iframe="500px" title="从服务器加载 menu"/>
 
 ### 从服务器加载 menu 并且使用 icon
 
 这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少打包的大小
 
-<code src="./demos/antd@4MenuIconFormServe.tsx" iframe="500px" />
+<code src="./demos/antd@4MenuIconFormServe.tsx" iframe="500px" title="从服务器加载 menu 并且使用 icon"/>
 
 ### 自定义 menu 的内容
 
 通过 `menuItemRender`, `subMenuItemRender`,`title`,`logo`,`menuHeaderRender` 可以非常方便的自定义 menu 的样式。如果实在是不满意，可以使用 `menuRender` 完全的自定义。
 
-<code src="./demos/customizeMenu.tsx" iframe="500px" />
+<code src="./demos/customizeMenu.tsx" iframe="500px" title="自定义 menu 的内容"/>
 
 ### 自定义页脚
 
 ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要自己引入一下页脚。
 
-<code src="./demos/footer.tsx" iframe="500px" />
+<code src="./demos/footer.tsx" iframe="500px" title="自定义页脚"/>
 
 这里用于展示 ProLayout 的各种应用，如果你觉得你的用法能帮助到别人，欢迎 PR。
 
 ### 搜索菜单
 
-<code src="./demos/searchMenu.tsx" iframe="500px" />
+<code src="./demos/searchMenu.tsx" iframe="500px" title="搜索菜单" />
 
 ### 多个路由对应一个菜单项
 
-<code src="./demos/MultipleMenuOnePath.tsx" iframe="500px" />
+<code src="./demos/MultipleMenuOnePath.tsx" iframe="500px" title="多个路由对应一个菜单项" />
 
 ### 默认打开所有菜单
 
-<code src="./demos/DefaultOpenAllMenu.tsx" iframe="500px" />
+<code src="./demos/DefaultOpenAllMenu.tsx" iframe="500px" title="默认打开所有菜单" />
 
 ### 使用 IconFont
 
-<code src="./demos/IconFont.tsx" iframe="500px" />
+<code src="./demos/IconFont.tsx" iframe="500px" title="使用 IconFont" />
 
 ### ghost 模式
 
 PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 
-<code src="./demos/ghost.tsx" iframe="500px" />
+<code src="./demos/ghost.tsx" iframe="500px" title="ghost 模式" />
 
 ### 嵌套布局
 
-<code src="./demos/Nested.tsx" iframe="500px" />
+<code src="./demos/Nested.tsx" iframe="500px" title="嵌套布局" />
 
 ### 自定义的 collapsed
 
-<code src="./demos/customize-collapsed.tsx" iframe="500px" />
+<code src="./demos/customize-collapsed.tsx" iframe="500px" title="自定义的 collapsed" />
 
 ### 多级站点导航
 
-<code src="./demos/immersive-navigation.tsx" iframe="500px" />
+<code src="./demos/immersive-navigation.tsx" iframe="500px" title="多级站点导航" />
 
 ### 沉浸式导航
 
-<code src="./demos/immersive-navigation-top.tsx" iframe="500px" />
+<code src="./demos/immersive-navigation-top.tsx" iframe="500px" title="沉浸式导航" />
 
 ## API
 

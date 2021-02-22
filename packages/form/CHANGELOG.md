@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.15.4...@ant-design/pro-form@1.16.0) (2021-02-22)
+
+### Bug Fixes
+
+- **field:** omit fieldProps and support onChange ([#1886](https://github.com/ant-design/pro-components/issues/1886)) ([8d7c963](https://github.com/ant-design/pro-components/commit/8d7c9639073822daa554db07a5f0c8c0ea334a65))
+- **form:** fix searchText and resetText no work error ([#1872](https://github.com/ant-design/pro-components/issues/1872)) ([9ab0251](https://github.com/ant-design/pro-components/commit/9ab025184084a766f7f0c043be037858054cbf9c))
+- **layout:** use @umijs/use-params ([#1895](https://github.com/ant-design/pro-components/issues/1895)) ([80aac76](https://github.com/ant-design/pro-components/commit/80aac7665115c8f884c473d78c2fcc12ac042bb3))
+- **table:** fix the problem of onInit call sequence ([#1889](https://github.com/ant-design/pro-components/issues/1889)) ([b9e9ae5](https://github.com/ant-design/pro-components/commit/b9e9ae5d57d23b1fc7dd932ea2e225d90f345c85))
+
+### Features
+
+- **field:** support timeRange ([#1884](https://github.com/ant-design/pro-components/issues/1884)) ([4665efc](https://github.com/ant-design/pro-components/commit/4665efca7114737bcd7314ff3de6caad4afe30ae))
+- **form:** support form list ([#1908](https://github.com/ant-design/pro-components/issues/1908)) ([bc34d34](https://github.com/ant-design/pro-components/commit/bc34d34e490d83a73c890e6514d12d451a0161f9))
+- **select:** support SearchSelect ([#1916](https://github.com/ant-design/pro-components/issues/1916)) ([4cb5710](https://github.com/ant-design/pro-components/commit/4cb57100453856e079fe435f70d8fa2f7e62440c))
+
 ## [1.15.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.15.3...@ant-design/pro-form@1.15.4) (2021-02-04)
 
 ### Bug Fixes

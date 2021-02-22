@@ -6,12 +6,51 @@ import ProForm, {
   ProFormSelect,
   ProFormSwitch,
   ProFormText,
+  ProFormList,
+  ProFormGroup,
+  ProFormDependency,
+  ProFormTextArea,
 } from '@ant-design/pro-form';
 import type { ProColumnType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import { useDebounceFn } from '@ant-design/pro-utils';
 import ProCard from '@ant-design/pro-card';
 import { Button } from 'antd';
+
+const valueTypeArray = [
+  'password',
+  'money',
+  'textarea',
+  'option',
+  'date',
+  'dateWeek',
+  'dateMonth',
+  'dateQuarter',
+  'dateYear',
+  'dateRange',
+  'dateTimeRange',
+  'dateTime',
+  'time',
+  'timeRange',
+  'text',
+  'select',
+  'checkbox',
+  'rate',
+  'radio',
+  'radioButton',
+  'index',
+  'indexBorder',
+  'progress',
+  'percent',
+  'digit',
+  'second',
+  'avatar',
+  'code',
+  'switch',
+  'fromNow',
+  'image',
+  'jsonCode',
+];
 
 type DataType = {
   age: number;
@@ -82,6 +121,7 @@ const genData = (total: number) => {
 const initData = {
   bordered: true,
   loading: false,
+  columns,
   pagination: {
     show: true,
     pageSize: 5,
@@ -98,7 +138,6 @@ const initData = {
   hasData: true,
   tableLayout: undefined,
   toolBarRender: true,
-  dateValueType: 'date',
   search: {
     show: true,
     span: 12,
@@ -123,10 +162,9 @@ const DynamicSettings = () => {
     setConfig(state);
   }, 20);
 
-  const tableColumns = columns.map((item) => ({
+  const tableColumns = config.columns.map((item: any) => ({
     ...item,
     ellipsis: config.ellipsis,
-    valueType: item?.dataIndex === 'time' ? config.dateValueType : item.valueType,
   }));
 
   return (
@@ -178,9 +216,9 @@ const DynamicSettings = () => {
         colon={false}
         onValuesChange={(_, values) => updateConfig.run(values)}
       >
-        <ProCard colSpan="300px" tabs={{}} />
+        <ProCard colSpan="500px" tabs={{}} />
         <ProCard
-          colSpan="300px"
+          colSpan="500px"
           style={{
             height: '100vh',
             overflow: 'auto',
@@ -469,31 +507,6 @@ const DynamicSettings = () => {
                 ]}
                 label="表单类型"
               />
-              <ProFormSelect
-                fieldProps={{
-                  size: 'small',
-                  style: {
-                    minWidth: 80,
-                  },
-                }}
-                tooltip={`valueType=${config.dateValueType}`}
-                options={[
-                  {
-                    label: '日期',
-                    value: 'date',
-                  },
-                  {
-                    label: '日期时间',
-                    value: 'dateTime',
-                  },
-                  {
-                    label: '时间',
-                    value: 'time',
-                  },
-                ]}
-                label="日期类型"
-                name="dateValueType"
-              />
             </ProForm.Group>
           </ProCard.TabPane>
           <ProCard.TabPane
@@ -566,6 +579,94 @@ const DynamicSettings = () => {
                 name={['pagination', 'total']}
               />
             </ProForm.Group>
+          </ProCard.TabPane>
+          <ProCard.TabPane
+            cardProps={{
+              bodyStyle: {
+                padding: 12,
+              },
+            }}
+            key="tab4"
+            tab="列配置"
+          >
+            <ProFormList name="columns">
+              {/*  {
+                title: 'time',
+                dataIndex: 'time',
+                valueType: 'date',
+              }, */}
+              <ProCard>
+                <ProFormText
+                  rules={[
+                    {
+                      required: true,
+                    },
+                  ]}
+                  name="title"
+                  label="标题"
+                />
+                <ProFormGroup
+                  style={{
+                    marginTop: 8,
+                  }}
+                >
+                  <ProFormSwitch label="过长省略" name="ellipsis" />
+                  <ProFormSwitch label="复制按钮" name="copyable" />
+                </ProFormGroup>
+                <ProFormGroup
+                  style={{
+                    marginTop: 8,
+                  }}
+                  size={8}
+                >
+                  <ProFormSelect
+                    label="dataIndex"
+                    width="xs"
+                    name="dataIndex"
+                    valueEnum={{
+                      age: 'age',
+                      address: 'address',
+                      name: 'name',
+                      time: 'time',
+                      description: 'string',
+                    }}
+                  />
+                  <ProFormSelect
+                    width="xs"
+                    label="值类型"
+                    name="valueType"
+                    options={valueTypeArray.map((value) => ({
+                      label: value,
+                      value,
+                    }))}
+                  />
+                </ProFormGroup>
+                <ProFormDependency name={['valueType', 'valueEnum']}>
+                  {({ valueType, valueEnum }) => {
+                    if (valueType !== 'select') {
+                      return null;
+                    }
+                    return (
+                      <ProFormTextArea
+                        formItemProps={{
+                          style: {
+                            marginTop: 8,
+                          },
+                        }}
+                        fieldProps={{
+                          value: JSON.stringify(valueEnum),
+                        }}
+                        normalize={(value) => {
+                          return JSON.parse(value);
+                        }}
+                        label="数据枚举"
+                        name="valueEnum"
+                      />
+                    );
+                  }}
+                </ProFormDependency>
+              </ProCard>
+            </ProFormList>
           </ProCard.TabPane>
         </ProCard>
       </ProForm>

@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0-beta.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@1.0.0-beta.12...@ant-design/pro-skeleton@1.0.0-beta.13) (2021-02-22)
+
+**Note:** Version bump only for package @ant-design/pro-skeleton
+
 # [1.0.0-beta.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@1.0.0-beta.11...@ant-design/pro-skeleton@1.0.0-beta.12) (2021-01-07)
 
 **Note:** Version bump only for package @ant-design/pro-skeleton

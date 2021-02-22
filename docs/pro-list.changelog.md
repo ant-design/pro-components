@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.5.1
+
+`2021-02-22`
+
+- 💥 feat(form): support form list [#1908](https://github.com/ant-design/pro-components/pull/1908) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-list@1.5.0
 
 `2021-02-04`

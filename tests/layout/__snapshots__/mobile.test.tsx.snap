@@ -105,6 +105,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -294,6 +295,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -475,6 +477,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -651,6 +654,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -821,6 +825,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -990,6 +995,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -1169,6 +1175,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
