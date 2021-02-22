@@ -104,7 +104,7 @@ function ModalForm<T = Record<string, any>>({
   return (
     <>
       {createPortal(
-        <div>
+        <div onClick={(e) => e.stopPropagation()}>
           <BaseForm
             layout="vertical"
             {...omit(rest, ['visible'])}
