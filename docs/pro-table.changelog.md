@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.30.0
+
+`2021-02-22`
+
+- 🐛 fix(table): fix the problem of onInit call sequence [#1889](https://github.com/ant-design/pro-components/pull/1889) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): no has colSize on renderFormItem [#1876](https://github.com/ant-design/pro-components/pull/1876) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): editable support form config [#1879](https://github.com/ant-design/pro-components/pull/1879) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.29.0
 
 `2021-02-04`
