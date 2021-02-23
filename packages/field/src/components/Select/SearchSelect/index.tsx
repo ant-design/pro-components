@@ -16,14 +16,12 @@ export type DataValueType<T> = KeyLabel & T;
 /** 可能单选，可能多选 */
 export type DataValuesType<T> = DataValueType<T> | DataValueType<T>[];
 
-export interface SearchSelectProps<T = {}>
-  extends Omit<SelectProps<KeyLabel | KeyLabel[]>, 'onChange'> {
+export interface SearchSelectProps<T = Record<string, any>>
+  extends SelectProps<KeyLabel | KeyLabel[]> {
   /** 自定义搜索方法, 返回搜索结果的 Promise */
   request?: (params: { query: string }) => Promise<DataValueType<T>[]>;
   /** 自定义选项渲染 */
   optionItemRender?: (item: DataValueType<T>) => React.ReactNode;
-  /** 值改变后的回调 */
-  onChange?: (value: DataValuesType<T>) => void;
   /** 指定组件中的值 */
   value?: KeyLabel | KeyLabel[];
   /** 指定默认选中的条目 */
@@ -140,15 +138,15 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
             }
           : undefined
       }
-      onChange={(value, optionList) => {
+      onChange={(value, optionList, ...rest) => {
         if (!props.labelInValue) {
-          onChange?.(value);
+          onChange?.(value, optionList, ...rest);
           return;
         }
         // 合并值
         const mergeValue = getMergeValue(value, optionList) as any;
 
-        onChange?.(mergeValue);
+        onChange?.(mergeValue, optionList, ...rest);
         // 将搜索结果置空，重新搜索
         if (resetAfterSelect) resetData();
       }}
