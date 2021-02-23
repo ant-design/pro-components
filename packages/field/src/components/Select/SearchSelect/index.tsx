@@ -22,8 +22,6 @@ export interface SearchSelectProps<T = {}>
   request?: (params: { query: string }) => Promise<DataValueType<T>[]>;
   /** 自定义选项渲染 */
   optionItemRender?: (item: DataValueType<T>) => React.ReactNode;
-  /** 值改变后的回调 */
-  onChange?: (value: DataValuesType<T>) => void;
   /** 指定组件中的值 */
   value?: KeyLabel | KeyLabel[];
   /** 指定默认选中的条目 */
@@ -140,7 +138,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
             }
           : undefined
       }
-      onChange={(value, optionList) => {
+      onChange={(value, optionList, ...rest) => {
         if (!props.labelInValue) {
           onChange?.(value);
           return;
@@ -148,7 +146,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
         // 合并值
         const mergeValue = getMergeValue(value, optionList) as any;
 
-        onChange?.(mergeValue);
+        onChange?.(mergeValue, optionList, ...rest);
         // 将搜索结果置空，重新搜索
         if (resetAfterSelect) resetData();
       }}
