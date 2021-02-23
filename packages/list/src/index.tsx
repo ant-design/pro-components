@@ -106,6 +106,7 @@ function ProList<
       {...(rest as any)}
       actionRef={actionRef}
       pagination={propsPagination}
+      rowSelection={propRowSelection}
       search={search}
       options={options}
       className={classNames(prefixCls, className, listClassName)}
@@ -136,7 +137,7 @@ function ProList<
               split={split}
               rowKey={rowKey}
               expandable={expandable}
-              rowSelection={propRowSelection === false ? undefined : rowSelection}
+              rowSelection={rowSelection}
               showActions={showActions}
               pagination={pagination as PaginationProps}
               itemLayout={itemLayout}
