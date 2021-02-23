@@ -15,8 +15,8 @@ import ProForm, {
   ProFormUploadButton,
   ProFormUploadDragger,
   ProFormFieldSet,
+  ProFormTimePicker,
 } from '@ant-design/pro-form';
-import ProFormTimePicker from '../../TimePicker';
 
 const Demo = () => (
   <div
