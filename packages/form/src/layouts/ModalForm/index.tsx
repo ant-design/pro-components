@@ -94,7 +94,8 @@ function ModalForm<T = Record<string, any>>({
     if (visible) {
       isFirstRender.current = false;
     }
-    if (!visible && modalProps?.destroyOnClose) {
+    // 再打开的时候重新刷新，会让 initialValues 生效
+    if (visible && modalProps?.destroyOnClose) {
       formRef.current?.resetFields();
     }
   }, [modalProps?.destroyOnClose, visible]);
