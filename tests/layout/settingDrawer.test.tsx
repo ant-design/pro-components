@@ -246,13 +246,8 @@ describe('settingDrawer.test', () => {
       wrapper.find('button.split-menus').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(onSettingChange).toBeCalledWith(true);
 
-    act(() => {
-      wrapper.find('button.split-menus').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(onSettingChange).toBeCalledWith(false);
+    expect(onSettingChange).toBeCalledWith(true);
   });
 
   it('fixed-header Change', async () => {

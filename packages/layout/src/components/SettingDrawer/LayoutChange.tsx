@@ -104,7 +104,9 @@ const LayoutSetting: React.FC<{
               size="small"
               checked={!!splitMenus}
               className="split-menus"
-              onChange={(checked) => changeSetting('splitMenus', checked)}
+              onChange={(checked) => {
+                changeSetting('splitMenus', checked);
+              }}
             />
           ),
         },

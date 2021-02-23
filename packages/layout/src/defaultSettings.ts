@@ -69,6 +69,7 @@ const defaultSettings: ProSettings = {
   headerHeight: 48,
   title: 'Ant Design Pro',
   iconfontUrl: '',
-  primaryColor: '#1890ff',
+  primaryColor: 'daybreak',
+  splitMenus: false,
 };
 export default defaultSettings;
