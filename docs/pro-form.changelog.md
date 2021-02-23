@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.16.1
+
+`2021-02-23`
+
+- 🐛 fix(form): fix error onchange params [#1955](https://github.com/ant-design/pro-components/pull/1955) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix breakpoint xl width error [#1946](https://github.com/ant-design/pro-components/pull/1946) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): modelForm and DrawerForm stopPropagation [#1939](https://github.com/ant-design/pro-components/pull/1939) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.16.0
 
 `2021-02-22`

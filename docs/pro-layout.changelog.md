@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.14.3
+
+`2021-02-23`
+
+- 🐛 fix(layout): layout sync url diff params [#1956](https://github.com/ant-design/pro-components/pull/1956) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): menu item add title config [#1944](https://github.com/ant-design/pro-components/pull/1944) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.14.2
 
 `2021-02-22`

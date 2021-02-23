@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.30.1
+
+`2021-02-23`
+
+- 🐛 fix(table): manualRequest may not working. [#1963](https://github.com/ant-design/pro-components/pull/1963) [@lxzxl](https://github.com/lxzxl)
+- 💥 feat(table): remove unnecessary tooltip [#1907](https://github.com/ant-design/pro-components/pull/1907) [@beichensky](https://github.com/beichensky)
+- 🐛 fix(table): export Table.Summary [#1943](https://github.com/ant-design/pro-components/pull/1943) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.30.0
 
 `2021-02-22`
