@@ -4,6 +4,7 @@ import { ConfigProvider } from 'antd';
 import { IRouteComponentProps } from 'umi';
 import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';
+import Darkreader from 'react-darkreader';
 import 'moment/locale/zh-cn';
 import './layout.less';
 moment.locale('zh-cn');
@@ -30,8 +31,20 @@ export default ({ children, ...props }: IRouteComponentProps) => {
     })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
   }, []);
   return (
-    <ConfigProvider locale={zhCN}>
-      <Layout {...props}>{children}</Layout>
-    </ConfigProvider>
+    <>
+      <div
+        style={{
+          position: 'fixed',
+          right: 8,
+          top: 20,
+          zIndex: 999,
+        }}
+      >
+        <Darkreader />
+      </div>
+      <ConfigProvider locale={zhCN}>
+        <Layout {...props}>{children}</Layout>
+      </ConfigProvider>
+    </>
   );
 };
