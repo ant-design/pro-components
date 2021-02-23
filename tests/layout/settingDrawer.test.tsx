@@ -246,8 +246,17 @@ describe('settingDrawer.test', () => {
       wrapper.find('button.split-menus').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(onSettingChange).toBeCalledWith(true);
 
+    expect(onSettingChange).toBeCalledWith(true);
+    act(() => {
+      wrapper.setProps({
+        settings: {
+          layout: 'mix',
+          splitMenus: true,
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper.find('button.split-menus').simulate('click');
     });
