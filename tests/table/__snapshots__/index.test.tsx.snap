@@ -1401,13 +1401,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 0
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 0"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -1677,13 +1683,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 1
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 1"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -1953,13 +1965,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 2
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 2"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -2229,13 +2247,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 3
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 3"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -2505,13 +2529,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 4
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 4"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -2781,13 +2811,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 5
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 5"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -3057,13 +3093,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 6
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 6"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -3333,13 +3375,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 7
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 7"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -3609,13 +3657,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 8
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 8"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -3885,13 +3939,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 9
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 9"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -4161,13 +4221,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 10
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 10"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -4437,13 +4503,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 11
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 11"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -4713,13 +4785,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 12
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 12"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -4989,13 +5067,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 13
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 13"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -5265,13 +5349,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 14
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 14"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -5541,13 +5631,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 15
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 15"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -5817,13 +5913,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 16
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 16"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -6093,13 +6195,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 17
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 17"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -6369,13 +6477,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 18
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 18"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -6645,13 +6759,19 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 19
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 19"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -10121,13 +10241,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 0
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 0"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -10418,13 +10544,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 1
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 1"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -10714,13 +10846,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 2
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 2"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -11010,13 +11148,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 3
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 3"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -11306,13 +11450,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 4
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 4"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -11602,13 +11752,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 5
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 5"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -11898,13 +12054,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 6
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 6"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -12194,13 +12356,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 7
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 7"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -12490,13 +12658,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 8
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 8"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -12786,13 +12960,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 9
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 9"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -13082,13 +13262,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 10
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 10"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -13378,13 +13564,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 11
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 11"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -13674,13 +13866,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 12
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 12"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -13970,13 +14168,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 13
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 13"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -14266,13 +14470,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 14
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 14"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -14562,13 +14772,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 15
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 15"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -14858,13 +15074,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 16
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 16"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -15154,13 +15376,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 17
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 17"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -15450,13 +15678,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 18
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 18"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>
@@ -15746,13 +15980,19 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-single-line"
-                              style="max-width: 100%; margin: 0px; padding: 0px;"
-                              title=""
-                            >
-                              London, Park Lane no. 19
+                          <span
+                            class="ant-typography ant-typography-ellipsis"
+                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            title=""
+                          >
+                            <span>
+                              London, Park Lane
+                              <span
+                                aria-hidden="true"
+                                title=" no. 19"
+                              >
+                                ...
+                              </span>
                             </span>
                           </span>
                         </td>

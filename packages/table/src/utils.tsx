@@ -1,6 +1,6 @@
 import React from 'react';
 import type { TablePaginationConfig, TableColumnType } from 'antd';
-import { Space, Tooltip, Form, Typography } from 'antd';
+import { Space, Form, Typography } from 'antd';
 
 import type {
   ProFieldValueType,
@@ -41,23 +41,12 @@ export const genColumnKey = (key?: React.ReactText | undefined, index?: number):
 };
 
 /**
- * 生成 Ellipsis 的 tooltip
+ * 生成 Copyable 或 Ellipsis 的 dom
  *
  * @param dom
  * @param item
  * @param text
  */
-export const genEllipsis = (dom: React.ReactNode, item: ProColumns<any>, text: string) => {
-  if (!item.ellipsis) {
-    return dom;
-  }
-  return (
-    <Tooltip title={text}>
-      <span>{dom}</span>
-    </Tooltip>
-  );
-};
-
 export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: string) => {
   if (item.copyable || item.ellipsis) {
     return (
@@ -76,7 +65,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
               }
             : undefined
         }
-        ellipsis={item.ellipsis}
+        ellipsis={item.ellipsis && text ? { tooltip: text } : false}
       >
         {dom}
       </Typography.Text>
@@ -296,9 +285,7 @@ export function columnRender<T>({
   });
 
   const dom: React.ReactNode =
-    mode === 'edit'
-      ? textDom
-      : genEllipsis(genCopyable(textDom, columnProps, renderTextStr), columnProps, renderTextStr);
+    mode === 'edit' ? textDom : genCopyable(textDom, columnProps, renderTextStr);
 
   /** 如果是编辑模式，并且 renderFormItem 存在直接走 renderFormItem */
   if (mode === 'edit') {
