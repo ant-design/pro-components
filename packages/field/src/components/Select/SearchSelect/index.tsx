@@ -16,8 +16,8 @@ export type DataValueType<T> = KeyLabel & T;
 /** 可能单选，可能多选 */
 export type DataValuesType<T> = DataValueType<T> | DataValueType<T>[];
 
-export interface SearchSelectProps<T = {}>
-  extends Omit<SelectProps<KeyLabel | KeyLabel[]>, 'onChange'> {
+export interface SearchSelectProps<T = Record<string, any>>
+  extends SelectProps<KeyLabel | KeyLabel[]> {
   /** 自定义搜索方法, 返回搜索结果的 Promise */
   request?: (params: { query: string }) => Promise<DataValueType<T>[]>;
   /** 自定义选项渲染 */
@@ -140,7 +140,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
       }
       onChange={(value, optionList, ...rest) => {
         if (!props.labelInValue) {
-          onChange?.(value);
+          onChange?.(value, optionList, ...rest);
           return;
         }
         // 合并值
