@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.10.0...@ant-design/pro-field@1.10.1) (2021-02-23)
+
+### Bug Fixes
+
+- **filed:** fix select show showArrow error ([#1937](https://github.com/ant-design/pro-components/issues/1937)) ([0bc0cda](https://github.com/ant-design/pro-components/commit/0bc0cda1a1de669e6628951b898f7996fac4f948))
+- **form:** fix error onchange params ([#1955](https://github.com/ant-design/pro-components/issues/1955)) ([e4ba51e](https://github.com/ant-design/pro-components/commit/e4ba51e20838d7b5e515575373f7ae94093966fc))
+
 # [1.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.9.4...@ant-design/pro-field@1.10.0) (2021-02-22)
 
 ### Bug Fixes

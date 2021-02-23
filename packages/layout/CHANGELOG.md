@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.2...@ant-design/pro-layout@6.14.3) (2021-02-23)
+
+### Bug Fixes
+
+- **layout:** layout sync url diff params ([#1956](https://github.com/ant-design/pro-components/issues/1956)) ([d68c401](https://github.com/ant-design/pro-components/commit/d68c401dbecf744106dda402e53fdeda0c2fc4d7))
+- **layout:** menu item add title config ([#1944](https://github.com/ant-design/pro-components/issues/1944)) ([5ae3ca1](https://github.com/ant-design/pro-components/commit/5ae3ca1ad0b000097da0fadca1ae9bcf0eac6b98))
+
 ## [6.14.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.1...@ant-design/pro-layout@6.14.2) (2021-02-22)
 
 ### Bug Fixes

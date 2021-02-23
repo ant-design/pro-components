@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.0...@ant-design/pro-table@2.30.1) (2021-02-23)
+
+### Bug Fixes
+
+- **table:** export Table.Summary ([#1943](https://github.com/ant-design/pro-components/issues/1943)) ([a3ec1b2](https://github.com/ant-design/pro-components/commit/a3ec1b2a48ce67d56caf1bf1a0c5562c34d0d7f7))
+- **table:** manualRequest may not working. ([#1963](https://github.com/ant-design/pro-components/issues/1963)) ([4eef300](https://github.com/ant-design/pro-components/commit/4eef300948b44c14f635bc702fb865ce35527a08))
+- **table:** remove unnecessary tooltip ([#1907](https://github.com/ant-design/pro-components/issues/1907)) ([932a769](https://github.com/ant-design/pro-components/commit/932a7698c4ad3f4d896544aba5319cdb07143c2b))
+
 # [2.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.29.0...@ant-design/pro-table@2.30.0) (2021-02-22)
 
 ### Bug Fixes

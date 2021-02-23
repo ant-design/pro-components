@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.16.0...@ant-design/pro-form@1.16.1) (2021-02-23)
+
+### Bug Fixes
+
+- **filed:** fix select show showArrow error ([#1937](https://github.com/ant-design/pro-components/issues/1937)) ([0bc0cda](https://github.com/ant-design/pro-components/commit/0bc0cda1a1de669e6628951b898f7996fac4f948))
+- **form:** modelForm and DrawerForm stopPropagation ([#1939](https://github.com/ant-design/pro-components/issues/1939)) ([22e5049](https://github.com/ant-design/pro-components/commit/22e50498196be00c21698847d9e5ba90d57c0e2f))
+- **form:** fix breakpoint xl width error ([#1946](https://github.com/ant-design/pro-components/issues/1946)) ([00fba77](https://github.com/ant-design/pro-components/commit/00fba77095a7d2abf4b474b77eaa3e1cd2564240))
+- **form:** fix modalForm reset time ([69fe97c](https://github.com/ant-design/pro-components/commit/69fe97cba2e602ae908a68c0aeed11afc20a992f))
+- **form:** ProFormSelect support params ([52a4a40](https://github.com/ant-design/pro-components/commit/52a4a40ea40b4410b4fcfc3a3c4422838f26a187))
+
 # [1.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.15.4...@ant-design/pro-form@1.16.0) (2021-02-22)
 
 ### Bug Fixes
