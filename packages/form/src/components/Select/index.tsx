@@ -23,6 +23,7 @@ export type ProFormSelectProps = ProFormItemProps<
   }
 > & {
   valueEnum?: ProSchema['valueEnum'];
+  params?: ProSchema['params'];
   request?: ProSchema['request'];
   options?: SelectProps<any>['options'];
   mode?: SelectProps<any>['mode'];
@@ -36,12 +37,16 @@ export type ProFormSelectProps = ProFormItemProps<
  * @param
  */
 const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps>(
-  ({ fieldProps, children, proFieldProps, mode, valueEnum, request, showSearch, options }, ref) => {
+  (
+    { fieldProps, children, params, proFieldProps, mode, valueEnum, request, showSearch, options },
+    ref,
+  ) => {
     return (
       <ProField
         mode="edit"
         valueEnum={runFunction(valueEnum)}
         request={request}
+        params={params}
         valueType="select"
         fieldProps={{
           options,
@@ -59,7 +64,7 @@ const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps>(
 );
 
 const SearchSelect = React.forwardRef<any, ProFormSelectProps>(
-  ({ fieldProps, children, proFieldProps, mode, valueEnum, request, options }, ref) => {
+  ({ fieldProps, children, params, proFieldProps, mode, valueEnum, request, options }, ref) => {
     const props: SelectProps<any> = {
       options,
       mode,
@@ -73,6 +78,7 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps>(
         mode="edit"
         valueEnum={runFunction(valueEnum)}
         request={request}
+        params={params}
         valueType="select"
         fieldProps={props}
         ref={ref}
