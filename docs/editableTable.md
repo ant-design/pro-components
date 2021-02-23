@@ -17,9 +17,11 @@ nav:
 
 作为了 Ant Design 的衍生作品，我们对 EditableTable  的样式进行了预设，我们很容易就能做出这么好看的可编辑表格。同时我们提供了顶部添加和底部添加两种模式，用于适应不同的场景。我们可以做到默认好看，同时默认好用。
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1606962433432-6d369376-4c7d-4e67-88a1-e9190ebf0434.png#align=left&display=inline&height=171&margin=%5Bobject%20Object%5D&name=image.png&originHeight=342&originWidth=1298&size=40455&status=done&style=shadow&width=649)
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/VVWpUPXgsp/image%252520%281%29.png)
 
-为了改善在狭窄空间内的错误提示，我们重写错误信息的展示方式，使用 Tooltip 类似的方式来展示错误。当然为了防止抖动，我们也重写了 Form 的样式使其更加的适合狭窄的输入区域，这样在使用 EditableTable  时并不会产生明显的跳动感，感觉非常顺滑。 ![image.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1607270367385-5df9ff51-fb57-434d-a0b0-91a6bafb9210.png#align=left&display=inline&height=141&margin=%5Bobject%20Object%5D&name=image.png&originHeight=423&originWidth=2222&size=64902&status=done&style=none&width=740.6666666666666)
+为了改善在狭窄空间内的错误提示，我们重写错误信息的展示方式，使用 Tooltip 类似的方式来展示错误。当然为了防止抖动，我们也重写了 Form 的样式使其更加的适合狭窄的输入区域，这样在使用 EditableTable  时并不会产生明显的跳动感，感觉非常顺滑。
+
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/l4SiOUPtAm/image.png)
 
 ## 👩🏻‍🦽 默认好用的 API
 
@@ -45,7 +47,7 @@ EditableTable  定义了一套和 Ant Design 相同的 API , 如果你是熟练
 
 EditableTable  是基于 ProTable 实现的，在 ProTable 中我们是有查询表单这个功能的，通过配置不同的 `valueType` 就可以生成不同的查询表单，可编辑表格也是使用了同样的 API ,下图是 ProTable 支持的所有日期类的 `valueType`。
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1608191542231-c4dafeba-ef9f-4a62-b44b-f59fa006826c.png#align=left&display=inline&height=552&margin=%5Bobject%20Object%5D&name=image.png&originHeight=1103&originWidth=3803&size=187111&status=done&style=shadow&width=1902)
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/weBjSsue5J/image%252520%282%29.png)
 
 在这样的能力加持下，EditableTable  的使用变得非常简单，我们可以像 rowSelection 那样使用 editable ，下面是一个简单的例子。
 
@@ -123,7 +125,7 @@ const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
 
 我们可以控制 editableKeys 来修改当前编辑的行，value 来控制当前的数据。以上的代码会生成下面的样式。
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1608204294399-b102f885-cc65-4db7-b338-74555e11777d.png#align=left&display=inline&height=195&margin=%5Bobject%20Object%5D&name=image.png&originHeight=586&originWidth=3779&size=92305&status=done&style=shadow&width=1259.6666666666667)
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/qCVZrBfmFs/image%252520%283%29.png)
 
 ### action 默认行为
 
@@ -238,7 +240,7 @@ const TagList: React.FC<{
 
 转化成的编辑表格效果如下 ：
 
-![image.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1608213872536-a8c50750-6fc3-489b-af34-ff5980a33ab2.png#align=left&display=inline&height=208&margin=%5Bobject%20Object%5D&name=image.png&originHeight=623&originWidth=3768&size=103416&status=done&style=shadow&width=1256)
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/2ClcRi2hv5/image%252520%284%29.png)
 
 value 和 onChange 会自动注入，我们不需要显式的注入。数据绑定也是由编辑表格自己注入的，我们在 `onSave` 中可以拿到处理完成的数据。虽然我们可以行内的写出复杂的逻辑甚至网络请求，但是我们仍然推荐拆分组件，这样不仅性能更好，逻辑也可以拆分到另外的地方。
 
@@ -301,19 +303,6 @@ const editable = {
 
 ## 🔐 何时应该使用
 
-ProComponents 的测试覆盖了达到了 97%，虽然离 antd 的 100% 还有很长的距离，但是已经可以保证不会因为变更而出现恼人的不兼容问题，同时在内部已经在数个项目中使用。如果你仍然保有疑虑，可以在我们的[官网](https://procomponents.ant.design/)体验。 ![image.png](https://cdn.nlark.com/yuque/0/2020/png/84868/1608217583485-ef259203-5d85-46a3-8ef3-f4d015338617.png#align=left&display=inline&height=162&margin=%5Bobject%20Object%5D&name=image.png&originHeight=485&originWidth=2284&size=110333&status=done&style=none&width=761.3333333333334) 如果使用中碰到了任何问题，都可以提 issue，或者直接进行 PR。也许你的想法和意见可以帮助到更多的人。
+ProComponents 的测试覆盖了达到了 97%，虽然离 antd 的 100% 还有很长的距离，但是已经可以保证不会因为变更而出现恼人的不兼容问题，同时在内部已经在数个项目中使用。如果你仍然保有疑虑，可以在我们的[官网](https://procomponents.ant.design/)体验。
 
-## 🔔 其他事情
-
-ProComponents 同时还提供了其他的组件。
-
-- [ProLayout](https://procomponents.ant.design/components/layout) 解决布局的问题，提供开箱即用的菜单和面包屑功能
-- [ProTable](https://procomponents.ant.design/components/table) 解决表格问题，抽象网络请求和表格格式化
-- [ProForm](https://procomponents.ant.design/components/form) 解决表单问题，预设常见布局和行为
-- [ProCard](https://procomponents.ant.design/components/card) 提供卡片切分以及栅格布局能力
-- [ProDescriptions](https://procomponents.ant.design/components/descriptions) 提供与 table 使用同等配置的能力
-- [ProSkeleton](https://procomponents.ant.design/components/skeleton) 页面级别的骨架屏
-
-其中的 ProTable ，ProForm ，ProDescriptions 使用了同样的架构，以 valueType 为核心的场景化的格式工具，如果你喜欢可编辑表格，那么你也会喜欢同样的可编辑定义列表，同样的还有只读的表单。
-
-最后如果有什么问题，欢迎来提[ issue](https://github.com/ant-design/pro-components) 和 [吐槽讨论](https://github.com/ant-design/pro-components/discussions)。 ProComponents 还是个新生的组件库，如果有 star 和 PR 那就更加完美。
+![image.png](https://gw.alipayobjects.com/zos/antfincdn/GZ2nXopFf1/image%252520%285%29.png) 如果使用中碰到了任何问题，都可以提 issue，或者直接进行 PR。也许你的想法和意见可以帮助到更多的人。
