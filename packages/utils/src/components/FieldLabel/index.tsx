@@ -91,7 +91,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
         </span>
       );
     }
-    return placeholder || aLabel;
+    return aLabel || placeholder;
   };
   return (
     <span

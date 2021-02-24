@@ -5156,7 +5156,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     <span
                       class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                     >
-                      请输入
+                      地区
                       <span
                         aria-label="down"
                         class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
@@ -5574,7 +5574,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     <span
                       class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                     >
-                      请选择
+                      日期时间
                       <span
                         aria-label="down"
                         class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
@@ -15896,7 +15896,7 @@ Array [
                       <span
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                       >
-                        请输入名称
+                        我方公司名称
                         <span
                           aria-label="down"
                           class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
@@ -15944,7 +15944,7 @@ Array [
                       <span
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                       >
-                        请输入名称
+                        合同名称
                         <span
                           aria-label="down"
                           class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
@@ -16122,7 +16122,7 @@ Array [
                       <span
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                       >
-                        请输入
+                        合同约定失效效方式
                         <span
                           aria-label="down"
                           class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
