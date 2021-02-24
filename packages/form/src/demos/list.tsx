@@ -35,43 +35,6 @@ const Demo = () => {
           console.log('Received values of form:', values);
         }}
       >
-        <ProFormList
-          itemRender={({ listDom, action }) => {
-            return (
-              <div id="test">
-                {listDom}
-                {action}
-              </div>
-            );
-          }}
-          name="users"
-          label="用户信息"
-          initialValue={[
-            {
-              name: '1111',
-              nickName: '1111',
-              tag: [
-                {
-                  name: '1212',
-                },
-              ],
-            },
-            {
-              name: '2222',
-              nickName: '2222',
-              tag: [
-                {
-                  name: '1212',
-                },
-              ],
-            },
-          ]}
-        >
-          <ProFormText name="name" label="姓名" />
-          <ProFormList name="tag" label="标签">
-            <ProFormText name="name" label="姓名" />
-          </ProFormList>
-        </ProFormList>
         <ProFormText width="sm" name="id" label="主合同编号" />
         <ProFormText name="project" width="md" label="项目名称" initialValue="xxxx项目" />
         <ProFormText width="xs" name="mangerName" label="商务经理" initialValue="启途" />
