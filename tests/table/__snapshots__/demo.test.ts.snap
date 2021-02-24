@@ -37100,6 +37100,957 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
 </div>
 `;
 
+exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly 2`] = `
+<div
+  class="ant-pro-card ant-pro-card-contain-card ant-pro-card-split"
+>
+  <div
+    class="ant-pro-card-body"
+  >
+    <div
+      class="ant-pro-card ant-pro-card-split-vertical ant-pro-card-ghost"
+      style="width: 384px; flex-shrink: 0; border-radius: 0;"
+    >
+      <div
+        class="ant-pro-card-body"
+      >
+        <div
+          class="ant-pro-table"
+          id="ant-design-pro-table"
+        >
+          <div
+            class="ant-card"
+            style="height: 100%;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding-top: 0px; padding-bottom: 0px;"
+            >
+              <div
+                class="ant-pro-table-list-toolbar"
+              >
+                <div
+                  class="ant-pro-table-list-toolbar-container"
+                >
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+                  >
+                    <div
+                      class="ant-space-item"
+                    >
+                      <div
+                        class="ant-pro-table-list-toolbar-search"
+                      >
+                        <span
+                          class="ant-input-group-wrapper ant-input-search"
+                          style="width: 200px;"
+                        >
+                          <span
+                            class="ant-input-wrapper ant-input-group"
+                          >
+                            <input
+                              class="ant-input"
+                              placeholder="请输入"
+                              type="text"
+                              value=""
+                            />
+                            <span
+                              class="ant-input-group-addon"
+                            >
+                              <button
+                                class="ant-btn ant-btn-icon-only ant-input-search-button"
+                                type="button"
+                              >
+                                <span
+                                  aria-label="search"
+                                  class="anticon anticon-search"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="search"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                    />
+                                  </svg>
+                                </span>
+                              </button>
+                            </span>
+                          </span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+                  >
+                    <div
+                      class="ant-space-item"
+                    >
+                      <div
+                        class="ant-space ant-space-horizontal ant-space-align-center"
+                      >
+                        <div
+                          class="ant-space-item"
+                        >
+                          <button
+                            class="ant-btn ant-btn-primary"
+                            type="button"
+                          >
+                            <span>
+                              新建项目
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-table-wrapper"
+              >
+                <div
+                  class="ant-spin-nested-loading"
+                >
+                  <div
+                    class="ant-spin-container"
+                  >
+                    <div
+                      class="ant-table ant-table-middle"
+                    >
+                      <div
+                        class="ant-table-container"
+                      >
+                        <div
+                          class="ant-table-content"
+                        >
+                          <table
+                            style="table-layout: auto;"
+                          >
+                            <colgroup />
+                            <thead
+                              class="ant-table-thead"
+                            >
+                              <tr>
+                                <th
+                                  class="ant-table-cell"
+                                >
+                                  IP
+                                </th>
+                                <th
+                                  class="ant-table-cell"
+                                >
+                                  CPU
+                                </th>
+                                <th
+                                  class="ant-table-cell"
+                                >
+                                  Mem
+                                </th>
+                                <th
+                                  class="ant-table-cell"
+                                >
+                                  Disk
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody
+                              class="ant-table-tbody"
+                            >
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.104"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span
+                                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  >
+                                    <span
+                                      class="ant-badge-status-dot ant-badge-status-success"
+                                    />
+                                    <span
+                                      class="ant-badge-status-text"
+                                    >
+                                      106.14.98.104
+                                    </span>
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    10%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    20%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    30%
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.114"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span
+                                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  >
+                                    <span
+                                      class="ant-badge-status-dot ant-badge-status-success"
+                                    />
+                                    <span
+                                      class="ant-badge-status-text"
+                                    >
+                                      106.14.98.114
+                                    </span>
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    10%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    20%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    30%
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.124"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span
+                                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  >
+                                    <span
+                                      class="ant-badge-status-dot ant-badge-status-success"
+                                    />
+                                    <span
+                                      class="ant-badge-status-text"
+                                    >
+                                      106.14.98.124
+                                    </span>
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    10%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    20%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    30%
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.134"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span
+                                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  >
+                                    <span
+                                      class="ant-badge-status-dot ant-badge-status-success"
+                                    />
+                                    <span
+                                      class="ant-badge-status-text"
+                                    >
+                                      106.14.98.134
+                                    </span>
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    10%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    20%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    30%
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.144"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span
+                                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  >
+                                    <span
+                                      class="ant-badge-status-dot ant-badge-status-success"
+                                    />
+                                    <span
+                                      class="ant-badge-status-text"
+                                    >
+                                      106.14.98.144
+                                    </span>
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    10%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    20%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    30%
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.154"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span
+                                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  >
+                                    <span
+                                      class="ant-badge-status-dot ant-badge-status-success"
+                                    />
+                                    <span
+                                      class="ant-badge-status-text"
+                                    >
+                                      106.14.98.154
+                                    </span>
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    10%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    20%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    30%
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.164"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span
+                                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  >
+                                    <span
+                                      class="ant-badge-status-dot ant-badge-status-success"
+                                    />
+                                    <span
+                                      class="ant-badge-status-text"
+                                    >
+                                      106.14.98.164
+                                    </span>
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    10%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    20%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    30%
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.174"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span
+                                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  >
+                                    <span
+                                      class="ant-badge-status-dot ant-badge-status-success"
+                                    />
+                                    <span
+                                      class="ant-badge-status-text"
+                                    >
+                                      106.14.98.174
+                                    </span>
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    10%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    20%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    30%
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.184"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span
+                                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  >
+                                    <span
+                                      class="ant-badge-status-dot ant-badge-status-success"
+                                    />
+                                    <span
+                                      class="ant-badge-status-text"
+                                    >
+                                      106.14.98.184
+                                    </span>
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    10%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    20%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    30%
+                                  </span>
+                                </td>
+                              </tr>
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="106.14.98.194"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span
+                                    class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                                  >
+                                    <span
+                                      class="ant-badge-status-dot ant-badge-status-success"
+                                    />
+                                    <span
+                                      class="ant-badge-status-text"
+                                    >
+                                      106.14.98.194
+                                    </span>
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    10%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    20%
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    30%
+                                  </span>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-card"
+      style="border-radius: 0;"
+    >
+      <div
+        class="ant-pro-card-header"
+      >
+        <div
+          class="ant-pro-card-title"
+        >
+          0.0.0.0
+        </div>
+        <div
+          class="ant-pro-card-extra"
+        />
+      </div>
+      <div
+        class="ant-pro-card-body"
+      >
+        <div
+          class="ant-pro-table"
+          id="ant-design-pro-table"
+        >
+          <div
+            class="ant-card"
+            style="height: 100%;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding: 0px;"
+            >
+              <div
+                class="ant-table-wrapper"
+              >
+                <div
+                  class="ant-spin-nested-loading"
+                >
+                  <div
+                    class="ant-spin-container"
+                  >
+                    <div
+                      class="ant-table ant-table-middle"
+                    >
+                      <div
+                        class="ant-table-container"
+                      >
+                        <div
+                          class="ant-table-content"
+                        >
+                          <table
+                            style="table-layout: auto;"
+                          >
+                            <colgroup>
+                              <col />
+                              <col
+                                style="width: 80px; min-width: 80px;"
+                              />
+                              <col
+                                style="width: 80px; min-width: 80px;"
+                              />
+                            </colgroup>
+                            <thead
+                              class="ant-table-thead"
+                            >
+                              <tr>
+                                <th
+                                  class="ant-table-cell"
+                                >
+                                  时间点
+                                </th>
+                                <th
+                                  class="ant-table-cell"
+                                >
+                                  代码
+                                </th>
+                                <th
+                                  class="ant-table-cell"
+                                >
+                                  操作
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody
+                              class="ant-table-tbody"
+                            >
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="0"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    2016-11-21 23:59:51
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <pre
+                                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                                  >
+                                    <code>
+                                      const getData = async params =&gt; {
+          const data = await getData(params);
+          return { list: data.data, ...data };
+        };
+                                    </code>
+                                  </pre>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <div
+                                    class="ant-space ant-space-horizontal ant-space-align-center"
+                                  >
+                                    <div
+                                      class="ant-space-item"
+                                    >
+                                      <a>
+                                        预警
+                                      </a>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="1"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    2016-11-21 23:59:51
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <pre
+                                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                                  >
+                                    <code>
+                                      const getData = async params =&gt; {
+          const data = await getData(params);
+          return { list: data.data, ...data };
+        };
+                                    </code>
+                                  </pre>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <div
+                                    class="ant-space ant-space-horizontal ant-space-align-center"
+                                  >
+                                    <div
+                                      class="ant-space-item"
+                                    >
+                                      <a>
+                                        预警
+                                      </a>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                              <tr
+                                class="ant-table-row ant-table-row-level-0"
+                                data-row-key="2"
+                              >
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <span>
+                                    2016-11-21 23:59:51
+                                  </span>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <pre
+                                    style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                                  >
+                                    <code>
+                                      const getData = async params =&gt; {
+          const data = await getData(params);
+          return { list: data.data, ...data };
+        };
+                                    </code>
+                                  </pre>
+                                </td>
+                                <td
+                                  class="ant-table-cell"
+                                >
+                                  <div
+                                    class="ant-space ant-space-horizontal ant-space-align-center"
+                                  >
+                                    <div
+                                      class="ant-space-item"
+                                    >
+                                      <a>
+                                        预警
+                                      </a>
+                                    </div>
+                                  </div>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <ul
+                      class="ant-pagination mini ant-table-pagination ant-table-pagination-right"
+                      unselectable="unselectable"
+                    >
+                      <li
+                        class="ant-pagination-total-text"
+                      >
+                        第 1-3 条/总共 15 条
+                      </li>
+                      <li
+                        aria-disabled="true"
+                        class="ant-pagination-prev ant-pagination-disabled"
+                        title="上一页"
+                      >
+                        <button
+                          class="ant-pagination-item-link"
+                          disabled=""
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <span
+                            aria-label="left"
+                            class="anticon anticon-left"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="left"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </li>
+                      <li
+                        class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+                        tabindex="0"
+                        title="1"
+                      >
+                        <a
+                          rel="nofollow"
+                        >
+                          1
+                        </a>
+                      </li>
+                      <li
+                        class="ant-pagination-item ant-pagination-item-2"
+                        tabindex="0"
+                        title="2"
+                      >
+                        <a
+                          rel="nofollow"
+                        >
+                          2
+                        </a>
+                      </li>
+                      <li
+                        class="ant-pagination-item ant-pagination-item-3"
+                        tabindex="0"
+                        title="3"
+                      >
+                        <a
+                          rel="nofollow"
+                        >
+                          3
+                        </a>
+                      </li>
+                      <li
+                        class="ant-pagination-item ant-pagination-item-4"
+                        tabindex="0"
+                        title="4"
+                      >
+                        <a
+                          rel="nofollow"
+                        >
+                          4
+                        </a>
+                      </li>
+                      <li
+                        class="ant-pagination-item ant-pagination-item-5"
+                        tabindex="0"
+                        title="5"
+                      >
+                        <a
+                          rel="nofollow"
+                        >
+                          5
+                        </a>
+                      </li>
+                      <li
+                        aria-disabled="false"
+                        class="ant-pagination-next"
+                        tabindex="0"
+                        title="下一页"
+                      >
+                        <button
+                          class="ant-pagination-item-link"
+                          tabindex="-1"
+                          type="button"
+                        >
+                          <span
+                            aria-label="right"
+                            class="anticon anticon-right"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="right"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                              />
+                            </svg>
+                          </span>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx correctly 1`] = `
 <div
   class="ant-pro-table"
