@@ -128,7 +128,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                 <span
                   class="ant-select-selection-placeholder"
                 >
-                  请选择
+                  Please select a country
                 </span>
               </div>
               <span
@@ -519,7 +519,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                 <span
                   class="ant-select-selection-placeholder"
                 >
-                  请选择
+                  Please select favorite colors
                 </span>
               </div>
             </div>
@@ -6221,7 +6221,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                       <input
                         autocomplete="off"
                         id="time"
-                        placeholder="请选择日期"
+                        placeholder="日期"
                         readonly=""
                         size="12"
                         title=""
@@ -6255,7 +6255,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   <span
                     class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                   >
-                    请选择
+                    日期
                     <span
                       aria-label="down"
                       class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
@@ -8535,7 +8535,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                       <input
                         class="ant-input"
                         id="base_name"
-                        placeholder="请输入"
+                        placeholder="请输入名称"
                         type="text"
                         value=""
                       />
@@ -8770,7 +8770,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     <textarea
                       class="ant-input pro-field-lg"
                       id="base_remark"
-                      placeholder="请输入"
+                      placeholder="请输入备注"
                       rows="3"
                     />
                   </div>
@@ -9740,7 +9740,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                       <input
                         class="ant-input"
                         id="base_name"
-                        placeholder="请输入"
+                        placeholder="请输入名称"
                         type="text"
                         value=""
                       />
@@ -9831,7 +9831,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               <span
                                 class="ant-select-selection-placeholder"
                               >
-                                请选择
+                                选择来源节点
                               </span>
                             </div>
                             <span
@@ -9912,7 +9912,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                               <span
                                 class="ant-select-selection-placeholder"
                               >
-                                请选择
+                                选择目标节点
                               </span>
                             </div>
                             <span
@@ -10107,7 +10107,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           id="base_xs"
                           max="9007199254740991"
                           min="0"
-                          placeholder="请输入"
+                          placeholder="请输入名称"
                           role="spinbutton"
                           step="1"
                           value="9999"
@@ -10147,7 +10147,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                       <input
                         class="ant-input"
                         id="base_s"
-                        placeholder="请输入"
+                        placeholder="请输入名称"
                         type="text"
                         value=""
                       />
@@ -11369,7 +11369,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                       <input
                         class="ant-input"
                         id="base_name"
-                        placeholder="请输入"
+                        placeholder="请输入名称"
                         type="text"
                         value=""
                       />
@@ -11604,7 +11604,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     <textarea
                       class="ant-input pro-field-lg"
                       id="base_remark"
-                      placeholder="请输入"
+                      placeholder="请输入备注"
                       rows="3"
                     />
                   </div>
@@ -12399,7 +12399,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                   <input
                     class="ant-input"
                     id="name"
-                    placeholder="请输入"
+                    placeholder="请输入名称"
                     type="text"
                     value="蚂蚁设计有限公司"
                   />
@@ -12465,7 +12465,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                   <input
                     class="ant-input"
                     id="company"
-                    placeholder="请输入"
+                    placeholder="请输入名称"
                     type="text"
                     value=""
                   />
@@ -12540,7 +12540,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                   <input
                     class="ant-input"
                     id="contract_name"
-                    placeholder="请输入"
+                    placeholder="请输入名称"
                     type="text"
                     value=""
                   />
@@ -13486,7 +13486,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
             <input
               class="ant-input"
               id="name"
-              placeholder="请输入"
+              placeholder="请输入名称"
               type="text"
               value="蚂蚁设计有限公司"
             />
@@ -13570,7 +13570,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
             <input
               class="ant-input"
               id="name2_text"
-              placeholder="请输入"
+              placeholder="请输入名称"
               type="text"
               value=""
             />
@@ -14390,7 +14390,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                         <input
                                           class="ant-input"
                                           id="name"
-                                          placeholder="请输入"
+                                          placeholder="请输入名称"
                                           type="text"
                                           value=""
                                         />
@@ -14456,7 +14456,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                         <input
                                           class="ant-input"
                                           id="company"
-                                          placeholder="请输入"
+                                          placeholder="请输入名称"
                                           type="text"
                                           value=""
                                         />
@@ -14531,7 +14531,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                         <input
                                           class="ant-input"
                                           id="contract_name"
-                                          placeholder="请输入"
+                                          placeholder="请输入名称"
                                           type="text"
                                           value=""
                                         />
@@ -15896,7 +15896,7 @@ Array [
                       <span
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                       >
-                        我方公司名称
+                        请输入名称
                         <span
                           aria-label="down"
                           class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
@@ -15944,7 +15944,7 @@ Array [
                       <span
                         class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
                       >
-                        合同名称
+                        请输入名称
                         <span
                           aria-label="down"
                           class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
@@ -16522,7 +16522,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                       <input
                         class="ant-input"
                         id="base_name"
-                        placeholder="请输入"
+                        placeholder="请输入名称"
                         type="text"
                         value=""
                       />
@@ -16757,7 +16757,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                     <textarea
                       class="ant-input pro-field-lg"
                       id="base_remark"
-                      placeholder="请输入"
+                      placeholder="请输入备注"
                       rows="3"
                     />
                   </div>
@@ -18545,16 +18545,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/login.tsx correctly 1
                     width="1em"
                   >
                     <path
-                      d="M744 64H280c-35.3 0-64 28.7-64 64v768c0 35.3 28.7 64 64 64h464c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64zm-8 824H288V136h448v752z"
-                      fill="#1890ff"
-                    />
-                    <path
-                      d="M288 888h448V136H288v752zm224-142c22.1 0 40 17.9 40 40s-17.9 40-40 40-40-17.9-40-40 17.9-40 40-40z"
-                      fill="#e6f7ff"
-                    />
-                    <path
-                      d="M472 786a40 40 0 1080 0 40 40 0 10-80 0z"
-                      fill="#1890ff"
+                      d="M744 62H280c-35.3 0-64 28.7-64 64v768c0 35.3 28.7 64 64 64h464c35.3 0 64-28.7 64-64V126c0-35.3-28.7-64-64-64zm-8 824H288V134h448v752zM472 784a40 40 0 1080 0 40 40 0 10-80 0z"
                     />
                   </svg>
                 </span>
@@ -18562,7 +18553,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/login.tsx correctly 1
               <input
                 class="ant-input ant-input-lg"
                 id="phone"
-                placeholder="请输入"
+                placeholder="请输入手机号"
                 type="text"
                 value=""
               />
@@ -18632,16 +18623,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/login.tsx correctly 1
                       width="1em"
                     >
                       <path
-                        d="M477.5 536.3L135.9 270.7l-27.5-21.4 27.6 21.5V792h752V270.8L546.2 536.3a55.99 55.99 0 01-68.7 0z"
-                        fill="#e6f7ff"
-                      />
-                      <path
-                        d="M876.3 198.8l39.3 50.5-27.6 21.5 27.7-21.5-39.3-50.5z"
-                        fill="#e6f7ff"
-                      />
-                      <path
-                        d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-94.5 72.1L512 482 190.5 232.1h643zm54.5 38.7V792H136V270.8l-27.6-21.5 27.5 21.4 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5h.1l39.3 50.5-27.7 21.5z"
-                        fill="#1890ff"
+                        d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
                       />
                     </svg>
                   </span>
@@ -18649,6 +18631,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/login.tsx correctly 1
                 <input
                   class="ant-input ant-input-lg"
                   id="captcha"
+                  placeholder="请输入验证码"
                   type="text"
                   value=""
                 />
@@ -18749,7 +18732,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                   <input
                     class="ant-input"
                     id="name"
-                    placeholder="请输入"
+                    placeholder="请输入名称"
                     type="text"
                     value="蚂蚁设计有限公司"
                   />
@@ -18815,7 +18798,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                   <input
                     class="ant-input"
                     id="company"
-                    placeholder="请输入"
+                    placeholder="请输入名称"
                     type="text"
                     value=""
                   />
@@ -19638,7 +19621,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
             <input
               class="ant-input"
               id="name"
-              placeholder="请输入"
+              placeholder="请输入名称"
               type="text"
               value="蚂蚁设计有限公司"
             />
