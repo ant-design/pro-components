@@ -327,6 +327,128 @@ describe('ProForm List', () => {
     });
   });
 
+  it('♨️  ProForm.List itemRender', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values['users'][0]);
+        }}
+      >
+        <ProFormText name="name" label="姓名" />
+        <ProFormList
+          itemRender={({ listDom, action }) => {
+            return (
+              <div id="test">
+                {listDom}
+                {action}
+              </div>
+            );
+          }}
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+            {
+              name: '2222',
+              nickName: '2222',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('#test').exists()).toBe(true);
+  });
+
+  it('♨️  ProForm.List in ProForm.List', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values['users'][0]['tag']);
+        }}
+      >
+        <ProFormText name="name" label="姓名" />
+        <ProFormList
+          itemRender={({ listDom, action }) => {
+            return (
+              <div id="test">
+                {listDom}
+                {action}
+              </div>
+            );
+          }}
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+              tag: [
+                {
+                  name: '1212',
+                },
+              ],
+            },
+            {
+              name: '2222',
+              nickName: '2222',
+              tag: [
+                {
+                  name: '1212',
+                },
+              ],
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+          <ProFormList
+            name="tag"
+            label="标签"
+            creatorRecord={{
+              name: 'test',
+            }}
+          >
+            <ProFormText name="name" label="姓名" />
+          </ProFormList>
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('.ant-pro-form-list .ant-pro-form-list .ant-btn-dashed').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(fn).toBeCalledWith([
+      {
+        name: '1212',
+      },
+      {
+        name: 'test',
+      },
+    ]);
+  });
+
   it('♨️  ProForm.List support ProFormDependency', async () => {
     const fn = jest.fn();
     const html = mount(
