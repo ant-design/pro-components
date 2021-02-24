@@ -43,7 +43,7 @@
 
 "@ant-design/pro-utils@1.13.0":
   version "1.13.0"
-  resolved "https://rcnpm.zhuanspirit.com/@ant-design/pro-utils/download/@ant-design/pro-utils-1.13.0.tgz#f0862de5f59b585a4d9641354805db5c75d11d34"
+  resolved "https://registry.npm.taobao.org/@ant-design/pro-utils/download/@ant-design/pro-utils-1.13.0.tgz#f0862de5f59b585a4d9641354805db5c75d11d34"
   integrity sha1-8IYt5fWbWFpNlkE1SAXbXHXRHTQ=
   dependencies:
     "@ant-design/icons" "^4.3.0"
