@@ -43,6 +43,9 @@ const Demo = () => {
           creatorButtonProps={{
             position,
           }}
+          creatorRecord={{
+            name: 'test',
+          }}
           initialValue={[
             {
               name: '1111',
