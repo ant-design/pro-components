@@ -52,8 +52,6 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     value,
   } = props;
 
-  console.log(props);
-
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName]);
