@@ -10,7 +10,9 @@ import './layout.less';
 moment.locale('zh-cn');
 
 export default ({ children, ...props }: IRouteComponentProps) => {
-  const defaultDarken = localStorage.getItem('defaultDarken');
+  const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark';
+  const defaultDarken = localStorage.getItem('procomponents_dark_theme') || colorScheme;
+
   useEffect(() => {
     (function (h, o, t, j, a, r) {
       // @ts-ignore
@@ -41,7 +43,16 @@ export default ({ children, ...props }: IRouteComponentProps) => {
           zIndex: 999,
         }}
       >
-        <Darkreader defaultDarken={!defaultDarken} />
+        <Darkreader
+          defaultDarken={defaultDarken === 'dark'}
+          onChange={(check) => {
+            if (!check) {
+              localStorage.setItem('procomponents_dark_theme', 'light');
+              return;
+            }
+            localStorage.setItem('procomponents_dark_theme', 'dark');
+          }}
+        />
       </div>
       <ConfigProvider locale={zhCN}>
         <Layout {...props}>{children}</Layout>
