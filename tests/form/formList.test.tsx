@@ -327,6 +327,48 @@ describe('ProForm List', () => {
     });
   });
 
+  it('♨️  ProForm.List itemRender', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values['users'][0]);
+        }}
+      >
+        <ProFormText name="name" label="姓名" />
+        <ProFormList
+          itemRender={({ listDom, action }) => {
+            return (
+              <div id="test">
+                {listDom}
+                {action}
+              </div>
+            );
+          }}
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+            {
+              name: '2222',
+              nickName: '2222',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('#test').exists()).toBe(true);
+  });
+
   it('♨️  ProForm.List support ProFormDependency', async () => {
     const fn = jest.fn();
     const html = mount(
