@@ -595,7 +595,12 @@ const DynamicSettings = () => {
                 dataIndex: 'time',
                 valueType: 'date',
               }, */}
-              <ProCard>
+              <ProCard
+                bordered
+                style={{
+                  marginBottom: 8,
+                }}
+              >
                 <ProFormText
                   rules={[
                     {

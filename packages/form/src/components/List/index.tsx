@@ -126,6 +126,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                             style={{
                               display: 'flex',
                             }}
+                            align="end"
                           >
                             {children}
                             {dom}

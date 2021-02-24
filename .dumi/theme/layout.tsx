@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import Layout from 'dumi-theme-default/src/layout';
 import { ConfigProvider } from 'antd';
 import { IRouteComponentProps } from 'umi';
@@ -10,6 +10,7 @@ import './layout.less';
 moment.locale('zh-cn');
 
 export default ({ children, ...props }: IRouteComponentProps) => {
+  const defaultDarken = localStorage.getItem('defaultDarken');
   useEffect(() => {
     (function (h, o, t, j, a, r) {
       // @ts-ignore
@@ -40,7 +41,7 @@ export default ({ children, ...props }: IRouteComponentProps) => {
           zIndex: 999,
         }}
       >
-        <Darkreader />
+        <Darkreader defaultDarken={!defaultDarken} />
       </div>
       <ConfigProvider locale={zhCN}>
         <Layout {...props}>{children}</Layout>
