@@ -1,5 +1,13 @@
 export default {
   moneySymbol: 'R$',
+  form: {
+    lightFilter: {
+      more: 'Mais',
+      clear: 'Limpar',
+      confirm: 'Confirmar',
+      itemUnit: 'Itens',
+    },
+  },
   tableForm: {
     search: 'Filtrar',
     reset: 'Limpar',
