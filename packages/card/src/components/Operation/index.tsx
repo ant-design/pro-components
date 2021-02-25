@@ -1,29 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
-import getPrefixCls from '../_util/getPrefixCls';
+import { ConfigProvider } from 'antd';
 
-export interface StatisticCardOperationProps {
+import './index.less';
+
+export interface ProCardOperationProps {
   /**
-   * @description 自定义前缀
+   * 自定义前缀
+   *
    * @ignore
    */
   prefixCls?: string;
   /**
-   * @description 样式
+   * 样式
+   *
    * @ignore
    */
   style?: React.CSSProperties;
   /**
-   * @description className
+   * ClassName
+   *
    * @ignore
    */
   className?: string;
 }
 
-const StatisticCardOperation: React.FC<StatisticCardOperationProps> = (props) => {
-  const { prefixCls: customizePrefixCls, className, style = {}, children } = props;
+const ProCardOperation: React.FC<ProCardOperationProps> = (props) => {
+  const { className, style = {}, children } = props;
 
-  const prefixCls = getPrefixCls('statistic-card-operation', customizePrefixCls);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('pro-card-operation');
+
   const classString = classNames(prefixCls, className);
 
   return (
@@ -33,4 +40,4 @@ const StatisticCardOperation: React.FC<StatisticCardOperationProps> = (props) =>
   );
 };
 
-export default StatisticCardOperation;
+export default ProCardOperation;

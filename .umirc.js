@@ -129,7 +129,7 @@ export default {
       },
       {
         title: '布局',
-        children: ['layout', 'PageContainer/index', 'card'],
+        children: ['layout', 'PageContainer/index', 'card', 'StatisticsCard/index'],
       },
       {
         title: '数据录入',

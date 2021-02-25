@@ -1,56 +1,49 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
-import { Statistic, Tooltip, Badge } from 'antd';
-import { BadgeProps } from 'antd/lib/badge';
-import { StatisticProps } from 'antd/lib/statistic/Statistic';
+import { Statistic as AntdStatistic, Tooltip, Badge } from 'antd';
+import type { BadgeProps } from 'antd/lib/badge';
+import type { StatisticProps as AntdStatisticProps } from 'antd/lib/statistic/Statistic';
+import { ConfigProvider } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import getPrefixCls from '../_util/getPrefixCls';
+
+import './index.less';
 
 type ReactNodeFunc = () => React.ReactNode;
 
-export interface TechStatisticProps extends StatisticProps {
+export interface StatisticProps extends AntdStatisticProps {
   /**
-   * @description 自定义前缀
+   * 自定义前缀
+   *
    * @ignore
    */
   prefixCls?: string;
   /**
-   * @description 样式
+   * 样式
+   *
    * @ignore
    */
   style?: React.CSSProperties;
   /**
-   * @description className
+   * ClassName
+   *
    * @ignore
    */
   className?: string;
-  /**
-   * @description 描述性标签
-   */
+  /** 描述性标签 */
   description?: React.ReactNode | ReactNodeFunc;
-  /**
-   * @description 标题提示
-   */
+  /** 标题提示 */
   tip?: React.ReactNode;
-  /**
-   * @description 当前项显示的状态
-   */
+  /** 当前项显示的状态 */
   status?: BadgeProps['status'];
-  /**
-   * @description icon 图标
-   */
+  /** Icon 图标 */
   icon?: React.ReactNode;
-  /**
-   * @description layout 布局
-   */
+  /** Layout 布局 */
   layout?: 'horizontal' | 'vertical' | 'inline';
-  /**
-   * @description 趋势
-   */
+  /** 趋势 */
   trend?: 'up' | 'down';
 }
 
-const TechStatistic: React.FC<TechStatisticProps> = (props) => {
+const Statistic: React.FC<StatisticProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -67,7 +60,8 @@ const TechStatistic: React.FC<TechStatisticProps> = (props) => {
     ...others
   } = props;
 
-  const prefixCls = getPrefixCls('statistic-card-statistic', customizePrefixCls);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('pro-card-statistic');
   const classString = classNames(prefixCls, className);
   const statusClass = classNames(`${prefixCls}-status`);
   const iconClass = classNames(`${prefixCls}-icon`);
@@ -105,7 +99,7 @@ const TechStatistic: React.FC<TechStatisticProps> = (props) => {
       <div className={wrapperClass}>
         {statusDom}
         <div className={contentClass}>
-          <Statistic
+          <AntdStatistic
             title={
               (title || tipDom) && (
                 <>
@@ -132,4 +126,4 @@ const TechStatistic: React.FC<TechStatisticProps> = (props) => {
   );
 };
 
-export default TechStatistic;
+export default Statistic;
