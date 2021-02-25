@@ -71,6 +71,15 @@ export interface SearchSelectProps<T = Record<string, any>>
   resetData: () => void;
 }
 
+type OptionType = {
+  disabled?: boolean;
+  value: React.Key;
+  title?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  label?: React.ReactNode;
+};
+
 const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
   const {
     optionItemRender,
@@ -158,13 +167,20 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
       }}
     >
       {(options || []).map((item) => {
-        const { label, value } = item;
+        const {
+          label,
+          value,
+          disabled: itemDisable,
+          className: itemClassName,
+        } = item as OptionType;
+
         return (
           <Option
             value={value}
             key={value}
+            disabled={itemDisable}
             data-item={item}
-            className={`${prefixCls}-option`}
+            className={`${prefixCls}-option ${itemClassName || ''}`}
             label={item.label}
           >
             {optionItemRender?.(item as any) || label}

@@ -87,7 +87,7 @@ describe('Table valueEnum', () => {
             hideInForm: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
-              1: { text: '运行中', status: 'Processing' },
+              1: { text: '运行中', status: 'Processing', disabled: true },
               2: { text: '已上线', status: 'Success' },
               3: { text: '异常', status: 'Error' },
             },
