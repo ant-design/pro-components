@@ -234,6 +234,14 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   search?: false | SearchConfig;
 
   /**
+   * @type syncToUrl
+   * @name 是否同步table查询条件到url
+   */
+  syncToUrl?:
+    | true
+    | ((values: Record<string, any>, type: 'get' | 'set') => Record<string, any>)
+    | undefined;
+  /**
    * 基本配置与 antd Form 相同, 但是劫持了 form onFinish 的配置
    *
    * @name type="form" 和 搜索表单 的 Form 配置

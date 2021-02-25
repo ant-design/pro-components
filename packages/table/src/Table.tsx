@@ -21,7 +21,7 @@ import {
   ErrorBoundary,
 } from '@ant-design/pro-utils';
 import omit from 'omit.js';
-
+import { useUrlSearchParams } from '@umijs/use-params';
 import useFetchData from './useFetchData';
 import Container from './container';
 import Toolbar from './components/ToolBar';
@@ -101,12 +101,15 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     rowKey,
     manualRequest,
     polling,
+    syncToUrl,
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
 
   const defaultFormRef = useRef();
   const formRef = propRef || defaultFormRef;
+  /** 同步 url 上的参数 */
+  const [urlSearch, setUrlSearch] = useUrlSearchParams({});
 
   useEffect(() => {
     if (typeof propsActionRef === 'function' && actionRef.current) {
@@ -328,6 +331,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     }
   }, [tableColumn]);
 
+  useDeepCompareEffect(() => {
+    if (syncToUrl && typeof syncToUrl === 'function') {
+      formRef.current?.setFieldsValue(syncToUrl(urlSearch, 'get'));
+    }
+  }, [syncToUrl, formRef]);
   const columns = useMemo(() => {
     return tableColumn.filter((item) => {
       // 删掉不应该显示的
@@ -373,6 +381,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (search === false && type !== 'form') {
       return null;
     }
+    // const finalForm = {...rest.form,initialValues:syncToUrl(urlSearch,'get')}
 
     const onSubmit = (value: U, firstLoad: boolean) => {
       if (type !== 'form') {
@@ -390,6 +399,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
           ...pageInfo,
         };
         const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo!));
+        // set url
+        if (syncToUrl) {
+          setUrlSearch({ ...value });
+        }
+
         setFormSearch(omitParams);
         if (!firstLoad) {
           // back first page
@@ -418,6 +432,13 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         Object.keys(pageInfo!),
       );
       setFormSearch(omitParams);
+      // reset url
+      if (syncToUrl) {
+        const resetValues = Object.keys(urlSearch).reduce((acc, cur) => {
+          return { ...acc, [cur]: undefined };
+        }, {});
+        setUrlSearch(resetValues);
+      }
       // back first page
       action.setPageInfo({
         current: 1,
@@ -454,6 +475,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     search,
     setFormSearch,
     type,
+    setUrlSearch,
+    urlSearch,
+    syncToUrl,
   ]);
 
   /** 是不是 LightFilter, LightFilter 有一些特殊的处理 */
