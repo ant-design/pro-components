@@ -1,22 +1,24 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { StatisticCard, ProCard } from '@ant-design/pro-card';
-import { useSize } from 'ahooks';
+import RcResizeObserver from 'rc-resize-observer';
 import MiniProgress from './charts/MiniProgress';
 import SmoothArea from './charts/SmoothArea';
 
 const { Statistic } = StatisticCard;
 
 export default () => {
-  const ref = useRef();
-  const size = useSize(ref);
-
-  const isResponsive = size.width < 640;
+  const [responsive, setResponsive] = useState(false);
 
   return (
-    <div ref={ref}>
+    <RcResizeObserver
+      key="resize-observer"
+      onResize={(offset) => {
+        setResponsive(offset.width < 640);
+      }}
+    >
       <ProCard split="vertical">
         <StatisticCard
-          colSpan={isResponsive ? 12 : 7}
+          colSpan={responsive ? 12 : 7}
           title="财年业绩目标"
           statistic={{
             value: 82.6,
@@ -38,8 +40,8 @@ export default () => {
         />
         <StatisticCard.Group
           gutter={12}
-          colSpan={isResponsive ? 12 : 17}
-          direction={isResponsive ? 'column' : undefined}
+          colSpan={responsive ? 12 : 17}
+          direction={responsive ? 'column' : undefined}
         >
           <StatisticCard
             statistic={{
@@ -88,6 +90,6 @@ export default () => {
           </StatisticCard>
         </StatisticCard.Group>
       </ProCard>
-    </div>
+    </RcResizeObserver>
   );
 };

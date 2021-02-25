@@ -12,12 +12,6 @@ type ReactNodeFunc = () => React.ReactNode;
 
 export interface StatisticProps extends AntdStatisticProps {
   /**
-   * 自定义前缀
-   *
-   * @ignore
-   */
-  prefixCls?: string;
-  /**
    * 样式
    *
    * @ignore
@@ -45,7 +39,6 @@ export interface StatisticProps extends AntdStatisticProps {
 
 const Statistic: React.FC<StatisticProps> = (props) => {
   const {
-    prefixCls: customizePrefixCls,
     className,
     layout = 'inline',
     style = {},

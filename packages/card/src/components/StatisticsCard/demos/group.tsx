@@ -1,18 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { StatisticCard } from '@ant-design/pro-card';
-import { useSize } from 'ahooks';
+import RcResizeObserver from 'rc-resize-observer';
 
 const { Divider } = StatisticCard;
 
 export default () => {
-  const ref = useRef();
-  const size = useSize(ref);
-
-  const isResponsive = size.width < 640;
+  const [responsive, setResponsive] = useState(false);
 
   return (
-    <div ref={ref}>
-      <StatisticCard.Group title="核心指标" direction={isResponsive ? 'column' : undefined}>
+    <RcResizeObserver
+      key="resize-observer"
+      onResize={(offset) => {
+        setResponsive(offset.width < 640);
+      }}
+    >
+      <StatisticCard.Group title="核心指标" direction={responsive ? 'column' : undefined}>
         <StatisticCard
           statistic={{
             title: '今日UV',
@@ -21,7 +23,7 @@ export default () => {
             precision: 2,
           }}
         />
-        <Divider type={isResponsive ? 'horizontal' : 'vertical'} />
+        <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
           statistic={{
             title: '冻结金额',
@@ -30,7 +32,7 @@ export default () => {
             suffix: '元',
           }}
         />
-        <Divider type={isResponsive ? 'horizontal' : 'vertical'} />
+        <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
           statistic={{
             title: '信息完整度',
@@ -47,6 +49,6 @@ export default () => {
           }}
         />
       </StatisticCard.Group>
-    </div>
+    </RcResizeObserver>
   );
 };

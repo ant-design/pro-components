@@ -113,11 +113,11 @@ nav:
 ### StatisticCard
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
-| title | 卡片标题 | `string\|ReactNode` | - |  |
-| extra | 卡片右上角的操作区域 | `string\|ReactNode` | - |  |
-| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  |
-| bordered | 是否有边框 | boolean | true |  |
+| --- | --- | --- | --- |
+| title | 卡片标题 | `string\|ReactNode` | - |
+| extra | 卡片右上角的操作区域 | `string\|ReactNode` | - |
+| loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |
+| bordered | 是否有边框 | boolean | true |
 | chart | 图表卡片 | ReactNode | - |
 | statistic | 数值统计配置，布局默认为 `vertical` | 参数见下 Statistic | - |
 | chartPlacement | 图表位置，相对于 statistic 的位置 | `left \| right \| bottom` | - |
@@ -128,15 +128,15 @@ nav:
 ### Statistic
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
-| prefix | 设置数值的前缀 | string \| ReactNode | - |  |
-| suffix | 设置数值的后缀 | string \| ReactNode | - |  |
-| title | 数值的标题 | string \| ReactNode | - |  |
-| tip | 标题提示 | string\| ReactNode | - | - |
-| value | 数值内容 | string \| number | - |  |
+| --- | --- | --- | --- |
+| prefix | 设置数值的前缀 | string \| ReactNode | - |
+| suffix | 设置数值的后缀 | string \| ReactNode | - |
+| title | 数值的标题 | string \| ReactNode | - |
+| tip | 标题提示 | string\| ReactNode | - |
+| value | 数值内容 | string \| number | - |
 | icon | 图标 | ReactNode | - |
 | status | 设置状态点, 同 Badge 组件 | `Enum{ 'success', 'processing, 'default', 'error', 'warning' }` | - |
-| valueStyle | 设置数值的样式 | style | - |  |
+| valueStyle | 设置数值的样式 | style | - |
 | description | 描述性标签 | React.ReactNode \| () => React.ReactNode | - |
 | layout | 布局 | `horizontal \| vertical \| inline` | `inline` |
 | trend | 趋势 | `up \| down \|` | - |
