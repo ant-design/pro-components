@@ -40,4 +40,16 @@ export default {
     densityMiddle: 'Médio',
     densitySmall: 'Compacto',
   },
+  stepsForm: {
+    next: 'Próximo',
+    prev: 'Anterior',
+    submit: 'Enviar'
+  },
+  editableTable: {
+    action: {
+      save: 'Salvar',
+      cancel: 'Cancelar',
+      delete: 'Apagar'
+    }
+  }
 };
