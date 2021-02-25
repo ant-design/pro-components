@@ -136,6 +136,7 @@ export default {
         children: [
           'form',
           'FieldSet/index',
+          'Group/index',
           'QueryFilter/index',
           'StepsForm/index',
           'ModalForm/index',
@@ -164,6 +165,7 @@ export default {
         children: [
           'form',
           'FieldSet/index',
+          'Group/index',
           'QueryFilter/index',
           'StepsForm/index',
           'ModalForm/index',

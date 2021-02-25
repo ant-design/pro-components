@@ -16,7 +16,7 @@ const Demo = () => {
         ]}
         itemRender={({ listDom, action }, { record }) => {
           return (
-            <ProCard bordered extra={action} title={record.name}>
+            <ProCard bordered extra={action} title={record?.name}>
               {listDom}
             </ProCard>
           );
