@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.5.3
+
+`2021-02-25`
+
+- 🐛 fix(list): list selectedRow [#1967](https://github.com/ant-design/pro-components/pull/1967) [@xiaohuoni](https://github.com/xiaohuoni)
+
 ## @ant-design/pro-list@1.5.1
 
 `2021-02-22`

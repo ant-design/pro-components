@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.16.2
+
+`2021-02-25`
+
+- 🐛 fix(form): fix ligthfilter label error [#1998](https://github.com/ant-design/pro-components/pull/1998) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): form list support formlist [#1995](https://github.com/ant-design/pro-components/pull/1995) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix placeholder no work error [#1991](https://github.com/ant-design/pro-components/pull/1991) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.16.1
 
 `2021-02-23`

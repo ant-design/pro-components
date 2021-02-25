@@ -1,18 +1,12 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
 ## [2.30.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.1...@ant-design/pro-table@2.30.2) (2021-02-25)
 
-
 ### Bug Fixes
 
-* **form:** form list support formlist ([#1995](https://github.com/ant-design/pro-components/issues/1995)) ([94e5d7b](https://github.com/ant-design/pro-components/commit/94e5d7b28bf0d2677da2dab2afbb1388bfaa9502))
-
-
-
-
+- **form:** form list support formlist ([#1995](https://github.com/ant-design/pro-components/issues/1995)) ([94e5d7b](https://github.com/ant-design/pro-components/commit/94e5d7b28bf0d2677da2dab2afbb1388bfaa9502))
 
 ## [2.30.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.0...@ant-design/pro-table@2.30.1) (2021-02-23)
 
