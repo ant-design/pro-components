@@ -1,6 +1,20 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.13.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.13.0...@ant-design/pro-utils@1.13.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* **form:** fix ligthfilter label error ([#1998](https://github.com/ant-design/pro-components/issues/1998)) ([e75cd37](https://github.com/ant-design/pro-components/commit/e75cd37aa32301a438b9bcd903d7656964b43183))
+* **utils:** fix if condition in conversionSubmitValue ([#1983](https://github.com/ant-design/pro-components/issues/1983)) ([f24cd70](https://github.com/ant-design/pro-components/commit/f24cd704f84927964f209630cae4d492711c9668))
+* **utils:** new isUrl function copied from '@umijs/route-utils' ([#1996](https://github.com/ant-design/pro-components/issues/1996)) ([30a3fd3](https://github.com/ant-design/pro-components/commit/30a3fd37b67b07869263d12dbb511694fc08bf48))
+
+
+
+
 
 # [1.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.12.0...@ant-design/pro-utils@1.13.0) (2021-02-22)
 

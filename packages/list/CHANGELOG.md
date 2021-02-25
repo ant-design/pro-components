@@ -1,6 +1,18 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.2...@ant-design/pro-list@1.5.3) (2021-02-25)
+
+
+### Bug Fixes
+
+* **list:** list selectedRow ([#1967](https://github.com/ant-design/pro-components/issues/1967)) ([c582639](https://github.com/ant-design/pro-components/commit/c5826392a6b8be8808a5cb5f82c6a0b759197374))
+
+
+
+
 
 ## [1.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.1...@ant-design/pro-list@1.5.2) (2021-02-23)
 

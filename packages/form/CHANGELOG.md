@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.16.1...@ant-design/pro-form@1.16.2) (2021-02-25)
+
+
+### Bug Fixes
+
+* **form:** fix placeholder no work error ([#1991](https://github.com/ant-design/pro-components/issues/1991)) ([353c49d](https://github.com/ant-design/pro-components/commit/353c49dc0b44e193681f38366774a4040982e521))
+* **form:** form list support formlist ([#1995](https://github.com/ant-design/pro-components/issues/1995)) ([94e5d7b](https://github.com/ant-design/pro-components/commit/94e5d7b28bf0d2677da2dab2afbb1388bfaa9502))
+
+
+
+
 
 ## [1.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.16.0...@ant-design/pro-form@1.16.1) (2021-02-23)
 

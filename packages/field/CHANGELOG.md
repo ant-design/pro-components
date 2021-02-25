@@ -1,6 +1,19 @@
 # Change Log
 
-All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [1.10.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.10.1...@ant-design/pro-field@1.10.2) (2021-02-25)
+
+
+### Bug Fixes
+
+* **form:** fix placeholder no work error ([#1991](https://github.com/ant-design/pro-components/issues/1991)) ([353c49d](https://github.com/ant-design/pro-components/commit/353c49dc0b44e193681f38366774a4040982e521))
+* **from:** should support disable ([#2002](https://github.com/ant-design/pro-components/issues/2002)) ([d63ef16](https://github.com/ant-design/pro-components/commit/d63ef1615a3b5cc416b925c7ab6316e7d0389b44))
+
+
+
+
 
 ## [1.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.10.0...@ant-design/pro-field@1.10.1) (2021-02-23)
 
