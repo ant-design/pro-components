@@ -16,10 +16,16 @@ export type ProFormDependencyProps = Omit<
   'name' | 'noStyle' | 'children' | 'label'
 > & {
   name: NamePath[];
+  ignoreFormListField?: boolean;
   children: RenderChildren;
 };
 
-const ProFormDependency: React.FC<ProFormDependencyProps> = ({ name, children, ...rest }) => {
+const ProFormDependency: React.FC<ProFormDependencyProps> = ({
+  name,
+  children,
+  ignoreFormListField,
+  ...rest
+}) => {
   // ProFromList 的 filed，里面有name和key
   const formListField = useContext(FormListContext);
   /**
@@ -29,12 +35,12 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({ name, children, .
    */
   const getNamePath = useCallback(
     (itemName: NamePath) => {
-      if (formListField.name === undefined) {
+      if (formListField.name === undefined || ignoreFormListField) {
         return [itemName].flat(1) as string[];
       }
       return [formListField.listName, formListField.name, itemName].flat(1) as string[];
     },
-    [formListField.listName, formListField.name],
+    [formListField.listName, formListField.name, ignoreFormListField],
   );
 
   const names = useMemo(() => {

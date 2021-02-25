@@ -2,7 +2,7 @@
 import React, { useContext, useMemo } from 'react';
 import type { ButtonProps } from 'antd';
 import omit from 'omit.js';
-import { Button, Form, Space, Tooltip, ConfigProvider } from 'antd';
+import { Button, Form, Tooltip, ConfigProvider } from 'antd';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -38,15 +38,17 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
   actionRender?: (
     field: FormListFieldData,
     action: FormListOperation,
-    defaultActionDom: ReactNode,
+    defaultActionDom: ReactNode[],
   ) => ReactNode[];
   children: ReactNode | ChildrenFunction;
   /** 自定义Item，可以用来将 action 放到别的地方 */
   itemRender?: (
     doms: { listDom: ReactNode; action: ReactNode },
     listMeta: {
+      field: FormListFieldData;
       fields: FormListFieldData[];
       operation: FormListOperation;
+      record: Record<string, any>;
       meta: {
         errors: React.ReactNode[];
       };
@@ -83,24 +85,22 @@ const ProFormList: React.FC<ProFormListProps> = ({
             <Form.List {...rest} name={name}>
               {(fields, action, meta) => {
                 const creatorButton = creatorButtonProps !== false && (
-                  <Form.Item>
-                    <Button
-                      className={`${baseClassName}-creator-button-${
-                        creatorButtonProps?.position || 'bottom'
-                      }`}
-                      type="dashed"
-                      block
-                      icon={<PlusOutlined />}
-                      {...omit(creatorButtonProps || {}, ['position', 'creatorButtonText'])}
-                      onClick={() => {
-                        let index;
-                        if (creatorButtonProps?.position === 'top') index = 0;
-                        action.add(creatorRecord, index);
-                      }}
-                    >
-                      {creatorButtonProps?.creatorButtonText || '添加一行数据'}
-                    </Button>
-                  </Form.Item>
+                  <Button
+                    className={`${baseClassName}-creator-button-${
+                      creatorButtonProps?.position || 'bottom'
+                    }`}
+                    type="dashed"
+                    block
+                    icon={<PlusOutlined />}
+                    {...omit(creatorButtonProps || {}, ['position', 'creatorButtonText'])}
+                    onClick={() => {
+                      let index;
+                      if (creatorButtonProps?.position === 'top') index = 0;
+                      action.add(creatorRecord, index);
+                    }}
+                  >
+                    {creatorButtonProps?.creatorButtonText || '添加一行数据'}
+                  </Button>
                 );
                 if (typeof children === 'function') {
                   return (children as ChildrenFunction)(fields, action, meta);
@@ -115,26 +115,27 @@ const ProFormList: React.FC<ProFormListProps> = ({
                       creatorButtonProps?.position === 'top' &&
                       creatorButton}
                     {fields.map((field) => {
-                      const defaultActionDom = (
+                      const defaultActionDom = [
+                        <Tooltip title="复制此行" key="copy">
+                          <CopyOutlined
+                            className={`${baseClassName}-action-icon`}
+                            onClick={() => {
+                              action.add(getFieldValue([rest.name, field.key].flat(1)));
+                            }}
+                          />
+                        </Tooltip>,
+                        <Tooltip title="删除此行" key="delete">
+                          <DeleteOutlined
+                            className={`${baseClassName}-action-icon`}
+                            onClick={() => action.remove(field.name)}
+                          />
+                        </Tooltip>,
+                      ];
+                      const dom = (
                         <div className={`${baseClassName}-action`}>
-                          <Tooltip title="复制此行">
-                            <CopyOutlined
-                              className={`${baseClassName}-action-icon`}
-                              onClick={() => {
-                                action.add(getFieldValue([rest.name, field.key].flat(1)));
-                              }}
-                            />
-                          </Tooltip>
-                          <Tooltip title="删除此行">
-                            <DeleteOutlined
-                              className={`${baseClassName}-action-icon`}
-                              onClick={() => action.remove(field.name)}
-                            />
-                          </Tooltip>
+                          {actionRender?.(field, action, defaultActionDom) || defaultActionDom}
                         </div>
                       );
-                      const dom =
-                        actionRender?.(field, action, defaultActionDom) || defaultActionDom;
 
                       const contentDom = itemRender?.(
                         {
@@ -142,20 +143,22 @@ const ProFormList: React.FC<ProFormListProps> = ({
                           action: dom,
                         },
                         {
+                          field,
+                          record: getFieldValue([rest.name, field.key].flat(1)),
                           fields,
                           operation: action,
                           meta,
                         },
                       ) || (
-                        <Space
+                        <div
                           style={{
                             display: 'flex',
+                            alignItems: 'flex-end',
                           }}
-                          align="end"
                         >
                           <div className={`${baseClassName}-container`}>{children}</div>
                           {dom}
-                        </Space>
+                        </div>
                       );
 
                       return (

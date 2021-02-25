@@ -70,8 +70,8 @@ const replyCommit = async (issueId, markdown) => {
 const reply = async () => {
   const issueId = process.env.ISSUE_NUMBER;
   const issue = await findIssue(issueId);
-  if (!issue.title || issue.title.length < 6) {
-    replyCommit(issueId, '**请写标题！**');
+  if (!issue.title || issue.title.length < 12) {
+    replyCommit(issueId, '**请写一个可读的标题！**');
     closeIssue(issueId);
     return;
   }

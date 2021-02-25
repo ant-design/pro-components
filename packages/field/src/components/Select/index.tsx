@@ -9,13 +9,14 @@ import React, {
 } from 'react';
 import type { SelectProps } from 'antd';
 import { Space, Spin, ConfigProvider } from 'antd';
-import {
+import type {
   ProFieldRequestData,
   ProFieldValueEnumType,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
-  useDebounceFn,
 } from '@ant-design/pro-utils';
+
+import { useDebounceFn } from '@ant-design/pro-utils';
 import { useDeepCompareEffect } from '@ant-design/pro-utils';
 import useSWR from 'swr';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
