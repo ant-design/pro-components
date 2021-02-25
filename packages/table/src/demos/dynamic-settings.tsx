@@ -589,88 +589,106 @@ const DynamicSettings = () => {
             key="tab4"
             tab="列配置"
           >
-            <ProFormList name="columns">
+            <ProFormList
+              name="columns"
+              itemRender={({ listDom, action }) => {
+                return (
+                  <ProCard
+                    bordered
+                    style={{
+                      marginBottom: 8,
+                      position: 'relative',
+                    }}
+                  >
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: -2,
+                        right: 4,
+                      }}
+                    >
+                      {action}
+                    </div>
+                    {listDom}
+                  </ProCard>
+                );
+              }}
+            >
               {/*  {
                 title: 'time',
                 dataIndex: 'time',
                 valueType: 'date',
               }, */}
-              <ProCard
-                bordered
+
+              <ProFormText
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+                name="title"
+                label="标题"
+              />
+              <ProFormGroup
                 style={{
-                  marginBottom: 8,
+                  marginTop: 8,
                 }}
               >
-                <ProFormText
-                  rules={[
-                    {
-                      required: true,
-                    },
-                  ]}
-                  name="title"
-                  label="标题"
+                <ProFormSwitch label="过长省略" name="ellipsis" />
+                <ProFormSwitch label="复制按钮" name="copyable" />
+              </ProFormGroup>
+              <ProFormGroup
+                style={{
+                  marginTop: 8,
+                }}
+                size={8}
+              >
+                <ProFormSelect
+                  label="dataIndex"
+                  width="xs"
+                  name="dataIndex"
+                  valueEnum={{
+                    age: 'age',
+                    address: 'address',
+                    name: 'name',
+                    time: 'time',
+                    description: 'string',
+                  }}
                 />
-                <ProFormGroup
-                  style={{
-                    marginTop: 8,
-                  }}
-                >
-                  <ProFormSwitch label="过长省略" name="ellipsis" />
-                  <ProFormSwitch label="复制按钮" name="copyable" />
-                </ProFormGroup>
-                <ProFormGroup
-                  style={{
-                    marginTop: 8,
-                  }}
-                  size={8}
-                >
-                  <ProFormSelect
-                    label="dataIndex"
-                    width="xs"
-                    name="dataIndex"
-                    valueEnum={{
-                      age: 'age',
-                      address: 'address',
-                      name: 'name',
-                      time: 'time',
-                      description: 'string',
-                    }}
-                  />
-                  <ProFormSelect
-                    width="xs"
-                    label="值类型"
-                    name="valueType"
-                    options={valueTypeArray.map((value) => ({
-                      label: value,
-                      value,
-                    }))}
-                  />
-                </ProFormGroup>
-                <ProFormDependency name={['valueType', 'valueEnum']}>
-                  {({ valueType, valueEnum }) => {
-                    if (valueType !== 'select') {
-                      return null;
-                    }
-                    return (
-                      <ProFormTextArea
-                        formItemProps={{
-                          style: {
-                            marginTop: 8,
-                          },
-                        }}
-                        fieldProps={{
-                          value: JSON.stringify(valueEnum),
-                        }}
-                        normalize={(value) => {
-                          return JSON.parse(value);
-                        }}
-                        label="数据枚举"
-                        name="valueEnum"
-                      />
-                    );
-                  }}
-                </ProFormDependency>
-              </ProCard>
+                <ProFormSelect
+                  width="xs"
+                  label="值类型"
+                  name="valueType"
+                  options={valueTypeArray.map((value) => ({
+                    label: value,
+                    value,
+                  }))}
+                />
+              </ProFormGroup>
+              <ProFormDependency name={['valueType', 'valueEnum']}>
+                {({ valueType, valueEnum }) => {
+                  if (valueType !== 'select') {
+                    return null;
+                  }
+                  return (
+                    <ProFormTextArea
+                      formItemProps={{
+                        style: {
+                          marginTop: 8,
+                        },
+                      }}
+                      fieldProps={{
+                        value: JSON.stringify(valueEnum),
+                      }}
+                      normalize={(value) => {
+                        return JSON.parse(value);
+                      }}
+                      label="数据枚举"
+                      name="valueEnum"
+                    />
+                  );
+                }}
+              </ProFormDependency>
             </ProFormList>
           </ProCard.TabPane>
         </ProCard>

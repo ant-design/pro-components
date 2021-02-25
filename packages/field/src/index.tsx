@@ -334,6 +334,7 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
       rest?.fieldProps?.onChange?.(...restParams);
     },
   };
+
   return (
     <React.Fragment>
       {defaultRenderText(
@@ -343,7 +344,7 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
           ...rest,
           mode: rest.mode || 'read',
           ref,
-          placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+          placeholder: rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
           fieldProps: pickProProps(fieldProps),
         },
         context.valueTypeMap,

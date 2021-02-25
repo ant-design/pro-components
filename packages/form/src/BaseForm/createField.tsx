@@ -100,6 +100,7 @@ function createField<P extends ProFormItemProps = any>(
       formItemProps: propsFormItemProps,
       ...rest
     } = props;
+
     const {
       valueType,
       customLightMode,
@@ -124,6 +125,7 @@ function createField<P extends ProFormItemProps = any>(
     const realFieldProps = {
       ...(ignoreFormItem ? formNeedProps : {}),
       disabled: props.disabled,
+      placeholder,
       ...(fieldProps || {}),
       ...(rest.fieldProps || {}),
       style: {
