@@ -168,7 +168,7 @@ Array [
 exports[`Table ColumnSetting 🎏 config provide render 1`] = `
 <div
   class="qixian-pro-table"
-  id="ant-design-pro-table"
+  id="qixian-pro-table-wrapper"
 >
   <div
     class="qixian-pro-table-search qixian-pro-table-search-query-filter"

@@ -3,7 +3,7 @@
 exports[`BasicTable 🎏 base use 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"
@@ -7170,7 +7170,7 @@ exports[`BasicTable 🎏 base use 1`] = `
 exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter ant-card-bordered"
@@ -8331,7 +8331,7 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
 exports[`BasicTable 🎏 bordered = true 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter ant-card-bordered"
@@ -9492,7 +9492,7 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
 exports[`BasicTable 🎏 columns = undefined 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"
@@ -9731,7 +9731,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
 exports[`BasicTable 🎏 do not render Search 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -16391,7 +16391,7 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
 exports[`BasicTable 🎏 do not render default option 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"
@@ -17171,7 +17171,7 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
 exports[`BasicTable 🎏 do not render setting 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"
@@ -18051,7 +18051,7 @@ exports[`BasicTable 🎏 page error test 1`] = `
 exports[`BasicTable 🎏 valueEnum support function 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"

@@ -1,8 +1,9 @@
 import './index.less';
 
-import React from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import type { WithFalse } from '../../typings';
+import { Upload, ConfigProvider } from 'antd';
 
 export type GlobalFooterProps = {
   links?: WithFalse<
@@ -19,20 +20,19 @@ export type GlobalFooterProps = {
   className?: string;
 };
 
-export default ({
-  className,
-  prefixCls = 'ant-pro',
-  links,
-  copyright,
-  style,
-}: GlobalFooterProps) => {
+export default ({ className, prefixCls, links, copyright, style }: GlobalFooterProps) => {
+  const context = useContext(ConfigProvider.ConfigContext);
+  const baseClassName = prefixCls
+    ? `${prefixCls}-global-footer`
+    : context.getPrefixCls('pro-global-footer');
+
   if (
     (links == null || links === false || (Array.isArray(links) && links.length === 0)) &&
     (copyright == null || copyright === false)
   ) {
     return null;
   }
-  const baseClassName = `${prefixCls}-global-footer`;
+
   const clsString = classNames(baseClassName, className);
   return (
     <div className={clsString} style={style}>

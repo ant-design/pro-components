@@ -3,7 +3,7 @@
 exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -491,7 +491,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
 exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.position 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -985,7 +985,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
 exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -1441,7 +1441,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
 exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -1792,7 +1792,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
 exports[`EditorProTable 📝 columns support editable test 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -1990,7 +1990,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
 exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"

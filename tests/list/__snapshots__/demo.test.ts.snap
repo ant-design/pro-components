@@ -3,7 +3,7 @@
 exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -691,7 +691,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
 exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correctly 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -1664,7 +1664,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
 exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctly 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -2231,7 +2231,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
 exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -2835,7 +2835,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
 exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -3301,7 +3301,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
 exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -4161,7 +4161,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
 exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correctly 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -5229,7 +5229,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
 exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx correctly 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -5979,7 +5979,7 @@ Array [
   <br />,
   <div
     class="ant-pro-table ant-pro-list ant-pro-list"
-    id="ant-design-pro-table"
+    id="ant-pro-table-wrapper"
   >
     <div
       class="ant-card"
@@ -6504,7 +6504,7 @@ Array [
 exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
+  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
