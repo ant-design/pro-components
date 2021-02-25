@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { StatisticCard, ProCard } from '@ant-design/pro-card';
-import { useSize } from 'ahooks';
+import RcResizeObserver from 'rc-resize-observer';
 import Ring from './charts/Ring';
 import Line from './charts/Line';
 import ChartTable from './charts/ChartTable';
@@ -8,17 +8,19 @@ import ChartTable from './charts/ChartTable';
 const { Statistic } = StatisticCard;
 
 export default () => {
-  const ref = useRef();
-  const size = useSize(ref);
-
-  const isResponsive = size.width < 640;
+  const [responsive, setResponsive] = useState(false);
 
   return (
-    <div ref={ref}>
+    <RcResizeObserver
+      key="resize-observer"
+      onResize={(offset) => {
+        setResponsive(offset.width < 640);
+      }}
+    >
       <ProCard
         title="数据概览"
         extra="2019年9月28日 星期五"
-        split={isResponsive ? 'horizontal' : 'vertical'}
+        split={responsive ? 'horizontal' : 'vertical'}
         headerBordered
         bordered
       >
@@ -69,6 +71,6 @@ export default () => {
           }
         />
       </ProCard>
-    </div>
+    </RcResizeObserver>
   );
 };

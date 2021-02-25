@@ -1,22 +1,24 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { StatisticCard } from '@ant-design/pro-card';
-import { useSize } from 'ahooks';
+import RcResizeObserver from 'rc-resize-observer';
 import MiniColumn from './charts/MiniColumn';
 import MiniRing from './charts/MiniRing';
 
 const { Divider, Statistic } = StatisticCard;
 
 export default () => {
-  const ref = useRef();
-  const size = useSize(ref);
-
-  const isResponsive = size.width < 640;
+  const [responsive, setResponsive] = useState(false);
 
   return (
-    <div ref={ref}>
+    <RcResizeObserver
+      key="resize-observer"
+      onResize={(offset) => {
+        setResponsive(offset.width < 640);
+      }}
+    >
       <StatisticCard.Group
         title="分组指标带图表-横向"
-        direction={isResponsive ? 'column' : undefined}
+        direction={responsive ? 'column' : undefined}
       >
         <StatisticCard
           statistic={{
@@ -29,7 +31,7 @@ export default () => {
           chart={<MiniColumn height={80} />}
           chartPlacement="right"
         />
-        <Divider type={isResponsive ? 'horizontal' : 'vertical'} />
+        <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
           statistic={{
             title: '信息完成度',
@@ -41,6 +43,6 @@ export default () => {
           chartPlacement="right"
         />
       </StatisticCard.Group>
-    </div>
+    </RcResizeObserver>
   );
 };

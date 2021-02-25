@@ -6,12 +6,6 @@ import './index.less';
 
 export interface ProCardOperationProps {
   /**
-   * 自定义前缀
-   *
-   * @ignore
-   */
-  prefixCls?: string;
-  /**
    * 样式
    *
    * @ignore

@@ -51,6 +51,6 @@
   ],
   "devDependencies": {
     "@ant-design/charts": "^1.0.18",
-    "ahooks": "^2.9.6"
+    "rc-resize-observer": "^0.2.3"
   }
 }

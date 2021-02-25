@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { StatisticCard } from '@ant-design/pro-card';
-import { useSize } from 'ahooks';
-
+import RcResizeObserver from 'rc-resize-observer';
 import MiniArea from './charts/MiniArea';
 import MiniColumn from './charts/MiniColumn';
 import MiniProgress from './charts/MiniProgress';
@@ -9,14 +8,16 @@ import MiniProgress from './charts/MiniProgress';
 const { Divider } = StatisticCard;
 
 export default () => {
-  const ref = useRef();
-  const size = useSize(ref);
-
-  const isResponsive = size.width < 640;
+  const [responsive, setResponsive] = useState(false);
 
   return (
-    <div ref={ref}>
-      <StatisticCard.Group title="分组指标带图表" direction={isResponsive ? 'column' : undefined}>
+    <RcResizeObserver
+      key="resize-observer"
+      onResize={(offset) => {
+        setResponsive(offset.width < 640);
+      }}
+    >
+      <StatisticCard.Group title="分组指标带图表" direction={responsive ? 'column' : undefined}>
         <StatisticCard
           statistic={{
             title: '冻结金额',
@@ -26,7 +27,7 @@ export default () => {
           }}
           chart={<MiniColumn height={50} />}
         />
-        <Divider type={isResponsive ? 'horizontal' : 'vertical'} />
+        <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
           statistic={{
             title: '设计资源数',
@@ -34,7 +35,7 @@ export default () => {
           }}
           chart={<MiniArea height={50} />}
         />
-        <Divider type={isResponsive ? 'horizontal' : 'vertical'} />
+        <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
           statistic={{
             title: '信息完成度',
@@ -44,6 +45,6 @@ export default () => {
           chart={<MiniProgress />}
         />
       </StatisticCard.Group>
-    </div>
+    </RcResizeObserver>
   );
 };

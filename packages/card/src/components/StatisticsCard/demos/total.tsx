@@ -1,19 +1,21 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import { StatisticCard } from '@ant-design/pro-card';
-import { useSize } from 'ahooks';
+import RcResizeObserver from 'rc-resize-observer';
 import MiniRing from './charts/MiniRing';
 
 const { Statistic, Divider } = StatisticCard;
 
 export default () => {
-  const ref = useRef();
-  const size = useSize(ref);
-
-  const isResponsive = size.width < 640;
+  const [responsive, setResponsive] = useState(false);
 
   return (
-    <div ref={ref}>
-      <StatisticCard.Group title="核心指标" direction={isResponsive ? 'column' : undefined}>
+    <RcResizeObserver
+      key="resize-observer"
+      onResize={(offset) => {
+        setResponsive(offset.width < 640);
+      }}
+    >
+      <StatisticCard.Group title="核心指标" direction={responsive ? 'column' : undefined}>
         <StatisticCard
           colSpan={{}}
           statistic={{
@@ -21,7 +23,7 @@ export default () => {
             value: 601986875,
           }}
         />
-        <Divider type={isResponsive ? 'horizontal' : 'vertical'} />
+        <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
           statistic={{
             title: '付费流量',
@@ -63,6 +65,6 @@ export default () => {
           chartPlacement="left"
         />
       </StatisticCard.Group>
-    </div>
+    </RcResizeObserver>
   );
 };
