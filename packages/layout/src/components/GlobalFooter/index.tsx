@@ -22,9 +22,7 @@ export type GlobalFooterProps = {
 
 export default ({ className, prefixCls, links, copyright, style }: GlobalFooterProps) => {
   const context = useContext(ConfigProvider.ConfigContext);
-  const baseClassName = prefixCls
-    ? `${prefixCls}-global-footer`
-    : context.getPrefixCls('pro-global-footer');
+  const baseClassName = context.getPrefixCls(prefixCls || 'pro-global-footer');
 
   if (
     (links == null || links === false || (Array.isArray(links) && links.length === 0)) &&

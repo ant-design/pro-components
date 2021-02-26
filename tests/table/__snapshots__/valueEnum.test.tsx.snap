@@ -3,7 +3,6 @@
 exports[`Table valueEnum 🎏 customization valueType 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"

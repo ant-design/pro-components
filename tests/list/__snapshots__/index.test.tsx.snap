@@ -3,7 +3,6 @@
 exports[`List 🚏 only has content 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"
@@ -95,7 +94,6 @@ exports[`List 🚏 only has content 1`] = `
 exports[`List 🚏 only has description 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-pro-table-wrapper"
 >
   <div
     class="ant-card"

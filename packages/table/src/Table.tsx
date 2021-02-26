@@ -67,8 +67,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     defaultClassName: string;
   },
 ) => {
-  const context = useContext(ConfigProvider.ConfigContext);
-  const baseClassName = context.getPrefixCls('pro-table');
   const {
     cardBordered,
     request,
@@ -683,7 +681,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       className={classNames(className, {
         [`${className}-polling`]: action.pollingLoading,
       })}
-      id={`${baseClassName}-wrapper`}
       style={style}
       ref={rootRef}
     >
