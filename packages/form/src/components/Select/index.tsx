@@ -64,10 +64,10 @@ const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps>(
 );
 
 const SearchSelect = React.forwardRef<any, ProFormSelectProps>(
-  ({ fieldProps, children, params, proFieldProps, mode, valueEnum, request, options }, ref) => {
+  ({ fieldProps, children, params, proFieldProps, valueEnum, request, options }, ref) => {
     const props: SelectProps<any> = {
       options,
-      mode,
+      mode: 'multiple',
       labelInValue: true,
       showSearch: true,
       showArrow: false,
