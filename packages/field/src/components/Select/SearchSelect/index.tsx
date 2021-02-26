@@ -148,7 +148,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
           : undefined
       }
       onChange={(value, optionList, ...rest) => {
-        if (!props.labelInValue) {
+        if (!props.labelInValue || mode !== 'multiple') {
           onChange?.(value, optionList, ...rest);
           return;
         }
