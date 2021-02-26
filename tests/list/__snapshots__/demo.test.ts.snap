@@ -81,28 +81,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                   >
                     <div
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-show-action-hover ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -233,28 +212,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                   >
                     <div
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-show-action-hover ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -385,28 +343,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                   >
                     <div
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-show-action-hover ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -537,28 +474,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                   >
                     <div
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-show-action-hover ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -1719,28 +1635,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                   >
                     <div
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-show-action-hover ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -1846,28 +1741,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                   >
                     <div
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-show-action-hover ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -1973,28 +1847,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                   >
                     <div
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-show-action-hover ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -2100,28 +1953,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                   >
                     <div
                       class="ant-pro-list-row-show-action-hover ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-show-action-hover ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -2307,26 +2139,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                     <div
                       class="ant-pro-list-row-header-option"
                     >
-                      <div
-                        class="ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
                       <span
                         class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
                       >
@@ -2438,26 +2250,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                     <div
                       class="ant-pro-list-row-header-option"
                     >
-                      <div
-                        class="ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
                       <span
                         class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
                       >
@@ -2569,26 +2361,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                     <div
                       class="ant-pro-list-row-header-option"
                     >
-                      <div
-                        class="ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
                       <span
                         class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
                       >
@@ -2700,26 +2472,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                     <div
                       class="ant-pro-list-row-header-option"
                     >
-                      <div
-                        class="ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
                       <span
                         class="ant-pro-list-row-expand-icon ant-pro-list-row-collapsed"
                       >
@@ -3377,28 +3129,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                     >
                       <div
                         class="ant-pro-list-row-header-option"
-                      >
-                        <div
-                          class="ant-pro-list-row-checkbox"
-                        >
-                          <label
-                            class="ant-checkbox-wrapper"
-                          >
-                            <span
-                              class="ant-checkbox"
-                            >
-                              <input
-                                class="ant-checkbox-input"
-                                type="checkbox"
-                                value=""
-                              />
-                              <span
-                                class="ant-checkbox-inner"
-                              />
-                            </span>
-                          </label>
-                        </div>
-                      </div>
+                      />
                       <div
                         class="ant-list-item-meta"
                       >
@@ -3572,28 +3303,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                     >
                       <div
                         class="ant-pro-list-row-header-option"
-                      >
-                        <div
-                          class="ant-pro-list-row-checkbox"
-                        >
-                          <label
-                            class="ant-checkbox-wrapper"
-                          >
-                            <span
-                              class="ant-checkbox"
-                            >
-                              <input
-                                class="ant-checkbox-input"
-                                type="checkbox"
-                                value=""
-                              />
-                              <span
-                                class="ant-checkbox-inner"
-                              />
-                            </span>
-                          </label>
-                        </div>
-                      </div>
+                      />
                       <div
                         class="ant-list-item-meta"
                       >
@@ -3767,28 +3477,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                     >
                       <div
                         class="ant-pro-list-row-header-option"
-                      >
-                        <div
-                          class="ant-pro-list-row-checkbox"
-                        >
-                          <label
-                            class="ant-checkbox-wrapper"
-                          >
-                            <span
-                              class="ant-checkbox"
-                            >
-                              <input
-                                class="ant-checkbox-input"
-                                type="checkbox"
-                                value=""
-                              />
-                              <span
-                                class="ant-checkbox-inner"
-                              />
-                            </span>
-                          </label>
-                        </div>
-                      </div>
+                      />
                       <div
                         class="ant-list-item-meta"
                       >
@@ -3962,28 +3651,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                     >
                       <div
                         class="ant-pro-list-row-header-option"
-                      >
-                        <div
-                          class="ant-pro-list-row-checkbox"
-                        >
-                          <label
-                            class="ant-checkbox-wrapper"
-                          >
-                            <span
-                              class="ant-checkbox"
-                            >
-                              <input
-                                class="ant-checkbox-input"
-                                type="checkbox"
-                                value=""
-                              />
-                              <span
-                                class="ant-checkbox-inner"
-                              />
-                            </span>
-                          </label>
-                        </div>
-                      </div>
+                      />
                       <div
                         class="ant-list-item-meta"
                       >
@@ -4212,28 +3880,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                   >
                     <div
                       class="ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -4381,28 +4028,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                   >
                     <div
                       class="ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -4550,28 +4176,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                   >
                     <div
                       class="ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -4719,28 +4324,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                   >
                     <div
                       class="ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
@@ -4888,28 +4472,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                   >
                     <div
                       class="ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >
