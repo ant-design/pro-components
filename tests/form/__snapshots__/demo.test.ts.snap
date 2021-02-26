@@ -19693,7 +19693,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
         >
           <div
             class="ant-pro-table"
-            id="ant-design-pro-table"
           >
             <div
               class="ant-card"

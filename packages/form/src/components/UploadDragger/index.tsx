@@ -1,5 +1,5 @@
-import React from 'react';
-import { Upload } from 'antd';
+import React, { useContext } from 'react';
+import { Upload, ConfigProvider } from 'antd';
 import type { DraggerProps, UploadProps } from 'antd/lib/upload';
 import { InboxOutlined } from '@ant-design/icons';
 import type { ProFormItemProps } from '../../interface';
@@ -39,6 +39,8 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
     },
     ref: any,
   ) => {
+    const context = useContext(ConfigProvider.ConfigContext);
+    const baseClassName = context.getPrefixCls('upload');
     // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
     const showUploadButton =
       (max === undefined || !value || value?.length < max) && proFieldProps?.mode !== 'read';
@@ -61,9 +63,9 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
         }}
         style={{ ...fieldProps?.style, display: !showUploadButton ? 'none' : undefined }}
       >
-        <p className="ant-upload-drag-icon">{icon}</p>
-        <p className="ant-upload-text">{title}</p>
-        <p className="ant-upload-hint">{description}</p>
+        <p className={`${baseClassName}-drag-icon`}>{icon}</p>
+        <p className={`${baseClassName}-text`}>{title}</p>
+        <p className={`${baseClassName}-hint`}>{description}</p>
         {children}
       </Upload.Dragger>
     );

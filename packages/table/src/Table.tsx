@@ -681,7 +681,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       className={classNames(className, {
         [`${className}-polling`]: action.pollingLoading,
       })}
-      id="ant-design-pro-table"
       style={style}
       ref={rootRef}
     >
