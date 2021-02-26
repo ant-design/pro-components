@@ -1,7 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { readdirSync } = require('fs');
@@ -55,7 +55,7 @@ tailPkgs.forEach((pkg) => {
             new TerserPlugin({
               include: /\.min\.js$/,
             }),
-            new OptimizeCSSAssetsPlugin({
+            new CssMinimizerPlugin({
               include: /\.min\.js$/,
             }),
           ],
@@ -65,14 +65,7 @@ tailPkgs.forEach((pkg) => {
       rules: [
         {
           test: /\.(png|jpg|gif|svg)$/i,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 8192,
-              },
-            },
-          ],
+          type: 'asset',
         },
         {
           test: /\.jsx?$/,
