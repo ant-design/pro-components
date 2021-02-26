@@ -1,4 +1,4 @@
-﻿@import (reference) '~antd/lib/style/themes/default';
+﻿@import (reference) '~antd/es/style/themes/default';
 
 @pro-table-prefix-cls: ~'@{ant-prefix}-pro-form';
 
@@ -18,10 +18,22 @@
     }
   }
 
+  &-container {
+    margin-right: 8px;
+  }
+
   &-action {
     height: 32px;
     margin-bottom: 24px;
     line-height: 32px;
+  }
+
+  .@{ant-prefix}-pro-card .@{ant-prefix}-pro-card-extra {
+    .@{pro-table-prefix-cls}-list {
+      &-action {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &-action-icon {

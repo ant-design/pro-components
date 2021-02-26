@@ -98,10 +98,6 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/pro-form-editableTable.tsx" heigh="1774px" title="ProForm 和 EditableTable 同时使用"/>
 
-### ProFormList 列表表单
-
-<code src="./demos/list.tsx" heigh="1774px" title="ProForm.List" />
-
 ## Layouts API
 
 ### ProForm
