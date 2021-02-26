@@ -111,3 +111,21 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
     ob.instance().onResize([{ target: ob.getDOMNode() }]);
   },
 });
+
+// @ts-ignore-next-line
+global.Worker = class {
+  constructor(stringUrl) {
+    // @ts-ignore-next-line
+    this.url = stringUrl;
+    // @ts-ignore-next-line
+    this.onmessage = () => {};
+  }
+
+  postMessage(msg) {
+    // @ts-ignore-next-line
+    this.onmessage(msg);
+  }
+};
+
+// @ts-ignore-next-line
+global.URL.createObjectURL = () => {};

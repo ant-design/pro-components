@@ -2,14 +2,6 @@
 # yarn lockfile v1
 
 
-"@ahooksjs/use-request@^2.8.3":
-  version "2.8.3"
-  resolved "https://registry.npm.taobao.org/@ahooksjs/use-request/download/@ahooksjs/use-request-2.8.3.tgz#9b7eff972658497473f61ceb89a268d665e28aeb"
-  integrity sha1-m37/lyZYSXRz9hzriaJo1mXiius=
-  dependencies:
-    lodash.debounce "^4.0.8"
-    lodash.throttle "^4.1.1"
-
 "@ant-design/charts@^1.0.18":
   version "1.0.18"
   resolved "https://registry.npm.taobao.org/@ant-design/charts/download/@ant-design/charts-1.0.18.tgz?cache=0&sync_timestamp=1613812778410&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40ant-design%2Fcharts%2Fdownload%2F%40ant-design%2Fcharts-1.0.18.tgz#254832cd7721f4aafb9a895779d1cd10a4bd9a63"
@@ -4202,11 +4194,6 @@
     jest-diff "^26.0.0"
     pretty-format "^26.0.0"
 
-"@types/js-cookie@^2.2.6":
-  version "2.2.6"
-  resolved "https://registry.npm.taobao.org/@types/js-cookie/download/@types/js-cookie-2.2.6.tgz?cache=0&sync_timestamp=1613379268332&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fjs-cookie%2Fdownload%2F%40types%2Fjs-cookie-2.2.6.tgz#f1a1cb35aff47bc5cfb05cb0c441ca91e914c26f"
-  integrity sha1-8aHLNa/0e8XPsFywxEHKkekUwm8=
-
 "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.4", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6":
   version "7.0.7"
   resolved "https://registry.npm.taobao.org/@types/json-schema/download/@types/json-schema-7.0.7.tgz#98a993516c859eb0d5c4c8f098317a9ea68db9ad"
@@ -5616,22 +5603,6 @@ aggregate-error@^3.0.0:
   dependencies:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
-
-ahooks@^2.9.6:
-  version "2.9.6"
-  resolved "https://registry.npm.taobao.org/ahooks/download/ahooks-2.9.6.tgz?cache=0&sync_timestamp=1612180514803&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fahooks%2Fdownload%2Fahooks-2.9.6.tgz#afde34cc7af722da1c724fddf75c9191672ac2f5"
-  integrity sha1-r940zHr3Itocck/d91yRkWcqwvU=
-  dependencies:
-    "@ahooksjs/use-request" "^2.8.3"
-    "@types/js-cookie" "^2.2.6"
-    dayjs "^1.9.1"
-    intersection-observer "^0.7.0"
-    js-cookie "^2.2.1"
-    lodash.debounce "^4.0.8"
-    lodash.isequal "^4.5.0"
-    lodash.throttle "^4.1.1"
-    resize-observer-polyfill "^1.5.1"
-    screenfull "^5.0.0"
 
 airbnb-prop-types@^2.16.0:
   version "2.16.0"
@@ -7656,7 +7627,7 @@ color-name@1.1.3:
   resolved "https://registry.npm.taobao.org/color-name/download/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
   integrity sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=
 
-color-name@^1.0.0, color-name@~1.1.4:
+color-name@^1.0.0, color-name@^1.1.4, color-name@~1.1.4:
   version "1.1.4"
   resolved "https://registry.npm.taobao.org/color-name/download/color-name-1.1.4.tgz#c2a09a87acbde69543de6f63fa3995c826c536a2"
   integrity sha1-wqCah6y95pVD3m9j+jmVyCbFNqI=
@@ -8438,6 +8409,11 @@ cssesc@^3.0.0:
   resolved "https://registry.npm.taobao.org/cssesc/download/cssesc-3.0.0.tgz#37741919903b868565e1c09ea747445cd18983ee"
   integrity sha1-N3QZGZA7hoVl4cCep0dEXNGJg+4=
 
+cssfontparser@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npm.taobao.org/cssfontparser/download/cssfontparser-1.2.1.tgz#f4022fc8f9700c68029d542084afbaf425a3f3e3"
+  integrity sha1-9AIvyPlwDGgCnVQghK+69CWj8+M=
+
 cssnano-preset-default@^4.0.7:
   version "4.0.7"
   resolved "https://registry.npm.taobao.org/cssnano-preset-default/download/cssnano-preset-default-4.0.7.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcssnano-preset-default%2Fdownload%2Fcssnano-preset-default-4.0.7.tgz#51ec662ccfca0f88b396dcd9679cdb931be17f76"
@@ -8709,11 +8685,6 @@ dateformat@^3.0.0:
   version "3.0.3"
   resolved "https://registry.npm.taobao.org/dateformat/download/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha1-puN0maTZqc+F71hyBE1ikByYia4=
-
-dayjs@^1.9.1:
-  version "1.10.4"
-  resolved "https://registry.npm.taobao.org/dayjs/download/dayjs-1.10.4.tgz?cache=0&sync_timestamp=1611309982734&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdayjs%2Fdownload%2Fdayjs-1.10.4.tgz#8e544a9b8683f61783f570980a8a80eaf54ab1e2"
-  integrity sha1-jlRKm4aD9heD9XCYCoqA6vVKseI=
 
 debug@2, debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
   version "2.6.9"
@@ -13126,6 +13097,14 @@ javascript-stringify@^2.0.1:
   resolved "https://registry.npm.taobao.org/javascript-stringify/download/javascript-stringify-2.0.1.tgz?cache=0&sync_timestamp=1572948916758&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjavascript-stringify%2Fdownload%2Fjavascript-stringify-2.0.1.tgz#6ef358035310e35d667c675ed63d3eb7c1aa19e5"
   integrity sha1-bvNYA1MQ411mfGde1j0+t8GqGeU=
 
+jest-canvas-mock@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.npm.taobao.org/jest-canvas-mock/download/jest-canvas-mock-2.3.1.tgz#9535d14bc18ccf1493be36ac37dd349928387826"
+  integrity sha1-lTXRS8GMzxSTvjasN900mSg4eCY=
+  dependencies:
+    cssfontparser "^1.2.1"
+    moo-color "^1.0.2"
+
 jest-changed-files@^24.9.0:
   version "24.9.0"
   resolved "https://registry.npm.taobao.org/jest-changed-files/download/jest-changed-files-24.9.0.tgz?cache=0&sync_timestamp=1607353171776&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjest-changed-files%2Fdownload%2Fjest-changed-files-24.9.0.tgz#08d8c15eb79a7fa3fc98269bc14b451ee82f8039"
@@ -14233,11 +14212,6 @@ joi2types@~1.1.0:
   integrity sha1-ufLMUEqbhuI57/judEwNT8CHGUc=
   dependencies:
     json-schema-to-typescript "^10.1.2"
-
-js-cookie@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.npm.taobao.org/js-cookie/download/js-cookie-2.2.1.tgz#69e106dc5d5806894562902aa5baec3744e9b2b8"
-  integrity sha1-aeEG3F1YBolFYpAqpbrsN0Tpsrg=
 
 js-levenshtein@^1.1.3:
   version "1.1.6"
@@ -16232,6 +16206,13 @@ moment@*, "moment@>= 2.9.0", moment@^2.24.0, moment@^2.25.3, moment@^2.27.0:
   version "2.29.1"
   resolved "https://registry.npm.taobao.org/moment/download/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
   integrity sha1-sr52n6MZQL6e7qZGnAdeNQBvo9M=
+
+moo-color@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npm.taobao.org/moo-color/download/moo-color-1.0.2.tgz#837c40758d2d58763825d1359a84e330531eca64"
+  integrity sha1-g3xAdY0tWHY4JdE1moTjMFMeymQ=
+  dependencies:
+    color-name "^1.1.4"
 
 moo@^0.5.0:
   version "0.5.1"

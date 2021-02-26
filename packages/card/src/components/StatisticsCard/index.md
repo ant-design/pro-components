@@ -23,90 +23,90 @@ nav:
 
 使用数值统计配置 `statistic` 和 `chart` 完成基本的指标卡。
 
-<code src="./demos/basic.tsx" background="#f0f2f5"/>
+<code src="./demos/basic.tsx" background="#f0f2f5" title="基本使用" />
 
 ### 只有图表
 
 当图表单独展示在卡片中时。
 
-<code src="./demos/chart.tsx" background="#f0f2f5"/>
+<code src="./demos/chart.tsx" background="#f0f2f5" title="只有图表" />
 
 ### 额外指标
 
 - `footer` 用于设置额外的指标展示区域。
 - 你可以设置 `Statistic` 组件的布局方式`layout` 为 `horizontal` 来展示横向指标。
 
-<code src="./demos/footer.tsx" background="#f0f2f5"/>
+<code src="./demos/footer.tsx" background="#f0f2f5" title="额外指标" />
 
 ### 总分/主次关系
 
-<code src="./demos/total.tsx" background="#f0f2f5"/>
+<code src="./demos/total.tsx" background="#f0f2f5" title="总分/主次关系"/>
 
 ### 总分/业绩目标
 
-<code src="./demos/total-layout.tsx" background="#f0f2f5"/>
+<code src="./demos/total-layout.tsx" background="#f0f2f5" title="总分/业绩目标"/>
 
 ### 分组指标
 
 你可以嵌套指标卡组件来将指标分组, 以及 `Divider` 子组件来分隔这些指标。
 
-<code src="./demos/group.tsx" background="#f0f2f5"/>
+<code src="./demos/group.tsx" background="#f0f2f5" title="分组指标" />
 
 ### 分组指标带图表
 
-<code src="./demos/group-chart.tsx" background="#f0f2f5"/>
+<code src="./demos/group-chart.tsx" background="#f0f2f5" title="分组指标带图表"/>
 
 ### 分组指标带图表 - 横向
 
-<code src="./demos/group-chart-horizontal.tsx" background="#f0f2f5"/>
+<code src="./demos/group-chart-horizontal.tsx" background="#f0f2f5" title="分组指标带图表 - 横向"/>
 
 ### 公式计算指标
 
 `Operation` 可以接受子元素，借此可以实现各种各样的公式计算指标。
 
-<code src="./demos/fomula.tsx" background="#f0f2f5"/>
+<code src="./demos/fomula.tsx" background="#f0f2f5" title="公式计算指标"/>
 
 ### 状态展示
 
 你可以给每个数值统计配置 `status` 展示其状态。
 
-<code src="./demos/status.tsx" background="#f0f2f5" title="应用概览" tags='["工作台"]' thumbnail="https://gw.alipayobjects.com/mdn/rms_66ee3f/afts/img/A*XNe5RanigIAAAAAAAAAAAABkARQnAQ"/>
+<code src="./demos/status.tsx" background="#f0f2f5" title="状态展示" />
 
 ### 图标展示
 
 你可以给每个数值统计配置 `icon` 展示其图标。
 
-<code src="./demos/icon.tsx" background="#f0f2f5"/>
+<code src="./demos/icon.tsx" background="#f0f2f5" title="图标展示" />
 
 ### 卡片布局
 
 配合 `ProCard` 的卡片切分能力可以实现复杂的卡片布局。
 
-<code src="./demos/layout.tsx" background="#f0f2f5"/>
+<code src="./demos/layout.tsx" background="#f0f2f5" title="卡片布局" />
 
 ### 图表在右
 
 配置 `chartPlacement` 为 `right` 可以指定图表在数值统计的右边。默认为上下结构。
 
-<code src="./demos/horizontal.tsx" background="#f0f2f5"/>
+<code src="./demos/horizontal.tsx" background="#f0f2f5" title="图表在右" />
 
 ### 图表在左
 
 配置 `chartPlacement` 为 `left` 可以指定图表在数值统计的左边。
 
-<code src="./demos/horizontal-left.tsx" background="#f0f2f5"/>
+<code src="./demos/horizontal-left.tsx" background="#f0f2f5" title="图表在左" />
 
 ### 页签
 
 配置 `tabs` 属性配合 `ProCard.TabPane` 子组件可以配置卡片的标签栏。
 
-<code src="./demos/tabs.tsx" background="#f0f2f5"/>
+<code src="./demos/tabs.tsx" background="#f0f2f5" title="页签" />
 
 ### 环比趋势
 
 你可以使用 `Statistic` 组件配置布局 `layout` 为 `inline` 以及 `trend` 来展示环比趋势。
 
-<code src="./demos/trend.tsx" background="#f0f2f5"/>
+<code src="./demos/trend.tsx" background="#f0f2f5" title="环比趋势" />
 
 ## API
 
@@ -146,6 +146,10 @@ nav:
 ### Divider
 
 用于在将数值统计进行分组时进行分隔。
+
+| 参数 | 说明     | 类型                     | 默认值 |
+| ---- | -------- | ------------------------ | ------ |
+| type | 分隔类型 | `horizontal \| vertical` | -      |
 
 ### Operation
 
