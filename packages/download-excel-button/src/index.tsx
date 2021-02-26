@@ -1,9 +1,10 @@
-import { ColumnType } from 'antd/lib/table';
+import type { ColumnType } from 'antd/lib/table';
 import utl from 'lodash';
 import React, { memo } from 'react';
-import XLSX, { CellObject } from 'xlsx';
+import type { CellObject } from 'xlsx';
+import XLSX from 'xlsx';
 import { Button } from 'antd';
-import { ButtonProps } from 'antd/lib/button';
+import type { ButtonProps } from 'antd/lib/button';
 
 type ColType = ColumnType<any>;
 
