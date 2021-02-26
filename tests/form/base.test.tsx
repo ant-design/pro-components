@@ -692,8 +692,9 @@ describe('ProForm', () => {
     const wrapper = mount(
       <ProForm
         onValuesChange={async (values) => {
+          console.log(values);
           //  {"disabled": undefined, "key": "all", "label": "全部", "value": "all"}
-          onFinish(values['userQuery'].label);
+          onFinish(values['userQuery'][0].label);
         }}
       >
         <ProFormSelect.SearchSelect

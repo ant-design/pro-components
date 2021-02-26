@@ -212,7 +212,7 @@ export const FieldRender: React.FC<
                 }}
                 name={dataIndex}
                 {...formItemProps}
-                initialValue={text || formItemProps.initialValue}
+                initialValue={text || formItemProps?.initialValue}
               >
                 {dom || (
                   <ProFormField
