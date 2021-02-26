@@ -22,7 +22,7 @@
     "ie >= 11"
   ],
   "keywords": [
-    "@ty/antd",
+    "antd",
     "admin",
     "ant-design",
     "ant-design-pro"
