@@ -85,6 +85,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
 
     const className = classNames(propsClassName, {
       [`${prefixCls}-fixed-header`]: needFixedHeader,
+      [`${prefixCls}-fixed-header-action`]: !collapsed,
       [`${prefixCls}-top-menu`]: isTop,
     });
 

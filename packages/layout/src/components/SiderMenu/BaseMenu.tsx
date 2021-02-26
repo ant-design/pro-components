@@ -128,12 +128,7 @@ class MenuUtil {
     }
 
     return (
-      <Menu.Item
-        inlineIndent={24}
-        disabled={item.disabled}
-        key={item.key || item.path}
-        onClick={item.onTitleClick}
-      >
+      <Menu.Item disabled={item.disabled} key={item.key || item.path} onClick={item.onTitleClick}>
         {this.getMenuItemPath(item, isChildren)}
       </Menu.Item>
     );
@@ -366,7 +361,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       mode={mode}
       defaultOpenKeys={defaultOpenKeysRef.current}
       theme={theme}
-      inlineIndent={16}
       selectedKeys={selectedKeys}
       style={style}
       className={cls}

@@ -678,7 +678,7 @@ exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
