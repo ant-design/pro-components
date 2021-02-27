@@ -137,7 +137,7 @@ function ProList<
               split={split}
               rowKey={rowKey}
               expandable={expandable}
-              rowSelection={rowSelection}
+              rowSelection={propRowSelection === false ? undefined : rowSelection}
               showActions={showActions}
               pagination={pagination as PaginationProps}
               itemLayout={itemLayout}
