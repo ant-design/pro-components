@@ -60,7 +60,7 @@ export type ToolBarProps<T = unknown, ValueType = 'text'> = {
   className?: string;
   onSearch?: (keyWords: string) => void;
   columns: TableColumnType<T>[];
-  originColumns: ProColumns<T, ValueType>[];
+  proColumns: ProColumns<T, ValueType>[];
   dataSource?: readonly T[];
 };
 
@@ -99,9 +99,9 @@ function getButtonText({
  * @param options
  * @param className
  */
-function renderDefaultOption<T, ValueType>(
-  options: OptionConfig,
-  defaultOptions: OptionConfig & {
+function renderDefaultOption<T = unknown, ValueType = 'text'>(
+  options: OptionConfig<T, ValueType>,
+  defaultOptions: OptionConfig<T, ValueType> & {
     intl: IntlType;
   },
   columns: TableColumnType<T>[],
@@ -180,7 +180,7 @@ function ToolBar<T, ValueType>({
   onSearch,
   columns,
   dataSource,
-  originColumns,
+  proColumns,
   ...rest
 }: ToolBarProps<T, ValueType>) {
   const counter = Container.useContainer();
@@ -213,11 +213,11 @@ function ToolBar<T, ValueType>({
         intl,
       },
       columns,
-      originColumns,
+      proColumns,
       dataSource,
       action,
     );
-  }, [action, columns, originColumns, intl, propsOptions, dataSource]);
+  }, [action, columns, proColumns, intl, propsOptions, dataSource]);
   // 操作列表
   const actions = toolBarRender
     ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })

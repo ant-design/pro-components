@@ -505,7 +505,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     };
     return (
       <Toolbar<T, ValueType>
-        originColumns={propsColumns}
+        proColumns={propsColumns}
         columns={columns}
         dataSource={action.dataSource}
         options={options}
