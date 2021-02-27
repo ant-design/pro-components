@@ -504,8 +504,10 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       );
     };
     return (
-      <Toolbar<T>
-        columns={tableColumn}
+      <Toolbar<T, ValueType>
+        originColumns={propsColumns}
+        columns={columns}
+        dataSource={action.dataSource}
         options={options}
         headerTitle={headerTitle}
         action={actionRef}
@@ -526,9 +528,10 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     selectedRowKeys,
     selectedRows,
     setFormSearch,
-    tableColumn,
+    columns,
     toolBarRender,
     toolbar,
+    propsColumns,
   ]);
 
   /** 内置的多选操作栏 */

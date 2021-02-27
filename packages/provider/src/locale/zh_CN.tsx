@@ -39,6 +39,13 @@ export default {
     reset: '重置',
     columnDisplay: '列展示',
     columnSetting: '列设置',
+    export: {
+      tooltip: '导出',
+      defaultFileName: '默认导出文件名',
+      defaultSheetName: 'sheet 1',
+      exportAllMenuTitle: '下载全部字段',
+      exportVisibleMenuTitle: '下载可见字段',
+    },
     fullScreen: '全屏',
     exitFullScreen: '退出全屏',
     reload: '刷新',

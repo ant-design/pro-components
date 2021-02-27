@@ -148,7 +148,7 @@ export default {
       },
       {
         title: '通用',
-        children: ['skeleton', 'field', 'download-excel-button'],
+        children: ['skeleton', 'field'],
       },
     ],
     '/en-US/components': [
@@ -177,7 +177,7 @@ export default {
       },
       {
         title: 'General',
-        children: ['skeleton', 'field', 'download-excel-button'],
+        children: ['skeleton', 'field'],
       },
     ],
   },

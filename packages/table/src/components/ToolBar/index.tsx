@@ -1,20 +1,23 @@
-import React, { useEffect, useMemo } from 'react';
-import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
+import { DownloadOutlined, ReloadOutlined, SettingOutlined } from '@ant-design/icons';
+import type { IntlType } from '@ant-design/pro-provider';
+import { useIntl } from '@ant-design/pro-provider';
 import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
 import type { SearchProps } from 'antd/lib/input';
-import type { IntlType } from '@ant-design/pro-provider';
-import { useIntl } from '@ant-design/pro-provider';
+import React, { useEffect, useMemo } from 'react';
+import Container from '../../container';
+import type { ActionType, ProColumns } from '../../typing';
+import ColumnSetting from '../ColumnSetting';
+import type { ExportToExcelActionProps } from '../ExportToExcelAction';
+import ExportToExcelAction from '../ExportToExcelAction';
+import type { ExportToExcelActionExport } from '../ExportToExcelAction/typings';
 import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
-import ColumnSetting from '../ColumnSetting';
-import './index.less';
-import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
-import Container from '../../container';
-import type { ActionType } from '../../typing';
+import FullScreenIcon from './FullscreenIcon';
+import './index.less';
 
-export type OptionConfig = {
+export type OptionConfig<T = unknown, ValueType = 'text'> = {
   density?: boolean;
   fullScreen?: OptionsType;
   reload?: OptionsType;
@@ -25,13 +28,19 @@ export type OptionConfig = {
         checkable?: boolean;
       };
   search?: (SearchProps & { name?: string }) | boolean;
+  export?:
+    | boolean
+    | ((
+        ...args: [...Parameters<ExportToExcelActionExport<T, ValueType>>, ActionType?]
+      ) => ReturnType<ExportToExcelActionExport<T, ValueType>>)
+    | ExportToExcelActionProps;
 };
 
 export type OptionsType =
   | ((e: React.MouseEvent<HTMLSpanElement>, action?: ActionType) => void)
   | boolean;
 
-export type ToolBarProps<T = unknown> = {
+export type ToolBarProps<T = unknown, ValueType = 'text'> = {
   headerTitle?: React.ReactNode;
   tooltip?: string;
   /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
@@ -45,12 +54,14 @@ export type ToolBarProps<T = unknown> = {
     },
   ) => React.ReactNode[];
   action?: React.MutableRefObject<ActionType | undefined>;
-  options?: OptionConfig | false;
+  options?: OptionConfig<T, ValueType> | false;
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
   className?: string;
   onSearch?: (keyWords: string) => void;
   columns: TableColumnType<T>[];
+  originColumns: ProColumns<T, ValueType>[];
+  dataSource?: readonly T[];
 };
 
 function getButtonText({
@@ -75,6 +86,10 @@ function getButtonText({
       text: intl.getMessage('tableToolBar.fullScreen', '全屏'),
       icon: <FullScreenIcon />,
     },
+    export: {
+      text: intl.getMessage('tableToolBar.export.tooltip', '导出'),
+      icon: <DownloadOutlined />,
+    },
   };
 }
 
@@ -84,12 +99,15 @@ function getButtonText({
  * @param options
  * @param className
  */
-function renderDefaultOption<T>(
+function renderDefaultOption<T, ValueType>(
   options: OptionConfig,
   defaultOptions: OptionConfig & {
     intl: IntlType;
   },
   columns: TableColumnType<T>[],
+  originColumns: ProColumns<T, ValueType>[],
+  dataSource?: readonly T[],
+  action?: React.MutableRefObject<ActionType | undefined>,
 ) {
   return Object.keys(options)
     .filter((item) => item)
@@ -106,6 +124,24 @@ function renderDefaultOption<T>(
           <span key={key} onClick={value === true ? defaultOptions[key] : value}>
             <FullScreenIcon />
           </span>
+        );
+      }
+      if (key === 'export') {
+        const getMeta = () => {
+          if (typeof value === 'function') {
+            return { onExport: (...args) => value(...args, action) } as ExportToExcelActionProps;
+          }
+          return value;
+        };
+
+        return (
+          <ExportToExcelAction<T, ValueType>
+            key={key}
+            columns={columns}
+            originColumns={originColumns}
+            dataSource={dataSource}
+            {...getMeta()}
+          />
         );
       }
       const optionItem = getButtonText(defaultOptions)[key];
@@ -132,7 +168,7 @@ function renderDefaultOption<T>(
     .filter((item) => item);
 }
 
-function ToolBar<T>({
+function ToolBar<T, ValueType>({
   headerTitle,
   tooltip,
   toolBarRender,
@@ -143,8 +179,10 @@ function ToolBar<T>({
   toolbar,
   onSearch,
   columns,
+  dataSource,
+  originColumns,
   ...rest
-}: ToolBarProps<T>) {
+}: ToolBarProps<T, ValueType>) {
   const counter = Container.useContainer();
 
   const intl = useIntl();
@@ -154,6 +192,7 @@ function ToolBar<T>({
       density: true,
       setting: true,
       search: false,
+      export: false,
       fullScreen: () => action?.current?.fullScreen?.(),
     };
     if (propsOptions === false) {
@@ -167,15 +206,18 @@ function ToolBar<T>({
       }),
     };
 
-    return renderDefaultOption<T>(
+    return renderDefaultOption<T, ValueType>(
       options,
       {
         ...defaultOptions,
         intl,
       },
       columns,
+      originColumns,
+      dataSource,
+      action,
     );
-  }, [action, columns, intl, propsOptions]);
+  }, [action, columns, originColumns, intl, propsOptions, dataSource]);
   // 操作列表
   const actions = toolBarRender
     ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })

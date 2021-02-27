@@ -32,6 +32,7 @@ import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
 import useDeepCompareEffect from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
+import type { LabelIconTipProps } from './components/LabelIconTip';
 
 /** Type */
 import type {
@@ -83,6 +84,7 @@ export type {
   ProFieldTextType,
   ProFieldValueEnumType,
   ProFieldValueObjectType,
+  LabelIconTipProps,
 };
 
 export {

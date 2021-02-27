@@ -67,6 +67,10 @@ export type ExtraProColumnType<T> = Omit<
 export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
   T,
   ExtraProColumnType<T> & {
+    /** 导出 excel 的列标题 */
+    excelColTitle?: string;
+    /** 优先级低于 hideInTable */
+    hideInExcel?: boolean;
     index?: number;
 
     /**
@@ -225,7 +229,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   headerTitle?: React.ReactNode;
 
   /** @name 操作栏配置 */
-  options?: OptionConfig | false;
+  options?: OptionConfig<T, ValueType> | false;
 
   /**
    * @type SearchConfig

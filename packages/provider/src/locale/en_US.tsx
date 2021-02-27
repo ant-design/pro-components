@@ -39,6 +39,13 @@ export default {
     reset: 'Reset',
     columnDisplay: 'Column Display',
     columnSetting: 'Settings',
+    export: {
+      tooltip: 'Export',
+      defaultFileName: 'Default File Name',
+      defaultSheetName: 'sheet 1',
+      exportAllMenuTitle: 'export all',
+      exportVisibleMenuTitle: 'export visible',
+    },
     fullScreen: 'Full Screen',
     exitFullScreen: 'Exit Full Screen',
     reload: 'Refresh',

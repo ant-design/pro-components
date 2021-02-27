@@ -4,16 +4,18 @@ import { Tooltip, ConfigProvider } from 'antd';
 import type { TooltipProps } from 'antd';
 import './index.less';
 
+interface LabelIconTipProps {
+  label: React.ReactNode;
+  subTitle?: React.ReactNode;
+  tooltip?: string | TooltipProps;
+}
+
 /**
  * 在 form 的 label 后面增加一个 tips 来展示一些说明文案
  *
  * @param props
  */
-const LabelIconTip: React.FC<{
-  label: React.ReactNode;
-  subTitle?: React.ReactNode;
-  tooltip?: string | TooltipProps;
-}> = (props) => {
+const LabelIconTip: React.FC<LabelIconTipProps> = (props) => {
   const { label, tooltip, subTitle } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
@@ -35,4 +37,9 @@ const LabelIconTip: React.FC<{
   );
 };
 
+LabelIconTip.getColumnTitle = () => {
+  return 'hi';
+};
+
 export default React.memo(LabelIconTip);
+export type { LabelIconTipProps };

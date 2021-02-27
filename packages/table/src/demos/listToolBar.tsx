@@ -83,6 +83,7 @@ const columns: ProColumns<TableListItem>[] = [
         </Tooltip>
       </>
     ),
+    excelColTitle: '创建时间',
     width: 140,
     key: 'since',
     dataIndex: 'createdAt',
@@ -92,6 +93,7 @@ const columns: ProColumns<TableListItem>[] = [
   {
     title: '操作',
     key: 'option',
+    hideInExcel: true,
     width: 120,
     valueType: 'option',
     render: (_, record) => [
@@ -142,6 +144,9 @@ export default () => {
           data: tableListDataSource,
           success: true,
         });
+      }}
+      options={{
+        export: true,
       }}
       toolbar={{
         filter: (
