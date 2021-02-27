@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Input } from 'antd';
 
 import ProDescriptions from '@ant-design/pro-descriptions';
 
 export default () => {
+  const actionRef = useRef();
   return (
     <ProDescriptions
+      actionRef={actionRef}
       // bordered
       formProps={{
         onValuesChange: (e, f) => console.log(f),
