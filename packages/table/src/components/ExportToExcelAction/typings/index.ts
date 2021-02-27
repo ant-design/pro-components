@@ -27,8 +27,13 @@ type ExportToExcelActionProps<RecordType = unknown, ValueType = 'text'> = {
   fileName: string;
   configs?:
     | ExportToExcelActionConfig<RecordType, ValueType>[]
-    | (() => Promise<ExportToExcelActionConfig<RecordType, ValueType>[]>);
-  originColumns: ProColumns<RecordType, ValueType>[];
+    | ((
+        fileName: string,
+        columns: TableColumnType<RecordType>[],
+        proColumns: ProColumns<RecordType, ValueType>[],
+        dataSource?: RecordType[],
+      ) => Promise<ExportToExcelActionConfig<RecordType, ValueType>[]>);
+  proColumns: ProColumns<RecordType, ValueType>[];
   columns: TableColumnType<RecordType>[];
   dataSource?: RecordType[];
   onExport?: ExportToExcelActionExport<RecordType, ValueType>;

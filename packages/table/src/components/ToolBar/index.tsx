@@ -105,7 +105,7 @@ function renderDefaultOption<T, ValueType>(
     intl: IntlType;
   },
   columns: TableColumnType<T>[],
-  originColumns: ProColumns<T, ValueType>[],
+  proColumns: ProColumns<T, ValueType>[],
   dataSource?: readonly T[],
   action?: React.MutableRefObject<ActionType | undefined>,
 ) {
@@ -138,7 +138,7 @@ function renderDefaultOption<T, ValueType>(
           <ExportToExcelAction<T, ValueType>
             key={key}
             columns={columns}
-            originColumns={originColumns}
+            proColumns={proColumns}
             dataSource={dataSource}
             {...getMeta()}
           />
