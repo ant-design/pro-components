@@ -439,7 +439,7 @@ export interface MenuDataItem {
 ```
 
 - name is used to configure the name in the menu, and will be modified to the browser tab title
-- icon represents the body of the menu, only antd's chart, iconfont needs to be defined by yourself
+- icon represents the body of the menu, only antd's icon, iconfont needs to be defined by yourself
 - locale can set the internationalization of the menu name
 - hideInMenu will be configured to hide this route in the menu, name will have the same effect if not filled
 - hideChildrenInMenu will hide the children of this route in the menu
