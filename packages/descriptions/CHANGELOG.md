@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.2...@ant-design/pro-descriptions@1.6.3) (2021-02-28)
+
+### Bug Fixes
+
+- **description:** description support editableUtils ([#2035](https://github.com/ant-design/pro-components/issues/2035)) ([8de3e23](https://github.com/ant-design/pro-components/commit/8de3e23954ab4da1637962d5efc3d887cff3d5ce))
+- **descriptions:** fix descriptions edit will throw error ([533031e](https://github.com/ant-design/pro-components/commit/533031e50c87bd5be830cfa7ac079a1ffdb34424))
+
 ## [1.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.1...@ant-design/pro-descriptions@1.6.2) (2021-02-25)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions
