@@ -71,6 +71,9 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps>(
       labelInValue: true,
       showSearch: true,
       showArrow: false,
+      autoClearSearchValue: true,
+      optionLabelProp: 'label',
+      filterOption: false,
       ...fieldProps,
     };
     return (

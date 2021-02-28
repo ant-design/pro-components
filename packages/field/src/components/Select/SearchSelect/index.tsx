@@ -94,7 +94,6 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
     options,
     fetchData,
     resetData,
-    dropdownMatchSelectWidth = false,
     prefixCls: customizePrefixCls,
     ...restProps
   } = props;
@@ -131,14 +130,10 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
     <Select<any>
       ref={ref}
       className={classString}
-      autoClearSearchValue
-      filterOption={false}
       allowClear
-      dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       disabled={disabled}
       mode={mode}
       {...restProps}
-      optionLabelProp="label"
       onSearch={
         restProps?.showSearch
           ? (value) => {
@@ -176,6 +171,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
 
         return (
           <Option
+            {...item}
             value={value}
             key={value}
             disabled={itemDisable}
