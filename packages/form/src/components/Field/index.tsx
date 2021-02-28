@@ -7,15 +7,17 @@ import { runFunction } from '@ant-design/pro-utils';
 import createField from '../../BaseForm/createField';
 import type { ProFormItemProps } from '../../interface';
 
-export type ProFormFieldProps = ProSchema<
-  string,
+export type ProFormFieldProps<T = any> = ProSchema<
+  T,
   ProFormItemProps<InputProps & SelectProps<string>> & {
     mode?: 'edit' | 'read' | 'update';
     // 用来判断是不是被嵌套渲染的 dom
     isDefaultDom?: boolean;
     ref?: any;
     plain?: boolean;
-  }
+  },
+  any,
+  any
 >;
 /**
  * 最普通的 Text 组件
@@ -23,7 +25,7 @@ export type ProFormFieldProps = ProSchema<
  * @param
  */
 const ProFormField: React.FC<
-  ProFormFieldProps & {
+  ProFormFieldProps<any> & {
     onChange?: Function;
   }
 > = ({

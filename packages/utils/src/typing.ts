@@ -1,4 +1,5 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import { valueType } from 'antd/lib/statistic/utils';
 import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
@@ -178,8 +179,8 @@ export type ProSchema<
     dom: React.ReactNode,
     entity: T,
     index: number,
-    action: ProCoreActionType,
-    schema: ProSchema<T, Extra> & { isEditable?: boolean; type: V },
+    action: ProCoreActionType | undefined,
+    schema: ProSchema<T, Extra, V, ValueType> & { isEditable?: boolean; type: V },
   ) => React.ReactNode;
 
   /**
@@ -188,7 +189,7 @@ export type ProSchema<
    * @name 自定义编辑模式
    */
   renderFormItem?: (
-    schema: ProSchema<T, Extra> & {
+    schema: ProSchema<T, Extra, V, ValueType> & {
       isEditable?: boolean;
       index?: number;
       type: V;
@@ -199,7 +200,7 @@ export type ProSchema<
       recordKey?: React.Key | React.Key[];
       record?: T;
       isEditable?: boolean;
-      defaultRender: (newItem: ProSchema<T, Extra>) => JSX.Element | null;
+      defaultRender?: (newItem: ProSchema<T, Extra, V, ValueType>) => JSX.Element | null;
     },
     form: FormInstance,
   ) => React.ReactNode;

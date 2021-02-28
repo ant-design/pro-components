@@ -36,6 +36,8 @@ import DrawerForm from './layouts/DrawerForm';
 import type { ProFormListProps } from './components/List';
 import ProFormList from './components/List';
 import type { FormInstance, FormItemProps, FormProps } from './BaseForm';
+import type { ProfFormColumnsType } from './components/SchemaForm';
+import SchemaForm from './components/SchemaForm';
 import './index.less';
 
 export type {
@@ -53,6 +55,7 @@ export type {
   FormItemProps,
   FormInstance,
   ProFormListProps,
+  ProfFormColumnsType,
 };
 
 const ProFormGroup = ProForm.Group;
@@ -81,6 +84,7 @@ export {
   ProFormDateTimeRangePicker,
   ProFormDependency,
   ProFormGroup,
+  SchemaForm,
   // layouts
   QueryFilter,
   LightFilter,
