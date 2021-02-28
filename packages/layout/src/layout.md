@@ -450,7 +450,7 @@ export interface MenuDataItem {
 ```
 
 - name 用于配置在菜单中的名称，同时会修改为浏览器标签页标题
-- icon 代表菜单的体表，只 antd 的图表，iconfont 需要自己定义
+- icon 代表菜单的图标，只 antd 的图标，iconfont 需要自己定义
 - locale 可以设置菜单名称的国际化表示
 - hideInMenu 会把这个路由配置在 menu 中隐藏这个路由，name 不填会有相同的效果
 - hideChildrenInMenu 会把这个路由的子节点在 menu 中隐藏
