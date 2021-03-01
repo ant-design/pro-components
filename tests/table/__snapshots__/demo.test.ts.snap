@@ -20400,6 +20400,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -20426,6 +20427,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -20456,15 +20458,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
                         aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="title"
-                        max="9007199254740991"
-                        min="0"
                         name="title"
                         placeholder="请输入"
+                        profieldkey="title"
                         role="spinbutton"
                         step="1"
                         value=""
@@ -27869,6 +27869,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -27895,6 +27896,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -27925,16 +27927,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
-                        aria-valuemin="-9007199254740991"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="progress"
-                        max="9007199254740991"
-                        min="-9007199254740991"
                         name="progress"
                         placeholder="请输入"
+                        profieldkey="progress"
                         role="spinbutton"
+                        status="active"
                         step="1"
                         value=""
                       />
@@ -28534,6 +28534,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -28560,6 +28561,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -28590,15 +28592,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
-                        aria-valuemin="-9007199254740991"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="progress"
-                        max="9007199254740991"
-                        min="-9007199254740991"
                         name="progress"
                         placeholder="请输入"
+                        profieldkey="progress"
                         role="spinbutton"
                         step="1"
                         value=""
@@ -31598,6 +31597,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -31624,6 +31624,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -31654,15 +31655,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
                         aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="title"
-                        max="9007199254740991"
-                        min="0"
                         name="title"
                         placeholder="请输入"
+                        profieldkey="title"
                         role="spinbutton"
                         step="1"
                         value=""
@@ -41529,6 +41528,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -41555,6 +41555,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -41585,16 +41586,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
-                        aria-valuemin="-9007199254740991"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="progress"
-                        max="9007199254740991"
-                        min="-9007199254740991"
                         name="progress"
                         placeholder="请输入"
+                        profieldkey="progress"
                         role="spinbutton"
+                        status="active"
                         step="1"
                         value=""
                       />
@@ -41641,6 +41640,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -41667,6 +41667,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -41697,15 +41698,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
                         aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="money"
-                        max="9007199254740991"
-                        min="0"
                         name="money"
                         placeholder="请输入"
+                        profieldkey="money"
                         role="spinbutton"
                         step="1"
                         value=""
@@ -41749,6 +41748,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -41775,6 +41775,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -41805,15 +41806,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      hidden=""
                       id="digit"
-                      max="9007199254740991"
-                      min="0"
                       name="digit"
                       placeholder="请输入"
+                      profieldkey="digit"
                       role="spinbutton"
                       step="1"
                       value=""
@@ -41856,6 +41856,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -41882,6 +41883,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -41912,15 +41914,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      hidden=""
                       id="digit"
-                      max="9007199254740991"
-                      min="0"
                       name="digit"
                       placeholder="请输入"
+                      profieldkey="digit"
                       role="spinbutton"
                       step="1"
                       value=""
@@ -41963,6 +41964,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -41989,6 +41991,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -42019,15 +42022,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
-                      aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      hidden=""
                       id="percent"
-                      max="9007199254740991"
-                      min="-9007199254740991"
                       name="percent"
                       placeholder="请输入"
+                      profieldkey="percent"
                       role="spinbutton"
                       step="1"
                       value=""

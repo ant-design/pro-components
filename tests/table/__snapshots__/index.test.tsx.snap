@@ -498,6 +498,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -524,6 +525,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -554,15 +556,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      hidden=""
                       id="money"
-                      max="9007199254740991"
-                      min="0"
                       name="money"
                       placeholder="请输入"
+                      profieldkey="money"
                       role="spinbutton"
                       step="1"
                       value=""
@@ -7664,6 +7665,7 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -7690,6 +7692,7 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -7720,15 +7723,14 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      hidden=""
                       id="money"
-                      max="9007199254740991"
-                      min="0"
                       name="money"
                       placeholder="请输入"
+                      profieldkey="money"
                       role="spinbutton"
                       step="1"
                       value=""
@@ -8824,6 +8826,7 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -8850,6 +8853,7 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -8880,15 +8884,14 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      hidden=""
                       id="money"
-                      max="9007199254740991"
-                      min="0"
                       name="money"
                       placeholder="请输入"
+                      profieldkey="money"
                       role="spinbutton"
                       step="1"
                       value=""
@@ -16425,6 +16428,7 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -16451,6 +16455,7 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -16481,15 +16486,13 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
                         aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="money"
-                        max="9007199254740991"
-                        min="0"
                         name="money"
                         placeholder="请输入"
+                        profieldkey="money"
                         role="spinbutton"
                         step="1"
                         value=""
@@ -17204,6 +17207,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -17230,6 +17234,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -17260,15 +17265,13 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
                         aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="money"
-                        max="9007199254740991"
-                        min="0"
                         name="money"
                         placeholder="请输入"
+                        profieldkey="money"
                         role="spinbutton"
                         step="1"
                         value=""

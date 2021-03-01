@@ -1525,6 +1525,7 @@ Array [
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -1551,6 +1552,7 @@ Array [
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -1581,12 +1583,9 @@ Array [
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
                         aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
-                        max="9007199254740991"
-                        min="0"
                         placeholder="请输入"
                         role="spinbutton"
                         step="1"
@@ -1620,6 +1619,7 @@ Array [
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -1646,6 +1646,7 @@ Array [
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -1676,12 +1677,9 @@ Array [
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
                         aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
-                        max="9007199254740991"
-                        min="0"
                         placeholder="请输入"
                         role="spinbutton"
                         step="1"
@@ -1718,6 +1716,7 @@ Array [
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -1744,6 +1743,7 @@ Array [
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -1774,12 +1774,8 @@ Array [
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
-                        aria-valuemin="-9007199254740991"
                         autocomplete="off"
                         class="ant-input-number-input"
-                        max="9007199254740991"
-                        min="-9007199254740991"
                         placeholder="请输入"
                         role="spinbutton"
                         step="1"
@@ -2378,6 +2374,7 @@ Array [
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -2404,6 +2401,7 @@ Array [
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -2434,12 +2432,8 @@ Array [
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
-                        aria-valuemin="-9007199254740991"
                         autocomplete="off"
                         class="ant-input-number-input"
-                        max="9007199254740991"
-                        min="-9007199254740991"
                         placeholder="请输入"
                         role="spinbutton"
                         step="1"
@@ -2476,6 +2470,7 @@ Array [
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -2502,6 +2497,7 @@ Array [
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -2532,12 +2528,8 @@ Array [
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
-                        aria-valuemin="-9007199254740991"
                         autocomplete="off"
                         class="ant-input-number-input"
-                        max="9007199254740991"
-                        min="-9007199254740991"
                         placeholder="请输入"
                         role="spinbutton"
                         step="1"
@@ -2570,6 +2562,7 @@ Array [
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -2596,6 +2589,7 @@ Array [
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -2626,12 +2620,8 @@ Array [
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
-                        aria-valuemin="-9007199254740991"
                         autocomplete="off"
                         class="ant-input-number-input"
-                        max="9007199254740991"
-                        min="-9007199254740991"
                         placeholder="请输入"
                         role="spinbutton"
                         step="1"

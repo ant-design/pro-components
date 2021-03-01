@@ -615,6 +615,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                 class="ant-input-number-handler-wrap"
               >
                 <span
+                  aria-disabled="false"
                   aria-label="Increase Value"
                   class="ant-input-number-handler ant-input-number-handler-up"
                   role="button"
@@ -641,6 +642,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   </span>
                 </span>
                 <span
+                  aria-disabled="false"
                   aria-label="Decrease Value"
                   class="ant-input-number-handler ant-input-number-handler-down"
                   role="button"
@@ -677,9 +679,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   autocomplete="off"
                   class="ant-input-number-input"
                   id="validate_other_input-number"
-                  max="10"
-                  min="1"
                   placeholder="请输入"
+                  profieldkey="input-number"
                   role="spinbutton"
                   step="1"
                   value="3"
@@ -5247,6 +5248,7 @@ Array [
                                       class="ant-input-number-handler-wrap"
                                     >
                                       <span
+                                        aria-disabled="false"
                                         aria-label="Increase Value"
                                         class="ant-input-number-handler ant-input-number-handler-up"
                                         role="button"
@@ -5273,6 +5275,7 @@ Array [
                                         </span>
                                       </span>
                                       <span
+                                        aria-disabled="false"
                                         aria-label="Decrease Value"
                                         class="ant-input-number-handler ant-input-number-handler-down"
                                         role="button"
@@ -5303,15 +5306,13 @@ Array [
                                       class="ant-input-number-input-wrap"
                                     >
                                       <input
-                                        aria-valuemax="9007199254740991"
                                         aria-valuemin="0"
                                         aria-valuenow="111"
                                         autocomplete="off"
                                         class="ant-input-number-input"
                                         id="users_0_age"
-                                        max="9007199254740991"
-                                        min="0"
                                         placeholder="请输入"
+                                        profieldkey="age"
                                         role="spinbutton"
                                         step="1"
                                         value="111"
@@ -11848,6 +11849,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                         class="ant-input-number-handler-wrap"
                       >
                         <span
+                          aria-disabled="false"
                           aria-label="Increase Value"
                           class="ant-input-number-handler ant-input-number-handler-up"
                           role="button"
@@ -11874,6 +11876,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           </span>
                         </span>
                         <span
+                          aria-disabled="false"
                           aria-label="Decrease Value"
                           class="ant-input-number-handler ant-input-number-handler-down"
                           role="button"
@@ -11904,15 +11907,13 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                         class="ant-input-number-input-wrap"
                       >
                         <input
-                          aria-valuemax="9007199254740991"
                           aria-valuemin="0"
                           aria-valuenow="9999"
                           autocomplete="off"
                           class="ant-input-number-input"
                           id="base_xs"
-                          max="9007199254740991"
-                          min="0"
                           placeholder="请输入名称"
+                          profieldkey="xs"
                           role="spinbutton"
                           step="1"
                           value="9999"
@@ -17321,6 +17322,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                     class="ant-input-number-handler-wrap"
                                   >
                                     <span
+                                      aria-disabled="false"
                                       aria-label="Increase Value"
                                       class="ant-input-number-handler ant-input-number-handler-up"
                                       role="button"
@@ -17347,6 +17349,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       </span>
                                     </span>
                                     <span
+                                      aria-disabled="false"
                                       aria-label="Decrease Value"
                                       class="ant-input-number-handler ant-input-number-handler-down"
                                       role="button"
@@ -17377,15 +17380,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                     class="ant-input-number-input-wrap"
                                   >
                                     <input
-                                      aria-valuemax="9007199254740991"
                                       aria-valuemin="0"
                                       aria-valuenow="5"
                                       autocomplete="off"
                                       class="ant-input-number-input"
                                       id="num"
-                                      max="9007199254740991"
-                                      min="0"
                                       placeholder="请输入"
+                                      profieldkey="num"
                                       role="spinbutton"
                                       step="1"
                                       value="5"
