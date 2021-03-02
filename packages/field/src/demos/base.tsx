@@ -179,11 +179,21 @@ export default () => {
           <Field
             text="open"
             mode={state}
-            request={() => [
+            valueType="select"
+            request={async () => [
               { label: '全部', value: 'all' },
               { label: '未解决', value: 'open' },
               { label: '已解决', value: 'closed' },
               { label: '解决中', value: 'processing' },
+              {
+                label: '特殊选项',
+                value: 'optGroup',
+                optionType: 'optGroup',
+                children: [
+                  { label: '不解决', value: 'no' },
+                  { label: '已废弃', value: 'clear' },
+                ],
+              },
             ]}
           />
         </Descriptions.Item>
