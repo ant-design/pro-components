@@ -116,7 +116,7 @@ const Demo = () => (
         placeholder="Please select favorite colors"
         rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
       />
-      <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
+      <ProFormDigit label="InputNumber" name="input-number" width="sm" min={1} max={10} />
       <ProFormSwitch name="switch" label="Switch" />
       <ProFormSlider
         name="slider"

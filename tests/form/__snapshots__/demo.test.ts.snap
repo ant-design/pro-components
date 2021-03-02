@@ -608,8 +608,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-input-number"
-              style="width: 100%;"
+              class="ant-input-number pro-field-sm"
             >
               <div
                 class="ant-input-number-handler-wrap"
@@ -680,7 +679,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   class="ant-input-number-input"
                   id="validate_other_input-number"
                   placeholder="请输入"
-                  profieldkey="input-number"
                   role="spinbutton"
                   step="1"
                   value="3"
@@ -5241,8 +5239,7 @@ Array [
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-input-number"
-                                    style="width: 100%;"
+                                    class="ant-input-number pro-field-sm"
                                   >
                                     <div
                                       class="ant-input-number-handler-wrap"
@@ -5312,7 +5309,6 @@ Array [
                                         class="ant-input-number-input"
                                         id="users_0_age"
                                         placeholder="请输入"
-                                        profieldkey="age"
                                         role="spinbutton"
                                         step="1"
                                         value="111"
@@ -11843,7 +11839,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   >
                     <div
                       class="ant-input-number pro-field-xs"
-                      style="width: 100%;"
                     >
                       <div
                         class="ant-input-number-handler-wrap"
@@ -11913,7 +11908,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           class="ant-input-number-input"
                           id="base_xs"
                           placeholder="请输入名称"
-                          profieldkey="xs"
                           role="spinbutton"
                           step="1"
                           value="9999"
@@ -17316,7 +17310,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                               >
                                 <div
                                   class="ant-input-number pro-field-xs"
-                                  style="width: 100%;"
                                 >
                                   <div
                                     class="ant-input-number-handler-wrap"
@@ -17386,7 +17379,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       class="ant-input-number-input"
                                       id="num"
                                       placeholder="请输入"
-                                      profieldkey="num"
                                       role="spinbutton"
                                       step="1"
                                       value="5"
