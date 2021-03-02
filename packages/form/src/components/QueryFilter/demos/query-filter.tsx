@@ -16,6 +16,7 @@ export default () => {
       onFinish={async (values) => {
         console.log(values.name);
       }}
+      defaultCollapsed={false}
     >
       <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
       <ProFormText name="creater" label="创建人" />

@@ -114,6 +114,9 @@ describe('QueryFilter', () => {
         <ProFormText label="b" name="b" />
       </QueryFilter>,
     );
+
+    await waitForComponentToPaint(wrapper, 100);
+
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
   });
 

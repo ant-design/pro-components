@@ -9995,16 +9995,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
           style="padding-left: 12px; padding-right: 12px;"
         >
           <div
-            class="ant-divider ant-divider-horizontal ant-divider-dashed"
-            role="separator"
-            style="margin-top: -8px; margin-bottom: 16px;"
-          />
-        </div>
-        <div
-          class="ant-col ant-col-24"
-          style="padding-left: 12px; padding-right: 12px;"
-        >
-          <div
             class="ant-pro-form-group"
           >
             <div

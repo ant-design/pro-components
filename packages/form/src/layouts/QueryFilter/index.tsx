@@ -219,13 +219,13 @@ const QueryFilterContent: React.FC<{
       const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
       // 计算总的 totalSpan 长度
       totalSpan += colSpan;
-
       const hidden: boolean =
         (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
         // 如果收起了
         (collapsed &&
           // 如果 超过显示长度 且 总长度超过了 24
           index >= showLength - 1 &&
+          !!index &&
           totalSpan >= 24);
 
       itemLength += 1;
