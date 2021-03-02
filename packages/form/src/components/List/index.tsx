@@ -64,6 +64,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   tooltip,
   creatorRecord,
   itemRender,
+  rules,
   ...rest
 }) => {
   const context = useContext(ConfigProvider.ConfigContext);
@@ -78,11 +79,11 @@ const ProFormList: React.FC<ProFormListProps> = ({
   }, [listContext.fieldKey, rest.name]);
 
   return (
-    <Form.Item label={label} tooltip={tooltip} shouldUpdate>
+    <Form.Item label={label} tooltip={tooltip} rules={rules} shouldUpdate>
       {({ getFieldValue }) => {
         return (
           <div className={baseClassName}>
-            <Form.List {...rest} name={name}>
+            <Form.List rules={rules} {...rest} name={name}>
               {(fields, action, meta) => {
                 const creatorButton = creatorButtonProps !== false && (
                   <Button
@@ -106,77 +107,80 @@ const ProFormList: React.FC<ProFormListProps> = ({
                   return (children as ChildrenFunction)(fields, action, meta);
                 }
                 return (
-                  <div
-                    style={{
-                      width: 'max-content',
-                    }}
-                  >
-                    {creatorButtonProps !== false &&
-                      creatorButtonProps?.position === 'top' &&
-                      creatorButton}
-                    {fields.map((field) => {
-                      const defaultActionDom = [
-                        <Tooltip title="复制此行" key="copy">
-                          <CopyOutlined
-                            className={`${baseClassName}-action-icon`}
-                            onClick={() => {
-                              action.add(getFieldValue([rest.name, field.key].flat(1)));
+                  <>
+                    <div
+                      style={{
+                        width: 'max-content',
+                      }}
+                    >
+                      {creatorButtonProps !== false &&
+                        creatorButtonProps?.position === 'top' &&
+                        creatorButton}
+                      {fields.map((field) => {
+                        const defaultActionDom = [
+                          <Tooltip title="复制此行" key="copy">
+                            <CopyOutlined
+                              className={`${baseClassName}-action-icon`}
+                              onClick={() => {
+                                action.add(getFieldValue([rest.name, field.key].flat(1)));
+                              }}
+                            />
+                          </Tooltip>,
+                          <Tooltip title="删除此行" key="delete">
+                            <DeleteOutlined
+                              className={`${baseClassName}-action-icon`}
+                              onClick={() => action.remove(field.name)}
+                            />
+                          </Tooltip>,
+                        ];
+                        const dom = (
+                          <div className={`${baseClassName}-action`}>
+                            {actionRender?.(field, action, defaultActionDom) || defaultActionDom}
+                          </div>
+                        );
+
+                        const contentDom = itemRender?.(
+                          {
+                            listDom: <div className={`${baseClassName}-container`}>{children}</div>,
+                            action: dom,
+                          },
+                          {
+                            field,
+                            record: getFieldValue([rest.name, field.key].flat(1)),
+                            fields,
+                            operation: action,
+                            meta,
+                          },
+                        ) || (
+                          <div
+                            style={{
+                              display: 'flex',
+                              alignItems: 'flex-end',
                             }}
-                          />
-                        </Tooltip>,
-                        <Tooltip title="删除此行" key="delete">
-                          <DeleteOutlined
-                            className={`${baseClassName}-action-icon`}
-                            onClick={() => action.remove(field.name)}
-                          />
-                        </Tooltip>,
-                      ];
-                      const dom = (
-                        <div className={`${baseClassName}-action`}>
-                          {actionRender?.(field, action, defaultActionDom) || defaultActionDom}
-                        </div>
-                      );
+                          >
+                            <div className={`${baseClassName}-container`}>{children}</div>
+                            {dom}
+                          </div>
+                        );
 
-                      const contentDom = itemRender?.(
-                        {
-                          listDom: <div className={`${baseClassName}-container`}>{children}</div>,
-                          action: dom,
-                        },
-                        {
-                          field,
-                          record: getFieldValue([rest.name, field.key].flat(1)),
-                          fields,
-                          operation: action,
-                          meta,
-                        },
-                      ) || (
-                        <div
-                          style={{
-                            display: 'flex',
-                            alignItems: 'flex-end',
-                          }}
-                        >
-                          <div className={`${baseClassName}-container`}>{children}</div>
-                          {dom}
-                        </div>
-                      );
-
-                      return (
-                        <FormListContext.Provider
-                          key={field.name}
-                          value={{
-                            ...field,
-                            listName: rest.name,
-                          }}
-                        >
-                          {contentDom}
-                        </FormListContext.Provider>
-                      );
-                    })}
-                    {creatorButtonProps !== false &&
-                      creatorButtonProps?.position !== 'top' &&
-                      creatorButton}
-                  </div>
+                        return (
+                          <FormListContext.Provider
+                            key={field.name}
+                            value={{
+                              ...field,
+                              listName: rest.name,
+                            }}
+                          >
+                            {contentDom}
+                          </FormListContext.Provider>
+                        );
+                      })}
+                      {creatorButtonProps !== false &&
+                        creatorButtonProps?.position !== 'top' &&
+                        creatorButton}
+                    </div>
+                    <Form.ErrorList errors={meta.errors} />
+                  </>
                 );
               }}
             </Form.List>

@@ -41,6 +41,17 @@ const Demo = () => {
         <ProFormList
           name="users"
           label="用户信息"
+          rules={[
+            {
+              validator: async (_, value) => {
+                console.log(value);
+                if (value && value.length > 0) {
+                  return;
+                }
+                throw new Error('至少要有一项！');
+              },
+            },
+          ]}
           creatorButtonProps={{
             position,
           }}
