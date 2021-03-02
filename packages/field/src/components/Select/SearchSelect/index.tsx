@@ -102,8 +102,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   });
 
   const getMergeValue: SelectProps<any>['onChange'] = (value, option) => {
-    // 聚合数据传递给上游消费
-    if (mode === 'multiple' && Array.isArray(value) && value.length > 0) {
+    if (Array.isArray(value) && value.length > 0) {
       // 多选情况且用户有选择
       return value.map((item, index) => {
         const optionItem = option?.[index];
@@ -114,10 +113,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         };
       });
     }
-
-    // 单选情况且用户选择了选项
-    const dataItem = (option && option['data-item']) || {};
-    return { ...dataItem, ...value };
+    return [];
   };
 
   const renderOptions = (mapOptions: RequestOptionsType[]) => {
@@ -176,7 +172,6 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         }
         // 合并值
         const mergeValue = getMergeValue(value, optionList) as any;
-
         onChange?.(mergeValue, optionList, ...rest);
         // 将搜索结果置空，重新搜索
         if (resetAfterSelect) resetData();
