@@ -179,6 +179,7 @@ export default () => {
           <Field
             text="open"
             mode={state}
+            valueType="select"
             request={async () => [
               { label: '全部', value: 'all' },
               { label: '未解决', value: 'open' },
