@@ -41813,7 +41813,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                       id="digit"
                       name="digit"
                       placeholder="请输入"
-                      profieldkey="digit"
                       role="spinbutton"
                       step="1"
                       value=""

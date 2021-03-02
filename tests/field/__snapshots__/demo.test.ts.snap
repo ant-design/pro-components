@@ -1613,7 +1613,6 @@ Array [
                 >
                   <div
                     class="ant-input-number"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-input-number-handler-wrap"

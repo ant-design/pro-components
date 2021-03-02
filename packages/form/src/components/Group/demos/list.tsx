@@ -79,7 +79,7 @@ const Demo = () => {
               name="name"
               label="姓名"
             />
-            <ProFormDigit name="age" label="年龄" />
+            <ProFormDigit name="age" label="年龄" width="sm" />
             <ProFormSelect
               label="性别"
               name="sex"
