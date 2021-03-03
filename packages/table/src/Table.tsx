@@ -101,6 +101,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     rowKey,
     manualRequest,
     polling,
+    tooltip,
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
@@ -503,8 +504,10 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         }),
       );
     };
+
     return (
       <Toolbar<T>
+        tooltip={tooltip}
         columns={tableColumn}
         options={options}
         headerTitle={headerTitle}
@@ -517,6 +520,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       />
     );
   }, [
+    tooltip,
     action,
     formSearch,
     headerTitle,
