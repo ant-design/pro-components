@@ -11,6 +11,33 @@ export default () => {
         onFinish={async (values) => {
           console.log(values.name);
         }}
+        span={6}
+        defaultCollapsed={false}
+      >
+        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
+        <ProFormText name="sex" label="性别" />
+      </QueryFilter>
+      <QueryFilter<{
+        name: string;
+        company: string;
+      }>
+        onFinish={async (values) => {
+          console.log(values.name);
+        }}
+        span={6}
+        defaultCollapsed={false}
+      >
+        <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
+        <ProFormText name="creater" label="创建人" />
+        <ProFormText name="sex" label="性别" />
+      </QueryFilter>
+      <QueryFilter<{
+        name: string;
+        company: string;
+      }>
+        onFinish={async (values) => {
+          console.log(values.name);
+        }}
         defaultCollapsed={false}
       >
         <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
@@ -62,6 +89,7 @@ export default () => {
           console.log(values.name);
         }}
         span={4}
+        defaultColsNumber={1}
         defaultCollapsed={false}
       >
         <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />

@@ -33,7 +33,7 @@ export function formatSecond(result: number) {
  * @param FieldSecond
  */
 const Second: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, renderFormItem, fieldProps, ...rest },
+  { text, mode: type, render, renderFormItem, proFieldKey, fieldProps, ...rest },
   ref,
 ) => {
   if (type === 'read') {
