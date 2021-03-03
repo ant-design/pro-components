@@ -166,8 +166,15 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           : undefined
       }
       onChange={(value, optionList, ...rest) => {
-        if (!props.labelInValue || mode !== 'multiple') {
+        if (!props.labelInValue) {
           onChange?.(value, optionList, ...rest);
+          return;
+        }
+
+        if (mode !== 'multiple') {
+          // 单选情况且用户选择了选项
+          const dataItem = (optionList && optionList['data-item']) || {};
+          onChange?.({ ...value, ...dataItem }, optionList, ...rest);
           return;
         }
         // 合并值
