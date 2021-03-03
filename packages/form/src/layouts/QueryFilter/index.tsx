@@ -270,10 +270,7 @@ const QueryFilterContent: React.FC<{
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = useMemo(() => {
-    if (itemLength < showLength) {
-      return false;
-    }
-    if (totalSpan < 24) {
+    if (totalSpan < 24 || itemLength < showLength) {
       return false;
     }
     return true;
@@ -281,10 +278,7 @@ const QueryFilterContent: React.FC<{
 
   const offset = useMemo(() => {
     const offsetSpan = (currentSpan % 24) + spanSize.span;
-    if (offsetSpan) {
-      return 24 - offsetSpan;
-    }
-    return 0;
+    return 24 - offsetSpan;
   }, [currentSpan, spanSize.span]);
 
   return (
