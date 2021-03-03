@@ -131,6 +131,7 @@ const initData = {
   size: 'small',
   expandable: false,
   headerTitle: '高级表格',
+  tooltip: '高级表格 tooltip',
   showHeader: true,
   footer: true,
   rowSelection: {},
@@ -162,7 +163,7 @@ const DynamicSettings = () => {
     setConfig(state);
   }, 20);
 
-  const tableColumns = config.columns.map((item: any) => ({
+  const tableColumns = (config.columns || columns)?.map((item: any) => ({
     ...item,
     ellipsis: config.ellipsis,
   }));
@@ -341,6 +342,14 @@ const DynamicSettings = () => {
                 label="表格标题"
                 name="headerTitle"
                 tooltip="headerTitle={false}"
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="表格的tooltip"
+                name="tooltip"
+                tooltip="tooltip={false}"
               />
 
               <ProFormSwitch
