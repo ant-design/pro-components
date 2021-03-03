@@ -52,6 +52,9 @@ const Demo = () => (
       />
       <ProFormSelect
         width="md"
+        fieldProps={{
+          labelInValue: true,
+        }}
         request={async () => [
           { label: '全部', value: 'all' },
           { label: '未解决', value: 'open' },
@@ -65,6 +68,9 @@ const Demo = () => (
         <ProFormSelect.SearchSelect
           name="userQuery"
           label="查询选择器"
+          fieldProps={{
+            labelInValue: true,
+          }}
           request={async () => [
             { label: '全部', value: 'all' },
             { label: '未解决', value: 'open' },

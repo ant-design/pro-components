@@ -14,7 +14,7 @@ export type FieldDigitProps = {
  *     moneySymbol?: string; }
  */
 const FieldDigit: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, renderFormItem, fieldProps, proFieldKey, ...rest },
+  { text, mode: type, render, renderFormItem, plain, fieldProps, proFieldKey, ...rest },
   ref,
 ) => {
   if (type === 'read') {
