@@ -37,9 +37,5 @@ const LabelIconTip: React.FC<LabelIconTipProps> = (props) => {
   );
 };
 
-LabelIconTip.getColumnTitle = () => {
-  return 'hi';
-};
-
 export default React.memo(LabelIconTip);
 export type { LabelIconTipProps };
