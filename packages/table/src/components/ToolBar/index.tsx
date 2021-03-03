@@ -133,6 +133,12 @@ function renderDefaultOption<T = unknown, ValueType = 'text'>(
           if (typeof value === 'function') {
             return { onExport: (...args) => value(...args, action) } as ExportToExcelActionProps;
           }
+          if (typeof value === 'object') {
+            return {
+              ...value,
+              onExport: (...args) => value.onExport?.(...args, action),
+            } as ExportToExcelActionProps;
+          }
           return value;
         };
 
