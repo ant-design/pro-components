@@ -11,28 +11,35 @@ type ExportToExcelActionConfig<T = unknown, V = 'text'> = {
     col: ColumnType<T>,
     rowIndex: number,
   ) => CellObject | null;
-  sheetName: string;
+  sheetName?: string;
   columns: TableColumnType<T>[] | ProColumns<T, V>[];
   dataSource: T[];
 };
 
-type ExportToExcelActionExport<T = unknown, V = 'text'> = (
-  info: MenuInfo,
-  fileName: string,
-  configs: ExportToExcelActionConfig<T, V>[],
-  xlsx: typeof XLSX,
-) => boolean | void;
+type ExportToExcelActionExport<T = unknown, V = 'text'> = (options: {
+  info?: MenuInfo;
+  configs: ExportToExcelActionConfig<T, V>[];
+  xlsx: typeof XLSX;
+  allColumns: ProColumns<T, V>[];
+  columns: TableColumnType<T>[];
+  dataSource?: T[];
+}) => boolean | void;
 
 type ExportToExcelActionProps<RecordType = unknown, ValueType = 'text'> = {
-  fileName: string;
-  configs?:
-    | ExportToExcelActionConfig<RecordType, ValueType>[]
-    | ((
-        fileName: string,
-        columns: TableColumnType<RecordType>[],
-        proColumns: ProColumns<RecordType, ValueType>[],
-        dataSource?: RecordType[],
-      ) => Promise<ExportToExcelActionConfig<RecordType, ValueType>[]>);
+  fileName?: string;
+  getSheetDataSourceItemMeta?: ExportToExcelActionConfig<
+    RecordType,
+    ValueType
+  >['getSheetDataSourceItemMeta'];
+  configs?: (
+    columns: TableColumnType<RecordType>[] | ProColumns<RecordType, ValueType>[],
+    dataSource: RecordType[],
+    options: {
+      isExportAll: boolean;
+      allColumns: ProColumns<RecordType, ValueType>[];
+      columns: TableColumnType<RecordType>[];
+    },
+  ) => Promise<ExportToExcelActionConfig<RecordType, ValueType>[]>;
   proColumns: ProColumns<RecordType, ValueType>[];
   columns: TableColumnType<RecordType>[];
   dataSource?: RecordType[];

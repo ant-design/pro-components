@@ -33,7 +33,7 @@ export type OptionConfig<T = unknown, ValueType = 'text'> = {
     | ((
         ...args: [...Parameters<ExportToExcelActionExport<T, ValueType>>, ActionType?]
       ) => ReturnType<ExportToExcelActionExport<T, ValueType>>)
-    | ExportToExcelActionProps;
+    | Omit<ExportToExcelActionProps, 'dataSource' | 'columns' | 'proColumns'>;
 };
 
 export type OptionsType =
@@ -61,6 +61,7 @@ export type ToolBarProps<T = unknown, ValueType = 'text'> = {
   onSearch?: (keyWords: string) => void;
   columns: TableColumnType<T>[];
   proColumns: ProColumns<T, ValueType>[];
+  tableColumns: TableColumnType<T>[];
   dataSource?: readonly T[];
 };
 
@@ -105,6 +106,7 @@ function renderDefaultOption<T = unknown, ValueType = 'text'>(
     intl: IntlType;
   },
   columns: TableColumnType<T>[],
+  tableColumns: TableColumnType<T>[],
   proColumns: ProColumns<T, ValueType>[],
   dataSource?: readonly T[],
   action?: React.MutableRefObject<ActionType | undefined>,
@@ -117,7 +119,7 @@ function renderDefaultOption<T = unknown, ValueType = 'text'>(
         return null;
       }
       if (key === 'setting') {
-        return <ColumnSetting {...options[key]} columns={columns} key={key} />;
+        return <ColumnSetting {...options[key]} columns={tableColumns} key={key} />;
       }
       if (key === 'fullScreen') {
         return (
@@ -137,10 +139,10 @@ function renderDefaultOption<T = unknown, ValueType = 'text'>(
         return (
           <ExportToExcelAction<T, ValueType>
             key={key}
+            {...getMeta()}
             columns={columns}
             proColumns={proColumns}
             dataSource={dataSource}
-            {...getMeta()}
           />
         );
       }
@@ -181,6 +183,7 @@ function ToolBar<T, ValueType>({
   columns,
   dataSource,
   proColumns,
+  tableColumns,
   ...rest
 }: ToolBarProps<T, ValueType>) {
   const counter = Container.useContainer();
@@ -213,11 +216,12 @@ function ToolBar<T, ValueType>({
         intl,
       },
       columns,
+      tableColumns,
       proColumns,
       dataSource,
       action,
     );
-  }, [action, columns, proColumns, intl, propsOptions, dataSource]);
+  }, [action, columns, proColumns, intl, propsOptions, tableColumns, dataSource]);
   // 操作列表
   const actions = toolBarRender
     ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })

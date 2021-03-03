@@ -1,8 +1,8 @@
-import { DownloadOutlined } from '@ant-design/icons';
+import { DownloadOutlined, LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import type { MenuItemProps } from 'antd';
-import { Dropdown, Menu } from 'antd';
-import React, { memo, useCallback, useMemo } from 'react';
+import { Dropdown, Menu, Tooltip } from 'antd';
+import React, { memo, useCallback, useMemo, useState } from 'react';
 import { defaultTrigger } from './constants';
 import type { ExportToExcelActionConfig, ExportToExcelActionProps } from './typings';
 import { exportToExcel } from './utils/export-to-excel';
@@ -11,8 +11,17 @@ import type { MenuInfo } from 'rc-menu/es/interface';
 function ExportToExcelAction<RecordType = unknown, ValueType = 'text'>(
   props: ExportToExcelActionProps<RecordType, ValueType>,
 ) {
-  const { configs, fileName, onExport, columns, proColumns, dataSource } = props;
+  const {
+    configs,
+    fileName,
+    onExport,
+    columns,
+    proColumns,
+    dataSource,
+    getSheetDataSourceItemMeta,
+  } = props;
   const intl = useIntl();
+  const [loading, setLoading] = useState(false);
 
   const defaultFileName = intl.getMessage('tableToolBar.export.defaultFileName', '默认导出文件名');
   const defaultSheetName = intl.getMessage('tableToolBar.export.defaultSheetName', 'sheet 1');
@@ -27,66 +36,84 @@ function ExportToExcelAction<RecordType = unknown, ValueType = 'text'>(
   );
 
   const getConfigs = useCallback(
-    async (defaultConfigs: ExportToExcelActionConfig<RecordType, ValueType>[]) => {
+    async (isExportAll: boolean) => {
+      const exportColumns = isExportAll ? proColumns : columns;
+
+      const defaultConfigs: ExportToExcelActionConfig<RecordType, ValueType>[] = [
+        {
+          sheetName: defaultSheetName,
+          columns: exportColumns,
+          dataSource: dataSource ?? [],
+          getSheetDataSourceItemMeta,
+        },
+      ];
+
       if (typeof configs === 'function') {
-        const asyncConfigs = await configs(fileName, columns, proColumns, dataSource);
-        return asyncConfigs;
+        setLoading(true);
+        const asyncConfigs = await configs(exportColumns, dataSource ?? [], {
+          isExportAll,
+          allColumns: proColumns,
+          columns,
+        });
+        setLoading(false);
+        return asyncConfigs.map((itemConfig) => {
+          return {
+            getSheetDataSourceItemMeta,
+            sheetName: defaultSheetName,
+            ...itemConfig,
+          };
+        });
       }
-      return configs ?? defaultConfigs;
+      return defaultConfigs;
     },
-    [configs, fileName, columns, proColumns, dataSource],
+    [configs, columns, proColumns, dataSource, defaultSheetName, getSheetDataSourceItemMeta],
   );
 
   const exports = useCallback(
-    async (info: MenuInfo, isAll?: boolean) => {
-      const asyncConfigs = await getConfigs([
-        {
-          sheetName: defaultSheetName,
-          columns: isAll ? proColumns : columns,
-          dataSource: dataSource ?? [],
-        },
-      ]);
+    async (options: { info?: MenuInfo; isExportAll: boolean }) => {
+      const finalConfigs = await getConfigs(options.isExportAll);
 
-      exportToExcel<RecordType, ValueType>(
-        info,
-        fileName ?? defaultFileName,
-        asyncConfigs,
+      exportToExcel<RecordType, ValueType>({
+        info: options.info,
+        fileName: fileName ?? defaultFileName,
+        configs: finalConfigs,
         onExport,
-      );
+        dataSource,
+        allColumns: proColumns,
+        columns,
+      });
     },
-    [
-      proColumns,
-      getConfigs,
-      columns,
-      defaultFileName,
-      defaultSheetName,
-      fileName,
-      dataSource,
-      onExport,
-    ],
+    [defaultFileName, dataSource, proColumns, columns, fileName, getConfigs, onExport],
   );
 
   const handleExportAllFields: MenuItemProps['onClick'] = useCallback(
     async (info: MenuInfo) => {
-      exports(info, true);
+      exports({ info, isExportAll: true });
     },
     [exports],
   );
 
   const handleExportShowingFields: MenuItemProps['onClick'] = useCallback(
     (info: MenuInfo) => {
-      exports(info);
+      exports({ info, isExportAll: false });
     },
     [exports],
   );
 
+  const handleClick = useCallback(() => {
+    if (loading === true) {
+      return;
+    }
+    exports({ isExportAll: true });
+  }, [exports, loading]);
+
   const menu = useMemo(() => {
     return (
       <Menu>
-        <Menu.Item key="export-all" onClick={handleExportAllFields}>
+        <Menu.Item disabled={loading} key="export-all" onClick={handleExportAllFields}>
           {exportAllMenuTitle}
         </Menu.Item>
-        <Menu.Item key="export-visible" onClick={handleExportShowingFields}>
+        <Menu.Item disabled={loading} key="export-visible" onClick={handleExportShowingFields}>
           {exportVisibleMenuTitle}
         </Menu.Item>
       </Menu>
@@ -96,13 +123,24 @@ function ExportToExcelAction<RecordType = unknown, ValueType = 'text'>(
     handleExportShowingFields,
     exportAllMenuTitle,
     exportVisibleMenuTitle,
+    loading,
   ]);
 
-  return (
-    <Dropdown trigger={defaultTrigger} overlay={menu}>
-      <DownloadOutlined />
-    </Dropdown>
+  const dom = (
+    <Tooltip title={intl.getMessage('tableToolBar.export.tooltip', '导出')}>
+      {loading ? <LoadingOutlined /> : <DownloadOutlined />}
+    </Tooltip>
   );
+
+  if (proColumns.length !== columns.length) {
+    return (
+      <Dropdown trigger={defaultTrigger} overlay={menu}>
+        {dom}
+      </Dropdown>
+    );
+  }
+
+  return <span onClick={handleClick}>{dom}</span>;
 }
 
 export default memo(ExportToExcelAction) as typeof ExportToExcelAction;

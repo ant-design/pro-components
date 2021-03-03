@@ -131,6 +131,135 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
 
 <code src="./demos/listToolBar.tsx" background="#f5f5f5" height="450px" title="Toolbar 自定义" />
 
+### Toolbar 配置导出
+
+<code src="./demos/toolbar-export.tsx" background="#f5f5f5" height="450px" title="Toolbar 配置导出" />
+
+传递函数类型，表示注册点击回调，可以自定义导出逻辑
+
+```tsx | pure
+<ProTable
+  options={{
+    export: (options, action) => {
+      console.log(options, action);
+      return false;
+    },
+  }}
+/>
+```
+
+支持对象类型配置，比如修改导出文件名称，`getSheetDataSourceItemMeta` 优先级低于 configs 返回的数据
+
+```tsx | pure
+<ProTable
+  options={{
+    export: {
+      fileName: '导出文件名称',
+      getSheetDataSourceItemMeta: (cellVal, col, rowIndex) => {
+        if (cellVal == null) {
+          return null;
+        }
+        if (typeof Number(cellVal) === 'number' && rowIndex > 0) {
+          return {
+            t: 'n',
+            z: '0,0',
+          };
+        }
+        return null;
+      },
+    },
+  }}
+/>
+```
+
+通过 `configs` 可以定制 excel 生成的内容，支持异步获取数据
+
+```tsx | pure
+<ProTable
+  options={{
+    export: {
+      fileName: '导出文件名称',
+      configs: async (columns, dataSource, options) => {
+        const delay = (tempstamp: number) => {
+          return new Promise((resolve, reject) => {
+            try {
+              setTimeout(() => {
+                resolve(true);
+              }, tempstamp);
+            } catch {
+              reject(new Error());
+            }
+          });
+        };
+
+        await delay(2000);
+
+        return [
+          {
+            sheetName: 'sheet one',
+            columns,
+            dataSource,
+            getSheetDataSourceItemMeta: (cellVal, col, rowIndex) => {
+              if (cellVal == null) {
+                return null;
+              }
+              if (typeof Number(cellVal) === 'number' && rowIndex > 0) {
+                return {
+                  t: 'n',
+                  z: '0,0',
+                };
+              }
+              return null;
+            },
+          },
+        ];
+      },
+    },
+  }}
+/>
+```
+
+如果有隐藏列字段，导出将区分全部和部分，比如，定义列属性 `hideInTable: true`，如果设置 `hideInExcel: true` 将只在导出内容中过滤
+
+```tsx | pure
+const column = {
+  title: '操作',
+  width: 164,
+  key: 'option',
+  valueType: 'option',
+  hideInExcel: true,
+  render: () => [
+    <a key="1">链路</a>,
+    <a key="2">报警</a>,
+    <a key="3">监控</a>,
+    <a key="4">
+      <EllipsisOutlined />
+    </a>,
+  ],
+};
+```
+
+如果字段 title 使用 jsx 定义，则可以使用 `excelColTitle` 来设置导出列头名称
+
+```tsx | pure
+const column = {
+  title: (
+    <>
+      创建时间
+      <Tooltip placement="top" title="这是一段描述">
+        <QuestionCircleOutlined style={{ marginLeft: 4 }} />
+      </Tooltip>
+    </>
+  ),
+  excelColTitle: '创建时间',
+  width: 140,
+  key: 'since',
+  dataIndex: 'createdAt',
+  valueType: 'date',
+  sorter: (a, b) => a.createdAt - b.createdAt,
+};
+```
+
 ### 表格主体自定义
 
 <code src="./demos/renderTable.tsx" background="#f5f5f5" height="500px" title="表格主体自定义" />

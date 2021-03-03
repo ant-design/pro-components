@@ -307,7 +307,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   );
 
   // ---------- 列计算相关 start  -----------------
-  const tableColumn = useMemo(() => {
+  // filter hideInTable || empty
+  const tableColumns = useMemo(() => {
     return genColumnList<T>({
       columns: propsColumns,
       map: counter.columnsMap,
@@ -321,15 +322,16 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
   useDeepCompareEffect(() => {
-    if (tableColumn && tableColumn.length > 0) {
+    if (tableColumns && tableColumns.length > 0) {
       // 重新生成key的字符串用于排序
-      const columnKeys = tableColumn.map((item) => genColumnKey(item.key, item.index));
+      const columnKeys = tableColumns.map((item) => genColumnKey(item.key, item.index));
       counter.setSortKeyColumns(columnKeys);
     }
-  }, [tableColumn]);
+  }, [tableColumns]);
 
+  // filter hideInTable || empty || hideInSetting
   const columns = useMemo(() => {
-    return tableColumn.filter((item) => {
+    return tableColumns.filter((item) => {
       // 删掉不应该显示的
       const columnKey = genColumnKey(item.key, item.index);
       const config = counter.columnsMap[columnKey];
@@ -338,7 +340,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       }
       return true;
     });
-  }, [counter.columnsMap, tableColumn]);
+  }, [counter.columnsMap, tableColumns]);
   // ---------- 列计算相关 end-----------------
 
   /** 同步 Pagination，支持受控的 页码 和 pageSize */
@@ -506,6 +508,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     return (
       <Toolbar<T, ValueType>
         proColumns={propsColumns}
+        tableColumns={tableColumns}
         columns={columns}
         dataSource={action.dataSource}
         options={options}
@@ -532,6 +535,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     toolBarRender,
     toolbar,
     propsColumns,
+    tableColumns,
   ]);
 
   /** 内置的多选操作栏 */
