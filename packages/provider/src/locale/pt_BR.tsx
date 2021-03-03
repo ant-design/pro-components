@@ -1,5 +1,13 @@
 export default {
   moneySymbol: 'R$',
+  form: {
+    lightFilter: {
+      more: 'Mais',
+      clear: 'Limpar',
+      confirm: 'Confirmar',
+      itemUnit: 'Itens',
+    },
+  },
   tableForm: {
     search: 'Filtrar',
     reset: 'Limpar',
@@ -40,4 +48,16 @@ export default {
     densityMiddle: 'Médio',
     densitySmall: 'Compacto',
   },
+  stepsForm: {
+    next: 'Próximo',
+    prev: 'Anterior',
+    submit: 'Enviar'
+  },
+  editableTable: {
+    action: {
+      save: 'Salvar',
+      cancel: 'Cancelar',
+      delete: 'Apagar'
+    }
+  }
 };

@@ -41,6 +41,17 @@ const Demo = () => {
         <ProFormList
           name="users"
           label="用户信息"
+          rules={[
+            {
+              validator: async (_, value) => {
+                console.log(value);
+                if (value && value.length > 0) {
+                  return;
+                }
+                throw new Error('至少要有一项！');
+              },
+            },
+          ]}
           creatorButtonProps={{
             position,
           }}
@@ -68,7 +79,7 @@ const Demo = () => {
               name="name"
               label="姓名"
             />
-            <ProFormDigit name="age" label="年龄" />
+            <ProFormDigit name="age" label="年龄" width="sm" />
             <ProFormSelect
               label="性别"
               name="sex"

@@ -28,7 +28,7 @@ export function getProgressStatus(text: number): 'success' | 'exception' | 'norm
  */
 const FieldProgress: ProFieldFC<{
   text: number | string;
-}> = ({ text, mode, render, plain, renderFormItem, fieldProps, ...rest }, ref) => {
+}> = ({ text, mode, render, plain, renderFormItem, fieldProps, proFieldKey, ...rest }, ref) => {
   const realValue = useMemo(
     () =>
       typeof text === 'string' && (text as string).includes('%')

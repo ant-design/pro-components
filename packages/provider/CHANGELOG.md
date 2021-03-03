@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.5...@ant-design/pro-provider@1.4.6) (2021-02-28)
+
+### Bug Fixes
+
+- **form:** 🇧🇷 Adding stepForm and editableTable translations to pt-BR ([#2018](https://github.com/ant-design/pro-components/issues/2018)) ([2a3d684](https://github.com/ant-design/pro-components/commit/2a3d6842b7c7dd810fde5aeaca59c96b0c50eece))
+
 ## [1.4.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.4...@ant-design/pro-provider@1.4.5) (2021-02-22)
 
 ### Bug Fixes

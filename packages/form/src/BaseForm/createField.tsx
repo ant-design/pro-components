@@ -18,6 +18,8 @@ export type ProFormItemCreateConfig = {
   customLightMode?: boolean;
   /** Light mode 自定义的 label 模式 */
   lightFilterLabelFormatter?: (value: any) => string;
+  /** 默认的props，如果用户设置会被覆盖 */
+  defaultProps?: Record<string, any>;
 } & FormItemProps;
 
 const WIDTH_SIZE_ENUM = {
@@ -84,6 +86,15 @@ function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(ConfigProvider.SizeContext);
+
+    const {
+      valueType,
+      customLightMode,
+      lightFilterLabelFormatter,
+      valuePropName = 'value',
+      defaultProps,
+      ...defaultFormItemProps
+    } = config || {};
     const {
       label,
       tooltip,
@@ -99,15 +110,7 @@ function createField<P extends ProFormItemProps = any>(
       colSize,
       formItemProps: propsFormItemProps,
       ...rest
-    } = props;
-
-    const {
-      valueType,
-      customLightMode,
-      lightFilterLabelFormatter,
-      valuePropName = 'value',
-      ...defaultFormItemProps
-    } = config || {};
+    } = { ...defaultProps, ...props } as P & ExtendsProps;
 
     // ProFromList 的 filed，里面有name和key
     const formListField = useContext(FormListContext);
@@ -184,7 +187,7 @@ function createField<P extends ProFormItemProps = any>(
           allowClear,
           ...realFieldProps,
           style: omitUndefined({
-            width: typeof width === 'number' ? width : undefined,
+            width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
             ...realFieldProps?.style,
           }),
           className: classnames(realFieldProps?.className, {

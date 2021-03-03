@@ -692,8 +692,9 @@ describe('ProForm', () => {
     const wrapper = mount(
       <ProForm
         onValuesChange={async (values) => {
+          console.log(values);
           //  {"disabled": undefined, "key": "all", "label": "全部", "value": "all"}
-          onFinish(values['userQuery'].label);
+          onFinish(values['userQuery'][0].label);
         }}
       >
         <ProFormSelect.SearchSelect
@@ -1033,6 +1034,73 @@ describe('ProForm', () => {
         }}
       >
         <ProFormSelect
+          name="userQuery"
+          label="查询选择器"
+          valueEnum={{
+            all: { text: '全部', status: 'Default' },
+            open: {
+              text: '未解决',
+              status: 'Error',
+            },
+            closed: {
+              text: '已解决',
+              status: 'Success',
+            },
+            processing: {
+              text: '解决中',
+              status: 'Processing',
+            },
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+    await waitForComponentToPaint(wrapper);
+    // 选中第一个
+    act(() => {
+      wrapper.find('.ant-select-item').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    // 选中第二个
+    act(() => {
+      wrapper.find('.ant-select-item').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(onFinish).toBeCalledWith('open');
+  });
+
+  it('📦 Select support labelInValue singe', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onFinish={async (values) => {
+          onFinish(values?.userQuery.value);
+        }}
+      >
+        <ProFormSelect
+          fieldProps={{
+            labelInValue: true,
+          }}
           name="userQuery"
           label="查询选择器"
           valueEnum={{

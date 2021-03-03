@@ -32,4 +32,8 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
   );
 };
 
-export default createField<ProFormDigitProps>(React.forwardRef(ProFormDigit));
+export default createField<ProFormDigitProps>(React.forwardRef(ProFormDigit), {
+  defaultProps: {
+    width: '100%',
+  },
+});
