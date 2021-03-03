@@ -388,9 +388,12 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
   /** 支持 reload 的功能 */
   useEffect(() => {
     if (actionRef) {
-      actionRef.current = { reload: action.reload };
+      actionRef.current = {
+        reload: action.reload,
+        ...editableUtils,
+      };
     }
-  }, [action]);
+  }, [action, actionRef, editableUtils]);
 
   // loading 时展示
   // loading =  undefined 但是 request 存在时也应该展示

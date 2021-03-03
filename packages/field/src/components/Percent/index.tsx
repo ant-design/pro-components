@@ -32,6 +32,8 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
     render,
     renderFormItem,
     fieldProps,
+    proFieldKey,
+    plain,
     ...rest
   },
   ref,

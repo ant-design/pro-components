@@ -7,6 +7,7 @@ import type {
   ProRenderFieldPropsType,
   ProFieldFCRenderProps,
   ProFieldTextType,
+  ProFieldRequestData,
 } from '@ant-design/pro-utils';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
 
@@ -51,6 +52,8 @@ export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProF
 
 type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
   ProRenderFieldPropsType & {
+    /** 从服务器读取选项 */
+    request?: ProFieldRequestData;
     emptyText?: React.ReactNode;
     visible?: boolean;
     onVisible?: (visible: boolean) => void;

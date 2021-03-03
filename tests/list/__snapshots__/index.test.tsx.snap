@@ -3,7 +3,6 @@
 exports[`List 🚏 only has content 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-card"
@@ -51,28 +50,7 @@ exports[`List 🚏 only has content 1`] = `
                   >
                     <div
                       class="ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                   </div>
                   <div
                     class="ant-pro-list-row-content"
@@ -95,7 +73,6 @@ exports[`List 🚏 only has content 1`] = `
 exports[`List 🚏 only has description 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-card"
@@ -143,28 +120,7 @@ exports[`List 🚏 only has description 1`] = `
                   >
                     <div
                       class="ant-pro-list-row-header-option"
-                    >
-                      <div
-                        class="ant-pro-list-row-checkbox"
-                      >
-                        <label
-                          class="ant-checkbox-wrapper"
-                        >
-                          <span
-                            class="ant-checkbox"
-                          >
-                            <input
-                              class="ant-checkbox-input"
-                              type="checkbox"
-                              value=""
-                            />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
-                          </span>
-                        </label>
-                      </div>
-                    </div>
+                    />
                     <div
                       class="ant-list-item-meta"
                     >

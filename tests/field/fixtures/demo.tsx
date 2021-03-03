@@ -66,7 +66,7 @@ export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => 
         <Field
           text="open"
           mode={state}
-          request={() => [
+          request={async () => [
             { label: '全部', value: 'all' },
             { label: '未解决', value: 'open' },
             { label: '已解决', value: 'closed' },

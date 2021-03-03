@@ -15,7 +15,7 @@ const FieldPassword: ProFieldFC<{
   text: string;
   visible?: boolean;
   onVisible?: (visible: boolean) => void;
-}> = ({ text, mode, render, renderFormItem, fieldProps, ...rest }, ref) => {
+}> = ({ text, mode, render, renderFormItem, fieldProps, proFieldKey, ...rest }, ref) => {
   const intl = useIntl();
   const [visible, setVisible] = useMergedState<boolean>(() => rest.visible || false, {
     value: rest.visible,

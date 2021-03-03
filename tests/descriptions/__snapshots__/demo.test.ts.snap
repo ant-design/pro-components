@@ -1295,9 +1295,9 @@ Array [
                       class="ant-space-item"
                       style="margin-right: 8px;"
                     >
-                      <span>
-                        ￥ 1212100
-                      </span>
+                      <div>
+                        1212100
+                      </div>
                     </div>
                     <div
                       class="ant-space-item"

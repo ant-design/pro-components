@@ -48,6 +48,7 @@ import type {
   ProFieldRequestData,
   ProFieldValueObjectType,
   ProFieldTextType,
+  RequestOptionsType,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
@@ -62,6 +63,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import dateArrayFormatter from './dateArrayFormatter';
 
 export type {
+  RequestOptionsType,
   ProSchema,
   ProCoreActionType,
   ProSchemaComponentTypes,

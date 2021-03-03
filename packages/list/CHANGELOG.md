@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.3...@ant-design/pro-list@1.5.4) (2021-02-28)
+
+### Bug Fixes
+
+- **list:** default close rowSelection ([#2032](https://github.com/ant-design/pro-components/issues/2032)) ([b679649](https://github.com/ant-design/pro-components/commit/b679649b20a9d88cf1f3fd668be9c88cd85cdeb9))
+
 ## [1.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.2...@ant-design/pro-list@1.5.3) (2021-02-25)
 
 ### Bug Fixes

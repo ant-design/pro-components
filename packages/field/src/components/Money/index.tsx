@@ -65,7 +65,17 @@ export type FieldMoneyProps = {
  *     moneySymbol?: string; }
  */
 const FieldMoney: ProFieldFC<FieldMoneyProps> = (
-  { text, mode: type, locale = '', render, renderFormItem, fieldProps, ...rest },
+  {
+    text,
+    mode: type,
+    locale = '',
+    render,
+    renderFormItem,
+    fieldProps,
+    proFieldKey,
+    plain,
+    ...rest
+  },
   ref,
 ) => {
   const intl = useIntl();

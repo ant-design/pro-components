@@ -3,7 +3,6 @@
 exports[`BasicTable 🎏 base use 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"
@@ -499,6 +498,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -525,6 +525,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -555,13 +556,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      hidden=""
                       id="money"
-                      max="9007199254740991"
-                      min="0"
                       name="money"
                       placeholder="请输入"
                       role="spinbutton"
@@ -7170,7 +7169,6 @@ exports[`BasicTable 🎏 base use 1`] = `
 exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter ant-card-bordered"
@@ -7666,6 +7664,7 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -7692,6 +7691,7 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -7722,13 +7722,11 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      hidden=""
                       id="money"
-                      max="9007199254740991"
-                      min="0"
                       name="money"
                       placeholder="请输入"
                       role="spinbutton"
@@ -8331,7 +8329,6 @@ exports[`BasicTable 🎏 bordered = {search = true, table = false} 1`] = `
 exports[`BasicTable 🎏 bordered = true 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter ant-card-bordered"
@@ -8827,6 +8824,7 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -8853,6 +8851,7 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -8883,13 +8882,11 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
+                      hidden=""
                       id="money"
-                      max="9007199254740991"
-                      min="0"
                       name="money"
                       placeholder="请输入"
                       role="spinbutton"
@@ -9492,7 +9489,6 @@ exports[`BasicTable 🎏 bordered = true 1`] = `
 exports[`BasicTable 🎏 columns = undefined 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"
@@ -9731,7 +9727,6 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
 exports[`BasicTable 🎏 do not render Search 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-card"
@@ -16391,7 +16386,6 @@ exports[`BasicTable 🎏 do not render Search 1`] = `
 exports[`BasicTable 🎏 do not render default option 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"
@@ -16431,6 +16425,7 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -16457,6 +16452,7 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -16487,13 +16483,10 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
                         aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="money"
-                        max="9007199254740991"
-                        min="0"
                         name="money"
                         placeholder="请输入"
                         role="spinbutton"
@@ -17171,7 +17164,6 @@ exports[`BasicTable 🎏 do not render default option 1`] = `
 exports[`BasicTable 🎏 do not render setting 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"
@@ -17211,6 +17203,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                       class="ant-input-number-handler-wrap"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Increase Value"
                         class="ant-input-number-handler ant-input-number-handler-up"
                         role="button"
@@ -17237,6 +17230,7 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                         </span>
                       </span>
                       <span
+                        aria-disabled="false"
                         aria-label="Decrease Value"
                         class="ant-input-number-handler ant-input-number-handler-down"
                         role="button"
@@ -17267,13 +17261,10 @@ exports[`BasicTable 🎏 do not render setting 1`] = `
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemax="9007199254740991"
                         aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="money"
-                        max="9007199254740991"
-                        min="0"
                         name="money"
                         placeholder="请输入"
                         role="spinbutton"
@@ -18051,7 +18042,6 @@ exports[`BasicTable 🎏 page error test 1`] = `
 exports[`BasicTable 🎏 valueEnum support function 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"

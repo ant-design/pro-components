@@ -52,8 +52,14 @@ export default () => {
         <Descriptions.Item label="数字">
           <Field text="19897979797979" valueType="digit" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="秒格式化">
+          <Field text={2000000} valueType="second" mode={state} plain={plain} />
+        </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <Field text="100" valueType="percent" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="评分">
+          <Field text={3.5} valueType="rate" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="选择框">
           <Field
@@ -78,7 +84,7 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="多选">
           <Field
-            text="open"
+            text={['open', 'closed']}
             mode={state}
             valueType="checkbox"
             valueEnum={{
@@ -98,9 +104,18 @@ export default () => {
             }}
           />
         </Descriptions.Item>
-        <Descriptions.Item label="多选">
+        <Descriptions.Item label="多选 labelInValue">
           <Field
-            text={['open', 'closed']}
+            text={[
+              {
+                value: 'open1',
+                label: '打开',
+              },
+              {
+                value: 'closed2',
+                label: '关闭',
+              },
+            ]}
             mode={state}
             valueType="checkbox"
             valueEnum={{
@@ -168,15 +183,24 @@ export default () => {
           <Field
             text="open"
             mode={state}
+            valueType="select"
             request={async () => [
               { label: '全部', value: 'all' },
               { label: '未解决', value: 'open' },
               { label: '已解决', value: 'closed' },
               { label: '解决中', value: 'processing' },
+              {
+                label: '特殊选项',
+                value: 'optGroup',
+                optionType: 'optGroup',
+                children: [
+                  { label: '不解决', value: 'no' },
+                  { label: '已废弃', value: 'clear' },
+                ],
+              },
             ]}
           />
         </Descriptions.Item>
-
         <Descriptions.Item label="进度条">
           <Field text="40" valueType="progress" mode={state} plain={plain} />
         </Descriptions.Item>
@@ -225,6 +249,22 @@ export default () => {
             plain={plain}
           />
         </Descriptions.Item>
+        <Descriptions.Item label="相对于当前时间">
+          <Space>
+            <Field
+              text={moment('2019-11-16 12:50:26').valueOf()}
+              valueType="fromNow"
+              mode={state}
+              plain={plain}
+            />
+            <Field
+              text={moment('2020-11-16 12:50:26').valueOf()}
+              valueType="fromNow"
+              mode={state}
+              plain={plain}
+            />
+          </Space>
+        </Descriptions.Item>
         <Descriptions.Item label="日期">
           <Field
             text={moment('2019-11-16 12:50:26').valueOf()}
@@ -260,6 +300,17 @@ export default () => {
             text={moment('2019-11-16 12:50:26').valueOf()}
             plain={plain}
             valueType="time"
+            mode={state}
+          />
+        </Descriptions.Item>
+        <Descriptions.Item label="时间区间">
+          <Field
+            text={[
+              moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+              moment('2019-11-16 12:50:26').valueOf(),
+            ]}
+            plain={plain}
+            valueType="timeRange"
             mode={state}
           />
         </Descriptions.Item>

@@ -228,6 +228,9 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   /** @name 左上角的 title */
   headerTitle?: React.ReactNode;
 
+  /** @name 标题旁边的 tooltip */
+  tooltip?: string;
+
   /** @name 操作栏配置 */
   options?: OptionConfig<T, ValueType> | false;
 

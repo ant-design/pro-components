@@ -101,6 +101,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     rowKey,
     manualRequest,
     polling,
+    tooltip,
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
@@ -505,12 +506,14 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         }),
       );
     };
+
     return (
       <Toolbar<T, ValueType>
         proColumns={propsColumns}
         tableColumns={tableColumns}
         columns={columns}
         dataSource={action.dataSource}
+        tooltip={tooltip}
         options={options}
         headerTitle={headerTitle}
         action={actionRef}
@@ -522,6 +525,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       />
     );
   }, [
+    tooltip,
     action,
     formSearch,
     headerTitle,
@@ -688,7 +692,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       className={classNames(className, {
         [`${className}-polling`]: action.pollingLoading,
       })}
-      id="ant-design-pro-table"
       style={style}
       ref={rootRef}
     >
