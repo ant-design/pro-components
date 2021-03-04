@@ -1094,6 +1094,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                   class="ant-form-item-control-input-content"
                 >
                   <div
+                    class="ant-pro-field-color-picker"
                     style="padding: 5px; width: 48px; border: 1px solid #ddd; border-radius: 2px; cursor: pointer;"
                   >
                     <div

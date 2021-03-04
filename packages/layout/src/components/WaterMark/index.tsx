@@ -134,7 +134,8 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
         setBase64Url(canvas.toDataURL());
       }
     } else {
-      throw new Error('当前环境不支持Canvas');
+      // eslint-disable-next-line no-console
+      console.error('当前环境不支持Canvas');
     }
   }, [
     gapX,

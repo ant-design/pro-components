@@ -6,6 +6,7 @@ import ProForm, {
   ProFormDatePicker,
   ProFormDependency,
   ProFormSelect,
+  ProFormColorPicker,
 } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
@@ -1154,5 +1155,42 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(onFinish).toBeCalledWith('open');
+  });
+
+  it('📦 ColorPicker support rgba', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onValuesChange={async (values) => {
+          onFinish(values?.color);
+        }}
+      >
+        <ProFormColorPicker name="color" label="颜色选择" />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-pro-field-color-picker').simulate('click');
+      wrapper.update();
+    });
+    await waitForComponentToPaint(wrapper);
+    // 选中第一个
+    act(() => {
+      wrapper.find('.flexbox-fix').at(2).find('div span div').at(2).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(onFinish).toBeCalledWith('#5b8ff9');
+
+    act(() => {
+      wrapper.find('#rc-editable-input-5').simulate('change', {
+        target: {
+          value: 2,
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper, 100);
+    expect(onFinish).toBeCalledWith('rgba(91, 143, 249, 0.02)');
   });
 });
