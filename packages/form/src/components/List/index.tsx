@@ -11,8 +11,8 @@ import { DeleteOutlined, PlusOutlined, CopyOutlined } from '@ant-design/icons';
 import './index.less';
 
 type IconConfig = {
-  Icon: React.FC<any>;
-  tooltipText: string;
+  Icon?: React.FC<any>;
+  tooltipText?: string;
 };
 
 const FormListContext = React.createContext<
@@ -157,11 +157,14 @@ const ProFormList: React.FC<ProFormListProps> = ({
                             </Tooltip>,
                           );
                         }
-                        const dom = (
-                          <div className={`${baseClassName}-action`}>
-                            {actionRender?.(field, action, defaultActionDom) || defaultActionDom}
-                          </div>
-                        );
+
+                        const actions =
+                          actionRender?.(field, action, defaultActionDom) || defaultActionDom;
+
+                        const dom =
+                          actions.length > 0 ? (
+                            <div className={`${baseClassName}-action`}>{actions}</div>
+                          ) : null;
 
                         const contentDom = itemRender?.(
                           {
