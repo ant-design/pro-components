@@ -134,7 +134,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                       {fields.map((field) => {
                         const defaultActionDom: React.ReactNode[] = [];
                         if (copyIconProps) {
-                          const { Icon, tooltipText } = copyIconProps;
+                          const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
                           defaultActionDom.push(
                             <Tooltip title={tooltipText} key="copy">
                               <Icon
@@ -147,7 +147,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                           );
                         }
                         if (deleteIconProps) {
-                          const { Icon, tooltipText } = deleteIconProps;
+                          const { Icon = DeleteOutlined, tooltipText } = deleteIconProps;
                           defaultActionDom.push(
                             <Tooltip title={tooltipText} key="delete">
                               <Icon
