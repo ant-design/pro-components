@@ -126,10 +126,24 @@ const defaultRenderText = (
   props: RenderProps,
   valueTypeMap: Record<string, ProRenderFieldPropsType>,
 ): React.ReactNode => {
+  const { mode = 'read', emptyText = '-' } = props;
+
+  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
+    if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
+      const { fieldProps, render } = props;
+      if (render) {
+        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
+      }
+      return <>{emptyText}</>;
+    }
+  }
+
+  // eslint-disable-next-line no-param-reassign
+  delete props.emptyText;
+
   if (typeof valueType === 'object') {
     return defaultRenderTextByObject(text, valueType, props);
   }
-  const { mode = 'read', emptyText = '-' } = props;
 
   const customValueTypeConfig = valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
@@ -158,18 +172,7 @@ const defaultRenderText = (
     }
   }
 
-  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
-    if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
-      const { fieldProps, render } = props;
-      if (render) {
-        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
-      }
-      return <>{emptyText}</>;
-    }
-  }
-
-  // eslint-disable-next-line no-param-reassign
-  delete props.emptyText;
+ 
 
   /** 如果是金额的值 */
   if (valueType === 'money') {
