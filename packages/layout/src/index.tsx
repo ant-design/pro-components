@@ -18,6 +18,7 @@ import getMenuData from './utils/getMenuData';
 import getPageTitle from './getPageTitle';
 import PageLoading from './components/PageLoading';
 import FooterToolbar from './components/FooterToolbar';
+import WaterMark from './components/WaterMark';
 
 export type { ProSettings as Settings, ProSettings } from './defaultSettings';
 
@@ -39,6 +40,7 @@ export {
   getMenuData,
   PageContainer,
   FooterToolbar,
+  WaterMark,
 };
 
 export type {

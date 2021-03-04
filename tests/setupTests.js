@@ -1,6 +1,6 @@
 import MockDate from 'mockdate';
 import Enzyme from 'enzyme';
-
+import 'jest-canvas-mock';
 import moment from 'moment-timezone';
 import { enableFetchMocks } from 'jest-fetch-mock';
 

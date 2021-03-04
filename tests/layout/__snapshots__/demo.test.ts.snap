@@ -920,6 +920,478 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
 </div>
 `;
 
+exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/demos/custom.tsx correctly 1`] = `
+<form
+  class="ant-form ant-form-vertical"
+>
+  <input
+    style="display: none;"
+    type="text"
+  />
+  <div
+    class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
+  >
+    <div
+      class="ant-pro-card-header ant-pro-card-header-border"
+    >
+      <div
+        class="ant-pro-card-title"
+      >
+        水印自定义配置器
+      </div>
+      <div
+        class="ant-pro-card-extra"
+      />
+    </div>
+    <div
+      class="ant-pro-card-body"
+    >
+      <div
+        class="ant-pro-card ant-pro-card-split-vertical"
+        style="width: 70%; flex-shrink: 0; border-radius: 0;"
+      >
+        <div
+          class="ant-pro-card-body"
+        >
+          <div
+            class="ant-pro-layout-watermark-wrapper"
+            style="position: relative;"
+          >
+            <div>
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam aliquid perferendis, adipisci dolorum officia odio natus facere cumque iusto libero repellendus praesentium ipsa cupiditate iure autem eos repudiandae delectus totam?
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, aperiam numquam voluptatibus asperiores odio? Doloribus saepe, eligendi facere inventore culpa, exercitationem explicabo earum laborum deleniti reiciendis deserunt accusantium ullam.
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptas numquam impedit architecto facilis aliquam at assumenda, nostrum explicabo accusantium ipsam error provident voluptate molestias magnam quisquam excepturi illum sit!
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, accusantium quo corporis fugit possimus quaerat ad consequatur veniam voluptatum ut cumque illo beatae. Magni assumenda eligendi itaque eum voluptate non!
+              </p>
+            </div>
+            <h4>
+              下面是一张zIndex 为 10 的 position 为 relative 图片，
+              <br />
+               如果要在图片中展示水印尝试调大右侧的 zIndex 滑块试试。
+            </h4>
+            <img
+              alt="示例图片"
+              src="https://gw.alipayobjects.com/zos/bmw-prod/d283f09a-64d6-4d59-bfc7-37b49ea0da2b.svg"
+              style="z-index: 10; position: relative;"
+              width="600"
+            />
+            <div
+              class="ant-pro-layout-watermark"
+              style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-card"
+        style="border-radius: 0;"
+      >
+        <div
+          class="ant-pro-card-header"
+        >
+          <div
+            class="ant-pro-card-title"
+          >
+            配置面板
+          </div>
+          <div
+            class="ant-pro-card-extra"
+          />
+        </div>
+        <div
+          class="ant-pro-card-body"
+        >
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
+                for="content"
+                title="水印文字"
+              >
+                水印文字
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <span
+                    class="ant-input-affix-wrapper"
+                  >
+                    <input
+                      class="ant-input"
+                      id="content"
+                      placeholder="请输入"
+                      type="text"
+                      value="示例水印"
+                    />
+                    <span
+                      class="ant-input-suffix"
+                    >
+                      <span
+                        aria-label="close-circle"
+                        class="anticon anticon-close-circle ant-input-clear-icon"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="close-circle"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
+                for="fontColor"
+                title="字体颜色"
+              >
+                字体颜色
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <span
+                    class="ant-input-affix-wrapper"
+                  >
+                    <input
+                      class="ant-input"
+                      id="fontColor"
+                      placeholder="请输入"
+                      type="text"
+                      value="rgba(0,0,0,.15)"
+                    />
+                    <span
+                      class="ant-input-suffix"
+                    >
+                      <span
+                        aria-label="close-circle"
+                        class="anticon anticon-close-circle ant-input-clear-icon"
+                        role="button"
+                        tabindex="-1"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="close-circle"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
+                for="fontSize"
+                title="字体大小"
+              >
+                字体大小
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    class="ant-slider"
+                  >
+                    <div
+                      class="ant-slider-rail"
+                    />
+                    <div
+                      class="ant-slider-track"
+                      style="left: 0%; width: 16%;"
+                    />
+                    <div
+                      class="ant-slider-step"
+                    />
+                    <div
+                      aria-disabled="false"
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="16"
+                      class="ant-slider-handle"
+                      role="slider"
+                      style="left: 16%; transform: translateX(-50%);"
+                      tabindex="0"
+                    />
+                    <div
+                      class="ant-slider-mark"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
+                for="zIndex"
+                title="zIndex"
+              >
+                zIndex
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    class="ant-slider"
+                  >
+                    <div
+                      class="ant-slider-rail"
+                    />
+                    <div
+                      class="ant-slider-track"
+                      style="left: 0%; width: 9%;"
+                    />
+                    <div
+                      class="ant-slider-step"
+                    />
+                    <div
+                      aria-disabled="false"
+                      aria-valuemax="100"
+                      aria-valuemin="0"
+                      aria-valuenow="9"
+                      class="ant-slider-handle"
+                      role="slider"
+                      style="left: 9%; transform: translateX(-50%);"
+                      tabindex="0"
+                    />
+                    <div
+                      class="ant-slider-mark"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-row ant-form-item"
+          >
+            <div
+              class="ant-col ant-form-item-label"
+            >
+              <label
+                class=""
+                for="rotate"
+                title="选装角度"
+              >
+                选装角度
+              </label>
+            </div>
+            <div
+              class="ant-col ant-form-item-control"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <div
+                    class="ant-slider"
+                  >
+                    <div
+                      class="ant-slider-rail"
+                    />
+                    <div
+                      class="ant-slider-track"
+                      style="left: 0%; width: 37.77777777777778%;"
+                    />
+                    <div
+                      class="ant-slider-step"
+                    />
+                    <div
+                      aria-disabled="false"
+                      aria-valuemax="90"
+                      aria-valuemin="-90"
+                      aria-valuenow="-22"
+                      class="ant-slider-handle"
+                      role="slider"
+                      style="left: 37.77777777777778%; transform: translateX(-50%);"
+                      tabindex="0"
+                    />
+                    <div
+                      class="ant-slider-mark"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-divider ant-divider-horizontal"
+            role="separator"
+          />
+          <pre
+            style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+          >
+            <code>
+              &lt;WaterMark
+  rotate={-22}
+  content='示例水印'
+  fontColor='rgba(0,0,0,.15)'
+  fontSize={16}
+  zIndex={9}
+&gt;
+  &lt;div&gt;xxx&lt;/div&gt;
+&lt;/WaterMark&gt;}
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          提 交
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          重 置
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/demos/image.tsx correctly 1`] = `
+<div
+  class="ant-pro-layout-watermark-wrapper"
+  style="position: relative;"
+>
+  <div
+    style="height: 500px;"
+  >
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quisquam aliquid perferendis, adipisci dolorum officia odio natus facere cumque iusto libero repellendus praesentium ipsa cupiditate iure autem eos repudiandae delectus totam?
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, aperiam numquam voluptatibus asperiores odio? Doloribus saepe, eligendi facere inventore culpa, exercitationem explicabo earum laborum deleniti reiciendis deserunt accusantium ullam.
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptas numquam impedit architecto facilis aliquam at assumenda, nostrum explicabo accusantium ipsam error provident voluptate molestias magnam quisquam excepturi illum sit!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, accusantium quo corporis fugit possimus quaerat ad consequatur veniam voluptatum ut cumque illo beatae. Magni assumenda eligendi itaque eum voluptate non!
+    </p>
+  </div>
+  <div
+    class="ant-pro-layout-watermark"
+    style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 327px; pointer-events: none; background-repeat: repeat; background-image: url();"
+  />
+</div>
+`;
+
+exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/demos/text.tsx correctly 1`] = `
+<div
+  class="ant-pro-layout-watermark-wrapper"
+  style="position: relative;"
+>
+  <div
+    style="height: 500px;"
+  />
+  <div
+    class="ant-pro-layout-watermark"
+    style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
+  />
+</div>
+`;
+
 exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx correctly 1`] = `
 <div
   style="height: 100vh;"
