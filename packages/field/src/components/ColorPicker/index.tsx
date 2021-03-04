@@ -6,9 +6,18 @@ import type { PopoverProps } from 'antd';
 import { Popover } from 'antd';
 import type { ProFieldFC } from '../../index';
 
-export type FieldDigitProps = {
-  text: string;
-};
+export const DEFAULT_COLORS = [
+  '#FF9D4E', // 0 - 橘黄色
+  '#5BD8A6', // 1 - 绿色
+  '#5B8FF9', // 2 - 蓝色
+  '#F7664E', // 3 - 红色
+  '#FF86B7', // 4 - 水红色
+  '#2B9E9D', // 5 - 墨绿色
+  '#9270CA', // 6 - 紫色
+  '#6DC8EC', // 7 - 浅蓝色
+  '#667796', // 8 - 黛蓝色
+  '#F6BD16', // 9 - 黄色
+];
 
 const ColorPicker: React.FC<
   SketchPickerProps & {
@@ -16,6 +25,7 @@ const ColorPicker: React.FC<
     popoverProps?: PopoverProps;
     mode?: 'read' | 'edit';
     onChange?: (color: string) => void;
+    colors?: string[];
   }
 > = ({ mode, popoverProps, ...rest }) => {
   const [color, setColor] = useMergedState('#1890ff', {
@@ -47,6 +57,7 @@ const ColorPicker: React.FC<
   return (
     <Popover
       trigger="click"
+      placement="right"
       {...popoverProps}
       content={
         <div
@@ -56,6 +67,7 @@ const ColorPicker: React.FC<
         >
           <SketchPicker
             {...rest}
+            presetColors={rest.colors || rest.presetColors || DEFAULT_COLORS}
             color={color}
             onChange={undefined}
             onChangeComplete={(value) => {
@@ -77,10 +89,9 @@ const ColorPicker: React.FC<
  *     text: number;
  *     moneySymbol?: string; }
  */
-const FieldColorPicker: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, renderFormItem, fieldProps },
-  ref,
-) => {
+const FieldColorPicker: ProFieldFC<{
+  text: string;
+}> = ({ text, mode: type, render, renderFormItem, fieldProps }, ref) => {
   if (type === 'read') {
     const dom = (
       <div
