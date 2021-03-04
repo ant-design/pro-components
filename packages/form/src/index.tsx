@@ -20,6 +20,7 @@ import ProFormFieldSet from './components/FieldSet';
 import type { ProFormCaptchaProps } from './components/Captcha';
 import ProFormCaptcha from './components/Captcha';
 import ProFormDependency from './components/Dependency';
+import ProFormColorPicker from './components/ColorPicker';
 import type { ProFormDependencyProps } from './components/Dependency';
 
 import type { ProFormProps } from './layouts/ProForm';
@@ -78,6 +79,7 @@ export {
   ProFormSlider,
   ProFormFieldSet,
   ProFormCaptcha,
+  ProFormColorPicker,
   ProFormDateTimeRangePicker,
   ProFormDependency,
   ProFormGroup,

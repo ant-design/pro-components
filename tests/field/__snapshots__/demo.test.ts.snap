@@ -248,6 +248,35 @@ Array [
                 <span
                   class="ant-descriptions-item-label"
                 >
+                  颜色
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div
+                    style="padding: 5px; width: 48px; border: 1px solid #ddd; border-radius: 2px; cursor: pointer;"
+                  >
+                    <div
+                      style="background-color: blue; width: 36px; height: 14px; border-radius: 2px;"
+                    />
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
                   数字
                 </span>
                 <span
@@ -259,10 +288,6 @@ Array [
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -284,6 +309,10 @@ Array [
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -305,10 +334,6 @@ Array [
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -623,6 +648,10 @@ Array [
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -653,10 +682,6 @@ Array [
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -720,6 +745,10 @@ Array [
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -761,10 +790,6 @@ Array [
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -795,6 +820,10 @@ Array [
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -825,10 +854,6 @@ Array [
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -848,6 +873,10 @@ Array [
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -889,10 +918,6 @@ Array [
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -944,6 +969,10 @@ Array [
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -965,10 +994,6 @@ Array [
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1006,6 +1031,10 @@ Array [
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1027,10 +1056,6 @@ Array [
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1057,6 +1082,10 @@ Array [
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1083,10 +1112,6 @@ Array [
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1108,6 +1133,10 @@ Array [
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1134,10 +1163,6 @@ Array [
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1196,6 +1221,10 @@ Array [
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1225,13 +1254,9 @@ Done in 9.70s.
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
-              colspan="2"
+              colspan="1"
             >
               <div
                 class="ant-descriptions-item-container"

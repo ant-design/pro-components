@@ -36,6 +36,7 @@ const ColorPicker: React.FC<
     <div
       style={{
         padding: 5,
+        width: 48,
         border: '1px solid #ddd',
         borderRadius: '2px',
         cursor: 'pointer',
@@ -93,28 +94,9 @@ const ColorPicker: React.FC<
  */
 const FieldColorPicker: ProFieldFC<{
   text: string;
-}> = ({ text, mode: type, render, renderFormItem, fieldProps }, ref) => {
+}> = ({ text, mode: type, render, renderFormItem, fieldProps }) => {
   if (type === 'read') {
-    const dom = (
-      <div
-        style={{
-          padding: 5,
-          border: '1px solid #ddd',
-          borderRadius: '2px',
-          cursor: 'pointer',
-        }}
-      >
-        <div
-          ref={ref}
-          style={{
-            backgroundColor: text,
-            width: 36,
-            height: 14,
-            borderRadius: '2px',
-          }}
-        />
-      </div>
-    );
+    const dom = <ColorPicker value={text} mode="read" />;
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }
@@ -130,4 +112,4 @@ const FieldColorPicker: ProFieldFC<{
   return null;
 };
 
-export default React.forwardRef(FieldColorPicker);
+export default FieldColorPicker;
