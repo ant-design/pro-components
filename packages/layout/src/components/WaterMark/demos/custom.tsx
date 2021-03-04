@@ -4,7 +4,12 @@ import { Divider } from 'antd';
 import { WaterMark } from '@ant-design/pro-layout';
 import ProCard from '@ant-design/pro-card';
 import ProField from '@ant-design/pro-field';
-import ProForm, { ProFormDependency, ProFormSlider, ProFormText } from '@ant-design/pro-form';
+import ProForm, {
+  ProFormDependency,
+  ProFormColorPicker,
+  ProFormSlider,
+  ProFormText,
+} from '@ant-design/pro-form';
 
 export default () => {
   return (
@@ -72,7 +77,7 @@ export default () => {
         </ProCard>
         <ProCard title="配置面板">
           <ProFormText label="水印文字" name="content" />
-          <ProFormText label="字体颜色" name="fontColor" />
+          <ProFormColorPicker label="字体颜色" name="fontColor" />
           <ProFormSlider label="字体大小" name="fontSize" />
           <ProFormSlider label="zIndex" name="zIndex" min={0} max={100} />
           <ProFormSlider label="选装角度" name="rotate" min={-90} max={90} />

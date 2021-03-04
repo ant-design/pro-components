@@ -35,9 +35,9 @@ import FieldRate from './components/Rate';
 import FieldSwitch from './components/Switch';
 import FieldDigit from './components/Digit';
 import FieldSecond from './components/Second';
-
 import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
+import FieldColorPicker from './components/ColorPicker';
 
 export type ProFieldEmptyText = string | false;
 
@@ -308,6 +308,10 @@ const defaultRenderText = (
 
   if (valueType === 'image') {
     return <FieldImage text={text as string} {...props} />;
+  }
+
+  if (valueType === 'color') {
+    return <FieldColorPicker text={text as string} {...props} />;
   }
 
   return <FieldText text={text as string} {...props} />;
