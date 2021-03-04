@@ -346,3 +346,9 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
   fieldProps={{ precision: 0 }}
 />
 ```
+
+### ProFormPercent
+
+显示百分比控件
+
+<code src="./demos/form-percent.tsx" />

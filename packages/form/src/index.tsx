@@ -21,6 +21,8 @@ import type { ProFormCaptchaProps } from './components/Captcha';
 import ProFormCaptcha from './components/Captcha';
 import ProFormDependency from './components/Dependency';
 import type { ProFormDependencyProps } from './components/Dependency';
+import ProFormPercent from './components/Percent';
+import type { ProFormPercentProps } from './components/Percent';
 
 import type { ProFormProps } from './layouts/ProForm';
 import ProForm from './layouts/ProForm';
@@ -39,6 +41,7 @@ import type { FormInstance, FormItemProps, FormProps } from './BaseForm';
 import './index.less';
 
 export type {
+  ProFormPercentProps,
   ProFormCaptchaProps,
   BaseQueryFilterProps,
   DrawerFormProps,
@@ -59,6 +62,7 @@ const ProFormGroup = ProForm.Group;
 
 export {
   // controls
+  ProFormPercent,
   ProFormDatePicker,
   ProFormDateRangePicker,
   ProFormDateTimePicker,
