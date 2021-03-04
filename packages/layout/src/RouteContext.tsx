@@ -3,6 +3,7 @@ import type { BreadcrumbProps } from 'antd';
 import type { BreadcrumbListReturn } from './utils/getBreadcrumbProps';
 import type { PureSettings } from './defaultSettings';
 import type { MenuDataItem } from './typings';
+import type { WaterMarkProps } from './components/WaterMark';
 
 export type RouteContextType = {
   breadcrumb?: BreadcrumbListReturn;
@@ -27,6 +28,7 @@ export type RouteContextType = {
   currentMenu?: PureSettings & MenuDataItem;
   /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
   breadcrumbProps?: BreadcrumbProps;
+  waterMarkProps?: WaterMarkProps;
 } & Partial<PureSettings>;
 
 const routeContext: React.Context<RouteContextType> = createContext({});

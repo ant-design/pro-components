@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { ConfigProvider } from 'antd';
 import classNames from 'classnames';
 
-interface WaterMarkProps {
+export type WaterMarkProps = {
   /** 类名 */
   className?: string;
   /** 样式 */
@@ -43,7 +43,7 @@ interface WaterMarkProps {
   fontWeight?: 'normal' | 'light' | 'weight' | number;
   /** 文字大小 */
   fontSize?: number | string;
-}
+};
 /**
  * 返回当前显示设备的物理像素分辨率与CSS像素分辨率之比
  *
