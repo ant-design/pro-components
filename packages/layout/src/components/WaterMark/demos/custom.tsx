@@ -16,6 +16,7 @@ export default () => {
         zIndex: '9',
         rotate: '-22',
       }}
+      submitter={false}
     >
       <ProCard split="vertical" title="水印自定义配置器" headerBordered bordered>
         <ProCard colSpan="70%">
