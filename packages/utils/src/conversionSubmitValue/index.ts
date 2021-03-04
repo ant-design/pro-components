@@ -85,7 +85,7 @@ const conversionSubmitValue = <T = any>(
 ): T => {
   const tmpValue = {} as T;
   // 如果 value 是 string 或者null，直接返回
-  if (typeof value !== 'object' || isNil(value)) {
+  if (typeof value !== 'object' || isNil(value) || value instanceof Blob) {
     return value;
   }
 
