@@ -80,6 +80,7 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和
 | fixedHeader | 固定 pageHeader 的内容到顶部，如果页面内容较少，最好不要使用，会有严重的遮挡问题 | `boolean` | - |
 | affixProps | 固钉的配置，与 antd 完全相同 | `AffixProps` | - |
 | footer | 悬浮在底部的操作栏，传入一个数组，会自动加空格 | `ReactNode[]` | - |
+| waterMarkProps | 配置水印, Layout 会透传给 PageContainer，但是以 PageContainer 的配置优先 | [WaterMarkProps](/components/water-mark) | - |
 
 > fixedHeader 使用了 antd 的 Affix 实现，默认监听 body，如果你的滚动条不在 body 上需要人肉[设置](https://ant.design/components/affix-cn/)一下。
 

@@ -92,7 +92,7 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
 
     /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
     breadcrumbProps?: BreadcrumbProps;
-
+    /** @name 水印的相关配置 */
     waterMarkProps?: WaterMarkProps;
   };
 
