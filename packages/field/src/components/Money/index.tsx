@@ -74,6 +74,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     fieldProps,
     proFieldKey,
     plain,
+    valueEnum,
     ...rest
   },
   ref,
