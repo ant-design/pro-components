@@ -69,9 +69,11 @@ const ColorPicker: React.FC<
             {...rest}
             presetColors={rest.colors || rest.presetColors || DEFAULT_COLORS}
             color={color}
-            onChange={undefined}
-            onChangeComplete={(value) => {
-              setColor(value.hex);
+            onChange={({ hex, rgb: { r, g, b, a } }) => {
+              if (a && a < 1) {
+                setColor(`rgba(${r}, ${g}, ${b}, ${a})`);
+              }
+              setColor(hex);
             }}
           />
         </div>
