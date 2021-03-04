@@ -51,13 +51,13 @@ export default {
   stepsForm: {
     next: 'Próximo',
     prev: 'Anterior',
-    submit: 'Enviar'
+    submit: 'Enviar',
   },
   editableTable: {
     action: {
       save: 'Salvar',
       cancel: 'Cancelar',
-      delete: 'Apagar'
-    }
-  }
+      delete: 'Apagar',
+    },
+  },
 };

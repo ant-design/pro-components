@@ -122,7 +122,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                             <CopyOutlined
                               className={`${baseClassName}-action-icon`}
                               onClick={() => {
-                                action.add(getFieldValue([rest.name, field.key].flat(1)));
+                                action.add(getFieldValue([rest.name, field.name].flat(1)));
                               }}
                             />
                           </Tooltip>,
