@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { InputNumber } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import type { ProFieldFC } from '../../index';
 
+export type FieldMoneyProps = {
+  text: number;
+  moneySymbol?: string;
+  locale?: string;
+  precision?: number;
+};
+
 const defaultMoneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
   currency: 'CNY',
-});
-
-const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
-  currency: 'CNY',
-  style: 'currency',
-  minimumFractionDigits: 2,
 });
 
 const enMoneyIntl = new Intl.NumberFormat('en-US', {
@@ -28,34 +29,7 @@ const msMoneyIntl = new Intl.NumberFormat('ms-MY', {
   currency: 'MYR',
 });
 
-const getTextByLocale = (locale: string | undefined, paramsText: number) => {
-  let text = paramsText;
-  if (typeof text === 'string') {
-    text = Number(text);
-  }
-  if (locale === 'en_US') {
-    // english
-    return enMoneyIntl.format(text);
-  }
-  // russian
-  if (locale === 'ru_RU') {
-    return ruMoneyIntl.format(text);
-  }
-  // malay
-  if (locale === 'ms_MY') {
-    return msMoneyIntl.format(text);
-  }
-  if (locale === undefined) {
-    return defaultMoneyIntl.format(text);
-  }
-  return moneyIntl.format(text);
-};
-
-export type FieldMoneyProps = {
-  text: number;
-  moneySymbol?: string;
-  locale?: string;
-};
+const DefaultPrecisionCont = 2;
 
 /**
  * 金额组件
@@ -75,6 +49,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     proFieldKey,
     plain,
     valueEnum,
+    precision = DefaultPrecisionCont,
     ...rest
   },
   ref,
@@ -82,6 +57,48 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   const intl = useIntl();
   const moneySymbol =
     rest.moneySymbol === undefined ? intl.getMessage('moneySymbol', '￥') : rest.moneySymbol;
+
+  const intls = useMemo(() => {
+    const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
+      currency: 'CNY',
+      style: 'currency',
+      minimumFractionDigits: precision,
+    });
+
+    return {
+      default: defaultMoneyIntl,
+      'zh-Hans-CN': moneyIntl,
+      'en-US': enMoneyIntl,
+      'ru-RU': ruMoneyIntl,
+      'ms-MY': msMoneyIntl,
+    };
+  }, [precision]);
+
+  const getTextByLocale = useCallback(
+    (locale: string | undefined, paramsText: number) => {
+      let text = paramsText;
+      if (typeof text === 'string') {
+        text = Number(text);
+      }
+      if (locale === 'en_US') {
+        // english
+        return intls['en-US'].format(text);
+      }
+      // russian
+      if (locale === 'ru_RU') {
+        return intls['ru-RU'].format(text);
+      }
+      // malay
+      if (locale === 'ms_MY') {
+        return intls['ms-MY'].format(text);
+      }
+      if (locale === undefined) {
+        return intls.default.format(text);
+      }
+      return intls['zh-Hans-CN'].format(text);
+    },
+    [intls],
+  );
 
   if (type === 'read') {
     const dom = (
@@ -99,10 +116,12 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
       <InputNumber
         ref={ref}
         min={0}
-        precision={2}
+        precision={precision}
         formatter={(value) => {
           if (value) {
-            return `${moneySymbol} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
+
+            return `${moneySymbol} ${value}`.replace(reg, ',');
           }
           return '';
         }}
