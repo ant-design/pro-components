@@ -19,7 +19,7 @@ const content = (
 );
 
 export default () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(undefined);
+  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({ fixSiderbar: true });
   const [pathname, setPathname] = useState('/welcome');
   return (
     <div
@@ -33,7 +33,9 @@ export default () => {
         location={{
           pathname,
         }}
-        fixSiderbar
+        waterMarkProps={{
+          content: 'Pro Layout',
+        }}
         menuFooterRender={(props) => {
           return (
             <a
