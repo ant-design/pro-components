@@ -96,6 +96,19 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper);
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('📦 submit props actionsRender is one', async () => {
+    const wrapper = mount(
+      <ProForm
+        submitter={{
+          render: () => [<a>test</a>],
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('📦 ProForm support namePath is array', async () => {
     const fn = jest.fn();
     const wrapper = mount(

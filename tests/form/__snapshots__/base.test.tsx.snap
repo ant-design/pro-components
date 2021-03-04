@@ -91,6 +91,20 @@ exports[`ProForm 📦 ProForm support sync form url 1`] = `
 </form>
 `;
 
+exports[`ProForm 📦 submit props actionsRender is one 1`] = `
+<form
+  class="ant-form ant-form-vertical"
+>
+  <input
+    style="display: none;"
+    type="text"
+  />
+  <a>
+    test
+  </a>
+</form>
+`;
+
 exports[`ProForm 📦 submit props actionsRender=()=>[] 1`] = `
 <form
   class="ant-form ant-form-vertical"
@@ -143,22 +157,14 @@ exports[`ProForm 📦 submit props render=()=>[] 1`] = `
     style="display: none;"
     type="text"
   />
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
   >
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          提交并发布
-        </span>
-      </button>
-    </div>
-  </div>
+    <span>
+      提交并发布
+    </span>
+  </button>
 </form>
 `;
 
