@@ -26,7 +26,16 @@ const Demo = () => {
           <ProFormText name="name" label="姓名" />
           <ProFormText name="nickName" label="昵称" />
         </ProFormGroup>
-        <ProFormList name="labels" label="用户信息">
+        <ProFormList
+          name="labels"
+          label="用户信息"
+          copyIconProps={{
+            tooltipText: '复制此行到末尾',
+          }}
+          deleteIconProps={{
+            tooltipText: '不需要这行了',
+          }}
+        >
           <ProFormGroup>
             <ProFormText name="value" label="值" />
             <ProFormText name="label" label="显示名称" />

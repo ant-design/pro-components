@@ -10,6 +10,11 @@ import { DeleteOutlined, PlusOutlined, CopyOutlined } from '@ant-design/icons';
 
 import './index.less';
 
+type IconConfig = {
+  Icon?: React.FC<any>;
+  tooltipText?: string;
+};
+
 const FormListContext = React.createContext<
   | (FormListFieldData & {
       listName: NamePath;
@@ -54,6 +59,8 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
       };
     },
   ) => ReactNode;
+  copyIconProps?: IconConfig | false;
+  deleteIconProps?: IconConfig | false;
 };
 
 const ProFormList: React.FC<ProFormListProps> = ({
@@ -65,6 +72,14 @@ const ProFormList: React.FC<ProFormListProps> = ({
   creatorRecord,
   itemRender,
   rules,
+  copyIconProps = {
+    Icon: CopyOutlined,
+    tooltipText: '复制此行',
+  },
+  deleteIconProps = {
+    Icon: DeleteOutlined,
+    tooltipText: '删除此行',
+  },
   ...rest
 }) => {
   const context = useContext(ConfigProvider.ConfigContext);
@@ -117,27 +132,39 @@ const ProFormList: React.FC<ProFormListProps> = ({
                         creatorButtonProps?.position === 'top' &&
                         creatorButton}
                       {fields.map((field) => {
-                        const defaultActionDom = [
-                          <Tooltip title="复制此行" key="copy">
-                            <CopyOutlined
-                              className={`${baseClassName}-action-icon`}
-                              onClick={() => {
-                                action.add(getFieldValue([rest.name, field.key].flat(1)));
-                              }}
-                            />
-                          </Tooltip>,
-                          <Tooltip title="删除此行" key="delete">
-                            <DeleteOutlined
-                              className={`${baseClassName}-action-icon`}
-                              onClick={() => action.remove(field.name)}
-                            />
-                          </Tooltip>,
-                        ];
-                        const dom = (
-                          <div className={`${baseClassName}-action`}>
-                            {actionRender?.(field, action, defaultActionDom) || defaultActionDom}
-                          </div>
-                        );
+                        const defaultActionDom: React.ReactNode[] = [];
+                        if (copyIconProps) {
+                          const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
+                          defaultActionDom.push(
+                            <Tooltip title={tooltipText} key="copy">
+                              <Icon
+                                className={`${baseClassName}-action-icon`}
+                                onClick={() => {
+                                  action.add(getFieldValue([rest.name, field.key].flat(1)));
+                                }}
+                              />
+                            </Tooltip>,
+                          );
+                        }
+                        if (deleteIconProps) {
+                          const { Icon = DeleteOutlined, tooltipText } = deleteIconProps;
+                          defaultActionDom.push(
+                            <Tooltip title={tooltipText} key="delete">
+                              <Icon
+                                className={`${baseClassName}-action-icon`}
+                                onClick={() => action.remove(field.name)}
+                              />
+                            </Tooltip>,
+                          );
+                        }
+
+                        const actions =
+                          actionRender?.(field, action, defaultActionDom) || defaultActionDom;
+
+                        const dom =
+                          actions.length > 0 ? (
+                            <div className={`${baseClassName}-action`}>{actions}</div>
+                          ) : null;
 
                         const contentDom = itemRender?.(
                           {
