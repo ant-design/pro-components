@@ -4520,20 +4520,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
   >
     <div
       class="ant-pro-card ant-pro-card-split-vertical"
-      style="width: 40%; flex-shrink: 0; border-radius: 0;"
+      style="flex-shrink: 0; border-radius: 0;"
     >
-      <div
-        class="ant-pro-card-header"
-      >
-        <div
-          class="ant-pro-card-title"
-        >
-          title
-        </div>
-        <div
-          class="ant-pro-card-extra"
-        />
-      </div>
       <div
         class="ant-pro-card-body"
       >
@@ -4661,9 +4649,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                     <label
                                       class=""
                                       for="users_0_nickName"
-                                      title="昵称"
+                                      title="姓名"
                                     >
-                                      昵称
+                                      姓名
                                     </label>
                                   </div>
                                   <div

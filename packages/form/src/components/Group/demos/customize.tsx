@@ -54,7 +54,7 @@ const Demo = () => {
   const [json, setJson] = useState(() => JSON.stringify(initialValue));
   return (
     <ProCard bordered split="vertical" headerBordered>
-      <ProCard colSpan="40%" title="title">
+      <ProCard colSpan="calc(100% - 400px)">
         <ProForm>
           <ProFormList
             name="users"
@@ -71,7 +71,7 @@ const Demo = () => {
           >
             <ProForm.Group size={8}>
               <ProFormText name="name" label="姓名" />
-              <ProFormText name="nickName" label="昵称" />
+              <ProFormText name="nickName" label="姓名" />
             </ProForm.Group>
           </ProFormList>
         </ProForm>
