@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ConfigProvider } from 'antd';
-import ProCard from '@ant-design/pro-card';
-import type { ProCardProps } from '@ant-design/pro-card';
+import ProCard from '../../Card';
+import type { ProCardProps } from '../../Card';
 import classNames from 'classnames';
 import Statistic from '../Statistic';
 import type { StatisticProps } from '../Statistic';
