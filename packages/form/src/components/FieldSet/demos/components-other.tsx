@@ -17,6 +17,8 @@ import ProForm, {
   ProFormFieldSet,
   ProFormTimePicker,
 } from '@ant-design/pro-form';
+import delay from 'delay';
+import Mock from 'mockjs';
 
 const Demo = () => (
   <div
@@ -46,6 +48,27 @@ const Demo = () => (
         valueEnum={{
           china: 'China',
           usa: 'U.S.A',
+        }}
+        placeholder="Please select a country"
+        rules={[{ required: true, message: 'Please select your country!' }]}
+      />
+      <ProFormSelect
+        name="select"
+        label="支持搜索查询的 Select"
+        showSearch
+        request={async ({ keyWords }) => {
+          await delay(1000);
+          return Mock.mock({
+            'data|1-10': [
+              {
+                value: '@id',
+                label: '@name',
+              },
+            ],
+          }).data.concat({
+            value: keyWords,
+            label: '目标_target',
+          });
         }}
         placeholder="Please select a country"
         rules={[{ required: true, message: 'Please select your country!' }]}

@@ -3983,6 +3983,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/mockjs@^1.0.3":
+  version "1.0.3"
+  resolved "http://npm.tongyu.tech/@types%2fmockjs/-/mockjs-1.0.3.tgz#bd8ee3c7cbbd9a18788ab677b9e4f97c8d0bb0bf"
+  integrity sha1-vY7jx8u9mhh4irZ3ueT5fI0LsL8=
+
 "@types/moment@^2.13.0":
   version "2.13.0"
   resolved "https://registry.npm.taobao.org/@types/moment/download/@types/moment-2.13.0.tgz#604ebd189bc3bc34a1548689404e61a2a4aac896"
@@ -7557,6 +7562,11 @@ comma-separated-tokens@^1.0.0:
   resolved "https://registry.npm.taobao.org/comma-separated-tokens/download/comma-separated-tokens-1.0.8.tgz#632b80b6117867a158f1080ad498b2fbe7e3f5ea"
   integrity sha1-YyuAthF4Z6FY8QgK1Jiy++fj9eo=
 
+commander@*, commander@^7.0.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-7.1.0.tgz#f2eaecf131f10e36e07d894698226e36ae0eb5ff"
+  integrity sha512-pRxBna3MJe6HKnBGsDyMv8ETbptw3axEdYHoqNh7gu5oDcew8fs0xnivZGm06Ogk8zGAJ9VX+OPEr2GXEQK4dg==
+
 commander@^2.18.0, commander@^2.19.0, commander@^2.20.0:
   version "2.20.3"
   resolved "https://registry.npm.taobao.org/commander/download/commander-2.20.3.tgz?cache=0&sync_timestamp=1610702150371&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
@@ -7566,11 +7576,6 @@ commander@^6.2.0:
   version "6.2.1"
   resolved "https://registry.npm.taobao.org/commander/download/commander-6.2.1.tgz?cache=0&sync_timestamp=1610702150371&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcommander%2Fdownload%2Fcommander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
   integrity sha1-B5LraC37wyWZm7K4T93duhEKxzw=
-
-commander@^7.0.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-7.1.0.tgz#f2eaecf131f10e36e07d894698226e36ae0eb5ff"
-  integrity sha512-pRxBna3MJe6HKnBGsDyMv8ETbptw3axEdYHoqNh7gu5oDcew8fs0xnivZGm06Ogk8zGAJ9VX+OPEr2GXEQK4dg==
 
 comment-parser@^0.7.6:
   version "0.7.6"
@@ -8654,6 +8659,11 @@ del@^4.1.0:
     p-map "^2.0.0"
     pify "^4.0.1"
     rimraf "^2.6.3"
+
+delay@^5.0.0:
+  version "5.0.0"
+  resolved "http://npm.tongyu.tech/delay/-/delay-5.0.0.tgz#137045ef1b96e5071060dd5be60bf9334436bd1d"
+  integrity sha1-E3BF7xuW5QcQYN1b5gv5M0Q2vR0=
 
 delayed-stream@~1.0.0:
   version "1.0.0"
@@ -15930,6 +15940,13 @@ mockdate@^3.0.2:
   version "3.0.2"
   resolved "https://registry.npm.taobao.org/mockdate/download/mockdate-3.0.2.tgz#a5a7bb5820da617747af424d7a4dcb22c6c03d79"
   integrity sha1-pae7WCDaYXdHr0JNek3LIsbAPXk=
+
+mockjs@^1.1.0:
+  version "1.1.0"
+  resolved "http://npm.tongyu.tech/mockjs/-/mockjs-1.1.0.tgz#e6a0c378e91906dbaff20911cc0273b3c7d75b06"
+  integrity sha1-5qDDeOkZBtuv8gkRzAJzs8fXWwY=
+  dependencies:
+    commander "*"
 
 modify-values@^1.0.0:
   version "1.0.1"
