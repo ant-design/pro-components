@@ -136,6 +136,7 @@ export default () => {
         getContainer={() => document.getElementById('test-pro-layout')}
         settings={settings}
         onSettingChange={(changeSetting) => setSetting(changeSetting)}
+        disableUrlParams
       />
     </div>
   );
