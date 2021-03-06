@@ -77,7 +77,6 @@ const ProFormList: React.FC<ProFormListProps> = ({
     }
     return [listContext.fieldKey, rest.name].flat(1);
   }, [listContext.fieldKey, rest.name]);
-
   return (
     <Form.Item label={label} tooltip={tooltip} rules={rules} shouldUpdate>
       {({ getFieldValue }) => {
@@ -122,7 +121,13 @@ const ProFormList: React.FC<ProFormListProps> = ({
                             <CopyOutlined
                               className={`${baseClassName}-action-icon`}
                               onClick={() => {
-                                action.add(getFieldValue([rest.name, field.key].flat(1)));
+                                action.add(
+                                  getFieldValue(
+                                    [listContext.listName, rest.name, field.name]
+                                      .filter((item) => item !== undefined)
+                                      .flat(1),
+                                  ),
+                                );
                               }}
                             />
                           </Tooltip>,
@@ -168,7 +173,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                             key={field.name}
                             value={{
                               ...field,
-                              listName: rest.name,
+                              listName: [name, field.name],
                             }}
                           >
                             {contentDom}
