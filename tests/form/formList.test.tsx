@@ -467,6 +467,7 @@ describe('ProForm List', () => {
           <ProFormText name="nickName" label="昵称" />
           <ProFormDependency name={['nickName']}>
             {({ nickName }) => {
+              console.log(nickName);
               if (!nickName) {
                 return null;
               }

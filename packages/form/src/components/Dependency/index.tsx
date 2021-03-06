@@ -38,7 +38,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
       if (formListField.name === undefined || ignoreFormListField) {
         return [itemName].flat(1) as string[];
       }
-      return [formListField.listName, formListField.name, itemName].flat(1) as string[];
+      return [formListField.listName, itemName].flat(1) as string[];
     },
     [formListField.listName, formListField.name, ignoreFormListField],
   );
@@ -48,7 +48,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
       return name;
     }
     return name.map((itemName: NamePath) => {
-      return [formListField.listName, formListField.name, itemName].flat(1) as string[];
+      return [formListField.listName, itemName].flat(1) as string[];
     });
   }, [formListField.listName, formListField.name, name]);
 
@@ -65,7 +65,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
     >
       {(form) => {
         const values = form.getFieldsValue(names);
-
+        console.log(form.getFieldsValue());
         const nameValues = name
           .map((itemName) => {
             const namePath = getNamePath(itemName);
