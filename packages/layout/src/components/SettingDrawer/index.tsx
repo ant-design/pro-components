@@ -59,6 +59,7 @@ export type SettingDrawerProps = {
   onCollapseChange?: (collapse: boolean) => void;
   onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
   pathname?: string;
+  disableUrlParams?: boolean;
 };
 
 export type SettingDrawerState = {
@@ -331,6 +332,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onSettingChange,
     prefixCls = 'ant-pro',
     pathname = window.location.pathname,
+    disableUrlParams = false,
   } = props;
   const firstRender = useRef<boolean>(true);
 
@@ -431,13 +433,14 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   useEffect(() => {
     /** 如果不是浏览器 都没有必要做了 */
     if (!isBrowser()) return;
+    if (disableUrlParams) return;
     if (firstRender.current) {
       firstRender.current = false;
       return;
     }
     const diffParams = getDifferentSetting({ ...urlParams, ...settingState });
     setUrlParams(diffParams);
-  }, [setUrlParams, settingState, urlParams, pathname]);
+  }, [setUrlParams, settingState, urlParams, pathname, disableUrlParams]);
   const baseClassName = `${prefixCls}-setting`;
   return (
     <Drawer

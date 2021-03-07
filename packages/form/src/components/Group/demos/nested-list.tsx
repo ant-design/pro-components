@@ -42,6 +42,12 @@ const Demo = () => {
               label: '333',
             },
           ]}
+          copyIconProps={{
+            tooltipText: '复制此行到末尾',
+          }}
+          deleteIconProps={{
+            tooltipText: '不需要这行了',
+          }}
         >
           <ProFormGroup>
             <ProFormText name="value" label="值" />

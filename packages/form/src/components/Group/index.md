@@ -108,6 +108,10 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ## 代码示例
 
+### 自定义 List
+
+<code src="./demos/customize.tsx" heigh="1774px" title="ProForm.List" />
+
 ### 基本使用
 
 <code src="./demos/list.tsx" heigh="1774px" title="ProForm.List" />
