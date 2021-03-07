@@ -172,8 +172,6 @@ const defaultRenderText = (
     }
   }
 
- 
-
   /** 如果是金额的值 */
   if (valueType === 'money') {
     return <FieldMoney {...props} text={text as number} />;

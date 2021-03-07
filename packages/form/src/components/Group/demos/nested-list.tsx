@@ -4,7 +4,7 @@ import ProCard from '@ant-design/pro-card';
 
 const Demo = () => {
   return (
-    <ProForm>
+    <ProForm onFinish={async (e) => console.log(e)}>
       <ProFormText name="name" label="姓名" />
       <ProFormList
         name="users"
@@ -16,7 +16,14 @@ const Demo = () => {
         ]}
         itemRender={({ listDom, action }, { record }) => {
           return (
-            <ProCard bordered extra={action} title={record?.name}>
+            <ProCard
+              bordered
+              extra={action}
+              title={record?.name}
+              style={{
+                marginBottom: 8,
+              }}
+            >
               {listDom}
             </ProCard>
           );
@@ -29,6 +36,12 @@ const Demo = () => {
         <ProFormList
           name="labels"
           label="用户信息"
+          initialValue={[
+            {
+              value: '333',
+              label: '333',
+            },
+          ]}
           copyIconProps={{
             tooltipText: '复制此行到末尾',
           }}
