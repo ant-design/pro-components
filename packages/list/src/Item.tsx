@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { List, Avatar, Skeleton, ConfigProvider } from 'antd';
 import type { ProCardProps } from '@ant-design/pro-card';
 import ProCard from '@ant-design/pro-card';
@@ -142,17 +142,20 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom = expandedRowRender && expandedRowRender(item, index, indentSize, expanded);
 
+  const actionsDom = useMemo(() => {
+    if (actions) {
+      return [
+        <div key="action" onClick={(e) => e.stopPropagation()}>
+          {actions}
+        </div>,
+      ];
+    }
+    return [];
+  }, [actions]);
+
   const defaultDom = !cardProps ? (
     <List.Item
-      actions={
-        actions
-          ? [
-              <div key="action" onClick={(e) => e.stopPropagation()}>
-                {actions}
-              </div>,
-            ]
-          : []
-      }
+      actions={actionsDom}
       {...rest}
       onClick={() => {
         if (expandRowByClick) {
@@ -218,7 +221,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         </>
       }
       subTitle={subTitle}
-      extra={actions ? [<div onClick={(e) => e.stopPropagation()}>{actions}</div>] : []}
+      extra={actionsDom}
     >
       {content}
     </ProCard>
