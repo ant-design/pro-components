@@ -218,7 +218,15 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         </>
       }
       subTitle={subTitle}
-      extra={actions ? [<div onClick={(e) => e.stopPropagation()}>{actions}</div>] : []}
+      extra={
+        actions
+          ? [
+              <div onClick={(e) => e.stopPropagation()} key="actions">
+                {actions}
+              </div>,
+            ]
+          : []
+      }
     >
       {content}
     </ProCard>
