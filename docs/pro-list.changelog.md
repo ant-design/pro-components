@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.5.5
+
+`2021-03-08`
+
+- 🐛 fix(form): fix list key no had error [#2122](https://github.com/ant-design/pro-components/pull/2122) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(list): fix nested list copy no work error [#2117](https://github.com/ant-design/pro-components/pull/2117) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix form list copy no work error [#2081](https://github.com/ant-design/pro-components/pull/2081) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-list@1.5.4
 
 `2021-02-28`

@@ -9,6 +9,21 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.17.0
+
+`2021-03-08`
+
+- 🐛 fix(form): fix list key no had error [#2122](https://github.com/ant-design/pro-components/pull/2122) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix form dateFormatter no export error [#2123](https://github.com/ant-design/pro-components/pull/2123) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): if button=1,no render space [#2091](https://github.com/ant-design/pro-components/pull/2091) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix form list copy no work error [#2081](https://github.com/ant-design/pro-components/pull/2081) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): remove no work error [#2078](https://github.com/ant-design/pro-components/pull/2078) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix QueryFilter span and colSize error [#2072](https://github.com/ant-design/pro-components/pull/2072) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix ProFormDateTimeRangePicker filedProps error [#2074](https://github.com/ant-design/pro-components/pull/2074) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix ProFormDigit width no work error [#2069](https://github.com/ant-design/pro-components/pull/2069) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): FormList support rules [#2070](https://github.com/ant-design/pro-components/pull/2070) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): select optipn support optGroup [#2067](https://github.com/ant-design/pro-components/pull/2067) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.16.3
 
 `2021-02-28`

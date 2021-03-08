@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.30.4
+
+`2021-03-08`
+
+- 🐛 fix(table): fix tooltip no work error [#2079](https://github.com/ant-design/pro-components/pull/2079) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.30.3
 
 `2021-02-28`
