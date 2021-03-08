@@ -2,14 +2,6 @@
 # yarn lockfile v1
 
 
-"@ahooksjs/use-request@^2.8.3":
-  version "2.8.3"
-  resolved "https://registry.npm.taobao.org/@ahooksjs/use-request/download/@ahooksjs/use-request-2.8.3.tgz#9b7eff972658497473f61ceb89a268d665e28aeb"
-  integrity sha1-m37/lyZYSXRz9hzriaJo1mXiius=
-  dependencies:
-    lodash.debounce "^4.0.8"
-    lodash.throttle "^4.1.1"
-
 "@ant-design/charts@^1.0.18":
   version "1.0.19"
   resolved "https://registry.npm.taobao.org/@ant-design/charts/download/@ant-design/charts-1.0.19.tgz?cache=0&sync_timestamp=1614872952337&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40ant-design%2Fcharts%2Fdownload%2F%40ant-design%2Fcharts-1.0.19.tgz#8eed93d2c040937c24fdb87ddd8daec9582ca0b8"
@@ -5850,22 +5842,6 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-ahooks@^2.9.6:
-  version "2.9.6"
-  resolved "https://registry.npm.taobao.org/ahooks/download/ahooks-2.9.6.tgz?cache=0&sync_timestamp=1612180514803&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fahooks%2Fdownload%2Fahooks-2.9.6.tgz#afde34cc7af722da1c724fddf75c9191672ac2f5"
-  integrity sha1-r940zHr3Itocck/d91yRkWcqwvU=
-  dependencies:
-    "@ahooksjs/use-request" "^2.8.3"
-    "@types/js-cookie" "^2.2.6"
-    dayjs "^1.9.1"
-    intersection-observer "^0.7.0"
-    js-cookie "^2.2.1"
-    lodash.debounce "^4.0.8"
-    lodash.isequal "^4.5.0"
-    lodash.throttle "^4.1.1"
-    resize-observer-polyfill "^1.5.1"
-    screenfull "^5.0.0"
-
 airbnb-prop-types@^2.16.0:
   version "2.16.0"
   resolved "https://registry.npm.taobao.org/airbnb-prop-types/download/airbnb-prop-types-2.16.0.tgz#b96274cefa1abb14f623f804173ee97c13971dc2"
@@ -9009,11 +8985,6 @@ dateformat@^3.0.0:
   version "3.0.3"
   resolved "https://registry.npm.taobao.org/dateformat/download/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha1-puN0maTZqc+F71hyBE1ikByYia4=
-
-dayjs@^1.9.1:
-  version "1.10.4"
-  resolved "https://registry.npm.taobao.org/dayjs/download/dayjs-1.10.4.tgz?cache=0&sync_timestamp=1611309982734&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdayjs%2Fdownload%2Fdayjs-1.10.4.tgz#8e544a9b8683f61783f570980a8a80eaf54ab1e2"
-  integrity sha1-jlRKm4aD9heD9XCYCoqA6vVKseI=
 
 debug@2, debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
   version "2.6.9"
@@ -14527,11 +14498,6 @@ joi2types@~1.1.0:
   integrity sha1-ufLMUEqbhuI57/judEwNT8CHGUc=
   dependencies:
     json-schema-to-typescript "^10.1.2"
-
-js-cookie@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.npm.taobao.org/js-cookie/download/js-cookie-2.2.1.tgz#69e106dc5d5806894562902aa5baec3744e9b2b8"
-  integrity sha1-aeEG3F1YBolFYpAqpbrsN0Tpsrg=
 
 js-levenshtein@^1.1.3:
   version "1.1.6"
