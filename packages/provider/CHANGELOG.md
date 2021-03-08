@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.6...@ant-design/pro-provider@1.4.7) (2021-03-08)
+
+### Bug Fixes
+
+- **form:** fix form list copy no work error ([#2081](https://github.com/ant-design/pro-components/issues/2081)) ([00329b8](https://github.com/ant-design/pro-components/commit/00329b8ca01b370092cfdef3f272b9f45c89069c))
+
 ## [1.4.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.5...@ant-design/pro-provider@1.4.6) (2021-02-28)
 
 ### Bug Fixes

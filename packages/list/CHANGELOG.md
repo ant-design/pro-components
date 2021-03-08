@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.4...@ant-design/pro-list@1.5.5) (2021-03-08)
+
+### Bug Fixes
+
+- **form:** fix list key no had error ([#2122](https://github.com/ant-design/pro-components/issues/2122)) ([cb89ca2](https://github.com/ant-design/pro-components/commit/cb89ca28e2b42c69ae436fc724004bcd2995d77b))
+- **table:** fix tooltip no work error ([#2079](https://github.com/ant-design/pro-components/issues/2079)) ([9838b9a](https://github.com/ant-design/pro-components/commit/9838b9a7954ab4cb167a8643ef9854ead25fef47))
+
 ## [1.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.3...@ant-design/pro-list@1.5.4) (2021-02-28)
 
 ### Bug Fixes
