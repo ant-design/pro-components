@@ -28,13 +28,13 @@ export default () => {
       title: '名称',
       dataIndex: 'name',
       key: 'name',
-      render: (text) => <a>{text}</a>,
+      render: (text: string) => <a>{text}</a>,
     },
     {
       title: '占比',
       dataIndex: 'percent',
       key: 'percent',
-      render: (text) => <MiniProgress percent={text} />,
+      render: (percent: number) => <MiniProgress percent={percent} />,
     },
     {
       title: '流量',
