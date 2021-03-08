@@ -20,6 +20,15 @@ describe('Card', () => {
   });
 
   it('🥩 resize breakpoint', async () => {
+    // set useBreakpoint with xs true
+    Object.defineProperty(global.window, 'matchMedia', {
+      value: jest.fn((query) => ({
+        matches: query.includes('max-width'), // xs : true
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      })),
+    });
+
     const wrapper = mount(
       <ProCard
         style={{ marginTop: 8 }}
@@ -32,6 +41,17 @@ describe('Card', () => {
     );
 
     await waitForComponentToPaint(wrapper);
+
+    // write back
+    Object.defineProperty(global.window, 'matchMedia', {
+      writable: true,
+      configurable: true,
+      value: jest.fn(() => ({
+        matches: false,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      })),
+    });
   });
 
   it('🥩 collapsible defaultCollapsed', async () => {
