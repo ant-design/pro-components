@@ -1,9 +1,8 @@
 @import (reference) '~antd/lib/style/themes/default';
-@import '../../style/themes/default';
 
-@tech-statistic-card-statistic-prefix-cls: ~'@{tech-prefix}-statistic-card-statistic';
+@pro-card-statistic-prefix-cls: ~'@{ant-prefix}-pro-card-statistic';
 
-.@{tech-statistic-card-statistic-prefix-cls} {
+.@{pro-card-statistic-prefix-cls} {
   display: flex;
   font-size: @font-size-base;
 
@@ -98,7 +97,7 @@
   &-trend-up {
     .@{ant-prefix}-statistic-content {
       color: #f5222d;
-      .@{tech-statistic-card-statistic-prefix-cls}-trend-icon {
+      .@{pro-card-statistic-prefix-cls}-trend-icon {
         border-bottom-color: #f5222d;
       }
     }
@@ -107,7 +106,7 @@
   &-trend-down {
     .@{ant-prefix}-statistic-content {
       color: #389e0d;
-      .@{tech-statistic-card-statistic-prefix-cls}-trend-icon {
+      .@{pro-card-statistic-prefix-cls}-trend-icon {
         border-bottom-color: #52c41a;
       }
     }
