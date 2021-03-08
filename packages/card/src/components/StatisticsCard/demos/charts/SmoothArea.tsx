@@ -37,7 +37,7 @@ export default () => {
       tickCount: 2,
       label: null,
       grid: {
-        line: null,
+        line: undefined,
       },
     },
   };
