@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.14.5
+
+`2021-02-28`
+
+- 🐛 fix(layout): fix layout animation error [#2027](https://github.com/ant-design/pro-components/pull/2027) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.14.3
 
 `2021-02-23`

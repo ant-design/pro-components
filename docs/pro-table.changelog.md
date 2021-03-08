@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.30.3
+
+`2021-02-28`
+
+- 🐛 fix(description): description support editableUtils [#2035](https://github.com/ant-design/pro-components/pull/2035) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): 🇧🇷 Adding stepForm and editableTable translations to pt-BR [#2018](https://github.com/ant-design/pro-components/pull/2018) [@renanwilliam](https://github.com/renanwilliam)
+
 ## @ant-design/pro-table@2.30.1
 
 `2021-02-23`
