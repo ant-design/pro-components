@@ -3,6 +3,9 @@ import React from 'react';
 import ProCard from '@ant-design/pro-card';
 import { waitForComponentToPaint } from '../util';
 import { act } from 'react-dom/test-utils';
+import { Grid } from 'antd';
+
+jest.mock('antd/lib/grid/hooks/useBreakpoint');
 
 describe('Card', () => {
   it('🥩 collapsible onCollapse', async () => {
@@ -20,14 +23,8 @@ describe('Card', () => {
   });
 
   it('🥩 resize breakpoint', async () => {
-    // set useBreakpoint with xs true
-    Object.defineProperty(global.window, 'matchMedia', {
-      value: jest.fn((query) => ({
-        matches: query.includes('max-width'), // xs : true
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
-      })),
-    });
+    // @ts-ignore
+    Grid.useBreakpoint.mockReturnValue({ xs: true });
 
     const wrapper = mount(
       <ProCard
@@ -41,17 +38,6 @@ describe('Card', () => {
     );
 
     await waitForComponentToPaint(wrapper);
-
-    // write back
-    Object.defineProperty(global.window, 'matchMedia', {
-      writable: true,
-      configurable: true,
-      value: jest.fn(() => ({
-        matches: false,
-        addListener: jest.fn(),
-        removeListener: jest.fn(),
-      })),
-    });
   });
 
   it('🥩 collapsible defaultCollapsed', async () => {
