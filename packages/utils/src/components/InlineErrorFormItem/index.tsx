@@ -7,7 +7,10 @@ const InlineErrorFormItem: React.FC<FormItemProps> = (props) => {
   return (
     <Form.Item
       style={{
-        margin: '-5px 0',
+        marginTop: -5,
+        marginBottom: -5,
+        marginLeft: 0,
+        marginRight: 0,
       }}
       preserve={false}
       // @ts-ignore
