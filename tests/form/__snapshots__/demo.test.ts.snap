@@ -23949,7 +23949,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px;"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
@@ -24006,7 +24006,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px;"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
@@ -24117,7 +24117,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px;"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
@@ -24194,7 +24194,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px;"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
@@ -24251,7 +24251,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px;"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
@@ -24362,7 +24362,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px;"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
