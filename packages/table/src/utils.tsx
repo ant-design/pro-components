@@ -15,7 +15,14 @@ import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
 import get from 'rc-util/lib/utils/get';
 import type { IntlType } from '@ant-design/pro-provider';
 
-import type { ActionType, ProColumnGroupType, ProColumns, UseFetchDataAction } from './typing';
+import type {
+  ActionType,
+  Bordered,
+  BorderedType,
+  ProColumnGroupType,
+  ProColumns,
+  UseFetchDataAction,
+} from './typing';
 import type { ColumnsState, useContainer } from './container';
 import defaultRenderText from './defaultRender';
 
@@ -159,6 +166,7 @@ export function useActionType<T>(
     },
     fullScreen: () => props.fullScreen(),
     clearSelected: () => props.onCleanSelected(),
+    setPageInfo: (rest) => action.setPageInfo(rest),
   };
   // eslint-disable-next-line no-param-reassign
   ref.current = userAction;
@@ -347,13 +355,12 @@ export function columnRender<T>({
  */
 export function genColumnList<T>(props: {
   columns: ProColumns<T, any>[];
-  map: Record<string, ColumnsState>;
   counter: ReturnType<typeof useContainer>;
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
 }): (TableColumnType<T> & { index?: number })[] {
-  const { columns, map, counter, columnEmptyText, type, editableUtils } = props;
+  const { columns, counter, columnEmptyText, type, editableUtils } = props;
   return (columns
     .map((columnProps, columnsIndex) => {
       const {
@@ -375,7 +382,7 @@ export function genColumnList<T>(props: {
         };
       }
       const { propsRef } = counter;
-      const config = map[columnKey] || { fixed: columnProps.fixed };
+      const config = counter.columnsMap[columnKey] || { fixed: columnProps.fixed };
 
       const genOnFilter = () => {
         if (!propsRef.current?.request || onFilter === true) {
@@ -424,3 +431,14 @@ export function genColumnList<T>(props: {
     index?: number;
   })[];
 }
+
+export const isBordered = (borderType: BorderedType, border?: Bordered) => {
+  if (border === undefined) {
+    return false;
+  }
+  // debugger
+  if (typeof border === 'boolean') {
+    return border;
+  }
+  return border[borderType];
+};

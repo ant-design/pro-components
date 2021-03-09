@@ -295,6 +295,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
 
 export type ActionType = ProCoreActionType & {
   fullScreen?: () => void;
+  setPageInfo?: (page: Partial<PageInfo>) => void;
 };
 
 export type UseFetchProps = {
