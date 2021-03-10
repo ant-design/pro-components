@@ -72,6 +72,10 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/base.tsx" height="548px" title="基本使用" />
 
+### 带有密码强度记的密码输入框
+
+<code src="./demos/password-strength-calculator.tsx" title="带有密码强度记的密码输入框">
+
 ### Form 的 layout 切换
 
 <code src="./demos/layout-change.tsx" height="548px" title="Form 的 layout 切换" />
