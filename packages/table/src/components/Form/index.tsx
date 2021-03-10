@@ -214,7 +214,6 @@ export const formInputRender: React.FC<{
       </ProFormField>
     );
   }
-
   const finalValueType =
     !valueType || (['textarea', 'jsonCode', 'code'].includes(valueType) && type === 'table')
       ? 'text'

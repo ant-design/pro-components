@@ -50,6 +50,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     onSortChange: (sort: any) => void;
     onFilterChange: (sort: any) => void;
     editableUtils: any;
+    rootRef: React.RefObject<HTMLDivElement>;
   },
 ) {
   const {
@@ -74,11 +75,10 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     className,
     cardBordered,
     editableUtils,
+    rootRef,
     ...rest
   } = props;
   const counter = Container.useContainer();
-  /** 获取 table 的 dom ref */
-  const rootRef = useRef<HTMLDivElement>(null);
 
   const columns = useMemo(() => {
     return tableColumn.filter((item) => {
@@ -540,7 +540,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         pagination={pagination}
         beforeSearchSubmit={beforeSearchSubmit}
         action={action}
-        columns={props.columns}
+        columns={propsColumns}
         onFormSearchSubmit={setFormSearch}
         onReset={props.onReset}
         onSubmit={props.onSubmit}
@@ -549,7 +549,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         search={search}
         form={props.form}
         formRef={formRef}
-        type={props.type}
+        type={props.type || 'table'}
         cardBordered={props.cardBordered}
         dateFormatter={props.dateFormatter}
       />
@@ -557,24 +557,25 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   const className = classNames(defaultClassName, propsClassName);
 
-  const toolbarDom = (
-    <Toolbar<T>
-      headerTitle={headerTitle}
-      hideToolbar={
-        options === false && !headerTitle && !toolBarRender && !toolbar && !isLightFilter
-      }
-      selectedRows={selectedRows}
-      selectedRowKeys={selectedRowKeys}
-      tableColumn={tableColumn}
-      tooltip={tooltip}
-      toolbar={toolbar}
-      onFormSearchSubmit={setFormSearch}
-      searchNode={isLightFilter ? searchNode : null}
-      options={options}
-      actionRef={actionRef}
-      toolBarRender={toolBarRender === false ? undefined : toolBarRender}
-    />
-  );
+  const toolbarDom =
+    toolBarRender === false ? null : (
+      <Toolbar<T>
+        headerTitle={headerTitle}
+        hideToolbar={
+          options === false && !headerTitle && !toolBarRender && !toolbar && !isLightFilter
+        }
+        selectedRows={selectedRows}
+        selectedRowKeys={selectedRowKeys}
+        tableColumn={tableColumn}
+        tooltip={tooltip}
+        toolbar={toolbar}
+        onFormSearchSubmit={setFormSearch}
+        searchNode={isLightFilter ? searchNode : null}
+        options={options}
+        actionRef={actionRef}
+        toolBarRender={toolBarRender}
+      />
+    );
 
   /** 内置的多选操作栏 */
   const alertDom =
@@ -591,8 +592,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   return (
     <TableRender
       {...props}
+      rootRef={rootRef}
+      size={counter.tableSize}
+      onSizeChange={counter.setTableSize}
+      pagination={pagination}
       searchNode={searchNode}
-      rowSelection={props.rowSelection !== false ? rowSelection : undefined}
+      rowSelection={propsRowSelection !== false ? rowSelection : undefined}
       className={className}
       tableColumn={tableColumn}
       isLightFilter={isLightFilter}

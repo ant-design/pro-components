@@ -10,7 +10,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding:0"
+      style="padding-top:0;padding-bottom:0"
     >
       <div
         class="ant-table-wrapper"
@@ -497,7 +497,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
   >
     <div
       class="ant-card-body"
-      style="padding:0"
+      style="padding-top:0;padding-bottom:0"
     >
       <div
         class="ant-table-wrapper"
@@ -990,7 +990,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
   >
     <div
       class="ant-card-body"
-      style="padding:0"
+      style="padding-top:0;padding-bottom:0"
     >
       <div
         class="ant-table-wrapper"
@@ -1445,7 +1445,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding: 0px;"
+      style="padding-top: 0px; padding-bottom: 0px;"
     >
       <div
         class="ant-table-wrapper"
@@ -1515,7 +1515,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                           />
                           <div
                             class="ant-row ant-form-item"
-                            style="margin: -5px 0px;"
+                            style="margin: -5px 0px -5px 0px;"
                           >
                             <div
                               class="ant-col ant-form-item-control"
@@ -1572,7 +1572,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                         >
                           <div
                             class="ant-row ant-form-item"
-                            style="margin: -5px 0px;"
+                            style="margin: -5px 0px -5px 0px;"
                           >
                             <div
                               class="ant-col ant-form-item-control"
@@ -1629,7 +1629,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                         >
                           <div
                             class="ant-row ant-form-item"
-                            style="margin: -5px 0px;"
+                            style="margin: -5px 0px -5px 0px;"
                           >
                             <div
                               class="ant-col ant-form-item-control"
@@ -1795,7 +1795,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding:0"
+      style="padding-top:0;padding-bottom:0"
     >
       <div
         class="ant-table-wrapper"
@@ -1992,7 +1992,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding:0"
+      style="padding-top:0;padding-bottom:0"
     >
       <div
         class="ant-table-wrapper"
@@ -2050,7 +2050,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                           />
                           <div
                             class="ant-row ant-form-item"
-                            style="margin:-5px 0"
+                            style="margin-left:0;margin-right:0;margin-top:-5px;margin-bottom:-5px"
                           >
                             <div
                               class="ant-col ant-form-item-control"
@@ -2064,7 +2064,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin:-5px 0"
+                                      style="margin-left:0;margin-right:0;margin-top:-5px;margin-bottom:-5px"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
