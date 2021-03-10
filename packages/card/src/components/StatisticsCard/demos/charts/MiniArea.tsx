@@ -2,7 +2,28 @@ import React from 'react';
 import { TinyArea } from '@ant-design/charts'; // https://charts.ant.design/
 
 export default ({ height = 100 }) => {
-  const data = [461, 983, 655, 854, 319, 359, 362, 275, 737, 179, 86, 595, 528, 824, 405, 736, 247, 35, 461, 815];
+  const data = [
+    461,
+    983,
+    655,
+    854,
+    319,
+    359,
+    362,
+    275,
+    737,
+    179,
+    86,
+    595,
+    528,
+    824,
+    405,
+    736,
+    247,
+    35,
+    461,
+    815,
+  ];
 
   const config = {
     height,
