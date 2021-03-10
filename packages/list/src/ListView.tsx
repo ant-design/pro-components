@@ -18,6 +18,7 @@ export type ListViewProps<RecordType> = AntdListProps<RecordType> &
   Pick<TableProps<RecordType>, 'columns' | 'dataSource' | 'expandable'> & {
     rowKey?: string | GetRowKey<RecordType>;
     showActions?: 'hover' | 'always';
+    showExtra?: 'hover' | 'always';
     rowSelection?: TableProps<RecordType>['rowSelection'];
     prefixCls: string;
     dataSource: readonly RecordType[];
@@ -30,6 +31,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     columns,
     rowKey,
     showActions,
+    showExtra,
     prefixCls,
     actionRef,
     renderItem,
@@ -181,6 +183,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             }}
             record={item}
             showActions={showActions}
+            showExtra={showExtra}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
             selected={selectedKeySet.has(getRowKey(item, index))}
             checkbox={checkboxDom}

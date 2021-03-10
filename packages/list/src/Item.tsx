@@ -80,6 +80,7 @@ export type ItemProps<RecordType> = {
   onExpand?: (expand: boolean) => void;
   expandable?: ExpandableConfig<any>;
   showActions?: 'hover' | 'always';
+  showExtra?: 'hover' | 'always';
   type?: 'new' | 'top' | 'inline' | 'subheader';
   isEditable: boolean;
   recordKey: string | number | undefined;
@@ -114,10 +115,12 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     expandable: expandableConfig,
     rowSupportExpand,
     showActions,
+    showExtra,
     type,
     style,
     className: propsClassName = defaultClassName,
     record,
+    extra,
     ...rest
   } = props;
 
@@ -135,9 +138,14 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       [`${propsClassName}-show-action-hover`]: showActions === 'hover',
       [`${propsClassName}-type-${type}`]: type,
       [`${propsClassName}-editable`]: isEditable,
+      [`${propsClassName}-show-extra-hover`]: showExtra === 'hover',
     },
     propsClassName,
   );
+
+  const extraClassName = classNames({
+    [`${propsClassName}-extra`]: showExtra === 'hover',
+  });
 
   const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom = expandedRowRender && expandedRowRender(item, index, indentSize, expanded);
@@ -156,6 +164,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const defaultDom = !cardProps ? (
     <List.Item
       actions={actionsDom}
+      extra={<div className={extraClassName}>{extra}</div>}
       {...rest}
       onClick={() => {
         if (expandRowByClick) {
