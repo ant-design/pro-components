@@ -143,7 +143,7 @@ const CheckboxList: React.FC<{
       key: columnKey,
       ...rest,
       selectable: false,
-      switcherIcon: false,
+      switcherIcon: () => false,
     };
   });
 
