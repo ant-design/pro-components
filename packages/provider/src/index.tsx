@@ -10,6 +10,7 @@ import itIT from './locale/it_IT';
 import esES from './locale/es_ES';
 import jaJP from './locale/ja_JP';
 import ruRU from './locale/ru_RU';
+import srRS from './locale/sr_RS';
 import msMY from './locale/ms_MY';
 import zhTW from './locale/zh_TW';
 import frFR from './locale/fr_FR';
@@ -128,6 +129,7 @@ const itITIntl = createIntl('it_IT', itIT);
 const jaJPIntl = createIntl('ja_JP', jaJP);
 const esESIntl = createIntl('es_ES', esES);
 const ruRUIntl = createIntl('ru_RU', ruRU);
+const srRSIntl = createIntl('sr_RS', srRS);
 const msMYIntl = createIntl('ms_MY', msMY);
 const zhTWIntl = createIntl('zh_TW', zhTW);
 const frFRIntl = createIntl('fr_FR', frFR);
@@ -147,6 +149,7 @@ const intlMap = {
   'ja-JP': jaJPIntl,
   'es-ES': esESIntl,
   'ru-RU': ruRUIntl,
+  'sr-RS': srRSIntl,
   'ms-MY': msMYIntl,
   'zh-TW': zhTWIntl,
   'fr-FR': frFRIntl,
@@ -171,6 +174,7 @@ export {
   jaJPIntl,
   esESIntl,
   ruRUIntl,
+  srRSIntl,
   msMYIntl,
   zhTWIntl,
   frFRIntl,
