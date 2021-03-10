@@ -274,8 +274,8 @@ export const useFieldFetchData = (
       : options?.filter((item) => {
           if (!keyWords) return true;
           if (
-            item?.label?.toString().includes(keyWords) ||
-            item.value.toString().includes(keyWords)
+            item?.label?.toString().toLowerCase().includes(keyWords.toLowerCase()) ||
+            item.value.toString().toLowerCase().includes(keyWords.toLowerCase())
           ) {
             return true;
           }
