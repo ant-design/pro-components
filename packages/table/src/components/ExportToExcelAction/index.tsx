@@ -7,6 +7,8 @@ import { defaultTrigger } from './constants';
 import type { ExportToExcelActionConfig, ExportToExcelActionProps } from './typings';
 import { exportToExcel } from './utils/export-to-excel';
 import type { MenuInfo } from 'rc-menu/es/interface';
+import { ColumnsType } from 'antd/lib/table';
+import { ProColumns } from '../../typing';
 
 function ExportToExcelAction<RecordType = unknown, ValueType = 'text'>(
   props: ExportToExcelActionProps<RecordType, ValueType>,
@@ -35,9 +37,14 @@ function ExportToExcelAction<RecordType = unknown, ValueType = 'text'>(
     '下载可见字段',
   );
 
+  /** 获取在页面上展示的 columns，包括被 setting 隐藏的 column */
+  const getShowingColumns = useCallback(() => {
+    return proColumns.filter((col: ProColumns<RecordType, ValueType>) => col.hideInTable !== true);
+  }, [proColumns]);
+
   const getConfigs = useCallback(
     async (isExportAll: boolean) => {
-      const exportColumns = isExportAll ? proColumns : columns;
+      const exportColumns = isExportAll ? getShowingColumns() : columns;
 
       const defaultConfigs: ExportToExcelActionConfig<RecordType, ValueType>[] = [
         {
@@ -66,7 +73,15 @@ function ExportToExcelAction<RecordType = unknown, ValueType = 'text'>(
       }
       return defaultConfigs;
     },
-    [configs, columns, proColumns, dataSource, defaultSheetName, getSheetDataSourceItemMeta],
+    [
+      configs,
+      columns,
+      proColumns,
+      dataSource,
+      defaultSheetName,
+      getSheetDataSourceItemMeta,
+      getShowingColumns,
+    ],
   );
 
   const exports = useCallback(
@@ -132,7 +147,7 @@ function ExportToExcelAction<RecordType = unknown, ValueType = 'text'>(
     </Tooltip>
   );
 
-  if (proColumns.length !== columns.length) {
+  if (getShowingColumns().length !== columns.length) {
     return (
       <Dropdown trigger={defaultTrigger} overlay={menu}>
         {dom}
