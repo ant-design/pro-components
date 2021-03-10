@@ -44,6 +44,14 @@ export type CommonFormProps<T extends Record<string, any> = Record<string, any>>
    */
 
   omitNil?: boolean;
+  /**
+   * 格式化 Date 的方式，默认转化为 string
+   *
+   * @see date -> YYYY-MM-DD
+   * @see dateTime -> YYYY-MM-DD  HH:mm:SS
+   * @see time -> HH:mm:SS
+   */
+  dateFormatter?: 'number' | 'string' | false;
 };
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -54,7 +62,6 @@ export type BaseFormProps<T = Record<string, any>> = {
   ) => React.ReactNode;
   fieldProps?: FieldProps;
   onInit?: (values: T) => void;
-  dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
 } & Omit<FormProps, 'onFinish'> &

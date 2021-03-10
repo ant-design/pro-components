@@ -9,6 +9,7 @@ import type { NamePath } from 'antd/lib/form/interface';
 import { DeleteOutlined, PlusOutlined, CopyOutlined } from '@ant-design/icons';
 
 import './index.less';
+import get from 'rc-util/lib/utils/get';
 
 type IconConfig = {
   Icon?: React.FC<any>;
@@ -87,14 +88,21 @@ const ProFormList: React.FC<ProFormListProps> = ({
   const baseClassName = context.getPrefixCls('pro-form-list');
   // 处理 list 的嵌套
   const name = useMemo(() => {
-    if (listContext.fieldKey === undefined) {
-      return rest.name;
+    if (listContext.name === undefined) {
+      return [rest.name].flat(1);
     }
-    return [listContext.fieldKey, rest.name].flat(1);
-  }, [listContext.fieldKey, rest.name]);
+    return [listContext.name, rest.name].flat(1);
+  }, [listContext.name, rest.name]);
 
   return (
-    <Form.Item label={label} tooltip={tooltip} rules={rules} shouldUpdate>
+    <Form.Item
+      label={label}
+      tooltip={tooltip}
+      rules={rules}
+      shouldUpdate={(prevValues, nextValues) => {
+        return get(prevValues, name) !== get(nextValues, name);
+      }}
+    >
       {({ getFieldValue }) => {
         return (
           <div className={baseClassName}>
@@ -140,7 +148,13 @@ const ProFormList: React.FC<ProFormListProps> = ({
                               <Icon
                                 className={`${baseClassName}-action-icon`}
                                 onClick={() => {
-                                  action.add(getFieldValue([rest.name, field.key].flat(1)));
+                                  action.add(
+                                    getFieldValue(
+                                      [listContext.listName, rest.name, field.name]
+                                        .filter((item) => item !== undefined)
+                                        .flat(1),
+                                    ),
+                                  );
                                 }}
                               />
                             </Tooltip>,
@@ -173,7 +187,11 @@ const ProFormList: React.FC<ProFormListProps> = ({
                           },
                           {
                             field,
-                            record: getFieldValue([rest.name, field.key].flat(1)),
+                            record: getFieldValue(
+                              [listContext.listName, rest.name, field.name]
+                                .filter((item) => item !== undefined)
+                                .flat(1),
+                            ),
                             fields,
                             operation: action,
                             meta,
@@ -195,7 +213,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                             key={field.name}
                             value={{
                               ...field,
-                              listName: rest.name,
+                              listName: [name, field.name],
                             }}
                           >
                             {contentDom}

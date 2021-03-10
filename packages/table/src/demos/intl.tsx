@@ -11,6 +11,7 @@ import itITIntl from 'antd/lib/locale/it_IT';
 import jaJPIntl from 'antd/lib/locale/ja_JP';
 import esESIntl from 'antd/lib/locale/es_ES';
 import ruRUIntl from 'antd/lib/locale/ru_RU';
+import srRSIntl from 'antd/lib/locale/sr_RS';
 import msMYIntl from 'antd/lib/locale/ms_MY';
 import zhTWIntl from 'antd/lib/locale/zh_TW';
 import frFRIntl from 'antd/lib/locale/fr_FR';
@@ -24,6 +25,7 @@ const intlMap = {
   jaJPIntl,
   esESIntl,
   ruRUIntl,
+  srRSIntl,
   msMYIntl,
   zhTWIntl,
   frFRIntl,

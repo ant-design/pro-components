@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.5...@ant-design/pro-layout@6.15.0) (2021-03-08)
+
+### Features
+
+- **field:** add color pick ([#2089](https://github.com/ant-design/pro-components/issues/2089)) ([e83c2ee](https://github.com/ant-design/pro-components/commit/e83c2ee36f67b66070074562f80f248cbfc1a6e3))
+- **layout:** layout support WaterMark ([#2086](https://github.com/ant-design/pro-components/issues/2086)) ([7413eee](https://github.com/ant-design/pro-components/commit/7413eee8f0f31e5911284ea1bd98941900de6d32))
+- **layout:** SettingDrawer support disableUrlParams ([#2115](https://github.com/ant-design/pro-components/issues/2115)) ([b110101](https://github.com/ant-design/pro-components/commit/b11010160bb99df83f85e54bb4da91f3f4edb5f7))
+
 ## [6.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.4...@ant-design/pro-layout@6.14.5) (2021-02-28)
 
 ### Bug Fixes
