@@ -425,6 +425,30 @@ describe('Field', () => {
         text="100"
         valueType={{
           type: 'money',
+          locale: 'ru_RU',
+        }}
+        mode="read"
+      />,
+    );
+    expect(html).toMatchSnapshot();
+
+    html = render(
+      <Field
+        text="100"
+        valueType={{
+          type: 'money',
+          locale: 'ms_MY',
+        }}
+        mode="read"
+      />,
+    );
+    expect(html).toMatchSnapshot();
+
+    html = render(
+      <Field
+        text="100"
+        valueType={{
+          type: 'money',
           moneySymbol: '',
           locale: 'en_US',
         }}

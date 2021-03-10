@@ -7,7 +7,6 @@ export type FieldMoneyProps = {
   text: number;
   moneySymbol?: string;
   locale?: string;
-  precision?: number;
 };
 
 const defaultMoneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
@@ -49,11 +48,11 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     proFieldKey,
     plain,
     valueEnum,
-    precision = DefaultPrecisionCont,
     ...rest
   },
   ref,
 ) => {
+  const precision = fieldProps?.precision ?? DefaultPrecisionCont;
   const intl = useIntl();
   const moneySymbol =
     rest.moneySymbol === undefined ? intl.getMessage('moneySymbol', '￥') : rest.moneySymbol;
