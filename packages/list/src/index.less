@@ -26,6 +26,14 @@
         display: block;
       }
 
+      .@{ant-prefix}-list-item-extra {
+        display: block;
+      }
+
+      .@{pro-list-prefix-cls}-row-extra {
+        display: block;
+      }
+
       .@{pro-list-prefix-cls}-row-subheader-actions {
         display: block;
       }
@@ -83,6 +91,16 @@
       .@{ant-prefix}-list-item-action {
         display: none;
       }
+    }
+
+    &-show-extra-hover {
+      .@{ant-prefix}-list-item-extra {
+        display: none;
+      }
+    }
+
+    &-extra {
+      display: none;
     }
 
     &-subheader {
@@ -253,6 +271,11 @@
   .@{ant-prefix}-list-bordered .@{ant-prefix}-list-item {
     padding-right: 0;
     padding-left: 0;
+  }
+  .@{pro-list-prefix-cls}-row-show-extra-hover {
+    .@{ant-prefix}-list-item-extra {
+      display: none;
+    }
   }
 }
 
