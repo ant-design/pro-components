@@ -129,7 +129,7 @@ function editableRowByKey<RecordType>(
    */
   function dig(records: RecordType[], map_row_parentKey?: React.Key) {
     records.forEach((record, index) => {
-      const recordKey = getRowKey(record, index);
+      const recordKey = getRowKey(record, index).toString();
       // children 取在前面方便拼的时候按照反顺序放回去
       if (record && typeof record === 'object' && childrenColumnName in record) {
         dig(record[childrenColumnName] || [], recordKey);

@@ -45,17 +45,6 @@ export default () => (
     showActions="hover"
     showExtra="hover"
     metas={{
-      extra: {
-        render: () => {
-          return (
-            <img
-              width={272}
-              alt="logo"
-              src="https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png"
-            />
-          );
-        },
-      },
       title: {
         dataIndex: 'name',
       },
