@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.18.0
+
+`2021-03-11`
+
+- 🐛 fix(select): 修复 Select 默认的 filterOption 没有忽略大小写 [#2137](https://github.com/ant-design/pro-components/pull/2137) [@raohong](https://github.com/raohong)
+- 🐛 fix(form): fix copy trigger rerender error [#2136](https://github.com/ant-design/pro-components/pull/2136) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.17.0
 
 `2021-03-08`
