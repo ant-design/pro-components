@@ -46,8 +46,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       return rowKey;
     }
 
-    return (record: RecordType, index?: number) =>
-      (record as any)[rowKey as string].toString() || index;
+    return (record: RecordType, index?: number) => (record as any)[rowKey as string] || index;
   }, [rowKey]);
 
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
