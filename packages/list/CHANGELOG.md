@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.6...@ant-design/pro-list@1.5.7) (2021-03-11)
+
+### Bug Fixes
+
+- **table:** fix rowkey is number will error ([#2158](https://github.com/ant-design/pro-components/issues/2158)) ([fc38af8](https://github.com/ant-design/pro-components/commit/fc38af890846fd439e00c224d8bc7a00ef3a6723))
+
 ## [1.5.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.5...@ant-design/pro-list@1.5.6) (2021-03-11)
 
 **Note:** Version bump only for package @ant-design/pro-list
