@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.14.0...@ant-design/pro-utils@1.14.1) (2021-03-11)
+
+### Bug Fixes
+
+- **table:** EditableProTable no tonumber keys ([#2135](https://github.com/ant-design/pro-components/issues/2135)) ([b4d3c0a](https://github.com/ant-design/pro-components/commit/b4d3c0ac13e8ef2a981e2bc3132b951c583c1e58))
+
 # [1.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.13.2...@ant-design/pro-utils@1.14.0) (2021-03-08)
 
 ### Bug Fixes
