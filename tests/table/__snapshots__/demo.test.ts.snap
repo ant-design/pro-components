@@ -33196,9 +33196,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                       <col
                         style="width: 48px; min-width: 48px;"
                       />
-                      <col
-                        style="width: 30%; min-width: 30%;"
-                      />
                     </colgroup>
                     <thead
                       class="ant-table-thead"
