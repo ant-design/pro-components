@@ -98,13 +98,7 @@ interface InlineErrorFormItemProps extends FormItemProps {
 }
 const defaultName = 'inline-error-form-item';
 const InlineErrorFormItem: React.FC<InlineErrorFormItemProps> = (props) => {
-  if (props.errorType !== 'popover') {
-    return <Form.Item {...props}>{props.children}</Form.Item>;
-  }
   const { label, rules = [], name = defaultName } = props;
-  if (rules.length === 0) {
-    console.error('InlineErrorFormItem should have "rules" props while using errorType="popover"');
-  }
   return (
     <Form.Item shouldUpdate help={''} label={label}>
       {(form) => {
@@ -134,4 +128,10 @@ const InlineErrorFormItem: React.FC<InlineErrorFormItemProps> = (props) => {
   );
 };
 
-export default InlineErrorFormItem;
+export default (props: InlineErrorFormItemProps) => {
+  if (props.errorType !== 'popover' || !props.rules?.length) {
+    // !props.rules && console.error('InlineErrorFormItem should have "rules" props while using errorType="popover"');
+    return <Form.Item {...props}>{props.children}</Form.Item>;
+  }
+  return <InlineErrorFormItem {...props}></InlineErrorFormItem>;
+};
