@@ -382,7 +382,7 @@ const FormRender = <T, U = any>({
 
   useDeepCompareEffect(() => {
     if (columnsList.length < 1) return;
-    setDomList(updateDomList(columnsList));
+    setDomList(() => updateDomList(columnsList));
   }, [columnsList]);
 
   const className = getPrefixCls('pro-table-search');
@@ -422,7 +422,7 @@ const FormRender = <T, U = any>({
         {...getFormConfigs(isForm, formConfig)}
         formRef={formRef}
         onValuesChange={(change, all) => {
-          setDomList(updateDomList(columnsList));
+          setDomList(() => updateDomList(columnsList));
           if (formConfig.onValuesChange) {
             formConfig.onValuesChange(change, all);
           }
@@ -432,7 +432,7 @@ const FormRender = <T, U = any>({
           // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
           if (type !== 'form') {
             // 重新计算一下dom
-            setDomList(updateDomList(columnsList));
+            setDomList(() => updateDomList(columnsList));
             /** 如果是手动模式不需要提交 */
             if (manualRequest) return;
             submit(values, true);

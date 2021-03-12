@@ -20159,6 +20159,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
               >
                 <div
                   class="ant-space-item"
+                  style="margin-right: 8px;"
                 >
                   <button
                     class="ant-btn"
@@ -20166,6 +20167,18 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                   >
                     <span>
                       赋 值
+                    </span>
+                  </button>
+                </div>
+                <div
+                  class="ant-space-item"
+                >
+                  <button
+                    class="ant-btn"
+                    type="button"
+                  >
+                    <span>
+                      提 交
                     </span>
                   </button>
                 </div>
