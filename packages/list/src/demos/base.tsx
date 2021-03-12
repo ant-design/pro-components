@@ -43,6 +43,7 @@ export default () => (
     tooltip="基础列表的配置"
     dataSource={dataSource}
     showActions="hover"
+    showExtra="hover"
     metas={{
       title: {
         dataIndex: 'name',

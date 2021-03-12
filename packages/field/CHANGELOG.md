@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.11.1...@ant-design/pro-field@1.11.2) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.11.0...@ant-design/pro-field@1.11.1) (2021-03-11)
+
+### Bug Fixes
+
+- **form:** 修复 Select 默认的 filterOption 没有忽略大小写 ([#2137](https://github.com/ant-design/pro-components/issues/2137)) ([a03ec46](https://github.com/ant-design/pro-components/commit/a03ec466b08d22492001dacbc68b7da0110f9f42))
+
 # [1.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.10.3...@ant-design/pro-field@1.11.0) (2021-03-08)
 
 ### Bug Fixes

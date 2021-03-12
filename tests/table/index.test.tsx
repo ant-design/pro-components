@@ -96,9 +96,7 @@ describe('BasicTable', () => {
     );
 
     await waitForComponentToPaint(html, 2000);
-    act(() => {
-      expect(html.render()).toMatchSnapshot();
-    });
+    expect(html.find('.ant-pro-table-search').exists()).toBeFalsy();
   });
 
   it('🎏 do not render default option', async () => {
@@ -121,12 +119,14 @@ describe('BasicTable', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
-    act(() => {
-      expect(html.render()).toMatchSnapshot();
-    });
+    expect(
+      html.find(
+        '.ant-pro-table-list-toolbar-setting-items .ant-pro-table-list-toolbar-setting-item',
+      ).length,
+    ).toBe(1);
   });
 
-  it('🎏 ProTable support searchText and  resetText', async () => {
+  it('🎏 ProTable support searchText and resetText', async () => {
     const html = mount(
       <ProTable
         size="small"
@@ -176,7 +176,7 @@ describe('BasicTable', () => {
     );
     await waitForComponentToPaint(html, 1200);
     act(() => {
-      expect(html.render()).toMatchSnapshot();
+      expect(html.find('.anticon-setting').exists()).toBeFalsy();
     });
   });
 

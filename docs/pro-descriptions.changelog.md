@@ -15,6 +15,12 @@ group:
 
 - 🐛 fix(descriptions): fix descriptions editor error [#1878](https://github.com/ant-design/pro-components/pull/1878) [@chenshuai2144](https://github.com/chenshuai2144)
 
+## @ant-design/pro-descriptions@1.6.0
+
+`2021-02-22`
+
+- 🐛 fix(descriptions): fix descriptions editor error [#1878](https://github.com/ant-design/pro-components/pull/1878) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-descriptions@1.5.0
 
 `2021-02-02`

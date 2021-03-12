@@ -23,6 +23,11 @@ const ruMoneyIntl = new Intl.NumberFormat('ru-RU', {
   currency: 'RUB',
 });
 
+const rsMoneyIntl = new Intl.NumberFormat('sr-RS', {
+  style: 'currency',
+  currency: 'RSD',
+});
+
 const msMoneyIntl = new Intl.NumberFormat('ms-MY', {
   style: 'currency',
   currency: 'MYR',
@@ -40,6 +45,10 @@ const getTextByLocale = (locale: string | undefined, paramsText: number) => {
   // russian
   if (locale === 'ru_RU') {
     return ruMoneyIntl.format(text);
+  }
+  // serbian
+  if (locale === 'sr_RS') {
+    return rsMoneyIntl.format(text);
   }
   // malay
   if (locale === 'ms_MY') {
