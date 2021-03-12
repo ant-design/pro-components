@@ -1515,18 +1515,17 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                           />
                           <div
                             class="ant-row ant-form-item"
-                            style="margin: -5px 0px -5px 0px;"
                           >
                             <div
                               class="ant-col ant-form-item-control"
                             >
-                              <div>
+                              <div
+                                class="ant-form-item-control-input"
+                              >
                                 <div
-                                  class="ant-form-item-control-input"
+                                  class="ant-form-item-control-input-content"
                                 >
-                                  <div
-                                    class="ant-form-item-control-input-content"
-                                  >
+                                  <div>
                                     <span
                                       class="ant-input-affix-wrapper"
                                     >
@@ -1564,6 +1563,13 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                                   </div>
                                 </div>
                               </div>
+                              <div
+                                class="ant-form-item-explain"
+                              >
+                                <div
+                                  role="alert"
+                                />
+                              </div>
                             </div>
                           </div>
                         </td>
@@ -1572,18 +1578,17 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                         >
                           <div
                             class="ant-row ant-form-item"
-                            style="margin: -5px 0px -5px 0px;"
                           >
                             <div
                               class="ant-col ant-form-item-control"
                             >
-                              <div>
+                              <div
+                                class="ant-form-item-control-input"
+                              >
                                 <div
-                                  class="ant-form-item-control-input"
+                                  class="ant-form-item-control-input-content"
                                 >
-                                  <div
-                                    class="ant-form-item-control-input-content"
-                                  >
+                                  <div>
                                     <span
                                       class="ant-input-affix-wrapper"
                                     >
@@ -1621,6 +1626,13 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                                   </div>
                                 </div>
                               </div>
+                              <div
+                                class="ant-form-item-explain"
+                              >
+                                <div
+                                  role="alert"
+                                />
+                              </div>
                             </div>
                           </div>
                         </td>
@@ -1629,18 +1641,17 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                         >
                           <div
                             class="ant-row ant-form-item"
-                            style="margin: -5px 0px -5px 0px;"
                           >
                             <div
                               class="ant-col ant-form-item-control"
                             >
-                              <div>
+                              <div
+                                class="ant-form-item-control-input"
+                              >
                                 <div
-                                  class="ant-form-item-control-input"
+                                  class="ant-form-item-control-input-content"
                                 >
-                                  <div
-                                    class="ant-form-item-control-input-content"
-                                  >
+                                  <div>
                                     <span
                                       class="ant-input-affix-wrapper"
                                     >
@@ -1677,6 +1688,13 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                                     </span>
                                   </div>
                                 </div>
+                              </div>
+                              <div
+                                class="ant-form-item-explain"
+                              >
+                                <div
+                                  role="alert"
+                                />
                               </div>
                             </div>
                           </div>
@@ -2050,40 +2068,43 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                           />
                           <div
                             class="ant-row ant-form-item"
-                            style="margin-left:0;margin-right:0;margin-top:-5px;margin-bottom:-5px"
                           >
                             <div
                               class="ant-col ant-form-item-control"
                             >
-                              <div>
+                              <div
+                                class="ant-form-item-control-input"
+                              >
                                 <div
-                                  class="ant-form-item-control-input"
+                                  class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-form-item-control-input-content"
+                                    class="ant-row ant-form-item"
                                   >
                                     <div
-                                      class="ant-row ant-form-item"
-                                      style="margin-left:0;margin-right:0;margin-top:-5px;margin-bottom:-5px"
+                                      class="ant-col ant-form-item-control"
                                     >
                                       <div
-                                        class="ant-col ant-form-item-control"
+                                        class="ant-form-item-control-input"
                                       >
-                                        <div>
-                                          <div
-                                            class="ant-form-item-control-input"
-                                          >
+                                        <div
+                                          class="ant-form-item-control-input-content"
+                                        >
+                                          <div>
                                             <div
-                                              class="ant-form-item-control-input-content"
+                                              class="ant-pro-field-index-column ant-pro-field-index-column-border"
                                             >
-                                              <div
-                                                class="ant-pro-field-index-column ant-pro-field-index-column-border"
-                                              >
-                                                1
-                                              </div>
+                                              1
                                             </div>
                                           </div>
                                         </div>
+                                      </div>
+                                      <div
+                                        class="ant-form-item-explain"
+                                      >
+                                        <div
+                                          role="alert"
+                                        />
                                       </div>
                                     </div>
                                   </div>

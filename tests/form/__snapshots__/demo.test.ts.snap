@@ -23949,18 +23949,17 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
                                       >
-                                        <div>
+                                        <div
+                                          class="ant-form-item-control-input"
+                                        >
                                           <div
-                                            class="ant-form-item-control-input"
+                                            class="ant-form-item-control-input-content"
                                           >
-                                            <div
-                                              class="ant-form-item-control-input-content"
-                                            >
+                                            <div>
                                               <span
                                                 class="ant-input-affix-wrapper"
                                               >
@@ -23998,6 +23997,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             </div>
                                           </div>
                                         </div>
+                                        <div
+                                          class="ant-form-item-explain"
+                                        >
+                                          <div
+                                            role="alert"
+                                          />
+                                        </div>
                                       </div>
                                     </div>
                                   </td>
@@ -24006,18 +24012,17 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
                                       >
-                                        <div>
+                                        <div
+                                          class="ant-form-item-control-input"
+                                        >
                                           <div
-                                            class="ant-form-item-control-input"
+                                            class="ant-form-item-control-input-content"
                                           >
-                                            <div
-                                              class="ant-form-item-control-input-content"
-                                            >
+                                            <div>
                                               <div
                                                 class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                                 style="min-width: 100px;"
@@ -24109,6 +24114,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             </div>
                                           </div>
                                         </div>
+                                        <div
+                                          class="ant-form-item-explain"
+                                        >
+                                          <div
+                                            role="alert"
+                                          />
+                                        </div>
                                       </div>
                                     </div>
                                   </td>
@@ -24117,18 +24129,17 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
                                       >
-                                        <div>
+                                        <div
+                                          class="ant-form-item-control-input"
+                                        >
                                           <div
-                                            class="ant-form-item-control-input"
+                                            class="ant-form-item-control-input-content"
                                           >
-                                            <div
-                                              class="ant-form-item-control-input-content"
-                                            >
+                                            <div>
                                               <span
                                                 class="ant-input-affix-wrapper"
                                               >
@@ -24166,6 +24177,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             </div>
                                           </div>
                                         </div>
+                                        <div
+                                          class="ant-form-item-explain"
+                                        >
+                                          <div
+                                            role="alert"
+                                          />
+                                        </div>
                                       </div>
                                     </div>
                                   </td>
@@ -24194,18 +24212,17 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
                                       >
-                                        <div>
+                                        <div
+                                          class="ant-form-item-control-input"
+                                        >
                                           <div
-                                            class="ant-form-item-control-input"
+                                            class="ant-form-item-control-input-content"
                                           >
-                                            <div
-                                              class="ant-form-item-control-input-content"
-                                            >
+                                            <div>
                                               <span
                                                 class="ant-input-affix-wrapper"
                                               >
@@ -24243,6 +24260,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             </div>
                                           </div>
                                         </div>
+                                        <div
+                                          class="ant-form-item-explain"
+                                        >
+                                          <div
+                                            role="alert"
+                                          />
+                                        </div>
                                       </div>
                                     </div>
                                   </td>
@@ -24251,18 +24275,17 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
                                       >
-                                        <div>
+                                        <div
+                                          class="ant-form-item-control-input"
+                                        >
                                           <div
-                                            class="ant-form-item-control-input"
+                                            class="ant-form-item-control-input-content"
                                           >
-                                            <div
-                                              class="ant-form-item-control-input-content"
-                                            >
+                                            <div>
                                               <div
                                                 class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                                 style="min-width: 100px;"
@@ -24354,6 +24377,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             </div>
                                           </div>
                                         </div>
+                                        <div
+                                          class="ant-form-item-explain"
+                                        >
+                                          <div
+                                            role="alert"
+                                          />
+                                        </div>
                                       </div>
                                     </div>
                                   </td>
@@ -24362,18 +24392,17 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
-                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
                                       >
-                                        <div>
+                                        <div
+                                          class="ant-form-item-control-input"
+                                        >
                                           <div
-                                            class="ant-form-item-control-input"
+                                            class="ant-form-item-control-input-content"
                                           >
-                                            <div
-                                              class="ant-form-item-control-input-content"
-                                            >
+                                            <div>
                                               <span
                                                 class="ant-input-affix-wrapper"
                                               >
@@ -24410,6 +24439,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                               </span>
                                             </div>
                                           </div>
+                                        </div>
+                                        <div
+                                          class="ant-form-item-explain"
+                                        >
+                                          <div
+                                            role="alert"
+                                          />
                                         </div>
                                       </div>
                                     </div>
