@@ -119,34 +119,19 @@ function defaultRenderText<T>(config: {
         };
 
         const inputDom = (
-          <InlineErrorFormItem
-            rules={[
+          <ProField
+            fieldProps={getFieldPropsOrFormItemProps(
+              columnProps?.fieldProps,
+              form as FormInstance,
               {
-                min: 6,
-                type: 'string',
-                message: '最小长度为6',
+                ...columnProps,
+                rowKey: config.recordKey || config.index,
+                rowIndex: config.index,
+                isEditable: true,
               },
-            ]}
-            errorType="popover"
-            name={name}
-            {...formItemProps}
-            messageVariables={messageVariables}
-            initialValue={text || formItemProps?.initialValue}
-          >
-            <ProField
-              fieldProps={getFieldPropsOrFormItemProps(
-                columnProps?.fieldProps,
-                form as FormInstance,
-                {
-                  ...columnProps,
-                  rowKey: config.recordKey || config.index,
-                  rowIndex: config.index,
-                  isEditable: true,
-                },
-              )}
-              {...proFieldProps}
-            />
-          </InlineErrorFormItem>
+            )}
+            {...proFieldProps}
+          />
         );
 
         /** 如果没有自定义直接返回 */
