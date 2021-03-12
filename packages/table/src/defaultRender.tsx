@@ -8,7 +8,6 @@ import { runFunction } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
 
 import type { ProColumnType } from './index';
-
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
 /**
@@ -86,7 +85,6 @@ function defaultRenderText<T>(config: {
       />
     );
   }
-
   // 如果是编辑模式，需要用 Form.Item 包一下
   return (
     <Form.Item shouldUpdate noStyle>
@@ -115,6 +113,14 @@ function defaultRenderText<T>(config: {
         );
         const inputDom = (
           <InlineErrorFormItem
+            rules={[
+              {
+                type: 'string',
+                min: 6,
+                message: '至少6个字符',
+              },
+            ]}
+            errorType="popover"
             name={name}
             {...formItemProps}
             messageVariables={messageVariables}
@@ -155,6 +161,7 @@ function defaultRenderText<T>(config: {
           );
           return (
             <InlineErrorFormItem
+              rules={defaultRules}
               name={spellNamePath(
                 config.recordKey || config.index,
                 columnProps?.key || columnProps?.dataIndex || config.index,
