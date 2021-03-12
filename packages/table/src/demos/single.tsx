@@ -28,7 +28,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     width: 48,
   },
   {
-    width: 200,
     title: '标题',
     dataIndex: 'title',
     copyable: true,
@@ -42,7 +41,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
         },
       ],
     },
-    width: '30%',
   },
   {
     title: '状态',
