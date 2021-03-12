@@ -338,7 +338,7 @@ describe('List', () => {
     expect(html.find('.ant-checkbox-input').at(1).prop('checked')).toEqual(false);
   });
 
-  fit('🚏 support pagination', async () => {
+  it('🚏 support pagination', async () => {
     const html = mount(<PaginationDemo />);
     expect(html.find('.ant-list-item').length).toEqual(5);
     act(() => {
