@@ -115,6 +115,14 @@ function defaultRenderText<T>(config: {
         );
         const inputDom = (
           <InlineErrorFormItem
+            rules={[
+              {
+                min: 6,
+                type: 'string',
+                message: '最小长度为6',
+              },
+            ]}
+            errorType="popover"
             name={name}
             {...formItemProps}
             messageVariables={messageVariables}
