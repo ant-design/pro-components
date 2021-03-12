@@ -21337,7 +21337,7 @@ umi-utils@1.7.2:
     prettier "1.15.3"
     slash2 "2.0.0"
 
-umi@^3.0.0, umi@^3.2.10:
+umi@^3.0.0, umi@^3.4.0:
   version "3.4.0"
   resolved "https://registry.npm.taobao.org/umi/download/umi-3.4.0.tgz#cec068a167c36f5943f707878e51d4bb9b818f01"
   integrity sha1-zsBooWfDb1lD9weHjlHUu5uBjwE=

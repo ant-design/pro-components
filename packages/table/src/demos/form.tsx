@@ -64,6 +64,16 @@ export default () => {
         >
           赋值
         </Button>,
+        <Button
+          key="submit"
+          onClick={() => {
+            if (ref.current) {
+              ref.current.submit();
+            }
+          }}
+        >
+          提交
+        </Button>,
       ]}
       options={false}
       dateFormatter="string"

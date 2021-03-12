@@ -10,7 +10,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding:0"
+      style="padding-top:0;padding-bottom:0"
     >
       <div
         class="ant-table-wrapper"
@@ -497,7 +497,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
   >
     <div
       class="ant-card-body"
-      style="padding:0"
+      style="padding-top:0;padding-bottom:0"
     >
       <div
         class="ant-table-wrapper"
@@ -990,7 +990,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
   >
     <div
       class="ant-card-body"
-      style="padding:0"
+      style="padding-top:0;padding-bottom:0"
     >
       <div
         class="ant-table-wrapper"
@@ -1445,7 +1445,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding: 0px;"
+      style="padding-top: 0px; padding-bottom: 0px;"
     >
       <div
         class="ant-table-wrapper"
@@ -1795,7 +1795,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding:0"
+      style="padding-top:0;padding-bottom:0"
     >
       <div
         class="ant-table-wrapper"
@@ -1992,7 +1992,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding:0"
+      style="padding-top:0;padding-bottom:0"
     >
       <div
         class="ant-table-wrapper"

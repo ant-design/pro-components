@@ -1016,7 +1016,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 bordered = true', async () => {
-    const html = render(
+    const html = mount(
       <ProTable
         size="small"
         cardBordered
@@ -1033,11 +1033,12 @@ describe('BasicTable', () => {
       />,
     );
 
-    expect(html).toMatchSnapshot();
+    expect(html.find('.ant-pro-table-search-query-filter.ant-card-bordered').exists()).toBeTruthy();
+    expect(html.find('.ant-card.ant-card-bordered').exists()).toBeTruthy();
   });
 
   it('🎏 bordered = {search = true, table = false}', async () => {
-    const html = render(
+    const html = mount(
       <ProTable
         size="small"
         cardBordered={{
@@ -1045,7 +1046,7 @@ describe('BasicTable', () => {
           table: false,
         }}
         columns={columns}
-        request={request}
+        dataSource={[]}
         rowKey="key"
         rowSelection={{
           selectedRowKeys: ['1'],
@@ -1056,7 +1057,8 @@ describe('BasicTable', () => {
         }}
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.find('.ant-card.ant-card-bordered').exists()).toBeFalsy();
+    expect(html.find('.ant-pro-table-search-query-filter.ant-card-bordered').exists()).toBeTruthy();
   });
 
   it('🎏 debounce time', async () => {
@@ -1080,12 +1082,12 @@ describe('BasicTable', () => {
         debounceTime={500}
       />,
     );
-    await waitForComponentToPaint(html, 1200);
+    await waitForComponentToPaint(html, 2000);
     for (let i = 0; i < 10; i += 1) {
       ref.current?.reload();
     }
     await waitForComponentToPaint(html, 500);
 
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toBeCalledTimes(2);
   });
 });
