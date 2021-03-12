@@ -8,7 +8,7 @@ import {
 } from '@ant-design/pro-utils';
 import { unstable_batchedUpdates } from 'react-dom';
 import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
-import { postDataPipeline } from './utils';
+import { postDataPipeline } from './utils/index';
 
 /**
  * 组合用户的配置和默认值

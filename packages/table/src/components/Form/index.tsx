@@ -17,7 +17,7 @@ import {
   getFieldPropsOrFormItemProps,
 } from '@ant-design/pro-utils';
 import type { UseFetchDataAction, ProColumns, ProTableProps } from '../../typing';
-import { isBordered } from '../../utils';
+import { isBordered } from '../../utils/index';
 
 import './index.less';
 
