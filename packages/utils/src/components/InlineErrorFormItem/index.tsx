@@ -3,7 +3,7 @@ import { Form, Popover, Progress, Space } from 'antd';
 import type { FormItemProps } from 'antd';
 import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
 import type { Rule, FormInstance, NamePath } from 'rc-field-form/lib/interface';
-import { TooltipPlacement } from 'antd/es/tooltip';
+import type { TooltipPlacement } from 'antd/es/tooltip';
 
 const RED = '#ff4d4f';
 const YELLOW = '#faad14';
@@ -97,7 +97,7 @@ interface InlineErrorFormItemProps extends FormItemProps {
   placement?: TooltipPlacement;
 }
 const defaultName = 'inline-error-form-item';
-const InlineErrorFormItemComponent: React.FC<InlineErrorFormItemProps> = (props) => {
+const InlineErrorFormItem: React.FC<InlineErrorFormItemProps> = (props) => {
   if (props.errorType !== 'popover') {
     return <Form.Item {...props}>{props.children}</Form.Item>;
   }
@@ -134,4 +134,4 @@ const InlineErrorFormItemComponent: React.FC<InlineErrorFormItemProps> = (props)
   );
 };
 
-export default InlineErrorFormItemComponent;
+export default InlineErrorFormItem;
