@@ -20,7 +20,7 @@ import type { ListToolBarProps } from './components/ListToolBar';
 import type { OptionConfig, ToolBarProps } from './components/ToolBar';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ColumnsState, useContainer } from './container';
-import type { SearchConfig, TableFormItem } from './components/Form';
+import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 
 export type PageInfo = {
   pageSize: number;
