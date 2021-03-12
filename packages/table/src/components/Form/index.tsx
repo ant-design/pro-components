@@ -426,6 +426,7 @@ const FormSearch = <T, U = any>({
         }}
         dateFormatter={dateFormatter}
         onInit={(values: T) => {
+          console.log(values);
           // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
           if (type !== 'form') {
             // 重新计算一下dom

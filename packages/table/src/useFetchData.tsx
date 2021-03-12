@@ -160,7 +160,7 @@ const useFetchData = <T extends RequestData<any>>(
       return msg;
     },
     [],
-    debounceTime,
+    debounceTime || 10,
   );
 
   // 如果轮询结束了，直接销毁定时器
@@ -204,6 +204,9 @@ const useFetchData = <T extends RequestData<any>>(
 
   useDeepCompareEffect(() => {
     fetchListDebounce.run(false);
+    if (!manual) {
+      manualRequestRef.current = false;
+    }
     return () => {
       fetchListDebounce.cancel();
     };

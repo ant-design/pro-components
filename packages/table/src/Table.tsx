@@ -535,7 +535,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         beforeSearchSubmit={beforeSearchSubmit}
         action={action}
         columns={propsColumns}
-        onFormSearchSubmit={setFormSearch}
+        onFormSearchSubmit={(values) => {
+          setFormSearch(values);
+        }}
         onReset={props.onReset}
         onSubmit={props.onSubmit}
         loading={!!action.loading}
