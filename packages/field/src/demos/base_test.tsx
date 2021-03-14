@@ -218,6 +218,7 @@ export default () => {
                 type: 'percent',
                 showSymbol: true,
                 showColor: true,
+                hideSymbolOnPositive: true
               }}
               mode="read"
             />

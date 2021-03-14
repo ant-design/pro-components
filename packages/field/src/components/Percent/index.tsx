@@ -13,6 +13,8 @@ export type PercentPropInt = {
   precision?: number;
   showColor?: boolean;
   showSymbol?: boolean;
+  /** 值大于 0 是否关闭 symbol */
+  hideSymbolOnPositive?: boolean;
 };
 
 /**
@@ -34,6 +36,7 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
     fieldProps,
     proFieldKey,
     plain,
+    hideSymbolOnPositive,
     ...rest
   },
   ref,
@@ -53,7 +56,9 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
     const dom = (
       <span style={style} ref={ref}>
         {prefix && <span>{prefix}</span>}
-        {showSymbol && <Fragment>{getSymbolByRealValue(realValue)} </Fragment>}
+        {showSymbol && (
+          <Fragment>{getSymbolByRealValue(realValue, hideSymbolOnPositive)} </Fragment>
+        )}
         {getRealTextWithPrecision(Math.abs(realValue), precision)}
         {suffix && suffix}
       </span>

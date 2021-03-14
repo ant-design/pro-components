@@ -72,6 +72,7 @@ export type ProFieldValueObjectType = {
   precision?: number;
   moneySymbol?: string;
   request?: ProFieldRequestData;
+  hideSymbolOnPositive?: boolean;
   /** Image */
   width?: number;
 };
