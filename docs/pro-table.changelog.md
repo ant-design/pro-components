@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.30.5
+
+`2021-03-11`
+
+- 🐛 fix(table): remove dragicon [#2124](https://github.com/ant-design/pro-components/pull/2124) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): EditableProTable no tonumber keys [#2135](https://github.com/ant-design/pro-components/pull/2135) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.30.4
 
 `2021-03-08`

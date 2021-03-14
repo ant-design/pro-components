@@ -10,6 +10,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.11.0
+
+`2021-03-11`
+
+- 💥 feat(card): migrate StatisticCard [#2023](https://github.com/ant-design/pro-components/pull/2023) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-card@1.10.0
 
 `2021-01-25`

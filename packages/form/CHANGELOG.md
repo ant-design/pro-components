@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.18.0...@ant-design/pro-form@1.18.1) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.17.0...@ant-design/pro-form@1.18.0) (2021-03-11)
+
+### Bug Fixes
+
+- **form:** fix copy trigger rerender error ([#2136](https://github.com/ant-design/pro-components/issues/2136)) ([5823c83](https://github.com/ant-design/pro-components/commit/5823c83a7be2b72140c04b202dac83c24bbd0d0c))
+
+### Features
+
+- **card:** migrate StatisticCard ([#2023](https://github.com/ant-design/pro-components/issues/2023)) ([317549d](https://github.com/ant-design/pro-components/commit/317549d814401b795726562fa4b4ee5471afe3ba))
+
 # [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.16.3...@ant-design/pro-form@1.17.0) (2021-03-08)
 
 ### Bug Fixes

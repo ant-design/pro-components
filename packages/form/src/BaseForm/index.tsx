@@ -110,9 +110,6 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const [loading, setLoading] = useMountMergeState<boolean>(false);
 
-  /** 因为 protable 里面的值无法保证刚开始就存在 所以多进行了一次触发，这样可以解决部分问题 */
-  const [isUpdate, updateState] = useMountMergeState(false);
-
   const items = React.Children.toArray(children);
   const submitterProps: SubmitterProps =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
@@ -148,17 +145,10 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const content = contentRender ? contentRender(items, submitterNode, formRef.current) : items;
 
-  const forgetUpdate = () => {
-    setTimeout(() => updateState(true));
-  };
   useEffect(() => {
-    if (isUpdate) {
-      setTimeout(() => {
-        const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
-        onInit?.(finalValues);
-      }, 0);
-    }
-  }, [dateFormatter, isUpdate]);
+    const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
+    onInit?.(finalValues);
+  }, []);
 
   // 如果为 false，不需要触发设置进去
   const [urlParamsMergeInitialValues] = useState(() => {
@@ -235,8 +225,6 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             />
             <Form.Item noStyle shouldUpdate>
               {(formInstance) => {
-                // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
-                if (propsFormRef && !isUpdate) forgetUpdate();
                 if (propsFormRef) propsFormRef.current = formInstance as FormInstance;
                 formRef.current = formInstance as FormInstance;
                 return null;

@@ -187,4 +187,5 @@ export default {
       },
     ],
   },
+  webpack5: {},
 };

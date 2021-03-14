@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.5.6
+
+`2021-03-11`
+
+- ✨ feat(list): support showExtra(#2090) [#2145](https://github.com/ant-design/pro-components/pull/2145) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-list@1.5.5
 
 `2021-03-08`

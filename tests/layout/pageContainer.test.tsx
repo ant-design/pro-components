@@ -246,13 +246,12 @@ describe('PageContainer', () => {
       />,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.find('.ant-pro-footer-bar').exists()).toBeTruthy();
 
-    wrapper.setProps({
-      header: { footer: undefined },
-    });
+    wrapper.setProps({ footer: undefined });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+
+    expect(wrapper.find('.ant-pro-footer-bar').exists()).toBeFalsy();
   });
 
   it('🐲  tabList and onTabChange is run', async () => {
