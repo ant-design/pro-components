@@ -396,78 +396,49 @@ describe('Field', () => {
   });
 
   it('🐴 money valueType is Object', async () => {
-    let html = render(
-      <Field
-        text="100"
-        valueType={{
-          type: 'money',
-          locale: 'en_US',
-        }}
-        mode="edit"
-      />,
-    );
-    expect(html).toMatchSnapshot();
+    const renderField = (locale: string) => {
+      let html = render(
+        <Field
+          text="100"
+          valueType={{
+            type: 'money',
+            locale,
+          }}
+          mode="edit"
+        />,
+      );
+      expect(html).toMatchSnapshot();
 
-    html = render(
-      <Field
-        text="100"
-        valueType={{
-          type: 'money',
-          locale: 'en_US',
-        }}
-        mode="read"
-      />,
-    );
-    expect(html).toMatchSnapshot();
+      html = render(
+        <Field
+          text="100"
+          valueType={{
+            type: 'money',
+            moneySymbol: '',
+            locale,
+          }}
+          mode="read"
+        />,
+      );
+      expect(html).toMatchSnapshot();
 
-    html = render(
-      <Field
-        text="100"
-        valueType={{
-          type: 'money',
-          locale: 'ru_RU',
-        }}
-        mode="read"
-      />,
-    );
-    expect(html).toMatchSnapshot();
+      html = render(
+        <Field
+          text="100"
+          valueType={{
+            type: 'money',
+            locale,
+          }}
+          mode="read"
+        />,
+      );
+      expect(html).toMatchSnapshot();
+    };
 
-    html = render(
-      <Field
-        text="100"
-        valueType={{
-          type: 'money',
-          locale: 'ms_MY',
-        }}
-        mode="read"
-      />,
-    );
-    expect(html).toMatchSnapshot();
-
-    html = render(
-      <Field
-        text="100"
-        valueType={{
-          type: 'money',
-          locale: 'sr_RS',
-        }}
-        mode="read"
-      />,
-    );
-    expect(html).toMatchSnapshot();
-
-    html = render(
-      <Field
-        text="100"
-        valueType={{
-          type: 'money',
-          moneySymbol: '',
-          locale: 'en_US',
-        }}
-        mode="read"
-      />,
-    );
-    expect(html).toMatchSnapshot();
+    renderField('en_US');
+    renderField('ru_RU');
+    renderField('ms_MY');
+    renderField('sr_RS');
   });
 
   it('🐴 percent support unit string', async () => {
