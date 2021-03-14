@@ -53,7 +53,7 @@ const getSpanConfig = (
   if (width === 16) {
     return {
       span: 8,
-      layout: 'inline',
+      layout: layout || 'inline',
     };
   }
   if (span && typeof span === 'number') {
