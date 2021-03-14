@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.18.0...@ant-design/pro-form@1.18.1) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.17.0...@ant-design/pro-form@1.18.0) (2021-03-11)
+
+### Bug Fixes
+
+- **form:** fix copy trigger rerender error ([#2136](https://github.com/ant-design/pro-components/issues/2136)) ([5823c83](https://github.com/ant-design/pro-components/commit/5823c83a7be2b72140c04b202dac83c24bbd0d0c))
+
+### Features
+
+- **card:** migrate StatisticCard ([#2023](https://github.com/ant-design/pro-components/issues/2023)) ([317549d](https://github.com/ant-design/pro-components/commit/317549d814401b795726562fa4b4ee5471afe3ba))
+
+# [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.16.3...@ant-design/pro-form@1.17.0) (2021-03-08)
+
+### Bug Fixes
+
+- **form:** fix form dateFormatter no export error ([#2123](https://github.com/ant-design/pro-components/issues/2123)) ([4842a3b](https://github.com/ant-design/pro-components/commit/4842a3be1a7467dd4507e7987bd4ca9c15085e23))
+- **form:** fix form list copy no work error ([#2081](https://github.com/ant-design/pro-components/issues/2081)) ([00329b8](https://github.com/ant-design/pro-components/commit/00329b8ca01b370092cfdef3f272b9f45c89069c))
+- **form:** fix ProFormDigit width no work error ([#2069](https://github.com/ant-design/pro-components/issues/2069)) ([5d39229](https://github.com/ant-design/pro-components/commit/5d3922970c8d203a91d2c6aa4a37c0ee16d7beb7))
+- **form:** fix QueryFilter span and colSize error ([#2072](https://github.com/ant-design/pro-components/issues/2072)) ([7392f88](https://github.com/ant-design/pro-components/commit/7392f8828e2c2976978db39c4161b0f1d2663923))
+- **form:** FormList support rules ([#2070](https://github.com/ant-design/pro-components/issues/2070)) ([db1cb1f](https://github.com/ant-design/pro-components/commit/db1cb1f1ef6975af11899bb3365dcc73eac25c89))
+- **form:** if button=1,no render space ([#2091](https://github.com/ant-design/pro-components/issues/2091)) ([a310a11](https://github.com/ant-design/pro-components/commit/a310a11fceac7d7be699834f931c7c89e99af721))
+- **form:** remove no work error ([#2078](https://github.com/ant-design/pro-components/issues/2078)) ([729b102](https://github.com/ant-design/pro-components/commit/729b102e11fd0992aa55e9f2bc7bb68cfaf34549))
+- **list:** fix nested list copy no work error ([#2117](https://github.com/ant-design/pro-components/issues/2117)) ([a054ef3](https://github.com/ant-design/pro-components/commit/a054ef3f18d25f3b8e781461b7eac9e911946a08))
+
+### Features
+
+- **field:** add color pick ([#2089](https://github.com/ant-design/pro-components/issues/2089)) ([e83c2ee](https://github.com/ant-design/pro-components/commit/e83c2ee36f67b66070074562f80f248cbfc1a6e3))
+
 ## [1.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.16.2...@ant-design/pro-form@1.16.3) (2021-02-28)
 
 ### Bug Fixes

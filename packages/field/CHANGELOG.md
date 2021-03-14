@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.11.1...@ant-design/pro-field@1.11.2) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.11.0...@ant-design/pro-field@1.11.1) (2021-03-11)
+
+### Bug Fixes
+
+- **form:** 修复 Select 默认的 filterOption 没有忽略大小写 ([#2137](https://github.com/ant-design/pro-components/issues/2137)) ([a03ec46](https://github.com/ant-design/pro-components/commit/a03ec466b08d22492001dacbc68b7da0110f9f42))
+
+# [1.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.10.3...@ant-design/pro-field@1.11.0) (2021-03-08)
+
+### Bug Fixes
+
+- **field:** valueType 为对象时 不走 空值判断 ([#2100](https://github.com/ant-design/pro-components/issues/2100)) ([5c14231](https://github.com/ant-design/pro-components/commit/5c14231ac29f8ce9aba0fd6bd2efa30f6627f7a7))
+- **form:** fix ProFormDigit width no work error ([#2069](https://github.com/ant-design/pro-components/issues/2069)) ([5d39229](https://github.com/ant-design/pro-components/commit/5d3922970c8d203a91d2c6aa4a37c0ee16d7beb7))
+- **form:** fix QueryFilter span and colSize error ([#2072](https://github.com/ant-design/pro-components/issues/2072)) ([7392f88](https://github.com/ant-design/pro-components/commit/7392f8828e2c2976978db39c4161b0f1d2663923))
+- **form:** remove no work error ([#2078](https://github.com/ant-design/pro-components/issues/2078)) ([729b102](https://github.com/ant-design/pro-components/commit/729b102e11fd0992aa55e9f2bc7bb68cfaf34549))
+- **list:** fix nested list copy no work error ([#2117](https://github.com/ant-design/pro-components/issues/2117)) ([a054ef3](https://github.com/ant-design/pro-components/commit/a054ef3f18d25f3b8e781461b7eac9e911946a08))
+
+### Features
+
+- **field:** add color pick ([#2089](https://github.com/ant-design/pro-components/issues/2089)) ([e83c2ee](https://github.com/ant-design/pro-components/commit/e83c2ee36f67b66070074562f80f248cbfc1a6e3))
+- **form:** select optipn support optGroup ([#2067](https://github.com/ant-design/pro-components/issues/2067)) ([2a99e27](https://github.com/ant-design/pro-components/commit/2a99e27ea8f5d9d24b646f96ccd11967c059159e))
+- **layout:** layout support WaterMark ([#2086](https://github.com/ant-design/pro-components/issues/2086)) ([7413eee](https://github.com/ant-design/pro-components/commit/7413eee8f0f31e5911284ea1bd98941900de6d32))
+
 ## [1.10.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.10.2...@ant-design/pro-field@1.10.3) (2021-02-28)
 
 ### Bug Fixes

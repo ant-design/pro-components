@@ -62,7 +62,7 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 ### 页面加载中
 
-<code src="./demos/loading.tsx" iframe="500px" title="页面加载中" desc="通过 `lodding` 属性配置页面加载。"/>
+<code src="./demos/loading.tsx" iframe="500px" title="页面加载中" desc="通过 `loading` 属性配置页面加载。"/>
 
 ## API
 

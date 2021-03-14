@@ -152,6 +152,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
+| disableUrlParams | 禁止同步设置到查询参数 | `boolean` | `false` |
 
 ### PageLoading
 

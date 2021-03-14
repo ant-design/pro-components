@@ -14,13 +14,6 @@ export type RowEditableType = 'single' | 'multiple';
 
 export type RecordKey = React.Key | React.Key[];
 
-export const toNumber = (recordKey: string) => {
-  if (recordKey.startsWith('0')) {
-    return recordKey;
-  }
-  return Number.isNaN((recordKey as unknown) as number) ? recordKey : Number(recordKey);
-};
-
 export const recordKeyToString = (rowKey: RecordKey): React.Key => {
   if (Array.isArray(rowKey)) return rowKey.join(',');
   return rowKey;
@@ -136,7 +129,7 @@ function editableRowByKey<RecordType>(
    */
   function dig(records: RecordType[], map_row_parentKey?: React.Key) {
     records.forEach((record, index) => {
-      const recordKey = getRowKey(record, index);
+      const recordKey = getRowKey(record, index).toString();
       // children 取在前面方便拼的时候按照反顺序放回去
       if (record && typeof record === 'object' && childrenColumnName in record) {
         dig(record[childrenColumnName] || [], recordKey);
@@ -441,25 +434,27 @@ function useEditableArray<RecordType>(
     // 这里是把正在编辑中的所有表单数据都修改掉
     // 不然会用 props 里面的 dataSource，数据只有正在编辑中的
     Object.keys(values).forEach((recordKey) => {
-      const editRow = values[recordKey];
+      const editRow = values[recordKey.toString()];
       dataSource = editableRowByKey(
         {
           data: dataSource,
           getRowKey: props.getRowKey,
           row: editRow,
-          key: toNumber(recordKey),
+          key: recordKey,
           childrenColumnName: props.childrenColumnName || 'children',
         },
         'update',
       );
     });
-    const recordKey = toNumber(Object.keys(value).pop() as string);
-    if (recordKey === newLineRecord?.options.recordKey) {
+    const recordKey = Object.keys(value).pop()?.toString() as string;
+
+    if (recordKey.toString() === newLineRecord?.options.recordKey?.toString()) {
       cancelEditable(recordKey);
       startEditable(recordKey);
     }
+
     const editRow = dataSource.find((item, index) => {
-      const key = props.getRowKey(item, index);
+      const key = props.getRowKey(item, index)?.toString();
       return key === recordKey;
     }) || {
       ...newLineRecord?.defaultValue,

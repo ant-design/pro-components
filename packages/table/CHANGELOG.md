@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.30.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.5...@ant-design/pro-table@2.30.6) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.30.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.4...@ant-design/pro-table@2.30.5) (2021-03-11)
+
+### Bug Fixes
+
+- **table:** remove dragicon ([#2124](https://github.com/ant-design/pro-components/issues/2124)) ([49e1023](https://github.com/ant-design/pro-components/commit/49e1023edccef07c7397fd0adf1d1c38af552626))
+
+## [2.30.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.3...@ant-design/pro-table@2.30.4) (2021-03-08)
+
+### Bug Fixes
+
+- **table:** fix tooltip no work error ([#2079](https://github.com/ant-design/pro-components/issues/2079)) ([9838b9a](https://github.com/ant-design/pro-components/commit/9838b9a7954ab4cb167a8643ef9854ead25fef47))
+
 ## [2.30.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.2...@ant-design/pro-table@2.30.3) (2021-02-28)
 
 **Note:** Version bump only for package @ant-design/pro-table

@@ -357,7 +357,7 @@ describe('List', () => {
       html.find('.ant-select-item-option').at(3).simulate('click');
     });
 
-    await waitForComponentToPaint(html, 20);
+    await waitForComponentToPaint(html, 200);
 
     expect(html.find('.ant-list-item').length).toEqual(7);
   });

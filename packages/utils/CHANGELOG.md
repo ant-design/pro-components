@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.14.1...@ant-design/pro-utils@1.14.2) (2021-03-11)
+
+### Bug Fixes
+
+- **table:** fix rowkey is number will error ([#2158](https://github.com/ant-design/pro-components/issues/2158)) ([fc38af8](https://github.com/ant-design/pro-components/commit/fc38af890846fd439e00c224d8bc7a00ef3a6723))
+
+## [1.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.14.0...@ant-design/pro-utils@1.14.1) (2021-03-11)
+
+### Bug Fixes
+
+- **table:** EditableProTable no tonumber keys ([#2135](https://github.com/ant-design/pro-components/issues/2135)) ([b4d3c0a](https://github.com/ant-design/pro-components/commit/b4d3c0ac13e8ef2a981e2bc3132b951c583c1e58))
+
+# [1.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.13.2...@ant-design/pro-utils@1.14.0) (2021-03-08)
+
+### Bug Fixes
+
+- **utils:** support value of BLOB array types ([#2082](https://github.com/ant-design/pro-components/issues/2082)) ([77cad4a](https://github.com/ant-design/pro-components/commit/77cad4a5b417a4878acaad811d626000da150c2e))
+
+### Features
+
+- **field:** add color pick ([#2089](https://github.com/ant-design/pro-components/issues/2089)) ([e83c2ee](https://github.com/ant-design/pro-components/commit/e83c2ee36f67b66070074562f80f248cbfc1a6e3))
+- **form:** select optipn support optGroup ([#2067](https://github.com/ant-design/pro-components/issues/2067)) ([2a99e27](https://github.com/ant-design/pro-components/commit/2a99e27ea8f5d9d24b646f96ccd11967c059159e))
+
 ## [1.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.13.1...@ant-design/pro-utils@1.13.2) (2021-02-28)
 
 **Note:** Version bump only for package @ant-design/pro-utils

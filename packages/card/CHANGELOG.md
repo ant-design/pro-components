@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.0...@ant-design/pro-card@1.11.1) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+# [1.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.10.6...@ant-design/pro-card@1.11.0) (2021-03-11)
+
+### Bug Fixes
+
+- **table:** remove dragicon ([#2124](https://github.com/ant-design/pro-components/issues/2124)) ([49e1023](https://github.com/ant-design/pro-components/commit/49e1023edccef07c7397fd0adf1d1c38af552626))
+
+### Features
+
+- **card:** migrate StatisticCard ([#2023](https://github.com/ant-design/pro-components/issues/2023)) ([317549d](https://github.com/ant-design/pro-components/commit/317549d814401b795726562fa4b4ee5471afe3ba))
+
+## [1.10.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.10.5...@ant-design/pro-card@1.10.6) (2021-03-08)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
 ## [1.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.10.4...@ant-design/pro-card@1.10.5) (2021-02-28)
 
 **Note:** Version bump only for package @ant-design/pro-card

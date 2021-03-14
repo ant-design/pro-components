@@ -8,7 +8,7 @@ import {
 } from '@ant-design/pro-utils';
 import { unstable_batchedUpdates } from 'react-dom';
 import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
-import { postDataPipeline } from './utils';
+import { postDataPipeline } from './utils/index';
 
 /**
  * 组合用户的配置和默认值
@@ -160,7 +160,7 @@ const useFetchData = <T extends RequestData<any>>(
       return msg;
     },
     [],
-    debounceTime,
+    debounceTime || 10,
   );
 
   // 如果轮询结束了，直接销毁定时器
@@ -204,6 +204,9 @@ const useFetchData = <T extends RequestData<any>>(
 
   useDeepCompareEffect(() => {
     fetchListDebounce.run(false);
+    if (!manual) {
+      manualRequestRef.current = false;
+    }
     return () => {
       fetchListDebounce.cancel();
     };
