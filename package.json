@@ -183,5 +183,8 @@
       "webpack": false,
       "running": false
     }
-  ]
+  ],
+  "dependencies": {
+    "@umijs/plugin-esbuild": "^1.1.0"
+  }
 }

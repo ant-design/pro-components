@@ -188,4 +188,5 @@ export default {
     ],
   },
   webpack5: {},
+  esbuild: {},
 };
