@@ -90,8 +90,9 @@ const Content: React.FC<{ form: FormInstance; name: NamePath; rules: Rule[] }> =
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';
   placement?: TooltipPlacement;
+  rules: Rule[];
+  name: string;
 }
-const defaultName = 'inline-error-form-item';
 const style = {
   marginTop: -5,
   marginBottom: -5,
@@ -100,8 +101,8 @@ const style = {
 };
 const InlineErrorFormItem: React.FC<InlineErrorFormItemProps> = ({
   label,
-  rules = [],
-  name = defaultName,
+  rules,
+  name,
   trigger,
   placement,
   children,
