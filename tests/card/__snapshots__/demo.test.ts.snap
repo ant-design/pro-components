@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/basic.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/basic.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
   style="width: 268px;"
@@ -242,7 +242,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/chart.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/chart.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
 >
@@ -341,7 +341,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/ChartTable.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/ChartTable.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
   style="margin-top: 16px;"
@@ -528,7 +528,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/Line.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/Line.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="7"
@@ -553,7 +553,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/MiniArea.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniArea.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="8"
@@ -578,7 +578,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/MiniColumn.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniColumn.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="9"
@@ -603,7 +603,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/MiniProgress.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniProgress.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="10"
@@ -628,7 +628,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/MiniRing.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniRing.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="11"
@@ -659,7 +659,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/Ring.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/Ring.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="12"
@@ -696,7 +696,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/SmoothArea.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/SmoothArea.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="13"
@@ -721,7 +721,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/fomula.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/fomula.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -932,7 +932,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/footer.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/footer.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
   style="width: 250px;"
@@ -1171,7 +1171,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/group.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/group.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -1437,7 +1437,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/group-chart.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/group-chart.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -1698,7 +1698,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/group-chart-horizontal.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/group-chart-horizontal.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -1972,7 +1972,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/horizontal.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/horizontal.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
   style="width: 420px;"
@@ -2136,7 +2136,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/horizontal-left.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/horizontal-left.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
   style="max-width: 420px;"
@@ -2300,7 +2300,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/icon.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/icon.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -2532,7 +2532,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/layout.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/layout.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
 >
@@ -3167,7 +3167,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/status.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/status.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -3486,7 +3486,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/tabs.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/tabs.tsx correctly 1`] = `
 <div
   class="ant-pro-card"
 >
@@ -3917,7 +3917,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/total.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/total.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -4202,7 +4202,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/total-layout.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/total-layout.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-contain-card ant-pro-card-split"
 >
@@ -5017,7 +5017,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/trend.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/trend.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
   style="width: 160px;"
