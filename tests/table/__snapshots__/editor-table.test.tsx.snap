@@ -1515,6 +1515,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                           />
                           <div
                             class="ant-row ant-form-item"
+                            style="margin: -5px 0px -5px 0px;"
                           >
                             <div
                               class="ant-col ant-form-item-control"
@@ -1569,6 +1570,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                         >
                           <div
                             class="ant-row ant-form-item"
+                            style="margin: -5px 0px -5px 0px;"
                           >
                             <div
                               class="ant-col ant-form-item-control"
@@ -1623,6 +1625,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                         >
                           <div
                             class="ant-row ant-form-item"
+                            style="margin: -5px 0px -5px 0px;"
                           >
                             <div
                               class="ant-col ant-form-item-control"
@@ -2041,6 +2044,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                           />
                           <div
                             class="ant-row ant-form-item"
+                            style="margin-left:0;margin-right:0;margin-top:-5px;margin-bottom:-5px"
                           >
                             <div
                               class="ant-col ant-form-item-control"
@@ -2053,6 +2057,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                                 >
                                   <div
                                     class="ant-row ant-form-item"
+                                    style="margin-left:0;margin-right:0;margin-top:-5px;margin-bottom:-5px"
                                   >
                                     <div
                                       class="ant-col ant-form-item-control"

@@ -19816,6 +19816,45 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
 </form>
 `;
 
+exports[`form demos 📸 renders ./packages/form/src/demos/inline-form-item-demo.tsx correctly 1`] = `
+<form
+  class="ant-form ant-form-horizontal"
+>
+  <div
+    class="ant-row ant-form-item"
+    style="margin: -5px 0px -5px 0px;"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div>
+            <input
+              class="ant-input"
+              id="demo"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-form-item-explain"
+      >
+        <div
+          role="alert"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal"
@@ -23949,6 +23988,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
@@ -24003,6 +24043,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
@@ -24111,6 +24152,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
@@ -24185,6 +24227,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
@@ -24239,6 +24282,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"
@@ -24347,6 +24391,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                   >
                                     <div
                                       class="ant-row ant-form-item"
+                                      style="margin: -5px 0px -5px 0px;"
                                     >
                                       <div
                                         class="ant-col ant-form-item-control"

@@ -226,15 +226,23 @@ describe('utils', () => {
   });
 
   it('📅 InlineErrorFormItem onValuesChange', async () => {
+    const requiredMessage = '必填项';
+    const minMessage = '最小长度为12';
     const html = mount(
       <Form>
         <InlineErrorFormItem
+          errorType="popover"
           rules={[
             {
               required: true,
+              message: requiredMessage,
+            },
+            {
+              min: 12,
+              message: minMessage,
             },
           ]}
-          trigger="click"
+          trigger="focus"
           name="title"
         >
           <Input id="test" />
@@ -242,18 +250,60 @@ describe('utils', () => {
       </Form>,
     );
     act(() => {
+      html.find('Input#test').simulate('focus');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('div.ant-popover').exists()).toBeTruthy();
+    expect(html.find('div.ant-popover ul li').length).toEqual(2);
+    expect(html.find('div.ant-popover ul li').at(0).find('.ant-space-item span').text()).toEqual(
+      requiredMessage,
+    );
+    expect(html.find('div.ant-popover ul li').at(1).find('.ant-space-item span').text()).toEqual(
+      minMessage,
+    );
+    expect(
+      html
+        .find('div.ant-popover .ant-progress-bg')
+        .at(0)
+        .getDOMNode()
+        .getAttribute('style')
+        ?.indexOf('width: 0%'),
+    ).toBeGreaterThanOrEqual(0);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(0);
+    act(() => {
       html.find('Input#test').simulate('change', {
         target: {
-          value: '',
+          value: '1',
         },
       });
     });
     await waitForComponentToPaint(html, 100);
+    expect(
+      html
+        .find('div.ant-popover .ant-progress-bg')
+        .at(0)
+        .getDOMNode()
+        .getAttribute('style')
+        ?.indexOf('width: 50%'),
+    ).toBeGreaterThanOrEqual(0);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(1);
     act(() => {
-      html.find('div.ant-form-item-has-error input').simulate('click');
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: 'aaaabbbbcccc',
+        },
+      });
     });
     await waitForComponentToPaint(html, 100);
-    expect(html.find('div.ant-form-item-explain').exists()).toBeTruthy();
+    expect(
+      html
+        .find('div.ant-popover .ant-progress-bg')
+        .at(0)
+        .getDOMNode()
+        .getAttribute('style')
+        ?.indexOf('width: 100%'),
+    ).toBeGreaterThanOrEqual(0);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(2);
   });
 
   it('📅 transformKeySubmitValue return string', async () => {

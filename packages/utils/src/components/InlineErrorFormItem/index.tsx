@@ -97,15 +97,28 @@ interface InlineErrorFormItemProps extends FormItemProps {
   placement?: TooltipPlacement;
 }
 const defaultName = 'inline-error-form-item';
-const InlineErrorFormItem: React.FC<InlineErrorFormItemProps> = (props) => {
-  const { label, rules = [], name = defaultName } = props;
+const style = {
+  marginTop: -5,
+  marginBottom: -5,
+  marginLeft: 0,
+  marginRight: 0,
+};
+const InlineErrorFormItem: React.FC<InlineErrorFormItemProps> = ({
+  label,
+  rules = [],
+  name = defaultName,
+  trigger,
+  placement,
+  children,
+  ...rest
+}) => {
   return (
-    <Form.Item shouldUpdate help={''} label={label}>
+    <Form.Item style={style} shouldUpdate help={''} label={label}>
       {(form) => {
         return (
           <Popover
-            trigger={props.trigger}
-            placement={props.placement || 'topRight'}
+            trigger={trigger}
+            placement={placement || 'topRight'}
             content={<Content form={form} name={name} rules={rules} />}
           >
             <div>
@@ -116,9 +129,10 @@ const InlineErrorFormItem: React.FC<InlineErrorFormItemProps> = (props) => {
                 }}
                 preserve={false}
                 name={name}
-                {...props}
+                rules={rules}
+                {...rest}
               >
-                {props.children}
+                {children}
               </Form.Item>
             </div>
           </Popover>
@@ -130,8 +144,11 @@ const InlineErrorFormItem: React.FC<InlineErrorFormItemProps> = (props) => {
 
 export default (props: InlineErrorFormItemProps) => {
   if (props.errorType !== 'popover' || !props.rules?.length) {
-    // !props.rules && console.error('InlineErrorFormItem should have "rules" props while using errorType="popover"');
-    return <Form.Item {...props}>{props.children}</Form.Item>;
+    return (
+      <Form.Item style={style} {...props}>
+        {props.children}
+      </Form.Item>
+    );
   }
   return <InlineErrorFormItem {...props}></InlineErrorFormItem>;
 };
