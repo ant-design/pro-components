@@ -141,7 +141,7 @@ function defaultRenderText<T>(config: {
               name={name}
               {...formItemProps}
               messageVariables={messageVariables}
-              initialValue={text || formItemProps?.initialValue}
+              initialValue={text !== undefined ? text : formItemProps?.initialValue}
             >
               {inputDom}
             </InlineErrorFormItem>

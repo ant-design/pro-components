@@ -118,8 +118,8 @@ function editableRowByKey<RecordType>(
   action: 'update' | 'delete',
 ) {
   const { getRowKey, row, data, childrenColumnName } = params;
-  const key = recordKeyToString(params.key);
-  const kvMap = new Map<React.Key, RecordType & { parentKey?: React.Key }>();
+  const key = recordKeyToString(params.key)?.toString();
+  const kvMap = new Map<string, RecordType & { parentKey?: React.Key }>();
 
   /**
    * 打平这个数组
@@ -159,8 +159,8 @@ function editableRowByKey<RecordType>(
   if (action === 'delete') {
     kvMap.delete(key);
   }
-  const fill = (map: Map<React.Key, RecordType & { map_row_parentKey?: React.Key }>) => {
-    const kvArrayMap = new Map<React.Key, RecordType[]>();
+  const fill = (map: Map<string, RecordType & { map_row_parentKey?: string }>) => {
+    const kvArrayMap = new Map<string, RecordType[]>();
     const kvSource: RecordType[] = [];
     map.forEach((value) => {
       if (value.map_row_parentKey) {
