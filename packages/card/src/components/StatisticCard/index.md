@@ -42,10 +42,6 @@ nav:
 
 <code src="./demos/total.tsx" background="#f0f2f5" title="总分/主次关系"/>
 
-### 总分/业绩目标
-
-<code src="./demos/total-layout.tsx" background="#f0f2f5" title="总分/业绩目标"/>
-
 ### 分组指标
 
 你可以嵌套指标卡组件来将指标分组, 以及 `Divider` 子组件来分隔这些指标。
@@ -78,12 +74,6 @@ nav:
 
 <code src="./demos/icon.tsx" background="#f0f2f5" title="图标展示" />
 
-### 卡片布局
-
-配合 `ProCard` 的卡片切分能力可以实现复杂的卡片布局。
-
-<code src="./demos/layout.tsx" background="#f0f2f5" title="卡片布局" />
-
 ### 图表在右
 
 配置 `chartPlacement` 为 `right` 可以指定图表在数值统计的右边。默认为上下结构。
@@ -95,12 +85,6 @@ nav:
 配置 `chartPlacement` 为 `left` 可以指定图表在数值统计的左边。
 
 <code src="./demos/horizontal-left.tsx" background="#f0f2f5" title="图表在左" />
-
-### 页签
-
-配置 `tabs` 属性配合 `ProCard.TabPane` 子组件可以配置卡片的标签栏。
-
-<code src="./demos/tabs.tsx" background="#f0f2f5" title="页签" />
 
 ### 环比趋势
 
