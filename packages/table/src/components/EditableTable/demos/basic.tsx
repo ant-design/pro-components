@@ -32,7 +32,7 @@ const defaultData: DataSourceType[] = [
   },
   {
     id: 624691229,
-    title: '活动名称二',
+    title: 0,
     decs: '这个活动真好玩',
     state: 'closed',
     created_at: '2020-05-26T08:19:22Z',
