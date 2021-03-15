@@ -254,7 +254,7 @@ describe('utils', () => {
               pattern: /[a-zA-Z]/,
             },
           ]}
-          trigger="focus"
+          popoverProps={{ trigger: 'focus' }}
           name="title"
         >
           <Input id="test" />

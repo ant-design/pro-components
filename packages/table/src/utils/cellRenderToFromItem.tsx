@@ -138,6 +138,7 @@ function defaultRenderText<T>(config: {
         if (!columnProps?.renderFormItem) {
           return (
             <InlineErrorFormItem
+              errorType="popover"
               name={name}
               {...formItemProps}
               messageVariables={messageVariables}
@@ -158,6 +159,7 @@ function defaultRenderText<T>(config: {
           {
             defaultRender: () => (
               <InlineErrorFormItem
+                errorType="popover"
                 name={name}
                 {...formItemProps}
                 messageVariables={messageVariables}
@@ -175,6 +177,7 @@ function defaultRenderText<T>(config: {
         );
         return (
           <InlineErrorFormItem
+            errorType="popover"
             name={spellNamePath(
               config.recordKey || config.index,
               columnProps?.key || columnProps?.dataIndex || config.index,

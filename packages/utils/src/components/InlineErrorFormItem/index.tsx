@@ -1,9 +1,8 @@
 ﻿import React from 'react';
 import { Form, Popover, Progress, Space } from 'antd';
-import type { FormItemProps } from 'antd';
+import type { FormItemProps, PopoverProps } from 'antd';
 import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
 import type { Rule, FormInstance, NamePath } from 'rc-field-form/lib/interface';
-import type { TooltipPlacement } from 'antd/es/tooltip';
 
 const RED = '#ff4d4f';
 const YELLOW = '#faad14';
@@ -89,12 +88,15 @@ const Content: React.FC<{ form: FormInstance; name: NamePath; rules: Rule[] }> =
 
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';
-  placement?: TooltipPlacement;
+  popoverProps?: PopoverProps;
 }
+
 interface InternalProps extends InlineErrorFormItemProps {
   name: NamePath;
   rules: Rule[];
+  popoverProps?: PopoverProps;
 }
+
 const style = {
   marginTop: -5,
   marginBottom: -5,
@@ -106,18 +108,17 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
   label,
   rules,
   name,
-  trigger,
-  placement,
   children,
+  popoverProps,
   ...rest
 }) => {
   return (
-    <Form.Item style={style} shouldUpdate help={''} label={label}>
+    <Form.Item style={style} noStyle shouldUpdate help={''} label={label}>
       {(form) => {
         return (
           <Popover
-            trigger={trigger}
-            placement={placement || 'topRight'}
+            trigger={popoverProps?.trigger || 'focus'}
+            placement={popoverProps?.placement}
             content={<Content form={form} name={name} rules={rules} />}
           >
             <div>
@@ -142,13 +143,17 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
 };
 
 export default (props: InlineErrorFormItemProps) => {
-  const { errorType, rules, name, ...rest } = props;
+  const { errorType, rules, name, popoverProps, children, ...rest } = props;
   if (name && rules && rules.length > 0 && errorType === 'popover') {
-    return <InlineErrorFormItem name={name} rules={rules} {...rest}></InlineErrorFormItem>;
+    return (
+      <InlineErrorFormItem name={name} rules={rules} popoverProps={popoverProps} {...rest}>
+        {children}
+      </InlineErrorFormItem>
+    );
   }
   return (
-    <Form.Item style={style} {...props}>
-      {props.children}
+    <Form.Item style={{ ...style, ...rest.style }} rules={rules} {...rest} name={name}>
+      {children}
     </Form.Item>
   );
 };
