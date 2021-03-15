@@ -1010,6 +1010,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/data-
 exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynamic-descriptions.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
+  style="height: 500px;"
 >
   <div
     class="ant-pro-card-body"

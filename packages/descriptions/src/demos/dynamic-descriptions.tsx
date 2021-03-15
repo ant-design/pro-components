@@ -117,7 +117,14 @@ const initialValues = {
 export default () => {
   const [values, setValues] = useState<Record<string, any>>(initialValues);
   return (
-    <ProCard bordered split="vertical" headerBordered>
+    <ProCard
+      bordered
+      split="vertical"
+      headerBordered
+      style={{
+        height: 500,
+      }}
+    >
       <ProCard colSpan="calc(100% - 500px)">
         <ProDescriptions
           title="高级定义列表"
