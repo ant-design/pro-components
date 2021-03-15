@@ -4557,7 +4557,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                   <div
                     class="ant-pro-form-list"
                   >
-                    <div>
+                    <div
+                      style="max-width: 100%;"
+                    >
                       <div
                         style="display: flex; align-items: flex-end;"
                       >
@@ -5961,7 +5963,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
           <div
             class="ant-pro-form-list"
           >
-            <div>
+            <div
+              style="max-width: 100%;"
+            >
               <div
                 style="display: flex; align-items: flex-end;"
               >
@@ -6486,7 +6490,9 @@ Array [
             <div
               class="ant-pro-form-list"
             >
-              <div>
+              <div
+                style="max-width: 100%;"
+              >
                 <div
                   style="display: flex; align-items: flex-end;"
                 >
@@ -7269,7 +7275,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
           <div
             class="ant-pro-form-list"
           >
-            <div>
+            <div
+              style="max-width: 100%;"
+            >
               <div
                 class="ant-pro-card ant-pro-card-border"
                 style="margin-bottom: 8px;"
@@ -7503,7 +7511,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                             <div
                               class="ant-pro-form-list"
                             >
-                              <div>
+                              <div
+                                style="max-width: 100%;"
+                              >
                                 <div
                                   style="display: flex; align-items: flex-end;"
                                 >
