@@ -90,8 +90,10 @@ const Content: React.FC<{ form: FormInstance; name: NamePath; rules: Rule[] }> =
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';
   placement?: TooltipPlacement;
+}
+interface InternalProps extends InlineErrorFormItemProps {
+  name: NamePath;
   rules: Rule[];
-  name: string;
 }
 const style = {
   marginTop: -5,
@@ -99,7 +101,8 @@ const style = {
   marginLeft: 0,
   marginRight: 0,
 };
-const InlineErrorFormItem: React.FC<InlineErrorFormItemProps> = ({
+
+const InlineErrorFormItem: React.FC<InternalProps> = ({
   label,
   rules,
   name,
@@ -139,12 +142,13 @@ const InlineErrorFormItem: React.FC<InlineErrorFormItemProps> = ({
 };
 
 export default (props: InlineErrorFormItemProps) => {
-  if (props.errorType !== 'popover' || !props.rules?.length) {
-    return (
-      <Form.Item style={style} {...props}>
-        {props.children}
-      </Form.Item>
-    );
+  const { errorType, rules, name, ...rest } = props;
+  if (name && rules && rules.length > 0 && errorType === 'popover') {
+    return <InlineErrorFormItem name={name} rules={rules} {...rest}></InlineErrorFormItem>;
   }
-  return <InlineErrorFormItem {...props}></InlineErrorFormItem>;
+  return (
+    <Form.Item style={style} {...props}>
+      {props.children}
+    </Form.Item>
+  );
 };
