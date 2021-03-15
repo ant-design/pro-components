@@ -51,46 +51,41 @@ const getIcon = (fieldError: string[], value: any, rule: Rule, isTouched: boolea
   }
   return <CheckCircleFilled style={{ color: colors.GREEN }} />;
 };
-const Content = React.memo<{ form: FormInstance; name: NamePath; rules: Rule[] }>(
-  function ContentComponent({ form, name, rules }) {
-    const fieldError = form.getFieldError(name);
-    const value = form.getFieldValue(name);
-    const isValidating = form.isFieldValidating(name);
-    const isTouched = form.isFieldTouched(name);
-    const percent = ((rules.length - fieldError.length) / rules.length) * 100;
-    return (
-      <div style={{ padding: '6px 8px 12px 8px' }}>
-        <Progress
-          percent={value && isTouched ? percent : 0}
-          strokeColor={getStrokeColor(percent)}
-          showInfo={false}
-          size="small"
-        />
-        <ul style={{ margin: 0, marginTop: '10px', listStyle: 'none', padding: '0' }}>
-          {rules?.map((rule, idx) => (
-            <li key={idx} style={{ display: 'flex', alignItems: 'center' }}>
-              <Space>
-                {isValidating ? (
-                  <LoadingOutlined style={{ color: colors.PRIMARY }} />
-                ) : (
-                  getIcon(fieldError, value, rule, isTouched)
-                )}
-                <span style={{ color: 'rgba(0,0,0,0.65)' }}>{(rule as any).message}</span>
-              </Space>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  },
-  (prevProps, nextProps) => {
-    const { name } = prevProps;
-    if (prevProps.form.getFieldValue(name) === nextProps.form.getFieldValue(name)) {
-      return false;
-    }
-    return true;
-  },
-);
+const Content: React.FC<{ form: FormInstance; name: NamePath; rules: Rule[] }> = ({
+  form,
+  name,
+  rules,
+}) => {
+  const fieldError = form.getFieldError(name);
+  const value = form.getFieldValue(name);
+  const isValidating = form.isFieldValidating(name);
+  const isTouched = form.isFieldTouched(name);
+  const percent = ((rules.length - fieldError.length) / rules.length) * 100;
+  return (
+    <div style={{ padding: '6px 8px 12px 8px' }}>
+      <Progress
+        percent={value && isTouched ? percent : 0}
+        strokeColor={getStrokeColor(percent)}
+        showInfo={false}
+        size="small"
+      />
+      <ul style={{ margin: 0, marginTop: '10px', listStyle: 'none', padding: '0' }}>
+        {rules?.map((rule, idx) => (
+          <li key={idx} style={{ display: 'flex', alignItems: 'center' }}>
+            <Space>
+              {isValidating ? (
+                <LoadingOutlined style={{ color: colors.PRIMARY }} />
+              ) : (
+                getIcon(fieldError, value, rule, isTouched)
+              )}
+              <span style={{ color: 'rgba(0,0,0,0.65)' }}>{(rule as any).message}</span>
+            </Space>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';

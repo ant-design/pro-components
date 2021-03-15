@@ -226,8 +226,12 @@ describe('utils', () => {
   });
 
   it('📅 InlineErrorFormItem onValuesChange', async () => {
-    const requiredMessage = '必填项';
-    const minMessage = '最小长度为12';
+    const ruleMessage = {
+      required: '必填项',
+      min: '最小长度为12',
+      numberRequired: '必须包含数字',
+      alphaRequired: '必须包含字母',
+    };
     const html = mount(
       <Form>
         <InlineErrorFormItem
@@ -235,11 +239,19 @@ describe('utils', () => {
           rules={[
             {
               required: true,
-              message: requiredMessage,
+              message: ruleMessage.required,
             },
             {
               min: 12,
-              message: minMessage,
+              message: ruleMessage.min,
+            },
+            {
+              message: ruleMessage.numberRequired,
+              pattern: /[0-9]/,
+            },
+            {
+              message: ruleMessage.alphaRequired,
+              pattern: /[a-zA-Z]/,
             },
           ]}
           trigger="focus"
@@ -249,18 +261,18 @@ describe('utils', () => {
         </InlineErrorFormItem>
       </Form>,
     );
+
     act(() => {
       html.find('Input#test').simulate('focus');
     });
     await waitForComponentToPaint(html, 100);
     expect(html.find('div.ant-popover').exists()).toBeTruthy();
-    expect(html.find('div.ant-popover ul li').length).toEqual(2);
-    expect(html.find('div.ant-popover ul li').at(0).find('.ant-space-item span').text()).toEqual(
-      requiredMessage,
-    );
-    expect(html.find('div.ant-popover ul li').at(1).find('.ant-space-item span').text()).toEqual(
-      minMessage,
-    );
+    const li = html.find('div.ant-popover ul li');
+    expect(li.length).toEqual(4);
+    expect(li.at(0).find('.ant-space-item span').text()).toEqual(ruleMessage.required);
+    expect(li.at(1).find('.ant-space-item span').text()).toEqual(ruleMessage.min);
+    expect(li.at(2).find('.ant-space-item span').text()).toEqual(ruleMessage.numberRequired);
+    expect(li.at(3).find('.ant-space-item span').text()).toEqual(ruleMessage.alphaRequired);
     expect(
       html
         .find('div.ant-popover .ant-progress-bg')
@@ -270,6 +282,7 @@ describe('utils', () => {
         ?.indexOf('width: 0%'),
     ).toBeGreaterThanOrEqual(0);
     expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(0);
+
     act(() => {
       html.find('Input#test').simulate('change', {
         target: {
@@ -286,7 +299,8 @@ describe('utils', () => {
         .getAttribute('style')
         ?.indexOf('width: 50%'),
     ).toBeGreaterThanOrEqual(0);
-    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(1);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(2);
+
     act(() => {
       html.find('Input#test').simulate('change', {
         target: {
@@ -301,9 +315,45 @@ describe('utils', () => {
         .at(0)
         .getDOMNode()
         .getAttribute('style')
+        ?.indexOf('width: 75%'),
+    ).toBeGreaterThanOrEqual(0);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(3);
+
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: 'aaaabbbbcccc1',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(
+      html
+        .find('div.ant-popover .ant-progress-bg')
+        .at(0)
+        .getDOMNode()
+        .getAttribute('style')
         ?.indexOf('width: 100%'),
     ).toBeGreaterThanOrEqual(0);
-    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(2);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(4);
+
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: '_',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(
+      html
+        .find('div.ant-popover .ant-progress-bg')
+        .at(0)
+        .getDOMNode()
+        .getAttribute('style')
+        ?.indexOf('width: 25%'),
+    ).toBeGreaterThanOrEqual(0);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(1);
   });
 
   it('📅 transformKeySubmitValue return string', async () => {
