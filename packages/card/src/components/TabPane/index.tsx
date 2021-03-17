@@ -1,17 +1,9 @@
 import React, { useContext } from 'react';
-import type { TabPaneProps } from 'antd';
+import type { ProCardTabPaneProps } from '../../type';
 import { Tabs, ConfigProvider } from 'antd';
 import classNames from 'classnames';
+import Card from '../Card';
 import './index.less';
-import type { ProCardProps } from '../../index';
-import ProCard from '../../index';
-
-export type ProCardTabPaneProps = {
-  /** Key */
-  key?: string;
-  /** ProCard 相关属性透传 */
-  cardProps?: ProCardProps;
-} & TabPaneProps;
 
 const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
   const {
@@ -41,7 +33,7 @@ const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
       destroyInactiveTabPane={destroyInactiveTabPane}
       {...rest}
     >
-      <ProCard {...cardProps}>{children}</ProCard>
+      <Card {...cardProps}>{children}</Card>
     </Tabs.TabPane>
   );
 };
