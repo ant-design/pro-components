@@ -66,7 +66,13 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
         <p className={`${baseClassName}-drag-icon`}>{icon}</p>
         <p className={`${baseClassName}-text`}>{title}</p>
         <p className={`${baseClassName}-hint`}>{description}</p>
-        {children}
+        <div
+          style={{
+            padding: 16,
+          }}
+        >
+          {children}
+        </div>
       </Upload.Dragger>
     );
   },
