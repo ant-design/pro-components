@@ -8,15 +8,15 @@ const RED = '#ff4d4f';
 const YELLOW = '#faad14';
 const GREEN = '#52c41a';
 const PRIMARY = '#1890ff';
-const colors = { RED, YELLOW, GREEN, PRIMARY };
+const COLORS = { RED, YELLOW, GREEN, PRIMARY };
 const getStrokeColor = (percent: number) => {
   if (percent < 30) {
-    return colors.RED;
+    return COLORS.RED;
   }
   if (percent < 60) {
-    return colors.YELLOW;
+    return COLORS.YELLOW;
   }
-  return colors.GREEN;
+  return COLORS.GREEN;
 };
 const CircleRender = () => {
   return (
@@ -36,7 +36,7 @@ const CircleRender = () => {
           borderRadius: '4px',
           backgroundColor: 'rgba(0,0,0,0.45)',
         }}
-      ></div>
+      />
     </div>
   );
 };
@@ -46,9 +46,9 @@ const getIcon = (fieldError: string[], value: any, rule: Rule, isTouched: boolea
     return <CircleRender></CircleRender>;
   }
   if (fieldError.includes((rule as any).message)) {
-    return <CloseCircleFilled style={{ color: colors.RED }} />;
+    return <CloseCircleFilled style={{ color: COLORS.RED }} />;
   }
-  return <CheckCircleFilled style={{ color: colors.GREEN }} />;
+  return <CheckCircleFilled style={{ color: COLORS.GREEN }} />;
 };
 const Content: React.FC<{ form: FormInstance; name: NamePath; rules: Rule[] }> = ({
   form,
@@ -73,7 +73,7 @@ const Content: React.FC<{ form: FormInstance; name: NamePath; rules: Rule[] }> =
           <li key={idx} style={{ display: 'flex', alignItems: 'center' }}>
             <Space>
               {isValidating ? (
-                <LoadingOutlined style={{ color: colors.PRIMARY }} />
+                <LoadingOutlined style={{ color: COLORS.PRIMARY }} />
               ) : (
                 getIcon(fieldError, value, rule, isTouched)
               )}
@@ -97,7 +97,7 @@ interface InternalProps extends InlineErrorFormItemProps {
   popoverProps?: PopoverProps;
 }
 
-const style = {
+const STYLE = {
   marginTop: -5,
   marginBottom: -5,
   marginLeft: 0,
@@ -113,7 +113,7 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
   ...rest
 }) => {
   return (
-    <Form.Item style={style} noStyle shouldUpdate help={''} label={label}>
+    <Form.Item style={STYLE} noStyle shouldUpdate help={''} label={label}>
       {(form) => {
         return (
           <Popover
@@ -152,7 +152,7 @@ export default (props: InlineErrorFormItemProps) => {
     );
   }
   return (
-    <Form.Item style={{ ...style, ...rest.style }} rules={rules} {...rest} name={name}>
+    <Form.Item style={{ ...STYLE, ...rest.style }} rules={rules} {...rest} name={name}>
       {children}
     </Form.Item>
   );
