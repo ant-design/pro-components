@@ -2,13 +2,14 @@
 import { Form, Popover, Progress, Space } from 'antd';
 import type { FormItemProps, PopoverProps } from 'antd';
 import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
-import type { Rule, FormInstance, NamePath } from 'rc-field-form/lib/interface';
+import type { Rule, NamePath } from 'rc-field-form/lib/interface';
 
 const RED = '#ff4d4f';
 const YELLOW = '#faad14';
 const GREEN = '#52c41a';
 const PRIMARY = '#1890ff';
 const COLORS = { RED, YELLOW, GREEN, PRIMARY };
+
 const getStrokeColor = (percent: number) => {
   if (percent < 30) {
     return COLORS.RED;
@@ -18,6 +19,7 @@ const getStrokeColor = (percent: number) => {
   }
   return COLORS.GREEN;
 };
+
 const CircleRender = () => {
   return (
     <div
@@ -50,24 +52,29 @@ const getIcon = (fieldError: string[], value: any, rule: Rule, isTouched: boolea
   }
   return <CheckCircleFilled style={{ color: COLORS.GREEN }} />;
 };
-const Content: React.FC<{ form: FormInstance; name: NamePath; rules: Rule[] }> = ({
-  form,
-  name,
-  rules,
-}) => {
-  const fieldError = form.getFieldError(name);
-  const value = form.getFieldValue(name);
-  const isValidating = form.isFieldValidating(name);
-  const isTouched = form.isFieldTouched(name);
-  const percent = ((rules.length - fieldError.length) / rules.length) * 100;
+
+const Content: React.FC<{
+  fieldError: string[];
+  value: any;
+  isValidating: boolean;
+  isTouched: boolean;
+  rules: Rule[];
+  noProgress?: boolean;
+}> = ({ rules, isTouched, isValidating, value, fieldError, noProgress }) => {
+  const percent = Math.max(
+    0,
+    Math.min(100, ((rules.length - fieldError.length) / rules.length) * 100),
+  );
   return (
     <div style={{ padding: '6px 8px 12px 8px' }}>
-      <Progress
-        percent={value && isTouched ? percent : 0}
-        strokeColor={getStrokeColor(percent)}
-        showInfo={false}
-        size="small"
-      />
+      {!noProgress && (
+        <Progress
+          percent={value && isTouched ? percent : 0}
+          strokeColor={getStrokeColor(percent)}
+          showInfo={false}
+          size="small"
+        />
+      )}
       <ul style={{ margin: 0, marginTop: '10px', listStyle: 'none', padding: '0' }}>
         {rules?.map((rule, idx) => (
           <li key={idx} style={{ display: 'flex', alignItems: 'center' }}>
@@ -89,6 +96,7 @@ const Content: React.FC<{ form: FormInstance; name: NamePath; rules: Rule[] }> =
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';
   popoverProps?: PopoverProps;
+  noProgress?: boolean;
 }
 
 interface InternalProps extends InlineErrorFormItemProps {
@@ -110,28 +118,37 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
   name,
   children,
   popoverProps,
+  noProgress,
   ...rest
 }) => {
   return (
     <Form.Item style={STYLE} noStyle shouldUpdate help={''} label={label}>
       {(form) => {
+        const fieldError = form.getFieldError(name);
+        const value = form.getFieldValue(name);
+        const isValidating = form.isFieldValidating(name);
+        const isTouched = form.isFieldTouched(name);
         return (
           <Popover
             trigger={popoverProps?.trigger || 'focus'}
             placement={popoverProps?.placement}
-            content={<Content form={form} name={name} rules={rules} />}
-          >
-            <div>
-              <Form.Item
-                noStyle
-                style={{
-                  margin: '-5px 0',
-                }}
-                preserve={false}
-                name={name}
+            content={
+              <Content
+                noProgress={noProgress}
+                fieldError={fieldError}
+                value={value}
+                isValidating={isValidating}
+                isTouched={isTouched}
                 rules={rules}
-                {...rest}
-              >
+              />
+            }
+          >
+            <div
+              style={{
+                margin: '-5px 0',
+              }}
+            >
+              <Form.Item noStyle preserve={false} name={name} rules={rules} {...rest}>
                 {children}
               </Form.Item>
             </div>
@@ -152,7 +169,7 @@ export default (props: InlineErrorFormItemProps) => {
     );
   }
   return (
-    <Form.Item style={{ ...STYLE, ...rest.style }} rules={rules} {...rest} name={name}>
+    <Form.Item rules={rules} {...rest} style={{ ...STYLE, ...rest.style }} name={name}>
       {children}
     </Form.Item>
   );

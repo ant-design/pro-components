@@ -356,6 +356,32 @@ describe('utils', () => {
     expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(1);
   });
 
+  it('📅 InlineErrorFormItem noPregress', async () => {
+    const html = mount(
+      <Form>
+        <InlineErrorFormItem
+          errorType="popover"
+          rules={[
+            {
+              required: true,
+              message: '必填项',
+            },
+          ]}
+          popoverProps={{ trigger: 'focus' }}
+          name="title"
+          noProgress
+        >
+          <Input id="test" />
+        </InlineErrorFormItem>
+      </Form>,
+    );
+    act(() => {
+      html.find('Input#test').simulate('focus');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('div.ant-popover .ant-progress').exists()).toBeFalsy();
+  });
+
   it('📅 transformKeySubmitValue return string', async () => {
     const html = transformKeySubmitValue(
       {
