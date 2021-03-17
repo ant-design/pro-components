@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.18.2...@ant-design/pro-form@1.18.3) (2021-03-17)
+
+### Bug Fixes
+
+- **from:** form button porps support=false ([#2215](https://github.com/ant-design/pro-components/issues/2215)) ([c5bab24](https://github.com/ant-design/pro-components/commit/c5bab246658b8626cb34c516510e8533f513eaea))
+
 ## [1.18.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.18.1...@ant-design/pro-form@1.18.2) (2021-03-16)
 
 ### Bug Fixes
