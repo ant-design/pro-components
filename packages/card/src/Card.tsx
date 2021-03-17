@@ -5,7 +5,7 @@ import TabPane from './components/TabPane';
 import Divider from './components/Divider';
 import type { CardProps } from './type';
 
-export type ProCardProps = React.ForwardRefExoticComponent<CardProps> & {
+export type ProCardProps = CardProps & {
   isProCard: boolean;
   Divider: typeof Divider;
   TabPane: typeof TabPane;
