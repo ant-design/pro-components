@@ -1,5 +1,5 @@
-import ProCard from './Card';
-import type { ProCardProps } from './Card';
+import ProCard from './ProCard';
+import type { ProCardProps } from './ProCard';
 import StatisticCard from './components/StatisticCard';
 import Statistic from './components/Statistic';
 

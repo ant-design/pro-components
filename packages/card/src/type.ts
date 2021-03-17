@@ -73,3 +73,5 @@ export type ProCardTabPaneProps = {
   /** ProCard 相关属性透传 */
   cardProps?: CardProps;
 } & TabPaneProps;
+
+export type CardType = React.ForwardRefExoticComponent<CardProps>;
