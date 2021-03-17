@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.18.2
+
+`2021-03-16`
+
+- 🐛 fix(form): fix list form label no display error [#2190](https://github.com/ant-design/pro-components/pull/2190) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix text is 0, initialValue no work error [#2183](https://github.com/ant-design/pro-components/pull/2183) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix ProFormDateRangePicker type error [#2181](https://github.com/ant-design/pro-components/pull/2181) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix width<16, layout will change error [#2180](https://github.com/ant-design/pro-components/pull/2180) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.18.0
 
 `2021-03-11`

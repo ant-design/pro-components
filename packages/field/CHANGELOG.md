@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.11.2...@ant-design/pro-field@1.11.3) (2021-03-16)
+
+### Bug Fixes
+
+- **form:** fix text is 0, initialValue no work error ([#2183](https://github.com/ant-design/pro-components/issues/2183)) ([e8f0d70](https://github.com/ant-design/pro-components/commit/e8f0d709fa7b7b870fcd2d2a1b9077f6031ed204))
+
 ## [1.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.11.1...@ant-design/pro-field@1.11.2) (2021-03-11)
 
 **Note:** Version bump only for package @ant-design/pro-field
