@@ -52,12 +52,18 @@ export default () => (
       {
         tab: '基本信息',
         key: 'base',
+        closable: false,
       },
       {
         tab: '详细信息',
         key: 'info',
       },
     ]}
+    tabProps={{
+      type: 'editable-card',
+      hideAdd: true,
+      onEdit: (e, action) => console.log(e, action),
+    }}
     footer={[
       <Button key="3">重置</Button>,
       <Button key="2" type="primary">
