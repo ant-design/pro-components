@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.1...@ant-design/pro-card@1.11.2) (2021-03-16)
+
+### Bug Fixes
+
+- **card:** StatisticCard directory name error ([#2191](https://github.com/ant-design/pro-components/issues/2191)) ([831586a](https://github.com/ant-design/pro-components/commit/831586a3f9b443aec88852bdca920ab1a0205754))
+
 ## [1.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.0...@ant-design/pro-card@1.11.1) (2021-03-11)
 
 **Note:** Version bump only for package @ant-design/pro-card

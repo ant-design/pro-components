@@ -10,7 +10,7 @@ import Operation from '../Operation';
 
 import './index.less';
 
-export type StatisticsCardProps = {
+export type StatisticCardProps = {
   /** 图表配置 */
   chart?: React.ReactNode;
   /** 数值统计配置 */
@@ -21,7 +21,10 @@ export type StatisticsCardProps = {
   footer?: React.ReactNode;
 } & ProCardProps;
 
-const StatisticsCard: React.FC<StatisticsCardProps> & {
+/** @deprecated */
+export type StatisticsCardProps = StatisticCardProps;
+
+const StatisticCard: React.FC<StatisticCardProps> & {
   Statistic: typeof Statistic;
   Divider: typeof Divider;
   Operation: typeof Operation;
@@ -73,14 +76,14 @@ const StatisticsCard: React.FC<StatisticsCardProps> & {
   );
 };
 
-const Group: React.FC<StatisticsCardProps> = (props) => (
-  <StatisticsCard bodyStyle={{ padding: 0 }} {...props} />
+const Group: React.FC<StatisticCardProps> = (props) => (
+  <StatisticCard bodyStyle={{ padding: 0 }} {...props} />
 );
 
-StatisticsCard.Statistic = Statistic;
-StatisticsCard.Divider = Divider;
-StatisticsCard.Operation = Operation;
-StatisticsCard.isProCard = true;
-StatisticsCard.Group = Group;
+StatisticCard.Statistic = Statistic;
+StatisticCard.Divider = Divider;
+StatisticCard.Operation = Operation;
+StatisticCard.isProCard = true;
+StatisticCard.Group = Group;
 
-export default StatisticsCard;
+export default StatisticCard;
