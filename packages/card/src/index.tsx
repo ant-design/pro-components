@@ -14,6 +14,6 @@ export type {
   StatisticProps,
 };
 
-export { ProCard, StatisticCard, Statistic };
+export { StatisticCard, Statistic };
 
 export default ProCard;

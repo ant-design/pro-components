@@ -2753,6 +2753,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                     >
                       支持单次或批量上传
                     </p>
+                    <div
+                      style="padding: 16px;"
+                    />
                   </div>
                 </span>
               </div>
@@ -4232,6 +4235,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                     >
                       支持单次或批量上传
                     </p>
+                    <div
+                      style="padding: 16px;"
+                    />
                   </div>
                 </span>
               </div>
@@ -19277,6 +19283,9 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
                   >
                     支持 text
                   </p>
+                  <div
+                    style="padding: 16px;"
+                  />
                 </div>
               </span>
             </div>
