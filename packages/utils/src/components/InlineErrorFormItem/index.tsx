@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import { Form, Popover, Progress, Space } from 'antd';
-import type { FormItemProps, PopoverProps } from 'antd';
+import type { FormItemProps, PopoverProps, ProgressProps } from 'antd';
 import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
 import type { Rule, NamePath } from 'rc-field-form/lib/interface';
 
@@ -59,20 +59,21 @@ const Content: React.FC<{
   isValidating: boolean;
   isTouched: boolean;
   rules: Rule[];
-  noProgress?: boolean;
-}> = ({ rules, isTouched, isValidating, value, fieldError, noProgress }) => {
+  progressProps?: ProgressProps | false;
+}> = ({ rules, isTouched, isValidating, value, fieldError, progressProps }) => {
   const percent = Math.max(
     0,
     Math.min(100, ((rules.length - fieldError.length) / rules.length) * 100),
   );
   return (
     <div style={{ padding: '6px 8px 12px 8px' }}>
-      {!noProgress && (
+      {(progressProps === undefined || progressProps) && (
         <Progress
           percent={value && isTouched ? percent : 0}
           strokeColor={getStrokeColor(percent)}
           showInfo={false}
           size="small"
+          {...progressProps}
         />
       )}
       <ul style={{ margin: 0, marginTop: '10px', listStyle: 'none', padding: '0' }}>
@@ -96,16 +97,15 @@ const Content: React.FC<{
 interface InlineErrorFormItemProps extends FormItemProps {
   errorType?: 'popover' | 'default';
   popoverProps?: PopoverProps;
-  noProgress?: boolean;
+  progressProps?: ProgressProps | false;
 }
 
 interface InternalProps extends InlineErrorFormItemProps {
   name: NamePath;
   rules: Rule[];
-  popoverProps?: PopoverProps;
 }
 
-const STYLE = {
+const FIX_INLINE_STYLE = {
   marginTop: -5,
   marginBottom: -5,
   marginLeft: 0,
@@ -118,11 +118,11 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
   name,
   children,
   popoverProps,
-  noProgress,
+  progressProps,
   ...rest
 }) => {
   return (
-    <Form.Item style={STYLE} noStyle shouldUpdate help={''} label={label}>
+    <Form.Item style={FIX_INLINE_STYLE} noStyle shouldUpdate help={''} label={label}>
       {(form) => {
         const fieldError = form.getFieldError(name);
         const value = form.getFieldValue(name);
@@ -134,12 +134,12 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
             placement={popoverProps?.placement}
             content={
               <Content
-                noProgress={noProgress}
                 fieldError={fieldError}
                 value={value}
                 isValidating={isValidating}
                 isTouched={isTouched}
                 rules={rules}
+                progressProps={progressProps}
               />
             }
           >
@@ -160,16 +160,22 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
 };
 
 export default (props: InlineErrorFormItemProps) => {
-  const { errorType, rules, name, popoverProps, children, ...rest } = props;
+  const { errorType, rules, name, popoverProps, children, progressProps, ...rest } = props;
   if (name && rules && rules.length > 0 && errorType === 'popover') {
     return (
-      <InlineErrorFormItem name={name} rules={rules} popoverProps={popoverProps} {...rest}>
+      <InlineErrorFormItem
+        name={name}
+        rules={rules}
+        popoverProps={popoverProps}
+        progressProps={progressProps}
+        {...rest}
+      >
         {children}
       </InlineErrorFormItem>
     );
   }
   return (
-    <Form.Item rules={rules} {...rest} style={{ ...STYLE, ...rest.style }} name={name}>
+    <Form.Item rules={rules} {...rest} style={{ ...FIX_INLINE_STYLE, ...rest.style }} name={name}>
       {children}
     </Form.Item>
   );

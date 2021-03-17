@@ -356,7 +356,7 @@ describe('utils', () => {
     expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(1);
   });
 
-  it('📅 InlineErrorFormItem noPregress', async () => {
+  it('📅 InlineErrorFormItem no progress', async () => {
     const html = mount(
       <Form>
         <InlineErrorFormItem
@@ -369,7 +369,7 @@ describe('utils', () => {
           ]}
           popoverProps={{ trigger: 'focus' }}
           name="title"
-          noProgress
+          progressProps={false}
         >
           <Input id="test" />
         </InlineErrorFormItem>
@@ -380,6 +380,31 @@ describe('utils', () => {
     });
     await waitForComponentToPaint(html, 100);
     expect(html.find('div.ant-popover .ant-progress').exists()).toBeFalsy();
+  });
+
+  it('📅 InlineErrorFormItem have progress', async () => {
+    const html = mount(
+      <Form>
+        <InlineErrorFormItem
+          errorType="popover"
+          rules={[
+            {
+              required: true,
+              message: '必填项',
+            },
+          ]}
+          popoverProps={{ trigger: 'focus' }}
+          name="title"
+        >
+          <Input id="test" />
+        </InlineErrorFormItem>
+      </Form>,
+    );
+    act(() => {
+      html.find('Input#test').simulate('focus');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('div.ant-popover .ant-progress').exists()).toBeTruthy();
   });
 
   it('📅 transformKeySubmitValue return string', async () => {
@@ -530,7 +555,7 @@ describe('utils', () => {
       time: undefined,
     });
     expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
-    expect(html['tag']).not.toBe(labelInValue);
+    expect(html.tag).not.toBe(labelInValue);
     expect(html.tag.label).toBe(labelInValue.label);
   });
 
@@ -547,7 +572,7 @@ describe('utils', () => {
       time: undefined,
     });
     expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
-    expect(html['file']).toBe(file);
+    expect(html.file).toBe(file);
     expect(html.files[0]).toBe(file);
   });
 
