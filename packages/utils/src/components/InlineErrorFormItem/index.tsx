@@ -161,11 +161,11 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
 
 export default (props: InlineErrorFormItemProps) => {
   const { errorType, rules, name, popoverProps, children, progressProps, ...rest } = props;
-  if (name && rules && rules.length > 0 && errorType === 'popover') {
+  if (name && rules?.length && errorType === 'popover') {
     return (
       <InlineErrorFormItem
         name={name}
-        rules={rules}
+        rules={rules!}
         popoverProps={popoverProps}
         progressProps={progressProps}
         {...rest}
