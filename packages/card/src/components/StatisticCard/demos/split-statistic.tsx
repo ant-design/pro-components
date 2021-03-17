@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StatisticCard, ProCard } from '@ant-design/pro-card';
+import ProCard, { StatisticCard } from '@ant-design/pro-card';
 import RcResizeObserver from 'rc-resize-observer';
 import Ring from './charts/Ring';
 import Line from './charts/Line';

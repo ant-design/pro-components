@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 
 import ProDescriptions from '@ant-design/pro-descriptions';
-import { ProCard } from '@ant-design/pro-card';
+import ProCard from '@ant-design/pro-card';
 import ProForm, {
   ProFormDependency,
   ProFormDigit,
