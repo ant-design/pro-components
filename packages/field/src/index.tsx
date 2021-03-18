@@ -104,7 +104,6 @@ const defaultRenderTextByObject = (
         precision={valueType.precision}
         fieldProps={pickFormItemProps}
         showColor={valueType.showColor}
-        hideSymbolOnPositive={valueType.hideSymbolOnPositive}
       />
     );
   }
