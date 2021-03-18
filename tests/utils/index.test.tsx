@@ -382,6 +382,31 @@ describe('utils', () => {
     expect(html.find('div.ant-popover .ant-progress').exists()).toBeFalsy();
   });
 
+  it('📅 InlineErrorFormItem no progress', async () => {
+    const html = mount(
+      <Form>
+        <InlineErrorFormItem
+          errorType="popover"
+          rules={[
+            {
+              required: true,
+              message: '必填项',
+            },
+          ]}
+          popoverProps={{ trigger: 'focus' }}
+          name="title"
+        >
+          <Input id="test" />
+        </InlineErrorFormItem>
+      </Form>,
+    );
+    act(() => {
+      html.find('Input#test').simulate('focus');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('div.ant-popover .ant-progress').exists()).toBeFalsy();
+  });
+
   it('📅 InlineErrorFormItem have progress', async () => {
     const html = mount(
       <Form>
@@ -391,6 +416,10 @@ describe('utils', () => {
             {
               required: true,
               message: '必填项',
+            },
+            {
+              min: 12,
+              message: '最小长度12',
             },
           ]}
           popoverProps={{ trigger: 'focus' }}
