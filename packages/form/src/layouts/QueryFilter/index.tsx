@@ -50,12 +50,6 @@ const getSpanConfig = (
   width: number,
   span?: SpanConfig,
 ): { span: number; layout: FormProps['layout'] } => {
-  if (width === 16) {
-    return {
-      span: 8,
-      layout: layout || 'inline',
-    };
-  }
   if (span && typeof span === 'number') {
     return {
       span,
@@ -354,7 +348,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     <RcResizeObserver
       key="resize-observer"
       onResize={(offset) => {
-        if (width !== offset.width) {
+        if (width !== offset.width && offset.width > 17) {
           setWidth(offset.width);
         }
       }}
