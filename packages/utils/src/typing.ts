@@ -68,7 +68,7 @@ export type ProFieldValueObjectType = {
   status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
   locale?: string;
   /** Percent */
-  showSymbol?: boolean;
+  showSymbol?: ((value: any) => boolean) | boolean;
   showColor?: boolean;
   precision?: number;
   moneySymbol?: string;

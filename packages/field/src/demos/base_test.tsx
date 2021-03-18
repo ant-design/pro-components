@@ -230,7 +230,12 @@ export default () => {
               text={10}
               valueType={{
                 type: 'percent',
-                showSymbol: true,
+                showSymbol: (text: number) => {
+                  if (text < 0) {
+                    return true;
+                  }
+                  return false;
+                },
                 showColor: true,
               }}
               mode="read"
