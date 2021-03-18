@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.18.4
+
+`2021-03-18`
+
+- 🐛 fix(form): fix drawer and modal from render error [#2221](https://github.com/ant-design/pro-components/pull/2221) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): if width<16, no rerender form layout [#2220](https://github.com/ant-design/pro-components/pull/2220) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(utils): fix inline-error-form-item problems [#2223](https://github.com/ant-design/pro-components/pull/2223) [@xiefengnian](https://github.com/xiefengnian)
+- 💥 feat(utils): upgrade inline-error-form-item [#2168](https://github.com/ant-design/pro-components/pull/2168) [@xiefengnian](https://github.com/xiefengnian)
+
 ## @ant-design/pro-form@1.18.2
 
 `2021-03-16`
