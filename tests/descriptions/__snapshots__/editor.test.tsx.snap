@@ -42,7 +42,7 @@ Array [
                       >
                         <div
                           class="ant-row ant-form-item"
-                          style="margin-left:0;margin-right:0;margin-top:-5px;margin-bottom:-5px;margin:0"
+                          style="margin-top:-5px;margin-bottom:-5px;margin-left:0;margin-right:0;margin:0"
                         >
                           <div
                             class="ant-col ant-form-item-control"
@@ -219,7 +219,7 @@ Array [
                       >
                         <div
                           class="ant-row ant-form-item"
-                          style="margin-left:0;margin-right:0;margin-top:-5px;margin-bottom:-5px;margin:0"
+                          style="margin-top:-5px;margin-bottom:-5px;margin-left:0;margin-right:0;margin:0"
                         >
                           <div
                             class="ant-col ant-form-item-control"

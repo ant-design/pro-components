@@ -2044,7 +2044,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                           />
                           <div
                             class="ant-row ant-form-item"
-                            style="margin-left:0;margin-right:0;margin-top:-5px;margin-bottom:-5px"
+                            style="margin-top:-5px;margin-bottom:-5px;margin-left:0;margin-right:0"
                           >
                             <div
                               class="ant-col ant-form-item-control"
@@ -2057,7 +2057,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                                 >
                                   <div
                                     class="ant-row ant-form-item"
-                                    style="margin-left:0;margin-right:0;margin-top:-5px;margin-bottom:-5px"
+                                    style="margin-top:-5px;margin-bottom:-5px;margin-left:0;margin-right:0"
                                   >
                                     <div
                                       class="ant-col ant-form-item-control"

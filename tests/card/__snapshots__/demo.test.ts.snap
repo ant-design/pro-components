@@ -195,7 +195,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
         <div
           data-chart-source-type="G2Plot"
           size-sensor-id="1"
-          style="height: 100%;"
+          style="height: inherit;"
         >
           <div
             style="position:relative;"
@@ -217,7 +217,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
         <div
           data-chart-source-type="G2Plot"
           size-sensor-id="2"
-          style="height: 100%;"
+          style="height: inherit;"
         >
           <div
             style="position:relative;"
@@ -316,7 +316,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
         <div
           data-chart-source-type="G2Plot"
           size-sensor-id="3"
-          style="height: 100%;"
+          style="height: inherit;"
         >
           <div
             style="position:relative;"
@@ -406,7 +406,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                     <div
                       data-chart-source-type="G2Plot"
                       size-sensor-id="4"
-                      style="height: 100%;"
+                      style="height: inherit;"
                     >
                       <div
                         style="position:relative;"
@@ -449,7 +449,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                     <div
                       data-chart-source-type="G2Plot"
                       size-sensor-id="5"
-                      style="height: 100%;"
+                      style="height: inherit;"
                     >
                       <div
                         style="position:relative;"
@@ -492,7 +492,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                     <div
                       data-chart-source-type="G2Plot"
                       size-sensor-id="6"
-                      style="height: 100%;"
+                      style="height: inherit;"
                     >
                       <div
                         style="position:relative;"
@@ -532,7 +532,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="7"
-  style="height: 100%;"
+  style="height: inherit;"
 >
   <div
     style="position:relative;"
@@ -557,7 +557,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="8"
-  style="height: 100%;"
+  style="height: inherit;"
 >
   <div
     style="position:relative;"
@@ -582,7 +582,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="9"
-  style="height: 100%;"
+  style="height: inherit;"
 >
   <div
     style="position:relative;"
@@ -607,7 +607,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="10"
-  style="height: 100%;"
+  style="height: inherit;"
 >
   <div
     style="position:relative;"
@@ -632,7 +632,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="11"
-  style="height: 100%;"
+  style="height: inherit;"
 >
   <div
     style="position:relative;"
@@ -663,7 +663,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="12"
-  style="height: 100%;"
+  style="height: inherit;"
 >
   <div
     style="position:relative;"
@@ -700,7 +700,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="13"
-  style="height: 100%;"
+  style="height: inherit;"
 >
   <div
     style="position:relative;"
@@ -1054,7 +1054,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
         <div
           data-chart-source-type="G2Plot"
           size-sensor-id="14"
-          style="height: 100%;"
+          style="height: inherit;"
         >
           <div
             style="position:relative;"
@@ -1516,7 +1516,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             <div
               data-chart-source-type="G2Plot"
               size-sensor-id="17"
-              style="height: 100%;"
+              style="height: inherit;"
             >
               <div
                 style="position:relative;"
@@ -1591,7 +1591,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             <div
               data-chart-source-type="G2Plot"
               size-sensor-id="18"
-              style="height: 100%;"
+              style="height: inherit;"
             >
               <div
                 style="position:relative;"
@@ -1671,7 +1671,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             <div
               data-chart-source-type="G2Plot"
               size-sensor-id="19"
-              style="height: 100%;"
+              style="height: inherit;"
             >
               <div
                 style="position:relative;"
@@ -1818,7 +1818,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             <div
               data-chart-source-type="G2Plot"
               size-sensor-id="15"
-              style="height: 100%;"
+              style="height: inherit;"
             >
               <div
                 style="position:relative;"
@@ -1939,7 +1939,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             <div
               data-chart-source-type="G2Plot"
               size-sensor-id="16"
-              style="height: 100%;"
+              style="height: inherit;"
             >
               <div
                 style="position:relative;"
@@ -2111,7 +2111,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
         <div
           data-chart-source-type="G2Plot"
           size-sensor-id="21"
-          style="height: 100%;"
+          style="height: inherit;"
         >
           <div
             style="position:relative;"
@@ -2153,7 +2153,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
         <div
           data-chart-source-type="G2Plot"
           size-sensor-id="20"
-          style="height: 100%;"
+          style="height: inherit;"
         >
           <div
             style="position:relative;"
@@ -2891,7 +2891,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 <div
                   data-chart-source-type="G2Plot"
                   size-sensor-id="22"
-                  style="height: 100%;"
+                  style="height: inherit;"
                 >
                   <div
                     style="position:relative;"
@@ -2944,7 +2944,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             <div
               data-chart-source-type="G2Plot"
               size-sensor-id="23"
-              style="height: 100%;"
+              style="height: inherit;"
             >
               <div
                 style="position:relative;"
@@ -3039,7 +3039,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                                 <div
                                   data-chart-source-type="G2Plot"
                                   size-sensor-id="24"
-                                  style="height: 100%;"
+                                  style="height: inherit;"
                                 >
                                   <div
                                     style="position:relative;"
@@ -3082,7 +3082,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                                 <div
                                   data-chart-source-type="G2Plot"
                                   size-sensor-id="25"
-                                  style="height: 100%;"
+                                  style="height: inherit;"
                                 >
                                   <div
                                     style="position:relative;"
@@ -3125,7 +3125,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                                 <div
                                   data-chart-source-type="G2Plot"
                                   size-sensor-id="26"
-                                  style="height: 100%;"
+                                  style="height: inherit;"
                                 >
                                   <div
                                     style="position:relative;"
@@ -3526,7 +3526,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 <div
                   data-chart-source-type="G2Plot"
                   size-sensor-id="27"
-                  style="height: 100%;"
+                  style="height: inherit;"
                 >
                   <div
                     style="position:relative;"
@@ -3579,7 +3579,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             <div
               data-chart-source-type="G2Plot"
               size-sensor-id="28"
-              style="height: 100%;"
+              style="height: inherit;"
             >
               <div
                 style="position:relative;"
@@ -3674,7 +3674,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                                 <div
                                   data-chart-source-type="G2Plot"
                                   size-sensor-id="29"
-                                  style="height: 100%;"
+                                  style="height: inherit;"
                                 >
                                   <div
                                     style="position:relative;"
@@ -3717,7 +3717,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                                 <div
                                   data-chart-source-type="G2Plot"
                                   size-sensor-id="30"
-                                  style="height: 100%;"
+                                  style="height: inherit;"
                                 >
                                   <div
                                     style="position:relative;"
@@ -3760,7 +3760,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                                 <div
                                   data-chart-source-type="G2Plot"
                                   size-sensor-id="31"
-                                  style="height: 100%;"
+                                  style="height: inherit;"
                                 >
                                   <div
                                     style="position:relative;"
@@ -4636,7 +4636,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             <div
               data-chart-source-type="G2Plot"
               size-sensor-id="36"
-              style="height: 100%;"
+              style="height: inherit;"
             >
               <div
                 style="position:relative;"
@@ -4742,7 +4742,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
             <div
               data-chart-source-type="G2Plot"
               size-sensor-id="37"
-              style="height: 100%;"
+              style="height: inherit;"
             >
               <div
                 style="position:relative;"
@@ -4955,7 +4955,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
               <div
                 data-chart-source-type="G2Plot"
                 size-sensor-id="32"
-                style="height: 100%;"
+                style="height: inherit;"
               >
                 <div
                   style="position:relative;"
@@ -5171,7 +5171,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 <div
                   data-chart-source-type="G2Plot"
                   size-sensor-id="33"
-                  style="height: 100%;"
+                  style="height: inherit;"
                 >
                   <div
                     style="position:relative;"
@@ -5360,7 +5360,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 <div
                   data-chart-source-type="G2Plot"
                   size-sensor-id="34"
-                  style="height: 100%;"
+                  style="height: inherit;"
                 >
                   <div
                     style="position:relative;"
@@ -5548,7 +5548,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 <div
                   data-chart-source-type="G2Plot"
                   size-sensor-id="35"
-                  style="height: 100%;"
+                  style="height: inherit;"
                 >
                   <div
                     style="position:relative;"
