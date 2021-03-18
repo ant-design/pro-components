@@ -130,7 +130,7 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
   ...rest
 }) => {
   return (
-    <Form.Item style={FIX_INLINE_STYLE} shouldUpdate help={''} label={label}>
+    <Form.Item style={FIX_INLINE_STYLE} shouldUpdate help={false} label={label}>
       {(form) => {
         const fieldError = form.getFieldError(name);
         const value = form.getFieldValue(name);
