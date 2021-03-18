@@ -65,7 +65,6 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
     >
       {(form) => {
         const values = form.getFieldsValue(names);
-        console.log(form.getFieldsValue());
         const nameValues = name
           .map((itemName) => {
             const namePath = getNamePath(itemName);

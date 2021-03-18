@@ -96,12 +96,6 @@ nav:
 
 <code src="./demos/horizontal-left.tsx" background="#f0f2f5" title="图表在左" />
 
-### 页签
-
-配置 `tabs` 属性配合 `ProCard.TabPane` 子组件可以配置卡片的标签栏。
-
-<code src="./demos/tabs.tsx" background="#f0f2f5" title="页签" />
-
 ### 环比趋势
 
 你可以使用 `Statistic` 组件配置布局 `layout` 为 `inline` 以及 `trend` 来展示环比趋势。
