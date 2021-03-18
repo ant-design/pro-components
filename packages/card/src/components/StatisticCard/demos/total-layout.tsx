@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StatisticCard, ProCard } from '@ant-design/pro-card';
+import ProCard, { StatisticCard } from '@ant-design/pro-card';
 import RcResizeObserver from 'rc-resize-observer';
 import MiniProgress from './charts/MiniProgress';
 import SmoothArea from './charts/SmoothArea';

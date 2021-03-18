@@ -1,0 +1,77 @@
+import type { ReactNode } from 'react';
+import type { TabsProps } from 'antd';
+import type { TabPaneProps } from 'antd';
+
+export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+export type Gutter = number | Partial<Record<Breakpoint, number>>;
+export type ProCardTabsProps = {} & TabsProps;
+
+export type ColSpanType = number | string;
+
+export type CardProps = {
+  /** 标题样式 */
+  headStyle?: React.CSSProperties;
+  /** 内容样式 */
+  bodyStyle?: React.CSSProperties;
+  /** 页头是否有分割线 */
+  headerBordered?: boolean;
+  /** 卡片标题 */
+  title?: React.ReactNode;
+  /** 副标题 */
+  subTitle?: React.ReactNode;
+  /** 标题说明 */
+  tooltip?: string;
+  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
+  tip?: string;
+  /** 右上角自定义区域 */
+  extra?: React.ReactNode;
+  /** 布局，center 代表垂直居中 */
+  layout?: 'default' | 'center';
+  /** 卡片类型 */
+  type?: 'default' | 'inner';
+  /** 指定 Flex 方向，仅在嵌套子卡片时有效 */
+  direction?: 'column' | 'row';
+  /** 尺寸 */
+  size?: 'default' | 'small';
+  /** 加载中 */
+  loading?: boolean | ReactNode;
+  /** 栅格布局宽度，24 栅格，支持指定宽度或百分，需要支持响应式 colSpan={{ xs: 12, sm: 6 }} */
+  colSpan?: ColSpanType | Partial<Record<Breakpoint, ColSpanType>>;
+  /** 栅格间距 */
+  gutter?: Gutter | Gutter[];
+  /** 操作按钮 */
+  actions?: React.ReactNode[];
+  /** 拆分卡片方式 */
+  split?: 'vertical' | 'horizontal';
+  /** 是否有边框 */
+  bordered?: boolean;
+  /**
+   * 鼠标移过时可浮起
+   *
+   * @default false
+   */
+  hoverable?: boolean;
+  /** 幽灵模式，即是否取消卡片内容区域的 padding 和 背景颜色。 */
+  ghost?: boolean;
+  /** 是否可折叠 */
+  collapsible?: boolean;
+  /** 受控 collapsed 属性 */
+  collapsed?: boolean;
+  /** 配置默认是否折叠 */
+  defaultCollapsed?: boolean;
+  /** 收起卡片的事件 */
+  onCollapse?: (collapsed: boolean) => void;
+  /** 标签栏配置 */
+  tabs?: ProCardTabsProps;
+  /** 前缀 */
+  prefixCls?: string;
+} & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
+
+export type ProCardTabPaneProps = {
+  /** Key */
+  key?: string;
+  /** ProCard 相关属性透传 */
+  cardProps?: CardProps;
+} & TabPaneProps;
+
+export type CardType = React.ForwardRefExoticComponent<CardProps>;

@@ -134,6 +134,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                     <div
                       style={{
                         width: 'max-content',
+                        maxWidth: '100%',
                       }}
                     >
                       {creatorButtonProps !== false &&
@@ -198,6 +199,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                           },
                         ) || (
                           <div
+                            className={`${baseClassName}-item`}
                             style={{
                               display: 'flex',
                               alignItems: 'flex-end',

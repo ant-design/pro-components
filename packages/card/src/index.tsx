@@ -1,13 +1,20 @@
-import ProCard from './Card';
-import StatisticCard from './components/StatisticsCard';
+import ProCard from './ProCard';
+import type { ProCardProps } from './ProCard';
+import StatisticCard from './components/StatisticCard';
 import Statistic from './components/Statistic';
 
-import type { ProCardTabsProps, ProCardProps } from './Card';
-import type { StatisticsCardProps } from './components/StatisticsCard';
+import type { ProCardTabsProps } from './type';
+import type { StatisticCardProps, StatisticsCardProps } from './components/StatisticCard';
 import type { StatisticProps } from './components/Statistic';
 
-export type { ProCardTabsProps, ProCardProps, StatisticsCardProps, StatisticProps };
+export type {
+  ProCardTabsProps,
+  ProCardProps,
+  StatisticCardProps,
+  StatisticsCardProps,
+  StatisticProps,
+};
 
-export { ProCard, StatisticCard, Statistic };
+export { StatisticCard, Statistic };
 
 export default ProCard;

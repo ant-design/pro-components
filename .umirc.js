@@ -134,7 +134,7 @@ export default {
           'PageContainer/index',
           'card',
           'WaterMark/index',
-          'StatisticsCard/index',
+          'StatisticCard/index',
         ],
       },
       {
@@ -188,4 +188,5 @@ export default {
     ],
   },
   webpack5: {},
+  esbuild: {},
 };

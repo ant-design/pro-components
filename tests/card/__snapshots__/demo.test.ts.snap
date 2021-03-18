@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/basic.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/basic.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
   style="width: 268px;"
@@ -242,7 +242,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/chart.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/chart.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
 >
@@ -341,7 +341,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/ChartTable.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/ChartTable.tsx correctly 1`] = `
 <div
   class="ant-table-wrapper"
   style="margin-top: 16px;"
@@ -528,7 +528,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/Line.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/Line.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="7"
@@ -553,7 +553,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/MiniArea.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniArea.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="8"
@@ -578,7 +578,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/MiniColumn.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniColumn.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="9"
@@ -603,7 +603,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/MiniProgress.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniProgress.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="10"
@@ -628,7 +628,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/MiniRing.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniRing.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="11"
@@ -659,7 +659,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/Ring.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/Ring.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="12"
@@ -696,7 +696,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/charts/SmoothArea.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/SmoothArea.tsx correctly 1`] = `
 <div
   data-chart-source-type="G2Plot"
   size-sensor-id="13"
@@ -721,7 +721,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/fomula.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/fomula.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -932,7 +932,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/footer.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/footer.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
   style="width: 250px;"
@@ -1171,7 +1171,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/group.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/group.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -1437,7 +1437,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/group-chart.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/group-chart.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -1698,7 +1698,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/group-chart-horizontal.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/group-chart-horizontal.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -1972,7 +1972,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/horizontal.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/horizontal.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
   style="width: 420px;"
@@ -2136,7 +2136,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/horizontal-left.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/horizontal-left.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
   style="max-width: 420px;"
@@ -2300,7 +2300,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/icon.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/icon.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -2532,7 +2532,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/layout.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/layout.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
 >
@@ -3167,7 +3167,642 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/status.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/split-statistic.tsx correctly 1`] = `
+<div
+  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
+>
+  <div
+    class="ant-pro-card-header ant-pro-card-header-border"
+  >
+    <div
+      class="ant-pro-card-title"
+    >
+      数据概览
+    </div>
+    <div
+      class="ant-pro-card-extra"
+    >
+      2019年9月28日 星期五
+    </div>
+  </div>
+  <div
+    class="ant-pro-card-body"
+  >
+    <div
+      class="ant-pro-card ant-pro-card-split-vertical ant-pro-card-contain-card ant-pro-card-split"
+      style="border-radius: 0;"
+    >
+      <div
+        class="ant-pro-card-body ant-pro-card-body-column"
+      >
+        <div
+          class="ant-pro-card ant-pro-card-split-horizontal ant-pro-card-contain-card ant-pro-card-split"
+          style="border-radius: 0;"
+        >
+          <div
+            class="ant-pro-card-body ant-pro-card-body-column"
+          >
+            <div
+              class="ant-pro-card ant-pro-card-split-horizontal ant-pro-card-contain-card ant-pro-card-split"
+              style="border-radius: 0;"
+            >
+              <div
+                class="ant-pro-card-body"
+              >
+                <div
+                  class="ant-pro-card ant-pro-statistic-card ant-pro-card-split-vertical"
+                  style="border-radius: 0;"
+                >
+                  <div
+                    class="ant-pro-card-body"
+                  >
+                    <div
+                      class="ant-pro-statistic-card-content"
+                    >
+                      <div
+                        class="ant-pro-card-statistic"
+                      >
+                        <div
+                          class="ant-pro-card-statistic-wrapper"
+                        >
+                          <div
+                            class="ant-pro-card-statistic-content"
+                          >
+                            <div
+                              class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                            >
+                              <div
+                                class="ant-statistic-title"
+                              >
+                                昨日全部流量
+                              </div>
+                              <div
+                                class="ant-statistic-content"
+                              >
+                                <span
+                                  class="ant-statistic-content-value"
+                                >
+                                  <span
+                                    class="ant-statistic-content-value-int"
+                                  >
+                                    234
+                                  </span>
+                                </span>
+                              </div>
+                            </div>
+                            <div
+                              class="ant-pro-card-statistic-description"
+                            >
+                              <div
+                                class="ant-pro-card-statistic"
+                              >
+                                <div
+                                  class="ant-pro-card-statistic-wrapper"
+                                >
+                                  <div
+                                    class="ant-pro-card-statistic-content"
+                                  >
+                                    <div
+                                      class="ant-statistic ant-pro-card-statistic-layout-inline ant-pro-card-statistic-trend-down"
+                                    >
+                                      <div
+                                        class="ant-statistic-title"
+                                      >
+                                        较本月平均流量
+                                      </div>
+                                      <div
+                                        class="ant-statistic-content"
+                                      >
+                                        <span
+                                          class="ant-statistic-content-prefix"
+                                        >
+                                          <div
+                                            class="ant-pro-card-statistic-trend-icon ant-pro-card-statistic-trend-icon-down"
+                                          />
+                                        </span>
+                                        <span
+                                          class="ant-statistic-content-value"
+                                        >
+                                          8.04%
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-pro-card ant-pro-statistic-card"
+                  style="border-radius: 0;"
+                >
+                  <div
+                    class="ant-pro-card-body"
+                  >
+                    <div
+                      class="ant-pro-statistic-card-content"
+                    >
+                      <div
+                        class="ant-pro-card-statistic"
+                      >
+                        <div
+                          class="ant-pro-card-statistic-wrapper"
+                        >
+                          <div
+                            class="ant-pro-card-statistic-content"
+                          >
+                            <div
+                              class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                            >
+                              <div
+                                class="ant-statistic-title"
+                              >
+                                本月累计流量
+                              </div>
+                              <div
+                                class="ant-statistic-content"
+                              >
+                                <span
+                                  class="ant-statistic-content-value"
+                                >
+                                  <span
+                                    class="ant-statistic-content-value-int"
+                                  >
+                                    234
+                                  </span>
+                                </span>
+                              </div>
+                            </div>
+                            <div
+                              class="ant-pro-card-statistic-description"
+                            >
+                              <div
+                                class="ant-pro-card-statistic"
+                              >
+                                <div
+                                  class="ant-pro-card-statistic-wrapper"
+                                >
+                                  <div
+                                    class="ant-pro-card-statistic-content"
+                                  >
+                                    <div
+                                      class="ant-statistic ant-pro-card-statistic-layout-inline ant-pro-card-statistic-trend-up"
+                                    >
+                                      <div
+                                        class="ant-statistic-title"
+                                      >
+                                        月同比
+                                      </div>
+                                      <div
+                                        class="ant-statistic-content"
+                                      >
+                                        <span
+                                          class="ant-statistic-content-prefix"
+                                        >
+                                          <div
+                                            class="ant-pro-card-statistic-trend-icon ant-pro-card-statistic-trend-icon-up"
+                                          />
+                                        </span>
+                                        <span
+                                          class="ant-statistic-content-value"
+                                        >
+                                          8.04%
+                                        </span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-split"
+              style="border-radius: 0;"
+            >
+              <div
+                class="ant-pro-card-body"
+              >
+                <div
+                  class="ant-pro-card ant-pro-statistic-card ant-pro-card-split-vertical"
+                  style="border-radius: 0;"
+                >
+                  <div
+                    class="ant-pro-card-body"
+                  >
+                    <div
+                      class="ant-pro-statistic-card-content"
+                    >
+                      <div
+                        class="ant-pro-card-statistic"
+                      >
+                        <div
+                          class="ant-pro-card-statistic-wrapper"
+                        >
+                          <div
+                            class="ant-pro-card-statistic-content"
+                          >
+                            <div
+                              class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                            >
+                              <div
+                                class="ant-statistic-title"
+                              >
+                                运行中实验
+                              </div>
+                              <div
+                                class="ant-statistic-content"
+                              >
+                                <span
+                                  class="ant-statistic-content-value"
+                                >
+                                  12/56
+                                </span>
+                                <span
+                                  class="ant-statistic-content-suffix"
+                                >
+                                  个
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-pro-card ant-pro-statistic-card"
+                  style="border-radius: 0;"
+                >
+                  <div
+                    class="ant-pro-card-body"
+                  >
+                    <div
+                      class="ant-pro-statistic-card-content"
+                    >
+                      <div
+                        class="ant-pro-card-statistic"
+                      >
+                        <div
+                          class="ant-pro-card-statistic-wrapper"
+                        >
+                          <div
+                            class="ant-pro-card-statistic-content"
+                          >
+                            <div
+                              class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                            >
+                              <div
+                                class="ant-statistic-title"
+                              >
+                                历史实验总数
+                              </div>
+                              <div
+                                class="ant-statistic-content"
+                              >
+                                <span
+                                  class="ant-statistic-content-value"
+                                >
+                                  <span
+                                    class="ant-statistic-content-value-int"
+                                  >
+                                    134
+                                  </span>
+                                </span>
+                                <span
+                                  class="ant-statistic-content-suffix"
+                                >
+                                  个
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-pro-card ant-pro-statistic-card"
+          style="border-radius: 0;"
+        >
+          <div
+            class="ant-pro-card-header"
+          >
+            <div
+              class="ant-pro-card-title"
+            >
+              流量走势
+            </div>
+            <div
+              class="ant-pro-card-extra"
+            />
+          </div>
+          <div
+            class="ant-pro-card-body"
+          >
+            <div
+              class="ant-pro-statistic-card-content"
+            >
+              <div
+                class="ant-pro-statistic-card-chart"
+              >
+                <div
+                  data-chart-source-type="G2Plot"
+                  size-sensor-id="27"
+                  style="height: 100%;"
+                >
+                  <div
+                    style="position:relative;"
+                  >
+                    <canvas
+                      height="250"
+                      style="width: 400px; height: 250px; display: inline-block; vertical-align: middle;"
+                      width="400"
+                    />
+                  </div>
+                  <object
+                    class="size-sensor-object"
+                    data="about:blank"
+                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
+                    tabindex="-1"
+                    type="text/html"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-card ant-pro-statistic-card"
+      style="border-radius: 0;"
+    >
+      <div
+        class="ant-pro-card-header"
+      >
+        <div
+          class="ant-pro-card-title"
+        >
+          流量占用情况
+        </div>
+        <div
+          class="ant-pro-card-extra"
+        />
+      </div>
+      <div
+        class="ant-pro-card-body"
+      >
+        <div
+          class="ant-pro-statistic-card-content"
+        >
+          <div
+            class="ant-pro-statistic-card-chart"
+          >
+            <div
+              data-chart-source-type="G2Plot"
+              size-sensor-id="28"
+              style="height: 100%;"
+            >
+              <div
+                style="position:relative;"
+              >
+                <canvas
+                  height="250"
+                  style="width: 400px; height: 250px; display: inline-block; vertical-align: middle;"
+                  width="400"
+                />
+                <div
+                  class="g2-html-annotation"
+                  style="pointer-events: none; width: 128px; transform: translate(-50%, -100%); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; justify-content: center; align-items: center; text-shadow:  0px 0px 0px; font-weight: 300; color: rgb(75, 83, 94); text-align: center; font-size: 20px; line-height: 1; position: absolute; left: 182px; top: 115px; z-index: 7;"
+                >
+                  总计
+                </div>
+                <div
+                  class="g2-html-annotation"
+                  style="pointer-events: none; width: 128px; transform: translate(-50%, 0); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; justify-content: center; align-items: center; text-shadow:  0px 0px 0px; font-weight: bold; color: rgba(44, 53, 66, 0.85); text-align: center; font-size: 32px; line-height: 1; position: absolute; left: 182px; top: 135px; z-index: 7;"
+                >
+                  100
+                </div>
+              </div>
+              <object
+                class="size-sensor-object"
+                data="about:blank"
+                style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
+                tabindex="-1"
+                type="text/html"
+              />
+            </div>
+            <div
+              class="ant-table-wrapper"
+              style="margin-top: 16px;"
+            >
+              <div
+                class="ant-spin-nested-loading"
+              >
+                <div
+                  class="ant-spin-container"
+                >
+                  <div
+                    class="ant-table"
+                  >
+                    <div
+                      class="ant-table-container"
+                    >
+                      <div
+                        class="ant-table-content"
+                      >
+                        <table
+                          style="table-layout: auto;"
+                        >
+                          <colgroup />
+                          <thead
+                            class="ant-table-thead"
+                          >
+                            <tr>
+                              <th
+                                class="ant-table-cell"
+                              >
+                                名称
+                              </th>
+                              <th
+                                class="ant-table-cell"
+                              >
+                                占比
+                              </th>
+                              <th
+                                class="ant-table-cell"
+                              >
+                                流量
+                              </th>
+                            </tr>
+                          </thead>
+                          <tbody
+                            class="ant-table-tbody"
+                          >
+                            <tr
+                              class="ant-table-row ant-table-row-level-0"
+                              data-row-key="1"
+                            >
+                              <td
+                                class="ant-table-cell"
+                              >
+                                <a>
+                                  John Brown
+                                </a>
+                              </td>
+                              <td
+                                class="ant-table-cell"
+                              >
+                                <div
+                                  data-chart-source-type="G2Plot"
+                                  size-sensor-id="29"
+                                  style="height: 100%;"
+                                >
+                                  <div
+                                    style="position:relative;"
+                                  >
+                                    <canvas
+                                      height="20"
+                                      style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
+                                      width="400"
+                                    />
+                                  </div>
+                                  <object
+                                    class="size-sensor-object"
+                                    data="about:blank"
+                                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
+                                    tabindex="-1"
+                                    type="text/html"
+                                  />
+                                </div>
+                              </td>
+                              <td
+                                class="ant-table-cell"
+                              >
+                                2335
+                              </td>
+                            </tr>
+                            <tr
+                              class="ant-table-row ant-table-row-level-0"
+                              data-row-key="2"
+                            >
+                              <td
+                                class="ant-table-cell"
+                              >
+                                <a>
+                                  Jim Green
+                                </a>
+                              </td>
+                              <td
+                                class="ant-table-cell"
+                              >
+                                <div
+                                  data-chart-source-type="G2Plot"
+                                  size-sensor-id="30"
+                                  style="height: 100%;"
+                                >
+                                  <div
+                                    style="position:relative;"
+                                  >
+                                    <canvas
+                                      height="20"
+                                      style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
+                                      width="400"
+                                    />
+                                  </div>
+                                  <object
+                                    class="size-sensor-object"
+                                    data="about:blank"
+                                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
+                                    tabindex="-1"
+                                    type="text/html"
+                                  />
+                                </div>
+                              </td>
+                              <td
+                                class="ant-table-cell"
+                              >
+                                3245
+                              </td>
+                            </tr>
+                            <tr
+                              class="ant-table-row ant-table-row-level-0"
+                              data-row-key="3"
+                            >
+                              <td
+                                class="ant-table-cell"
+                              >
+                                <a>
+                                  Joe Black
+                                </a>
+                              </td>
+                              <td
+                                class="ant-table-cell"
+                              >
+                                <div
+                                  data-chart-source-type="G2Plot"
+                                  size-sensor-id="31"
+                                  style="height: 100%;"
+                                >
+                                  <div
+                                    style="position:relative;"
+                                  >
+                                    <canvas
+                                      height="20"
+                                      style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
+                                      width="400"
+                                    />
+                                  </div>
+                                  <object
+                                    class="size-sensor-object"
+                                    data="about:blank"
+                                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
+                                    tabindex="-1"
+                                    type="text/html"
+                                  />
+                                </div>
+                              </td>
+                              <td
+                                class="ant-table-cell"
+                              >
+                                3445
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/status.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -3486,7 +4121,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/tabs.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/tabs.tsx correctly 1`] = `
 <div
   class="ant-pro-card"
 >
@@ -3917,7 +4552,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/total.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/total.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
@@ -4000,7 +4635,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
           >
             <div
               data-chart-source-type="G2Plot"
-              size-sensor-id="31"
+              size-sensor-id="36"
               style="height: 100%;"
             >
               <div
@@ -4106,7 +4741,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
           >
             <div
               data-chart-source-type="G2Plot"
-              size-sensor-id="32"
+              size-sensor-id="37"
               style="height: 100%;"
             >
               <div
@@ -4202,7 +4837,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/total-layout.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/total-layout.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-card-contain-card ant-pro-card-split"
 >
@@ -4319,7 +4954,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
             >
               <div
                 data-chart-source-type="G2Plot"
-                size-sensor-id="27"
+                size-sensor-id="32"
                 style="height: 100%;"
               >
                 <div
@@ -4535,7 +5170,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
               >
                 <div
                   data-chart-source-type="G2Plot"
-                  size-sensor-id="28"
+                  size-sensor-id="33"
                   style="height: 100%;"
                 >
                   <div
@@ -4724,7 +5359,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
               >
                 <div
                   data-chart-source-type="G2Plot"
-                  size-sensor-id="29"
+                  size-sensor-id="34"
                   style="height: 100%;"
                 >
                   <div
@@ -4912,7 +5547,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
               >
                 <div
                   data-chart-source-type="G2Plot"
-                  size-sensor-id="30"
+                  size-sensor-id="35"
                   style="height: 100%;"
                 >
                   <div
@@ -5017,7 +5652,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/d
 </div>
 `;
 
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticsCard/demos/trend.tsx correctly 1`] = `
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/trend.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
   style="width: 160px;"
@@ -7460,6 +8095,437 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
             id="rc-tabs-test-panel-tab2"
             role="tabpanel"
             style="display: none;"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/demos/tabs-statistic.tsx correctly 1`] = `
+<div
+  class="ant-pro-card"
+>
+  <div
+    class="ant-pro-card-tabs"
+  >
+    <div
+      class="ant-tabs ant-tabs-top"
+    >
+      <div
+        class="ant-tabs-nav"
+        role="tablist"
+      >
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-list"
+            style="transform: translate(0px, 0px);"
+          >
+            <div
+              class="ant-tabs-tab ant-tabs-tab-active"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-1"
+                aria-selected="true"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-1"
+                role="tab"
+                tabindex="0"
+              >
+                <div
+                  class="ant-pro-card-statistic"
+                  style="width: 120px; border-right: 1px solid #f0f0f0;"
+                >
+                  <div
+                    class="ant-pro-card-statistic-wrapper"
+                  >
+                    <div
+                      class="ant-pro-card-statistic-content"
+                    >
+                      <div
+                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                      >
+                        <div
+                          class="ant-statistic-title"
+                        >
+                          全部
+                        </div>
+                        <div
+                          class="ant-statistic-content"
+                        >
+                          <span
+                            class="ant-statistic-content-value"
+                          >
+                            <span
+                              class="ant-statistic-content-value-int"
+                            >
+                              10
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-2"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-2"
+                role="tab"
+                tabindex="0"
+              >
+                <div
+                  class="ant-pro-card-statistic"
+                  style="width: 120px;"
+                >
+                  <div
+                    class="ant-pro-card-statistic-wrapper"
+                  >
+                    <div
+                      class="ant-pro-card-statistic-status"
+                    >
+                      <span
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                      >
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-default"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        />
+                      </span>
+                    </div>
+                    <div
+                      class="ant-pro-card-statistic-content"
+                    >
+                      <div
+                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                      >
+                        <div
+                          class="ant-statistic-title"
+                        >
+                          未发布
+                        </div>
+                        <div
+                          class="ant-statistic-content"
+                        >
+                          <span
+                            class="ant-statistic-content-value"
+                          >
+                            <span
+                              class="ant-statistic-content-value-int"
+                            >
+                              5
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-3"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-3"
+                role="tab"
+                tabindex="0"
+              >
+                <div
+                  class="ant-pro-card-statistic"
+                  style="width: 120px;"
+                >
+                  <div
+                    class="ant-pro-card-statistic-wrapper"
+                  >
+                    <div
+                      class="ant-pro-card-statistic-status"
+                    >
+                      <span
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                      >
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-processing"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        />
+                      </span>
+                    </div>
+                    <div
+                      class="ant-pro-card-statistic-content"
+                    >
+                      <div
+                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                      >
+                        <div
+                          class="ant-statistic-title"
+                        >
+                          发布中
+                        </div>
+                        <div
+                          class="ant-statistic-content"
+                        >
+                          <span
+                            class="ant-statistic-content-value"
+                          >
+                            <span
+                              class="ant-statistic-content-value-int"
+                            >
+                              3
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-4"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-4"
+                role="tab"
+                tabindex="0"
+              >
+                <div
+                  class="ant-pro-card-statistic"
+                  style="width: 120px;"
+                >
+                  <div
+                    class="ant-pro-card-statistic-wrapper"
+                  >
+                    <div
+                      class="ant-pro-card-statistic-status"
+                    >
+                      <span
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                      >
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-error"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        />
+                      </span>
+                    </div>
+                    <div
+                      class="ant-pro-card-statistic-content"
+                    >
+                      <div
+                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                      >
+                        <div
+                          class="ant-statistic-title"
+                        >
+                          发布异常
+                        </div>
+                        <div
+                          class="ant-statistic-content"
+                        >
+                          <span
+                            class="ant-statistic-content-value"
+                          >
+                            <span
+                              class="ant-statistic-content-value-int"
+                            >
+                              1
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-5"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-5"
+                role="tab"
+                tabindex="0"
+              >
+                <div
+                  class="ant-pro-card-statistic"
+                  style="width: 120px;"
+                >
+                  <div
+                    class="ant-pro-card-statistic-wrapper"
+                  >
+                    <div
+                      class="ant-pro-card-statistic-status"
+                    >
+                      <span
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                      >
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-success"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        />
+                      </span>
+                    </div>
+                    <div
+                      class="ant-pro-card-statistic-content"
+                    >
+                      <div
+                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                      >
+                        <div
+                          class="ant-statistic-title"
+                        >
+                          发布成功
+                        </div>
+                        <div
+                          class="ant-statistic-content"
+                        >
+                          <span
+                            class="ant-statistic-content-value"
+                          >
+                            <span
+                              class="ant-statistic-content-value-int"
+                            >
+                              1
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              style="left: 0px; width: 0px;"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+        >
+          <button
+            aria-controls="rc-tabs-test-more-popup"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-hidden="true"
+            class="ant-tabs-nav-more"
+            id="rc-tabs-test-more"
+            style="visibility: hidden; order: 1;"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-tabs-content-holder"
+      >
+        <div
+          class="ant-tabs-content ant-tabs-content-top"
+        >
+          <div
+            aria-hidden="false"
+            aria-labelledby="rc-tabs-test-tab-1"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active ant-pro-card-tabpane"
+            id="rc-tabs-test-panel-1"
+            role="tabpanel"
+            style="width: 100%;"
+            tabindex="0"
+          >
+            <div
+              class="ant-pro-card"
+            >
+              <div
+                class="ant-pro-card-body"
+              >
+                <div
+                  style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
+                >
+                  关联展示内容 全部
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            aria-labelledby="rc-tabs-test-tab-2"
+            class="ant-tabs-tabpane ant-pro-card-tabpane"
+            id="rc-tabs-test-panel-2"
+            role="tabpanel"
+            style="display: none; width: 100%;"
+            tabindex="-1"
+          />
+          <div
+            aria-hidden="true"
+            aria-labelledby="rc-tabs-test-tab-3"
+            class="ant-tabs-tabpane ant-pro-card-tabpane"
+            id="rc-tabs-test-panel-3"
+            role="tabpanel"
+            style="display: none; width: 100%;"
+            tabindex="-1"
+          />
+          <div
+            aria-hidden="true"
+            aria-labelledby="rc-tabs-test-tab-4"
+            class="ant-tabs-tabpane ant-pro-card-tabpane"
+            id="rc-tabs-test-panel-4"
+            role="tabpanel"
+            style="display: none; width: 100%;"
+            tabindex="-1"
+          />
+          <div
+            aria-hidden="true"
+            aria-labelledby="rc-tabs-test-tab-5"
+            class="ant-tabs-tabpane ant-pro-card-tabpane"
+            id="rc-tabs-test-panel-5"
+            role="tabpanel"
+            style="display: none; width: 100%;"
             tabindex="-1"
           />
         </div>
