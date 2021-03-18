@@ -17,8 +17,15 @@ import ProForm, {
   ProFormFieldSet,
   ProFormTimePicker,
 } from '@ant-design/pro-form';
-import delay from 'delay';
 import Mock from 'mockjs';
+
+export const waitTime = (time: number = 100) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
+};
 
 const Demo = () => (
   <div
@@ -57,7 +64,7 @@ const Demo = () => (
         label="支持搜索查询的 Select"
         showSearch
         request={async ({ keyWords }) => {
-          await delay(1000);
+          await waitTime(1000);
           return Mock.mock({
             'data|1-10': [
               {
