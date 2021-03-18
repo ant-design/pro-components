@@ -33,8 +33,8 @@ const CircleRender = () => {
     >
       <div
         style={{
-          width: '8px',
-          height: '8px',
+          width: '6px',
+          height: '6px',
           borderRadius: '4px',
           backgroundColor: 'rgba(0,0,0,0.45)',
         }}
@@ -44,7 +44,7 @@ const CircleRender = () => {
 };
 
 const getIcon = (fieldError: string[], value: any, rule: Rule, isTouched: boolean) => {
-  if (!value || !isTouched) {
+  if (!isTouched) {
     return <CircleRender></CircleRender>;
   }
   if (fieldError.includes((rule as any).message)) {
@@ -65,18 +65,26 @@ const Content: React.FC<{
     0,
     Math.min(100, ((rules.length - fieldError.length) / rules.length) * 100),
   );
+  const isSingleRule = rules.length === 1;
   return (
-    <div style={{ padding: '6px 8px 12px 8px' }}>
+    <div style={isSingleRule ? {} : { padding: '6px 8px 12px 8px' }}>
       {(progressProps === undefined || progressProps) && (
         <Progress
           percent={value && isTouched ? percent : 0}
           strokeColor={getStrokeColor(percent)}
           showInfo={false}
           size="small"
+          strokeLinecap={'butt'}
           {...progressProps}
         />
       )}
-      <ul style={{ margin: 0, marginTop: '10px', listStyle: 'none', padding: '0' }}>
+      <ul
+        style={
+          isSingleRule
+            ? { margin: 0, padding: 0, listStyle: 'none' }
+            : { margin: 0, marginTop: '10px', listStyle: 'none', padding: '0' }
+        }
+      >
         {rules?.map((rule, idx) => (
           <li key={idx} style={{ display: 'flex', alignItems: 'center' }}>
             <Space>
@@ -122,7 +130,7 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
   ...rest
 }) => {
   return (
-    <Form.Item style={FIX_INLINE_STYLE} noStyle shouldUpdate help={''} label={label}>
+    <Form.Item style={FIX_INLINE_STYLE} shouldUpdate help={''} label={label}>
       {(form) => {
         const fieldError = form.getFieldError(name);
         const value = form.getFieldValue(name);
@@ -167,7 +175,7 @@ export default (props: InlineErrorFormItemProps) => {
         name={name}
         rules={rules!}
         popoverProps={popoverProps}
-        progressProps={progressProps}
+        progressProps={rules.length > 1 ? progressProps : false}
         {...rest}
       >
         {children}
