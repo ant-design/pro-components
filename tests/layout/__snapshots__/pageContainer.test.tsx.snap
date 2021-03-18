@@ -545,66 +545,6 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
 </div>
 `;
 
-exports[`PageContainer 🐲 header.footer is null, do not render footerToolbar  1`] = `
-<div
-  class="ant-pro-page-container"
->
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
-  <div
-    class="ant-pro-footer-bar"
-  >
-    <div
-      class="ant-pro-footer-bar-left"
-    />
-    <div
-      class="ant-pro-footer-bar-right"
-    >
-      <button
-        type="button"
-      >
-        qixian
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`PageContainer 🐲 header.footer is null, do not render footerToolbar  2`] = `
-<div
-  class="ant-pro-page-container"
->
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
-  <div
-    class="ant-pro-footer-bar"
-  >
-    <div
-      class="ant-pro-footer-bar-left"
-    />
-    <div
-      class="ant-pro-footer-bar-right"
-    >
-      <button
-        type="button"
-      >
-        qixian
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"

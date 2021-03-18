@@ -3,6 +3,7 @@ import ProForm, { ProFormText, ProFormList, ProFormDependency } from '@ant-desig
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
+import { SnippetsOutlined, CloseOutlined } from '@ant-design/icons';
 
 describe('ProForm List', () => {
   it('♨️  ProForm.List', async () => {
@@ -467,6 +468,7 @@ describe('ProForm List', () => {
           <ProFormText name="nickName" label="昵称" />
           <ProFormDependency name={['nickName']}>
             {({ nickName }) => {
+              console.log(nickName);
               if (!nickName) {
                 return null;
               }
@@ -496,5 +498,60 @@ describe('ProForm List', () => {
     expect(html.find('input.ant-input').length).toBe(4);
 
     expect(fn).toBeCalledWith('222');
+  });
+
+  it('♨️  ProForm.List support copyIconProps and deleteIconProps', async () => {
+    const html = mount(
+      <ProForm>
+        <ProFormList
+          copyIconProps={false}
+          deleteIconProps={false}
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+    expect(html.find('.ant-pro-form-list-action').exists()).toBeFalsy();
+  });
+
+  it('♨️  ProForm.List support copyIconProps.icon and deleteIconProps.icon', async () => {
+    const html = mount(
+      <ProForm>
+        <ProFormList
+          copyIconProps={{
+            Icon: SnippetsOutlined,
+          }}
+          deleteIconProps={{
+            Icon: CloseOutlined,
+          }}
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+              nickName: '1111',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+    expect(html.find('.anticon-snippets').exists()).toBeTruthy();
+    expect(html.find('.anticon-close').exists()).toBeTruthy();
   });
 });

@@ -26,7 +26,7 @@ import type { ListToolBarProps } from './components/ListToolBar';
 import ListToolBar from './components/ListToolBar';
 
 import Search from './components/Form';
-import defaultRenderText from './defaultRender';
+import defaultRenderText from './utils/cellRenderToFromItem';
 import type { ColumnsState } from './container';
 import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
 import EditableProTable from './components/EditableTable';

@@ -11,6 +11,8 @@ import FooterToolbar from '../FooterToolbar';
 import './index.less';
 import PageLoading from '../PageLoading';
 import type { WithFalse } from '../../typings';
+import type { WaterMarkProps } from '../WaterMark';
+import WaterMark from '../WaterMark';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -73,6 +75,8 @@ export type PageContainerProps = {
    * @name 是否加载
    */
   loading?: boolean;
+  /** @name 水印的配置 */
+  waterMarkProps?: WaterMarkProps;
 } & PageHeaderTabConfig &
   Omit<PageHeaderProps, 'title'>;
 
@@ -233,6 +237,13 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     <div className={`${prefixedClassName}-warp`}>{pageHeaderDom}</div>
   ) : null;
 
+  const renderContent = () => {
+    const dom = loading ? <PageLoading /> : content;
+    if (props.waterMarkProps || value.waterMarkProps) {
+      return <WaterMark {...(props.waterMarkProps || value.waterMarkProps)}>{dom}</WaterMark>;
+    }
+    return dom;
+  };
   return (
     <div style={style} className={className}>
       {fixedHeader && headerDom ? (
@@ -246,7 +257,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
       ) : (
         headerDom
       )}
-      <GridContent>{loading ? <PageLoading /> : content}</GridContent>
+      <GridContent>{renderContent()}</GridContent>
       {footer && <FooterToolbar prefixCls={prefixCls}>{footer}</FooterToolbar>}
     </div>
   );

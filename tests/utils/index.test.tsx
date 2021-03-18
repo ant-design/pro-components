@@ -226,15 +226,174 @@ describe('utils', () => {
   });
 
   it('📅 InlineErrorFormItem onValuesChange', async () => {
+    const ruleMessage = {
+      required: '必填项',
+      min: '最小长度为12',
+      numberRequired: '必须包含数字',
+      alphaRequired: '必须包含字母',
+    };
     const html = mount(
       <Form>
         <InlineErrorFormItem
+          errorType="popover"
           rules={[
             {
               required: true,
+              message: ruleMessage.required,
+            },
+            {
+              min: 12,
+              message: ruleMessage.min,
+            },
+            {
+              message: ruleMessage.numberRequired,
+              pattern: /[0-9]/,
+            },
+            {
+              message: ruleMessage.alphaRequired,
+              pattern: /[a-zA-Z]/,
             },
           ]}
-          trigger="click"
+          popoverProps={{ trigger: 'focus' }}
+          name="title"
+        >
+          <Input id="test" />
+        </InlineErrorFormItem>
+      </Form>,
+    );
+
+    act(() => {
+      html.find('Input#test').simulate('focus');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('div.ant-popover').exists()).toBeTruthy();
+    const li = html.find('div.ant-popover ul li');
+    expect(li.length).toEqual(4);
+    expect(li.at(0).find('.ant-space-item span').text()).toEqual(ruleMessage.required);
+    expect(li.at(1).find('.ant-space-item span').text()).toEqual(ruleMessage.min);
+    expect(li.at(2).find('.ant-space-item span').text()).toEqual(ruleMessage.numberRequired);
+    expect(li.at(3).find('.ant-space-item span').text()).toEqual(ruleMessage.alphaRequired);
+    expect(
+      html
+        .find('div.ant-popover .ant-progress-bg')
+        .at(0)
+        .getDOMNode()
+        .getAttribute('style')
+        ?.indexOf('width: 0%'),
+    ).toBeGreaterThanOrEqual(0);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(0);
+
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: '1',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(
+      html
+        .find('div.ant-popover .ant-progress-bg')
+        .at(0)
+        .getDOMNode()
+        .getAttribute('style')
+        ?.indexOf('width: 50%'),
+    ).toBeGreaterThanOrEqual(0);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(2);
+
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: 'aaaabbbbcccc',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(
+      html
+        .find('div.ant-popover .ant-progress-bg')
+        .at(0)
+        .getDOMNode()
+        .getAttribute('style')
+        ?.indexOf('width: 75%'),
+    ).toBeGreaterThanOrEqual(0);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(3);
+
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: 'aaaabbbbcccc1',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(
+      html
+        .find('div.ant-popover .ant-progress-bg')
+        .at(0)
+        .getDOMNode()
+        .getAttribute('style')
+        ?.indexOf('width: 100%'),
+    ).toBeGreaterThanOrEqual(0);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(4);
+
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: '_',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(
+      html
+        .find('div.ant-popover .ant-progress-bg')
+        .at(0)
+        .getDOMNode()
+        .getAttribute('style')
+        ?.indexOf('width: 25%'),
+    ).toBeGreaterThanOrEqual(0);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(1);
+  });
+
+  it('📅 InlineErrorFormItem no progress', async () => {
+    const html = mount(
+      <Form>
+        <InlineErrorFormItem
+          errorType="popover"
+          rules={[
+            {
+              required: true,
+              message: '必填项',
+            },
+          ]}
+          popoverProps={{ trigger: 'focus' }}
+          name="title"
+          progressProps={false}
+        >
+          <Input id="test" />
+        </InlineErrorFormItem>
+      </Form>,
+    );
+    act(() => {
+      html.find('Input#test').simulate('focus');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('div.ant-popover .ant-progress').exists()).toBeFalsy();
+  });
+
+  it('📅 InlineErrorFormItem no progress', async () => {
+    const html = mount(
+      <Form>
+        <InlineErrorFormItem
+          errorType="popover"
+          rules={[
+            {
+              required: true,
+              message: '必填项',
+            },
+          ]}
+          popoverProps={{ trigger: 'focus' }}
           name="title"
         >
           <Input id="test" />
@@ -242,18 +401,39 @@ describe('utils', () => {
       </Form>,
     );
     act(() => {
-      html.find('Input#test').simulate('change', {
-        target: {
-          value: '',
-        },
-      });
+      html.find('Input#test').simulate('focus');
     });
     await waitForComponentToPaint(html, 100);
+    expect(html.find('div.ant-popover .ant-progress').exists()).toBeFalsy();
+  });
+
+  it('📅 InlineErrorFormItem have progress', async () => {
+    const html = mount(
+      <Form>
+        <InlineErrorFormItem
+          errorType="popover"
+          rules={[
+            {
+              required: true,
+              message: '必填项',
+            },
+            {
+              min: 12,
+              message: '最小长度12',
+            },
+          ]}
+          popoverProps={{ trigger: 'focus' }}
+          name="title"
+        >
+          <Input id="test" />
+        </InlineErrorFormItem>
+      </Form>,
+    );
     act(() => {
-      html.find('div.ant-form-item-has-error input').simulate('click');
+      html.find('Input#test').simulate('focus');
     });
     await waitForComponentToPaint(html, 100);
-    expect(html.find('div.ant-form-item-explain').exists()).toBeTruthy();
+    expect(html.find('div.ant-popover .ant-progress').exists()).toBeTruthy();
   });
 
   it('📅 transformKeySubmitValue return string', async () => {
@@ -404,7 +584,7 @@ describe('utils', () => {
       time: undefined,
     });
     expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
-    expect(html['tag']).not.toBe(labelInValue);
+    expect(html.tag).not.toBe(labelInValue);
     expect(html.tag.label).toBe(labelInValue.label);
   });
 
@@ -421,7 +601,7 @@ describe('utils', () => {
       time: undefined,
     });
     expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
-    expect(html['file']).toBe(file);
+    expect(html.file).toBe(file);
     expect(html.files[0]).toBe(file);
   });
 

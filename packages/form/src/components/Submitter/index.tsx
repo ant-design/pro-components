@@ -20,9 +20,9 @@ export type SubmitterProps<T = {}> = {
   /** @name 搜索的配置，一般用来配置文本 */
   searchConfig?: SearchConfig;
   /** @name 提交按钮的 props */
-  submitButtonProps?: ButtonProps & { preventDefault?: boolean };
+  submitButtonProps?: false | (ButtonProps & { preventDefault?: boolean });
   /** @name 重置按钮的 props */
-  resetButtonProps?: ButtonProps & { preventDefault?: boolean };
+  resetButtonProps?: false | (ButtonProps & { preventDefault?: boolean });
   /** @name 自定义操作的渲染 */
   render?:
     | ((
@@ -74,29 +74,37 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     resetText = intl.getMessage('tableForm.reset', '重置'),
   } = searchConfig;
   /** 默认的操作的逻辑 */
-  const dom = [
-    <Button
-      {...omit(resetButtonProps, ['preventDefault'])}
-      key="rest"
-      onClick={(e) => {
-        if (!resetButtonProps?.preventDefault) reset();
-        resetButtonProps?.onClick?.(e);
-      }}
-    >
-      {resetText}
-    </Button>,
-    <Button
-      type="primary"
-      {...omit(submitButtonProps || {}, ['preventDefault'])}
-      key="submit"
-      onClick={(e) => {
-        if (!submitButtonProps?.preventDefault) submit();
-        submitButtonProps?.onClick?.(e);
-      }}
-    >
-      {submitText}
-    </Button>,
-  ];
+  const dom = [];
+
+  if (resetButtonProps !== false) {
+    dom.push(
+      <Button
+        {...omit(resetButtonProps, ['preventDefault'])}
+        key="rest"
+        onClick={(e) => {
+          if (!resetButtonProps?.preventDefault) reset();
+          resetButtonProps?.onClick?.(e);
+        }}
+      >
+        {resetText}
+      </Button>,
+    );
+  }
+  if (submitButtonProps !== false) {
+    dom.push(
+      <Button
+        type="primary"
+        {...omit(submitButtonProps || {}, ['preventDefault'])}
+        key="submit"
+        onClick={(e) => {
+          if (!submitButtonProps?.preventDefault) submit();
+          submitButtonProps?.onClick?.(e);
+        }}
+      >
+        {submitText}
+      </Button>,
+    );
+  }
 
   const renderDom = render ? render({ ...props, submit, reset }, dom) : dom;
   if (!renderDom) {
@@ -105,6 +113,9 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
   if (Array.isArray(renderDom)) {
     if (renderDom?.length < 1) {
       return null;
+    }
+    if (renderDom?.length === 1) {
+      return renderDom[0] as JSX.Element;
     }
     return <Space>{renderDom}</Space>;
   }

@@ -35,6 +35,7 @@ import WrapContent from './WrapContent';
 import compatibleLayout from './utils/compatibleLayout';
 import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
+import type { WaterMarkProps } from './components/WaterMark';
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
@@ -91,6 +92,8 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
 
     /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
     breadcrumbProps?: BreadcrumbProps;
+    /** @name 水印的相关配置 */
+    waterMarkProps?: WaterMarkProps;
   };
 
 const headerRender = (

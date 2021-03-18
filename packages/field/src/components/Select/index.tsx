@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 import React, {
   useState,
   useImperativeHandle,
@@ -16,9 +16,8 @@ import type {
   ProSchemaValueEnumObj,
 } from '@ant-design/pro-utils';
 
-import { useDebounceFn } from '@ant-design/pro-utils';
 import { useDeepCompareEffect } from '@ant-design/pro-utils';
-import useSWR from 'swr';
+import useSWR, { mutate } from 'swr';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useIntl } from '@ant-design/pro-provider';
 
@@ -202,11 +201,11 @@ export const useFieldFetchData = (
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
     if (props.proFieldKey) {
-      return props.proFieldKey;
+      return props.proFieldKey.toString();
     }
     if (props.request) {
       testId += 1;
-      return testId;
+      return testId.toString();
     }
     return 'no-fetch';
   });
@@ -251,21 +250,20 @@ export const useFieldFetchData = (
     setLoading(false);
     return loadData;
   };
-  const { data, mutate } = useSWR(
-    [proFieldKeyRef.current, JSON.stringify(props.params)],
-    fetchData,
-    {
-      revalidateOnFocus: false,
-    },
-  );
 
-  const fetchDebounce = useDebounceFn(
-    async () => {
-      mutate(fetchData, false);
-    },
-    [],
-    200,
-  );
+  const key = useMemo(() => {
+    if (!props.request) {
+      return 'no-fetch';
+    }
+    if (!props.params && !keyWords) {
+      return proFieldKeyRef.current;
+    }
+    return [proFieldKeyRef.current, JSON.stringify({ ...props.params, keyWords })];
+  }, [keyWords, props.params, props.request]);
+
+  const { data, mutate: setLocaleData } = useSWR(key, fetchData, {
+    revalidateOnFocus: false,
+  });
 
   return [
     loading,
@@ -274,8 +272,8 @@ export const useFieldFetchData = (
       : options?.filter((item) => {
           if (!keyWords) return true;
           if (
-            item?.label?.toString().includes(keyWords) ||
-            item.value.toString().includes(keyWords)
+            item?.label?.toString().toLowerCase().includes(keyWords.toLowerCase()) ||
+            item.value.toString().toLowerCase().includes(keyWords.toLowerCase())
           ) {
             return true;
           }
@@ -283,11 +281,11 @@ export const useFieldFetchData = (
         }),
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
-      fetchDebounce.run();
+      mutate(key);
     },
     () => {
       setKeyWords(undefined);
-      mutate(async () => [], false);
+      setLocaleData(async () => [], false);
     },
   ];
 };

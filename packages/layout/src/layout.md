@@ -141,8 +141,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | disableMobile | 禁止自动切换到移动页面 | `boolean` | false |
 | links | 显示在菜单右下角的快捷操作 | `ReactNode[]` | - |
 | menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
-
-在 4.5.13 以后 Layout 通过 `menuProps` 支持 [Menu](https://ant.design/components/menu-cn/#Menu) 的大部分 props。
+| waterMarkProps | 配置水印，水印是 PageContainer 的功能，layout 只是透传给 PageContainer | [WaterMarkProps](/components/water-mark) | - |
 
 ### SettingDrawer
 
@@ -153,6 +152,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
+| disableUrlParams | 禁止同步设置到查询参数 | `boolean` | `false` |
 
 ### PageLoading
 

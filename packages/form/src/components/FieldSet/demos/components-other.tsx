@@ -17,6 +17,15 @@ import ProForm, {
   ProFormFieldSet,
   ProFormTimePicker,
 } from '@ant-design/pro-form';
+import Mock from 'mockjs';
+
+export const waitTime = (time: number = 100) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
+};
 
 const Demo = () => (
   <div
@@ -51,6 +60,27 @@ const Demo = () => (
         rules={[{ required: true, message: 'Please select your country!' }]}
       />
       <ProFormSelect
+        name="select"
+        label="支持搜索查询的 Select"
+        showSearch
+        request={async ({ keyWords }) => {
+          await waitTime(1000);
+          return Mock.mock({
+            'data|1-10': [
+              {
+                value: '@id',
+                label: '@name',
+              },
+            ],
+          }).data.concat({
+            value: keyWords,
+            label: '目标_target',
+          });
+        }}
+        placeholder="Please select a country"
+        rules={[{ required: true, message: 'Please select your country!' }]}
+      />
+      <ProFormSelect
         width="md"
         fieldProps={{
           labelInValue: true,
@@ -71,12 +101,14 @@ const Demo = () => (
           fieldProps={{
             labelInValue: true,
           }}
-          request={async () => [
-            { label: '全部', value: 'all' },
-            { label: '未解决', value: 'open' },
-            { label: '已解决', value: 'closed' },
-            { label: '解决中', value: 'processing' },
-          ]}
+          request={async () => {
+            return [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ];
+          }}
         />
         <ProFormSelect.SearchSelect
           name="userQuery"

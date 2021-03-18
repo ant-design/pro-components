@@ -100,6 +100,20 @@ function DrawerForm<T = Record<string, any>>({
 
   useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
 
+  const renderDom = useMemo(() => {
+    if (drawerProps?.getContainer) {
+      if (typeof drawerProps?.getContainer === 'function') {
+        return drawerProps?.getContainer?.();
+      }
+      if (typeof drawerProps?.getContainer === 'string') {
+        return document.getElementById(drawerProps?.getContainer);
+      }
+      return drawerProps?.getContainer;
+    }
+    return context?.getPopupContainer?.(document.body);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context, drawerProps, visible]);
+
   /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
   return (
     <>
@@ -137,9 +151,9 @@ function DrawerForm<T = Record<string, any>>({
               return (
                 <Drawer
                   title={title}
-                  getContainer={false}
                   width={width || 800}
                   {...drawerProps}
+                  getContainer={false}
                   visible={visible}
                   onClose={(e) => {
                     setVisible(false);
@@ -164,7 +178,7 @@ function DrawerForm<T = Record<string, any>>({
             {children}
           </BaseForm>
         </div>,
-        context?.getPopupContainer?.(document.body) || document.body,
+        renderDom || document.body,
       )}
       {trigger &&
         React.cloneElement(trigger, {

@@ -126,6 +126,12 @@ group:
 
 <code src="./demos/tabs.tsx" background="#f0f2f5" title="页签" />
 
+### 带指标页签
+
+结合 `Statistic` 可以实现带指标统计的页签。 更多指标相关卡片详见【指标卡】组件。
+
+<code src="./demos/tabs-statistic.tsx" background="#f0f2f5" title="带指标页签" />
+
 ### 卡片式页签
 
 配置 `tab` 的 `type` 为 `card` 来配置卡片式页签。
@@ -194,6 +200,10 @@ group:
 ### ProCard.Divider
 
 用于在将内容进行分组时进行分隔。
+
+| 参数 | 说明     | 类型                     | 默认值 |
+| ---- | -------- | ------------------------ | ------ |
+| type | 分隔类型 | `horizontal \| vertical` | -      |
 
 ### ProCard.Group
 
