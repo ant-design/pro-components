@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.3...@ant-design/pro-card@1.11.4) (2021-03-18)
+
+### Bug Fixes
+
+- procard circular dependency ([#2219](https://github.com/ant-design/pro-components/issues/2219)) ([941c201](https://github.com/ant-design/pro-components/commit/941c201c968188e72d2dd1dcd12c761782c562db))
+
 ## [1.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.2...@ant-design/pro-card@1.11.3) (2021-03-17)
 
 ### Bug Fixes

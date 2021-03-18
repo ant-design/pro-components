@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.18.3...@ant-design/pro-form@1.18.4) (2021-03-18)
+
+### Bug Fixes
+
+- **form:** fix drawer and modal from render error ([#2221](https://github.com/ant-design/pro-components/issues/2221)) ([55ee6c9](https://github.com/ant-design/pro-components/commit/55ee6c9a7831db1b67c3cde224dfbbcb4e311736))
+- **form:** if width<16, no rerender form layout ([#2220](https://github.com/ant-design/pro-components/issues/2220)) ([dd2ebe0](https://github.com/ant-design/pro-components/commit/dd2ebe02a8dd95366830d46c852ddcdc75b4a33d))
+
 ## [1.18.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.18.2...@ant-design/pro-form@1.18.3) (2021-03-17)
 
 ### Bug Fixes

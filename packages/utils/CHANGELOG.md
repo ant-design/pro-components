@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.14.3...@ant-design/pro-utils@1.15.0) (2021-03-18)
+
+### Features
+
+- **field:** add percent field support showSymbol is function ([#2228](https://github.com/ant-design/pro-components/issues/2228)) ([01480f7](https://github.com/ant-design/pro-components/commit/01480f7937efc7435aebc9a40414558643e00b97))
+- **utils:** fix inline-error-form-item problems ([#2223](https://github.com/ant-design/pro-components/issues/2223)) ([ee4ad37](https://github.com/ant-design/pro-components/commit/ee4ad3769fb02de02e07a82d5f26f448c355580e))
+- **utils:** upgrade inline-error-form-item ([#2168](https://github.com/ant-design/pro-components/issues/2168)) ([077c168](https://github.com/ant-design/pro-components/commit/077c1689c86484acae8d7e9146934c1af137a802))
+
 ## [1.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.14.2...@ant-design/pro-utils@1.14.3) (2021-03-16)
 
 ### Bug Fixes

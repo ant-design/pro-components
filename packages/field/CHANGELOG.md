@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.11.3...@ant-design/pro-field@1.12.0) (2021-03-18)
+
+### Features
+
+- **field:** add percent field support showSymbol is function ([#2228](https://github.com/ant-design/pro-components/issues/2228)) ([01480f7](https://github.com/ant-design/pro-components/commit/01480f7937efc7435aebc9a40414558643e00b97))
+- **field:** money 组件支持显示 n 位 ([#2224](https://github.com/ant-design/pro-components/issues/2224)) ([f3f9b13](https://github.com/ant-design/pro-components/commit/f3f9b1352f557717537702320d6d71d9e66cf52c))
+
 ## [1.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.11.2...@ant-design/pro-field@1.11.3) (2021-03-16)
 
 ### Bug Fixes

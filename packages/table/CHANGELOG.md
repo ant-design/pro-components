@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.8...@ant-design/pro-table@2.31.0) (2021-03-18)
+
+### Features
+
+- **utils:** upgrade inline-error-form-item ([#2168](https://github.com/ant-design/pro-components/issues/2168)) ([077c168](https://github.com/ant-design/pro-components/commit/077c1689c86484acae8d7e9146934c1af137a802))
+
 ## [2.30.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.7...@ant-design/pro-table@2.30.8) (2021-03-17)
 
 **Note:** Version bump only for package @ant-design/pro-table
