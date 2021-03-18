@@ -1,11 +1,11 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import { QueryFilter, ProFormText } from '@ant-design/pro-form';
+import { QueryFilter, ProFormText, ProFormGroup } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('QueryFilter', () => {
-  it('basic use', async () => {
+  it('🕵️‍♀️ basic use', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <QueryFilter
@@ -29,20 +29,53 @@ describe('QueryFilter', () => {
     });
   });
 
-  it('keep all field value when collapsed', async () => {
+  it('🕵️‍♀️ keep all field value when collapsed', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <QueryFilter
-        defaultColsNumber={1}
         defaultCollapsed
         onFinish={onFinish}
         initialValues={{
           a: 'testa',
           b: 'testb',
+          c: 'testc',
         }}
       >
         <ProFormText label="a" name="a" />
         <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+      </QueryFilter>,
+    );
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('.ant-input').length).toEqual(3);
+    expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
+    expect(wrapper.find('.anticon-down').length).toEqual(1);
+    expect(onFinish).toHaveBeenCalledWith({
+      a: 'testa',
+      b: 'testb',
+      c: 'testc',
+    });
+  });
+
+  it('🕵️‍♀️ no keep collapsed field value', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <QueryFilter
+        defaultCollapsed
+        onFinish={onFinish}
+        preserve={false}
+        initialValues={{
+          a: 'testa',
+          b: 'testb',
+          c: 'testc',
+        }}
+      >
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
       </QueryFilter>,
     );
     act(() => {
@@ -50,7 +83,7 @@ describe('QueryFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-input').length).toEqual(2);
-    expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
+    expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(0);
     expect(wrapper.find('.anticon-down').length).toEqual(1);
     expect(onFinish).toHaveBeenCalledWith({
       a: 'testa',
@@ -58,7 +91,7 @@ describe('QueryFilter', () => {
     });
   });
 
-  it('labelWidth', async () => {
+  it('🕵️‍♀️ labelWidth', async () => {
     const wrapper = mount(
       <QueryFilter
         labelWidth={70}
@@ -74,17 +107,20 @@ describe('QueryFilter', () => {
     );
   });
 
-  it('responsive 512', async () => {
+  it('🕵️‍♀️ responsive 512', async () => {
     const wrapper = mount(
       <QueryFilter style={{ width: 512 }} defaultCollapsed>
         <ProFormText label="a" name="a" />
         <ProFormText label="b" name="b" />
       </QueryFilter>,
     );
+
+    await waitForComponentToPaint(wrapper, 100);
+
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
   });
 
-  it('responsive 1064', async () => {
+  it('🕵️‍♀️ responsive 1064', async () => {
     const wrapper = mount(
       <QueryFilter defaultCollapsed style={{ width: 1064 }}>
         <ProFormText label="a" name="a" />
@@ -96,7 +132,7 @@ describe('QueryFilter', () => {
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(2);
   });
 
-  it('responsive 1064 with vertical', async () => {
+  it('🕵️‍♀️ responsive 1064 with vertical', async () => {
     const wrapper = mount(
       <QueryFilter style={{ width: 1064 }} defaultCollapsed layout="vertical">
         <ProFormText label="a" name="a" />
@@ -105,10 +141,69 @@ describe('QueryFilter', () => {
         <ProFormText label="d" name="d" />
       </QueryFilter>,
     );
+
     expect(wrapper.find('.ant-row.ant-form-item-hidden').length).toEqual(1);
   });
 
-  it('collapseRender should work', async () => {
+  it('🕵️‍♀️ submitter support render', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <QueryFilter
+        style={{ width: 1064 }}
+        defaultCollapsed
+        onFinish={fn}
+        submitter={{
+          render: (props) => {
+            return [
+              <a
+                key="submit"
+                id="submit"
+                onClick={() => {
+                  props.submit();
+                }}
+              >
+                提交
+              </a>,
+              <a
+                key="reset"
+                id="reset"
+                onClick={() => {
+                  props.reset();
+                }}
+              >
+                重置
+              </a>,
+            ];
+          },
+        }}
+        layout="vertical"
+      >
+        <ProFormText label="a" name="a" />
+        <ProFormText label="b" name="b" />
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+      </QueryFilter>,
+    );
+
+    act(() => {
+      wrapper.find('.ant-pro-form-collapse-button').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('#submit').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('#reset').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn).toBeCalled();
+  });
+
+  it('🕵️‍♀️ collapseRender should work', async () => {
     const wrapper = mount(
       <QueryFilter
         style={{ width: 1064 }}
@@ -131,5 +226,22 @@ describe('QueryFilter', () => {
     });
     await waitTime(100);
     expect(wrapper.find('a.ant-pro-form-collapse-button').text()).toBe('close');
+  });
+
+  it('🕵️‍♀️ QueryFilter support ProForm.Group', async () => {
+    const wrapper = mount(
+      <QueryFilter collapsed={true} layout="vertical">
+        <ProFormGroup>
+          <ProFormText label="a" name="a" />
+          <ProFormText label="b" name="b" />
+        </ProFormGroup>
+        <ProFormText label="c" name="c" />
+        <ProFormText label="d" name="d" />
+      </QueryFilter>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-form-group').exists()).toBeFalsy();
   });
 });

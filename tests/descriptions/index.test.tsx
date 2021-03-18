@@ -2,7 +2,7 @@ import { mount } from 'enzyme';
 import React, { useRef } from 'react';
 import { Button } from 'antd';
 import ProDescriptions from '@ant-design/pro-descriptions';
-import { ProCoreActionType } from '@ant-design/pro-utils';
+import type { ProCoreActionType } from '@ant-design/pro-utils';
 import { act } from 'react-dom/test-utils';
 
 import { waitForComponentToPaint, waitTime } from '../util';
@@ -218,5 +218,36 @@ describe('descriptions', () => {
     expect(html.find('.ant-progress-text').at(0).text()).toEqual('40%');
     expect(html.find('.ant-progress-text').at(1).find('.anticon-close-circle')).toBeTruthy();
     expect(html.find('.ant-progress-text').at(1).find('.anticon-check-circle')).toBeTruthy();
+  });
+
+  it('🏊‍♂️ ProDescriptions support order', () => {
+    const html = mount(
+      <ProDescriptions
+        dataSource={{
+          title: 'test',
+        }}
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            valueType: 'text',
+            order: 100,
+          },
+        ]}
+      >
+        <ProDescriptions.Item order={9} label="进度条1" valueType="progress">
+          40
+        </ProDescriptions.Item>
+        <ProDescriptions.Item label="进度条2" valueType="progress">
+          -1
+        </ProDescriptions.Item>
+        <ProDescriptions.Item order={8} label="进度条3" valueType="progress">
+          100
+        </ProDescriptions.Item>
+      </ProDescriptions>,
+    );
+    act(() => {
+      expect(html.render()).toMatchSnapshot();
+    });
   });
 });

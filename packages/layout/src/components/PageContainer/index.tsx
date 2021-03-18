@@ -2,9 +2,7 @@ import { PageHeader, Tabs, Affix, ConfigProvider } from 'antd';
 import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
 import classNames from 'classnames';
-import type { TabsProps, TabPaneProps } from 'antd/lib/tabs';
-import type { PageHeaderProps } from 'antd/lib/page-header';
-import type { AffixProps } from 'antd/lib/affix';
+import type { TabsProps, AffixProps, PageHeaderProps, TabPaneProps } from 'antd';
 
 import type { RouteContextType } from '../../RouteContext';
 import RouteContext from '../../RouteContext';
@@ -13,6 +11,8 @@ import FooterToolbar from '../FooterToolbar';
 import './index.less';
 import PageLoading from '../PageLoading';
 import type { WithFalse } from '../../typings';
+import type { WaterMarkProps } from '../WaterMark';
+import WaterMark from '../WaterMark';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -24,7 +24,7 @@ export type PageHeaderTabConfig = {
   /** @name tab 修改时触发 */
   onTabChange?: TabsProps['onChange'];
 
-  /** @name tab 上多余的区域 */
+  /** @name tab 上额外的区域 */
   tabBarExtraContent?: TabsProps['tabBarExtraContent'];
 
   /** @name tabs 的其他配置 */
@@ -75,6 +75,8 @@ export type PageContainerProps = {
    * @name 是否加载
    */
   loading?: boolean;
+  /** @name 水印的配置 */
+  waterMarkProps?: WaterMarkProps;
 } & PageHeaderTabConfig &
   Omit<PageHeaderProps, 'title'>;
 
@@ -180,12 +182,19 @@ const defaultPageHeaderRender = (
     !pageHeaderProps.tags &&
     !pageHeaderProps.footer &&
     !pageHeaderProps.avatar &&
-    !pageHeaderProps.backIcon
+    !pageHeaderProps.backIcon &&
+    !content &&
+    !extraContent
   ) {
     return null;
   }
+
   return (
-    <PageHeader {...pageHeaderProps} prefixCls={prefixCls}>
+    <PageHeader
+      {...pageHeaderProps}
+      breadcrumb={{ ...pageHeaderProps.breadcrumb, ...pageHeaderProps.breadcrumbProps }}
+      prefixCls={prefixCls}
+    >
       {header?.children || renderPageHeader(content, extraContent, value.prefixedClassName)}
     </PageHeader>
   );
@@ -228,6 +237,13 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     <div className={`${prefixedClassName}-warp`}>{pageHeaderDom}</div>
   ) : null;
 
+  const renderContent = () => {
+    const dom = loading ? <PageLoading /> : content;
+    if (props.waterMarkProps || value.waterMarkProps) {
+      return <WaterMark {...(props.waterMarkProps || value.waterMarkProps)}>{dom}</WaterMark>;
+    }
+    return dom;
+  };
   return (
     <div style={style} className={className}>
       {fixedHeader && headerDom ? (
@@ -241,7 +257,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
       ) : (
         headerDom
       )}
-      <GridContent>{loading ? <PageLoading /> : content}</GridContent>
+      <GridContent>{renderContent()}</GridContent>
       {footer && <FooterToolbar prefixCls={prefixCls}>{footer}</FooterToolbar>}
     </div>
   );

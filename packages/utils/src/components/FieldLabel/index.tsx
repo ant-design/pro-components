@@ -73,23 +73,25 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
           </span>
         );
       }
-      const tail =
-        str.length > 16
-          ? `...${
-              Array.isArray(aValue) && aValue.length > 1
-                ? `${aValue.length}${intl.getMessage('form.lightFilter.itemUnit', '项')}`
-                : ''
-            }`
-          : '';
+      const getText = () => {
+        const isArrayValue = Array.isArray(aValue) && aValue.length > 1;
+        const unitText = intl.getMessage('form.lightFilter.itemUnit', '项');
+        if (str.length > 32 && isArrayValue) {
+          return `...${aValue.length}${unitText}`;
+        }
+        return '';
+      };
+      const tail = getText();
+
       return (
         <span title={str}>
           {prefix}
-          {str.substr(0, 16)}
+          {str.substr(0, 32)}
           {tail}
         </span>
       );
     }
-    return placeholder || aLabel;
+    return aLabel || placeholder;
   };
   return (
     <span

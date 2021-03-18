@@ -42,7 +42,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 base use', async () => {
-    const html = render(
+    const html = mount(
       <ProTable
         size="small"
         columns={columns}
@@ -71,11 +71,14 @@ describe('BasicTable', () => {
         ]}
       />,
     );
-    expect(html).toMatchSnapshot();
+    await waitForComponentToPaint(html, 2000);
+    act(() => {
+      expect(html.render()).toMatchSnapshot();
+    });
   });
 
-  it('🎏 do not render Search ', async () => {
-    const html = render(
+  it('🎏 do not render Search', async () => {
+    const html = mount(
       <ProTable
         size="small"
         columns={columns}
@@ -92,11 +95,12 @@ describe('BasicTable', () => {
       />,
     );
 
-    expect(html).toMatchSnapshot();
+    await waitForComponentToPaint(html, 2000);
+    expect(html.find('.ant-pro-table-search').exists()).toBeFalsy();
   });
 
   it('🎏 do not render default option', async () => {
-    const html = render(
+    const html = mount(
       <ProTable
         size="small"
         options={{
@@ -114,11 +118,45 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    expect(html).toMatchSnapshot();
+    await waitForComponentToPaint(html, 1200);
+    expect(
+      html.find(
+        '.ant-pro-table-list-toolbar-setting-items .ant-pro-table-list-toolbar-setting-item',
+      ).length,
+    ).toBe(1);
+  });
+
+  it('🎏 ProTable support searchText and resetText', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        options={{
+          fullScreen: false,
+          reload: false,
+          setting: false,
+        }}
+        form={{
+          searchText: 'test',
+          resetText: 'test2',
+        }}
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        dataSource={[]}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    expect(html.find('.ant-btn.ant-btn-primary').text()).toBe('test');
+    expect(html.find('.ant-btn').at(0).text()).toBe('test2');
   });
 
   it('🎏 do not render setting', async () => {
-    const html = render(
+    const html = mount(
       <ProTable
         size="small"
         options={{
@@ -136,7 +174,10 @@ describe('BasicTable', () => {
         rowKey="key"
       />,
     );
-    expect(html).toMatchSnapshot();
+    await waitForComponentToPaint(html, 1200);
+    act(() => {
+      expect(html.find('.anticon-setting').exists()).toBeFalsy();
+    });
   });
 
   it('🎏 valueEnum support function', async () => {
@@ -601,7 +642,6 @@ describe('BasicTable', () => {
           },
         ]}
         postData={undefined}
-        // @ts-expect-error
         request={async () => {
           fn();
           await waitTime(500);
@@ -857,13 +897,8 @@ describe('BasicTable', () => {
             valueType: 'money',
           },
         ]}
-        request={async () => {
-          return new Promise((resolve) => {
-            setTimeout(() => {
-              resolve({ data: [] });
-            }, 5000);
-          });
-        }}
+        loading
+        dataSource={[]}
         rowKey="key"
       />,
     );
@@ -980,8 +1015,8 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledWith('name');
   });
 
-  it('🎏 bordered = true ', async () => {
-    const html = render(
+  it('🎏 bordered = true', async () => {
+    const html = mount(
       <ProTable
         size="small"
         cardBordered
@@ -998,11 +1033,12 @@ describe('BasicTable', () => {
       />,
     );
 
-    expect(html).toMatchSnapshot();
+    expect(html.find('.ant-pro-table-search-query-filter.ant-card-bordered').exists()).toBeTruthy();
+    expect(html.find('.ant-card.ant-card-bordered').exists()).toBeTruthy();
   });
 
-  it('🎏 bordered = {search = true, table = false} ', async () => {
-    const html = render(
+  it('🎏 bordered = {search = true, table = false}', async () => {
+    const html = mount(
       <ProTable
         size="small"
         cardBordered={{
@@ -1010,7 +1046,7 @@ describe('BasicTable', () => {
           table: false,
         }}
         columns={columns}
-        request={request}
+        dataSource={[]}
         rowKey="key"
         rowSelection={{
           selectedRowKeys: ['1'],
@@ -1021,6 +1057,37 @@ describe('BasicTable', () => {
         }}
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.find('.ant-card.ant-card-bordered').exists()).toBeFalsy();
+    expect(html.find('.ant-pro-table-search-query-filter.ant-card-bordered').exists()).toBeTruthy();
+  });
+
+  it('🎏 debounce time', async () => {
+    const ref = React.createRef<ActionType>();
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable
+        actionRef={ref as any}
+        size="small"
+        cardBordered
+        columns={columns}
+        request={async () => {
+          fn();
+          return Promise.resolve({
+            data: [],
+            total: 200,
+            success: true,
+          });
+        }}
+        rowKey="key"
+        debounceTime={500}
+      />,
+    );
+    await waitForComponentToPaint(html, 2000);
+    for (let i = 0; i < 10; i += 1) {
+      ref.current?.reload();
+    }
+    await waitForComponentToPaint(html, 500);
+
+    expect(fn).toBeCalledTimes(2);
   });
 });

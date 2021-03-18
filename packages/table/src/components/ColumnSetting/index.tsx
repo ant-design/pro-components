@@ -6,22 +6,22 @@ import {
   VerticalAlignTopOutlined,
   VerticalAlignBottomOutlined,
 } from '@ant-design/icons';
-import { Checkbox, Popover, ConfigProvider, Tooltip } from 'antd';
-import { DndProvider } from 'react-dnd';
+import type { TableColumnType } from 'antd';
+import { Checkbox, Tree, Popover, ConfigProvider, Tooltip } from 'antd';
 import classNames from 'classnames';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import type { ColumnType } from 'antd/lib/table';
+import type { DataNode } from 'antd/lib/tree';
 
 import type { ColumnsState } from '../../container';
 import Container from '../../container';
-import DnDItem from './DndItem';
-import './index.less';
-import DragIcon from './DragIcon';
-import { genColumnKey } from '../../utils';
+import { genColumnKey } from '../../utils/index';
 import type { ProColumns } from '../../typing';
 
+import './index.less';
+
 type ColumnSettingProps<T = any> = {
-  columns: ColumnType<T>[];
+  columns: TableColumnType<T>[];
+  draggable?: boolean;
+  checkable?: boolean;
 };
 
 const ToolTipIcon: React.FC<{
@@ -37,7 +37,9 @@ const ToolTipIcon: React.FC<{
   return (
     <Tooltip title={title}>
       <span
-        onClick={() => {
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
           const config = columnsMap[columnKey] || {};
           const columnKeyMap = {
             ...columnsMap,
@@ -56,40 +58,12 @@ const CheckboxListItem: React.FC<{
   columnKey: string | number;
   className?: string;
   title?: React.ReactNode;
-  columnsMap: Record<string, ColumnsState>;
   fixed?: boolean | 'left' | 'right';
-  setColumnsMap: (map: Record<string, ColumnsState>) => void;
-}> = ({ columnKey, className, columnsMap, title, setColumnsMap, fixed }) => {
+}> = ({ columnKey, title, className, fixed }) => {
   const intl = useIntl();
-  const config = columnsMap[columnKey || 'null'] || { show: true };
   return (
     <span className={`${className}-list-item`} key={columnKey}>
-      <DragIcon />
-      <Checkbox
-        onChange={(e) => {
-          if (columnKey) {
-            const tempConfig = columnsMap[columnKey] || {};
-            const newSetting = { ...tempConfig };
-            if (e.target.checked) {
-              delete newSetting.show;
-            } else {
-              newSetting.show = false;
-            }
-            const columnKeyMap = {
-              ...columnsMap,
-              [columnKey]: newSetting as ColumnsState,
-            };
-            // 如果没有值了，直接干掉他
-            if (Object.keys(newSetting).length === 0) {
-              delete columnKeyMap[columnKey];
-            }
-            setColumnsMap(columnKeyMap);
-          }
-        }}
-        checked={config.show !== false}
-      >
-        {title}
-      </Checkbox>
+      <div className={`${className}-list-item-title`}>{title}</div>
       <span className={`${className}-list-item-option`}>
         <ToolTipIcon
           columnKey={columnKey}
@@ -124,49 +98,97 @@ const CheckboxList: React.FC<{
   list: (ProColumns<any> & { index?: number })[];
   className?: string;
   title: string;
+  draggable: boolean;
+  checkable: boolean;
   showTitle?: boolean;
-}> = ({ list, className, showTitle = true, title: listTitle }) => {
+}> = ({ list, draggable, checkable, className, showTitle = true, title: listTitle }) => {
   const { columnsMap, setColumnsMap, sortKeyColumns, setSortKeyColumns } = Container.useContainer();
   const show = list && list.length > 0;
   if (!show) {
     return null;
   }
-  const move = (id: string, targetIndex: number) => {
+  const move = (id: React.Key, targetId: React.Key, dropPosition: number) => {
     const newMap = { ...columnsMap };
     const newColumns = [...sortKeyColumns.current];
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
+    const targetIndex = newColumns.findIndex((columnKey) => columnKey === targetId);
+    const isDownWord = dropPosition > findIndex;
     if (findIndex < 0) {
       return;
     }
-    const index = newColumns[findIndex];
+    const targetItem = newColumns[findIndex];
     newColumns.splice(findIndex, 1);
-    if (targetIndex === 0) {
-      newColumns.unshift(index);
+    if (dropPosition === 0) {
+      newColumns.unshift(targetItem);
     } else {
-      newColumns.splice(targetIndex, 0, index);
+      newColumns.splice(isDownWord ? targetIndex : targetIndex + 1, 0, targetItem);
     }
+    // 重新生成排序数组
     newColumns.forEach((key, order) => {
       newMap[key] = { ...(newMap[key] || {}), order };
     });
+    // 更新数组
     setColumnsMap(newMap);
     setSortKeyColumns(newColumns);
   };
 
-  const listDom = list.map(({ key, dataIndex, title, fixed, ...rest }, index) => {
+  const checkedKeys: string[] = [];
+
+  const treeData = list.map(({ key, dataIndex, ...rest }) => {
     const columnKey = genColumnKey(key, rest.index);
-    return (
-      <DnDItem index={index} id={`${columnKey}`} key={columnKey} end={move}>
-        <CheckboxListItem
-          setColumnsMap={setColumnsMap}
-          columnKey={columnKey || `${index}`}
-          columnsMap={columnsMap}
-          title={title}
-          fixed={fixed}
-          className={className}
-        />
-      </DnDItem>
-    );
+    const config = columnsMap[columnKey || 'null'] || { show: true };
+    if (config.show !== false) {
+      checkedKeys.push(columnKey);
+    }
+    return {
+      key: columnKey,
+      ...rest,
+      selectable: false,
+      switcherIcon: () => false,
+    };
   });
+
+  const listDom = (
+    <Tree
+      itemHeight={24}
+      draggable={draggable}
+      checkable={checkable}
+      onDrop={(info) => {
+        const dropKey = info.node.key;
+        const dragKey = info.dragNode.key;
+        const { dropPosition, dropToGap } = info;
+        const position = dropPosition === -1 || !dropToGap ? dropPosition + 1 : dropPosition;
+        move(dragKey, dropKey, position);
+      }}
+      blockNode
+      onCheck={(_, e) => {
+        const columnKey = e.node.key;
+        const tempConfig = columnsMap[columnKey] || {};
+        const newSetting = { ...tempConfig };
+        if (e.checked) {
+          delete newSetting.show;
+        } else {
+          newSetting.show = false;
+        }
+        const columnKeyMap = {
+          ...columnsMap,
+          [columnKey]: newSetting as ColumnsState,
+        };
+        // 如果没有值了，直接干掉他
+        if (Object.keys(newSetting).length === 0) {
+          delete columnKeyMap[columnKey];
+        }
+        setColumnsMap(columnKeyMap);
+      }}
+      checkedKeys={checkedKeys}
+      showLine={false}
+      titleRender={(node) => {
+        return <CheckboxListItem className={className} {...node} columnKey={node.key} />;
+      }}
+      height={280}
+      treeData={treeData as DataNode[]}
+    />
+  );
   return (
     <>
       {showTitle && <span className={`${className}-list-title`}>{listTitle}</span>}
@@ -178,7 +200,9 @@ const CheckboxList: React.FC<{
 const GroupCheckboxList: React.FC<{
   localColumns: (ProColumns<any> & { index?: number })[];
   className?: string;
-}> = ({ localColumns, className }) => {
+  draggable: boolean;
+  checkable: boolean;
+}> = ({ localColumns, className, draggable, checkable }) => {
   const rightList: (ProColumns<any> & { index?: number })[] = [];
   const leftList: (ProColumns<any> & { index?: number })[] = [];
   const list: (ProColumns<any> & { index?: number })[] = [];
@@ -194,37 +218,45 @@ const GroupCheckboxList: React.FC<{
       rightList.push(item);
       return;
     }
+
+    /** 不在 setting 中展示的 */
+    if (item.hideInSetting) {
+      return;
+    }
     list.push(item);
   });
 
   const showRight = rightList && rightList.length > 0;
   const showLeft = leftList && leftList.length > 0;
-
   return (
     <div
       className={classNames(`${className}-list`, {
         [`${className}-list-group`]: showRight || showLeft,
       })}
     >
-      <DndProvider backend={HTML5Backend}>
-        <CheckboxList
-          title={intl.getMessage('tableToolBar.leftFixedTitle', '固定在左侧')}
-          list={leftList}
-          className={className}
-        />
-        {/* 如果没有任何固定，不需要显示title */}
-        <CheckboxList
-          list={list}
-          title={intl.getMessage('tableToolBar.noFixedTitle', '不固定')}
-          showTitle={showLeft || showRight}
-          className={className}
-        />
-        <CheckboxList
-          title={intl.getMessage('tableToolBar.rightFixedTitle', '固定在右侧')}
-          list={rightList}
-          className={className}
-        />
-      </DndProvider>
+      <CheckboxList
+        title={intl.getMessage('tableToolBar.leftFixedTitle', '固定在左侧')}
+        list={leftList}
+        draggable={draggable}
+        checkable={checkable}
+        className={className}
+      />
+      {/* 如果没有任何固定，不需要显示title */}
+      <CheckboxList
+        list={list}
+        draggable={draggable}
+        checkable={checkable}
+        title={intl.getMessage('tableToolBar.noFixedTitle', '不固定')}
+        showTitle={showLeft || showRight}
+        className={className}
+      />
+      <CheckboxList
+        title={intl.getMessage('tableToolBar.rightFixedTitle', '固定在右侧')}
+        list={rightList}
+        draggable={draggable}
+        checkable={checkable}
+        className={className}
+      />
     </div>
   );
 };
@@ -232,7 +264,12 @@ const GroupCheckboxList: React.FC<{
 function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const columnRef = useRef({});
   const counter = Container.useContainer();
-  const localColumns: Omit<ProColumns<any> & { index?: number }, 'ellipsis'>[] = props.columns;
+  const localColumns: TableColumnType<T> &
+    {
+      index?: number;
+      fixed?: any;
+      key?: any;
+    }[] = props.columns;
 
   const { columnsMap, setColumnsMap } = counter;
 
@@ -240,6 +277,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     if (columnsMap) {
       columnRef.current = JSON.parse(JSON.stringify(columnsMap));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /**
@@ -301,7 +339,14 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
       overlayClassName={`${className}-overlay`}
       trigger="click"
       placement="bottomRight"
-      content={<GroupCheckboxList className={className} localColumns={localColumns} />}
+      content={
+        <GroupCheckboxList
+          checkable={props.checkable ?? true}
+          draggable={props.draggable ?? true}
+          className={className}
+          localColumns={localColumns}
+        />
+      }
     >
       <Tooltip title={intl.getMessage('tableToolBar.columnSetting', '列设置')}>
         <SettingOutlined />

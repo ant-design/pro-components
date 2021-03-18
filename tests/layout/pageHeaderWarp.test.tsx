@@ -6,14 +6,6 @@ import defaultProps from './defaultProps';
 import { waitForComponentToPaint } from '../util';
 
 describe('BasicLayout', () => {
-  beforeAll(() => {
-    Object.defineProperty(window, 'localStorage', {
-      value: {
-        getItem: jest.fn(() => 'zh-CN'),
-      },
-    });
-  });
-
   it('base use', () => {
     const html = render(
       <ProLayout {...defaultProps}>

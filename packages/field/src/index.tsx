@@ -7,6 +7,7 @@ import type {
   ProRenderFieldPropsType,
   ProFieldFCRenderProps,
   ProFieldTextType,
+  ProFieldRequestData,
 } from '@ant-design/pro-utils';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
 
@@ -19,24 +20,24 @@ import FieldDatePicker from './components/DatePicker';
 import FieldFromNow from './components/FromNow';
 import FieldRangePicker from './components/RangePicker';
 import FieldCode from './components/Code';
-import FieldTimePicker from './components/TimePicker';
+import FieldTimePicker, { FieldTimeRangePicker } from './components/TimePicker';
 import FieldText from './components/Text';
 import FieldTextArea from './components/TextArea';
 import FieldPassword from './components/Password';
 import FieldStatus from './components/Status';
 import FieldOptions from './components/Options';
-import FiledSelect, {
+import FieldSelect, {
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 } from './components/Select';
-import FiledCheckbox from './components/Checkbox';
-import FiledRate from './components/Rate';
-import FiledSwitch from './components/Switch';
+import FieldCheckbox from './components/Checkbox';
+import FieldRate from './components/Rate';
+import FieldSwitch from './components/Switch';
 import FieldDigit from './components/Digit';
 import FieldSecond from './components/Second';
-
 import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
+import FieldColorPicker from './components/ColorPicker';
 
 export type ProFieldEmptyText = string | false;
 
@@ -51,6 +52,8 @@ export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProF
 
 type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
   ProRenderFieldPropsType & {
+    /** 从服务器读取选项 */
+    request?: ProFieldRequestData;
     emptyText?: React.ReactNode;
     visible?: boolean;
     onVisible?: (visible: boolean) => void;
@@ -88,6 +91,7 @@ const defaultRenderTextByObject = (
         {...props}
         fieldProps={pickFormItemProps}
         text={text as number}
+        moneySymbol={valueType.moneySymbol}
       />
     );
   }
@@ -122,12 +126,26 @@ const defaultRenderText = (
   props: RenderProps,
   valueTypeMap: Record<string, ProRenderFieldPropsType>,
 ): React.ReactNode => {
+  const { mode = 'read', emptyText = '-' } = props;
+
+  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
+    if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
+      const { fieldProps, render } = props;
+      if (render) {
+        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
+      }
+      return <>{emptyText}</>;
+    }
+  }
+
+  // eslint-disable-next-line no-param-reassign
+  delete props.emptyText;
+
   if (typeof valueType === 'object') {
     return defaultRenderTextByObject(text, valueType, props);
   }
-  const { mode = 'read', emptyText = '-' } = props;
 
-  const customValueTypeConfig = valueTypeMap[valueType as string];
+  const customValueTypeConfig = valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
     // eslint-disable-next-line no-param-reassign
     delete props.ref;
@@ -153,19 +171,6 @@ const defaultRenderText = (
       );
     }
   }
-
-  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
-    if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
-      const { fieldProps, render } = props;
-      if (render) {
-        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
-      }
-      return <>{emptyText}</>;
-    }
-  }
-
-  // eslint-disable-next-line no-param-reassign
-  delete props.emptyText;
 
   /** 如果是金额的值 */
   if (valueType === 'money') {
@@ -222,6 +227,11 @@ const defaultRenderText = (
     return <FieldTimePicker text={text as string} format="HH:mm:ss" {...props} />;
   }
 
+  /** 如果是时间类型的值 */
+  if (valueType === 'timeRange') {
+    return <FieldTimeRangePicker text={text as string[]} format="HH:mm:ss" {...props} />;
+  }
+
   if (valueType === 'fromNow') {
     return <FieldFromNow text={text as string} {...props} />;
   }
@@ -267,11 +277,11 @@ const defaultRenderText = (
   }
 
   if (valueType === 'select' || (valueType === 'text' && (props.valueEnum || props.request))) {
-    return <FiledSelect text={text as string} {...props} />;
+    return <FieldSelect text={text as string} {...props} />;
   }
 
   if (valueType === 'checkbox') {
-    return <FiledCheckbox text={text as string} {...props} />;
+    return <FieldCheckbox text={text as string} {...props} />;
   }
 
   if (valueType === 'radio') {
@@ -283,10 +293,10 @@ const defaultRenderText = (
   }
 
   if (valueType === 'rate') {
-    return <FiledRate text={text as string} {...props} />;
+    return <FieldRate text={text as string} {...props} />;
   }
   if (valueType === 'switch') {
-    return <FiledSwitch text={text as boolean} {...props} />;
+    return <FieldSwitch text={text as boolean} {...props} />;
   }
 
   if (valueType === 'option') {
@@ -299,6 +309,10 @@ const defaultRenderText = (
 
   if (valueType === 'image') {
     return <FieldImage text={text as string} {...props} />;
+  }
+
+  if (valueType === 'color') {
+    return <FieldColorPicker text={text as string} {...props} />;
   }
 
   return <FieldText text={text as string} {...props} />;
@@ -319,7 +333,7 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
   const intl = useIntl();
   const context = useContext(ConfigContext);
 
-  const fieldProps = (value || onChange || rest?.fieldProps) && {
+  const fieldProps = (value !== undefined || onChange || rest?.fieldProps) && {
     value,
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
@@ -328,7 +342,6 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
       rest?.fieldProps?.onChange?.(...restParams);
     },
   };
-
   return (
     <React.Fragment>
       {defaultRenderText(
@@ -338,7 +351,7 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
           ...rest,
           mode: rest.mode || 'read',
           ref,
-          placeholder: intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+          placeholder: rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
           fieldProps: pickProProps(fieldProps),
         },
         context.valueTypeMap,
@@ -358,7 +371,7 @@ export {
   FieldTimePicker,
   FieldText,
   FieldStatus,
-  FiledSelect,
+  FieldSelect,
   proFieldParsingText,
   proFieldParsingValueEnumToArray,
 };

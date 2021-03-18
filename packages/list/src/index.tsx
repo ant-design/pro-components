@@ -1,11 +1,10 @@
 import React, { useMemo, useContext, useRef, useImperativeHandle } from 'react';
-import type { ListProps } from 'antd/lib/list';
+import type { ListProps, PaginationProps } from 'antd';
 import classNames from 'classnames';
 import type { ProTableProps, ProColumnType, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider, Form } from 'antd';
-import type { PaginationConfig } from 'antd/lib/pagination';
 
 import ListView from './ListView';
 
@@ -35,8 +34,10 @@ export type ProListProps<RecordType, U extends ParamsType> = Omit<
   'size'
 > &
   AntdListProps<RecordType> & {
+    tooltip?: string;
     metas?: ProListMetas<RecordType>;
     showActions?: 'hover' | 'always';
+    showExtra?: 'hover' | 'always';
   };
 
 export type Key = React.Key;
@@ -52,14 +53,18 @@ function ProList<
     split,
     footer,
     rowKey,
+    tooltip,
     className,
     options = false,
     search = false,
     expandable,
     showActions,
-    rowSelection,
+    showExtra,
+    rowSelection: propRowSelection = false,
     pagination: propsPagination = false,
     itemLayout,
+    renderItem,
+    grid,
     ...rest
   } = props;
 
@@ -99,12 +104,13 @@ function ProList<
   const listClassName = classNames(prefixCls, {
     [`${prefixCls}-no-split`]: !split,
   });
-
   return (
     <ProTable<RecordType, U>
+      tooltip={tooltip}
       {...(rest as any)}
       actionRef={actionRef}
       pagination={propsPagination}
+      rowSelection={propRowSelection}
       search={search}
       options={options}
       className={classNames(prefixCls, className, listClassName)}
@@ -120,22 +126,25 @@ function ProList<
           padding: '0 24px',
         },
       }}
-      tableViewRender={({ columns, size, pagination, dataSource, loading }) => {
+      tableViewRender={({ columns, size, pagination, rowSelection, dataSource, loading }) => {
         return (
           <Form component={false}>
             <ListView
+              grid={grid}
               prefixCls={prefixCls}
               columns={columns}
+              renderItem={renderItem}
               actionRef={actionRef}
-              dataSource={dataSource || []}
+              dataSource={(dataSource || []) as RecordType[]}
               size={size as 'large'}
               footer={footer}
               split={split}
               rowKey={rowKey}
               expandable={expandable}
-              rowSelection={rowSelection === false ? undefined : rowSelection}
+              rowSelection={propRowSelection === false ? undefined : rowSelection}
               showActions={showActions}
-              pagination={pagination as PaginationConfig}
+              showExtra={showExtra}
+              pagination={pagination as PaginationProps}
               itemLayout={itemLayout}
               loading={loading}
             />

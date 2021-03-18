@@ -1,15 +1,62 @@
 import { DownOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
-import ProForm, { ProFormRadio, ProFormSelect, ProFormSwitch } from '@ant-design/pro-form';
+import ProForm, {
+  ProFormDigit,
+  ProFormRadio,
+  ProFormSelect,
+  ProFormSwitch,
+  ProFormText,
+  ProFormList,
+  ProFormGroup,
+  ProFormDependency,
+  ProFormTextArea,
+} from '@ant-design/pro-form';
 import type { ProColumnType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
+import { useDebounceFn } from '@ant-design/pro-utils';
 import ProCard from '@ant-design/pro-card';
 import { Button } from 'antd';
+
+const valueTypeArray = [
+  'password',
+  'money',
+  'textarea',
+  'option',
+  'date',
+  'dateWeek',
+  'dateMonth',
+  'dateQuarter',
+  'dateYear',
+  'dateRange',
+  'dateTimeRange',
+  'dateTime',
+  'time',
+  'timeRange',
+  'text',
+  'select',
+  'checkbox',
+  'rate',
+  'radio',
+  'radioButton',
+  'index',
+  'indexBorder',
+  'progress',
+  'percent',
+  'digit',
+  'second',
+  'avatar',
+  'code',
+  'switch',
+  'fromNow',
+  'image',
+  'jsonCode',
+];
 
 type DataType = {
   age: number;
   address: string;
   name: string;
+  time: number;
   key: number;
   description: string;
 };
@@ -20,24 +67,24 @@ const columns: ProColumnType<DataType>[] = [
     dataIndex: 'name',
   },
   {
-    title: 'Age',
-    dataIndex: 'age',
-    sorter: (a, b) => a.age - b.age,
+    title: 'time',
+    dataIndex: 'time',
+    valueType: 'date',
   },
   {
     title: 'Address',
     dataIndex: 'address',
-    filters: [
-      {
-        text: 'London',
-        value: 'London',
+    valueType: 'select',
+    filters: true,
+    onFilter: true,
+    valueEnum: {
+      london: {
+        text: '伦敦',
       },
-      {
-        text: 'New York',
-        value: 'New York',
+      'New York': {
+        text: '纽约',
       },
-    ],
-    onFilter: (value, record) => record.address.includes(`${value}`),
+    },
   },
   {
     title: 'Action',
@@ -53,34 +100,53 @@ const columns: ProColumnType<DataType>[] = [
   },
 ];
 
-const data: DataType[] = [];
-for (let i = 1; i <= 10; i += 1) {
-  data.push({
-    key: i,
-    name: 'John Brown',
-    age: i + 10,
-    address: `New York No. ${i} Lake Park`,
-    description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
-  });
-}
+const genData = (total: number) => {
+  if (total < 1) {
+    return [];
+  }
+  const data: DataType[] = [];
+  for (let i = 1; i <= total; i += 1) {
+    data.push({
+      key: i,
+      name: 'John Brown',
+      age: i + 10,
+      time: Date.now(),
+      address: i % 2 === 0 ? 'london' : 'New York',
+      description: `My name is John Brown, I am ${i}2 years old, living in New York No. ${i} Lake Park.`,
+    });
+  }
+  return data;
+};
 
 const initData = {
   bordered: true,
   loading: false,
-  pagination: true,
+  columns,
+  pagination: {
+    show: true,
+    pageSize: 5,
+    current: 1,
+    total: 100,
+  },
   size: 'small',
   expandable: false,
-  headerTitle: true,
+  headerTitle: '高级表格',
+  tooltip: '高级表格 tooltip',
   showHeader: true,
   footer: true,
   rowSelection: {},
   scroll: false,
   hasData: true,
   tableLayout: undefined,
-  search: true,
-  span: 24,
   toolBarRender: true,
-  collapseRender: true,
+  search: {
+    show: true,
+    span: 12,
+    collapseRender: true,
+    labelWidth: 80,
+    filterType: 'query',
+    layout: 'horizontal',
+  },
   options: {
     show: true,
     density: true,
@@ -90,21 +156,18 @@ const initData = {
 };
 
 const DynamicSettings = () => {
-  const [state, setState] = useState<any>(initData);
-  const { xScroll, yScroll } = state;
+  const [config, setConfig] = useState<any>(initData);
 
-  const scroll: { x?: React.Key; y?: React.Key } = {};
-  if (yScroll) {
-    scroll.y = 240;
-  }
-  if (xScroll) {
-    scroll.x = '100vw';
-  }
-  const tableColumns = columns.map((item) => ({ ...item, ellipsis: state.ellipsis }));
-  if (xScroll === 'fixed') {
-    tableColumns[0].fixed = true;
-    tableColumns[tableColumns.length - 1].fixed = 'right';
-  }
+  /** 去抖配置 */
+  const updateConfig = useDebounceFn(async (state) => {
+    setConfig(state);
+  }, 20);
+
+  const tableColumns = (config.columns || columns)?.map((item: any) => ({
+    ...item,
+    ellipsis: config.ellipsis,
+  }));
+
   return (
     <ProCard
       split="vertical"
@@ -116,144 +179,529 @@ const DynamicSettings = () => {
       }}
     >
       <ProCard
-        colSpan="400px"
-        style={{
-          height: '100vh',
-          overflow: 'auto',
-        }}
-      >
-        <ProForm
-          initialValues={initData}
-          submitter={false}
-          onValuesChange={(_, values) => setState(values)}
-        >
-          <ProForm.Group title="Table">
-            <ProFormSwitch label="Bordered" name="bordered" />
-            <ProFormSwitch label="Loading" name="loading" />
-            <ProFormSwitch label="ShowHeader" name="showHeader" />
-            <ProFormSwitch label="Footer" name="footer" />
-            <ProFormSwitch label="Expandable" name="expandable" />
-            <ProFormSwitch label="RowSelection" name="rowSelection" />
-            <ProFormSwitch label="HasData" name="hasData" />
-            <ProFormSwitch label="Bordered" name="bordered" />
-            <ProFormSwitch label="Pagination" name="pagination" />
-          </ProForm.Group>
-          <ProForm.Group title="工具栏">
-            <ProFormSwitch label="工具栏" name="toolBarRender" tooltip="toolBarRender={false}" />
-            <ProFormSwitch label="表格标题" name="headerTitle" tooltip="headerTitle={false}" />
-            <ProFormSwitch label="Icon 显示" name={['options', 'show']} tooltip="options={false}" />
-            <ProFormSwitch
-              label="密度 Icon"
-              name={['options', 'density']}
-              tooltip="options={{ density:false }}"
-            />
-            <ProFormSwitch
-              label="keyWords"
-              name={['options', 'search']}
-              tooltip="options={{ search:false }}"
-            />
-            <ProFormSwitch
-              label="全屏 Icon"
-              name={['options', 'fullScreen']}
-              tooltip="options={{ fullScreen:false }}"
-            />
-            <ProFormSwitch
-              label="列设置 Icon"
-              tooltip="options={{ setting:false }}"
-              name={['options', 'setting']}
-            />
-          </ProForm.Group>
-          <ProForm.Group title="查询表单">
-            <ProFormSwitch label="查询表单" tooltip="search={false}" name="search" />
-            <ProFormSwitch
-              label="收起按钮"
-              tooltip={`search={{collapseRender:false}}`}
-              name="collapseRender"
-            />
-            <ProFormSwitch
-              label="表单收起"
-              name="collapsed"
-              tooltip={`search={{collapsed:false}}`}
-            />
-            <ProFormSelect
-              tooltip={`search={{span:8}}`}
-              options={[
-                {
-                  label: '24',
-                  value: 24,
-                },
-                {
-                  label: '12',
-                  value: 12,
-                },
-                {
-                  label: '8',
-                  value: 8,
-                },
-                {
-                  label: '6',
-                  value: 6,
-                },
-              ]}
-              label="表单栅格"
-              name="span"
-            />
-          </ProForm.Group>
-
-          <ProFormRadio.Group
-            tooltip={`size="middle"`}
-            label="尺寸"
-            options={[
-              {
-                label: 'Default',
-                value: 'default',
-              },
-              {
-                label: 'Middle',
-                value: 'middle',
-              },
-              {
-                label: 'Small',
-                value: 'small',
-              },
-            ]}
-            name="size"
-          />
-        </ProForm>
-      </ProCard>
-      <ProCard
         style={{
           height: '100vh',
           overflow: 'auto',
         }}
       >
         <ProTable
-          {...state}
-          search={
-            state.search
-              ? {
-                  collapsed: state.collapsed,
-                  span: state.span,
-                  collapseRender: state.collapseRender ? undefined : false,
+          {...config}
+          pagination={
+            config.pagination?.show
+              ? config.pagination
+              : {
+                  pageSize: 5,
                 }
-              : false
           }
+          search={config.search?.show ? config.search : {}}
           expandable={
-            state.expandable && {
+            config.expandable && {
               expandedRowRender: (record: DataType) => <p>{record.description}</p>,
             }
           }
-          options={state.options.show ? state.options : false}
+          options={config.options?.show ? config.options : false}
           toolBarRender={
-            state?.toolBarRender ? () => [<Button type="primary">刷新</Button>] : false
+            config?.toolBarRender ? () => [<Button type="primary">刷新</Button>] : false
           }
-          footer={state.footer ? () => 'Here is footer' : false}
-          headerTitle={state.headerTitle && '高级表格'}
+          footer={config.footer ? () => 'Here is footer' : false}
+          headerTitle={config.headerTitle}
           columns={tableColumns}
-          dataSource={state.hasData ? data : null}
-          scroll={state.scroll}
+          dataSource={genData(config.pagination?.total || 10)}
+          scroll={config.scroll}
         />
       </ProCard>
+      <ProForm
+        layout="inline"
+        initialValues={initData}
+        submitter={false}
+        colon={false}
+        onValuesChange={(_, values) => updateConfig.run(values)}
+      >
+        <ProCard colSpan="500px" tabs={{}} />
+        <ProCard
+          colSpan="500px"
+          style={{
+            height: '100vh',
+            overflow: 'auto',
+            position: 'fixed',
+            boxShadow: '2px 0 6px rgba(0, 21, 41, 0.35)',
+            top: 0,
+            right: 0,
+          }}
+          tabs={{}}
+        >
+          <ProCard.TabPane
+            key="tab1"
+            tab="基本配置"
+            cardProps={{
+              bodyStyle: {
+                padding: 12,
+              },
+            }}
+          >
+            <ProForm.Group
+              title="表格配置"
+              size={0}
+              collapsible
+              direction="horizontal"
+              labelLayout="twoLine"
+            >
+              <ProFormSwitch
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="边框"
+                tooltip="bordered"
+                name="bordered"
+              />
+              <ProFormRadio.Group
+                tooltip={`size="middle"`}
+                radioType="button"
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="尺寸"
+                options={[
+                  {
+                    label: '大',
+                    value: 'default',
+                  },
+                  {
+                    label: '中',
+                    value: 'middle',
+                  },
+                  {
+                    label: '小',
+                    value: 'small',
+                  },
+                ]}
+                name="size"
+              />
+              <ProFormSwitch
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="加载中"
+                tooltip="loading"
+                name="loading"
+              />
+              <ProFormSwitch
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="显示标题"
+                tooltip="showHeader"
+                name="showHeader"
+              />
+              <ProFormSwitch
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="页脚"
+                tooltip="footer"
+                name="footer"
+              />
+              <ProFormSwitch
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="支持展开"
+                tooltip="expandable"
+                name="expandable"
+              />
+              <ProFormSwitch
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="行选择"
+                tooltip="rowSelection"
+                name="rowSelection"
+              />
+            </ProForm.Group>
+            <ProForm.Group
+              size={0}
+              collapsible
+              direction="horizontal"
+              labelLayout="twoLine"
+              tooltip="toolBarRender={false}"
+              title="工具栏"
+              extra={
+                <ProFormSwitch
+                  fieldProps={{
+                    size: 'small',
+                  }}
+                  noStyle
+                  name="toolBarRender"
+                />
+              }
+            >
+              <ProFormText
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="表格标题"
+                name="headerTitle"
+                tooltip="headerTitle={false}"
+              />
+              <ProFormText
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="表格的tooltip"
+                name="tooltip"
+                tooltip="tooltip={false}"
+              />
+
+              <ProFormSwitch
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="Icon 显示"
+                name={['options', 'show']}
+                tooltip="options={false}"
+              />
+              <ProFormSwitch
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="密度 Icon"
+                name={['options', 'density']}
+                tooltip="options={{ density:false }}"
+              />
+              <ProFormSwitch
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="keyWords"
+                name={['options', 'search']}
+                tooltip="options={{ search:'keyWords' }}"
+              />
+              <ProFormSwitch
+                label="全屏 Icon"
+                fieldProps={{
+                  size: 'small',
+                }}
+                name={['options', 'fullScreen']}
+                tooltip="options={{ fullScreen:false }}"
+              />
+              <ProFormSwitch
+                label="列设置 Icon"
+                fieldProps={{
+                  size: 'small',
+                }}
+                tooltip="options={{ setting:false }}"
+                name={['options', 'setting']}
+              />
+            </ProForm.Group>
+          </ProCard.TabPane>
+          <ProCard.TabPane
+            cardProps={{
+              bodyStyle: {
+                padding: 12,
+              },
+            }}
+            key="tab3"
+            tab="表单配置"
+          >
+            <ProForm.Group
+              title="查询表单"
+              size={0}
+              collapsible
+              tooltip="search={false}"
+              direction="horizontal"
+              labelLayout="twoLine"
+              extra={
+                <ProFormSwitch
+                  fieldProps={{
+                    size: 'small',
+                  }}
+                  noStyle
+                  name={['search', 'show']}
+                />
+              }
+            >
+              <ProFormText
+                label="提交按钮文案"
+                fieldProps={{
+                  size: 'small',
+                }}
+                tooltip={`search={{submitText:"提交"}}`}
+                name={['search', 'submitText']}
+              />
+              <ProFormText
+                label="重置按钮文案"
+                fieldProps={{
+                  size: 'small',
+                }}
+                tooltip={`search={{resetText:"重置"}}`}
+                name={['search', 'resetText']}
+              />
+              <ProFormSwitch
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="收起按钮"
+                tooltip={`search={{collapseRender:false}}`}
+                name={['search', 'collapseRender']}
+              />
+              <ProFormSwitch
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="表单收起"
+                name={['search', 'collapsed']}
+                tooltip={`search={{collapsed:false}}`}
+              />
+              <ProFormSelect
+                fieldProps={{
+                  size: 'small',
+                }}
+                tooltip={`search={{span:8}}`}
+                options={[
+                  {
+                    label: '24',
+                    value: 24,
+                  },
+                  {
+                    label: '12',
+                    value: 12,
+                  },
+                  {
+                    label: '8',
+                    value: 8,
+                  },
+                  {
+                    label: '6',
+                    value: 6,
+                  },
+                ]}
+                label="表单栅格"
+                name={['search', 'span']}
+              />
+              <ProFormRadio.Group
+                radioType="button"
+                fieldProps={{
+                  size: 'small',
+                }}
+                name={['search', 'layout']}
+                tooltip={`search={{layout:"${config.search?.layout}"}}`}
+                options={[
+                  {
+                    label: '垂直',
+                    value: 'vertical',
+                  },
+                  {
+                    label: '水平',
+                    value: 'horizontal',
+                  },
+                ]}
+                label="表单布局"
+              />
+              <ProFormRadio.Group
+                radioType="button"
+                fieldProps={{
+                  size: 'small',
+                }}
+                name={['search', 'filterType']}
+                tooltip={`search={{filterType:"light"}}`}
+                options={[
+                  {
+                    label: '默认',
+                    value: 'query',
+                  },
+                  {
+                    label: '轻量',
+                    value: 'light',
+                  },
+                ]}
+                label="表单类型"
+              />
+            </ProForm.Group>
+          </ProCard.TabPane>
+          <ProCard.TabPane
+            cardProps={{
+              bodyStyle: {
+                padding: 12,
+              },
+            }}
+            key="tab2"
+            tab="数据配置"
+          >
+            <ProForm.Group
+              title="分页器"
+              size={0}
+              collapsible
+              tooltip="pagination={}"
+              direction="horizontal"
+              labelLayout="twoLine"
+              extra={
+                <ProFormSwitch
+                  fieldProps={{
+                    size: 'small',
+                  }}
+                  noStyle
+                  name={['pagination', 'show']}
+                />
+              }
+            >
+              <ProFormRadio.Group
+                tooltip={`pagination={size:"middle"}`}
+                radioType="button"
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="尺寸"
+                options={[
+                  {
+                    label: '默认',
+                    value: 'default',
+                  },
+                  {
+                    label: '小',
+                    value: 'small',
+                  },
+                ]}
+                name={['pagination', 'size']}
+              />
+              <ProFormDigit
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="页码"
+                tooltip={`pagination={{ current:10 }}`}
+                name={['pagination', 'current']}
+              />
+              <ProFormDigit
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="每页数量"
+                tooltip={`pagination={{ pageSize:10 }}`}
+                name={['pagination', 'pageSize']}
+              />
+              <ProFormDigit
+                fieldProps={{
+                  size: 'small',
+                }}
+                label="数据总数"
+                tooltip={`pagination={{ total:100 }}`}
+                name={['pagination', 'total']}
+              />
+            </ProForm.Group>
+          </ProCard.TabPane>
+          <ProCard.TabPane
+            cardProps={{
+              bodyStyle: {
+                padding: 12,
+              },
+            }}
+            key="tab4"
+            tab="列配置"
+          >
+            <ProFormList
+              name="columns"
+              itemRender={({ listDom, action }) => {
+                return (
+                  <ProCard
+                    bordered
+                    style={{
+                      marginBottom: 8,
+                      position: 'relative',
+                    }}
+                  >
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: -2,
+                        right: 4,
+                      }}
+                    >
+                      {action}
+                    </div>
+                    {listDom}
+                  </ProCard>
+                );
+              }}
+            >
+              {/*  {
+                title: 'time',
+                dataIndex: 'time',
+                valueType: 'date',
+              }, */}
+
+              <ProFormText
+                rules={[
+                  {
+                    required: true,
+                  },
+                ]}
+                name="title"
+                label="标题"
+              />
+              <ProFormGroup
+                style={{
+                  marginTop: 8,
+                }}
+              >
+                <ProFormSwitch label="过长省略" name="ellipsis" />
+                <ProFormSwitch label="复制按钮" name="copyable" />
+              </ProFormGroup>
+              <ProFormGroup
+                style={{
+                  marginTop: 8,
+                }}
+                size={8}
+              >
+                <ProFormSelect
+                  label="dataIndex"
+                  width="xs"
+                  name="dataIndex"
+                  valueEnum={{
+                    age: 'age',
+                    address: 'address',
+                    name: 'name',
+                    time: 'time',
+                    description: 'string',
+                  }}
+                />
+                <ProFormSelect
+                  width="xs"
+                  label="值类型"
+                  name="valueType"
+                  options={valueTypeArray.map((value) => ({
+                    label: value,
+                    value,
+                  }))}
+                />
+              </ProFormGroup>
+              <ProFormDependency name={['valueType', 'valueEnum']}>
+                {({ valueType, valueEnum }) => {
+                  if (valueType !== 'select') {
+                    return null;
+                  }
+                  return (
+                    <ProFormTextArea
+                      formItemProps={{
+                        style: {
+                          marginTop: 8,
+                        },
+                      }}
+                      fieldProps={{
+                        value: JSON.stringify(valueEnum),
+                      }}
+                      normalize={(value) => {
+                        return JSON.parse(value);
+                      }}
+                      label="数据枚举"
+                      name="valueEnum"
+                    />
+                  );
+                }}
+              </ProFormDependency>
+            </ProFormList>
+          </ProCard.TabPane>
+        </ProCard>
+      </ProForm>
     </ProCard>
   );
 };

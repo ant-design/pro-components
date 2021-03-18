@@ -2,7 +2,8 @@
 import React from 'react';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
-import { StepsForm, StepsFormProps, ProFormText } from '@ant-design/pro-form';
+import type { StepsFormProps } from '@ant-design/pro-form';
+import { StepsForm, ProFormText } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
 
 describe('StepsForm', () => {
@@ -220,6 +221,40 @@ describe('StepsForm', () => {
     expect(currentFn).toBeCalledWith(0);
 
     await waitForComponentToPaint(html, 1200);
+    act(() => {
+      html.unmount();
+    });
+  });
+
+  it('🐲 onFinish throw error', async () => {
+    const currentFn = jest.fn();
+    const html = mount<StepsFormProps>(
+      <StepsForm
+        current={1}
+        onCurrentChange={(c) => {
+          currentFn(c);
+        }}
+        onFinish={async () => {
+          throw new Error('发生了错误');
+        }}
+      >
+        <StepsForm.StepForm name="base" title="表单1">
+          <ProFormText name="姓名" />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
+          <ProFormText name="邮箱" />
+        </StepsForm.StepForm>
+      </StepsForm>,
+    );
+
+    await waitForComponentToPaint(html);
+    act(() => {
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+    expect(currentFn).not.toBeCalledWith(0);
+
     act(() => {
       html.unmount();
     });

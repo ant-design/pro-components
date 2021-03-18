@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { InputNumber } from 'antd';
+import { InputNumber, Form } from 'antd';
 import type { RowEditableConfig } from '@ant-design/pro-utils';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type {
@@ -93,6 +93,7 @@ const DescriptionsDemo = (
     onDataSourceChange?: (dataSource: DataSourceType) => void;
   } & RowEditableConfig<DataSourceType>,
 ) => {
+  const [form] = Form.useForm();
   const actionRef = useRef<ProDescriptionsActionType>();
   const [editableKeys, setEditorRowKeys] = useMergedState<React.Key[]>(
     () => props.defaultKeys || [],
@@ -117,10 +118,21 @@ const DescriptionsDemo = (
         total: 3,
         success: true,
       })}
+      title={
+        <a
+          id="reset_test"
+          onClick={() => {
+            form.resetFields();
+          }}
+        >
+          重置
+        </a>
+      }
       dataSource={dataSource}
       onDataSourceChange={setDataSource}
       editable={{
         ...props,
+        form,
         type: props.type,
         editableKeys,
         onSave: props.onSave,
@@ -162,6 +174,45 @@ describe('Descriptions', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(['title']);
+  });
+
+  it('📝 support set Form', async () => {
+    const wrapper = mount(<DescriptionsDemo editorRowKeys={['title']} />);
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper
+        .find('td.ant-descriptions-item .ant-descriptions-item-content')
+        .at(0)
+        .find(`.ant-input`)
+        .simulate('change', {
+          target: {
+            value: 'test',
+          },
+        });
+    });
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper
+        .find('td.ant-descriptions-item .ant-descriptions-item-content')
+        .at(0)
+        .find(`.ant-input`)
+        .props().value,
+    ).toBe('test');
+
+    act(() => {
+      wrapper.find('#reset_test').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper
+        .find('td.ant-descriptions-item .ant-descriptions-item-content')
+        .at(0)
+        .find(`.ant-input`)
+        .props().value,
+    ).toBe('🐛 [BUG]yarn install命令 antd2.4.5会报错');
   });
 
   it('📝 renderFormItem run defaultRender', async () => {
@@ -339,7 +390,7 @@ describe('Descriptions', () => {
         .at(0)
         .find('input')
         .exists(),
-    ).toBeTruthy();
+    ).toBeFalsy();
   });
 
   it('📝 type=single, only edit one rows', async () => {

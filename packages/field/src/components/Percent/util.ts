@@ -3,7 +3,10 @@ export function getSymbolByRealValue(realValue: number) {
   if (realValue === 0) {
     return null;
   }
-  return realValue > 0 ? '+' : '-';
+  if (realValue > 0) {
+    return '+';
+  }
+  return '-';
 }
 
 /** 获取颜色 */

@@ -5,6 +5,7 @@ import type { ProFieldFC } from '../../index';
 export type FieldImageProps = {
   text: string;
   width?: number;
+  placeholder?: string | string[] | undefined;
 };
 
 /**
@@ -20,9 +21,8 @@ const FieldImage: ProFieldFC<FieldImageProps> = ({
   render,
   renderFormItem,
   fieldProps,
+  placeholder,
   width,
-  plain,
-  ...rest
 }) => {
   if (type === 'read') {
     const dom = <Image width={width || 32} src={text} />;
@@ -32,7 +32,7 @@ const FieldImage: ProFieldFC<FieldImageProps> = ({
     return dom;
   }
   if (type === 'edit' || type === 'update') {
-    const dom = <Input {...rest} {...fieldProps} />;
+    const dom = <Input placeholder={placeholder} {...fieldProps} />;
     if (renderFormItem) {
       return renderFormItem(text, { mode: type, ...fieldProps }, dom);
     }

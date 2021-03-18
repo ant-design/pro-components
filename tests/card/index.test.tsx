@@ -3,8 +3,11 @@ import React from 'react';
 import ProCard from '@ant-design/pro-card';
 import { waitForComponentToPaint } from '../util';
 import { act } from 'react-dom/test-utils';
+import { Grid } from 'antd';
 
-describe('Field', () => {
+jest.mock('antd/lib/grid/hooks/useBreakpoint');
+
+describe('Card', () => {
   it('🥩 collapsible onCollapse', async () => {
     const fn = jest.fn();
     const wrapper = mount(
@@ -17,6 +20,24 @@ describe('Field', () => {
       wrapper.find('AntdIcon.ant-pro-card-collapsible-icon').simulate('click');
     });
     expect(fn).toBeCalled();
+  });
+
+  it('🥩 resize breakpoint', async () => {
+    // @ts-ignore
+    Grid.useBreakpoint.mockReturnValue({ xs: true });
+
+    const wrapper = mount(
+      <ProCard
+        style={{ marginTop: 8 }}
+        gutter={[{ xs: 8, sm: 8, md: 16, lg: 24, xl: 32, xxl: 32 }, 16]}
+        colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10, xxl: 12 }}
+        title="24栅格"
+      >
+        Col
+      </ProCard>,
+    );
+
+    await waitForComponentToPaint(wrapper);
   });
 
   it('🥩 collapsible defaultCollapsed', async () => {

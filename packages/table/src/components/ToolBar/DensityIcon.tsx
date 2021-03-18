@@ -6,7 +6,7 @@ import Container from '../../container';
 
 export type DensitySize = 'middle' | 'small' | 'large' | undefined;
 
-const DensityIcon: React.ForwardRefRenderFunction<any, {}> = (_, ref) => {
+const DensityIcon = () => {
   const counter = Container.useContainer();
   const intl = useIntl();
   return (
@@ -32,11 +32,11 @@ const DensityIcon: React.ForwardRefRenderFunction<any, {}> = (_, ref) => {
       }
       trigger={['click']}
     >
-      <Tooltip ref={ref} title={intl.getMessage('tableToolBar.density', '表格密度')}>
+      <Tooltip title={intl.getMessage('tableToolBar.density', '表格密度')}>
         <ColumnHeightOutlined />
       </Tooltip>
     </Dropdown>
   );
 };
 
-export default React.forwardRef(DensityIcon);
+export default React.memo(DensityIcon);

@@ -3,7 +3,6 @@
 exports[`Table valueEnum 🎏 customization valueType 1`] = `
 <div
   class="ant-pro-table"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-pro-table-search ant-pro-table-search-query-filter"
@@ -316,7 +315,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
               <li
                 aria-disabled="true"
                 class="ant-pagination-prev ant-pagination-disabled"
-                title="Previous Page"
+                title="上一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -403,7 +402,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
               <li
                 class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
                 tabindex="0"
-                title="Next 5 Pages"
+                title="向后 5 页"
               >
                 <a
                   class="ant-pagination-item-link"
@@ -453,7 +452,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                 aria-disabled="false"
                 class="ant-pagination-next"
                 tabindex="0"
-                title="Next Page"
+                title="下一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -512,9 +511,9 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                     </span>
                     <span
                       class="ant-select-selection-item"
-                      title="20 / page"
+                      title="20 条/页"
                     >
-                      20 / page
+                      20 条/页
                     </span>
                   </div>
                   <span
@@ -597,7 +596,8 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
           >
             <div
               aria-selected="false"
-              class="ant-select-item ant-select-item-option ant-select-item-option-active"
+              class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option  ant-select-item-option-active"
+              data-item="[object Object]"
               label="关闭"
               title="关闭"
             >
@@ -615,7 +615,8 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="ant-select-item ant-select-item-option"
+              class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option  ant-select-item-option-disabled"
+              data-item="[object Object]"
               label="运行中"
               title="运行中"
             >
@@ -633,7 +634,8 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="ant-select-item ant-select-item-option"
+              class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option "
+              data-item="[object Object]"
               label="已上线"
               title="已上线"
             >
@@ -651,7 +653,8 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
             </div>
             <div
               aria-selected="false"
-              class="ant-select-item ant-select-item-option"
+              class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option "
+              data-item="[object Object]"
               label="异常"
               title="异常"
             >

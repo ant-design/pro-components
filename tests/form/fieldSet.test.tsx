@@ -5,7 +5,7 @@ import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
 describe('ProFormFieldSet', () => {
-  it('ProFormFieldSet onChange', async () => {
+  it('😊 ProFormFieldSet onChange', async () => {
     const fn = jest.fn();
     const valueFn = jest.fn();
     const html = mount(
@@ -40,20 +40,26 @@ describe('ProFormFieldSet', () => {
     });
     expect(valueFn).toBeCalledWith(['111', 2]);
     await waitForComponentToPaint(html);
+
+    await waitForComponentToPaint(html, 200);
+
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
     await waitForComponentToPaint(html, 200);
 
     expect(fn).toBeCalledWith(['111', 2]);
+    html.unmount();
   });
 
-  it('ProFormFieldSet transform', async () => {
+  it('😊 ProFormFieldSet transform', async () => {
     const fn = jest.fn();
     const valueFn = jest.fn();
     const html = mount(
       <ProForm
-        onFinish={(values) => fn(values.listKey)}
+        onFinish={async (values) => {
+          fn(values.listKey);
+        }}
         onValuesChange={(value) => {
           valueFn(value.list);
         }}
@@ -101,11 +107,16 @@ describe('ProFormFieldSet', () => {
     });
     expect(valueFn).toBeCalledWith(['111', '222']);
 
+    await waitForComponentToPaint(html, 200);
+
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
+
     await waitForComponentToPaint(html, 200);
 
     expect(fn).toBeCalledWith('111');
+
+    html.unmount();
   });
 });

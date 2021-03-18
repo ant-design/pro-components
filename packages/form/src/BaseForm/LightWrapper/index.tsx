@@ -5,11 +5,13 @@ import {
   FieldLabel,
   isDropdownValueType,
   useMountMergeState,
+  omitUndefined,
 } from '@ant-design/pro-utils';
-import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigProvider } from 'antd';
 
 import './index.less';
+
+export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
 export type LightWrapperProps = {
   label?: React.ReactNode;
@@ -18,6 +20,7 @@ export type LightWrapperProps = {
   size?: SizeType;
   value?: any;
   onChange?: (value?: any) => void;
+  onBlur?: (value?: any) => void;
   style?: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;
@@ -35,6 +38,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     size,
     disabled,
     onChange,
+    onBlur,
     className,
     style,
     children,
@@ -58,20 +62,26 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
 
   if (!light || customLightMode || isDropdown) {
     if (React.isValidElement(children)) {
-      return React.cloneElement(children, {
-        value,
-        onChange,
-        ...children.props,
-        fieldProps: {
-          id,
-          [valuePropName]: props[valuePropName],
-          // 这个 onChange 是 Form.Item 添加上的，要通过 fieldProps 透传给 ProField 调用
+      return React.cloneElement(
+        children,
+        omitUndefined({
+          value,
           onChange,
-          // 优先使用 children.props.fieldProps，比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
-          ...children.props.fieldProps,
-        },
-      });
+          onBlur,
+          ...children.props,
+          fieldProps: omitUndefined({
+            id,
+            [valuePropName]: props[valuePropName],
+            // 优先使用 children.props.fieldProps，比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
+            ...children.props.fieldProps,
+            // 这个 onChange 是 Form.Item 添加上的，要通过 fieldProps 透传给 ProField 调用
+            onChange,
+            onBlur,
+          }),
+        }),
+      );
     }
+
     return children as JSX.Element;
   }
 
@@ -79,7 +89,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   if (children && React.isValidElement(children)) {
     allowClear = children.props.fieldProps?.allowClear;
   }
-
+  const labelValue = props[valuePropName];
   return (
     <FilterDropdown
       disabled={disabled}
@@ -98,7 +108,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           className={className}
           label={label}
           placeholder={placeholder}
-          value={props[valuePropName]}
+          value={labelValue}
           disabled={disabled}
           expanded={open}
           formatter={labelFormatter}

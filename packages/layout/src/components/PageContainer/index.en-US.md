@@ -80,5 +80,26 @@ PageContainer wraps ant design's PageHeader component, adding tabList and conten
 | fixedHeader | Fix the content of the pageHeader to the top, better not to use it if the page content is small, it will have serious obscuration problems | `boolean` | - |
 | affixProps | The configuration of the fixed pins, exactly the same as antd | `AffixProps` | - |
 | footer | Hover over the bottom action bar, pass in an array that will automatically add spaces | `ReactNode[]` | - |
+| waterMarkProps | Configure the watermark, Layout will pass you through to PageContainer, but the configuration of PageContainer takes precedence | [WaterMarkProps](/components/water-mark) | - |
 
 > fixedHeader uses antd's Affix implementation, listens to the body by default, if your scrollbar is not on the body you need to human [set](https://ant.design/components/affix-cn/) it.
+
+### FooterToolbar
+
+| Parameters | Description | Type | Default |
+| --- | --- | --- | --- |
+| extra | The extra content area, located to the right of content | `ReactNode` | - |
+| children | content area | `ReactNode`\|`ReactNode[]` | - |
+
+The FooterToolbar api is relatively simple, the main function is to implement automatic float control in the layout so that it does not block the menu. If you don't use ProLayout, you need to customize the width and float by style.
+
+```tsx | pure
+<FooterToolbar
+  style={{
+    left: 208,
+    width: `calc(100% - 208px)`,
+  }}
+>
+  <Button>Submit</Button>
+</FooterToolbar>
+```

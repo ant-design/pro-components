@@ -1,21 +1,24 @@
 import React, { useState, useContext, useEffect } from 'react';
-import type { FormProps } from 'antd/lib/form/Form';
+import type { FormProps } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import { Form, ConfigProvider } from 'antd';
 import { FilterDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import { FilterOutlined } from '@ant-design/icons';
+import omit from 'omit.js';
+
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import './index.less';
 
-export type LightFilterProps = {
+export type LightFilterProps<T> = {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
-} & Omit<FormProps, 'onFinish'> &
-  CommonFormProps;
+  ignoreRules?: boolean;
+} & Omit<FormProps<T>, 'onFinish'> &
+  CommonFormProps<T>;
 
 /**
  * 单行的查询表单，一般用于配合 table 或者 list使用 有时也会用于 card 的额外区域
@@ -86,10 +89,10 @@ const LightFilterContainer: React.FC<{
       })}
     >
       <div className={`${lightFilterClassName}-container`}>
-        {outsideItems.map((child: any) => {
+        {outsideItems.map((child: any, index) => {
           const { key } = child;
           return (
-            <div className={`${lightFilterClassName}-item`} key={key}>
+            <div className={`${lightFilterClassName}-item`} key={key || index}>
               {React.cloneElement(child, {
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
@@ -157,7 +160,7 @@ const LightFilterContainer: React.FC<{
   );
 };
 
-const LightFilter: React.FC<LightFilterProps> = (props) => {
+function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   const {
     size,
     collapse,
@@ -166,6 +169,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
     onValuesChange,
     form: userForm,
     bordered,
+    ignoreRules,
     ...reset
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -195,7 +199,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
             collapse={collapse}
             collapseLabel={collapseLabel}
             values={values}
-            onValuesChange={(newValues) => {
+            onValuesChange={(newValues: any) => {
               const newAllValues = {
                 ...values,
                 ...newValues,
@@ -219,7 +223,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
           width: undefined,
         },
       }}
-      {...reset}
+      {...omit(reset, ['labelWidth'] as any[])}
       onValuesChange={(_, allValues) => {
         setValues(allValues);
         if (onValuesChange) {
@@ -229,6 +233,6 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
       }}
     />
   );
-};
+}
 
 export default LightFilter;

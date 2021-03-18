@@ -50,19 +50,19 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 ### 基本使用
 
-<code src="./demos/basic.tsx" />
+<code src="./demos/basic.tsx" iframe="500px" title="基本使用" desc="基本使用" />
 
 ### 固定表头
 
-<code src="./demos/fixHeader.tsx" />
+<code src="./demos/fixHeader.tsx" iframe="500px" title="固定表头" desc="通过 `fixedHeader` 固定表头，只有在溢出容器时才会开始计算。" />
 
 ### 隐藏面包屑
 
-<code src="./demos/hideBreadMenu.tsx">
+<code src="./demos/hideBreadMenu.tsx" iframe="500px" title="隐藏面包屑" desc="不配置 `header` 属性中的 `breadcrumb` 即可。" />
 
 ### 页面加载中
 
-<code src="./demos/loading.tsx" />
+<code src="./demos/loading.tsx" iframe="500px" title="页面加载中" desc="通过 `loading` 属性配置页面加载。"/>
 
 ## API
 
@@ -80,5 +80,27 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和
 | fixedHeader | 固定 pageHeader 的内容到顶部，如果页面内容较少，最好不要使用，会有严重的遮挡问题 | `boolean` | - |
 | affixProps | 固钉的配置，与 antd 完全相同 | `AffixProps` | - |
 | footer | 悬浮在底部的操作栏，传入一个数组，会自动加空格 | `ReactNode[]` | - |
+| waterMarkProps | 配置水印, Layout 会透传给 PageContainer，但是以 PageContainer 的配置优先 | [WaterMarkProps](/components/water-mark) | - |
+| tabProps | [Tabs 的相关属性](https://ant.design/components/tabs-cn/#Tabs),只有卡片样式的页签支持新增和关闭选项。使用 closable={false} 禁止关闭。 | `TabsProps` |  |
 
 > fixedHeader 使用了 antd 的 Affix 实现，默认监听 body，如果你的滚动条不在 body 上需要人肉[设置](https://ant.design/components/affix-cn/)一下。
+
+### FooterToolbar
+
+| 参数     | 说明                            | 类型                       | 默认值 |
+| -------- | ------------------------------- | -------------------------- | ------ |
+| extra    | 额外内容区，位于 content 的右侧 | `ReactNode`                | -      |
+| children | 内容区域                        | `ReactNode`\|`ReactNode[]` | -      |
+
+FooterToolbar api 比较简单，主要功能是实现了在 layout 中自动控制浮动，使其不会挡住菜单。如果你没有使用 ProLayout 需要通过 style 来自定义宽度和浮动。
+
+```tsx | pure
+<FooterToolbar
+  style={{
+    left: 208,
+    width: `calc(100% - 208px)`,
+  }}
+>
+  <Button>提交</Button>
+</FooterToolbar>
+```

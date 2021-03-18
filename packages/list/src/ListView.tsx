@@ -1,8 +1,7 @@
 import React from 'react';
+import type { ListProps, TableColumnType, TableProps } from 'antd';
 import { List } from 'antd';
 import type { GetRowKey } from 'antd/lib/table/interface';
-import type { ListProps } from 'antd/lib/list';
-import type { ColumnType, TableProps } from 'antd/es/table';
 import type { ActionType } from '@ant-design/pro-table';
 import get from 'rc-util/lib/utils/get';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
@@ -19,9 +18,10 @@ export type ListViewProps<RecordType> = AntdListProps<RecordType> &
   Pick<TableProps<RecordType>, 'columns' | 'dataSource' | 'expandable'> & {
     rowKey?: string | GetRowKey<RecordType>;
     showActions?: 'hover' | 'always';
+    showExtra?: 'hover' | 'always';
     rowSelection?: TableProps<RecordType>['rowSelection'];
     prefixCls: string;
-    dataSource: RecordType[];
+    dataSource: readonly RecordType[];
     actionRef: React.MutableRefObject<ActionType | undefined>;
   };
 
@@ -31,8 +31,10 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     columns,
     rowKey,
     showActions,
+    showExtra,
     prefixCls,
     actionRef,
+    renderItem,
     expandable: expandableConfig,
     rowSelection,
     pagination, // List 的 pagination 默认是 false
@@ -50,7 +52,11 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
 
   // 合并分页的的配置
-  const [mergedPagination] = usePagination(dataSource.length, pagination as any, () => {});
+  const [mergedPagination] = usePagination(
+    dataSource.length,
+    { responsive: true, ...pagination } as any,
+    () => {},
+  );
   /** 根据分页来回去不同的数据，模拟 table */
   const pageData = React.useMemo<RecordType[]>(() => {
     if (
@@ -97,7 +103,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
   const [innerExpandedKeys, setInnerExpandedKeys] = React.useState<Key[]>(() => {
     if (defaultExpandedRowKeys) {
-      return defaultExpandedRowKeys;
+      return defaultExpandedRowKeys as Key[];
     }
     if (defaultExpandAllRows !== false) {
       return dataSource.map(getRowKey);
@@ -142,11 +148,14 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
+        if (renderItem) {
+          return renderItem(item, index);
+        }
         const listItemProps = {};
-        columns?.forEach((column: ColumnType<RecordType>) => {
+        columns?.forEach((column: TableColumnType<RecordType>) => {
           PRO_LIST_KEYS.forEach((key) => {
             if (column.key === key) {
-              const dataIndex = column.dataIndex || key;
+              const dataIndex = (column.dataIndex || key) as string;
               const rawData = Array.isArray(dataIndex)
                 ? get(item, dataIndex as string[])
                 : item[dataIndex];
@@ -163,6 +172,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
         return (
           <ProListItem
             key={recordKey}
+            cardProps={rest.grid}
             {...listItemProps}
             recordKey={recordKey}
             isEditable={isEditable || false}
@@ -171,7 +181,9 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             onExpand={() => {
               onTriggerExpand(item);
             }}
+            record={item}
             showActions={showActions}
+            showExtra={showExtra}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
             selected={selectedKeySet.has(getRowKey(item, index))}
             checkbox={checkboxDom}

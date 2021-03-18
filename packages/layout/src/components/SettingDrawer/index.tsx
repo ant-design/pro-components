@@ -6,12 +6,10 @@ import {
   SettingOutlined,
 } from '@ant-design/icons';
 import { isBrowser } from '@ant-design/pro-utils';
+import { useUrlSearchParams } from '@umijs/use-params';
 
 import { Button, Divider, Drawer, List, Switch, message, Alert } from 'antd';
-import { createBrowserHistory } from 'history';
-import { stringify, parse } from 'qs';
 import React, { useState, useEffect, useRef } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
 import type { ProSettings } from '../../defaultSettings';
@@ -60,6 +58,8 @@ export type SettingDrawerProps = {
   hideCopyButton?: boolean;
   onCollapseChange?: (collapse: boolean) => void;
   onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
+  pathname?: string;
+  disableUrlParams?: boolean;
 };
 
 export type SettingDrawerState = {
@@ -67,40 +67,26 @@ export type SettingDrawerState = {
   language?: string;
 } & MergerSettingsType<ProSettings>;
 
-let oldSetting: MergerSettingsType<ProSettings> = {};
-
-const getDifferentSetting = (state: Partial<ProSettings>) => {
+const getDifferentSetting = (state: Partial<ProSettings>): Record<string, any> => {
   const stateObj: Partial<ProSettings> = {};
   Object.keys(state).forEach((key) => {
-    if (state[key] !== oldSetting[key] && key !== 'collapse') {
+    if (state[key] !== defaultSettings[key] && key !== 'collapse') {
       stateObj[key] = state[key];
+    } else {
+      stateObj[key] = undefined;
     }
-
     if (key.includes('Render')) {
-      stateObj[key] = state[key] === 'false' || state[key] === false ? false : undefined;
+      stateObj[key] = state[key] === false ? false : undefined;
     }
   });
-
-  delete stateObj.menu;
+  stateObj.menu = undefined;
   return stateObj;
 };
 
 export const getFormatMessage = (): ((data: { id: string; defaultMessage?: string }) => string) => {
-  const formatMessage = ({
-    id,
-    defaultMessage,
-  }: {
-    id: string;
-    defaultMessage?: string;
-  }): string => {
+  const formatMessage = ({ id }: { id: string; defaultMessage?: string }): string => {
     const locales = getLocales();
-    if (locales[id]) {
-      return locales[id];
-    }
-    if (defaultMessage) {
-      return defaultMessage as string;
-    }
-    return id;
+    return locales[id];
   };
   return formatMessage;
 };
@@ -108,8 +94,8 @@ export const getFormatMessage = (): ((data: { id: string; defaultMessage?: strin
 const updateTheme = (
   dark: boolean,
   color?: string,
-  hideMessageLoading = false,
   publicPath = '/theme',
+  hideMessageLoading?: boolean,
 ) => {
   // ssr
   if (typeof window === 'undefined' || !(window as any).umi_plugin_ant_themeVar) {
@@ -266,81 +252,54 @@ const getThemeList = (settings: Partial<ProSettings>) => {
  * @param param0
  */
 const initState = (
+  urlParams: Record<string, any>,
   settings: Partial<ProSettings>,
   onSettingChange: SettingDrawerProps['onSettingChange'],
   publicPath?: string,
 ) => {
-  if (!isBrowser()) {
-    return;
-  }
+  if (!isBrowser()) return;
 
   let loadedStyle = false;
 
-  if (window.location.search) {
-    const params = parse(window.location.search.replace('?', '')) as {
-      primaryColor: string;
-      navTheme: string;
-    };
+  const replaceSetting = {};
+  Object.keys(urlParams).forEach((key) => {
+    if (defaultSettings[key] || defaultSettings[key] === undefined) {
+      replaceSetting[key] = urlParams[key];
+    }
+  });
 
-    const replaceSetting = {};
-    Object.keys(params).forEach((key) => {
-      if (defaultSettings[key] || defaultSettings[key] === undefined) {
-        replaceSetting[key] = params[key];
-        if (key.includes('Render')) {
-          replaceSetting[key] = params[key] === 'false' ? false : undefined;
-        }
-      }
+  if (onSettingChange) {
+    onSettingChange({
+      ...settings,
+      ...replaceSetting,
     });
-
-    if (onSettingChange) {
-      onSettingChange({
-        ...settings,
-        ...replaceSetting,
-      });
-    }
-
-    // 如果 url 中设置主题，进行一次加载。
-    if (oldSetting.navTheme !== params.navTheme && params.navTheme) {
-      updateTheme(
-        settings.navTheme === 'realDark',
-        (params as { primaryColor: string }).primaryColor,
-        true,
-        publicPath,
-      );
-      loadedStyle = true;
-    }
   }
 
+  // 如果 url 中设置主题，进行一次加载。
+  if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
+    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor, publicPath, true);
+    loadedStyle = true;
+  }
   if (loadedStyle) {
     return;
   }
 
   // 如果 url 中没有设置主题，并且 url 中的没有加载，进行一次加载。
   if (defaultSettings.navTheme !== settings.navTheme && settings.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', settings.primaryColor, true, publicPath);
+    updateTheme(settings.navTheme === 'realDark', settings.primaryColor, publicPath, true);
   }
 };
 
-const getParamsFromUrl = (settings?: MergerSettingsType<ProSettings>) => {
-  if (!isBrowser()) {
-    return defaultSettings;
-  }
-  // 第一次进入与 浏览器参数同步一下
-  let params = {};
-  if (window.location.search) {
-    params = parse(window.location.search.replace('?', ''));
-  }
-
-  Object.keys(params).forEach((key) => {
-    if (params[key] === 'true') {
-      params[key] = true;
-    }
-  });
+const getParamsFromUrl = (
+  urlParams: Record<string, any>,
+  settings?: MergerSettingsType<ProSettings>,
+) => {
+  if (!isBrowser()) return defaultSettings;
 
   return {
     ...defaultSettings,
     ...(settings || {}),
-    ...params,
+    ...urlParams,
   };
 };
 
@@ -372,6 +331,8 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     getContainer,
     onSettingChange,
     prefixCls = 'ant-pro',
+    pathname = window.location.pathname,
+    disableUrlParams = false,
   } = props;
   const firstRender = useRef<boolean>(true);
 
@@ -380,8 +341,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onChange: props.onCollapseChange,
   });
   const [language, setLanguage] = useState<string>(getLanguage());
+  const [urlParams, setUrlParams] = useUrlSearchParams({});
   const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
-    () => getParamsFromUrl(propsSettings),
+    () => getParamsFromUrl(urlParams, propsSettings),
     {
       value: propsSettings,
       onChange: onSettingChange,
@@ -389,8 +351,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   );
   const preStateRef = useRef(settingState);
 
-  const { navTheme = 'dark', primaryColor = 'daybreak', layout = 'sidemenu', colorWeak } =
-    settingState || {};
+  const { navTheme, primaryColor, layout, colorWeak } = settingState || {};
 
   useEffect(() => {
     // 语言修改，这个是和 locale 是配置起来的
@@ -400,24 +361,20 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       }
     };
 
-    // 记住默认的选择，方便做 diff，然后保存到 url 参数中
-    oldSetting = {
-      ...defaultSettings,
-      ...propsSettings,
-    };
-
     /** 如果不是浏览器 都没有必要做了 */
-    if (!isBrowser()) {
-      return () => null;
-    }
-    initState(settingState, setSettingState, props.publicPath);
+    if (!isBrowser()) return () => null;
+    initState(
+      getParamsFromUrl(urlParams, propsSettings),
+      settingState,
+      setSettingState,
+      props.publicPath,
+    );
     window.addEventListener('languagechange', onLanguageChange, {
       passive: true,
     });
 
     return () => window.removeEventListener('languagechange', onLanguageChange);
   }, []);
-
   /**
    * 修改设置
    *
@@ -430,7 +387,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     nextState[key] = value;
 
     if (key === 'navTheme') {
-      updateTheme(value === 'realDark', undefined, hideMessageLoading, props.publicPath);
+      updateTheme(value === 'realDark', undefined, props.publicPath, !!hideMessageLoading);
       nextState.primaryColor = 'daybreak';
     }
 
@@ -438,8 +395,8 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       updateTheme(
         nextState.navTheme === 'realDark',
         value === 'daybreak' ? '' : (value as string),
-        hideMessageLoading,
         props.publicPath,
+        !!hideMessageLoading,
       );
     }
 
@@ -475,31 +432,16 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
   useEffect(() => {
     /** 如果不是浏览器 都没有必要做了 */
-    if (!isBrowser()) {
-      return;
-    }
+    if (!isBrowser()) return;
+    if (disableUrlParams) return;
     if (firstRender.current) {
       firstRender.current = false;
       return;
     }
-
-    const browserHistory = createBrowserHistory();
-    let params = {};
-    if (window.location.search) {
-      params = parse(window.location.search.replace('?', ''));
-    }
-
-    const diffParams = getDifferentSetting({ ...params, ...settingState });
-    if (Object.keys(settingState).length < 1) {
-      return;
-    }
-
-    browserHistory.replace({
-      search: stringify(diffParams),
-    });
-  }, [JSON.stringify(settingState)]);
+    const diffParams = getDifferentSetting({ ...urlParams, ...settingState });
+    setUrlParams(diffParams);
+  }, [setUrlParams, settingState, urlParams, pathname, disableUrlParams]);
   const baseClassName = `${prefixCls}-setting`;
-
   return (
     <Drawer
       visible={show}
@@ -541,7 +483,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           <BlockCheckbox
             prefixCls={baseClassName}
             list={themeList.themeList}
-            value={navTheme}
+            value={navTheme!}
             configType="theme"
             key="navTheme"
             onChange={(value) => changeSetting('navTheme', value, hideLoading)}
@@ -555,7 +497,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
           prefixCls={baseClassName}
         >
           <ThemeColor
-            value={primaryColor}
+            value={primaryColor!}
             colors={
               hideColors ? [] : themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
             }
@@ -569,7 +511,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         <Body prefixCls={baseClassName} title={formatMessage({ id: 'app.setting.navigationmode' })}>
           <BlockCheckbox
             prefixCls={baseClassName}
-            value={layout}
+            value={layout!}
             key="layout"
             configType="layout"
             list={[
@@ -637,14 +579,21 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         )}
 
         {hideCopyButton ? null : (
-          <CopyToClipboard
-            text={genCopySettingJson(settingState)}
-            onCopy={() => message.success(formatMessage({ id: 'app.setting.copyinfo' }))}
+          <Button
+            block
+            icon={<CopyOutlined />}
+            style={{ marginBottom: 24 }}
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(genCopySettingJson(settingState));
+                message.success(formatMessage({ id: 'app.setting.copyinfo' }));
+              } catch (error) {
+                // console.log(error);
+              }
+            }}
           >
-            <Button block icon={<CopyOutlined />} style={{ marginBottom: 24 }}>
-              {formatMessage({ id: 'app.setting.copy' })}
-            </Button>
-          </CopyToClipboard>
+            {formatMessage({ id: 'app.setting.copy' })}
+          </Button>
         )}
       </div>
     </Drawer>

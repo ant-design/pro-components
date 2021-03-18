@@ -122,6 +122,12 @@ Configure toolbar rendering using the `toolbar` property extension.
 
 <code src="./demos/listToolBar.tsx" background="#f5f5f5" height="450px"/>
 
+### Required Inquiry Form
+
+Try to use initialValue to solve the problem, required fields are more frustrating
+
+<code src="./demos/open-rules.tsx"  height="350px"/>
+
 ### Form body customization
 
 <code src="./demos/renderTable.tsx" background="#f5f5f5" height="500px"/>
@@ -277,6 +283,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | manualRequest | Whether or not the first request needs to be triggered manually, with `true` not hiding the search form | `boolean` | false |
 | editable | Configuration for editable tables | [TableRowEditable<T>](#editable) | - |
 | cardBordered | Borders for Table and Search outer Card components | `boolean \| {search?: boolean, table?: boolean}` | false |
+| debounceTime | debounce time | `number` | 10 |
 
 #### RecordCreator
 
@@ -313,7 +320,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | onDelete | Triggered when a line is deleted | `(key: Key, row: T) => Promise<boolean>` | - |
 | onCancel | Triggered when you cancel editing a line | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
 | actionRender | Customize the action bar for edit mode | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
-| deletePopconfirmMessage | popup confirmation message when deleting | `ReactNode` | `Delete this row? ` |
+| deletePopconfirmMessage | popup confirmation message when deleting | `ReactNode` | `Delete this row?` |
 | onlyOneLineEditorAlertMessage | Message that only one line can be edited | `ReactNode` | `Only one line can be edited at a time` |
 | onlyAddOneLineAlertMessage | A prompt that can only add one line at a time | `ReactNode` | `Can only add one line at a time` |
 
@@ -375,8 +382,8 @@ ref.current.cancelEditable(rowKey);
 | --- | --- | --- | --- | --- |
 | title | is basically the same as in antd, but supports passing in a method | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - - |
 | tooltip | will show an icon after the title, and hover to prompt for some information | string | - |
-| renderText | similar to render for table, but must return string, if you just want to transform the enumeration, you can use [valueEnum](#valueEnum) | `(text: any,record: T,index: number, action: UseFetchDataAction<RequestData<T>>) => string` | - | render |
-| render | similar to render of table, the first parameter becomes dom, and the fourth parameter action is added | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => string RequestData<T>>) => ReactNode \| ReactNode[]` | - |
+| renderText | similar to render for table, but must return string, if you just want to transform the enumeration, you can use [valueEnum](#valueEnum) | `(text: any,record: T,index: number, action: UseFetchDataAction<T>) => string` | - | render |
+| render | similar to render of table, the first parameter becomes dom, and the fourth parameter action is added | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => string RequestData<T>>) => ReactNode \| ReactNode[]` | - |
 | ellipsis | whether to auto-indent | `boolean` | - |
 | copyable | whether to support copying | `boolean` | - |
 | valueEnum | An enumeration of values that will be automatically transformed to treat the value as a key to retrieve the content to be displayed | [valueEnum](#valueenum) | - |
@@ -387,7 +394,7 @@ ref.current.cancelEditable(rowKey);
 | filters | Filter menu item in table header, automatically generated with valueEnum when value is true | `boolean` \| `object[]` | false |
 | onFilter | Filter form, use ProTable's own when true, turn off local filtering when false | `(value, record) => boolean` \| 'false' | false |
 | order | Query the weight of the form, with the higher weight sorted first | `number` | - |
-| renderFormItem | Render the input component of the query form | `(item,props:{value,onChange}) => ReactNode` | - |
+| renderFormItem | Render the input component of the query form | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
 | fieldProps | The props of the query form that will be passed through to the form item | `{ [prop: string]: any }` | - |
 | search | search-related configuration columns, false is hidden | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | The key of the transformed value, typically used for transforming event intervals | `(value: any) => any` | - |

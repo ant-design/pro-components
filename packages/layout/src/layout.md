@@ -17,52 +17,11 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 页面中需要承载内容时，可以使用 ProLayout 来减少布局成本。
 
-### 和 umi 插件一起使用
-
-ProLayout 与 umi 配合使用会有最好的效果，umi 会把 config.ts 中的路由帮我们自动注入到配置的 layout 中，这样我们就可以免去手写菜单的烦恼。
-
-ProLayout 扩展了 umi 的 router 配置，新增了 name，icon，locale,hideInMenu,hideChildrenInMenu 等配置，这样可以更方便的生成菜单，在一个地方配置即可。数据格式如下：
-
-```ts | pure
-export interface MenuDataItem {
-  /** @name 子菜单 */
-  children?: MenuDataItem[];
-  /** @name 在菜单中隐藏子节点 */
-  hideChildrenInMenu?: boolean;
-  /** @name 在菜单中隐藏自己和子节点 */
-  hideInMenu?: boolean;
-  /** @name 菜单的icon */
-  icon?: React.ReactNode;
-  /** @name 自定义菜单的国际化 key */
-  locale?: string | false;
-  /** @name 菜单的名字 */
-  name?: string;
-  /** @name 用于标定选中的值，默认是 path */
-  key?: string;
-  /** @name disable 菜单选项 */
-  disabled?: boolean;
-  /** @name 路径 */
-  path?: string;
-  /**
-   * 当此节点被选中的时候也会选中 parentKeys 的节点
-   *
-   * @name 自定义父节点
-   */
-  parentKeys?: string[];
-  /** @name 隐藏自己，并且将子节点提升到与自己平级 */
-  flatMenu?: boolean;
-
-  [key: string]: any;
-}
-```
-
-ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生成相应的面包屑。如果不想使用可以自己配置 `selectedKeys` 和 `openKeys` 来进行受控配置。
-
 ## 代码演示
 
 ### 基础使用
 
-<code src="./demos/base.tsx" iframe="650px" />
+<code src="./demos/base.tsx" iframe="650px" title="基础使用"/>
 
 ### 从服务器加载 menu
 
@@ -70,65 +29,65 @@ ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，�
 
 从服务器加载 menu 主要使用的 API 是 `menuDataRender` 和 `menuRender`,`menuDataRender`可以控制当前的菜单数据，`menuRender`可以控制菜单的 dom 节点。
 
-<code src="./demos/dynamicMenu.tsx" iframe="500px" />
+<code src="./demos/dynamicMenu.tsx" iframe="500px" title="从服务器加载 menu"/>
 
 ### 从服务器加载 menu 并且使用 icon
 
 这里主要是一个演示，我们需要准备一个枚举来进行 icon 的渲染，可以显著的减少打包的大小
 
-<code src="./demos/antd@4MenuIconFormServe.tsx" iframe="500px" />
+<code src="./demos/antd@4MenuIconFormServe.tsx" iframe="500px" title="从服务器加载 menu 并且使用 icon"/>
 
 ### 自定义 menu 的内容
 
 通过 `menuItemRender`, `subMenuItemRender`,`title`,`logo`,`menuHeaderRender` 可以非常方便的自定义 menu 的样式。如果实在是不满意，可以使用 `menuRender` 完全的自定义。
 
-<code src="./demos/customizeMenu.tsx" iframe="500px" />
+<code src="./demos/customizeMenu.tsx" iframe="500px" title="自定义 menu 的内容"/>
 
 ### 自定义页脚
 
 ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要自己引入一下页脚。
 
-<code src="./demos/footer.tsx" iframe="500px" />
+<code src="./demos/footer.tsx" iframe="500px" title="自定义页脚"/>
 
 这里用于展示 ProLayout 的各种应用，如果你觉得你的用法能帮助到别人，欢迎 PR。
 
 ### 搜索菜单
 
-<code src="./demos/searchMenu.tsx" iframe="500px" />
+<code src="./demos/searchMenu.tsx" iframe="500px" title="搜索菜单" />
 
 ### 多个路由对应一个菜单项
 
-<code src="./demos/MultipleMenuOnePath.tsx" iframe="500px" />
+<code src="./demos/MultipleMenuOnePath.tsx" iframe="500px" title="多个路由对应一个菜单项" />
 
 ### 默认打开所有菜单
 
-<code src="./demos/DefaultOpenAllMenu.tsx" iframe="500px" />
+<code src="./demos/DefaultOpenAllMenu.tsx" iframe="500px" title="默认打开所有菜单" />
 
 ### 使用 IconFont
 
-<code src="./demos/IconFont.tsx" iframe="500px" />
+<code src="./demos/IconFont.tsx" iframe="500px" title="使用 IconFont" />
 
 ### ghost 模式
 
 PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 
-<code src="./demos/ghost.tsx" iframe="500px" />
+<code src="./demos/ghost.tsx" iframe="500px" title="ghost 模式" />
 
 ### 嵌套布局
 
-<code src="./demos/Nested.tsx" iframe="500px" />
+<code src="./demos/Nested.tsx" iframe="500px" title="嵌套布局" />
 
 ### 自定义的 collapsed
 
-<code src="./demos/customize-collapsed.tsx" iframe="500px" />
+<code src="./demos/customize-collapsed.tsx" iframe="500px" title="自定义的 collapsed" />
+
+### 多级站点导航
+
+<code src="./demos/immersive-navigation.tsx" iframe="500px" title="多级站点导航" />
 
 ### 沉浸式导航
 
-<code src="./demos/immersive-navigation.tsx" iframe="500px" />
-
-### 顶部沉浸式导航
-
-<code src="./demos/immersive-navigation-top.tsx" iframe="500px" />
+<code src="./demos/immersive-navigation-top.tsx" iframe="500px" title="沉浸式导航" />
 
 ## API
 
@@ -166,7 +125,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | onCollapse | 菜单的折叠收起事件 | `(collapsed: boolean) => void` | - |
 | onPageChange | 页面切换时触发 | `(location: Location) => void` | - |
 | headerRender | 自定义头的 render 方法 | `(props: BasicLayoutProps) => ReactNode` | - |
-| headerTitleRender | 自定义头标题的方法,mix 模式下生效 | `(props: BasicLayoutProps) => ReactNode` | - |
+| headerTitleRender | 自定义头标题的方法,mix 模式下生效 | `(logo,title,props)=>ReactNode` | - |
 | headerContentRender | 自定义头内容的方法 | `(props: BasicLayoutProps) => ReactNode` | - |
 | rightContentRender | 自定义头右部的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | `(collapsed: boolean) => ReactNode` | - |
@@ -182,8 +141,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | disableMobile | 禁止自动切换到移动页面 | `boolean` | false |
 | links | 显示在菜单右下角的快捷操作 | `ReactNode[]` | - |
 | menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
-
-在 4.5.13 以后 Layout 通过 `menuProps` 支持 [Menu](https://ant.design/components/menu-cn/#Menu) 的大部分 props。
+| waterMarkProps | 配置水印，水印是 PageContainer 的功能，layout 只是透传给 PageContainer | [WaterMarkProps](/components/water-mark) | - |
 
 ### SettingDrawer
 
@@ -194,6 +152,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
+| disableUrlParams | 禁止同步设置到查询参数 | `boolean` | `false` |
 
 ### PageLoading
 
@@ -312,6 +271,7 @@ export interface MenuDataItem {
   locale?: string;
   name?: string;
   path: string;
+
   [key: string]: any;
 }
 ```
@@ -408,6 +368,50 @@ ProLayout 提供一些 api 删除用户不需要的区域。在 SettingDrawer �
 
 > 在 layout 中所有的 xxxRender 都可以传入 false，来关闭渲染。
 
+### 和 umi 一起使用
+
+ProLayout 与 umi 配合使用会有最好的效果，umi 会把 config.ts 中的路由帮我们自动注入到配置的 layout 中，这样我们就可以免去手写菜单的烦恼。
+
+ProLayout 扩展了 umi 的 router 配置，新增了 name，icon，locale,hideInMenu,hideChildrenInMenu 等配置，这样可以更方便的生成菜单，在一个地方配置即可。数据格式如下：
+
+```ts | pure
+export interface MenuDataItem {
+  /** @name 子菜单 */
+  children?: MenuDataItem[];
+  /** @name 在菜单中隐藏子节点 */
+  hideChildrenInMenu?: boolean;
+  /** @name 在菜单中隐藏自己和子节点 */
+  hideInMenu?: boolean;
+  /** @name 在面包屑中隐藏 */
+  hideInBreadcrumb?: boolean;
+  /** @name 菜单的icon */
+  icon?: React.ReactNode;
+  /** @name 自定义菜单的国际化 key */
+  locale?: string | false;
+  /** @name 菜单的名字 */
+  name?: string;
+  /** @name 用于标定选中的值，默认是 path */
+  key?: string;
+  /** @name disable 菜单选项 */
+  disabled?: boolean;
+  /** @name 路径,可以设定为网页链接 */
+  path?: string;
+  /**
+   * @deprecated 当此节点被选中的时候也会选中 parentKeys 的节点
+   * @name 自定义父节点
+   */
+  parentKeys?: string[];
+  /** @name 隐藏自己，并且将子节点提升到与自己平级 */
+  flatMenu?: boolean;
+  /** @name 指定外链打开形式，同a标签 */
+  target?: string;
+
+  [key: string]: any;
+}
+```
+
+ProLayout 会根据 `location.pathname` 来自动选中菜单，并且自动生成相应的面包屑。如果不想使用可以自己配置 `selectedKeys` 和 `openKeys` 来进行受控配置。
+
 ### 收起展开
 
 一些时候我们会发现 `collapsed` 和 `onCollapse` 设置默认收起并不生效，这是因为 ProLayout 中内置了 `breakpoint` 来触发收起的机制，我们可以设置 `breakpoint={false}` 来关掉这个机制。
@@ -446,7 +450,7 @@ export interface MenuDataItem {
 ```
 
 - name 用于配置在菜单中的名称，同时会修改为浏览器标签页标题
-- icon 代表菜单的体表，只 antd 的图表，iconfont 需要自己定义
+- icon 代表菜单的图标，只 antd 的图标，iconfont 需要自己定义
 - locale 可以设置菜单名称的国际化表示
 - hideInMenu 会把这个路由配置在 menu 中隐藏这个路由，name 不填会有相同的效果
 - hideChildrenInMenu 会把这个路由的子节点在 menu 中隐藏
@@ -457,4 +461,4 @@ export interface MenuDataItem {
 
 有些时候我们希望服务器来管理我们的路由，所以希望菜单时服务器进行分发的数据。我们提供了 `menuDataRender` 来进行修改数据，但是要注意 `menuDataRender` 会触发重新渲染，并且还会支持的国际化和权限的配置，如果你不需要国际化，建议使用 `postMenuData` 可以显著的提升性能。
 
-服务器需要返回的数据与 `MenuDataItem` 相同，`menuDataRender` 需要返回一个数组，如果你想拥有更好的性能可以试试使用 props 中的 route 属性，这里有个 [demo](/components/layout#从服务器获取)。
+服务器需要返回的数据与 `MenuDataItem` 相同，`menuDataRender` 需要返回一个数组，如果你想拥有更好的性能可以试试使用 props 中的 route 属性，这里有个 [demo](/components/layout#从服务器加载-menu)。

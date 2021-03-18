@@ -3,6 +3,12 @@ import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
 
+type PageInfo = {
+  pageSize: number;
+  total: number;
+  current: number;
+};
+
 /**
  * Password 密码框 money 金额 option 操作 需要返回一个数组 date 日期 YYYY-MM-DD dateRange 日期范围 YYYY-MM-DD[] dateTime
  * 日期和时间 YYYY-MM-DD HH:mm:ss dateTimeRange 范围日期和时间 YYYY-MM-DD HH:mm:ss[] time: 时间 HH:mm:ss index：序列
@@ -22,6 +28,7 @@ export type ProFieldValueType =
   | 'dateTimeRange'
   | 'dateTime'
   | 'time'
+  | 'timeRange'
   | 'text'
   | 'select'
   | 'checkbox'
@@ -39,18 +46,19 @@ export type ProFieldValueType =
   | 'switch'
   | 'fromNow'
   | 'image'
-  | 'jsonCode';
+  | 'jsonCode'
+  | 'color';
 
-export type ProFieldRequestData<U = any> = (
-  params: U,
-  props: any,
-) => Promise<
-  {
-    label: React.ReactNode;
-    value: React.ReactText;
-    [key: string]: any;
-  }[]
->;
+export type RequestOptionsType = {
+  label?: React.ReactNode;
+  value?: React.ReactText;
+  /** 渲染的节点类型 */
+  optionType?: 'optGroup' | 'option';
+  children?: Omit<RequestOptionsType, 'children' | 'optionType'>[];
+  [key: string]: any;
+};
+
+export type ProFieldRequestData<U = any> = (params: U, props: any) => Promise<RequestOptionsType[]>;
 
 export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
 
@@ -60,11 +68,11 @@ export type ProFieldValueObjectType = {
   status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
   locale?: string;
   /** Percent */
-  showSymbol?: boolean;
+  showSymbol?: ((value: any) => boolean) | boolean;
   showColor?: boolean;
   precision?: number;
+  moneySymbol?: string;
   request?: ProFieldRequestData;
-
   /** Image */
   width?: number;
 };
@@ -121,6 +129,7 @@ export type ProCoreActionType<T = {}> = {
 
   /** @name 清空选择 */
   clearSelected?: () => void;
+  pageInfo?: PageInfo;
 } & Omit<
   UseEditableUtilType,
   'newLineRecord' | 'editableKeys' | 'actionRender' | 'setEditableRowKeys'
@@ -236,7 +245,7 @@ export type ProSchema<
     | ProSchemaValueEnumMap;
 
   /** @name 从服务器请求枚举 */
-  request?: ProFieldRequestData<ProSchema>;
+  request?: ProFieldRequestData;
 
   /** @name 从服务器请求的参数，改变了会触发 reload */
   params?: Record<string, any>;

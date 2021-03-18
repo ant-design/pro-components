@@ -21,61 +21,67 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 ## 代码演示
 
+### 属性展示
+
+<code src="./demos/dynamic-settings.tsx"  background="#f5f5f5" iframe="500px" title="属性展示" />
+
 ### 查询表格
 
-<code src="./demos/single.tsx" background="#f5f5f5" height="500px" />
+<code src="./demos/single.tsx" background="#f5f5f5" height="500px" title="查询表格" />
 
 ### DataSource
 
-<code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px"/>
+<code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px" title="DataSource" />
 
-### 动态设置
+### 无查询表单
 
-<code src="./demos/dynamic-settings.tsx"  background="#f5f5f5" iframe="500px"/>
-
-### 降级为普通表格
-
-<code src="./demos/normal.tsx" background="#f5f5f5" height="400px"/>
+<code src="./demos/normal.tsx" background="#f5f5f5" height="400px" title="无查询表单" />
 
 ### 轻量筛选替换查询表单
 
-<code src="./demos/lightfilter.tsx" background="#f5f5f5"  height="400px"/>
+<code src="./demos/lightfilter.tsx" background="#f5f5f5"  height="400px" title="轻量筛选替换查询表单" />
 
 ### 无 ToolBar 的表格
 
-<code src="./demos/no-title.tsx"  height="350px"/>
+<code src="./demos/no-title.tsx"  height="350px" title="无 ToolBar 的表格" />
+
+### 必填的查询表单
+
+尽量使用 initialValue 来解决问题，必填项挫败感比较强
+
+<code src="./demos/open-rules.tsx"  height="350px" title="必填的查询表单" />
 
 ### 嵌套表格
 
-<code src="./demos/table-nested.tsx" background="#f5f5f5"  height="400px"/>
+<code src="./demos/table-nested.tsx" background="#f5f5f5"  height="400px" title="嵌套表格" />
 
 ### 左右结构
 
-<code src="./demos/split.tsx" background="#f5f5f5" height="500px"/>
+<code src="./demos/split.tsx" background="#f5f5f5" height="500px" title="左右结构" />
 
 ### 表格批量操作
 
-<code src="./demos/batchOption.tsx" background="#f5f5f5" height="420px"/>
+<code src="./demos/batchOption.tsx" background="#f5f5f5" height="420px" title="表格批量操作" />
 
 ### 通过 formRef 来操作查询表单
 
-<code src="./demos/form.tsx" background="#f5f5f5"  height="320px"/>
+<code src="./demos/form.tsx" background="#f5f5f5"  height="320px" title="通过 formRef 来操作查询表单" />
 
 ### RTL (النسخة العربية)
 
 RTL means right-to-left.
 
-<code src="./demos/rtl_table.tsx" background="#f5f5f5" height="500px"/>
+<code src="./demos/rtl_table.tsx" background="#f5f5f5" height="500px" title="RTL (النسخة العربية)" />
 
 ### 受控的表格设置栏
 
 可以默认隐藏某些栏，但是在操作栏中可以选择
 
-<code src="./demos/columnsStateMap.tsx" background="#f5f5f5" height="300px"/>
+<code src="./demos/columnsStateMap.tsx" background="#f5f5f5" height="300px" title="受控的表格设置栏" />
 
-### 表格轮询网络数据
+### 表格轮询
 
-<code src="./demos/pollinga.tsx" background="#f5f5f5" height="360px"/>
+<code src="./demos/pollinga.tsx" background="#f5f5f5" height="360px" title="表格轮询" />
 
 ### 搜索表单自定义
 
@@ -105,7 +111,6 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
     item: ProColumns<T>,
     config: {
       value?: any;
-      onChange?: (value: any) => void;
       onSelect?: (value: any) => void;
       type: ProTableTypes;
       defaultRender: (newItem: ProColumns<any>) => JSX.Element | null;
@@ -114,21 +119,21 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
   ) => JSX.Element | false | null;
 ```
 
-<code src="./demos/linkage_form.tsx" background="#f5f5f5" height="310px"/>
+<code src="./demos/linkage_form.tsx" background="#f5f5f5" height="310px" title="搜索表单自定义" />
 
 ### 表单操作自定义
 
-<code src="./demos/search_option.tsx" background="#f5f5f5" height="310px"/>
+<code src="./demos/search_option.tsx" background="#f5f5f5" height="310px" title="表单操作自定义" />
 
 ### Toolbar 自定义
 
 使用 `toolbar`属性扩展配置工具栏渲染。
 
-<code src="./demos/listToolBar.tsx" background="#f5f5f5" height="450px"/>
+<code src="./demos/listToolBar.tsx" background="#f5f5f5" height="450px" title="Toolbar 自定义" />
 
 ### 表格主体自定义
 
-<code src="./demos/renderTable.tsx" background="#f5f5f5" height="500px"/>
+<code src="./demos/renderTable.tsx" background="#f5f5f5" height="500px" title="表格主体自定义" />
 
 ### 国际化相关的配置
 
@@ -180,33 +185,33 @@ const enUSIntl = createIntl('en_US', enUS);
 </IntlProvider>;
 ```
 
-<code src="./demos/intl.tsx" background="#f5f5f5" height="320px"/>
+<code src="./demos/intl.tsx" background="#f5f5f5" height="320px" title="国际化相关的配置" />
 
 ### 使用自带 keyWords 搜索的 table
 
-<code src="./demos/search.tsx" background="#f5f5f5" height="200px"/>
+<code src="./demos/search.tsx" background="#f5f5f5" height="200px" title="使用自带 keyWords 搜索的 table" />
 
 ### 值类型示例
 
 #### valueType - 日期类
 
-<code src="./demos/valueTypeDate.tsx" background="#f5f5f5" height="350px"/>
+<code src="./demos/valueTypeDate.tsx" background="#f5f5f5" height="350px" title="valueType - 日期类"/>
 
 #### valueType - 数字类
 
-<code src="./demos/valueTypeNumber.tsx" background="#f5f5f5" height="350px"/>
+<code src="./demos/valueTypeNumber.tsx" background="#f5f5f5" height="350px" title="valueType - 数字类"/>
 
 #### valueType - 样式类
 
-<code src="./demos/valueType.tsx" background="#f5f5f5" height="680px"/>
+<code src="./demos/valueType.tsx" background="#f5f5f5" height="680px" title="valueType - 样式类" />
 
 #### valueType - 选择类
 
-<code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px"/>
+<code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px" title="valueType - 选择类"/>
 
 ### 自定义 valueType
 
-<code src="./demos/customization-value-type.tsx"  background="#f5f5f5" heigh="462px"/>
+<code src="./demos/customization-value-type.tsx"  background="#f5f5f5" heigh="462px" title="自定义 valueType"/>
 
 <code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
 
@@ -256,7 +261,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | request | 获取 `dataSource` 的方法 | `(params?: {pageSize,current},sort,filter) => {data,success,total}` | - |
-| params | 用于 `request` 查询的多余参数，一旦变化会触发重新加载 | `object` | - |
+| params | 用于 `request` 查询的额外参数，一旦变化会触发重新加载 | `object` | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
 | defaultData | 默认的数据 | `T[]` | - |
 | actionRef | Table action 的引用，便于自定义触发 | `MutableRefObject<FormInstance>` | - |
@@ -285,6 +290,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
 | editable | 可编辑表格的相关配置 | [TableRowEditable<T>](<(/components/editable-table)#editable-编辑行配置>) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
+| debounceTime | 防抖时间 | `number` | 10 |
 
 #### RecordCreator
 
@@ -384,8 +390,8 @@ ref.current.cancelEditable(rowKey);
 | --- | --- | --- | --- |
 | title | 与 antd 中基本相同，但是支持通过传入一个方法 | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
 | tooltip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | string | - |
-| renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => string` | - |
-| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<RequestData<T>>) => ReactNode \| ReactNode[]` | - |
+| renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<T>) => string` | - |
+| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
 | ellipsis | 是否自动缩略 | `boolean` | - |
 | copyable | 是否支持复制 | `boolean` | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](#valueenum) | - |
@@ -396,7 +402,7 @@ ref.current.cancelEditable(rowKey);
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
 | onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| 'false' | false |
 | order | 查询表单中的权重，权重大排序靠前 | `number` | - |
-| renderFormItem | 渲染查询表单的输入组件 | `(item,props:{value,onChange}) => ReactNode` | - |
+| renderFormItem | 渲染查询表单的输入组件 | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
 | fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
 | search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
@@ -569,15 +575,15 @@ Form 的列是根据 `valueType` 来生成不同的类型。
 
 #### 代码演示
 
-<code src="./demos/ListToolBar/basic.tsx" background="#f0f2f5"/>
+<code src="./demos/ListToolBar/basic.tsx" background="#f0f2f5" title="列表工具栏-基本使用" />
 
-<code src="./demos/ListToolBar/no-title.tsx" background="#f0f2f5"/>
+<code src="./demos/ListToolBar/no-title.tsx" background="#f0f2f5" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。" />
 
-<code src="./demos/ListToolBar/multipleLine.tsx" background="#f0f2f5"/>
+<code src="./demos/ListToolBar/multipleLine.tsx" background="#f0f2f5" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。" />
 
-<code src="./demos/ListToolBar/tabs.tsx" background="#f0f2f5"/>
+<code src="./demos/ListToolBar/tabs.tsx" background="#f0f2f5"  title="带标签" desc="列表工具栏-标签需配合 `multipleLine` 为 `true` 时使用。" />
 
-<code src="./demos/ListToolBar/menu.tsx" background="#f0f2f5"/>
+<code src="./demos/ListToolBar/menu.tsx" background="#f0f2f5" title="列表工具栏-标题下拉菜单"/>
 
 #### ListToolBarProps
 

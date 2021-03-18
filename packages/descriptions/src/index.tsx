@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
-import { Descriptions, Space, Form } from 'antd';
+import React, { useContext, useEffect } from 'react';
+import type { DescriptionsProps, FormInstance, FormProps } from 'antd';
+import { Descriptions, Space, Form, ConfigProvider } from 'antd';
 import { EditOutlined, CloseOutlined, CheckOutlined } from '@ant-design/icons';
 import toArray from 'rc-util/lib/Children/toArray';
 import ProForm, { ProFormField } from '@ant-design/pro-form';
@@ -15,17 +16,28 @@ import {
   InlineErrorFormItem,
   LabelIconTip,
   useEditableMap,
+  ErrorBoundary,
   getFieldPropsOrFormItemProps,
 } from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
 import { stringify } from 'use-json-comparison';
 import ProSkeleton from '@ant-design/pro-skeleton';
-import type { FormInstance, FormProps } from 'antd/lib/form';
-import type { DescriptionsItemProps } from 'antd/lib/descriptions/Item';
-import type { DescriptionsProps } from 'antd/lib/descriptions';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 import type { ProFieldFCMode } from '@ant-design/pro-utils';
+import './index.less';
+
+// todo remove it
+export interface DescriptionsItemProps {
+  prefixCls?: string;
+  className?: string;
+  style?: React.CSSProperties;
+  label?: React.ReactNode;
+  labelStyle?: React.CSSProperties;
+  contentStyle?: React.CSSProperties;
+  children: React.ReactNode;
+  span?: number;
+}
 
 export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'> = ProSchema<
   T,
@@ -37,6 +49,7 @@ export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'
     ellipsis?: boolean;
     mode?: ProFieldFCMode;
     children?: React.ReactNode;
+    order?: number;
   },
   ProSchemaComponentTypes,
   ValueType
@@ -161,7 +174,6 @@ export const FieldRender: React.FC<
     <div
       style={{
         margin: '-5px 0',
-        position: 'absolute',
       }}
     >
       <Form.Item noStyle shouldUpdate>
@@ -198,9 +210,9 @@ export const FieldRender: React.FC<
                 style={{
                   margin: 0,
                 }}
-                initialValue={text}
                 name={dataIndex}
                 {...formItemProps}
+                initialValue={text || formItemProps?.initialValue}
               >
                 {dom || (
                   <ProFormField
@@ -226,7 +238,7 @@ export const FieldRender: React.FC<
   );
 };
 
-const conversionProProSchemaToDescriptionsItem = (
+const schemaToDescriptionsItem = (
   items: ProDescriptionsItemProps<any>[],
   entity: any,
   action: ProCoreActionType<any>,
@@ -234,7 +246,7 @@ const conversionProProSchemaToDescriptionsItem = (
 ) => {
   const options: JSX.Element[] = [];
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
-  const children = items.map((item, index) => {
+  const children = items?.map?.((item, index) => {
     if (React.isValidElement(item)) {
       return item;
     }
@@ -317,7 +329,8 @@ const conversionProProSchemaToDescriptionsItem = (
     return field;
   });
   return {
-    options,
+    // 空数组传递还是会被判定为有值
+    options: options?.length ? options : null,
     children,
   };
 };
@@ -343,6 +356,8 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
     onRequestError,
     ...rest
   } = props;
+
+  const context = useContext(ConfigProvider.ConfigContext);
 
   const action = useFetchData<RequestData>(
     async () => {
@@ -373,9 +388,12 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
   /** 支持 reload 的功能 */
   useEffect(() => {
     if (actionRef) {
-      actionRef.current = { reload: action.reload };
+      actionRef.current = {
+        reload: action.reload,
+        ...editableUtils,
+      };
     }
-  }, [action]);
+  }, [action, actionRef, editableUtils]);
 
   // loading 时展示
   // loading =  undefined 但是 request 存在时也应该展示
@@ -398,15 +416,22 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
       }
       return item.props;
     });
-    return [...childrenColumns, ...(columns || [])].filter((item) => {
-      if (['index', 'indexBorder'].includes(item.valueType)) {
-        return false;
-      }
-      return !item.hideInDescriptions;
-    });
+    return [...(columns || []), ...childrenColumns]
+      .filter((item) => {
+        if (['index', 'indexBorder'].includes(item.valueType)) {
+          return false;
+        }
+        return !item.hideInDescriptions;
+      })
+      .sort((a, b) => {
+        if (b.order || a.order) {
+          return (b.order || 0) - (a.order || 0);
+        }
+        return (b.index || 0) - (a.index || 0);
+      });
   };
 
-  const { options, children } = conversionProProSchemaToDescriptionsItem(
+  const { options, children } = schemaToDescriptionsItem(
     getColumns(),
     action.dataSource || {},
     actionRef?.current || action,
@@ -416,25 +441,42 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
   /** 如果不是可编辑模式，没必要注入 ProForm */
   const FormComponent = editable ? ProForm : (dom: { children: any }) => dom.children;
 
+  /** 即使组件返回null了, 在传递的过程中还是会被Description检测到为有值 */
+  let title = null;
+  if (rest.title || rest.tooltip || rest.tip) {
+    title = <LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />;
+  }
+
+  const className = context.getPrefixCls('pro-descriptions');
+
   return (
-    <FormComponent component={false} submitter={false} {...formProps} onFinish={undefined}>
-      <Descriptions
-        {...rest}
-        extra={
-          rest.extra ? (
-            <Space>
-              {options}
-              {rest.extra}
-            </Space>
-          ) : (
-            options
-          )
-        }
-        title={<LabelIconTip label={rest.title} tooltip={rest.tooltip || rest.tip} />}
+    <ErrorBoundary>
+      <FormComponent
+        form={props.editable?.form}
+        component={false}
+        submitter={false}
+        {...formProps}
+        onFinish={undefined}
       >
-        {children}
-      </Descriptions>
-    </FormComponent>
+        <Descriptions
+          className={className}
+          {...rest}
+          extra={
+            rest.extra ? (
+              <Space>
+                {options}
+                {rest.extra}
+              </Space>
+            ) : (
+              options
+            )
+          }
+          title={title}
+        >
+          {children}
+        </Descriptions>
+      </FormComponent>
+    </ErrorBoundary>
   );
 };
 

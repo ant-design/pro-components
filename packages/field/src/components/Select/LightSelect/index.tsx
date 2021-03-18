@@ -1,6 +1,6 @@
 import React, { useState, useContext, useMemo } from 'react';
+import type { SelectProps } from 'antd';
 import { Select, Input, ConfigProvider } from 'antd';
-import type { SelectProps } from 'antd/es/select';
 import { SearchOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import { FieldLabel } from '@ant-design/pro-utils';
@@ -120,6 +120,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
                 <div style={{ margin: '4px 8px' }}>
                   <Input
                     value={keyword}
+                    allowClear={allowClear}
                     onChange={(e) => {
                       setKeyword(e.target.value.toLowerCase());
                       onSearch?.(e.target.value);

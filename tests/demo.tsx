@@ -1,6 +1,7 @@
 import React from 'react';
 import glob from 'glob';
-import { render, mount } from 'enzyme';
+import type { render } from 'enzyme';
+import { mount } from 'enzyme';
 import MockDate from 'mockdate';
 import moment from 'moment';
 import { waitForComponentToPaint } from './util';
@@ -98,7 +99,7 @@ function demoTest(component: string, options: Options = {}) {
         const Demo = require(`.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         const wrapper = mount(<Demo />);
 
-        await waitForComponentToPaint(wrapper, component === 'table' ? 1000 : 16);
+        await waitForComponentToPaint(wrapper, component === 'table' ? 2000 : 16);
         // Convert aria related content
         const dom = wrapper.render();
         ariaConvert(dom);

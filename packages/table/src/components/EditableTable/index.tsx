@@ -1,15 +1,23 @@
 ﻿import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import type { ParamsType } from '@ant-design/pro-provider';
+import type { ButtonProps } from 'antd';
 import { Button } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
-import type { ButtonProps } from 'antd/lib/button';
+import { runFunction } from '@ant-design/pro-utils';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
 
 export type RecordCreatorProps<T> = {
-  record: T;
+  record: T | ((index: number) => T);
   position?: 'top' | 'bottom';
+  /**
+   * 新增一行的类型
+   *
+   * @augments dataSource 将会新增一行数据到 dataSource 中，不支持取消，只能删除
+   * @augments cache 将会把数据放到缓存中，取消后消失
+   */
+  newRecordType?: 'dataSource' | 'cache';
 };
 
 export type EditableProTableProps<T, U extends ParamsType> = Omit<
@@ -30,6 +38,8 @@ export type EditableProTableProps<T, U extends ParamsType> = Omit<
     | false;
   /** 最大行数 */
   maxLength?: number;
+  /** Table 的值发生改变，为了适应 Form 调整了顺序 */
+  onValuesChange?: (values: T[], record: T) => void;
 };
 
 const EditableTableActionContext = React.createContext<
@@ -38,12 +48,12 @@ const EditableTableActionContext = React.createContext<
 
 /** 可编辑表格的按钮 */
 function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.Element }) {
-  const { children, record, position } = props;
+  const { children, record, position, newRecordType } = props;
   const actionRef = useContext(EditableTableActionContext);
   return React.cloneElement(children, {
     ...children.props,
     onClick: (e: any) => {
-      actionRef?.current?.addEditRecord(record, { position });
+      actionRef?.current?.addEditRecord(record, { position, newRecordType });
       children.props.onClick?.(e);
     },
   });
@@ -66,7 +76,8 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
     onChange: props.onChange,
   });
 
-  const { record, position, creatorButtonText, ...restButtonProps } = recordCreatorProps || {};
+  const { record, position, creatorButtonText, newRecordType, ...restButtonProps } =
+    recordCreatorProps || {};
   const isTop = position === 'top';
   const creatorButtonDom = useMemo(() => {
     if (maxLength && maxLength <= value?.length) {
@@ -74,7 +85,11 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
     }
     return (
       recordCreatorProps !== false && (
-        <RecordCreator record={record || {}} position={position}>
+        <RecordCreator
+          record={runFunction(record, value.length) || {}}
+          position={position}
+          newRecordType={newRecordType}
+        >
           <Button
             type="dashed"
             style={{
@@ -122,7 +137,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
       tableViewRender: (_: any, dom: any) => {
         return (
           <>
-            {dom}
+            {props.tableViewRender?.(_, dom) ?? dom}
             {creatorButtonDom}
           </>
         );
@@ -142,6 +157,16 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
         actionRef={actionRef}
         onChange={onTableChange}
         dataSource={value}
+        editable={{
+          ...props.editable,
+          onValuesChange:
+            props?.onValuesChange || props.editable?.onValuesChange
+              ? (r: T, dataSource: T[]) => {
+                  props.editable?.onValuesChange?.(r, dataSource);
+                  props.onValuesChange?.(dataSource, r);
+                }
+              : undefined,
+        }}
         onDataSourceChange={setValue}
       />
     </EditableTableActionContext.Provider>

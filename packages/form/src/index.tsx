@@ -20,6 +20,7 @@ import ProFormFieldSet from './components/FieldSet';
 import type { ProFormCaptchaProps } from './components/Captcha';
 import ProFormCaptcha from './components/Captcha';
 import ProFormDependency from './components/Dependency';
+import ProFormColorPicker from './components/ColorPicker';
 import type { ProFormDependencyProps } from './components/Dependency';
 
 import type { ProFormProps } from './layouts/ProForm';
@@ -33,6 +34,9 @@ import type { ModalFormProps } from './layouts/ModalForm';
 import ModalForm from './layouts/ModalForm';
 import type { DrawerFormProps } from './layouts/DrawerForm';
 import DrawerForm from './layouts/DrawerForm';
+import type { ProFormListProps } from './components/List';
+import ProFormList from './components/List';
+import type { FormInstance, FormItemProps, FormProps } from './BaseForm';
 import './index.less';
 
 export type {
@@ -46,7 +50,14 @@ export type {
   QueryFilterProps,
   ProFormFieldSetProps,
   ProFormDependencyProps,
+  FormProps,
+  FormItemProps,
+  FormInstance,
+  ProFormListProps,
 };
+
+const ProFormGroup = ProForm.Group;
+
 export {
   // controls
   ProFormDatePicker,
@@ -57,6 +68,7 @@ export {
   ProFormTextArea,
   ProFormSwitch,
   ProFormField,
+  ProFormList,
   ProFormSelect,
   ProFormDigit,
   ProFormCheckbox,
@@ -67,8 +79,10 @@ export {
   ProFormSlider,
   ProFormFieldSet,
   ProFormCaptcha,
+  ProFormColorPicker,
   ProFormDateTimeRangePicker,
   ProFormDependency,
+  ProFormGroup,
   // layouts
   QueryFilter,
   LightFilter,

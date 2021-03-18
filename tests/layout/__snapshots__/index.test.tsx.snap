@@ -98,7 +98,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
       style="position:relative"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
@@ -190,7 +190,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
       style="position:relative"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
@@ -282,7 +282,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
       style="position:relative"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
@@ -375,7 +375,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -467,7 +467,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -532,10 +532,11 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
                 role="button"
-                style="padding-left: 16px;"
+                style="padding-left: 24px;"
               >
                 <span
                   class="ant-pro-menu-item"
+                  title="管理页"
                 >
                   管理页
                 </span>
@@ -548,7 +549,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             <li
               class="ant-menu-item ant-menu-item-only-child"
               role="menuitem"
-              style="padding-left: 16px;"
+              style="padding-left: 24px;"
             >
               <span
                 class="ant-pro-menu-item"
@@ -603,7 +604,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -695,7 +696,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -779,7 +780,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             <li
               class="ant-menu-item ant-menu-item-only-child"
               role="menuitem"
-              style="padding-left: 16px;"
+              style="padding-left: 24px;"
             >
               <span
                 class="ant-pro-menu-item"
@@ -800,10 +801,11 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
                 role="button"
-                style="padding-left: 16px;"
+                style="padding-left: 24px;"
               >
                 <span
                   class="ant-pro-menu-item"
+                  title="汇总数据"
                 >
                   汇总数据
                 </span>
@@ -816,7 +818,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             <li
               class="ant-menu-item ant-menu-item-only-child"
               role="menuitem"
-              style="padding-left: 16px;"
+              style="padding-left: 24px;"
             >
               <span
                 class="ant-pro-menu-item"
@@ -831,7 +833,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             <li
               class="ant-menu-item ant-menu-item-only-child"
               role="menuitem"
-              style="padding-left: 16px;"
+              style="padding-left: 24px;"
             >
               <span
                 class="ant-pro-menu-item"
@@ -886,7 +888,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div

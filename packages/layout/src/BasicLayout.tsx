@@ -2,7 +2,7 @@ import './BasicLayout.less';
 
 import type { CSSProperties } from 'react';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
-import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
+import type { BreadcrumbProps as AntdBreadcrumbProps, BreadcrumbProps } from 'antd/lib/breadcrumb';
 import { Layout, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';
@@ -35,6 +35,7 @@ import WrapContent from './WrapContent';
 import compatibleLayout from './utils/compatibleLayout';
 import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
+import type { WaterMarkProps } from './components/WaterMark';
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
@@ -88,6 +89,11 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
 
     /** 兼用 content的 margin */
     disableContentMargin?: boolean;
+
+    /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
+    breadcrumbProps?: BreadcrumbProps;
+    /** @name 水印的相关配置 */
+    waterMarkProps?: WaterMarkProps;
   };
 
 const headerRender = (
@@ -316,7 +322,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       breadcrumb,
       layout: propsLayout as 'side',
     },
-    ['className', 'style'],
+    ['className', 'style', 'breadcrumbRender'],
   );
 
   // gen page title
@@ -332,6 +338,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   // gen breadcrumbProps, parameter for pageHeader
   const breadcrumbProps = getBreadcrumbProps({
     ...defaultProps,
+    breadcrumbRender: props.breadcrumbRender,
     breadcrumbMap,
   });
 
@@ -409,7 +416,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     if (onPageChange) {
       onPageChange(props.location);
     }
-  }, [stringify(props.location)]);
+  }, [props.location?.pathname, props.location?.pathname?.search]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
 

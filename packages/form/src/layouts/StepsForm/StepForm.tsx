@@ -1,22 +1,22 @@
 import React, { useContext, useRef, useEffect, useImperativeHandle } from 'react';
-import type { FormProps, FormInstance } from 'antd/lib/form/Form';
+import type { FormProps, FormInstance } from 'antd';
 import { noteOnce } from 'rc-util/lib/warning';
 
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import { StepsFormProvide } from './index';
 
-export type StepFormProps = {
+export type StepFormProps<T = Record<string, any>> = {
   step?: number;
-} & Omit<FormProps, 'onFinish'> &
-  Omit<CommonFormProps, 'submitter'>;
+} & Omit<FormProps<T>, 'onFinish'> &
+  Omit<CommonFormProps<T>, 'submitter'>;
 
-const StepForm: React.FC<StepFormProps> = ({
+function StepForm<T = Record<string, any>>({
   onFinish,
   step,
   formRef: propFormRef,
   ...restProps
-}) => {
+}: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();
   const context = useContext(StepsFormProvide);
 
@@ -46,9 +46,7 @@ const StepForm: React.FC<StepFormProps> = ({
           context?.onFormFinish(restProps.name, values);
         }
         if (onFinish) {
-          context?.setLoading({
-            delay: 100,
-          });
+          context?.setLoading(true);
           // 如果报错，直接抛出
           const success = await onFinish?.(values);
 
@@ -64,6 +62,6 @@ const StepForm: React.FC<StepFormProps> = ({
       {...restProps}
     />
   );
-};
+}
 
 export default StepForm;

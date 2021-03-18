@@ -39,23 +39,23 @@ describe('LightFilter', () => {
       // click open more drowdown
       wrapper.find('.ant-pro-core-field-dropdown-label').at(1).simulate('click');
     });
+
     await waitForComponentToPaint(wrapper);
+
     expect(wrapper.find('div.ant-col.ant-form-item-control').length).toEqual(3);
 
     act(() => {
       // change input in drowdown
-      wrapper.find('.ant-input').simulate('change', {
+      wrapper.find('.ant-pro-core-field-dropdown-content .ant-input').simulate('change', {
         target: {
           value: 'new value',
           name3: '2020-08-19',
         },
       });
+      wrapper.find('.ant-pro-core-dropdown-footer .ant-btn.ant-btn-primary').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    act(() => {
-      wrapper.find('.ant-btn.ant-btn-primary').simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
+
     expect(onValuesChange).toHaveBeenCalledWith({
       name1: 'yutingzhao1991',
       name2: 'new value',
@@ -278,7 +278,7 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '名称: 杰克2,TechUI,YES这是...3项',
+      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABC...3项',
     );
     act(() => {
       // press Backspace
@@ -288,13 +288,14 @@ describe('LightFilter', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '名称: 杰克2,TechUI,YES这是...3项',
+      '名称: 杰克2,TechUI,YES这是一个很长很长的测试阿aa阿ABC...3项',
     );
 
     act(() => {
       wrapper.unmount();
     });
   });
+
   it(' 🪕 DateRangePicker', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
@@ -304,30 +305,45 @@ describe('LightFilter', () => {
     );
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
+
     act(() => {
       wrapper.find('.ant-pro-core-field-label').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('div.ant-picker-range').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+
     act(() => {
       wrapper.find('.ant-picker-cell-inner').at(2).simulate('click');
     });
     await waitForComponentToPaint(wrapper);
+
     act(() => {
       wrapper.find('.ant-picker-cell-inner').at(12).simulate('click');
     });
     await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-pro-core-dropdown-footer .ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '日期范围: 2016-11-01 ~ 2016-11-11',
+      '日期范围: 2016-11-02 ~ 2016-11-12',
     );
 
     await waitForComponentToPaint(wrapper);
-    expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-01', '2016-11-11'] });
+    expect(onFinish).toHaveBeenCalledWith({ date: ['2016-11-02', '2016-11-12'] });
 
     act(() => {
       // close
       wrapper.find('.ant-pro-core-field-label .anticon-close').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
+
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('日期范围');
 
     act(() => {
@@ -335,6 +351,12 @@ describe('LightFilter', () => {
       wrapper.find('.ant-pro-core-field-label').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('div.ant-picker-range').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+
     act(() => {
       wrapper.find('.ant-picker-cell-inner').at(2).simulate('click');
     });
@@ -342,9 +364,16 @@ describe('LightFilter', () => {
     act(() => {
       wrapper.find('.ant-picker-cell-inner').at(12).simulate('click');
     });
+
     await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-pro-core-dropdown-footer .ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '日期范围: 2016-11-01 ~ 2016-11-11',
+      '日期范围: 2016-11-02 ~ 2016-11-12',
     );
     await waitForComponentToPaint(wrapper);
     act(() => {
@@ -375,9 +404,9 @@ describe('LightFilter', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual(
-      '日期时间: 2016-11-04 07:22:44',
+      '日期时间: 2016-11-05 07:22:44',
     );
-    expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-04 07:22:44' });
+    expect(onFinish).toHaveBeenCalledWith({ datetime: '2016-11-05 07:22:44' });
 
     await waitForComponentToPaint(wrapper);
     act(() => {
@@ -498,6 +527,7 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-select-selection-item').text()).toEqual('蚂蚁');
+
     act(() => {
       // clear
       wrapper.find('.ant-btn-link').simulate('click');

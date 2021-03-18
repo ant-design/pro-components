@@ -1,7 +1,7 @@
 ﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
+import type { RadioGroupProps } from 'antd';
 import { Radio, ConfigProvider, Spin } from 'antd';
 import classNames from 'classnames';
-import type { RadioGroupProps } from 'antd/lib/radio';
 import type { ProFieldFC } from '../../index';
 
 import './index.less';
@@ -9,7 +9,6 @@ import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 
 export type GroupProps = {
-  layout?: 'horizontal' | 'vertical';
   options?: RadioGroupProps['options'];
   radioType?: 'button' | 'radio';
 } & FieldSelectProps;
@@ -21,7 +20,7 @@ export type GroupProps = {
  * @param ref
  */
 const FieldRadio: ProFieldFC<GroupProps> = (
-  { layout = 'horizontal', radioType, renderFormItem, mode, render, ...rest },
+  { radioType, renderFormItem, mode, render, ...rest },
   ref,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -58,7 +57,10 @@ const FieldRadio: ProFieldFC<GroupProps> = (
       <Radio.Group
         ref={radioRef}
         {...rest.fieldProps}
-        className={classNames(rest.fieldProps?.className, `${layoutClassName}-${layout}`)}
+        className={classNames(
+          rest.fieldProps?.className,
+          `${layoutClassName}-${rest.fieldProps.layout || 'horizontal'}`,
+        )}
         options={undefined}
       >
         {options

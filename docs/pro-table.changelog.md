@@ -9,6 +9,119 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.30.5
+
+`2021-03-11`
+
+- 🐛 fix(table): remove dragicon [#2124](https://github.com/ant-design/pro-components/pull/2124) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): EditableProTable no tonumber keys [#2135](https://github.com/ant-design/pro-components/pull/2135) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.30.4
+
+`2021-03-08`
+
+- 🐛 fix(table): fix tooltip no work error [#2079](https://github.com/ant-design/pro-components/pull/2079) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.30.3
+
+`2021-02-28`
+
+- 🐛 fix(description): description support editableUtils [#2035](https://github.com/ant-design/pro-components/pull/2035) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): 🇧🇷 Adding stepForm and editableTable translations to pt-BR [#2018](https://github.com/ant-design/pro-components/pull/2018) [@renanwilliam](https://github.com/renanwilliam)
+
+## @ant-design/pro-table@2.30.1
+
+`2021-02-23`
+
+- 🐛 fix(table): manualRequest may not working. [#1963](https://github.com/ant-design/pro-components/pull/1963) [@lxzxl](https://github.com/lxzxl)
+- 💥 feat(table): remove unnecessary tooltip [#1907](https://github.com/ant-design/pro-components/pull/1907) [@beichensky](https://github.com/beichensky)
+- 🐛 fix(table): export Table.Summary [#1943](https://github.com/ant-design/pro-components/pull/1943) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.30.0
+
+`2021-02-22`
+
+- 🐛 fix(table): fix the problem of onInit call sequence [#1889](https://github.com/ant-design/pro-components/pull/1889) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): no has colSize on renderFormItem [#1876](https://github.com/ant-design/pro-components/pull/1876) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): editable support form config [#1879](https://github.com/ant-design/pro-components/pull/1879) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.29.0
+
+`2021-02-04`
+
+- 🐛 fix(table): fix toNumber will gen 0 start number [#1850](https://github.com/ant-design/pro-components/pull/1850) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix table unmount warning [#1840](https://github.com/ant-design/pro-components/pull/1840) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix editabletable initialValue alaway rewirte [#1834](https://github.com/ant-design/pro-components/pull/1834) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix table no close loading when error [#1832](https://github.com/ant-design/pro-components/pull/1832) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): actionRef add pageInfo [#1851](https://github.com/ant-design/pro-components/pull/1851) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.28.0
+
+`2021-02-02`
+
+- 🐛 fix(table): LightFilter dosn't render if options={false} [#1802](https://github.com/ant-design/pro-components/pull/1802) [@ChenCheng220](https://github.com/ChenCheng220)
+- 🐛 fix(table): reset messageVariables to label [#1773](https://github.com/ant-design/pro-components/pull/1773) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix fieldProps no has bug [#1776](https://github.com/ant-design/pro-components/pull/1776) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix manualRequest always show loading error [#1767](https://github.com/ant-design/pro-components/pull/1767) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.27.2
+
+`2021-01-25`
+
+- 🐛 fix(table): fix the problem that it still executes when polling=false [#1747](https://github.com/ant-design/pro-components/pull/1747) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix polling times [#1739](https://github.com/ant-design/pro-components/pull/1739) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix column dragger problem [#1730](https://github.com/ant-design/pro-components/pull/1730) [@ChenCheng220](https://github.com/ChenCheng220)
+
+## @ant-design/pro-table@2.27.0
+
+`2021-01-21`
+
+- 🐛 fix(table): stop passing prop ignoreRules to Form [#1699](https://github.com/ant-design/pro-components/pull/1699) [@ChenCheng220](https://github.com/ChenCheng220)
+- 🐛 fix(pro-table): on option search resetPageIndex [#1689](https://github.com/ant-design/pro-components/pull/1689) [@lzbabd](https://github.com/lzbabd)
+- 💥 feat(table): EditableProTable support onValuesChange [#1713](https://github.com/ant-design/pro-components/pull/1713) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): ProTable supports polling [#1694](https://github.com/ant-design/pro-components/pull/1694) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.26.0
+
+`2021-01-18`
+
+- 💥 feat(table): onSave return response [#1578](https://github.com/ant-design/pro-components/pull/1578) [@DerrickTel](https://github.com/DerrickTel)
+- 💥 feat(table): support hideInSetting props [#1651](https://github.com/ant-design/pro-components/pull/1651) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): table support editable.onValuesChange [#1644](https://github.com/ant-design/pro-components/pull/1644) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.25.1
+
+`2021-01-13`
+
+- 🐛 fix(table): docs debounce time api [#1599](https://github.com/ant-design/pro-components/pull/1599) [@hengkx](https://github.com/hengkx)
+
+## @ant-design/pro-table@2.25.0
+
+`2021-01-13`
+
+- 🐛 feat(table): table request add debounce wait [#1591](https://github.com/ant-design/pro-components/pull/1591) [@hengkx](https://github.com/hengkx)
+
+## @ant-design/pro-table@2.24.0
+
+`2021-01-12`
+
+- 💥 feat(table): table columns use tree [#1583](https://github.com/ant-design/pro-components/pull/1583) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.23.0
+
+`2021-01-11`
+
+- 🐛 fix(table): optimised type to suit oneapi [#1576](https://github.com/ant-design/pro-components/pull/1576) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat: editable table add tableViewRender [#1572](https://github.com/ant-design/pro-components/pull/1572) [@tolerance-go](https://github.com/tolerance-go)
+
+## @ant-design/pro-table@2.22.1
+
+`2021-01-08`
+
+- 🐛 fix(table): fix filters or onFilter style error [#1539](https://github.com/ant-design/pro-components/pull/1539) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix hover dom style error [#1538](https://github.com/ant-design/pro-components/pull/1538) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): add exception handling [#1525](https://github.com/ant-design/pro-components/pull/1525) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.20.1
 
 `2021-01-05`

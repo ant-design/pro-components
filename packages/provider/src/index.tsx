@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
-
-import { noteOnce } from 'rc-util/lib/warning';
+import zh_CN from 'antd/lib/locale/zh_CN';
 
 import arEG from './locale/ar_EG';
 import zhCN from './locale/zh_CN';
@@ -11,6 +10,7 @@ import itIT from './locale/it_IT';
 import esES from './locale/es_ES';
 import jaJP from './locale/ja_JP';
 import ruRU from './locale/ru_RU';
+import srRS from './locale/sr_RS';
 import msMY from './locale/ms_MY';
 import zhTW from './locale/zh_TW';
 import frFR from './locale/fr_FR';
@@ -18,6 +18,8 @@ import ptBR from './locale/pt_BR';
 import koKR from './locale/ko_KR';
 import idID from './locale/id_ID';
 import deDE from './locale/de_DE';
+import faIR from './locale/fa_IR';
+import trTR from './locale/tr_TR';
 
 export type ProSchemaValueEnumType = {
   /** @name 演示的文案 */
@@ -127,6 +129,7 @@ const itITIntl = createIntl('it_IT', itIT);
 const jaJPIntl = createIntl('ja_JP', jaJP);
 const esESIntl = createIntl('es_ES', esES);
 const ruRUIntl = createIntl('ru_RU', ruRU);
+const srRSIntl = createIntl('sr_RS', srRS);
 const msMYIntl = createIntl('ms_MY', msMY);
 const zhTWIntl = createIntl('zh_TW', zhTW);
 const frFRIntl = createIntl('fr_FR', frFR);
@@ -134,6 +137,8 @@ const ptBRIntl = createIntl('pt_BR', ptBR);
 const koKRIntl = createIntl('ko_KR', koKR);
 const idIDIntl = createIntl('id_ID', idID);
 const deDEIntl = createIntl('de_DE', deDE);
+const faIRIntl = createIntl('fa_IR', faIR);
+const trTRIntl = createIntl('tr_TR', trTR);
 
 const intlMap = {
   'ar-EG': arEGIntl,
@@ -144,6 +149,7 @@ const intlMap = {
   'ja-JP': jaJPIntl,
   'es-ES': esESIntl,
   'ru-RU': ruRUIntl,
+  'sr-RS': srRSIntl,
   'ms-MY': msMYIntl,
   'zh-TW': zhTWIntl,
   'fr-FR': frFRIntl,
@@ -151,6 +157,8 @@ const intlMap = {
   'ko-KR': koKRIntl,
   'id-ID': idIDIntl,
   'de-DE': deDEIntl,
+  'fa-IR': faIRIntl,
+  'tr-TR': trTRIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -166,6 +174,7 @@ export {
   jaJPIntl,
   esESIntl,
   ruRUIntl,
+  srRSIntl,
   msMYIntl,
   zhTWIntl,
   frFRIntl,
@@ -173,6 +182,8 @@ export {
   koKRIntl,
   idIDIntl,
   deDEIntl,
+  faIRIntl,
+  trTRIntl,
   intlMap,
   intlMapKeys,
 };
@@ -202,12 +213,10 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
     return 'zh-CN';
   }
   const localeName = localeKey.toLocaleLowerCase();
-  return (
-    intlMapKeys.find((intlKey) => {
-      const LowerCaseKey = intlKey.toLocaleLowerCase();
-      return LowerCaseKey.includes(localeName);
-    }) || 'zh-CN'
-  );
+  return intlMapKeys.find((intlKey) => {
+    const LowerCaseKey = intlKey.toLocaleLowerCase();
+    return LowerCaseKey.includes(localeName);
+  });
 };
 
 /**
@@ -217,6 +226,8 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
  */
 const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
+  // 如果 locale 不存在自动注入的 AntdConfigProvider
+  const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
   return (
     <ConfigConsumer>
       {(value) => {
@@ -225,17 +236,27 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
         // antd 的 key 存在的时候以 antd 的为主
         const intl =
           localeName && value.intl?.locale === 'default'
-            ? intlMap[key]
-            : value.intl || intlMap[key];
+            ? intlMap[key!]
+            : value.intl || intlMap[key!];
+
+        // 自动注入 antd 的配置
+        const configProvider =
+          locale === undefined
+            ? {
+                locale: zh_CN,
+              }
+            : {};
         return (
-          <ConfigProvider
-            value={{
-              ...value,
-              intl: intl || zhCNIntl,
-            }}
-          >
-            {children}
-          </ConfigProvider>
+          <Provider {...configProvider}>
+            <ConfigProvider
+              value={{
+                ...value,
+                intl: intl || zhCNIntl,
+              }}
+            >
+              {children}
+            </ConfigProvider>
+          </Provider>
         );
       }}
     </ConfigConsumer>
@@ -246,39 +267,6 @@ export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
 
 export function useIntl(): IntlType {
   const context = useContext(ConfigContext);
-  noteOnce(
-    !!context.intl,
-    `
-为了提升兼容性  
-<IntlProvider value={zhCNIntl}/>
-需要修改为:
-<ConfigProvider
-  value={{
-    intl: zhCNIntl,
-  }}
-/>
-我们将会在下个版本中删除它
-    `,
-  );
-
-  noteOnce(
-    !!context.intl,
-    `
-To improve compatibility
-  <IntlProvider value={zhCNIntl}/>
-Need to be modified to:
-  <ConfigProvider
-    value={{
-      intl: zhCNIntl,
-    }}
-  />
-We will remove it in the next version
-    `,
-  );
-
-  if (!context.intl) {
-    return ((context as unknown) as IntlType) || zhCNIntl;
-  }
   return context.intl || zhCNIntl;
 }
 

@@ -319,6 +319,7 @@ describe('Field', () => {
     'dateTimeRange',
     'dateTime',
     'time',
+    'timeRange',
     'switch',
     'text',
     'progress',
@@ -329,6 +330,7 @@ describe('Field', () => {
     'jsonCode',
     'rate',
     'image',
+    'color',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType support render ${valueType}`, async () => {
@@ -394,29 +396,83 @@ describe('Field', () => {
   });
 
   it('🐴 money valueType is Object', async () => {
-    let html = render(
-      <Field
-        text="100"
-        valueType={{
-          type: 'money',
-          locale: 'en_US',
-        }}
-        mode="edit"
-      />,
-    );
-    expect(html).toMatchSnapshot();
+    const renderField = (locale: string) => {
+      let html = render(
+        <Field
+          text="100"
+          valueType={{
+            type: 'money',
+            locale,
+          }}
+          mode="edit"
+        />,
+      );
+      expect(html).toMatchSnapshot();
 
-    html = render(
+      html = render(
+        <Field
+          text="100"
+          valueType={{
+            type: 'money',
+            moneySymbol: '',
+            locale,
+          }}
+          mode="read"
+        />,
+      );
+      expect(html).toMatchSnapshot();
+
+      html = render(
+        <Field
+          text="100"
+          valueType={{
+            type: 'money',
+            locale,
+          }}
+          mode="read"
+        />,
+      );
+      expect(html).toMatchSnapshot();
+    };
+
+    renderField('en_US');
+    renderField('ru_RU');
+    renderField('ms_MY');
+    renderField('sr_RS');
+  });
+
+  it('🐴 percent support unit string', async () => {
+    const html = render(
       <Field
-        text="100"
+        text="100%"
         valueType={{
-          type: 'money',
-          locale: 'en_US',
+          type: 'percent',
+          showSymbol: true,
         }}
         mode="read"
       />,
     );
     expect(html).toMatchSnapshot();
+  });
+
+  it('🐴 percent support unit string', async () => {
+    const html = mount(
+      <Field
+        text="100%"
+        valueType={{
+          type: 'percent',
+          showSymbol: true,
+        }}
+        prefix="%"
+        mode="edit"
+      />,
+    );
+
+    html.find('.ant-input-number-input').simulate('change', {
+      target: {
+        value: '100',
+      },
+    });
   });
 
   it('🐴 percent valueType is Object', async () => {
@@ -556,6 +612,11 @@ describe('Field', () => {
         mode="read"
       />,
     );
+    expect(html).toMatchSnapshot();
+  });
+
+  it('🐴 options support no text', async () => {
+    const html = render(<Field text="qixian" valueType="option" mode="read" />);
     expect(html).toMatchSnapshot();
   });
 

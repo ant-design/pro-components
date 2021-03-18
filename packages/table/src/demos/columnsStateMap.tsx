@@ -62,6 +62,7 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'since2',
     dataIndex: 'createdAt',
     valueType: 'date',
+    hideInSetting: true,
   },
 
   {

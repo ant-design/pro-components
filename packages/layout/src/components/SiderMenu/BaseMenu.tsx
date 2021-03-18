@@ -6,8 +6,7 @@ import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { isUrl, isImg } from '@ant-design/pro-utils';
 
-import type { MenuMode, MenuProps } from 'antd/lib/menu';
-import type { MenuTheme } from 'antd/lib/menu/MenuContext';
+import type { MenuTheme, MenuProps } from 'antd';
 import type { PureSettings } from '../../defaultSettings';
 import defaultSettings from '../../defaultSettings';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
@@ -16,6 +15,9 @@ import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } f
 import MenuCounter from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 import PageLoading from '../PageLoading';
+
+// todo
+export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
 
 export type BaseMenuProps = {
   className?: string;
@@ -29,7 +31,7 @@ export type BaseMenuProps = {
   onCollapse?: (collapsed: boolean) => void;
   openKeys?: WithFalse<string[]> | undefined;
   handleOpenChange?: (openKeys: string[]) => void;
-
+  iconPrefixes?: string;
   /** 要给菜单的props, 参考antd-menu的属性。https://ant.design/components/menu-cn/ */
   menuProps?: MenuProps;
   style?: React.CSSProperties;
@@ -47,6 +49,7 @@ export type BaseMenuProps = {
     (
       item: MenuDataItem & {
         isUrl: boolean;
+        onClick: () => void;
       },
       defaultDom: React.ReactNode,
     ) => React.ReactNode
@@ -68,14 +71,17 @@ let IconFont = createFromIconfontCN({
 //   icon: 'http://demo.com/icon.png',
 //   icon: '/favicon.png',
 //   icon: <Icon type="setting" />,
-const getIcon = (icon?: string | React.ReactNode): React.ReactNode => {
+const getIcon = (
+  icon?: string | React.ReactNode,
+  iconPrefixes: string = 'icon-',
+): React.ReactNode => {
   if (typeof icon === 'string' && icon !== '') {
     if (isUrl(icon) || isImg(icon)) {
       return (
         <Icon component={() => <img src={icon} alt="icon" className="ant-pro-sider-menu-icon" />} />
       );
     }
-    if (icon.startsWith('icon-')) {
+    if (icon.startsWith(iconPrefixes)) {
       return <IconFont type={icon} />;
     }
   }
@@ -96,15 +102,17 @@ class MenuUtil {
   getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
     if (Array.isArray(item.children) && item && item.children.length > 0) {
       const name = this.getIntlName(item);
-      const { subMenuItemRender, prefixCls, menu } = this.props;
+      const { subMenuItemRender, prefixCls, menu, iconPrefixes } = this.props;
       //  get defaultTitle by menuItemRender
       const defaultTitle = item.icon ? (
-        <span className={`${prefixCls}-menu-item`}>
-          {!isChildren && getIcon(item.icon)}
+        <span className={`${prefixCls}-menu-item`} title={name}>
+          {!isChildren && getIcon(item.icon, iconPrefixes)}
           <span className={`${prefixCls}-menu-item-title`}>{name}</span>
         </span>
       ) : (
-        <span className={`${prefixCls}-menu-item`}>{name}</span>
+        <span className={`${prefixCls}-menu-item`} title={name}>
+          {name}
+        </span>
       );
 
       // subMenu only title render
@@ -120,12 +128,7 @@ class MenuUtil {
     }
 
     return (
-      <Menu.Item
-        inlineIndent={24}
-        disabled={item.disabled}
-        key={item.key || item.path}
-        onClick={item.onTitleClick}
-      >
+      <Menu.Item disabled={item.disabled} key={item.key || item.path} onClick={item.onTitleClick}>
         {this.getMenuItemPath(item, isChildren)}
       </Menu.Item>
     );
@@ -133,14 +136,9 @@ class MenuUtil {
 
   getIntlName = (item: MenuDataItem) => {
     const { name, locale } = item;
-    const {
-      menu = {
-        locale: false,
-      },
-      formatMessage,
-    } = this.props;
-    if (locale && menu.locale !== false && formatMessage) {
-      return formatMessage({
+    const { menu, formatMessage } = this.props;
+    if (locale && menu?.locale !== false) {
+      return formatMessage?.({
         id: locale,
         defaultMessage: name,
       });
@@ -155,12 +153,17 @@ class MenuUtil {
    */
   getMenuItemPath = (item: MenuDataItem, isChildren: boolean) => {
     const itemPath = this.conversionPath(item.path || '/');
-    const { location = { pathname: '/' }, isMobile, onCollapse, menuItemRender } = this.props;
-    const { target } = item;
+    const {
+      location = { pathname: '/' },
+      isMobile,
+      onCollapse,
+      menuItemRender,
+      iconPrefixes,
+    } = this.props;
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
     const { prefixCls } = this.props;
-    const icon = isChildren ? null : getIcon(item.icon);
+    const icon = isChildren ? null : getIcon(item.icon, iconPrefixes);
     let defaultItem = (
       <span className={`${prefixCls}-menu-item`}>
         {icon}
@@ -172,10 +175,16 @@ class MenuUtil {
     // Is it a http link
     if (isHttpUrl) {
       defaultItem = (
-        <a href={itemPath} target={target} className={`${prefixCls}-menu-item`}>
+        <span
+          title={name}
+          onClick={() => {
+            window.open(itemPath);
+          }}
+          className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
+        >
           {icon}
           <span className={`${prefixCls}-menu-item-title`}>{name}</span>
-        </a>
+        </span>
       );
     }
 
@@ -244,7 +253,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const { flatMenuKeys } = MenuCounter.useContainer();
   const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
 
-  const [openKeys, setOpenKeys] = useMergedState<WithFalse<React.ReactText[]>>(
+  const [openKeys, setOpenKeys] = useMergedState<WithFalse<React.Key[]>>(
     () => {
       if (menu?.defaultOpenAll) {
         return getOpenKeysFromMenuData(menuData) || [];
@@ -279,6 +288,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       setOpenKeys(matchMenuKeys);
       setSelectedKeys(matchMenuKeys);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchMenuKeys.join('-')]);
 
   useEffect(() => {
@@ -300,13 +310,20 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       propsOpenKeys !== false &&
       matchMenuKeys.join('-') !== (openKeys || []).join('-')
     ) {
-      setOpenKeys(matchMenuKeys);
-    } else if (flatMenuKeys.length > 0) {
-      setDefaultOpenAll(false);
-    }
+      let newKeys: React.Key[] = matchMenuKeys;
+      // 如果不自动关闭，我需要把 openKeys 放进去
+      if (menu?.autoClose === false) {
+        newKeys = Array.from(new Set([...matchMenuKeys, ...(openKeys || [])]));
+      }
+      setOpenKeys(newKeys);
+    } else if (flatMenuKeys.length > 0) setDefaultOpenAll(false);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchMenuKeys.join('-'), collapsed]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const openKeysProps = useMemo(() => getOpenKeysProps(openKeys, props), [
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     openKeys && openKeys.join(','),
     props.layout,
     props.collapsed,
@@ -344,7 +361,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       mode={mode}
       defaultOpenKeys={defaultOpenKeysRef.current}
       theme={theme}
-      inlineIndent={16}
       selectedKeys={selectedKeys}
       style={style}
       className={cls}

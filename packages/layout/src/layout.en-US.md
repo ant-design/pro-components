@@ -134,7 +134,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | logo | url to the top-left corner of layout's logo | `ReactNode` \| `()=> ReactNode` | - |
 | pure | Whether to remove all self-contained interfaces | `boolean` | - |
 | loading | The loading state of the layout | `boolean` | - |
-| location | The location information of the current application session. If your application creates a custom history, you will need to display the location attribute as described in [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location] (https://reactrouter.com/web/api/history) | isBrowser ? window.location : undefined |
+| location | The location information of the current application session. If your application creates a custom history, you will need to display the location attribute as described in [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location](https://reactrouter.com/web/api/history) | isBrowser ? window.location : undefined |
 | menuHeaderRender | render logo and title | `ReactNode` \| `(logo,title)=>ReactNode` | - |
 | menuFooterRender | Render a block at the bottom of the layout | `(menuProps)=>ReactNode` | - |
 | onMenuHeaderClick | menu menu menu's header click event | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
@@ -150,6 +150,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | breakpoint | Trigger [breakpoint](https://ant.design/components/grid-cn/#Col) for responsive layouts | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
 | menu | For the moment, only locale,locale can be turned off for the menu's own globalization | `{ locale: boolean, defaultOpenAll: boolean }` | `{ locale: true }` |
 | iconfontUrl | Use the icon configuration of [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) | `URL` | - |
+| iconPrefixes | icon prefix of side menu | `string` | `icon-` |
 | locale | Language settings for the current layout | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | settings for layout | [`Settings`](#Settings) | - |
 | siderWidth | width of the side menu | `number` | 208 |
@@ -158,7 +159,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | onCollapse | The collapsed event of the menu | `(collapsed: boolean) => void` | - |
 | onPageChange | Triggered on page switch | `(location: Location) => void` | - |
 | headerRender | Custom header render method | `(props: BasicLayoutProps) => ReactNode` | - |
-| headerTitleRender | Custom header title method, works in mix mode | `(props: BasicLayoutProps) => ReactNode` | - |
+| headerTitleRender | Custom header title method, works in mix mode | `(logo,title,props)=>ReactNode` | - |
 | headerContentRender | Custom header content methods | `(props: BasicLayoutProps) => ReactNode` | - |
 | rightContentRender | Custom render method for the right part of the header | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | Custom method for collapsed button | `(collapsed: boolean) => ReactNode` | - |
@@ -174,8 +175,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | disableMobile | disable automatic switching to mobile pages | `boolean` | false |
 | links | Show shortcut actions in the lower right corner of the menu | `ReactNode[]` | - |
 | menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
-
-As of 4.5.13 Layout supports most props of [Menu](https://ant.design/components/menu-cn/#Menu) via `menuProps`.
+| waterMarkProps | Configure watermark, watermark is a function of PageContainer, layout is only transparently transmitted to PageContainer | [WaterMarkProps](/components/water-mark) | - |
 
 ### SettingDrawer
 
@@ -438,7 +438,7 @@ export interface MenuDataItem {
 ```
 
 - name is used to configure the name in the menu, and will be modified to the browser tab title
-- icon represents the body of the menu, only antd's chart, iconfont needs to be defined by yourself
+- icon represents the body of the menu, only antd's icon, iconfont needs to be defined by yourself
 - locale can set the internationalization of the menu name
 - hideInMenu will be configured to hide this route in the menu, name will have the same effect if not filled
 - hideChildrenInMenu will hide the children of this route in the menu
@@ -449,4 +449,4 @@ export interface MenuDataItem {
 
 Sometimes we want the server to manage our routes, so we want the menus to be distributed by the server. We provide `menuDataRender` to modify the data, but note that `menuDataRender` will trigger re-rendering and will also support internationalization and permission configuration, so if you don't need internationalization, we recommend using `postMenuData` for a significant performance boost.
 
-The server needs to return the same data as `MenuDataItem`, `menuDataRender` needs to return an array, if you want to have better performance you can try using the route property in props, here is a [demo](/components/layout#from server) Here is a [demo](/components/layout#from server).
+The server needs to return the same data as `MenuDataItem`, `menuDataRender` needs to return an array, if you want to have better performance you can try using the route property in props, here is a [demo](/components/layout#load-from-server-menu).

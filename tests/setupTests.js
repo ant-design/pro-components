@@ -1,6 +1,6 @@
 import MockDate from 'mockdate';
 import Enzyme from 'enzyme';
-
+import 'jest-canvas-mock';
 import moment from 'moment-timezone';
 import { enableFetchMocks } from 'jest-fetch-mock';
 
@@ -26,6 +26,17 @@ if (typeof window !== 'undefined') {
       configurable: true,
       value: jest.fn(() => ({
         matches: false,
+        addListener: jest.fn(),
+        removeListener: jest.fn(),
+      })),
+    });
+  }
+  if (!window.matchMedia) {
+    Object.defineProperty(global.window, 'matchMedia', {
+      writable: true,
+      configurable: true,
+      value: jest.fn((query) => ({
+        matches: query.includes('max-width'),
         addListener: jest.fn(),
         removeListener: jest.fn(),
       })),
@@ -58,7 +69,9 @@ global.cancelAnimationFrame =
   };
 // browserMocks.js
 const localStorageMock = (() => {
-  let store = {};
+  let store = {
+    umi_locale: 'zh-CN',
+  };
 
   return {
     getItem(key) {
@@ -66,6 +79,9 @@ const localStorageMock = (() => {
     },
     setItem(key, value) {
       store[key] = value.toString();
+    },
+    removeItem(key) {
+      store[key] = null;
     },
     clear() {
       store = {};
@@ -106,3 +122,21 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
     ob.instance().onResize([{ target: ob.getDOMNode() }]);
   },
 });
+
+// @ts-ignore-next-line
+global.Worker = class {
+  constructor(stringUrl) {
+    // @ts-ignore-next-line
+    this.url = stringUrl;
+    // @ts-ignore-next-line
+    this.onmessage = () => {};
+  }
+
+  postMessage(msg) {
+    // @ts-ignore-next-line
+    this.onmessage(msg);
+  }
+};
+
+// @ts-ignore-next-line
+global.URL.createObjectURL = () => {};

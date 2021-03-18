@@ -1,11 +1,52 @@
-@import '~antd/lib/style/themes/default.less';
-@import '~antd/lib/list/style/index.less';
+@import '~antd/es/style/themes/default.less';
+@import '~antd/es/list/style/index.less';
 
-@pro-list-prefix-cls: ant-pro-list;
+@pro-list-prefix-cls: ~'@{ant-prefix}-pro-list';
 
 .@{pro-list-prefix-cls} {
+  .@{ant-prefix}-list-grid {
+    padding: 0 24px;
+  }
+
+  .@{ant-prefix}-pro-table-alert {
+    margin: 0 24px 16px 24px;
+  }
+
+  .@{ant-prefix}-list-pagination {
+    padding: 0 18px;
+  }
+
   .@{pro-list-prefix-cls}-row {
     padding: 0 18px 0 24px;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.02);
+      transition: background-color 0.3s;
+      .@{ant-prefix}-list-item-action {
+        display: block;
+      }
+
+      .@{ant-prefix}-list-item-extra {
+        display: block;
+      }
+
+      .@{pro-list-prefix-cls}-row-extra {
+        display: block;
+      }
+
+      .@{pro-list-prefix-cls}-row-subheader-actions {
+        display: block;
+      }
+    }
+
+    &-card {
+      margin: 8px 0;
+      padding: 0 8px;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
 
     &.@{pro-list-prefix-cls}-row-editable {
       .@{ant-prefix}-list-item {
@@ -24,7 +65,6 @@
 
     &.@{pro-list-prefix-cls}-row-selected {
       background-color: @table-selected-row-bg;
-
       &:hover {
         background-color: @table-selected-row-bg;
       }
@@ -47,22 +87,20 @@
       background-size: 12px 12px;
     }
 
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.02);
-      transition: background-color 0.3s;
-      .@{ant-prefix}-list-item-action {
-        display: block;
-      }
-
-      .@{pro-list-prefix-cls}-row-subheader-actions {
-        display: block;
-      }
-    }
-
     &-show-action-hover {
       .@{ant-prefix}-list-item-action {
         display: none;
       }
+    }
+
+    &-show-extra-hover {
+      .@{ant-prefix}-list-item-extra {
+        display: none;
+      }
+    }
+
+    &-extra {
+      display: none;
     }
 
     &-subheader {
@@ -233,6 +271,11 @@
   .@{ant-prefix}-list-bordered .@{ant-prefix}-list-item {
     padding-right: 0;
     padding-left: 0;
+  }
+  .@{pro-list-prefix-cls}-row-show-extra-hover {
+    .@{ant-prefix}-list-item-extra {
+      display: none;
+    }
   }
 }
 

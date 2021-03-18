@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
+import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
 import type { SearchProps } from 'antd/lib/input';
-import type { ColumnType } from 'antd/lib/table';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
+import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
 import ColumnSetting from '../ColumnSetting';
@@ -12,13 +13,19 @@ import './index.less';
 import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
 import Container from '../../container';
-import type { ActionType } from '../../typing';
+import type { ActionType, ProTableProps } from '../../typing';
+import { omitUndefined } from '@ant-design/pro-utils';
 
 export type OptionConfig = {
   density?: boolean;
   fullScreen?: OptionsType;
   reload?: OptionsType;
-  setting?: boolean;
+  setting?:
+    | boolean
+    | {
+        draggable?: boolean;
+        checkable?: boolean;
+      };
   search?: (SearchProps & { name?: string }) | boolean;
 };
 
@@ -45,8 +52,7 @@ export type ToolBarProps<T = unknown> = {
   selectedRows?: T[];
   className?: string;
   onSearch?: (keyWords: string) => void;
-  columns: ColumnType<T>[];
-  editableUtils: any;
+  columns: TableColumnType<T>[];
 };
 
 function getButtonText({
@@ -81,15 +87,12 @@ function getButtonText({
  * @param className
  */
 function renderDefaultOption<T>(
-  options: ToolBarProps<T>['options'],
+  options: OptionConfig,
   defaultOptions: OptionConfig & {
     intl: IntlType;
   },
-  columns: ColumnType<T>[],
+  columns: TableColumnType<T>[],
 ) {
-  if (!options) {
-    return null;
-  }
   return Object.keys(options)
     .filter((item) => item)
     .map((key) => {
@@ -98,7 +101,7 @@ function renderDefaultOption<T>(
         return null;
       }
       if (key === 'setting') {
-        return <ColumnSetting columns={columns} key={key} />;
+        return <ColumnSetting {...options[key]} columns={columns} key={key} />;
       }
       if (key === 'fullScreen') {
         return (
@@ -144,40 +147,47 @@ function ToolBar<T>({
   columns,
   ...rest
 }: ToolBarProps<T>) {
-  const defaultOptions = {
-    reload: () => action?.current?.reload(),
-    density: true,
-    setting: true,
-    search: false,
-    fullScreen: () => action?.current?.fullScreen?.(),
-  };
   const counter = Container.useContainer();
-  const options =
-    propsOptions !== false
-      ? {
-          ...defaultOptions,
-          ...(propsOptions || {
-            fullScreen: false,
-          }),
-        }
-      : false;
 
   const intl = useIntl();
-  const optionDom =
-    renderDefaultOption<T>(
+  const optionDom = useMemo(() => {
+    const defaultOptions = {
+      reload: () => action?.current?.reload(),
+      density: true,
+      setting: true,
+      search: false,
+      fullScreen: () => action?.current?.fullScreen?.(),
+    };
+    if (propsOptions === false) {
+      return [];
+    }
+
+    const options = {
+      ...defaultOptions,
+      ...(propsOptions || {
+        fullScreen: false,
+      }),
+    };
+
+    return renderDefaultOption<T>(
       options,
       {
         ...defaultOptions,
         intl,
       },
       columns,
-    ) || [];
+    );
+  }, [action, columns, intl, propsOptions]);
   // 操作列表
   const actions = toolBarRender
     ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })
     : [];
-  const getSearchConfig = (search: OptionConfig['search']) => {
-    if (!search) return false;
+
+  const searchConfig = useMemo(() => {
+    if (!propsOptions) {
+      return false;
+    }
+    if (!propsOptions.search) return false;
 
     /** 受控的value 和 onChange */
     const defaultSearchConfig = {
@@ -185,24 +195,24 @@ function ToolBar<T>({
       onChange: (e: React.ChangeEvent<HTMLInputElement>) => counter.setKeyWords(e.target.value),
     };
 
-    if (search === true) return defaultSearchConfig;
+    if (propsOptions.search === true) return defaultSearchConfig;
 
     return {
       ...defaultSearchConfig,
-      ...search,
+      ...propsOptions.search,
     };
-  };
+  }, [counter, propsOptions]);
 
   useEffect(() => {
     if (counter.keyWords === undefined) {
       onSearch?.('');
     }
-  }, [counter.keyWords]);
+  }, [counter.keyWords, onSearch]);
   return (
     <ListToolBar
       title={headerTitle}
       tooltip={tooltip || rest.tip}
-      search={options && getSearchConfig(options.search)}
+      search={searchConfig}
       onSearch={onSearch}
       actions={actions}
       settings={optionDom}
@@ -211,4 +221,128 @@ function ToolBar<T>({
   );
 }
 
-export default ToolBar;
+export type ToolbarRenderProps<T> = {
+  hideToolbar: boolean;
+  onFormSearchSubmit: (params: any) => void;
+  searchNode: React.ReactNode;
+  tableColumn: any[];
+  tooltip?: string;
+  selectedRows: T[];
+  selectedRowKeys: React.Key[];
+  headerTitle: React.ReactNode;
+  toolbar: ProTableProps<T, any, any>['toolbar'];
+  options: ProTableProps<T, any, any>['options'];
+  toolBarRender?: ToolBarProps<T>['toolBarRender'];
+  actionRef: React.MutableRefObject<ActionType | undefined>;
+};
+
+/** 这里负责与table交互，并且减少 render次数 */
+class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
+  onSearch = (keyword: string) => {
+    const { options, onFormSearchSubmit, actionRef } = this.props;
+    if (!options || !options.search) {
+      return;
+    }
+    const { name = 'keyword' } = options.search === true ? {} : options.search;
+
+    // 查询的时候的回到第一页
+    actionRef?.current?.setPageInfo?.({
+      current: 1,
+    });
+
+    onFormSearchSubmit(
+      omitUndefined({
+        // ...formSearch,
+        _timestamp: Date.now(),
+        [name]: keyword,
+      }),
+    );
+  };
+  isEquals = (next: ToolbarRenderProps<T>) => {
+    const {
+      hideToolbar,
+      tableColumn,
+      options,
+      tooltip,
+      toolbar,
+      selectedRows,
+      selectedRowKeys,
+      headerTitle,
+      actionRef,
+      toolBarRender,
+    } = this.props;
+
+    return isDeepEqualReact(
+      {
+        hideToolbar,
+        tableColumn,
+        options,
+        tooltip,
+        toolbar,
+        selectedRows,
+        selectedRowKeys,
+        headerTitle,
+        actionRef,
+        toolBarRender,
+      },
+      {
+        hideToolbar: next.hideToolbar,
+        tableColumn: next.tableColumn,
+        options: next.options,
+        tooltip: next.tooltip,
+        toolbar: next.toolbar,
+        selectedRows: next.selectedRows,
+        selectedRowKeys: next.selectedRowKeys,
+        headerTitle: next.headerTitle,
+        actionRef: next.actionRef,
+        toolBarRender: next.toolBarRender,
+      },
+    );
+  };
+  shouldComponentUpdate = (next: ToolbarRenderProps<T>) => {
+    if (next.searchNode) {
+      return true;
+    }
+    return !this.isEquals(next);
+  };
+
+  render = () => {
+    const {
+      hideToolbar,
+      tableColumn,
+      options,
+      searchNode,
+      tooltip,
+      toolbar,
+      selectedRows,
+      selectedRowKeys,
+      headerTitle,
+      actionRef,
+      toolBarRender,
+    } = this.props;
+
+    // 不展示 toolbar
+    if (hideToolbar) {
+      return null;
+    }
+    return (
+      <ToolBar<T>
+        tooltip={tooltip}
+        columns={tableColumn}
+        options={options}
+        headerTitle={headerTitle}
+        action={actionRef}
+        onSearch={this.onSearch}
+        selectedRows={selectedRows}
+        selectedRowKeys={selectedRowKeys}
+        toolBarRender={toolBarRender}
+        toolbar={{
+          filter: searchNode,
+          ...toolbar,
+        }}
+      />
+    );
+  };
+}
+
+export default ToolbarRender;

@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.7...@ant-design/pro-provider@1.4.8) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.4.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.6...@ant-design/pro-provider@1.4.7) (2021-03-08)
+
+### Bug Fixes
+
+- **form:** fix form list copy no work error ([#2081](https://github.com/ant-design/pro-components/issues/2081)) ([00329b8](https://github.com/ant-design/pro-components/commit/00329b8ca01b370092cfdef3f272b9f45c89069c))
+
+## [1.4.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.5...@ant-design/pro-provider@1.4.6) (2021-02-28)
+
+### Bug Fixes
+
+- **form:** 🇧🇷 Adding stepForm and editableTable translations to pt-BR ([#2018](https://github.com/ant-design/pro-components/issues/2018)) ([2a3d684](https://github.com/ant-design/pro-components/commit/2a3d6842b7c7dd810fde5aeaca59c96b0c50eece))
+
+## [1.4.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.4...@ant-design/pro-provider@1.4.5) (2021-02-22)
+
+### Bug Fixes
+
+- **provide:** set default locale zh-CN ([#1868](https://github.com/ant-design/pro-components/issues/1868)) ([adaa126](https://github.com/ant-design/pro-components/commit/adaa126e9f508620baf5b814fb1cd858bc5344f4))
+
+## [1.4.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.3...@ant-design/pro-provider@1.4.4) (2021-01-25)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.4.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.2...@ant-design/pro-provider@1.4.3) (2021-01-21)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.4.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.1...@ant-design/pro-provider@1.4.2) (2021-01-12)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
 ## [1.4.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.0...@ant-design/pro-provider@1.4.1) (2021-01-07)
 
 **Note:** Version bump only for package @ant-design/pro-provider

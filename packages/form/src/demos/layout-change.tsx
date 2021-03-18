@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, message, Radio } from 'antd';
+import { Button, message } from 'antd';
 import ProForm, {
   ModalForm,
   DrawerForm,
@@ -9,6 +9,7 @@ import ProForm, {
   ProFormText,
   ProFormDateRangePicker,
   ProFormSelect,
+  ProFormRadio,
 } from '@ant-design/pro-form';
 import { PlusOutlined } from '@ant-design/icons';
 
@@ -33,12 +34,15 @@ export default () => {
   const FormComponents = Components[type];
   return (
     <>
-      <Radio.Group
+      <ProFormRadio.Group
         style={{
           margin: 16,
         }}
-        value={type}
-        onChange={(e) => setType(e.target.value)}
+        radioType="button"
+        fieldProps={{
+          value: type,
+          onChange: (e) => setType(e.target.value),
+        }}
         options={['LightFilter', 'ProForm', 'ModalForm', 'DrawerForm', 'QueryFilter']}
       />
       <div
@@ -75,7 +79,12 @@ export default () => {
             <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
           </ProForm.Group>
           <ProForm.Group>
-            <ProFormText name="contract" width="md" label="合同名称" placeholder="请输入名称" />
+            <ProFormText
+              name={['contract', 'name']}
+              width="md"
+              label="合同名称"
+              placeholder="请输入名称"
+            />
             <ProFormDateRangePicker
               width="md"
               name={['contract', 'createTime']}

@@ -61,8 +61,8 @@ export default () => {
               />
             </ProForm.Group>
             <ProForm.Group>
-              <ProFormText name="contract" label="合同名称" placeholder="请输入名称" />
-              <ProFormDateRangePicker name="contractTime" label="合同生效时间" />
+              <ProFormText name={['contract', 'name']} label="合同名称" placeholder="请输入名称" />
+              <ProFormDateRangePicker name={['contract', 'createTime']} label="合同生效时间" />
             </ProForm.Group>
             <ProForm.Group>
               <ProFormSelect

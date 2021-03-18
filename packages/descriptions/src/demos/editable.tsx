@@ -1,11 +1,14 @@
-import React from 'react';
-import { Input } from 'antd';
+import React, { useRef } from 'react';
+import { Input, Tooltip } from 'antd';
 
 import ProDescriptions from '@ant-design/pro-descriptions';
 
 export default () => {
+  const actionRef = useRef();
   return (
     <ProDescriptions
+      actionRef={actionRef}
+      // bordered
       formProps={{
         onValuesChange: (e, f) => console.log(f),
       }}
@@ -66,6 +69,19 @@ export default () => {
           key: 'money',
           dataIndex: 'money',
           valueType: 'money',
+          render: (dom, entity, index, action) => {
+            return (
+              <Tooltip title="点击进入编辑状态">
+                <div
+                  onClick={() => {
+                    action?.startEditable('money');
+                  }}
+                >
+                  {dom}
+                </div>
+              </Tooltip>
+            );
+          },
         },
         {
           title: '操作',

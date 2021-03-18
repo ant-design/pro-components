@@ -1,14 +1,15 @@
-﻿import React, { useEffect, useContext } from 'react';
-import { Form } from 'antd';
+﻿import React, { useEffect, useContext, useMemo } from 'react';
+import type { FormItemProps } from 'antd';
+import { Form, ConfigProvider } from 'antd';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import { omitUndefined } from '@ant-design/pro-utils';
 import { pickProFormItemProps } from '@ant-design/pro-utils';
-import type { FormItemProps } from 'antd/lib/form';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
-import SizeContext from 'antd/lib/config-provider/SizeContext';
 import FieldContext from '../FieldContext';
 import LightWrapper from './LightWrapper';
 import type { ProFormItemProps } from '../interface';
+import { FormListContext } from '../components/List';
 
 export type ProFormItemCreateConfig = {
   /** 自定义类型 */
@@ -17,6 +18,8 @@ export type ProFormItemCreateConfig = {
   customLightMode?: boolean;
   /** Light mode 自定义的 label 模式 */
   lightFilterLabelFormatter?: (value: any) => string;
+  /** 默认的props，如果用户设置会被覆盖 */
+  defaultProps?: Record<string, any>;
 } & FormItemProps;
 
 const WIDTH_SIZE_ENUM = {
@@ -82,7 +85,16 @@ function createField<P extends ProFormItemProps = any>(
   config?: ProFormItemCreateConfig,
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
-    const size = useContext(SizeContext);
+    const size = useContext(ConfigProvider.SizeContext);
+
+    const {
+      valueType,
+      customLightMode,
+      lightFilterLabelFormatter,
+      valuePropName = 'value',
+      defaultProps,
+      ...defaultFormItemProps
+    } = config || {};
     const {
       label,
       tooltip,
@@ -98,28 +110,13 @@ function createField<P extends ProFormItemProps = any>(
       colSize,
       formItemProps: propsFormItemProps,
       ...rest
-    } = props;
-    const {
-      valueType,
-      customLightMode,
-      lightFilterLabelFormatter,
-      valuePropName = 'value',
-      ...defaultFormItemProps
-    } = config || {};
+    } = { ...defaultProps, ...props } as P & ExtendsProps;
+
+    // ProFromList 的 filed，里面有name和key
+    const formListField = useContext(FormListContext);
+
     /** 从 context 中拿到的值 */
     const { fieldProps, formItemProps, setFieldValueType } = React.useContext(FieldContext);
-    useEffect(() => {
-      // 如果 setFieldValueType 和 props.name 不存在不存入
-      if (!setFieldValueType || !props.name) {
-        return;
-      }
-      // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
-      // 写一个 ts 比较麻烦，用 any 顶一下
-      setFieldValueType(props.name, {
-        valueType: valueType || (rest as any).valueType || 'text',
-        transform,
-      });
-    }, []);
 
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
@@ -131,8 +128,7 @@ function createField<P extends ProFormItemProps = any>(
     const realFieldProps = {
       ...(ignoreFormItem ? formNeedProps : {}),
       disabled: props.disabled,
-      // 轻量筛选模式下默认不显示 FormItem 的 label，label 设置为 placeholder
-      placeholder: proFieldProps?.light ? placeholder || label : placeholder,
+      placeholder,
       ...(fieldProps || {}),
       ...(rest.fieldProps || {}),
       style: {
@@ -150,6 +146,32 @@ function createField<P extends ProFormItemProps = any>(
       ...propsFormItemProps,
     };
 
+    const name = useMemo(() => {
+      if (ignoreFormItem) {
+        return [];
+      }
+      if (formListField.name !== undefined) {
+        return [formListField.name, otherProps.name].flat(1) as string[];
+      }
+      return otherProps.name as string[];
+    }, [formListField.name, otherProps.name]);
+
+    useEffect(() => {
+      // 如果 setFieldValueType 和 props.name 不存在不存入
+      if (!setFieldValueType || !props.name) {
+        return;
+      }
+      // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
+      // 写一个 ts 比较麻烦，用 any 顶一下
+      setFieldValueType(
+        [formListField.listName, name].flat(1).filter((itemName) => itemName !== undefined),
+        {
+          valueType: valueType || (rest as any).valueType || 'text',
+          transform,
+        },
+      );
+    }, [name, transform, valueType]);
+
     noteOnce(
       // eslint-disable-next-line @typescript-eslint/dot-notation
       !rest['defaultValue'],
@@ -161,23 +183,23 @@ function createField<P extends ProFormItemProps = any>(
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
         // 比如 ProFormSelect 的 request
         {...(rest as P)}
-        fieldProps={{
+        fieldProps={omitUndefined({
           allowClear,
           ...realFieldProps,
-          style: {
-            width: typeof width === 'number' ? width : undefined,
+          style: omitUndefined({
+            width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
             ...realFieldProps?.style,
-          },
+          }),
           className: classnames(realFieldProps?.className, {
             [`pro-field-${width}`]: width && WIDTH_SIZE_ENUM[width],
           }),
-        }}
-        proFieldProps={{
+        })}
+        proFieldProps={omitUndefined({
           mode: readonly ? 'read' : 'edit',
           params: rest.params,
           proFieldKey: otherProps?.name,
           ...proFieldProps,
-        }}
+        })}
       />
     );
 
@@ -193,6 +215,7 @@ function createField<P extends ProFormItemProps = any>(
         tooltip={proFieldProps?.light !== true && tooltip}
         valuePropName={valuePropName}
         {...otherProps}
+        name={name}
         messageVariables={{
           label: label as string,
           ...otherProps?.messageVariables,

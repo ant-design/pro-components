@@ -39,7 +39,9 @@ const LayoutSetting: React.FC<{
               value={contentWidth || 'Fixed'}
               size="small"
               className="content-width"
-              onSelect={(value) => changeSetting('contentWidth', value)}
+              onSelect={(value) => {
+                changeSetting('contentWidth', value);
+              }}
               style={{ width: 80 }}
             >
               {layout === 'side' ? null : (
@@ -102,7 +104,9 @@ const LayoutSetting: React.FC<{
               size="small"
               checked={!!splitMenus}
               className="split-menus"
-              onChange={(checked) => changeSetting('splitMenus', checked)}
+              onChange={(checked) => {
+                changeSetting('splitMenus', checked);
+              }}
             />
           ),
         },

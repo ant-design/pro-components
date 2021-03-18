@@ -1,4 +1,3 @@
-/** Uuid: 7f462cb4 title: 页面加载中 desc: 通过 `lodding` 属性配置页面加载。 */
 import React from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
 
@@ -6,8 +5,8 @@ export default () => (
   <div
     style={{
       boxShadow: '0 0 8px rgba(0, 0, 0, 0.2)',
+      height: '100vh',
       background: '#F5F7FA',
-      height: 400,
     }}
   >
     <PageContainer
@@ -33,7 +32,13 @@ export default () => (
         },
       }}
     >
-      <div>加载中这里不显示</div>
+      <div
+        style={{
+          height: '100vh',
+        }}
+      >
+        加载中这里不显示
+      </div>
     </PageContainer>
   </div>
 );

@@ -1,12 +1,10 @@
 import React, { useRef, useCallback, useEffect, useContext } from 'react';
+import type { StepsProps, FormInstance } from 'antd';
 import { Form, Steps, ConfigProvider, Button, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import type { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { StepsProps } from 'antd/lib/steps';
 import classNames from 'classnames';
-import type { FormInstance } from 'antd/lib/form';
-import type { ButtonProps } from 'antd/lib/button';
 import { useIntl } from '@ant-design/pro-provider';
 import { useMountMergeState } from '@ant-design/pro-utils';
 
@@ -16,9 +14,7 @@ import './index.less';
 import type { ProFormProps } from '../ProForm';
 import type { SubmitterProps } from '../../components/Submitter';
 
-type Store = Record<string, any>;
-
-type StepsFormProps<T = Store> = {
+type StepsFormProps<T = Record<string, any>> = {
   /**
    * 返回 true 会重置步数，并且清空表单
    *
@@ -27,7 +23,7 @@ type StepsFormProps<T = Store> = {
   onFinish?: (values: T) => Promise<boolean | void>;
   current?: number;
   stepsProps?: StepsProps;
-  formProps?: ProFormProps;
+  formProps?: ProFormProps<T>;
   onCurrentChange?: (current: number) => void;
   /** 自定义步骤器 */
   stepsRender?: (
@@ -52,7 +48,7 @@ type StepsFormProps<T = Store> = {
    * @param submitter 操作按钮
    */
   stepsFormRender?: (from: React.ReactNode, submitter: React.ReactNode) => React.ReactNode;
-  /** 按钮的统一配置，优先级低于分布表单的配置 */
+  /** 按钮的统一配置，优先级低于分步表单的配置 */
   submitter?:
     | SubmitterProps<{
         step: number;
@@ -70,18 +66,18 @@ export const StepsFormProvide = React.createContext<
       onFormFinish: (name: string, formData: any) => void;
       keyArray: string[];
       formArrayRef: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
-      loading: ButtonProps['loading'];
-      setLoading: React.Dispatch<ButtonProps['loading']>;
+      loading: boolean;
+      setLoading: (loading: boolean) => void;
       formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
       next: () => void;
     }
   | undefined
 >(undefined);
-
-const StepsForm: React.FC<StepsFormProps> & {
-  StepForm: typeof StepForm;
-  useForm: typeof Form.useForm;
-} = (props) => {
+function StepsForm<T = Record<string, any>>(
+  props: StepsFormProps<T> & {
+    children: any;
+  },
+) {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-steps-form');
 
@@ -98,11 +94,11 @@ const StepsForm: React.FC<StepsFormProps> & {
     containerStyle,
     ...rest
   } = props;
-  const formDataRef = useRef(new Map<string, Store>());
+  const formDataRef = useRef(new Map<string, Record<string, any>>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
   const formArrayRef = useRef<React.MutableRefObject<FormInstance<any> | undefined>[]>([]);
   const [formArray, setFormArray] = useMountMergeState<string[]>([]);
-  const [loading, setLoading] = useMountMergeState<ButtonProps['loading']>(false);
+  const [loading, setLoading] = useMountMergeState<boolean>(false);
   const intl = useIntl();
 
   /** 受控的方式来操作表单 */
@@ -137,18 +133,23 @@ const StepsForm: React.FC<StepsFormProps> & {
           return;
         }
         setLoading(true);
-        const values = Array.from(formDataRef.current.values()).reduce((pre, cur) => {
+        const values: any = Array.from(formDataRef.current.values()).reduce((pre, cur) => {
           return {
             ...pre,
             ...cur,
           };
         }, {});
-        const success = props.onFinish(values);
-        if (success) {
-          setStep(0);
-          formArrayRef.current.forEach((form) => form.current?.resetFields());
+        try {
+          const success = await props.onFinish(values);
+          if (success) {
+            setStep(0);
+            formArrayRef.current.forEach((form) => form.current?.resetFields());
+          }
+        } catch (error) {
+          console.log(error);
+        } finally {
+          setLoading(false);
         }
-        setLoading(false);
       }
     },
     [step],
@@ -338,7 +339,7 @@ const StepsForm: React.FC<StepsFormProps> & {
       </Form.Provider>
     </div>
   );
-};
+}
 
 StepsForm.StepForm = StepForm;
 StepsForm.useForm = Form.useForm;

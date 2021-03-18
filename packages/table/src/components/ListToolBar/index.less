@@ -5,6 +5,7 @@
 .@{pro-list-toolbar} {
   overflow-x: auto;
   overflow-y: hidden;
+  line-height: 1;
 
   &-container {
     display: flex;
@@ -28,10 +29,17 @@
   }
 
   &-setting-item {
-    padding: 0 4px;
+    margin: 0 4px;
     color: @icon-color-hover;
     font-size: @font-size-lg;
     cursor: pointer;
+
+    span {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
     &:hover {
       color: @primary-color;
     }

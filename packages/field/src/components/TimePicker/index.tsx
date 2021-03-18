@@ -1,8 +1,7 @@
-import { DatePicker, ConfigProvider } from 'antd';
+import { DatePicker, TimePicker, ConfigProvider } from 'antd';
 import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
-import SizeContext from 'antd/lib/config-provider/SizeContext';
 import type { ProFieldFC } from '../../index';
 
 /**
@@ -15,7 +14,7 @@ const FieldTimePicker: ProFieldFC<{
   format: string;
 }> = ({ text, mode, light, label, format, render, renderFormItem, plain, fieldProps }, ref) => {
   const [open, setOpen] = useState<boolean>(false);
-  const size = useContext(SizeContext);
+  const size = useContext(ConfigProvider.SizeContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
 
@@ -39,7 +38,7 @@ const FieldTimePicker: ProFieldFC<{
             setOpen(true);
           }}
         >
-          <DatePicker.TimePicker
+          <TimePicker
             value={momentValue}
             format={format}
             ref={ref}
@@ -89,5 +88,53 @@ const FieldTimePicker: ProFieldFC<{
   }
   return null;
 };
+
+/**
+ * 时间区间选择
+ *
+ * @param param0
+ * @param ref
+ */
+const FieldTimeRangePicker: ProFieldFC<{
+  text: React.ReactText[];
+  format: string;
+}> = ({ text, mode, format, render, renderFormItem, plain, fieldProps }) => {
+  const [startText, endText] = Array.isArray(text) ? text : [];
+  const parsedStartText: string = startText ? moment(startText).format(format || 'YYYY-MM-DD') : '';
+  const parsedEndText: string = endText ? moment(endText).format(format || 'YYYY-MM-DD') : '';
+
+  if (mode === 'read') {
+    const dom = (
+      <div>
+        <div>{parsedStartText || '-'}</div>
+        <div>{parsedEndText || '-'}</div>
+      </div>
+    );
+    if (render) {
+      return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
+    }
+    return dom;
+  }
+  if (mode === 'edit' || mode === 'update') {
+    const { value } = fieldProps;
+    const momentValue = parseValueToMoment(value) as moment.Moment[];
+
+    const dom = (
+      <TimePicker.RangePicker
+        format={format}
+        bordered={plain === undefined ? true : !plain}
+        {...fieldProps}
+        value={momentValue}
+      />
+    );
+    if (renderFormItem) {
+      return renderFormItem(text, { mode, ...fieldProps }, dom);
+    }
+    return dom;
+  }
+  return null;
+};
+
+export { FieldTimeRangePicker };
 
 export default React.forwardRef(FieldTimePicker);

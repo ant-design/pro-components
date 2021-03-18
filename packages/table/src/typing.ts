@@ -20,31 +20,29 @@ import type { ListToolBarProps } from './components/ListToolBar';
 import type { OptionConfig, ToolBarProps } from './components/ToolBar';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ColumnsState, useContainer } from './container';
-import type { SearchConfig, TableFormItem } from './components/Form';
+import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 
 export type PageInfo = {
-  page: number;
   pageSize: number;
   total: number;
+  current: number;
 };
 
 export type RequestData<T> = {
-  data: T[];
+  data: T[] | undefined;
   success?: boolean;
   total?: number;
-  [key: string]: any;
-};
-export type UseFetchDataAction<T extends RequestData<any>> = {
-  dataSource: T['data'];
-  setDataSource: (dataSource: T['data']) => void;
+} & Record<string, any>;
+
+export type UseFetchDataAction<T = any> = {
+  dataSource: T[];
+  setDataSource: (dataSource: T[]) => void;
   loading: boolean | SpinProps | undefined;
-  current: number;
-  pageSize: number;
-  total: number;
+  pageInfo: PageInfo;
   reload: () => Promise<void>;
   fullScreen?: () => void;
-  resetPageIndex: () => void;
   reset: () => void;
+  pollingLoading: boolean;
   setPageInfo: (pageInfo: Partial<PageInfo>) => void;
 };
 
@@ -108,6 +106,9 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     /** 在新建表单中删除 */
     hideInForm?: boolean;
 
+    /** 不在配置工具中显示 */
+    hideInSetting?: boolean;
+
     /** 表头的筛选菜单项 */
     filters?: boolean | ColumnFilterItem[];
 
@@ -145,6 +146,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   columns?: ProColumns<T, ValueType>[];
   /** @name ListToolBar 的属性 */
   toolbar?: ListToolBarProps;
+
   params?: U;
 
   columnsStateMap?: Record<string, ColumnsState>;
@@ -171,7 +173,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   /** @name 渲染 table 视图，用于定制 ProList，不推荐直接使用 */
   tableViewRender?: (props: TableProps<T>, defaultDom: JSX.Element) => JSX.Element | undefined;
 
-  tableExtraRender?: (props: ProTableProps<T, U>, dataSource: T[]) => React.ReactNode;
+  tableExtraRender?: (props: ProTableProps<T, U, ValueType>, dataSource: T[]) => React.ReactNode;
 
   /** @name 一个获得 dataSource 的方法 */
   request?: (
@@ -182,7 +184,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
     },
     sort: Record<string, SortOrder>,
     filter: Record<string, React.ReactText[]>,
-  ) => Promise<RequestData<T>>;
+  ) => Promise<Partial<RequestData<T>>>;
 
   /** @name 对数据进行一些处理 */
   postData?: (data: any[]) => any[];
@@ -206,6 +208,13 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   /** @name 数据加载失败时触发 */
   onRequestError?: (e: Error) => void;
 
+  /**
+   * 是否轮询 ProTable 它不会自动提交表单，如果你想自动提交表单的功能，需要在 onValueChange 中调用 formRef.current?.submit()
+   *
+   * @param dataSource 返回当前的表单数据，你可以用它判断要不要打开轮询
+   */
+  polling?: number | ((dataSource: T[]) => number);
+
   /** @name 给封装的 table 的 className */
   tableClassName?: string;
 
@@ -215,13 +224,20 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   /** @name 左上角的 title */
   headerTitle?: React.ReactNode;
 
+  /** @name 标题旁边的 tooltip */
+  tooltip?: string;
+
   /** @name 操作栏配置 */
   options?: OptionConfig | false;
-  /** @name 是否显示搜索表单 */
+
+  /**
+   * @type SearchConfig
+   * @name 是否显示搜索表单
+   */
   search?: false | SearchConfig;
 
   /**
-   * 基本配置与 antd Form 相同, 但是劫持了 form 的配置
+   * 基本配置与 antd Form 相同, 但是劫持了 form onFinish 的配置
    *
    * @name type="form" 和 搜索表单 的 Form 配置
    */
@@ -273,8 +289,33 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   onDataSourceChange?: (dataSource: T[]) => void;
   /** @name 查询表单和 Table 的卡片 border 配置 */
   cardBordered?: Bordered;
+  /** Debounce time */
+  debounceTime?: number;
 } & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {
   fullScreen?: () => void;
+  setPageInfo?: (page: Partial<PageInfo>) => void;
+};
+
+export type UseFetchProps = {
+  dataSource?: any;
+  loading: UseFetchDataAction['loading'];
+  onLoadingChange?: (loading: UseFetchDataAction['loading']) => void;
+  onLoad?: (dataSource: any[], extra: any) => void;
+  onDataSourceChange?: (dataSource?: any) => void;
+  postData: any;
+  pageInfo:
+    | {
+        current?: number;
+        pageSize?: number;
+        defaultCurrent?: number;
+        defaultPageSize?: number;
+      }
+    | false;
+  effects?: any[];
+  onRequestError?: (e: Error) => void;
+  manual: boolean;
+  debounceTime?: number;
+  polling?: number | ((dataSource: any[]) => number);
 };

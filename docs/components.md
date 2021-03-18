@@ -10,13 +10,13 @@ nav:
 
 # 架构设计
 
-ProComponents 是为了降低在中后台实现 CRUD 的成本而研发，其思路是减少必要的状态维护，更专注于业务。
+ProComponents 是基于 Ant Design 而开发的模板组件，提供了更高级别的抽象支持，开箱即用。可以显著的提升制作 CRUD 页面的效率，更加专注于页面。
 
 - [ProLayout](/components/layout) 解决布局的问题，提供开箱即用的菜单和面包屑功能
-- [ProTable](/components/table) 解决表格问题，抽象网络请求和表格格式化
-- [ProForm](/components/form) 解决表单问题，预设常见布局和行为
+- [ProTable](/components/table) 表格模板组件，抽象网络请求和表格格式化
+- [ProForm](/components/form) 表单模板组件，预设常见布局和行为
 - [ProCard](/components/card) 提供卡片切分以及栅格布局能力
-- [ProDescriptions](/components/descriptions) 提供与 table 使用同等配置的能力
+- [ProDescriptions](/components/descriptions) 定义列表模板组件，ProTable 的配套组件
 - [ProSkeleton](/components/skeleton) 页面级别的骨架屏
 
 ## CRUD
@@ -150,7 +150,6 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
     config: {
       index?: number;
       value?: any;
-      onChange?: (value: any) => void;
       onSelect?: (value: any) => void;
       type: ProSchemaComponentTypes;
       defaultRender: (newItem: ProSchema<T, U, Extra>) => JSX.Element | null;

@@ -8,7 +8,7 @@ import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 
 type DataSourceType = {
-  id: number;
+  id: number | string;
   title?: string;
   labels?: {
     name: string;
@@ -222,6 +222,40 @@ describe('EditorProTable', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('📝 EditableProTable support pagination', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        pagination={{
+          pageSize: 2,
+          current: 2,
+        }}
+        editable={{
+          onChange: (keys) => fn(keys[0]),
+        }}
+        recordCreatorProps={{
+          position: 'bottom',
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        value={defaultData}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper.find('button#addEditRecord').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(555);
+  });
+
   it('📝 EditableProTable support maxLength', async () => {
     const wrapper = mount(
       <EditableProTable<DataSourceType>
@@ -318,6 +352,153 @@ describe('EditorProTable', () => {
     expect(fn).toBeCalledWith([624748504]);
   });
 
+  it('📝 support onValuesChange', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={false}
+        columns={columns}
+        value={defaultData}
+        editable={{
+          editableKeys: [624748504],
+          onValuesChange: (record) => {
+            fn(record.id);
+          },
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(0)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+
+    expect(fn).toBeCalledWith(624748504);
+  });
+
+  it('📝 support onValuesChange when is string key', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={false}
+        columns={columns}
+        value={[
+          {
+            id: '02',
+            title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ]}
+        editable={{
+          editableKeys: ['02'],
+          onValuesChange: (record) => {
+            fn(record.id);
+          },
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(0)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+
+    expect(fn).toBeCalledWith('02');
+  });
+
+  it('📝 support newRecordType = dataSource', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          newRecordType: 'dataSource',
+          record: {
+            id: Date.now(),
+          },
+        }}
+        columns={columns}
+        value={defaultData}
+        onChange={(list) => {
+          fn(list.length);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('button.ant-btn-dashed').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 1000);
+    expect(fn).toBeCalledWith(4);
+  });
+
+  it('📝 support onValuesChange and recordCreatorProps', async () => {
+    const fn = jest.fn();
+    const newLineId = Date.now();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          position: 'top',
+          record: {
+            id: newLineId,
+          },
+        }}
+        columns={columns}
+        value={defaultData}
+        editable={{
+          onValuesChange: (record) => {
+            fn(record.id);
+          },
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper.find('button.ant-btn-dashed').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 200);
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(0)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+
+    expect(fn).toBeCalledWith(newLineId);
+  });
+
   it('📝 renderFormItem run defaultRender', async () => {
     const wrapper = render(
       <EditableProTable<DataSourceType>
@@ -368,6 +549,51 @@ describe('EditorProTable', () => {
       />,
     );
     expect(wrapper).toMatchSnapshot();
+  });
+
+  it('📝 columns initialValue alway work', async () => {
+    const wrapper = mount(
+      <EditableProTable
+        rowKey="id"
+        editable={{
+          editableKeys: [624748504],
+        }}
+        columns={[
+          {
+            // dataIndex 存在有数据，不显示 initialValue
+            dataIndex: 'index',
+            valueType: 'text',
+            width: 48,
+            initialValue: '123',
+          },
+          {
+            // dataIndex 不存在就没有数据显示 initialValue
+            dataIndex: 'xxx2',
+            valueType: 'text',
+            width: 48,
+            formItemProps: {
+              initialValue: '123',
+            },
+          },
+          {
+            // dataIndex 不存在就没有数据显示 initialValue
+            dataIndex: 'xxx',
+            valueType: 'text',
+            width: 48,
+            formItemProps: () => {
+              return { initialValue: '1234' };
+            },
+          },
+        ]}
+        value={defaultData}
+      />,
+    );
+
+    await waitForComponentToPaint(wrapper, 1200);
+
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
   });
 
   it('📝 support editorRowKeys', async () => {
@@ -428,9 +654,7 @@ describe('EditorProTable', () => {
       wrapper.find('#editor').at(0).simulate('click');
     });
     await waitForComponentToPaint(wrapper, 1000);
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists());
 
     act(() => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find(`td a`).at(2).simulate('click');
@@ -438,9 +662,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 1000);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists());
   });
 
   it('📝 type=single, only edit one rows', async () => {
@@ -527,9 +749,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     act(() => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
@@ -567,9 +787,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     expect(fn).toBeCalledWith(624691229);
   });
@@ -584,9 +802,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     act(() => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(2).simulate('click');
@@ -614,9 +830,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     act(() => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(2).simulate('click');
@@ -624,9 +838,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 200);
 
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     expect(fn).toBeCalledWith(624691229);
   });
@@ -752,9 +964,7 @@ describe('EditorProTable', () => {
     });
 
     await waitForComponentToPaint(wrapper, 200);
-    expect(
-      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists(),
-    ).toBeTruthy();
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     act(() => {
       wrapper
@@ -771,8 +981,6 @@ describe('EditorProTable', () => {
     act(() => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
     });
-
-    await waitForComponentToPaint(wrapper, 200);
 
     // 没有通过验证，不触发 onSave
     expect(fn).not.toBeCalled();

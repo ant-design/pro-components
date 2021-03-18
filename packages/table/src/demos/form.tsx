@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
+import type { FormInstance } from 'antd';
 import { Button } from 'antd';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
-import type { FormInstance } from 'antd/lib/form';
 
 export type TableListItem = {
   key: number;
@@ -63,6 +63,16 @@ export default () => {
           }}
         >
           赋值
+        </Button>,
+        <Button
+          key="submit"
+          onClick={() => {
+            if (ref.current) {
+              ref.current.submit();
+            }
+          }}
+        >
+          提交
         </Button>,
       ]}
       options={false}

@@ -1,8 +1,8 @@
-import { MenuTheme } from 'antd/es/menu/MenuContext';
+import type { MenuTheme } from 'antd/es/menu/MenuContext';
 
 export type ContentWidth = 'Fluid' | 'Fixed';
 
-export interface RenderSetting {
+export type RenderSetting = {
   /** @name false 时不展示顶栏 */
   headerRender?: false;
   /** @name false 时不展示页脚 */
@@ -11,8 +11,8 @@ export interface RenderSetting {
   menuRender?: false;
   /** @name false 时不展示菜单顶栏 */
   menuHeaderRender?: false;
-}
-export interface PureSettings {
+};
+export type PureSettings = {
   /**
    * @name theme for nav menu
    * @name 导航菜单的主题
@@ -42,7 +42,7 @@ export interface PureSettings {
   primaryColor: string;
   colorWeak?: boolean;
   splitMenus?: boolean;
-}
+};
 
 export type ProSettings = PureSettings & RenderSetting;
 

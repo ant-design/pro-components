@@ -3,6 +3,7 @@ import { Space, ConfigProvider } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
+import { omitBoolean } from '@ant-design/pro-utils';
 
 export type ActionsProps = {
   submitter: React.ReactNode;
@@ -60,27 +61,20 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, int
  * @param props
  */
 const Actions: React.FC<ActionsProps> = (props) => {
-  const {
-    setCollapsed,
-    collapsed = false,
-    collapseRender = defaultCollapseRender,
-    submitter,
-    style,
-  } = props;
+  const { setCollapsed, collapsed = false, submitter, style } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const intl = useIntl();
 
+  const collapseRender = omitBoolean(props.collapseRender) || defaultCollapseRender;
   return (
     <Space style={style} size={16}>
       {submitter}
-      {collapseRender !== false && (
+      {props.collapseRender !== false && (
         <a
           className={getPrefixCls('pro-form-collapse-button')}
-          onClick={() => {
-            setCollapsed(!collapsed);
-          }}
+          onClick={() => setCollapsed(!collapsed)}
         >
-          {collapseRender(collapsed, props, intl)}
+          {collapseRender?.(collapsed, props, intl)}
         </a>
       )}
     </Space>

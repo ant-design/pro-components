@@ -101,10 +101,11 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="button"
-                            style="padding-left:16px"
+                            style="padding-left:24px"
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -137,7 +138,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
       style="position:relative"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
@@ -290,10 +291,11 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="button"
-                            style="padding-left:16px"
+                            style="padding-left:24px"
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -326,7 +328,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
       style="position:relative"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
@@ -471,10 +473,11 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="button"
-                            style="padding-left:16px"
+                            style="padding-left:24px"
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -647,10 +650,11 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="button"
-                            style="padding-left:16px"
+                            style="padding-left:24px"
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -817,10 +821,11 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="button"
-                            style="padding-left:16px"
+                            style="padding-left:24px"
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -986,10 +991,11 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="button"
-                            style="padding-left:16px"
+                            style="padding-left:24px"
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -1026,7 +1032,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
         style="height:48px;line-height:48px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:100;right:0"
       >
         <div
@@ -1165,10 +1171,11 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="button"
-                            style="padding-left:16px"
+                            style="padding-left:24px"
                           >
                             <span
                               class="ant-pro-menu-item"
+                              title="welcome"
                             >
                               welcome
                             </span>
@@ -1205,7 +1212,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
         style="height:48px;line-height:48px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:100;right:0"
       >
         <div

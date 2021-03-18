@@ -16,12 +16,11 @@ export type HeaderViewProps = GlobalHeaderProps & {
   isMobile?: boolean;
   collapsed?: boolean;
   logo?: React.ReactNode;
-
   headerRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
   headerTitleRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+    (logo: React.ReactNode, title: React.ReactNode, props: HeaderViewProps) => React.ReactNode
   >;
   headerContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   siderWidth?: number;
@@ -86,6 +85,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
 
     const className = classNames(propsClassName, {
       [`${prefixCls}-fixed-header`]: needFixedHeader,
+      [`${prefixCls}-fixed-header-action`]: !collapsed,
       [`${prefixCls}-top-menu`]: isTop,
     });
 

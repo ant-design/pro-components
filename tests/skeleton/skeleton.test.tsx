@@ -46,4 +46,18 @@ describe('skeleton', () => {
     });
     expect(wrapper.render()).toMatchSnapshot();
   });
+
+  it('🥩 statistic=1,span=16', async () => {
+    const wrapper = mount(
+      <ProSkeleton
+        type="list"
+        pageHeader={false}
+        statistic={1}
+        actionButton={false}
+        toolbar={false}
+        list={10}
+      />,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
 });

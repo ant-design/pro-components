@@ -1,5 +1,6 @@
 import React from 'react';
-import type { InputProps, PasswordProps } from 'antd/lib/input';
+import type { InputProps } from 'antd';
+import type { PasswordProps } from 'antd/lib/input';
 import ProField from '@ant-design/pro-field';
 import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
@@ -11,34 +12,18 @@ const valueType = 'text';
  * @param
  */
 const ProFormText = createField<ProFormItemProps<InputProps>>(
-  React.forwardRef(({ fieldProps, proFieldProps }, ref) => {
-    return (
-      <ProField
-        mode="edit"
-        valueType={valueType}
-        fieldProps={fieldProps}
-        ref={ref}
-        {...proFieldProps}
-      />
-    );
-  }),
+  ({ fieldProps, proFieldProps }: ProFormItemProps<InputProps>) => (
+    <ProField mode="edit" valueType={valueType} fieldProps={fieldProps} {...proFieldProps} />
+  ),
   {
     valueType,
   },
 );
 
 const Password = createField<ProFormItemProps<PasswordProps>>(
-  React.forwardRef(({ fieldProps, proFieldProps }, ref) => {
-    return (
-      <ProField
-        mode="edit"
-        valueType="password"
-        fieldProps={fieldProps}
-        ref={ref}
-        {...proFieldProps}
-      />
-    );
-  }),
+  ({ fieldProps, proFieldProps }: ProFormItemProps<InputProps>) => {
+    return <ProField mode="edit" valueType="password" fieldProps={fieldProps} {...proFieldProps} />;
+  },
   {
     valueType,
   },
