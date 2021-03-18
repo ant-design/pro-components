@@ -62,7 +62,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   const moneySymbol =
     rest.moneySymbol === undefined ? intl.getMessage('moneySymbol', '￥') : rest.moneySymbol;
 
-  const intls = useMemo(() => {
+  const intlMap = useMemo(() => {
     const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
       currency: 'CNY',
       style: 'currency',
@@ -80,33 +80,33 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   }, [precision]);
 
   const getTextByLocale = useCallback(
-    (locale: string | undefined, paramsText: number) => {
-      let text = paramsText;
-      if (typeof text === 'string') {
-        text = Number(text);
+    (localeStr: string | undefined, paramsText: number) => {
+      let moneyText = paramsText;
+      if (typeof moneyText === 'string') {
+        moneyText = Number(moneyText);
       }
-      if (locale === 'en_US') {
+      if (localeStr === 'en_US') {
         // english
-        return intls['en-US'].format(text);
+        return intlMap['en-US'].format(moneyText);
       }
       // russian
-      if (locale === 'ru_RU') {
-        return intls['ru-RU'].format(text);
+      if (localeStr === 'ru_RU') {
+        return intlMap['ru-RU'].format(moneyText);
       }
       // serbian
-      if (locale === 'sr_RS') {
-        return intls['sr-RS'].format(text);
+      if (localeStr === 'sr_RS') {
+        return intlMap['sr-RS'].format(moneyText);
       }
       // malay
-      if (locale === 'ms_MY') {
-        return intls['ms-MY'].format(text);
+      if (localeStr === 'ms_MY') {
+        return intlMap['ms-MY'].format(moneyText);
       }
-      if (locale === undefined) {
-        return intls.default.format(text);
+      if (localeStr === undefined) {
+        return intlMap.default.format(moneyText);
       }
-      return intls['zh-Hans-CN'].format(text);
+      return intlMap['zh-Hans-CN'].format(moneyText);
     },
-    [intls],
+    [intlMap],
   );
 
   if (type === 'read') {
