@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ConfigProvider } from 'antd';
-import ProCard from '../../Card';
-import type { ProCardProps } from '../../Card';
+import Card from '../Card';
+import type { CardProps } from '../../type';
 import classNames from 'classnames';
 import Statistic from '../Statistic';
 import type { StatisticProps } from '../Statistic';
@@ -19,7 +19,7 @@ export type StatisticCardProps = {
   chartPlacement?: 'right' | 'bottom' | 'left';
   /** 底部额外展示区域 */
   footer?: React.ReactNode;
-} & ProCardProps;
+} & CardProps;
 
 /** @deprecated */
 export type StatisticsCardProps = StatisticCardProps;
@@ -68,11 +68,11 @@ const StatisticCard: React.FC<StatisticCardProps> & {
   const footerDom = footer && <div className={`${prefixCls}-footer`}>{footer}</div>;
 
   return (
-    <ProCard className={classString} {...others}>
+    <Card className={classString} {...others}>
       {contentDom}
       {children}
       {footerDom}
-    </ProCard>
+    </Card>
   );
 };
 

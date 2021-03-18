@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.2...@ant-design/pro-card@1.11.3) (2021-03-17)
+
+### Bug Fixes
+
+- ProCard do not export self as sub component ([#2214](https://github.com/ant-design/pro-components/issues/2214)) ([bed96d1](https://github.com/ant-design/pro-components/commit/bed96d1569b21b82e46608522ac356b635692dde))
+
 ## [1.11.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.1...@ant-design/pro-card@1.11.2) (2021-03-16)
 
 ### Bug Fixes
