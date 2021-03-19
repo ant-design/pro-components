@@ -4835,7 +4835,7 @@ Array [
             <div
               class="ant-pro-global-footer-copyright"
             >
-              Copyright
+              Copyright 
               <span
                 aria-label="copyright"
                 class="anticon anticon-copyright"
@@ -8196,7 +8196,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                 style="padding-left: 24px;"
               >
                 <div>
-                  pre
+                  pre 
                   <span
                     class="ant-pro-menu-item"
                   >
@@ -8239,7 +8239,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                   style="padding-left: 24px;"
                 >
                   <div>
-                    pre
+                    pre 
                     <span
                       class="ant-pro-menu-item"
                       title="管理页"
@@ -8288,7 +8288,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                   style="padding-left: 24px;"
                 >
                   <div>
-                    pre
+                    pre 
                     <span
                       class="ant-pro-menu-item"
                       title="列表页"
@@ -8331,7 +8331,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                 style="padding-left: 24px;"
               >
                 <div>
-                  pre
+                  pre 
                   <span
                     class="ant-pro-menu-item ant-pro-menu-item-link"
                     title="Ant Design 官网外链"
@@ -9016,7 +9016,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
           <div
             class="ant-pro-global-footer-copyright"
           >
-            Copyright
+            Copyright 
             <span
               aria-label="copyright"
               class="anticon anticon-copyright"
