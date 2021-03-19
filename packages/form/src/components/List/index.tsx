@@ -62,6 +62,8 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
   ) => ReactNode;
   copyIconProps?: IconConfig | false;
   deleteIconProps?: IconConfig | false;
+  minLength?: number;
+  maxLength?: number;
 };
 
 const ProFormList: React.FC<ProFormListProps> = ({
@@ -81,11 +83,24 @@ const ProFormList: React.FC<ProFormListProps> = ({
     Icon: DeleteOutlined,
     tooltipText: '删除此行',
   },
+  initialValue,
+  minLength,
+  maxLength,
   ...rest
 }) => {
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
+
+  const internalMinLength = typeof minLength === 'number' && minLength > 0 ? minLength : 0;
+  const internalMaxLength =
+    typeof maxLength === 'number' && maxLength >= internalMinLength ? maxLength : Infinity;
+  // 配置有 minLength 且 initialValue 为空时自动设置
+  const internalInitialValue =
+    initialValue === undefined && internalMinLength > 0
+      ? Array.from({ length: internalMinLength }, () => ({}))
+      : initialValue;
+
   // 处理 list 的嵌套
   const name = useMemo(() => {
     if (listContext.name === undefined) {
@@ -106,9 +121,10 @@ const ProFormList: React.FC<ProFormListProps> = ({
       {({ getFieldValue }) => {
         return (
           <div className={baseClassName}>
-            <Form.List rules={rules} {...rest} name={name}>
+            <Form.List rules={rules} {...rest} initialValue={internalInitialValue} name={name}>
               {(fields, action, meta) => {
-                const creatorButton = creatorButtonProps !== false && (
+                const { length } = fields;
+                const creatorButton = length < internalMaxLength && creatorButtonProps !== false && (
                   <Button
                     className={`${baseClassName}-creator-button-${
                       creatorButtonProps?.position || 'bottom'
@@ -142,7 +158,8 @@ const ProFormList: React.FC<ProFormListProps> = ({
                         creatorButton}
                       {fields.map((field) => {
                         const defaultActionDom: React.ReactNode[] = [];
-                        if (copyIconProps) {
+
+                        if (copyIconProps && length < internalMaxLength) {
                           const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
                           defaultActionDom.push(
                             <Tooltip title={tooltipText} key="copy">
@@ -161,7 +178,8 @@ const ProFormList: React.FC<ProFormListProps> = ({
                             </Tooltip>,
                           );
                         }
-                        if (deleteIconProps) {
+
+                        if (deleteIconProps && length > internalMinLength) {
                           const { Icon = DeleteOutlined, tooltipText } = deleteIconProps;
                           defaultActionDom.push(
                             <Tooltip title={tooltipText} key="delete">
