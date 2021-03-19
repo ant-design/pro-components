@@ -554,4 +554,70 @@ describe('ProForm List', () => {
     expect(html.find('.anticon-snippets').exists()).toBeTruthy();
     expect(html.find('.anticon-close').exists()).toBeTruthy();
   });
+
+  it('♨️  ProForm.List support minLength', async () => {
+    const html = mount(
+      <ProForm>
+        <ProFormList name="users" label="用户信息" minLength={2}>
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    expect(html.find('.ant-pro-form-list-item').length).toBe(2);
+    expect(html.find('.anticon-delete').length).toBe(0);
+
+    act(() => {
+      html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('.anticon-delete').length).toBe(3);
+  });
+
+  it('♨️  ProForm.List support maxLength', async () => {
+    const html = mount(
+      <ProForm>
+        <ProFormList name="users" label="用户信息" maxLength={1}>
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    act(() => {
+      html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('.ant-pro-form-list-item').length).toBe(1);
+    expect(html.find('.anticon-delete').length).toBe(1);
+    expect(html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').exists()).toBeFalsy();
+  });
+
+  it('♨️  ProForm.List support minLength and maxLength', async () => {
+    const html = mount(
+      <ProForm>
+        <ProFormList name="users" label="用户信息" minLength={1} maxLength={2}>
+          <ProFormText name="name" label="姓名" />
+          <ProFormText name="nickName" label="昵称" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    expect(html.find('.ant-pro-form-list-item').length).toBe(1);
+
+    act(() => {
+      html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('.ant-pro-form-list-item').length).toBe(2);
+    expect(html.find('.anticon-delete').length).toBe(2);
+    expect(html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').exists()).toBeFalsy();
+  });
 });
