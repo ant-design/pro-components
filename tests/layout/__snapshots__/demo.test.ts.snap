@@ -1260,9 +1260,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
               <label
                 class=""
                 for="rotate"
-                title="选装角度"
+                title="旋转角度"
               >
-                选装角度
+                旋转角度
               </label>
             </div>
             <div

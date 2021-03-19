@@ -80,7 +80,7 @@ export default () => {
           <ProFormColorPicker label="字体颜色" name="fontColor" />
           <ProFormSlider label="字体大小" name="fontSize" />
           <ProFormSlider label="zIndex" name="zIndex" min={0} max={100} />
-          <ProFormSlider label="选装角度" name="rotate" min={-90} max={90} />
+          <ProFormSlider label="旋转角度" name="rotate" min={-90} max={90} />
           <Divider />
           <ProFormDependency name={['rotate', 'content', 'fontColor', 'fontSize', 'zIndex']}>
             {({ rotate, content, fontColor, fontSize, zIndex }) => {
