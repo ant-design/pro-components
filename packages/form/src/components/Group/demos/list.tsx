@@ -38,6 +38,12 @@ const Demo = () => {
         <ProFormText width="sm" name="id" label="主合同编号" />
         <ProFormText name="project" width="md" label="项目名称" initialValue="xxxx项目" />
         <ProFormText width="xs" name="mangerName" label="商务经理" initialValue="启途" />
+        <ProFormList minLength={2} maxLength={3} name="options" label="社交账号">
+          <ProFormGroup>
+            <ProFormText required width="sm" name="type" label="类型" />
+            <ProFormText required width="md" name="account" label="账号" />
+          </ProFormGroup>
+        </ProFormList>
         <ProFormList
           name="users"
           label="用户信息"

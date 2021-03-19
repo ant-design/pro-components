@@ -63,6 +63,8 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 | creatorButtonProps | 新建一行按钮的配置 | `buttonProps & { creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"新建一行"}` |
 | label | 与 From.Item 相同 | `ReactNode` | - |
 | name | list 在 form 中的值，必填项 | `NamePath` | - |
+| minLength | Item 的最小数量，没有传入 initialValue 时默认生成 长度为 minLength 的数组的 initialValue | `number` | - |
+| maxLength | Item 的最大数量 | `number` | - |
 
 ## ProFormFieldSet
 
