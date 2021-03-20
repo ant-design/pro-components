@@ -8071,7 +8071,7 @@ Array [
         class="ant-modal-root"
       >
         <div
-          aria-labelledby="rcDialogTitle3"
+          aria-labelledby="rcDialogTitle5"
           class="ant-modal-wrap"
           role="dialog"
           style="display: none;"
@@ -8114,6 +8114,38 @@ Array [
 ]
 `;
 
+exports[`form demos 📸 renders ./packages/form/src/components/ModalForm/demos/modal-form-reset.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right: 8px;"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        通过 formRef 重置
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        通过自定义 footer 按钮重置
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`form demos 📸 renders ./packages/form/src/components/ModalForm/demos/modal-form-submitter.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center"
@@ -8127,7 +8159,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/ModalForm/demos/
       type="button"
     >
       <span>
-        自己定义footer的按钮
+        自己定义 footer 的按钮
       </span>
     </button>
   </div>
@@ -8248,7 +8280,7 @@ Array [
         class="ant-modal-root"
       >
         <div
-          aria-labelledby="rcDialogTitle4"
+          aria-labelledby="rcDialogTitle6"
           class="ant-modal-wrap"
           role="dialog"
           style="display: none;"
