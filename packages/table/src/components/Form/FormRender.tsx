@@ -410,11 +410,15 @@ const FormRender = <T, U = any>({
   );
   return (
     <div
-      className={classNames(className, {
-        [formClassName]: isForm,
-        [getPrefixCls(`pro-table-search-${competentName}`)]: true,
-        [`${getPrefixCls('card')}-bordered`]: !!bordered,
-      })}
+      className={classNames(
+        className,
+        {
+          [formClassName]: isForm,
+          [getPrefixCls(`pro-table-search-${competentName}`)]: true,
+          [`${getPrefixCls('card')}-bordered`]: !!bordered,
+        },
+        searchConfig !== false && searchConfig?.className ? searchConfig.className : '',
+      )}
     >
       <Competent
         {...loadingProps}
