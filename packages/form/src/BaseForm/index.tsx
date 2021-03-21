@@ -132,7 +132,18 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           onReset?.(finalValues);
           // 如果 syncToUrl，清空一下数据
           if (syncToUrl) {
-            setUrlSearch(transformKey(formRef.current.getFieldsValue(), false));
+            // 把没有的值设置为未定义可以删掉 url 的参数
+            const params = Object.keys(
+              transformKey(formRef.current.getFieldsValue(), false),
+            ).reduce((pre, next) => {
+              return {
+                ...pre,
+                [next]: finalValues[next] || undefined,
+              };
+            }, {});
+
+            /** 在同步到 url 上时对参数进行转化 */
+            setUrlSearch(genParams(syncToUrl, params, 'set'));
           }
         }}
         form={userForm || form}
