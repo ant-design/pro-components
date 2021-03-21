@@ -10,6 +10,7 @@ import type { TableColumnType } from 'antd';
 import { Checkbox, Tree, Popover, ConfigProvider, Tooltip } from 'antd';
 import classNames from 'classnames';
 import type { DataNode } from 'antd/lib/tree';
+import omit from 'omit.js';
 
 import type { ColumnsState } from '../../container';
 import Container from '../../container';
@@ -142,7 +143,7 @@ const CheckboxList: React.FC<{
     }
     return {
       key: columnKey,
-      ...rest,
+      ...omit(rest, ['className']),
       selectable: false,
       switcherIcon: () => false,
     };
