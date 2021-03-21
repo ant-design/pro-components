@@ -225,7 +225,7 @@ describe('utils', () => {
     expect(html.find('.ant-pro-core-dropdown-footer').exists()).toBeTruthy();
   });
 
-  fit('📅 InlineErrorFormItem onValuesChange', async () => {
+  it('📅 InlineErrorFormItem onValuesChange', async () => {
     const ruleMessage = {
       required: '必填项',
       min: '最小长度为12',
