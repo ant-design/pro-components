@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import { Form, Popover, Progress, Space } from 'antd';
 import type { FormItemProps, PopoverProps, ProgressProps } from 'antd';
-import get from 'rc-util/lib/utils/get';
 import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
 import type { Rule, NamePath } from 'rc-field-form/lib/interface';
 
