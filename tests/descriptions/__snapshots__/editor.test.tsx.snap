@@ -31,7 +31,7 @@ Array [
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    style="margin:-5px 0"
+                    style="margin-top:-5px;margin-bottom:-5px;margin-left:0;margin-right:0"
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"
@@ -208,7 +208,7 @@ Array [
                   class="ant-descriptions-item-content"
                 >
                   <div
-                    style="margin:-5px 0"
+                    style="margin-top:-5px;margin-bottom:-5px;margin-left:0;margin-right:0"
                   >
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center"

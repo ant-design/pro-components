@@ -887,14 +887,12 @@ Array [
                               <div
                                 class="ant-col ant-form-item-control"
                               >
-                                <div
-                                  class="ant-form-item-control-input"
-                                >
+                                <div>
                                   <div
-                                    class="ant-form-item-control-input-content"
+                                    class="ant-form-item-control-input"
                                   >
                                     <div
-                                      style="margin: -5px 0px;"
+                                      class="ant-form-item-control-input-content"
                                     >
                                       <span
                                         class="ant-input-affix-wrapper"
@@ -1130,14 +1128,12 @@ Array [
                               <div
                                 class="ant-col ant-form-item-control"
                               >
-                                <div
-                                  class="ant-form-item-control-input"
-                                >
+                                <div>
                                   <div
-                                    class="ant-form-item-control-input-content"
+                                    class="ant-form-item-control-input"
                                   >
                                     <div
-                                      style="margin: -5px 0px;"
+                                      class="ant-form-item-control-input-content"
                                     >
                                       <span
                                         class="ant-input-affix-wrapper"

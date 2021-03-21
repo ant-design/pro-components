@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { Form, Popover, Progress, Space } from 'antd';
 import type { FormItemProps, PopoverProps, ProgressProps } from 'antd';
+import get from 'rc-util/lib/utils/get';
 import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
 import type { Rule, NamePath } from 'rc-field-form/lib/interface';
 
@@ -130,37 +131,62 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
   ...rest
 }) => {
   return (
-    <Form.Item style={FIX_INLINE_STYLE} shouldUpdate help={false} label={label}>
+    <Form.Item shouldUpdate={true} noStyle>
       {(form) => {
         const fieldError = form.getFieldError(name);
         const value = form.getFieldValue(name);
         const isValidating = form.isFieldValidating(name);
         const isTouched = form.isFieldTouched(name);
         return (
-          <Popover
-            trigger={popoverProps?.trigger || 'focus'}
-            placement={popoverProps?.placement}
-            content={
-              <Content
-                fieldError={fieldError}
-                value={value}
-                isValidating={isValidating}
-                isTouched={isTouched}
-                rules={rules}
-                progressProps={progressProps}
-              />
-            }
+          <Form.Item
+            style={FIX_INLINE_STYLE}
+            preserve={false}
+            name={name}
+            validateFirst="parallel"
+            rules={rules}
+            // @ts-ignore
+            _internalItemRender={{
+              mark: 'pro_table_render',
+              render: (
+                inputProps: FormItemProps & {
+                  errors: any[];
+                },
+                {
+                  input,
+                  extra,
+                }: {
+                  input: JSX.Element;
+                  errorList: JSX.Element;
+                  extra: JSX.Element;
+                },
+              ) => {
+                return (
+                  <Popover
+                    trigger={popoverProps?.trigger || 'focus'}
+                    placement={popoverProps?.placement}
+                    content={
+                      <Content
+                        fieldError={fieldError}
+                        value={value}
+                        isValidating={isValidating}
+                        isTouched={isTouched}
+                        rules={rules}
+                        progressProps={progressProps}
+                      />
+                    }
+                  >
+                    <div>
+                      {input}
+                      {extra}
+                    </div>
+                  </Popover>
+                );
+              },
+            }}
+            {...rest}
           >
-            <div
-              style={{
-                margin: '-5px 0',
-              }}
-            >
-              <Form.Item noStyle preserve={false} name={name} rules={rules} {...rest}>
-                {children}
-              </Form.Item>
-            </div>
-          </Popover>
+            {children}
+          </Form.Item>
         );
       }}
     </Form.Item>
