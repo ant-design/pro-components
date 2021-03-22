@@ -4,12 +4,12 @@ import ProDescriptions from '@ant-design/pro-descriptions';
 import ProProvider from '@ant-design/pro-provider';
 import { Input, Space, Tag } from 'antd';
 
-const valueEnum = {
-  0: 'close',
-  1: 'running',
-  2: 'online',
-  3: 'error',
-};
+enum valueEnum {
+  close,
+  running,
+  online,
+  error,
+}
 
 export type TableListItem = {
   key: number;
