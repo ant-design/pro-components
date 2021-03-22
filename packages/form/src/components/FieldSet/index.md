@@ -55,7 +55,7 @@ ProForm 自带的 Filed ,与 valueType 基本上一一对应。
 
 在某些场景下，我们需要根据页面展示效果对输入框进行自适应处理，除此以外一个表单区域应默认使用定宽规则。
 
-![width info](https://gw.alipayobjects.com/zos/antfincdn/CyJPTSL07y/1574664269794-254db9de-2574-4361-bcf1-b82c6db0c80a.png)
+![width info](https://gw.alipayobjects.com/zos/alicdn/oEHLxX9DO/22.jpg)
 
 - `XS=104px` 适用于短数字、短文本或选项。
 - `SM=216px` 适用于较短字段录入、如姓名、电话、ID 等。
