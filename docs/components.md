@@ -19,6 +19,8 @@ ProComponents 是基于 Ant Design 而开发的模板组件，提供了更高级
 - [ProDescriptions](/components/descriptions) 定义列表模板组件，ProTable 的配套组件
 - [ProSkeleton](/components/skeleton) 页面级别的骨架屏
 
+> 如果您是阿里内网用户，欢迎尝试使用 [TechUI](https://techui.alipay.com)。TechUI 在封装 ProComponents 的基础上还提供了丰富的 Ant Design 扩展组件。
+
 ## CRUD
 
 ProTable，ProDescriptions，ProForm 都是基于 ProField 来进行封装。ProTable 和 ProDescriptions 根据 valueType 来渲染不同的 ProField，Form 则是通过不同的 FormField 来实现封装。
