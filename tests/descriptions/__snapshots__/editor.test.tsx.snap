@@ -25,9 +25,6 @@ Array [
                 class="ant-descriptions-item-container"
               >
                 <span
-                  class="ant-descriptions-item-label"
-                />
-                <span
                   class="ant-descriptions-item-content"
                 >
                   <div
@@ -160,9 +157,6 @@ Array [
                 class="ant-descriptions-item-container"
               >
                 <span
-                  class="ant-descriptions-item-label"
-                />
-                <span
                   class="ant-descriptions-item-content"
                 >
                   -
@@ -201,9 +195,6 @@ Array [
               <div
                 class="ant-descriptions-item-container"
               >
-                <span
-                  class="ant-descriptions-item-label"
-                />
                 <span
                   class="ant-descriptions-item-content"
                 >
