@@ -4,7 +4,7 @@ import type { ProFieldFC } from '../../index';
 
 export type FieldDigitProps = {
   text: number;
-  placeholder?: string;
+  placeholder?: any;
 };
 
 /**

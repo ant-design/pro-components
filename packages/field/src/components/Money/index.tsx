@@ -7,7 +7,7 @@ export type FieldMoneyProps = {
   text: number;
   moneySymbol?: string;
   locale?: string;
-  placeholder?: string;
+  placeholder?: any;
 };
 
 const defaultMoneyIntl = new Intl.NumberFormat('zh-Hans-CN', {

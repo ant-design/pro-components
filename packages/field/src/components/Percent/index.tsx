@@ -13,7 +13,7 @@ export type PercentPropInt = {
   precision?: number;
   showColor?: boolean;
   showSymbol?: boolean | ((value: any) => boolean);
-  placeholder?: string;
+  placeholder?: any;
 };
 
 /**
