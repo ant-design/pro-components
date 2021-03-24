@@ -18,7 +18,7 @@ export default () => {
       }}
       extra={<Button type="link">修改</Button>}
     >
-      <ProDescriptions.Item label="文本" dataIndex="id" />
+      <ProDescriptions.Item dataIndex="id" />
       <ProDescriptions.Item dataIndex="date" label="日期" valueType="date" />
       <ProDescriptions.Item label="money" dataIndex="money" valueType="money" />
       <ProDescriptions.Item label="文本" valueType="option">
