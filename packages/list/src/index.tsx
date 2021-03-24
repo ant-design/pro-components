@@ -92,7 +92,8 @@ function ProList<
         }
       }
       columns.push({
-        key,
+        listKey: key,
+        dataIndex: meta?.dataIndex || key,
         ...meta,
         valueType,
       });

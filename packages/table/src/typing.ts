@@ -119,6 +119,9 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     order?: number;
     /** 可编辑表格是否可编辑 */
     editable?: boolean | ProTableEditableFnType<T>;
+
+    /** @private */
+    listKey?: string;
   },
   ProSchemaComponentTypes,
   ValueType

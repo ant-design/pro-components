@@ -136,7 +136,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     {
       [`${propsClassName}-selected`]: selected,
       [`${propsClassName}-show-action-hover`]: showActions === 'hover',
-      [`${propsClassName}-type-${type}`]: type,
+      [`${propsClassName}-type-${type}`]: !!type,
       [`${propsClassName}-editable`]: isEditable,
       [`${propsClassName}-show-extra-hover`]: showExtra === 'hover',
     },
