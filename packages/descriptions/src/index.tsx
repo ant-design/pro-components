@@ -297,10 +297,12 @@ const schemaToDescriptionsItem = (
         {...restItem}
         key={restItem.label?.toString() || index}
         label={
-          <LabelIconTip
-            label={title || restItem.label}
-            tooltip={restItem.tooltip || restItem.tip}
-          />
+          (title || restItem.label || restItem.tooltip || restItem.tip) && (
+            <LabelIconTip
+              label={title || restItem.label}
+              tooltip={restItem.tooltip || restItem.tip}
+            />
+          )
         }
       >
         <Component>

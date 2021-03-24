@@ -2395,11 +2395,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
               class="ant-descriptions-item-container"
             >
               <span
-                class="ant-descriptions-item-label"
-              >
-                文本
-              </span>
-              <span
                 class="ant-descriptions-item-content"
               >
                 这是一段文本
