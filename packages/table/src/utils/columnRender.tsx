@@ -8,7 +8,7 @@ import type {
 } from '@ant-design/pro-utils';
 import { isNil } from '@ant-design/pro-utils';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import defaultRenderText from './cellRenderToFromItem';
+import cellRenderToFromItem from './cellRenderToFromItem';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import get from 'rc-util/lib/utils/get';
 
@@ -128,7 +128,7 @@ export function columnRender<T>({
   const mode =
     isEditable && !isEditableCell(text, rowData, index, columnProps?.editable) ? 'edit' : 'read';
 
-  const textDom = defaultRenderText<T>({
+  const textDom = cellRenderToFromItem<T>({
     text: renderTextStr,
     valueType: (columnProps.valueType as ProFieldValueType) || 'text',
     index,
