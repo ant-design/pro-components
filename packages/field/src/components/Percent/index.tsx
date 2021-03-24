@@ -13,6 +13,7 @@ export type PercentPropInt = {
   precision?: number;
   showColor?: boolean;
   showSymbol?: boolean | ((value: any) => boolean);
+  placeholder?: string;
 };
 
 /**
@@ -31,10 +32,8 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
     render,
     renderFormItem,
     fieldProps,
-    proFieldKey,
-    plain,
+    placeholder,
     showSymbol: propsShowSymbol,
-    ...rest
   },
   ref,
 ) => {
@@ -82,8 +81,8 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
         parser={(value) =>
           value ? value.replace(new RegExp(`\\${prefix}\\s?|(,*)`, 'g'), '') : ''
         }
+        placeholder={placeholder}
         {...fieldProps}
-        {...rest}
       />
     );
     if (renderFormItem) {

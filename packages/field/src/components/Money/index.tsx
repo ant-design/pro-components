@@ -7,6 +7,7 @@ export type FieldMoneyProps = {
   text: number;
   moneySymbol?: string;
   locale?: string;
+  placeholder?: string;
 };
 
 const defaultMoneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
@@ -53,6 +54,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     proFieldKey,
     plain,
     valueEnum,
+    placeholder,
     ...rest
   },
   ref,
@@ -140,7 +142,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         style={{
           width: '100%',
         }}
-        {...rest}
+        placeholder={placeholder}
         {...fieldProps}
       />
     );
