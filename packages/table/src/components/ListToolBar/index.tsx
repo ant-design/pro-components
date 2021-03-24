@@ -207,7 +207,11 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
       {multipleLine ? (
         <div className={`${prefixCls}-extra-line`}>
           {tabs.items && tabs.items.length ? (
-            <Tabs onChange={tabs.onChange} tabBarExtraContent={filtersNode}>
+            <Tabs
+              activeKey={tabs.activeKey}
+              onChange={tabs.onChange}
+              tabBarExtraContent={filtersNode}
+            >
               {tabs.items.map((tab) => (
                 <Tabs.TabPane {...tab} />
               ))}
