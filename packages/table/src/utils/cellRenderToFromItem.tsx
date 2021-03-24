@@ -28,7 +28,7 @@ export const spellNamePath = (base: React.Key, dataIndex: React.Key | React.Key[
  * @param text
  * @param valueType
  */
-function defaultRenderText<T>(config: {
+function cellRenderToFromItem<T>(config: {
   text: string | number | React.ReactText[];
   valueType: ProColumnType['valueType'];
   index: number;
@@ -43,7 +43,7 @@ function defaultRenderText<T>(config: {
   const { text, valueType, rowData, columnProps } = config;
   // 如果 valueType === text ，没必要多走一次 render
   if (
-    (!valueType || valueType === 'text') &&
+    (!valueType || ['textarea', 'text'].includes(valueType.toString())) &&
     // valueEnum 存在说明是个select
     !columnProps?.valueEnum &&
     config.mode === 'read'
@@ -54,7 +54,7 @@ function defaultRenderText<T>(config: {
 
   if (typeof valueType === 'function' && rowData) {
     // 防止valueType是函数,并且text是''、null、undefined跳过显式设置的columnEmptyText
-    return defaultRenderText({
+    return cellRenderToFromItem({
       ...config,
       valueType: valueType(rowData, config.type) || 'text',
     });
@@ -194,4 +194,4 @@ function defaultRenderText<T>(config: {
   );
 }
 
-export default defaultRenderText;
+export default cellRenderToFromItem;
