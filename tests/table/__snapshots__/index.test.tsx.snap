@@ -8,7 +8,7 @@ exports[`BasicTable 🎏 base use 1`] = `
     class="ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
-      class="ant-form ant-form-horizontal"
+      class="ant-form ant-form-horizontal ant-pro-form-query-filter"
     >
       <input
         style="display: none;"
@@ -7134,7 +7134,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
     class="ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
-      class="ant-form ant-form-horizontal"
+      class="ant-form ant-form-horizontal ant-pro-form-query-filter"
     >
       <input
         style="display:none"
@@ -7484,7 +7484,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
     class="ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
-      class="ant-form ant-form-horizontal"
+      class="ant-form ant-form-horizontal ant-pro-form-query-filter"
     >
       <input
         style="display: none;"
