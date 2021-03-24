@@ -1,7 +1,8 @@
 /* eslint-disable no-param-reassign */
 import type { ReactElement } from 'react';
+import { useContext } from 'react';
 import React, { useMemo } from 'react';
-import { Row, Col, Form, Divider } from 'antd';
+import { Row, Col, Form, Divider, ConfigProvider } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import { useIntl } from '@ant-design/pro-provider';
@@ -12,6 +13,9 @@ import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
+import classNames from 'classnames';
+
+import './index.less';
 
 const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
@@ -325,6 +329,10 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     ignoreRules,
     ...rest
   } = props;
+
+  const context = useContext(ConfigProvider.ConfigContext);
+  const baseClassName = context.getPrefixCls('pro-form-query-filter');
+
   const [width, setWidth] = useMountMergeState(
     () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
   );
@@ -357,6 +365,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
       <BaseForm
         preserve={preserve}
         {...rest}
+        className={classNames(baseClassName, rest.className)}
         onReset={onReset}
         style={style}
         layout={spanSize.layout}
