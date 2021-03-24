@@ -31,14 +31,14 @@ export function genProColumnToColumn<T>(props: {
         key,
         dataIndex,
         valueEnum,
-        valueType,
+        valueType = 'text',
         children,
         onFilter,
         filters = [],
       } = columnProps as ProColumnGroupType<T, any>;
       const columnKey = genColumnKey(key, columnsIndex);
       // 这些都没有，说明是普通的表格不需要 pro 管理
-      const noNeedPro = !dataIndex && !valueEnum && !valueType && !children;
+      const noNeedPro = !valueEnum && !valueType && !children;
       if (noNeedPro) {
         return {
           index: columnsIndex,
