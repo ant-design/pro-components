@@ -173,9 +173,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-description"
                           >
-                            <span>
-                              我是一条测试的描述
-                            </span>
+                            我是一条测试的描述
                           </div>
                         </div>
                       </div>
@@ -307,9 +305,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-description"
                           >
-                            <span>
-                              我是一条测试的描述
-                            </span>
+                            我是一条测试的描述
                           </div>
                         </div>
                       </div>
@@ -441,9 +437,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-description"
                           >
-                            <span>
-                              我是一条测试的描述
-                            </span>
+                            我是一条测试的描述
                           </div>
                         </div>
                       </div>
@@ -575,9 +569,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-description"
                           >
-                            <span>
-                              我是一条测试的描述
-                            </span>
+                            我是一条测试的描述
                           </div>
                         </div>
                       </div>
@@ -1739,9 +1731,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
                           >
-                            <span>
-                              我是一条测试的描述
-                            </span>
+                            我是一条测试的描述
                           </div>
                         </div>
                       </div>
@@ -1848,9 +1838,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
                           >
-                            <span>
-                              我是一条测试的描述
-                            </span>
+                            我是一条测试的描述
                           </div>
                         </div>
                       </div>
@@ -1957,9 +1945,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
                           >
-                            <span>
-                              我是一条测试的描述
-                            </span>
+                            我是一条测试的描述
                           </div>
                         </div>
                       </div>
@@ -2066,9 +2052,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                           <div
                             class="ant-pro-list-row-show-action-hover ant-pro-list-row-description"
                           >
-                            <span>
-                              我是一条测试的描述
-                            </span>
+                            我是一条测试的描述
                           </div>
                         </div>
                       </div>
