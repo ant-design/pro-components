@@ -2,7 +2,8 @@
 import { SketchPicker } from 'react-color';
 import React, { useContext } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { ConfigProvider, PopoverProps } from 'antd';
+import type { PopoverProps } from 'antd';
+import { ConfigProvider } from 'antd';
 import { Popover } from 'antd';
 import type { ProFieldFC } from '../../index';
 

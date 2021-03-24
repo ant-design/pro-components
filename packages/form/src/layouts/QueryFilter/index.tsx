@@ -86,6 +86,7 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
   defaultColsNumber?: number;
   labelWidth?: number | 'auto';
   split?: boolean;
+  className?: string;
   /** 配置列数 */
   span?: SpanConfig;
 
