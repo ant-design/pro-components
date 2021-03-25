@@ -4,6 +4,7 @@ import type { ProFieldFC } from '../../index';
 
 export type FieldDigitProps = {
   text: number;
+  placeholder?: any;
 };
 
 /**
@@ -14,7 +15,7 @@ export type FieldDigitProps = {
  *     moneySymbol?: string; }
  */
 const FieldDigit: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, renderFormItem, plain, fieldProps, proFieldKey, ...rest },
+  { text, mode: type, render, placeholder, renderFormItem, fieldProps },
   ref,
 ) => {
   if (type === 'read') {
@@ -26,7 +27,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
     return dom;
   }
   if (type === 'edit' || type === 'update') {
-    const dom = <InputNumber ref={ref} min={0} {...rest} {...fieldProps} />;
+    const dom = <InputNumber ref={ref} min={0} placeholder={placeholder} {...fieldProps} />;
     if (renderFormItem) {
       return renderFormItem(text, { mode: type, ...fieldProps }, dom);
     }

@@ -173,7 +173,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
     class="qixian-pro-table-search qixian-pro-table-search-query-filter"
   >
     <form
-      class="qixian-form qixian-form-horizontal"
+      class="qixian-form qixian-form-horizontal qixian-pro-form-query-filter"
     >
       <input
         style="display: none;"

@@ -47,7 +47,7 @@ export interface SearchSelectProps<T = Record<string, any>>
    *
    * @default 请输入关键字搜索
    */
-  placeholder?: string;
+  placeholder?: any;
   /**
    * 是否在输入框聚焦时触发搜索
    *

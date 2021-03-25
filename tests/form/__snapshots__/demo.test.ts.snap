@@ -9823,7 +9823,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-pro-form-query-filter"
 >
   <input
     style="display: none;"
@@ -10405,7 +10405,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter-collapsed.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal"
+  class="ant-form ant-form-horizontal ant-pro-form-query-filter"
 >
   <input
     style="display: none;"
@@ -10865,7 +10865,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter-test.tsx correctly 1`] = `
 Array [
   <form
-    class="ant-form ant-form-horizontal"
+    class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
       style="display: none;"
@@ -11084,7 +11084,7 @@ Array [
     </div>
   </form>,
   <form
-    class="ant-form ant-form-horizontal"
+    class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
       style="display: none;"
@@ -11372,7 +11372,7 @@ Array [
     </div>
   </form>,
   <form
-    class="ant-form ant-form-horizontal"
+    class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
       style="display: none;"
@@ -11897,7 +11897,7 @@ Array [
     </div>
   </form>,
   <form
-    class="ant-form ant-form-horizontal"
+    class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
       style="display: none;"
@@ -12422,7 +12422,7 @@ Array [
     </div>
   </form>,
   <form
-    class="ant-form ant-form-horizontal"
+    class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
       style="display: none;"
@@ -12947,7 +12947,7 @@ Array [
     </div>
   </form>,
   <form
-    class="ant-form ant-form-horizontal"
+    class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
       style="display: none;"
@@ -13476,7 +13476,7 @@ Array [
 
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter-vertical.tsx correctly 1`] = `
 <form
-  class="ant-form ant-form-vertical"
+  class="ant-form ant-form-vertical ant-pro-form-query-filter"
 >
   <input
     style="display: none;"
@@ -14203,7 +14203,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
     </div>
     <form
-      class="ant-form ant-form-horizontal filter"
+      class="ant-form ant-form-horizontal ant-pro-form-query-filter filter"
     >
       <input
         style="display: none;"

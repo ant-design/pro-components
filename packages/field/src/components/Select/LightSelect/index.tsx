@@ -9,7 +9,7 @@ import './index.less';
 
 export type LightSelectProps = {
   label?: string;
-  placeholder?: string;
+  placeholder?: any;
 };
 
 /**
