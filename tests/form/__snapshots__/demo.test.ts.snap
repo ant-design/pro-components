@@ -20309,7 +20309,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         style="height: 48px; line-height: 48px; background: transparent;"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-header-light"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 100; right: 0px;"
       >
         <div

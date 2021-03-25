@@ -1516,7 +1516,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -2017,7 +2017,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -2281,7 +2281,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -2659,7 +2659,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -3023,7 +3023,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -3442,7 +3442,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                 style="position: relative; min-height: 0;"
               >
                 <header
-                  class="ant-layout-header ant-pro-fixed-header-action"
+                  class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-light"
                   style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
                 >
                   <div
@@ -3608,7 +3608,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -3972,7 +3972,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                 style="position: relative; min-height: 0;"
               >
                 <header
-                  class="ant-layout-header ant-pro-fixed-header-action"
+                  class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-light"
                   style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
                 >
                   <div
@@ -4253,7 +4253,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -4708,7 +4708,7 @@ Array [
         style="position: relative;"
       >
         <header
-          class="ant-layout-header"
+          class="ant-layout-header ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -5146,7 +5146,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -6239,7 +6239,7 @@ Array [
         style="position: relative;"
       >
         <header
-          class="qixian-layout-header qixian-pro-fixed-header-action"
+          class="qixian-layout-header qixian-pro-fixed-header-action qixian-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -8003,7 +8003,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-light"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -8418,7 +8418,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -8609,7 +8609,7 @@ Array [
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -8923,7 +8923,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -9301,7 +9301,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -9788,7 +9788,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -10114,7 +10114,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-light"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       />
       <main
@@ -11347,7 +11347,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
         >
           <div
@@ -11487,7 +11487,7 @@ Array [
           style="height: 48px; line-height: 48px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 100; right: 0px;"
         >
           <div
@@ -11796,7 +11796,7 @@ Array [
           style="height: 48px; line-height: 48px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header-light"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 100; right: 0px;"
         >
           <div
@@ -12303,7 +12303,7 @@ Array [
           style="height: 48px; line-height: 48px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header-dark"
           style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 100; right: 0px;"
         >
           <div
