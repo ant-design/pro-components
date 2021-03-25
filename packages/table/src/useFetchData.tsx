@@ -32,6 +32,7 @@ const useFetchData = <T extends RequestData<any>>(
   defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
+  const umountRef = useRef<boolean>();
   const { onLoad, manual, polling, onRequestError, debounceTime = 20 } = options || {};
 
   /** 是否首次加载的指示器 */
@@ -151,7 +152,8 @@ const useFetchData = <T extends RequestData<any>>(
       const needPolling = runFunction(polling, msg);
 
       // 如果需要轮询，搞个一段时间后执行
-      if (needPolling) {
+      // 如果解除了挂载，删除一下
+      if (needPolling && !umountRef.current) {
         pollingSetTimeRef.current = setTimeout(() => {
           fetchListDebounce.run(needPolling);
           // 这里判断最小要2000ms，不然一直loading
@@ -172,6 +174,7 @@ const useFetchData = <T extends RequestData<any>>(
       fetchListDebounce.run(true);
     }
     return () => {
+      umountRef.current = true;
       clearTimeout(pollingSetTimeRef.current);
     };
   }, [polling]);
