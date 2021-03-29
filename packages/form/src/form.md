@@ -94,7 +94,9 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/layout-base.tsx" iframe="764px" title="固定页脚" />
 
-<code src="./demos/schema.tsx" iframe="764px" title="固定页脚" />
+### JSON 来生成表单
+
+<code src="./demos/schema.tsx" height="764px" title="固定页脚" />
 
 ### ProForm 和 EditableTable 同时使用
 

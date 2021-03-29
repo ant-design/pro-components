@@ -159,6 +159,7 @@ const columns: ProfFormColumnsType<DataItem>[] = [
 export default () => {
   return (
     <SchemaForm<DataItem>
+      trigger={<a>点击我</a>}
       layoutType="ProForm"
       onFinish={async (values) => {
         console.log(values);
