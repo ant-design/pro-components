@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.12.0...@ant-design/pro-field@1.13.0) (2021-03-29)
+
+### Bug Fixes
+
+- **form:** fix form item control no work error ([#2303](https://github.com/ant-design/pro-components/issues/2303)) ([65f0e4c](https://github.com/ant-design/pro-components/commit/65f0e4c869310ea9e305ffb8602f32e24c8a8726))
+- **table:** fix polling alway run after unmount table ([#2308](https://github.com/ant-design/pro-components/issues/2308)) ([f23bb96](https://github.com/ant-design/pro-components/commit/f23bb966108dd0aca59e453d80bfebd0f1b64adc))
+
+### Features
+
+- **table:** search form support className ([#2254](https://github.com/ant-design/pro-components/issues/2254)) ([4b36710](https://github.com/ant-design/pro-components/commit/4b36710e6b314a2054b69b319bf071e3754727be))
+
 # [1.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.11.3...@ant-design/pro-field@1.12.0) (2021-03-18)
 
 ### Features

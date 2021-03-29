@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.10...@ant-design/pro-list@1.5.11) (2021-03-29)
+
+### Bug Fixes
+
+- **list:** fix list no use dataIndex error ([#2298](https://github.com/ant-design/pro-components/issues/2298)) ([81e1301](https://github.com/ant-design/pro-components/commit/81e1301507679e729b51c71ab43fda0a62846923))
+
 ## [1.5.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.9...@ant-design/pro-list@1.5.10) (2021-03-18)
 
 **Note:** Version bump only for package @ant-design/pro-list

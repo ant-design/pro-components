@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.15.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.4...@ant-design/pro-layout@6.15.5) (2021-03-29)
+
+### Bug Fixes
+
+- **layout:** layout add pro-header-light classname ([00e4d0c](https://github.com/ant-design/pro-components/commit/00e4d0cb0d2289a1c72bffd6a1c7dda353db2524))
+- **layout:** 修复了 pro-layout 数组扩展操作问题 ([#2289](https://github.com/ant-design/pro-components/issues/2289)) ([9f7a60c](https://github.com/ant-design/pro-components/commit/9f7a60cd5cf7aefbd301ddca2d20c5521bdff80e))
+
 ## [6.15.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.3...@ant-design/pro-layout@6.15.4) (2021-03-18)
 
 **Note:** Version bump only for package @ant-design/pro-layout

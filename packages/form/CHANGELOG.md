@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.18.4...@ant-design/pro-form@1.19.0) (2021-03-29)
+
+### Bug Fixes
+
+- **form:** call synctourl props during onreset ([#2258](https://github.com/ant-design/pro-components/issues/2258)) ([11e8995](https://github.com/ant-design/pro-components/commit/11e899569c70f49ec8ccdbd948482eed2b51b0d4))
+- **form:** fix form item control no work error ([#2303](https://github.com/ant-design/pro-components/issues/2303)) ([65f0e4c](https://github.com/ant-design/pro-components/commit/65f0e4c869310ea9e305ffb8602f32e24c8a8726))
+
+### Features
+
+- **table:** search form support className ([#2254](https://github.com/ant-design/pro-components/issues/2254)) ([4b36710](https://github.com/ant-design/pro-components/commit/4b36710e6b314a2054b69b319bf071e3754727be))
+
 ## [1.18.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.18.3...@ant-design/pro-form@1.18.4) (2021-03-18)
 
 ### Bug Fixes

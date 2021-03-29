@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.9...@ant-design/pro-descriptions@1.6.10) (2021-03-29)
+
+### Bug Fixes
+
+- **descriptions:** if label is null, no render lable ([#2292](https://github.com/ant-design/pro-components/issues/2292)) ([989f26f](https://github.com/ant-design/pro-components/commit/989f26f24552800824959772cba7e4dcfc5e6c2b))
+
 ## [1.6.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.8...@ant-design/pro-descriptions@1.6.9) (2021-03-18)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions
