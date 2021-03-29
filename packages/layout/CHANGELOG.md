@@ -2,6 +2,43 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.15.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.4...@ant-design/pro-layout@6.15.5) (2021-03-29)
+
+### Bug Fixes
+
+- **layout:** layout add pro-header-light classname ([00e4d0c](https://github.com/ant-design/pro-components/commit/00e4d0cb0d2289a1c72bffd6a1c7dda353db2524))
+- **layout:** 修复了 pro-layout 数组扩展操作问题 ([#2289](https://github.com/ant-design/pro-components/issues/2289)) ([9f7a60c](https://github.com/ant-design/pro-components/commit/9f7a60cd5cf7aefbd301ddca2d20c5521bdff80e))
+
+## [6.15.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.3...@ant-design/pro-layout@6.15.4) (2021-03-18)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.2...@ant-design/pro-layout@6.15.3) (2021-03-16)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.1...@ant-design/pro-layout@6.15.2) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.0...@ant-design/pro-layout@6.15.1) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.5...@ant-design/pro-layout@6.15.0) (2021-03-08)
+
+### Features
+
+- **field:** add color pick ([#2089](https://github.com/ant-design/pro-components/issues/2089)) ([e83c2ee](https://github.com/ant-design/pro-components/commit/e83c2ee36f67b66070074562f80f248cbfc1a6e3))
+- **layout:** layout support WaterMark ([#2086](https://github.com/ant-design/pro-components/issues/2086)) ([7413eee](https://github.com/ant-design/pro-components/commit/7413eee8f0f31e5911284ea1bd98941900de6d32))
+- **layout:** SettingDrawer support disableUrlParams ([#2115](https://github.com/ant-design/pro-components/issues/2115)) ([b110101](https://github.com/ant-design/pro-components/commit/b11010160bb99df83f85e54bb4da91f3f4edb5f7))
+
+## [6.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.4...@ant-design/pro-layout@6.14.5) (2021-02-28)
+
+### Bug Fixes
+
+- **layout:** fix layout animation error ([#2027](https://github.com/ant-design/pro-components/issues/2027)) ([df95952](https://github.com/ant-design/pro-components/commit/df95952c9bc4eb3e22f9b43bbebe6a6a97f6755c))
+
 ## [6.14.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.3...@ant-design/pro-layout@6.14.4) (2021-02-25)
 
 **Note:** Version bump only for package @ant-design/pro-layout

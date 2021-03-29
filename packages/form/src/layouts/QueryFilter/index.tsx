@@ -1,7 +1,8 @@
 /* eslint-disable no-param-reassign */
 import type { ReactElement } from 'react';
+import { useContext } from 'react';
 import React, { useMemo } from 'react';
-import { Row, Col, Form, Divider } from 'antd';
+import { Row, Col, Form, Divider, ConfigProvider } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import { useIntl } from '@ant-design/pro-provider';
@@ -12,6 +13,9 @@ import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
+import classNames from 'classnames';
+
+import './index.less';
 
 const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
@@ -50,12 +54,6 @@ const getSpanConfig = (
   width: number,
   span?: SpanConfig,
 ): { span: number; layout: FormProps['layout'] } => {
-  if (width === 16) {
-    return {
-      span: 8,
-      layout: 'inline',
-    };
-  }
   if (span && typeof span === 'number') {
     return {
       span,
@@ -92,6 +90,7 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
   defaultColsNumber?: number;
   labelWidth?: number | 'auto';
   split?: boolean;
+  className?: string;
   /** 配置列数 */
   span?: SpanConfig;
 
@@ -207,34 +206,31 @@ const QueryFilterContent: React.FC<{
   }, [props, resetText, searchText, optionRender]);
 
   // totalSpan 统计控件占的位置，计算 offset 保证查询按钮在最后一列
-  let totalSpan = submitter ? spanSize.span : 0;
-  const itemLength = items.length;
+  let totalSpan = 0;
+  let itemLength = 0;
 
   // for split compute
-  let currentSpan = submitter ? spanSize.span : 0;
-
-  /** 是否需要展示 collapseRender */
-  const needCollapseRender = itemLength - 1 >= showLength;
-
+  let currentSpan = 0;
   const doms = flatMapItems(items, props.ignoreRules).map(
     (item: React.ReactNode, index: number) => {
       // 如果 formItem 自己配置了 hidden，默认使用它自己的
+      const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
+      const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
+      // 计算总的 totalSpan 长度
+      totalSpan += colSpan;
       const hidden: boolean =
         (item as ReactElement<{ hidden: boolean }>)?.props?.hidden ||
         // 如果收起了
         (collapsed &&
           // 如果 超过显示长度 且 总长度超过了 24
-          index >= showLength &&
+          index >= showLength - 1 &&
+          !!index &&
           totalSpan >= 24);
 
-      const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
-
-      const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
+      itemLength += 1;
 
       // 每一列的key, 一般是存在的
       const itemKey = (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
-
-      currentSpan += colSpan;
 
       if (React.isValidElement(item) && hidden) {
         if (!props.preserve) {
@@ -246,12 +242,13 @@ const QueryFilterContent: React.FC<{
         });
       }
 
-      if (24 - (totalSpan % 24) < colSpan) {
+      if (24 - (currentSpan % 24) < colSpan) {
         // 如果当前行空余位置放不下，那么折行
-        totalSpan += 24 - (totalSpan % 24);
+        totalSpan += 24 - (currentSpan % 24);
+        currentSpan += 24 - (currentSpan % 24);
       }
 
-      totalSpan += colSpan;
+      currentSpan += colSpan;
 
       const colItem = (
         <Col key={itemKey} span={colSpan}>
@@ -270,6 +267,19 @@ const QueryFilterContent: React.FC<{
     },
   );
 
+  /** 是否需要展示 collapseRender */
+  const needCollapseRender = useMemo(() => {
+    if (totalSpan < 24 || itemLength < showLength) {
+      return false;
+    }
+    return true;
+  }, [itemLength, showLength, totalSpan]);
+
+  const offset = useMemo(() => {
+    const offsetSpan = (currentSpan % 24) + spanSize.span;
+    return 24 - offsetSpan;
+  }, [currentSpan, spanSize.span]);
+
   return (
     <Row gutter={24} justify="start" key="resize-observer-row">
       {doms}
@@ -277,7 +287,7 @@ const QueryFilterContent: React.FC<{
         <Col
           key="submitter"
           span={spanSize.span}
-          offset={24 - spanSize.span - ((totalSpan - spanSize.span) % 24)}
+          offset={offset}
           style={{
             textAlign: 'right',
           }}
@@ -286,7 +296,7 @@ const QueryFilterContent: React.FC<{
             <Actions
               key="pro-form-query-filter-actions"
               collapsed={collapsed}
-              collapseRender={needCollapseRender && currentSpan > 24 ? collapseRender : false}
+              collapseRender={needCollapseRender ? collapseRender : false}
               submitter={submitter}
               setCollapsed={setCollapsed}
             />
@@ -297,7 +307,7 @@ const QueryFilterContent: React.FC<{
   );
 };
 
-const defaultWidth = isBrowser() ? 0 : 1024;
+const defaultWidth = isBrowser() ? document.body.clientWidth : 1024;
 
 function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   const {
@@ -319,6 +329,10 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     ignoreRules,
     ...rest
   } = props;
+
+  const context = useContext(ConfigProvider.ConfigContext);
+  const baseClassName = context.getPrefixCls('pro-form-query-filter');
+
   const [width, setWidth] = useMountMergeState(
     () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
   );
@@ -329,7 +343,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     if (defaultColsNumber !== undefined) {
       return defaultColsNumber;
     }
-    return Math.max(1, 24 / spanSize.span - 1);
+    return Math.max(1, 24 / spanSize.span);
   }, [defaultColsNumber, spanSize.span]);
 
   const labelFlexStyle = useMemo(() => {
@@ -343,7 +357,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     <RcResizeObserver
       key="resize-observer"
       onResize={(offset) => {
-        if (width !== offset.width) {
+        if (width !== offset.width && offset.width > 17) {
           setWidth(offset.width);
         }
       }}
@@ -351,6 +365,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
       <BaseForm
         preserve={preserve}
         {...rest}
+        className={classNames(baseClassName, rest.className)}
         onReset={onReset}
         style={style}
         layout={spanSize.layout}

@@ -14,13 +14,15 @@ type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
 type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-export type ListViewProps<RecordType> = AntdListProps<RecordType> &
+export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderItem'> &
   Pick<TableProps<RecordType>, 'columns' | 'dataSource' | 'expandable'> & {
     rowKey?: string | GetRowKey<RecordType>;
     showActions?: 'hover' | 'always';
+    showExtra?: 'hover' | 'always';
     rowSelection?: TableProps<RecordType>['rowSelection'];
     prefixCls: string;
     dataSource: readonly RecordType[];
+    renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
     actionRef: React.MutableRefObject<ActionType | undefined>;
   };
 
@@ -30,6 +32,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     columns,
     rowKey,
     showActions,
+    showExtra,
     prefixCls,
     actionRef,
     renderItem,
@@ -68,13 +71,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     const { current = 1, pageSize = 10 } = mergedPagination;
     const currentPageData = dataSource.slice((current - 1) * pageSize, current * pageSize);
     return currentPageData;
-  }, [
-    !!pagination,
-    dataSource,
-    mergedPagination && mergedPagination.current,
-    mergedPagination && mergedPagination.pageSize,
-    mergedPagination && mergedPagination.total,
-  ]);
+  }, [dataSource, mergedPagination, pagination]);
 
   /** 提供和 table 一样的 rowSelection 配置 */
   const [selectItemRender, selectedKeySet] = useSelection(rowSelection, {
@@ -146,18 +143,17 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
-        if (renderItem) {
-          return renderItem(item, index);
-        }
         const listItemProps = {};
-        columns?.forEach((column: TableColumnType<RecordType>) => {
+        (columns as (TableColumnType<RecordType> & { listKey: string })[])?.forEach((column) => {
           PRO_LIST_KEYS.forEach((key) => {
-            if (column.key === key) {
+            if (column.listKey === key) {
               const dataIndex = (column.dataIndex || key) as string;
               const rawData = Array.isArray(dataIndex)
                 ? get(item, dataIndex as string[])
                 : item[dataIndex];
-              listItemProps[key] = column.render ? column.render(rawData, item, index) : rawData;
+              // 渲染数据
+              const data = column.render ? column.render(rawData, item, index) : rawData;
+              if (data !== '-') listItemProps[key] = data;
             }
           });
         });
@@ -166,8 +162,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
           checkboxDom = selectItemDom.render(item, item, index);
         }
         const { isEditable, recordKey } = actionRef.current?.isEditable({ ...item, index }) || {};
-
-        return (
+        const defaultDom = (
           <ProListItem
             key={recordKey}
             cardProps={rest.grid}
@@ -181,11 +176,17 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             }}
             record={item}
             showActions={showActions}
+            showExtra={showExtra}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
             selected={selectedKeySet.has(getRowKey(item, index))}
             checkbox={checkboxDom}
           />
         );
+
+        if (renderItem) {
+          return renderItem(item, index, defaultDom);
+        }
+        return defaultDom;
       }}
     />
   );

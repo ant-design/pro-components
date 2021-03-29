@@ -6,12 +6,6 @@ import './index.less';
 
 export type ProCardDividerProps = {
   /**
-   * 自定义前缀
-   *
-   * @ignore
-   */
-  prefixCls?: string;
-  /**
    * 样式
    *
    * @ignore
@@ -23,23 +17,25 @@ export type ProCardDividerProps = {
    * @ignore
    */
   className?: string;
+  /**
+   * 布局类型
+   *
+   * @default vertical
+   */
+  type?: 'horizontal' | 'vertical';
 };
 
 const ProCardDivider: React.FC<ProCardDividerProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-divider');
 
-  const { className, style = {}, children } = props;
+  const { className, style = {}, type } = props;
 
   const classString = classNames(prefixCls, className, {
-    [`${prefixCls}-line`]: children === undefined,
+    [`${prefixCls}-${type}`]: type,
   });
 
-  return (
-    <div className={classString} style={style}>
-      {children}
-    </div>
-  );
+  return <div className={classString} style={style} />;
 };
 
 export default ProCardDivider;

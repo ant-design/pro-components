@@ -8,7 +8,7 @@ import {
 } from '@ant-design/pro-utils';
 import { unstable_batchedUpdates } from 'react-dom';
 import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
-import { postDataPipeline } from './utils';
+import { postDataPipeline } from './utils/index';
 
 /**
  * 组合用户的配置和默认值
@@ -32,6 +32,7 @@ const useFetchData = <T extends RequestData<any>>(
   defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
+  const umountRef = useRef<boolean>();
   const { onLoad, manual, polling, onRequestError, debounceTime = 20 } = options || {};
 
   /** 是否首次加载的指示器 */
@@ -151,7 +152,8 @@ const useFetchData = <T extends RequestData<any>>(
       const needPolling = runFunction(polling, msg);
 
       // 如果需要轮询，搞个一段时间后执行
-      if (needPolling) {
+      // 如果解除了挂载，删除一下
+      if (needPolling && !umountRef.current) {
         pollingSetTimeRef.current = setTimeout(() => {
           fetchListDebounce.run(needPolling);
           // 这里判断最小要2000ms，不然一直loading
@@ -160,7 +162,7 @@ const useFetchData = <T extends RequestData<any>>(
       return msg;
     },
     [],
-    debounceTime,
+    debounceTime || 10,
   );
 
   // 如果轮询结束了，直接销毁定时器
@@ -172,6 +174,7 @@ const useFetchData = <T extends RequestData<any>>(
       fetchListDebounce.run(true);
     }
     return () => {
+      umountRef.current = true;
       clearTimeout(pollingSetTimeRef.current);
     };
   }, [polling]);
@@ -204,6 +207,9 @@ const useFetchData = <T extends RequestData<any>>(
 
   useDeepCompareEffect(() => {
     fetchListDebounce.run(false);
+    if (!manual) {
+      manualRequestRef.current = false;
+    }
     return () => {
       fetchListDebounce.cancel();
     };

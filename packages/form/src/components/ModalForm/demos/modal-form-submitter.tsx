@@ -15,7 +15,7 @@ export default () => {
     <Space>
       <ModalForm
         title="新建表单"
-        trigger={<Button type="primary">自己定义footer的按钮</Button>}
+        trigger={<Button type="primary">自己定义 footer 的按钮</Button>}
         submitter={{
           render: (props, defaultDoms) => {
             return [

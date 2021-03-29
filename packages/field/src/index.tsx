@@ -7,6 +7,7 @@ import type {
   ProRenderFieldPropsType,
   ProFieldFCRenderProps,
   ProFieldTextType,
+  ProFieldRequestData,
 } from '@ant-design/pro-utils';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
 
@@ -34,9 +35,9 @@ import FieldRate from './components/Rate';
 import FieldSwitch from './components/Switch';
 import FieldDigit from './components/Digit';
 import FieldSecond from './components/Second';
-
 import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
+import FieldColorPicker from './components/ColorPicker';
 
 export type ProFieldEmptyText = string | false;
 
@@ -51,6 +52,8 @@ export type ProFieldValueTypeFunction<T> = (item: T) => ProFieldValueType | ProF
 
 type RenderProps = Omit<ProFieldFCRenderProps, 'text'> &
   ProRenderFieldPropsType & {
+    /** 从服务器读取选项 */
+    request?: ProFieldRequestData;
     emptyText?: React.ReactNode;
     visible?: boolean;
     onVisible?: (visible: boolean) => void;
@@ -123,10 +126,24 @@ const defaultRenderText = (
   props: RenderProps,
   valueTypeMap: Record<string, ProRenderFieldPropsType>,
 ): React.ReactNode => {
+  const { mode = 'read', emptyText = '-' } = props;
+
+  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
+    if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
+      const { fieldProps, render } = props;
+      if (render) {
+        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
+      }
+      return <>{emptyText}</>;
+    }
+  }
+
+  // eslint-disable-next-line no-param-reassign
+  delete props.emptyText;
+
   if (typeof valueType === 'object') {
     return defaultRenderTextByObject(text, valueType, props);
   }
-  const { mode = 'read', emptyText = '-' } = props;
 
   const customValueTypeConfig = valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
@@ -154,19 +171,6 @@ const defaultRenderText = (
       );
     }
   }
-
-  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
-    if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
-      const { fieldProps, render } = props;
-      if (render) {
-        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
-      }
-      return <>{emptyText}</>;
-    }
-  }
-
-  // eslint-disable-next-line no-param-reassign
-  delete props.emptyText;
 
   /** 如果是金额的值 */
   if (valueType === 'money') {
@@ -307,6 +311,10 @@ const defaultRenderText = (
     return <FieldImage text={text as string} {...props} />;
   }
 
+  if (valueType === 'color') {
+    return <FieldColorPicker text={text as string} {...props} />;
+  }
+
   return <FieldText text={text as string} {...props} />;
 };
 
@@ -325,7 +333,7 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
   const intl = useIntl();
   const context = useContext(ConfigContext);
 
-  const fieldProps = (value || onChange || rest?.fieldProps) && {
+  const fieldProps = (value !== undefined || onChange || rest?.fieldProps) && {
     value,
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
@@ -334,7 +342,6 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
       rest?.fieldProps?.onChange?.(...restParams);
     },
   };
-
   return (
     <React.Fragment>
       {defaultRenderText(

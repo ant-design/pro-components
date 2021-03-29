@@ -71,6 +71,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       layout,
       className: propsClassName,
       style,
+      navTheme,
       collapsed,
       siderWidth,
       hasSiderMenu,
@@ -87,6 +88,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       [`${prefixCls}-fixed-header`]: needFixedHeader,
       [`${prefixCls}-fixed-header-action`]: !collapsed,
       [`${prefixCls}-top-menu`]: isTop,
+      [`${prefixCls}-header-${navTheme}`]: navTheme,
     });
 
     /** 计算侧边栏的宽度，不然导致左边的样式会出问题 */

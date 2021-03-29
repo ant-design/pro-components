@@ -4,11 +4,12 @@ import type { SelectProps } from 'antd';
 import { Select, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import type { LabeledValue } from 'antd/es/select';
+import type { RequestOptionsType } from '@ant-design/pro-utils';
 
-const { Option } = Select;
+const { Option, OptGroup } = Select;
 
 // 支持 key, value, label，兼容 UserSearch 中只填写了 key 的情况。
-export type KeyLabel = Partial<LabeledValue>;
+export type KeyLabel = Partial<LabeledValue> & RequestOptionsType;
 
 /** 用户扩展数据后的值类型 */
 export type DataValueType<T> = KeyLabel & T;
@@ -17,7 +18,7 @@ export type DataValueType<T> = KeyLabel & T;
 export type DataValuesType<T> = DataValueType<T> | DataValueType<T>[];
 
 export interface SearchSelectProps<T = Record<string, any>>
-  extends SelectProps<KeyLabel | KeyLabel[]> {
+  extends Omit<SelectProps<KeyLabel | KeyLabel[]>, 'options'> {
   /** 自定义搜索方法, 返回搜索结果的 Promise */
   request?: (params: { query: string }) => Promise<DataValueType<T>[]>;
   /** 自定义选项渲染 */
@@ -26,6 +27,8 @@ export interface SearchSelectProps<T = Record<string, any>>
   value?: KeyLabel | KeyLabel[];
   /** 指定默认选中的条目 */
   defaultValue?: KeyLabel | KeyLabel[];
+
+  options?: RequestOptionsType[];
 
   /**
    * 样式
@@ -44,7 +47,7 @@ export interface SearchSelectProps<T = Record<string, any>>
    *
    * @default 请输入关键字搜索
    */
-  placeholder?: string;
+  placeholder?: any;
   /**
    * 是否在输入框聚焦时触发搜索
    *
@@ -71,16 +74,7 @@ export interface SearchSelectProps<T = Record<string, any>>
   resetData: () => void;
 }
 
-type OptionType = {
-  disabled?: boolean;
-  value: React.Key;
-  title?: string;
-  className?: string;
-  style?: React.CSSProperties;
-  label?: React.ReactNode;
-};
-
-const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
+const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   const {
     optionItemRender,
     mode,
@@ -94,7 +88,6 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
     options,
     fetchData,
     resetData,
-    dropdownMatchSelectWidth = false,
     prefixCls: customizePrefixCls,
     ...restProps
   } = props;
@@ -109,8 +102,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
   });
 
   const getMergeValue: SelectProps<any>['onChange'] = (value, option) => {
-    // 聚合数据传递给上游消费
-    if (mode === 'multiple' && Array.isArray(value) && value.length > 0) {
+    if (Array.isArray(value) && value.length > 0) {
       // 多选情况且用户有选择
       return value.map((item, index) => {
         const optionItem = option?.[index];
@@ -121,24 +113,50 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
         };
       });
     }
+    return [];
+  };
 
-    // 单选情况且用户选择了选项
-    const dataItem = (option && option['data-item']) || {};
-    return { ...dataItem, ...value };
+  const renderOptions = (mapOptions: RequestOptionsType[]) => {
+    return mapOptions.map((item) => {
+      const {
+        label,
+        value,
+        disabled: itemDisable,
+        className: itemClassName,
+        optionType,
+      } = item as RequestOptionsType;
+
+      if (optionType === 'optGroup') {
+        return (
+          <OptGroup key={item.key || item.value} label={item.label}>
+            {renderOptions(item?.children || [])}
+          </OptGroup>
+        );
+      }
+      return (
+        <Option
+          {...item}
+          value={value!}
+          key={value}
+          disabled={itemDisable}
+          data-item={item}
+          className={`${prefixCls}-option ${itemClassName || ''}`}
+          label={item.label}
+        >
+          {optionItemRender?.(item as any) || label}
+        </Option>
+      );
+    });
   };
 
   return (
     <Select<any>
       ref={ref}
       className={classString}
-      autoClearSearchValue
-      filterOption={false}
       allowClear
-      dropdownMatchSelectWidth={dropdownMatchSelectWidth}
       disabled={disabled}
       mode={mode}
       {...restProps}
-      optionLabelProp="label"
       onSearch={
         restProps?.showSearch
           ? (value) => {
@@ -148,13 +166,19 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
           : undefined
       }
       onChange={(value, optionList, ...rest) => {
-        if (!props.labelInValue || mode !== 'multiple') {
+        if (!props.labelInValue) {
           onChange?.(value, optionList, ...rest);
+          return;
+        }
+
+        if (mode !== 'multiple') {
+          // 单选情况且用户选择了选项
+          const dataItem = (optionList && optionList['data-item']) || {};
+          onChange?.({ ...value, ...dataItem }, optionList, ...rest);
           return;
         }
         // 合并值
         const mergeValue = getMergeValue(value, optionList) as any;
-
         onChange?.(mergeValue, optionList, ...rest);
         // 将搜索结果置空，重新搜索
         if (resetAfterSelect) resetData();
@@ -166,27 +190,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T>, ref: any) => {
         onFocus?.(e);
       }}
     >
-      {(options || []).map((item) => {
-        const {
-          label,
-          value,
-          disabled: itemDisable,
-          className: itemClassName,
-        } = item as OptionType;
-
-        return (
-          <Option
-            value={value}
-            key={value}
-            disabled={itemDisable}
-            data-item={item}
-            className={`${prefixCls}-option ${itemClassName || ''}`}
-            label={item.label}
-          >
-            {optionItemRender?.(item as any) || label}
-          </Option>
-        );
-      })}
+      {renderOptions(options || [])}
     </Select>
   );
 };

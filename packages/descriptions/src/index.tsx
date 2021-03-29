@@ -173,7 +173,10 @@ export const FieldRender: React.FC<
   return (
     <div
       style={{
-        margin: '-5px 0',
+        marginTop: -5,
+        marginBottom: -5,
+        marginLeft: 0,
+        marginRight: 0,
       }}
     >
       <Form.Item noStyle shouldUpdate>
@@ -294,10 +297,12 @@ const schemaToDescriptionsItem = (
         {...restItem}
         key={restItem.label?.toString() || index}
         label={
-          <LabelIconTip
-            label={title || restItem.label}
-            tooltip={restItem.tooltip || restItem.tip}
-          />
+          (title || restItem.label || restItem.tooltip || restItem.tip) && (
+            <LabelIconTip
+              label={title || restItem.label}
+              tooltip={restItem.tooltip || restItem.tip}
+            />
+          )
         }
       >
         <Component>

@@ -2,6 +2,57 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.32.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.31.0...@ant-design/pro-table@2.32.0) (2021-03-29)
+
+### Bug Fixes
+
+- **form:** fix form item control no work error ([#2303](https://github.com/ant-design/pro-components/issues/2303)) ([65f0e4c](https://github.com/ant-design/pro-components/commit/65f0e4c869310ea9e305ffb8602f32e24c8a8726))
+- **list:** fix list no use dataIndex error ([#2298](https://github.com/ant-design/pro-components/issues/2298)) ([81e1301](https://github.com/ant-design/pro-components/commit/81e1301507679e729b51c71ab43fda0a62846923))
+- **table:** fix activeKey no work error ([#2299](https://github.com/ant-design/pro-components/issues/2299)) ([6d37832](https://github.com/ant-design/pro-components/commit/6d37832d117cd66fcb38784a02977fc0a4536606))
+- **table:** fix polling alway run after unmount table ([#2308](https://github.com/ant-design/pro-components/issues/2308)) ([f23bb96](https://github.com/ant-design/pro-components/commit/f23bb966108dd0aca59e453d80bfebd0f1b64adc))
+- **table:** fix textarea ellipsis no work error ([#2294](https://github.com/ant-design/pro-components/issues/2294)) ([81118d5](https://github.com/ant-design/pro-components/commit/81118d55943759f46f8e1e86b95bbac7cda04f69))
+- **table:** omit className in treeData ([#2261](https://github.com/ant-design/pro-components/issues/2261)) ([63c10c6](https://github.com/ant-design/pro-components/commit/63c10c6c35886de274ff655ec8f8223568e9354a))
+
+### Features
+
+- **table:** search form support className ([#2254](https://github.com/ant-design/pro-components/issues/2254)) ([4b36710](https://github.com/ant-design/pro-components/commit/4b36710e6b314a2054b69b319bf071e3754727be))
+
+# [2.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.8...@ant-design/pro-table@2.31.0) (2021-03-18)
+
+### Features
+
+- **utils:** upgrade inline-error-form-item ([#2168](https://github.com/ant-design/pro-components/issues/2168)) ([077c168](https://github.com/ant-design/pro-components/commit/077c1689c86484acae8d7e9146934c1af137a802))
+
+## [2.30.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.7...@ant-design/pro-table@2.30.8) (2021-03-17)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.30.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.6...@ant-design/pro-table@2.30.7) (2021-03-16)
+
+### Bug Fixes
+
+- **form:** fix text is 0, initialValue no work error ([#2183](https://github.com/ant-design/pro-components/issues/2183)) ([e8f0d70](https://github.com/ant-design/pro-components/commit/e8f0d709fa7b7b870fcd2d2a1b9077f6031ed204))
+
+## [2.30.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.5...@ant-design/pro-table@2.30.6) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.30.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.4...@ant-design/pro-table@2.30.5) (2021-03-11)
+
+### Bug Fixes
+
+- **table:** remove dragicon ([#2124](https://github.com/ant-design/pro-components/issues/2124)) ([49e1023](https://github.com/ant-design/pro-components/commit/49e1023edccef07c7397fd0adf1d1c38af552626))
+
+## [2.30.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.3...@ant-design/pro-table@2.30.4) (2021-03-08)
+
+### Bug Fixes
+
+- **table:** fix tooltip no work error ([#2079](https://github.com/ant-design/pro-components/issues/2079)) ([9838b9a](https://github.com/ant-design/pro-components/commit/9838b9a7954ab4cb167a8643ef9854ead25fef47))
+
+## [2.30.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.2...@ant-design/pro-table@2.30.3) (2021-02-28)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
 ## [2.30.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.30.1...@ant-design/pro-table@2.30.2) (2021-02-25)
 
 ### Bug Fixes

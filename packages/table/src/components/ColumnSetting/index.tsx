@@ -9,14 +9,15 @@ import {
 import type { TableColumnType } from 'antd';
 import { Checkbox, Tree, Popover, ConfigProvider, Tooltip } from 'antd';
 import classNames from 'classnames';
+import type { DataNode } from 'antd/lib/tree';
+import omit from 'omit.js';
 
 import type { ColumnsState } from '../../container';
 import Container from '../../container';
-import type { DataNode } from 'antd/lib/tree';
-import './index.less';
-import DragIcon from './DragIcon';
-import { genColumnKey } from '../../utils';
+import { genColumnKey } from '../../utils/index';
 import type { ProColumns } from '../../typing';
+
+import './index.less';
 
 type ColumnSettingProps<T = any> = {
   columns: TableColumnType<T>[];
@@ -142,9 +143,9 @@ const CheckboxList: React.FC<{
     }
     return {
       key: columnKey,
-      ...rest,
+      ...omit(rest, ['className']),
       selectable: false,
-      switcherIcon: <DragIcon />,
+      switcherIcon: () => false,
     };
   });
 

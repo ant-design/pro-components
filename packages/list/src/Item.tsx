@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { List, Avatar, Skeleton, ConfigProvider } from 'antd';
 import type { ProCardProps } from '@ant-design/pro-card';
 import ProCard from '@ant-design/pro-card';
@@ -80,6 +80,7 @@ export type ItemProps<RecordType> = {
   onExpand?: (expand: boolean) => void;
   expandable?: ExpandableConfig<any>;
   showActions?: 'hover' | 'always';
+  showExtra?: 'hover' | 'always';
   type?: 'new' | 'top' | 'inline' | 'subheader';
   isEditable: boolean;
   recordKey: string | number | undefined;
@@ -114,10 +115,12 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     expandable: expandableConfig,
     rowSupportExpand,
     showActions,
+    showExtra,
     type,
     style,
     className: propsClassName = defaultClassName,
     record,
+    extra,
     ...rest
   } = props;
 
@@ -133,26 +136,35 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     {
       [`${propsClassName}-selected`]: selected,
       [`${propsClassName}-show-action-hover`]: showActions === 'hover',
-      [`${propsClassName}-type-${type}`]: type,
+      [`${propsClassName}-type-${type}`]: !!type,
       [`${propsClassName}-editable`]: isEditable,
+      [`${propsClassName}-show-extra-hover`]: showExtra === 'hover',
     },
     propsClassName,
   );
 
+  const extraClassName = classNames({
+    [`${propsClassName}-extra`]: showExtra === 'hover',
+  });
+
   const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
   const expandedRowDom = expandedRowRender && expandedRowRender(item, index, indentSize, expanded);
 
+  const actionsDom = useMemo(() => {
+    if (actions) {
+      return [
+        <div key="action" onClick={(e) => e.stopPropagation()}>
+          {actions}
+        </div>,
+      ];
+    }
+    return [];
+  }, [actions]);
+
   const defaultDom = !cardProps ? (
     <List.Item
-      actions={
-        actions
-          ? [
-              <div key="action" onClick={(e) => e.stopPropagation()}>
-                {actions}
-              </div>,
-            ]
-          : []
-      }
+      actions={actionsDom}
+      extra={<div className={extraClassName}>{extra}</div>}
       {...rest}
       onClick={() => {
         if (expandRowByClick) {
@@ -218,7 +230,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         </>
       }
       subTitle={subTitle}
-      extra={actions ? [<div onClick={(e) => e.stopPropagation()}>{actions}</div>] : []}
+      extra={actionsDom}
     >
       {content}
     </ProCard>

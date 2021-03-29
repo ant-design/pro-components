@@ -17,6 +17,15 @@ import ProForm, {
   ProFormFieldSet,
   ProFormTimePicker,
 } from '@ant-design/pro-form';
+import Mock from 'mockjs';
+
+export const waitTime = (time: number = 100) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
+};
 
 const Demo = () => (
   <div
@@ -51,7 +60,31 @@ const Demo = () => (
         rules={[{ required: true, message: 'Please select your country!' }]}
       />
       <ProFormSelect
+        name="select"
+        label="支持搜索查询的 Select"
+        showSearch
+        request={async ({ keyWords }) => {
+          await waitTime(1000);
+          return Mock.mock({
+            'data|1-10': [
+              {
+                value: '@id',
+                label: '@name',
+              },
+            ],
+          }).data.concat({
+            value: keyWords,
+            label: '目标_target',
+          });
+        }}
+        placeholder="Please select a country"
+        rules={[{ required: true, message: 'Please select your country!' }]}
+      />
+      <ProFormSelect
         width="md"
+        fieldProps={{
+          labelInValue: true,
+        }}
         request={async () => [
           { label: '全部', value: 'all' },
           { label: '未解决', value: 'open' },
@@ -65,12 +98,17 @@ const Demo = () => (
         <ProFormSelect.SearchSelect
           name="userQuery"
           label="查询选择器"
-          request={async () => [
-            { label: '全部', value: 'all' },
-            { label: '未解决', value: 'open' },
-            { label: '已解决', value: 'closed' },
-            { label: '解决中', value: 'processing' },
-          ]}
+          fieldProps={{
+            labelInValue: true,
+          }}
+          request={async () => {
+            return [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ];
+          }}
         />
         <ProFormSelect.SearchSelect
           name="userQuery"
@@ -116,7 +154,7 @@ const Demo = () => (
         placeholder="Please select favorite colors"
         rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
       />
-      <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
+      <ProFormDigit label="InputNumber" name="input-number" width="sm" min={1} max={10} />
       <ProFormSwitch name="switch" label="Switch" />
       <ProFormSlider
         name="slider"

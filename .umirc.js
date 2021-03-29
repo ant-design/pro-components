@@ -129,7 +129,13 @@ export default {
       },
       {
         title: '布局',
-        children: ['layout', 'PageContainer/index', 'card'],
+        children: [
+          'layout',
+          'PageContainer/index',
+          'card',
+          'WaterMark/index',
+          'StatisticCard/index',
+        ],
       },
       {
         title: '数据录入',
@@ -181,4 +187,5 @@ export default {
       },
     ],
   },
+  webpack5: {},
 };

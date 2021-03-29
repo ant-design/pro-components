@@ -9,6 +9,61 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.19.0
+
+`2021-03-29`
+
+- 🐛 fix(form): fix form item control no work error [#2303](https://github.com/ant-design/pro-components/pull/2303) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(proform): call synctourl props during onreset [#2258](https://github.com/ant-design/pro-components/pull/2258) [@JunlinZhu-Tommy](https://github.com/JunlinZhu-Tommy)
+- 💥 feat(table): search form support className [#2254](https://github.com/ant-design/pro-components/pull/2254) [@drizzlesconsin](https://github.com/drizzlesconsin)
+
+## @ant-design/pro-form@1.18.4
+
+`2021-03-18`
+
+- 🐛 fix(form): fix drawer and modal from render error [#2221](https://github.com/ant-design/pro-components/pull/2221) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): if width<16, no rerender form layout [#2220](https://github.com/ant-design/pro-components/pull/2220) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(utils): fix inline-error-form-item problems [#2223](https://github.com/ant-design/pro-components/pull/2223) [@xiefengnian](https://github.com/xiefengnian)
+- 💥 feat(utils): upgrade inline-error-form-item [#2168](https://github.com/ant-design/pro-components/pull/2168) [@xiefengnian](https://github.com/xiefengnian)
+
+## @ant-design/pro-form@1.18.2
+
+`2021-03-16`
+
+- 🐛 fix(form): fix list form label no display error [#2190](https://github.com/ant-design/pro-components/pull/2190) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix text is 0, initialValue no work error [#2183](https://github.com/ant-design/pro-components/pull/2183) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix ProFormDateRangePicker type error [#2181](https://github.com/ant-design/pro-components/pull/2181) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix width<16, layout will change error [#2180](https://github.com/ant-design/pro-components/pull/2180) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.18.0
+
+`2021-03-11`
+
+- 🐛 fix(select): 修复 Select 默认的 filterOption 没有忽略大小写 [#2137](https://github.com/ant-design/pro-components/pull/2137) [@raohong](https://github.com/raohong)
+- 🐛 fix(form): fix copy trigger rerender error [#2136](https://github.com/ant-design/pro-components/pull/2136) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.17.0
+
+`2021-03-08`
+
+- 🐛 fix(form): fix list key no had error [#2122](https://github.com/ant-design/pro-components/pull/2122) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix form dateFormatter no export error [#2123](https://github.com/ant-design/pro-components/pull/2123) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): if button=1,no render space [#2091](https://github.com/ant-design/pro-components/pull/2091) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix form list copy no work error [#2081](https://github.com/ant-design/pro-components/pull/2081) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): remove no work error [#2078](https://github.com/ant-design/pro-components/pull/2078) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix QueryFilter span and colSize error [#2072](https://github.com/ant-design/pro-components/pull/2072) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix ProFormDateTimeRangePicker filedProps error [#2074](https://github.com/ant-design/pro-components/pull/2074) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix ProFormDigit width no work error [#2069](https://github.com/ant-design/pro-components/pull/2069) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): FormList support rules [#2070](https://github.com/ant-design/pro-components/pull/2070) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): select optipn support optGroup [#2067](https://github.com/ant-design/pro-components/pull/2067) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.16.3
+
+`2021-02-28`
+
+- 🐛 fix(form): 🇧🇷 Adding stepForm and editableTable translations to pt-BR [#2018](https://github.com/ant-design/pro-components/pull/2018) [@renanwilliam](https://github.com/renanwilliam)
+- 🐛 fix(form): fix multiple data no work error [#2028](https://github.com/ant-design/pro-components/pull/2028) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.16.2
 
 `2021-02-25`

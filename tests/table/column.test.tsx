@@ -61,6 +61,12 @@ describe('Table ColumnSetting', () => {
             dataIndex: 'name',
             renderText: (text) => callBack(text),
           },
+          {
+            title: 'Name2',
+            key: 'name2',
+            dataIndex: 'name2',
+            valueType: false,
+          },
         ]}
         request={request}
         rowKey="key"

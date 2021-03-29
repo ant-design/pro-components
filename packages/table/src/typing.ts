@@ -20,7 +20,7 @@ import type { ListToolBarProps } from './components/ListToolBar';
 import type { OptionConfig, ToolBarProps } from './components/ToolBar';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ColumnsState, useContainer } from './container';
-import type { SearchConfig, TableFormItem } from './components/Form';
+import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 
 export type PageInfo = {
   pageSize: number;
@@ -119,6 +119,9 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     order?: number;
     /** 可编辑表格是否可编辑 */
     editable?: boolean | ProTableEditableFnType<T>;
+
+    /** @private */
+    listKey?: string;
   },
   ProSchemaComponentTypes,
   ValueType
@@ -224,6 +227,9 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   /** @name 左上角的 title */
   headerTitle?: React.ReactNode;
 
+  /** @name 标题旁边的 tooltip */
+  tooltip?: string;
+
   /** @name 操作栏配置 */
   options?: OptionConfig | false;
 
@@ -292,6 +298,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
 
 export type ActionType = ProCoreActionType & {
   fullScreen?: () => void;
+  setPageInfo?: (page: Partial<PageInfo>) => void;
 };
 
 export type UseFetchProps = {

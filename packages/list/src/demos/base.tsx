@@ -40,8 +40,10 @@ export default () => (
     }}
     rowKey="name"
     headerTitle="基础列表"
+    tooltip="基础列表的配置"
     dataSource={dataSource}
     showActions="hover"
+    showExtra="hover"
     metas={{
       title: {
         dataIndex: 'name',

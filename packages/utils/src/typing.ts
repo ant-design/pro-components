@@ -47,18 +47,19 @@ export type ProFieldValueType =
   | 'switch'
   | 'fromNow'
   | 'image'
-  | 'jsonCode';
+  | 'jsonCode'
+  | 'color';
 
-export type ProFieldRequestData<U = any> = (
-  params: U,
-  props: any,
-) => Promise<
-  {
-    label?: React.ReactNode;
-    value?: React.ReactText;
-    [key: string]: any;
-  }[]
->;
+export type RequestOptionsType = {
+  label?: React.ReactNode;
+  value?: React.ReactText;
+  /** 渲染的节点类型 */
+  optionType?: 'optGroup' | 'option';
+  children?: Omit<RequestOptionsType, 'children' | 'optionType'>[];
+  [key: string]: any;
+};
+
+export type ProFieldRequestData<U = any> = (params: U, props: any) => Promise<RequestOptionsType[]>;
 
 export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
 
@@ -68,12 +69,11 @@ export type ProFieldValueObjectType = {
   status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
   locale?: string;
   /** Percent */
-  showSymbol?: boolean;
+  showSymbol?: ((value: any) => boolean) | boolean;
   showColor?: boolean;
   precision?: number;
   moneySymbol?: string;
   request?: ProFieldRequestData;
-
   /** Image */
   width?: number;
 };

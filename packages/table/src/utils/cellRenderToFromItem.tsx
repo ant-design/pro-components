@@ -7,7 +7,8 @@ import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro
 import { runFunction } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
 
-import type { ProColumnType } from './index';
+import type { ProColumnType } from '../index';
+import get from 'rc-util/lib/utils/get';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
@@ -17,14 +18,8 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
  * @param base 基本的 key
  * @param dataIndex 需要拼接的key
  */
-export const spellNamePath = (
-  base: React.Key,
-  dataIndex: React.Key | React.Key[],
-): React.Key[] | React.Key | undefined => {
-  if (Array.isArray(dataIndex)) {
-    return [base, ...dataIndex];
-  }
-  return [base, dataIndex];
+export const spellNamePath = (base: React.Key, dataIndex: React.Key | React.Key[]): React.Key[] => {
+  return [base, dataIndex].flat(1);
 };
 
 /**
@@ -33,7 +28,7 @@ export const spellNamePath = (
  * @param text
  * @param valueType
  */
-function defaultRenderText<T>(config: {
+function cellRenderToFromItem<T>(config: {
   text: string | number | React.ReactText[];
   valueType: ProColumnType['valueType'];
   index: number;
@@ -48,7 +43,7 @@ function defaultRenderText<T>(config: {
   const { text, valueType, rowData, columnProps } = config;
   // 如果 valueType === text ，没必要多走一次 render
   if (
-    (!valueType || valueType === 'text') &&
+    (!valueType || ['textarea', 'text'].includes(valueType.toString())) &&
     // valueEnum 存在说明是个select
     !columnProps?.valueEnum &&
     config.mode === 'read'
@@ -59,7 +54,7 @@ function defaultRenderText<T>(config: {
 
   if (typeof valueType === 'function' && rowData) {
     // 防止valueType是函数,并且text是''、null、undefined跳过显式设置的columnEmptyText
-    return defaultRenderText({
+    return cellRenderToFromItem({
       ...config,
       valueType: valueType(rowData, config.type) || 'text',
     });
@@ -78,6 +73,7 @@ function defaultRenderText<T>(config: {
     valueType: valueType as ProFieldValueType,
   };
 
+  /** 只读模式直接返回就好了，不需要处理 formItem */
   if (config.mode !== 'edit') {
     return (
       <ProField
@@ -89,8 +85,21 @@ function defaultRenderText<T>(config: {
 
   // 如果是编辑模式，需要用 Form.Item 包一下
   return (
-    <Form.Item shouldUpdate noStyle>
+    <Form.Item
+      // 一般而言是没有跨行依赖的，所以这里比较行来判断是否应该刷新
+      // 对多行编辑有巨大的性能提升
+      shouldUpdate={(pre, next) => {
+        const name = [config.recordKey].flat(1) as string[];
+        return get(pre, name) !== get(next, name);
+      }}
+      noStyle
+    >
       {(form) => {
+        const name = spellNamePath(
+          config.recordKey || config.index,
+          columnProps?.key || columnProps?.dataIndex || config.index,
+        );
+
         /** 获取 formItemProps Props */
         const formItemProps = getFieldPropsOrFormItemProps(
           columnProps?.formItemProps,
@@ -109,68 +118,80 @@ function defaultRenderText<T>(config: {
           ...formItemProps?.messageVariables,
         };
 
-        const name = spellNamePath(
-          config.recordKey || config.index,
-          columnProps?.key || columnProps?.dataIndex || config.index,
-        );
         const inputDom = (
-          <InlineErrorFormItem
-            name={name}
-            {...formItemProps}
-            messageVariables={messageVariables}
-            initialValue={text || formItemProps?.initialValue}
-          >
-            <ProField
-              fieldProps={getFieldPropsOrFormItemProps(
-                columnProps?.fieldProps,
-                form as FormInstance,
-                {
-                  ...columnProps,
-                  rowKey: config.recordKey || config.index,
-                  rowIndex: config.index,
-                  isEditable: true,
-                },
-              )}
-              {...proFieldProps}
-            />
-          </InlineErrorFormItem>
+          <ProField
+            fieldProps={getFieldPropsOrFormItemProps(
+              columnProps?.fieldProps,
+              form as FormInstance,
+              {
+                ...columnProps,
+                rowKey: config.recordKey || config.index,
+                rowIndex: config.index,
+                isEditable: true,
+              },
+            )}
+            {...proFieldProps}
+          />
         );
-        /** RenderFormItem 需要被自定义 */
-        if (columnProps?.renderFormItem) {
-          const renderDom = columnProps.renderFormItem?.(
-            {
-              ...columnProps,
-              index: config.index,
-              isEditable: true,
-              type: 'table',
-            },
-            {
-              defaultRender: () => inputDom,
-              type: 'form',
-              recordKey: config.recordKey,
-              record: form.getFieldValue([config.recordKey || config.index]),
-              isEditable: true,
-            },
-            form as any,
-          );
+
+        /** 如果没有自定义直接返回 */
+        if (!columnProps?.renderFormItem) {
           return (
             <InlineErrorFormItem
-              name={spellNamePath(
-                config.recordKey || config.index,
-                columnProps?.key || columnProps?.dataIndex || config.index,
-              )}
+              errorType="popover"
+              name={name}
               {...formItemProps}
-              initialValue={text || formItemProps?.initialValue}
               messageVariables={messageVariables}
+              initialValue={text !== undefined ? text : formItemProps?.initialValue}
             >
-              {renderDom}
+              {inputDom}
             </InlineErrorFormItem>
           );
         }
-        return inputDom;
+        /** RenderFormItem 需要被自定义的时候执行，defaultRender 比较麻烦所以这里多包一点 */
+        const renderDom = columnProps.renderFormItem?.(
+          {
+            ...columnProps,
+            index: config.index,
+            isEditable: true,
+            type: 'table',
+          },
+          {
+            defaultRender: () => (
+              <InlineErrorFormItem
+                errorType="popover"
+                name={name}
+                {...formItemProps}
+                messageVariables={messageVariables}
+                initialValue={text || formItemProps?.initialValue}
+              >
+                {inputDom}
+              </InlineErrorFormItem>
+            ),
+            type: 'form',
+            recordKey: config.recordKey,
+            record: form.getFieldValue([config.recordKey || config.index]),
+            isEditable: true,
+          },
+          form as any,
+        );
+        return (
+          <InlineErrorFormItem
+            errorType="popover"
+            name={spellNamePath(
+              config.recordKey || config.index,
+              columnProps?.key || columnProps?.dataIndex || config.index,
+            )}
+            {...formItemProps}
+            initialValue={text || formItemProps?.initialValue}
+            messageVariables={messageVariables}
+          >
+            {renderDom}
+          </InlineErrorFormItem>
+        );
       }}
     </Form.Item>
   );
 }
 
-export default defaultRenderText;
+export default cellRenderToFromItem;

@@ -175,8 +175,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | disableMobile | disable automatic switching to mobile pages | `boolean` | false |
 | links | Show shortcut actions in the lower right corner of the menu | `ReactNode[]` | - |
 | menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
-
-As of 4.5.13 Layout supports most props of [Menu](https://ant.design/components/menu-cn/#Menu) via `menuProps`.
+| waterMarkProps | Configure watermark, watermark is a function of PageContainer, layout is only transparently transmitted to PageContainer | [WaterMarkProps](/components/water-mark) | - |
 
 ### SettingDrawer
 
@@ -439,7 +438,7 @@ export interface MenuDataItem {
 ```
 
 - name is used to configure the name in the menu, and will be modified to the browser tab title
-- icon represents the body of the menu, only antd's chart, iconfont needs to be defined by yourself
+- icon represents the body of the menu, only antd's icon, iconfont needs to be defined by yourself
 - locale can set the internationalization of the menu name
 - hideInMenu will be configured to hide this route in the menu, name will have the same effect if not filled
 - hideChildrenInMenu will hide the children of this route in the menu

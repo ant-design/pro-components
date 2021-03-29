@@ -30,7 +30,7 @@ export default () => {
       />
       <ProFormText name="status" label="应用状态" />
       <ProFormDatePicker name="startdate" label="响应日期" />
-      <ProFormDateRangePicker name="create" label="创建时间" colSize={2} />
+      <ProFormDateRangePicker name="create" label="创建时间" colSize={3} />
     </QueryFilter>
   );
 };

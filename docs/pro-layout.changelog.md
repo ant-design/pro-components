@@ -9,6 +9,25 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.15.5
+
+`2021-03-29`
+
+- 🐛 fix(layout): 修复了 pro-layout 数组扩展操作问题 [#2289](https://github.com/ant-design/pro-components/pull/2289) [@Ives7](https://github.com/Ives7)
+
+## @ant-design/pro-layout@6.15.0
+
+`2021-03-08`
+
+- 💥 feat(layout): SettingDrawer support disableUrlParams [#2115](https://github.com/ant-design/pro-components/pull/2115) [@theprimone](https://github.com/theprimone)
+- 💥 feat(layout): layout support WaterMark [#2086](https://github.com/ant-design/pro-components/pull/2086) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.14.5
+
+`2021-02-28`
+
+- 🐛 fix(layout): fix layout animation error [#2027](https://github.com/ant-design/pro-components/pull/2027) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.14.3
 
 `2021-02-23`

@@ -133,8 +133,15 @@ const columns: ProColumns<DataSourceType>[] = [
     title: '标签',
     dataIndex: 'labels',
     width: '20%',
-    renderFormItem: (_, { isEditable, record, recordKey }) => {
-      console.log(record, recordKey);
+    formItemProps: {
+      rules: [
+        {
+          required: true,
+          message: '此项为必填项',
+        },
+      ],
+    },
+    renderFormItem: (_, { isEditable }) => {
       return isEditable ? <TagList /> : <Input />;
     },
     render: (_, row) => row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),

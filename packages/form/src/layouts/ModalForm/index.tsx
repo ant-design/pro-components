@@ -102,6 +102,20 @@ function ModalForm<T = Record<string, any>>({
 
   useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
 
+  const renderDom = useMemo(() => {
+    if (modalProps?.getContainer) {
+      if (typeof modalProps?.getContainer === 'function') {
+        return modalProps?.getContainer?.();
+      }
+      if (typeof modalProps?.getContainer === 'string') {
+        return document.getElementById(modalProps?.getContainer);
+      }
+      return modalProps?.getContainer;
+    }
+    return context?.getPopupContainer?.(document.body);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context, modalProps, visible]);
+
   return (
     <>
       {createPortal(
@@ -141,9 +155,9 @@ function ModalForm<T = Record<string, any>>({
               return (
                 <Modal
                   title={title}
-                  getContainer={false}
                   width={width || 800}
                   {...modalProps}
+                  getContainer={false}
                   visible={visible}
                   onCancel={(e) => {
                     setVisible(false);
@@ -159,7 +173,7 @@ function ModalForm<T = Record<string, any>>({
             {children}
           </BaseForm>
         </div>,
-        context?.getPopupContainer?.(document.body) || document.body,
+        renderDom || document.body,
       )}
       {trigger &&
         React.cloneElement(trigger, {

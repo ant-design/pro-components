@@ -3,6 +3,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { SettingDrawer } from '@ant-design/pro-layout';
 import defaultSettings from './defaultSettings';
+
 import { waitForComponentToPaint } from '../util';
 
 describe('settingDrawer.test', () => {
@@ -12,6 +13,8 @@ describe('settingDrawer.test', () => {
 
     Object.defineProperty(window, 'navigator', {
       value: {
+        userAgent:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4437.0 Safari/537.36 Edg/91.0.831.1',
         clipboard: {
           writeText: async () => {
             return true;
@@ -59,13 +62,15 @@ describe('settingDrawer.test', () => {
   it('initState form query', async () => {
     const fn = jest.fn();
     const html = mount(
-      <SettingDrawer
-        getContainer={false}
-        collapse
-        onSettingChange={() => {
-          fn();
-        }}
-      />,
+      <div>
+        <SettingDrawer
+          getContainer={false}
+          collapse
+          onSettingChange={() => {
+            fn();
+          }}
+        />
+      </div>,
     );
     await waitForComponentToPaint(html);
 
@@ -95,6 +100,8 @@ describe('settingDrawer.test', () => {
   it('clipboard throw error', async () => {
     Object.defineProperty(window, 'navigator', {
       value: {
+        userAgent:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4437.0 Safari/537.36 Edg/91.0.831.1',
         clipboard: {
           writeText: async () => {
             throw new Error('error');

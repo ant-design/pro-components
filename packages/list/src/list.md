@@ -73,6 +73,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 | rowSelection | 与 antd 相同的[配置](https://ant.design/components/table-cn/#rowSelection) | `object` \|`boolean` | false |
 | expandable | 与 antd 相同的[配置](https://ant.design/components/table-cn/#expandable) | `object` \| `false` | - |
 | showActions | 何时展示 actions | `'hover'` \| `'always'` | `'always'` |
+| showExtra | 何时展示 extra | `'hover'` \| `'always'` | `'always'` |
 
 ### Metas.[Meta] 通用 API
 

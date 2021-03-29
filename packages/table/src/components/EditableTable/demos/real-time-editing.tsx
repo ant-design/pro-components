@@ -42,6 +42,25 @@ export default () => {
       title: '活动名称',
       dataIndex: 'title',
       width: '30%',
+      formItemProps: {
+        rules: [
+          {
+            required: true,
+            whitespace: true,
+            message: '此项是必填项',
+          },
+          {
+            max: 16,
+            whitespace: true,
+            message: '最长为 16 位',
+          },
+          {
+            min: 6,
+            whitespace: true,
+            message: '最小为 6 位',
+          },
+        ],
+      },
     },
     {
       title: '状态',

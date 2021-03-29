@@ -9,6 +9,36 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.32.0
+
+`2021-03-29`
+
+- 🐛 fix(table): fix polling alway run after unmount table [#2308](https://github.com/ant-design/pro-components/pull/2308) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix textarea ellipsis no work error [#2294](https://github.com/ant-design/pro-components/pull/2294) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix activeKey no work error [#2299](https://github.com/ant-design/pro-components/pull/2299) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): omit className in treeData [#2261](https://github.com/ant-design/pro-components/pull/2261) [@theprimone](https://github.com/theprimone)
+- 💥 feat(table): search form support className [#2254](https://github.com/ant-design/pro-components/pull/2254) [@drizzlesconsin](https://github.com/drizzlesconsin)
+
+## @ant-design/pro-table@2.30.5
+
+`2021-03-11`
+
+- 🐛 fix(table): remove dragicon [#2124](https://github.com/ant-design/pro-components/pull/2124) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): EditableProTable no tonumber keys [#2135](https://github.com/ant-design/pro-components/pull/2135) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.30.4
+
+`2021-03-08`
+
+- 🐛 fix(table): fix tooltip no work error [#2079](https://github.com/ant-design/pro-components/pull/2079) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.30.3
+
+`2021-02-28`
+
+- 🐛 fix(description): description support editableUtils [#2035](https://github.com/ant-design/pro-components/pull/2035) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): 🇧🇷 Adding stepForm and editableTable translations to pt-BR [#2018](https://github.com/ant-design/pro-components/pull/2018) [@renanwilliam](https://github.com/renanwilliam)
+
 ## @ant-design/pro-table@2.30.1
 
 `2021-02-23`

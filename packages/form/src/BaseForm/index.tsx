@@ -44,6 +44,14 @@ export type CommonFormProps<T extends Record<string, any> = Record<string, any>>
    */
 
   omitNil?: boolean;
+  /**
+   * 格式化 Date 的方式，默认转化为 string
+   *
+   * @see date -> YYYY-MM-DD
+   * @see dateTime -> YYYY-MM-DD  HH:mm:SS
+   * @see time -> HH:mm:SS
+   */
+  dateFormatter?: 'number' | 'string' | false;
 };
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -54,7 +62,6 @@ export type BaseFormProps<T = Record<string, any>> = {
   ) => React.ReactNode;
   fieldProps?: FieldProps;
   onInit?: (values: T) => void;
-  dateFormatter?: 'number' | 'string' | false;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
 } & Omit<FormProps, 'onFinish'> &
@@ -103,9 +110,6 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const [loading, setLoading] = useMountMergeState<boolean>(false);
 
-  /** 因为 protable 里面的值无法保证刚开始就存在 所以多进行了一次触发，这样可以解决部分问题 */
-  const [isUpdate, updateState] = useMountMergeState(false);
-
   const items = React.Children.toArray(children);
   const submitterProps: SubmitterProps =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
@@ -128,7 +132,18 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           onReset?.(finalValues);
           // 如果 syncToUrl，清空一下数据
           if (syncToUrl) {
-            setUrlSearch(transformKey(formRef.current.getFieldsValue(), false));
+            // 把没有的值设置为未定义可以删掉 url 的参数
+            const params = Object.keys(
+              transformKey(formRef.current.getFieldsValue(), false),
+            ).reduce((pre, next) => {
+              return {
+                ...pre,
+                [next]: finalValues[next] || undefined,
+              };
+            }, {});
+
+            /** 在同步到 url 上时对参数进行转化 */
+            setUrlSearch(genParams(syncToUrl, params, 'set'));
           }
         }}
         form={userForm || form}
@@ -141,17 +156,10 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const content = contentRender ? contentRender(items, submitterNode, formRef.current) : items;
 
-  const forgetUpdate = () => {
-    setTimeout(() => updateState(true));
-  };
   useEffect(() => {
-    if (isUpdate) {
-      setTimeout(() => {
-        const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
-        onInit?.(finalValues);
-      }, 0);
-    }
-  }, [dateFormatter, isUpdate]);
+    const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
+    onInit?.(finalValues);
+  }, []);
 
   // 如果为 false，不需要触发设置进去
   const [urlParamsMergeInitialValues] = useState(() => {
@@ -228,8 +236,6 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             />
             <Form.Item noStyle shouldUpdate>
               {(formInstance) => {
-                // 支持 fromRef，这里 ref 里面可以随时拿到最新的值
-                if (propsFormRef && !isUpdate) forgetUpdate();
                 if (propsFormRef) propsFormRef.current = formInstance as FormInstance;
                 formRef.current = formInstance as FormInstance;
                 return null;

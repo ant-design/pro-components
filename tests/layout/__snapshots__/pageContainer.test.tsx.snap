@@ -292,7 +292,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-top-menu"
+        class="ant-layout-header ant-pro-top-menu ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -452,7 +452,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-top-menu"
+        class="ant-layout-header ant-pro-top-menu ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -545,66 +545,6 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
 </div>
 `;
 
-exports[`PageContainer 🐲 header.footer is null, do not render footerToolbar  1`] = `
-<div
-  class="ant-pro-page-container"
->
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
-  <div
-    class="ant-pro-footer-bar"
-  >
-    <div
-      class="ant-pro-footer-bar-left"
-    />
-    <div
-      class="ant-pro-footer-bar-right"
-    >
-      <button
-        type="button"
-      >
-        qixian
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`PageContainer 🐲 header.footer is null, do not render footerToolbar  2`] = `
-<div
-  class="ant-pro-page-container"
->
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
-  <div
-    class="ant-pro-footer-bar"
-  >
-    <div
-      class="ant-pro-footer-bar-left"
-    />
-    <div
-      class="ant-pro-footer-bar-right"
-    >
-      <button
-        type="button"
-      >
-        qixian
-      </button>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
@@ -678,7 +618,7 @@ exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div

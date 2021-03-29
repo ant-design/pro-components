@@ -2,6 +2,45 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.9...@ant-design/pro-descriptions@1.6.10) (2021-03-29)
+
+### Bug Fixes
+
+- **descriptions:** if label is null, no render lable ([#2292](https://github.com/ant-design/pro-components/issues/2292)) ([989f26f](https://github.com/ant-design/pro-components/commit/989f26f24552800824959772cba7e4dcfc5e6c2b))
+
+## [1.6.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.8...@ant-design/pro-descriptions@1.6.9) (2021-03-18)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.6.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.7...@ant-design/pro-descriptions@1.6.8) (2021-03-17)
+
+### Bug Fixes
+
+- ProCard do not export self as sub component ([#2214](https://github.com/ant-design/pro-components/issues/2214)) ([bed96d1](https://github.com/ant-design/pro-components/commit/bed96d1569b21b82e46608522ac356b635692dde))
+
+## [1.6.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.6...@ant-design/pro-descriptions@1.6.7) (2021-03-16)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.6.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.5...@ant-design/pro-descriptions@1.6.6) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.6.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.4...@ant-design/pro-descriptions@1.6.5) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.6.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.3...@ant-design/pro-descriptions@1.6.4) (2021-03-08)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.6.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.2...@ant-design/pro-descriptions@1.6.3) (2021-02-28)
+
+### Bug Fixes
+
+- **description:** description support editableUtils ([#2035](https://github.com/ant-design/pro-components/issues/2035)) ([8de3e23](https://github.com/ant-design/pro-components/commit/8de3e23954ab4da1637962d5efc3d887cff3d5ce))
+- **descriptions:** fix descriptions edit will throw error ([533031e](https://github.com/ant-design/pro-components/commit/533031e50c87bd5be830cfa7ac079a1ffdb34424))
+
 ## [1.6.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.1...@ant-design/pro-descriptions@1.6.2) (2021-02-25)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

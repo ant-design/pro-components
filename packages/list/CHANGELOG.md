@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.10...@ant-design/pro-list@1.5.11) (2021-03-29)
+
+### Bug Fixes
+
+- **list:** fix list no use dataIndex error ([#2298](https://github.com/ant-design/pro-components/issues/2298)) ([81e1301](https://github.com/ant-design/pro-components/commit/81e1301507679e729b51c71ab43fda0a62846923))
+
+## [1.5.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.9...@ant-design/pro-list@1.5.10) (2021-03-18)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.5.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.8...@ant-design/pro-list@1.5.9) (2021-03-17)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.5.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.7...@ant-design/pro-list@1.5.8) (2021-03-16)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.5.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.6...@ant-design/pro-list@1.5.7) (2021-03-11)
+
+### Bug Fixes
+
+- **table:** fix rowkey is number will error ([#2158](https://github.com/ant-design/pro-components/issues/2158)) ([fc38af8](https://github.com/ant-design/pro-components/commit/fc38af890846fd439e00c224d8bc7a00ef3a6723))
+
+## [1.5.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.5...@ant-design/pro-list@1.5.6) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.5.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.4...@ant-design/pro-list@1.5.5) (2021-03-08)
+
+### Bug Fixes
+
+- **form:** fix list key no had error ([#2122](https://github.com/ant-design/pro-components/issues/2122)) ([cb89ca2](https://github.com/ant-design/pro-components/commit/cb89ca28e2b42c69ae436fc724004bcd2995d77b))
+- **table:** fix tooltip no work error ([#2079](https://github.com/ant-design/pro-components/issues/2079)) ([9838b9a](https://github.com/ant-design/pro-components/commit/9838b9a7954ab4cb167a8643ef9854ead25fef47))
+
+## [1.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.3...@ant-design/pro-list@1.5.4) (2021-02-28)
+
+### Bug Fixes
+
+- **list:** default close rowSelection ([#2032](https://github.com/ant-design/pro-components/issues/2032)) ([b679649](https://github.com/ant-design/pro-components/commit/b679649b20a9d88cf1f3fd668be9c88cd85cdeb9))
+
 ## [1.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.2...@ant-design/pro-list@1.5.3) (2021-02-25)
 
 ### Bug Fixes

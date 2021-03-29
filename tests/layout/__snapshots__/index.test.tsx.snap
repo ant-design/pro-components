@@ -98,7 +98,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
       style="position:relative"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
@@ -190,7 +190,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
       style="position:relative"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
@@ -282,7 +282,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
       style="position:relative"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
@@ -375,7 +375,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -467,7 +467,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -604,7 +604,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -696,7 +696,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -888,7 +888,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-fixed-header-action"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div

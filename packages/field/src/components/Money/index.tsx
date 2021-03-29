@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useMemo, useCallback } from 'react';
 import { InputNumber } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import type { ProFieldFC } from '../../index';
 
+export type FieldMoneyProps = {
+  text: number;
+  moneySymbol?: string;
+  locale?: string;
+  placeholder?: any;
+};
+
 const defaultMoneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
   currency: 'CNY',
-});
-
-const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
-  currency: 'CNY',
-  style: 'currency',
-  minimumFractionDigits: 2,
 });
 
 const enMoneyIntl = new Intl.NumberFormat('en-US', {
@@ -23,39 +24,17 @@ const ruMoneyIntl = new Intl.NumberFormat('ru-RU', {
   currency: 'RUB',
 });
 
+const rsMoneyIntl = new Intl.NumberFormat('sr-RS', {
+  style: 'currency',
+  currency: 'RSD',
+});
+
 const msMoneyIntl = new Intl.NumberFormat('ms-MY', {
   style: 'currency',
   currency: 'MYR',
 });
 
-const getTextByLocale = (locale: string | undefined, paramsText: number) => {
-  let text = paramsText;
-  if (typeof text === 'string') {
-    text = Number(text);
-  }
-  if (locale === 'en_US') {
-    // english
-    return enMoneyIntl.format(text);
-  }
-  // russian
-  if (locale === 'ru_RU') {
-    return ruMoneyIntl.format(text);
-  }
-  // malay
-  if (locale === 'ms_MY') {
-    return msMoneyIntl.format(text);
-  }
-  if (locale === undefined) {
-    return defaultMoneyIntl.format(text);
-  }
-  return moneyIntl.format(text);
-};
-
-export type FieldMoneyProps = {
-  text: number;
-  moneySymbol?: string;
-  locale?: string;
-};
+const DefaultPrecisionCont = 2;
 
 /**
  * 金额组件
@@ -65,12 +44,72 @@ export type FieldMoneyProps = {
  *     moneySymbol?: string; }
  */
 const FieldMoney: ProFieldFC<FieldMoneyProps> = (
-  { text, mode: type, locale = '', render, renderFormItem, fieldProps, ...rest },
+  {
+    text,
+    mode: type,
+    locale = '',
+    render,
+    renderFormItem,
+    fieldProps,
+    proFieldKey,
+    plain,
+    valueEnum,
+    placeholder,
+    ...rest
+  },
   ref,
 ) => {
+  const precision = fieldProps?.precision ?? DefaultPrecisionCont;
   const intl = useIntl();
   const moneySymbol =
     rest.moneySymbol === undefined ? intl.getMessage('moneySymbol', '￥') : rest.moneySymbol;
+
+  const intlMap = useMemo(() => {
+    const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
+      currency: 'CNY',
+      style: 'currency',
+      minimumFractionDigits: precision,
+    });
+
+    return {
+      default: defaultMoneyIntl,
+      'zh-Hans-CN': moneyIntl,
+      'en-US': enMoneyIntl,
+      'ru-RU': ruMoneyIntl,
+      'ms-MY': msMoneyIntl,
+      'sr-RS': rsMoneyIntl,
+    };
+  }, [precision]);
+
+  const getTextByLocale = useCallback(
+    (localeStr: string | undefined, paramsText: number) => {
+      let moneyText = paramsText;
+      if (typeof moneyText === 'string') {
+        moneyText = Number(moneyText);
+      }
+      if (localeStr === 'en_US') {
+        // english
+        return intlMap['en-US'].format(moneyText);
+      }
+      // russian
+      if (localeStr === 'ru_RU') {
+        return intlMap['ru-RU'].format(moneyText);
+      }
+      // serbian
+      if (localeStr === 'sr_RS') {
+        return intlMap['sr-RS'].format(moneyText);
+      }
+      // malay
+      if (localeStr === 'ms_MY') {
+        return intlMap['ms-MY'].format(moneyText);
+      }
+      if (localeStr === undefined) {
+        return intlMap.default.format(moneyText);
+      }
+      return intlMap['zh-Hans-CN'].format(moneyText);
+    },
+    [intlMap],
+  );
 
   if (type === 'read') {
     const dom = (
@@ -88,10 +127,12 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
       <InputNumber
         ref={ref}
         min={0}
-        precision={2}
+        precision={precision}
         formatter={(value) => {
           if (value) {
-            return `${moneySymbol} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
+
+            return `${moneySymbol} ${value}`.replace(reg, ',');
           }
           return '';
         }}
@@ -101,7 +142,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         style={{
           width: '100%',
         }}
-        {...rest}
+        placeholder={placeholder}
         {...fieldProps}
       />
     );

@@ -34,8 +34,10 @@ export type ProListProps<RecordType, U extends ParamsType> = Omit<
   'size'
 > &
   AntdListProps<RecordType> & {
+    tooltip?: string;
     metas?: ProListMetas<RecordType>;
     showActions?: 'hover' | 'always';
+    showExtra?: 'hover' | 'always';
   };
 
 export type Key = React.Key;
@@ -51,11 +53,13 @@ function ProList<
     split,
     footer,
     rowKey,
+    tooltip,
     className,
     options = false,
     search = false,
     expandable,
     showActions,
+    showExtra,
     rowSelection: propRowSelection = false,
     pagination: propsPagination = false,
     itemLayout,
@@ -88,7 +92,8 @@ function ProList<
         }
       }
       columns.push({
-        key,
+        listKey: key,
+        dataIndex: meta?.dataIndex || key,
         ...meta,
         valueType,
       });
@@ -100,9 +105,9 @@ function ProList<
   const listClassName = classNames(prefixCls, {
     [`${prefixCls}-no-split`]: !split,
   });
-
   return (
     <ProTable<RecordType, U>
+      tooltip={tooltip}
       {...(rest as any)}
       actionRef={actionRef}
       pagination={propsPagination}
@@ -139,6 +144,7 @@ function ProList<
               expandable={expandable}
               rowSelection={propRowSelection === false ? undefined : rowSelection}
               showActions={showActions}
+              showExtra={showExtra}
               pagination={pagination as PaginationProps}
               itemLayout={itemLayout}
               loading={loading}

@@ -1,13 +1,7 @@
-import React, {
-  useContext,
-  useRef,
-  useCallback,
-  useMemo,
-  useImperativeHandle,
-  useEffect,
-} from 'react';
+/* eslint max-classes-per-file: ["error", 3] */
+import React, { useContext, useRef, useCallback, useMemo, useEffect } from 'react';
 import type { TablePaginationConfig } from 'antd';
-import { Table, ConfigProvider, Form, Card, Spin } from 'antd';
+import { Table, ConfigProvider, Form, Card } from 'antd';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
@@ -20,48 +14,242 @@ import {
   useEditableArray,
   ErrorBoundary,
 } from '@ant-design/pro-utils';
-import omit from 'omit.js';
 
 import useFetchData from './useFetchData';
 import Container from './container';
 import Toolbar from './components/ToolBar';
 import Alert from './components/Alert';
-import FormSearch from './components/Form';
-import {
-  genColumnKey,
-  mergePagination,
-  useActionType,
-  tableColumnSort,
-  genColumnList,
-} from './utils';
+import FormRender from './components/Form';
+import { genColumnKey, mergePagination, useActionType, isBordered } from './utils';
+import { genProColumnToColumn } from './utils/genProColumnToColumn';
 
 import './index.less';
 import type {
-  Bordered,
-  BorderedType,
   PageInfo,
   ProTableProps,
   RequestData,
   TableRowSelection,
+  UseFetchDataAction,
 } from './typing';
 import type { ActionType } from '.';
+import { columnSort } from './utils/columnSort';
 
-const isBordered = (borderType: BorderedType, border?: Bordered) => {
-  if (border === undefined) {
-    return false;
-  }
-  // debugger
-  if (typeof border === 'boolean') {
-    return border;
-  }
-  return border[borderType];
-};
+function TableRender<T extends Record<string, any>, U, ValueType>(
+  props: ProTableProps<T, U, ValueType> & {
+    action: UseFetchDataAction<any>;
+    tableColumn: any[];
+    toolbarDom: JSX.Element | null;
+    searchNode: JSX.Element | null;
+    alertDom: JSX.Element | null;
+    isLightFilter: boolean;
+    onSortChange: (sort: any) => void;
+    onFilterChange: (sort: any) => void;
+    editableUtils: any;
+    rootRef: React.RefObject<HTMLDivElement>;
+  },
+) {
+  const {
+    rowKey,
+    tableClassName,
+    action,
+    tableColumn,
+    type,
+    pagination,
+    rowSelection,
+    size,
+    tableStyle,
+    toolbarDom,
+    searchNode,
+    style,
+    cardProps,
+    alertDom,
+    onSortChange,
+    onFilterChange,
+    options,
+    isLightFilter,
+    className,
+    cardBordered,
+    editableUtils,
+    rootRef,
+    ...rest
+  } = props;
+  const counter = Container.useContainer();
 
-/**
- * 🏆 Use Ant Design Table like a Pro! 更快 更好 更方便
- *
- * @param props
- */
+  const columns = useMemo(() => {
+    return tableColumn.filter((item) => {
+      // 删掉不应该显示的
+      const columnKey = genColumnKey(item.key, item.index);
+      const config = counter.columnsMap[columnKey];
+      if (config && config.show === false) {
+        return false;
+      }
+      return true;
+    });
+  }, [counter.columnsMap, tableColumn]);
+
+  /** 如果所有列中的 filters=true| undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
+  const useLocaleFilter = useMemo(
+    () =>
+      columns?.every(
+        (column) =>
+          (column.filters === true && column.onFilter === true) ||
+          (column.filters === undefined && column.onFilter === undefined),
+      ),
+    [columns],
+  );
+
+  /**
+   * 如果是分页的新增，总是加到最后一行
+   *
+   * @returns
+   */
+  const editableDataSource = (): T[] => {
+    const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
+
+    if (newLineOptions?.position === 'top') {
+      return [row, ...action.dataSource];
+    }
+    // 如果有分页的功能，我们加到这一页的末尾
+    if (pagination && pagination?.current && pagination?.pageSize) {
+      return [...action.dataSource].splice(pagination?.current * pagination?.pageSize - 1, 0, row);
+    }
+    return [...action.dataSource, row];
+  };
+
+  const getTableProps = () => ({
+    ...rest,
+    size,
+    rowSelection: rowSelection === false ? undefined : rowSelection,
+    className: tableClassName,
+    style: tableStyle,
+    columns,
+    loading: action.loading,
+    dataSource: editableUtils.newLineRecord ? editableDataSource() : action.dataSource,
+    pagination,
+    onChange: (
+      changePagination: TablePaginationConfig,
+      filters: Record<string, (React.Key | boolean)[] | null>,
+      sorter: SorterResult<T> | SorterResult<T>[],
+      extra: TableCurrentDataSource<T>,
+    ) => {
+      if (rest.onChange) {
+        rest.onChange(changePagination, filters, sorter, extra);
+      }
+      if (!useLocaleFilter) {
+        onFilterChange(omitUndefined<any>(filters));
+      }
+
+      // 制造筛选的数据
+      // 制造一个排序的数据
+      if (Array.isArray(sorter)) {
+        const data = sorter.reduce<Record<string, any>>(
+          (pre, value) => ({
+            ...pre,
+            [`${value.field}`]: value.order,
+          }),
+          {},
+        );
+        onSortChange(omitUndefined<any>(data));
+      } else {
+        onSortChange(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
+      }
+    },
+  });
+
+  /** 如果有 ellipsis ，设置 tableLayout 为 fixed */
+  const tableLayout = props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
+
+  /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
+  const baseTableDom = (
+    <Form
+      component={false}
+      form={props.editable?.form}
+      onValuesChange={editableUtils.onValuesChange}
+      key="table"
+    >
+      <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
+    </Form>
+  );
+
+  /** 自定义的 render */
+  const tableDom = props.tableViewRender
+    ? props.tableViewRender(
+        {
+          ...getTableProps(),
+          rowSelection: rowSelection !== false ? rowSelection : undefined,
+        },
+        baseTableDom,
+      )
+    : baseTableDom;
+
+  /** Table 区域的 dom，为了方便 render */
+  const tableAreaDom = (
+    <Card
+      bordered={isBordered('table', cardBordered)}
+      style={{
+        height: '100%',
+      }}
+      bodyStyle={
+        toolbarDom
+          ? {
+              paddingTop: 0,
+              paddingBottom: 0,
+            }
+          : {
+              padding: 0,
+            }
+      }
+      {...cardProps}
+    >
+      {toolbarDom}
+      {alertDom}
+      {tableDom}
+    </Card>
+  );
+
+  const renderTable = () => {
+    if (props.tableRender) {
+      return props.tableRender(props, tableAreaDom, {
+        toolbar: toolbarDom || undefined,
+        alert: alertDom || undefined,
+        table: tableDom || undefined,
+      });
+    }
+    return tableAreaDom;
+  };
+
+  const proTableDom = (
+    <div
+      className={classNames(className, {
+        [`${className}-polling`]: action.pollingLoading,
+      })}
+      style={style}
+      ref={rootRef}
+    >
+      {isLightFilter ? null : searchNode}
+      {/* 渲染一个额外的区域，用于一些自定义 */}
+      {type !== 'form' && props.tableExtraRender && action.dataSource && (
+        <div className={`${className}-extra`}>
+          {props.tableExtraRender(props, action.dataSource)}
+        </div>
+      )}
+      {type !== 'form' && renderTable()}
+    </div>
+  );
+
+  // 如果不需要的全屏，ConfigProvider 没有意义
+  if (!options || !options?.fullScreen) {
+    return proTableDom;
+  }
+  return (
+    <ConfigProvider
+      getPopupContainer={() => ((rootRef.current || document.body) as any) as HTMLElement}
+    >
+      {proTableDom}
+    </ConfigProvider>
+  );
+}
+
 const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
     defaultClassName: string;
@@ -91,7 +279,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     search,
     onLoadingChange,
     rowSelection: propsRowSelection = false,
-    beforeSearchSubmit = (searchParams: Partial<U>) => searchParams,
+    beforeSearchSubmit,
     tableAlertRender,
     defaultClassName,
     formRef: propRef,
@@ -101,8 +289,13 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     rowKey,
     manualRequest,
     polling,
+    tooltip,
     ...rest
   } = props;
+
+  const className = classNames(defaultClassName, propsClassName);
+
+  /** 通用的来操作子节点的工具类 */
   const actionRef = useRef<ActionType>();
 
   const defaultFormRef = useRef();
@@ -114,18 +307,19 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     }
   }, [propsActionRef]);
 
+  /** 单选多选的相关逻辑 */
   const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<React.ReactText[]>([], {
     value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
   });
 
-  const [selectedRows, setSelectedRows] = useMountMergeState<T[]>([]);
+  const selectedRowsRef = useRef<T[]>([]);
 
   const setSelectedRowsAndKey = useCallback(
     (keys: React.ReactText[], rows: T[]) => {
       setSelectedRowKeys(keys);
-      setSelectedRows(rows);
+      selectedRowsRef.current = rows;
     },
-    [setSelectedRowKeys, setSelectedRows],
+    [setSelectedRowKeys],
   );
 
   const [formSearch, setFormSearch] = useMountMergeState<Record<string, any> | undefined>(() => {
@@ -136,14 +330,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     }
     return {};
   });
-
-  const manual = useMemo(() => {
-    //  formSearch = undefined  满足条件就不触发加载
-    if (formSearch === undefined) {
-      return true;
-    }
-    return false;
-  }, [formSearch === undefined, search]);
 
   const [proFilter, setProFilter] = useMountMergeState<Record<string, React.ReactText[]>>({});
   const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>({});
@@ -159,68 +345,61 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       : { defaultCurrent: 1, defaultPageSize: 20, pageSize: 20, current: 1 };
 
   // ============================ useFetchData ============================
-  const action = useFetchData(
-    request
-      ? async (pageParams) => {
-          const actionParams = {
-            ...(pageParams || {}),
-            ...formSearch,
-            ...params,
-          };
-          // eslint-disable-next-line no-underscore-dangle
-          delete (actionParams as any)._timestamp;
-          const response = await request((actionParams as unknown) as U, proSort, proFilter);
-          return response as RequestData<T>;
-        }
-      : undefined,
-    defaultData,
-    {
-      pageInfo: propsPagination === false ? false : fetchPagination,
-      loading: props.loading,
-      dataSource: props.dataSource,
-      onDataSourceChange: props.onDataSourceChange,
-      onLoad,
-      onLoadingChange,
-      onRequestError,
-      postData,
-      manual,
-      polling,
-      effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
-      debounceTime: props.debounceTime,
-    },
-  );
+  const fetchData = useMemo(() => {
+    if (!request) return undefined;
+    return async (pageParams?: Record<string, any>) => {
+      const actionParams = {
+        ...(pageParams || {}),
+        ...formSearch,
+        ...params,
+      };
+      // eslint-disable-next-line no-underscore-dangle
+      delete (actionParams as any)._timestamp;
+      const response = await request((actionParams as unknown) as U, proSort, proFilter);
+      return response as RequestData<T>;
+    };
+  }, [formSearch, params, proFilter, proSort, request]);
+
+  const action = useFetchData(fetchData, defaultData, {
+    pageInfo: propsPagination === false ? false : fetchPagination,
+    loading: props.loading,
+    dataSource: props.dataSource,
+    onDataSourceChange: props.onDataSourceChange,
+    onLoad,
+    onLoadingChange,
+    onRequestError,
+    postData,
+    manual: formSearch === undefined,
+    polling,
+    effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
+    debounceTime: props.debounceTime,
+  });
   // ============================ END ============================
 
   /** 页面编辑的计算 */
-  const pagination = useMemo(
-    () =>
-      mergePagination<T>(
-        propsPagination,
-        {
-          ...action.pageInfo,
-          setPageInfo: ({ pageSize, current }: PageInfo) => {
-            // pageSize 发生改变，并且你不是在第一页，切回到第一页
-            // 这样可以防止出现 跳转到一个空的数据页的问题
-            if (
-              pageSize !== action.pageInfo.pageSize &&
-              // 当前页码
-              action.pageInfo.current !== 1
-            ) {
-              action.setDataSource([]);
-              requestAnimationFrame(() => {
-                action.setPageInfo({
-                  pageSize,
-                  current: 1,
-                });
-              });
-            }
-            action.setPageInfo({ pageSize, current });
-          },
-        },
-        intl,
-      ),
-    [propsPagination, action, intl],
-  );
+  const pagination = useMemo(() => {
+    const pageConfig = {
+      ...action.pageInfo,
+      setPageInfo: ({ pageSize, current }: PageInfo) => {
+        const { pageInfo } = action;
+        // pageSize 发生改变，并且你不是在第一页，切回到第一页
+        // 这样可以防止出现 跳转到一个空的数据页的问题
+        if (pageSize === pageInfo.pageSize || pageInfo.current === 1) {
+          action.setPageInfo({ pageSize, current });
+          return;
+        }
+        // 清空数据，然后刷新不然可能会导致 pageSize 没有数据多
+        action.setDataSource([]);
+        requestAnimationFrame(() => {
+          action.setPageInfo({
+            pageSize,
+            current: 1,
+          });
+        });
+      },
+    };
+    return mergePagination<T>(propsPagination, pageConfig, intl);
+  }, [propsPagination, action, intl]);
 
   const counter = Container.useContainer();
 
@@ -296,26 +475,16 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // @ts-ignore
     propsActionRef.current = actionRef.current;
   }
-  /** 绑定 action ref */
-  useImperativeHandle(
-    propsActionRef,
-    () => {
-      return actionRef.current;
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [editableUtils.editableKeys.join(',')],
-  );
 
   // ---------- 列计算相关 start  -----------------
   const tableColumn = useMemo(() => {
-    return genColumnList<T>({
+    return genProColumnToColumn<T>({
       columns: propsColumns,
-      map: counter.columnsMap,
       counter,
       columnEmptyText,
       type,
       editableUtils,
-    }).sort(tableColumnSort(counter.columnsMap));
+    }).sort(columnSort(counter.columnsMap));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsColumns, counter, columnEmptyText, type, editableUtils.editableKeys.join(',')]);
 
@@ -327,19 +496,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       counter.setSortKeyColumns(columnKeys);
     }
   }, [tableColumn]);
-
-  const columns = useMemo(() => {
-    return tableColumn.filter((item) => {
-      // 删掉不应该显示的
-      const columnKey = genColumnKey(item.key, item.index);
-      const config = counter.columnsMap[columnKey];
-      if (config && config.show === false) {
-        return false;
-      }
-      return true;
-    });
-  }, [counter.columnsMap, tableColumn]);
-  // ---------- 列计算相关 end-----------------
 
   /** 同步 Pagination，支持受控的 页码 和 pageSize */
   useDeepCompareEffect(() => {
@@ -368,343 +524,85 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       setSelectedRowsAndKey(keys, rows);
     },
   };
-  /** 查询表单相关的配置 */
-  const searchNode = useMemo(() => {
-    if (search === false && type !== 'form') {
-      return null;
-    }
-
-    const onSubmit = (value: U, firstLoad: boolean) => {
-      if (type !== 'form') {
-        // 只传入 pagination 中的 current 和 pageSize 参数
-        const pageInfo = pagination
-          ? omitUndefined({
-              current: pagination.current,
-              pageSize: pagination.pageSize,
-            })
-          : {};
-
-        const submitParams = {
-          ...value,
-          _timestamp: Date.now(),
-          ...pageInfo,
-        };
-        const omitParams = omit(beforeSearchSubmit(submitParams), Object.keys(pageInfo!));
-        setFormSearch(omitParams);
-        if (!firstLoad) {
-          // back first page
-          action.setPageInfo({
-            current: 1,
-          });
-        }
-      }
-      // 不是第一次提交就不触发，第一次提交是 js 触发的
-      // 为了解决 https://github.com/ant-design/pro-components/issues/579
-      if (props.onSubmit && !firstLoad) {
-        props.onSubmit(value);
-      }
-    };
-
-    const onReset = (value: Partial<U>) => {
-      const pageInfo = pagination
-        ? omitUndefined({
-            current: pagination.current,
-            pageSize: pagination.pageSize,
-          })
-        : {};
-
-      const omitParams = omit(
-        beforeSearchSubmit({ ...value, ...pageInfo }),
-        Object.keys(pageInfo!),
-      );
-      setFormSearch(omitParams);
-      // back first page
-      action.setPageInfo({
-        current: 1,
-      });
-      props.onReset?.();
-    };
-
-    return (
-      <FormSearch<U, T>
-        submitButtonLoading={!!action.loading}
-        columns={propsColumns}
-        type={type}
-        formRef={formRef}
-        onSubmit={onSubmit}
-        manualRequest={manualRequest}
-        onReset={onReset}
-        dateFormatter={rest.dateFormatter}
-        search={search}
-        form={rest.form}
-        bordered={isBordered('search', cardBordered)}
-      />
-    );
-  }, [
-    action,
-    beforeSearchSubmit,
-    cardBordered,
-    formRef,
-    manualRequest,
-    pagination,
-    props,
-    propsColumns,
-    rest.dateFormatter,
-    rest.form,
-    search,
-    setFormSearch,
-    type,
-  ]);
 
   /** 是不是 LightFilter, LightFilter 有一些特殊的处理 */
   const isLightFilter: boolean = search !== false && search?.filterType === 'light';
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const lightForm = useMemo(() => (isLightFilter ? searchNode : null), [
-    isLightFilter,
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    isLightFilter && searchNode,
-  ]);
-
-  const className = classNames(defaultClassName, propsClassName);
-
-  const toolbarDom = useMemo(() => {
-    // 不展示 toolbar
-    if (toolBarRender === false) {
-      return null;
-    }
-    if (options === false && !headerTitle && !toolBarRender && !toolbar && !isLightFilter) {
-      return null;
-    }
-    /** 根据表单类型的不同决定是否生成 toolbarProps */
-    const toolbarProps = isLightFilter
-      ? {
-          filter: lightForm,
-          ...toolbar,
-        }
-      : toolbar;
-
-    const onSearch = (keyword: string) => {
-      if (!options || !options.search) {
-        return;
-      }
-      const { name = 'keyword' } = options.search === true ? {} : options.search;
-
-      // 查询的时候的回到第一页
-      action.setPageInfo({
-        current: 1,
-      });
-
-      setFormSearch(
-        omitUndefined({
-          ...formSearch,
-          _timestamp: Date.now(),
-          [name]: keyword,
-        }),
-      );
-    };
-    return (
-      <Toolbar<T>
-        columns={tableColumn}
-        options={options}
-        headerTitle={headerTitle}
-        action={actionRef}
-        onSearch={onSearch}
-        selectedRows={selectedRows}
-        selectedRowKeys={selectedRowKeys}
-        toolBarRender={toolBarRender}
-        toolbar={toolbarProps}
+  const searchNode =
+    search === false && type !== 'form' ? null : (
+      <FormRender<T, U>
+        pagination={pagination}
+        beforeSearchSubmit={beforeSearchSubmit}
+        action={action}
+        columns={propsColumns}
+        onFormSearchSubmit={(values) => {
+          setFormSearch(values);
+        }}
+        onReset={props.onReset}
+        onSubmit={props.onSubmit}
+        loading={!!action.loading}
+        manualRequest={manualRequest}
+        search={search}
+        form={props.form}
+        formRef={formRef}
+        type={props.type || 'table'}
+        cardBordered={props.cardBordered}
+        dateFormatter={props.dateFormatter}
       />
     );
-  }, [
-    action,
-    formSearch,
-    headerTitle,
-    isLightFilter,
-    lightForm,
-    options,
-    selectedRowKeys,
-    selectedRows,
-    setFormSearch,
-    tableColumn,
-    toolBarRender,
-    toolbar,
-  ]);
 
-  /** 内置的多选操作栏 */
-  const alertDom = propsRowSelection !== false && (
-    <Alert<T>
-      selectedRowKeys={selectedRowKeys}
-      selectedRows={selectedRows}
-      onCleanSelected={onCleanSelected}
-      alertOptionRender={rest.tableAlertOptionRender}
-      alertInfoRender={tableAlertRender}
-    />
-  );
-
-  /** 如果所有列中的 filters=true| undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
-  const useLocaleFilter = propsColumns.every(
-    (column) =>
-      (column.filters === true && column.onFilter === true) ||
-      (column.filters === undefined && column.onFilter === undefined),
-  );
-
-  const editableDataSource = (): T[] => {
-    const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
-
-    if (newLineOptions?.position === 'top') {
-      return [row, ...action.dataSource];
-    }
-    // 如果有分页的功能，我们加到这一页的末尾
-    if (pagination && pagination?.current && pagination?.pageSize) {
-      return [...action.dataSource].splice(pagination?.current * pagination?.pageSize - 1, 0, row);
-    }
-    return [...action.dataSource, row];
-  };
-
-  const getTableProps = () => ({
-    ...rest,
-    size: counter.tableSize,
-    rowSelection: propsRowSelection === false ? undefined : rowSelection,
-    className: tableClassName,
-    style: tableStyle,
-    columns,
-    loading: action.loading,
-    dataSource: editableUtils.newLineRecord ? editableDataSource() : action.dataSource,
-    pagination,
-    onChange: (
-      changePagination: TablePaginationConfig,
-      filters: Record<string, (React.Key | boolean)[] | null>,
-      sorter: SorterResult<T> | SorterResult<T>[],
-      extra: TableCurrentDataSource<T>,
-    ) => {
-      if (rest.onChange) {
-        rest.onChange(changePagination, filters, sorter, extra);
-      }
-      if (!useLocaleFilter) {
-        setProFilter(omitUndefined<any>(filters));
-      }
-
-      // 制造筛选的数据
-      // 制造一个排序的数据
-      if (Array.isArray(sorter)) {
-        const data = sorter.reduce<Record<string, any>>(
-          (pre, value) => ({
-            ...pre,
-            [`${value.field}`]: value.order,
-          }),
-          {},
-        );
-        setProSort(omitUndefined<any>(data));
-      } else {
-        setProSort(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
-      }
-    },
-  });
-
-  /** 如果有 ellipsis ，设置 tableLayout 为 fixed */
-  const tableLayout = props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
-
-  /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
-  const baseTableDom =
-    action.dataSource !== undefined || manualRequest ? (
-      <Form
-        component={false}
-        form={props.editable?.form}
-        onValuesChange={editableUtils.onValuesChange}
-        key="table"
-      >
-        <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
-      </Form>
-    ) : (
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          padding: 50,
-        }}
-      >
-        <Spin size="large" />
-      </div>
+  /** 内置的工具栏 */
+  const toolbarDom =
+    toolBarRender === false ? null : (
+      <Toolbar<T>
+        headerTitle={headerTitle}
+        hideToolbar={
+          options === false && !headerTitle && !toolBarRender && !toolbar && !isLightFilter
+        }
+        selectedRows={selectedRowsRef.current}
+        selectedRowKeys={selectedRowKeys}
+        tableColumn={tableColumn}
+        tooltip={tooltip}
+        toolbar={toolbar}
+        onFormSearchSubmit={setFormSearch}
+        searchNode={isLightFilter ? searchNode : null}
+        options={options}
+        actionRef={actionRef}
+        toolBarRender={toolBarRender}
+      />
     );
 
-  /** 自定义的 render */
-  const tableDom = props.tableViewRender
-    ? props.tableViewRender(
-        {
-          ...getTableProps(),
-          rowSelection,
-        },
-        baseTableDom,
-      )
-    : baseTableDom;
+  /** 内置的多选操作栏 */
+  const alertDom =
+    propsRowSelection !== false ? (
+      <Alert<T>
+        selectedRowKeys={selectedRowKeys}
+        selectedRows={selectedRowsRef.current}
+        onCleanSelected={onCleanSelected}
+        alertOptionRender={rest.tableAlertOptionRender}
+        alertInfoRender={tableAlertRender}
+      />
+    ) : null;
 
-  /** Table 区域的 dom，为了方便 render */
-  const tableAreaDom = (
-    <Card
-      bordered={isBordered('table', cardBordered)}
-      style={{
-        height: '100%',
-      }}
-      bodyStyle={
-        toolbarDom
-          ? {
-              paddingTop: 0,
-              paddingBottom: 0,
-            }
-          : {
-              padding: 0,
-            }
-      }
-      {...cardProps}
-    >
-      {toolbarDom}
-      {alertDom}
-      {tableDom}
-    </Card>
-  );
-
-  const renderTable = () => {
-    if (props.tableRender) {
-      return props.tableRender(props, tableAreaDom, {
-        toolbar: toolbarDom || undefined,
-        alert: alertDom || undefined,
-        table: tableDom || undefined,
-      });
-    }
-    return tableAreaDom;
-  };
-
-  const proTableDom = (
-    <div
-      className={classNames(className, {
-        [`${className}-polling`]: action.pollingLoading,
-      })}
-      style={style}
-      ref={rootRef}
-    >
-      {isLightFilter ? null : searchNode}
-      {/* 渲染一个额外的区域，用于一些自定义 */}
-      {type !== 'form' && props.tableExtraRender && action.dataSource && (
-        <div className={`${className}-extra`}>
-          {props.tableExtraRender(props, action.dataSource)}
-        </div>
-      )}
-      {type !== 'form' && renderTable()}
-    </div>
-  );
-
-  // 如果不需要的全屏，ConfigProvider 没有意义
-  if (!options || !options?.fullScreen) {
-    return proTableDom;
-  }
   return (
-    <ConfigProvider
-      getPopupContainer={() => ((rootRef.current || document.body) as any) as HTMLElement}
-    >
-      {proTableDom}
-    </ConfigProvider>
+    <TableRender
+      {...props}
+      rootRef={rootRef}
+      size={counter.tableSize}
+      onSizeChange={counter.setTableSize}
+      pagination={pagination}
+      searchNode={searchNode}
+      rowSelection={propsRowSelection !== false ? rowSelection : undefined}
+      className={className}
+      tableColumn={tableColumn}
+      isLightFilter={isLightFilter}
+      action={action}
+      alertDom={alertDom}
+      toolbarDom={toolbarDom}
+      onSortChange={setProSort}
+      onFilterChange={setProFilter}
+      editableUtils={editableUtils}
+    />
   );
 };
 

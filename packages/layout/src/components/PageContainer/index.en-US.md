@@ -80,6 +80,7 @@ PageContainer wraps ant design's PageHeader component, adding tabList and conten
 | fixedHeader | Fix the content of the pageHeader to the top, better not to use it if the page content is small, it will have serious obscuration problems | `boolean` | - |
 | affixProps | The configuration of the fixed pins, exactly the same as antd | `AffixProps` | - |
 | footer | Hover over the bottom action bar, pass in an array that will automatically add spaces | `ReactNode[]` | - |
+| waterMarkProps | Configure the watermark, Layout will pass you through to PageContainer, but the configuration of PageContainer takes precedence | [WaterMarkProps](/components/water-mark) | - |
 
 > fixedHeader uses antd's Affix implementation, listens to the body by default, if your scrollbar is not on the body you need to human [set](https://ant.design/components/affix-cn/) it.
 
