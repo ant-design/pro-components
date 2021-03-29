@@ -9,6 +9,16 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.32.0
+
+`2021-03-29`
+
+- 🐛 fix(table): fix polling alway run after unmount table [#2308](https://github.com/ant-design/pro-components/pull/2308) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix textarea ellipsis no work error [#2294](https://github.com/ant-design/pro-components/pull/2294) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix activeKey no work error [#2299](https://github.com/ant-design/pro-components/pull/2299) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): omit className in treeData [#2261](https://github.com/ant-design/pro-components/pull/2261) [@theprimone](https://github.com/theprimone)
+- 💥 feat(table): search form support className [#2254](https://github.com/ant-design/pro-components/pull/2254) [@drizzlesconsin](https://github.com/drizzlesconsin)
+
 ## @ant-design/pro-table@2.30.5
 
 `2021-03-11`

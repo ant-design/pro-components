@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.15.5
+
+`2021-03-29`
+
+- 🐛 fix(layout): 修复了 pro-layout 数组扩展操作问题 [#2289](https://github.com/ant-design/pro-components/pull/2289) [@Ives7](https://github.com/Ives7)
+
 ## @ant-design/pro-layout@6.15.0
 
 `2021-03-08`

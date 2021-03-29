@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.19.0
+
+`2021-03-29`
+
+- 🐛 fix(form): fix form item control no work error [#2303](https://github.com/ant-design/pro-components/pull/2303) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(proform): call synctourl props during onreset [#2258](https://github.com/ant-design/pro-components/pull/2258) [@JunlinZhu-Tommy](https://github.com/JunlinZhu-Tommy)
+- 💥 feat(table): search form support className [#2254](https://github.com/ant-design/pro-components/pull/2254) [@drizzlesconsin](https://github.com/drizzlesconsin)
+
 ## @ant-design/pro-form@1.18.4
 
 `2021-03-18`

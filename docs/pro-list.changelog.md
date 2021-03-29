@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.5.11
+
+`2021-03-29`
+
+- 🐛 fix(list): fix list no use dataIndex error [#2298](https://github.com/ant-design/pro-components/pull/2298) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-list@1.5.6
 
 `2021-03-11`
