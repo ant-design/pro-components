@@ -28,7 +28,7 @@ export interface StatisticProps extends AntdStatisticProps {
   /** 标题提示 */
   tip?: React.ReactNode;
   /** 当前项显示的状态 */
-  status?: BadgeProps['status'];
+  status?: BadgeProps['status'] | undefined;
   /** Icon 图标 */
   icon?: React.ReactNode;
   /** Layout 布局 */

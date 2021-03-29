@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { StatisticCard } from '@ant-design/pro-card';
 import RcResizeObserver from 'rc-resize-observer';
-import MiniArea from './charts/MiniArea';
-import MiniColumn from './charts/MiniColumn';
-import MiniProgress from './charts/MiniProgress';
 
 const { Divider } = StatisticCard;
 
@@ -17,7 +14,7 @@ export default () => {
         setResponsive(offset.width < 640);
       }}
     >
-      <StatisticCard.Group title="分组指标带图表" direction={responsive ? 'column' : undefined}>
+      <StatisticCard.Group direction={responsive ? 'column' : undefined}>
         <StatisticCard
           statistic={{
             title: '冻结金额',
@@ -25,7 +22,13 @@ export default () => {
             precision: 2,
             suffix: '元',
           }}
-          chart={<MiniColumn height={50} />}
+          chart={
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+              alt="直方图"
+              width="100%"
+            />
+          }
         />
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
@@ -33,7 +36,13 @@ export default () => {
             title: '设计资源数',
             value: 234,
           }}
-          chart={<MiniArea height={50} />}
+          chart={
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+              alt="直方图"
+              width="100%"
+            />
+          }
         />
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
@@ -42,7 +51,13 @@ export default () => {
             value: 5,
             suffix: '/ 100',
           }}
-          chart={<MiniProgress />}
+          chart={
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+              alt="直方图"
+              width="100%"
+            />
+          }
         />
       </StatisticCard.Group>
     </RcResizeObserver>

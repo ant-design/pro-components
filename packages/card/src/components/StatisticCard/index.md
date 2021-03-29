@@ -12,6 +12,10 @@ nav:
 
 指标卡结合统计数值用于展示某主题的核心指标，结合 [Ant Design Charts](https://charts.ant.design/) 图表库丰富数值内容，满足大多数数值展示的场景。
 
+> 注意 demo 中的所有图表示例可以到 charts 的官网中找到，这里不再给出实际代码示例，仅以图片进行代替，所以相关交互是没有的。
+
+> 若有内容撑开卡片的情况请设置内容宽度为 100% 或设置定宽。
+
 ## 何时使用
 
 - 1）在页面内的重要位置，展示重要信息；
@@ -56,10 +60,6 @@ nav:
 
 <code src="./demos/group-chart.tsx" background="#f0f2f5" title="分组指标带图表"/>
 
-### 分组指标带图表 - 横向
-
-<code src="./demos/group-chart-horizontal.tsx" background="#f0f2f5" title="分组指标带图表 - 横向"/>
-
 ### 公式计算指标
 
 `Operation` 可以接受子元素，借此可以实现各种各样的公式计算指标。
@@ -95,6 +95,12 @@ nav:
 配置 `chartPlacement` 为 `left` 可以指定图表在数值统计的左边。
 
 <code src="./demos/horizontal-left.tsx" background="#f0f2f5" title="图表在左" />
+
+### 指标页签联动
+
+结合 `Statistic` 可以实现带指标统计的页签。
+
+<code src="./demos/tabs-statistic.tsx" background="#f0f2f5" title="带指标页签" />
 
 ### 环比趋势
 

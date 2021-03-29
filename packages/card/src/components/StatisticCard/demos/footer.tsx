@@ -1,7 +1,6 @@
 import React from 'react';
 import { EllipsisOutlined } from '@ant-design/icons';
 import { StatisticCard } from '@ant-design/pro-card';
-import MiniProgress from './charts/MiniProgress';
 
 const { Statistic } = StatisticCard;
 
@@ -15,7 +14,13 @@ export default () => {
         suffix: '分',
         description: <Statistic title="排名前" value="20%" />,
       }}
-      chart={<MiniProgress />}
+      chart={
+        <img
+          src="https://gw.alipayobjects.com/zos/alicdn/PmKfn4qvD/mubiaowancheng-lan.svg"
+          width="100%"
+          alt="进度条"
+        />
+      }
       footer={
         <>
           <Statistic value={15.1} title="累计注册数" suffix="万" layout="horizontal" />

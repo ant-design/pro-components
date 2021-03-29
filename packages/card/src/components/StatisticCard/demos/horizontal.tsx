@@ -1,6 +1,5 @@
 import React from 'react';
 import { StatisticCard } from '@ant-design/pro-card';
-import MiniColumn from './charts/MiniColumn';
 
 const { Statistic } = StatisticCard;
 
@@ -20,8 +19,14 @@ export default () => {
           </>
         ),
       }}
-      style={{ width: 420 }}
-      chart={<MiniColumn />}
+      style={{ width: 584 }}
+      chart={
+        <img
+          src="https://gw.alipayobjects.com/zos/alicdn/snEBTn9ax/zhexiantuchang.svg"
+          alt="折线图"
+          width="100%"
+        />
+      }
     />
   );
 };
