@@ -58,10 +58,6 @@ nav:
 
 <code src="./demos/group-chart.tsx" background="#f0f2f5" title="分组指标带图表"/>
 
-### 分组指标带图表 - 横向
-
-<code src="./demos/group-chart-horizontal.tsx" background="#f0f2f5" title="分组指标带图表 - 横向"/>
-
 ### 公式计算指标
 
 `Operation` 可以接受子元素，借此可以实现各种各样的公式计算指标。
@@ -97,6 +93,12 @@ nav:
 配置 `chartPlacement` 为 `left` 可以指定图表在数值统计的左边。
 
 <code src="./demos/horizontal-left.tsx" background="#f0f2f5" title="图表在左" />
+
+### 指标页签联动
+
+结合 `Statistic` 可以实现带指标统计的页签。
+
+<code src="./demos/tabs-statistic.tsx" background="#f0f2f5" title="带指标页签" />
 
 ### 环比趋势
 

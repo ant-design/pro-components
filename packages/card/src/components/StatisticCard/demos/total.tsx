@@ -14,9 +14,8 @@ export default () => {
         setResponsive(offset.width < 640);
       }}
     >
-      <StatisticCard.Group title="核心指标" direction={responsive ? 'column' : undefined}>
+      <StatisticCard.Group direction={responsive ? 'column' : undefined}>
         <StatisticCard
-          colSpan={{}}
           statistic={{
             title: '总流量(人次)',
             value: 601986875,

@@ -24,13 +24,11 @@ export default () => {
             description: <Statistic title="日同比" value="6.47%" trend="up" />,
           }}
           chart={
-            <div style={{ margin: '24px 0' }}>
-              <img
-                src="https://gw.alipayobjects.com/zos/alicdn/PmKfn4qvD/mubiaowancheng-lan.svg"
-                alt="进度条"
-                width="100%"
-              />
-            </div>
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/PmKfn4qvD/mubiaowancheng-lan.svg"
+              alt="进度条"
+              width="100%"
+            />
           }
           footer={
             <>
@@ -53,7 +51,7 @@ export default () => {
             }}
             chart={
               <img
-                src="https://gw.alipayobjects.com/zos/alicdn/BOGYQrFiE/zhexiantu.svg"
+                src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
                 alt="折线图"
                 width="100%"
               />
@@ -74,7 +72,7 @@ export default () => {
             }}
             chart={
               <img
-                src="https://gw.alipayobjects.com/zos/alicdn/BOGYQrFiE/zhexiantu.svg"
+                src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
                 alt="折线图"
                 width="100%"
               />
@@ -95,7 +93,7 @@ export default () => {
             }}
             chart={
               <img
-                src="https://gw.alipayobjects.com/zos/alicdn/BOGYQrFiE/zhexiantu.svg"
+                src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
                 alt="折线图"
                 width="100%"
               />

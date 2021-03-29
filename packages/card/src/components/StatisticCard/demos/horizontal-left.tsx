@@ -19,7 +19,7 @@ export default () => {
           </>
         ),
       }}
-      style={{ maxWidth: 420 }}
+      style={{ maxWidth: 584 }}
       chart={
         <img
           src="https://gw.alipayobjects.com/zos/alicdn/snEBTn9ax/zhexiantuchang.svg"

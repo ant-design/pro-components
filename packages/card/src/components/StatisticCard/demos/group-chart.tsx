@@ -14,7 +14,7 @@ export default () => {
         setResponsive(offset.width < 640);
       }}
     >
-      <StatisticCard.Group title="分组指标带图表" direction={responsive ? 'column' : undefined}>
+      <StatisticCard.Group direction={responsive ? 'column' : undefined}>
         <StatisticCard
           statistic={{
             title: '冻结金额',
@@ -24,7 +24,7 @@ export default () => {
           }}
           chart={
             <img
-              src="https://gw.alipayobjects.com/zos/alicdn/tmA61DliU/zhibiaoka-zhifangtu.svg"
+              src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
               alt="直方图"
               width="100%"
             />
@@ -38,7 +38,7 @@ export default () => {
           }}
           chart={
             <img
-              src="https://gw.alipayobjects.com/zos/alicdn/9xNnfyIOU/zhibiaoka-zhifangtu2.svg"
+              src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
               alt="直方图"
               width="100%"
             />
@@ -53,7 +53,7 @@ export default () => {
           }}
           chart={
             <img
-              src="https://gw.alipayobjects.com/zos/alicdn/9xNnfyIOU/zhibiaoka-zhifangtu2.svg"
+              src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
               alt="直方图"
               width="100%"
             />
