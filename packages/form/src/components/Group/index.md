@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# ProFormFields
+# 数据结构化
 
 我们还提供了用来进行结构化数据的录入:
 

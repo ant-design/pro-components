@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# QueryFilter / LightFilter
+# QueryFilter / LightFilter 筛选表单
 
 有些是时候表单要与别的组件组合使用，常见的有 Table ，List 等，这时候就需要一些特殊形态的表单。QueryFilter 和 LightFilter 解决了配合组件使用的问题，避免了复杂的样式设置。ProTable 中默认 支持了 QueryFilter 和 LightFilter 作为自己的筛选表单。
 
