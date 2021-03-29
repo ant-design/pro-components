@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { StatisticCard } from '@ant-design/pro-card';
 import RcResizeObserver from 'rc-resize-observer';
-import MiniArea from './charts/MiniArea';
-import MiniColumn from './charts/MiniColumn';
-import MiniProgress from './charts/MiniProgress';
 
 const { Divider } = StatisticCard;
 
@@ -25,7 +22,13 @@ export default () => {
             precision: 2,
             suffix: '元',
           }}
-          chart={<MiniColumn height={50} />}
+          chart={
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/tmA61DliU/zhibiaoka-zhifangtu.svg"
+              alt="直方图"
+              width="100%"
+            />
+          }
         />
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
@@ -33,7 +36,13 @@ export default () => {
             title: '设计资源数',
             value: 234,
           }}
-          chart={<MiniArea height={50} />}
+          chart={
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/9xNnfyIOU/zhibiaoka-zhifangtu2.svg"
+              alt="直方图"
+              width="100%"
+            />
+          }
         />
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
         <StatisticCard
@@ -42,7 +51,13 @@ export default () => {
             value: 5,
             suffix: '/ 100',
           }}
-          chart={<MiniProgress />}
+          chart={
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/9xNnfyIOU/zhibiaoka-zhifangtu2.svg"
+              alt="直方图"
+              width="100%"
+            />
+          }
         />
       </StatisticCard.Group>
     </RcResizeObserver>

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import ProCard, { StatisticCard } from '@ant-design/pro-card';
 import RcResizeObserver from 'rc-resize-observer';
-import MiniProgress from './charts/MiniProgress';
-import SmoothArea from './charts/SmoothArea';
 
 const { Statistic } = StatisticCard;
 
@@ -18,7 +16,7 @@ export default () => {
     >
       <ProCard split="vertical">
         <StatisticCard
-          colSpan={responsive ? 12 : 7}
+          colSpan={responsive ? 12 : 6}
           title="财年业绩目标"
           statistic={{
             value: 82.6,
@@ -27,7 +25,11 @@ export default () => {
           }}
           chart={
             <div style={{ margin: '24px 0' }}>
-              <MiniProgress />
+              <img
+                src="https://gw.alipayobjects.com/zos/alicdn/PmKfn4qvD/mubiaowancheng-lan.svg"
+                alt="进度条"
+                width="100%"
+              />
             </div>
           }
           footer={
@@ -40,7 +42,7 @@ export default () => {
         />
         <StatisticCard.Group
           gutter={12}
-          colSpan={responsive ? 12 : 17}
+          colSpan={responsive ? 12 : 18}
           direction={responsive ? 'column' : undefined}
         >
           <StatisticCard
@@ -49,7 +51,13 @@ export default () => {
               value: 601987768,
               description: <Statistic title="日同比" value="6.15%" trend="up" />,
             }}
-            chart={<SmoothArea />}
+            chart={
+              <img
+                src="https://gw.alipayobjects.com/zos/alicdn/BOGYQrFiE/zhexiantu.svg"
+                alt="折线图"
+                width="100%"
+              />
+            }
           >
             <Statistic
               title="大盘总收入"
@@ -64,7 +72,13 @@ export default () => {
               value: 6,
               description: <Statistic title="日同比" value="3.85%" trend="down" />,
             }}
-            chart={<SmoothArea />}
+            chart={
+              <img
+                src="https://gw.alipayobjects.com/zos/alicdn/BOGYQrFiE/zhexiantu.svg"
+                alt="折线图"
+                width="100%"
+              />
+            }
           >
             <Statistic
               title="近7日收入"
@@ -79,7 +93,13 @@ export default () => {
               value: 2,
               description: <Statistic title="日同比" value="6.47%" trend="up" />,
             }}
-            chart={<SmoothArea />}
+            chart={
+              <img
+                src="https://gw.alipayobjects.com/zos/alicdn/BOGYQrFiE/zhexiantu.svg"
+                alt="折线图"
+                width="100%"
+              />
+            }
           >
             <Statistic
               title="月付费个数"

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StatisticCard } from '@ant-design/pro-card';
 import RcResizeObserver from 'rc-resize-observer';
-import MiniRing from './charts/MiniRing';
 
 const { Statistic, Divider } = StatisticCard;
 
@@ -31,15 +30,10 @@ export default () => {
             description: <Statistic title="占比" value="61.5%" />,
           }}
           chart={
-            <MiniRing
-              percent={0.615}
-              bgColor="#6d96f3"
-              ringProps={{
-                statistic: {
-                  content: false,
-                },
-                innerRadius: 0.7,
-              }}
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/ShNDpDTik/huan.svg"
+              alt="百分比"
+              width="100%"
             />
           }
           chartPlacement="left"
@@ -51,15 +45,10 @@ export default () => {
             description: <Statistic title="占比" value="38.5%" />,
           }}
           chart={
-            <MiniRing
-              percent={0.385}
-              bgColor="#30BF78"
-              ringProps={{
-                statistic: {
-                  content: false,
-                },
-                innerRadius: 0.7,
-              }}
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/6YR18tCxJ/huanlv.svg"
+              alt="百分比"
+              width="100%"
             />
           }
           chartPlacement="left"

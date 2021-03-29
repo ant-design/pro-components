@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { StatisticCard } from '@ant-design/pro-card';
 import RcResizeObserver from 'rc-resize-observer';
-import MiniColumn from './charts/MiniColumn';
-import MiniRing from './charts/MiniRing';
 
 const { Divider, Statistic } = StatisticCard;
 
@@ -28,7 +26,13 @@ export default () => {
             suffix: '万元',
             description: <Statistic title="周同比" value="64.7%" trend="up" />,
           }}
-          chart={<MiniColumn height={80} />}
+          chart={
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/snEBTn9ax/zhexiantuchang.svg"
+              alt="折线图"
+              width="100%"
+            />
+          }
           chartPlacement="right"
         />
         <Divider type={responsive ? 'horizontal' : 'vertical'} />
@@ -39,7 +43,13 @@ export default () => {
             suffix: '/ 100',
             description: <Statistic title="月同比" value="64.7%" trend="up" />,
           }}
-          chart={<MiniRing percent={0.8} width={80} height={80} />}
+          chart={
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/-2IRXw8jb/huan.svg"
+              alt="环"
+              width="100%"
+            />
+          }
           chartPlacement="right"
         />
       </StatisticCard.Group>
