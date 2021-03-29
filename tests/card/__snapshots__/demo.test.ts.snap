@@ -192,50 +192,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       <div
         class="ant-pro-statistic-card-chart"
       >
-        <div
-          data-chart-source-type="G2Plot"
-          size-sensor-id="1"
-          style="height: inherit;"
-        >
-          <div
-            style="position:relative;"
-          >
-            <canvas
-              height="20"
-              style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-              width="400"
-            />
-          </div>
-          <object
-            class="size-sensor-object"
-            data="about:blank"
-            style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-            tabindex="-1"
-            type="text/html"
-          />
-        </div>
-        <div
-          data-chart-source-type="G2Plot"
-          size-sensor-id="2"
-          style="height: inherit;"
-        >
-          <div
-            style="position:relative;"
-          >
-            <canvas
-              height="100"
-              style="width: 400px; height: 100px; display: inline-block; vertical-align: middle;"
-              width="400"
-            />
-          </div>
-          <object
-            class="size-sensor-object"
-            data="about:blank"
-            style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-            tabindex="-1"
-            type="text/html"
-          />
-        </div>
+        <img
+          alt="chart"
+          src="https://gw.alipayobjects.com/zos/alicdn/BA_R9SIAV/charts.svg"
+          width="100%"
+        />
       </div>
     </div>
   </div>
@@ -245,6 +206,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
 exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/chart.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
+  style="width: 480px;"
 >
   <div
     class="ant-pro-card-header"
@@ -313,411 +275,14 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       <div
         class="ant-pro-statistic-card-chart"
       >
-        <div
-          data-chart-source-type="G2Plot"
-          size-sensor-id="3"
-          style="height: inherit;"
-        >
-          <div
-            style="position:relative;"
-          >
-            <canvas
-              height="500"
-              style="width: 400px; height: 500px; display: inline-block; vertical-align: middle;"
-              width="400"
-            />
-          </div>
-          <object
-            class="size-sensor-object"
-            data="about:blank"
-            style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-            tabindex="-1"
-            type="text/html"
-          />
-        </div>
+        <img
+          alt="柱状图"
+          src="https://gw.alipayobjects.com/zos/alicdn/a-LN9RTYq/zhuzhuangtu.svg"
+          width="100%"
+        />
       </div>
     </div>
   </div>
-</div>
-`;
-
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/ChartTable.tsx correctly 1`] = `
-<div
-  class="ant-table-wrapper"
-  style="margin-top: 16px;"
->
-  <div
-    class="ant-spin-nested-loading"
-  >
-    <div
-      class="ant-spin-container"
-    >
-      <div
-        class="ant-table"
-      >
-        <div
-          class="ant-table-container"
-        >
-          <div
-            class="ant-table-content"
-          >
-            <table
-              style="table-layout: auto;"
-            >
-              <colgroup />
-              <thead
-                class="ant-table-thead"
-              >
-                <tr>
-                  <th
-                    class="ant-table-cell"
-                  >
-                    名称
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                  >
-                    占比
-                  </th>
-                  <th
-                    class="ant-table-cell"
-                  >
-                    流量
-                  </th>
-                </tr>
-              </thead>
-              <tbody
-                class="ant-table-tbody"
-              >
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="1"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <a>
-                      John Brown
-                    </a>
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <div
-                      data-chart-source-type="G2Plot"
-                      size-sensor-id="4"
-                      style="height: inherit;"
-                    >
-                      <div
-                        style="position:relative;"
-                      >
-                        <canvas
-                          height="20"
-                          style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-                          width="400"
-                        />
-                      </div>
-                      <object
-                        class="size-sensor-object"
-                        data="about:blank"
-                        style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                        tabindex="-1"
-                        type="text/html"
-                      />
-                    </div>
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    2335
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="2"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <a>
-                      Jim Green
-                    </a>
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <div
-                      data-chart-source-type="G2Plot"
-                      size-sensor-id="5"
-                      style="height: inherit;"
-                    >
-                      <div
-                        style="position:relative;"
-                      >
-                        <canvas
-                          height="20"
-                          style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-                          width="400"
-                        />
-                      </div>
-                      <object
-                        class="size-sensor-object"
-                        data="about:blank"
-                        style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                        tabindex="-1"
-                        type="text/html"
-                      />
-                    </div>
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    3245
-                  </td>
-                </tr>
-                <tr
-                  class="ant-table-row ant-table-row-level-0"
-                  data-row-key="3"
-                >
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <a>
-                      Joe Black
-                    </a>
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    <div
-                      data-chart-source-type="G2Plot"
-                      size-sensor-id="6"
-                      style="height: inherit;"
-                    >
-                      <div
-                        style="position:relative;"
-                      >
-                        <canvas
-                          height="20"
-                          style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-                          width="400"
-                        />
-                      </div>
-                      <object
-                        class="size-sensor-object"
-                        data="about:blank"
-                        style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                        tabindex="-1"
-                        type="text/html"
-                      />
-                    </div>
-                  </td>
-                  <td
-                    class="ant-table-cell"
-                  >
-                    3445
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/Line.tsx correctly 1`] = `
-<div
-  data-chart-source-type="G2Plot"
-  size-sensor-id="7"
-  style="height: inherit;"
->
-  <div
-    style="position:relative;"
-  >
-    <canvas
-      height="500"
-      style="width: 400px; height: 500px; display: inline-block; vertical-align: middle;"
-      width="400"
-    />
-  </div>
-  <object
-    class="size-sensor-object"
-    data="about:blank"
-    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-    tabindex="-1"
-    type="text/html"
-  />
-</div>
-`;
-
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniArea.tsx correctly 1`] = `
-<div
-  data-chart-source-type="G2Plot"
-  size-sensor-id="8"
-  style="height: inherit;"
->
-  <div
-    style="position:relative;"
-  >
-    <canvas
-      height="100"
-      style="width: 400px; height: 100px; display: inline-block; vertical-align: middle;"
-      width="400"
-    />
-  </div>
-  <object
-    class="size-sensor-object"
-    data="about:blank"
-    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-    tabindex="-1"
-    type="text/html"
-  />
-</div>
-`;
-
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniColumn.tsx correctly 1`] = `
-<div
-  data-chart-source-type="G2Plot"
-  size-sensor-id="9"
-  style="height: inherit;"
->
-  <div
-    style="position:relative;"
-  >
-    <canvas
-      height="100"
-      style="width: 200px; height: 100px; display: inline-block; vertical-align: middle;"
-      width="200"
-    />
-  </div>
-  <object
-    class="size-sensor-object"
-    data="about:blank"
-    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-    tabindex="-1"
-    type="text/html"
-  />
-</div>
-`;
-
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniProgress.tsx correctly 1`] = `
-<div
-  data-chart-source-type="G2Plot"
-  size-sensor-id="10"
-  style="height: inherit;"
->
-  <div
-    style="position:relative;"
-  >
-    <canvas
-      height="20"
-      style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-      width="400"
-    />
-  </div>
-  <object
-    class="size-sensor-object"
-    data="about:blank"
-    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-    tabindex="-1"
-    type="text/html"
-  />
-</div>
-`;
-
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/MiniRing.tsx correctly 1`] = `
-<div
-  data-chart-source-type="G2Plot"
-  size-sensor-id="11"
-  style="height: inherit;"
->
-  <div
-    style="position:relative;"
-  >
-    <canvas
-      height="64"
-      style="width: 64px; height: 64px; display: inline-block; vertical-align: middle;"
-      width="64"
-    />
-    <div
-      class="g2-html-annotation"
-      style="pointer-events: none; width: 50.176px; transform: translate(-50%, -50%); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; justify-content: center; align-items: center; color: rgb(77, 77, 77); text-shadow:  0px 0px 0px; font-size: 14px; font-weight: 300; text-align: center; position: absolute; left: 32px; top: 32px; z-index: 7;"
-    >
-      80.00%
-    </div>
-  </div>
-  <object
-    class="size-sensor-object"
-    data="about:blank"
-    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-    tabindex="-1"
-    type="text/html"
-  />
-</div>
-`;
-
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/Ring.tsx correctly 1`] = `
-<div
-  data-chart-source-type="G2Plot"
-  size-sensor-id="12"
-  style="height: inherit;"
->
-  <div
-    style="position:relative;"
-  >
-    <canvas
-      height="250"
-      style="width: 400px; height: 250px; display: inline-block; vertical-align: middle;"
-      width="400"
-    />
-    <div
-      class="g2-html-annotation"
-      style="pointer-events: none; width: 128px; transform: translate(-50%, -100%); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; justify-content: center; align-items: center; text-shadow:  0px 0px 0px; font-weight: 300; color: rgb(75, 83, 94); text-align: center; font-size: 20px; line-height: 1; position: absolute; left: 182px; top: 115px; z-index: 7;"
-    >
-      总计
-    </div>
-    <div
-      class="g2-html-annotation"
-      style="pointer-events: none; width: 128px; transform: translate(-50%, 0); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; justify-content: center; align-items: center; text-shadow:  0px 0px 0px; font-weight: bold; color: rgba(44, 53, 66, 0.85); text-align: center; font-size: 32px; line-height: 1; position: absolute; left: 182px; top: 135px; z-index: 7;"
-    >
-      100
-    </div>
-  </div>
-  <object
-    class="size-sensor-object"
-    data="about:blank"
-    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-    tabindex="-1"
-    type="text/html"
-  />
-</div>
-`;
-
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/charts/SmoothArea.tsx correctly 1`] = `
-<div
-  data-chart-source-type="G2Plot"
-  size-sensor-id="13"
-  style="height: inherit;"
->
-  <div
-    style="position:relative;"
-  >
-    <canvas
-      height="104"
-      style="width: 400px; height: 104px; display: inline-block; vertical-align: middle;"
-      width="400"
-    />
-  </div>
-  <object
-    class="size-sensor-object"
-    data="about:blank"
-    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-    tabindex="-1"
-    type="text/html"
-  />
 </div>
 `;
 
@@ -1051,28 +616,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       <div
         class="ant-pro-statistic-card-chart"
       >
-        <div
-          data-chart-source-type="G2Plot"
-          size-sensor-id="14"
-          style="height: inherit;"
-        >
-          <div
-            style="position:relative;"
-          >
-            <canvas
-              height="20"
-              style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-              width="400"
-            />
-          </div>
-          <object
-            class="size-sensor-object"
-            data="about:blank"
-            style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-            tabindex="-1"
-            type="text/html"
-          />
-        </div>
+        <img
+          alt="进度条"
+          src="https://gw.alipayobjects.com/zos/alicdn/PmKfn4qvD/mubiaowancheng-lan.svg"
+          width="100%"
+        />
       </div>
     </div>
     <div
@@ -1442,18 +990,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
   <div
-    class="ant-pro-card-header"
-  >
-    <div
-      class="ant-pro-card-title"
-    >
-      分组指标带图表
-    </div>
-    <div
-      class="ant-pro-card-extra"
-    />
-  </div>
-  <div
     class="ant-pro-card-body"
     style="padding: 0px;"
   >
@@ -1513,28 +1049,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
           <div
             class="ant-pro-statistic-card-chart"
           >
-            <div
-              data-chart-source-type="G2Plot"
-              size-sensor-id="17"
-              style="height: inherit;"
-            >
-              <div
-                style="position:relative;"
-              >
-                <canvas
-                  height="50"
-                  style="width: 200px; height: 50px; display: inline-block; vertical-align: middle;"
-                  width="200"
-                />
-              </div>
-              <object
-                class="size-sensor-object"
-                data="about:blank"
-                style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                tabindex="-1"
-                type="text/html"
-              />
-            </div>
+            <img
+              alt="直方图"
+              src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+              width="100%"
+            />
           </div>
         </div>
       </div>
@@ -1588,28 +1107,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
           <div
             class="ant-pro-statistic-card-chart"
           >
-            <div
-              data-chart-source-type="G2Plot"
-              size-sensor-id="18"
-              style="height: inherit;"
-            >
-              <div
-                style="position:relative;"
-              >
-                <canvas
-                  height="50"
-                  style="width: 400px; height: 50px; display: inline-block; vertical-align: middle;"
-                  width="400"
-                />
-              </div>
-              <object
-                class="size-sensor-object"
-                data="about:blank"
-                style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                tabindex="-1"
-                type="text/html"
-              />
-            </div>
+            <img
+              alt="直方图"
+              src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+              width="100%"
+            />
           </div>
         </div>
       </div>
@@ -1668,302 +1170,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
           <div
             class="ant-pro-statistic-card-chart"
           >
-            <div
-              data-chart-source-type="G2Plot"
-              size-sensor-id="19"
-              style="height: inherit;"
-            >
-              <div
-                style="position:relative;"
-              >
-                <canvas
-                  height="20"
-                  style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-                  width="400"
-                />
-              </div>
-              <object
-                class="size-sensor-object"
-                data="about:blank"
-                style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                tabindex="-1"
-                type="text/html"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/group-chart-horizontal.tsx correctly 1`] = `
-<div
-  class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
->
-  <div
-    class="ant-pro-card-header"
-  >
-    <div
-      class="ant-pro-card-title"
-    >
-      分组指标带图表-横向
-    </div>
-    <div
-      class="ant-pro-card-extra"
-    />
-  </div>
-  <div
-    class="ant-pro-card-body"
-    style="padding: 0px;"
-  >
-    <div
-      class="ant-pro-card ant-pro-statistic-card"
-    >
-      <div
-        class="ant-pro-card-body"
-      >
-        <div
-          class="ant-pro-statistic-card-content ant-pro-statistic-card-content-horizontal"
-        >
-          <div
-            class="ant-pro-card-statistic"
-          >
-            <div
-              class="ant-pro-card-statistic-wrapper"
-            >
-              <div
-                class="ant-pro-card-statistic-content"
-              >
-                <div
-                  class="ant-statistic ant-pro-card-statistic-layout-vertical"
-                >
-                  <div
-                    class="ant-statistic-title"
-                  >
-                    冻结金额
-                  </div>
-                  <div
-                    class="ant-statistic-content"
-                  >
-                    <span
-                      class="ant-statistic-content-value"
-                    >
-                      <span
-                        class="ant-statistic-content-value-int"
-                      >
-                        1,102
-                      </span>
-                      <span
-                        class="ant-statistic-content-value-decimal"
-                      >
-                        .00
-                      </span>
-                    </span>
-                    <span
-                      class="ant-statistic-content-suffix"
-                    >
-                      万元
-                    </span>
-                  </div>
-                </div>
-                <div
-                  class="ant-pro-card-statistic-description"
-                >
-                  <div
-                    class="ant-pro-card-statistic"
-                  >
-                    <div
-                      class="ant-pro-card-statistic-wrapper"
-                    >
-                      <div
-                        class="ant-pro-card-statistic-content"
-                      >
-                        <div
-                          class="ant-statistic ant-pro-card-statistic-layout-inline ant-pro-card-statistic-trend-up"
-                        >
-                          <div
-                            class="ant-statistic-title"
-                          >
-                            周同比
-                          </div>
-                          <div
-                            class="ant-statistic-content"
-                          >
-                            <span
-                              class="ant-statistic-content-prefix"
-                            >
-                              <div
-                                class="ant-pro-card-statistic-trend-icon ant-pro-card-statistic-trend-icon-up"
-                              />
-                            </span>
-                            <span
-                              class="ant-statistic-content-value"
-                            >
-                              64.7%
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-right"
-          >
-            <div
-              data-chart-source-type="G2Plot"
-              size-sensor-id="15"
-              style="height: inherit;"
-            >
-              <div
-                style="position:relative;"
-              >
-                <canvas
-                  height="80"
-                  style="width: 200px; height: 80px; display: inline-block; vertical-align: middle;"
-                  width="200"
-                />
-              </div>
-              <object
-                class="size-sensor-object"
-                data="about:blank"
-                style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                tabindex="-1"
-                type="text/html"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-pro-card-divider ant-pro-card-divider-vertical"
-    />
-    <div
-      class="ant-pro-card ant-pro-statistic-card"
-    >
-      <div
-        class="ant-pro-card-body"
-      >
-        <div
-          class="ant-pro-statistic-card-content ant-pro-statistic-card-content-horizontal"
-        >
-          <div
-            class="ant-pro-card-statistic"
-          >
-            <div
-              class="ant-pro-card-statistic-wrapper"
-            >
-              <div
-                class="ant-pro-card-statistic-content"
-              >
-                <div
-                  class="ant-statistic ant-pro-card-statistic-layout-vertical"
-                >
-                  <div
-                    class="ant-statistic-title"
-                  >
-                    信息完成度
-                  </div>
-                  <div
-                    class="ant-statistic-content"
-                  >
-                    <span
-                      class="ant-statistic-content-value"
-                    >
-                      <span
-                        class="ant-statistic-content-value-int"
-                      >
-                        5
-                      </span>
-                    </span>
-                    <span
-                      class="ant-statistic-content-suffix"
-                    >
-                      / 100
-                    </span>
-                  </div>
-                </div>
-                <div
-                  class="ant-pro-card-statistic-description"
-                >
-                  <div
-                    class="ant-pro-card-statistic"
-                  >
-                    <div
-                      class="ant-pro-card-statistic-wrapper"
-                    >
-                      <div
-                        class="ant-pro-card-statistic-content"
-                      >
-                        <div
-                          class="ant-statistic ant-pro-card-statistic-layout-inline ant-pro-card-statistic-trend-up"
-                        >
-                          <div
-                            class="ant-statistic-title"
-                          >
-                            月同比
-                          </div>
-                          <div
-                            class="ant-statistic-content"
-                          >
-                            <span
-                              class="ant-statistic-content-prefix"
-                            >
-                              <div
-                                class="ant-pro-card-statistic-trend-icon ant-pro-card-statistic-trend-icon-up"
-                              />
-                            </span>
-                            <span
-                              class="ant-statistic-content-value"
-                            >
-                              64.7%
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-right"
-          >
-            <div
-              data-chart-source-type="G2Plot"
-              size-sensor-id="16"
-              style="height: inherit;"
-            >
-              <div
-                style="position:relative;"
-              >
-                <canvas
-                  height="80"
-                  style="width: 80px; height: 80px; display: inline-block; vertical-align: middle;"
-                  width="80"
-                />
-                <div
-                  class="g2-html-annotation"
-                  style="pointer-events: none; width: 62.720000000000006px; transform: translate(-50%, -50%); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; justify-content: center; align-items: center; color: rgb(77, 77, 77); text-shadow:  0px 0px 0px; font-size: 14px; font-weight: 300; text-align: center; position: absolute; left: 40px; top: 40px; z-index: 7;"
-                >
-                  80.00%
-                </div>
-              </div>
-              <object
-                class="size-sensor-object"
-                data="about:blank"
-                style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                tabindex="-1"
-                type="text/html"
-              />
-            </div>
+            <img
+              alt="直方图"
+              src="https://gw.alipayobjects.com/zos/alicdn/RLeBTRNWv/bianzu%25252043x.png"
+              width="100%"
+            />
           </div>
         </div>
       </div>
@@ -1975,7 +1186,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
 exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/horizontal.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
-  style="width: 420px;"
+  style="width: 584px;"
 >
   <div
     class="ant-pro-card-body"
@@ -2108,28 +1319,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       <div
         class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-right"
       >
-        <div
-          data-chart-source-type="G2Plot"
-          size-sensor-id="21"
-          style="height: inherit;"
-        >
-          <div
-            style="position:relative;"
-          >
-            <canvas
-              height="100"
-              style="width: 200px; height: 100px; display: inline-block; vertical-align: middle;"
-              width="200"
-            />
-          </div>
-          <object
-            class="size-sensor-object"
-            data="about:blank"
-            style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-            tabindex="-1"
-            type="text/html"
-          />
-        </div>
+        <img
+          alt="折线图"
+          src="https://gw.alipayobjects.com/zos/alicdn/snEBTn9ax/zhexiantuchang.svg"
+          width="100%"
+        />
       </div>
     </div>
   </div>
@@ -2139,7 +1333,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
 exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/horizontal-left.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
-  style="max-width: 420px;"
+  style="max-width: 584px;"
 >
   <div
     class="ant-pro-card-body"
@@ -2150,28 +1344,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       <div
         class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-left"
       >
-        <div
-          data-chart-source-type="G2Plot"
-          size-sensor-id="20"
-          style="height: inherit;"
-        >
-          <div
-            style="position:relative;"
-          >
-            <canvas
-              height="100"
-              style="width: 200px; height: 100px; display: inline-block; vertical-align: middle;"
-              width="200"
-            />
-          </div>
-          <object
-            class="size-sensor-object"
-            data="about:blank"
-            style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-            tabindex="-1"
-            type="text/html"
-          />
-        </div>
+        <img
+          alt="折线图"
+          src="https://gw.alipayobjects.com/zos/alicdn/snEBTn9ax/zhexiantuchang.svg"
+          width="100%"
+        />
       </div>
       <div
         class="ant-pro-card-statistic"
@@ -2888,28 +2065,10 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
               <div
                 class="ant-pro-statistic-card-chart"
               >
-                <div
-                  data-chart-source-type="G2Plot"
-                  size-sensor-id="22"
-                  style="height: inherit;"
-                >
-                  <div
-                    style="position:relative;"
-                  >
-                    <canvas
-                      height="250"
-                      style="width: 400px; height: 250px; display: inline-block; vertical-align: middle;"
-                      width="400"
-                    />
-                  </div>
-                  <object
-                    class="size-sensor-object"
-                    data="about:blank"
-                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                    tabindex="-1"
-                    type="text/html"
-                  />
-                </div>
+                <img
+                  src="https://gw.alipayobjects.com/zos/alicdn/_dZIob2NB/zhuzhuangtu.svg"
+                  width="100%"
+                />
               </div>
             </div>
           </div>
@@ -2941,859 +2100,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
           <div
             class="ant-pro-statistic-card-chart"
           >
-            <div
-              data-chart-source-type="G2Plot"
-              size-sensor-id="23"
-              style="height: inherit;"
-            >
-              <div
-                style="position:relative;"
-              >
-                <canvas
-                  height="250"
-                  style="width: 400px; height: 250px; display: inline-block; vertical-align: middle;"
-                  width="400"
-                />
-                <div
-                  class="g2-html-annotation"
-                  style="pointer-events: none; width: 128px; transform: translate(-50%, -100%); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; justify-content: center; align-items: center; text-shadow:  0px 0px 0px; font-weight: 300; color: rgb(75, 83, 94); text-align: center; font-size: 20px; line-height: 1; position: absolute; left: 182px; top: 115px; z-index: 7;"
-                >
-                  总计
-                </div>
-                <div
-                  class="g2-html-annotation"
-                  style="pointer-events: none; width: 128px; transform: translate(-50%, 0); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; justify-content: center; align-items: center; text-shadow:  0px 0px 0px; font-weight: bold; color: rgba(44, 53, 66, 0.85); text-align: center; font-size: 32px; line-height: 1; position: absolute; left: 182px; top: 135px; z-index: 7;"
-                >
-                  100
-                </div>
-              </div>
-              <object
-                class="size-sensor-object"
-                data="about:blank"
-                style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                tabindex="-1"
-                type="text/html"
-              />
-            </div>
-            <div
-              class="ant-table-wrapper"
-              style="margin-top: 16px;"
-            >
-              <div
-                class="ant-spin-nested-loading"
-              >
-                <div
-                  class="ant-spin-container"
-                >
-                  <div
-                    class="ant-table"
-                  >
-                    <div
-                      class="ant-table-container"
-                    >
-                      <div
-                        class="ant-table-content"
-                      >
-                        <table
-                          style="table-layout: auto;"
-                        >
-                          <colgroup />
-                          <thead
-                            class="ant-table-thead"
-                          >
-                            <tr>
-                              <th
-                                class="ant-table-cell"
-                              >
-                                名称
-                              </th>
-                              <th
-                                class="ant-table-cell"
-                              >
-                                占比
-                              </th>
-                              <th
-                                class="ant-table-cell"
-                              >
-                                流量
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody
-                            class="ant-table-tbody"
-                          >
-                            <tr
-                              class="ant-table-row ant-table-row-level-0"
-                              data-row-key="1"
-                            >
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <a>
-                                  John Brown
-                                </a>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <div
-                                  data-chart-source-type="G2Plot"
-                                  size-sensor-id="24"
-                                  style="height: inherit;"
-                                >
-                                  <div
-                                    style="position:relative;"
-                                  >
-                                    <canvas
-                                      height="20"
-                                      style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-                                      width="400"
-                                    />
-                                  </div>
-                                  <object
-                                    class="size-sensor-object"
-                                    data="about:blank"
-                                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                                    tabindex="-1"
-                                    type="text/html"
-                                  />
-                                </div>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                2335
-                              </td>
-                            </tr>
-                            <tr
-                              class="ant-table-row ant-table-row-level-0"
-                              data-row-key="2"
-                            >
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <a>
-                                  Jim Green
-                                </a>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <div
-                                  data-chart-source-type="G2Plot"
-                                  size-sensor-id="25"
-                                  style="height: inherit;"
-                                >
-                                  <div
-                                    style="position:relative;"
-                                  >
-                                    <canvas
-                                      height="20"
-                                      style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-                                      width="400"
-                                    />
-                                  </div>
-                                  <object
-                                    class="size-sensor-object"
-                                    data="about:blank"
-                                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                                    tabindex="-1"
-                                    type="text/html"
-                                  />
-                                </div>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                3245
-                              </td>
-                            </tr>
-                            <tr
-                              class="ant-table-row ant-table-row-level-0"
-                              data-row-key="3"
-                            >
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <a>
-                                  Joe Black
-                                </a>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <div
-                                  data-chart-source-type="G2Plot"
-                                  size-sensor-id="26"
-                                  style="height: inherit;"
-                                >
-                                  <div
-                                    style="position:relative;"
-                                  >
-                                    <canvas
-                                      height="20"
-                                      style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-                                      width="400"
-                                    />
-                                  </div>
-                                  <object
-                                    class="size-sensor-object"
-                                    data="about:blank"
-                                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                                    tabindex="-1"
-                                    type="text/html"
-                                  />
-                                </div>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                3445
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/split-statistic.tsx correctly 1`] = `
-<div
-  class="ant-pro-card ant-pro-card-border ant-pro-card-contain-card ant-pro-card-split"
->
-  <div
-    class="ant-pro-card-header ant-pro-card-header-border"
-  >
-    <div
-      class="ant-pro-card-title"
-    >
-      数据概览
-    </div>
-    <div
-      class="ant-pro-card-extra"
-    >
-      2019年9月28日 星期五
-    </div>
-  </div>
-  <div
-    class="ant-pro-card-body"
-  >
-    <div
-      class="ant-pro-card ant-pro-card-split-vertical ant-pro-card-contain-card ant-pro-card-split"
-      style="border-radius: 0;"
-    >
-      <div
-        class="ant-pro-card-body ant-pro-card-body-column"
-      >
-        <div
-          class="ant-pro-card ant-pro-card-split-horizontal ant-pro-card-contain-card ant-pro-card-split"
-          style="border-radius: 0;"
-        >
-          <div
-            class="ant-pro-card-body ant-pro-card-body-column"
-          >
-            <div
-              class="ant-pro-card ant-pro-card-split-horizontal ant-pro-card-contain-card ant-pro-card-split"
-              style="border-radius: 0;"
-            >
-              <div
-                class="ant-pro-card-body"
-              >
-                <div
-                  class="ant-pro-card ant-pro-statistic-card ant-pro-card-split-vertical"
-                  style="border-radius: 0;"
-                >
-                  <div
-                    class="ant-pro-card-body"
-                  >
-                    <div
-                      class="ant-pro-statistic-card-content"
-                    >
-                      <div
-                        class="ant-pro-card-statistic"
-                      >
-                        <div
-                          class="ant-pro-card-statistic-wrapper"
-                        >
-                          <div
-                            class="ant-pro-card-statistic-content"
-                          >
-                            <div
-                              class="ant-statistic ant-pro-card-statistic-layout-vertical"
-                            >
-                              <div
-                                class="ant-statistic-title"
-                              >
-                                昨日全部流量
-                              </div>
-                              <div
-                                class="ant-statistic-content"
-                              >
-                                <span
-                                  class="ant-statistic-content-value"
-                                >
-                                  <span
-                                    class="ant-statistic-content-value-int"
-                                  >
-                                    234
-                                  </span>
-                                </span>
-                              </div>
-                            </div>
-                            <div
-                              class="ant-pro-card-statistic-description"
-                            >
-                              <div
-                                class="ant-pro-card-statistic"
-                              >
-                                <div
-                                  class="ant-pro-card-statistic-wrapper"
-                                >
-                                  <div
-                                    class="ant-pro-card-statistic-content"
-                                  >
-                                    <div
-                                      class="ant-statistic ant-pro-card-statistic-layout-inline ant-pro-card-statistic-trend-down"
-                                    >
-                                      <div
-                                        class="ant-statistic-title"
-                                      >
-                                        较本月平均流量
-                                      </div>
-                                      <div
-                                        class="ant-statistic-content"
-                                      >
-                                        <span
-                                          class="ant-statistic-content-prefix"
-                                        >
-                                          <div
-                                            class="ant-pro-card-statistic-trend-icon ant-pro-card-statistic-trend-icon-down"
-                                          />
-                                        </span>
-                                        <span
-                                          class="ant-statistic-content-value"
-                                        >
-                                          8.04%
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-pro-card ant-pro-statistic-card"
-                  style="border-radius: 0;"
-                >
-                  <div
-                    class="ant-pro-card-body"
-                  >
-                    <div
-                      class="ant-pro-statistic-card-content"
-                    >
-                      <div
-                        class="ant-pro-card-statistic"
-                      >
-                        <div
-                          class="ant-pro-card-statistic-wrapper"
-                        >
-                          <div
-                            class="ant-pro-card-statistic-content"
-                          >
-                            <div
-                              class="ant-statistic ant-pro-card-statistic-layout-vertical"
-                            >
-                              <div
-                                class="ant-statistic-title"
-                              >
-                                本月累计流量
-                              </div>
-                              <div
-                                class="ant-statistic-content"
-                              >
-                                <span
-                                  class="ant-statistic-content-value"
-                                >
-                                  <span
-                                    class="ant-statistic-content-value-int"
-                                  >
-                                    234
-                                  </span>
-                                </span>
-                              </div>
-                            </div>
-                            <div
-                              class="ant-pro-card-statistic-description"
-                            >
-                              <div
-                                class="ant-pro-card-statistic"
-                              >
-                                <div
-                                  class="ant-pro-card-statistic-wrapper"
-                                >
-                                  <div
-                                    class="ant-pro-card-statistic-content"
-                                  >
-                                    <div
-                                      class="ant-statistic ant-pro-card-statistic-layout-inline ant-pro-card-statistic-trend-up"
-                                    >
-                                      <div
-                                        class="ant-statistic-title"
-                                      >
-                                        月同比
-                                      </div>
-                                      <div
-                                        class="ant-statistic-content"
-                                      >
-                                        <span
-                                          class="ant-statistic-content-prefix"
-                                        >
-                                          <div
-                                            class="ant-pro-card-statistic-trend-icon ant-pro-card-statistic-trend-icon-up"
-                                          />
-                                        </span>
-                                        <span
-                                          class="ant-statistic-content-value"
-                                        >
-                                          8.04%
-                                        </span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-pro-card ant-pro-card-contain-card ant-pro-card-split"
-              style="border-radius: 0;"
-            >
-              <div
-                class="ant-pro-card-body"
-              >
-                <div
-                  class="ant-pro-card ant-pro-statistic-card ant-pro-card-split-vertical"
-                  style="border-radius: 0;"
-                >
-                  <div
-                    class="ant-pro-card-body"
-                  >
-                    <div
-                      class="ant-pro-statistic-card-content"
-                    >
-                      <div
-                        class="ant-pro-card-statistic"
-                      >
-                        <div
-                          class="ant-pro-card-statistic-wrapper"
-                        >
-                          <div
-                            class="ant-pro-card-statistic-content"
-                          >
-                            <div
-                              class="ant-statistic ant-pro-card-statistic-layout-vertical"
-                            >
-                              <div
-                                class="ant-statistic-title"
-                              >
-                                运行中实验
-                              </div>
-                              <div
-                                class="ant-statistic-content"
-                              >
-                                <span
-                                  class="ant-statistic-content-value"
-                                >
-                                  12/56
-                                </span>
-                                <span
-                                  class="ant-statistic-content-suffix"
-                                >
-                                  个
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div
-                  class="ant-pro-card ant-pro-statistic-card"
-                  style="border-radius: 0;"
-                >
-                  <div
-                    class="ant-pro-card-body"
-                  >
-                    <div
-                      class="ant-pro-statistic-card-content"
-                    >
-                      <div
-                        class="ant-pro-card-statistic"
-                      >
-                        <div
-                          class="ant-pro-card-statistic-wrapper"
-                        >
-                          <div
-                            class="ant-pro-card-statistic-content"
-                          >
-                            <div
-                              class="ant-statistic ant-pro-card-statistic-layout-vertical"
-                            >
-                              <div
-                                class="ant-statistic-title"
-                              >
-                                历史实验总数
-                              </div>
-                              <div
-                                class="ant-statistic-content"
-                              >
-                                <span
-                                  class="ant-statistic-content-value"
-                                >
-                                  <span
-                                    class="ant-statistic-content-value-int"
-                                  >
-                                    134
-                                  </span>
-                                </span>
-                                <span
-                                  class="ant-statistic-content-suffix"
-                                >
-                                  个
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-pro-card ant-pro-statistic-card"
-          style="border-radius: 0;"
-        >
-          <div
-            class="ant-pro-card-header"
-          >
-            <div
-              class="ant-pro-card-title"
-            >
-              流量走势
-            </div>
-            <div
-              class="ant-pro-card-extra"
+            <img
+              alt="大盘"
+              src="https://gw.alipayobjects.com/zos/alicdn/qoYmFMxWY/jieping2021-03-29%252520xiawu4.32.34.png"
+              width="100%"
             />
-          </div>
-          <div
-            class="ant-pro-card-body"
-          >
-            <div
-              class="ant-pro-statistic-card-content"
-            >
-              <div
-                class="ant-pro-statistic-card-chart"
-              >
-                <div
-                  data-chart-source-type="G2Plot"
-                  size-sensor-id="27"
-                  style="height: inherit;"
-                >
-                  <div
-                    style="position:relative;"
-                  >
-                    <canvas
-                      height="250"
-                      style="width: 400px; height: 250px; display: inline-block; vertical-align: middle;"
-                      width="400"
-                    />
-                  </div>
-                  <object
-                    class="size-sensor-object"
-                    data="about:blank"
-                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                    tabindex="-1"
-                    type="text/html"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div
-      class="ant-pro-card ant-pro-statistic-card"
-      style="border-radius: 0;"
-    >
-      <div
-        class="ant-pro-card-header"
-      >
-        <div
-          class="ant-pro-card-title"
-        >
-          流量占用情况
-        </div>
-        <div
-          class="ant-pro-card-extra"
-        />
-      </div>
-      <div
-        class="ant-pro-card-body"
-      >
-        <div
-          class="ant-pro-statistic-card-content"
-        >
-          <div
-            class="ant-pro-statistic-card-chart"
-          >
-            <div
-              data-chart-source-type="G2Plot"
-              size-sensor-id="28"
-              style="height: inherit;"
-            >
-              <div
-                style="position:relative;"
-              >
-                <canvas
-                  height="250"
-                  style="width: 400px; height: 250px; display: inline-block; vertical-align: middle;"
-                  width="400"
-                />
-                <div
-                  class="g2-html-annotation"
-                  style="pointer-events: none; width: 128px; transform: translate(-50%, -100%); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; justify-content: center; align-items: center; text-shadow:  0px 0px 0px; font-weight: 300; color: rgb(75, 83, 94); text-align: center; font-size: 20px; line-height: 1; position: absolute; left: 182px; top: 115px; z-index: 7;"
-                >
-                  总计
-                </div>
-                <div
-                  class="g2-html-annotation"
-                  style="pointer-events: none; width: 128px; transform: translate(-50%, 0); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: flex; justify-content: center; align-items: center; text-shadow:  0px 0px 0px; font-weight: bold; color: rgba(44, 53, 66, 0.85); text-align: center; font-size: 32px; line-height: 1; position: absolute; left: 182px; top: 135px; z-index: 7;"
-                >
-                  100
-                </div>
-              </div>
-              <object
-                class="size-sensor-object"
-                data="about:blank"
-                style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                tabindex="-1"
-                type="text/html"
-              />
-            </div>
-            <div
-              class="ant-table-wrapper"
-              style="margin-top: 16px;"
-            >
-              <div
-                class="ant-spin-nested-loading"
-              >
-                <div
-                  class="ant-spin-container"
-                >
-                  <div
-                    class="ant-table"
-                  >
-                    <div
-                      class="ant-table-container"
-                    >
-                      <div
-                        class="ant-table-content"
-                      >
-                        <table
-                          style="table-layout: auto;"
-                        >
-                          <colgroup />
-                          <thead
-                            class="ant-table-thead"
-                          >
-                            <tr>
-                              <th
-                                class="ant-table-cell"
-                              >
-                                名称
-                              </th>
-                              <th
-                                class="ant-table-cell"
-                              >
-                                占比
-                              </th>
-                              <th
-                                class="ant-table-cell"
-                              >
-                                流量
-                              </th>
-                            </tr>
-                          </thead>
-                          <tbody
-                            class="ant-table-tbody"
-                          >
-                            <tr
-                              class="ant-table-row ant-table-row-level-0"
-                              data-row-key="1"
-                            >
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <a>
-                                  John Brown
-                                </a>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <div
-                                  data-chart-source-type="G2Plot"
-                                  size-sensor-id="29"
-                                  style="height: inherit;"
-                                >
-                                  <div
-                                    style="position:relative;"
-                                  >
-                                    <canvas
-                                      height="20"
-                                      style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-                                      width="400"
-                                    />
-                                  </div>
-                                  <object
-                                    class="size-sensor-object"
-                                    data="about:blank"
-                                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                                    tabindex="-1"
-                                    type="text/html"
-                                  />
-                                </div>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                2335
-                              </td>
-                            </tr>
-                            <tr
-                              class="ant-table-row ant-table-row-level-0"
-                              data-row-key="2"
-                            >
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <a>
-                                  Jim Green
-                                </a>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <div
-                                  data-chart-source-type="G2Plot"
-                                  size-sensor-id="30"
-                                  style="height: inherit;"
-                                >
-                                  <div
-                                    style="position:relative;"
-                                  >
-                                    <canvas
-                                      height="20"
-                                      style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-                                      width="400"
-                                    />
-                                  </div>
-                                  <object
-                                    class="size-sensor-object"
-                                    data="about:blank"
-                                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                                    tabindex="-1"
-                                    type="text/html"
-                                  />
-                                </div>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                3245
-                              </td>
-                            </tr>
-                            <tr
-                              class="ant-table-row ant-table-row-level-0"
-                              data-row-key="3"
-                            >
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <a>
-                                  Joe Black
-                                </a>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                <div
-                                  data-chart-source-type="G2Plot"
-                                  size-sensor-id="31"
-                                  style="height: inherit;"
-                                >
-                                  <div
-                                    style="position:relative;"
-                                  >
-                                    <canvas
-                                      height="20"
-                                      style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-                                      width="400"
-                                    />
-                                  </div>
-                                  <object
-                                    class="size-sensor-object"
-                                    data="about:blank"
-                                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                                    tabindex="-1"
-                                    type="text/html"
-                                  />
-                                </div>
-                              </td>
-                              <td
-                                class="ant-table-cell"
-                              >
-                                3445
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -4552,22 +2863,441 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
 </div>
 `;
 
+exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/tabs-statistic.tsx correctly 1`] = `
+<div
+  class="ant-pro-card"
+>
+  <div
+    class="ant-pro-card-tabs"
+  >
+    <div
+      class="ant-tabs ant-tabs-top"
+    >
+      <div
+        class="ant-tabs-nav"
+        role="tablist"
+      >
+        <div
+          class="ant-tabs-nav-wrap"
+        >
+          <div
+            class="ant-tabs-nav-list"
+            style="transform: translate(0px, 0px);"
+          >
+            <div
+              class="ant-tabs-tab ant-tabs-tab-active"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-1"
+                aria-selected="true"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-1"
+                role="tab"
+                tabindex="0"
+              >
+                <div
+                  class="ant-pro-card-statistic"
+                  style="width: 120px; border-right: 1px solid #f0f0f0;"
+                >
+                  <div
+                    class="ant-pro-card-statistic-wrapper"
+                  >
+                    <div
+                      class="ant-pro-card-statistic-content"
+                    >
+                      <div
+                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                      >
+                        <div
+                          class="ant-statistic-title"
+                        >
+                          全部
+                        </div>
+                        <div
+                          class="ant-statistic-content"
+                        >
+                          <span
+                            class="ant-statistic-content-value"
+                          >
+                            <span
+                              class="ant-statistic-content-value-int"
+                            >
+                              10
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-2"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-2"
+                role="tab"
+                tabindex="0"
+              >
+                <div
+                  class="ant-pro-card-statistic"
+                  style="width: 120px;"
+                >
+                  <div
+                    class="ant-pro-card-statistic-wrapper"
+                  >
+                    <div
+                      class="ant-pro-card-statistic-status"
+                    >
+                      <span
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                      >
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-default"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        />
+                      </span>
+                    </div>
+                    <div
+                      class="ant-pro-card-statistic-content"
+                    >
+                      <div
+                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                      >
+                        <div
+                          class="ant-statistic-title"
+                        >
+                          未发布
+                        </div>
+                        <div
+                          class="ant-statistic-content"
+                        >
+                          <span
+                            class="ant-statistic-content-value"
+                          >
+                            <span
+                              class="ant-statistic-content-value-int"
+                            >
+                              5
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-3"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-3"
+                role="tab"
+                tabindex="0"
+              >
+                <div
+                  class="ant-pro-card-statistic"
+                  style="width: 120px;"
+                >
+                  <div
+                    class="ant-pro-card-statistic-wrapper"
+                  >
+                    <div
+                      class="ant-pro-card-statistic-status"
+                    >
+                      <span
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                      >
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-processing"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        />
+                      </span>
+                    </div>
+                    <div
+                      class="ant-pro-card-statistic-content"
+                    >
+                      <div
+                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                      >
+                        <div
+                          class="ant-statistic-title"
+                        >
+                          发布中
+                        </div>
+                        <div
+                          class="ant-statistic-content"
+                        >
+                          <span
+                            class="ant-statistic-content-value"
+                          >
+                            <span
+                              class="ant-statistic-content-value-int"
+                            >
+                              3
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-4"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-4"
+                role="tab"
+                tabindex="0"
+              >
+                <div
+                  class="ant-pro-card-statistic"
+                  style="width: 120px;"
+                >
+                  <div
+                    class="ant-pro-card-statistic-wrapper"
+                  >
+                    <div
+                      class="ant-pro-card-statistic-status"
+                    >
+                      <span
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                      >
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-error"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        />
+                      </span>
+                    </div>
+                    <div
+                      class="ant-pro-card-statistic-content"
+                    >
+                      <div
+                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                      >
+                        <div
+                          class="ant-statistic-title"
+                        >
+                          发布异常
+                        </div>
+                        <div
+                          class="ant-statistic-content"
+                        >
+                          <span
+                            class="ant-statistic-content-value"
+                          >
+                            <span
+                              class="ant-statistic-content-value-int"
+                            >
+                              1
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-tabs-tab"
+            >
+              <div
+                aria-controls="rc-tabs-test-panel-5"
+                aria-selected="false"
+                class="ant-tabs-tab-btn"
+                id="rc-tabs-test-tab-5"
+                role="tab"
+                tabindex="0"
+              >
+                <div
+                  class="ant-pro-card-statistic"
+                  style="width: 120px;"
+                >
+                  <div
+                    class="ant-pro-card-statistic-wrapper"
+                  >
+                    <div
+                      class="ant-pro-card-statistic-status"
+                    >
+                      <span
+                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                      >
+                        <span
+                          class="ant-badge-status-dot ant-badge-status-success"
+                        />
+                        <span
+                          class="ant-badge-status-text"
+                        />
+                      </span>
+                    </div>
+                    <div
+                      class="ant-pro-card-statistic-content"
+                    >
+                      <div
+                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
+                      >
+                        <div
+                          class="ant-statistic-title"
+                        >
+                          发布成功
+                        </div>
+                        <div
+                          class="ant-statistic-content"
+                        >
+                          <span
+                            class="ant-statistic-content-value"
+                          >
+                            <span
+                              class="ant-statistic-content-value-int"
+                            >
+                              1
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+              style="left: 0px; width: 0px;"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+        >
+          <button
+            aria-controls="rc-tabs-test-more-popup"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-hidden="true"
+            class="ant-tabs-nav-more"
+            id="rc-tabs-test-more"
+            style="visibility: hidden; order: 1;"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="ellipsis"
+              class="anticon anticon-ellipsis"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="ellipsis"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+      <div
+        class="ant-tabs-content-holder"
+      >
+        <div
+          class="ant-tabs-content ant-tabs-content-top"
+        >
+          <div
+            aria-hidden="false"
+            aria-labelledby="rc-tabs-test-tab-1"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active ant-pro-card-tabpane"
+            id="rc-tabs-test-panel-1"
+            role="tabpanel"
+            style="width: 100%;"
+            tabindex="0"
+          >
+            <div
+              class="ant-pro-card"
+            >
+              <div
+                class="ant-pro-card-body"
+              >
+                <div
+                  style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
+                >
+                  关联展示内容 全部
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            aria-labelledby="rc-tabs-test-tab-2"
+            class="ant-tabs-tabpane ant-pro-card-tabpane"
+            id="rc-tabs-test-panel-2"
+            role="tabpanel"
+            style="display: none; width: 100%;"
+            tabindex="-1"
+          />
+          <div
+            aria-hidden="true"
+            aria-labelledby="rc-tabs-test-tab-3"
+            class="ant-tabs-tabpane ant-pro-card-tabpane"
+            id="rc-tabs-test-panel-3"
+            role="tabpanel"
+            style="display: none; width: 100%;"
+            tabindex="-1"
+          />
+          <div
+            aria-hidden="true"
+            aria-labelledby="rc-tabs-test-tab-4"
+            class="ant-tabs-tabpane ant-pro-card-tabpane"
+            id="rc-tabs-test-panel-4"
+            role="tabpanel"
+            style="display: none; width: 100%;"
+            tabindex="-1"
+          />
+          <div
+            aria-hidden="true"
+            aria-labelledby="rc-tabs-test-tab-5"
+            class="ant-tabs-tabpane ant-pro-card-tabpane"
+            id="rc-tabs-test-panel-5"
+            role="tabpanel"
+            style="display: none; width: 100%;"
+            tabindex="-1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/total.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card ant-pro-card-contain-card"
 >
-  <div
-    class="ant-pro-card-header"
-  >
-    <div
-      class="ant-pro-card-title"
-    >
-      核心指标
-    </div>
-    <div
-      class="ant-pro-card-extra"
-    />
-  </div>
   <div
     class="ant-pro-card-body"
     style="padding: 0px;"
@@ -4633,28 +3363,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
           <div
             class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-left"
           >
-            <div
-              data-chart-source-type="G2Plot"
-              size-sensor-id="36"
-              style="height: inherit;"
-            >
-              <div
-                style="position:relative;"
-              >
-                <canvas
-                  height="64"
-                  style="width: 64px; height: 64px; display: inline-block; vertical-align: middle;"
-                  width="64"
-                />
-              </div>
-              <object
-                class="size-sensor-object"
-                data="about:blank"
-                style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                tabindex="-1"
-                type="text/html"
-              />
-            </div>
+            <img
+              alt="百分比"
+              src="https://gw.alipayobjects.com/zos/alicdn/ShNDpDTik/huan.svg"
+              width="100%"
+            />
           </div>
           <div
             class="ant-pro-card-statistic"
@@ -4739,28 +3452,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
           <div
             class="ant-pro-statistic-card-chart ant-pro-statistic-card-chart-left"
           >
-            <div
-              data-chart-source-type="G2Plot"
-              size-sensor-id="37"
-              style="height: inherit;"
-            >
-              <div
-                style="position:relative;"
-              >
-                <canvas
-                  height="64"
-                  style="width: 64px; height: 64px; display: inline-block; vertical-align: middle;"
-                  width="64"
-                />
-              </div>
-              <object
-                class="size-sensor-object"
-                data="about:blank"
-                style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                tabindex="-1"
-                type="text/html"
-              />
-            </div>
+            <img
+              alt="百分比"
+              src="https://gw.alipayobjects.com/zos/alicdn/6YR18tCxJ/huanlv.svg"
+              width="100%"
+            />
           </div>
           <div
             class="ant-pro-card-statistic"
@@ -4845,7 +3541,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
     class="ant-pro-card-body"
   >
     <div
-      class="ant-pro-card ant-pro-statistic-card ant-pro-card-split-vertical ant-pro-card-span-7"
+      class="ant-pro-card ant-pro-statistic-card ant-pro-card-split-vertical ant-pro-card-span-6"
       style="border-radius: 0;"
     >
       <div
@@ -4949,32 +3645,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
           <div
             class="ant-pro-statistic-card-chart"
           >
-            <div
-              style="margin: 24px 0px;"
-            >
-              <div
-                data-chart-source-type="G2Plot"
-                size-sensor-id="32"
-                style="height: inherit;"
-              >
-                <div
-                  style="position:relative;"
-                >
-                  <canvas
-                    height="20"
-                    style="width: 400px; height: 20px; display: inline-block; vertical-align: middle;"
-                    width="400"
-                  />
-                </div>
-                <object
-                  class="size-sensor-object"
-                  data="about:blank"
-                  style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                  tabindex="-1"
-                  type="text/html"
-                />
-              </div>
-            </div>
+            <img
+              alt="进度条"
+              src="https://gw.alipayobjects.com/zos/alicdn/PmKfn4qvD/mubiaowancheng-lan.svg"
+              width="100%"
+            />
           </div>
         </div>
         <div
@@ -5074,7 +3749,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       </div>
     </div>
     <div
-      class="ant-pro-card ant-pro-statistic-card ant-pro-card-span-17 ant-pro-card-contain-card"
+      class="ant-pro-card ant-pro-statistic-card ant-pro-card-span-18 ant-pro-card-contain-card"
     >
       <div
         class="ant-pro-card-body"
@@ -5168,28 +3843,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
               <div
                 class="ant-pro-statistic-card-chart"
               >
-                <div
-                  data-chart-source-type="G2Plot"
-                  size-sensor-id="33"
-                  style="height: inherit;"
-                >
-                  <div
-                    style="position:relative;"
-                  >
-                    <canvas
-                      height="104"
-                      style="width: 400px; height: 104px; display: inline-block; vertical-align: middle;"
-                      width="400"
-                    />
-                  </div>
-                  <object
-                    class="size-sensor-object"
-                    data="about:blank"
-                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                    tabindex="-1"
-                    type="text/html"
-                  />
-                </div>
+                <img
+                  alt="折线图"
+                  src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
+                  width="100%"
+                />
               </div>
             </div>
             <div
@@ -5357,28 +4015,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
               <div
                 class="ant-pro-statistic-card-chart"
               >
-                <div
-                  data-chart-source-type="G2Plot"
-                  size-sensor-id="34"
-                  style="height: inherit;"
-                >
-                  <div
-                    style="position:relative;"
-                  >
-                    <canvas
-                      height="104"
-                      style="width: 400px; height: 104px; display: inline-block; vertical-align: middle;"
-                      width="400"
-                    />
-                  </div>
-                  <object
-                    class="size-sensor-object"
-                    data="about:blank"
-                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                    tabindex="-1"
-                    type="text/html"
-                  />
-                </div>
+                <img
+                  alt="折线图"
+                  src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
+                  width="100%"
+                />
               </div>
             </div>
             <div
@@ -5545,28 +4186,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
               <div
                 class="ant-pro-statistic-card-chart"
               >
-                <div
-                  data-chart-source-type="G2Plot"
-                  size-sensor-id="35"
-                  style="height: inherit;"
-                >
-                  <div
-                    style="position:relative;"
-                  >
-                    <canvas
-                      height="104"
-                      style="width: 400px; height: 104px; display: inline-block; vertical-align: middle;"
-                      width="400"
-                    />
-                  </div>
-                  <object
-                    class="size-sensor-object"
-                    data="about:blank"
-                    style="display: block; position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; pointer-events: none; z-index: -1; opacity: 0;"
-                    tabindex="-1"
-                    type="text/html"
-                  />
-                </div>
+                <img
+                  alt="折线图"
+                  src="https://gw.alipayobjects.com/zos/alicdn/zevpN7Nv_/xiaozhexiantu.svg"
+                  width="100%"
+                />
               </div>
             </div>
             <div
@@ -8095,437 +6719,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/tabs-card.tsx correct
             id="rc-tabs-test-panel-tab2"
             role="tabpanel"
             style="display: none;"
-            tabindex="-1"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`card demos 📸 renders ./packages/card/src/demos/tabs-statistic.tsx correctly 1`] = `
-<div
-  class="ant-pro-card"
->
-  <div
-    class="ant-pro-card-tabs"
-  >
-    <div
-      class="ant-tabs ant-tabs-top"
-    >
-      <div
-        class="ant-tabs-nav"
-        role="tablist"
-      >
-        <div
-          class="ant-tabs-nav-wrap"
-        >
-          <div
-            class="ant-tabs-nav-list"
-            style="transform: translate(0px, 0px);"
-          >
-            <div
-              class="ant-tabs-tab ant-tabs-tab-active"
-            >
-              <div
-                aria-controls="rc-tabs-test-panel-1"
-                aria-selected="true"
-                class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-1"
-                role="tab"
-                tabindex="0"
-              >
-                <div
-                  class="ant-pro-card-statistic"
-                  style="width: 120px; border-right: 1px solid #f0f0f0;"
-                >
-                  <div
-                    class="ant-pro-card-statistic-wrapper"
-                  >
-                    <div
-                      class="ant-pro-card-statistic-content"
-                    >
-                      <div
-                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
-                      >
-                        <div
-                          class="ant-statistic-title"
-                        >
-                          全部
-                        </div>
-                        <div
-                          class="ant-statistic-content"
-                        >
-                          <span
-                            class="ant-statistic-content-value"
-                          >
-                            <span
-                              class="ant-statistic-content-value-int"
-                            >
-                              10
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-tabs-tab"
-            >
-              <div
-                aria-controls="rc-tabs-test-panel-2"
-                aria-selected="false"
-                class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-2"
-                role="tab"
-                tabindex="0"
-              >
-                <div
-                  class="ant-pro-card-statistic"
-                  style="width: 120px;"
-                >
-                  <div
-                    class="ant-pro-card-statistic-wrapper"
-                  >
-                    <div
-                      class="ant-pro-card-statistic-status"
-                    >
-                      <span
-                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                      >
-                        <span
-                          class="ant-badge-status-dot ant-badge-status-default"
-                        />
-                        <span
-                          class="ant-badge-status-text"
-                        />
-                      </span>
-                    </div>
-                    <div
-                      class="ant-pro-card-statistic-content"
-                    >
-                      <div
-                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
-                      >
-                        <div
-                          class="ant-statistic-title"
-                        >
-                          未发布
-                        </div>
-                        <div
-                          class="ant-statistic-content"
-                        >
-                          <span
-                            class="ant-statistic-content-value"
-                          >
-                            <span
-                              class="ant-statistic-content-value-int"
-                            >
-                              5
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-tabs-tab"
-            >
-              <div
-                aria-controls="rc-tabs-test-panel-3"
-                aria-selected="false"
-                class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-3"
-                role="tab"
-                tabindex="0"
-              >
-                <div
-                  class="ant-pro-card-statistic"
-                  style="width: 120px;"
-                >
-                  <div
-                    class="ant-pro-card-statistic-wrapper"
-                  >
-                    <div
-                      class="ant-pro-card-statistic-status"
-                    >
-                      <span
-                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                      >
-                        <span
-                          class="ant-badge-status-dot ant-badge-status-processing"
-                        />
-                        <span
-                          class="ant-badge-status-text"
-                        />
-                      </span>
-                    </div>
-                    <div
-                      class="ant-pro-card-statistic-content"
-                    >
-                      <div
-                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
-                      >
-                        <div
-                          class="ant-statistic-title"
-                        >
-                          发布中
-                        </div>
-                        <div
-                          class="ant-statistic-content"
-                        >
-                          <span
-                            class="ant-statistic-content-value"
-                          >
-                            <span
-                              class="ant-statistic-content-value-int"
-                            >
-                              3
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-tabs-tab"
-            >
-              <div
-                aria-controls="rc-tabs-test-panel-4"
-                aria-selected="false"
-                class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-4"
-                role="tab"
-                tabindex="0"
-              >
-                <div
-                  class="ant-pro-card-statistic"
-                  style="width: 120px;"
-                >
-                  <div
-                    class="ant-pro-card-statistic-wrapper"
-                  >
-                    <div
-                      class="ant-pro-card-statistic-status"
-                    >
-                      <span
-                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                      >
-                        <span
-                          class="ant-badge-status-dot ant-badge-status-error"
-                        />
-                        <span
-                          class="ant-badge-status-text"
-                        />
-                      </span>
-                    </div>
-                    <div
-                      class="ant-pro-card-statistic-content"
-                    >
-                      <div
-                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
-                      >
-                        <div
-                          class="ant-statistic-title"
-                        >
-                          发布异常
-                        </div>
-                        <div
-                          class="ant-statistic-content"
-                        >
-                          <span
-                            class="ant-statistic-content-value"
-                          >
-                            <span
-                              class="ant-statistic-content-value-int"
-                            >
-                              1
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-tabs-tab"
-            >
-              <div
-                aria-controls="rc-tabs-test-panel-5"
-                aria-selected="false"
-                class="ant-tabs-tab-btn"
-                id="rc-tabs-test-tab-5"
-                role="tab"
-                tabindex="0"
-              >
-                <div
-                  class="ant-pro-card-statistic"
-                  style="width: 120px;"
-                >
-                  <div
-                    class="ant-pro-card-statistic-wrapper"
-                  >
-                    <div
-                      class="ant-pro-card-statistic-status"
-                    >
-                      <span
-                        class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
-                      >
-                        <span
-                          class="ant-badge-status-dot ant-badge-status-success"
-                        />
-                        <span
-                          class="ant-badge-status-text"
-                        />
-                      </span>
-                    </div>
-                    <div
-                      class="ant-pro-card-statistic-content"
-                    >
-                      <div
-                        class="ant-statistic ant-pro-card-statistic-layout-vertical"
-                      >
-                        <div
-                          class="ant-statistic-title"
-                        >
-                          发布成功
-                        </div>
-                        <div
-                          class="ant-statistic-content"
-                        >
-                          <span
-                            class="ant-statistic-content-value"
-                          >
-                            <span
-                              class="ant-statistic-content-value-int"
-                            >
-                              1
-                            </span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
-              style="left: 0px; width: 0px;"
-            />
-          </div>
-        </div>
-        <div
-          class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
-        >
-          <button
-            aria-controls="rc-tabs-test-more-popup"
-            aria-expanded="false"
-            aria-haspopup="listbox"
-            aria-hidden="true"
-            class="ant-tabs-nav-more"
-            id="rc-tabs-test-more"
-            style="visibility: hidden; order: 1;"
-            tabindex="-1"
-            type="button"
-          >
-            <span
-              aria-label="ellipsis"
-              class="anticon anticon-ellipsis"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="ellipsis"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
-                />
-              </svg>
-            </span>
-          </button>
-        </div>
-      </div>
-      <div
-        class="ant-tabs-content-holder"
-      >
-        <div
-          class="ant-tabs-content ant-tabs-content-top"
-        >
-          <div
-            aria-hidden="false"
-            aria-labelledby="rc-tabs-test-tab-1"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active ant-pro-card-tabpane"
-            id="rc-tabs-test-panel-1"
-            role="tabpanel"
-            style="width: 100%;"
-            tabindex="0"
-          >
-            <div
-              class="ant-pro-card"
-            >
-              <div
-                class="ant-pro-card-body"
-              >
-                <div
-                  style="display: flex; align-items: center; justify-content: center; background-color: rgb(250, 250, 250); height: 100px;"
-                >
-                  关联展示内容 全部
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            aria-hidden="true"
-            aria-labelledby="rc-tabs-test-tab-2"
-            class="ant-tabs-tabpane ant-pro-card-tabpane"
-            id="rc-tabs-test-panel-2"
-            role="tabpanel"
-            style="display: none; width: 100%;"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            aria-labelledby="rc-tabs-test-tab-3"
-            class="ant-tabs-tabpane ant-pro-card-tabpane"
-            id="rc-tabs-test-panel-3"
-            role="tabpanel"
-            style="display: none; width: 100%;"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            aria-labelledby="rc-tabs-test-tab-4"
-            class="ant-tabs-tabpane ant-pro-card-tabpane"
-            id="rc-tabs-test-panel-4"
-            role="tabpanel"
-            style="display: none; width: 100%;"
-            tabindex="-1"
-          />
-          <div
-            aria-hidden="true"
-            aria-labelledby="rc-tabs-test-tab-5"
-            class="ant-tabs-tabpane ant-pro-card-tabpane"
-            id="rc-tabs-test-panel-5"
-            role="tabpanel"
-            style="display: none; width: 100%;"
             tabindex="-1"
           />
         </div>

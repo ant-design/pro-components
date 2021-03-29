@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# ProForm
+# ProForm 高级表单
 
 ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们快速的开发一个表单。同时添加一些默认行为，让我们的表单默认好用。
 

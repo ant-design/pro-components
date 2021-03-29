@@ -2,8 +2,6 @@ import React from 'react';
 import { RightOutlined, EllipsisOutlined } from '@ant-design/icons';
 import { StatisticCard } from '@ant-design/pro-card';
 import { Space } from 'antd';
-import MiniArea from './charts/MiniArea';
-import MiniProgress from './charts/MiniProgress';
 
 const { Statistic } = StatisticCard;
 
@@ -29,8 +27,11 @@ export default () => {
       }}
       chart={
         <>
-          <MiniProgress bgColor="#F4664A" />
-          <MiniArea />
+          <img
+            src="https://gw.alipayobjects.com/zos/alicdn/BA_R9SIAV/charts.svg"
+            alt="chart"
+            width="100%"
+          />
         </>
       }
       style={{ width: 268 }}

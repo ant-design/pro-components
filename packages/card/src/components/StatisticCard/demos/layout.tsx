@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import ProCard, { StatisticCard } from '@ant-design/pro-card';
 import RcResizeObserver from 'rc-resize-observer';
-import Ring from './charts/Ring';
-import Line from './charts/Line';
-import ChartTable from './charts/ChartTable';
 
 const { Statistic } = StatisticCard;
 
@@ -59,15 +56,24 @@ export default () => {
               />
             </ProCard>
           </ProCard>
-          <StatisticCard title="流量走势" chart={<Line height={250} />} />
+          <StatisticCard
+            title="流量走势"
+            chart={
+              <img
+                src="https://gw.alipayobjects.com/zos/alicdn/_dZIob2NB/zhuzhuangtu.svg"
+                width="100%"
+              />
+            }
+          />
         </ProCard>
         <StatisticCard
           title="流量占用情况"
           chart={
-            <>
-              <Ring />
-              <ChartTable />
-            </>
+            <img
+              src="https://gw.alipayobjects.com/zos/alicdn/qoYmFMxWY/jieping2021-03-29%252520xiawu4.32.34.png"
+              alt="大盘"
+              width="100%"
+            />
           }
         />
       </ProCard>
