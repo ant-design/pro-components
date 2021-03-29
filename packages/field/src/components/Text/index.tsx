@@ -23,7 +23,7 @@ const FieldText: ProFieldFC<{
   );
 
   if (mode === 'read') {
-    const dom = text || '-';
+    const dom = text ?? '-';
     if (render) {
       return render(text, { mode, ...fieldProps }, <>{dom}</>);
     }
