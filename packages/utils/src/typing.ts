@@ -200,7 +200,7 @@ export type ProSchema<
       recordKey?: React.Key | React.Key[];
       record?: T;
       isEditable?: boolean;
-      defaultRender?: (newItem: ProSchema<T, Extra, V, ValueType>) => JSX.Element | null;
+      defaultRender: (newItem: ProSchema<T, Extra, V, ValueType>) => JSX.Element | null;
     },
     form: FormInstance,
   ) => React.ReactNode;

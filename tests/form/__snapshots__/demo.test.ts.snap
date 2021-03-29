@@ -24608,6 +24608,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
 exports[`form demos 📸 renders ./packages/form/src/demos/schema.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"
+  trigger="[object Object]"
 >
   <input
     style="display: none;"
@@ -25088,8 +25089,11 @@ exports[`form demos 📸 renders ./packages/form/src/demos/schema.tsx correctly 
           <div
             class="ant-pro-form-list"
           >
-            <div>
+            <div
+              style="max-width: 100%;"
+            >
               <div
+                class="ant-pro-form-list-item"
                 style="display: flex; align-items: flex-end;"
               >
                 <div
