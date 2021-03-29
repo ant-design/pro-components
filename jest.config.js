@@ -21,7 +21,7 @@ module.exports = {
     'http://localhost?navTheme=realDark&layout=mix&primaryColor=daybreak&splitMenus=false&fixedHeader=true',
   verbose: true,
   snapshotSerializers: [require.resolve('enzyme-to-json/serializer')],
-  extraSetupFiles: ['./tests/setupTests.js', 'jest-useragent-mock'],
+  extraSetupFiles: ['./tests/setupTests.js'],
   globals: {
     ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION: false,
   },
