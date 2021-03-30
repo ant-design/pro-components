@@ -144,7 +144,7 @@ function useEditableMap<RecordType>(
   const actionRender = useCallback(
     (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText<RecordType>) => {
       const renderConfig: ActionRenderConfig<RecordType, NewLineConfig<RecordType>> = {
-        recordKey: recordKeyToString(key),
+        recordKey: key,
         cancelEditable,
         onCancel,
         onSave,
