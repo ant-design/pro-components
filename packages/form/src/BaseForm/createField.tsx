@@ -191,7 +191,7 @@ function createField<P extends ProFormItemProps = any>(
             ...realFieldProps?.style,
           }),
           className: classnames(realFieldProps?.className, {
-            'pro-field': true,
+            'pro-field': width && WIDTH_SIZE_ENUM[width],
             [`pro-field-${width}`]: width && WIDTH_SIZE_ENUM[width],
           }),
         })}
