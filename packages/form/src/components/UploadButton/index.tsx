@@ -8,7 +8,7 @@ import createField from '../../BaseForm/createField';
 export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
   icon?: React.ReactNode;
   title?: React.ReactNode;
-  name?: Recat.UploadProps['name'];
+  name?: UploadProps['name'];
   listType?: UploadProps['listType'];
   action?: UploadProps['action'];
   accept?: UploadProps['accept'];
@@ -27,6 +27,7 @@ export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
 const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerProps> = (
   {
     fieldProps,
+    name,
     action,
     accept,
     listType,
@@ -49,7 +50,8 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
       action={action}
       accept={accept}
       ref={ref}
-      name={name || 'fileList'}
+      //'fileList' 改成和 ant.design 文档中 Update 组件 默认 file字段一样
+      name={name || 'file'}
       listType={listType || 'picture'}
       fileList={value}
       {...fieldProps}
