@@ -8,6 +8,7 @@ import createField from '../../BaseForm/createField';
 export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
   icon?: React.ReactNode;
   title?: React.ReactNode;
+  name?: Recat.UploadProps['name'];
   listType?: UploadProps['listType'];
   action?: UploadProps['action'];
   accept?: UploadProps['accept'];
@@ -48,7 +49,7 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
       action={action}
       accept={accept}
       ref={ref}
-      name="fileList"
+      name={name || 'fileList'}
       listType={listType || 'picture'}
       fileList={value}
       {...fieldProps}
