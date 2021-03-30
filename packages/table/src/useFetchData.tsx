@@ -53,8 +53,11 @@ const useFetchData = <T extends RequestData<any>>(
 
   const requesting = useRef(false);
 
-  const [pageInfo, setPageInfo] = useMountMergeState<PageInfo>(() =>
-    mergeOptionAndPageInfo(options),
+  const [pageInfo, setPageInfo] = useMountMergeState<PageInfo>(
+    () => mergeOptionAndPageInfo(options),
+    {
+      onChange: options?.onPageInfoChange,
+    },
   );
 
   const [pollingLoading, setPollingLoading] = useMountMergeState(false);

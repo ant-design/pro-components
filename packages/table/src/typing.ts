@@ -316,6 +316,7 @@ export type UseFetchProps = {
         defaultPageSize?: number;
       }
     | false;
+  onPageInfoChange?: (pageInfo: PageInfo) => void;
   effects?: any[];
   onRequestError?: (e: Error) => void;
   manual: boolean;
