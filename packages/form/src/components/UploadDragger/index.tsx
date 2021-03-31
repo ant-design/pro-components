@@ -8,6 +8,7 @@ import createField from '../../BaseForm/createField';
 export type ProFormDraggerProps = ProFormItemProps<DraggerProps> & {
   icon?: React.ReactNode;
   title?: React.ReactNode;
+  uploadParamName?: UploadProps['uploadParamName'];
   action?: UploadProps['action'];
   accept?: UploadProps['accept'];
   description?: React.ReactNode;
@@ -27,6 +28,8 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
     {
       fieldProps,
       title = '单击或拖动文件到此区域进行上传',
+      //新增 uploadParamName 自定义字段，用来自定义上传接口字段。防止 name ['config','file'] 方式产生冲突
+      uploadParamName,
       icon = <InboxOutlined />,
       description = '支持单次或批量上传',
       action,
@@ -48,7 +51,7 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
       <Upload.Dragger
         // @ts-ignore
         ref={ref}
-        name="files"
+        name={uploadParamName || 'files'}
         action={action}
         accept={accept}
         fileList={value}
