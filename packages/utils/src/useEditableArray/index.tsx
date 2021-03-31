@@ -525,9 +525,9 @@ function useEditableArray<RecordType>(
         editRow: RecordType & {
           index?: number;
         },
-        isNewLine?: NewLineConfig<RecordType>,
+        newLine?: NewLineConfig<RecordType>,
       ) => {
-        const res = await props?.onCancel?.(recordKey, editRow, isNewLine);
+        const res = await props?.onCancel?.(recordKey, editRow, newLine);
         return res;
       },
       onDelete: async (
@@ -552,12 +552,13 @@ function useEditableArray<RecordType>(
         editRow: RecordType & {
           index?: number;
         },
-        isNewLine?: NewLineConfig<RecordType>,
+        newLine?: NewLineConfig<RecordType>,
       ) => {
-        const { options } = isNewLine || {};
-        const res = await props?.onSave?.(recordKey, editRow, isNewLine);
+        const { options } = newLine || {};
+        const res = await props?.onSave?.(recordKey, editRow, newLine);
+        // 保存时解除编辑模式
         cancelEditable(recordKey);
-        if (isNewLine) {
+        if (newLine && options?.recordKey === recordKey) {
           if (options?.position === 'top') {
             props.setDataSource([editRow, ...props.dataSource]);
           } else {
