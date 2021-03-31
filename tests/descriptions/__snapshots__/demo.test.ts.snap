@@ -1825,7 +1825,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                     class="ant-form-item-control-input-content"
                                   >
                                     <div
-                                      class="ant-input-number pro-field-xs"
+                                      class="ant-input-number pro-field pro-field-xs"
                                     >
                                       <div
                                         class="ant-input-number-handler-wrap"
