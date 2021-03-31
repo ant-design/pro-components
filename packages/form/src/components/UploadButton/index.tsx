@@ -27,7 +27,6 @@ export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
 const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerProps> = (
   {
     fieldProps,
-    //新增 uploadParamName 自定义字段，用来自定义上传接口字段。防止 name ['config','file'] 方式产生冲突
     uploadParamName,
     action,
     accept,
