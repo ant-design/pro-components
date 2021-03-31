@@ -556,8 +556,9 @@ function useEditableArray<RecordType>(
       ) => {
         const { options } = newLine || {};
         const res = await props?.onSave?.(recordKey, editRow, newLine);
+        // 保存时解除编辑模式
+        cancelEditable(recordKey);
         if (newLine && options?.recordKey === recordKey) {
-          cancelEditable(recordKey);
           if (options?.position === 'top') {
             props.setDataSource([editRow, ...props.dataSource]);
           } else {

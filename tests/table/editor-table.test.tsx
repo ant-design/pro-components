@@ -713,6 +713,7 @@ describe('EditorProTable', () => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('td a').at(0).simulate('click');
     });
     await waitForComponentToPaint(wrapper, 1000);
+
     expect(
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
     ).toBeFalsy();
@@ -760,7 +761,7 @@ describe('EditorProTable', () => {
     expect(fn).toBeCalledWith(624691229);
   });
 
-  fit('📝 support onSave when add newLine', async () => {
+  it('📝 support onSave when add newLine', async () => {
     const onSave = jest.fn();
     const onDataSourceChange = jest.fn();
     const wrapper = mount(
