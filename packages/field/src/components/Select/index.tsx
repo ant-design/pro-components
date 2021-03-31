@@ -113,7 +113,7 @@ const Highlight: React.FC<{
   label: string;
   words: string[];
 }> = ({ label, words }) => {
-  const reg = new RegExp(words.join('|'), 'g');
+  const reg = new RegExp(words.map((w) => w.replace(/\\/g, '\\\\')).join('|'), 'g');
   const token = label.replace(reg, '#@$&#');
   const elements = token.split('#').map((x) =>
     x[0] === '@'
