@@ -148,7 +148,13 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         );
         onSortChange(omitUndefined<any>(data));
       } else {
-        onSortChange(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
+        const sorterOfColumn = sorter.column?.sorter;
+        const isSortByField = sorterOfColumn?.toString() === sorterOfColumn;
+        onSortChange(
+          omitUndefined({
+            [`${isSortByField ? sorterOfColumn : sorter.field}`]: sorter.order as SortOrder,
+          }),
+        );
       }
     },
   });
