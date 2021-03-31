@@ -11,10 +11,10 @@ const PRIMARY = '#1890ff';
 const COLORS = { RED, YELLOW, GREEN, PRIMARY };
 
 const getStrokeColor = (percent: number) => {
-  if (percent < 30) {
+  if (percent < 50) {
     return COLORS.RED;
   }
-  if (percent < 60) {
+  if (percent < 100) {
     return COLORS.YELLOW;
   }
   return COLORS.GREEN;
@@ -140,7 +140,8 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
   progressProps,
   ...rest
 }) => {
-  let prevIsError = false;
+  let isPrevError = true;
+  let isDoneFirstValidate = false;
   return (
     <Form.Item shouldUpdate={true} noStyle>
       {(form) => {
@@ -149,7 +150,11 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
         const isValidating = form.isFieldValidating(name);
         const isTouched = form.isFieldTouched(name);
         if (!isValidating) {
-          prevIsError = !!fieldError.length;
+          if (isDoneFirstValidate) {
+            isPrevError = !!fieldError.length;
+          }
+        } else {
+          isDoneFirstValidate = true;
         }
         return (
           <Form.Item
@@ -178,7 +183,10 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
                   <Popover
                     trigger={popoverProps?.trigger || 'focus'}
                     placement={popoverProps?.placement}
-                    visible={isValidating ? prevIsError : !!fieldError.length}
+                    visible={
+                      // eslint-disable-next-line no-nested-ternary
+                      isTouched ? (isValidating ? isPrevError : !!fieldError.length) : undefined
+                    }
                     content={
                       <Content
                         fieldError={fieldError}

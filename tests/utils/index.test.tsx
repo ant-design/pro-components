@@ -266,7 +266,9 @@ describe('utils', () => {
       html.find('Input#test').simulate('focus');
     });
     await waitForComponentToPaint(html, 100);
-    expect(html.find('div.ant-popover').exists()).toBeFalsy();
+    expect(html.find('div.ant-popover').exists()).toBeTruthy();
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(0);
+    expect(html.find('.ant-popover .anticon.anticon-close-circle').length).toEqual(0);
 
     act(() => {
       html.find('Input#test').simulate('change', {
