@@ -266,14 +266,7 @@ describe('utils', () => {
       html.find('Input#test').simulate('focus');
     });
     await waitForComponentToPaint(html, 100);
-    expect(html.find('div.ant-popover').exists()).toBeTruthy();
-    const li = html.find('div.ant-popover ul li');
-    expect(li.length).toEqual(4);
-    expect(li.at(0).find('.ant-space-item span').text()).toEqual(ruleMessage.required);
-    expect(li.at(1).find('.ant-space-item span').text()).toEqual(ruleMessage.min);
-    expect(li.at(2).find('.ant-space-item span').text()).toEqual(ruleMessage.numberRequired);
-    expect(li.at(3).find('.ant-space-item span').text()).toEqual(ruleMessage.alphaRequired);
-    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(0);
+    expect(html.find('div.ant-popover').exists()).toBeFalsy();
 
     act(() => {
       html.find('Input#test').simulate('change', {
@@ -283,72 +276,43 @@ describe('utils', () => {
       });
     });
     await waitForComponentToPaint(html, 1000);
+
+    const li = html.find('div.ant-popover .ant-popover-inner-content ul li');
+    expect(li.length).toEqual(4);
+    expect(li.at(0).find('.ant-space-item span').at(1).text()).toEqual(ruleMessage.required);
+    expect(li.at(1).find('.ant-space-item span').at(1).text()).toEqual(ruleMessage.min);
+    expect(li.at(2).find('.ant-space-item span').at(1).text()).toEqual(ruleMessage.numberRequired);
+    expect(li.at(3).find('.ant-space-item span').at(1).text()).toEqual(ruleMessage.alphaRequired);
     expect(
       html
         .find('div.ant-popover .ant-progress-bg')
         .at(0)
         .getDOMNode()
         .getAttribute('style')
-        ?.indexOf('width: 75%'),
+        ?.indexOf('width: 50%'),
     ).toBeGreaterThanOrEqual(0);
-    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(3);
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(2);
 
-    // act(() => {
-    //   html.find('Input#test').simulate('change', {
-    //     target: {
-    //       value: 'aaaabbbbcccc',
-    //     },
-    //   });
-    // });
-    // await waitForComponentToPaint(html, 100);
-    // console.log(
-    //   html.find('div.ant-popover .ant-progress-bg').at(0).getDOMNode().getAttribute('style'),
-    // );
-    // expect(
-    //   html
-    //     .find('div.ant-popover .ant-progress-bg')
-    //     .at(0)
-    //     .getDOMNode()
-    //     .getAttribute('style')
-    //     ?.indexOf('width: 75%'),
-    // ).toBeGreaterThanOrEqual(0);
-    // expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(3);
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: '12345678901AB',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 1000);
+    expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeTruthy();
 
-    // act(() => {
-    //   html.find('Input#test').simulate('change', {
-    //     target: {
-    //       value: 'aaaabbbbcccc1',
-    //     },
-    //   });
-    // });
-    // await waitForComponentToPaint(html, 100);
-    // expect(
-    //   html
-    //     .find('div.ant-popover .ant-progress-bg')
-    //     .at(0)
-    //     .getDOMNode()
-    //     .getAttribute('style')
-    //     ?.indexOf('width: 100%'),
-    // ).toBeGreaterThanOrEqual(0);
-    // expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(4);
-
-    // act(() => {
-    //   html.find('Input#test').simulate('change', {
-    //     target: {
-    //       value: '_',
-    //     },
-    //   });
-    // });
-    // await waitForComponentToPaint(html, 100);
-    // expect(
-    //   html
-    //     .find('div.ant-popover .ant-progress-bg')
-    //     .at(0)
-    //     .getDOMNode()
-    //     .getAttribute('style')
-    //     ?.indexOf('width: 25%'),
-    // ).toBeGreaterThanOrEqual(0);
-    // expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(1);
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: '',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 1000);
+    expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeFalsy();
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(0);
   });
 
   it('📅 InlineErrorFormItem no progress', async () => {
@@ -373,30 +337,12 @@ describe('utils', () => {
     act(() => {
       html.find('Input#test').simulate('focus');
     });
-    await waitForComponentToPaint(html, 100);
-    expect(html.find('div.ant-popover .ant-progress').exists()).toBeFalsy();
-  });
-
-  it('📅 InlineErrorFormItem no progress', async () => {
-    const html = mount(
-      <Form>
-        <InlineErrorFormItem
-          errorType="popover"
-          rules={[
-            {
-              required: true,
-              message: '必填项',
-            },
-          ]}
-          popoverProps={{ trigger: 'focus' }}
-          name="title"
-        >
-          <Input id="test" />
-        </InlineErrorFormItem>
-      </Form>,
-    );
     act(() => {
-      html.find('Input#test').simulate('focus');
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: '1',
+        },
+      });
     });
     await waitForComponentToPaint(html, 100);
     expect(html.find('div.ant-popover .ant-progress').exists()).toBeFalsy();
@@ -426,6 +372,13 @@ describe('utils', () => {
     );
     act(() => {
       html.find('Input#test').simulate('focus');
+    });
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: '1',
+        },
+      });
     });
     await waitForComponentToPaint(html, 100);
     expect(html.find('div.ant-popover .ant-progress').exists()).toBeTruthy();
