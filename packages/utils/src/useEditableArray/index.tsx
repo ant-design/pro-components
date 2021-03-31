@@ -557,7 +557,7 @@ function useEditableArray<RecordType>(
         const { options } = isNewLine || {};
         const res = await props?.onSave?.(recordKey, editRow, isNewLine);
         cancelEditable(recordKey);
-        if (isNewLine) {
+        if (isNewLine && options?.recordKey === recordKey) {
           if (options?.position === 'top') {
             props.setDataSource([editRow, ...props.dataSource]);
           } else {
