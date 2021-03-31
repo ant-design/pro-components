@@ -264,6 +264,8 @@ export const useFieldFetchData = (
 
   const { data, mutate: setLocaleData } = useSWR(key, fetchData, {
     revalidateOnFocus: false,
+    shouldRetryOnError: false,
+    revalidateOnReconnect: false,
   });
 
   return [
