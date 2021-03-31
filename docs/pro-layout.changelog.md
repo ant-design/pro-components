@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.16.0
+
+`2021-03-31`
+
+- 💥 feat(layout): layout support request [#2363](https://github.com/ant-design/pro-components/pull/2363) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.15.5
 
 `2021-03-29`

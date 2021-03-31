@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.6.11
+
+`2021-03-31`
+
+- 🐛 fix(descriptions): fix descriptions onsave no work where key is array [#2350](https://github.com/ant-design/pro-components/pull/2350) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-descriptions@1.6.10
 
 `2021-03-29`

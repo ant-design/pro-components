@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.19.1
+
+`2021-03-31`
+
+- 🐛 fix(form): fix form list hidde label error [#2360](https://github.com/ant-design/pro-components/pull/2360) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix moblie style width is over [#2357](https://github.com/ant-design/pro-components/pull/2357) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix StepsForm min-width error [#2351](https://github.com/ant-design/pro-components/pull/2351) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix: render empty text when 'text === 0' [#2348](https://github.com/ant-design/pro-components/pull/2348) [@yingzhiji](https://github.com/yingzhiji)
+
 ## @ant-design/pro-form@1.19.0
 
 `2021-03-29`
