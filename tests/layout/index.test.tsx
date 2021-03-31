@@ -988,6 +988,7 @@ describe('BasicLayout', () => {
         }
       | undefined
     >();
+
     const Demo = () => {
       return (
         <BasicLayout
@@ -1042,7 +1043,7 @@ describe('BasicLayout', () => {
     };
 
     const html = mount(<Demo />);
-    await waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledTimes(1);
 

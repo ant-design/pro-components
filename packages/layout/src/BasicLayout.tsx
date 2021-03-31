@@ -42,6 +42,8 @@ import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
 import type { WaterMarkProps } from './components/WaterMark';
 
+let layoutIndex = 0;
+
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
   HeaderViewProps & {
@@ -259,7 +261,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   // give a default key for swr
   const [defaultId] = useState(() => {
-    return `pro-layout-${Date.now()}`;
+    layoutIndex += 1;
+    return `pro-layout-${layoutIndex}`;
   });
 
   const formatMessage = useCallback(
