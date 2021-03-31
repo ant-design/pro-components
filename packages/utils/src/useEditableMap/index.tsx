@@ -105,9 +105,9 @@ function useEditableMap<RecordType>(
     editRow: RecordType & {
       index?: number;
     },
-    isNewLine?: NewLineConfig<any>,
+    newLine?: NewLineConfig<any>,
   ) => {
-    const success = await props?.onCancel?.(recordKey, editRow, isNewLine);
+    const success = await props?.onCancel?.(recordKey, editRow, newLine);
     if (success === false) {
       return false;
     }
