@@ -111,11 +111,12 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | `side` \| `top` | `side` |
 | contentWidth | layout 的内容模式,Fluid：自适应，Fixed：定宽 1200px | `Fluid` \| `Fixed` | `Fluid` |
 | navTheme | 导航的主题，side 和 mix 模式下是左侧菜单的主题，top 模式下是顶部菜单 | `light` \| `dark` | `dark` |
+| actionRef | layout 的常见的操作，比如刷新菜单 | `MutableRefObject<ActionType>` | - |
 | headerTheme | 顶部导航的主题，mix 模式生效 | `light` \| `dark` | `dark` |
 | fixedHeader | 是否固定 header 到顶部 | `boolean` | `false` |
 | fixSiderbar | 是否固定导航 | `boolean` | `false` |
 | breakpoint | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col) | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
-| menu | 关于 menu 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | `{ locale: boolean, defaultOpenAll: boolean }` | `{ locale: true }` |
+| menu | 关于 [menu](#menu) 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | [`menuConfig`](#menu) | `{ locale: true }` |
 | iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | `URL` | - |
 | locale | 当前 layout 的语言设置 | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | - |
@@ -142,6 +143,20 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | links | 显示在菜单右下角的快捷操作 | `ReactNode[]` | - |
 | menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
 | waterMarkProps | 配置水印，水印是 PageContainer 的功能，layout 只是透传给 PageContainer | [WaterMarkProps](/components/water-mark) | - |
+
+### menu
+
+menu 中支持了部分常用的 menu 配置， 可以帮助我们更好的管理 menu
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| locale | menu 是否使用国际化，还需要 formatMessage 的配合。 | `boolean` | `true` |
+| defaultOpenAll | 默认打开所有的菜单项，要注意只有 layout 挂载之前生效，异步加载菜单是不支持的 | `boolean` | `false` |
+| type | 菜单的类型 | `sub` \| `group` | `group` |
+| autoClose | 选中菜单是否自动关闭菜单 | `boolean` | `true` |
+| loading | 菜单是否正在加载中 | `boolean` | `false` |
+| onLoadingChange | 菜单的加载状态变更 | `(loading)=>void` | - |
+| request | 远程加载菜单的方法，会自动的修改 loading 状态 | `(params,defaultMenuDat) => Promise<MenuDataItem[]>` | - |
 
 ### SettingDrawer
 

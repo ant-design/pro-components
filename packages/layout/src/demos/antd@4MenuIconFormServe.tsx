@@ -50,11 +50,10 @@ export default () => (
       height: 500,
     }}
     fixSiderbar
-    collapsed
     location={{
-      pathname: '/welcome',
+      pathname: '/welcome/welcome',
     }}
-    menuDataRender={() => loopMenuItem(defaultMenus)}
+    menu={{ request: async () => loopMenuItem(defaultMenus) }}
   >
     <PageContainer content="欢迎使用">
       <div

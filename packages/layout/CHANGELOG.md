@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.5...@ant-design/pro-layout@6.16.0) (2021-03-31)
+
+### Features
+
+- **layout:** layout support request ([#2363](https://github.com/ant-design/pro-components/issues/2363)) ([9ede7b9](https://github.com/ant-design/pro-components/commit/9ede7b9a7f2ba44ce429e42a1b816daf7b53d1d7))
+
 ## [6.15.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.4...@ant-design/pro-layout@6.15.5) (2021-03-29)
 
 ### Bug Fixes

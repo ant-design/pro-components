@@ -713,6 +713,7 @@ describe('EditorProTable', () => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('td a').at(0).simulate('click');
     });
     await waitForComponentToPaint(wrapper, 1000);
+
     expect(
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
     ).toBeFalsy();
@@ -758,6 +759,38 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 200);
 
     expect(fn).toBeCalledWith(624691229);
+  });
+
+  it('📝 support onSave when add newLine', async () => {
+    const onSave = jest.fn();
+    const onDataSourceChange = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        onSave={(key) => onSave(key)}
+        onDataSourceChange={(dataSource) => onDataSourceChange(dataSource.length)}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
+    });
+
+    act(() => {
+      wrapper.find('button#addEditRecord').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(onSave).toBeCalledWith(624691229);
+    expect(onDataSourceChange).toBeCalledWith(3);
   });
 
   it('📝 support onSave support false', async () => {

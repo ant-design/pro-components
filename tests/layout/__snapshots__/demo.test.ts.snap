@@ -4106,17 +4106,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
     style="min-height: 100%; height: 500px;"
   >
     <div
-      style="width: 48px; overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
+      style="width: 208px; overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side"
-      style="overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side"
+      style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo ant-pro-sider-collapsed"
+          class="ant-pro-sider-logo"
           id="logo"
         >
           <a>
@@ -4124,25 +4124,30 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
               alt="logo"
               src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
             />
+            <h1>
+              Ant Design Pro
+            </h1>
           </a>
         </div>
         <div
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
+            class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
             role="menu"
             style="width: 100%;"
           >
             <li
-              class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-selected"
+              class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
               role="menuitem"
             >
               <div
-                aria-expanded="false"
+                aria-expanded="true"
                 aria-haspopup="true"
+                aria-owns="/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f$Menu"
                 class="ant-menu-submenu-title"
                 role="button"
+                style="padding-left: 24px;"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -4177,10 +4182,65 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                   class="ant-menu-submenu-arrow"
                 />
               </div>
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                id="/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f$Menu"
+                role="menu"
+              >
+                <li
+                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                  role="menuitem"
+                >
+                  <div
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                    aria-owns="/welcome$Menu"
+                    class="ant-menu-submenu-title"
+                    role="button"
+                    style="padding-left: 48px;"
+                  >
+                    <span
+                      class="ant-pro-menu-item"
+                      title="one"
+                    >
+                      <span
+                        class="ant-pro-menu-item-title"
+                      >
+                        one
+                      </span>
+                    </span>
+                    <i
+                      class="ant-menu-submenu-arrow"
+                    />
+                  </div>
+                  <ul
+                    class="ant-menu ant-menu-sub ant-menu-inline"
+                    id="/welcome$Menu"
+                    role="menu"
+                  >
+                    <li
+                      class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                      role="menuitem"
+                      style="padding-left: 72px;"
+                    >
+                      <span
+                        class="ant-pro-menu-item"
+                      >
+                        <span
+                          class="ant-pro-menu-item-title"
+                        >
+                          two
+                        </span>
+                      </span>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
               role="menuitem"
+              style="padding-left: 24px;"
             >
               <span
                 class="ant-pro-menu-item"
@@ -4217,21 +4277,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
+            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
             role="menu"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
+              style="padding-left: 16px;"
             >
               <span
-                aria-label="menu-unfold"
-                class="anticon anticon-menu-unfold"
+                aria-label="menu-fold"
+                class="anticon anticon-menu-fold"
                 role="img"
               >
                 <svg
                   aria-hidden="true"
-                  data-icon="menu-unfold"
+                  data-icon="menu-fold"
                   fill="currentColor"
                   focusable="false"
                   height="1em"
@@ -4239,7 +4300,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                   width="1em"
                 >
                   <path
-                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519a8.84 8.84 0 000-13.9L142.4 381.9c-5.8-4.6-14.4-.5-14.4 6.9v246.3a8.9 8.9 0 0014.4 7z"
+                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
                   />
                 </svg>
               </span>
@@ -4253,7 +4314,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-header-dark"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -4274,8 +4335,44 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header ant-page-header-ghost"
+              class="ant-page-header has-breadcrumb ant-page-header-ghost"
             >
+              <div
+                class="ant-breadcrumb"
+              >
+                <span>
+                  <span
+                    class="ant-breadcrumb-link"
+                  >
+                    <a
+                      href="/welcome"
+                    >
+                      one
+                    </a>
+                  </span>
+                  <span
+                    class="ant-breadcrumb-separator"
+                  >
+                    /
+                  </span>
+                </span>
+                <span>
+                  <span
+                    class="ant-breadcrumb-link"
+                  >
+                    <a
+                      href="/welcome/welcome"
+                    >
+                      two
+                    </a>
+                  </span>
+                  <span
+                    class="ant-breadcrumb-separator"
+                  >
+                    /
+                  </span>
+                </span>
+              </div>
               <div
                 class="ant-page-header-heading"
               >
@@ -4284,9 +4381,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                 >
                   <span
                     class="ant-page-header-heading-title"
-                    title="one"
+                    title="two"
                   >
-                    one
+                    two
                   </span>
                 </div>
               </div>
@@ -8502,194 +8599,192 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
 `;
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx correctly 1`] = `
-Array [
-  <button
-    class="ant-btn"
-    style="margin: 8px;"
-    type="button"
+<div
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+>
+  <section
+    class="ant-layout ant-layout-has-sider"
+    style="min-height: 100%; height: 100vh; border: 1px solid #ddd;"
   >
-    <span>
-      重新加载
-    </span>
-  </button>,
-  <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
-  >
-    <section
-      class="ant-layout ant-layout-has-sider"
-      style="min-height: 100%; height: 100vh; border: 1px solid #ddd;"
+    <aside
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
+      style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
     >
-      <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
-        style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
+      <div
+        class="ant-layout-sider-children"
       >
         <div
-          class="ant-layout-sider-children"
+          class="ant-pro-sider-logo"
+          id="logo"
+        >
+          <a>
+            <img
+              alt="logo"
+              src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
+            />
+            <h1>
+              Ant Design Pro
+            </h1>
+          </a>
+        </div>
+        <div
+          style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <div
-            class="ant-pro-sider-logo"
-            id="logo"
-          >
-            <a>
-              <img
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
-              />
-              <h1>
-                Ant Design Pro
-              </h1>
-            </a>
-          </div>
-          <div
-            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+            style="padding-top: 100px; text-align: center;"
           >
             <div
-              style="padding-top: 100px; text-align: center;"
+              class="ant-spin ant-spin-lg ant-spin-spinning"
             >
-              <div
-                class="ant-spin ant-spin-lg ant-spin-spinning"
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
               >
-                <span
-                  class="ant-spin-dot ant-spin-dot-spin"
-                >
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                </span>
-              </div>
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
             </div>
           </div>
-          <div
-            class="ant-pro-sider-links"
-          >
-            <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
-              role="menu"
-            >
-              <li
-                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                role="menuitem"
-                style="padding-left: 16px;"
-              >
-                <span
-                  aria-label="menu-fold"
-                  class="anticon anticon-menu-fold"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="menu-fold"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                    />
-                  </svg>
-                </span>
-              </li>
-            </ul>
-          </div>
         </div>
-      </aside>
-      <div
-        class="ant-layout"
-        style="position: relative;"
+        <div
+          class="ant-pro-sider-links"
+        >
+          <ul
+            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            role="menu"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              role="menuitem"
+              style="padding-left: 16px;"
+            >
+              <span
+                aria-label="menu-fold"
+                class="anticon anticon-menu-fold"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="menu-fold"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                  />
+                </svg>
+              </span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+    <div
+      class="ant-layout"
+      style="position: relative;"
+    >
+      <header
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
+        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
-        <header
-          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
-          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
+        <div
+          class="ant-pro-global-header ant-pro-global-header-layout-side"
         >
           <div
-            class="ant-pro-global-header ant-pro-global-header-layout-side"
-          >
-            <div
-              style="flex: 1;"
-            />
-          </div>
-        </header>
-        <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+            style="flex: 1;"
+          />
+        </div>
+      </header>
+      <main
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+      >
+        <div
+          class="ant-pro-page-container"
         >
           <div
-            class="ant-pro-page-container"
+            class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-page-header ant-page-header-ghost"
             >
               <div
-                class="ant-page-header ant-page-header-ghost"
+                class="ant-page-header-heading"
               >
                 <div
-                  class="ant-page-header-heading"
+                  class="ant-page-header-heading-left"
                 >
-                  <div
-                    class="ant-page-header-heading-left"
+                  <span
+                    class="ant-page-header-heading-title"
+                    title="Ant Design Pro"
                   >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="Ant Design Pro"
-                    >
-                      Ant Design Pro
-                    </span>
-                  </div>
+                    Ant Design Pro
+                  </span>
                 </div>
+              </div>
+              <div
+                class="ant-page-header-content"
+              >
                 <div
-                  class="ant-page-header-content"
+                  class="ant-pro-page-container-detail"
                 >
                   <div
-                    class="ant-pro-page-container-detail"
+                    class="ant-pro-page-container-main"
                   >
                     <div
-                      class="ant-pro-page-container-main"
+                      class="ant-pro-page-container-row"
                     >
                       <div
-                        class="ant-pro-page-container-row"
+                        class="ant-pro-page-container-content"
                       >
-                        <div
-                          class="ant-pro-page-container-content"
-                        >
-                          欢迎使用
-                        </div>
+                        欢迎使用
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="ant-pro-grid-content"
+          >
             <div
-              class="ant-pro-grid-content"
+              class="ant-pro-grid-content-children"
             >
-              <div
-                class="ant-pro-grid-content-children"
-              >
-                <div>
-                  <div
-                    class="ant-pro-page-container-children-content"
+              <div>
+                <div
+                  class="ant-pro-page-container-children-content"
+                >
+                  Hello World
+                  <button
+                    class="ant-btn"
+                    style="margin: 8px;"
+                    type="button"
                   >
-                    Hello World
-                  </div>
+                    <span>
+                      刷新菜单
+                    </span>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-        </main>
-      </div>
-    </section>
-  </div>,
-]
+        </div>
+      </main>
+    </div>
+  </section>
+</div>
 `;
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correctly 1`] = `

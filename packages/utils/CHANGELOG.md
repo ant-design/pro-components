@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.15.1...@ant-design/pro-utils@1.15.2) (2021-03-31)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions onsave no work where key is array ([#2350](https://github.com/ant-design/pro-components/issues/2350)) ([36b34a1](https://github.com/ant-design/pro-components/commit/36b34a1a8e63838e3262e6f8edc24e43c1e8a4bc))
+- **table:** fix isNewLine is error for editabletable ([#2366](https://github.com/ant-design/pro-components/issues/2366)) ([ea3bc5a](https://github.com/ant-design/pro-components/commit/ea3bc5a62cae4ef98961445d60e64f0b929c54f4))
+
 ## [1.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.15.0...@ant-design/pro-utils@1.15.1) (2021-03-29)
 
 **Note:** Version bump only for package @ant-design/pro-utils

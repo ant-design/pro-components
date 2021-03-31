@@ -19399,6 +19399,11 @@ swr@^0.3.6:
   dependencies:
     dequal "2.0.2"
 
+swr@^0.5.4:
+  version "0.5.4"
+  resolved "https://registry.npm.taobao.org/swr/download/swr-0.5.4.tgz?cache=0&sync_timestamp=1616938147920&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fswr%2Fdownload%2Fswr-0.5.4.tgz#9516af6ffd84ba2c23a804ff771be2eb83ba8d46"
+  integrity sha1-lRavb/2EuiwjqAT/dxvi64O6jUY=
+
 symbol-observable@^1.1.0, symbol-observable@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/symbol-observable/download/symbol-observable-1.2.0.tgz?cache=0&sync_timestamp=1604338205051&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsymbol-observable%2Fdownload%2Fsymbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
