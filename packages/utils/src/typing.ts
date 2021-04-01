@@ -1,5 +1,4 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
-import { valueType } from 'antd/lib/statistic/utils';
 import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
