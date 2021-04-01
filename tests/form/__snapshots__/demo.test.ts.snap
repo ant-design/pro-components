@@ -14453,6 +14453,209 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 </div>
 `;
 
+exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos/customization-value-type.tsx correctly 1`] = `
+<form
+  class="ant-form ant-form-vertical"
+  title="自定义 valueType"
+>
+  <input
+    style="display: none;"
+    type="text"
+  />
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="name"
+        title="链接"
+      >
+        链接
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            id="name"
+            placeholder="请输入链接"
+            type="text"
+            value="TradeCode 1"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="status"
+        title="标签"
+      >
+        标签
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <div
+            class="ant-space ant-space-horizontal ant-space-align-center"
+          >
+            <div
+              class="ant-space-item"
+              style="margin-right: 8px;"
+            >
+              <span
+                class="ant-tag"
+              >
+                close
+              </span>
+            </div>
+            <div
+              class="ant-space-item"
+              style="margin-right: 8px;"
+            >
+              <span
+                class="ant-tag"
+              >
+                close
+              </span>
+            </div>
+            <div
+              class="ant-space-item"
+            >
+              <input
+                class="ant-input ant-input-sm"
+                style="width: 78px;"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="name"
+        title="只读链接"
+      >
+        只读链接
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <a>
+            TradeCode 1
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        for="status"
+        title="只读标签"
+      >
+        只读标签
+      </label>
+    </div>
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <span
+            class="ant-tag"
+          >
+            close
+          </span>
+          <span
+            class="ant-tag"
+          >
+            close
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center"
+  >
+    <div
+      class="ant-space-item"
+      style="margin-right: 8px;"
+    >
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
+      >
+        <span>
+          提 交
+        </span>
+      </button>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn"
+        type="button"
+      >
+        <span>
+          重 置
+        </span>
+      </button>
+    </div>
+  </div>
+</form>
+`;
+
 exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos/schema.tsx correctly 1`] = `
 <form
   class="ant-form ant-form-vertical"

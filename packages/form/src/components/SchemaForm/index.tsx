@@ -53,7 +53,7 @@ export type ProFormPropsType<T> = Omit<DrawerFormProps<T>, 'onFinish'> &
 
 export type FormFieldType = 'group' | 'formList' | 'formSet';
 
-export type ProfFormColumnsType<T = any, ValueType = FormFieldType> = ProSchema<
+export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
   T,
   ExtraProColumnType & {
     index?: number;
@@ -73,16 +73,16 @@ export type ProfFormColumnsType<T = any, ValueType = FormFieldType> = ProSchema<
     /** Form 的排序 */
     order?: number;
     /** 嵌套子项 */
-    columns?: ProfFormColumnsType<T, ValueType>[];
+    columns?: ProFormColumnsType<T, ValueType | FormFieldType>[];
   },
   ProSchemaComponentTypes,
-  ValueType
+  ValueType | FormFieldType
 >;
 
-export type FormSchema<T = Record<string, any>> = {
+export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
   title?: React.ReactNode;
   description?: React.ReactNode;
-  columns: ProfFormColumnsType<T>[];
+  columns: ProFormColumnsType<T, ValueType>[];
   action?: ProCoreActionType;
 } & Omit<FormProps<T>, 'onFinish'> &
   ProFormPropsType<T>;
@@ -99,7 +99,7 @@ const FormComments = {
  *
  * @see 此组件仍为 beta 版本，api 可能发生变化
  */
-function BetaSchemaForm<T>(props: FormSchema<T>) {
+function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
   const { columns, layoutType = 'ProForm', action, ...rest } = props;
   const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
   const [form] = useForm();
@@ -110,7 +110,7 @@ function BetaSchemaForm<T>(props: FormSchema<T>) {
    *
    * @param items
    */
-  const genItems = (items: FormSchema<T>['columns']) =>
+  const genItems = (items: FormSchema<T, ValueType>['columns']) =>
     items.map((item, index) => {
       // 几种特殊的 value 不处理
       if (

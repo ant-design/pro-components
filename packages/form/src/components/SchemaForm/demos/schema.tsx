@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import type { ProfFormColumnsType } from '@ant-design/pro-form';
+import type { ProFormColumnsType } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
 
 const valueEnum = {
@@ -24,7 +24,7 @@ type DataItem = {
   state: string;
 };
 
-const columns: ProfFormColumnsType<DataItem>[] = [
+const columns: ProFormColumnsType<DataItem>[] = [
   {
     title: '标题',
     dataIndex: 'title',

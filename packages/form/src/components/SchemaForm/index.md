@@ -49,6 +49,10 @@ SchemaForm 是根据 JSON Schema 来生成表单的工具。SchemaForm 会根据
 
 <code src="./demos/valueType.tsx" height="154px" title="schema 表单" />
 
+如果我们带的 valueType 不能满足需求，我们可以用自定义 valueType 来做我适应我们业务的问题。
+
+<code src="./demos/customization-value-type.tsx" height="154px" title="schema 表单" />
+
 ## 代码示例
 
 ### JSON 来生成表单
