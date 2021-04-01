@@ -38,7 +38,7 @@ import type { ProFormListProps } from './components/List';
 import ProFormList from './components/List';
 import type { FormInstance, FormItemProps, FormProps } from './BaseForm';
 import type { ProfFormColumnsType } from './components/SchemaForm';
-import SchemaForm from './components/SchemaForm';
+import BetaSchemaForm from './components/SchemaForm';
 import './index.less';
 
 export type {
@@ -86,7 +86,7 @@ export {
   ProFormDateTimeRangePicker,
   ProFormDependency,
   ProFormGroup,
-  SchemaForm,
+  BetaSchemaForm,
   // layouts
   QueryFilter,
   LightFilter,

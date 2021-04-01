@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 import type { ProfFormColumnsType } from '@ant-design/pro-form';
-import { SchemaForm } from '@ant-design/pro-form';
+import { BetaSchemaForm } from '@ant-design/pro-form';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -158,7 +158,7 @@ const columns: ProfFormColumnsType<DataItem>[] = [
 
 export default () => {
   return (
-    <SchemaForm<DataItem>
+    <BetaSchemaForm<DataItem>
       trigger={<a>点击我</a>}
       layoutType="ProForm"
       onFinish={async (values) => {
