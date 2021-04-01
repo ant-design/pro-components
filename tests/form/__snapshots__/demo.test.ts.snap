@@ -6073,7 +6073,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                     >
                       <label
                         class=""
-                        for="users_0_name"
+                        for="default_users_0_name"
                         title="姓名"
                       >
                         姓名
@@ -6093,7 +6093,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                           >
                             <input
                               class="ant-input"
-                              id="users_0_name"
+                              id="default_users_0_name"
                               placeholder="请输入"
                               type="text"
                               value="1111"
@@ -6135,7 +6135,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                     >
                       <label
                         class=""
-                        for="users_0_nickName"
+                        for="default_users_0_nickName"
                         title="昵称"
                       >
                         昵称
@@ -6155,7 +6155,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                           >
                             <input
                               class="ant-input"
-                              id="users_0_nickName"
+                              id="default_users_0_nickName"
                               placeholder="请输入"
                               type="text"
                               value=""
