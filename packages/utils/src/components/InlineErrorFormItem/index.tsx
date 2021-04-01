@@ -2,7 +2,7 @@
 import { Form, Popover, Progress, Space } from 'antd';
 import type { FormItemProps, PopoverProps, ProgressProps } from 'antd';
 import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
-import type { Rule, NamePath } from 'rc-field-form/lib/interface';
+import type { Rule, NamePath, RuleObject } from 'rc-field-form/lib/interface';
 
 const RED = '#ff4d4f';
 const YELLOW = '#faad14';
@@ -11,10 +11,10 @@ const PRIMARY = '#1890ff';
 const COLORS = { RED, YELLOW, GREEN, PRIMARY };
 
 const getStrokeColor = (percent: number) => {
-  if (percent < 30) {
+  if (percent < 50) {
     return COLORS.RED;
   }
-  if (percent < 60) {
+  if (percent < 100) {
     return COLORS.YELLOW;
   }
   return COLORS.GREEN;
@@ -43,9 +43,17 @@ const CircleRender = () => {
   );
 };
 
-const getIcon = (fieldError: string[], value: any, rule: Rule, isTouched: boolean) => {
+const getIcon = (
+  fieldError: string[],
+  rule: Rule,
+  isTouched: boolean,
+  requiredChecked: boolean,
+) => {
   if (!isTouched) {
     return <CircleRender></CircleRender>;
+  }
+  if (!requiredChecked) {
+    return <CloseCircleFilled style={{ color: COLORS.RED }} />;
   }
   if (fieldError.includes((rule as any).message)) {
     return <CloseCircleFilled style={{ color: COLORS.RED }} />;
@@ -66,6 +74,9 @@ const Content: React.FC<{
     Math.min(100, ((rules.length - fieldError.length) / rules.length) * 100),
   );
   const isSingleRule = rules.length === 1;
+  const requiredRule = rules.filter((_) => (_ as RuleObject).required)[0] as RuleObject;
+  const hasRequired = !!requiredRule;
+  const requiredChecked = hasRequired && !fieldError.includes(requiredRule?.message as string);
   return (
     <div style={isSingleRule ? {} : { padding: '6px 8px 12px 8px' }}>
       {(progressProps === undefined || progressProps) && (
@@ -91,7 +102,7 @@ const Content: React.FC<{
               {isValidating ? (
                 <LoadingOutlined style={{ color: COLORS.PRIMARY }} />
               ) : (
-                getIcon(fieldError, value, rule, isTouched)
+                getIcon(fieldError, rule, isTouched, hasRequired ? requiredChecked : true)
               )}
               <span style={{ color: 'rgba(0,0,0,0.65)' }}>{(rule as any).message}</span>
             </Space>
@@ -129,6 +140,8 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
   progressProps,
   ...rest
 }) => {
+  let isPrevError = true;
+  let isDoneFirstValidate = false;
   return (
     <Form.Item shouldUpdate={true} noStyle>
       {(form) => {
@@ -136,12 +149,19 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
         const value = form.getFieldValue(name);
         const isValidating = form.isFieldValidating(name);
         const isTouched = form.isFieldTouched(name);
+        if (!isValidating) {
+          if (isDoneFirstValidate) {
+            isPrevError = !!fieldError.length;
+          }
+        } else {
+          isDoneFirstValidate = true;
+        }
         return (
           <Form.Item
             style={FIX_INLINE_STYLE}
             preserve={false}
             name={name}
-            validateFirst="parallel"
+            validateFirst={false}
             rules={rules}
             // @ts-ignore
             _internalItemRender={{
@@ -163,6 +183,10 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
                   <Popover
                     trigger={popoverProps?.trigger || 'focus'}
                     placement={popoverProps?.placement}
+                    visible={
+                      // eslint-disable-next-line no-nested-ternary
+                      isTouched ? (isValidating ? isPrevError : !!fieldError.length) : undefined
+                    }
                     content={
                       <Content
                         fieldError={fieldError}

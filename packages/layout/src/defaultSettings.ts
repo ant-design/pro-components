@@ -1,3 +1,4 @@
+import { MenuDataItem } from '@umijs/route-utils';
 import type { MenuTheme } from 'antd/lib/menu/MenuContext';
 
 export type ContentWidth = 'Fluid' | 'Fixed';
@@ -29,6 +30,11 @@ export type PureSettings = {
     locale?: boolean;
     defaultOpenAll?: boolean;
     loading?: boolean;
+    onLoadingChange?: (loading?: boolean) => void;
+    request?: (
+      params: Record<string, any>,
+      defaultMenuData: MenuDataItem[],
+    ) => Promise<MenuDataItem[]>;
     type?: 'sub' | 'group';
     autoClose?: false;
   };

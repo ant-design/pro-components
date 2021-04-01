@@ -53,8 +53,11 @@ const useFetchData = <T extends RequestData<any>>(
 
   const requesting = useRef(false);
 
-  const [pageInfo, setPageInfo] = useMountMergeState<PageInfo>(() =>
-    mergeOptionAndPageInfo(options),
+  const [pageInfo, setPageInfo] = useMountMergeState<PageInfo>(
+    () => mergeOptionAndPageInfo(options),
+    {
+      onChange: options?.onPageInfoChange,
+    },
   );
 
   const [pollingLoading, setPollingLoading] = useMountMergeState(false);
@@ -174,10 +177,16 @@ const useFetchData = <T extends RequestData<any>>(
       fetchListDebounce.run(true);
     }
     return () => {
-      umountRef.current = true;
       clearTimeout(pollingSetTimeRef.current);
     };
   }, [polling]);
+
+  useEffect(
+    () => () => {
+      umountRef.current = true;
+    },
+    [],
+  );
 
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {

@@ -105,9 +105,9 @@ function useEditableMap<RecordType>(
     editRow: RecordType & {
       index?: number;
     },
-    isNewLine?: NewLineConfig<any>,
+    newLine?: NewLineConfig<any>,
   ) => {
-    const success = await props?.onCancel?.(recordKey, editRow, isNewLine);
+    const success = await props?.onCancel?.(recordKey, editRow, newLine);
     if (success === false) {
       return false;
     }
@@ -144,7 +144,7 @@ function useEditableMap<RecordType>(
   const actionRender = useCallback(
     (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText<RecordType>) => {
       const renderConfig: ActionRenderConfig<RecordType, NewLineConfig<RecordType>> = {
-        recordKey: recordKeyToString(key),
+        recordKey: key,
         cancelEditable,
         onCancel,
         onSave,

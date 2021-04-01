@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.13.0...@ant-design/pro-field@1.14.0) (2021-03-31)
+
+### Bug Fixes
+
+- **filed:** Select component crash while using backslash ([#2367](https://github.com/ant-design/pro-components/issues/2367)) ([922a10e](https://github.com/ant-design/pro-components/commit/922a10e9b08269f4c0359499b307e5025e1998df))
+- **form:** render empty text when 'text === 0' ([#2348](https://github.com/ant-design/pro-components/issues/2348)) ([c680261](https://github.com/ant-design/pro-components/commit/c68026157d2589fc250adeb6a2d7b6cb1a21cef4))
+
+### Features
+
+- **layout:** layout support request ([#2363](https://github.com/ant-design/pro-components/issues/2363)) ([9ede7b9](https://github.com/ant-design/pro-components/commit/9ede7b9a7f2ba44ce429e42a1b816daf7b53d1d7))
+
 # [1.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.12.0...@ant-design/pro-field@1.13.0) (2021-03-29)
 
 ### Bug Fixes

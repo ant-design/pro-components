@@ -13,7 +13,7 @@ import type { CardProps } from 'antd/lib/card';
 import type { SpinProps } from 'antd/lib/spin';
 import type { TableProps } from 'antd/lib/table';
 
-import type { ColumnFilterItem, ColumnType, SortOrder } from 'antd/lib/table/interface';
+import type { ColumnFilterItem, ColumnType, CompareFn, SortOrder } from 'antd/lib/table/interface';
 import type { CSSProperties } from 'react';
 import type { AlertRenderType } from './components/Alert';
 import type { ListToolBarProps } from './components/ListToolBar';
@@ -61,14 +61,23 @@ export type TableRowSelection = TableProps<any>['rowSelection'];
 
 export type ExtraProColumnType<T> = Omit<
   ColumnType<T>,
-  'render' | 'children' | 'title' | 'filters' | 'onFilter'
->;
+  'render' | 'children' | 'title' | 'filters' | 'onFilter' | 'sorter'
+> & {
+  sorter?:
+    | string
+    | boolean
+    | CompareFn<T>
+    | {
+        compare?: CompareFn<T>;
+        /** Config multiple sorter order priority */
+        multiple?: number;
+      };
+};
 
 export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
   T,
   ExtraProColumnType<T> & {
     index?: number;
-
     /**
      * 每个表单占据的格子大小
      *
@@ -316,6 +325,7 @@ export type UseFetchProps = {
         defaultPageSize?: number;
       }
     | false;
+  onPageInfoChange?: (pageInfo: PageInfo) => void;
   effects?: any[];
   onRequestError?: (e: Error) => void;
   manual: boolean;

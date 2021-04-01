@@ -132,13 +132,10 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       sorter: SorterResult<T> | SorterResult<T>[],
       extra: TableCurrentDataSource<T>,
     ) => {
-      if (rest.onChange) {
-        rest.onChange(changePagination, filters, sorter, extra);
-      }
+      rest.onChange?.(changePagination, filters, sorter, extra);
       if (!useLocaleFilter) {
         onFilterChange(omitUndefined<any>(filters));
       }
-
       // 制造筛选的数据
       // 制造一个排序的数据
       if (Array.isArray(sorter)) {
@@ -151,7 +148,13 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         );
         onSortChange(omitUndefined<any>(data));
       } else {
-        onSortChange(omitUndefined({ [`${sorter.field}`]: sorter.order as SortOrder }));
+        const sorterOfColumn = sorter.column?.sorter;
+        const isSortByField = sorterOfColumn?.toString() === sorterOfColumn;
+        onSortChange(
+          omitUndefined({
+            [`${isSortByField ? sorterOfColumn : sorter.field}`]: sorter.order as SortOrder,
+          }),
+        );
       }
     },
   });
@@ -373,6 +376,13 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     polling,
     effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
     debounceTime: props.debounceTime,
+    onPageInfoChange: (pageInfo) => {
+      // 总是触发一下 onChange 和  onShowSizeChange
+      if (propsPagination) {
+        propsPagination?.onChange?.(pageInfo.current, pageInfo.pageSize);
+        propsPagination?.onShowSizeChange?.(pageInfo.current, pageInfo.pageSize);
+      }
+    },
   });
   // ============================ END ============================
 

@@ -264,8 +264,8 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | params | 用于 `request` 查询的额外参数，一旦变化会触发重新加载 | `object` | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
 | defaultData | 默认的数据 | `T[]` | - |
-| actionRef | Table action 的引用，便于自定义触发 | `MutableRefObject<FormInstance>` | - |
-| formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `MutableRefObject<ActionType>` | - |
+| actionRef | Table action 的引用，便于自定义触发 | `MutableRefObject<ActionType>` | - |
+| formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `MutableRefObject<FormInstance>` | - |
 | toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action) => ReactNode[]` | - |
 | onLoad | 数据加载完成后触发,会多次触发 | `(dataSource: T[]) => void` | - |
 | onLoadingChange | loading 被修改时触发，一般是网络请求导致的 | `(loading:boolean)=>void` | - |

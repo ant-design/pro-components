@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.32.1
+
+`2021-03-31`
+
+- 🐛 fix(table): fix isNewLine is error for editabletable [#2366](https://github.com/ant-design/pro-components/pull/2366) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix pagination no work error [#2349](https://github.com/ant-design/pro-components/pull/2349) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.32.0
 
 `2021-03-29`

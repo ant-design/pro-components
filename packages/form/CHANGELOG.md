@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.19.0...@ant-design/pro-form@1.19.1) (2021-03-31)
+
+### Bug Fixes
+
+- **card:** remove antd charts demos, replaced with img ([#2343](https://github.com/ant-design/pro-components/issues/2343)) ([cb69b10](https://github.com/ant-design/pro-components/commit/cb69b104ba0be6ad94de118cb60a9e03834ba2ba))
+- **form:** fix form list hidde label error ([#2360](https://github.com/ant-design/pro-components/issues/2360)) ([adcf0dd](https://github.com/ant-design/pro-components/commit/adcf0dd3930c1a88db7744e40d9230d2567e7a3f))
+- **form:** fix moblie style width is over ([#2357](https://github.com/ant-design/pro-components/issues/2357)) ([02511c5](https://github.com/ant-design/pro-components/commit/02511c5bc1d546cb2e27805ed73df7ab27acbc59))
+- **form:** fix StepsForm min-width error ([#2351](https://github.com/ant-design/pro-components/issues/2351)) ([5affd94](https://github.com/ant-design/pro-components/commit/5affd940b9a023413dfd5134ad143f9c9953ae42))
+
 # [1.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.18.4...@ant-design/pro-form@1.19.0) (2021-03-29)
 
 ### Bug Fixes

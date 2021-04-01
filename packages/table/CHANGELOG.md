@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.32.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.32.1...@ant-design/pro-table@2.32.2) (2021-03-31)
+
+### Bug Fixes
+
+- **table:** fix polling no work error ([3f8d318](https://github.com/ant-design/pro-components/commit/3f8d3187d7a416e8ff045eae106336133b30984d))
+
+## [2.32.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.32.0...@ant-design/pro-table@2.32.1) (2021-03-31)
+
+### Bug Fixes
+
+- **table:** fix pagination no work error ([#2349](https://github.com/ant-design/pro-components/issues/2349)) ([0201893](https://github.com/ant-design/pro-components/commit/020189305f5d6453a8c559a7fe222a7f1a225dbc))
+
 # [2.32.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.31.0...@ant-design/pro-table@2.32.0) (2021-03-29)
 
 ### Bug Fixes

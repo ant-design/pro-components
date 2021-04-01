@@ -979,4 +979,76 @@ describe('BasicLayout', () => {
 
     expect(fn).toBeCalled();
   });
+
+  it('🥩 BasicLayout support menu.request', async () => {
+    const fn = jest.fn();
+    const actionRef = React.createRef<
+      | {
+          reload: () => void;
+        }
+      | undefined
+    >();
+
+    const Demo = () => {
+      return (
+        <BasicLayout
+          // @ts-ignore
+          actionRef={actionRef}
+          menu={{
+            locale: false,
+            request: async () => {
+              fn();
+              return [
+                {
+                  path: '/admin',
+                  name: '管理页',
+                  routes: [
+                    {
+                      path: '/admin/sub-page1',
+                      name: '一级页面',
+                    },
+                    {
+                      path: '/admin/sub-page2',
+                      name: '二级页面',
+                    },
+                    {
+                      path: '/admin/sub-page3',
+                      name: '三级页面',
+                    },
+                  ],
+                },
+                {
+                  name: '列表页',
+                  path: '/list',
+                  routes: [
+                    {
+                      path: '/list/sub-page',
+                      name: '一级列表页面',
+                    },
+                    {
+                      path: '/list/sub-page2',
+                      name: '二级列表页面',
+                    },
+                    {
+                      path: '/list/sub-page3',
+                      name: 'antd',
+                    },
+                  ],
+                },
+              ];
+            },
+          }}
+        />
+      );
+    };
+
+    const html = mount(<Demo />);
+    await waitForComponentToPaint(html, 1000);
+
+    expect(fn).toBeCalledTimes(1);
+
+    actionRef.current?.reload();
+
+    expect(fn).toBeCalledTimes(2);
+  });
 });
