@@ -119,7 +119,13 @@ const ProFormList: React.FC<ProFormListProps> = ({
                     onClick={() => {
                       let index;
                       if (creatorButtonProps?.position === 'top') index = 0;
-                      action.add(creatorRecord, index);
+                      const defaultValue = {};
+                      if (creatorRecord) {
+                        Object.entries(creatorRecord).forEach(([key, value]) => {
+                          defaultValue[key] = typeof value === 'function' ? value() : value;
+                        });
+                      }
+                      action.add(defaultValue, index);
                     }}
                   >
                     {creatorButtonProps?.creatorButtonText || '添加一行数据'}
