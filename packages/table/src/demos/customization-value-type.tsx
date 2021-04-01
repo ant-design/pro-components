@@ -112,7 +112,7 @@ const columns: ProColumns<TableListItem, 'link' | 'tags'>[] = [
       <a
         key="a"
         onClick={() => {
-          action.startEditable(row.key);
+          action?.startEditable(row.key);
         }}
       >
         编辑

@@ -69,7 +69,9 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
 ) {
   const { onTableChange, maxLength, recordCreatorProps, ...rest } = props;
   const actionRef = useRef<ActionType>();
-  useImperativeHandle(rest.actionRef, () => actionRef.current, [actionRef.current]);
+
+  // 设置 ref
+  useImperativeHandle(rest.actionRef, () => actionRef.current);
 
   const [value, setValue] = useMergedState<T[]>(() => props.value || [], {
     value: props.value,

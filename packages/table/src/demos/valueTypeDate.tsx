@@ -98,7 +98,7 @@ export default () => (
             <a
               key="a"
               onClick={() => {
-                action.startEditable(row.key);
+                action?.startEditable(row.key);
               }}
             >
               编辑

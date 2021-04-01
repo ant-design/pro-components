@@ -151,7 +151,7 @@ export const columns: ProColumns[] = [
         key="delete"
         onClick={() => {
           message.info('确认删除');
-          action.reload();
+          action?.reload();
         }}
       >
         delete
@@ -160,7 +160,7 @@ export const columns: ProColumns[] = [
         key="reload"
         onClick={() => {
           message.info('确认刷新');
-          action.reload();
+          action?.reload();
         }}
       >
         reload

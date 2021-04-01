@@ -99,7 +99,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       </a>,
       <TableDropdown
         key="actionGroup"
-        onSelect={() => action.reload()}
+        onSelect={() => action?.reload()}
         menus={[
           { key: 'copy', name: 'نسخ' },
           { key: 'delete', name: 'حذف' },
