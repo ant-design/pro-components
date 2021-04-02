@@ -80,7 +80,7 @@ export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
 >;
 
 export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
-  title?: React.ReactNode;
+  title?: React.ReactNode | ((type: string) => React.ReactNode);
   description?: React.ReactNode;
   columns: ProFormColumnsType<T, ValueType>[];
   action?: ProCoreActionType;
@@ -111,7 +111,12 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
    * @param items
    */
   const genItems = (items: FormSchema<T, ValueType>['columns']) =>
-    items.map((item, index) => {
+    items.map((mewItem, index) => {
+      const item = {
+        ...mewItem,
+        title: runFunction(mewItem.title, 'form'),
+      };
+
       // 几种特殊的 value 不处理
       if (
         item.valueType &&
@@ -121,6 +126,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
         return null;
       }
       const key = item.key || item.dataIndex?.toString() || index;
+
       if (item.valueType === 'group') {
         if (!item.columns) return null;
         return (
