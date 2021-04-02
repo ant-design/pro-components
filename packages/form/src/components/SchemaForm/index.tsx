@@ -183,6 +183,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
               })
           : undefined,
       };
+
       return (
         <ProFormField
           {...formFieldProps}

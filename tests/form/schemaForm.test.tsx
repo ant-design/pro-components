@@ -3,6 +3,7 @@ import { mount, render } from 'enzyme';
 import { BetaSchemaForm } from '@ant-design/pro-form';
 import type { ProFormColumnsType } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
+import { Input } from 'antd';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -65,5 +66,44 @@ describe('SchemaForm', () => {
     const html = mount(<BetaSchemaForm columns={columns} />);
     await waitForComponentToPaint(html);
     expect(html.find('div.ant-form-item').length).toBe(5);
+  });
+
+  it('😊 SchemaForm support render', async () => {
+    const html = mount(
+      <BetaSchemaForm
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            readonly: true,
+            width: 200,
+            render: () => {
+              return <Input id="test" />;
+            },
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(html.find('#test').exists()).toBeTruthy();
+  });
+
+  it('😊 SchemaForm support render', async () => {
+    const html = mount(
+      <BetaSchemaForm
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            renderFormItem: () => {
+              return <Input id="test" />;
+            },
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(html.find('#test').exists()).toBeTruthy();
   });
 });

@@ -61,6 +61,8 @@ const ProFormField: React.FC<
     <ProField
       text={fieldProps?.value as string}
       mode="edit"
+      render={render as any}
+      renderFormItem={renderFormItem as any}
       valueType={(valueType as 'text') || 'text'}
       fieldProps={{
         ...fieldProps,
