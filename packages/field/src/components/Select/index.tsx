@@ -154,7 +154,7 @@ function getType(obj: any) {
  * @param valueEnum
  */
 export const proFieldParsingValueEnumToArray = (
-  valueEnumParams: ProFieldValueEnumType | undefined = new Map(),
+  valueEnumParams: ProFieldValueEnumType,
 ): {
   value: string | number;
   text: string;

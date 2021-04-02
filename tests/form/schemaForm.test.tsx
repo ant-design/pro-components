@@ -106,4 +106,23 @@ describe('SchemaForm', () => {
     await waitForComponentToPaint(html);
     expect(html.find('#test').exists()).toBeTruthy();
   });
+
+  it('😊 SchemaForm support render', async () => {
+    const html = mount(
+      <BetaSchemaForm
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            renderFormItem: (_, { defaultRender }) => {
+              return defaultRender(_);
+            },
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(html.find('input').exists()).toBeTruthy();
+  });
 });
