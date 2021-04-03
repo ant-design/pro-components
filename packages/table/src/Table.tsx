@@ -26,6 +26,7 @@ import { genProColumnToColumn } from './utils/genProColumnToColumn';
 import './index.less';
 import type {
   PageInfo,
+  ProColumnType,
   ProTableProps,
   RequestData,
   TableRowSelection,
@@ -336,6 +337,38 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   const [proFilter, setProFilter] = useMountMergeState<Record<string, React.ReactText[]>>({});
   const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>({});
+
+  /** 设置默认排序和筛选值 */
+  useEffect(() => {
+    const resolveDataIndex = (dataIndex: ProColumnType['dataIndex']): string | undefined => {
+      if (Array.isArray(dataIndex)) {
+        return dataIndex.join(',');
+      }
+      return dataIndex?.toString();
+    };
+
+    const defaultProFilter: Record<string, React.ReactText[]> = {};
+    const defaultProSort: Record<string, SortOrder> = {};
+    propsColumns
+      .filter((column) => !!column.filters)
+      .forEach((column) => {
+        const dataIndex = resolveDataIndex(column.dataIndex);
+        if (dataIndex && column.defaultFilteredValue) {
+          defaultProFilter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
+        }
+      });
+    propsColumns
+      .filter((column) => !!column.sorter)
+      .forEach((column) => {
+        const dataIndex = resolveDataIndex(column.dataIndex);
+        if (dataIndex && column.defaultSortOrder) {
+          defaultProSort[dataIndex] = column.defaultSortOrder;
+        }
+      });
+
+    setProFilter(defaultProFilter);
+    setProSort(defaultProSort);
+  }, []);
 
   /** 获取 table 的 dom ref */
   const rootRef = useRef<HTMLDivElement>(null);
