@@ -1,6 +1,6 @@
-﻿import React from 'react';
-import type { ProFormColumnsType } from '@ant-design/pro-form';
-import { BetaSchemaForm } from '@ant-design/pro-form';
+﻿import React, { useState } from 'react';
+import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
+import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-form';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -157,14 +157,24 @@ const columns: ProFormColumnsType<DataItem>[] = [
 ];
 
 export default () => {
+  const [layoutType, setLayoutType] = useState<ProFormLayoutType>('ProForm');
   return (
-    <BetaSchemaForm<DataItem>
-      trigger={<a>点击我</a>}
-      layoutType="ProForm"
-      onFinish={async (values) => {
-        console.log(values);
-      }}
-      columns={columns}
-    />
+    <>
+      <ProFormSelect
+        options={['ProForm', 'ModalForm', 'DrawerForm', 'LightFilter', 'QueryFilter']}
+        fieldProps={{
+          value: layoutType,
+          onChange: (e) => setLayoutType(e),
+        }}
+      />
+      <BetaSchemaForm<DataItem>
+        trigger={<a>点击我</a>}
+        layoutType={layoutType}
+        onFinish={async (values) => {
+          console.log(values);
+        }}
+        columns={columns}
+      />
+    </>
   );
 };

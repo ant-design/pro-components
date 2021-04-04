@@ -37,7 +37,7 @@ import DrawerForm from './layouts/DrawerForm';
 import type { ProFormListProps } from './components/List';
 import ProFormList from './components/List';
 import type { FormInstance, FormItemProps, FormProps } from './BaseForm';
-import type { ProFormColumnsType } from './components/SchemaForm';
+import type { ProFormLayoutType, ProFormColumnsType } from './components/SchemaForm';
 import BetaSchemaForm from './components/SchemaForm';
 import './index.less';
 
@@ -48,6 +48,7 @@ export type {
   ModalFormProps,
   ProFormProps,
   StepFormProps,
+  ProFormLayoutType,
   StepsFormProps,
   QueryFilterProps,
   ProFormFieldSetProps,

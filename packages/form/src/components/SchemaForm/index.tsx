@@ -35,7 +35,7 @@ export type ExtraProColumnType = {
 };
 
 /** ProForm 的特色 layout */
-export type LayoutType =
+export type ProFormLayoutType =
   | 'ProForm'
   | 'ModalForm'
   | 'DrawerForm'
@@ -48,7 +48,7 @@ export type ProFormPropsType<T> = Omit<DrawerFormProps<T>, 'onFinish'> &
   Omit<QueryFilterProps<T>, 'onFinish'> &
   ProFormProps<T> &
   Omit<StepFormProps<T>, 'onFinish'> & {
-    layoutType?: LayoutType;
+    layoutType?: ProFormLayoutType;
   };
 
 export type FormFieldType = 'group' | 'formList' | 'formSet';

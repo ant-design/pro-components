@@ -25,7 +25,7 @@ export type ProFormSelectProps = ProFormItemProps<
   valueEnum?: ProSchema['valueEnum'];
   params?: ProSchema['params'];
   request?: ProSchema['request'];
-  options?: SelectProps<any>['options'];
+  options?: SelectProps<any>['options'] | string[];
   mode?: SelectProps<any>['mode'] | 'singe';
   showSearch?: SelectProps<any>['showSearch'];
   readonly?: boolean;
