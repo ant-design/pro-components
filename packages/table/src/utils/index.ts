@@ -170,7 +170,7 @@ export function parseDefaultSort<T, Value>(
 ): Record<string, SortOrder> {
   const defaultSort: Record<string, SortOrder> = {};
   columns
-    .filter((column) => !!column.filters && !!column.defaultSortOrder)
+    .filter((column) => !!column.sorter && !!column.defaultSortOrder)
     .forEach((column) => {
       const dataIndex = parseDataIndex(column.dataIndex);
       if (dataIndex) {
