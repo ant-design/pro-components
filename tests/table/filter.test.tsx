@@ -99,7 +99,7 @@ describe('BasicTable Search', () => {
               2: { text: '已上线', status: 'Success' },
               3: { text: '异常', status: 'Error' },
             },
-            defaultFilteredValue: [0, 1],
+            defaultFilteredValue: ['0', '1'],
           },
         ]}
         onChange={fn}
@@ -171,7 +171,7 @@ describe('BasicTable Search', () => {
               2: { text: '已上线', status: 'Success' },
               3: { text: '异常', status: 'Error' },
             },
-            defaultFilteredValue: [0, 1],
+            defaultFilteredValue: ['0', '1'],
           },
         ]}
         request={async (_, sort, filter) => {
