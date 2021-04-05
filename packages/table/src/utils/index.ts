@@ -1,9 +1,18 @@
+import React from 'react';
 import type { TablePaginationConfig } from 'antd';
+import { SortOrder } from 'antd/es/table/interface';
 
 import type { UseEditableUtilType } from '@ant-design/pro-utils';
 import type { IntlType } from '@ant-design/pro-provider';
 
-import type { ActionType, Bordered, BorderedType, UseFetchDataAction } from '../typing';
+import type {
+  ActionType,
+  Bordered,
+  BorderedType,
+  ProColumns,
+  ProColumnType,
+  UseFetchDataAction,
+} from '../typing';
 
 /**
  * 检查值是否存在 为了 避开 0 和 false
@@ -148,3 +157,40 @@ export const genColumnKey = (key?: React.ReactText | undefined, index?: number):
   }
   return `${index}`;
 };
+
+function parseDataIndex(dataIndex: ProColumnType['dataIndex']): string | undefined {
+  if (Array.isArray(dataIndex)) {
+    return dataIndex.join(',');
+  }
+  return dataIndex?.toString();
+}
+
+export function parseDefaultSort<T, Value>(
+  columns: ProColumns<T, Value>[],
+): Record<string, SortOrder> {
+  const defaultSort: Record<string, SortOrder> = {};
+  columns
+    .filter((column) => !!column.filters && !!column.defaultSortOrder)
+    .forEach((column) => {
+      const dataIndex = parseDataIndex(column.dataIndex);
+      if (dataIndex) {
+        defaultSort[dataIndex] = column.defaultSortOrder!;
+      }
+    });
+  return defaultSort;
+}
+
+export function parseDefaultFilter<T, Value>(
+  columns: ProColumns<T, Value>[],
+): Record<string, React.ReactText[]> {
+  const defaultFilter: Record<string, React.ReactText[]> = {};
+  columns
+    .filter((column) => !!column.filters && !!column.defaultFilteredValue)
+    .forEach((column) => {
+      const dataIndex = parseDataIndex(column.dataIndex);
+      if (dataIndex) {
+        defaultFilter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
+      }
+    });
+  return defaultFilter;
+}
