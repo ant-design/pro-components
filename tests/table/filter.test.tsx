@@ -171,7 +171,7 @@ describe('BasicTable Search', () => {
               2: { text: '已上线', status: 'Success' },
               3: { text: '异常', status: 'Error' },
             },
-            defaultFilteredValue: ['0', '1'],
+            defaultFilteredValue: ['0'],
           },
         ]}
         request={async (_, sort, filter) => {
@@ -217,6 +217,32 @@ describe('BasicTable Search', () => {
         .at(0)
         .simulate('click', {
           target: {
+            checked: false,
+          },
+        });
+    });
+
+    await waitForComponentToPaint(html, 500);
+    act(() => {
+      html
+        .find('.ant-table-filter-dropdown-btns .ant-btn.ant-btn-primary.ant-btn-sm')
+        .simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      html.find('span.ant-table-filter-trigger').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 800);
+    act(() => {
+      html.find('.ant-table-filter-dropdown').debug();
+      html.find('span.ant-table-filter-trigger').simulate('click');
+      html
+        .find('.ant-table-filter-dropdown .ant-dropdown-menu-item')
+        .at(0)
+        .simulate('click', {
+          target: {
             checked: true,
           },
         });
@@ -230,7 +256,7 @@ describe('BasicTable Search', () => {
     });
 
     await waitForComponentToPaint(html, 500);
-    expect(fn).toBeCalledTimes(1);
+    expect(fn).toBeCalledTimes(2);
   });
 
   it('🎏 order multiple test', async () => {
