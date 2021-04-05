@@ -33,7 +33,6 @@ import { genProColumnToColumn } from './utils/genProColumnToColumn';
 import './index.less';
 import type {
   PageInfo,
-  ProColumnType,
   ProTableProps,
   RequestData,
   TableRowSelection,
