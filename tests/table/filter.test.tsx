@@ -99,6 +99,7 @@ describe('BasicTable Search', () => {
               2: { text: '已上线', status: 'Success' },
               3: { text: '异常', status: 'Error' },
             },
+            defaultFilteredValue: [0, 1],
           },
         ]}
         onChange={fn}
@@ -170,6 +171,7 @@ describe('BasicTable Search', () => {
               2: { text: '已上线', status: 'Success' },
               3: { text: '异常', status: 'Error' },
             },
+            defaultFilteredValue: [0, 1],
           },
         ]}
         request={async (_, sort, filter) => {
@@ -245,6 +247,7 @@ describe('BasicTable Search', () => {
               compare: (a, b) => a.money - b.money,
               multiple: 3,
             },
+            defaultSortOrder: 'descend',
           },
           {
             title: 'money',
@@ -254,6 +257,7 @@ describe('BasicTable Search', () => {
               compare: (a, b) => a.money - b.money,
               multiple: 3,
             },
+            defaultSortOrder: 'ascend',
           },
           {
             title: '状态',
@@ -306,6 +310,7 @@ describe('BasicTable Search', () => {
             key: 'name',
             dataIndex: 'name',
             sorter: (a, b) => a.money - b.money,
+            defaultSortOrder: 'descend',
           },
           {
             title: 'money',
