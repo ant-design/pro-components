@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.33.0
+
+`2021-04-06`
+
+- 💥 feat(table): table column sorter supports field [#2376](https://github.com/ant-design/pro-components/pull/2376) [@xiefengnian](https://github.com/xiefengnian)
+
 ## @ant-design/pro-table@2.32.1
 
 `2021-03-31`

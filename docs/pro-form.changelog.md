@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.20.0
+
+`2021-04-06`
+
+- 🐛 fix(form): ignore case when highlighting options [#2397](https://github.com/ant-design/pro-components/pull/2397) [@jiyingzhi](https://github.com/jiyingzhi)
+- 🐛 fix(form): fix ProForm.Item no work in ProFormList [#2377](https://github.com/ant-design/pro-components/pull/2377) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(utils): 优化 inline-error-form-item 的 popover 展示逻辑 [#2372](https://github.com/ant-design/pro-components/pull/2372) [@xiefengnian](https://github.com/xiefengnian)
+- 💥 feat(form): creatorRecord support function [#2383](https://github.com/ant-design/pro-components/pull/2383) [@newketom](https://github.com/newketom)
+
 ## @ant-design/pro-form@1.19.1
 
 `2021-03-31`
