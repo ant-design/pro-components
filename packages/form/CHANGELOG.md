@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.19.1...@ant-design/pro-form@1.20.0) (2021-04-06)
+
+### Bug Fixes
+
+- RadioGroup do not pass rest props ([#2386](https://github.com/ant-design/pro-components/issues/2386)) ([9fb1c3f](https://github.com/ant-design/pro-components/commit/9fb1c3f9f508bcb9f1dd8b2215e1247b8021e773))
+- **form:** fix ProForm.Item no work in ProFormList ([#2377](https://github.com/ant-design/pro-components/issues/2377)) ([8bee408](https://github.com/ant-design/pro-components/commit/8bee408cb83b5070150296f64c896003afd85adb))
+
+### Features
+
+- **form:** creatorRecord support function ([#2383](https://github.com/ant-design/pro-components/issues/2383)) ([e9a5ba9](https://github.com/ant-design/pro-components/commit/e9a5ba9612146277b5b4cf375b5b25695db812af))
+
 ## [1.19.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.19.0...@ant-design/pro-form@1.19.1) (2021-03-31)
 
 ### Bug Fixes

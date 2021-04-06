@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.33.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.32.2...@ant-design/pro-table@2.33.0) (2021-04-06)
+
+### Features
+
+- **table:** table column sorter supports field ([#2376](https://github.com/ant-design/pro-components/issues/2376)) ([e419c1b](https://github.com/ant-design/pro-components/commit/e419c1b2d381f2e22b858493147c74750b5b0bb8))
+
 ## [2.32.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.32.1...@ant-design/pro-table@2.32.2) (2021-03-31)
 
 ### Bug Fixes

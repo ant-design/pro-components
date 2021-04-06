@@ -10,6 +10,7 @@ import { DeleteOutlined, PlusOutlined, CopyOutlined } from '@ant-design/icons';
 
 import './index.less';
 import get from 'rc-util/lib/utils/get';
+import { runFunction } from '@ant-design/pro-utils';
 
 type IconConfig = {
   Icon?: React.FC<any>;
@@ -38,7 +39,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
         creatorButtonText?: ReactNode;
         position?: 'top' | 'bottom';
       });
-  creatorRecord?: Record<string, any>;
+  creatorRecord?: Record<string, any> | (() => Record<string, any>);
   label?: ReactNode;
   tooltip?: LabelTooltipType;
   actionRender?: (
@@ -119,7 +120,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                     onClick={() => {
                       let index;
                       if (creatorButtonProps?.position === 'top') index = 0;
-                      action.add(creatorRecord, index);
+                      action.add(runFunction(creatorRecord), index);
                     }}
                   >
                     {creatorButtonProps?.creatorButtonText || '添加一行数据'}
