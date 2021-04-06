@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.14.0...@ant-design/pro-field@1.14.1) (2021-04-06)
+
+### Bug Fixes
+
+- **form:** ignore case when highlighting options ([#2397](https://github.com/ant-design/pro-components/issues/2397)) ([d3fe454](https://github.com/ant-design/pro-components/commit/d3fe454ed9f711f59b735552ef17ca95425f296c))
+
 # [1.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.13.0...@ant-design/pro-field@1.14.0) (2021-03-31)
 
 ### Bug Fixes

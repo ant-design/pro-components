@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.15.2...@ant-design/pro-utils@1.15.3) (2021-04-06)
+
+### Bug Fixes
+
+- **utils:** 优化 inline-error-form-item 的 popover 展示逻辑 ([#2372](https://github.com/ant-design/pro-components/issues/2372)) ([5436161](https://github.com/ant-design/pro-components/commit/543616114cf69a4ccdbbdac89d8807e4a5051f07)), closes [#2361](https://github.com/ant-design/pro-components/issues/2361)
+
 ## [1.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.15.1...@ant-design/pro-utils@1.15.2) (2021-03-31)
 
 ### Bug Fixes
