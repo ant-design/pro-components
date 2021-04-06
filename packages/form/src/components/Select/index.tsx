@@ -65,7 +65,9 @@ const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps>(
 
 const SearchSelect = React.forwardRef<any, ProFormSelectProps>(
   ({ fieldProps, children, params, proFieldProps, mode, valueEnum, request, options }, ref) => {
-    const props: SelectProps<any> = {
+    const props: Omit<SelectProps<any>, 'options'> & {
+      options?: ProFormSelectProps['options'];
+    } = {
       options,
       mode: (mode as 'multiple') || 'multiple',
       labelInValue: true,
@@ -104,3 +106,4 @@ ProFormSelect.SearchSelect = createField<ProFormSelectProps>(SearchSelect, {
 }) as React.FunctionComponent<ProFormSelectProps>;
 
 export default ProFormSelect;
+\
