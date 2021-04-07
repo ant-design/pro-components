@@ -165,32 +165,24 @@ function parseDataIndex(dataIndex: ProColumnType['dataIndex']): string | undefin
   return dataIndex?.toString();
 }
 
-export function parseDefaultSort<T, Value>(
-  columns: ProColumns<T, Value>[],
-): Record<string, SortOrder> {
-  const defaultSort: Record<string, SortOrder> = {};
-  columns
-    .filter((column) => !!column.sorter && !!column.defaultSortOrder)
-    .forEach((column) => {
-      const dataIndex = parseDataIndex(column.dataIndex);
-      if (dataIndex) {
-        defaultSort[dataIndex] = column.defaultSortOrder!;
-      }
-    });
-  return defaultSort;
-}
-
-export function parseDefaultFilter<T, Value>(
-  columns: ProColumns<T, Value>[],
-): Record<string, React.ReactText[]> {
-  const defaultFilter: Record<string, React.ReactText[]> = {};
+export function parseDefaultColumnConfig<T, Value>(columns: ProColumns<T, Value>[]) {
+  const filter: Record<string, React.ReactText[]> = {};
+  const sort: Record<string, SortOrder> = {};
   columns
     .filter((column) => !!column.filters && !!column.defaultFilteredValue)
     .forEach((column) => {
       const dataIndex = parseDataIndex(column.dataIndex);
       if (dataIndex) {
-        defaultFilter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
+        filter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
       }
     });
-  return defaultFilter;
+  columns
+    .filter((column) => !!column.sorter && !!column.defaultSortOrder)
+    .forEach((column) => {
+      const dataIndex = parseDataIndex(column.dataIndex);
+      if (dataIndex) {
+        sort[dataIndex] = column.defaultSortOrder!;
+      }
+    });
+  return { sort, filter };
 }

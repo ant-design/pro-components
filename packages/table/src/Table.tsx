@@ -25,8 +25,7 @@ import {
   mergePagination,
   useActionType,
   isBordered,
-  parseDefaultSort,
-  parseDefaultFilter,
+  parseDefaultColumnConfig,
 } from './utils';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
 
@@ -346,8 +345,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** 设置默认排序和筛选值 */
   useEffect(() => {
-    setProFilter(parseDefaultFilter(propsColumns));
-    setProSort(parseDefaultSort(propsColumns));
+    const { sort, filter } = parseDefaultColumnConfig(propsColumns);
+    setProFilter(filter);
+    setProSort(sort);
   }, []);
 
   /** 获取 table 的 dom ref */
