@@ -168,21 +168,17 @@ function parseDataIndex(dataIndex: ProColumnType['dataIndex']): string | undefin
 export function parseDefaultColumnConfig<T, Value>(columns: ProColumns<T, Value>[]) {
   const filter: Record<string, React.ReactText[]> = {};
   const sort: Record<string, SortOrder> = {};
-  columns
-    .filter((column) => !!column.filters && !!column.defaultFilteredValue)
-    .forEach((column) => {
-      const dataIndex = parseDataIndex(column.dataIndex);
-      if (dataIndex) {
-        filter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
-      }
-    });
-  columns
-    .filter((column) => !!column.sorter && !!column.defaultSortOrder)
-    .forEach((column) => {
-      const dataIndex = parseDataIndex(column.dataIndex);
-      if (dataIndex) {
-        sort[dataIndex] = column.defaultSortOrder!;
-      }
-    });
+  columns.forEach((column) => {
+    const dataIndex = parseDataIndex(column.dataIndex);
+    if (!dataIndex) {
+      return;
+    }
+    if (column.filters && column.defaultFilteredValue) {
+      filter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
+    }
+    if (column.sorter && column.defaultSortOrder) {
+      sort[dataIndex] = column.defaultSortOrder!;
+    }
+  });
   return { sort, filter };
 }
