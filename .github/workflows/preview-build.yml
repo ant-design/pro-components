@@ -15,8 +15,8 @@ jobs:
 
       - name: build
         run: |
-          npm install
-          npm run site
+          yarn
+          yarn run site
 
       - run: |
           zip -r dist.zip dist
