@@ -53,6 +53,17 @@ SchemaForm 是根据 JSON Schema 来生成表单的工具。SchemaForm 会根据
 
 <code src="./demos/customization-value-type.tsx" height="154px" title="schema 表单" />
 
+## Schema 定义
+
+SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 table 的相同的表单定义，同时扩展了部分字段。
+
+| 字段名称 | 类型 | 说明 |
+| --- | --- | --- |
+| `key` | `React.key` | 确定这个列的唯一值,一般用于 dataIndex 重复的情况 |
+| `dataIndex` | `React.key` \| `React.key[]` | 与实体映射的 key，数组会被转化 `[a,b] => Entity.a.b` |
+| `valueType` | `ProFieldValueType` | 数据的渲渲染方式，我们自带了一部分，你可以可以自定义 valueType |
+| `valueType` | `ProFieldValueType` | 数据的渲渲染方式，我们自带了一部分，你可以可以自定义 valueType |
+
 ## 代码示例
 
 ### JSON 来生成表单

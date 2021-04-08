@@ -90,7 +90,7 @@ export type ProSchemaValueEnumType = {
 };
 
 /**
- * 支持 Map 和 Object
+ * 支持 Map 和 Record<string,any>
  *
  * @name ValueEnum 的类型
  */
@@ -140,13 +140,13 @@ type ProSchemaValueType<ValueType> = (ValueType | ProFieldValueType) | ProFieldV
 
 /** 各个组件公共支持的 render */
 export type ProSchema<
-  T = unknown,
-  Extra = unknown,
-  V = ProSchemaComponentTypes,
+  Entity = Record<string, any>,
+  ExtraProps = unknown,
+  ComponentsType = ProSchemaComponentTypes,
   ValueType = 'text'
 > = {
-  /** @name 确定这个列的唯一值 */
-  key?: React.ReactText;
+  /** @name 确定这个列的唯一值,一般用于 dataIndex 重复的情况 */
+  key?: React.Key;
   /**
    * 支持一个数字，[a,b] 会转化为 obj.a.b
    *
@@ -156,7 +156,7 @@ export type ProSchema<
 
   /** 选择如何渲染相应的模式 */
   valueType?:
-    | ((entity: T, type: V) => ProSchemaValueType<ValueType>)
+    | ((entity: Entity, type: ComponentsType) => ProSchemaValueType<ValueType>)
     | ProSchemaValueType<ValueType>;
 
   /**
@@ -165,7 +165,11 @@ export type ProSchema<
    * @name 标题
    */
   title?:
-    | ((schema: ProSchema<T, Extra>, type: V, dom: React.ReactNode) => React.ReactNode)
+    | ((
+        schema: ProSchema<Entity, ExtraProps>,
+        type: ComponentsType,
+        dom: React.ReactNode,
+      ) => React.ReactNode)
     | React.ReactNode;
 
   /** @name 展示一个 icon，hover 是展示一些提示信息 */
@@ -176,10 +180,13 @@ export type ProSchema<
 
   render?: (
     dom: React.ReactNode,
-    entity: T,
+    entity: Entity,
     index: number,
     action: ProCoreActionType | undefined,
-    schema: ProSchema<T, Extra, V, ValueType> & { isEditable?: boolean; type: V },
+    schema: ProSchema<Entity, ExtraProps, ComponentsType, ValueType> & {
+      isEditable?: boolean;
+      type: ComponentsType;
+    },
   ) => React.ReactNode;
 
   /**
@@ -188,18 +195,20 @@ export type ProSchema<
    * @name 自定义编辑模式
    */
   renderFormItem?: (
-    schema: ProSchema<T, Extra, V, ValueType> & {
+    schema: ProSchema<Entity, ExtraProps, ComponentsType, ValueType> & {
       isEditable?: boolean;
       index?: number;
-      type: V;
+      type: ComponentsType;
     },
     config: {
       onSelect?: (value: any) => void;
-      type: V;
+      type: ComponentsType;
       recordKey?: React.Key | React.Key[];
-      record?: T;
+      record?: Entity;
       isEditable?: boolean;
-      defaultRender: (newItem: ProSchema<T, Extra, V, ValueType>) => JSX.Element | null;
+      defaultRender: (
+        newItem: ProSchema<Entity, ExtraProps, ComponentsType, ValueType>,
+      ) => JSX.Element | null;
     },
     form: FormInstance,
   ) => React.ReactNode;
@@ -209,27 +218,27 @@ export type ProSchema<
    *
    * @name 自定义 render
    */
-  renderText?: (text: any, record: T, index: number, action: ProCoreActionType) => any;
+  renderText?: (text: any, record: Entity, index: number, action: ProCoreActionType) => any;
   /** 自定义的 fieldProps render */
   fieldProps?:
     | ((
         form: FormInstance<any>,
-        config: ProSchema<T, Extra> & {
-          type: V;
+        config: ProSchema<Entity, ExtraProps> & {
+          type: ComponentsType;
           isEditable?: boolean;
           rowKey?: string;
           rowIndex: number;
         },
-      ) => Object)
-    | Object;
+      ) => Record<string, any>)
+    | Record<string, any>;
 
   /** 自定义的 formItemProps render */
   formItemProps?:
     | FormItemProps
     | ((
         form: FormInstance<any>,
-        config: ProSchema<T, Extra> & {
-          type: V;
+        config: ProSchema<Entity, ExtraProps> & {
+          type: ComponentsType;
           isEditable?: boolean;
           rowKey?: string;
           rowIndex: number;
@@ -237,10 +246,10 @@ export type ProSchema<
       ) => FormItemProps);
 
   /** 可编辑表格是否可编辑 */
-  editable?: false | ProTableEditableFnType<T>;
+  editable?: false | ProTableEditableFnType<Entity>;
   /** @name 映射值的类型 */
   valueEnum?:
-    | ((row: T) => ProSchemaValueEnumObj | ProSchemaValueEnumMap)
+    | ((row: Entity) => ProSchemaValueEnumObj | ProSchemaValueEnumMap)
     | ProSchemaValueEnumObj
     | ProSchemaValueEnumMap;
 
@@ -251,4 +260,4 @@ export type ProSchema<
   params?: Record<string, any>;
   /** @name 隐藏在 descriptions */
   hideInDescriptions?: boolean;
-} & Extra;
+} & ExtraProps;
