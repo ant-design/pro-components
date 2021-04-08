@@ -142,7 +142,7 @@ function cellRenderToFromItem<T>(config: {
               name={name}
               {...formItemProps}
               messageVariables={messageVariables}
-              initialValue={text ?? formItemProps?.initialValue}}
+              initialValue={text ?? formItemProps?.initialValue}
             >
               {inputDom}
             </InlineErrorFormItem>
@@ -163,7 +163,7 @@ function cellRenderToFromItem<T>(config: {
                 name={name}
                 {...formItemProps}
                 messageVariables={messageVariables}
-                initialValue={text ?? formItemProps?.initialValue}}
+                initialValue={text ?? formItemProps?.initialValue}
               >
                 {inputDom}
               </InlineErrorFormItem>
@@ -183,7 +183,7 @@ function cellRenderToFromItem<T>(config: {
               columnProps?.key || columnProps?.dataIndex || config.index,
             )}
             {...formItemProps}
-            initialValue={text ?? formItemProps?.initialValue}}
+            initialValue={text ?? formItemProps?.initialValue}
             messageVariables={messageVariables}
           >
             {renderDom}
