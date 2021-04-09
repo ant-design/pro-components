@@ -178,6 +178,53 @@ export type ProSchema<
   /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
 
+  /**
+   * 支持 object 和Map，Map 是支持其他基础类型作为 key
+   *
+   * @name 映射值的类型
+   */
+  valueEnum?:
+    | ((row: Entity) => ProSchemaValueEnumObj | ProSchemaValueEnumMap)
+    | ProSchemaValueEnumObj
+    | ProSchemaValueEnumMap;
+
+  /** 自定义的 fieldProps render */
+  fieldProps?:
+    | ((
+        form: FormInstance<any>,
+        config: ProSchema<Entity, ExtraProps> & {
+          type: ComponentsType;
+          isEditable?: boolean;
+          rowKey?: string;
+          rowIndex: number;
+        },
+      ) => Record<string, any>)
+    | Record<string, any>;
+
+  /** @name 自定义的 formItemProps */
+  formItemProps?:
+    | FormItemProps
+    | ((
+        form: FormInstance<any>,
+        config: ProSchema<Entity, ExtraProps> & {
+          type: ComponentsType;
+          isEditable?: boolean;
+          rowKey?: string;
+          rowIndex: number;
+        },
+      ) => FormItemProps);
+
+  /**
+   * 修改的数据是会被 valueType 消费
+   *
+   * @name 自定义 render 内容
+   */
+  renderText?: (text: any, record: Entity, index: number, action: ProCoreActionType) => any;
+  /**
+   * Render 方法只管理的只读模式，编辑模式需要使用 renderFormItem
+   *
+   * @name 自定义只读模式的dom
+   */
   render?: (
     dom: React.ReactNode,
     entity: Entity,
@@ -190,7 +237,7 @@ export type ProSchema<
   ) => React.ReactNode;
 
   /**
-   * 返回一个node，会自动包裹 value 和 onChange
+   * 返回一个 ReactNode，会自动包裹 value 和 onChange
    *
    * @name 自定义编辑模式
    */
@@ -213,51 +260,20 @@ export type ProSchema<
     form: FormInstance,
   ) => React.ReactNode;
 
-  /**
-   * 必须要返回 string
-   *
-   * @name 自定义 render
-   */
-  renderText?: (text: any, record: Entity, index: number, action: ProCoreActionType) => any;
-  /** 自定义的 fieldProps render */
-  fieldProps?:
-    | ((
-        form: FormInstance<any>,
-        config: ProSchema<Entity, ExtraProps> & {
-          type: ComponentsType;
-          isEditable?: boolean;
-          rowKey?: string;
-          rowIndex: number;
-        },
-      ) => Record<string, any>)
-    | Record<string, any>;
-
-  /** 自定义的 formItemProps render */
-  formItemProps?:
-    | FormItemProps
-    | ((
-        form: FormInstance<any>,
-        config: ProSchema<Entity, ExtraProps> & {
-          type: ComponentsType;
-          isEditable?: boolean;
-          rowKey?: string;
-          rowIndex: number;
-        },
-      ) => FormItemProps);
-
   /** 可编辑表格是否可编辑 */
   editable?: false | ProTableEditableFnType<Entity>;
-  /** @name 映射值的类型 */
-  valueEnum?:
-    | ((row: Entity) => ProSchemaValueEnumObj | ProSchemaValueEnumMap)
-    | ProSchemaValueEnumObj
-    | ProSchemaValueEnumMap;
 
   /** @name 从服务器请求枚举 */
   request?: ProFieldRequestData;
-
   /** @name 从服务器请求的参数，改变了会触发 reload */
   params?: Record<string, any>;
-  /** @name 隐藏在 descriptions */
+
+  /** @name 在 descriptions 隐藏 */
   hideInDescriptions?: boolean;
+  /** @name 在 Form 中隐藏 */
+  hideInForm?: boolean;
+  /** @name 在 table 中隐藏 */
+  hideInTable?: boolean;
+  /** @name 在 table的查询表单 中隐藏 */
+  hideInSearch?: boolean;
 } & ExtraProps;
