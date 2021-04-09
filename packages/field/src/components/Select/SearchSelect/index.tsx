@@ -83,6 +83,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     onChange,
     searchOnFocus = false,
     resetAfterSelect = false,
+    optionFilterProp = 'label',
+    optionLabelProp = 'label',
     className,
     disabled,
     options,
@@ -155,6 +157,8 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       allowClear
       disabled={disabled}
       mode={mode}
+      optionFilterProp={optionFilterProp}
+      optionLabelProp={optionLabelProp}
       {...restProps}
       onSearch={
         restProps?.showSearch

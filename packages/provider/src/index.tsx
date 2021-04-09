@@ -20,6 +20,7 @@ import idID from './locale/id_ID';
 import deDE from './locale/de_DE';
 import faIR from './locale/fa_IR';
 import trTR from './locale/tr_TR';
+import plPL from './locale/pl_PL';
 
 export type ProSchemaValueEnumType = {
   /** @name 演示的文案 */
@@ -139,6 +140,7 @@ const idIDIntl = createIntl('id_ID', idID);
 const deDEIntl = createIntl('de_DE', deDE);
 const faIRIntl = createIntl('fa_IR', faIR);
 const trTRIntl = createIntl('tr_TR', trTR);
+const plPLIntl = createIntl('pl_PL', plPL);
 
 const intlMap = {
   'ar-EG': arEGIntl,
@@ -159,6 +161,7 @@ const intlMap = {
   'de-DE': deDEIntl,
   'fa-IR': faIRIntl,
   'tr-TR': trTRIntl,
+  'pl-PL': plPLIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -184,6 +187,7 @@ export {
   deDEIntl,
   faIRIntl,
   trTRIntl,
+  plPLIntl,
   intlMap,
   intlMapKeys,
 };

@@ -1,9 +1,18 @@
+import React from 'react';
 import type { TablePaginationConfig } from 'antd';
+import { SortOrder } from 'antd/es/table/interface';
 
 import type { UseEditableUtilType } from '@ant-design/pro-utils';
 import type { IntlType } from '@ant-design/pro-provider';
 
-import type { ActionType, Bordered, BorderedType, UseFetchDataAction } from '../typing';
+import type {
+  ActionType,
+  Bordered,
+  BorderedType,
+  ProColumns,
+  ProColumnType,
+  UseFetchDataAction,
+} from '../typing';
 
 /**
  * 检查值是否存在 为了 避开 0 和 false
@@ -148,3 +157,41 @@ export const genColumnKey = (key?: React.ReactText | undefined, index?: number):
   }
   return `${index}`;
 };
+
+/**
+ * 将 ProTable - column - dataIndex 转为字符串形式
+ *
+ * @param dataIndex Column 中的 dataIndex
+ */
+function parseDataIndex(dataIndex: ProColumnType['dataIndex']): string | undefined {
+  if (Array.isArray(dataIndex)) {
+    return dataIndex.join(',');
+  }
+  return dataIndex?.toString();
+}
+
+/**
+ * 从 ProColumns 数组中取出默认的排序和筛选数据
+ *
+ * @param columns ProColumns
+ */
+export function parseDefaultColumnConfig<T, Value>(columns: ProColumns<T, Value>[]) {
+  const filter: Record<string, React.ReactText[]> = {};
+  const sort: Record<string, SortOrder> = {};
+  columns.forEach((column) => {
+    // 转换 dataIndex
+    const dataIndex = parseDataIndex(column.dataIndex);
+    if (!dataIndex) {
+      return;
+    }
+    // 当 column 启用 filters 功能时，取出默认的筛选值
+    if (column.filters && column.defaultFilteredValue) {
+      filter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
+    }
+    // 当 column 启用 sorter 功能时，取出默认的排序值
+    if (column.sorter && column.defaultSortOrder) {
+      sort[dataIndex] = column.defaultSortOrder!;
+    }
+  });
+  return { sort, filter };
+}

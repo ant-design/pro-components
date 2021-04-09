@@ -20,7 +20,13 @@ import Container from './container';
 import Toolbar from './components/ToolBar';
 import Alert from './components/Alert';
 import FormRender from './components/Form';
-import { genColumnKey, mergePagination, useActionType, isBordered } from './utils';
+import {
+  genColumnKey,
+  mergePagination,
+  useActionType,
+  isBordered,
+  parseDefaultColumnConfig,
+} from './utils';
 import { genProColumnToColumn } from './utils/genProColumnToColumn';
 
 import './index.less';
@@ -336,6 +342,13 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   const [proFilter, setProFilter] = useMountMergeState<Record<string, React.ReactText[]>>({});
   const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>({});
+
+  /** 设置默认排序和筛选值 */
+  useEffect(() => {
+    const { sort, filter } = parseDefaultColumnConfig(propsColumns);
+    setProFilter(filter);
+    setProSort(sort);
+  }, []);
 
   /** 获取 table 的 dom ref */
   const rootRef = useRef<HTMLDivElement>(null);
