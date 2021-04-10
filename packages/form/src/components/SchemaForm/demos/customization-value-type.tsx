@@ -75,29 +75,40 @@ const TagList: React.FC<{
 
 const columns: ProFormColumnsType<TableListItem, 'link' | 'tags'>[] = [
   {
-    title: '链接',
-    dataIndex: 'name',
-    valueType: 'link',
-  },
-  {
     title: '标签',
-    dataIndex: 'status',
-    key: 'status',
-    valueType: 'tags',
+    valueType: 'group',
+    columns: [
+      {
+        title: '只读链接',
+        readonly: true,
+        dataIndex: 'name',
+        valueType: 'link',
+      },
+      {
+        title: '链接',
+        dataIndex: 'name',
+        valueType: 'link',
+      },
+    ],
   },
-
   {
-    title: '只读链接',
-    readonly: true,
-    dataIndex: 'name',
-    valueType: 'link',
-  },
-  {
-    title: '只读标签',
-    readonly: true,
-    dataIndex: 'status',
-    key: 'status',
-    valueType: 'tags',
+    title: '路径',
+    valueType: 'group',
+    columns: [
+      {
+        title: '标签',
+        dataIndex: 'status',
+        key: 'status',
+        valueType: 'tags',
+      },
+      {
+        title: '只读标签',
+        readonly: true,
+        dataIndex: 'status',
+        key: 'status',
+        valueType: 'tags',
+      },
+    ],
   },
 ];
 

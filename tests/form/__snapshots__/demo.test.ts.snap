@@ -14463,94 +14463,80 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
     type="text"
   />
   <div
-    class="ant-row ant-form-item"
+    class="ant-pro-form-group"
   >
     <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class=""
-        for="name"
-        title="链接"
-      >
-        链接
-      </label>
-    </div>
-    <div
-      class="ant-col ant-form-item-control"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
     >
       <div
-        class="ant-form-item-control-input"
+        class="ant-space-item"
+        style="margin-right: 32px;"
       >
         <div
-          class="ant-form-item-control-input-content"
-        >
-          <input
-            class="ant-input"
-            id="name"
-            placeholder="请输入链接"
-            type="text"
-            value="TradeCode 1"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-row ant-form-item"
-  >
-    <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class=""
-        for="status"
-        title="标签"
-      >
-        标签
-      </label>
-    </div>
-    <div
-      class="ant-col ant-form-item-control"
-    >
-      <div
-        class="ant-form-item-control-input"
-      >
-        <div
-          class="ant-form-item-control-input-content"
+          class="ant-row ant-form-item"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class=""
+              for="name"
+              title="只读链接"
+            >
+              只读链接
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control"
           >
             <div
-              class="ant-space-item"
-              style="margin-right: 8px;"
+              class="ant-form-item-control-input"
             >
-              <span
-                class="ant-tag"
+              <div
+                class="ant-form-item-control-input-content"
               >
-                close
-              </span>
+                <a>
+                  TradeCode 1
+                </a>
+              </div>
             </div>
-            <div
-              class="ant-space-item"
-              style="margin-right: 8px;"
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class=""
+              for="name"
+              title="链接"
             >
-              <span
-                class="ant-tag"
+              链接
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
               >
-                close
-              </span>
-            </div>
-            <div
-              class="ant-space-item"
-            >
-              <input
-                class="ant-input ant-input-sm"
-                style="width: 78px;"
-                type="text"
-                value=""
-              />
+                <input
+                  class="ant-input"
+                  id="name"
+                  placeholder="请输入链接"
+                  type="text"
+                  value="TradeCode 1"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -14558,68 +14544,116 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
     </div>
   </div>
   <div
-    class="ant-row ant-form-item"
+    class="ant-pro-form-group"
   >
     <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class=""
-        for="name"
-        title="只读链接"
-      >
-        只读链接
-      </label>
-    </div>
-    <div
-      class="ant-col ant-form-item-control"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
     >
       <div
-        class="ant-form-item-control-input"
+        class="ant-space-item"
+        style="margin-right: 32px;"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="ant-row ant-form-item"
         >
-          <a>
-            TradeCode 1
-          </a>
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class=""
+              for="status"
+              title="标签"
+            >
+              标签
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <span
+                      class="ant-tag"
+                    >
+                      close
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <span
+                      class="ant-tag"
+                    >
+                      close
+                    </span>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <input
+                      class="ant-input ant-input-sm"
+                      style="width: 78px;"
+                      type="text"
+                      value=""
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-  <div
-    class="ant-row ant-form-item"
-  >
-    <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class=""
-        for="status"
-        title="只读标签"
-      >
-        只读标签
-      </label>
-    </div>
-    <div
-      class="ant-col ant-form-item-control"
-    >
       <div
-        class="ant-form-item-control-input"
+        class="ant-space-item"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="ant-row ant-form-item"
         >
-          <span
-            class="ant-tag"
+          <div
+            class="ant-col ant-form-item-label"
           >
-            close
-          </span>
-          <span
-            class="ant-tag"
+            <label
+              class=""
+              for="status"
+              title="只读标签"
+            >
+              只读标签
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control"
           >
-            close
-          </span>
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <span
+                  class="ant-tag"
+                >
+                  close
+                </span>
+                <span
+                  class="ant-tag"
+                >
+                  close
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

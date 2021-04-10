@@ -13273,10 +13273,10 @@ Array [
                       style="table-layout: fixed;"
                     >
                       <colgroup>
-                        <col />
                         <col
-                          style="width: 200px; min-width: 200px;"
+                          style="width: 64px; min-width: 64px;"
                         />
+                        <col />
                         <col />
                         <col
                           style="width: 120px; min-width: 120px;"

@@ -27,6 +27,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '序号',
     dataIndex: 'index',
+    width: 64,
     valueType: 'indexBorder',
   },
   {
@@ -34,7 +35,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'title',
     copyable: true,
     ellipsis: true,
-    width: 200,
     search: false,
   },
   {
