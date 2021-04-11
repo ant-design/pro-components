@@ -1,4 +1,4 @@
-import type { FormItemProps } from 'antd/lib/form';
+import type { FormItemProps, SpaceProps } from 'antd';
 
 export type GroupProps = {
   title?: React.ReactNode;
@@ -9,8 +9,10 @@ export type GroupProps = {
   style?: React.CSSProperties;
   titleStyle?: React.CSSProperties;
   titleRender?: (title: React.ReactNode, props: GroupProps) => React.ReactNode;
+  /** 子项的对齐方式 */
+  align?: SpaceProps['align'];
   /** 子项的排列方式 */
-  direction?: 'horizontal' | 'vertical';
+  direction?: SpaceProps['direction'];
   labelLayout?: 'inline' | 'twoLine';
   /** 是否折叠 * */
   collapsed?: boolean;
