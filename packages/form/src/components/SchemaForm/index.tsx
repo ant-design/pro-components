@@ -1,4 +1,4 @@
-﻿import React, { useRef } from 'react';
+﻿import React, { useCallback, useMemo, useRef } from 'react';
 import type { FormInstance, FormProps } from 'antd';
 import type { DrawerFormProps, QueryFilterProps, ProFormProps, StepFormProps } from '../../index';
 import { ProFormFieldSet } from '../../index';
@@ -9,6 +9,7 @@ import type {
   ProSchemaComponentTypes,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
+import { omitUndefined } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import omit from 'omit.js';
 import ProForm, { DrawerForm, QueryFilter, LightFilter, StepsForm } from '../../index';
@@ -36,7 +37,7 @@ export type ExtraProColumnType = {
 
 /** ProForm 的特色 layout */
 export type ProFormLayoutType =
-  | 'ProForm'
+  | 'Form'
   | 'ModalForm'
   | 'DrawerForm'
   | 'StepsForm'
@@ -83,7 +84,7 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
   title?: React.ReactNode | ((type: string) => React.ReactNode);
   description?: React.ReactNode;
   columns: ProFormColumnsType<T, ValueType>[];
-  action?: ProCoreActionType;
+  action?: React.MutableRefObject<ProCoreActionType | undefined>;
 } & Omit<FormProps<T>, 'onFinish'> &
   ProFormPropsType<T>;
 
@@ -110,111 +111,147 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
    *
    * @param items
    */
-  const genItems = (items: FormSchema<T, ValueType>['columns']) =>
-    items.map((mewItem, index) => {
-      const item = {
-        ...mewItem,
-        title: runFunction(mewItem.title, 'form'),
-      };
-
-      // 几种特殊的 value 不处理
-      if (
-        item.valueType &&
-        typeof item.valueType === 'string' &&
-        ['index', 'indexBorder', 'options'].includes(item.valueType)
-      ) {
-        return null;
-      }
-      const key = item.key || item.dataIndex?.toString() || index;
-
-      if (item.valueType === 'group') {
-        if (!item.columns) return null;
-        return (
-          <ProFormGroup key={key} label={item.title} {...item.fieldProps}>
-            {genItems(item.columns)}
-          </ProFormGroup>
-        );
-      }
-
-      if (item.valueType === 'formList' && item.dataIndex) {
-        if (!item.columns) return null;
-        return (
-          <ProFormList
-            key={key}
-            name={item.dataIndex}
-            label={item.title}
-            initialValue={item.initialValue}
-            {...item.fieldProps}
-          >
-            {genItems(item.columns)}
-          </ProFormList>
-        );
-      }
-
-      if (item.valueType === 'formSet' && item.dataIndex) {
-        if (!item.columns) return null;
-        return (
-          <ProFormFieldSet
-            {...item.formItemProps}
-            key={key}
-            initialValue={item.initialValue}
-            name={item.dataIndex}
-            label={item.title}
-            {...item.fieldProps}
-          >
-            {genItems(item.columns)}
-          </ProFormFieldSet>
-        );
-      }
-      /** 公用的 类型 props */
-      const formFieldProps: ProFormFieldProps = {
-        key,
-        name: item.dataIndex,
-        label: item.title,
-        ...omit(item, ['dataIndex', 'width', 'render', 'renderFormItem']),
-        width: item.width as 'lg',
-        formItemProps: runFunction(item.formItemProps, formRef.current, item),
-        fieldProps: runFunction(item.fieldProps, formRef.current, item),
-        render: item?.render
-          ? (dom, entity, renderIndex) =>
-              item?.render?.(dom, entity, renderIndex, action, {
-                type: 'form',
-                ...item,
-              })
-          : undefined,
-      };
-
-      return (
-        <ProFormField
-          {...formFieldProps}
-          renderFormItem={
-            item?.renderFormItem
-              ? (_, config) => {
-                  const defaultRender = () => {
-                    return <ProFormField {...formFieldProps} />;
-                  };
-                  return item?.renderFormItem?.(
-                    {
-                      type: 'form',
-                      ...item,
-                    },
-                    {
-                      ...config,
-                      defaultRender,
-                      type: 'form',
-                    },
-                    formRef.current,
-                  );
-                }
-              : undefined
+  const genItems = useCallback(
+    (items: FormSchema<T, ValueType>['columns']) =>
+      items
+        .sort((a, b) => {
+          if (b.order || a.order) {
+            return (b.order || 0) - (a.order || 0);
           }
-        />
-      );
-    });
+          return (b.index || 0) - (a.index || 0);
+        })
+        .map((newItem, index) => {
+          const title = runFunction(newItem.title, 'form');
+          const item = omitUndefined({
+            name: newItem.name,
+            valueType: runFunction(newItem.valueType, {}),
+            key: newItem.key,
+            columns: newItem.columns,
+            fieldProps: newItem.fieldProps,
+            valueEnum: newItem.valueEnum,
+            dataIndex: newItem.key || newItem.dataIndex,
+            initialValue: newItem.initialValue,
+            formItemProps: newItem.formItemProps,
+            width: newItem.width,
+            render: newItem.render,
+            renderFormItem: newItem.renderFormItem,
+            index: newItem.index,
+            readonly: newItem.readonly,
+            transform: newItem.transform,
+            colSize: newItem.colSize,
+            className: newItem.className,
+            renderText: newItem.renderText,
+            request: newItem.request,
+            params: newItem.params,
+            tooltip: newItem.tooltip || newItem.tip,
+            title,
+          });
+          // 几种特殊的 value 不处理
+          if (
+            item.valueType &&
+            typeof item.valueType === 'string' &&
+            ['index', 'indexBorder', 'option'].includes(item.valueType)
+          ) {
+            return null;
+          }
+          const key = item.key || item.dataIndex?.toString() || index;
+
+          if (item.valueType === 'group') {
+            if (!item.columns) return null;
+            return (
+              <ProFormGroup key={key} label={item.title} {...item.fieldProps}>
+                {genItems(item.columns)}
+              </ProFormGroup>
+            );
+          }
+
+          if (item.valueType === 'formList' && item.dataIndex) {
+            if (!item.columns) return null;
+            return (
+              <ProFormList
+                key={key}
+                name={item.dataIndex}
+                label={item.title}
+                initialValue={item.initialValue}
+                {...item.fieldProps}
+              >
+                {genItems(item.columns)}
+              </ProFormList>
+            );
+          }
+
+          if (item.valueType === 'formSet' && item.dataIndex) {
+            if (!item.columns) return null;
+            return (
+              <ProFormFieldSet
+                {...item.formItemProps}
+                key={key}
+                initialValue={item.initialValue}
+                name={item.dataIndex}
+                label={item.title}
+                {...item.fieldProps}
+              >
+                {genItems(item.columns)}
+              </ProFormFieldSet>
+            );
+          }
+          /** 公用的 类型 props */
+          const formFieldProps: ProFormFieldProps = {
+            key,
+            name: item.dataIndex,
+            label: item.title,
+            ...omit(item, ['dataIndex', 'width', 'render', 'renderFormItem', 'renderText']),
+            width: item.width as 'lg',
+            formItemProps: runFunction(item.formItemProps, formRef.current, item),
+            fieldProps: runFunction(item.fieldProps, formRef.current, item),
+            render: item?.render
+              ? (dom, entity, renderIndex) =>
+                  item?.render?.(dom, entity, renderIndex, action?.current, {
+                    type: 'form',
+                    ...item,
+                  })
+              : undefined,
+          };
+
+          return (
+            <ProFormField
+              {...formFieldProps}
+              key={key}
+              fieldProps={item.fieldProps}
+              renderFormItem={
+                item?.renderFormItem
+                  ? (_, config) => {
+                      const defaultRender = () => {
+                        return <ProFormField {...formFieldProps} />;
+                      };
+                      return item?.renderFormItem?.(
+                        {
+                          type: 'form',
+                          ...item,
+                        },
+                        {
+                          ...config,
+                          defaultRender,
+                          type: 'form',
+                        },
+                        formRef.current,
+                      );
+                    }
+                  : undefined
+              }
+            />
+          );
+        }),
+    [action],
+  );
+
+  const domList = useMemo(() => {
+    return genItems(columns);
+  }, [columns, genItems]);
 
   return (
     <Form formRef={formRef} {...rest}>
-      {genItems(columns)}
+      {domList}
     </Form>
   );
 }

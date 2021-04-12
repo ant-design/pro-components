@@ -3,7 +3,7 @@ import type { TablePaginationConfig } from 'antd';
 import omit from 'omit.js';
 import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import { omitUndefined } from '@ant-design/pro-utils';
-import type { UseFetchDataAction, ProTableProps } from '../../typing';
+import type { ProTableProps, ActionType } from '../../typing';
 import { isBordered } from '../../utils/index';
 import './index.less';
 import FormRender from './FormRender';
@@ -11,7 +11,7 @@ import FormRender from './FormRender';
 type BaseFormProps<T, U> = {
   pagination?: TablePaginationConfig | false;
   beforeSearchSubmit?: (params: Partial<U>) => any;
-  action: UseFetchDataAction<any>;
+  action: React.MutableRefObject<ActionType | undefined>;
   onSubmit?: (params: U) => void;
   onReset?: () => void;
   loading: boolean;
@@ -53,7 +53,7 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
     onFormSearchSubmit(omitParams);
     if (!firstLoad) {
       // back first page
-      action.setPageInfo({
+      action.current?.setPageInfo?.({
         current: 1,
       });
     }
@@ -85,7 +85,7 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
     ) as U;
     onFormSearchSubmit(omitParams);
     // back first page
-    action.setPageInfo({
+    action.current?.setPageInfo?.({
       current: 1,
     });
     onReset?.();
@@ -145,6 +145,7 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
       loading,
       formRef,
       type,
+      action,
       cardBordered,
       dateFormatter,
       form,
@@ -163,6 +164,7 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
         dateFormatter={dateFormatter}
         search={search}
         form={form}
+        action={action}
         bordered={isBordered('search', cardBordered)}
       />
     );
