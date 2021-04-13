@@ -21166,6 +21166,27 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
     </div>
   </div>
   <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <input
+            class="ant-input"
+            type="text"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
     <div
