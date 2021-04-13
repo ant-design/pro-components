@@ -97,7 +97,7 @@ export default () => {
   zIndex={${zIndex}}
 >
   <div>xxx</div>
-</WaterMark>}`}
+</WaterMark>`}
                 />
               );
             }}
