@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, Input } from 'antd';
 import ProForm, {
   ProFormText,
   ProFormCaptcha,
@@ -7,6 +7,7 @@ import ProForm, {
   ProFormDependency,
   ProFormSelect,
   ProFormColorPicker,
+  ProFormField,
 } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
@@ -577,6 +578,28 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(fn).not.toBeCalled();
+  });
+
+  it('📦 ProFormField support onChange', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm onValuesChange={fn}>
+        <ProFormField name="phone2">
+          <Input id="testInput" />
+        </ProFormField>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('Input#testInput').simulate('change', {
+        target: {
+          value: 'test',
+        },
+      });
+    });
+    expect(fn).toBeCalled();
   });
 
   it('📦 DatePicker', async () => {
