@@ -65,7 +65,7 @@ describe('SchemaForm', () => {
   it('😊 SchemaForm support table columns', async () => {
     const html = mount(<BetaSchemaForm columns={columns} />);
     await waitForComponentToPaint(html);
-    expect(html.find('div.ant-form-item').length).toBe(5);
+    expect(html.find('div.ant-form-item').length).toBe(4);
   });
 
   it('😊 SchemaForm support render', async () => {

@@ -157,7 +157,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
 ];
 
 export default () => {
-  const [layoutType, setLayoutType] = useState<ProFormLayoutType>('ProForm');
+  const [layoutType, setLayoutType] = useState<ProFormLayoutType>('Form');
   return (
     <>
       <ProFormSelect

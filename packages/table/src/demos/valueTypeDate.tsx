@@ -79,7 +79,7 @@ export default () => (
         },
         {
           title: '更新时间',
-          key: 'since2',
+          key: 'since4',
           dataIndex: 'createdAt',
           valueType: 'fromNow',
         },

@@ -1,4 +1,4 @@
-﻿import React, { useCallback, useMemo, useRef } from 'react';
+﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
 import type { FormInstance, FormProps } from 'antd';
 import type { DrawerFormProps, QueryFilterProps, ProFormProps, StepFormProps } from '../../index';
 import { ProFormFieldSet } from '../../index';
@@ -12,7 +12,7 @@ import type {
 import { omitUndefined } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import omit from 'omit.js';
-import ProForm, { DrawerForm, QueryFilter, LightFilter, StepsForm } from '../../index';
+import ProForm, { DrawerForm, ModalForm, QueryFilter, LightFilter, StepsForm } from '../../index';
 import { useForm } from 'antd/lib/form/Form';
 import type { ProFormFieldProps } from '../Field';
 import ProFormList from '../List';
@@ -84,6 +84,7 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
   title?: React.ReactNode | ((type: string) => React.ReactNode);
   description?: React.ReactNode;
   columns: ProFormColumnsType<T, ValueType>[];
+  type?: any;
   action?: React.MutableRefObject<ProCoreActionType | undefined>;
 } & Omit<FormProps<T>, 'onFinish'> &
   ProFormPropsType<T>;
@@ -93,6 +94,7 @@ const FormComments = {
   QueryFilter,
   LightFilter,
   StepsForm,
+  ModalForm,
 };
 
 /**
@@ -101,10 +103,11 @@ const FormComments = {
  * @see 此组件仍为 beta 版本，api 可能发生变化
  */
 function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
-  const { columns, layoutType = 'ProForm', action, ...rest } = props;
+  const { columns, layoutType = 'ProForm', type = 'form', action, ...rest } = props;
   const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
   const [form] = useForm();
   const formRef = useRef<FormInstance>(form);
+  const [updateTime, updateFormRender] = useState(0);
 
   /**
    * 生成子项，方便被 table 接入
@@ -112,7 +115,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
    * @param items
    */
   const genItems = useCallback(
-    (items: FormSchema<T, ValueType>['columns']) =>
+    (items: FormSchema<T, ValueType>['columns'], update?: number) =>
       items
         .sort((a, b) => {
           if (b.order || a.order) {
@@ -127,11 +130,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             valueType: runFunction(newItem.valueType, {}),
             key: newItem.key,
             columns: newItem.columns,
-            fieldProps: newItem.fieldProps,
+            fieldProps: runFunction(newItem.fieldProps, formRef.current, newItem),
             valueEnum: newItem.valueEnum,
             dataIndex: newItem.key || newItem.dataIndex,
             initialValue: newItem.initialValue,
-            formItemProps: newItem.formItemProps,
+            formItemProps: runFunction(newItem.formItemProps, formRef.current, newItem),
             width: newItem.width,
             render: newItem.render,
             renderFormItem: newItem.renderFormItem,
@@ -191,7 +194,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
                 label={item.title}
                 {...item.fieldProps}
               >
-                {genItems(item.columns)}
+                {genItems(item.columns, update)}
               </ProFormFieldSet>
             );
           }
@@ -200,57 +203,108 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             key,
             name: item.dataIndex,
             label: item.title,
-            ...omit(item, ['dataIndex', 'width', 'render', 'renderFormItem', 'renderText']),
-            width: item.width as 'lg',
-            formItemProps: runFunction(item.formItemProps, formRef.current, item),
-            fieldProps: runFunction(item.fieldProps, formRef.current, item),
+            ...omit(item, [
+              'dataIndex',
+              'width',
+              'render',
+              'renderFormItem',
+              'renderText',
+              'title',
+            ]),
+            width: item.width as 'md',
+            formItemProps: item.formItemProps,
+            fieldProps: item.fieldProps,
             render: item?.render
               ? (dom, entity, renderIndex) =>
                   item?.render?.(dom, entity, renderIndex, action?.current, {
-                    type: 'form',
+                    type,
                     ...item,
                   })
               : undefined,
           };
+          const defaultRender = () => {
+            return <ProFormField {...formFieldProps} />;
+          };
 
+          if (item?.renderFormItem) {
+            const formDom = item?.renderFormItem
+              ? item?.renderFormItem?.(
+                  {
+                    type,
+                    ...item,
+                  },
+                  {
+                    ...item,
+                    defaultRender,
+                    type,
+                  },
+                  formRef.current,
+                )
+              : 'NO';
+            if (!formDom) {
+              return null;
+            }
+          }
           return (
             <ProFormField
               {...formFieldProps}
-              key={key}
-              fieldProps={item.fieldProps}
+              // eslint-disable-next-line react/no-array-index-key
+              key={`${key}-${index}`}
+              transform={item.transform}
               renderFormItem={
                 item?.renderFormItem
-                  ? (_, config) => {
-                      const defaultRender = () => {
-                        return <ProFormField {...formFieldProps} />;
-                      };
-                      return item?.renderFormItem?.(
+                  ? (_, config) =>
+                      item?.renderFormItem?.(
                         {
-                          type: 'form',
+                          type,
                           ...item,
                         },
                         {
                           ...config,
                           defaultRender,
-                          type: 'form',
+                          type,
                         },
                         formRef.current,
-                      );
-                    }
+                      )
                   : undefined
               }
             />
           );
         }),
-    [action],
+    [action, type],
   );
 
+  const needRealUpdate = useMemo(() => {
+    return columns.some(
+      (item) =>
+        item.renderFormItem ||
+        typeof item.fieldProps === 'function' ||
+        typeof item.formItemProps === 'function',
+    );
+  }, [columns]);
+
   const domList = useMemo(() => {
-    return genItems(columns);
-  }, [columns, genItems]);
+    return genItems(columns, updateTime);
+  }, [columns, genItems, updateTime]);
 
   return (
-    <Form formRef={formRef} {...rest}>
+    <Form
+      formRef={formRef}
+      form={form}
+      {...rest}
+      onInit={(...restValue) => {
+        if (needRealUpdate) {
+          updateFormRender(updateTime + 1);
+        }
+        rest?.onInit?.(...restValue);
+      }}
+      onValuesChange={(...restValue) => {
+        if (needRealUpdate) {
+          updateFormRender(updateTime + 1);
+        }
+        rest?.onValuesChange?.(...restValue);
+      }}
+    >
       {domList}
     </Form>
   );

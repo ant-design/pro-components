@@ -272,16 +272,26 @@ export const useFieldFetchData = (
     loading,
     props.request
       ? (data as SelectProps<any>['options'])
-      : options?.filter((item) => {
-          if (!keyWords) return true;
-          if (
-            item?.label?.toString().toLowerCase().includes(keyWords.toLowerCase()) ||
-            item.value.toString().toLowerCase().includes(keyWords.toLowerCase())
-          ) {
-            return true;
-          }
-          return false;
-        }),
+      : options
+          ?.map((item) => {
+            if (typeof item === 'string') {
+              return {
+                label: item,
+                value: item,
+              };
+            }
+            return item;
+          })
+          ?.filter((item) => {
+            if (!keyWords) return true;
+            if (
+              item?.label?.toString().toLowerCase().includes(keyWords.toLowerCase()) ||
+              item.value.toString().toLowerCase().includes(keyWords.toLowerCase())
+            ) {
+              return true;
+            }
+            return false;
+          }),
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
       mutate(key);

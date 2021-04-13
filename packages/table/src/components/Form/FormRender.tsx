@@ -157,6 +157,8 @@ const FormRender = <T, U = any>({
             : (item.valueType as 'text');
         return {
           ...item,
+          width: undefined,
+          ...(item.search ? item.search : {}),
           valueType: finalValueType,
         };
       });
@@ -195,13 +197,11 @@ const FormRender = <T, U = any>({
       <BetaSchemaForm<U>
         layoutType={competentName}
         columns={columnsList}
+        type={type}
         {...loadingProps}
         {...getFromProps(isForm, searchConfig, competentName)}
         {...getFormConfigs(isForm, formConfig)}
         formRef={formRef}
-        onValuesChange={(change, all) => {
-          formConfig?.onValuesChange?.(change, all);
-        }}
         action={action}
         dateFormatter={dateFormatter}
         onInit={(values: T) => {

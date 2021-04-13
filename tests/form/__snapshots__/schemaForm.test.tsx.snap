@@ -99,7 +99,6 @@ exports[`SchemaForm 😊 SchemaForm support table 1`] = `
             name="state"
             style="min-width:100px"
             text="all"
-            title="列表状态"
           >
             <div
               class="ant-select-selector"
@@ -216,7 +215,6 @@ exports[`SchemaForm 😊 SchemaForm support table 1`] = `
             name="direction"
             style="min-width:100px"
             text=""
-            title="排序方式"
           >
             <div
               class="ant-select-selector"
@@ -286,7 +284,7 @@ exports[`SchemaForm 😊 SchemaForm support table 1`] = `
     >
       <label
         class=""
-        for="created_at"
+        for="since"
         title="创建时间"
       >
         创建时间
@@ -309,7 +307,7 @@ exports[`SchemaForm 😊 SchemaForm support table 1`] = `
             >
               <input
                 autocomplete="off"
-                id="created_at"
+                id="since"
                 placeholder="请选择"
                 readonly=""
                 size="21"
@@ -342,32 +340,6 @@ exports[`SchemaForm 😊 SchemaForm support table 1`] = `
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-row ant-form-item"
-  >
-    <div
-      class="ant-col ant-form-item-label"
-    >
-      <label
-        class=""
-        for="id"
-        title="option"
-      >
-        option
-      </label>
-    </div>
-    <div
-      class="ant-col ant-form-item-control"
-    >
-      <div
-        class="ant-form-item-control-input"
-      >
-        <div
-          class="ant-form-item-control-input-content"
-        />
       </div>
     </div>
   </div>
