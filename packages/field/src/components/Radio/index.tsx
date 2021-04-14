@@ -63,21 +63,11 @@ const FieldRadio: ProFieldFC<GroupProps> = (
         )}
         options={undefined}
       >
-        {options
-          ?.map((option) => {
-            if (typeof option === 'string') {
-              return {
-                label: option,
-                value: option,
-              };
-            }
-            return option;
-          })
-          .map((item) => (
-            <RadioComponents key={item.value} {...item}>
-              {item.label}
-            </RadioComponents>
-          ))}
+        {options?.map((item) => (
+          <RadioComponents key={item.value} {...item}>
+            {item.label}
+          </RadioComponents>
+        ))}
       </Radio.Group>
     );
     if (renderFormItem) {

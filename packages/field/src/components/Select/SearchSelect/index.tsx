@@ -150,7 +150,6 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       );
     });
   };
-
   return (
     <Select<any>
       ref={ref}

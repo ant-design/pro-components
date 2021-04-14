@@ -94,7 +94,7 @@ const columns: ProColumns<DataSourceType>[] = [
       <a
         key="editable"
         onClick={() => {
-          action.startEditable?.(record.id);
+          action?.startEditable?.(record.id);
         }}
       >
         编辑
@@ -131,7 +131,7 @@ const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
 
 可编辑表格的重点是 action ，这个变量有点像 Form 的 formInstance 实例，你可以调用它的方法来操作可编辑表格的一些行为 ,以下是支持的 API 列举：
 
-- `action.startEditable(rowKey)` 开始编辑一行
+- `action?.startEditable(rowKey)` 开始编辑一行
 - `action.cancelEditable(rowKey)` 结束编辑一行，相当于取消
 - `action.addEditRecord(row)`   新增一行，row 相当于默认值，一定要包含 rowKey
 
@@ -257,7 +257,7 @@ render: (text, record, _, action) => [
   <a
     key="editable"
     onClick={() => {
-      action.startEditable?.(record.id);
+      action?.startEditable?.(record.id);
     }}
   >
     编辑

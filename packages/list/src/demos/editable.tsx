@@ -66,7 +66,7 @@ export default () => (
         render: (text, row, index, action) => [
           <a
             onClick={() => {
-              action.startEditable(row.id);
+              action?.startEditable(row.id);
             }}
             key="link"
           >

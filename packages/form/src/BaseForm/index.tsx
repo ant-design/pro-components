@@ -52,6 +52,8 @@ export type CommonFormProps<T extends Record<string, any> = Record<string, any>>
    * @see time -> HH:mm:SS
    */
   dateFormatter?: 'number' | 'string' | false;
+  /** 表单初始化成功，比如布局，label等计算完成 */
+  onInit?: (values: T) => void;
 };
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -159,6 +161,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   useEffect(() => {
     const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
     onInit?.(finalValues);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // 如果为 false，不需要触发设置进去

@@ -348,6 +348,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     const { sort, filter } = parseDefaultColumnConfig(propsColumns);
     setProFilter(filter);
     setProSort(sort);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   /** 获取 table 的 dom ref */
@@ -556,7 +557,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       <FormRender<T, U>
         pagination={pagination}
         beforeSearchSubmit={beforeSearchSubmit}
-        action={action}
+        action={actionRef}
         columns={propsColumns}
         onFormSearchSubmit={(values) => {
           setFormSearch(values);

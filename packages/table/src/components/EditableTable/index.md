@@ -185,7 +185,7 @@ render: (text, record, _, action) => [
   <a
     key="editable"
     onClick={() => {
-      action.startEditable?.(record.id);
+      action?.startEditable?.(record.id);
     }}
   >
     编辑
