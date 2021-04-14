@@ -60,7 +60,7 @@ const FooterView: React.FC<FooterProps> = ({
       copyright={
         copyright === false ? null : (
           <Fragment>
-            Copyright <CopyrightOutlined /> {copyright || defaultCopyright}
+            <CopyrightOutlined /> {copyright || defaultCopyright}
           </Fragment>
         )
       }
