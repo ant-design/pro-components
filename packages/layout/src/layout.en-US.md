@@ -332,7 +332,7 @@ The default ProLayout does not provide a footer, but does provide a footer compo
 
 ```tsx | pure
 <Footer
-  copyright="2019 by Anthem Experience Technologies"
+  copyright="@2019 by Anthem Experience Technologies"
   links={[
     {
       key: 'Ant Design Pro',

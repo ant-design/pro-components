@@ -4944,7 +4944,6 @@ Array [
             <div
               class="ant-pro-global-footer-copyright"
             >
-              Copyright 
               <span
                 aria-label="copyright"
                 class="anticon anticon-copyright"
@@ -9123,7 +9122,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
           <div
             class="ant-pro-global-footer-copyright"
           >
-            Copyright 
             <span
               aria-label="copyright"
               class="anticon anticon-copyright"

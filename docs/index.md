@@ -29,7 +29,7 @@ features:
     title: TypeScript
     desc: 使用 TypeScript 开发，提供完整的类型定义文件
 
-footer: Open-source MIT Licensed | Copyright © 2017-present
+footer: Open-source MIT Licensed | © 2017-present
 ---
 
 ## 组件看板
