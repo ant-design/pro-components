@@ -34,7 +34,6 @@ const ProFormItem: React.FC<
     if (!setFieldValueType || !props.name) {
       return;
     }
-    console.log(dataFormat);
     // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
     // 写一个 ts 比较麻烦，用 any 顶一下
     setFieldValueType(

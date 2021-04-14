@@ -214,7 +214,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             onValuesChange={(changedValues, values) => {
               rest?.onValuesChange?.(
                 transformKey(changedValues, omitNil),
-                transformKey(changedValues, values),
+                transformKey(values, omitNil),
               );
             }}
             onFinish={async () => {
