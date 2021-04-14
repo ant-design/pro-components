@@ -412,8 +412,10 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
           action.setPageInfo({ pageSize, current });
           return;
         }
-        // 清空数据，然后刷新不然可能会导致 pageSize 没有数据多
-        action.setDataSource([]);
+
+        // 通过request的时候清空数据，然后刷新不然可能会导致 pageSize 没有数据多
+        if (request) action.setDataSource([]);
+
         requestAnimationFrame(() => {
           action.setPageInfo({
             pageSize,
