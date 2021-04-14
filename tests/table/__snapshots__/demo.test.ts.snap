@@ -138,7 +138,7 @@ Array [
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle"
+                class="ant-table ant-table-middle ant-table-layout-fixed"
               >
                 <div
                   class="ant-table-container"
@@ -147,7 +147,7 @@ Array [
                     class="ant-table-content"
                   >
                     <table
-                      style="table-layout: auto;"
+                      style="table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -502,7 +502,7 @@ Array [
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle"
+                class="ant-table ant-table-middle ant-table-layout-fixed"
               >
                 <div
                   class="ant-table-container"
@@ -511,7 +511,7 @@ Array [
                     class="ant-table-content"
                   >
                     <table
-                      style="table-layout: auto;"
+                      style="table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -823,7 +823,7 @@ Array [
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle"
+                class="ant-table ant-table-middle ant-table-layout-fixed"
               >
                 <div
                   class="ant-table-container"
@@ -832,7 +832,7 @@ Array [
                     class="ant-table-content"
                   >
                     <table
-                      style="table-layout: auto;"
+                      style="table-layout: fixed;"
                     >
                       <colgroup>
                         <col
@@ -23088,7 +23088,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle"
+              class="ant-table ant-table-middle ant-table-layout-fixed"
             >
               <div
                 class="ant-table-container"
@@ -23097,7 +23097,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout: fixed;"
                   >
                     <colgroup />
                     <thead

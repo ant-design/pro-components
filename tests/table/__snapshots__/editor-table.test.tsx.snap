@@ -1457,7 +1457,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle"
+              class="ant-table ant-table-middle ant-table-layout-fixed"
             >
               <div
                 class="ant-table-container"
@@ -1466,7 +1466,7 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout: auto;"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
@@ -1801,7 +1801,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle"
+              class="ant-table ant-table-middle ant-table-layout-fixed"
             >
               <div
                 class="ant-table-container"
@@ -1810,7 +1810,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout:auto"
+                    style="table-layout:fixed"
                   >
                     <colgroup>
                       <col
@@ -1998,7 +1998,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle"
+              class="ant-table ant-table-middle ant-table-layout-fixed"
             >
               <div
                 class="ant-table-container"
@@ -2007,7 +2007,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout:auto"
+                    style="table-layout:fixed"
                   >
                     <colgroup>
                       <col
