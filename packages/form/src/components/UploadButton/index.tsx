@@ -50,7 +50,7 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
       action={action}
       accept={accept}
       ref={ref}
-      //'fileList' 改成和 ant.design 文档中 Update 组件 默认 file字段一样
+      // 'fileList' 改成和 ant.design 文档中 Update 组件 默认 file字段一样
       name={name || 'file'}
       listType={listType || 'picture'}
       fileList={value}
