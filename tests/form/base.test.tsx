@@ -856,7 +856,7 @@ describe('ProForm', () => {
   it('📦 SearchSelect support onClear', async () => {
     const onSearch = jest.fn();
     const wrapper = mount(
-      <ProForm>
+      <ProForm onValuesChange={(e) => console.log(e)}>
         <ProFormSelect.SearchSelect
           name="userQuery"
           label="查询选择器"
@@ -920,10 +920,8 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-select-clear').at(0).simulate('click');
-      wrapper.update();
+      wrapper.find('span.ant-select-clear').last().simulate('mousedown');
     });
-    await waitForComponentToPaint(wrapper);
 
     act(() => {
       wrapper.find('.ant-select-selector').simulate('mousedown');
