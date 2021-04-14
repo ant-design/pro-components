@@ -1,6 +1,7 @@
 import moment from 'moment';
 import get from 'rc-util/lib/utils/get';
 import isNil from '../isNil';
+import type { ProFieldValueType } from '../typing';
 
 type DateFormatter = 'number' | 'string' | false;
 
@@ -41,16 +42,6 @@ export function isPlainObject(o: { constructor: any }) {
   return true;
 }
 
-const convertMoment = (value: moment.Moment, dateFormatter: DateFormatter, valueType: string) => {
-  if (moment.isMoment(value)) {
-    if (dateFormatter === 'number') {
-      return value.valueOf();
-    }
-    return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
-  }
-  return value;
-};
-
 /**
  * 根据不同的格式转化 moment
  *
@@ -58,15 +49,22 @@ const convertMoment = (value: moment.Moment, dateFormatter: DateFormatter, value
  * @param dateFormatter
  * @param valueType
  */
-const conversionMoment = (
-  value: moment.Moment,
-  dateFormatter: DateFormatter,
-  valueType: string,
-) => {
+const convertMoment = (value: moment.Moment, dateFormatter: string | false, valueType: string) => {
   if (!dateFormatter) {
     return value;
   }
-  return convertMoment(value, dateFormatter, valueType);
+  if (moment.isMoment(value)) {
+    if (dateFormatter === 'number') {
+      return value.valueOf();
+    }
+    if (dateFormatter === 'string') {
+      return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
+    }
+    if (typeof dateFormatter === 'string' && dateFormatter !== 'string') {
+      return value.format(dateFormatter);
+    }
+  }
+  return value;
 };
 
 /**
@@ -79,7 +77,14 @@ const conversionMoment = (
 const conversionSubmitValue = <T = any>(
   value: T,
   dateFormatter: DateFormatter,
-  valueTypeMap: Record<string, any>,
+  valueTypeMap: Record<
+    string,
+    | {
+        valueType: ProFieldValueType;
+        dateFormat: string;
+      }
+    | any
+  >,
   omitNil?: boolean,
   parentKey?: string[],
 ): T => {
@@ -92,7 +97,17 @@ const conversionSubmitValue = <T = any>(
 
   Object.keys(value).forEach((key) => {
     const namePath = parentKey ? [parentKey, key].flat(1) : [key];
-    const valueType = get(valueTypeMap, namePath) || 'text';
+    const valueFormatMap = get(valueTypeMap, namePath) || 'text';
+
+    let valueType: ProFieldValueType = 'text';
+    let dateFormat: string | undefined;
+
+    if (typeof valueFormatMap === 'string') {
+      valueType = valueFormatMap as ProFieldValueType;
+    } else if (valueFormatMap) {
+      valueType = valueFormatMap.valueType;
+      dateFormat = valueFormatMap.dateFormat;
+    }
     const itemValue = value[key];
     if (isNil(itemValue) && omitNil) {
       return;
@@ -112,7 +127,7 @@ const conversionSubmitValue = <T = any>(
     if (Array.isArray(itemValue)) {
       tmpValue[key] = itemValue.map((arrayValue, index) => {
         if (moment.isMoment(arrayValue)) {
-          return conversionMoment(arrayValue, dateFormatter, valueType);
+          return convertMoment(arrayValue, dateFormat || dateFormatter, valueType);
         }
         return conversionSubmitValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [
           key,
@@ -121,7 +136,7 @@ const conversionSubmitValue = <T = any>(
       });
       return;
     }
-    tmpValue[key] = conversionMoment(itemValue, dateFormatter, valueType);
+    tmpValue[key] = convertMoment(itemValue, dateFormat || dateFormatter, valueType);
   });
   return tmpValue;
 };

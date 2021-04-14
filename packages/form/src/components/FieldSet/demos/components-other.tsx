@@ -262,6 +262,13 @@ const Demo = () => (
       </ProFormFieldSet>
       <ProForm.Group title="日期相关分组">
         <ProFormDatePicker name="date" label="日期" />
+        <ProFormDatePicker
+          name="date"
+          fieldProps={{
+            format: 'YY-MM',
+          }}
+          label="年月"
+        />
         <ProFormTimePicker name="time" label="时间" />
         <ProFormTimePicker.RangePicker name="timeRange" label="时间区间" />
         <ProFormDatePicker.Week name="dateWeek" label="周" />

@@ -111,6 +111,25 @@ describe('utils', () => {
     expect(html.timeRange2.join(',')).toBe('2019-11-16 12:50:26,2019-11-16 12:50:26');
   });
 
+  it('📅 conversionSubmitValue string', async () => {
+    const html = conversionSubmitValue(
+      {
+        dataTime: moment('2019-11-16 12:50:26'),
+        time: moment('2019-11-16 12:50:26'),
+      },
+      'string',
+      {
+        dataTime: {
+          valueType: 'dataTime',
+          dateFormat: 'YY-MM',
+        },
+        time: 'time',
+      },
+    );
+    expect(html.dataTime).toBe('19-11');
+    expect(html.time).toBe('12:50:26');
+  });
+
   it('📅 conversionSubmitValue namePath string', async () => {
     const html = conversionSubmitValue<any>(
       {

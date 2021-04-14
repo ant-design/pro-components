@@ -27,9 +27,11 @@ export type GroupProps = {
 
 export type FieldProps = {
   style?: React.CSSProperties;
+  width?: string;
+  format?: string;
 };
 
-export type ProFormItemProps<T = {}> = {
+export type ProFormItemProps<T = Record<string, any>> = {
   fieldProps?: FieldProps & T;
   placeholder?: string | string[];
   secondary?: boolean;

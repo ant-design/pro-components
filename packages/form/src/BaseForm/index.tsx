@@ -106,7 +106,15 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   // 初始化给一个默认的 form
   useImperativeHandle(propsFormRef, () => formRef.current, []);
 
-  const fieldsValueType = useRef<Record<string, ProFieldValueType>>({});
+  const fieldsValueType = useRef<
+    Record<
+      string,
+      {
+        valueType: ProFieldValueType;
+        dateFormat: string;
+      }
+    >
+  >({});
   /** 保存 transformKeyRef，用于对表单key transform */
   const transformKeyRef = useRef<Record<string, SearchTransformKeyFn | undefined>>({});
 
@@ -178,10 +186,13 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           fieldProps,
           formItemProps,
           groupProps,
-          setFieldValueType: (name, { valueType = 'text', transform }) => {
+          setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
             if (Array.isArray(name)) {
               transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
-              fieldsValueType.current = namePathSet(fieldsValueType.current, name, valueType);
+              fieldsValueType.current = namePathSet(fieldsValueType.current, name, {
+                valueType,
+                dateFormat,
+              });
             }
           },
         }}
@@ -199,6 +210,12 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             initialValues={{
               ...urlParamsMergeInitialValues,
               ...rest.initialValues,
+            }}
+            onValuesChange={(changedValues, values) => {
+              rest?.onValuesChange?.(
+                transformKey(changedValues, omitNil),
+                transformKey(values, omitNil),
+              );
             }}
             onFinish={async () => {
               if (!rest.onFinish) {
