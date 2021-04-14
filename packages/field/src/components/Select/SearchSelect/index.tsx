@@ -91,6 +91,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     fetchData,
     resetData,
     prefixCls: customizePrefixCls,
+    onClear,
     ...restProps
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -159,6 +160,10 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       mode={mode}
       optionFilterProp={optionFilterProp}
       optionLabelProp={optionLabelProp}
+      onClear={() => {
+        onClear?.();
+        fetchData('');
+      }}
       {...restProps}
       onSearch={
         restProps?.showSearch
