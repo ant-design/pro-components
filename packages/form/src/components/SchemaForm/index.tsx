@@ -227,21 +227,19 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           };
 
           if (item?.renderFormItem) {
-            const formDom = item?.renderFormItem
-              ? item?.renderFormItem?.(
-                  {
-                    type,
-                    ...item,
-                  },
-                  {
-                    ...item,
-                    defaultRender,
-                    type,
-                  },
-                  formRef.current,
-                )
-              : 'NO';
-            if (!formDom) {
+            const formDom = item?.renderFormItem?.(
+              {
+                type,
+                ...item,
+              },
+              {
+                ...item,
+                defaultRender,
+                type,
+              },
+              formRef.current,
+            );
+            if (formDom === false || formDom === undefined || formDom === null) {
               return null;
             }
           }
