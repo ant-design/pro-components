@@ -184,7 +184,7 @@ function createField<P extends ProFormItemProps = any>(
         {...otherProps}
         ignoreFormItem={ignoreFormItem}
         transform={transform}
-        valueType={valueType}
+        valueType={valueType || (rest as any).valueType}
         messageVariables={{
           label: label as string,
           ...otherProps?.messageVariables,

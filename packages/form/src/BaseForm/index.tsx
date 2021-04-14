@@ -121,7 +121,6 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       conversionSubmitValue(values, dateFormatter, fieldsValueType.current, omit),
       transformKeyRef.current,
     );
-
   /** 渲染提交按钮与重置按钮 */
   const submitterNode =
     submitter === false ? undefined : (
