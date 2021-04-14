@@ -25696,7 +25696,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                       class="ant-spin-container"
                     >
                       <div
-                        class="ant-table ant-table-middle"
+                        class="ant-table ant-table-middle ant-table-layout-fixed"
                         id="dataSource"
                       >
                         <div
@@ -25706,7 +25706,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                             class="ant-table-content"
                           >
                             <table
-                              style="table-layout: auto;"
+                              style="table-layout: fixed;"
                             >
                               <colgroup>
                                 <col
