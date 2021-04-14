@@ -5,7 +5,6 @@ import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
 import { waitForComponentToPaint } from '../util';
 import moment from 'moment';
-import { act } from 'react-dom/test-utils';
 
 describe('Table ColumnSetting', () => {
   it('🎏 render', async () => {
