@@ -315,7 +315,7 @@ export interface Route {
 
 ```tsx | pure
 <Footer
-  copyright="2019 蚂蚁金服体验技术部出品"
+  copyright="@2019 蚂蚁金服体验技术部出品"
   links={[
     {
       key: 'Ant Design Pro',

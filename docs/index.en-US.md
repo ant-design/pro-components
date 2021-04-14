@@ -29,7 +29,7 @@ features:
     title: TypeScript
     desc: Development with TypeScript, complete with type definition files
 
-footer: Open-source MIT Licensed | Copyright © 2017-present
+footer: Open-source MIT Licensed | © 2017-present
 ---
 
 ## Component Board
