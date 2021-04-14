@@ -11,9 +11,10 @@ const ProFormItem: React.FC<
     valueType?: any;
     /** @name 提交时转化值，一般用于数组类型 */
     transform?: SearchTransformKeyFn;
+    dataFormat?: string;
   }
 > = (props) => {
-  const { valueType, transform, ignoreFormItem, ...rest } = props;
+  const { valueType, transform, dataFormat, ignoreFormItem, ...rest } = props;
   const formListField = useContext(FormListContext);
 
   // ProFromList 的 filed，里面有name和key
@@ -33,16 +34,26 @@ const ProFormItem: React.FC<
     if (!setFieldValueType || !props.name) {
       return;
     }
+    console.log(dataFormat);
     // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
     // 写一个 ts 比较麻烦，用 any 顶一下
     setFieldValueType(
       [formListField.listName, name].flat(1).filter((itemName) => itemName !== undefined),
       {
         valueType: valueType || 'text',
+        dateFormat: dataFormat,
         transform,
       },
     );
-  }, [formListField.listName, name, props.name, setFieldValueType, transform, valueType]);
+  }, [
+    formListField.listName,
+    name,
+    dataFormat,
+    props.name,
+    setFieldValueType,
+    transform,
+    valueType,
+  ]);
 
   if (ignoreFormItem) {
     return <>{props.children}</>;
