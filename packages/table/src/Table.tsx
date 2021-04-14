@@ -171,7 +171,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     props.tableLayout ?? props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
-  const baseTableDom = (
+  const baseTableDom = props.editable ? (
     <Form
       component={false}
       form={props.editable?.form}
@@ -180,6 +180,8 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     >
       <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
     </Form>
+  ) : (
+    <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
   );
 
   /** 自定义的 render */
