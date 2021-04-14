@@ -45,12 +45,14 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
   // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
   const showUploadButton =
     (max === undefined || !value || value?.length < max) && proFieldProps?.mode !== 'read';
+
+  const isPictureCard = fieldProps?.listType === 'picture-card';
   return (
     <Upload
       action={action}
       accept={accept}
       ref={ref}
-      //'fileList' 改成和 ant.design 文档中 Update 组件 默认 file字段一样
+      // 'fileList' 改成和 ant.design 文档中 Update 组件 默认 file字段一样
       name={name || 'file'}
       listType={listType || 'picture'}
       fileList={value}
@@ -64,12 +66,17 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
         }
       }}
     >
-      {showUploadButton && (
-        <Button disabled={disabled || fieldProps?.disabled} {...buttonProps}>
-          {icon}
-          {title}
-        </Button>
-      )}
+      {showUploadButton &&
+        (isPictureCard ? (
+          <span>
+            {icon} {title}
+          </span>
+        ) : (
+          <Button disabled={disabled || fieldProps?.disabled} {...buttonProps}>
+            {icon}
+            {title}
+          </Button>
+        ))}
     </Upload>
   );
 };

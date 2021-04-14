@@ -234,6 +234,20 @@ const Demo = () => (
         name="upload"
         label="Upload"
         max={2}
+        fieldProps={{
+          name: 'file',
+        }}
+        action="/upload.do"
+        extra="longgggggggggggggggggggggggggggggggggg"
+      />
+      <ProFormUploadButton
+        name="upload"
+        label="Upload"
+        max={2}
+        fieldProps={{
+          name: 'file',
+          listType: 'picture-card',
+        }}
         action="/upload.do"
         extra="longgggggggggggggggggggggggggggggggggg"
       />
