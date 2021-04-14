@@ -171,7 +171,6 @@ const defaultRenderText = (
       );
     }
   }
-
   /** 如果是金额的值 */
   if (valueType === 'money') {
     return <FieldMoney {...props} text={text as number} />;
@@ -327,7 +326,7 @@ export type ProFieldPropsType = {
 } & RenderProps;
 
 const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
-  { text, valueType = 'text', onChange, value, ...rest },
+  { text, valueType = 'text', onChange, renderFormItem, value, ...rest },
   ref,
 ) => {
   const intl = useIntl();
@@ -342,6 +341,7 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
       rest?.fieldProps?.onChange?.(...restParams);
     },
   };
+
   return (
     <React.Fragment>
       {defaultRenderText(
@@ -351,6 +351,20 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
           ...rest,
           mode: rest.mode || 'read',
           ref,
+          renderFormItem: renderFormItem
+            ? (...restProps) => {
+                const newDom = renderFormItem(...restProps);
+                // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
+                if (React.isValidElement(newDom))
+                  return React.cloneElement(newDom, {
+                    placeholder:
+                      rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+                    ...fieldProps,
+                    ...((newDom.props as any) || {}),
+                  });
+                return newDom;
+              }
+            : undefined,
           placeholder: rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
           fieldProps: pickProProps(fieldProps),
         },

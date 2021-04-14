@@ -685,4 +685,16 @@ describe('Field', () => {
     await waitForComponentToPaint(html);
     expect(html.text()).toBe('qixian');
   });
+
+  it(`🐴 valueType renderFormItem return number`, async () => {
+    const html = render(
+      <Field
+        text={moment('2019-11-16 12:50:26').valueOf()}
+        mode="edit"
+        // @ts-expect-error
+        renderFormItem={() => 2}
+      />,
+    );
+    expect(html.text()).toBe('2');
+  });
 });

@@ -217,9 +217,9 @@ const DynamicSettings = () => {
         colon={false}
         onValuesChange={(_, values) => updateConfig.run(values)}
       >
-        <ProCard colSpan="500px" tabs={{}} />
+        <ProCard colSpan="470px" tabs={{}} />
         <ProCard
-          colSpan="500px"
+          colSpan="470px"
           style={{
             height: '100vh',
             overflow: 'auto',

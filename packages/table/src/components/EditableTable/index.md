@@ -68,6 +68,8 @@ recordCreatorProps = {
   newRecordType: 'dataSource',
   // 不写 key ，会使用 index 当行 id
   record: {},
+  // 设置按钮文案
+  creatorButtonText: '新增一行',
   // 按钮的样式设置，可以设置按钮是否显示
   // 这样可以做最大行限制和最小行限制之类的功能
   style: {
@@ -183,7 +185,7 @@ render: (text, record, _, action) => [
   <a
     key="editable"
     onClick={() => {
-      action.startEditable?.(record.id);
+      action?.startEditable?.(record.id);
     }}
   >
     编辑

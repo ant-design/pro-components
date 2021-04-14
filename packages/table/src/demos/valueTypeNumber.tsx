@@ -75,7 +75,7 @@ export default () => (
       {
         title: '数字',
         dataIndex: 'money',
-        key: 'digit',
+        key: 'second',
         valueType: 'second',
         width: 150,
       },
@@ -97,7 +97,7 @@ export default () => (
           <a
             key="a"
             onClick={() => {
-              action.startEditable(row.key);
+              action?.startEditable(row.key);
             }}
           >
             编辑

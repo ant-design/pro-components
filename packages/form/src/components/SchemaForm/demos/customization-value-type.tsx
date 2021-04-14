@@ -1,6 +1,5 @@
 import React, { useContext, useRef, useState } from 'react';
-import type { ProColumns } from '@ant-design/pro-table';
-import ProTable from '@ant-design/pro-table';
+import { BetaSchemaForm, ProFormColumnsType } from '@ant-design/pro-form';
 import ProProvider from '@ant-design/pro-provider';
 import { Input, Space, Tag } from 'antd';
 
@@ -19,24 +18,6 @@ export type TableListItem = {
     value: number;
   }[];
 };
-const tableListDataSource: TableListItem[] = [];
-
-for (let i = 0; i < 5; i += 1) {
-  tableListDataSource.push({
-    key: i,
-    name: `TradeCode ${i}`,
-    status: [
-      {
-        value: Math.floor(Math.random() * 10),
-        label: valueEnum[Math.floor(Math.random() * 10) % 4],
-      },
-      {
-        value: Math.floor(Math.random() * 10),
-        label: valueEnum[Math.floor(Math.random() * 10) % 4],
-      },
-    ],
-  });
-}
 
 const TagList: React.FC<{
   value?: {
@@ -92,31 +73,41 @@ const TagList: React.FC<{
   );
 };
 
-const columns: ProColumns<TableListItem, 'link' | 'tags'>[] = [
-  {
-    title: '链接',
-    dataIndex: 'name',
-    valueType: 'link',
-  },
+const columns: ProFormColumnsType<TableListItem, 'link' | 'tags'>[] = [
   {
     title: '标签',
-    dataIndex: 'status',
-    key: 'status',
-    valueType: 'tags',
+    valueType: 'group',
+    columns: [
+      {
+        title: '只读链接',
+        readonly: true,
+        dataIndex: 'name',
+        valueType: 'link',
+      },
+      {
+        title: '链接',
+        dataIndex: 'name',
+        valueType: 'link',
+      },
+    ],
   },
   {
-    title: '操作',
-    key: 'option',
-    valueType: 'option',
-    render: (_, row, index, action) => [
-      <a
-        key="a"
-        onClick={() => {
-          action?.startEditable(row.key);
-        }}
-      >
-        编辑
-      </a>,
+    title: '路径',
+    valueType: 'group',
+    columns: [
+      {
+        title: '标签',
+        dataIndex: 'status',
+        key: 'status',
+        valueType: 'tags',
+      },
+      {
+        title: '只读标签',
+        readonly: true,
+        dataIndex: 'status',
+        key: 'status',
+        valueType: 'tags',
+      },
     ],
   },
 ];
@@ -149,17 +140,23 @@ export default () => {
         },
       }}
     >
-      <ProTable<TableListItem, Record<string, any>, 'link' | 'tags'>
-        columns={columns}
-        request={() => {
-          return Promise.resolve({
-            total: 200,
-            data: tableListDataSource,
-            success: true,
-          });
+      <BetaSchemaForm<TableListItem, 'link' | 'tags'>
+        initialValues={{
+          key: 1,
+          name: `TradeCode 1`,
+          status: [
+            {
+              value: Math.floor(Math.random() * 10),
+              label: valueEnum[Math.floor(Math.random() * 10) % 4],
+            },
+            {
+              value: Math.floor(Math.random() * 10),
+              label: valueEnum[Math.floor(Math.random() * 10) % 4],
+            },
+          ],
         }}
-        rowKey="key"
-        headerTitle="自定义 valueType"
+        columns={columns}
+        title="自定义 valueType"
       />
     </ProProvider.Provider>
   );

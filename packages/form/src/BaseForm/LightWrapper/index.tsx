@@ -30,6 +30,7 @@ export type LightWrapperProps = {
   id?: string;
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
+  otherFieldProps?: any;
 };
 
 const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {
@@ -37,7 +38,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     label,
     size,
     disabled,
-    onChange,
+    onChange: propsOnChange,
     onBlur,
     className,
     style,
@@ -50,15 +51,20 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     labelFormatter,
     bordered,
     value,
+    otherFieldProps,
   } = props;
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName]);
   const [open, setOpen] = useMountMergeState<boolean>(false);
-
   const isDropdown =
     React.isValidElement(children) && isDropdownValueType(children.props.valueType);
+
+  const onChange = (...restParams: any[]) => {
+    otherFieldProps?.onChange?.(...restParams);
+    propsOnChange?.(...restParams);
+  };
 
   if (!light || customLightMode || isDropdown) {
     if (React.isValidElement(children)) {
@@ -66,7 +72,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
         children,
         omitUndefined({
           value,
-          onChange,
+          onChange: propsOnChange,
           onBlur,
           ...children.props,
           fieldProps: omitUndefined({

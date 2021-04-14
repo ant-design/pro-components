@@ -597,9 +597,9 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <input
                   class="ant-input"
-                  hidden=""
-                  label="date"
-                  name="date"
+                  id="date"
+                  placeholder="请输入"
+                  style="width: 100%;"
                   type="text"
                   value=""
                 />

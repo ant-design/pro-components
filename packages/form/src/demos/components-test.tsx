@@ -11,6 +11,7 @@ import ProForm, {
   ProFormUploadDragger,
 } from '@ant-design/pro-form';
 import LightWrapper from '../BaseForm/LightWrapper';
+import { Input } from 'antd';
 
 const Demo = () => {
   const formRef = useRef();
@@ -52,6 +53,9 @@ const Demo = () => {
       <LightWrapper valuePropName="value">test</LightWrapper>
       <ProFormSlider name="range" label="范围" />
       <ProFormField>test</ProFormField>
+      <ProFormField>
+        <Input />
+      </ProFormField>
     </ProForm>
   );
 };

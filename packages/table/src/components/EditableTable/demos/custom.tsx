@@ -154,12 +154,13 @@ const columns: ProColumns<DataSourceType>[] = [
       <a
         key="editable"
         onClick={() => {
-          action.startEditable?.(record.id);
+          action?.startEditable?.(record.id);
         }}
       >
         编辑
       </a>,
       <EditableProTable.RecordCreator
+        key="copy"
         record={{
           ...record,
           id: (Math.random() * 1000000).toFixed(0),
@@ -192,6 +193,7 @@ export default () => {
           新建一行
         </Button>
         <Button
+          key="rest"
           onClick={() => {
             form.resetFields();
           }}

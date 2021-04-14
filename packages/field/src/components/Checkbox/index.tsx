@@ -56,16 +56,7 @@ const FieldCheckbox: ProFieldFC<GroupProps> = (
       <Checkbox.Group
         {...rest.fieldProps}
         className={classNames(rest.fieldProps?.className, `${layoutClassName}-${layout}`)}
-        options={options?.map((option) => {
-          if (typeof option === 'string') {
-            return {
-              key: option,
-              label: option,
-              value: option,
-            };
-          }
-          return option;
-        })}
+        options={options}
       />
     );
     if (renderFormItem) {

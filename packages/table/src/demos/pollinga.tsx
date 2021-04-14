@@ -80,7 +80,7 @@ const columns: ProColumns<TableListItem>[] = [
   },
   {
     title: '创建时间',
-    key: 'since2',
+    key: 'since3',
     dataIndex: 'createdAt',
     valueType: 'dateMonth',
   },
