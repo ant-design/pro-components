@@ -1321,7 +1321,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
   zIndex={9}
 &gt;
   &lt;div&gt;xxx&lt;/div&gt;
-&lt;/WaterMark&gt;}
+&lt;/WaterMark&gt;
             </code>
           </pre>
         </div>
