@@ -88,7 +88,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       [`${prefixCls}-fixed-header`]: needFixedHeader,
       [`${prefixCls}-fixed-header-action`]: !collapsed,
       [`${prefixCls}-top-menu`]: isTop,
-      [`${prefixCls}-header-${navTheme}`]: navTheme,
+      [`${prefixCls}-header-${navTheme}`]: navTheme && layout !== 'mix',
     });
 
     /** 计算侧边栏的宽度，不然导致左边的样式会出问题 */
