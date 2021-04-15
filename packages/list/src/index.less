@@ -19,6 +19,14 @@
   .@{pro-list-prefix-cls}-row {
     padding: 0 18px 0 24px;
 
+    
+    &:last-child {
+      border-bottom: none;
+      .@{ant-prefix}-list-item {
+        border-bottom: none;
+      }
+    }
+
     &:hover {
       background-color: rgba(0, 0, 0, 0.02);
       transition: background-color 0.3s;
@@ -27,7 +35,7 @@
       }
 
       .@{ant-prefix}-list-item-extra {
-        display: block;
+        display: flex;
       }
 
       .@{pro-list-prefix-cls}-row-extra {
@@ -186,12 +194,7 @@
       margin-top: 4px;
     }
 
-    &:last-child {
-      border-bottom: none;
-      .@{ant-prefix}-list-item {
-        border-bottom: none;
-      }
-    }
+ 
 
     &-avatar {
       display: flex;
@@ -223,6 +226,8 @@
       &-meta-title {
         margin: 0;
       }
+
+     
     }
   }
 
@@ -255,6 +260,7 @@
       &-subTitle {
         margin-top: 8px;
       }
+
     }
 
     .@{ant-prefix}-list-item-extra {
