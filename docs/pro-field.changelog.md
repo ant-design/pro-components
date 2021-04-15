@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.15.0
+
+`2021-04-15`
+
+- 🐛 fix(field): fix index column align center [#2454](https://github.com/ant-design/pro-components/pull/2454) [@drizzlesconsin](https://github.com/drizzlesconsin)
+
 ## @ant-design/pro-field@1.14.1
 
 `2021-04-06`

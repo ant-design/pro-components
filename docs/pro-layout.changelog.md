@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.16.2
+
+`2021-04-15`
+
+- 🐛 fix(layout): fix openkeys=false, splitMenu no work error [#2491](https://github.com/ant-design/pro-components/pull/2491) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): default remove copyright [#2484](https://github.com/ant-design/pro-components/pull/2484) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.16.0
 
 `2021-03-31`

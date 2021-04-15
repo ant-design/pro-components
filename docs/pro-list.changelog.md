@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.6.0
+
+`2021-04-15`
+
+- 🐛 fix(form): fix ProFormUploadButton listType=picture-card style error [#2483](https://github.com/ant-design/pro-components/pull/2483) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-list@1.5.11
 
 `2021-03-29`

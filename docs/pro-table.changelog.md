@@ -9,6 +9,19 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.34.0
+
+`2021-04-15`
+
+- 🐛 fix(table): better moblie style [#2490](https://github.com/ant-design/pro-components/pull/2490) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix ProTable always have form error [#2488](https://github.com/ant-design/pro-components/pull/2488) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix valueType no work error [#2486](https://github.com/ant-design/pro-components/pull/2486) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): use user config tableLayout [#2485](https://github.com/ant-design/pro-components/pull/2485) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): if request is null,pageSize change no set datasoucre [#2482](https://github.com/ant-design/pro-components/pull/2482) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix style error when getPopupContainer [#2481](https://github.com/ant-design/pro-components/pull/2481) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix text is 0, initialValue no work error [#2412](https://github.com/ant-design/pro-components/pull/2412) [@luy19](https://github.com/luy19)
+- 🐛 fix(table): defaultSortOrder and defaultFilteredValue [#2392](https://github.com/ant-design/pro-components/pull/2392) [@ousing9](https://github.com/ousing9)
+
 ## @ant-design/pro-table@2.33.0
 
 `2021-04-06`

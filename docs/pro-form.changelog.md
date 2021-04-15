@@ -9,6 +9,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.21.0
+
+`2021-04-15`
+
+- 🐛 fix(form): drawer and modal add scrollLocker [#2493](https://github.com/ant-design/pro-components/pull/2493) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): transform support format config [#2489](https://github.com/ant-design/pro-components/pull/2489) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix ProTable always have form error [#2488](https://github.com/ant-design/pro-components/pull/2488) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix ProFormUploadButton listType=picture-card style error [#2483](https://github.com/ant-design/pro-components/pull/2483) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): support SchemaForm [#2040](https://github.com/ant-design/pro-components/pull/2040) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): group support align [#2457](https://github.com/ant-design/pro-components/pull/2457) [@drizzlesconsin](https://github.com/drizzlesconsin)
+- 设置 Select 的 optionLabelProp 和 optionFilterProp 的默认值为 label [#2413](https://github.com/ant-design/pro-components/pull/2413) [@jiyingzhi](https://github.com/jiyingzhi)
+
 ## @ant-design/pro-form@1.20.0
 
 `2021-04-06`
