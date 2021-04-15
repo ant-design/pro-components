@@ -1,4 +1,11 @@
-﻿import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
+﻿import React, {
+  useContext,
+  useState,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react';
 import { Modal, ConfigProvider } from 'antd';
 import type { FormInstance, ModalProps, FormProps } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -8,6 +15,7 @@ import { createPortal } from 'react-dom';
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
+import ScrollLocker from 'rc-util/lib/Dom/scrollLocker';
 
 export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish' | 'title'> &
   CommonFormProps<T> & {
@@ -56,6 +64,8 @@ function ModalForm<T = Record<string, any>>({
     onChange: onVisibleChange,
   });
 
+  const [scrollLocker] = useState(() => new ScrollLocker());
+
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
     !rest['footer'] || !modalProps?.footer,
@@ -65,9 +75,15 @@ function ModalForm<T = Record<string, any>>({
   const context = useContext(ConfigProvider.ConfigContext);
 
   useEffect(() => {
+    if (visible) {
+      scrollLocker?.lock?.();
+    } else {
+      scrollLocker?.unLock?.();
+    }
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
