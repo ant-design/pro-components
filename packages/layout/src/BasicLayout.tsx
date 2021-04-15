@@ -141,7 +141,7 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
   let { menuData } = props;
 
   /** 如果是分割菜单模式，需要专门实现一下 */
-  if (splitMenus && openKeys !== false && !isMobile) {
+  if (splitMenus && (openKeys !== false || layout === 'mix') && !isMobile) {
     const [key] = matchMenuKeys;
     if (key) {
       menuData = props.menuData?.find((item) => item.key === key)?.children || [];
@@ -479,7 +479,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
 
-  useDocumentTitle(pageTitleInfo, props.title || defaultSettings.title);
+  useDocumentTitle(pageTitleInfo, props.title || false);
 
   return (
     <MenuCounter.Provider>
