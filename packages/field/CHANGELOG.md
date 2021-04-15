@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.14.1...@ant-design/pro-field@1.15.0) (2021-04-15)
+
+### Bug Fixes
+
+- **field:** fix index column align center ([#2454](https://github.com/ant-design/pro-components/issues/2454)) ([5218209](https://github.com/ant-design/pro-components/commit/5218209842d90a26d705b4317b24f542c3e2d8c6))
+- **filed:** fix ProFormSelect onClear not searching ([#2288](https://github.com/ant-design/pro-components/issues/2288)) ([#2430](https://github.com/ant-design/pro-components/issues/2430)) ([188aeb0](https://github.com/ant-design/pro-components/commit/188aeb0202642768e9fb68a682e4db337d85a685))
+
+### Features
+
+- **form:** set the default values of Select props optionFilterProp and optionLabelProp to label ([#2413](https://github.com/ant-design/pro-components/issues/2413)) ([d5c0f14](https://github.com/ant-design/pro-components/commit/d5c0f149b5acd1233a711b1659f243238d012d67))
+- **form:** support SchemaForm ([#2040](https://github.com/ant-design/pro-components/issues/2040)) ([423f476](https://github.com/ant-design/pro-components/commit/423f4761eecde5a62c4a8476441aa0484ff94711))
+
 ## [1.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.14.0...@ant-design/pro-field@1.14.1) (2021-04-06)
 
 ### Bug Fixes

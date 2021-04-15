@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.1...@ant-design/pro-layout@6.16.2) (2021-04-15)
+
+### Bug Fixes
+
+- **layout:** default remove copyright ([#2484](https://github.com/ant-design/pro-components/issues/2484)) ([196be00](https://github.com/ant-design/pro-components/commit/196be00f5dd99d01dd02c170eb3d6d4100bad907))
+- **layout:** fix openkeys=false, splitMenu no work error ([#2491](https://github.com/ant-design/pro-components/issues/2491)) ([430fb9e](https://github.com/ant-design/pro-components/commit/430fb9e7c90e6b8c9e2ecc5bfd7317bc2ca9dd73))
+
 ## [6.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.0...@ant-design/pro-layout@6.16.1) (2021-04-06)
 
 **Note:** Version bump only for package @ant-design/pro-layout

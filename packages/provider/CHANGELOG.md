@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.9...@ant-design/pro-provider@1.4.10) (2021-04-15)
+
+### Bug Fixes
+
+- **table:** better moblie style ([#2490](https://github.com/ant-design/pro-components/issues/2490)) ([20550a9](https://github.com/ant-design/pro-components/commit/20550a9cca89d0122d3f205148869534b3280d8c))
+
 ## [1.4.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.8...@ant-design/pro-provider@1.4.9) (2021-03-29)
 
 **Note:** Version bump only for package @ant-design/pro-provider

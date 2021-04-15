@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.15.3...@ant-design/pro-utils@1.16.0) (2021-04-15)
+
+### Bug Fixes
+
+- **form:** transform support format config ([#2489](https://github.com/ant-design/pro-components/issues/2489)) ([c3dd999](https://github.com/ant-design/pro-components/commit/c3dd9993d71032703e7f5ef7010bee0db2485a0c))
+
+### Features
+
+- **form:** support SchemaForm ([#2040](https://github.com/ant-design/pro-components/issues/2040)) ([423f476](https://github.com/ant-design/pro-components/commit/423f4761eecde5a62c4a8476441aa0484ff94711))
+
 ## [1.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.15.2...@ant-design/pro-utils@1.15.3) (2021-04-06)
 
 ### Bug Fixes

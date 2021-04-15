@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.34.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.33.0...@ant-design/pro-table@2.34.0) (2021-04-15)
+
+### Bug Fixes
+
+- **table:** better moblie style ([#2490](https://github.com/ant-design/pro-components/issues/2490)) ([20550a9](https://github.com/ant-design/pro-components/commit/20550a9cca89d0122d3f205148869534b3280d8c))
+- **table:** defaultSortOrder and defaultFilteredValue ([#2392](https://github.com/ant-design/pro-components/issues/2392)) ([a930e1f](https://github.com/ant-design/pro-components/commit/a930e1f141ee0c87e9e373bc4efe76ba3faff9f7))
+- **table:** fix ProTable always have form error ([#2488](https://github.com/ant-design/pro-components/issues/2488)) ([d0e68b1](https://github.com/ant-design/pro-components/commit/d0e68b1a86c349155b56406d00a87d9ab3167c85))
+- **table:** fix style error when getPopupContainer ([#2481](https://github.com/ant-design/pro-components/issues/2481)) ([2bc9834](https://github.com/ant-design/pro-components/commit/2bc98348855bd697974811f12622a64c12403e68))
+- **table:** fix text is 0, initialValue no work error ([#2412](https://github.com/ant-design/pro-components/issues/2412)) ([6bdd590](https://github.com/ant-design/pro-components/commit/6bdd590867c8f0ced15e3b4d46f90e82866e873c))
+- **table:** if request is null,pageSize change no set datasoucre ([#2482](https://github.com/ant-design/pro-components/issues/2482)) ([8ea20ab](https://github.com/ant-design/pro-components/commit/8ea20ab7f4ae23555b404c5049577fe7c1442167))
+- **table:** use user config tableLayout ([#2485](https://github.com/ant-design/pro-components/issues/2485)) ([5657ef0](https://github.com/ant-design/pro-components/commit/5657ef008eed6be9275972ea5a948393a434a72d))
+
+### Features
+
+- **form:** support SchemaForm ([#2040](https://github.com/ant-design/pro-components/issues/2040)) ([423f476](https://github.com/ant-design/pro-components/commit/423f4761eecde5a62c4a8476441aa0484ff94711))
+
 # [2.33.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.32.2...@ant-design/pro-table@2.33.0) (2021-04-06)
 
 ### Features

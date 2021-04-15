@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.20.0...@ant-design/pro-form@1.21.0) (2021-04-15)
+
+### Bug Fixes
+
+- **form:** drawer and modal add scrollLocker ([#2493](https://github.com/ant-design/pro-components/issues/2493)) ([deb1baa](https://github.com/ant-design/pro-components/commit/deb1baa64e492a788a34f9496e5d31999d1006c4))
+- **form:** fix ProFormUploadButton listType=picture-card style error ([#2483](https://github.com/ant-design/pro-components/issues/2483)) ([e8aa155](https://github.com/ant-design/pro-components/commit/e8aa1557f4dbb52fd914f196d11f8f59d57184f1))
+- **form:** transform support format config ([#2489](https://github.com/ant-design/pro-components/issues/2489)) ([c3dd999](https://github.com/ant-design/pro-components/commit/c3dd9993d71032703e7f5ef7010bee0db2485a0c))
+- **table:** fix valueType no work error ([#2486](https://github.com/ant-design/pro-components/issues/2486)) ([1379087](https://github.com/ant-design/pro-components/commit/1379087051b10d6358ed329e29744ea61e1c3c22))
+
+### Features
+
+- **form:** group support align ([#2457](https://github.com/ant-design/pro-components/issues/2457)) ([73df402](https://github.com/ant-design/pro-components/commit/73df402db96cb8ce83d7a18cb87ab33eab09b74a))
+- **form:** support SchemaForm ([#2040](https://github.com/ant-design/pro-components/issues/2040)) ([423f476](https://github.com/ant-design/pro-components/commit/423f4761eecde5a62c4a8476441aa0484ff94711))
+
 # [1.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.19.1...@ant-design/pro-form@1.20.0) (2021-04-06)
 
 ### Bug Fixes

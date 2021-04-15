@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.12...@ant-design/pro-descriptions@1.7.0) (2021-04-15)
+
+### Features
+
+- **form:** support SchemaForm ([#2040](https://github.com/ant-design/pro-components/issues/2040)) ([423f476](https://github.com/ant-design/pro-components/commit/423f4761eecde5a62c4a8476441aa0484ff94711))
+
 ## [1.6.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.6.11...@ant-design/pro-descriptions@1.6.12) (2021-04-06)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions
