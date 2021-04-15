@@ -15,7 +15,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     defaultCollapsed,
     style,
     labelLayout,
-    title,
+    title = props.label,
     tooltip,
     align,
     direction,
