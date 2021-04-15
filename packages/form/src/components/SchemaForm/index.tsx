@@ -13,7 +13,6 @@ import { omitUndefined } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import omit from 'omit.js';
 import ProForm, { DrawerForm, ModalForm, QueryFilter, LightFilter, StepsForm } from '../../index';
-import { useForm } from 'antd/lib/form/Form';
 import type { ProFormFieldProps } from '../Field';
 import ProFormList from '../List';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -105,7 +104,7 @@ const FormComments = {
 function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
   const { columns, layoutType = 'ProForm', type = 'form', action, ...rest } = props;
   const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
-  const [form] = useForm();
+  const [form] = ProForm.useForm();
   const formRef = useRef<FormInstance>(form);
   const [updateTime, updateFormRender] = useState(0);
 
