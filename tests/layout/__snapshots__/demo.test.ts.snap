@@ -8630,27 +8630,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <div
-            style="padding-top: 100px; text-align: center;"
+            style="padding: 24px;"
           >
             <div
-              class="ant-spin ant-spin-lg ant-spin-spinning"
+              class="ant-skeleton"
             >
-              <span
-                class="ant-spin-dot ant-spin-dot-spin"
+              <div
+                class="ant-skeleton-content"
               >
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-              </span>
+                <ul
+                  class="ant-skeleton-paragraph"
+                >
+                  <li />
+                  <li />
+                  <li />
+                  <li />
+                  <li />
+                  <li
+                    style="width: 61%;"
+                  />
+                </ul>
+              </div>
             </div>
           </div>
         </div>
