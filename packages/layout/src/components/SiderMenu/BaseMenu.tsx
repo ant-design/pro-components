@@ -1,6 +1,6 @@
 import './index.less';
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
-import { Menu } from 'antd';
+import { Menu, Skeleton } from 'antd';
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import classNames from 'classnames';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -14,7 +14,6 @@ import { getOpenKeysFromMenuData } from '../../utils/utils';
 import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
 import MenuCounter from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
-import PageLoading from '../PageLoading';
 
 // todo
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
@@ -332,9 +331,21 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const [menuUtils] = useState(() => new MenuUtil(props));
 
   if (menu?.loading) {
-    return <PageLoading />;
+    return (
+      <div
+        style={{
+          padding: 24,
+        }}
+      >
+        <Skeleton
+          title={false}
+          paragraph={{
+            rows: 6,
+          }}
+        />
+      </div>
+    );
   }
-
   const cls = classNames(className, {
     'top-nav-menu': mode === 'horizontal',
   });
