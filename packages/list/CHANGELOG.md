@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.6.0...@ant-design/pro-list@1.6.1) (2021-04-15)
+
+### Bug Fixes
+
+- **list:** fix list item border error ([#2510](https://github.com/ant-design/pro-components/issues/2510)) ([1e5c006](https://github.com/ant-design/pro-components/commit/1e5c0068b8f35267dd399dab322ed8407a640807))
+
 # [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.5.14...@ant-design/pro-list@1.6.0) (2021-04-15)
 
 ### Features

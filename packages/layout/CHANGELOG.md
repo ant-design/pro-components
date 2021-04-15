@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.2...@ant-design/pro-layout@6.16.3) (2021-04-15)
+
+### Bug Fixes
+
+- **layout:** fix headerTheme no work error when layotu=mix ([#2500](https://github.com/ant-design/pro-components/issues/2500)) ([66998bb](https://github.com/ant-design/pro-components/commit/66998bbc04e6277cfa642d4b7f885fc2ee186cf9))
+- **layout:** use better loading ([#2507](https://github.com/ant-design/pro-components/issues/2507)) ([3edb80f](https://github.com/ant-design/pro-components/commit/3edb80f38bfe214652ec88aed44c004a93cf2bf6))
+
 ## [6.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.1...@ant-design/pro-layout@6.16.2) (2021-04-15)
 
 ### Bug Fixes
