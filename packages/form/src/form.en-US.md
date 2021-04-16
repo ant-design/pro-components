@@ -114,7 +114,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | omitNil | ProForm automatically clears null and undefined data, if you have agreed that nil means something, set to false to disable this feature | `boolean` | true |
 | string | [(...)](https://ant.design/components/form-cn/) | support other antd `Form` component parameters besides `wrapperCol` \| `labelCol` \| `layout` | - | - |
 
-### ProForm.
+### ProForm.Group
 
 | Parameters | Description                   | Type              | Default |
 | ---------- | ----------------------------- | ----------------- | ------- |
