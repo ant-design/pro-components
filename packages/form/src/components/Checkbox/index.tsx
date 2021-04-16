@@ -1,10 +1,12 @@
 import React from 'react';
+import type { CheckboxProps } from 'antd';
 import { Checkbox } from 'antd';
 import ProField from '@ant-design/pro-field';
-import { ProSchema } from '@ant-design/pro-utils';
-import { CheckboxGroupProps, CheckboxProps } from 'antd/lib/checkbox';
+import type { ProSchema } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
+import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import createField from '../../BaseForm/createField';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 
 export type ProFormCheckboxGroupProps = ProFormItemProps<CheckboxGroupProps> & {
   layout?: 'horizontal' | 'vertical';
@@ -14,11 +16,12 @@ export type ProFormCheckboxGroupProps = ProFormItemProps<CheckboxGroupProps> & {
 };
 
 const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
-  ({ options, fieldProps, proFieldProps, ...rest }, ref) => (
+  ({ options, fieldProps, proFieldProps, valueEnum, ...rest }, ref) => (
     <ProField
       ref={ref}
       valueType="checkbox"
       mode="edit"
+      valueEnum={runFunction<[any]>(valueEnum, undefined)}
       {...rest}
       fieldProps={{
         options,
@@ -33,6 +36,7 @@ export type ProFormCheckboxProps = ProFormItemProps<CheckboxProps>;
 
 /**
  * 多选框的
+ *
  * @param
  */
 const ProFormCheckbox: React.FC<ProFormCheckboxProps> = React.forwardRef<any, ProFormCheckboxProps>(

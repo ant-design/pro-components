@@ -2,15 +2,15 @@
 
 exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
-    style="min-height: 100%;"
+    class="ant-layout"
+    style="min-height:100%"
   >
     <aside
       class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
-      style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
+      style="overflow:hidden;flex:0 0 208px;max-width:208px;min-width:208px;width:208px"
     >
       <div
         class="ant-layout-sider-children"
@@ -30,30 +30,30 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
           </a>
         </div>
         <div
-          style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+          style="flex:1;overflow-y:auto;overflow-x:hidden"
         >
           <div
-            style="padding-top: 100px; text-align: center;"
+            style="padding:24px"
           >
             <div
-              class="ant-spin ant-spin-lg ant-spin-spinning"
+              class="ant-skeleton"
             >
-              <span
-                class="ant-spin-dot ant-spin-dot-spin"
+              <div
+                class="ant-skeleton-content"
               >
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-              </span>
+                <ul
+                  class="ant-skeleton-paragraph"
+                >
+                  <li />
+                  <li />
+                  <li />
+                  <li />
+                  <li />
+                  <li
+                    style="width:61%"
+                  />
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
-              style="padding-left: 16px;"
+              style="padding-left:16px"
             >
               <span
                 aria-label="menu-fold"
@@ -95,17 +95,17 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
     </aside>
     <div
       class="ant-layout"
-      style="position: relative;"
+      style="position:relative"
     >
       <header
-        class="ant-layout-header"
-        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
+        style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"
         >
           <div
-            style="flex: 1;"
+            style="flex:1"
           />
         </div>
       </header>
@@ -190,7 +190,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
       style="position:relative"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
@@ -282,7 +282,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
       style="position:relative"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
@@ -375,7 +375,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -467,7 +467,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -532,10 +532,11 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
                 role="button"
-                style="padding-left: 16px;"
+                style="padding-left: 24px;"
               >
                 <span
                   class="ant-pro-menu-item"
+                  title="管理页"
                 >
                   管理页
                 </span>
@@ -548,7 +549,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             <li
               class="ant-menu-item ant-menu-item-only-child"
               role="menuitem"
-              style="padding-left: 16px;"
+              style="padding-left: 24px;"
             >
               <span
                 class="ant-pro-menu-item"
@@ -603,7 +604,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -695,7 +696,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div
@@ -779,7 +780,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             <li
               class="ant-menu-item ant-menu-item-only-child"
               role="menuitem"
-              style="padding-left: 16px;"
+              style="padding-left: 24px;"
             >
               <span
                 class="ant-pro-menu-item"
@@ -800,10 +801,11 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
                 role="button"
-                style="padding-left: 16px;"
+                style="padding-left: 24px;"
               >
                 <span
                   class="ant-pro-menu-item"
+                  title="汇总数据"
                 >
                   汇总数据
                 </span>
@@ -816,7 +818,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             <li
               class="ant-menu-item ant-menu-item-only-child"
               role="menuitem"
-              style="padding-left: 16px;"
+              style="padding-left: 24px;"
             >
               <span
                 class="ant-pro-menu-item"
@@ -831,7 +833,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             <li
               class="ant-menu-item ant-menu-item-only-child"
               role="menuitem"
-              style="padding-left: 16px;"
+              style="padding-left: 24px;"
             >
               <span
                 class="ant-pro-menu-item"
@@ -886,7 +888,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header"
+        class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
         style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
       >
         <div

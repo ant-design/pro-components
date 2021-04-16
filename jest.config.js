@@ -14,10 +14,11 @@ module.exports = {
   collectCoverageFrom: [
     'packages/**/src/**/*.{ts,tsx}',
     '!packages/**/src/demos/**',
-    '!packages/**/src/component/ColumnSetting/**',
+    '!packages/**/src/**/demos/**',
   ],
   moduleNameMapper,
-  testURL: 'http://localhost',
+  testURL:
+    'http://localhost?navTheme=realDark&layout=mix&primaryColor=daybreak&splitMenus=false&fixedHeader=true',
   verbose: true,
   snapshotSerializers: [require.resolve('enzyme-to-json/serializer')],
   extraSetupFiles: ['./tests/setupTests.js'],

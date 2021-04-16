@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Radio, Switch, Space, Descriptions } from 'antd';
 import moment from 'moment';
+import type { ProFieldFCMode } from '@ant-design/pro-utils';
 
-import Field, { ProFieldFCMode } from '@ant-design/pro-field';
+import Field from '@ant-design/pro-field';
 
 export default () => {
   const [state, setState] = useState<ProFieldFCMode>('read');
@@ -33,8 +34,19 @@ export default () => {
         <Descriptions.Item label="文本">
           <Field text="这是一段文本" valueType="text" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="图片">
+          <Field
+            text="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            valueType="image"
+            mode={state}
+            plain={plain}
+          />
+        </Descriptions.Item>
         <Descriptions.Item label="金额">
           <Field text="100" valueType="money" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="颜色">
+          <Field text="blue" valueType="color" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="数字">
           <Field text="19897979797979" valueType="digit" mode={state} plain={plain} />
@@ -72,6 +84,37 @@ export default () => {
         <Descriptions.Item label="多选">
           <Field
             text={['open', 'closed']}
+            mode={state}
+            valueType="checkbox"
+            valueEnum={{
+              all: { text: '全部', disabled: true, status: 'Default' },
+              open: {
+                text: '未解决',
+                status: 'Error',
+              },
+              closed: {
+                text: '已解决',
+                status: 'Success',
+              },
+              processing: {
+                text: '解决中',
+                status: 'Processing',
+              },
+            }}
+          />
+        </Descriptions.Item>
+        <Descriptions.Item label="多选 labelInValue">
+          <Field
+            text={[
+              {
+                value: 'open1',
+                label: '打开',
+              },
+              {
+                value: 'closed2',
+                label: '关闭',
+              },
+            ]}
             mode={state}
             valueType="checkbox"
             valueEnum={{
@@ -139,11 +182,21 @@ export default () => {
           <Field
             text="open"
             mode={state}
-            request={() => [
+            valueType="select"
+            request={async () => [
               { label: '全部', value: 'all' },
               { label: '未解决', value: 'open' },
               { label: '已解决', value: 'closed' },
               { label: '解决中', value: 'processing' },
+              {
+                label: '特殊选项',
+                value: 'optGroup',
+                optionType: 'optGroup',
+                children: [
+                  { label: '不解决', value: 'no' },
+                  { label: '已废弃', value: 'clear' },
+                ],
+              },
             ]}
           />
         </Descriptions.Item>
@@ -241,6 +294,17 @@ export default () => {
             text={moment('2019-11-16 12:50:26').valueOf()}
             plain={plain}
             valueType="time"
+            mode={state}
+          />
+        </Descriptions.Item>
+        <Descriptions.Item label="时间区间">
+          <Field
+            text={[
+              moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+              moment('2019-11-16 12:50:26').valueOf(),
+            ]}
+            plain={plain}
+            valueType="timeRange"
             mode={state}
           />
         </Descriptions.Item>

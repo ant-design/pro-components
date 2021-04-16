@@ -1,10 +1,11 @@
-﻿@import (reference) '~antd/lib/style/themes/default';
+﻿@import (reference) '~antd/es/style/themes/default';
 
 @pro-form-step-form-prefix-cls: ~'@{ant-prefix}-pro-steps-form';
 
 .@{pro-form-step-form-prefix-cls} {
   &-container {
     width: max-content;
+    min-width: 520px;
     max-width: 100%;
     margin: auto;
   }
@@ -15,25 +16,14 @@
   }
 
   &-step {
-    margin-top: 32px;
     display: none;
+    margin-top: 32px;
     &-active {
       display: block;
     }
 
     > form {
-      width: max-content;
       max-width: 100%;
-    }
-
-    .@{ant-prefix}-form-vertical {
-      > .@{ant-prefix}-form-item {
-        max-width: max-content;
-
-        .@{ant-prefix}-form-item-control {
-          max-width: max-content;
-        }
-      }
     }
   }
 }

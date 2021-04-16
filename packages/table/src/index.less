@@ -14,6 +14,16 @@
     margin-bottom: 16px;
   }
 
+  &-polling {
+    .@{pro-table-prefix-cls}-list-toolbar-setting-item {
+      .anticon.anticon-reload {
+        transform: rotate(0deg);
+        transition: 0.3s transform;
+        animation: turn 1s linear infinite;
+      }
+    }
+  }
+
   td.@{ant-prefix}-table-cell {
     > a {
       font-size: @font-size-base;
@@ -29,5 +39,23 @@
 
   .@{ant-prefix}-table.@{ant-prefix}-table-middle .@{pro-table-prefix-cls} {
     margin: -12px -8px;
+  }
+}
+
+@keyframes turn {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

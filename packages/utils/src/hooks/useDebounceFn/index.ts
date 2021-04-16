@@ -1,9 +1,10 @@
-import { useEffect, useRef, DependencyList, useCallback } from 'react';
+import type { DependencyList } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 
-export interface ReturnValue<T extends any[]> {
+export type ReturnValue<T extends any[]> = {
   run: (...args: T) => void;
   cancel: () => void;
-}
+};
 const useUpdateEffect: typeof useEffect = (effect, deps) => {
   const isMounted = useRef(false);
 

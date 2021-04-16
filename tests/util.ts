@@ -1,6 +1,6 @@
 import { act } from 'react-dom/test-utils';
 
-export const waitForComponentToPaint = async (wrapper: any, time = 10) => {
+export const waitForComponentToPaint = async (wrapper: any, time = 50) => {
   await act(async () => {
     await new Promise((resolve) => setTimeout(resolve, time));
     wrapper.update();
@@ -26,7 +26,7 @@ export const resizeWindow = (x: number, y: number) => {
 const NO_EXIST = { __NOT_EXIST: true };
 
 export function spyElementPrototypes(
-  Element: { prototype: { [x: string]: any } },
+  Element: { prototype: Record<string, any> },
   properties: { [x: string]: any; [x: number]: any },
 ) {
   const propNames = Object.keys(properties);
@@ -81,7 +81,7 @@ export function spyElementPrototypes(
 }
 
 export function spyElementPrototype(
-  Element: { prototype: { [x: string]: any } },
+  Element: { prototype: Record<string, any> },
   propName: any,
   property: any,
 ) {

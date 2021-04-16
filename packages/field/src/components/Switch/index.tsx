@@ -1,11 +1,12 @@
 import React from 'react';
+import type { SwitchProps } from 'antd';
 import { Switch } from 'antd';
 import Omit from 'omit.js';
-import { SwitchProps } from 'antd/lib/switch';
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 /**
  * 评分组件
+ *
  * @param
  */
 const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (

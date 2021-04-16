@@ -6,7 +6,7 @@ hero:
   title: ProComponents
   desc: 🏆 Use Ant Design like a Pro!
   actions:
-    - text: 快速开始 →
+    - text: 🥳 快速开始 →
       link: /docs/getting-started
 
 features:
@@ -29,7 +29,7 @@ features:
     title: TypeScript
     desc: 使用 TypeScript 开发，提供完整的类型定义文件
 
-footer: Open-source MIT Licensed | Copyright © 2017-present
+footer: Open-source MIT Licensed | © 2017-present
 ---
 
 ## 组件看板

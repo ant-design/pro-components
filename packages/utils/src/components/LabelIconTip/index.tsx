@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
-import { Tooltip, Space, ConfigProvider } from 'antd';
-import { TooltipProps } from 'antd/lib/tooltip';
+import { Tooltip, ConfigProvider } from 'antd';
+import type { TooltipProps } from 'antd';
 import './index.less';
 
 /**
  * 在 form 的 label 后面增加一个 tips 来展示一些说明文案
+ *
  * @param props
  */
 const LabelIconTip: React.FC<{
@@ -22,7 +23,7 @@ const LabelIconTip: React.FC<{
   const className = getPrefixCls('pro-core-label-tip');
   const tooltipProps = typeof tooltip === 'string' ? { title: tooltip } : (tooltip as TooltipProps);
   return (
-    <Space className={className} size={4}>
+    <div className={className}>
       {label}
       {subTitle && <div className={`${className}-subtitle`}>{subTitle}</div>}
       {tooltip && (
@@ -30,7 +31,7 @@ const LabelIconTip: React.FC<{
           <InfoCircleOutlined className={`${className}-icon`} />
         </Tooltip>
       )}
-    </Space>
+    </div>
   );
 };
 

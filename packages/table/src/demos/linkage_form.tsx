@@ -2,21 +2,20 @@
 import React, { useEffect, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Input, Select } from 'antd';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 
-interface GithubIssueItem {
+type GithubIssueItem = {
   key: number;
   name: string;
   createdAt: number;
-}
+};
 
 const MySelect: React.FC<{
   state: {
     type: number;
   };
-  /**
-   * value 和 onChange 会被自动注入
-   */
+  /** Value 和 onChange 会被自动注入 */
   value?: string;
   onChange?: (value: string) => void;
 }> = (props) => {

@@ -1,7 +1,7 @@
 import React from 'react';
-import { InputNumberProps } from 'antd/lib/input-number';
+import type { InputNumberProps } from 'antd';
 import ProField from '@ant-design/pro-field';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
 type ProFormDigitProps = ProFormItemProps<InputNumberProps> & {
@@ -10,6 +10,7 @@ type ProFormDigitProps = ProFormItemProps<InputNumberProps> & {
 };
 /**
  * 数组选择组件
+ *
  * @param
  */
 const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
@@ -31,4 +32,8 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitProps> = (
   );
 };
 
-export default createField<ProFormDigitProps>(React.forwardRef(ProFormDigit));
+export default createField<ProFormDigitProps>(React.forwardRef(ProFormDigit), {
+  defaultProps: {
+    width: '100%',
+  },
+});

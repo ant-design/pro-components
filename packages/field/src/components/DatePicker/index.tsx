@@ -1,15 +1,15 @@
+import type { DatePickerProps } from 'antd';
 import { DatePicker, ConfigProvider } from 'antd';
 import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
-import SizeContext from 'antd/lib/config-provider/SizeContext';
-import { DatePickerProps } from 'antd/lib/date-picker';
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 import './index.less';
 
 /**
  * 日期选择组件
+ *
  * @param
  */
 const FieldDatePicker: ProFieldFC<{
@@ -22,7 +22,7 @@ const FieldDatePicker: ProFieldFC<{
   {
     text,
     mode,
-    format = 'YYYY-MM-DD',
+    format,
     label,
     light,
     render,
@@ -36,13 +36,13 @@ const FieldDatePicker: ProFieldFC<{
   ref,
 ) => {
   const intl = useIntl();
-  const size = useContext(SizeContext);
+  const size = useContext(ConfigProvider.SizeContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
   const [open, setOpen] = useState<boolean>(false);
 
   if (mode === 'read') {
-    const dom = <span ref={ref}>{text ? moment(text).format(format) : '-'}</span>;
+    const dom = <span ref={ref}>{text ? moment(text).format(format || 'YYYY-MM-DD') : '-'}</span>;
     if (render) {
       return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }
@@ -57,7 +57,9 @@ const FieldDatePicker: ProFieldFC<{
       allowClear,
       placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择'),
     } = fieldProps;
-    const momentValue = parseValueToMoment(value, format) as moment.Moment;
+
+    const momentValue = parseValueToMoment(value) as moment.Moment;
+
     if (light) {
       const valueStr: string = (momentValue && momentValue.format(format)) || '';
       dom = (
@@ -68,11 +70,11 @@ const FieldDatePicker: ProFieldFC<{
           }}
         >
           <DatePicker
-            {...fieldProps}
             picker={picker}
             showTime={showTime}
             format={format}
             ref={ref}
+            {...fieldProps}
             value={momentValue}
             onChange={(v) => {
               if (onChange) {
@@ -105,13 +107,13 @@ const FieldDatePicker: ProFieldFC<{
     } else {
       dom = (
         <DatePicker
-          {...fieldProps}
           picker={picker}
           showTime={showTime}
           format={format}
           placeholder={placeholder}
-          ref={ref}
           bordered={plain === undefined ? true : !plain}
+          ref={ref}
+          {...fieldProps}
           value={momentValue}
         />
       );

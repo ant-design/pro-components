@@ -34,30 +34,41 @@ const getChangelog = (content, version) => {
   return changeLog.join('\n');
 };
 
-const getMds = () => {
+const getMds = (allVersion = false) => {
   const docDir = path.join(__dirname, '..', 'docs');
   const mdFils = fs.readdirSync(docDir).filter((name) => name.includes('changelog.md'));
   mdFils.map((mdFile) => {
     const pkg = mdFile.replace('pro-', '').replace('.changelog.md', '');
     const content = fs.readFileSync(path.join(docDir, mdFile)).toString();
-    const version = require(path.join(path.join(__dirname, '..', 'packages', pkg, 'package.json')))
-      .version;
-    const versionPkg = `@ant-design/pro-${pkg}@${version}`;
-    const changeLog = getChangelog(content, versionPkg);
-    if (!changeLog) {
-      return;
+    let versions = [
+      require(path.join(path.join(__dirname, '..', 'packages', pkg, 'package.json'))).version,
+    ];
+    if (allVersion) {
+      versions = exec('git tag')
+        .toString()
+        .split('\n')
+        .filter((tag) => tag.includes(pkg))
+        .map((tag) => tag.split('@').pop());
     }
-    github.repos
-      .createRelease({
-        owner: 'ant-design',
-        repo: 'pro-components',
-        tag_name: versionPkg,
-        name: versionPkg,
-        body: changeLog,
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    console.log(versions);
+    versions.map((version) => {
+      const versionPkg = `@ant-design/pro-${pkg}@${version}`;
+      const changeLog = getChangelog(content, versionPkg);
+      if (!changeLog) {
+        return;
+      }
+      github.repos
+        .createRelease({
+          owner: 'ant-design',
+          repo: 'pro-components',
+          tag_name: versionPkg,
+          name: versionPkg,
+          body: changeLog,
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    });
   });
 };
 

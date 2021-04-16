@@ -1,10 +1,11 @@
 import React from 'react';
+import type { RadioProps, RadioGroupProps } from 'antd';
 import { Radio } from 'antd';
 import ProField from '@ant-design/pro-field';
-import { ProSchema } from '@ant-design/pro-utils';
-import { RadioGroupProps, RadioProps } from 'antd/lib/radio';
+import type { ProSchema } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 import createField from '../../BaseForm/createField';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 
 export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
   layout?: 'horizontal' | 'vertical';
@@ -15,14 +16,17 @@ export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
 };
 
 const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
-  ({ fieldProps, options, radioType, proFieldProps }, ref: any) => {
+  ({ fieldProps, options, radioType, layout, proFieldProps, valueEnum, ...rest }, ref: any) => {
     return (
       <ProField
         mode="edit"
         valueType={radioType === 'button' ? 'radioButton' : 'radio'}
         ref={ref}
+        valueEnum={runFunction<[any]>(valueEnum, undefined)}
+        {...rest}
         fieldProps={{
           options,
+          layout,
           ...fieldProps,
         }}
         {...proFieldProps}
@@ -33,6 +37,7 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
 
 /**
  * Radio
+ *
  * @param
  */
 const ProFormRadio: React.FC<ProFormItemProps<RadioProps>> = React.forwardRef(

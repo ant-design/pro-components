@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import type { BadgeProps } from 'antd';
 import { Button, Badge } from 'antd';
-import { BadgeProps } from 'antd/lib/badge';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 import ProCard from '@ant-design/pro-card';
 // @ts-ignore
 import styles from './split.less';
 
-interface TableListItem {
+type TableListItem = {
   createdAtRange?: number[];
   createdAt: number;
   code: string;
-}
+};
 
-interface DetailListProps {
+type DetailListProps = {
   ip: string;
-}
+};
 
 const DetailList: React.FC<DetailListProps> = (props) => {
   const { ip } = props;
@@ -52,6 +53,7 @@ const DetailList: React.FC<DetailListProps> = (props) => {
           const data = await getData(params);
           return { list: data.data, ...data };
         };`,
+        key: i,
       });
     }
 
@@ -66,6 +68,7 @@ const DetailList: React.FC<DetailListProps> = (props) => {
         pageSize: 3,
         showSizeChanger: false,
       }}
+      rowKey="key"
       toolBarRender={false}
       search={false}
     />
@@ -76,13 +79,13 @@ type statusType = BadgeProps['status'];
 
 const valueEnum: statusType[] = ['success', 'error', 'processing', 'default'];
 
-export interface IpListItem {
+export type IpListItem = {
   ip?: string;
   cpu?: number | string;
   mem?: number | string;
   disk?: number | string;
   status: statusType;
-}
+};
 
 const ipListDataSource: IpListItem[] = [];
 
@@ -96,10 +99,10 @@ for (let i = 0; i < 10; i += 1) {
   });
 }
 
-interface IPListProps {
+type IPListProps = {
   ip: string;
   onChange: (id: string) => void;
-}
+};
 
 const IPList: React.FC<IPListProps> = (props) => {
   const { onChange, ip } = props;
@@ -152,6 +155,7 @@ const IPList: React.FC<IPListProps> = (props) => {
           success: true,
         });
       }}
+      rowKey="ip"
       rowClassName={(record) => {
         return record.ip === ip ? styles['split-row-select-active'] : '';
       }}
@@ -161,7 +165,11 @@ const IPList: React.FC<IPListProps> = (props) => {
             alert(value);
           },
         },
-        actions: [<Button type="primary">新建项目</Button>],
+        actions: [
+          <Button key="list" type="primary">
+            新建项目
+          </Button>,
+        ],
       }}
       options={false}
       pagination={false}

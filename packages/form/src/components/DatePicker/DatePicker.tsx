@@ -1,12 +1,13 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
-import { DatePickerProps } from 'antd/lib/date-picker';
+import type { DatePickerProps } from 'antd';
 import createField from '../../BaseForm/createField';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 
 const valueType = 'date';
 /**
  * 日期选择组件
+ *
  * @param
  */
 const ProFormDatePicker: React.FC<

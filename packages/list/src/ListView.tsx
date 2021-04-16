@@ -1,8 +1,8 @@
 import React from 'react';
+import type { ListProps, TableColumnType, TableProps } from 'antd';
 import { List } from 'antd';
-import { GetRowKey } from 'antd/lib/table/interface';
-import { ListProps } from 'antd/lib/list';
-import { ColumnType, TableProps } from 'antd/es/table';
+import type { GetRowKey } from 'antd/lib/table/interface';
+import type { ActionType } from '@ant-design/pro-table';
 import get from 'rc-util/lib/utils/get';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import useSelection from 'antd/lib/table/hooks/useSelection';
@@ -14,13 +14,16 @@ type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
 type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-export type ListViewProps<RecordType> = AntdListProps<RecordType> &
+export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderItem'> &
   Pick<TableProps<RecordType>, 'columns' | 'dataSource' | 'expandable'> & {
     rowKey?: string | GetRowKey<RecordType>;
     showActions?: 'hover' | 'always';
+    showExtra?: 'hover' | 'always';
     rowSelection?: TableProps<RecordType>['rowSelection'];
     prefixCls: string;
-    dataSource: RecordType[];
+    dataSource: readonly RecordType[];
+    renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
+    actionRef: React.MutableRefObject<ActionType | undefined>;
   };
 
 function ListView<RecordType>(props: ListViewProps<RecordType>) {
@@ -29,10 +32,13 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     columns,
     rowKey,
     showActions,
+    showExtra,
     prefixCls,
+    actionRef,
+    renderItem,
     expandable: expandableConfig,
     rowSelection,
-    pagination = false, // List 的 pagination 默认是 false
+    pagination, // List 的 pagination 默认是 false
     ...rest
   } = props;
 
@@ -47,10 +53,12 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   const [getRecordByKey] = useLazyKVMap(dataSource, 'children', getRowKey);
 
   // 合并分页的的配置
-  const [mergedPagination] = usePagination(dataSource.length, pagination as any, () => {});
-  /**
-   * 根据分页来回去不同的数据，模拟 table
-   */
+  const [mergedPagination] = usePagination(
+    dataSource.length,
+    { responsive: true, ...pagination } as any,
+    () => {},
+  );
+  /** 根据分页来回去不同的数据，模拟 table */
   const pageData = React.useMemo<RecordType[]>(() => {
     if (
       pagination === false ||
@@ -63,17 +71,9 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     const { current = 1, pageSize = 10 } = mergedPagination;
     const currentPageData = dataSource.slice((current - 1) * pageSize, current * pageSize);
     return currentPageData;
-  }, [
-    !!pagination,
-    dataSource,
-    mergedPagination && mergedPagination.current,
-    mergedPagination && mergedPagination.pageSize,
-    mergedPagination && mergedPagination.total,
-  ]);
+  }, [dataSource, mergedPagination, pagination]);
 
-  /**
-   * 提供和 table 一样的 rowSelection 配置
-   */
+  /** 提供和 table 一样的 rowSelection 配置 */
   const [selectItemRender, selectedKeySet] = useSelection(rowSelection, {
     getRowKey,
     getRecordByKey,
@@ -98,7 +98,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
   const [innerExpandedKeys, setInnerExpandedKeys] = React.useState<Key[]>(() => {
     if (defaultExpandedRowKeys) {
-      return defaultExpandedRowKeys;
+      return defaultExpandedRowKeys as Key[];
     }
     if (defaultExpandAllRows !== false) {
       return dataSource.map(getRowKey);
@@ -134,11 +134,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     [getRowKey, mergedExpandedKeys, dataSource, onExpand, onExpandedRowsChange],
   );
 
-  /**
-   * 这个是 选择框的 render 方法
-   * 为了兼容 antd 的 table,用了同样的渲染逻辑
-   * 所以看起来有点奇怪
-   */
+  /** 这个是 选择框的 render 方法 为了兼容 antd 的 table,用了同样的渲染逻辑 所以看起来有点奇怪 */
   const selectItemDom = selectItemRender([])[0];
 
   return (
@@ -148,36 +144,49 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
         const listItemProps = {};
-        columns?.forEach((column: ColumnType<RecordType>) => {
+        (columns as (TableColumnType<RecordType> & { listKey: string })[])?.forEach((column) => {
           PRO_LIST_KEYS.forEach((key) => {
-            if (column.key === key) {
-              const dataIndex = column.dataIndex || key;
+            if (column.listKey === key) {
+              const dataIndex = (column.dataIndex || key) as string;
               const rawData = Array.isArray(dataIndex)
                 ? get(item, dataIndex as string[])
                 : item[dataIndex];
-              listItemProps[key] = column.render ? column.render(rawData, item, index) : rawData;
+              // 渲染数据
+              const data = column.render ? column.render(rawData, item, index) : rawData;
+              if (data !== '-') listItemProps[key] = data;
             }
           });
         });
-
         let checkboxDom;
         if (selectItemDom && selectItemDom.render) {
           checkboxDom = selectItemDom.render(item, item, index);
         }
-        return (
+        const { isEditable, recordKey } = actionRef.current?.isEditable({ ...item, index }) || {};
+        const defaultDom = (
           <ProListItem
+            key={recordKey}
+            cardProps={rest.grid}
             {...listItemProps}
+            recordKey={recordKey}
+            isEditable={isEditable || false}
             expandable={expandableConfig}
             expand={mergedExpandedKeys.has(getRowKey(item, index))}
             onExpand={() => {
               onTriggerExpand(item);
             }}
+            record={item}
             showActions={showActions}
+            showExtra={showExtra}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
             selected={selectedKeySet.has(getRowKey(item, index))}
             checkbox={checkboxDom}
           />
         );
+
+        if (renderItem) {
+          return renderItem(item, index, defaultDom);
+        }
+        return defaultDom;
       }}
     />
   );

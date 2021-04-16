@@ -1,15 +1,14 @@
-import React, { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
+import React from 'react';
 import { Badge } from 'antd';
 import './index.less';
 
-interface StatusProps {
+type StatusProps = {
   className?: string;
   style?: CSSProperties;
-}
+};
 
-/**
- * 快捷操作，用于快速的展示一个状态
- */
+/** 快捷操作，用于快速的展示一个状态 */
 const Status: {
   Success: React.FC<StatusProps>;
   Error: React.FC<StatusProps>;

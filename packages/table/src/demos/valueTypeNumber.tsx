@@ -8,7 +8,7 @@ const valueEnum = {
   3: 'error',
 };
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   status: string;
@@ -19,7 +19,7 @@ export interface TableListItem {
   percent: number | string;
   createdAtRange: number[];
   code: string;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 for (let i = 0; i < 2; i += 1) {
@@ -47,58 +47,72 @@ for (let i = 0; i < 2; i += 1) {
 }
 
 export default () => (
-  <>
-    <ProTable<TableListItem>
-      columns={[
-        {
-          title: '进度',
-          key: 'progress',
-          dataIndex: 'progress',
-          valueType: (item) => ({
-            type: 'progress',
-            status: item.status !== 'error' ? 'active' : 'exception',
-          }),
-          width: 200,
-        },
-        {
-          title: '金额',
-          dataIndex: 'money',
-          valueType: 'money',
-          width: 150,
-        },
-        {
-          title: '数字',
-          dataIndex: 'money',
-          key: 'digit',
-          valueType: 'digit',
-          width: 150,
-        },
-        {
-          title: '数字',
-          dataIndex: 'money',
-          key: 'digit',
-          valueType: 'second',
-          width: 150,
-        },
-        {
-          title: '百分比',
-          key: 'percent',
-          width: 120,
-          dataIndex: 'percent',
-          valueType: () => ({
-            type: 'percent',
-          }),
-        },
-      ]}
-      request={() => {
-        return Promise.resolve({
-          total: 200,
-          data: tableListDataSource,
-          success: true,
-        });
-      }}
-      rowKey="key"
-      headerTitle="数字类"
-    />
-  </>
+  <ProTable<TableListItem>
+    columns={[
+      {
+        title: '进度',
+        key: 'progress',
+        dataIndex: 'progress',
+        valueType: (item) => ({
+          type: 'progress',
+          status: item.status !== 'error' ? 'active' : 'exception',
+        }),
+        width: 200,
+      },
+      {
+        title: '金额',
+        dataIndex: 'money',
+        valueType: 'money',
+        width: 150,
+      },
+      {
+        title: '数字',
+        dataIndex: 'money',
+        key: 'digit',
+        valueType: 'digit',
+        width: 150,
+      },
+      {
+        title: '数字',
+        dataIndex: 'money',
+        key: 'second',
+        valueType: 'second',
+        width: 150,
+      },
+      {
+        title: '百分比',
+        key: 'percent',
+        width: 120,
+        dataIndex: 'percent',
+        valueType: () => ({
+          type: 'percent',
+        }),
+      },
+      {
+        title: '操作',
+        key: 'option',
+        width: 120,
+        valueType: 'option',
+        render: (_, row, index, action) => [
+          <a
+            key="a"
+            onClick={() => {
+              action?.startEditable(row.key);
+            }}
+          >
+            编辑
+          </a>,
+        ],
+      },
+    ]}
+    request={() => {
+      return Promise.resolve({
+        total: 200,
+        data: tableListDataSource,
+        success: true,
+      });
+    }}
+    rowKey="key"
+    headerTitle="数字类"
+  />
 );

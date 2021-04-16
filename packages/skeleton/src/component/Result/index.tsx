@@ -2,10 +2,10 @@ import React from 'react';
 import { Skeleton, Card, Space } from 'antd';
 import { PageHeaderSkeleton } from '../List';
 
-interface ResultPageSkeletonProps {
+type ResultPageSkeletonProps = {
   active?: boolean;
   pageHeader?: false;
-}
+};
 
 const ResultPageSkeleton: React.FC<ResultPageSkeletonProps> = ({ active = true, pageHeader }) => (
   <div

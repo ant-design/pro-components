@@ -1,13 +1,14 @@
 import React from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 
-interface GithubIssueItem {
+type GithubIssueItem = {
   key: number;
   name: string;
   createdAt: number;
-}
+};
 
 const columns: ProColumns<GithubIssueItem>[] = [
   {
@@ -54,6 +55,7 @@ export default () => (
     headerTitle="查询 Table"
     search={{
       defaultCollapsed: false,
+      labelWidth: 'auto',
       optionRender: ({ searchText, resetText }, { form }) => {
         return [
           <Button

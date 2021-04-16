@@ -1,9 +1,10 @@
 import React from 'react';
 import { Rate } from 'antd';
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 /**
  * 评分组件
+ *
  * @param
  */
 const FieldRate: ProFieldFC<{

@@ -1,18 +1,26 @@
 import React, { useState, useContext } from 'react';
 import classNames from 'classnames';
-import { FilterDropdown, FieldLabel, isDropdownValueType } from '@ant-design/pro-utils';
-import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import {
+  FilterDropdown,
+  FieldLabel,
+  isDropdownValueType,
+  useMountMergeState,
+  omitUndefined,
+} from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
 
 import './index.less';
 
-export interface LightWrapperProps {
+export type SizeType = 'small' | 'middle' | 'large' | undefined;
+
+export type LightWrapperProps = {
   label?: React.ReactNode;
   disabled?: boolean;
   placeholder?: React.ReactNode;
   size?: SizeType;
   value?: any;
   onChange?: (value?: any) => void;
+  onBlur?: (value?: any) => void;
   style?: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;
@@ -22,14 +30,16 @@ export interface LightWrapperProps {
   id?: string;
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
-}
+  otherFieldProps?: any;
+};
 
-const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props, ref) => {
+const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {
   const {
     label,
     size,
     disabled,
-    onChange,
+    onChange: propsOnChange,
+    onBlur,
     className,
     style,
     children,
@@ -41,33 +51,43 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     labelFormatter,
     bordered,
     value,
+    otherFieldProps,
   } = props;
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName]);
-  const [open, setOpen] = useState<boolean>(false);
-
+  const [open, setOpen] = useMountMergeState<boolean>(false);
   const isDropdown =
     React.isValidElement(children) && isDropdownValueType(children.props.valueType);
 
+  const onChange = (...restParams: any[]) => {
+    otherFieldProps?.onChange?.(...restParams);
+    propsOnChange?.(...restParams);
+  };
+
   if (!light || customLightMode || isDropdown) {
     if (React.isValidElement(children)) {
-      return React.cloneElement(children, {
-        ref,
-        value,
-        onChange,
-        ...children.props,
-        fieldProps: {
-          id,
-          [valuePropName]: props[valuePropName],
-          // 这个 onChange 是 Form.Item 添加上的，要通过 fieldProps 透传给 ProField 调用
-          onChange,
-          // 优先使用 children.props.fieldProps，比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
-          ...children.props.fieldProps,
-        },
-      });
+      return React.cloneElement(
+        children,
+        omitUndefined({
+          value,
+          onChange: propsOnChange,
+          onBlur,
+          ...children.props,
+          fieldProps: omitUndefined({
+            id,
+            [valuePropName]: props[valuePropName],
+            // 优先使用 children.props.fieldProps，比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
+            ...children.props.fieldProps,
+            // 这个 onChange 是 Form.Item 添加上的，要通过 fieldProps 透传给 ProField 调用
+            onChange,
+            onBlur,
+          }),
+        }),
+      );
     }
+
     return children as JSX.Element;
   }
 
@@ -75,7 +95,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   if (children && React.isValidElement(children)) {
     allowClear = children.props.fieldProps?.allowClear;
   }
-
+  const labelValue = props[valuePropName];
   return (
     <FilterDropdown
       disabled={disabled}
@@ -94,7 +114,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           className={className}
           label={label}
           placeholder={placeholder}
-          value={props[valuePropName]}
+          value={labelValue}
           disabled={disabled}
           expanded={open}
           formatter={labelFormatter}
@@ -112,7 +132,6 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
       <div className={classNames(`${prefixCls}-container`, className)} style={style}>
         {React.isValidElement(children)
           ? React.cloneElement(children, {
-              ref,
               ...children.props,
               fieldProps: {
                 className: `${prefixCls}-field`,
@@ -131,4 +150,4 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   );
 };
 
-export default React.forwardRef(LightWrapper);
+export default LightWrapper;

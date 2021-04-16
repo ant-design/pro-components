@@ -48,4 +48,16 @@ export default {
     densityMiddle: '중건 여백',
     densitySmall: '좁은 여백',
   },
+  stepsForm: {
+    next: '다음',
+    prev: '이전',
+    submit: '종료',
+  },
+  editableTable: {
+    action: {
+      save: '저장',
+      cancel: '취소',
+      delete: '삭제',
+    },
+  },
 };
