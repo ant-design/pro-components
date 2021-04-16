@@ -109,7 +109,7 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | onFinish | 提交表单且数据验证成功后回调事件，同 antd 4 `Form` 组件 API | `(values)=>Promise<void>` | - |
-| onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `(e)=>void` | - |
+| onReset | 点击重置按钮的回调 | `(e)=>void` | - |
 | submitter | 提交按钮相关配置 | `boolean` \| `SubmitterProps` | `true` |
 | syncToUrl | 同步参数到 url 上,url 只支持 string，在使用之前最好读一下[文档](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) | `true` \| `(values,type)=>values` | - |
 | dateFormatter | 自动格式数据,主要是 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
