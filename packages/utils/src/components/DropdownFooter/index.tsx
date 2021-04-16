@@ -4,11 +4,11 @@ import { useIntl } from '@ant-design/pro-provider';
 
 import './index.less';
 
-export interface DropdownFooterProps {
+export type DropdownFooterProps = {
   onClear?: (e: React.MouseEvent) => void;
   onConfirm?: (e: React.MouseEvent) => void;
   disabled?: boolean;
-}
+};
 
 const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   const intl = useIntl();
@@ -19,11 +19,9 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   return (
     <div
       className={prefixCls}
-      onClick={(e) => {
-        if ((e.target as Element).getAttribute('data-type') !== 'confirm') {
-          e.stopPropagation();
-        }
-      }}
+      onClick={(e) =>
+        (e.target as Element).getAttribute('data-type') !== 'confirm' && e.stopPropagation()
+      }
     >
       <Button
         style={{

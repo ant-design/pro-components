@@ -17,6 +17,8 @@ nav:
 
 <code src="./demos/base.tsx" />
 
+<code src="./demos/base_test.tsx" debug/>
+
 ## API
 
 ```typescript | pure
@@ -110,7 +112,7 @@ const columns = [
 
 ### `request` 和 `params`
 
-大部分时候我们是从网络中获取数据，但是获取写一个 hooks 访问访问还是比较繁琐的，同时要定义一系列状态，所以我们提供了 `request` 和 `params` 来获取数据。
+大部分时候我们是从网络中获取数据，但是获取写一个 hooks 访问还是比较繁琐的，同时要定义一系列状态，所以我们提供了 `request` 和 `params` 来获取数据。
 
 - `request` 是一个 promise,需要返回一个 options 相同的数据
 - `params` 一般而言 `request` 是惰性的，params 修改会触发一次 `request`

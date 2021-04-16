@@ -1,5 +1,6 @@
 ---
 title: ProDescriptions - 定义列表
+legacy: /descriptions
 group:
   path: /
 nav:
@@ -52,21 +53,41 @@ interface RequestData {
 
 ### 基础定义列表
 
-基本使用。
+### 常见配置
 
-<code src="./demos/base.tsx" />
+<code src="./demos/dynamic-descriptions.tsx" title="常见配置" height="500px"/>
+
+### 基本使用
+
+<code src="./demos/base.tsx" title="基础定义列表" />
 
 ### 远程请求数据
 
 通过请求接口数据来展示定义列表
 
-<code src="./demos/request.tsx" />
+<code src="./demos/request.tsx" title="远程请求数据" />
 
-### columns
+### columns 配置
 
 通过请求接口数据和 columns 来展示定义列表
 
-<code src="./demos/columns.tsx" />
+<code src="./demos/columns.tsx" title="columns 配置" />
+
+### dataSource 配置数据
+
+ProDescriptions 支持了和 Table 相同的 dataSource
+
+<code src="./demos/data-source.tsx" title="dataSource 配置数据"/>
+
+### 可编辑的定义列表
+
+API 与 ProTable 相同
+
+<code src="./demos/editable.tsx" title="可编辑的定义列表" />
+
+### 自定义 valueType
+
+<code src="./demos/customization-value-type.tsx" title="自定义 valueType" />
 
 ## API
 
@@ -86,7 +107,24 @@ interface RequestData {
 | layout | 描述布局 | `horizontal` \| `vertical` | `horizontal` |
 | colon | 配置 `ProDescriptions.Item` 的 `colon` 的默认值 | boolean | true |
 | request | 请求数据，不设置 columns 时 ProDescriptions.Item 需设置对应的 dataIndex | - | - |
+| onRequestError | 处理 request 的错误，默认会直接抛出错误 | - | - |
 | columns | 列定义，与 request 配合使用 [columns](/components/table#columns) | - | - |
+| editable | 编辑的相关配置 | [EditableConfig]('#editable') | - |
+
+### editable 编辑配置
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| form | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用 | `FormInstance` | - |
+| editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
+| onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
+| onSave | 保存一行的时候触发，只更新 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<any>` | - |
+| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
+| deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
+| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
+| onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |
 
 ### ProDescriptions.Item
 
@@ -99,6 +137,7 @@ interface RequestData {
 | valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
 | request | 从网络请求枚举数据 | `()=>Promise<{[key:string`\|`number]:any}>` | - |
 | dataIndex | 返回数据的 key 与 ProDescriptions 的 request 配合使用，用于配置式的定义列表 | `React.Text` \| `React.Text[]` | - |
+| editable | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
 
 > span 是 Description.Item 的数量。 span={2} 会占用两个 DescriptionItem 的宽度。
 

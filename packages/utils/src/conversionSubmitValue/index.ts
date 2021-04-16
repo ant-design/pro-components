@@ -1,6 +1,7 @@
 import moment from 'moment';
 import get from 'rc-util/lib/utils/get';
 import isNil from '../isNil';
+import type { ProFieldValueType } from '../typing';
 
 type DateFormatter = 'number' | 'string' | false;
 
@@ -41,40 +42,34 @@ export function isPlainObject(o: { constructor: any }) {
   return true;
 }
 
-const convertMoment = (value: moment.Moment, dateFormatter: DateFormatter, valueType: string) => {
+/**
+ * 根据不同的格式转化 moment
+ *
+ * @param value
+ * @param dateFormatter
+ * @param valueType
+ */
+const convertMoment = (value: moment.Moment, dateFormatter: string | false, valueType: string) => {
+  if (!dateFormatter) {
+    return value;
+  }
   if (moment.isMoment(value)) {
     if (dateFormatter === 'number') {
       return value.valueOf();
     }
-    return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
+    if (dateFormatter === 'string') {
+      return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
+    }
+    if (typeof dateFormatter === 'string' && dateFormatter !== 'string') {
+      return value.format(dateFormatter);
+    }
   }
   return value;
 };
 
 /**
- * 根据不同的格式转化 moment
- * @param value
- * @param dateFormatter
- * @param valueType
- */
-const conversionMoment = (
-  value: moment.Moment | moment.Moment[],
-  dateFormatter: DateFormatter,
-  valueType: string,
-) => {
-  if (!dateFormatter) {
-    return value;
-  }
-  if (!Array.isArray(value)) {
-    return convertMoment(value, dateFormatter, valueType);
-  }
-  return value.map((item) => convertMoment(item, dateFormatter, valueType));
-};
-
-/**
- * 这里主要是来转化一下数据
- * 将 moment 转化为 string
- * 将 all 默认删除
+ * 这里主要是来转化一下数据 将 moment 转化为 string 将 all 默认删除
+ *
  * @param value
  * @param dateFormatter
  * @param proColumnsMap
@@ -82,26 +77,66 @@ const conversionMoment = (
 const conversionSubmitValue = <T = any>(
   value: T,
   dateFormatter: DateFormatter,
-  valueTypeMap: {
-    [key: string]: any;
-  },
-  parentKey?: string,
+  valueTypeMap: Record<
+    string,
+    | {
+        valueType: ProFieldValueType;
+        dateFormat: string;
+      }
+    | any
+  >,
+  omitNil?: boolean,
+  parentKey?: string[],
 ): T => {
   const tmpValue = {} as T;
+  // 如果 value 是 string | null | Blob类型 其中之一，直接返回
+  // 形如 {key: [File, File]} 的表单字段当进行第二次递归时会导致其直接越过 typeof value !== 'object' 这一判断 https://github.com/ant-design/pro-components/issues/2071
+  if (typeof value !== 'object' || isNil(value) || value instanceof Blob) {
+    return value;
+  }
 
   Object.keys(value).forEach((key) => {
-    const namePath = parentKey ? [parentKey, key] : [key];
-    const valueType = get(valueTypeMap, namePath) || 'text';
+    const namePath = parentKey ? [parentKey, key].flat(1) : [key];
+    const valueFormatMap = get(valueTypeMap, namePath) || 'text';
+
+    let valueType: ProFieldValueType = 'text';
+    let dateFormat: string | undefined;
+
+    if (typeof valueFormatMap === 'string') {
+      valueType = valueFormatMap as ProFieldValueType;
+    } else if (valueFormatMap) {
+      valueType = valueFormatMap.valueType;
+      dateFormat = valueFormatMap.dateFormat;
+    }
     const itemValue = value[key];
-    if (isNil(itemValue)) {
+    if (isNil(itemValue) && omitNil) {
       return;
     }
-    if (isPlainObject(itemValue)) {
-      tmpValue[key] = conversionSubmitValue(itemValue, dateFormatter, valueTypeMap, key);
+    // 处理嵌套的情况
+    if (
+      isPlainObject(itemValue) &&
+      // 不是数组
+      !Array.isArray(itemValue) &&
+      // 不是 moment
+      !moment.isMoment(itemValue)
+    ) {
+      tmpValue[key] = conversionSubmitValue(itemValue, dateFormatter, valueTypeMap, omitNil, [key]);
       return;
     }
-    // 都没命中，原样返回
-    tmpValue[key] = conversionMoment(itemValue, dateFormatter, valueType);
+    // 处理 FormList 的 value
+    if (Array.isArray(itemValue)) {
+      tmpValue[key] = itemValue.map((arrayValue, index) => {
+        if (moment.isMoment(arrayValue)) {
+          return convertMoment(arrayValue, dateFormat || dateFormatter, valueType);
+        }
+        return conversionSubmitValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [
+          key,
+          `${index}`,
+        ]);
+      });
+      return;
+    }
+    tmpValue[key] = convertMoment(itemValue, dateFormat || dateFormatter, valueType);
   });
   return tmpValue;
 };

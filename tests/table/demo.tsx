@@ -1,6 +1,7 @@
 import React from 'react';
 import moment from 'moment';
-import { ProColumns, TableStatus, TableDropdown } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import { TableStatus, TableDropdown } from '@ant-design/pro-table';
 import { Input, message } from 'antd';
 
 const getFetchData = (
@@ -70,6 +71,7 @@ export const columns: ProColumns[] = [
     dataIndex: 'sex',
     key: 'sex',
     filters: true,
+    onFilter: true,
     valueType: 'select',
     valueEnum: {
       man: '男',
@@ -149,7 +151,7 @@ export const columns: ProColumns[] = [
         key="delete"
         onClick={() => {
           message.info('确认删除');
-          action.reload();
+          action?.reload();
         }}
       >
         delete
@@ -158,7 +160,7 @@ export const columns: ProColumns[] = [
         key="reload"
         onClick={() => {
           message.info('确认刷新');
-          action.reload();
+          action?.reload();
         }}
       >
         reload

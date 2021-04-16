@@ -1,4 +1,4 @@
-import { MenuDataItem } from '../typings';
+import type { MenuDataItem } from '../typings';
 
 export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
   return (menuData || []).reduce((pre, item) => {
@@ -33,6 +33,7 @@ const invertKeyValues = (obj: Object) =>
 
 /**
  * #1890ff -> daybreak
+ *
  * @param val
  */
 export function genThemeToString(val?: string): string {
@@ -40,7 +41,8 @@ export function genThemeToString(val?: string): string {
 }
 
 /**
- * daybreak-> #1890ff
+ * Daybreak-> #1890ff
+ *
  * @param val
  */
 export function genStringToTheme(val?: string): string {

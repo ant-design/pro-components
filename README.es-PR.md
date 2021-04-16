@@ -20,8 +20,8 @@ Los componentes de la Serie Pro se colocan aquí para soportar componentes de se
 Cualquier tipo de contribución es bienvenida, aquí hay algunos ejemplos de cómo puede contribuir a este proyecto 😃 ：
 
 - Utilice Ant Design Pro, umi y ProComponents en su trabajo diario.
-- Envie [problemas](http://github.com/ant-design/https://github.com/ant-design/pro-components/issues) para informar errores o hacer preguntas
-- Proponer [solicitudes de extracción](http://github.com/ant-design/https://github.com/ant-design/pro-components/pulls) para mejorar nuestro código.
+- Envie [problemas](https://github.com/ant-design/pro-components/issues) para informar errores o hacer preguntas
+- Proponer [solicitudes de extracción](https://github.com/ant-design/pro-components/pulls) para mejorar nuestro código.
 
 ## Componente Kanban
 

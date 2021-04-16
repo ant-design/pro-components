@@ -1,4 +1,5 @@
-import React, { useState, ReactText } from 'react';
+import type { ReactText } from 'react';
+import React, { useState } from 'react';
 import { Button, Progress, Tag } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 import ProList from '@ant-design/pro-list';
@@ -46,7 +47,7 @@ const data = ['语雀的天空（top）', 'Ant Design（inline）', '蚂蚁金�
 );
 
 export default () => {
-  const [expandedRowKeys, setExpandedRowKeys] = useState<ReactText[]>([]);
+  const [expandedRowKeys, setExpandedRowKeys] = useState<readonly ReactText[]>([]);
   const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
   const rowSelection = {
     selectedRowKeys,
@@ -94,7 +95,6 @@ export default () => {
         headerTitle="预设的列状态"
         rowSelection={rowSelection}
         dataSource={dataSource}
-        renderItem={(item) => item}
         expandable={{ expandedRowKeys, onExpandedRowsChange: setExpandedRowKeys }}
       />
     </>

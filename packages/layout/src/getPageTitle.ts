@@ -1,10 +1,10 @@
 import pathToRegexp from 'path-to-regexp';
-import { MenuDataItem } from './typings';
-import { ProSettings } from './defaultSettings';
+import type { MenuDataItem } from './typings';
+import type { ProSettings } from './defaultSettings';
 
 export const matchParamsPath = (
   pathname: string,
-  breadcrumb?: { [path: string]: MenuDataItem },
+  breadcrumb?: Record<string, MenuDataItem>,
   breadcrumbMap?: Map<string, MenuDataItem>,
 ): MenuDataItem => {
   // Internal logic use breadcrumbMap to ensure the order
@@ -31,18 +31,19 @@ export const matchParamsPath = (
   };
 };
 
-export interface GetPageTitleProps {
+export type GetPageTitleProps = {
   pathname?: string;
-  breadcrumb?: { [path: string]: MenuDataItem };
+  breadcrumb?: Record<string, MenuDataItem>;
   breadcrumbMap?: Map<string, MenuDataItem>;
   menu?: ProSettings['menu'];
   title?: ProSettings['title'];
   pageName?: string;
   formatMessage?: (data: { id: any; defaultMessage?: string }) => string;
-}
+};
 
 /**
  * 获取关于 pageTile 的所有信息方便包装
+ *
  * @param props
  * @param ignoreTile
  */

@@ -13,6 +13,7 @@ export default () => {
       </ProLayout>
       <ProLayout
         {...defaultProps}
+        breadcrumbRender={false}
         layout="mix"
         splitMenus
         headerRender={false}
@@ -26,7 +27,7 @@ export default () => {
         {...defaultProps}
         layout="mix"
         menuExtraRender={() => 'dom'}
-        menuHeaderRender={false}
+        menuHeaderRender={() => <div />}
         headerTheme="light"
         navTheme="light"
         splitMenus

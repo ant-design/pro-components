@@ -1,9 +1,10 @@
 import { CopyrightOutlined, GithubOutlined } from '@ant-design/icons';
 import { Layout } from 'antd';
-import React, { Fragment, CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
+import React, { Fragment } from 'react';
 
-import GlobalFooter from './GlobalFooter';
-import { WithFalse } from './typings';
+import GlobalFooter from './components/GlobalFooter';
+import type { WithFalse } from './typings';
 
 const { Footer } = Layout;
 
@@ -30,7 +31,7 @@ const defaultLinks = [
 
 const defaultCopyright = '2019 蚂蚁金服体验技术部出品';
 
-export interface FooterProps {
+export type FooterProps = {
   links?: WithFalse<
     {
       key?: string;
@@ -39,19 +40,27 @@ export interface FooterProps {
       blankTarget?: boolean;
     }[]
   >;
-  copyright?: WithFalse<String>;
+  copyright?: WithFalse<string>;
   style?: CSSProperties;
   className?: string;
-}
+  prefixCls?: string;
+};
 
-const FooterView: React.FC<FooterProps> = ({ links, copyright, style, className }: FooterProps) => (
+const FooterView: React.FC<FooterProps> = ({
+  links,
+  copyright,
+  style,
+  className,
+  prefixCls,
+}: FooterProps) => (
   <Footer className={className} style={{ padding: 0, ...style }}>
     <GlobalFooter
       links={links !== undefined ? links : defaultLinks}
+      prefixCls={prefixCls}
       copyright={
         copyright === false ? null : (
           <Fragment>
-            Copyright <CopyrightOutlined /> {copyright || defaultCopyright}
+            <CopyrightOutlined /> {copyright || defaultCopyright}
           </Fragment>
         )
       }

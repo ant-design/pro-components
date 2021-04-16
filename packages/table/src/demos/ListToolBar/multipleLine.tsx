@@ -2,14 +2,15 @@ import React from 'react';
 import { Button, Dropdown, Menu } from 'antd';
 import { EllipsisOutlined, DownOutlined } from '@ant-design/icons';
 import { LightFilter, ProFormDatePicker } from '@ant-design/pro-form';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   containers: number;
   creator: string;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 const creators = ['付小小', '曲丽丽', '林东东', '陈帅帅', '兼某某'];
@@ -79,7 +80,7 @@ export default () => {
       toolbar={{
         multipleLine: true,
         search: {
-          onSearch: (value) => {
+          onSearch: (value: string) => {
             alert(value);
           },
         },
@@ -90,6 +91,7 @@ export default () => {
         ),
         actions: [
           <Dropdown
+            key="overlay"
             overlay={
               <Menu onClick={() => alert('menu click')}>
                 <Menu.Item key="1">菜单</Menu.Item>
@@ -108,6 +110,7 @@ export default () => {
             </Button>
           </Dropdown>,
           <Button
+            key="add"
             type="primary"
             onClick={() => {
               alert('add');

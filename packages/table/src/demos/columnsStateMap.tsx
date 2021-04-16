@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import ProTable, { ProColumns, ColumnsState } from '@ant-design/pro-table';
+import type { ProColumns, ColumnsState } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 
 const valueEnum = {
   0: 'close',
@@ -8,14 +9,14 @@ const valueEnum = {
   3: 'error',
 };
 
-export interface TableListItem {
+export type TableListItem = {
   key: number;
   name: string;
   status: string;
   updatedAt: number;
   createdAt: number;
   money: number;
-}
+};
 const tableListDataSource: TableListItem[] = [];
 
 for (let i = 0; i < 2; i += 1) {
@@ -40,6 +41,7 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'status',
     initialValue: 'all',
     filters: true,
+    onFilter: true,
     valueType: 'select',
     valueEnum: {
       all: { text: '全部', status: 'Default' },
@@ -60,6 +62,7 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'since2',
     dataIndex: 'createdAt',
     valueType: 'date',
+    hideInSetting: true,
   },
 
   {
@@ -72,11 +75,10 @@ const columns: ProColumns<TableListItem>[] = [
 ];
 
 export default () => {
-  const [columnsStateMap, setColumnsStateMap] = useState<{
-    [key: string]: ColumnsState;
-  }>({
+  const [columnsStateMap, setColumnsStateMap] = useState<Record<string, ColumnsState>>({
     name: {
       show: false,
+      order: 2,
     },
   });
   return (

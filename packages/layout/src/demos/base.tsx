@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Button, Descriptions, Result, Avatar, Space, Statistic } from 'antd';
 import { LikeOutlined, UserOutlined } from '@ant-design/icons';
 
-import ProLayout, { PageContainer, SettingDrawer, ProSettings } from '@ant-design/pro-layout';
+import type { ProSettings } from '@ant-design/pro-layout';
+import ProLayout, { PageContainer, SettingDrawer } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
 
 const content = (
@@ -18,7 +19,7 @@ const content = (
 );
 
 export default () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>(undefined);
+  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({ fixSiderbar: true });
   const [pathname, setPathname] = useState('/welcome');
   return (
     <div
@@ -32,7 +33,9 @@ export default () => {
         location={{
           pathname,
         }}
-        fixSiderbar
+        waterMarkProps={{
+          content: 'Pro Layout',
+        }}
         menuFooterRender={(props) => {
           return (
             <a
@@ -129,9 +132,11 @@ export default () => {
         </PageContainer>
       </ProLayout>
       <SettingDrawer
+        pathname={pathname}
         getContainer={() => document.getElementById('test-pro-layout')}
         settings={settings}
         onSettingChange={(changeSetting) => setSetting(changeSetting)}
+        disableUrlParams
       />
     </div>
   );

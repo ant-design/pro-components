@@ -1,0 +1,79 @@
+@import '~antd/es/style/themes/default.less';
+
+@pro-column-setting-prefix-cls: ~'@{ant-prefix}-pro-table-column-setting';
+
+.@{pro-column-setting-prefix-cls} {
+  width: auto;
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+  }
+
+  &-overlay {
+    .@{ant-prefix}-popover-inner-content {
+      padding: 0px;
+      padding-bottom: 8px;
+    }
+    .@{ant-prefix}-tree-treenode {
+      align-items: center;
+
+      &:hover {
+        background-color: @item-active-bg;
+        .@{pro-column-setting-prefix-cls}-list-item-option {
+          display: block;
+        }
+      }
+
+      .@{ant-prefix}-tree-checkbox {
+        top: 0;
+        margin: 0;
+        margin-right: 4px;
+      }
+    }
+  }
+}
+
+.@{pro-column-setting-prefix-cls}-list {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 8px;
+  padding-left: 16px;
+
+  &.@{pro-column-setting-prefix-cls}-list-group {
+    padding-top: 0;
+  }
+
+  &-title {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 24px;
+    color: @text-color-secondary;
+    font-size: 12px;
+  }
+
+  &-item {
+    display: flex;
+    align-items: center;
+
+    &-title {
+      flex: 1;
+    }
+
+    &-option {
+      display: none;
+      float: right;
+      cursor: pointer;
+      > span {
+        > span.anticon {
+          color: @primary-color;
+        }
+      }
+      > span + span {
+        margin-left: 8px;
+      }
+    }
+  }
+}

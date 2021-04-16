@@ -1,5 +1,6 @@
 import { mount } from 'enzyme';
-import React, { useState, ReactText } from 'react';
+import type { ReactText } from 'react';
+import React, { useState } from 'react';
 import ProList from '@ant-design/pro-list';
 import { act } from 'react-dom/test-utils';
 import PaginationDemo from '../../packages/list/src/demos/pagination';
@@ -98,13 +99,13 @@ describe('List', () => {
         }}
       />,
     );
-    expect(html.find('.ant-empty-description').text()).toEqual('No Data');
+    expect(html.find('.ant-empty-description').text()).toEqual('暂无数据');
   });
 
   it('🚏 expandable', async () => {
     const onExpand = jest.fn();
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<ReactText[]>([]);
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly ReactText[]>([]);
       return (
         <ProList
           dataSource={[
@@ -126,6 +127,35 @@ describe('List', () => {
     const html = mount(<Wrapper />);
     expect(html.find('.ant-pro-list-row-description').length).toEqual(0);
     html.find('.ant-pro-list-row-expand-icon').simulate('click');
+    expect(html.find('.ant-pro-list-row-content').text()).toEqual('我是内容');
+    expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
+  });
+
+  it('🚏 expandable support expandRowByClick', async () => {
+    const onExpand = jest.fn();
+    const Wrapper = () => {
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly ReactText[]>([]);
+      return (
+        <ProList
+          dataSource={[
+            {
+              name: '我是名称',
+              content: <div>我是内容</div>,
+            },
+          ]}
+          metas={{
+            title: {
+              dataIndex: 'name',
+            },
+            content: {},
+          }}
+          expandable={{ expandedRowKeys, onExpandedRowsChange, onExpand, expandRowByClick: true }}
+        />
+      );
+    };
+    const html = mount(<Wrapper />);
+    expect(html.find('.ant-pro-list-row-description').length).toEqual(0);
+    html.find('.ant-list-item').simulate('click');
     expect(html.find('.ant-pro-list-row-content').text()).toEqual('我是内容');
     expect(onExpand).toHaveBeenCalledWith(true, expect.objectContaining({ name: '我是名称' }));
   });
@@ -165,7 +195,7 @@ describe('List', () => {
 
   it('🚏 expandable with expandedRowRender', async () => {
     const Wrapper = () => {
-      const [expandedRowKeys, onExpandedRowsChange] = useState<ReactText[]>([]);
+      const [expandedRowKeys, onExpandedRowsChange] = useState<readonly ReactText[]>([]);
       return (
         <ProList
           dataSource={[
@@ -204,14 +234,73 @@ describe('List', () => {
     );
   });
 
+  it('🚏 expandable with expandIcon', async () => {
+    const fn = jest.fn();
+    const Wrapper = () => {
+      return (
+        <ProList
+          dataSource={[
+            {
+              name: '我是名称',
+              content: <div>我是内容</div>,
+            },
+          ]}
+          metas={{
+            title: {
+              dataIndex: 'name',
+            },
+            content: {},
+          }}
+          expandable={{
+            expandIcon: ({ record }) => (
+              <div id="test_click" onClick={() => fn(record.name)} className="expand-icon" />
+            ),
+          }}
+          rowKey={(item) => {
+            return item.name;
+          }}
+        />
+      );
+    };
+    const html = mount(<Wrapper />);
+
+    await waitForComponentToPaint(html, 1200);
+
+    expect(html.find('.expand-icon')).toHaveLength(1);
+
+    act(() => {
+      html.find('#test_click').simulate('click');
+    });
+
+    expect(fn).toBeCalledWith('我是名称');
+  });
+
+  it('🚏 ProList support renderItem', async () => {
+    const Wrapper = () => {
+      return (
+        <ProList
+          dataSource={[
+            {
+              name: '我是名称',
+              content: <div>我是内容</div>,
+            },
+          ]}
+          renderItem={(_, index) => {
+            return <div id="test_index">{index}</div>;
+          }}
+          rowKey={(item) => {
+            return item.name;
+          }}
+        />
+      );
+    };
+    const html = mount(<Wrapper />);
+
+    expect(html.find('#test_index').exists()).toBeTruthy();
+  });
+
   it('🚏 rowSelection', async () => {
     const Wrapper = () => {
-      const [selectedRowKeys, setSelectedRowKeys] = useState<ReactText[]>([]);
-      const rowSelection = {
-        selectedRowKeys,
-        selections: true,
-        onChange: (keys: ReactText[]) => setSelectedRowKeys(keys),
-      };
       return (
         <ProList
           dataSource={[
@@ -224,7 +313,7 @@ describe('List', () => {
               description: '我是描述',
             },
           ]}
-          rowSelection={rowSelection}
+          rowSelection={{}}
           metas={{
             title: {
               dataIndex: 'name',
@@ -236,18 +325,26 @@ describe('List', () => {
     };
     const html = mount(<Wrapper />);
     expect(html.find('.ant-checkbox-input').length).toEqual(2);
-    html.find('.ant-checkbox-input').at(0).simulate('change');
+    html
+      .find('.ant-checkbox-input')
+      .at(0)
+      .simulate('change', {
+        target: {
+          checked: true,
+        },
+      });
+    await waitForComponentToPaint(html, 1000);
     expect(html.find('.ant-checkbox-input').at(0).prop('checked')).toEqual(true);
     expect(html.find('.ant-checkbox-input').at(1).prop('checked')).toEqual(false);
   });
 
-  it('🚏 pagination', async () => {
+  it('🚏 support pagination', async () => {
     const html = mount(<PaginationDemo />);
     expect(html.find('.ant-list-item').length).toEqual(5);
     act(() => {
       html.find('.ant-pagination-item').at(1).simulate('click');
     });
-    await waitForComponentToPaint(html, 20);
+    await waitForComponentToPaint(html, 200);
     expect(html.find('.ant-list-item').length).toEqual(2);
 
     act(() => {
@@ -260,7 +357,7 @@ describe('List', () => {
       html.find('.ant-select-item-option').at(3).simulate('click');
     });
 
-    await waitForComponentToPaint(html, 20);
+    await waitForComponentToPaint(html, 200);
 
     expect(html.find('.ant-list-item').length).toEqual(7);
   });
@@ -299,7 +396,7 @@ describe('List', () => {
         }}
       />,
     );
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(html.find('.ant-pro-list-row-title').length).toEqual(2);
     act(() => {
       html.find('.ant-pro-core-field-label').simulate('click');
@@ -319,11 +416,11 @@ describe('List', () => {
       html.find('.ant-btn.ant-btn-primary').simulate('click');
     });
 
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html, 1200);
     expect(onRequest).toHaveBeenCalledWith(
       {
         current: 1,
-        pageSize: 20,
+        pageSize: 5,
         title: 'test',
       },
       {},

@@ -4,39 +4,38 @@ import classNames from 'classnames';
 
 import './index.less';
 
-export interface ProCardDividerProps {
+export type ProCardDividerProps = {
   /**
-   * @description 自定义前缀
-   * @ignore
-   */
-  prefixCls?: string;
-  /**
-   * @description 样式
+   * 样式
+   *
    * @ignore
    */
   style?: React.CSSProperties;
   /**
-   * @description className
+   * ClassName
+   *
    * @ignore
    */
   className?: string;
-}
+  /**
+   * 布局类型
+   *
+   * @default vertical
+   */
+  type?: 'horizontal' | 'vertical';
+};
 
 const ProCardDivider: React.FC<ProCardDividerProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-divider');
 
-  const { className, style = {}, children } = props;
+  const { className, style = {}, type } = props;
 
   const classString = classNames(prefixCls, className, {
-    [`${prefixCls}-line`]: children === undefined,
+    [`${prefixCls}-${type}`]: type,
   });
 
-  return (
-    <div className={classString} style={style}>
-      {children}
-    </div>
-  );
+  return <div className={classString} style={style} />;
 };
 
 export default ProCardDivider;

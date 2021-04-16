@@ -1,6 +1,7 @@
 import React from 'react';
 
-import ProLayout, { PageContainer, MenuDataItem } from '@ant-design/pro-layout';
+import type { MenuDataItem } from '@ant-design/pro-layout';
+import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 import { SmileOutlined, HeartOutlined } from '@ant-design/icons';
 
 const IconMap = {
@@ -44,32 +45,24 @@ const loopMenuItem = (menus: MenuDataItem[]): MenuDataItem[] =>
   }));
 
 export default () => (
-  <div
-    id="test"
+  <ProLayout
     style={{
-      transform: 'rotate(0)',
-      overflowX: 'hidden',
+      height: 500,
     }}
+    fixSiderbar
+    location={{
+      pathname: '/welcome/welcome',
+    }}
+    menu={{ request: async () => loopMenuItem(defaultMenus) }}
   >
-    <ProLayout
-      style={{
-        height: 500,
-      }}
-      collapsed
-      location={{
-        pathname: '/welcome',
-      }}
-      menuDataRender={() => loopMenuItem(defaultMenus)}
-    >
-      <PageContainer content="欢迎使用">
-        <div
-          style={{
-            height: '120vh',
-          }}
-        >
-          Hello World
-        </div>
-      </PageContainer>
-    </ProLayout>
-  </div>
+    <PageContainer content="欢迎使用">
+      <div
+        style={{
+          height: '120vh',
+        }}
+      >
+        Hello World
+      </div>
+    </PageContainer>
+  </ProLayout>
 );

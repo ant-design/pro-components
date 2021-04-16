@@ -1,19 +1,11 @@
 import { render, mount } from 'enzyme';
 import React from 'react';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
+import { act } from 'react-dom/test-utils';
 import defaultProps from './defaultProps';
 import { waitForComponentToPaint } from '../util';
-import { act } from 'react-test-renderer';
 
 describe('BasicLayout', () => {
-  beforeAll(() => {
-    Object.defineProperty(window, 'localStorage', {
-      value: {
-        getItem: jest.fn(() => 'zh-CN'),
-      },
-    });
-  });
-
   it('base use', () => {
     const html = render(
       <ProLayout {...defaultProps}>
@@ -116,7 +108,9 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const domHeader = wrapper.find('ant-page-header');
     expect(domHeader.exists()).toBeFalsy();
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('pageHeaderRender is false', async () => {
@@ -128,6 +122,8 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     const domHeader = wrapper.find('ant-page-header');
     expect(domHeader.exists()).toBeFalsy();
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 });

@@ -1,11 +1,10 @@
 import React from 'react';
-import { FormItemProps } from 'antd/lib/form';
-import { NamePath } from 'antd/lib/form/interface';
-import { ProFieldValueType } from '@ant-design/pro-field';
-import { SearchTransformKeyFn } from '@ant-design/pro-utils';
-import { GroupProps, FieldProps } from './interface';
+import type { FormItemProps } from 'antd';
+import type { NamePath } from 'antd/lib/form/interface';
+import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import type { GroupProps, FieldProps } from './interface';
 
-export interface FiledContextProps {
+export type FiledContextProps = {
   fieldProps?: FieldProps;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
@@ -13,13 +12,12 @@ export interface FiledContextProps {
     name: NamePath,
     obj: {
       valueType?: ProFieldValueType;
-      /**
-       * 数据转化的地方
-       */
+      dateFormat?: string;
+      /** 数据转化的地方 */
       transform?: SearchTransformKeyFn;
     },
   ) => void;
-}
+};
 
 const FieldContext = React.createContext<FiledContextProps>({});
 

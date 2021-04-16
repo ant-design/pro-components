@@ -1,27 +1,46 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { readdirSync } = require('fs');
 
 const tailPkgs = readdirSync(path.join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.',
 );
 
+// const tailPkgs = ['table'];
+
+const isCI = process.env.PRO_COMPONENTS_CI === 'CI';
+
+const externals = isCI
+  ? tailPkgs.reduce((pre, value) => {
+      return {
+        ...pre,
+        [`@ant-design/pro-${value}`]: `Pro${value
+          .toLowerCase()
+          .replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`,
+      };
+    }, {})
+  : {};
+
+console.log(externals);
+
 const webPackConfigList = [];
 
 tailPkgs.forEach((pkg) => {
   const entry = {};
   entry[`${pkg}`] = `./packages/${pkg}/src/index.tsx`;
-  entry[`${pkg}.min`] = `./packages/${pkg}/src/index.tsx`;
-
+  if (!isCI) {
+    entry[`${pkg}.min`] = `./packages/${pkg}/src/index.tsx`;
+  }
   const config = {
     entry,
     output: {
       filename: '[name].js',
       library: `Pro${pkg.toLowerCase().replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`,
-      libraryExport: 'default',
+      libraryTarget: 'umd',
       path: path.resolve(__dirname, 'packages', pkg, 'dist'),
       globalObject: 'this',
     },
@@ -29,29 +48,24 @@ tailPkgs.forEach((pkg) => {
     resolve: {
       extensions: ['.ts', '.tsx', '.json', '.css', '.js', '.less'],
     },
-    optimization: {
-      minimize: true,
-      minimizer: [
-        new TerserPlugin({
-          include: /\.min\.js$/,
-        }),
-        new OptimizeCSSAssetsPlugin({
-          include: /\.min\.js$/,
-        }),
-      ],
-    },
+    optimization: isCI
+      ? {
+          minimize: true,
+          minimizer: [
+            new TerserPlugin({
+              include: /\.min\.js$/,
+            }),
+            new CssMinimizerPlugin({
+              include: /\.min\.js$/,
+            }),
+          ],
+        }
+      : { concatenateModules: false },
     module: {
       rules: [
         {
           test: /\.(png|jpg|gif|svg)$/i,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 8192,
-              },
-            },
-          ],
+          type: 'asset',
         },
         {
           test: /\.jsx?$/,
@@ -63,6 +77,7 @@ tailPkgs.forEach((pkg) => {
                 ['@babel/plugin-proposal-decorators', { legacy: true }],
                 ['@babel/plugin-proposal-class-properties', { loose: true }],
                 '@babel/proposal-object-rest-spread',
+                require('./scripts/replaceLib'),
               ],
             },
           },
@@ -88,6 +103,7 @@ tailPkgs.forEach((pkg) => {
                 ['@babel/plugin-proposal-decorators', { legacy: true }],
                 ['@babel/plugin-proposal-class-properties', { loose: true }],
                 '@babel/proposal-object-rest-spread',
+                require('./scripts/replaceLib'),
               ],
             },
           },
@@ -134,10 +150,12 @@ tailPkgs.forEach((pkg) => {
         'react-dom': 'ReactDOM',
         antd: 'antd',
         moment: 'moment',
+        ...externals,
       },
     ],
     plugins: [
       new ProgressBarPlugin(),
+      // new BundleAnalyzerPlugin(),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional

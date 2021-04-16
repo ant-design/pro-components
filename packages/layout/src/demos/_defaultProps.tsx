@@ -1,5 +1,5 @@
 import React from 'react';
-import { SmileOutlined, CrownOutlined, TabletOutlined } from '@ant-design/icons';
+import { SmileOutlined, CrownOutlined, TabletOutlined, AntDesignOutlined } from '@ant-design/icons';
 
 export default {
   route: {
@@ -82,6 +82,11 @@ export default {
             component: './Welcome',
           },
         ],
+      },
+      {
+        path: 'https://ant.design',
+        name: 'Ant Design 官网外链',
+        icon: <AntDesignOutlined />,
       },
     ],
   },

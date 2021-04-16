@@ -1,23 +1,25 @@
-@import (reference) '~antd/lib/style/themes/default';
+@import (reference) '~antd/es/style/themes/default';
 
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 
 .@{pro-card-prefix-cls} {
   // 分隔线
   &-divider {
-    margin-top: @card-padding-base;
-    margin-bottom: @card-padding-base;
+    width: @border-width-base;
+    margin: @card-padding-base @margin-xs;
+    background-color: @border-color-split;
 
-    &-line {
-      margin-left: @margin-xs;
-      margin-right: @margin-xs;
-      width: @border-width-base;
-      background-color: @border-color-split;
+    &-horizontal {
+      width: initial;
+      height: @border-width-base;
+      margin: @margin-xs @card-padding-base;
     }
   }
 
   &-size-small .@{pro-card-prefix-cls}-divider {
-    margin-top: @card-padding-base-sm;
-    margin-bottom: @card-padding-base-sm;
+    margin: @card-padding-base-sm @margin-xs;
+    &-horizontal {
+      margin: @margin-xs @card-padding-base-sm;
+    }
   }
 }

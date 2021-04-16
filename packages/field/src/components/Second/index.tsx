@@ -1,13 +1,15 @@
 import React from 'react';
 import { InputNumber } from 'antd';
-import { ProFieldFC } from '../../index';
+import type { ProFieldFC } from '../../index';
 
 export type FieldDigitProps = {
   text: number;
+  placeholder?: any;
 };
 
 /**
  * 格式化秒
+ *
  * @param result
  * @returns {string}
  */
@@ -28,10 +30,11 @@ export function formatSecond(result: number) {
 
 /**
  * 格式化秒
+ *
  * @param FieldSecond
  */
 const Second: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, render, renderFormItem, fieldProps, ...rest },
+  { text, mode: type, render, renderFormItem, fieldProps, placeholder },
   ref,
 ) => {
   if (type === 'read') {
@@ -50,7 +53,7 @@ const Second: ProFieldFC<FieldDigitProps> = (
         style={{
           width: '100%',
         }}
-        {...rest}
+        placeholder={placeholder}
         {...fieldProps}
       />
     );

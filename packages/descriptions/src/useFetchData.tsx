@@ -1,35 +1,47 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-export interface RequestData {
+export type RequestData = {
   data: any;
   success?: boolean;
   [key: string]: any;
-}
-export interface UseFetchDataAction<T extends RequestData> {
+};
+export type UseFetchDataAction<T extends RequestData> = {
   dataSource: T['data'] | T;
+  setDataSource: (value: T['data'] | T) => void;
   loading: boolean | undefined;
   reload: () => Promise<void>;
-}
+};
 
 const useFetchData = <T extends RequestData>(
   getData: () => Promise<T>,
   options?: {
     effects?: any[];
     manual: boolean;
+    loading?: boolean;
+    onLoadingChange?: (loading?: boolean) => void;
     onRequestError?: (e: Error) => void;
+    dataSource?: T['data'];
+    defaultDataSource?: T['data'];
+    onDataSourceChange?: (value: T['data']) => void;
   },
 ): UseFetchDataAction<T> => {
-  const { onRequestError, effects = [], manual } = options || {};
-  const [entity, setEntity] = useState<T['data']>({} as any);
-  const [loading, setLoading] = useState<boolean | undefined>(undefined);
+  const { onRequestError, effects, manual, dataSource, defaultDataSource, onDataSourceChange } =
+    options || {};
+  const [entity, setEntity] = useMergedState<T['data']>(defaultDataSource, {
+    value: dataSource,
+    onChange: onDataSourceChange,
+  });
+  const [loading, setLoading] = useMergedState<boolean | undefined>(options?.loading, {
+    value: options?.loading,
+    onChange: options?.onLoadingChange,
+  });
 
   const updateDataAndLoading = (data: T) => {
     setEntity(data);
     setLoading(false);
   };
-  /**
-   * 请求数据
-   */
+  /** 请求数据 */
   const fetchList = async () => {
     if (loading) {
       return;
@@ -57,10 +69,11 @@ const useFetchData = <T extends RequestData>(
       return;
     }
     fetchList();
-  }, [...effects, manual]);
+  }, [...(effects || []), manual]);
 
   return {
     dataSource: entity,
+    setDataSource: setEntity,
     loading,
     reload: () => fetchList(),
   };

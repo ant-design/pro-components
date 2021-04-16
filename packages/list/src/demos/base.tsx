@@ -33,15 +33,17 @@ export default () => (
   <ProList<any>
     toolBarRender={() => {
       return [
-        <Button key="3" type="primary">
+        <Button key="add" type="primary">
           新建
         </Button>,
       ];
     }}
     rowKey="name"
     headerTitle="基础列表"
+    tooltip="基础列表的配置"
     dataSource={dataSource}
     showActions="hover"
+    showExtra="hover"
     metas={{
       title: {
         dataIndex: 'name',

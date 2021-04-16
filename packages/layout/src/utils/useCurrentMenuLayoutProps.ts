@@ -1,6 +1,6 @@
 ﻿import { omitUndefined } from '@ant-design/pro-utils';
 import { useEffect, useState } from 'react';
-import { ProSettings } from '../defaultSettings';
+import type { ProSettings } from '../defaultSettings';
 
 const useCurrentMenuLayoutProps = (currentMenu: ProSettings) => {
   const [currentMenuLayoutProps, setCurrentMenuLayoutProps] = useState({});

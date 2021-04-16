@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
 import { DownOutlined, CloseOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import { ConfigProvider } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import './index.less';
 
-export interface FieldLabelProps {
+export type FieldLabelProps = {
   label?: React.ReactNode;
   value?: any;
   disabled?: boolean;
@@ -20,7 +20,7 @@ export interface FieldLabelProps {
   style?: React.CSSProperties;
   bordered?: boolean;
   allowClear?: boolean;
-}
+};
 
 const FieldLabel: React.FC<FieldLabelProps> = (props) => {
   const {
@@ -73,32 +73,33 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
           </span>
         );
       }
-      const tail =
-        str.length > 16
-          ? `...${
-              Array.isArray(aValue) && aValue.length > 1
-                ? `${aValue.length}${intl.getMessage('form.lightFilter.itemUnit', '项')}`
-                : ''
-            }`
-          : '';
+      const getText = () => {
+        const isArrayValue = Array.isArray(aValue) && aValue.length > 1;
+        const unitText = intl.getMessage('form.lightFilter.itemUnit', '项');
+        if (str.length > 32 && isArrayValue) {
+          return `...${aValue.length}${unitText}`;
+        }
+        return '';
+      };
+      const tail = getText();
+
       return (
         <span title={str}>
           {prefix}
-          {str.substr(0, 16)}
+          {str?.substr(0, 32)}
           {tail}
         </span>
       );
     }
-    return placeholder || aLabel;
+    return aLabel || placeholder;
   };
-
   return (
     <span
       className={classNames(
         prefixCls,
         `${prefixCls}-${size}`,
         {
-          [`${prefixCls}-active`]: !!value,
+          [`${prefixCls}-active`]: !!value || value === 0,
           [`${prefixCls}-disabled`]: disabled,
           [`${prefixCls}-bordered`]: bordered,
           [`${prefixCls}-allow-clear`]: allowClear,
@@ -108,7 +109,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
       style={style}
     >
       {getTextByValue(label, value)}
-      {value && allowClear && (
+      {(value || value === 0) && allowClear && (
         <CloseOutlined
           className={classNames(`${prefixCls}-icon`, `${prefixCls}-close`)}
           onClick={(e) => {

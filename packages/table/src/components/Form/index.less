@@ -1,0 +1,49 @@
+@import '~antd/es/style/themes/default.less';
+@import '~antd/es/style/mixins/index.less';
+
+@pro-table-search-prefix-cls: ~'@{ant-prefix}-pro-table-search';
+
+@pro-table-form-prefix-cls: ~'@{ant-prefix}-pro-table-form';
+
+.@{pro-table-search-prefix-cls} {
+  margin-bottom: 16px;
+  padding: 24px;
+  padding-bottom: 0;
+  background: @component-background;
+
+  .clearfix;
+
+  &.@{pro-table-form-prefix-cls} {
+    margin: 0;
+    padding: 0 16px;
+    overflow: unset;
+  }
+
+  &-light {
+    margin-bottom: 0;
+    padding: 16px 0;
+  }
+
+  &-form-option {
+    .@{ant-prefix}-form-item {
+      margin: 0;
+    }
+    .@{ant-prefix}-form-item-label {
+      opacity: 0;
+    }
+    .@{ant-prefix}-form-item-control-input {
+      justify-content: flex-start;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .@{pro-table-search-prefix-cls} {
+    height: auto !important;
+    padding-bottom: 24px;
+    .@{ant-prefix}-form-item-label {
+      min-width: 80px;
+      text-align: left;
+    }
+  }
+}

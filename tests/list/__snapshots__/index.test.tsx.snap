@@ -3,7 +3,6 @@
 exports[`List 🚏 only has content 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-card"
@@ -60,6 +59,9 @@ exports[`List 🚏 only has content 1`] = `
                       段落示意：蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
                     </div>
                   </div>
+                  <div
+                    class=""
+                  />
                 </li>
               </div>
             </ul>
@@ -74,7 +76,6 @@ exports[`List 🚏 only has content 1`] = `
 exports[`List 🚏 only has description 1`] = `
 <div
   class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
-  id="ant-design-pro-table"
 >
   <div
     class="ant-card"
@@ -155,6 +156,9 @@ exports[`List 🚏 only has description 1`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class=""
+                  />
                 </li>
               </div>
             </ul>

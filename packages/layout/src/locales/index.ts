@@ -11,27 +11,22 @@ const locales = {
   'it-IT': itITLocal,
 };
 
-interface GLocaleWindow {
+type GLocaleWindow = {
   g_locale: keyof typeof locales;
-}
+};
 
 export type LocaleType = keyof typeof locales;
 
 const getLanguage = (): string => {
-  let lang;
   // support ssr
-  if (!isBrowser()) {
-    return lang || '';
-  }
-  lang = window.localStorage.getItem('umi_locale');
+  if (!isBrowser()) return 'zh-CN';
+  const lang = window.localStorage.getItem('umi_locale');
   return lang || ((window as unknown) as GLocaleWindow).g_locale || navigator.language;
 };
 
 export { getLanguage };
 
-export default (): {
-  [key: string]: string;
-} => {
+export default (): Record<string, string> => {
   const gLocale = getLanguage();
   if (locales[gLocale]) {
     return locales[gLocale];

@@ -1,18 +1,15 @@
 import React from 'react';
+import type { FormProps } from 'antd';
 import { Form } from 'antd';
-import { FormProps } from 'antd/lib/form/Form';
 import Group from '../../components/Group';
-import BaseForm, { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
+import ProFormItem from '../../components/FormItem';
 
-export interface ProFormProps extends FormProps, CommonFormProps {
-  // ProForm 基础表单，暂无特殊属性
-  onFinish?: (formData: any) => Promise<void>;
-}
+export type ProFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish'> &
+  CommonFormProps<T>;
 
-const ProForm: React.FC<ProFormProps> & {
-  Group: typeof Group;
-  useForm: typeof Form.useForm;
-} = (props) => {
+function ProForm<T = Record<string, any>>(props: ProFormProps<T>) {
   return (
     <BaseForm
       layout="vertical"
@@ -31,9 +28,10 @@ const ProForm: React.FC<ProFormProps> & {
       {...props}
     />
   );
-};
+}
 
 ProForm.Group = Group;
 ProForm.useForm = Form.useForm;
+ProForm.Item = ProFormItem;
 
 export default ProForm;

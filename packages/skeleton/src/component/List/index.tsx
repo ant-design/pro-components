@@ -2,9 +2,7 @@ import React from 'react';
 import useMediaQuery from 'use-media-antd-query';
 import { Skeleton, Card, Space, Divider } from 'antd';
 
-/**
- * 一条分割线
- */
+/** 一条分割线 */
 export const Line = ({ padding }: { padding?: string | number }) => (
   <div
     style={{
@@ -85,9 +83,7 @@ const StatisticSkeleton: React.FC<{
   );
 };
 
-/**
- * 列表子项目骨架屏
- */
+/** 列表子项目骨架屏 */
 export const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
   <>
     <Card
@@ -137,9 +133,7 @@ export const ListSkeletonItem: React.FC<{ active: boolean }> = ({ active }) => (
   </>
 );
 
-/**
- * 列表骨架屏
- */
+/** 列表骨架屏 */
 export const ListSkeleton: React.FC<{
   size: number;
   active?: boolean;
@@ -183,6 +177,7 @@ export const ListSkeleton: React.FC<{
 
 /**
  * 面包屑的 骨架屏
+ *
  * @param param0
  */
 export const PageHeaderSkeleton = ({ active }: { active: boolean }) => (
@@ -212,6 +207,7 @@ export type ListPageSkeletonProps = {
 
 /**
  * 列表操作栏的骨架屏
+ *
  * @param param0
  */
 export const ListToolbarSkeleton = ({ active }: { active: boolean }) => (
