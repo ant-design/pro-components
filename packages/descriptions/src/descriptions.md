@@ -85,10 +85,6 @@ API 与 ProTable 相同
 
 <code src="./demos/editable.tsx" title="可编辑的定义列表" />
 
-### 自定义 valueType
-
-<code src="./demos/customization-value-type.tsx" title="自定义 valueType" />
-
 ## API
 
 ### ProDescriptions

@@ -209,9 +209,7 @@ const enUSIntl = createIntl('en_US', enUS);
 
 <code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px" title="valueType - 选择类"/>
 
-### 自定义 valueType
-
-<code src="./demos/customization-value-type.tsx"  background="#f5f5f5" heigh="462px" title="自定义 valueType"/>
+<code src="./demos/customization-value-type.tsx" debug background="#f5f5f5" heigh="462px" title="自定义 valueType"/>
 
 <code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
 
@@ -391,24 +389,25 @@ ref.current.cancelEditable(rowKey);
 | --- | --- | --- | --- |
 | title | 与 antd 中基本相同，但是支持通过传入一个方法 | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
 | tooltip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | string | - |
-| renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<T>) => string` | - |
-| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
 | ellipsis | 是否自动缩略 | `boolean` | - |
 | copyable | 是否支持复制 | `boolean` | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](#valueenum) | - |
 | valueType | 值的类型 | `money` \| `option` \| `date` \| `dateTime` \| `time` \| `text`\| `index`\|`indexBorder` | `text` |
+| order | 查询表单中的权重，权重大排序靠前 | `number` | - |
+| fieldProps | 查询表单的 props，会透传给表单项,如果渲染出来是 Input,就支持 input 的所有 props，同理如果是 select，也支持 select 的所有 props。也支持方法传入 | `` (form,config)=>Record`\| `Record `` | - |
+| `formItemProps` | 传递给 Form.Item 的配置,可以配置 rules，但是默认的查询表单 rules 是不生效的。需要配置 `ignoreRules` | `(form,config)=>formItemProps` \| `formItemProps` | - |
+| renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<T>) => string` | - |
+| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
+| renderFormItem | 渲染查询表单的输入组件 | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
+| search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
+| search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
+| [editable](/components/editable-table) | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| colSize | 一个表单项占用的格子数量, `占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的 | `number` | - |
 | hideInSearch | 在查询表单中不展示此项 | `boolean` | - |
 | hideInTable | 在 Table 中不展示此列 | `boolean` | - |
 | hideInForm | 在 Form 模式下 中不展示此列 | `boolean` | - |
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
 | onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| 'false' | false |
-| order | 查询表单中的权重，权重大排序靠前 | `number` | - |
-| renderFormItem | 渲染查询表单的输入组件 | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
-| fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
-| search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
-| search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
-| [editable](/components/editable-table) | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
-| colSize | 一个表单项占用的格子数量, `占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的 | `number` | - |
 
 ### valueType 值类型
 
@@ -416,26 +415,38 @@ ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，�
 
 现在支持的值如下
 
-| 类型 | 描述 | 示例 |
-| --- | --- | --- |
-| money | 转化值为金额 | ¥10,000.26 |
-| date | 日期 | 2019-11-16 |
-| dateRange | 日期区间 | 2019-11-16 2019-11-18 |
-| dateTime | 日期和时间 | 2019-11-16 12:50:00 |
-| dateTimeRange | 日期和时间区间 | 2019-11-16 12:50:00 2019-11-18 12:50:00 |
-| time | 时间 | 12:50:00 |
-| option | 操作项，会自动增加 marginRight，只支持一个数组,表单中会自动忽略 | `[<a>操作a</a>,<a>操作b</a>]` |
-| text | 默认值，不做任何处理 | - |
-| select | 选择 | - |
-| textarea | 与 text 相同， form 转化时会转为 textarea 组件 | - |
-| index | 序号列 | - |
-| indexBorder | 带 border 的序号列 | - |
-| progress | 进度条 | - |
-| digit | [格式化](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)数字展示，form 转化时会转为 inputNumber | - |
-| percent | 百分比 | +1.12 |
-| code | 代码块 | `const a = b` |
-| avatar | 头像 | 展示一个头像 |
-| password | 密码框 | 密码相关的展示 |
+| valueType       | 说明                         |
+| --------------- | ---------------------------- |
+| `password`      | 密码输入框                   |
+| `money`         | 金额输入框                   |
+| `textarea`      | 文本域                       |
+| `date`          | 日期                         |
+| `dateTime`      | 日期时间                     |
+| `dateWeek`      | 周                           |
+| `dateMonth`     | 月                           |
+| `dateQuarter`   | 季度输入                     |
+| `dateYear`      | 年份输入                     |
+| `dateRange`     | 日期区间                     |
+| `dateTimeRange` | 日期时间区间                 |
+| `time`          | 时间                         |
+| `timeRange`     | 时间区间                     |
+| `text`          | 文本框                       |
+| `select`        | 下拉框                       |
+| `checkbox`      | 多选框                       |
+| `rate`          | 星级组件                     |
+| `radio`         | 单选框                       |
+| `radioButton`   | 按钮单选框                   |
+| `progress`      | 进度条                       |
+| `percent`       | 百分比组件                   |
+| `digit`         | 数字输入框                   |
+| `second`        | 秒格式化                     |
+| `avatar`        | 头像                         |
+| `code`          | 代码框                       |
+| `switch`        | 单选多选                     |
+| `fromNow`       | 相对于当前时间               |
+| `image`         | 图片                         |
+| `jsonCode`      | 代码框，但是带了 json 格式化 |
+| `color`         | 时间选择器                   |
 
 #### 传入 function
 

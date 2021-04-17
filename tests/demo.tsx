@@ -87,6 +87,7 @@ function demoTest(component: string, options: Options = {}) {
   });
   // 支持 demos 下的所有非_开头的tsx文件
   const files = glob.sync(`./packages/${component}/**/demos/**/[!_]*.tsx`);
+  files.push(...glob.sync(`./docs/**/demos/**/[!_]*.tsx`));
 
   describe(`${component} demos`, () => {
     files.forEach((file) => {
