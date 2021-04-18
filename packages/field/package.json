@@ -46,6 +46,6 @@
   },
   "peerDependencies": {
     "antd": "4.x",
-    "react": "^16.x"
+    "react": ">=16.9.0"
   }
 }
