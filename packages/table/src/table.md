@@ -313,7 +313,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | defaultCollapsed | 默认是否收起 | `boolean` | true |
 | collapsed | 是否收起 | `boolean` | - |
 | onCollapse | 收起按钮的事件 | `(collapsed: boolean) => void;` | - |
-| optionRender | 自定义操作栏 | `((searchConfig,formProps) => ReactNode[])`\|`false` | - |
+| optionRender | 自定义操作栏 | `((searchConfig,formProps,dom) => ReactNode[])`\|`false` | - |
 
 #### ColConfig
 
