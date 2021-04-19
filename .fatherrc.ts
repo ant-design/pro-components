@@ -18,15 +18,30 @@ const tailPkgs = readdirSync(join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.' && !headPkgs.includes(pkg),
 );
 
-export default {
-  cjs: { type: 'babel', lazy: true },
-  esm: {
-    type: 'babel',
-    importLibToEs: true,
-  },
-  pkgs: [...headPkgs, ...tailPkgs],
-  extraBabelPlugins: [
-    ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
-    [require('./scripts/replaceLib')],
-  ],
-};
+const type = process.env.BUILD_TYPE;
+
+let config = {};
+
+if (type === 'lib') {
+  config = {
+    cjs: { type: 'babel', lazy: true },
+    esm: false,
+    pkgs: [...headPkgs, ...tailPkgs],
+  };
+}
+
+if (type === 'es') {
+  config = {
+    cjs: false,
+    esm: {
+      type: 'babel',
+    },
+    pkgs: [...headPkgs, ...tailPkgs],
+    extraBabelPlugins: [
+      ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
+      [require('./scripts/replaceLib')],
+    ],
+  };
+}
+
+export default config;
