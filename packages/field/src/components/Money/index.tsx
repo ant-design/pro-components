@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { InputNumber } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import type { ProFieldFC } from '../../index';
