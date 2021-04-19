@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.34.2
+
+`2021-04-19`
+
+- 🐛 fix(table): fix add end will error in pagination [#2529](https://github.com/ant-design/pro-components/pull/2529) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.34.0
 
 `2021-04-15`

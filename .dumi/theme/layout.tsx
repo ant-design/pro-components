@@ -39,9 +39,12 @@ export default ({ children, ...props }: IRouteComponentProps) => {
         style={{
           position: 'fixed',
           right: 8,
-          top: 20,
+          top: 0,
           zIndex: 999,
+          display: 'flex',
+          alignItems: 'center',
         }}
+        className="procomponents_dark_theme_view"
       >
         <Darkreader
           defaultDarken={defaultDarken === 'dark'}

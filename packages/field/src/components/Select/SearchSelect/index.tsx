@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import React from 'react';
 import type { SelectProps } from 'antd';
 import { Select, ConfigProvider } from 'antd';
@@ -92,8 +92,15 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     resetData,
     prefixCls: customizePrefixCls,
     onClear,
+    searchValue: propsSearchValue,
     ...restProps
   } = props;
+  const [searchValue, setSearchValue] = useState(propsSearchValue);
+
+  useEffect(() => {
+    setSearchValue(propsSearchValue);
+  }, [propsSearchValue]);
+
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const prefixCls = getPrefixCls('pro-filed-search-select', customizePrefixCls);
@@ -158,11 +165,13 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       allowClear
       disabled={disabled}
       mode={mode}
+      searchValue={searchValue}
       optionFilterProp={optionFilterProp}
       optionLabelProp={optionLabelProp}
       onClear={() => {
         onClear?.();
         fetchData('');
+        setSearchValue('');
       }}
       {...restProps}
       onSearch={
@@ -170,6 +179,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           ? (value) => {
               fetchData(value);
               onSearch?.(value);
+              setSearchValue(value);
             }
           : undefined
       }

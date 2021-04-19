@@ -81,10 +81,6 @@ API is the same as ProTable
 
 <code src="./demos/editable.tsx" />
 
-### Custom valueType
-
-<code src="./demos/customization-value-type.tsx" />
-
 ## API
 
 ### ProDescriptions

@@ -196,6 +196,7 @@ const EditorProTableDemo = (
         total: 3,
         success: true,
       })}
+      pagination={{}}
       value={dataSource}
       onChange={setDataSource}
       editable={{
@@ -440,6 +441,9 @@ describe('EditorProTable', () => {
           record: {
             id: Date.now(),
           },
+        }}
+        pagination={{
+          pageSize: 2,
         }}
         columns={columns}
         value={defaultData}

@@ -16,7 +16,7 @@ const getFieldPropsOrFormItemProps = (
   colSize: number;
 } => {
   if (form === undefined) {
-    return {} as any;
+    return fieldProps as any;
   }
   return runFunction(fieldProps, form, extraProps);
 };

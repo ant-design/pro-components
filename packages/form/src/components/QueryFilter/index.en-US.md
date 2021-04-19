@@ -66,10 +66,11 @@ Note that the values of the breakpoints are the size of the form container and n
 ##### Rules for default layout
 
 | container-width breakpoint | single-row display form single-column count (including action area) | default layout |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | `≧ 1352px` | 4 columns | `horizontal` |
 | `≧ 1062px` | 3 columns | `horizontal` |
-| `≧ 701px && < 1063px` | 3 columns | `horizontal` | `≧ 701px && < 1063px` | 3 columns |
+| `≧ 701px && < 1063px` | 3 columns | `horizontal` |
+| `≧ 701px && < 1063px` | 3 columns | `horizontal` |
 | `≧ 513px && < 701px` | 2 columns | `vertical` |
 | `< 513px` | 1 column | `vertical` |
 

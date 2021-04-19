@@ -122,13 +122,13 @@ export type ProSchemaComponentTypes =
 export type ProCoreActionType<T = {}> = {
   /** @name 刷新 */
   reload: (resetPageIndex?: boolean) => void;
-  /** @name 刷新并清空 */
+  /** @name 刷新并清空，只清空页面，不包括表单 */
   reloadAndRest?: () => void;
-  /** @name 重置 */
+  /** @name 重置任何输入项，包括表单 */
   reset?: () => void;
-
   /** @name 清空选择 */
   clearSelected?: () => void;
+  /** @name p页面的信息都在里面 */
   pageInfo?: PageInfo;
 } & Omit<
   UseEditableUtilType,

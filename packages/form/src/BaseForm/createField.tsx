@@ -38,7 +38,7 @@ const WIDTH_SIZE_ENUM = {
   xl: 552,
 };
 
-type ProFormComponent<P, Extends> = React.ComponentType<Omit<P & Extends, 'proFieldProps'>>;
+type ProFormComponent<P, Extends> = React.ComponentType<P & Extends>;
 
 // 给控件扩展的通用的属性
 export type ExtendsProps = {
@@ -86,7 +86,6 @@ function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(ConfigProvider.SizeContext);
-
     const {
       valueType,
       customLightMode,
@@ -169,7 +168,7 @@ function createField<P extends ProFormItemProps = any>(
         proFieldProps={omitUndefined({
           mode: readonly ? 'read' : 'edit',
           params: rest.params,
-          proFieldKey: otherProps?.name,
+          proFieldKey: `form-field-${otherProps?.name}`,
           ...proFieldProps,
         })}
       />

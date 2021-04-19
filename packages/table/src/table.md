@@ -209,9 +209,7 @@ const enUSIntl = createIntl('en_US', enUS);
 
 <code src="./demos/valueType_select.tsx" background="#f5f5f5" heigh="462px" title="valueType - 选择类"/>
 
-### 自定义 valueType
-
-<code src="./demos/customization-value-type.tsx"  background="#f5f5f5" heigh="462px" title="自定义 valueType"/>
+<code src="./demos/customization-value-type.tsx" debug background="#f5f5f5" heigh="462px" title="自定义 valueType"/>
 
 <code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
 
@@ -288,7 +286,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | toolbar | 透传 `ListToolBar` 配置项 | [ListToolBarProps](#listtoolbarprops) | - |
 | tableExtraRender | 自定义表格的主体函数 | `(props: ProTableProps<T, U>, dataSource: T[]) => ReactNode;` | - |
 | manualRequest | 是否需要手动触发首次请求, 配置为 `true` 时不可隐藏搜索表单 | `boolean` | false |
-| editable | 可编辑表格的相关配置 | [TableRowEditable<T>](<(/components/editable-table)#editable-编辑行配置>) | - |
+| editable | 可编辑表格的相关配置 | [TableRowEditable<T>](/components/editable-table#editable-编辑行配置) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | 防抖时间 | `number` | 10 |
 
@@ -367,10 +365,10 @@ const ref = useRef<ActionType>();
 // 刷新
 ref.current.reload();
 
-// 刷新并清空,页码也会重置
+// 刷新并清空,页码也会重置，不包括表单
 ref.current.reloadAndRest();
 
-// 重置到默认值
+// 重置到默认值，包括表单
 ref.current.reset();
 
 // 清空选中项
@@ -391,146 +389,29 @@ ref.current.cancelEditable(rowKey);
 | --- | --- | --- | --- |
 | title | 与 antd 中基本相同，但是支持通过传入一个方法 | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
 | tooltip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | string | - |
-| renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<T>) => string` | - |
-| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
 | ellipsis | 是否自动缩略 | `boolean` | - |
 | copyable | 是否支持复制 | `boolean` | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](#valueenum) | - |
 | valueType | 值的类型 | `money` \| `option` \| `date` \| `dateTime` \| `time` \| `text`\| `index`\|`indexBorder` | `text` |
+| order | 查询表单中的权重，权重大排序靠前 | `number` | - |
+| fieldProps | 查询表单的 props，会透传给表单项,如果渲染出来是 Input,就支持 input 的所有 props，同理如果是 select，也支持 select 的所有 props。也支持方法传入 | `` (form,config)=>Record`\| `Record `` | - |
+| `formItemProps` | 传递给 Form.Item 的配置,可以配置 rules，但是默认的查询表单 rules 是不生效的。需要配置 `ignoreRules` | `(form,config)=>formItemProps` \| `formItemProps` | - |
+| renderText | 类似 table 的 render，但是必须返回 string，如果只是希望转化枚举，可以使用 [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<T>) => string` | - |
+| render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
+| renderFormItem | 渲染查询表单的输入组件 | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
+| search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
+| search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
+| [editable](/components/editable-table) | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| colSize | 一个表单项占用的格子数量, `占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的 | `number` | - |
 | hideInSearch | 在查询表单中不展示此项 | `boolean` | - |
 | hideInTable | 在 Table 中不展示此列 | `boolean` | - |
 | hideInForm | 在 Form 模式下 中不展示此列 | `boolean` | - |
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
 | onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| 'false' | false |
-| order | 查询表单中的权重，权重大排序靠前 | `number` | - |
-| renderFormItem | 渲染查询表单的输入组件 | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
-| fieldProps | 查询表单的 props，会透传给表单项 | `{ [prop: string]: any }` | - |
-| search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
-| search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
-| [editable](/components/editable-table) | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
-| colSize | 一个表单项占用的格子数量, `占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的 | `number` | - |
 
 ### valueType 值类型
 
-ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，配置一个`valueType` 即可展示格式化响应的数据。
-
-现在支持的值如下
-
-| 类型 | 描述 | 示例 |
-| --- | --- | --- |
-| money | 转化值为金额 | ¥10,000.26 |
-| date | 日期 | 2019-11-16 |
-| dateRange | 日期区间 | 2019-11-16 2019-11-18 |
-| dateTime | 日期和时间 | 2019-11-16 12:50:00 |
-| dateTimeRange | 日期和时间区间 | 2019-11-16 12:50:00 2019-11-18 12:50:00 |
-| time | 时间 | 12:50:00 |
-| option | 操作项，会自动增加 marginRight，只支持一个数组,表单中会自动忽略 | `[<a>操作a</a>,<a>操作b</a>]` |
-| text | 默认值，不做任何处理 | - |
-| select | 选择 | - |
-| textarea | 与 text 相同， form 转化时会转为 textarea 组件 | - |
-| index | 序号列 | - |
-| indexBorder | 带 border 的序号列 | - |
-| progress | 进度条 | - |
-| digit | [格式化](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)数字展示，form 转化时会转为 inputNumber | - |
-| percent | 百分比 | +1.12 |
-| code | 代码块 | `const a = b` |
-| avatar | 头像 | 展示一个头像 |
-| password | 密码框 | 密码相关的展示 |
-
-#### 传入 function
-
-只有一个值并不能表现很多类型，`progress` 就是一个很好的例子。所以我们支持传入一个 function。你可以这样使用：
-
-```tsx |pure
-const columns = {
-  title: '进度',
-  key: 'progress',
-  dataIndex: 'progress',
-  valueType: (item: T) => ({
-    type: 'progress',
-    status: item.status !== 'error' ? 'active' : 'exception',
-  }),
-};
-```
-
-#### 支持的返回值
-
-#### progress
-
-```js
-return {
-  type: 'progress',
-  status: 'success' | 'exception' | 'normal' | 'active',
-};
-```
-
-#### money
-
-```js
-return { type: 'money', locale: 'en-Us' };
-```
-
-#### percent
-
-```js
-return { type: 'percent', showSymbol: true | false, precision: 2 };
-```
-
-valueEnum 需要传入一个枚举，ProTable 会自动根据值获取响应的枚举，并且在 form 中生成一个下拉框。看起来是这样的：
-
-```ts | pure
-const valueEnum = {
-  open: {
-    text: '未解决',
-    status: 'Error',
-  },
-  closed: {
-    text: '已解决',
-    status: 'Success',
-  },
-};
-
-// 也可以设置为一个function
-const valueEnum = (row) =>
-  row.isMe
-    ? {
-        open: {
-          text: '未解决',
-          status: 'Error',
-        },
-        closed: {
-          text: '已解决',
-          status: 'Success',
-        },
-      }
-    : {
-        open: {
-          text: '等待解决',
-          status: 'Error',
-        },
-        closed: {
-          text: '已回应',
-          status: 'Success',
-        },
-      };
-```
-
-> 这里值得注意的是在 form 中并没有 row，所以传入了一个 null，你可以根据这个来判断要在 form 中显示什么选项。
-
-### valueEnum
-
-当前列值的枚举
-
-```typescript | pure
-interface IValueEnum {
-  [key: string]:
-    | ReactNode
-    | {
-        text: ReactNode;
-        status: 'Success' | 'Error' | 'Processing' | 'Warning' | 'Default';
-      };
-}
-```
+ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，配置一个 [`valueType`](/components/schema) 即可展示格式化响应的数据。
 
 ### 批量操作
 

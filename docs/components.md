@@ -1,5 +1,5 @@
 ---
-title: ProComponents - 组件总览
+title: 组件总览
 order: 0
 group:
   path: /

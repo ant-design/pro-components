@@ -51,5 +51,8 @@ export type ProFormItemProps<T = Record<string, any>> = {
     light?: boolean;
     label?: React.ReactNode;
     mode?: 'read';
+    /** 这个属性可以设置useSwr的key */
+    proFieldKey?: string;
+    render?: any;
   };
 } & FormItemProps;

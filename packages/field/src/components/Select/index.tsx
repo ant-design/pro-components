@@ -331,6 +331,10 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     testId += 1;
   }, []);
 
+  useEffect(() => {
+    keyWordsRef.current = fieldProps?.searchValue;
+  }, [fieldProps?.searchValue]);
+
   const [loading, options, fetchData, resetData] = useFieldFetchData(props);
   const size = useContext(ConfigProvider.SizeContext);
   useImperativeHandle(ref, () => ({

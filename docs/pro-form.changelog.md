@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.21.2
+
+`2021-04-19`
+
+- 🐛 fix(form) : support moneySymbol=false [#2532](https://github.com/ant-design/pro-components/pull/2532) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form) : fix searchValue no work error [#2531](https://github.com/ant-design/pro-components/pull/2531) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.21.0
 
 `2021-04-15`

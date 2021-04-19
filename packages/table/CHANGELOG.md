@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.34.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.34.1...@ant-design/pro-table@2.34.2) (2021-04-19)
+
+### Bug Fixes
+
+- **table:** fix add end will error in pagination ([#2529](https://github.com/ant-design/pro-components/issues/2529)) ([a74e410](https://github.com/ant-design/pro-components/commit/a74e410e8f6ffa3f84b455c4399130008ebb509c))
+
 ## [2.34.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.34.0...@ant-design/pro-table@2.34.1) (2021-04-15)
 
 **Note:** Version bump only for package @ant-design/pro-table
