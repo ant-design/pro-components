@@ -9,6 +9,7 @@ const pkgList = fs
 pkgList.map(async (path) => {
   const baseUrl = `${join(__dirname, '../', 'packages')}/${path}/src`;
   const lessFiles = await fg(`${baseUrl}/**/*.less`, {
+    ignore: ['**/demos/**'],
     deep: 5,
   });
   const importFiles = lessFiles.map((lessPath) => {
