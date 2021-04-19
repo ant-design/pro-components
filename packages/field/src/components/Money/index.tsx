@@ -1,4 +1,4 @@
-import React, { useMemo, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { InputNumber } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import type { ProFieldFC } from '../../index';
@@ -12,27 +12,54 @@ export type FieldMoneyProps = {
 
 const defaultMoneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
   currency: 'CNY',
+  style: 'currency',
 });
 
-const enMoneyIntl = new Intl.NumberFormat('en-US', {
+const enMoneyIntl = {
   style: 'currency',
   currency: 'USD',
-});
+};
 
-const ruMoneyIntl = new Intl.NumberFormat('ru-RU', {
+const ruMoneyIntl = {
   style: 'currency',
   currency: 'RUB',
-});
+};
 
-const rsMoneyIntl = new Intl.NumberFormat('sr-RS', {
+const rsMoneyIntl = {
   style: 'currency',
   currency: 'RSD',
-});
+};
 
-const msMoneyIntl = new Intl.NumberFormat('ms-MY', {
+const msMoneyIntl = {
   style: 'currency',
   currency: 'MYR',
-});
+};
+
+const intlMap = {
+  default: defaultMoneyIntl,
+  'zh-Hans-CN': {
+    currency: 'CNY',
+    style: 'currency',
+  },
+  'en-US': enMoneyIntl,
+  'ru-RU': ruMoneyIntl,
+  'ms-MY': msMoneyIntl,
+  'sr-RS': rsMoneyIntl,
+};
+
+const getTextByLocale = (localeStr: string | undefined, paramsText: number, precision: number) => {
+  let moneyText = paramsText;
+  if (typeof moneyText === 'string') {
+    moneyText = Number(moneyText);
+  }
+  if (!localeStr) {
+    return new Intl.NumberFormat().format(moneyText);
+  }
+  return new Intl.NumberFormat({
+    ...intlMap[localeStr || 'zh-Hans-CN'],
+    minimumFractionDigits: precision,
+  }).format(moneyText);
+};
 
 const DefaultPrecisionCont = 2;
 
@@ -62,66 +89,16 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   const precision = fieldProps?.precision ?? DefaultPrecisionCont;
   const intl = useIntl();
   const moneySymbol =
-    rest.moneySymbol === undefined ? intl.getMessage('moneySymbol', '￥') : rest.moneySymbol;
-
-  const intlMap = useMemo(() => {
-    const moneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
-      currency: 'CNY',
-      style: 'currency',
-      minimumFractionDigits: precision,
-    });
-
-    return {
-      default: defaultMoneyIntl,
-      'zh-Hans-CN': moneyIntl,
-      'en-US': enMoneyIntl,
-      'ru-RU': ruMoneyIntl,
-      'ms-MY': msMoneyIntl,
-      'sr-RS': rsMoneyIntl,
-    };
-  }, [precision]);
-
-  const getTextByLocale = useCallback(
-    (localeStr: string | undefined, paramsText: number) => {
-      let moneyText = paramsText;
-      if (typeof moneyText === 'string') {
-        moneyText = Number(moneyText);
-      }
-      if (localeStr === 'en_US') {
-        // english
-        return intlMap['en-US'].format(moneyText);
-      }
-      // russian
-      if (localeStr === 'ru_RU') {
-        return intlMap['ru-RU'].format(moneyText);
-      }
-      // serbian
-      if (localeStr === 'sr_RS') {
-        return intlMap['sr-RS'].format(moneyText);
-      }
-      // malay
-      if (localeStr === 'ms_MY') {
-        return intlMap['ms-MY'].format(moneyText);
-      }
-      if (localeStr === undefined) {
-        return intlMap.default.format(moneyText);
-      }
-      return intlMap['zh-Hans-CN'].format(moneyText);
-    },
-    [intlMap],
-  );
+    fieldProps.moneySymbol ?? rest.moneySymbol ?? intl.getMessage('moneySymbol', '￥');
 
   if (type === 'read') {
-    const dom = (
-      <span ref={ref}>
-        {getTextByLocale(moneySymbol ? locale || intl.locale || 'zh-CN' : undefined, text)}
-      </span>
-    );
+    const dom = <span ref={ref}>{getTextByLocale(moneySymbol ?? locale, text, precision)}</span>;
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }
     return dom;
   }
+
   if (type === 'edit' || type === 'update') {
     const dom = (
       <InputNumber
