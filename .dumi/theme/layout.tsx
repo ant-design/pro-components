@@ -1,19 +1,56 @@
 ﻿import React, { useEffect, useState } from 'react';
 import Layout from 'dumi-theme-default/src/layout';
-import { ConfigProvider } from 'antd';
-import { IRouteComponentProps } from 'umi';
+import { ConfigProvider, Switch } from 'antd';
+import { IRouteComponentProps, isBrowser } from 'umi';
 import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';
-import Darkreader from 'react-darkreader';
+import useDarkreader from './useDarkreader';
 import 'moment/locale/zh-cn';
 import './layout.less';
 moment.locale('zh-cn');
 
-export default ({ children, ...props }: IRouteComponentProps) => {
+const DarkButton = () => {
   const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark';
   const defaultDarken = localStorage.getItem('procomponents_dark_theme') || colorScheme;
+  const [isDark, { toggle }] = useDarkreader(defaultDarken === 'dark');
+  if (!isBrowser()) {
+    return null;
+  }
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        right: 8,
+        top: 0,
+        zIndex: 999,
+        display: 'flex',
+        alignItems: 'center',
+      }}
+      className="procomponents_dark_theme_view"
+    >
+      <Switch
+        checkedChildren="🌜"
+        unCheckedChildren="🌞"
+        defaultChecked={defaultDarken === 'dark'}
+        checked={isDark}
+        onChange={(check) => {
+          toggle();
+          if (!check) {
+            localStorage.setItem('procomponents_dark_theme', 'light');
+            return;
+          }
+          localStorage.setItem('procomponents_dark_theme', 'dark');
+        }}
+      />
+    </div>
+  );
+};
 
+export default ({ children, ...props }: IRouteComponentProps) => {
   useEffect(() => {
+    if (!isBrowser()) {
+      return null;
+    }
     (function (h, o, t, j, a, r) {
       // @ts-ignore
       h.hj =
@@ -32,34 +69,26 @@ export default ({ children, ...props }: IRouteComponentProps) => {
       r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
       a.appendChild(r);
     })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+
+    // @ts-ignore
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      // @ts-ignore
+      dataLayer.push(arguments);
+    }
+    // @ts-ignore
+    gtag('js', new Date());
+    // @ts-ignore
+    gtag('config', 'G-RMBLDHGL1N');
   }, []);
   return (
-    <>
-      <div
-        style={{
-          position: 'fixed',
-          right: 8,
-          top: 0,
-          zIndex: 999,
-          display: 'flex',
-          alignItems: 'center',
-        }}
-        className="procomponents_dark_theme_view"
-      >
-        <Darkreader
-          defaultDarken={defaultDarken === 'dark'}
-          onChange={(check) => {
-            if (!check) {
-              localStorage.setItem('procomponents_dark_theme', 'light');
-              return;
-            }
-            localStorage.setItem('procomponents_dark_theme', 'dark');
-          }}
-        />
-      </div>
-      <ConfigProvider locale={zhCN}>
-        <Layout {...props}>{children}</Layout>
-      </ConfigProvider>
-    </>
+    <ConfigProvider locale={zhCN}>
+      <Layout {...props}>
+        <>
+          {children}
+          <DarkButton />
+        </>
+      </Layout>
+    </ConfigProvider>
   );
 };
