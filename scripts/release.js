@@ -1,6 +1,7 @@
 const { utils } = require('umi');
 const { join } = require('path');
 const exec = require('./utils/exec');
+const inquirer = require('inquirer');
 const getPackages = require('./utils/getPackages');
 const isNextVersion = require('./utils/isNextVersion');
 
@@ -77,6 +78,16 @@ async function release() {
     // Git Tag
     // Push
     logStep('bump version with lerna version');
+
+    // 获取 opt 的输入
+    const { opt } = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'opt',
+        message: '请输入 opt 的值，留空表示不使用 opt',
+      },
+    ]);
+
     const conventionalGraduate = args.conventionalGraduate
       ? ['--conventional-graduate'].concat(
           Array.isArray(args.conventionalGraduate) ? args.conventionalGraduate.join(',') : [],
@@ -87,6 +98,9 @@ async function release() {
           Array.isArray(args.conventionalPrerelease) ? args.conventionalPrerelease.join(',') : [],
         )
       : [];
+
+    const optArgs = opt ? ['--opt', opt] : [];
+
     await exec(
       lernaCli,
       [
@@ -99,6 +113,7 @@ async function release() {
         '🎨 chore(release): Publish',
         '--conventional-commits',
       ]
+        .concat(optArgs)
         .concat(conventionalGraduate)
         .concat(conventionalPrerelease),
       {
