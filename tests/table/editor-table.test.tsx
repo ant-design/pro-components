@@ -196,6 +196,7 @@ const EditorProTableDemo = (
         total: 3,
         success: true,
       })}
+      pagination={{}}
       value={dataSource}
       onChange={setDataSource}
       editable={{
