@@ -12,10 +12,10 @@ pkgList.map(async (path) => {
     deep: 5,
   });
   const importFiles = lessFiles.map((lessPath) => {
-    return `@import "../es${lessPath.replace(baseUrl, '')}"`;
+    return `@import "../es${lessPath.replace(baseUrl, '')}";`;
   });
 
   const distPath = `${join(__dirname, '../', 'packages', path, 'dist', `${path}.less`)}`;
 
-  fs.writeFileSync(distPath, importFiles.join(';\n'));
+  fs.writeFileSync(distPath, importFiles.join('\n'));
 });
