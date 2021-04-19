@@ -380,7 +380,7 @@ ref.current.cancelEditable(rowKey);
 > Requesting remote data is more complicated, see [here](/components/field#RemoteData) for details.
 
 | Properties | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | title | is basically the same as in antd, but supports passing in a method | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - - |
 | tooltip | will show an icon after the title, and hover to prompt for some information | string | - |
 | renderText | similar to render for table, but must return string, if you just want to transform the enumeration, you can use [valueEnum](#valueEnum) | `(text: any,record: T,index: number, action: UseFetchDataAction<T>) => string` | - | render |
@@ -409,7 +409,7 @@ ProTable wraps some common value types to reduce repetitive `render` operations,
 The following values are now supported
 
 | type | description | example |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | money | Converts the value to an amount | ¥10,000.26 |
 | date | date | 2019-11-16 |
 | dateRange | dateRange | dateRange | 2019-11-16 2019-11-18 |

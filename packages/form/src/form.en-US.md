@@ -105,7 +105,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 > antd's Form api View [here](https://ant.design/components/form-cn/)
 
 | Parameters | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | onFinish | Callback event after form is submitted and data validation is successful, same as antd 4 `Form` component API | `(values)=>Promise<void>` | - |
 | onReset | Callback for clicking the reset button | `(e)=>void` | - |
 | submitter | Submitter button-related configuration | `boolean` \| `SubmitterProps` | `true` |
