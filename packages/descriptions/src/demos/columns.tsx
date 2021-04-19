@@ -57,6 +57,9 @@ export default () => {
           key: 'money',
           dataIndex: 'money',
           valueType: 'money',
+          fieldProps: {
+            moneySymbol: false,
+          },
         },
         {
           title: '操作',
