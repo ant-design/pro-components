@@ -8633,7 +8633,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
             style="padding: 24px;"
           >
             <div
-              class="ant-skeleton"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"

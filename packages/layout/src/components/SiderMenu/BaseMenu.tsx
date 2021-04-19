@@ -333,14 +333,19 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   if (menu?.loading) {
     return (
       <div
-        style={{
-          padding: 24,
-        }}
+        style={
+          mode?.includes('inline')
+            ? { padding: 24 }
+            : {
+                marginTop: 16,
+              }
+        }
       >
         <Skeleton
+          active
           title={false}
           paragraph={{
-            rows: 6,
+            rows: mode?.includes('inline') ? 6 : 1,
           }}
         />
       </div>
