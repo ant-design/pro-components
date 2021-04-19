@@ -100,7 +100,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | defaultCollapsed | whether to collapse by default | `boolean` | true |
 | collapsed | collapsed or not | `boolean` | - |
 | onCollapse | The event of the collapsed button | `(collapsed: boolean) => void;` | - |
-| optionRender | Custom action bar | `((searchConfig,formProps) => ReactNode[])\|`false` | - |
+| optionRender | Custom action bar | `((searchConfig,formProps,dom) => ReactNode[])\|`false` | - |
 
 ### editable edit line configuration
 
