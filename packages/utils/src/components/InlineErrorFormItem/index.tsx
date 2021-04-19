@@ -156,6 +156,17 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
         } else {
           isDoneFirstValidate = true;
         }
+
+        const getVisible = () => {
+          if (isTouched) {
+            if (isValidating) {
+              return isPrevError;
+            }
+            return !!fieldError.length;
+          }
+          return undefined;
+        };
+
         return (
           <Form.Item
             style={FIX_INLINE_STYLE}
@@ -183,10 +194,7 @@ const InlineErrorFormItem: React.FC<InternalProps> = ({
                   <Popover
                     trigger={popoverProps?.trigger || 'focus'}
                     placement={popoverProps?.placement}
-                    visible={
-                      // eslint-disable-next-line no-nested-ternary
-                      isTouched ? (isValidating ? isPrevError : !!fieldError.length) : undefined
-                    }
+                    visible={getVisible()}
                     content={
                       <Content
                         fieldError={fieldError}

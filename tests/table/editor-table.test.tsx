@@ -442,6 +442,9 @@ describe('EditorProTable', () => {
             id: Date.now(),
           },
         }}
+        pagination={{
+          pageSize: 2,
+        }}
         columns={columns}
         value={defaultData}
         onChange={(list) => {
