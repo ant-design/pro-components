@@ -65,7 +65,7 @@ function cellRenderToFromItem<T>(config: {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
     params: columnProps?.params,
-    proFieldKey: columnProps?.dataIndex?.toString() || columnProps?.key,
+    proFieldKey: `table-field-${columnProps?.dataIndex?.toString() || columnProps?.key}`,
     text: valueType === 'index' || valueType === 'indexBorder' ? config.index : text,
     mode: config.mode,
     emptyText: config.columnEmptyText,
