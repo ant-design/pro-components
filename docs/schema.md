@@ -8,9 +8,9 @@ nav:
   path: /components
 ---
 
-## 通用配置
+# 通用配置
 
-在 ProComponents 我们使用了与 table 的相同的表单定义，同时扩展了部分字段。
+在 ProComponents 我们在组件使用了与 table 的相同的定义，同时扩展了部分字段。让其可以满足更多需求。
 
 | 字段名称 | 类型 | 说明 |
 | --- | --- | --- |
@@ -69,13 +69,112 @@ valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映
 | `jsonCode`      | 代码框，但是带了 json 格式化 |
 | `color`         | 时间选择器                   |
 
-这里 demo 可以来了解一下各个 valueType 的展示效果
+这里 demo 可以来了解一下各个 valueType 的展示效果。
+
+### 传入 function
+
+只有一个值并不能表现很多类型，`progress` 就是一个很好的例子。所以我们支持传入一个 function。你可以这样使用：
+
+```tsx |pure
+const columns = {
+  title: '进度',
+  key: 'progress',
+  dataIndex: 'progress',
+  valueType: (item: T) => ({
+    type: 'progress',
+    status: item.status !== 'error' ? 'active' : 'exception',
+  }),
+};
+```
+
+### 支持的返回值
+
+#### progress
+
+```js
+return {
+  type: 'progress',
+  status: 'success' | 'exception' | 'normal' | 'active',
+};
+```
+
+#### money
+
+```js
+return { type: 'money', locale: 'en-Us' };
+```
+
+#### percent
+
+```js
+return { type: 'percent', showSymbol: true | false, precision: 2 };
+```
+
+### valueType 查看
 
 <code src="./demos/valueType.tsx" height="154px" title="schema 表单" />
 
 如果我们带的 valueType 不能满足需求，我们可以用自定义 valueType 来自定义业务组件。
 
+### 自定义 valueType
+
 <code src="./demos/customization-value-type.tsx" height="154px" title="schema 表单" />
+
+### valueEnum
+
+valueEnum 需要传入一个枚举，ProTable 会自动根据值获取响应的枚举，并且在 form 中生成一个下拉框。看起来是这样的：
+
+```ts | pure
+const valueEnum = {
+  open: {
+    text: '未解决',
+    status: 'Error',
+  },
+  closed: {
+    text: '已解决',
+    status: 'Success',
+  },
+};
+
+// 也可以设置为一个function
+const valueEnum = (row) =>
+  row.isMe
+    ? {
+        open: {
+          text: '未解决',
+          status: 'Error',
+        },
+        closed: {
+          text: '已解决',
+          status: 'Success',
+        },
+      }
+    : {
+        open: {
+          text: '等待解决',
+          status: 'Error',
+        },
+        closed: {
+          text: '已回应',
+          status: 'Success',
+        },
+      };
+```
+
+> 这里值得注意的是在 form 中并没有 row，所以 row 的值为 null，你可以根据这个来判断要在 form 中显示什么选项。
+
+当前列值的枚举
+
+```typescript | pure
+interface IValueEnum {
+  [key: string]:
+    | ReactNode
+    | {
+        text: ReactNode;
+        status: 'Success' | 'Error' | 'Processing' | 'Warning' | 'Default';
+      };
+}
+```
 
 ## 远程数据
 
