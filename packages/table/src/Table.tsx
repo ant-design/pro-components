@@ -117,8 +117,15 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     }
     // 如果有分页的功能，我们加到这一页的末尾
     if (pagination && pagination?.current && pagination?.pageSize) {
-      return [...action.dataSource].splice(pagination?.current * pagination?.pageSize - 1, 0, row);
+      const newDataSource = [...action.dataSource];
+      if (pagination?.pageSize > newDataSource.length) {
+        newDataSource.push(row);
+        return newDataSource;
+      }
+      newDataSource.splice(pagination?.current * pagination?.pageSize - 1, 0, row);
+      return newDataSource;
     }
+
     return [...action.dataSource, row];
   };
 
