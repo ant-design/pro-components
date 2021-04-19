@@ -80,11 +80,11 @@ async function release() {
     logStep('bump version with lerna version');
 
     // 获取 opt 的输入
-    const { opt } = await inquirer.prompt([
+    const { otp } = await inquirer.prompt([
       {
         type: 'input',
-        name: 'opt',
-        message: '请输入 opt 的值，留空表示不使用 opt',
+        name: 'otp',
+        message: '请输入 otp 的值，留空表示不使用 otp',
       },
     ]);
 
@@ -99,7 +99,7 @@ async function release() {
         )
       : [];
 
-    const optArgs = opt ? ['--opt', opt] : [];
+    const optArgs = otp ? ['--otp', otp] : [];
 
     await exec(
       lernaCli,
