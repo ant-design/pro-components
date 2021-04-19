@@ -36,7 +36,7 @@ exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
             style="padding:24px"
           >
             <div
-              class="ant-skeleton"
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
                 class="ant-skeleton-content"
