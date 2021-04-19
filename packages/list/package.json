@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-list",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "🏆 Use Ant Design List like a Pro!",
   "keywords": [
     "antd",
@@ -33,9 +33,9 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-card": "1.11.9",
-    "@ant-design/pro-field": "1.15.1",
-    "@ant-design/pro-table": "2.34.2",
+    "@ant-design/pro-card": "1.11.10",
+    "@ant-design/pro-field": "1.15.2",
+    "@ant-design/pro-table": "2.34.3",
     "classnames": "^2.2.6",
     "moment": "^2.24.0",
     "rc-resize-observer": "^0.1.3",
