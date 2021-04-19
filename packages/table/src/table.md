@@ -365,10 +365,10 @@ const ref = useRef<ActionType>();
 // 刷新
 ref.current.reload();
 
-// 刷新并清空,页码也会重置
+// 刷新并清空,页码也会重置，不包括表单
 ref.current.reloadAndRest();
 
-// 重置到默认值
+// 重置到默认值，包括表单
 ref.current.reset();
 
 // 清空选中项
