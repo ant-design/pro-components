@@ -19,6 +19,8 @@ nav:
 
 <code src="./demos/base_test.tsx" debug/>
 
+<code src="./demos/search-value.tsx" debug/>
+
 ## API
 
 ```typescript | pure
