@@ -47,7 +47,7 @@ const intlMap = {
   'sr-RS': rsMoneyIntl,
 };
 
-const getTextByLocale = (localeStr: string | undefined, paramsText: number, precision: number) => {
+const getTextByLocale = (localeStr: string | false, paramsText: number, precision: number) => {
   let moneyText = paramsText;
   if (typeof moneyText === 'string') {
     moneyText = Number(moneyText);
@@ -55,8 +55,9 @@ const getTextByLocale = (localeStr: string | undefined, paramsText: number, prec
   if (!localeStr) {
     return new Intl.NumberFormat().format(moneyText);
   }
-  return new Intl.NumberFormat({
-    ...intlMap[localeStr || 'zh-Hans-CN'],
+
+  return new Intl.NumberFormat(localeStr, {
+    ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
     minimumFractionDigits: precision,
   }).format(moneyText);
 };
@@ -74,7 +75,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   {
     text,
     mode: type,
-    locale = '',
+    locale = 'zh-Hans-CN',
     render,
     renderFormItem,
     fieldProps,
@@ -89,10 +90,12 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   const precision = fieldProps?.precision ?? DefaultPrecisionCont;
   const intl = useIntl();
   const moneySymbol =
-    fieldProps.moneySymbol ?? rest.moneySymbol ?? intl.getMessage('moneySymbol', '￥');
+    fieldProps.moneySymbol || rest.moneySymbol ? intl.getMessage('moneySymbol', '￥') : undefined;
 
   if (type === 'read') {
-    const dom = <span ref={ref}>{getTextByLocale(moneySymbol ?? locale, text, precision)}</span>;
+    const dom = (
+      <span ref={ref}>{getTextByLocale(moneySymbol ? locale : false, text, precision)}</span>
+    );
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }

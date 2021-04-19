@@ -58,7 +58,7 @@ export default () => {
           dataIndex: 'money',
           valueType: 'money',
           fieldProps: {
-            moneySymbol: false,
+            moneySymbol: '$',
           },
         },
         {
