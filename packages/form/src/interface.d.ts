@@ -53,5 +53,6 @@ export type ProFormItemProps<T = Record<string, any>> = {
     mode?: 'read';
     /** 这个属性可以设置useSwr的key */
     proFieldKey?: string;
+    render?: any;
   };
 } & FormItemProps;
