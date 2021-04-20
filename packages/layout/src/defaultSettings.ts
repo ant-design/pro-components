@@ -31,6 +31,7 @@ export type PureSettings = {
     defaultOpenAll?: boolean;
     loading?: boolean;
     onLoadingChange?: (loading?: boolean) => void;
+    params?: Record<string, any>;
     request?: (
       params: Record<string, any>,
       defaultMenuData: MenuDataItem[],

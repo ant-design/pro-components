@@ -250,7 +250,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     actionRef,
     formatMessage: propsFormatMessage,
     loading,
-  } = props;
+  } = props || {};
   const context = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
 
@@ -292,7 +292,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     defaultId,
     async () => {
       setMenuLoading(true);
-      const msg = await menu?.request?.(props, route?.routes || []);
+      const msg = await menu?.request?.(menu?.params || {}, route?.routes || []);
       setMenuLoading(false);
       return msg;
     },
@@ -302,6 +302,15 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       revalidateOnReconnect: false,
     },
   );
+
+  // params 更新的时候重新请求
+  useEffect(() => {
+    if (!data) {
+      return;
+    }
+    mutate(defaultId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [defaultId, menu?.params]);
 
   if (actionRef && menu?.request) {
     actionRef.current = {
