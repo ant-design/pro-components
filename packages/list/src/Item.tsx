@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 import { List, Avatar, Skeleton, ConfigProvider } from 'antd';
 import type { ProCardProps } from '@ant-design/pro-card';
-import type { GetComponentProps } from '@ant-design/pro-list';
+import type { GetComponentProps } from './index';
 import ProCard from '@ant-design/pro-card';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ListGridType } from 'antd/lib/list';
