@@ -27,7 +27,7 @@ const isProduction = process.env.NODE_ENV === 'production';
 export default {
   title: 'ProComponents',
   mode: 'site',
-  logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+  logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
   extraBabelPlugins: [
     [
       'import',
