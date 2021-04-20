@@ -327,6 +327,17 @@ describe('utils', () => {
     act(() => {
       html.find('Input#test').simulate('change', {
         target: {
+          value: '.',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 1000);
+    expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeFalsy();
+    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(1);
+
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
           value: '',
         },
       });

@@ -1,6 +1,6 @@
-﻿import React from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import { Form, Popover, Progress, Space } from 'antd';
-import type { FormItemProps, PopoverProps, ProgressProps } from 'antd';
+import type { FormItemProps, PopoverProps, ProgressProps, FormInstance } from 'antd';
 import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
 import type { Rule, NamePath, RuleObject } from 'rc-field-form/lib/interface';
 
@@ -131,94 +131,90 @@ const FIX_INLINE_STYLE = {
   marginRight: 0,
 };
 
-const InlineErrorFormItem: React.FC<InternalProps> = ({
-  label,
-  rules,
-  name,
-  children,
-  popoverProps,
-  progressProps,
-  ...rest
-}) => {
-  let isPrevError = true;
-  let isDoneFirstValidate = false;
+const InternalFormItem: React.FC<
+  InternalProps & {
+    form: Omit<FormInstance, 'scrollToField' | '__INTERNAL__' | 'getFieldInstance'>;
+  }
+> = ({ label, rules, name, children, popoverProps, progressProps, form, ...rest }) => {
+  const fieldError = form.getFieldError(name);
+  const value = form.getFieldValue(name);
+  const isValidating = form.isFieldValidating(name);
+  const isTouched = form.isFieldTouched(name);
+
+  const [visible, setVisible] = useState<boolean | undefined>(undefined);
+
+  useEffect(() => {
+    if (!isTouched) {
+      return;
+    }
+    if (!isValidating) {
+      if (fieldError.length) {
+        setVisible(true);
+      } else {
+        setVisible(false);
+      }
+    }
+  }, [isValidating, fieldError.length]);
+
+  return (
+    <Form.Item
+      style={FIX_INLINE_STYLE}
+      preserve={false}
+      name={name}
+      validateFirst={false}
+      rules={rules}
+      // @ts-ignore
+      _internalItemRender={{
+        mark: 'pro_table_render',
+        render: (
+          inputProps: FormItemProps & {
+            errors: any[];
+          },
+          {
+            input,
+            extra,
+          }: {
+            input: JSX.Element;
+            errorList: JSX.Element;
+            extra: JSX.Element;
+          },
+        ) => {
+          return (
+            <Popover
+              trigger={popoverProps?.trigger || 'focus'}
+              placement={popoverProps?.placement}
+              visible={visible}
+              content={
+                <Content
+                  fieldError={fieldError}
+                  value={value}
+                  isValidating={isValidating}
+                  isTouched={isTouched}
+                  rules={rules}
+                  progressProps={progressProps}
+                />
+              }
+            >
+              <div>
+                {input}
+                {extra}
+              </div>
+            </Popover>
+          );
+        },
+      }}
+      {...rest}
+    >
+      {children}
+    </Form.Item>
+  );
+};
+
+const InlineErrorFormItem: React.FC<InternalProps> = (props) => {
   return (
     <Form.Item shouldUpdate={true} noStyle>
       {(form) => {
-        const fieldError = form.getFieldError(name);
-        const value = form.getFieldValue(name);
-        const isValidating = form.isFieldValidating(name);
-        const isTouched = form.isFieldTouched(name);
-        if (!isValidating) {
-          if (isDoneFirstValidate) {
-            isPrevError = !!fieldError.length;
-          }
-        } else {
-          isDoneFirstValidate = true;
-        }
-
-        const getVisible = () => {
-          if (isTouched) {
-            if (isValidating) {
-              return isPrevError;
-            }
-            return !!fieldError.length;
-          }
-          return undefined;
-        };
-
-        return (
-          <Form.Item
-            style={FIX_INLINE_STYLE}
-            preserve={false}
-            name={name}
-            validateFirst={false}
-            rules={rules}
-            // @ts-ignore
-            _internalItemRender={{
-              mark: 'pro_table_render',
-              render: (
-                inputProps: FormItemProps & {
-                  errors: any[];
-                },
-                {
-                  input,
-                  extra,
-                }: {
-                  input: JSX.Element;
-                  errorList: JSX.Element;
-                  extra: JSX.Element;
-                },
-              ) => {
-                return (
-                  <Popover
-                    trigger={popoverProps?.trigger || 'focus'}
-                    placement={popoverProps?.placement}
-                    visible={getVisible()}
-                    content={
-                      <Content
-                        fieldError={fieldError}
-                        value={value}
-                        isValidating={isValidating}
-                        isTouched={isTouched}
-                        rules={rules}
-                        progressProps={progressProps}
-                      />
-                    }
-                  >
-                    <div>
-                      {input}
-                      {extra}
-                    </div>
-                  </Popover>
-                );
-              },
-            }}
-            {...rest}
-          >
-            {children}
-          </Form.Item>
-        );
+        return <InternalFormItem {...props} form={form}></InternalFormItem>;
       }}
     </Form.Item>
   );
