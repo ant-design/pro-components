@@ -46,11 +46,36 @@ const DarkButton = () => {
   );
 };
 
+function loadJS(url, callback) {
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.onload = function () {
+    callback?.();
+  };
+  script.src = url;
+
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+
 export default ({ children, ...props }: IRouteComponentProps) => {
   useEffect(() => {
     if (!isBrowser()) {
       return null;
     }
+    console.log('Run');
+    loadJS('https://www.googletagmanager.com/gtag/js?id=G-RMBLDHGL1N', function () {
+      // @ts-ignore
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // @ts-ignore
+        dataLayer.push(arguments);
+      }
+      // @ts-ignore
+      gtag('js', new Date());
+      // @ts-ignore
+      gtag('config', 'G-RMBLDHGL1N');
+    });
+
     (function (h, o, t, j, a, r) {
       // @ts-ignore
       h.hj =
@@ -69,17 +94,6 @@ export default ({ children, ...props }: IRouteComponentProps) => {
       r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
       a.appendChild(r);
     })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-
-    // @ts-ignore
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      // @ts-ignore
-      dataLayer.push(arguments);
-    }
-    // @ts-ignore
-    gtag('js', new Date());
-    // @ts-ignore
-    gtag('config', 'G-RMBLDHGL1N');
   }, []);
   return (
     <ConfigProvider locale={zhCN}>

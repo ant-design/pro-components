@@ -118,10 +118,7 @@ export default {
     '@s-site-menu-width': '258px',
   },
   ignoreMomentLocale: true,
-  headScripts: [
-    'https://www.googletagmanager.com/gtag/js?id=G-RMBLDHGL1N',
-    'https://gw.alipayobjects.com/os/antfincdn/fdj3WlJd5c/darkreader.js',
-  ],
+  headScripts: ['https://gw.alipayobjects.com/os/antfincdn/fdj3WlJd5c/darkreader.js'],
   links:
     process.env.NODE_ENV === 'development'
       ? ['https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd.css']
