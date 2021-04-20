@@ -144,6 +144,9 @@ const InternalFormItem: React.FC<
   const [visible, setVisible] = useState<boolean | undefined>(undefined);
 
   useEffect(() => {
+    if (!isTouched) {
+      return;
+    }
     if (!isValidating) {
       if (fieldError.length) {
         setVisible(true);
