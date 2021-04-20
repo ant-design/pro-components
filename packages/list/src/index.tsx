@@ -29,6 +29,11 @@ export type ProListMetas<T> = {
   [key: string]: ProListMeta<T> | undefined;
 };
 
+export type GetComponentProps<RecordType> = (
+  record: RecordType,
+  index: number,
+) => React.HTMLAttributes<HTMLElement>;
+
 export type ProListProps<RecordType, U extends ParamsType> = Omit<
   ProTableProps<RecordType, U>,
   'size'
@@ -38,6 +43,7 @@ export type ProListProps<RecordType, U extends ParamsType> = Omit<
     metas?: ProListMetas<RecordType>;
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
+    onRow?: GetComponentProps<RecordType>;
   };
 
 export type Key = React.Key;
@@ -65,6 +71,7 @@ function ProList<
     itemLayout,
     renderItem,
     grid,
+    onRow,
     ...rest
   } = props;
 
@@ -148,6 +155,7 @@ function ProList<
               pagination={pagination as PaginationProps}
               itemLayout={itemLayout}
               loading={loading}
+              onRow={onRow}
             />
           </Form>
         );

@@ -3,6 +3,7 @@ import type { ListProps, TableColumnType, TableProps } from 'antd';
 import { List } from 'antd';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import type { ActionType } from '@ant-design/pro-table';
+import type { GetComponentProps } from './index';
 import get from 'rc-util/lib/utils/get';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import useSelection from 'antd/lib/table/hooks/useSelection';
@@ -24,6 +25,7 @@ export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderI
     dataSource: readonly RecordType[];
     renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
     actionRef: React.MutableRefObject<ActionType | undefined>;
+    onRow?: GetComponentProps<RecordType>;
   };
 
 function ListView<RecordType>(props: ListViewProps<RecordType>) {
@@ -39,6 +41,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     expandable: expandableConfig,
     rowSelection,
     pagination, // List 的 pagination 默认是 false
+    onRow,
     ...rest
   } = props;
 
@@ -180,6 +183,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
             selected={selectedKeySet.has(getRowKey(item, index))}
             checkbox={checkboxDom}
+            onRow={onRow}
           />
         );
 
