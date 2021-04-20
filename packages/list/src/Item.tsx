@@ -1,6 +1,7 @@
 import React, { useContext, useMemo } from 'react';
 import { List, Avatar, Skeleton, ConfigProvider } from 'antd';
 import type { ProCardProps } from '@ant-design/pro-card';
+import type { GetComponentProps } from '@ant-design/pro-list';
 import ProCard from '@ant-design/pro-card';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ListGridType } from 'antd/lib/list';
@@ -85,7 +86,8 @@ export type ItemProps<RecordType> = {
   isEditable: boolean;
   recordKey: string | number | undefined;
   cardProps?: ProCardProps;
-  record?: RecordType;
+  record: RecordType;
+  onRow?: GetComponentProps<RecordType>;
 };
 
 function ProListItem<RecordType>(props: ItemProps<RecordType>) {
@@ -121,6 +123,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     className: propsClassName = defaultClassName,
     record,
     extra,
+    onRow,
     ...rest
   } = props;
 
@@ -166,7 +169,9 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       actions={actionsDom}
       extra={<div className={extraClassName}>{extra}</div>}
       {...rest}
-      onClick={() => {
+      {...onRow?.(record, index)}
+      onClick={(e) => {
+        onRow?.(record, index)?.onClick?.(e);
         if (expandRowByClick) {
           onExpand(!expanded);
         }

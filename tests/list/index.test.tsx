@@ -7,6 +7,13 @@ import PaginationDemo from '../../packages/list/src/demos/pagination';
 import { waitForComponentToPaint } from '../util';
 import { Tag } from 'antd';
 
+type DataSourceType = {
+  name: string;
+  desc: {
+    text: string;
+  };
+};
+
 describe('List', () => {
   it('🚏 base use', async () => {
     const html = mount(
@@ -426,5 +433,57 @@ describe('List', () => {
       {},
       {},
     );
+  });
+
+  it('🚏 ProList support onRow', async () => {
+    const onClick = jest.fn();
+    const onMouseEnter = jest.fn();
+    const html = mount(
+      <ProList<DataSourceType>
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+        ]}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+          description: {
+            dataIndex: ['desc', 'text'],
+          },
+        }}
+        onRow={(record: DataSourceType) => {
+          return {
+            onMouseEnter: () => {
+              onMouseEnter(record.name);
+            },
+            onClick: () => {
+              onClick();
+            },
+          };
+        }}
+      />,
+    );
+
+    act(() => {
+      expect(html.find('.ant-list-item').simulate('click'));
+      html.update();
+    });
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      expect(html.find('.ant-list-item').simulate('mouseenter'));
+      html.update();
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(onClick).toBeCalled();
+    expect(onMouseEnter).toBeCalledWith('我是名称');
   });
 });
