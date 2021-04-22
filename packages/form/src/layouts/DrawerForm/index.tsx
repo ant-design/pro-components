@@ -114,7 +114,11 @@ function DrawerForm<T = Record<string, any>>({
     }
   }, [drawerProps?.destroyOnClose, visible]);
 
-  useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
+  useEffect(() => () => {
+    scrollLocker?.unLock?.();
+  });
+
+  useImperativeHandle(rest.formRef, () => formRef.current);
 
   const renderDom = useMemo(() => {
     if (drawerProps?.getContainer) {
