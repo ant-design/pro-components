@@ -34,8 +34,15 @@ export type CommonFormProps<T extends Record<string, any> = Record<string, any>>
 
   /** @name 获取真正的可以获得值的 from */
   formRef?: React.MutableRefObject<FormInstance | undefined>;
+
   /** @name 同步结果到 url 中 */
-  syncToUrl?: true | ((values: T, type: 'get' | 'set') => T);
+  syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
+  /**
+   * 同步结果到 initialValues,默认为true如果为false，reset的时将会忽略从url上获取的数据
+   *
+   * @name 是否将 url 参数写入 initialValues
+   */
+  syncToInitialValues?: boolean;
   /**
    * 如果为 false,会原样保存。
    *
@@ -93,6 +100,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     formRef: propsFormRef,
     onInit,
     syncToUrl,
+    syncToInitialValues = true,
     onReset,
     omitNil = true,
     ...rest
@@ -180,10 +188,11 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   });
 
   useEffect(() => {
+    if (syncToInitialValues) return;
     window.requestAnimationFrame(() => {
       setUrlParamsMergeInitialValues({});
     });
-  }, []);
+  }, [syncToInitialValues]);
 
   return (
     // 增加国际化的能力，与 table 组件可以统一
