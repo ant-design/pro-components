@@ -14,7 +14,7 @@ const { useBreakpoint } = Grid;
 
 type ProCardChildType = React.ReactElement<CardProps, any>;
 
-const Card = React.forwardRef<HTMLDivElement>((props: CardProps, ref) => {
+const Card = React.forwardRef((props: CardProps, ref: any) => {
   const {
     className,
     style,
