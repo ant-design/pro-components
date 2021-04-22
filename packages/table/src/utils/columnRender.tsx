@@ -191,8 +191,7 @@ export function columnRender<T>({
     }
     return renderDom as React.ReactNode;
   }
-  return !isNil(dom) &&
-    (React.isValidElement(dom) || typeof dom === 'string' || typeof dom === 'number')
-    ? dom
-    : null;
+
+  const isReactRenderNode = React.isValidElement(dom) || ['string', 'number'].includes(typeof dom);
+  return !isNil(dom) && isReactRenderNode ? dom : null;
 }
