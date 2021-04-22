@@ -172,12 +172,19 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   }, []);
 
   // 如果为 false，不需要触发设置进去
-  const [urlParamsMergeInitialValues] = useState(() => {
+  const [urlParamsMergeInitialValues, setUrlParamsMergeInitialValues] = useState(() => {
     if (!syncToUrl) {
       return {};
     }
     return genParams(syncToUrl, urlSearch, 'get');
   });
+
+  useEffect(() => {
+    window.requestAnimationFrame(() => {
+      setUrlParamsMergeInitialValues({});
+    });
+  }, []);
+
   return (
     // 增加国际化的能力，与 table 组件可以统一
     <ConfigProviderWrap>
