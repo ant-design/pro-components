@@ -59,7 +59,7 @@ function useEditableMap<RecordType>(
   const editableKeysSet = useMemo(() => {
     const keys = editableType === 'single' ? editableKeys.slice(0, 1) : editableKeys;
     return new Set(keys);
-  }, [editableKeys.join(','), editableType]);
+  }, [(editableKeys || []).join(','), editableType]);
 
   /** 这行是不是编辑状态 */
   const isEditable = useCallback(
@@ -67,7 +67,7 @@ function useEditableMap<RecordType>(
       if (editableKeys.includes(recordKeyToString(recordKey))) return true;
       return false;
     },
-    [editableKeys.join(',')],
+    [(editableKeys || []).join(',')],
   );
 
   /**

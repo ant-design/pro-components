@@ -61,7 +61,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
         >
           <td
             class="ant-descriptions-item"
-            colspan="1"
+            colspan="2"
           >
             <div
               class="ant-descriptions-item-container"
@@ -74,10 +74,14 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               <span
                 class="ant-descriptions-item-content"
               >
-                这是一段文本
+                这是一段很长很长超级超级长的无意义说明文本并且重复了很多没有意义的词语，就是为了让它变得很长很长超级超级长
               </span>
             </div>
           </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -125,10 +129,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               </span>
             </div>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -150,6 +150,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               </span>
             </div>
           </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -180,10 +184,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               </span>
             </div>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -203,6 +203,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               </span>
             </div>
           </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -244,10 +248,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               </span>
             </div>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -269,6 +269,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               </span>
             </div>
           </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -290,10 +294,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               </span>
             </div>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -320,6 +320,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               </span>
             </div>
           </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -341,10 +345,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               </span>
             </div>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -375,9 +375,13 @@ Done in 9.70s.
               </span>
             </div>
           </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
           <td
             class="ant-descriptions-item"
-            colspan="1"
+            colspan="2"
           >
             <div
               class="ant-descriptions-item-container"
