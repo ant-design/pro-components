@@ -86,6 +86,10 @@ function ModalForm<T = Record<string, any>>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
+  useEffect(() => () => {
+    scrollLocker?.unLock?.();
+  });
+
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
   const isFirstRender = useRef(!modalProps?.forceRender);
   /**
@@ -116,7 +120,7 @@ function ModalForm<T = Record<string, any>>({
     }
   }, [modalProps?.destroyOnClose, visible]);
 
-  useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
+  useImperativeHandle(rest.formRef, () => formRef.current);
 
   const renderDom = useMemo(() => {
     if (modalProps?.getContainer) {
