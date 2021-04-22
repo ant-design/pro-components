@@ -88,7 +88,7 @@ group:
 
 ### 内容居中
 
-配置 `layout`属性为`center`控制内容垂直居中。
+配置 `layout` 属性为 `center` 控制内容垂直居中，设置居中时内容部分转为 `flex` 布局，可以使用 `direction` 控制 `flex` 方向。
 
 <code src="./demos/layout.tsx" background="#f0f2f5" title="内容居中" />
 
