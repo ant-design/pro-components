@@ -18,7 +18,7 @@ export default () => {
           colSpan - 0
         </ProCard>
       </ProCard>
-      <ProCard gutter={8} title="24栅格">
+      <ProCard gutter={8} title="24栅格" style={{ marginTop: 8 }}>
         <ProCard colSpan={12} layout="center" bordered>
           colSpan-12
         </ProCard>
@@ -27,17 +27,6 @@ export default () => {
         </ProCard>
         <ProCard colSpan={6} layout="center" bordered>
           colSpan-6
-        </ProCard>
-      </ProCard>
-      <ProCard style={{ marginTop: 8 }} gutter={[0, 8]} wrap>
-        <ProCard colSpan={12} layout="center" bordered>
-          Col-12
-        </ProCard>
-        <ProCard colSpan={12} layout="center" bordered>
-          Col-12
-        </ProCard>
-        <ProCard colSpan={24} layout="center" bordered>
-          Col-24
         </ProCard>
       </ProCard>
       <ProCard style={{ marginTop: 8 }} gutter={8} ghost>

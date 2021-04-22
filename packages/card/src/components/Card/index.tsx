@@ -28,7 +28,7 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
     wrap = false,
     layout,
     loading,
-    colSpan,
+    // colSpan,
     gutter = 0,
     tooltip,
     split,
@@ -105,69 +105,62 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
     if (element?.type?.isProCard) {
       containProCard = true;
 
-      // 右侧空隙
-      const gutterRightStyle = getStyle(
-        normalizedGutter[0]! > 0 && index !== childrenArray.length - 1,
-        {
-          marginRight: normalizedGutter[0],
-        },
-      );
-
-      // 下方空隙
-      const gutterBottomStyle = getStyle(normalizedGutter[1]! > 0, {
-        marginBottom: normalizedGutter[1],
+      // 间隙
+      const gutterStyle = getStyle(normalizedGutter[0]! > 0, {
+        paddingRight: normalizedGutter[0] / 2,
+        paddingLeft: normalizedGutter[0] / 2,
       });
 
-      // 当 split 有值时，内部卡片 radius 设置为 0
+      // 切割 当 split 有值时，内部卡片 radius 设置为 0
       const splitStyle = getStyle(split === 'vertical' || split === 'horizontal', {
         borderRadius: 0,
       });
 
-      return React.cloneElement(element, {
-        className: classNames(element.props.className, {
-          // 横纵切割
-          [`${prefixCls}-split-vertical`]:
-            split === 'vertical' && index !== childrenArray.length - 1,
-          [`${prefixCls}-split-horizontal`]:
-            split === 'horizontal' && index !== childrenArray.length - 1,
-        }),
-        style: {
-          ...gutterRightStyle,
-          ...gutterBottomStyle,
-          ...splitStyle,
-          ...element.props.style,
-        },
+      // 宽度
+      const { colSpan } = element.props;
+      let span = colSpan;
+
+      // colSpan 响应式
+      if (typeof colSpan === 'object') {
+        for (let i = 0; i < responsiveArray.length; i += 1) {
+          const breakpoint: Breakpoint = responsiveArray[i];
+          if (screens[breakpoint] && colSpan[breakpoint] !== undefined) {
+            span = colSpan[breakpoint];
+            break;
+          }
+        }
+      }
+
+      // 当 colSpan 为 30% 或 300px 时
+      const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
+        width: span as string,
+        flexShrink: 0,
       });
+
+      const columnClassName = classNames([`${prefixCls}-column`], {
+        [`${prefixCls}-split-vertical`]: split === 'vertical' && index !== childrenArray.length - 1,
+        [`${prefixCls}-split-horizontal`]:
+          split === 'horizontal' && index !== childrenArray.length - 1,
+        [`${prefixCls}-span-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
+      });
+
+      return (
+        <div
+          style={{
+            ...colSpanStyle,
+            ...gutterStyle,
+            ...splitStyle,
+          }}
+          className={columnClassName}
+        >
+          {React.cloneElement(element)}
+        </div>
+      );
     }
     return element;
   });
 
-  let span = colSpan;
-
-  // colSpan 响应式
-  if (typeof colSpan === 'object') {
-    for (let i = 0; i < responsiveArray.length; i += 1) {
-      const breakpoint: Breakpoint = responsiveArray[i];
-      if (screens[breakpoint] && colSpan[breakpoint] !== undefined) {
-        span = colSpan[breakpoint];
-        break;
-      }
-    }
-  }
-
-  // 当 colSpan 为 30% 或 300px 时
-  const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
-    width: span as string,
-    flexShrink: 0,
-  });
-
-  const cardStyle = {
-    ...colSpanStyle,
-    ...style,
-  };
-
   const cardCls = classNames(`${prefixCls}`, className, {
-    [`${prefixCls}-span-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
     [`${prefixCls}-border`]: bordered,
     [`${prefixCls}-contain-card`]: containProCard,
     [`${prefixCls}-loading`]: loading,
@@ -184,6 +177,21 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
     [`${prefixCls}-body-column`]: split === 'horizontal' || direction === 'column',
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
+
+  const gutterHorizonalStyle = getStyle(normalizedGutter[0]! > 0, {
+    marginRight: -normalizedGutter[0] / 2,
+    marginLeft: -normalizedGutter[0] / 2,
+  });
+
+  const gutterVerticalStyle = getStyle(normalizedGutter[1]! > 0, {
+    rowGap: normalizedGutter[1],
+  });
+
+  const cardBodyStyle = {
+    ...gutterHorizonalStyle,
+    ...gutterVerticalStyle,
+    ...bodyStyle,
+  };
 
   const loadingBlockStyle =
     bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
@@ -211,7 +219,12 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
   const actionDom = <Actions actions={actions} prefixCls={prefixCls} />;
 
   return (
-    <div className={cardCls} style={cardStyle} ref={ref} {...omit(rest, ['id', 'prefixCls'])}>
+    <div
+      className={cardCls}
+      style={style}
+      ref={ref}
+      {...omit(rest, ['id', 'prefixCls', 'colSpan'])}
+    >
       {(title || extra || collapsibleButton) && (
         <div
           className={headerCls}
@@ -234,7 +247,7 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
           </Tabs>
         </div>
       ) : (
-        <div className={bodyCls} style={bodyStyle}>
+        <div className={bodyCls} style={cardBodyStyle}>
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
