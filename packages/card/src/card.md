@@ -1,5 +1,5 @@
 ---
-title: ProCard - 标准卡片
+title: ProCard - 高级卡片
 nav:
   title: 组件
   path: /components
@@ -7,9 +7,12 @@ group:
   path: /
 ---
 
-# ProCard 标准卡片
+# ProCard 高级卡片
 
-页内容器卡片，提供标准卡片样式，卡片切分以及栅格布局能力。
+页内容器卡片，提供标准卡片样式，卡片切分以及栅格布局能力。ProCard 创造性地将 `Col`, `Row`, `Card`, `Tabs` 等组件实现结合在一起，让你仅用一个组件就能够完成卡片相关的各种布局。
+
+- 如果你还需要结合图表一起使用，可以参考 `StatisticCard` 指标卡组件，他是 ProCard 的进一步封装。
+- 若您也需要封装 `ProCard`，注意需要透出 `isProCard=true` 的静态属性让 ProCard 可以识别为同一个元素。
 
 ## 何时使用
 
@@ -34,7 +37,7 @@ group:
 
 ### 响应式
 
-`colSpan` 支持 antd 定义的[栅格式响应布局](https://ant.design/components/grid-cn/#components-grid-demo-responsive)。预设六个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl`。如果要支持响应式，可以写成 `{ xs: 4, sm: 8, md: 10, lg: 12 }`
+`colSpan` 支持 antd 定义的[栅格式响应布局](https://ant.design/components/grid-cn/#components-grid-demo-responsive)。预设六个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl`。如果要支持响应式，可以写成 `{ xs: 4, sm: 8, md: 10, lg: 12 }`。你可以同时配置 `wrap` 为 true 来让多个卡片之间可以换行。
 
 <code src="./demos/responsive.tsx"  background="#f0f2f5" title="响应式" />
 
