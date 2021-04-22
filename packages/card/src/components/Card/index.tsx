@@ -3,7 +3,7 @@ import { Grid, Tabs, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { LabelIconTip } from '@ant-design/pro-utils';
-import type { CardProps, Gutter, Breakpoint, CardType } from '../../type';
+import type { CardProps, Gutter, Breakpoint } from '../../type';
 import classNames from 'classnames';
 import omit from 'omit.js';
 import CardLoading from '../CardLoading';
@@ -14,8 +14,7 @@ const { useBreakpoint } = Grid;
 
 type ProCardChildType = React.ReactElement<CardProps, any>;
 
-// @ts-ignore
-const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) => {
+const Card = React.forwardRef((props: CardProps, ref: any) => {
   const {
     className,
     style,
@@ -210,7 +209,6 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
 
   /** 操作按钮 */
   const actionDom = <Actions actions={actions} prefixCls={prefixCls} />;
-
   return (
     <div className={cardCls} style={cardStyle} ref={ref} {...omit(rest, ['id', 'prefixCls'])}>
       {(title || extra || collapsibleButton) && (

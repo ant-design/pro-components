@@ -608,12 +608,17 @@ const DynamicSettings = () => {
                       marginBottom: 8,
                       position: 'relative',
                     }}
+                    bodyStyle={{
+                      padding: 8,
+                      paddingRight: 16,
+                      paddingTop: 16,
+                    }}
                   >
                     <div
                       style={{
                         position: 'absolute',
-                        top: -2,
-                        right: 4,
+                        top: -4,
+                        right: 2,
                       }}
                     >
                       {action}
@@ -623,12 +628,6 @@ const DynamicSettings = () => {
                 );
               }}
             >
-              {/*  {
-                title: 'time',
-                dataIndex: 'time',
-                valueType: 'date',
-              }, */}
-
               <ProFormText
                 rules={[
                   {
@@ -673,6 +672,14 @@ const DynamicSettings = () => {
                     value,
                   }))}
                 />
+              </ProFormGroup>
+              <ProFormGroup
+                style={{
+                  marginTop: 8,
+                }}
+                size={8}
+              >
+                <ProFormText width="xs" label="列提示" name="tooltip" />
               </ProFormGroup>
               <ProFormDependency name={['valueType', 'valueEnum']}>
                 {({ valueType, valueEnum }) => {
