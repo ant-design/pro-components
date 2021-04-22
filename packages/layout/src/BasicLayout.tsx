@@ -369,7 +369,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       setMenuInfoData(infoData);
     });
     return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
-  }, [menu?.loading, menu?.request, location?.pathname]);
+  }, [menu?.loading, menu?.request, route?.routes, location?.pathname]);
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
