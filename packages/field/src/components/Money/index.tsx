@@ -5,7 +5,7 @@ import type { ProFieldFC } from '../../index';
 
 export type FieldMoneyProps = {
   text: number;
-  moneySymbol?: string;
+  moneySymbol?: boolean;
   locale?: string;
   placeholder?: any;
 };

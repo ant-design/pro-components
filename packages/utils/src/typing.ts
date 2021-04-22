@@ -71,7 +71,7 @@ export type ProFieldValueObjectType = {
   showSymbol?: ((value: any) => boolean) | boolean;
   showColor?: boolean;
   precision?: number;
-  moneySymbol?: string;
+  moneySymbol?: boolean;
   request?: ProFieldRequestData;
   /** Image */
   width?: number;
