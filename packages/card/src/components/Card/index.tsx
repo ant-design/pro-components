@@ -178,10 +178,6 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
     [`${prefixCls}-collapse`]: collapsed,
   });
 
-  const headerCls = classNames(`${prefixCls}-header`, {
-    [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
-  });
-
   const bodyCls = classNames(`${prefixCls}-body`, {
     [`${prefixCls}-body-center`]: layout === 'center',
     [`${prefixCls}-body-column`]: split === 'horizontal' || direction === 'column',
@@ -204,8 +200,9 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
     />
   );
 
-  const titleCls = classNames(`${prefixCls}-title`, {
-    [`${prefixCls}-title-collapsible`]: collapsibleButton,
+  const headerCls = classNames(`${prefixCls}-header`, {
+    [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
+    [`${prefixCls}-header-collapsible`]: collapsibleButton,
   });
 
   /** 操作按钮 */
@@ -214,13 +211,14 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
   return (
     <div className={cardCls} style={cardStyle} ref={ref} {...omit(rest, ['id', 'prefixCls'])}>
       {(title || extra || collapsibleButton) && (
-        <div className={headerCls} style={headStyle}>
-          <div
-            className={titleCls}
-            onClick={() => {
-              if (collapsibleButton) setCollapsed(!collapsed);
-            }}
-          >
+        <div
+          className={headerCls}
+          style={headStyle}
+          onClick={() => {
+            if (collapsibleButton) setCollapsed(!collapsed);
+          }}
+        >
+          <div className={`${prefixCls}-title`}>
             {collapsibleButton}
             <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
           </div>

@@ -103,6 +103,7 @@
 
   &-header {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: @card-head-padding @card-padding-base;
     padding-bottom: 0;
@@ -112,13 +113,14 @@
       }
       border-bottom: @border-width-base @border-style-base @border-color-split;
     }
+
+    &-collapsible {
+      cursor: pointer;
+    }
   }
 
   &-title {
     font-size: @card-head-font-size;
-    &-collapsible {
-      cursor: pointer;
-    }
   }
 
   &-type-inner {
