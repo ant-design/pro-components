@@ -197,6 +197,7 @@ export type ProSchema<
           isEditable?: boolean;
           rowKey?: string;
           rowIndex: number;
+          entity: Entity;
         },
       ) => Record<string, any>)
     | Record<string, any>;

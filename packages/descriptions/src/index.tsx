@@ -420,7 +420,10 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
       if (!valueType && !valueEnum && !dataIndex && !itemRequest) {
         return item;
       }
-      return item.props;
+      return {
+        ...item.props,
+        entity: dataSource,
+      };
     });
     return [...(columns || []), ...childrenColumns]
       .filter((item) => {
