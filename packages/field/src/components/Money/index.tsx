@@ -90,7 +90,9 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   const precision = fieldProps?.precision ?? DefaultPrecisionCont;
   const intl = useIntl();
   const moneySymbol =
-    fieldProps.moneySymbol || rest.moneySymbol ? intl.getMessage('moneySymbol', '￥') : undefined;
+    fieldProps.moneySymbol === undefined || fieldProps.moneySymbol || rest.moneySymbol
+      ? intl.getMessage('moneySymbol', '￥')
+      : undefined;
 
   if (type === 'read') {
     const dom = (
