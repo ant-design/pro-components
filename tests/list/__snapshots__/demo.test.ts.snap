@@ -748,6 +748,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                     </div>
                     <div
                       class="ant-pro-card-body"
+                      style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
                         style="flex: 1;"
@@ -851,6 +852,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                     </div>
                     <div
                       class="ant-pro-card-body"
+                      style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
                         style="flex: 1;"
@@ -954,6 +956,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                     </div>
                     <div
                       class="ant-pro-card-body"
+                      style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
                         style="flex: 1;"
@@ -1057,6 +1060,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                     </div>
                     <div
                       class="ant-pro-card-body"
+                      style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
                         style="flex: 1;"
@@ -1160,6 +1164,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                     </div>
                     <div
                       class="ant-pro-card-body"
+                      style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
                         style="flex: 1;"
@@ -1263,6 +1268,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                     </div>
                     <div
                       class="ant-pro-card-body"
+                      style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
                         style="flex: 1;"
@@ -1366,6 +1372,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                     </div>
                     <div
                       class="ant-pro-card-body"
+                      style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
                         style="flex: 1;"
@@ -1469,6 +1476,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                     </div>
                     <div
                       class="ant-pro-card-body"
+                      style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
                         style="flex: 1;"
