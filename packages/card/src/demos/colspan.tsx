@@ -29,6 +29,17 @@ export default () => {
           colSpan-6
         </ProCard>
       </ProCard>
+      <ProCard style={{ marginTop: 8 }} gutter={[0, 8]} wrap>
+        <ProCard colSpan={12} layout="center" bordered>
+          Col-12
+        </ProCard>
+        <ProCard colSpan={12} layout="center" bordered>
+          Col-12
+        </ProCard>
+        <ProCard colSpan={24} layout="center" bordered>
+          Col-24
+        </ProCard>
+      </ProCard>
       <ProCard style={{ marginTop: 8 }} gutter={8} ghost>
         <ProCard colSpan="200px" layout="center" bordered>
           colSpan - 200px

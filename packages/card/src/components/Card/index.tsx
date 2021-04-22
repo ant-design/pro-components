@@ -25,6 +25,7 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
     subTitle,
     extra,
     tip,
+    wrap = false,
     layout,
     loading,
     colSpan,
@@ -181,6 +182,7 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
   const bodyCls = classNames(`${prefixCls}-body`, {
     [`${prefixCls}-body-center`]: layout === 'center',
     [`${prefixCls}-body-column`]: split === 'horizontal' || direction === 'column',
+    [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
   const loadingBlockStyle =
