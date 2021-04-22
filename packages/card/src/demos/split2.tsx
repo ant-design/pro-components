@@ -4,7 +4,7 @@ import ProCard from '@ant-design/pro-card';
 export default () => {
   return (
     <ProCard title="左右分栏带标题" extra="2019年9月28日" split="vertical" bordered headerBordered>
-      <ProCard title="左侧详情" colSpan="300px">
+      <ProCard title="左侧详情" colSpan="50%">
         左侧内容
       </ProCard>
       <ProCard title="流量占用情况">

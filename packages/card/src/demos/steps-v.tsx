@@ -1,37 +1,51 @@
 import React, { useState } from 'react';
 import { Steps, Button, Space } from 'antd';
 import ProCard from '@ant-design/pro-card';
+import RcResizeObserver from 'rc-resize-observer';
 
 const { Step } = Steps;
 
 export default () => {
   const [current, setCurrent] = useState(0);
+  const [responsive, setResponsive] = useState(false);
   return (
-    <ProCard split="vertical" bordered>
-      <ProCard colSpan="25%">
-        <Steps direction="vertical" size="small" current={current} style={{ height: 320 }}>
-          <Step title="填写基本信息" />
-          <Step title="配置模板" />
-          <Step title="配置访问" />
-          <Step title="配置部署和调度" />
-          <Step title="预览" />
-        </Steps>
-      </ProCard>
-      <ProCard title="流量占用情况">
-        <Space>
-          <Button
-            key="primary"
-            type="primary"
-            onClick={() => setCurrent(current + 1)}
-            disabled={current === 5}
+    <RcResizeObserver
+      key="resize-observer"
+      onResize={(offset) => {
+        setResponsive(offset.width < 596);
+      }}
+    >
+      <ProCard split={responsive ? 'horizontal' : 'vertical'} bordered style={{ height: 320 }}>
+        <ProCard colSpan={responsive ? 24 : 6}>
+          <Steps
+            direction={responsive ? 'horizontal' : 'vertical'}
+            size="small"
+            current={current}
+            style={{ height: '100%' }}
           >
-            下一步
-          </Button>
-          <Button key="pre" onClick={() => setCurrent(current - 1)} disabled={current === 0}>
-            上一步
-          </Button>
-        </Space>
+            <Step title="填写基本信息" />
+            <Step title="配置模板" />
+            <Step title="配置访问" />
+            <Step title="配置部署和调度" />
+            <Step title="预览" />
+          </Steps>
+        </ProCard>
+        <ProCard title="流量占用情况" colSpan={responsive ? 24 : 18}>
+          <Space>
+            <Button
+              key="primary"
+              type="primary"
+              onClick={() => setCurrent(current + 1)}
+              disabled={current === 5}
+            >
+              下一步
+            </Button>
+            <Button key="pre" onClick={() => setCurrent(current - 1)} disabled={current === 0}>
+              上一步
+            </Button>
+          </Space>
+        </ProCard>
       </ProCard>
-    </ProCard>
+    </RcResizeObserver>
   );
 };

@@ -11,7 +11,7 @@ export default () => {
     <RcResizeObserver
       key="resize-observer"
       onResize={(offset) => {
-        setResponsive(offset.width < 640);
+        setResponsive(offset.width < 596);
       }}
     >
       <ProCard split={responsive ? 'horizontal' : 'vertical'}>
