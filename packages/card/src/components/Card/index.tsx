@@ -111,11 +111,6 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
         paddingLeft: normalizedGutter[0] / 2,
       });
 
-      // 切割 当 split 有值时，内部卡片 radius 设置为 0
-      const splitStyle = getStyle(split === 'vertical' || split === 'horizontal', {
-        borderRadius: 0,
-      });
-
       // 宽度
       const { colSpan } = element.props;
       let span = colSpan;
@@ -149,7 +144,6 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
           style={{
             ...colSpanStyle,
             ...gutterStyle,
-            ...splitStyle,
           }}
           className={columnClassName}
         >
@@ -178,28 +172,24 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
-  const gutterHorizonalStyle = getStyle(normalizedGutter[0]! > 0, {
-    marginRight: -normalizedGutter[0] / 2,
-    marginLeft: -normalizedGutter[0] / 2,
-  });
-
-  const gutterVerticalStyle = getStyle(normalizedGutter[1]! > 0, {
-    rowGap: normalizedGutter[1],
-  });
-
   const cardBodyStyle = {
-    ...gutterHorizonalStyle,
-    ...gutterVerticalStyle,
+    ...getStyle(normalizedGutter[0]! > 0, {
+      marginRight: -normalizedGutter[0] / 2,
+      marginLeft: -normalizedGutter[0] / 2,
+    }),
+    ...getStyle(normalizedGutter[1]! > 0, {
+      rowGap: normalizedGutter[1],
+    }),
     ...bodyStyle,
   };
-
-  const loadingBlockStyle =
-    bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
 
   const loadingDOM = React.isValidElement(loading) ? (
     loading
   ) : (
-    <CardLoading prefix={prefixCls} style={loadingBlockStyle} />
+    <CardLoading
+      prefix={prefixCls}
+      style={bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined}
+    />
   );
 
   // 非受控情况下展示
@@ -210,14 +200,6 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
     />
   );
 
-  const headerCls = classNames(`${prefixCls}-header`, {
-    [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
-    [`${prefixCls}-header-collapsible`]: collapsibleButton,
-  });
-
-  /** 操作按钮 */
-  const actionDom = <Actions actions={actions} prefixCls={prefixCls} />;
-
   return (
     <div
       className={cardCls}
@@ -227,7 +209,10 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
     >
       {(title || extra || collapsibleButton) && (
         <div
-          className={headerCls}
+          className={classNames(`${prefixCls}-header`, {
+            [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
+            [`${prefixCls}-header-collapsible`]: collapsibleButton,
+          })}
           style={headStyle}
           onClick={() => {
             if (collapsibleButton) setCollapsed(!collapsed);
@@ -251,7 +236,7 @@ const Card: CardType = React.forwardRef<HTMLDivElement>((props: CardProps, ref) 
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
-      {actionDom}
+      {<Actions actions={actions} prefixCls={prefixCls} />}
     </div>
   );
 });

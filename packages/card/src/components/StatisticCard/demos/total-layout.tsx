@@ -39,7 +39,6 @@ export default () => {
           }
         />
         <StatisticCard.Group
-          gutter={12}
           colSpan={responsive ? 24 : 18}
           direction={responsive ? 'column' : undefined}
         >
