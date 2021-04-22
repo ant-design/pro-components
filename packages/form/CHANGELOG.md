@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.21.4...@ant-design/pro-form@1.21.5) (2021-04-22)
+
+### Bug Fixes
+
+- **form:** sync url should no alawys set reset ([#2568](https://github.com/ant-design/pro-components/issues/2568)) ([a06d17b](https://github.com/ant-design/pro-components/commit/a06d17b69c561c60751baaf72aef36bd8dbba407))
+
 ## [1.21.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.21.3...@ant-design/pro-form@1.21.4) (2021-04-19)
 
 **Note:** Version bump only for package @ant-design/pro-form

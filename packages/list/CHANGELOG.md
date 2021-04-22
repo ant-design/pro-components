@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.6.4...@ant-design/pro-list@1.7.0) (2021-04-22)
+
+### Features
+
+- **list:** support onRow ([#2543](https://github.com/ant-design/pro-components/issues/2543)) ([583d529](https://github.com/ant-design/pro-components/commit/583d5299a8a309298805ed099fc680604322f734))
+
 ## [1.6.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.6.3...@ant-design/pro-list@1.6.4) (2021-04-19)
 
 **Note:** Version bump only for package @ant-design/pro-list

@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.2...@ant-design/pro-utils@1.16.3) (2021-04-22)
+
+### Bug Fixes
+
+- **form:** fix transformKeySubmitValue will gen null value error ([#2571](https://github.com/ant-design/pro-components/issues/2571)) ([c3e5118](https://github.com/ant-design/pro-components/commit/c3e5118a91fa5bf9560e6cd036dca9864fac1b09))
+- **form:** support moneySymbol=undefined ([#2579](https://github.com/ant-design/pro-components/issues/2579)) ([029482d](https://github.com/ant-design/pro-components/commit/029482d557c8de3cb761af59560aa5e7a9166082))
+- **utils:** stop propagation icon event ([#2566](https://github.com/ant-design/pro-components/issues/2566)) ([7f0cab6](https://github.com/ant-design/pro-components/commit/7f0cab6cec7b52fc9237e977521903308f19793b))
+- **utils:** 修复 InlineErrorFormItem 的 Popover 问题 ([#2546](https://github.com/ant-design/pro-components/issues/2546)) ([9765668](https://github.com/ant-design/pro-components/commit/9765668e25c7f9191ecc32a5485b2572f0edaaab))
+
 ## [1.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.1...@ant-design/pro-utils@1.16.2) (2021-04-19)
 
 **Note:** Version bump only for package @ant-design/pro-utils

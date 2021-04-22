@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.34.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.34.4...@ant-design/pro-table@2.34.5) (2021-04-22)
+
+### Bug Fixes
+
+- **form:** fix transformKeySubmitValue will gen null value error ([#2571](https://github.com/ant-design/pro-components/issues/2571)) ([c3e5118](https://github.com/ant-design/pro-components/commit/c3e5118a91fa5bf9560e6cd036dca9864fac1b09))
+- **form:** support moneySymbol=undefined ([#2579](https://github.com/ant-design/pro-components/issues/2579)) ([029482d](https://github.com/ant-design/pro-components/commit/029482d557c8de3cb761af59560aa5e7a9166082))
+- **table:** fix the problem of nested data reporting errors ([#2578](https://github.com/ant-design/pro-components/issues/2578)) ([780510d](https://github.com/ant-design/pro-components/commit/780510d3f86008fe9346c5ce32c44577d563b878))
+- **utils:** stop propagation icon event ([#2566](https://github.com/ant-design/pro-components/issues/2566)) ([7f0cab6](https://github.com/ant-design/pro-components/commit/7f0cab6cec7b52fc9237e977521903308f19793b))
+
 ## [2.34.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.34.3...@ant-design/pro-table@2.34.4) (2021-04-19)
 
 **Note:** Version bump only for package @ant-design/pro-table
