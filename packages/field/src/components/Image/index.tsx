@@ -25,7 +25,7 @@ const FieldImage: ProFieldFC<FieldImageProps> = ({
   width,
 }) => {
   if (type === 'read') {
-    const dom = <Image width={width || 32} src={text} />;
+    const dom = <Image width={width || 32} src={text} {...fieldProps} />;
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }
