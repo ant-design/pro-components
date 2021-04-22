@@ -585,6 +585,20 @@ describe('utils', () => {
     expect(html.files[0]).toBe(file);
   });
 
+  it('📅 transformKeySubmitValue ignore null', async () => {
+    const dataIn = {
+      dataTime: '2019-11-16 12:50:26',
+      time: '2019-11-16 12:50:26',
+      file: null,
+    };
+    const html = transformKeySubmitValue(dataIn, {
+      dataTime: () => ['new-dataTime'],
+      time: undefined,
+    });
+    expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
+    expect(html.file).toBe(undefined);
+  });
+
   it('📅 isNil', async () => {
     expect(isNil(null)).toBe(true);
     expect(isNil(undefined)).toBe(true);
