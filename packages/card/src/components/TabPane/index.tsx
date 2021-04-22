@@ -21,7 +21,6 @@ const TabPane: React.FC<ProCardTabPaneProps> = (props) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-card-tabpane');
   const tabPaneClassName = classNames(prefixCls, className);
-
   return (
     <Tabs.TabPane
       key={key}
