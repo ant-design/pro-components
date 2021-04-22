@@ -21,8 +21,14 @@ describe('ProForm', () => {
   });
 
   it('📦 ProForm support sync form url', async () => {
-    const wrapper = mount(
-      <ProForm onFinish={async () => {}} syncToUrl>
+    const fn = jest.fn();
+    const wrapper = mount<{ navTheme: string }>(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.navTheme);
+        }}
+        syncToUrl
+      >
         <ProFormText name="navTheme" />
       </ProForm>,
     );
@@ -31,14 +37,46 @@ describe('ProForm', () => {
     act(() => {
       wrapper.find('button.ant-btn-primary').simulate('click');
     });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith('realDark');
 
     act(() => {
       wrapper.find('button.ant-btn').at(1).simulate('click');
     });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith('realDark');
+  });
 
+  it('📦 ProForm support sync form url', async () => {
+    const fn = jest.fn();
+    const wrapper = mount<{ navTheme: string }>(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.navTheme);
+        }}
+        syncToUrl
+        syncToInitialValues={false}
+      >
+        <ProFormText name="navTheme" />
+      </ProForm>,
+    );
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.render()).toMatchSnapshot();
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith('realDark');
+
+    act(() => {
+      wrapper.find('button.ant-btn').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith(undefined);
   });
 
   it('📦 onFinish should simulate button loading', async () => {
