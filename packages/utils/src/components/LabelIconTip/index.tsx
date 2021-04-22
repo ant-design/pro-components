@@ -23,7 +23,12 @@ const LabelIconTip: React.FC<{
   const className = getPrefixCls('pro-core-label-tip');
   const tooltipProps = typeof tooltip === 'string' ? { title: tooltip } : (tooltip as TooltipProps);
   return (
-    <div className={className}>
+    <div
+      className={className}
+      onMouseDown={(e) => e.stopPropagation()}
+      onMouseLeave={(e) => e.stopPropagation()}
+      onMouseMove={(e) => e.stopPropagation()}
+    >
       {label}
       {subTitle && <div className={`${className}-subtitle`}>{subTitle}</div>}
       {tooltip && (
