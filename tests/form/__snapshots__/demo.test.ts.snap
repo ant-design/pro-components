@@ -21808,7 +21808,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
         >
           <button
             aria-checked="false"
-            class="ant-switch pro-field pro-field-lg"
+            class="ant-switch pro-field"
             role="switch"
             type="button"
           >
