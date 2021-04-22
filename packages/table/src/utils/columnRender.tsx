@@ -133,7 +133,10 @@ export function columnRender<T>({
     valueType: (columnProps.valueType as ProFieldValueType) || 'text',
     index,
     rowData,
-    columnProps,
+    columnProps: {
+      ...columnProps,
+      entry: rowData,
+    },
     columnEmptyText,
     type,
     recordKey,

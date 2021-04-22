@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { InputNumber } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import type { ProFieldFC } from '../../index';
 
 export type FieldMoneyProps = {
   text: number;
-  moneySymbol?: string;
+  moneySymbol?: boolean;
   locale?: string;
   placeholder?: any;
 };
@@ -89,8 +89,13 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
 ) => {
   const precision = fieldProps?.precision ?? DefaultPrecisionCont;
   const intl = useIntl();
-  const moneySymbol =
-    fieldProps.moneySymbol || rest.moneySymbol ? intl.getMessage('moneySymbol', '￥') : undefined;
+  const moneySymbol = useMemo(() => {
+    const defaultText = intl.getMessage('moneySymbol', '￥');
+    if (rest.moneySymbol === false || fieldProps.moneySymbol === false) {
+      return undefined;
+    }
+    return defaultText;
+  }, [fieldProps.moneySymbol, intl, rest.moneySymbol]);
 
   if (type === 'read') {
     const dom = (
