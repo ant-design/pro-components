@@ -9,7 +9,7 @@ export default () => {
         extra="extra"
         layout="center"
         direction="column"
-        style={{ width: 300, height: 200 }}
+        style={{ maxWidth: 300, height: 200 }}
       >
         <div>123</div>
         <div>456</div>

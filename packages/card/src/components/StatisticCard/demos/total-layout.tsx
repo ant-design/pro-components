@@ -14,9 +14,9 @@ export default () => {
         setResponsive(offset.width < 640);
       }}
     >
-      <ProCard split="vertical">
+      <ProCard split={responsive ? 'horizontal' : 'vertical'}>
         <StatisticCard
-          colSpan={responsive ? 12 : 6}
+          colSpan={responsive ? 24 : 6}
           title="财年业绩目标"
           statistic={{
             value: 82.6,
@@ -40,7 +40,7 @@ export default () => {
         />
         <StatisticCard.Group
           gutter={12}
-          colSpan={responsive ? 12 : 18}
+          colSpan={responsive ? 24 : 18}
           direction={responsive ? 'column' : undefined}
         >
           <StatisticCard
