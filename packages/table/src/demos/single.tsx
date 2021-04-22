@@ -46,7 +46,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '状态',
     dataIndex: 'state',
     filters: true,
-    onFilter: true,
+    onFilter: false,
     valueType: 'select',
     valueEnum: {
       all: { text: '全部', status: 'Default' },
@@ -87,6 +87,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     key: 'showTime',
     dataIndex: 'created_at',
     valueType: 'date',
+    sorter: true,
     hideInSearch: true,
   },
   {
@@ -144,13 +145,14 @@ export default () => {
     <ProTable<GithubIssueItem>
       columns={columns}
       actionRef={actionRef}
-      request={async (params = {}) =>
-        request<{
+      request={async (params = {}, sort, filter) => {
+        console.log(sort, filter);
+        return request<{
           data: GithubIssueItem[];
         }>('https://proapi.azurewebsites.net/github/issues', {
           params,
-        })
-      }
+        });
+      }}
       editable={{
         type: 'multiple',
       }}

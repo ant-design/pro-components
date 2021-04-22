@@ -27,6 +27,9 @@ const transformKeySubmitValue = <T = any>(
 
   const gen = (tempValues: T, parentsKey?: React.Key) => {
     let result = {} as T;
+    if (tempValues == null || tempValues === undefined) {
+      return result;
+    }
     Object.keys(tempValues).forEach((entryKey) => {
       const key = parentsKey ? [parentsKey, entryKey] : [entryKey];
       const itemValue = tempValues[entryKey];
