@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.17.0
+
+`2021-04-22`
+
+- 🐛 fix(layout): routes change should reload menu [#2573](https://github.com/ant-design/pro-components/pull/2573) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(layout): layout support params [#2545](https://github.com/ant-design/pro-components/pull/2545) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.16.2
 
 `2021-04-15`
