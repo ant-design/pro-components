@@ -50,7 +50,7 @@ export default {
     },
     {
       property: 'og:description',
-      content: '🏆 Use Ant Design like a Pro!',
+      content: '🏆 让中后台开发更简单',
     },
     {
       name: 'keywords',
@@ -58,7 +58,7 @@ export default {
     },
     {
       name: 'description',
-      content: '🏆 Use Ant Design like a Pro! 包含 table form 等多个组件。',
+      content: '🏆 让中后台开发更简单 包含 table form 等多个组件。',
     },
     {
       name: 'apple-mobile-web-app-capable',

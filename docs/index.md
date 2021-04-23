@@ -4,7 +4,7 @@ order: 10
 sidebar: false
 hero:
   title: ProComponents
-  desc: 🏆 Use Ant Design like a Pro!
+  desc: 🏆 让中后台开发更简单
   actions:
     - text: 🥳 快速开始 →
       link: /docs/getting-started

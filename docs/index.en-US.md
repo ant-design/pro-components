@@ -4,7 +4,7 @@ order: 10
 sidebar: false
 hero:
   title: ProComponents
-  desc: 🏆 Use Ant Design like a Pro!
+  desc: 🏆 Make middle and backstage development easier
   actions:
     - text: 🥳 quick-start →
       link: /en-US/docs/getting-started
