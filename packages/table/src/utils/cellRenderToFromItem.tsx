@@ -22,24 +22,28 @@ export const spellNamePath = (base: React.Key, dataIndex: React.Key | React.Key[
   return [base, dataIndex].flat(1);
 };
 
+type RenderToFromItemProps<T> = {
+  text: string | number | React.ReactText[];
+  valueType: ProColumnType['valueType'];
+  index: number;
+  rowData?: T;
+  columnEmptyText?: ProFieldEmptyText;
+  columnProps?: ProColumnType<T> & {
+    entry: T;
+  };
+  type?: ProSchemaComponentTypes;
+  // 行的唯一 key
+  recordKey?: React.Key;
+  mode: 'edit' | 'read';
+};
+
 /**
  * 根据不同的类型来转化数值
  *
  * @param text
  * @param valueType
  */
-function cellRenderToFromItem<T>(config: {
-  text: string | number | React.ReactText[];
-  valueType: ProColumnType['valueType'];
-  index: number;
-  rowData?: T;
-  columnEmptyText?: ProFieldEmptyText;
-  columnProps?: ProColumnType<T>;
-  type?: ProSchemaComponentTypes;
-  // 行的唯一 key
-  recordKey?: React.Key;
-  mode: 'edit' | 'read';
-}): React.ReactNode {
+function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactNode {
   const { text, valueType, rowData, columnProps } = config;
   // 如果 valueType === text ，没必要多走一次 render
   if (

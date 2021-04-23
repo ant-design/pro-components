@@ -71,7 +71,7 @@ export type ProFieldValueObjectType = {
   showSymbol?: ((value: any) => boolean) | boolean;
   showColor?: boolean;
   precision?: number;
-  moneySymbol?: string;
+  moneySymbol?: boolean;
   request?: ProFieldRequestData;
   /** Image */
   width?: number;
@@ -197,6 +197,7 @@ export type ProSchema<
           isEditable?: boolean;
           rowKey?: string;
           rowIndex: number;
+          entity: Entity;
         },
       ) => Record<string, any>)
     | Record<string, any>;

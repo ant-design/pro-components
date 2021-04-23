@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.7.0
+
+`2021-04-22`
+
+- 💥 feat(list): support onRow [#2543](https://github.com/ant-design/pro-components/pull/2543) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-list@1.6.0
 
 `2021-04-15`

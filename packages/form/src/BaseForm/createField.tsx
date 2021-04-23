@@ -20,6 +20,8 @@ export type ProFormItemCreateConfig = {
   lightFilterLabelFormatter?: (value: any) => string;
   /** 默认的props，如果用户设置会被覆盖 */
   defaultProps?: Record<string, any>;
+  /** @name 不使用默认的宽度 */
+  ignoreWidth?: boolean;
 } & FormItemProps;
 
 const WIDTH_SIZE_ENUM = {
@@ -92,6 +94,7 @@ function createField<P extends ProFormItemProps = any>(
       lightFilterLabelFormatter,
       valuePropName = 'value',
       defaultProps,
+      ignoreWidth,
       ...defaultFormItemProps
     } = config || {};
     const {
@@ -148,6 +151,7 @@ function createField<P extends ProFormItemProps = any>(
       '请不要在 Form 中使用 defaultXXX。如果需要默认值请使用 initialValues 和 initialValue。',
     );
 
+    const ignoreWidthValueType = ['switch', 'radioButton', 'radio', 'rate'];
     const field = (
       <Field
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
@@ -162,7 +166,12 @@ function createField<P extends ProFormItemProps = any>(
           }),
           className: classnames(realFieldProps?.className, {
             'pro-field': width && WIDTH_SIZE_ENUM[width],
-            [`pro-field-${width}`]: width && WIDTH_SIZE_ENUM[width],
+            [`pro-field-${width}`]:
+              width &&
+              // 有些 valueType 不需要宽度
+              !ignoreWidthValueType.includes((props as any)?.valueType as 'text') &&
+              !ignoreWidth &&
+              WIDTH_SIZE_ENUM[width],
           }),
         })}
         proFieldProps={omitUndefined({

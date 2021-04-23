@@ -133,7 +133,10 @@ export function columnRender<T>({
     valueType: (columnProps.valueType as ProFieldValueType) || 'text',
     index,
     rowData,
-    columnProps,
+    columnProps: {
+      ...columnProps,
+      entry: rowData,
+    },
     columnEmptyText,
     type,
     recordKey,
@@ -191,5 +194,7 @@ export function columnRender<T>({
     }
     return renderDom as React.ReactNode;
   }
-  return !isNil(dom) ? dom : null;
+
+  const isReactRenderNode = React.isValidElement(dom) || ['string', 'number'].includes(typeof dom);
+  return !isNil(dom) && isReactRenderNode ? dom : null;
 }

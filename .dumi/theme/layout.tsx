@@ -62,7 +62,6 @@ export default ({ children, ...props }: IRouteComponentProps) => {
     if (!isBrowser()) {
       return null;
     }
-    console.log('Run');
     loadJS('https://www.googletagmanager.com/gtag/js?id=G-RMBLDHGL1N', function () {
       // @ts-ignore
       window.dataLayer = window.dataLayer || [];

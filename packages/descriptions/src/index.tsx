@@ -249,90 +249,91 @@ const schemaToDescriptionsItem = (
 ) => {
   const options: JSX.Element[] = [];
   // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
-  const children = items?.map?.((item, index) => {
-    if (React.isValidElement(item)) {
-      return item;
-    }
-    const {
-      valueEnum,
-      render,
-      renderText,
-      mode,
-      plain,
-      dataIndex,
-      request,
-      params,
-      editable,
-      ...restItem
-    } = item as ProDescriptionsItemProps;
-    const title =
-      typeof restItem.title === 'function'
-        ? restItem.title(item, 'descriptions', restItem.title)
-        : restItem.title;
+  const children = items
+    ?.map?.((item, index) => {
+      if (React.isValidElement(item)) {
+        return item;
+      }
+      const {
+        valueEnum,
+        render,
+        renderText,
+        mode,
+        plain,
+        dataIndex,
+        request,
+        params,
+        editable,
+        ...restItem
+      } = item as ProDescriptionsItemProps;
+      const title =
+        typeof restItem.title === 'function'
+          ? restItem.title(item, 'descriptions', restItem.title)
+          : restItem.title;
 
-    const defaultData = getDataFromConfig(item, entity);
-    const text = renderText ? renderText(defaultData, entity, index, action) : defaultData;
+      const defaultData = getDataFromConfig(item, entity);
+      const text = renderText ? renderText(defaultData, entity, index, action) : defaultData;
 
-    //  dataIndex 无所谓是否存在
-    // 有些时候不需要 dataIndex 可以直接 render
-    const valueType =
-      typeof restItem.valueType === 'function'
-        ? (restItem.valueType(entity || {}, 'descriptions') as ProFieldValueType)
-        : (restItem.valueType as ProFieldValueType);
+      //  dataIndex 无所谓是否存在
+      // 有些时候不需要 dataIndex 可以直接 render
+      const valueType =
+        typeof restItem.valueType === 'function'
+          ? (restItem.valueType(entity || {}, 'descriptions') as ProFieldValueType)
+          : (restItem.valueType as ProFieldValueType);
 
-    const isEditable = editableUtils?.isEditable(dataIndex || index);
+      const isEditable = editableUtils?.isEditable(dataIndex || index);
 
-    const fieldMode = mode || isEditable ? 'edit' : 'read';
+      const fieldMode = mode || isEditable ? 'edit' : 'read';
 
-    const showEditIcon =
-      editableUtils &&
-      fieldMode === 'read' &&
-      editable !== false &&
-      editable?.(text, entity, index) !== false;
+      const showEditIcon =
+        editableUtils &&
+        fieldMode === 'read' &&
+        editable !== false &&
+        editable?.(text, entity, index) !== false;
 
-    const Component = showEditIcon ? Space : React.Fragment;
-
-    const field = (
-      <Descriptions.Item
-        {...restItem}
-        key={restItem.label?.toString() || index}
-        label={
-          (title || restItem.label || restItem.tooltip || restItem.tip) && (
-            <LabelIconTip
-              label={title || restItem.label}
-              tooltip={restItem.tooltip || restItem.tip}
+      const Component = showEditIcon ? Space : React.Fragment;
+      const field = (
+        <Descriptions.Item
+          {...restItem}
+          key={restItem.label?.toString() || index}
+          label={
+            (title || restItem.label || restItem.tooltip || restItem.tip) && (
+              <LabelIconTip
+                label={title || restItem.label}
+                tooltip={restItem.tooltip || restItem.tip}
+              />
+            )
+          }
+        >
+          <Component>
+            <FieldRender
+              {...item}
+              mode={fieldMode}
+              text={text}
+              valueType={valueType}
+              entity={entity}
+              index={index}
+              action={action}
+              editableUtils={editableUtils}
             />
-          )
-        }
-      >
-        <Component>
-          <FieldRender
-            {...item}
-            mode={fieldMode}
-            text={text}
-            valueType={valueType}
-            entity={entity}
-            index={index}
-            action={action}
-            editableUtils={editableUtils}
-          />
-          {showEditIcon && valueType !== 'option' && (
-            <EditOutlined
-              onClick={() => {
-                editableUtils?.startEditable(dataIndex || index);
-              }}
-            />
-          )}
-        </Component>
-      </Descriptions.Item>
-    );
-    // 如果类型是 option 自动放到右上角
-    if (valueType === 'option') {
-      options.push(field);
-      return null;
-    }
-    return field;
-  });
+            {showEditIcon && valueType !== 'option' && (
+              <EditOutlined
+                onClick={() => {
+                  editableUtils?.startEditable(dataIndex || index);
+                }}
+              />
+            )}
+          </Component>
+        </Descriptions.Item>
+      );
+      // 如果类型是 option 自动放到右上角
+      if (valueType === 'option') {
+        options.push(field);
+        return null;
+      }
+      return field;
+    })
+    .filter((item) => item);
   return {
     // 空数组传递还是会被判定为有值
     options: options?.length ? options : null,
@@ -419,7 +420,10 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
       if (!valueType && !valueEnum && !dataIndex && !itemRequest) {
         return item;
       }
-      return item.props;
+      return {
+        ...item.props,
+        entity: dataSource,
+      };
     });
     return [...(columns || []), ...childrenColumns]
       .filter((item) => {
@@ -453,7 +457,6 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
   }
 
   const className = context.getPrefixCls('pro-descriptions');
-
   return (
     <ErrorBoundary>
       <FormComponent

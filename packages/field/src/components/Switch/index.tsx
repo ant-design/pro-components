@@ -18,7 +18,7 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
     if (render) {
       return render(text, { mode, ...fieldProps }, <>{dom}</>);
     }
-    return dom || '-';
+    return dom ?? '-';
   }
   if (mode === 'edit' || mode === 'update') {
     const dom = (

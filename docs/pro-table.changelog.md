@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.34.5
+
+`2021-04-22`
+
+- 🐛 fix(utils): stop propagation icon event [#2566](https://github.com/ant-design/pro-components/pull/2566) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(utils): 修复 InlineErrorFormItem 的 Popover 问题 [#2546](https://github.com/ant-design/pro-components/pull/2546) [@xiefengnian](https://github.com/xiefengnian)
+- 🐛 fix(table): fix the problem of nested data reporting errors [#2578](https://github.com/ant-design/pro-components/pull/2578) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.34.2
 
 `2021-04-19`

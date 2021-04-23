@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.10...@ant-design/pro-card@1.11.11) (2021-04-22)
+
+### Bug Fixes
+
+- **utils:** stop propagation icon event ([#2566](https://github.com/ant-design/pro-components/issues/2566)) ([7f0cab6](https://github.com/ant-design/pro-components/commit/7f0cab6cec7b52fc9237e977521903308f19793b))
+
 ## [1.11.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.9...@ant-design/pro-card@1.11.10) (2021-04-19)
 
 **Note:** Version bump only for package @ant-design/pro-card

@@ -76,8 +76,8 @@ const useFetchData = <T extends RequestData<any>>(
   };
 
   // pre state
-  const prePage = usePrevious(pageInfo.current);
-  const prePageSize = usePrevious(pageInfo.pageSize);
+  const prePage = usePrevious(pageInfo?.current);
+  const prePageSize = usePrevious(pageInfo?.pageSize);
   const prePolling = usePrevious(polling);
 
   const { effects = [] } = options || {};
@@ -179,6 +179,7 @@ const useFetchData = <T extends RequestData<any>>(
     return () => {
       clearTimeout(pollingSetTimeRef.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [polling]);
 
   useEffect(
@@ -204,7 +205,8 @@ const useFetchData = <T extends RequestData<any>>(
     if (current !== undefined && list && list.length <= pageSize) {
       fetchListDebounce.run(false);
     }
-  }, [pageInfo.current]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageInfo?.current]);
 
   // pageSize 修改后返回第一页
   useEffect(() => {
@@ -212,6 +214,7 @@ const useFetchData = <T extends RequestData<any>>(
       return;
     }
     fetchListDebounce.run(false);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageInfo.pageSize]);
 
   useDeepCompareEffect(() => {

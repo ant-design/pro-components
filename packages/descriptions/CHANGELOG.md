@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.4...@ant-design/pro-descriptions@1.7.5) (2021-04-22)
+
+### Bug Fixes
+
+- **form:** support moneySymbol=undefined ([#2579](https://github.com/ant-design/pro-components/issues/2579)) ([029482d](https://github.com/ant-design/pro-components/commit/029482d557c8de3cb761af59560aa5e7a9166082))
+
 ## [1.7.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.3...@ant-design/pro-descriptions@1.7.4) (2021-04-19)
 
 ### Bug Fixes

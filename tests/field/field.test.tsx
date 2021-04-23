@@ -414,7 +414,7 @@ describe('Field', () => {
           text="100"
           valueType={{
             type: 'money',
-            moneySymbol: '',
+            moneySymbol: false,
             locale,
           }}
           mode="read"

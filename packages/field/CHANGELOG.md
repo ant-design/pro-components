@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.3...@ant-design/pro-field@1.15.4) (2021-04-22)
+
+### Bug Fixes
+
+- **form:** support moneySymbol=undefined ([#2579](https://github.com/ant-design/pro-components/issues/2579)) ([029482d](https://github.com/ant-design/pro-components/commit/029482d557c8de3cb761af59560aa5e7a9166082))
+
 ## [1.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.2...@ant-design/pro-field@1.15.3) (2021-04-19)
 
 ### Bug Fixes

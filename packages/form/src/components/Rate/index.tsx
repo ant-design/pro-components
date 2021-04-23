@@ -17,4 +17,6 @@ const ProFormRate: React.ForwardRefRenderFunction<any, ProFormItemProps<RateProp
   );
 };
 
-export default createField<ProFormItemProps<RateProps>>(React.forwardRef(ProFormRate));
+export default createField<ProFormItemProps<RateProps>>(React.forwardRef(ProFormRate), {
+  ignoreWidth: true,
+});

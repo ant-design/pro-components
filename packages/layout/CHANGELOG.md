@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.6...@ant-design/pro-layout@6.17.0) (2021-04-22)
+
+### Bug Fixes
+
+- **layout:** routes change should reload menu ([#2573](https://github.com/ant-design/pro-components/issues/2573)) ([2862886](https://github.com/ant-design/pro-components/commit/2862886b588bd0c10432b9a7ca139c0650f4551f))
+
+### Features
+
+- **layout:** layout support params ([#2545](https://github.com/ant-design/pro-components/issues/2545)) ([d4cbda4](https://github.com/ant-design/pro-components/commit/d4cbda4c62bd1326623604a00a501b5af4f79f49))
+
 ## [6.16.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.5...@ant-design/pro-layout@6.16.6) (2021-04-19)
 
 ### Bug Fixes

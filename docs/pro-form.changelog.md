@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.21.5
+
+`2021-04-22`
+
+- 🐛 fix(form): support moneySymbol=undefined [#2579](https://github.com/ant-design/pro-components/pull/2579) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): sync url should no alawys set reset [#2568](https://github.com/ant-design/pro-components/pull/2568) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix transformKeySubmitValue will gen null value error [#2571](https://github.com/ant-design/pro-components/pull/2571) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.21.2
 
 `2021-04-19`
