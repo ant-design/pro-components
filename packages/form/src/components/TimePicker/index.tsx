@@ -41,13 +41,17 @@ const TimePicker: React.FC<ProFormItemProps<DatePickerProps>> = ({ fieldProps, p
 const ProFormTimePicker = createField<ProFormItemProps<DatePickerProps>>(TimePicker, {
   customLightMode: true,
   valueType,
-}) as React.FC<ProFormItemProps<DatePickerProps>> & {
-  RangePicker: React.FC<ProFormItemProps<DatePickerProps>>;
-};
+});
 
-ProFormTimePicker.RangePicker = createField<ProFormItemProps<DatePickerProps>>(TimeRangePicker, {
+const RangePicker = createField<ProFormItemProps<DatePickerProps>>(TimeRangePicker, {
   valueType: 'timeRange',
   lightFilterLabelFormatter: (value) => dateArrayFormatter(value, 'HH:mm:SS'),
-}) as React.FC<ProFormItemProps<DatePickerProps>>;
+});
 
-export default ProFormTimePicker;
+const WrappedProFormTimePicker: typeof ProFormTimePicker & {
+  RangePicker: typeof RangePicker;
+} = ProFormTimePicker as any;
+
+WrappedProFormTimePicker.RangePicker = RangePicker;
+
+export default WrappedProFormTimePicker;

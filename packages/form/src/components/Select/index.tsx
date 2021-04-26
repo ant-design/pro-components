@@ -97,12 +97,16 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps>(
 
 const ProFormSelect = createField<ProFormSelectProps>(ProFormSelectComponents, {
   customLightMode: true,
-}) as React.FunctionComponent<ProFormSelectProps> & {
-  SearchSelect: React.FunctionComponent<ProFormSelectProps>;
-};
+});
 
-ProFormSelect.SearchSelect = createField<ProFormSelectProps>(SearchSelect, {
+const ProFormSearchSelect = createField<ProFormSelectProps>(SearchSelect, {
   customLightMode: true,
-}) as React.FunctionComponent<ProFormSelectProps>;
+});
 
-export default ProFormSelect;
+const WrappedProFormSelect: typeof ProFormSelect & {
+  SearchSelect: typeof ProFormSearchSelect;
+} = ProFormSelect as any;
+
+WrappedProFormSelect.SearchSelect = ProFormSearchSelect;
+
+export default WrappedProFormSelect;
