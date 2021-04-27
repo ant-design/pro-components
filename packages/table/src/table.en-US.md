@@ -344,7 +344,7 @@ Sometimes we want to manually trigger actions such as reload of a table, we can 
 
 ```tsx | pure
 interface ActionType {
-  reload: (resetPageIndex?: boolean) => void;
+  reload: (resetPageInfo?: { current?: number; pageSize?: number }) => void;
   reloadAndRest: () => void;
   reset: () => void;
   clearSelected?: () => void;
