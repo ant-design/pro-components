@@ -24,9 +24,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     subTitle,
     extra,
     tip,
+    wrap = false,
     layout,
     loading,
-    colSpan,
     gutter = 0,
     tooltip,
     split,
@@ -91,81 +91,71 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     return withStyle ? appendStyle : {};
   };
 
+  const getColSpanStyle = (colSpan: CardProps['colSpan']) => {
+    let span = colSpan;
+
+    // colSpan 响应式
+    if (typeof colSpan === 'object') {
+      for (let i = 0; i < responsiveArray.length; i += 1) {
+        const breakpoint: Breakpoint = responsiveArray[i];
+        if (screens[breakpoint] && colSpan[breakpoint] !== undefined) {
+          span = colSpan[breakpoint];
+          break;
+        }
+      }
+    }
+
+    // 当 colSpan 为 30% 或 300px 时
+    const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
+      width: span as string,
+      flexShrink: 0,
+    });
+
+    return { span, colSpanStyle };
+  };
+
   const prefixCls = getPrefixCls('pro-card');
 
   const normalizedGutter = getNormalizedGutter(gutter);
 
   // 判断是否套了卡片，如果套了的话将自身卡片内部内容的 padding 设置为0
-  let containProCard;
+  let containProCard = false;
   const childrenArray = React.Children.toArray(children) as ProCardChildType[];
 
   const childrenModified = childrenArray.map((element, index) => {
     if (element?.type?.isProCard) {
       containProCard = true;
 
-      // 右侧空隙
-      const gutterRightStyle = getStyle(
-        normalizedGutter[0]! > 0 && index !== childrenArray.length - 1,
-        {
-          marginRight: normalizedGutter[0],
-        },
+      // 宽度
+      const { colSpan } = element.props;
+      const { span, colSpanStyle } = getColSpanStyle(colSpan);
+
+      const columnClassName = classNames([`${prefixCls}-col`], {
+        [`${prefixCls}-split-vertical`]: split === 'vertical' && index !== childrenArray.length - 1,
+        [`${prefixCls}-split-horizontal`]:
+          split === 'horizontal' && index !== childrenArray.length - 1,
+        [`${prefixCls}-col-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
+      });
+
+      return (
+        <div
+          style={{
+            ...colSpanStyle,
+            ...getStyle(normalizedGutter[0]! > 0, {
+              paddingRight: normalizedGutter[0] / 2,
+              paddingLeft: normalizedGutter[0] / 2,
+            }),
+          }}
+          className={columnClassName}
+        >
+          {React.cloneElement(element)}
+        </div>
       );
-
-      // 下方空隙
-      const gutterBottomStyle = getStyle(normalizedGutter[1]! > 0, {
-        marginBottom: normalizedGutter[1],
-      });
-
-      // 当 split 有值时，内部卡片 radius 设置为 0
-      const splitStyle = getStyle(split === 'vertical' || split === 'horizontal', {
-        borderRadius: 0,
-      });
-
-      return React.cloneElement(element, {
-        className: classNames(element.props.className, {
-          // 横纵切割
-          [`${prefixCls}-split-vertical`]:
-            split === 'vertical' && index !== childrenArray.length - 1,
-          [`${prefixCls}-split-horizontal`]:
-            split === 'horizontal' && index !== childrenArray.length - 1,
-        }),
-        style: {
-          ...gutterRightStyle,
-          ...gutterBottomStyle,
-          ...splitStyle,
-          ...element.props.style,
-        },
-      });
     }
     return element;
   });
 
-  let span = colSpan;
-
-  // colSpan 响应式
-  if (typeof colSpan === 'object') {
-    for (let i = 0; i < responsiveArray.length; i += 1) {
-      const breakpoint: Breakpoint = responsiveArray[i];
-      if (screens[breakpoint] && colSpan[breakpoint] !== undefined) {
-        span = colSpan[breakpoint];
-        break;
-      }
-    }
-  }
-
-  // 当 colSpan 为 30% 或 300px 时
-  const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
-    width: span as string,
-    flexShrink: 0,
-  });
-
-  const cardStyle = {
-    ...colSpanStyle,
-    ...style,
-  };
-
   const cardCls = classNames(`${prefixCls}`, className, {
-    [`${prefixCls}-span-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
     [`${prefixCls}-border`]: bordered,
     [`${prefixCls}-contain-card`]: containProCard,
     [`${prefixCls}-loading`]: loading,
@@ -177,22 +167,30 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     [`${prefixCls}-collapse`]: collapsed,
   });
 
-  const headerCls = classNames(`${prefixCls}-header`, {
-    [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
-  });
-
   const bodyCls = classNames(`${prefixCls}-body`, {
     [`${prefixCls}-body-center`]: layout === 'center',
-    [`${prefixCls}-body-column`]: split === 'horizontal' || direction === 'column',
+    [`${prefixCls}-body-direction-column`]: split === 'horizontal' || direction === 'column',
+    [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 
-  const loadingBlockStyle =
-    bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined;
+  const cardBodyStyle = {
+    ...getStyle(normalizedGutter[0]! > 0, {
+      marginRight: -normalizedGutter[0] / 2,
+      marginLeft: -normalizedGutter[0] / 2,
+    }),
+    ...getStyle(normalizedGutter[1]! > 0, {
+      rowGap: normalizedGutter[1],
+    }),
+    ...bodyStyle,
+  };
 
   const loadingDOM = React.isValidElement(loading) ? (
     loading
   ) : (
-    <CardLoading prefix={prefixCls} style={loadingBlockStyle} />
+    <CardLoading
+      prefix={prefixCls}
+      style={bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined}
+    />
   );
 
   // 非受控情况下展示
@@ -203,22 +201,25 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     />
   );
 
-  const titleCls = classNames(`${prefixCls}-title`, {
-    [`${prefixCls}-title-collapsible`]: collapsibleButton,
-  });
-
-  /** 操作按钮 */
-  const actionDom = <Actions actions={actions} prefixCls={prefixCls} />;
   return (
-    <div className={cardCls} style={cardStyle} ref={ref} {...omit(rest, ['id', 'prefixCls'])}>
+    <div
+      className={cardCls}
+      style={style}
+      ref={ref}
+      {...omit(rest, ['id', 'prefixCls', 'colSpan'])}
+    >
       {(title || extra || collapsibleButton) && (
-        <div className={headerCls} style={headStyle}>
-          <div
-            className={titleCls}
-            onClick={() => {
-              if (collapsibleButton) setCollapsed(!collapsed);
-            }}
-          >
+        <div
+          className={classNames(`${prefixCls}-header`, {
+            [`${prefixCls}-header-border`]: headerBordered || type === 'inner',
+            [`${prefixCls}-header-collapsible`]: collapsibleButton,
+          })}
+          style={headStyle}
+          onClick={() => {
+            if (collapsibleButton) setCollapsed(!collapsed);
+          }}
+        >
+          <div className={`${prefixCls}-title`}>
             {collapsibleButton}
             <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
           </div>
@@ -232,11 +233,11 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
           </Tabs>
         </div>
       ) : (
-        <div className={bodyCls} style={bodyStyle}>
+        <div className={bodyCls} style={cardBodyStyle}>
           {loading ? loadingDOM : childrenModified}
         </div>
       )}
-      {actionDom}
+      {<Actions actions={actions} prefixCls={prefixCls} />}
     </div>
   );
 });

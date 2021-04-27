@@ -11,10 +11,10 @@ export default () => {
     <RcResizeObserver
       key="resize-observer"
       onResize={(offset) => {
-        setResponsive(offset.width < 640);
+        setResponsive(offset.width < 596);
       }}
     >
-      <StatisticCard.Group title="核心指标" direction={responsive ? 'column' : undefined}>
+      <StatisticCard.Group title="核心指标" direction={responsive ? 'column' : 'row'}>
         <StatisticCard
           statistic={{
             title: '今日UV',

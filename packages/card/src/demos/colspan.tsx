@@ -18,7 +18,7 @@ export default () => {
           colSpan - 0
         </ProCard>
       </ProCard>
-      <ProCard gutter={8} title="24栅格">
+      <ProCard gutter={8} title="24栅格" style={{ marginTop: 8 }}>
         <ProCard colSpan={12} layout="center" bordered>
           colSpan-12
         </ProCard>

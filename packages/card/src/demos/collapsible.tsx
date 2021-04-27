@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import ProCard from '@ant-design/pro-card';
 
@@ -13,6 +14,16 @@ export default () => {
         collapsible
         defaultCollapsed
         onCollapse={(collapse) => console.log(collapse)}
+        extra={
+          <Button
+            size="small"
+            onClick={(e) => {
+              e.stopPropagation();
+            }}
+          >
+            提交
+          </Button>
+        }
       >
         内容
       </ProCard>

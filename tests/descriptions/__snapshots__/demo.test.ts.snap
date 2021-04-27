@@ -1020,210 +1020,214 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
     class="ant-pro-card-body"
   >
     <div
-      class="ant-pro-card ant-pro-card-split-vertical"
-      style="flex-shrink: 0; border-radius: 0;"
+      class="ant-pro-card-col ant-pro-card-split-vertical"
+      style="flex-shrink: 0;"
     >
       <div
-        class="ant-pro-card-body"
+        class="ant-pro-card"
       >
         <div
-          class="ant-descriptions ant-pro-descriptions"
+          class="ant-pro-card-body"
         >
           <div
-            class="ant-descriptions-header"
+            class="ant-descriptions ant-pro-descriptions"
           >
             <div
-              class="ant-descriptions-title"
-            >
-              高级定义列表
-            </div>
-            <div
-              class="ant-descriptions-extra"
+              class="ant-descriptions-header"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+                class="ant-descriptions-title"
+              >
+                高级定义列表
+              </div>
+              <div
+                class="ant-descriptions-extra"
               >
                 <div
-                  class="ant-space-item"
-                  style="margin-right: 16px;"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
                 >
-                  <a
-                    rel="noopener noreferrer"
-                    target="_blank"
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 16px;"
                   >
-                    链路
-                  </a>
-                </div>
-                <div
-                  class="ant-space-item"
-                  style="margin-right: 16px;"
-                >
-                  <a
-                    rel="noopener noreferrer"
-                    target="_blank"
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      链路
+                    </a>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 16px;"
                   >
-                    报警
-                  </a>
-                </div>
-                <div
-                  class="ant-space-item"
-                >
-                  <a
-                    rel="noopener noreferrer"
-                    target="_blank"
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      报警
+                    </a>
+                  </div>
+                  <div
+                    class="ant-space-item"
                   >
-                    查看
-                  </a>
+                    <a
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      查看
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="ant-descriptions-view"
-          >
-            <table>
-              <tbody>
-                <tr
-                  class="ant-descriptions-row"
-                >
-                  <td
-                    class="ant-descriptions-item"
-                    colspan="1"
+            <div
+              class="ant-descriptions-view"
+            >
+              <table>
+                <tbody>
+                  <tr
+                    class="ant-descriptions-row"
                   >
-                    <div
-                      class="ant-descriptions-item-container"
+                    <td
+                      class="ant-descriptions-item"
+                      colspan="1"
                     >
-                      <span
-                        class="ant-descriptions-item-label"
-                      >
-                        文本
-                      </span>
-                      <span
-                        class="ant-descriptions-item-content"
-                      >
-                        这是一段文本columns
-                      </span>
-                    </div>
-                  </td>
-                  <td
-                    class="ant-descriptions-item"
-                    colspan="1"
-                  >
-                    <div
-                      class="ant-descriptions-item-container"
-                    >
-                      <span
-                        class="ant-descriptions-item-label"
-                      >
-                        状态
-                      </span>
-                      <span
-                        class="ant-descriptions-item-content"
+                      <div
+                        class="ant-descriptions-item-container"
                       >
                         <span
-                          class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                          class="ant-descriptions-item-label"
+                        >
+                          文本
+                        </span>
+                        <span
+                          class="ant-descriptions-item-content"
+                        >
+                          这是一段文本columns
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="ant-descriptions-item"
+                      colspan="1"
+                    >
+                      <div
+                        class="ant-descriptions-item-container"
+                      >
+                        <span
+                          class="ant-descriptions-item-label"
+                        >
+                          状态
+                        </span>
+                        <span
+                          class="ant-descriptions-item-content"
                         >
                           <span
-                            class="ant-badge-status-dot ant-badge-status-default"
-                          />
-                          <span
-                            class="ant-badge-status-text"
+                            class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
                           >
-                            全部
+                            <span
+                              class="ant-badge-status-dot ant-badge-status-default"
+                            />
+                            <span
+                              class="ant-badge-status-text"
+                            >
+                              全部
+                            </span>
                           </span>
                         </span>
-                      </span>
-                    </div>
-                  </td>
-                  <td
-                    class="ant-descriptions-item"
-                    colspan="1"
-                  >
-                    <div
-                      class="ant-descriptions-item-container"
+                      </div>
+                    </td>
+                    <td
+                      class="ant-descriptions-item"
+                      colspan="1"
                     >
-                      <span
-                        class="ant-descriptions-item-label"
+                      <div
+                        class="ant-descriptions-item-container"
                       >
-                        状态2
-                      </span>
-                      <span
-                        class="ant-descriptions-item-content"
-                      >
-                        open
-                      </span>
-                    </div>
-                  </td>
-                </tr>
-                <tr
-                  class="ant-descriptions-row"
-                >
-                  <td
-                    class="ant-descriptions-item"
-                    colspan="1"
-                  >
-                    <div
-                      class="ant-descriptions-item-container"
-                    >
-                      <span
-                        class="ant-descriptions-item-label"
-                      >
-                        时间
-                      </span>
-                      <span
-                        class="ant-descriptions-item-content"
-                      >
-                        <span>
-                          2020-08-09
+                        <span
+                          class="ant-descriptions-item-label"
+                        >
+                          状态2
                         </span>
-                      </span>
-                    </div>
-                  </td>
-                  <td
-                    class="ant-descriptions-item"
-                    colspan="1"
-                  >
-                    <div
-                      class="ant-descriptions-item-container"
-                    >
-                      <span
-                        class="ant-descriptions-item-label"
-                      >
-                        money
-                      </span>
-                      <span
-                        class="ant-descriptions-item-content"
-                      >
-                        <span>
-                          ￥ 1212100
+                        <span
+                          class="ant-descriptions-item-content"
+                        >
+                          open
                         </span>
-                      </span>
-                    </div>
-                  </td>
-                  <td
-                    class="ant-descriptions-item"
-                    colspan="1"
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    class="ant-descriptions-row"
                   >
-                    <div
-                      class="ant-descriptions-item-container"
+                    <td
+                      class="ant-descriptions-item"
+                      colspan="1"
                     >
-                      <span
-                        class="ant-descriptions-item-label"
+                      <div
+                        class="ant-descriptions-item-container"
                       >
-                        百分比
-                      </span>
-                      <span
-                        class="ant-descriptions-item-content"
-                      >
-                        <span>
-                          20.00%
+                        <span
+                          class="ant-descriptions-item-label"
+                        >
+                          时间
                         </span>
-                      </span>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+                        <span
+                          class="ant-descriptions-item-content"
+                        >
+                          <span>
+                            2020-08-09
+                          </span>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="ant-descriptions-item"
+                      colspan="1"
+                    >
+                      <div
+                        class="ant-descriptions-item-container"
+                      >
+                        <span
+                          class="ant-descriptions-item-label"
+                        >
+                          money
+                        </span>
+                        <span
+                          class="ant-descriptions-item-content"
+                        >
+                          <span>
+                            ￥ 1212100
+                          </span>
+                        </span>
+                      </div>
+                    </td>
+                    <td
+                      class="ant-descriptions-item"
+                      colspan="1"
+                    >
+                      <div
+                        class="ant-descriptions-item-container"
+                      >
+                        <span
+                          class="ant-descriptions-item-label"
+                        >
+                          百分比
+                        </span>
+                        <span
+                          class="ant-descriptions-item-content"
+                        >
+                          <span>
+                            20.00%
+                          </span>
+                        </span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
@@ -1237,7 +1241,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
       />
       <div
         class="ant-pro-card"
-        style="width: 500px; flex-shrink: 0;"
       >
         <div
           class="ant-pro-card-header"
