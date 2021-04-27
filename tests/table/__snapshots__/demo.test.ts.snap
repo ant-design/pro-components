@@ -17041,7 +17041,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
     class="ant-pro-card-body"
   >
     <div
-      class="ant-pro-card-column ant-pro-card-split-vertical"
+      class="ant-pro-card-col ant-pro-card-split-vertical"
     >
       <div
         class="ant-pro-card"
@@ -37044,7 +37044,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
     class="ant-pro-card-body"
   >
     <div
-      class="ant-pro-card-column ant-pro-card-split-vertical"
+      class="ant-pro-card-col ant-pro-card-split-vertical"
       style="width: 384px; flex-shrink: 0;"
     >
       <div
@@ -37637,7 +37637,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
       </div>
     </div>
     <div
-      class="ant-pro-card-column"
+      class="ant-pro-card-col"
     >
       <div
         class="ant-pro-card"

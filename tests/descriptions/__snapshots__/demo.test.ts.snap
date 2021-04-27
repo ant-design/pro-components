@@ -1020,7 +1020,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
     class="ant-pro-card-body"
   >
     <div
-      class="ant-pro-card-column ant-pro-card-split-vertical"
+      class="ant-pro-card-col ant-pro-card-split-vertical"
       style="flex-shrink: 0;"
     >
       <div

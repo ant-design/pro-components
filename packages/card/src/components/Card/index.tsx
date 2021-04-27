@@ -27,7 +27,6 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     wrap = false,
     layout,
     loading,
-    // colSpan,
     gutter = 0,
     tooltip,
     split,
@@ -92,57 +91,60 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     return withStyle ? appendStyle : {};
   };
 
+  const getColSpanStyle = (colSpan: CardProps['colSpan']) => {
+    let span = colSpan;
+
+    // colSpan 响应式
+    if (typeof colSpan === 'object') {
+      for (let i = 0; i < responsiveArray.length; i += 1) {
+        const breakpoint: Breakpoint = responsiveArray[i];
+        if (screens[breakpoint] && colSpan[breakpoint] !== undefined) {
+          span = colSpan[breakpoint];
+          break;
+        }
+      }
+    }
+
+    // 当 colSpan 为 30% 或 300px 时
+    const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
+      width: span as string,
+      flexShrink: 0,
+    });
+
+    return { span, colSpanStyle };
+  };
+
   const prefixCls = getPrefixCls('pro-card');
 
   const normalizedGutter = getNormalizedGutter(gutter);
 
   // 判断是否套了卡片，如果套了的话将自身卡片内部内容的 padding 设置为0
-  let containProCard;
+  let containProCard = false;
   const childrenArray = React.Children.toArray(children) as ProCardChildType[];
 
   const childrenModified = childrenArray.map((element, index) => {
     if (element?.type?.isProCard) {
       containProCard = true;
 
-      // 间隙
-      const gutterStyle = getStyle(normalizedGutter[0]! > 0, {
-        paddingRight: normalizedGutter[0] / 2,
-        paddingLeft: normalizedGutter[0] / 2,
-      });
-
       // 宽度
       const { colSpan } = element.props;
-      let span = colSpan;
+      const { span, colSpanStyle } = getColSpanStyle(colSpan);
 
-      // colSpan 响应式
-      if (typeof colSpan === 'object') {
-        for (let i = 0; i < responsiveArray.length; i += 1) {
-          const breakpoint: Breakpoint = responsiveArray[i];
-          if (screens[breakpoint] && colSpan[breakpoint] !== undefined) {
-            span = colSpan[breakpoint];
-            break;
-          }
-        }
-      }
-
-      // 当 colSpan 为 30% 或 300px 时
-      const colSpanStyle = getStyle(typeof span === 'string' && /\d%|\dpx/i.test(span), {
-        width: span as string,
-        flexShrink: 0,
-      });
-
-      const columnClassName = classNames([`${prefixCls}-column`], {
+      const columnClassName = classNames([`${prefixCls}-col`], {
         [`${prefixCls}-split-vertical`]: split === 'vertical' && index !== childrenArray.length - 1,
         [`${prefixCls}-split-horizontal`]:
           split === 'horizontal' && index !== childrenArray.length - 1,
-        [`${prefixCls}-span-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
+        [`${prefixCls}-col-${span}`]: typeof span === 'number' && span >= 0 && span <= 24,
       });
 
       return (
         <div
           style={{
             ...colSpanStyle,
-            ...gutterStyle,
+            ...getStyle(normalizedGutter[0]! > 0, {
+              paddingRight: normalizedGutter[0] / 2,
+              paddingLeft: normalizedGutter[0] / 2,
+            }),
           }}
           className={columnClassName}
         >
@@ -167,7 +169,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   const bodyCls = classNames(`${prefixCls}-body`, {
     [`${prefixCls}-body-center`]: layout === 'center',
-    [`${prefixCls}-body-column`]: split === 'horizontal' || direction === 'column',
+    [`${prefixCls}-body-direction-column`]: split === 'horizontal' || direction === 'column',
     [`${prefixCls}-body-wrap`]: wrap && containProCard,
   });
 

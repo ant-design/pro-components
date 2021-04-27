@@ -30,10 +30,9 @@ describe('Card', () => {
       <ProCard
         style={{ marginTop: 8 }}
         gutter={[{ xs: 8, sm: 8, md: 16, lg: 24, xl: 32, xxl: 32 }, 16]}
-        colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10, xxl: 12 }}
         title="24栅格"
       >
-        Col
+        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10, xxl: 12 }}>Col</ProCard>
       </ProCard>,
     );
 

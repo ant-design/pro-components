@@ -286,11 +286,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
             >
               <div
-                class="ant-pro-card-body ant-pro-card-body-column"
+                class="ant-pro-card-body ant-pro-card-body-direction-column"
                 style="row-gap: 16px;"
               >
                 <div
-                  class="ant-pro-card-column"
+                  class="ant-pro-card-col"
                 >
                   <div
                     class="ant-pro-card"
@@ -302,7 +302,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   </div>
                 </div>
                 <div
-                  class="ant-pro-card-column"
+                  class="ant-pro-card-col"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -313,7 +313,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                       style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
-                        class="ant-pro-card-column ant-pro-card-span-16"
+                        class="ant-pro-card-col ant-pro-card-col-16"
                         style="padding-right: 8px; padding-left: 8px;"
                       >
                         <div
@@ -325,7 +325,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         </div>
                       </div>
                       <div
-                        class="ant-pro-card-column ant-pro-card-span-8"
+                        class="ant-pro-card-col ant-pro-card-col-8"
                         style="padding-right: 8px; padding-left: 8px;"
                       >
                         <div
@@ -612,11 +612,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
             >
               <div
-                class="ant-pro-card-body ant-pro-card-body-column"
+                class="ant-pro-card-body ant-pro-card-body-direction-column"
                 style="row-gap: 16px;"
               >
                 <div
-                  class="ant-pro-card-column"
+                  class="ant-pro-card-col"
                 >
                   <div
                     class="ant-pro-card"
@@ -628,7 +628,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   </div>
                 </div>
                 <div
-                  class="ant-pro-card-column"
+                  class="ant-pro-card-col"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -639,7 +639,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                       style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
-                        class="ant-pro-card-column ant-pro-card-span-16"
+                        class="ant-pro-card-col ant-pro-card-col-16"
                         style="padding-right: 8px; padding-left: 8px;"
                       >
                         <div
@@ -651,7 +651,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         </div>
                       </div>
                       <div
-                        class="ant-pro-card-column ant-pro-card-span-8"
+                        class="ant-pro-card-col ant-pro-card-col-8"
                         style="padding-right: 8px; padding-left: 8px;"
                       >
                         <div
@@ -837,11 +837,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
             >
               <div
-                class="ant-pro-card-body ant-pro-card-body-column"
+                class="ant-pro-card-body ant-pro-card-body-direction-column"
                 style="row-gap: 16px;"
               >
                 <div
-                  class="ant-pro-card-column"
+                  class="ant-pro-card-col"
                 >
                   <div
                     class="ant-pro-card"
@@ -853,7 +853,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   </div>
                 </div>
                 <div
-                  class="ant-pro-card-column"
+                  class="ant-pro-card-col"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -864,7 +864,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                       style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
-                        class="ant-pro-card-column ant-pro-card-span-16"
+                        class="ant-pro-card-col ant-pro-card-col-16"
                         style="padding-right: 8px; padding-left: 8px;"
                       >
                         <div
@@ -876,7 +876,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                         </div>
                       </div>
                       <div
-                        class="ant-pro-card-column ant-pro-card-span-8"
+                        class="ant-pro-card-col ant-pro-card-col-8"
                         style="padding-right: 8px; padding-left: 8px;"
                       >
                         <div
@@ -1042,7 +1042,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
       class="ant-pro-card-body"
     >
       <div
-        class="ant-pro-card-column ant-pro-card-split-vertical"
+        class="ant-pro-card-col ant-pro-card-split-vertical"
         style="width: 70%; flex-shrink: 0;"
       >
         <div
@@ -1089,7 +1089,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
         </div>
       </div>
       <div
-        class="ant-pro-card-column"
+        class="ant-pro-card-col"
       >
         <div
           class="ant-pro-card"
@@ -9652,11 +9652,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                       class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
                     >
                       <div
-                        class="ant-pro-card-body ant-pro-card-body-column"
+                        class="ant-pro-card-body ant-pro-card-body-direction-column"
                         style="row-gap: 16px;"
                       >
                         <div
-                          class="ant-pro-card-column"
+                          class="ant-pro-card-col"
                         >
                           <div
                             class="ant-pro-card"
@@ -9668,7 +9668,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                           </div>
                         </div>
                         <div
-                          class="ant-pro-card-column"
+                          class="ant-pro-card-col"
                         >
                           <div
                             class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -9679,7 +9679,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                               style="margin-right: -8px; margin-left: -8px;"
                             >
                               <div
-                                class="ant-pro-card-column ant-pro-card-span-16"
+                                class="ant-pro-card-col ant-pro-card-col-16"
                                 style="padding-right: 8px; padding-left: 8px;"
                               >
                                 <div
@@ -9691,7 +9691,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                                 </div>
                               </div>
                               <div
-                                class="ant-pro-card-column ant-pro-card-span-8"
+                                class="ant-pro-card-col ant-pro-card-col-8"
                                 style="padding-right: 8px; padding-left: 8px;"
                               >
                                 <div
