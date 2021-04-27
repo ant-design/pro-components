@@ -39,23 +39,26 @@ export type ProFormCheckboxProps = ProFormItemProps<CheckboxProps>;
  *
  * @param
  */
-const ProFormCheckbox: React.FC<ProFormCheckboxProps> = React.forwardRef<any, ProFormCheckboxProps>(
-  ({ fieldProps, children }, ref) => {
-    return (
-      <Checkbox ref={ref} {...fieldProps}>
-        {children}
-      </Checkbox>
-    );
-  },
-);
+const ProFormCheckboxComponents: React.FC<ProFormCheckboxProps> = React.forwardRef<
+  any,
+  ProFormCheckboxProps
+>(({ fieldProps, children }, ref) => {
+  return (
+    <Checkbox ref={ref} {...fieldProps}>
+      {children}
+    </Checkbox>
+  );
+});
+
+const ProFormCheckbox = createField<ProFormCheckboxProps>(ProFormCheckboxComponents, {
+  valuePropName: 'checked',
+});
 
 const Group = createField(CheckboxGroup);
 
-const WrappedProFormCheckbox: React.ComponentType<ProFormCheckboxProps> & {
+const WrappedProFormCheckbox: typeof ProFormCheckbox & {
   Group: typeof Group;
-} = createField<ProFormCheckboxProps>(ProFormCheckbox, {
-  valuePropName: 'checked',
-}) as any;
+} = ProFormCheckbox as any;
 
 WrappedProFormCheckbox.Group = Group;
 
