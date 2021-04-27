@@ -350,7 +350,7 @@ export type OptionConfig = {
 
 ```tsx | pure
 interface ActionType {
-  reload: (resetPageIndex?: boolean) => void;
+  reload: (resetPageInfo?: { current?: number; pageSize?: number }) => void;
   reloadAndRest: () => void;
   reset: () => void;
   clearSelected?: () => void;
