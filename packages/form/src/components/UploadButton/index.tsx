@@ -46,7 +46,7 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
   const showUploadButton =
     (max === undefined || !value || value?.length < max) && proFieldProps?.mode !== 'read';
 
-  const isPictureCard = fieldProps?.listType === 'picture-card';
+  const isPictureCard = (listType ?? fieldProps?.listType) === 'picture-card';
   return (
     <Upload
       action={action}
