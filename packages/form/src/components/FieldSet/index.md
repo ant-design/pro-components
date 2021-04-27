@@ -143,12 +143,12 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
 
 ```tsx | pure
-<ProFormDateTimePicker name="datetime" label="日期" />
+<ProFormDateTimePicker name="datetime" label="日期时间" />
 ```
 
 ### ProFormDateRangePicker
 
-与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
+与 [DatePicker.RangePicker](https://ant.design/components/date-picker-cn/#RangePicker) 相同。
 
 ```tsx | pure
 <ProFormDateRangePicker name="dateRange" label="日期" />
@@ -156,10 +156,10 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormDateTimeRangePicker
 
-与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
+与 [DatePicker.RangePicker](https://ant.design/components/date-picker-cn/#RangePicker) 相同。
 
 ```tsx | pure
-<ProFormDateRangePicker name="datetimeRange" label="日期" />
+<ProFormDateTimeRangePicker name="datetimeRange" label="日期时间" />
 ```
 
 ### ProFormTimePicker
@@ -173,7 +173,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormTextArea
 
-与 [Input](https://ant.design/components/input-cn/) 相同。
+与 [Input.TextArea](https://ant.design/components/input-cn/#Input.TextArea) 相同。
 
 ```tsx | pure
 <ProFormTextArea
