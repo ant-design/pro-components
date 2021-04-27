@@ -108,7 +108,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | menuExtraRender | 在菜单标题的下面渲染一个区域 | `(menuProps)=>ReactNode` | - |
 | onTopMixMenuHeaderClick | mix 模式下顶部栏的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout 的内容区 style | CSSProperties | - |
-| layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | `side` \| `top` | `side` |
+| layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | `side` \| `top`\|`mix` | `side` |
 | contentWidth | layout 的内容模式,Fluid：自适应，Fixed：定宽 1200px | `Fluid` \| `Fixed` | `Fluid` |
 | navTheme | 导航的主题，side 和 mix 模式下是左侧菜单的主题，top 模式下是顶部菜单 | `light` \| `dark` | `dark` |
 | actionRef | layout 的常见的操作，比如刷新菜单 | `MutableRefObject<ActionType>` | - |

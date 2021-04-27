@@ -107,7 +107,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /** @name 确定这个列的唯一值 */
   key?: React.ReactText;
   /**
-   * 支持一个数字，[a,b] 会转化为 obj.a.b
+   * 支持一个数组，[a,b] 会转化为 obj.a.b
    *
    * @name 与实体映射的key
    */
