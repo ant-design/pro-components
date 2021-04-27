@@ -1,6 +1,6 @@
-import React from 'react';
+import type React from 'react';
 import type { TablePaginationConfig } from 'antd';
-import { SortOrder } from 'antd/es/table/interface';
+import type { SortOrder } from 'antd/es/table/interface';
 
 import type { UseEditableUtilType } from '@ant-design/pro-utils';
 import type { IntlType } from '@ant-design/pro-provider';
@@ -84,12 +84,12 @@ export function useActionType<T>(
   const userAction: ActionType = {
     ...props.editableUtils,
     pageInfo: action.pageInfo,
-    reload: async (resetPageIndex?: boolean) => {
-      // 如果为 true，回到第一页
-      if (resetPageIndex) {
-        await props.onCleanSelected();
+    reload: async (resetPageInfo?) => {
+      props.onCleanSelected();
+      if (resetPageInfo) {
+        await action.setPageInfo(resetPageInfo);
       }
-      action?.reload();
+      await action?.reload();
     },
     reloadAndRest: async () => {
       // reload 之后大概率会切换数据，清空一下选择。

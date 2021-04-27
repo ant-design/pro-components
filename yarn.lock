@@ -7334,11 +7334,6 @@ dargs@^4.0.1:
   dependencies:
     number-is-nan "^1.0.0"
 
-darkreader@^4.9.26:
-  version "4.9.31"
-  resolved "https://registry.npm.taobao.org/darkreader/download/darkreader-4.9.31.tgz#f7bcdc0310bbff453f130be6a2de7d819da3c2a5"
-  integrity sha1-97zcAxC7/0U/Ewvmot59gZ2jwqU=
-
 dashdash@^1.12.0:
   version "1.14.1"
   resolved "https://registry.npm.taobao.org/dashdash/download/dashdash-1.14.1.tgz?cache=0&sync_timestamp=1601073333186&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdashdash%2Fdownload%2Fdashdash-1.14.1.tgz#853cfa0f7cbe2fed5de20326b8dd581035f6e2f0"
@@ -16936,14 +16931,6 @@ react-color@2.19.3:
     reactcss "^1.2.0"
     tinycolor2 "^1.4.1"
 
-react-darkreader@^1.3.3:
-  version "1.5.5"
-  resolved "https://registry.npm.taobao.org/react-darkreader/download/react-darkreader-1.5.5.tgz#8736799ec3fe9c0acadc2a6bbad03f4d8547fef1"
-  integrity sha1-hzZ5nsP+nArK3CprutA/TYVH/vE=
-  dependencies:
-    darkreader "^4.9.26"
-    react-switch "^6.0.0"
-
 react-docgen-typescript@^1.20.5:
   version "1.22.0"
   resolved "https://registry.npm.taobao.org/react-docgen-typescript/download/react-docgen-typescript-1.22.0.tgz#00232c8e8e47f4437cac133b879b3e9437284bee"
@@ -17057,13 +17044,6 @@ react-router@5.2.0:
     react-is "^16.6.0"
     tiny-invariant "^1.0.2"
     tiny-warning "^1.0.0"
-
-react-switch@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.npm.taobao.org/react-switch/download/react-switch-6.0.0.tgz#bd4a2dea08f211b8a32e55e8314fd44bc1ec947e"
-  integrity sha1-vUot6gjyEbijLlXoMU/US8HslH4=
-  dependencies:
-    prop-types "^15.7.2"
 
 react-test-renderer@^16.0.0-0, react-test-renderer@^16.9.0:
   version "16.14.0"
