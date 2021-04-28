@@ -183,7 +183,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
           {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
         </Space>
-        <Space className={`${prefixCls}-right`} size={16} wrap>
+        <Space className={`${prefixCls}-right`} size={16}>
           {hasTitle && searchNode ? (
             <div className={`${prefixCls}-search`}>{searchNode}</div>
           ) : null}
