@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { SwitchProps } from 'antd';
 import { Switch } from 'antd';
 import Omit from 'omit.js';
@@ -13,15 +13,21 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
   { text, mode, render, renderFormItem, fieldProps },
   ref,
 ) => {
+  const dom = useMemo(() => {
+    if (text === undefined || text === null || `${text}`.length < 1) {
+      return '-';
+    }
+    return text ? fieldProps?.checkedChildren ?? '打开' : fieldProps?.unCheckedChildren ?? '关闭';
+  }, [fieldProps?.checkedChildren, fieldProps?.unCheckedChildren, text]);
+
   if (mode === 'read') {
-    const dom = text ? fieldProps?.checkedChildren : fieldProps?.unCheckedChildren;
     if (render) {
       return render(text, { mode, ...fieldProps }, <>{dom}</>);
     }
     return dom ?? '-';
   }
   if (mode === 'edit' || mode === 'update') {
-    const dom = (
+    const editDom = (
       <Switch
         ref={ref}
         {...Omit(fieldProps, ['value'])}
@@ -29,9 +35,9 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
       />
     );
     if (renderFormItem) {
-      return renderFormItem(text, { mode, ...fieldProps }, dom);
+      return renderFormItem(text, { mode, ...fieldProps }, editDom);
     }
-    return dom;
+    return editDom;
   }
   return null;
 };
