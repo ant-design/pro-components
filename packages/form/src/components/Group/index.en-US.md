@@ -85,6 +85,9 @@ ProFormFieldSet can combine the values of multiple children inside and store the
 <ProFormFieldSet
   name="list"
   label="List of components"
+  // Two methods are supported, type="group" will be wrapped with input.group
+  // If not configured, use space by default
+  type="group"
   transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
 >
   <ProFormText width="md" />
