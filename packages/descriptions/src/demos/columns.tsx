@@ -14,6 +14,7 @@ export default () => {
             date: '20200809',
             money: '1212100',
             state: 'all',
+            switch: true,
             state2: 'open',
           },
         });
@@ -51,6 +52,12 @@ export default () => {
           key: 'date',
           dataIndex: 'date',
           valueType: 'date',
+        },
+        {
+          title: '开关',
+          key: 'switch',
+          dataIndex: 'switch',
+          valueType: 'switch',
         },
         {
           title: 'money',

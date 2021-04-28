@@ -597,6 +597,25 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
               <span
                 class="ant-descriptions-item-label"
               >
+                开关
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                打开
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
                 money
               </span>
               <span
@@ -608,9 +627,13 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
               </span>
             </div>
           </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
           <td
             class="ant-descriptions-item"
-            colspan="1"
+            colspan="3"
           >
             <div
               class="ant-descriptions-item-container"
