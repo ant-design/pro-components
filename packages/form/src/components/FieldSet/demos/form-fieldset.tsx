@@ -38,6 +38,17 @@ export default () => {
 
       <ProFormFieldSet
         name="list"
+        label="组件列表- Input.Group"
+        type="group"
+        transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
+      >
+        <ProFormText width="md" />
+        <ProFormText width="md" />
+        <ProFormText width="md" />
+      </ProFormFieldSet>
+
+      <ProFormFieldSet
+        name="list"
         label="组件列表"
         readonly
         transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
