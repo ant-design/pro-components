@@ -72,6 +72,9 @@ ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 Pr
 <ProFormFieldSet
   name="list"
   label="组件列表"
+  // 支持 两种方式，type="group" 会用input.group 包裹
+  // 如果不配置 默认使用 space
+  type="group"
   transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
 >
   <ProFormText width="md" />
