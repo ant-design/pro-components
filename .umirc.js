@@ -103,9 +103,9 @@ export default {
       }
     : false,
   hash: true,
-  ssr: {
-    devServerRender: false,
-  },
+  // ssr: {
+  //   devServerRender: false,
+  // },
   exportStatic: {},
   targets: {
     chrome: 80,

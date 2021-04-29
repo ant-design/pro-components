@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import ProForm, {
   StepsForm,
   ProFormText,
@@ -9,7 +9,7 @@ import ProForm, {
   ProFormDateRangePicker,
 } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
-import { message } from 'antd';
+import { FormInstance, message } from 'antd';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -20,13 +20,15 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const formRef = useRef<FormInstance>();
+
   return (
     <ProCard>
       <StepsForm<{
         name: string;
       }>
-        onFinish={async (values) => {
-          console.log(values);
+        formRef={formRef}
+        onFinish={async () => {
           await waitTime(1000);
           message.success('提交成功');
         }}
@@ -41,8 +43,8 @@ export default () => {
         }>
           name="base"
           title="创建实验"
-          onFinish={async ({ name }) => {
-            console.log(name);
+          onFinish={async () => {
+            console.log(formRef.current?.getFieldsValue());
             await waitTime(2000);
             return true;
           }}
@@ -64,6 +66,10 @@ export default () => {
         }>
           name="checkbox"
           title="设置参数"
+          onFinish={async () => {
+            console.log(formRef.current?.getFieldsValue());
+            return true;
+          }}
         >
           <ProFormCheckbox.Group
             name="checkbox"

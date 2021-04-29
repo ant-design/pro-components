@@ -40,6 +40,7 @@ export type ProFormLayoutType =
   | 'ModalForm'
   | 'DrawerForm'
   | 'StepsForm'
+  | 'StepForm'
   | 'LightFilter'
   | 'QueryFilter';
 
@@ -92,6 +93,7 @@ const FormComments = {
   DrawerForm,
   QueryFilter,
   LightFilter,
+  StepForm: StepsForm.StepForm,
   StepsForm,
   ModalForm,
 };

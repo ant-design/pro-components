@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect, useContext } from 'react';
+import React, { useRef, useCallback, useEffect, useContext, useImperativeHandle } from 'react';
 import type { StepsProps, FormInstance } from 'antd';
 import { Form, Steps, ConfigProvider, Button, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -33,7 +33,10 @@ type StepsFormProps<T = Record<string, any>> = {
     }[],
     defaultDom: React.ReactNode,
   ) => React.ReactNode;
-
+  /** @name 当前展示表单的 formRef */
+  formRef?: React.MutableRefObject<FormInstance<any> | undefined>;
+  /** @name 所有表单的 formMapRef */
+  formMapRef?: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
   /**
    * 自定义单个表单
    *
@@ -92,6 +95,8 @@ function StepsForm<T = Record<string, any>>(
     onFinish,
     formProps,
     containerStyle,
+    formRef,
+    formMapRef: propsFormMapRef,
     ...rest
   } = props;
   const formDataRef = useRef(new Map<string, Record<string, any>>());
@@ -121,7 +126,14 @@ function StepsForm<T = Record<string, any>>(
   /** Children 计算完成之后，重新生成一下当前的步骤列表 */
   useEffect(() => {
     setFormArray(Array.from(formMapRef.current.keys()));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Array.from(formMapRef.current.keys()).join(',')]);
+
+  const currentFormRef = formArrayRef.current[step || 0]?.current;
+
+  useImperativeHandle(propsFormMapRef, () => formArrayRef.current);
+
+  useImperativeHandle(formRef, () => currentFormRef, [step]);
 
   /** ProForm处理了一下 from 的数据，在其中做了一些操作 如果使用 Provider 自带的，自带的数据处理就无法生效了 */
   const onFormFinish = useCallback(
@@ -146,13 +158,15 @@ function StepsForm<T = Record<string, any>>(
             formArrayRef.current.forEach((form) => form.current?.resetFields());
           }
         } catch (error) {
+          // eslint-disable-next-line no-console
           console.log(error);
         } finally {
           setLoading(false);
         }
       }
     },
-    [step],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [props, step],
   );
 
   const stepsDom = (
