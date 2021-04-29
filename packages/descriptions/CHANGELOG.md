@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.5...@ant-design/pro-descriptions@1.7.6) (2021-04-29)
+
+### Bug Fixes
+
+- **form:** switch add default props ([#2629](https://github.com/ant-design/pro-components/issues/2629)) ([7d6ce1f](https://github.com/ant-design/pro-components/commit/7d6ce1f60584d79ae25a157dca0db2e8e1dbb7da))
+
 ## [1.7.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.4...@ant-design/pro-descriptions@1.7.5) (2021-04-22)
 
 ### Bug Fixes

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.35.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.34.5...@ant-design/pro-table@2.35.0) (2021-04-29)
+
+### Bug Fixes
+
+- **table:** only onFilter === true run defaultOnFilter ([#2640](https://github.com/ant-design/pro-components/issues/2640)) ([31ceede](https://github.com/ant-design/pro-components/commit/31ceedee0fd1570365f8e603d659c7cd43553b88))
+
+### Features
+
+- **form:** FieldSet support type=group ([#2628](https://github.com/ant-design/pro-components/issues/2628)) ([4e737dd](https://github.com/ant-design/pro-components/commit/4e737dd566a3eea4b292b427836c407523b3c48b))
+
 ## [2.34.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.34.4...@ant-design/pro-table@2.34.5) (2021-04-22)
 
 ### Bug Fixes

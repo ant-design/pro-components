@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.22.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.21.5...@ant-design/pro-form@1.22.0) (2021-04-29)
+
+### Bug Fixes
+
+- 修复 ProTable 轻量筛选，小屏幕下变形 [#2637](https://github.com/ant-design/pro-components/issues/2637) ([#2638](https://github.com/ant-design/pro-components/issues/2638)) ([5531a95](https://github.com/ant-design/pro-components/commit/5531a95941f262fca479cc0820987aca6fbc0fe5))
+- **form:** fix formItemProps type ([66ac501](https://github.com/ant-design/pro-components/commit/66ac5014b3d49c171e2e6e89d5913e7e12d37e4c))
+- **form:** ispicturecard judgment logic ([#2619](https://github.com/ant-design/pro-components/issues/2619)) ([8642196](https://github.com/ant-design/pro-components/commit/8642196d6c32550047d77bdf27662b8339c70a32))
+
+### Features
+
+- **form:** FieldSet support type=group ([#2628](https://github.com/ant-design/pro-components/issues/2628)) ([4e737dd](https://github.com/ant-design/pro-components/commit/4e737dd566a3eea4b292b427836c407523b3c48b))
+
 ## [1.21.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.21.4...@ant-design/pro-form@1.21.5) (2021-04-22)
 
 ### Bug Fixes

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.11...@ant-design/pro-card@1.11.12) (2021-04-29)
+
+### Bug Fixes
+
+- **card:** support multiLine and add responsive demos ([#2589](https://github.com/ant-design/pro-components/issues/2589)) ([cab461b](https://github.com/ant-design/pro-components/commit/cab461ba7ef9803d5c1b6f379773392366d3690c))
+
 ## [1.11.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.10...@ant-design/pro-card@1.11.11) (2021-04-22)
 
 ### Bug Fixes
