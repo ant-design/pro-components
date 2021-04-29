@@ -45,15 +45,15 @@ export function genProColumnToColumn<T>(props: {
           ...columnProps,
         };
       }
-      const { propsRef } = counter;
       const config = counter.columnsMap[columnKey] || { fixed: columnProps.fixed };
 
       const genOnFilter = () => {
-        if (!propsRef.current?.request || onFilter === true) {
+        if (onFilter === true) {
           return (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[]);
         }
         return omitBoolean(onFilter);
       };
+
       const tempColumns = {
         index: columnsIndex,
         ...columnProps,
