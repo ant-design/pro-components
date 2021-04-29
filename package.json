@@ -58,7 +58,7 @@
     "@types/warning": "^3.0.0",
     "@types/xhr-mock": "^2.0.0",
     "@umijs/babel-preset-umi": "^3.0.14",
-    "@umijs/fabric": "^2.0.0",
+    "@umijs/fabric": "2.5.9",
     "@umijs/plugin-analytics": "^0.2.2",
     "@umijs/plugin-antd": "^0.9.0",
     "@umijs/test": "^3.2.10",
@@ -128,7 +128,7 @@
   },
   "gitHooks": {
     "pre-commit": "pretty-quick --staged",
-    "commit-msg": "node scripts/verifyCommit.js"
+    "commit-msg": "node ./node_modules/@umijs/fabric/dist/verifyCommit.js"
   },
   "size-limit": [
     {
