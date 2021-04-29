@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.22.0
+
+`2021-04-29`
+
+- 🐛 fix(form): switch add default props [#2629](https://github.com/ant-design/pro-components/pull/2629) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): ispicturecard judgment logic [#2619](https://github.com/ant-design/pro-components/pull/2619) [@0x30](https://github.com/0x30)
+- 🐛 fix(form): FieldImage support fieldProps [#2586](https://github.com/ant-design/pro-components/pull/2586) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): FieldSet support type=group [#2628](https://github.com/ant-design/pro-components/pull/2628) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.21.5
 
 `2021-04-22`

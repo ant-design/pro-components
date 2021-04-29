@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.35.0
+
+`2021-04-29`
+
+- 🐛 fix(table): only onFilter === true run defaultOnFilter [#2640](https://github.com/ant-design/pro-components/pull/2640) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.34.5
 
 `2021-04-22`

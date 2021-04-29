@@ -10,6 +10,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.11.12
+
+`2021-04-29`
+
+- 🐛 fix(form): ispicturecard judgment logic [#2619](https://github.com/ant-design/pro-components/pull/2619) [@0x30](https://github.com/0x30)
+- 🐛 fix(card): support multiLine and add responsive demos [#2589](https://github.com/ant-design/pro-components/pull/2589) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-card@1.11.0
 
 `2021-03-11`
