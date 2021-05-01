@@ -58,8 +58,8 @@ const LightFilterContainer: React.FC<{
     setMoreValues({ ...values });
   }, [values]);
   items.forEach((item: any) => {
-    const { secondary, name } = item.props || {};
-    if ((secondary && !values[name]) || collapse) {
+    const { secondary } = item.props || {};
+    if (secondary || collapse) {
       collapseItems.push(item);
     } else {
       outsideItems.push(item);
