@@ -74,8 +74,6 @@ const LightFilterContainer: React.FC<{
     };
   }, [props.items.length]);
 
-  console.log(collapseItems);
-
   const collapseLabelRender = () => {
     if (collapseLabel) {
       return collapseLabel;
