@@ -11,7 +11,6 @@ import omit from 'omit.js';
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import './index.less';
-import { ReactNode } from 'react';
 
 export type LightFilterProps<T> = {
   collapse?: boolean;
@@ -72,6 +71,7 @@ const LightFilterContainer: React.FC<{
       collapseItems: collapseItemsArr,
       outsideItems: outsideItemsArr,
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.items.length]);
 
   const collapseLabelRender = () => {
