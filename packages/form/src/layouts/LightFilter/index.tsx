@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useMemo } from 'react';
 import type { FormProps } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
@@ -47,8 +47,6 @@ const LightFilterContainer: React.FC<{
   } = props;
   const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
-  const outsideItems: React.ReactNode[] = [];
-  const collapseItems: React.ReactNode[] = [];
 
   const [open, setOpen] = useState<boolean>(false);
   const [moreValues, setMoreValues] = useState<Record<string, any>>(() => {
@@ -57,14 +55,24 @@ const LightFilterContainer: React.FC<{
   useEffect(() => {
     setMoreValues({ ...values });
   }, [values]);
-  items.forEach((item: any) => {
-    const { secondary, name } = item.props || {};
-    if ((secondary && !values[name]) || collapse) {
-      collapseItems.push(item);
-    } else {
-      outsideItems.push(item);
-    }
-  });
+
+  const { collapseItems, outsideItems } = useMemo(() => {
+    const collapseItemsArr: React.ReactNode[] = [];
+    const outsideItemsArr: React.ReactNode[] = [];
+    items.forEach((item: any) => {
+      const { secondary } = item.props || {};
+      if (secondary || collapse) {
+        collapseItemsArr.push(item);
+      } else {
+        outsideItemsArr.push(item);
+      }
+    });
+    return {
+      collapseItems: collapseItemsArr,
+      outsideItems: outsideItemsArr,
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.items.length]);
 
   const collapseLabelRender = () => {
     if (collapseLabel) {

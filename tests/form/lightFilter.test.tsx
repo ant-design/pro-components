@@ -91,16 +91,19 @@ describe('LightFilter', () => {
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-input').simulate('change', {
-        target: {
-          value: 'name1 update',
-        },
-      });
+      wrapper
+        .find('.ant-input')
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'name1 update',
+          },
+        });
     });
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-btn.ant-btn-primary').simulate('click');
+      wrapper.find('.ant-btn.ant-btn-primary').at(0).simulate('click');
     });
     await waitForComponentToPaint(wrapper);
 
@@ -112,7 +115,7 @@ describe('LightFilter', () => {
 
     act(() => {
       // DatePicker click
-      wrapper.find('.ant-pro-core-field-label').at(2).simulate('click');
+      wrapper.find('.ant-pro-core-field-label').at(1).simulate('click');
     });
     await waitForComponentToPaint(wrapper);
 
