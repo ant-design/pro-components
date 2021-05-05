@@ -33,7 +33,7 @@ for (let i = 0; i < 2; i += 1) {
       Date.now() - Math.floor(Math.random() * 2000),
       Date.now() - Math.floor(Math.random() * 2000),
     ],
-    money: Math.floor(Math.random() * 2000) * i,
+    money: Math.floor(Math.random() * 50000) * i,
     progress: Math.ceil(Math.random() * 100) + 1,
     percent:
       Math.random() > 0.5
@@ -70,6 +70,9 @@ export default () => (
         dataIndex: 'money',
         key: 'digit',
         valueType: 'digit',
+        fieldProps: {
+          notation: 'compact',
+        },
         width: 150,
       },
       {
