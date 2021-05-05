@@ -17,9 +17,8 @@ import type {
   ProSchemaValueEnumObj,
 } from '@ant-design/pro-utils';
 
-import { useDeepCompareEffect } from '@ant-design/pro-utils';
+import { useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
 import useSWR, { mutate } from 'swr';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { useIntl } from '@ant-design/pro-provider';
 
 import LightSelect from './LightSelect';
@@ -222,7 +221,7 @@ export const useFieldFetchData = (
     }));
   }, []);
 
-  const [options, setOptions] = useMergedState<SelectProps<any>['options']>(
+  const [options, setOptions] = useMountMergeState<SelectProps<any>['options']>(
     () => {
       if (props.valueEnum) {
         return getOptionsFormValueEnum(props.valueEnum);
