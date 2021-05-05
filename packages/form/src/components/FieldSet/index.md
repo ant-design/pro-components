@@ -339,6 +339,28 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 </>
 ```
 
+自定义选项：
+
+```tsx | pure
+<ProFormSelect
+  name="select"
+  label="Select"
+  options={[
+    { label: '全部', value: 'all' },
+    { label: '未解决', value: 'open' },
+    { label: '已解决', value: 'closed' },
+    { label: '解决中', value: 'processing' },
+  ]}
+  fieldProps={{
+    optionItemRender(item) {
+      return item.label + ' - ' + item.value;
+    },
+  }}
+  placeholder="Please select a country"
+  rules={[{ required: true, message: 'Please select your country!' }]}
+/>
+```
+
 ### ProFormDigit
 
 与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化(保留 2 位小数，最小值为 0)，有需要你可以关掉它。

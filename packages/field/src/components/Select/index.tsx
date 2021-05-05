@@ -400,6 +400,9 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
           }}
           resetData={resetData}
           optionItemRender={(item) => {
+            if (fieldProps?.optionItemRender) {
+              return fieldProps?.optionItemRender(item);
+            }
             if (typeof item.label === 'string' && keyWordsRef.current) {
               return <Highlight label={item.label} words={[keyWordsRef.current]} />;
             }

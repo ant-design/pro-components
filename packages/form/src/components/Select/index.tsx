@@ -5,6 +5,7 @@ import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
+import type { DataValueType } from '@ant-design/pro-field/lib/components/Select/SearchSelect';
 
 export type ProFormSelectProps = ProFormItemProps<
   SelectProps<any> & {
@@ -20,6 +21,8 @@ export type ProFormSelectProps = ProFormItemProps<
      * @default false
      */
     resetAfterSelect?: boolean;
+    /** 自定义选项渲染 */
+    optionItemRender?: (item: DataValueType<any>) => React.ReactNode;
   }
 > & {
   valueEnum?: ProSchema['valueEnum'];
