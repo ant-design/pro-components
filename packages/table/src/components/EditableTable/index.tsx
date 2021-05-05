@@ -126,8 +126,17 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
             }) => (
               <thead className={className}>
                 {children}
-                <tr>
-                  <td colSpan={rest.columns?.length}>{creatorButtonDom}</td>
+                <tr style={{ position: 'relative' }}>
+                  {/* 占位 */}
+                  <td colSpan={0} style={{ visibility: 'hidden' }}>
+                    {creatorButtonDom}
+                  </td>
+                  <td
+                    style={{ position: 'absolute', left: 0, width: '100%' }}
+                    colSpan={rest.columns?.length}
+                  >
+                    {creatorButtonDom}
+                  </td>
                 </tr>
               </thead>
             ),

@@ -484,7 +484,7 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     act(() => {
-      wrapper.find('button.ant-btn-dashed').simulate('click');
+      wrapper.find('button.ant-btn-dashed').at(1).simulate('click');
     });
     await waitForComponentToPaint(wrapper, 200);
     act(() => {
