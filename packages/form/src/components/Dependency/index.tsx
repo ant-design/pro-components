@@ -5,6 +5,7 @@ import get from 'rc-util/lib/utils/get';
 import { useCallback, useContext, useMemo } from 'react';
 import set from 'rc-util/lib/utils/set';
 import { FormListContext } from '../List';
+import { ProFormContext } from '../../BaseForm';
 
 declare type RenderChildren<Values = any> = (
   values: Record<string, any>,
@@ -26,6 +27,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
   ignoreFormListField,
   ...rest
 }) => {
+  const context = useContext(ProFormContext);
   // ProFromList 的 filed，里面有name和key
   const formListField = useContext(FormListContext);
   /**
@@ -65,9 +67,11 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
     >
       {(form) => {
         const values = names.reduce((pre, next) => {
-          const value = form.getFieldsValue([next].flat(1));
+          const value = context?.getFieldsFormatValue?.([next].flat(1));
+          const noFormatValue = form.getFieldsValue([next].flat(1));
           return {
             ...pre,
+            ...noFormatValue,
             ...value,
           };
         }, {});
@@ -82,7 +86,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
               ...next,
             };
           }, {});
-        return children?.(nameValues, form as FormInstance<any>);
+        return children?.({ ...values, ...nameValues }, form as FormInstance<any>);
       }}
     </Form.Item>
   );

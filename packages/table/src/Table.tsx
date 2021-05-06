@@ -1,7 +1,7 @@
 /* eslint max-classes-per-file: ["error", 3] */
 import React, { useContext, useRef, useCallback, useMemo, useEffect } from 'react';
 import type { TablePaginationConfig } from 'antd';
-import { Table, ConfigProvider, Form, Card } from 'antd';
+import { Table, ConfigProvider, Card } from 'antd';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
@@ -39,6 +39,7 @@ import type {
 } from './typing';
 import type { ActionType } from '.';
 import { columnSort } from './utils/columnSort';
+import ProForm from '@ant-design/pro-form';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -179,14 +180,15 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
   const baseTableDom = props.editable ? (
-    <Form
+    <ProForm
       component={false}
       form={props.editable?.form}
       onValuesChange={editableUtils.onValuesChange}
       key="table"
+      submitter={false}
     >
       <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
-    </Form>
+    </ProForm>
   ) : (
     <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
   );

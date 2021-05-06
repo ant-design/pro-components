@@ -1,4 +1,5 @@
-﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
+﻿/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useCallback, useContext, useMemo, useRef, useState } from 'react';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FormInstance } from 'antd';
@@ -9,6 +10,7 @@ import { message, Popconfirm } from 'antd';
 import ReactDOM from 'react-dom';
 import set from 'rc-util/lib/utils/set';
 import useMountMergeState from '../useMountMergeState';
+import { ProFormContext } from '@ant-design/pro-form';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -211,6 +213,7 @@ export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }
   newLineConfig,
   editorType,
 }) => {
+  const context = useContext(ProFormContext);
   const [loading, setLoading] = useMountMergeState<boolean>(false);
   return (
     <a
@@ -224,8 +227,7 @@ export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }
           await form.validateFields(namePath, {
             recursive: true,
           });
-
-          const fields = form.getFieldValue(namePath);
+          const fields = (context.getFieldFormatValue || form.getFieldValue)(namePath);
           const record = isMapEditor ? set(row, namePath, fields) : { ...row, ...fields };
           const res = await onSave?.(recordKey, record, newLineConfig);
           setLoading(false);
@@ -296,17 +298,38 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
   ) : null;
 };
 
-export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, NewLineConfig<T>>) {
+const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (props) => {
   const {
     recordKey,
     newLineConfig,
     form,
+    editorType,
     onCancel,
     cancelEditable,
-    saveText,
+    row,
     cancelText,
-    deleteText,
-  } = config;
+  } = props;
+  const context = useContext(ProFormContext);
+  return (
+    <a
+      key="cancel"
+      onClick={async () => {
+        const isMapEditor = editorType === 'Map';
+        const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
+        const fields = (context.getFieldFormatValue || form.getFieldValue)(namePath);
+        const record = isMapEditor ? set(row, namePath, fields) : { ...row, ...fields };
+        const res = await onCancel?.(recordKey, record, newLineConfig);
+        cancelEditable(recordKey);
+        return res;
+      }}
+    >
+      {cancelText || '取消'}
+    </a>
+  );
+};
+
+export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, NewLineConfig<T>>) {
+  const { recordKey, newLineConfig, saveText, deleteText } = config;
   return [
     <SaveEditableAction key="save" {...config} row={row}>
       {saveText}
@@ -316,18 +339,7 @@ export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, New
         {deleteText}
       </DeleteEditableAction>
     ) : null,
-    <a
-      key="cancel"
-      onClick={async () => {
-        const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
-        const fields = form.getFieldValue(namePath);
-        const res = await onCancel?.(recordKey, fields, newLineConfig);
-        cancelEditable(recordKey);
-        return res;
-      }}
-    >
-      {cancelText || '取消'}
-    </a>,
+    <CancelEditableAction {...config} row={row} />,
   ];
 }
 
