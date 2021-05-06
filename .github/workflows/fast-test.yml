@@ -33,7 +33,7 @@ jobs:
           steps.cache-node-modules.outputs.cache-hit != 'true'
       - id: set-test-chunks
         name: Set Chunks
-        run: echo "::set-output name=test-chunks::$(npx jest --listTests --json | jq -cM '[_nwise(length / 2 | floor)]')"
+        run: echo "::set-output name=test-chunks::$(npx jest --listTests --json | jq -cM '[_nwise(length / 5 | floor)]')"
       - id: set-test-chunk-ids
         name: Set Chunk IDs
         run: echo "::set-output name=test-chunk-ids::$(echo $CHUNKS | jq -cM 'to_entries | map(.key)')"
