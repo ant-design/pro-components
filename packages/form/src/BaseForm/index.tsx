@@ -41,7 +41,7 @@ export type CommonFormProps<T extends Record<string, any> = Record<string, any>>
   /** @name 获取真正的可以获得值的 from */
   formRef?: React.MutableRefObject<
     | (FormInstance & {
-        getFieldsFormatValue: () => T;
+        getFieldsFormatValue?: () => T;
       })
     | undefined
   >;
