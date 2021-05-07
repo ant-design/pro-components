@@ -296,10 +296,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                   if (propsFormRef)
                     propsFormRef.current = {
                       ...(formInstance as FormInstance),
-                      /** 获取格式化之后的数据 */
-                      getFieldsFormatValue: () => {
-                        return transformKey(formRef.current.getFieldsValue(), omitNil);
-                      },
+                      ...formatValues,
                     };
                   formRef.current = formInstance as FormInstance;
                   return null;
