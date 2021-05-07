@@ -6,7 +6,7 @@ import { LabelIconTip } from '@ant-design/pro-utils';
 import type { CardProps, Gutter, Breakpoint } from '../../type';
 import classNames from 'classnames';
 import omit from 'omit.js';
-import CardLoading from '../CardLoading';
+import Loading from '../Loading';
 import Actions from '../Actions';
 import './index.less';
 
@@ -146,6 +146,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
               paddingLeft: normalizedGutter[0] / 2,
             }),
           }}
+          // eslint-disable-next-line react/no-array-index-key
+          key={`pro-card-col-${index}`}
           className={columnClassName}
         >
           {React.cloneElement(element)}
@@ -187,7 +189,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   const loadingDOM = React.isValidElement(loading) ? (
     loading
   ) : (
-    <CardLoading
+    <Loading
       prefix={prefixCls}
       style={bodyStyle.padding === 0 || bodyStyle.padding === '0px' ? { padding: 24 } : undefined}
     />
