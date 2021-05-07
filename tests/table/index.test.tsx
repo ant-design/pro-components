@@ -880,7 +880,7 @@ describe('BasicTable', () => {
     });
     await waitForComponentToPaint(html, 1200);
     act(() => {
-      html.find('.ant-dropdown-menu-item').at(1).simulate('click');
+      html.find('li.ant-dropdown-menu-item').at(1).simulate('click');
     });
     await waitForComponentToPaint(html, 1200);
 

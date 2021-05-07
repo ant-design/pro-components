@@ -29017,21 +29017,25 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
     style="display: flex; width: 100%;"
   >
     <ul
-      class="ant-menu ant-menu-light ant-menu-root ant-menu-inline"
+      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light"
+      data-menu-list="true"
       role="menu"
       style="width: 256px;"
+      tabindex="0"
     >
       <li
         class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
-        role="menuitem"
+        role="none"
       >
         <div
+          aria-controls="rc-menu-uuid-test-sub1-popup"
           aria-expanded="true"
           aria-haspopup="true"
-          aria-owns="sub1$Menu"
           class="ant-menu-submenu-title"
-          role="button"
+          data-menu-id="rc-menu-uuid-test-sub1"
+          role="menuitem"
           style="padding-left: 24px;"
+          tabindex="-1"
         >
           <span>
             <span
@@ -29063,11 +29067,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
         </div>
         <ul
           class="ant-menu ant-menu-sub ant-menu-inline"
-          id="sub1$Menu"
-          role="menu"
+          data-menu-list="true"
+          id="rc-menu-uuid-test-sub1-popup"
         >
           <li
-            class=" ant-menu-item-group"
+            class="ant-menu-item-group"
           >
             <div
               class="ant-menu-item-group-title"
@@ -29079,23 +29083,27 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
               class="ant-menu-item-group-list"
             >
               <li
-                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-1"
                 role="menuitem"
                 style="padding-left: 48px;"
+                tabindex="-1"
               >
                 Option 1
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-2"
                 role="menuitem"
                 style="padding-left: 48px;"
+                tabindex="-1"
               >
                 Option 2
               </li>
             </ul>
           </li>
           <li
-            class=" ant-menu-item-group"
+            class="ant-menu-item-group"
           >
             <div
               class="ant-menu-item-group-title"
@@ -29108,15 +29116,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-3"
                 role="menuitem"
                 style="padding-left: 48px;"
+                tabindex="-1"
               >
                 Option 3
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-4"
                 role="menuitem"
                 style="padding-left: 48px;"
+                tabindex="-1"
               >
                 Option 4
               </li>

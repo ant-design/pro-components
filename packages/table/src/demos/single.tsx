@@ -143,6 +143,21 @@ export default () => {
   const actionRef = useRef<ActionType>();
   return (
     <ProTable<GithubIssueItem>
+      toolbar={{
+        menu: {
+          type: 'dropdown',
+          items: [
+            {
+              label: '全部事项',
+              key: 'all',
+            },
+            {
+              label: '已办事项',
+              key: 'done',
+            },
+          ],
+        },
+      }}
       columns={columns}
       actionRef={actionRef}
       request={async (params = {}, sort, filter) => {

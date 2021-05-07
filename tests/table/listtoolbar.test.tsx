@@ -176,9 +176,9 @@ describe('Table valueEnum', () => {
       />,
     );
     await waitForComponentToPaint(wrapper, 1000);
-    wrapper.find('.ant-pro-table-list-toolbar-dropdownmenu-label').at(0).simulate('click');
+    wrapper.find('div.ant-pro-table-list-toolbar-dropdownmenu-label').at(0).simulate('click');
     act(() => {
-      wrapper.find('.ant-dropdown-menu-item').at(1).simulate('click');
+      wrapper.find('li.ant-dropdown-menu-item').at(1).simulate('click');
     });
 
     expect(onChange).toHaveBeenCalledWith('done', undefined);
