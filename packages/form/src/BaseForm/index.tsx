@@ -11,13 +11,13 @@ import {
   useMountMergeState,
 } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
+import type { NamePath } from 'antd/lib/form/interface';
 
 import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';
 import type { SubmitterProps } from '../components/Submitter';
 import Submitter from '../components/Submitter';
 import type { GroupProps, FieldProps } from '../interface';
-import { NamePath } from 'antd/lib/form/interface';
 
 export const ProFormContext = React.createContext<{
   getFieldsFormatValue?: (nameList?: NamePath[] | true) => any;
@@ -146,13 +146,20 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       transformKeyRef.current,
     );
 
+  const formatValues = {
+    /** 获取格式化之后所有数据 */
+    getFieldsFormatValue: (nameList?: NamePath[] | true) => {
+      return transformKey(formRef.current.getFieldsValue(nameList!), omitNil);
+    },
+    /** 获取格式化之后的单个数据 */
+    getFieldFormatValue: (nameList?: NamePath) => {
+      return transformKey(formRef.current.getFieldValue(nameList!), omitNil);
+    },
+  };
   // 初始化给一个默认的 form
   useImperativeHandle(propsFormRef, () => ({
     ...formRef.current,
-    /** 获取格式化之后的数据 */
-    getFieldsFormatValue: () => {
-      return transformKey(formRef.current.getFieldsValue(), omitNil);
-    },
+    ...formatValues,
   }));
   /** 渲染提交按钮与重置按钮 */
   const submitterNode =
@@ -230,16 +237,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           },
         }}
       >
-        <ProFormContext.Provider
-          value={{
-            getFieldsFormatValue: (nameList?: NamePath[] | true) => {
-              return transformKey(formRef.current.getFieldsValue(nameList!), omitNil);
-            },
-            getFieldFormatValue: (nameList?: NamePath) => {
-              return transformKey(formRef.current.getFieldValue(nameList!), omitNil);
-            },
-          }}
-        >
+        <ProFormContext.Provider value={formatValues}>
           <ConfigProvider.SizeContext.Provider value={rest.size}>
             <Form
               onKeyPress={(event) => {
