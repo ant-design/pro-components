@@ -3,12 +3,13 @@ import type { FormProps, FormItemProps, FormInstance } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import { ProFieldValueType, ProFormContext, SearchTransformKeyFn } from '@ant-design/pro-utils';
-import { runFunction } from '@ant-design/pro-utils';
+import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import {
   conversionSubmitValue,
   transformKeySubmitValue,
   useMountMergeState,
+  ProFormContext,
+  runFunction,
 } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { NamePath } from 'antd/lib/form/interface';
