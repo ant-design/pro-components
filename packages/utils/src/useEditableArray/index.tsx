@@ -10,7 +10,7 @@ import { message, Popconfirm } from 'antd';
 import ReactDOM from 'react-dom';
 import set from 'rc-util/lib/utils/set';
 import useMountMergeState from '../useMountMergeState';
-import { ProFormContext } from '@ant-design/pro-form';
+import ProFormContext from '../components/ProFormContext';
 
 export type RowEditableType = 'single' | 'multiple';
 

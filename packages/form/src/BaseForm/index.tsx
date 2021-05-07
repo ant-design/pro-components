@@ -3,7 +3,7 @@ import type { FormProps, FormItemProps, FormInstance } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import { ProFieldValueType, ProFormContext, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import {
   conversionSubmitValue,
@@ -18,11 +18,6 @@ import FieldContext from '../FieldContext';
 import type { SubmitterProps } from '../components/Submitter';
 import Submitter from '../components/Submitter';
 import type { GroupProps, FieldProps } from '../interface';
-
-export const ProFormContext = React.createContext<{
-  getFieldsFormatValue?: (nameList?: NamePath[] | true) => any;
-  getFieldFormatValue?: (nameList?: NamePath) => any;
-}>({});
 
 export type CommonFormProps<T extends Record<string, any> = Record<string, any>> = {
   submitter?:

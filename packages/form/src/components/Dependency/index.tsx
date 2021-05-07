@@ -5,7 +5,7 @@ import get from 'rc-util/lib/utils/get';
 import { useCallback, useContext, useMemo } from 'react';
 import set from 'rc-util/lib/utils/set';
 import { FormListContext } from '../List';
-import { ProFormContext } from '../../BaseForm';
+import { ProFormContext } from '@ant-design/pro-utils';
 
 declare type RenderChildren<Values = any> = (
   values: Record<string, any>,
