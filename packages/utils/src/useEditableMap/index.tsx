@@ -1,4 +1,5 @@
-﻿import type React from 'react';
+﻿/* eslint-disable react-hooks/exhaustive-deps */
+import type React from 'react';
 import { useCallback, useMemo } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FormInstance } from 'antd';

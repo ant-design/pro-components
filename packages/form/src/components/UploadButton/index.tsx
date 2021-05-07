@@ -17,6 +17,7 @@ export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
   onChange?: UploadProps['onChange'];
   buttonProps?: ButtonProps;
   disabled?: ButtonProps['disabled'];
+  fileList?: UploadProps['fileList'];
 };
 
 /**
@@ -39,6 +40,7 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
     onChange,
     disabled,
     proFieldProps,
+    fileList,
   },
   ref,
 ) => {
@@ -55,7 +57,7 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
       // 'fileList' 改成和 ant.design 文档中 Update 组件 默认 file字段一样
       name={name || 'file'}
       listType={listType || 'picture'}
-      fileList={value}
+      fileList={fileList ?? value}
       {...fieldProps}
       onChange={(info) => {
         if (onChange) {

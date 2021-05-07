@@ -60,6 +60,7 @@ import type {
 } from '@ant-design/pro-provider';
 import ErrorBoundary from './components/ErrorBoundary';
 import dateArrayFormatter from './dateArrayFormatter';
+import ProFormContext from './components/ProFormContext';
 
 export type {
   RequestOptionsType,
@@ -88,8 +89,8 @@ export type {
 };
 
 export {
-  omitBoolean,
   LabelIconTip,
+  ProFormContext,
   FilterDropdown,
   FieldLabel,
   InlineErrorFormItem,
@@ -101,6 +102,7 @@ export {
   parseValueToMoment,
   useDocumentTitle,
   isImg,
+  omitBoolean,
   isNil,
   isDropdownValueType,
   omitUndefined,
