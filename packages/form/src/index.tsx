@@ -40,6 +40,7 @@ import type { FormInstance, FormItemProps, FormProps } from './BaseForm';
 import type { ProFormLayoutType, ProFormColumnsType } from './components/SchemaForm';
 import BetaSchemaForm from './components/SchemaForm';
 import './index.less';
+import { ProFormContext } from '@ant-design/pro-utils';
 
 export type {
   ProFormCaptchaProps,
@@ -94,6 +95,7 @@ export {
   StepsForm,
   DrawerForm,
   ModalForm,
+  ProFormContext,
 };
 
 export default ProForm;

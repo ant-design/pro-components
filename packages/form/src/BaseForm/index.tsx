@@ -3,7 +3,7 @@ import type { FormProps, FormItemProps, FormInstance } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import { ProFieldValueType, ProFormContext, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import {
   conversionSubmitValue,
@@ -11,6 +11,7 @@ import {
   useMountMergeState,
 } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
+import type { NamePath } from 'antd/lib/form/interface';
 
 import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';
@@ -33,7 +34,12 @@ export type CommonFormProps<T extends Record<string, any> = Record<string, any>>
   onFinish?: (formData: T) => Promise<boolean | void>;
 
   /** @name 获取真正的可以获得值的 from */
-  formRef?: React.MutableRefObject<FormInstance | undefined>;
+  formRef?: React.MutableRefObject<
+    | (FormInstance & {
+        getFieldsFormatValue?: () => T;
+      })
+    | undefined
+  >;
 
   /** @name 同步结果到 url 中 */
   syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
@@ -111,9 +117,6 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const [urlSearch, setUrlSearch] = useUrlSearchParams({});
   const formRef = useRef<FormInstance>(userForm || form);
 
-  // 初始化给一个默认的 form
-  useImperativeHandle(propsFormRef, () => formRef.current, []);
-
   const fieldsValueType = useRef<
     Record<
       string,
@@ -137,6 +140,22 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       conversionSubmitValue(values, dateFormatter, fieldsValueType.current, omit),
       transformKeyRef.current,
     );
+
+  const formatValues = {
+    /** 获取格式化之后所有数据 */
+    getFieldsFormatValue: (nameList?: NamePath[] | true) => {
+      return transformKey(formRef.current.getFieldsValue(nameList!), omitNil);
+    },
+    /** 获取格式化之后的单个数据 */
+    getFieldFormatValue: (nameList?: NamePath) => {
+      return transformKey(formRef.current.getFieldValue(nameList!), omitNil);
+    },
+  };
+  // 初始化给一个默认的 form
+  useImperativeHandle(propsFormRef, () => ({
+    ...formRef.current,
+    ...formatValues,
+  }));
   /** 渲染提交按钮与重置按钮 */
   const submitterNode =
     submitter === false ? undefined : (
@@ -213,72 +232,80 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           },
         }}
       >
-        <ConfigProvider.SizeContext.Provider value={rest.size}>
-          <Form
-            onKeyPress={(event) => {
-              if (event.key === 'Enter') {
-                formRef.current?.submit();
-              }
-            }}
-            form={userForm || form}
-            {...rest}
-            // 组合 urlSearch 和 initialValues
-            initialValues={{
-              ...urlParamsMergeInitialValues,
-              ...rest.initialValues,
-            }}
-            onValuesChange={(changedValues, values) => {
-              rest?.onValuesChange?.(
-                transformKey(changedValues, omitNil),
-                transformKey(values, omitNil),
-              );
-            }}
-            onFinish={async () => {
-              if (!rest.onFinish) {
-                return;
-              }
-              setLoading(true);
-              try {
-                const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
-                await rest.onFinish(finalValues);
-
-                if (syncToUrl) {
-                  // 把没有的值设置为未定义可以删掉 url 的参数
-                  const params = Object.keys(
-                    transformKey(formRef.current.getFieldsValue(), false),
-                  ).reduce((pre, next) => {
-                    return {
-                      ...pre,
-                      [next]: finalValues[next] || undefined,
-                    };
-                  }, {});
-                  /** 在同步到 url 上时对参数进行转化 */
-                  setUrlSearch(genParams(syncToUrl, params, 'set'));
+        <ProFormContext.Provider value={formatValues}>
+          <ConfigProvider.SizeContext.Provider value={rest.size}>
+            <Form
+              onKeyPress={(event) => {
+                if (event.key === 'Enter') {
+                  formRef.current?.submit();
                 }
+              }}
+              form={userForm || form}
+              {...rest}
+              // 组合 urlSearch 和 initialValues
+              initialValues={{
+                ...urlParamsMergeInitialValues,
+                ...rest.initialValues,
+              }}
+              onValuesChange={(changedValues, values) => {
+                rest?.onValuesChange?.(
+                  transformKey(changedValues, omitNil),
+                  transformKey(values, omitNil),
+                );
+              }}
+              onFinish={async () => {
+                if (!rest.onFinish) {
+                  return;
+                }
+                setLoading(true);
+                try {
+                  const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
+                  await rest.onFinish(finalValues);
 
-                setLoading(false);
-              } catch (error) {
-                // console.log(error);
-                setLoading(false);
-              }
-            }}
-          >
-            <input
-              type="text"
-              style={{
-                display: 'none',
+                  if (syncToUrl) {
+                    // 把没有的值设置为未定义可以删掉 url 的参数
+                    const params = Object.keys(
+                      transformKey(formRef.current.getFieldsValue(), false),
+                    ).reduce((pre, next) => {
+                      return {
+                        ...pre,
+                        [next]: finalValues[next] || undefined,
+                      };
+                    }, {});
+                    /** 在同步到 url 上时对参数进行转化 */
+                    setUrlSearch(genParams(syncToUrl, params, 'set'));
+                  }
+
+                  setLoading(false);
+                } catch (error) {
+                  // console.log(error);
+                  setLoading(false);
+                }
               }}
-            />
-            <Form.Item noStyle shouldUpdate>
-              {(formInstance) => {
-                if (propsFormRef) propsFormRef.current = formInstance as FormInstance;
-                formRef.current = formInstance as FormInstance;
-                return null;
-              }}
-            </Form.Item>
-            {content}
-          </Form>
-        </ConfigProvider.SizeContext.Provider>
+            >
+              {rest.component !== false && (
+                <input
+                  type="text"
+                  style={{
+                    display: 'none',
+                  }}
+                />
+              )}
+              <Form.Item noStyle shouldUpdate>
+                {(formInstance) => {
+                  if (propsFormRef)
+                    propsFormRef.current = {
+                      ...(formInstance as FormInstance),
+                      ...formatValues,
+                    };
+                  formRef.current = formInstance as FormInstance;
+                  return null;
+                }}
+              </Form.Item>
+              {content}
+            </Form>
+          </ConfigProvider.SizeContext.Provider>
+        </ProFormContext.Provider>
       </FieldContext.Provider>
     </ConfigProviderWrap>
   );
