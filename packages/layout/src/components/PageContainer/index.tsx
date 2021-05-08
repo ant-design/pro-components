@@ -78,7 +78,7 @@ export type PageContainerProps = {
   /** @name 水印的配置 */
   waterMarkProps?: WaterMarkProps;
 } & PageHeaderTabConfig &
-  Omit<PageHeaderProps, 'title' | 'footer' | 'breadcrumb'>;
+  Omit<PageHeaderProps, 'title' | 'footer'>;
 
 /**
  * Render Footer tabList In order to be compatible with the old version of the PageHeader basically
