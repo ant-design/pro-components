@@ -103,7 +103,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="menuitem"
-                            style="padding-left:24px"
+                            style="padding-left:16px"
                             tabindex="-1"
                           >
                             <span
@@ -297,7 +297,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="menuitem"
-                            style="padding-left:24px"
+                            style="padding-left:16px"
                             tabindex="-1"
                           >
                             <span
@@ -483,7 +483,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="menuitem"
-                            style="padding-left:24px"
+                            style="padding-left:16px"
                             tabindex="-1"
                           >
                             <span
@@ -664,7 +664,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="menuitem"
-                            style="padding-left:24px"
+                            style="padding-left:16px"
                             tabindex="-1"
                           >
                             <span
@@ -839,7 +839,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="menuitem"
-                            style="padding-left:24px"
+                            style="padding-left:16px"
                             tabindex="-1"
                           >
                             <span
@@ -1013,7 +1013,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="menuitem"
-                            style="padding-left:24px"
+                            style="padding-left:16px"
                             tabindex="-1"
                           >
                             <span
@@ -1197,7 +1197,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
                             role="menuitem"
-                            style="padding-left:24px"
+                            style="padding-left:16px"
                             tabindex="-1"
                           >
                             <span

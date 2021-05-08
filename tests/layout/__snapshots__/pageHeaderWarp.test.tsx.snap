@@ -48,7 +48,7 @@ exports[`BasicLayout base use 1`] = `
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
                 role="menuitem"
-                style="padding-left:24px"
+                style="padding-left:16px"
                 tabindex="-1"
               >
                 <span
@@ -209,7 +209,7 @@ exports[`BasicLayout content is text 1`] = `
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
                 role="menuitem"
-                style="padding-left:24px"
+                style="padding-left:16px"
                 tabindex="-1"
               >
                 <span
