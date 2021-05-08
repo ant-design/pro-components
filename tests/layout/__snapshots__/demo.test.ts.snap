@@ -1484,7 +1484,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -1508,7 +1508,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/admin"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -1530,7 +1530,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                     class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/admin/process"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
                     tabindex="-1"
                   >
                     <span
@@ -1791,7 +1791,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/home"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -1815,7 +1815,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/data_hui"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -1844,7 +1844,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       class="ant-menu-submenu-title"
                       data-menu-id="rc-menu-uuid-test-/92d826f9a130fbbb71347a40dada14dd36ba7dea12a60ba715c2b75717f5b3b5"
                       role="menuitem"
-                      style="padding-left: 48px;"
+                      style="padding-left: 32px;"
                       tabindex="-1"
                     >
                       <span
@@ -1866,7 +1866,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-/data_hui2"
                         role="menuitem"
-                        style="padding-left: 72px;"
+                        style="padding-left: 48px;"
                         tabindex="-1"
                       >
                         <span
@@ -1883,7 +1883,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-/data_hui"
                         role="menuitem"
-                        style="padding-left: 72px;"
+                        style="padding-left: 48px;"
                         tabindex="-1"
                       >
                         <span
@@ -1909,7 +1909,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       class="ant-menu-submenu-title"
                       data-menu-id="rc-menu-uuid-test-/de3b3ea22b7dda58cc37be5a07751c94ebc6a2ce87ba542b11cb37ea6d1853d9"
                       role="menuitem"
-                      style="padding-left: 48px;"
+                      style="padding-left: 32px;"
                       tabindex="-1"
                     >
                       <span
@@ -1931,7 +1931,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-/data_hui3"
                         role="menuitem"
-                        style="padding-left: 72px;"
+                        style="padding-left: 48px;"
                         tabindex="-1"
                       >
                         <span
@@ -1948,7 +1948,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk"
                         role="menuitem"
-                        style="padding-left: 72px;"
+                        style="padding-left: 48px;"
                         tabindex="-1"
                       >
                         <span
@@ -1976,7 +1976,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/data_ming"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -1998,7 +1998,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/other/homeEdit"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
                     tabindex="-1"
                   >
                     <span
@@ -2024,7 +2024,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/other"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -2046,7 +2046,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/other/upLoad"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
                     tabindex="-1"
                   >
                     <span
@@ -2063,7 +2063,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/other/upLoadMenu"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
                     tabindex="-1"
                   >
                     <span
@@ -2256,7 +2256,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/home"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -2290,7 +2290,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/home/overview"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -2324,7 +2324,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/home/search"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -2532,7 +2532,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/home"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -2581,7 +2581,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-/data_hui2"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
                         tabindex="-1"
                       >
                         <span
@@ -2598,7 +2598,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-/data_hui"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
                         tabindex="-1"
                       >
                         <span
@@ -2633,7 +2633,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-/data_hui3"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
                         tabindex="-1"
                       >
                         <span
@@ -2650,7 +2650,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                         class="ant-menu-item ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
                         tabindex="-1"
                       >
                         <span
@@ -2687,7 +2687,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/other/homeEdit"
                     role="menuitem"
-                    style="padding-left: 24px;"
+                    style="padding-left: 16px;"
                     tabindex="-1"
                   >
                     <span
@@ -2722,7 +2722,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/other/upLoad"
                     role="menuitem"
-                    style="padding-left: 24px;"
+                    style="padding-left: 16px;"
                     tabindex="-1"
                   >
                     <span
@@ -2739,7 +2739,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/other/upLoadMenu"
                     role="menuitem"
-                    style="padding-left: 24px;"
+                    style="padding-left: 16px;"
                     tabindex="-1"
                   >
                     <span
@@ -2939,7 +2939,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/config"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -2961,7 +2961,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/config/product"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
                     tabindex="-1"
                   >
                     <span
@@ -2978,7 +2978,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/config/productManage"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
                     tabindex="-1"
                   >
                     <span
@@ -2995,7 +2995,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/config/template"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
                     tabindex="-1"
                   >
                     <span
@@ -3012,7 +3012,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/config/configItem"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
                     tabindex="-1"
                   >
                     <span
@@ -3029,7 +3029,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     class="ant-menu-item ant-menu-item-only-child"
                     data-menu-id="rc-menu-uuid-test-/config/meta"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
                     tabindex="-1"
                   >
                     <span
@@ -3055,7 +3055,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/asset"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -3080,7 +3080,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/bill"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -3105,7 +3105,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/cif"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -3130,7 +3130,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/tools"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -3499,7 +3499,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-/home"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
                         tabindex="-1"
                       >
                         <span
@@ -3523,7 +3523,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                           class="ant-menu-submenu-title"
                           data-menu-id="rc-menu-uuid-test-/data_hui"
                           role="menuitem"
-                          style="padding-left: 24px;"
+                          style="padding-left: 16px;"
                           tabindex="-1"
                         >
                           <span
@@ -3548,7 +3548,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                           class="ant-menu-submenu-title"
                           data-menu-id="rc-menu-uuid-test-/data_ming"
                           role="menuitem"
-                          style="padding-left: 24px;"
+                          style="padding-left: 16px;"
                           tabindex="-1"
                         >
                           <span
@@ -3573,7 +3573,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                           class="ant-menu-submenu-title"
                           data-menu-id="rc-menu-uuid-test-/other"
                           role="menuitem"
-                          style="padding-left: 24px;"
+                          style="padding-left: 16px;"
                           tabindex="-1"
                         >
                           <span
@@ -3984,7 +3984,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                         class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                         data-menu-id="rc-menu-uuid-test-/home"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
                         tabindex="-1"
                       >
                         <span
@@ -4008,7 +4008,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           class="ant-menu-submenu-title"
                           data-menu-id="rc-menu-uuid-test-/data_hui"
                           role="menuitem"
-                          style="padding-left: 24px;"
+                          style="padding-left: 16px;"
                           tabindex="-1"
                         >
                           <span
@@ -4033,7 +4033,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           class="ant-menu-submenu-title"
                           data-menu-id="rc-menu-uuid-test-/data_ming"
                           role="menuitem"
-                          style="padding-left: 24px;"
+                          style="padding-left: 16px;"
                           tabindex="-1"
                         >
                           <span
@@ -4058,7 +4058,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           class="ant-menu-submenu-title"
                           data-menu-id="rc-menu-uuid-test-/other"
                           role="menuitem"
-                          style="padding-left: 24px;"
+                          style="padding-left: 16px;"
                           tabindex="-1"
                         >
                           <span
@@ -4297,7 +4297,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                 class="ant-menu-submenu-title"
                 data-menu-id="rc-menu-uuid-test-/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -4349,7 +4349,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                     class="ant-menu-submenu-title"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
                     tabindex="-1"
                   >
                     <span
@@ -4375,7 +4375,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                       class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                       data-menu-id="rc-menu-uuid-test-/welcome/welcome"
                       role="menuitem"
-                      style="padding-left: 72px;"
+                      style="padding-left: 48px;"
                       tabindex="-1"
                     >
                       <span
@@ -4396,7 +4396,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-/demo"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
               tabindex="-1"
             >
               <span
@@ -5200,7 +5200,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <a>
@@ -5245,7 +5245,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/admin"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -5293,7 +5293,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/list"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -5334,7 +5334,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <a>
@@ -6307,7 +6307,7 @@ Array [
                 class="qixian-menu-item qixian-menu-item-selected qixian-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <a>
@@ -6352,7 +6352,7 @@ Array [
                   class="qixian-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/admin"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -6400,7 +6400,7 @@ Array [
                   class="qixian-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/list"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -6441,7 +6441,7 @@ Array [
                 class="qixian-menu-item qixian-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <a>
@@ -8128,7 +8128,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
               class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-/welcome"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
               tabindex="-1"
             >
               <a>
@@ -8173,7 +8173,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                 class="ant-menu-submenu-title"
                 data-menu-id="rc-menu-uuid-test-/admin"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -8221,7 +8221,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                 class="ant-menu-submenu-title"
                 data-menu-id="rc-menu-uuid-test-/list"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -8262,7 +8262,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-https://ant.design"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
               tabindex="-1"
             >
               <a>
@@ -8521,7 +8521,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <div>
@@ -8567,7 +8567,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/admin"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <div>
@@ -8618,7 +8618,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/list"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <div>
@@ -8662,7 +8662,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <div>
@@ -9447,7 +9447,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -9490,7 +9490,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/admin"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -9538,7 +9538,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/list"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -9579,7 +9579,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -9966,7 +9966,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -10009,7 +10009,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/admin"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -10057,7 +10057,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/list"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -10098,7 +10098,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                 class="ant-menu-item ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -10360,7 +10360,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-/admin/sub-page1"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
               tabindex="-1"
             >
               <a>
@@ -10398,7 +10398,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-/admin/sub-page2"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
               tabindex="-1"
             >
               <a>
@@ -10436,7 +10436,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-/admin/sub-page3"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
               tabindex="-1"
             >
               <a>
@@ -10908,7 +10908,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-/welcome"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
               tabindex="-1"
             >
               <a>
@@ -10946,7 +10946,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-/admin/sub-page2"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
               tabindex="-1"
             >
               <a>
@@ -10984,7 +10984,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-test-/admin/sub-page3"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
               tabindex="-1"
             >
               <a>
@@ -11641,7 +11641,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
                 data-menu-id="rc-menu-uuid-test-/home"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
                 tabindex="-1"
               >
                 <span
@@ -11665,7 +11665,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/data_hui"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -11690,7 +11690,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/data_ming"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
@@ -11715,7 +11715,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                   class="ant-menu-submenu-title"
                   data-menu-id="rc-menu-uuid-test-/other"
                   role="menuitem"
-                  style="padding-left: 24px;"
+                  style="padding-left: 16px;"
                   tabindex="-1"
                 >
                   <span
