@@ -1,4 +1,4 @@
-﻿name: CI
+﻿name: Test CI
 on: [push]
 jobs:
   setup:
