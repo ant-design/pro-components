@@ -36,6 +36,3 @@ jobs:
           steps.cache-node-modules.outputs.cache-hit != 'true'
       - run: yarn run lint
       - run: yarn run tsc --noEmit
-      - run: yarn run build
-        env:
-          PRO_COMPONENTS_CI: CI
