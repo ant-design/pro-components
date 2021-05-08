@@ -175,8 +175,8 @@ const defaultPageHeaderRender = (
 
   const { breadcrumb } = pageHeaderProps;
   if (
-    ['title', 'subTitle', 'breadcrumb', 'extra', 'tags', 'footer', 'avatar', 'backIcon'].some(
-      (item) => item in pageHeaderProps,
+    ['title', 'subTitle', 'breadcrumb', 'extra', 'tags', 'footer', 'avatar', 'backIcon'].every(
+      (item) => !pageHeaderProps[item],
     ) &&
     (!breadcrumb ||
       (!(breadcrumb as BreadcrumbProps)?.itemRender &&
