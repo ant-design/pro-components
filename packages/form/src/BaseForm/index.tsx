@@ -44,6 +44,8 @@ export type CommonFormProps<T extends Record<string, any> = Record<string, any>>
 
   /** @name 同步结果到 url 中 */
   syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
+  /** @name 额外的 url 参数 中 */
+  extraUrlParams?: Record<string, any>;
   /**
    * 同步结果到 initialValues,默认为true如果为false，reset的时将会忽略从url上获取的数据
    *
@@ -106,6 +108,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     form: userForm,
     formRef: propsFormRef,
     onInit,
+    extraUrlParams = {},
     syncToUrl,
     syncToInitialValues = true,
     onReset,
@@ -177,7 +180,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                 ...pre,
                 [next]: finalValues[next] || undefined,
               };
-            }, {});
+            }, extraUrlParams);
 
             /** 在同步到 url 上时对参数进行转化 */
             setUrlSearch(genParams(syncToUrl, params, 'set'));
@@ -194,7 +197,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const content = contentRender ? contentRender(items, submitterNode, formRef.current) : items;
 
   useEffect(() => {
-    const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
+    const finalValues = transformKey(formRef.current.getFieldsValue(true), omitNil);
     onInit?.(finalValues);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -213,6 +216,15 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       setUrlParamsMergeInitialValues({});
     });
   }, [syncToInitialValues]);
+
+  useEffect(() => {
+    if (!syncToUrl) return;
+    setUrlSearch({
+      ...urlSearch,
+      ...extraUrlParams,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [extraUrlParams, syncToUrl]);
 
   return (
     // 增加国际化的能力，与 table 组件可以统一
@@ -272,7 +284,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                         ...pre,
                         [next]: finalValues[next] || undefined,
                       };
-                    }, {});
+                    }, extraUrlParams);
                     /** 在同步到 url 上时对参数进行转化 */
                     setUrlSearch(genParams(syncToUrl, params, 'set'));
                   }
