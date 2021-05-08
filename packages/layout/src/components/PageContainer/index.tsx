@@ -173,14 +173,14 @@ const defaultPageHeaderRender = (
     ...header,
   };
 
-  const { breadcrumb } = pageHeaderProps;
+  const { breadcrumb } = pageHeaderProps as {
+    breadcrumb: BreadcrumbProps;
+  };
   if (
     ['title', 'subTitle', 'breadcrumb', 'extra', 'tags', 'footer', 'avatar', 'backIcon'].every(
       (item) => !pageHeaderProps[item],
     ) &&
-    (!breadcrumb ||
-      (!(breadcrumb as BreadcrumbProps)?.itemRender &&
-        !(breadcrumb as BreadcrumbProps)?.routes?.length)) &&
+    (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.routes?.length)) &&
     !content &&
     !extraContent
   ) {
