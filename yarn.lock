@@ -3460,6 +3460,13 @@
   dependencies:
     "@types/node" "*"
 
+"@types/lodash.pick@^4.4.6":
+  version "4.4.6"
+  resolved "https://registry.npm.taobao.org/@types/lodash.pick/download/@types/lodash.pick-4.4.6.tgz#ae4e8f109e982786313bb6aac4b1a73aefa6e9be"
+  integrity sha1-rk6PEJ6YJ4YxO7aqxLGnOu+m6b4=
+  dependencies:
+    "@types/lodash" "*"
+
 "@types/lodash.tonumber@^4.0.6":
   version "4.0.6"
   resolved "https://registry.npm.taobao.org/@types/lodash.tonumber/download/@types/lodash.tonumber-4.0.6.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Flodash.tonumber%2Fdownload%2F%40types%2Flodash.tonumber-4.0.6.tgz#9f0f4b851ac037ecfdfda8acad5cfbcca832bf96"
@@ -12905,9 +12912,9 @@ lodash.partialright@^4.1.4:
   resolved "https://registry.npm.taobao.org/lodash.partialright/download/lodash.partialright-4.2.1.tgz#0130d80e83363264d40074f329b8a3e7a8a1cc4b"
   integrity sha1-ATDYDoM2MmTUAHTzKbij56ihzEs=
 
-lodash.pick@^4.2.1:
+lodash.pick@^4.2.1, lodash.pick@^4.4.0:
   version "4.4.0"
-  resolved "https://registry.nlark.com/lodash.pick/download/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
+  resolved "https://registry.npm.taobao.org/lodash.pick/download/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
   integrity sha1-UvBWEP/53tQiYRRB7R/BI6AwAbM=
 
 lodash.set@^4.3.2:
