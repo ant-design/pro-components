@@ -60,6 +60,42 @@ describe('ProFormUpload', () => {
     expect(fn).toBeCalled();
   });
 
+  it('ProFormUploadButton support beforeUpload', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onValuesChange={(_, values) => {
+          fn(values.files);
+        }}
+      >
+        <ProFormUploadButton
+          action="http://upload.com"
+          listType="text"
+          label="upload"
+          name="files"
+          fieldProps={{
+            beforeUpload: () => {
+              return false;
+            },
+          }}
+        />
+      </ProForm>,
+    );
+
+    act(() => {
+      wrapper.find('.ant-upload input').simulate('change', {
+        target: {
+          files: [mockFile],
+        },
+      });
+    });
+    await waitTime(200);
+
+    act(() => {
+      expect(wrapper.find('div.ant-upload-list-picture-container').length).toBe(0);
+    });
+  });
+
   it('ProFormUploadButton support disable', async () => {
     const wrapper = mount(
       <ProFormUploadButton
