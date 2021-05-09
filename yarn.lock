@@ -4902,10 +4902,10 @@ antd-mobile@^2.3.1:
     rmc-tabs "~1.2.0"
     rmc-tooltip "~1.0.0"
 
-antd@4.16.0-alpha.1:
-  version "4.16.0-alpha.1"
-  resolved "https://registry.nlark.com/antd/download/antd-4.16.0-alpha.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fantd%2Fdownload%2Fantd-4.16.0-alpha.1.tgz#0c3d1bfe63fd3ea21ca8c964e653d8e0c039cf58"
-  integrity sha1-DD0b/mP9PqIcqMlk5lPY4MA5z1g=
+antd@4.16.0-alpha.2:
+  version "4.16.0-alpha.2"
+  resolved "https://registry.nlark.com/antd/download/antd-4.16.0-alpha.2.tgz#27bcfa24d45eb7bb2d6583c12d907b3b4d8808eb"
+  integrity sha1-J7z6JNRet7stZYPBLZB7O02ICOs=
   dependencies:
     "@ant-design/colors" "^6.0.0"
     "@ant-design/icons" "^4.6.2"
@@ -4941,7 +4941,7 @@ antd@4.16.0-alpha.1:
     rc-table "~7.14.0"
     rc-tabs "~11.8.0"
     rc-textarea "~0.3.0"
-    rc-tooltip "~5.1.0"
+    rc-tooltip "~5.1.1"
     rc-tree "~4.1.0"
     rc-tree-select "~4.3.0"
     rc-trigger "^5.2.1"
@@ -17024,7 +17024,7 @@ rc-tooltip@^3.4.2:
     prop-types "^15.5.8"
     rc-trigger "^2.2.2"
 
-rc-tooltip@^5.0.1, rc-tooltip@~5.1.0:
+rc-tooltip@^5.0.1, rc-tooltip@~5.1.0, rc-tooltip@~5.1.1:
   version "5.1.1"
   resolved "https://registry.nlark.com/rc-tooltip/download/rc-tooltip-5.1.1.tgz#94178ed162d0252bc4993b725f5dc2ac0fccf154"
   integrity sha1-lBeO0WLQJSvEmTtyX13CrA/M8VQ=

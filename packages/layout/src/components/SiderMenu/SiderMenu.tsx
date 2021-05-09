@@ -148,11 +148,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         collapsed={collapsed}
         breakpoint={breakpoint === false ? undefined : breakpoint}
         onCollapse={(collapse) => {
-          if (!isMobile) {
-            if (onCollapse) {
-              onCollapse(collapse);
-            }
-          }
+          if (isMobile) return;
+          onCollapse?.(collapse);
         }}
         collapsedWidth={48}
         style={{
