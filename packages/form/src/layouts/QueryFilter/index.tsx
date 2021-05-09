@@ -371,7 +371,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
         layout={spanSize.layout}
         fieldProps={{
           style: {
-            width: '100%',
+            width: style?.width && '100%',
           },
         }}
         formItemProps={{
