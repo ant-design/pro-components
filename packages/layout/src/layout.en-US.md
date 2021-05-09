@@ -191,9 +191,9 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 
 A simple loading page
 
-| parameters | description                    | type      | default |
-| ---------- | ------------------------------ | --------- | ------- |
-| tip        | A small description of loading | ReactNode | -       |
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| [(...)](https://ant.design/components/spin-cn/#API) | support all other antd `Spin` component parameters | - | - |
 
 ### RouteContext
 
