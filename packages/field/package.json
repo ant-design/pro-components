@@ -32,6 +32,7 @@
     "@ant-design/pro-provider": "1.4.12",
     "@ant-design/pro-utils": "1.16.4",
     "classnames": "^2.2.6",
+    "lodash.pick": "^4.4.0",
     "lodash.tonumber": "^4.0.3",
     "moment": "^2.27.0",
     "omit.js": "^2.0.2",
@@ -41,6 +42,7 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
+    "@types/lodash.pick": "^4.4.6",
     "@types/lodash.tonumber": "^4.0.6",
     "@types/react-color": "^3.0.4"
   },
