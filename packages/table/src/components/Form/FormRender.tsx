@@ -207,7 +207,14 @@ const FormRender = <T, U = any>({
         onInit={(values: T) => {
           // 触发一个 submit，之所以这里触发是为了保证 value 都被 format了
           if (type !== 'form') {
-            // 重新计算一下dom
+            // 修改 pageSize，变成从 url 中获取的
+            const pageInfo = action.current?.pageInfo;
+            const { current = pageInfo?.current, pageSize = pageInfo?.pageSize } = values as any;
+            action.current?.setPageInfo?.({
+              ...pageInfo,
+              current: parseInt(current, 10),
+              pageSize: parseInt(pageSize, 10),
+            });
             /** 如果是手动模式不需要提交 */
             if (manualRequest) return;
             submit(values, true);
