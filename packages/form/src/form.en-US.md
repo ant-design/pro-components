@@ -102,7 +102,7 @@ ProForm is the best choice when you want to implement a form quickly but don't w
 
 ProForm is a repackaging of antd Form, if you want to customize form elements, ProForm is the same way as antd, you can still customize it with FormItem + custom components. Of course this does not affect other components, QueryFilter and other components as well.
 
-> antd's Form api View [here](https://ant.design/components/form-cn/)
+> antd's Form api View [here](https://ant.design/components/form/)
 
 | Parameters | Description | Type | Default |
 | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | dateFormatter | AutoFormat data, mainly moment forms, supports string and number modes | `string\| number \|false` | string |
 | syncToUrl | sync parameters to url,url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `true` \| `(values,type)=>values` | - |
 | omitNil | ProForm automatically clears null and undefined data, if you have agreed that nil means something, set to false to disable this feature | `boolean` | true |
-| string | [(...)](https://ant.design/components/form-cn/) | support other antd `Form` component parameters besides `wrapperCol` \| `labelCol` \| `layout` | - |
+| string | [(...)](https://ant.design/components/form/) | support other antd `Form` component parameters besides `wrapperCol` \| `labelCol` \| `layout` | - |
 
 ### ProForm.Group
 
@@ -130,8 +130,8 @@ While we would prefer not to modify the submitter, it is a common requirement to
 | onSubmit | Submit method | `()=>void` | - |
 | onReset | Reset method | `()=>void` | - |
 | searchConfig | The configuration of the search, generally used to configure the text | `{resetText,submitText}` | - |
-| submitButtonProps | The props for the submit button | [ButtonProps](https://ant.design/components/button-cn/) | - |
-| resetButtonProps | The props for the reset button | [ButtonProps](https://ant.design/components/button-cn/) | - |
+| submitButtonProps | The props for the submit button | [ButtonProps](https://ant.design/components/button/) | - |
+| resetButtonProps | The props for the reset button | [ButtonProps](https://ant.design/components/button/) | - |
 | render | Rendering of custom actions | `false` \|`(props,dom:JSX[])=>ReactNode[]` | - |
 
 The second argument to > render is the default dom array, the first is the reset button and the second is the submit button.

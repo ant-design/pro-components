@@ -85,7 +85,7 @@ API is the same as ProTable
 
 ### ProDescriptions
 
-> See antd's [Descriptions](https://ant.design/components/descriptions-cn/) for more features
+> See antd's [Descriptions](https://ant.design/components/descriptions/) for more features
 
 | Parameters | Description | Type | Default |
 | --- | --- | --- | --- |

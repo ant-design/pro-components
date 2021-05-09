@@ -147,9 +147,9 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | headerTheme | The theme for the top navigation, with mix mode in effect | `light` \| `dark` | `dark` |
 | fixedHeader | Whether to fix the header to the top | `boolean` | `false` |
 | fixSiderbar | whether to fix the navigation | `boolean` | `false` |
-| breakpoint | Trigger [breakpoint](https://ant.design/components/grid-cn/#Col) for responsive layouts | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
+| breakpoint | Trigger [breakpoint](https://ant.design/components/grid/#Col) for responsive layouts | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
 | menu | For the moment, only locale,locale can be turned off for the menu's own globalization | `{ locale: boolean, defaultOpenAll: boolean }` | `{ locale: true }` |
-| iconfontUrl | Use the icon configuration of [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) | `URL` | - |
+| iconfontUrl | Use the icon configuration of [IconFont](https://ant.design/components/icon/#components-icon-demo-iconfont) | `URL` | - |
 | iconPrefixes | icon prefix of side menu | `string` | `icon-` |
 | locale | Language settings for the current layout | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | settings for layout | [`Settings`](#Settings) | - |
@@ -174,7 +174,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | route | Used to generate menus and breadcrumbs. umi's Layout will automatically have | [route](#Route) | - |
 | disableMobile | disable automatic switching to mobile pages | `boolean` | false |
 | links | Show shortcut actions in the lower right corner of the menu | `ReactNode[]` | - |
-| menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
+| menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu/) | `MenuProps` | undefined |
 | waterMarkProps | Configure watermark, watermark is a function of PageContainer, layout is only transparently transmitted to PageContainer | [WaterMarkProps](/components/water-mark) | - |
 
 ### SettingDrawer

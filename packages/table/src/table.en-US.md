@@ -273,7 +273,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | columnsStateMap | State enumeration for columns | `{key:{ show,fixed }}}` | - |
 | onColumnsStateChange | columns state changed | `(props: {key:{ show,fixed }}}) => void` | - |
 | type | pro-table type | `"form"` | - |
-| form | configuration of antd form | [FormProps](https://ant.design/components/form-cn/#API) | - |
+| form | configuration of antd form | [FormProps](https://ant.design/components/form/#API) | - |
 | onSubmit | Triggered when the form is submitted | `(params: U) => void` | - |
 | onReset | Triggered when resetting the form | `() => void` | - |
 | columnEmptyText | display when empty, display when not set `-`, false to disable this function | `string` \| `false` | false |
@@ -291,7 +291,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | --- | --- | --- | --- |
 | record | The row to be added, generally containing a unique key | `T` | `{}` |
 | position | where the row should be added, at the beginning or at the end | `top` \| `bottom` | `bottom` |
-| (... .buttonProps) | antd's [ButtonProps](https://ant.design/components/button-cn/#API) | ButtonProps | - |
+| (... .buttonProps) | antd's [ButtonProps](https://ant.design/components/button/#API) | ButtonProps | - |
 
 #### Search Search form
 
@@ -431,15 +431,15 @@ Form's columns are generated with different types based on `valueType`.
 
 | Type | Corresponding component |
 | --- | --- |
-| text | [Input](https://ant.design/components/input-cn/) |
-| textarea | [Input.TextArea](https://ant.design/components/input-cn/#components-input-demo-textarea) |
-| date | [DatePicker](https://ant.design/components/date-picker-cn/) |
-| dateTime | [DatePicker](https://ant.design/components/date-picker-cn/#components-date-picker-demo-time) |
-| time | [TimePicker](https://ant.design/components/time-picker-cn/) |
-| dateTimeRange | [RangePicker](https://ant.design/components/time-picker-cn/#components-time-picker-demo-range-picker) |
-| dateRange | [RangePicker](https://ant.design/components/time-picker-cn/#components-time-picker-demo-range-picker) |
-| money | [InputNumber](https://ant.design/components/input-number-cn/) |
-| digit | [InputNumber](https://ant.design/components/input-number-cn/) |
+| text | [Input](https://ant.design/components/input/) |
+| textarea | [Input.TextArea](https://ant.design/components/input/#components-input-demo-textarea) |
+| date | [DatePicker](https://ant.design/components/date-picker/) |
+| dateTime | [DatePicker](https://ant.design/components/date-picker/#components-date-picker-demo-time) |
+| time | [TimePicker](https://ant.design/components/time-picker/) |
+| dateTimeRange | [RangePicker](https://ant.design/components/time-picker/#components-time-picker-demo-range-picker) |
+| dateRange | [RangePicker](https://ant.design/components/time-picker/#components-time-picker-demo-range-picker) |
+| money | [InputNumber](https://ant.design/components/input-number/) |
+| digit | [InputNumber](https://ant.design/components/input-number/) |
 | option | don't show |
 | index | don't show |
 | progress | don't show |
@@ -477,7 +477,7 @@ Toolbar configuration properties for lists and tables
 | menu | menu configuration | `ListToolBarMenu` | - |
 | tabs | Tabs configuration, only valid if `multipleLine` is true | `ListToolBarTabs` | - |
 
-SearchProps is a property of antd's [Input.Search](https://ant.design/components/input-cn/#Input.Search).
+SearchProps is a property of antd's [Input.Search](https://ant.design/components/input/#Input.Search).
 
 #### Setting
 

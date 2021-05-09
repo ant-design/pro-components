@@ -81,7 +81,7 @@ In some cases, we need to adapt the input box according to the page display, exc
 
 ### ProFormText
 
-Same as [Input](https://ant.design/components/input-cn/).
+Same as [Input](https://ant.design/components/input/).
 
 ```tsx | pure
 <ProFormText name="text" label="Name" placeholder="Please enter a name" fieldProps={inputProps} />

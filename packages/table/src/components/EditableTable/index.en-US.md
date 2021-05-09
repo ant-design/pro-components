@@ -33,7 +33,7 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 | --- | --- | --- | --- |
 | value | Same as dataSource, pass in an array of metadata for table rendering | `T[]` | `undefined` |
 | onChange | The dataSource is triggered when the table is modified, both deletion and modification. | `(value:T[])=>void` | `undefined` |
-| recordCreatorProps | Configuration related to creating a new row of data | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/ #API) | - |
+| recordCreatorProps | Configuration related to creating a new row of data | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button/ #API) | - |
 | maxLength | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number | - |
 | editable | Whether or not editable in the edit table, the function's arguments are the same as the table's render | `false` \| `(text: any, record: T,index: number) => boolean` | true |
 
@@ -76,7 +76,7 @@ recordCreatorProps = {
   style: {
     display: 'none',
   },
-  // https://ant.design/components/button-cn/#API
+  // https://ant.design/components/button/#API
   ...antButtonProps,
 };
 ```
@@ -95,7 +95,7 @@ recordCreatorProps = {
   style: {
     display: 'none',
   },
-  // https://ant.design/components/button-cn/#API
+  // https://ant.design/components/button/#API
   ... .antButtonProps,
 };
 ```
