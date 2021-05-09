@@ -1,4 +1,4 @@
-import { MenuDataItem } from '@umijs/route-utils';
+import type { MenuDataItem } from '@umijs/route-utils';
 import type { MenuTheme } from 'antd/lib/menu/MenuContext';
 
 export type ContentWidth = 'Fluid' | 'Fixed';

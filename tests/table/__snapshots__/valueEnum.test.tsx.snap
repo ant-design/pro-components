@@ -50,7 +50,6 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                     class="ant-input"
                     id="name"
                     placeholder="请输入链接"
-                    style="width: 100%;"
                     type="text"
                     value=""
                   />

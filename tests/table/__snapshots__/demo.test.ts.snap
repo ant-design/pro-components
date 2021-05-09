@@ -8261,7 +8261,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                   <div
                     class="qixian-select qixian-pro-filed-search-select qixian-select-single qixian-select-allow-clear qixian-select-show-arrow"
                     name="state"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                     text="open"
                   >
                     <div
@@ -8382,7 +8382,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                 >
                   <span
                     class="qixian-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="qixian-input"
@@ -8447,7 +8446,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
               >
                 <div
                   class="qixian-picker"
-                  style="width: 100%;"
                 >
                   <div
                     class="qixian-picker-input"
@@ -12657,7 +12655,7 @@ Array [
                     <div
                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       name="state"
-                      style="width: 100%;"
+                      style="min-width: 100px;"
                       text="all"
                     >
                       <div
@@ -12779,7 +12777,7 @@ Array [
                     <div
                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       name="direction"
-                      style="width: 100%;"
+                      style="min-width: 100px;"
                       text=""
                     >
                       <div
@@ -12869,7 +12867,6 @@ Array [
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -12933,7 +12930,6 @@ Array [
                 >
                   <div
                     class="ant-picker"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-picker-input"
@@ -14330,7 +14326,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                     class="ant-input"
                     id="name"
                     placeholder="请输入链接"
-                    style="width: 100%;"
                     type="text"
                     value=""
                   />
@@ -15140,7 +15135,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -15209,7 +15203,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     name="creator"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                     text=""
                   >
                     <div
@@ -15303,7 +15297,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     name="status"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                     text="all"
                   >
                     <div
@@ -15446,7 +15440,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                 >
                   <div
                     class="ant-picker"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-picker-input"
@@ -15519,7 +15512,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -17097,7 +17089,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                           >
                             <span
                               class="ant-input-affix-wrapper"
-                              style="width: 100%;"
                             >
                               <input
                                 class="ant-input"
@@ -17162,7 +17153,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                         >
                           <div
                             class="ant-picker"
-                            style="width: 100%;"
                           >
                             <div
                               class="ant-picker-input"
@@ -17233,7 +17223,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             hidden=""
                             name="address"
-                            style="width: 100%;"
+                            style="min-width: 100px;"
                             text=""
                           >
                             <div
@@ -19861,7 +19851,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -19930,7 +19919,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                 >
                   <div
                     class="ant-picker"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-picker-input"
@@ -20378,7 +20366,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -20551,7 +20538,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
               >
                 <div
                   class="ant-picker"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input"
@@ -22471,7 +22457,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -22541,7 +22526,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     name="state"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                     text="1"
                   >
                     <div
@@ -26605,7 +26590,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -26674,7 +26658,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     name="state"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                     text=""
                   >
                     <div
@@ -27792,7 +27776,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     name="status"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                     text="all"
                   >
                     <div
@@ -27913,7 +27897,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                 >
                   <div
                     class="ant-input-number"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -28019,7 +28002,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
               >
                 <div
                   class="ant-picker"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input"
@@ -28088,7 +28070,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
               >
                 <div
                   class="ant-picker"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input"
@@ -28660,7 +28641,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                 >
                   <div
                     class="ant-picker"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-picker-input"
@@ -28734,7 +28714,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                 >
                   <div
                     class="ant-input-number"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -29616,7 +29595,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                   <div
                     class="ant-select ant-select-rtl ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     name="state"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                     text="open"
                   >
                     <div
@@ -29736,7 +29715,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                 >
                   <span
                     class="ant-input-affix-wrapper ant-input-affix-wrapper-rtl"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -29800,7 +29778,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
               >
                 <div
                   class="ant-picker ant-picker-rtl"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input"
@@ -31727,7 +31704,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -31904,7 +31880,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                 >
                   <div
                     class="ant-picker"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-picker-input"
@@ -32557,7 +32532,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -32626,7 +32600,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     name="state"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                     text=""
                   >
                     <div
@@ -32715,7 +32689,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
               >
                 <div
                   class="ant-picker ant-picker-range"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input ant-picker-input-active"
@@ -34628,7 +34601,6 @@ Array [
                   >
                     <span
                       class="ant-input-affix-wrapper"
-                      style="width: 100%;"
                     >
                       <input
                         class="ant-input"
@@ -34697,7 +34669,6 @@ Array [
                   >
                     <span
                       class="ant-input-affix-wrapper"
-                      style="width: 100%;"
                     >
                       <input
                         class="ant-input"
@@ -35199,7 +35170,7 @@ Array [
                     <div
                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       name="state"
-                      style="width: 100%;"
+                      style="min-width: 100px;"
                       text="all"
                     >
                       <div
@@ -35342,7 +35313,6 @@ Array [
                   >
                     <span
                       class="ant-input-affix-wrapper"
-                      style="width: 100%;"
                     >
                       <input
                         class="ant-input"
@@ -35409,7 +35379,6 @@ Array [
                     class="ant-input"
                     id="direction"
                     placeholder="请输入"
-                    style="width: 100%;"
                     type="text"
                     value=""
                   />
@@ -35443,7 +35412,6 @@ Array [
                 >
                   <div
                     class="ant-picker"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-picker-input"
@@ -35512,7 +35480,6 @@ Array [
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -35576,7 +35543,6 @@ Array [
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -38980,7 +38946,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -39049,7 +39014,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -39116,7 +39080,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                   class="ant-input"
                   id="image"
                   placeholder="请输入"
-                  style="width: 100%;"
                   type="text"
                   value=""
                 />
@@ -39986,7 +39949,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     name="select"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                     text="all"
                   >
                     <div
@@ -40107,7 +40070,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                   <div
                     class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                     id="radio"
-                    style="width: 100%;"
                   >
                     <label
                       class="ant-radio-wrapper ant-radio-wrapper-checked"
@@ -40222,7 +40184,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                   <div
                     class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                     id="radioButton"
-                    style="width: 100%;"
                   >
                     <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
@@ -40337,7 +40298,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                   <div
                     class="ant-checkbox-group ant-pro-field-checkbox-horizontal"
                     id="status"
-                    style="width: 100%;"
                   >
                     <label
                       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item"
@@ -41119,7 +41079,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                 >
                   <div
                     class="ant-picker"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-picker-input"
@@ -41193,7 +41152,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                 >
                   <div
                     class="ant-picker ant-picker-range"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-picker-input ant-picker-input-active"
@@ -41305,7 +41263,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
               >
                 <div
                   class="ant-picker ant-picker-range"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input ant-picker-input-active"
@@ -41416,7 +41373,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
               >
                 <div
                   class="ant-picker"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input"
@@ -41485,7 +41441,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
               >
                 <div
                   class="ant-picker"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input"
@@ -41554,7 +41509,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
               >
                 <div
                   class="ant-picker"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input"
@@ -42354,7 +42308,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                 >
                   <div
                     class="ant-input-number"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -42570,7 +42523,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
               >
                 <div
                   class="ant-input-number"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -42780,7 +42732,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
               >
                 <div
                   class="ant-input-number"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-input-number-handler-wrap"

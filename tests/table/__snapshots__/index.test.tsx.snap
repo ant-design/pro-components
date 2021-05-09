@@ -48,7 +48,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -117,7 +116,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                 >
                   <span
                     class="ant-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="ant-input"
@@ -184,7 +182,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   hidden=""
                   name="sex"
-                  style="width: 100%;"
+                  style="min-width: 100px;"
                   text=""
                 >
                   <div
@@ -275,7 +273,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   hidden=""
                   name="status"
-                  style="width: 100%;"
+                  style="min-width: 100px;"
                   text=""
                 >
                   <div
@@ -364,7 +362,6 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <span
                   class="ant-input-affix-wrapper"
-                  style="width: 100%;"
                 >
                   <input
                     class="ant-input"
@@ -428,7 +425,6 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <span
                   class="ant-input-affix-wrapper"
-                  style="width: 100%;"
                 >
                   <input
                     class="ant-input"
@@ -599,7 +595,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                   class="ant-input"
                   id="date"
                   placeholder="请输入"
-                  style="width: 100%;"
                   type="text"
                   value=""
                 />
@@ -633,7 +628,6 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <div
                   class="ant-picker"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input"
@@ -702,7 +696,6 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <div
                   class="ant-picker"
-                  style="width: 100%;"
                 >
                   <div
                     class="ant-picker-input"
@@ -774,7 +767,6 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <span
                   class="ant-input-affix-wrapper"
-                  style="width: 100%;"
                 >
                   <input
                     class="ant-input"
@@ -7523,7 +7515,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     name="status"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                     text=""
                   >
                     <div
@@ -7606,7 +7598,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
                     name="status"
-                    style="width: 100%;"
+                    style="min-width: 100px;"
                     text=""
                   >
                     <div

@@ -213,7 +213,6 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                 >
                   <span
                     class="qixian-input-affix-wrapper"
-                    style="width: 100%;"
                   >
                     <input
                       class="qixian-input"

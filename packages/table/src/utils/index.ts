@@ -1,6 +1,6 @@
-import React from 'react';
+import type React from 'react';
 import type { TablePaginationConfig } from 'antd';
-import { SortOrder } from 'antd/es/table/interface';
+import type { SortOrder } from 'antd/es/table/interface';
 
 import type { UseEditableUtilType } from '@ant-design/pro-utils';
 import type { IntlType } from '@ant-design/pro-provider';
