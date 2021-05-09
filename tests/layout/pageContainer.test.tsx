@@ -45,6 +45,11 @@ describe('PageContainer', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('⚡️ support more loading props', async () => {
+    const html = render(<PageContainer title="期贤" loading={{ spinning: true, tip: '加载中' }} />);
+    expect(html).toMatchSnapshot();
+  });
+
   it('🔥 support footer and breadcrumb', async () => {
     const html = render(
       <PageContainer
