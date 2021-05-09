@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useEffect, useRef } from 'react';
 
 type Dispatch<A> = (value: A) => void;
 
@@ -13,15 +13,20 @@ function useMountMergeState<S>(
   },
 ): [S, Dispatch<S>] {
   const mountRef = useRef<boolean>(false);
+  const frame = useRef<number>(0);
+
   useEffect(() => {
     mountRef.current = true;
     return () => {
       mountRef.current = false;
     };
   });
+
   const [state, setState] = useMergedState<S>(initialState, option);
   const mountSetState: Dispatch<S> = (prevState: S) => {
-    requestAnimationFrame(() => {
+    cancelAnimationFrame(frame.current);
+
+    frame.current = requestAnimationFrame(() => {
       if (mountRef.current) {
         setState(prevState);
       }
