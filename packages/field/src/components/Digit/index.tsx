@@ -1,6 +1,27 @@
 import React from 'react';
 import { InputNumber } from 'antd';
+import pick from 'lodash.pick';
 import type { ProFieldFC } from '../../index';
+
+const supportFormatOptions = [
+  'compactDisplay',
+  'currency',
+  'currencyDisplay',
+  'currencySign',
+  'localeMatcher',
+  'notation',
+  'numberingSystem',
+  'signDisplay',
+  'style',
+  'unit',
+  'unitDisplay',
+  'useGrouping',
+  'minimumIntegerDigits',
+  'minimumFractionDigits',
+  'maximumFractionDigits',
+  'minimumSignificantDigits',
+  'maximumSignificantDigits',
+];
 
 export type FieldDigitProps = {
   text: number;
@@ -19,7 +40,9 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
   ref,
 ) => {
   if (type === 'read') {
-    const digit = new Intl.NumberFormat().format(Number(text) as number);
+    const digit = new Intl.NumberFormat(undefined, pick(fieldProps, supportFormatOptions)).format(
+      Number(text) as number,
+    );
     const dom = <span ref={ref}>{digit}</span>;
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
