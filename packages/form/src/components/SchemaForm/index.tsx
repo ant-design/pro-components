@@ -124,32 +124,31 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           }
           return (b.index || 0) - (a.index || 0);
         })
-        .map((newItem, index) => {
-          const title = runFunction(newItem.title, 'form');
+        .map((originItem, index) => {
+          const title = runFunction(originItem.title, 'form');
           const item = omitUndefined({
-            name: newItem.name,
-            valueType: runFunction(newItem.valueType, {}),
-            key: newItem.key,
-            columns: newItem.columns,
-            fieldProps: runFunction(newItem.fieldProps, formRef.current, newItem),
-            valueEnum: newItem.valueEnum,
-            dataIndex: newItem.key || newItem.dataIndex,
-            initialValue: newItem.initialValue,
-            formItemProps: runFunction(newItem.formItemProps, formRef.current, newItem),
-            width: newItem.width,
-            render: newItem.render,
-            renderFormItem: newItem.renderFormItem,
-            index: newItem.index,
-            readonly: newItem.readonly,
-            transform: newItem.transform,
-            colSize: newItem.colSize,
-            className: newItem.className,
-            renderText: newItem.renderText,
-            request: newItem.request,
-            params: newItem.params,
-            tooltip: newItem.tooltip || newItem.tip,
+            name: originItem.name,
+            valueType: runFunction(originItem.valueType, {}),
+            key: originItem.key,
+            columns: originItem.columns,
+            fieldProps: runFunction(originItem.fieldProps, formRef.current, originItem),
+            valueEnum: originItem.valueEnum,
+            dataIndex: originItem.key || originItem.dataIndex,
+            initialValue: originItem.initialValue,
+            formItemProps: runFunction(originItem.formItemProps, formRef.current, originItem),
+            width: originItem.width,
+            render: originItem.render,
+            renderFormItem: originItem.renderFormItem,
+            index: originItem.index,
+            readonly: originItem.readonly,
+            transform: originItem.transform,
+            colSize: originItem.colSize,
+            className: originItem.className,
+            renderText: originItem.renderText,
+            request: originItem.request,
+            params: originItem.params,
+            tooltip: originItem.tooltip || originItem.tip,
             title,
-            originProps: newItem,
           });
           // 几种特殊的 value 不处理
           if (
@@ -233,6 +232,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
               {
                 type,
                 ...item,
+                originProps: originItem,
               },
               {
                 ...item,
@@ -258,6 +258,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
                         {
                           type,
                           ...item,
+                          originProps: originItem,
                         },
                         {
                           ...config,

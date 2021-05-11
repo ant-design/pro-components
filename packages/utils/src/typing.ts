@@ -247,6 +247,7 @@ export type ProSchema<
       isEditable?: boolean;
       index?: number;
       type: ComponentsType;
+      originProps?: any;
     },
     config: {
       onSelect?: (value: any) => void;
