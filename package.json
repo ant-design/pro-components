@@ -6,7 +6,8 @@
   ],
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
-    "build": "cross-env BUILD_TYPE=lib father-build && cross-env BUILD_TYPE=es father-build && webpack && node ./scripts/gen_less_entry.js",
+    "build": "npm run build-lib && webpack && node ./scripts/gen_less_entry.js",
+    "build-lib": "cross-env BUILD_TYPE=lib father-build && cross-env BUILD_TYPE=es father-build",
     "changelog": "pro-changelog",
     "createRelease": "node ./scripts/createRelease.js",
     "deploy": "npm run site && gh-pages -d ./dist",

@@ -1,5 +1,4 @@
-name: Node CI
-
+name: build-lib CI
 on: [push, pull_request]
 
 jobs:
@@ -36,12 +35,6 @@ jobs:
           steps.cache-node-modules.outputs.cache-hit != 'true'
       - run: yarn run lint
       - run: yarn run tsc --noEmit
-      - run: yarn run build
+      - run: yarn run build-lib
         env:
           PRO_COMPONENTS_CI: CI
-      - run: yarn run test
-        env:
-          CI: true
-          PROGRESS: none
-          NODE_ENV: test
-          NODE_OPTIONS: --max_old_space_size=4096
