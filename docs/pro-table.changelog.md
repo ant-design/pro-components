@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.36.0
+
+`2021-05-11`
+
+- 🐛 fix(table): fix defaultRender will gen two label error [#2715](https://github.com/ant-design/pro-components/pull/2715) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix: toolbar fullScreen default value [#2691](https://github.com/ant-design/pro-components/pull/2691) [@hengkx](https://github.com/hengkx)
+- 🐛 fix(table): fix the style problem of the fixed new button [#2661](https://github.com/ant-design/pro-components/pull/2661) [@wen-haoming](https://github.com/wen-haoming)
+- 💥 feat(table): support sync pageinfo to url [#2701](https://github.com/ant-design/pro-components/pull/2701) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.35.0
 
 `2021-04-29`

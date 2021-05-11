@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.18.0
+
+`2021-05-11`
+
+- 💥 feat(layout): support for all parameters of the Spin component [#2704](https://github.com/ant-design/pro-components/pull/2704) [@jiyingzhi](https://github.com/jiyingzhi)
+
 ## @ant-design/pro-layout@6.17.0
 
 `2021-04-22`

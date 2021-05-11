@@ -9,6 +9,16 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.23.0
+
+`2021-05-11`
+
+- 🐛 fix(form): UploadButton upload failed value is still modified [#2700](https://github.com/ant-design/pro-components/pull/2700) [@DerrickTel](https://github.com/DerrickTel)
+- 🐛 fix(form): UploadButton support fileList (#2231) [#2681](https://github.com/ant-design/pro-components/pull/2681) [@DerrickTel](https://github.com/DerrickTel)
+- 🐛 fix(form): fix react warning [#2663](https://github.com/ant-design/pro-components/pull/2663) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): LightFilter 折叠的 ProFormFields 行为异常 [#2657](https://github.com/ant-design/pro-components/pull/2657) [@wen-haoming](https://github.com/wen-haoming)
+- 💥 feat(form) : support getFieldsFormatValue [#2675](https://github.com/ant-design/pro-components/pull/2675) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.22.0
 
 `2021-04-29`
