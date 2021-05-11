@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.36.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.35.1...@ant-design/pro-table@2.36.0) (2021-05-11)
+
+### Bug Fixes
+
+- **table:** fix the style problem of the fixed new button ([#2661](https://github.com/ant-design/pro-components/issues/2661)) ([b80c99f](https://github.com/ant-design/pro-components/commit/b80c99fa298152adc9d4ef39ecfc2c2ac5e4c21f))
+- **table:** toolbar fullScreen default value ([#2691](https://github.com/ant-design/pro-components/issues/2691)) ([4508cd4](https://github.com/ant-design/pro-components/commit/4508cd4c996ddbc28a03c4c06a9cff8b54a8574c))
+
+### Features
+
+- **table:** support sync pageinfo to url ([#2701](https://github.com/ant-design/pro-components/issues/2701)) ([384ca36](https://github.com/ant-design/pro-components/commit/384ca364e0606535e4538920d6ecc85cff70c164))
+
 ## [2.35.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.35.0...@ant-design/pro-table@2.35.1) (2021-04-29)
 
 **Note:** Version bump only for package @ant-design/pro-table

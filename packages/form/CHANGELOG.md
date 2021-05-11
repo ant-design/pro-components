@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.22.1...@ant-design/pro-form@1.23.0) (2021-05-11)
+
+### Bug Fixes
+
+- **form:** fix ligthfilter no wrap style ([a220685](https://github.com/ant-design/pro-components/commit/a220685f4b4bd7bf5f332377b643cb97baa54d22))
+- **form:** LightFilter 折叠的 ProFormFields 行为异常 ([#2657](https://github.com/ant-design/pro-components/issues/2657)) ([938db61](https://github.com/ant-design/pro-components/commit/938db61a2dc4e15b536f4e445acf4c5995b35a72))
+- **table:** fix defaultRender will gen two label error ([#2715](https://github.com/ant-design/pro-components/issues/2715)) ([687d51b](https://github.com/ant-design/pro-components/commit/687d51b9edf6e0ed7ae07fc49af02701b7355457))
+- **table:** fix the style problem of the fixed new button ([#2661](https://github.com/ant-design/pro-components/issues/2661)) ([b80c99f](https://github.com/ant-design/pro-components/commit/b80c99fa298152adc9d4ef39ecfc2c2ac5e4c21f))
+
+### Features
+
+- **table:** support sync pageinfo to url ([#2701](https://github.com/ant-design/pro-components/issues/2701)) ([384ca36](https://github.com/ant-design/pro-components/commit/384ca364e0606535e4538920d6ecc85cff70c164))
+
 ## [1.22.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.22.0...@ant-design/pro-form@1.22.1) (2021-04-29)
 
 ### Bug Fixes

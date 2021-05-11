@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.4...@ant-design/pro-utils@1.16.5) (2021-05-11)
+
+### Bug Fixes
+
+- **table:** fix defaultRender will gen two label error ([#2715](https://github.com/ant-design/pro-components/issues/2715)) ([687d51b](https://github.com/ant-design/pro-components/commit/687d51b9edf6e0ed7ae07fc49af02701b7355457))
+
 ## [1.16.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.3...@ant-design/pro-utils@1.16.4) (2021-04-29)
 
 **Note:** Version bump only for package @ant-design/pro-utils

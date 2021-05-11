@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.11.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.12...@ant-design/pro-card@1.11.13) (2021-05-11)
+
+### Bug Fixes
+
+- **card:** col map lost key ([#2694](https://github.com/ant-design/pro-components/issues/2694)) ([ee4c34d](https://github.com/ant-design/pro-components/commit/ee4c34d626d78787add195f853a9d6d5ab131671))
+
 ## [1.11.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.11...@ant-design/pro-card@1.11.12) (2021-04-29)
 
 ### Bug Fixes

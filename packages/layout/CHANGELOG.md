@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.17.1...@ant-design/pro-layout@6.18.0) (2021-05-11)
+
+### Bug Fixes
+
+- typo ([#2683](https://github.com/ant-design/pro-components/issues/2683)) ([6b4c8b2](https://github.com/ant-design/pro-components/commit/6b4c8b21a1ade0d875616f5fc80a023a25e0867d))
+- **table:** fix the style problem of the fixed new button ([#2661](https://github.com/ant-design/pro-components/issues/2661)) ([b80c99f](https://github.com/ant-design/pro-components/commit/b80c99fa298152adc9d4ef39ecfc2c2ac5e4c21f))
+
+### Features
+
+- **layout:** support for all parameters of the Spin component ([#2704](https://github.com/ant-design/pro-components/issues/2704)) ([e2e0232](https://github.com/ant-design/pro-components/commit/e2e0232adda8d94b5cf0d40497dee01cebf2af73))
+
 ## [6.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.17.0...@ant-design/pro-layout@6.17.1) (2021-04-29)
 
 **Note:** Version bump only for package @ant-design/pro-layout
