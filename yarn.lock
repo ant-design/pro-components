@@ -4088,10 +4088,10 @@
     react-router-dom "5.2.0"
     regenerator-runtime "0.13.5"
 
-"@umijs/preset-dumi@1.1.16":
-  version "1.1.16"
-  resolved "https://registry.nlark.com/@umijs/preset-dumi/download/@umijs/preset-dumi-1.1.16.tgz?cache=0&sync_timestamp=1619148063244&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40umijs%2Fpreset-dumi%2Fdownload%2F%40umijs%2Fpreset-dumi-1.1.16.tgz#5ffd26bd582bc441a0a6f4fe657057fc3a849ae9"
-  integrity sha1-X/0mvVgrxEGgpvT+ZXBX/DqEmuk=
+"@umijs/preset-dumi@1.1.17":
+  version "1.1.17"
+  resolved "https://registry.yarnpkg.com/@umijs/preset-dumi/-/preset-dumi-1.1.17.tgz#4f829ae1f45724bc7720830d97403981779bfc07"
+  integrity sha512-g/dV2ZbcFKWGwsQUFj5QdDEmmoUcxr84JUxQuGU/XO2SfixdbOM3rLr8j9kKH/qGOEa8CAZKsDCe0HCQaVdelg==
   dependencies:
     "@babel/core" "^7.7.2"
     "@babel/generator" "^7.7.2"
@@ -4107,7 +4107,7 @@
     copy-text-to-clipboard "^2.2.0"
     deepmerge "^4.2.2"
     dumi-assets-types "1.0.0"
-    dumi-theme-default "1.0.16"
+    dumi-theme-default "1.1.0"
     enhanced-resolve "^4.1.1"
     github-slugger "^1.3.0"
     hast-util-has-property "^1.0.4"
@@ -4120,7 +4120,7 @@
     lz-string "^1.4.4"
     react-docgen-typescript "^1.20.5"
     rehype-autolink-headings "^4.0.0"
-    rehype-mathjax-dumi-tmp "^3.1.1-0"
+    rehype-mathjax "^3.1.0"
     rehype-remove-comments "^4.0.2"
     rehype-stringify "^8.0.0"
     remark-frontmatter "^3.0.0"
@@ -7856,21 +7856,21 @@ dumi-assets-types@1.0.0:
   resolved "https://registry.npm.taobao.org/dumi-assets-types/download/dumi-assets-types-1.0.0.tgz?cache=0&sync_timestamp=1610894982983&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdumi-assets-types%2Fdownload%2Fdumi-assets-types-1.0.0.tgz#d5368cb11045b203bf1ef1080e553b2287a2ec81"
   integrity sha1-1TaMsRBFsgO/HvEIDlU7Ioei7IE=
 
-dumi-theme-default@1.0.16:
-  version "1.0.16"
-  resolved "https://registry.nlark.com/dumi-theme-default/download/dumi-theme-default-1.0.16.tgz#8c844cc2cdb8c98db95c5189772b0b9d2a74669e"
-  integrity sha1-jIRMws24yY25XFGJdysLnSp0Zp4=
+dumi-theme-default@1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/dumi-theme-default/-/dumi-theme-default-1.1.0.tgz#9c38af33d0a1dd98d24c79da0e06d0474aecd0d6"
+  integrity sha512-dElHtXpkRcSNcg0l3y6U8lWwEQUZOXTt/id6hiRtQnUuRkjwsUqpUBOHj9GFgtSpqeKEPRjemE8ukEYWH7cKJA==
   dependencies:
     prism-react-renderer "^1.1.1"
     prismjs "^1.21.0"
     rc-tabs "^11.7.1"
 
 dumi@^1.1.6:
-  version "1.1.16"
-  resolved "https://registry.nlark.com/dumi/download/dumi-1.1.16.tgz?cache=0&sync_timestamp=1619148063094&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fdumi%2Fdownload%2Fdumi-1.1.16.tgz#a4c5966c91f5143f1e992c48686323c15450cc04"
-  integrity sha1-pMWWbJH1FD8emSxIaGMjwVRQzAQ=
+  version "1.1.17"
+  resolved "https://registry.yarnpkg.com/dumi/-/dumi-1.1.17.tgz#cc5f26af495fd68114e31015e46cb4c073bfe8f4"
+  integrity sha512-+9KHCmkbEJWg6hybT+Rl7iruabUy5Jks9xGhTLsF0GQbSvA6pkwTp+VE2lw5GfcJxxQLKSv8rd8pM5n+ctZWNA==
   dependencies:
-    "@umijs/preset-dumi" "1.1.16"
+    "@umijs/preset-dumi" "1.1.17"
     umi "^3.0.0"
 
 duplexer2@0.0.2:
@@ -13215,14 +13215,14 @@ material-colors@^1.2.1:
   resolved "https://registry.nlark.com/material-colors/download/material-colors-1.2.6.tgz#6d1958871126992ceecc72f4bcc4d8f010865f46"
   integrity sha1-bRlYhxEmmSzuzHL0vMTY8BCGX0Y=
 
-mathjax-full@3.1.2:
-  version "3.1.2"
-  resolved "https://registry.nlark.com/mathjax-full/download/mathjax-full-3.1.2.tgz#53ac5b38252379d515d60e99092672b42725bf6a"
-  integrity sha1-U6xbOCUjedUV1g6ZCSZytCclv2o=
+mathjax-full@^3.0.0:
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/mathjax-full/-/mathjax-full-3.1.4.tgz#ec9c51abf55b427e0fd54760ca9478d439406e59"
+  integrity sha512-80lZZci7vqQQV2wdLcnFUtI7z5Aru0RL03wPw8JM6kFPmX4CA/SYfnlQQ1WIIBU+0p0YoxJ6Z3gAUcVzvDArhw==
   dependencies:
     esm "^3.2.25"
     mj-context-menu "^0.6.1"
-    speech-rule-engine "^3.1.1"
+    speech-rule-engine "^3.2.0"
 
 mathml-tag-names@^2.0.1, mathml-tag-names@^2.1.3:
   version "2.1.3"
@@ -17534,16 +17534,16 @@ rehype-autolink-headings@^4.0.0:
     hast-util-is-element "^1.0.0"
     unist-util-visit "^2.0.0"
 
-rehype-mathjax-dumi-tmp@^3.1.1-0:
-  version "3.1.1-0"
-  resolved "https://registry.nlark.com/rehype-mathjax-dumi-tmp/download/rehype-mathjax-dumi-tmp-3.1.1-0.tgz?cache=0&sync_timestamp=1619148333951&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frehype-mathjax-dumi-tmp%2Fdownload%2Frehype-mathjax-dumi-tmp-3.1.1-0.tgz#56958ebfdf089c39fe629f8fe0b423253d5f9679"
-  integrity sha1-VpWOv98InDn+Yp+P4LQjJT1flnk=
+rehype-mathjax@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/rehype-mathjax/-/rehype-mathjax-3.1.0.tgz#d0282243bf68f3f18dd63a062e0f8c45662ecc26"
+  integrity sha512-Pmz92Y56lBFmDjFc9nIdrKu1xzKSBYevcwKiKiG7b5JJg74q1E62nRSbPEm37vXaXn7Bn25iRsWcP39bJKkMxg==
   dependencies:
     "@types/mathjax" "^0.0.36"
     hast-util-from-dom "^3.0.0"
     hast-util-to-text "^2.0.0"
     jsdom "^16.0.0"
-    mathjax-full "3.1.2"
+    mathjax-full "^3.0.0"
     unist-util-visit "^2.0.0"
 
 rehype-remove-comments@^4.0.2:
@@ -18757,10 +18757,10 @@ specificity@^0.4.1:
   resolved "https://registry.nlark.com/specificity/download/specificity-0.4.1.tgz?cache=0&sync_timestamp=1620301057306&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fspecificity%2Fdownload%2Fspecificity-0.4.1.tgz#aab5e645012db08ba182e151165738d00887b019"
   integrity sha1-qrXmRQEtsIuhguFRFlc40AiHsBk=
 
-speech-rule-engine@^3.1.1:
+speech-rule-engine@^3.2.0:
   version "3.2.0"
-  resolved "https://registry.nlark.com/speech-rule-engine/download/speech-rule-engine-3.2.0.tgz#6313ae0f8596519fa8dfc3ef01beae6b6cca312f"
-  integrity sha1-YxOuD4WWUZ+o38PvAb6ua2zKMS8=
+  resolved "https://registry.yarnpkg.com/speech-rule-engine/-/speech-rule-engine-3.2.0.tgz#6313ae0f8596519fa8dfc3ef01beae6b6cca312f"
+  integrity sha512-Vg1pNhl3cdVPk5XWn8su+bUNs+jaY1UmvKLeLui+iJ5/a0Kr7cOfO2gGuYOMd/3+0wLvzEqmou8rtz5REBd9xQ==
   dependencies:
     commander ">=7.0.0"
     wicked-good-xpath "^1.3.0"
