@@ -149,6 +149,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             params: newItem.params,
             tooltip: newItem.tooltip || newItem.tip,
             title,
+            originProps: newItem,
           });
           // 几种特殊的 value 不处理
           if (
