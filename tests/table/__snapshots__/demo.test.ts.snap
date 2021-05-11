@@ -34459,7 +34459,6 @@ Array [
         >
           <input
             class="ant-input"
-            id="labels"
             placeholder="请输入"
             type="text"
             value=""
@@ -35520,7 +35519,6 @@ Array [
                   >
                     <input
                       class="ant-input"
-                      id="labels"
                       placeholder="请输入"
                       type="text"
                       value=""
