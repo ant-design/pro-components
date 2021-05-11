@@ -224,7 +224,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
               : undefined,
           };
           const defaultRender = () => {
-            return <ProFormField {...formFieldProps} />;
+            return <ProFormField {...formFieldProps} ignoreFormItem={true} />;
           };
 
           if (item?.renderFormItem) {
