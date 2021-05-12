@@ -150,8 +150,10 @@ function ModalForm<T = Record<string, any>>({
               }
               const success = await onFinish(values);
               if (success) {
-                formRef.current?.resetFields();
                 setVisible(false);
+                setTimeout(() => {
+                  if (modalProps?.destroyOnClose) formRef.current?.resetFields();
+                }, 300);
               }
             }}
             submitter={{
