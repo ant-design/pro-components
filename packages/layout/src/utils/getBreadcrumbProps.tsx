@@ -80,16 +80,12 @@ const conversionFromLocation = (
   // Loop data mosaic routing
   const extraBreadcrumbItems: AntdBreadcrumbProps['routes'] = pathSnippets
     .map((url) => {
-      // For application that has configured router base
-      // @ts-ignore
-      const { routerBase = '/' } = isBrowser() ? window : {};
-      const realPath = routerBase === '/' ? url : `${routerBase}${url}`;
       const currentBreadcrumb = getBreadcrumb(breadcrumbMap, url);
       const name = renderItemLocal(currentBreadcrumb, props);
       const { hideInBreadcrumb } = currentBreadcrumb;
       return name && !hideInBreadcrumb
         ? {
-            path: realPath,
+            path: url,
             breadcrumbName: name,
             component: currentBreadcrumb.component,
           }
