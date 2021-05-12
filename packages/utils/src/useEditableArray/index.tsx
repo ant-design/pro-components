@@ -339,7 +339,7 @@ export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, New
         {deleteText}
       </DeleteEditableAction>
     ) : null,
-    <CancelEditableAction {...config} row={row} />,
+    <CancelEditableAction key="cancel" {...config} row={row} />,
   ];
 }
 
