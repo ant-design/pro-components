@@ -597,6 +597,27 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
               <span
                 class="ant-descriptions-item-label"
               >
+                时间
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  2020-08-09
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
                 开关
               </span>
               <span
@@ -606,6 +627,10 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
               </span>
             </div>
           </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
           <td
             class="ant-descriptions-item"
             colspan="1"
@@ -627,13 +652,9 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
               </span>
             </div>
           </td>
-        </tr>
-        <tr
-          class="ant-descriptions-row"
-        >
           <td
             class="ant-descriptions-item"
-            colspan="3"
+            colspan="2"
           >
             <div
               class="ant-descriptions-item-container"
