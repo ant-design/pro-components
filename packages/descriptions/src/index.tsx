@@ -270,7 +270,7 @@ const schemaToDescriptionsItem = (
           ? restItem.title(item, 'descriptions', restItem.title)
           : restItem.title;
 
-      const defaultData = getDataFromConfig(item, entity);
+      const defaultData = getDataFromConfig(item, entity) ?? restItem.children;
       const text = renderText ? renderText(defaultData, entity, index, action) : defaultData;
 
       //  dataIndex 无所谓是否存在

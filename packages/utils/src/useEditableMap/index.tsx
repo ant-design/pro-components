@@ -159,16 +159,18 @@ function useEditableMap<RecordType>(
         editorType: 'Map',
         ...config,
       };
+
       const defaultDoms = defaultActionRender(props.dataSource, renderConfig);
-      if (props.actionRender)
+      if (props.actionRender) {
         return props.actionRender(props.dataSource, renderConfig, {
           save: defaultDoms[0],
           delete: defaultDoms[1],
           cancel: defaultDoms[2],
         });
+      }
       return defaultDoms;
     },
-    [editableKeys && editableKeys.join(',')],
+    [editableKeys && editableKeys.join(','), props.dataSource],
   );
 
   return {
