@@ -212,8 +212,8 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
               onChange={tabs.onChange}
               tabBarExtraContent={filtersNode}
             >
-              {tabs.items.map((tab) => (
-                <Tabs.TabPane {...tab} />
+              {tabs.items.map((tab, index) => (
+                <Tabs.TabPane key={tab.key || index} {...tab} />
               ))}
             </Tabs>
           ) : (
