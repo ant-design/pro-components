@@ -160,6 +160,7 @@ export const FieldRender: React.FC<
     params,
     plain,
   };
+
   /** 如果是只读模式，fieldProps 的 form是空的，所以需要兜底处理 */
   if (mode === 'read' || !mode || valueType === 'option') {
     const fieldProps = getFieldPropsOrFormItemProps(props.fieldProps, undefined, {
@@ -167,7 +168,7 @@ export const FieldRender: React.FC<
       rowKey: dataIndex,
       isEditable: false,
     });
-    return <ProFormField {...fieldConfig} fieldProps={fieldProps} />;
+    return <ProFormField name={dataIndex} {...fieldConfig} fieldProps={fieldProps} />;
   }
 
   return (
@@ -221,9 +222,7 @@ export const FieldRender: React.FC<
                   <ProFormField
                     {...fieldConfig}
                     // @ts-ignore
-                    proFieldProps={{
-                      ...fieldConfig.proFieldProps,
-                    }}
+                    proFieldProps={{ ...fieldConfig.proFieldProps }}
                     fieldProps={fieldProps}
                   />
                 )}
@@ -308,6 +307,7 @@ const schemaToDescriptionsItem = (
           <Component>
             <FieldRender
               {...item}
+              dataIndex={item.dataIndex || index}
               mode={fieldMode}
               text={text}
               valueType={valueType}
