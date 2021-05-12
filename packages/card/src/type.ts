@@ -32,7 +32,7 @@ export type CardProps = {
   /** 指定 Flex 方向，仅在嵌套子卡片时有效 */
   direction?: 'column' | 'row';
   /** 是否自动换行，仅在嵌套子卡片时有效 */
-  wrap?: boolean;
+  wrap?: boolean | number;
   /** 尺寸 */
   size?: 'default' | 'small';
   /** 加载中 */

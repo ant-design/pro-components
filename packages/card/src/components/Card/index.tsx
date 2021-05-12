@@ -183,6 +183,9 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     ...getStyle(normalizedGutter[1]! > 0, {
       rowGap: normalizedGutter[1],
     }),
+    ...getStyle(typeof wrap === 'number' && wrap > 0, {
+      flex: `0 0 ${typeof wrap === 'number' && wrap > 0 ? 100 / wrap : 'auto'}%`,
+    }),
     ...bodyStyle,
   };
 
