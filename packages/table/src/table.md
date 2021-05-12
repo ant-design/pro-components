@@ -83,6 +83,10 @@ RTL means right-to-left.
 
 <code src="./demos/pollinga.tsx" background="#f5f5f5" height="360px" title="表格轮询" />
 
+### 拖拽排序
+
+<code src="./demos/drag.tsx" background="#f5f5f5" height="360px" title="拖拽排序" />
+
 ### 搜索表单自定义
 
 当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
@@ -383,7 +387,7 @@ ref.current.cancelEditable(rowKey);
 
 ### Columns 列定义
 
-> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
