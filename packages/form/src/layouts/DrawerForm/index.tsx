@@ -163,8 +163,10 @@ function DrawerForm<T = Record<string, any>>({
               }
               const success = await onFinish(values);
               if (success) {
-                formRef.current?.resetFields();
                 setVisible(false);
+                setTimeout(() => {
+                  if (drawerProps?.destroyOnClose) formRef.current?.resetFields();
+                }, 300);
               }
             }}
             contentRender={(item, submitter) => {
