@@ -2225,6 +2225,353 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
               <span
                 class="ant-descriptions-item-label"
               >
+                Rate
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <div
+                  class="ant-space ant-space-horizontal ant-space-align-center"
+                >
+                  <div
+                    class="ant-space-item"
+                    style="margin-right: 8px;"
+                  >
+                    <ul
+                      class="ant-rate ant-rate-disabled"
+                      role="radiogroup"
+                      tabindex="-1"
+                    >
+                      <li
+                        class="ant-rate-star ant-rate-star-full"
+                      >
+                        <div
+                          aria-checked="true"
+                          aria-posinset="1"
+                          aria-setsize="5"
+                          role="radio"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="ant-rate-star-first"
+                          >
+                            <span
+                              aria-label="star"
+                              class="anticon anticon-star"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="star"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-rate-star-second"
+                          >
+                            <span
+                              aria-label="star"
+                              class="anticon anticon-star"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="star"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </li>
+                      <li
+                        class="ant-rate-star ant-rate-star-full"
+                      >
+                        <div
+                          aria-checked="true"
+                          aria-posinset="2"
+                          aria-setsize="5"
+                          role="radio"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="ant-rate-star-first"
+                          >
+                            <span
+                              aria-label="star"
+                              class="anticon anticon-star"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="star"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-rate-star-second"
+                          >
+                            <span
+                              aria-label="star"
+                              class="anticon anticon-star"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="star"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </li>
+                      <li
+                        class="ant-rate-star ant-rate-star-full"
+                      >
+                        <div
+                          aria-checked="true"
+                          aria-posinset="3"
+                          aria-setsize="5"
+                          role="radio"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="ant-rate-star-first"
+                          >
+                            <span
+                              aria-label="star"
+                              class="anticon anticon-star"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="star"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-rate-star-second"
+                          >
+                            <span
+                              aria-label="star"
+                              class="anticon anticon-star"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="star"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </li>
+                      <li
+                        class="ant-rate-star ant-rate-star-full"
+                      >
+                        <div
+                          aria-checked="true"
+                          aria-posinset="4"
+                          aria-setsize="5"
+                          role="radio"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="ant-rate-star-first"
+                          >
+                            <span
+                              aria-label="star"
+                              class="anticon anticon-star"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="star"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-rate-star-second"
+                          >
+                            <span
+                              aria-label="star"
+                              class="anticon anticon-star"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="star"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </li>
+                      <li
+                        class="ant-rate-star ant-rate-star-full"
+                      >
+                        <div
+                          aria-checked="true"
+                          aria-posinset="5"
+                          aria-setsize="5"
+                          role="radio"
+                          tabindex="-1"
+                        >
+                          <div
+                            class="ant-rate-star-first"
+                          >
+                            <span
+                              aria-label="star"
+                              class="anticon anticon-star"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="star"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                          <div
+                            class="ant-rate-star-second"
+                          >
+                            <span
+                              aria-label="star"
+                              class="anticon anticon-star"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="star"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M908.1 353.1l-253.9-36.9L540.7 86.1c-3.1-6.3-8.2-11.4-14.5-14.5-15.8-7.8-35-1.3-42.9 14.5L369.8 316.2l-253.9 36.9c-7 1-13.4 4.3-18.3 9.3a32.05 32.05 0 00.6 45.3l183.7 179.1-43.4 252.9a31.95 31.95 0 0046.4 33.7L512 754l227.1 119.4c6.2 3.3 13.4 4.4 20.3 3.2 17.4-3 29.1-19.5 26.1-36.9l-43.4-252.9 183.7-179.1c5-4.9 8.3-11.3 9.3-18.3 2.7-17.5-9.5-33.7-27-36.3z"
+                                />
+                              </svg>
+                            </span>
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div
+                    class="ant-space-item"
+                  >
+                    <span
+                      aria-label="edit"
+                      class="anticon anticon-edit"
+                      role="img"
+                      tabindex="-1"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="edit"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
                 money
               </span>
               <span
@@ -2269,9 +2616,13 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
               </span>
             </div>
           </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
           <td
             class="ant-descriptions-item"
-            colspan="1"
+            colspan="3"
           >
             <div
               class="ant-descriptions-item-container"
