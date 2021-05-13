@@ -186,7 +186,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormCheckbox
 
-> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
 
 与 [checkbox](https://ant.design/components/checkbox-cn/) 相同，但是支持了 `options` 与 `layout`。
 
@@ -206,7 +206,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormRadio.Group
 
-> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
 
 与 [radio](https://ant.design/components/radio-cn/) 相同，但是支持了 `options`。
 
@@ -302,7 +302,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [select](https://ant.design/components/select-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
 
-> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
 
 > 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
 

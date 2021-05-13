@@ -10,7 +10,7 @@ group:
 # ProCard 高级卡片
 
 <Alert>
-ProCard 1.12.0 后支持多行卡片后底层实现有部分不兼容升级，升级后 colSpan 仅在嵌套的子卡片上设置有效。此前代码演示中没有直接在单卡片上使用 colSpan 的用法，如果你这样用了可以联系我们提供解决方案。
+ProCard 1.11.2 后支持多行卡片后底层实现有部分不兼容升级，升级后 colSpan 仅在嵌套的子卡片上设置有效。此前代码演示中没有直接在单卡片上使用 colSpan 的用法，如果你这样用了可以联系我们提供解决方案。
 </Alert>
 
 页内容器卡片，提供标准卡片样式，卡片切分以及栅格布局能力。ProCard 创造性地将 `Col`, `Row`, `Card`, `Tabs` 等组件实现结合在一起，让你仅用一个组件就能够完成卡片相关的各种布局。
@@ -163,8 +163,8 @@ ProCard 1.12.0 后支持多行卡片后底层实现有部分不兼容升级，�
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
 | title | 标题 | `React.ReactNode` | - |
 | subTitle | 副标题 | `React.ReactNode` | - |
 | tooltip | 标题右侧图标 hover 提示信息 | `string` | - |
@@ -178,7 +178,7 @@ ProCard 1.12.0 后支持多行卡片后底层实现有部分不兼容升级，�
 | size | 卡片尺寸 | `default` \| `small` | - |
 | actions | 卡片操作组，位置在卡片底部 | `Array&lt;ReactNode>` | - |
 | direction | 指定 Flex 方向，仅在嵌套子卡片时有效，默认方向为 row 横向 | `column` | - |
-| wrap | 是否支持换行，仅在嵌套子卡片时有效 | false | - |
+| wrap | 是否支持换行，仅在嵌套子卡片时有效 | false | - | 1.12.0 |
 | bordered | 是否有边框 | `boolean` | false |
 | ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |
 | headerBordered | 页头是否有分割线 | `boolean` | false |
