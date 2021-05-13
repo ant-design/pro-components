@@ -54,6 +54,15 @@ export default () => {
           valueType: 'date',
         },
         {
+          title: '时间',
+          key: 'date',
+          dataIndex: 'date',
+          valueType: 'date',
+          fieldProps: {
+            format: 'DD.MM.YYYY',
+          },
+        },
+        {
           title: '开关',
           key: 'switch',
           dataIndex: 'switch',

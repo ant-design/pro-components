@@ -168,6 +168,7 @@ export const FieldRender: React.FC<
       rowKey: dataIndex,
       isEditable: false,
     });
+
     return <ProFormField name={dataIndex} {...fieldConfig} fieldProps={fieldProps} />;
   }
 
@@ -265,6 +266,7 @@ const schemaToDescriptionsItem = (
         editable,
         ...restItem
       } = item as ProDescriptionsItemProps;
+
       const title =
         typeof restItem.title === 'function'
           ? restItem.title(item, 'descriptions', restItem.title)
@@ -420,6 +422,7 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
       if (!valueType && !valueEnum && !dataIndex && !itemRequest) {
         return item;
       }
+
       return {
         ...item.props,
         entity: dataSource,
