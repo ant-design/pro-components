@@ -129,10 +129,12 @@ const LightFilterContainer: React.FC<{
                 },
                 onClear: () => {
                   const clearValues = {};
-                  Object.keys(moreValues).forEach((key) => {
-                    clearValues[key] = undefined;
+                  collapseItems.forEach((child: any) => {
+                    const { name } = child.props;
+                    clearValues[name] = undefined;
                   });
-                  setMoreValues(clearValues);
+
+                  onValuesChange(clearValues);
                 },
               }}
             >
