@@ -48,6 +48,7 @@ export default () => (
       },
       avatar: {
         dataIndex: 'image',
+        editable: false,
       },
       description: {
         dataIndex: 'desc',

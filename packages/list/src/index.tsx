@@ -14,7 +14,7 @@ type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
 type ProListMeta<T> = Pick<
   ProColumnType<T>,
-  'dataIndex' | 'valueType' | 'render' | 'search' | 'title' | 'valueEnum'
+  'dataIndex' | 'valueType' | 'render' | 'search' | 'title' | 'valueEnum' | 'editable'
 >;
 
 export type ProListMetas<T> = {
