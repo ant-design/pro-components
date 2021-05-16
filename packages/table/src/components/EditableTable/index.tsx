@@ -154,6 +154,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
         );
       },
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTop, creatorButtonDom]);
 
   return (

@@ -438,6 +438,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       },
     };
     return mergePagination<T>(propsPagination, pageConfig, intl);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsPagination, action, intl]);
 
   const counter = Container.useContainer();
@@ -539,11 +540,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 同步 Pagination，支持受控的 页码 和 pageSize */
   useDeepCompareEffect(() => {
     const { pageInfo } = action;
-    const { current = pageInfo.current, pageSize = pageInfo.pageSize } = propsPagination || {};
+    const { current = pageInfo?.current, pageSize = pageInfo?.pageSize } = propsPagination || {};
     if (
       propsPagination &&
       (current || pageSize) &&
-      (pageSize !== pageInfo.pageSize || current !== pageInfo.current)
+      (pageSize !== pageInfo?.pageSize || current !== pageInfo?.current)
     ) {
       action.setPageInfo({
         pageSize: pageSize || pageInfo.pageSize,
