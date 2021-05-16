@@ -11,6 +11,7 @@ import ReactDOM from 'react-dom';
 import set from 'rc-util/lib/utils/set';
 import useMountMergeState from '../useMountMergeState';
 import ProFormContext from '../components/ProFormContext';
+import { usePrevious } from '..';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -388,18 +389,17 @@ function useEditableArray<RecordType>(
     return new Set(keys);
   }, [(editableKeys || []).join(','), editableType]);
 
+  const editableKeysRef = usePrevious(editableKeys);
+
   /** 这行是不是编辑状态 */
   const isEditable = useCallback(
     (row: RecordType & { index: number }) => {
       const recordKey = props.getRowKey(row, row.index);
-      if (editableKeys.includes(recordKey))
-        return {
-          recordKey,
-          isEditable: true,
-        };
+      const preIsEditable = editableKeysRef?.includes(recordKey);
       return {
         recordKey,
-        isEditable: false,
+        isEditable: editableKeys.includes(recordKey),
+        preIsEditable,
       };
     },
     [(editableKeys || []).join(',')],

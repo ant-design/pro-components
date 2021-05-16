@@ -59,6 +59,13 @@ export function genProColumnToColumn<T>(props: {
       const tempColumns = {
         index: columnsIndex,
         shouldCellUpdate: (rowData: T, preRowData: T) => {
+          const { isEditable, preIsEditable } = editableUtils.isEditable({
+            ...rowData,
+            index: columnsIndex,
+          });
+          if (isEditable !== preIsEditable) {
+            return true;
+          }
           if (!columnProps.render && !columnProps.renderFormItem) {
             return false;
           }
