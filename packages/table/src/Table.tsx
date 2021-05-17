@@ -265,7 +265,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   }
   return (
     <ConfigProvider
-      getPopupContainer={() => ((rootRef.current || document.body) as any) as HTMLElement}
+      getPopupContainer={() => (rootRef.current || document.body) as any as HTMLElement}
     >
       {proTableDom}
     </ConfigProvider>
@@ -385,7 +385,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       };
       // eslint-disable-next-line no-underscore-dangle
       delete (actionParams as any)._timestamp;
-      const response = await request((actionParams as unknown) as U, proSort, proFilter);
+      const response = await request(actionParams as unknown as U, proSort, proFilter);
       return response as RequestData<T>;
     };
   }, [formSearch, params, proFilter, proSort, request]);
@@ -438,6 +438,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       },
     };
     return mergePagination<T>(propsPagination, pageConfig, intl);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsPagination, action, intl]);
 
   const counter = Container.useContainer();
@@ -525,7 +526,13 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       editableUtils,
     }).sort(columnSort(counter.columnsMap));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [propsColumns, counter, columnEmptyText, type, editableUtils.editableKeys.join(',')]);
+  }, [
+    propsColumns,
+    counter,
+    columnEmptyText,
+    type,
+    editableUtils.editableKeys && editableUtils.editableKeys.join(','),
+  ]);
 
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
   useDeepCompareEffect(() => {
@@ -539,11 +546,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 同步 Pagination，支持受控的 页码 和 pageSize */
   useDeepCompareEffect(() => {
     const { pageInfo } = action;
-    const { current = pageInfo.current, pageSize = pageInfo.pageSize } = propsPagination || {};
+    const { current = pageInfo?.current, pageSize = pageInfo?.pageSize } = propsPagination || {};
     if (
       propsPagination &&
       (current || pageSize) &&
-      (pageSize !== pageInfo.pageSize || current !== pageInfo.current)
+      (pageSize !== pageInfo?.pageSize || current !== pageInfo?.current)
     ) {
       action.setPageInfo({
         pageSize: pageSize || pageInfo.pageSize,
@@ -653,7 +660,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 const ProviderWarp = <
   T extends Record<string, any>,
   U extends ParamsType = ParamsType,
-  ValueType = 'text'
+  ValueType = 'text',
 >(
   props: ProTableProps<T, U, ValueType>,
 ) => {

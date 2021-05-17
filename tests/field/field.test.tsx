@@ -102,9 +102,10 @@ describe('Field', () => {
     });
 
     it(`🐴 ${valueType} support request function`, async () => {
-      const ref = React.createRef<{
-        fetchData: () => void;
-      }>();
+      const ref =
+        React.createRef<{
+          fetchData: () => void;
+        }>();
       const fn = jest.fn();
       const html = mount(
         <Field

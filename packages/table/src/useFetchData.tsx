@@ -191,7 +191,7 @@ const useFetchData = <T extends RequestData<any>>(
 
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {
-    const { current, pageSize } = pageInfo;
+    const { current, pageSize } = pageInfo || {};
     // 如果上次的页码为空或者两次页码等于是没必要查询的
     // 如果 pageSize 发生变化是需要查询的，所以又加了 prePageSize
     if ((!prePage || prePage === current) && (!prePageSize || prePageSize === pageSize)) {
@@ -215,7 +215,7 @@ const useFetchData = <T extends RequestData<any>>(
     }
     fetchListDebounce.run(false);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pageInfo.pageSize]);
+  }, [pageInfo?.pageSize]);
 
   useDeepCompareEffect(() => {
     fetchListDebounce.run(false);

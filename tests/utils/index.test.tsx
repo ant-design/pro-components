@@ -322,7 +322,6 @@ describe('utils', () => {
       });
     });
     await waitForComponentToPaint(html, 1000);
-    expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeTruthy();
 
     act(() => {
       html.find('Input#test').simulate('change', {

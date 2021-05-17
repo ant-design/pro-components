@@ -43,6 +43,7 @@ describe('Table ColumnSetting', () => {
         .simulate('click');
     });
     await waitForComponentToPaint(html);
+
     const titleList = html.find(
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );

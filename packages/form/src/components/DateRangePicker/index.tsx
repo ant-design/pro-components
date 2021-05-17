@@ -12,18 +12,18 @@ const valueType = 'dateRange';
  *
  * @param
  */
-const ProFormDateRangePicker: React.FC<
-  ProFormItemProps<RangePickerProps>
-> = React.forwardRef(({ fieldProps, proFieldProps }, ref) => (
-  <ProField
-    ref={ref}
-    text={fieldProps?.value}
-    mode="edit"
-    fieldProps={fieldProps}
-    valueType={valueType}
-    {...proFieldProps}
-  />
-));
+const ProFormDateRangePicker: React.FC<ProFormItemProps<RangePickerProps>> = React.forwardRef(
+  ({ fieldProps, proFieldProps }, ref) => (
+    <ProField
+      ref={ref}
+      text={fieldProps?.value}
+      mode="edit"
+      fieldProps={fieldProps}
+      valueType={valueType}
+      {...proFieldProps}
+    />
+  ),
+);
 
 export default createField<ProFormItemProps<RangePickerProps>>(ProFormDateRangePicker, {
   valueType,

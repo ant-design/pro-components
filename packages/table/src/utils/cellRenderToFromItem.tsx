@@ -3,6 +3,7 @@ import type { FormInstance, FormItemProps } from 'antd';
 import { Form } from 'antd';
 import type { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
 import ProField from '@ant-design/pro-field';
+import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
@@ -93,12 +94,23 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
       // 一般而言是没有跨行依赖的，所以这里比较行来判断是否应该刷新
       // 对多行编辑有巨大的性能提升
       shouldUpdate={(pre, next) => {
+        if (
+          !columnProps?.fieldProps &&
+          !columnProps?.formItemProps &&
+          !columnProps?.renderFormItem
+        ) {
+          return false;
+        }
         const name = [config.recordKey].flat(1) as string[];
-        return get(pre, name) !== get(next, name);
+        return !isDeepEqualReact(get(pre, name), get(next, name));
       }}
       noStyle
     >
       {(form) => {
+        const shouldUpdate = (pre: any, next: any) => {
+          const rowName = [config.recordKey].flat(1) as string[];
+          return !isDeepEqualReact(get(pre, rowName), get(next, rowName));
+        };
         const name = spellNamePath(
           config.recordKey || config.index,
           columnProps?.key || columnProps?.dataIndex || config.index,
@@ -142,6 +154,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
         if (!columnProps?.renderFormItem) {
           return (
             <InlineErrorFormItem
+              shouldUpdate={shouldUpdate}
               errorType="popover"
               name={name}
               {...formItemProps}
@@ -163,6 +176,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
           {
             defaultRender: () => (
               <InlineErrorFormItem
+                shouldUpdate={shouldUpdate}
                 errorType="popover"
                 name={name}
                 {...formItemProps}
@@ -182,6 +196,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
         return (
           <InlineErrorFormItem
             errorType="popover"
+            shouldUpdate={shouldUpdate}
             name={spellNamePath(
               config.recordKey || config.index,
               columnProps?.key || columnProps?.dataIndex || config.index,

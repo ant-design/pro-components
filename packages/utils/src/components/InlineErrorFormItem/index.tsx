@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿import React, { useState } from 'react';
 import { Form, Popover, Progress, Space } from 'antd';
 import type { FormItemProps, PopoverProps, ProgressProps, FormInstance } from 'antd';
 import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
@@ -143,19 +143,6 @@ const InternalFormItem: React.FC<
 
   const [visible, setVisible] = useState<boolean | undefined>(undefined);
 
-  useEffect(() => {
-    if (!isTouched) {
-      return;
-    }
-    if (!isValidating) {
-      if (fieldError.length) {
-        setVisible(true);
-      } else {
-        setVisible(false);
-      }
-    }
-  }, [isValidating, fieldError.length]);
-
   return (
     <Form.Item
       style={FIX_INLINE_STYLE}
@@ -184,6 +171,7 @@ const InternalFormItem: React.FC<
               trigger={popoverProps?.trigger || 'focus'}
               placement={popoverProps?.placement}
               visible={visible}
+              onVisibleChange={setVisible}
               content={
                 <Content
                   fieldError={fieldError}
@@ -214,7 +202,7 @@ const InlineErrorFormItem: React.FC<InternalProps> = (props) => {
   return (
     <Form.Item shouldUpdate={true} noStyle>
       {(form) => {
-        return <InternalFormItem {...props} form={form}></InternalFormItem>;
+        return <InternalFormItem {...props} form={form} />;
       }}
     </Form.Item>
   );

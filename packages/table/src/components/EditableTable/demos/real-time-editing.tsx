@@ -14,22 +14,15 @@ type DataSourceType = {
   children?: DataSourceType[];
 };
 
-const defaultData: DataSourceType[] = [
-  {
-    id: 624748504,
-    title: '活动名称一',
+const defaultData: DataSourceType[] = new Array(20).fill(1).map((_, index) => {
+  return {
+    id: (Date.now() + index).toString(),
+    title: `活动名称${index}`,
     decs: '这个活动真好玩',
     state: 'open',
     created_at: '2020-05-26T09:42:56Z',
-  },
-  {
-    id: 624691229,
-    title: '活动名称二',
-    decs: '这个活动真好玩',
-    state: 'closed',
-    created_at: '2020-05-26T08:19:22Z',
-  },
-];
+  };
+});
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
