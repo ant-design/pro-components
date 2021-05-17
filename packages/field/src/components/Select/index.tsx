@@ -26,6 +26,7 @@ import SearchSelect from './SearchSelect';
 import type { ProFieldStatusType } from '../Status';
 import TableStatus, { ProFieldBadgeColor } from '../Status';
 import type { ProFieldFC } from '../../index';
+import './index.less';
 
 let testId = 0;
 
@@ -112,6 +113,8 @@ const Highlight: React.FC<{
   label: string;
   words: string[];
 }> = ({ label, words }) => {
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('pro-select-item-option-content-light');
   const reg = new RegExp(words.map((w) => w.replace(/\\/g, '\\\\')).join('|'), 'gi');
   const token = label.replace(reg, '#@$&#');
   const elements = token.split('#').map((x) =>
@@ -119,9 +122,7 @@ const Highlight: React.FC<{
       ? React.createElement(
           'span',
           {
-            style: {
-              color: '#1890ff',
-            },
+            className: prefixCls,
           },
           x.slice(1),
         )
