@@ -7,9 +7,7 @@ export type Action = {
 
 export type Result = [boolean, Action];
 
-export default function useDarkreader(
-  defaultDarken: boolean = false,
-): [
+export default function useDarkreader(defaultDarken: boolean = false): [
   boolean,
   {
     toggle: () => void;

@@ -56,38 +56,36 @@ export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'
 >;
 export type ProDescriptionsActionType = ProCoreActionType;
 
-export type ProDescriptionsProps<
-  RecordType = Record<string, any>,
-  ValueType = 'text'
-> = DescriptionsProps & {
-  /** Params 参数 params 改变的时候会触发 reload */
-  params?: Record<string, any>;
-  /** 网络请求报错 */
-  onRequestError?: (e: Error) => void;
-  /** 获取数据的方法 */
-  request?: (params: Record<string, any>) => Promise<RequestData>;
+export type ProDescriptionsProps<RecordType = Record<string, any>, ValueType = 'text'> =
+  DescriptionsProps & {
+    /** Params 参数 params 改变的时候会触发 reload */
+    params?: Record<string, any>;
+    /** 网络请求报错 */
+    onRequestError?: (e: Error) => void;
+    /** 获取数据的方法 */
+    request?: (params: Record<string, any>) => Promise<RequestData>;
 
-  columns?: ProDescriptionsItemProps<RecordType, ValueType>[];
+    columns?: ProDescriptionsItemProps<RecordType, ValueType>[];
 
-  /** 一些简单的操作 */
-  actionRef?: React.MutableRefObject<ProCoreActionType<any> | undefined>;
+    /** 一些简单的操作 */
+    actionRef?: React.MutableRefObject<ProCoreActionType<any> | undefined>;
 
-  loading?: boolean;
+    loading?: boolean;
 
-  onLoadingChange?: (loading?: boolean) => void;
+    onLoadingChange?: (loading?: boolean) => void;
 
-  tooltip?: string;
-  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
-  tip?: string;
-  /** Form props 的相关配置 */
-  formProps?: FormProps;
-  /** @name 编辑相关的配置 */
-  editable?: RowEditableConfig<RecordType>;
-  /** 默认的数据源 */
-  dataSource?: RecordType;
-  /** 受控数据源改变 */
-  onDataSourceChange?: (value: RecordType) => void;
-};
+    tooltip?: string;
+    /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
+    tip?: string;
+    /** Form props 的相关配置 */
+    formProps?: FormProps;
+    /** @name 编辑相关的配置 */
+    editable?: RowEditableConfig<RecordType>;
+    /** 默认的数据源 */
+    dataSource?: RecordType;
+    /** 受控数据源改变 */
+    onDataSourceChange?: (value: RecordType) => void;
+  };
 
 /**
  * 根据 dataIndex 获取值，支持 dataIndex 为数组

@@ -42,9 +42,8 @@ export type EditableProTableProps<T, U extends ParamsType> = Omit<
   onValuesChange?: (values: T[], record: T) => void;
 };
 
-const EditableTableActionContext = React.createContext<
-  React.MutableRefObject<ActionType | undefined> | undefined
->(undefined);
+const EditableTableActionContext =
+  React.createContext<React.MutableRefObject<ActionType | undefined> | undefined>(undefined);
 
 /** 可编辑表格的按钮 */
 function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.Element }) {

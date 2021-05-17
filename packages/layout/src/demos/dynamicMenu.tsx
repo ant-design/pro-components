@@ -12,9 +12,10 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const actionRef = useRef<{
-    reload: () => void;
-  }>();
+  const actionRef =
+    useRef<{
+      reload: () => void;
+    }>();
   return (
     <>
       <ProLayout

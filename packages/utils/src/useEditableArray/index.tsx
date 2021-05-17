@@ -300,16 +300,8 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
 };
 
 const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (props) => {
-  const {
-    recordKey,
-    newLineConfig,
-    form,
-    editorType,
-    onCancel,
-    cancelEditable,
-    row,
-    cancelText,
-  } = props;
+  const { recordKey, newLineConfig, form, editorType, onCancel, cancelEditable, row, cancelText } =
+    props;
   const context = useContext(ProFormContext);
   return (
     <a
@@ -359,9 +351,8 @@ function useEditableArray<RecordType>(
     setDataSource: (dataSource: RecordType[]) => void;
   },
 ) {
-  const [newLineRecord, setNewLineRecord] = useState<NewLineConfig<RecordType> | undefined>(
-    undefined,
-  );
+  const [newLineRecord, setNewLineRecord] =
+    useState<NewLineConfig<RecordType> | undefined>(undefined);
   const newLineRecordRef = useRef<NewLineConfig<RecordType> | undefined>(undefined);
 
   // 这里这么做是为了存上次的状态，不然每次存一下再拿

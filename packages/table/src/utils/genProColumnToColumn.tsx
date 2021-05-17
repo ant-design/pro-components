@@ -27,7 +27,7 @@ export function genProColumnToColumn<T>(props: {
   editableUtils: UseEditableUtilType;
 }): (TableColumnType<T> & { index?: number })[] {
   const { columns, counter, columnEmptyText, type, editableUtils } = props;
-  return (columns
+  return columns
     .map((columnProps, columnsIndex) => {
       const {
         key,
@@ -107,7 +107,7 @@ export function genProColumnToColumn<T>(props: {
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
-    .filter((item) => !item.hideInTable) as unknown) as (TableColumnType<T> & {
+    .filter((item) => !item.hideInTable) as unknown as (TableColumnType<T> & {
     index?: number;
   })[];
 }

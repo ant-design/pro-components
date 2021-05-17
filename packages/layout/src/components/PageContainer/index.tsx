@@ -149,16 +149,8 @@ const defaultPageHeaderRender = (
   props: PageContainerProps,
   value: RouteContextType & { prefixedClassName: string },
 ): React.ReactNode => {
-  const {
-    title,
-    content,
-    pageHeaderRender,
-    header,
-    extraContent,
-    style,
-    prefixCls,
-    ...restProps
-  } = props;
+  const { title, content, pageHeaderRender, header, extraContent, style, prefixCls, ...restProps } =
+    props;
 
   if (pageHeaderRender === false) {
     return null;

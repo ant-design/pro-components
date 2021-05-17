@@ -52,7 +52,7 @@ export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
 function ProList<
   RecordType extends Record<string, any>,
-  U extends Record<string, any> = Record<string, any>
+  U extends Record<string, any> = Record<string, any>,
 >(props: ProListProps<RecordType, U>) {
   const {
     metas: metals,
