@@ -1,54 +1,54 @@
-﻿import React, { useContext, useImperativeHandle, useRef } from 'react';
+﻿import React, {
+  useContext,
+  useEffect,
+  useMemo,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
+import type { DrawerProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
-import { FormInstance, FormProps } from 'antd/lib/form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { DrawerProps } from 'antd/lib/drawer';
-import { Store } from 'antd/lib/form/interface';
 import { createPortal } from 'react-dom';
 import omit from 'omit.js';
 
-import BaseForm, { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
+import { noteOnce } from 'rc-util/lib/warning';
+import ScrollLocker from 'rc-util/lib/Dom/scrollLocker';
 
-export type DrawerFormProps = Omit<FormProps, 'onFinish'> &
-  CommonFormProps & {
+export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
+  CommonFormProps<T> & {
     /**
+     * 接受返回一个boolean，返回 true 会关掉这个抽屉
+     *
      * @name 表单结束后调用
-     * @description  接受返回一个boolean，返回 true 会关掉这个抽屉
      */
-    onFinish?: (formData: Store) => Promise<boolean | void>;
+    onFinish?: (formData: T) => Promise<boolean | void>;
 
-    /**
-     * @name 用于触发抽屉打开的 dom
-     */
+    /** @name 用于触发抽屉打开的 dom */
     trigger?: JSX.Element;
 
-    /**
-     * @name 受控的打开关闭
-     */
+    /** @name 受控的打开关闭 */
     visible?: DrawerProps['visible'];
 
-    /**
-     * @name 打开关闭的事件
-     */
+    /** @name 打开关闭的事件 */
     onVisibleChange?: (visible: boolean) => void;
     /**
+     * 不支持 'visible'，请使用全局的 visible
+     *
      * @name 抽屉的属性
-     * @description 不支持 'visible'，请使用全局的 visible
      */
     drawerProps?: Omit<DrawerProps, 'visible'>;
 
-    /**
-     * @name 抽屉的标题
-     */
+    /** @name 抽屉的标题 */
     title?: DrawerProps['title'];
 
-    /**
-     * @name 抽屉的宽度
-     */
+    /** @name 抽屉的宽度 */
     width?: DrawerProps['width'];
   };
 
-const DrawerForm: React.FC<DrawerFormProps> = ({
+function DrawerForm<T = Record<string, any>>({
   children,
   trigger,
   onVisibleChange,
@@ -57,27 +57,88 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
   title,
   width,
   ...rest
-}) => {
+}: DrawerFormProps<T>) {
   const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
     value: rest.visible,
     onChange: onVisibleChange,
   });
+
+  const [scrollLocker] = useState(() => new ScrollLocker());
+
+  noteOnce(
+    // eslint-disable-next-line @typescript-eslint/dot-notation
+    !rest['footer'] || !drawerProps?.footer,
+    'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
+  );
+
+  useEffect(() => {
+    if (visible) {
+      scrollLocker.lock();
+    } else {
+      scrollLocker.unLock();
+    }
+    if (visible && rest.visible) {
+      onVisibleChange?.(true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [visible]);
+
+  /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
+  const isFirstRender = useRef(!drawerProps?.forceRender);
+
   /**
-   * 同步 props 和 本地
+   * IsFirstRender.current 或者 visible 为 true 的时候就渲染 不渲染能会造成一些问题,比如再次打开值不对了 只有手动配置
+   * drawerProps?.destroyOnClose 为 true 的时候才会每次关闭的时候删除 dom
    */
+  const shouldRenderFormItems = useMemo(() => {
+    if (isFirstRender.current && visible === false) {
+      return false;
+    }
+    if (visible === false && drawerProps?.destroyOnClose) {
+      return false;
+    }
+    return true;
+  }, [visible, drawerProps?.destroyOnClose]);
+  /** 同步 props 和 本地 */
   const formRef = useRef<FormInstance>();
   const context = useContext(ConfigProvider.ConfigContext);
 
-  useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
+  /** 如果 destroyOnClose ，重置一下表单 */
+  useEffect(() => {
+    if (visible) {
+      isFirstRender.current = false;
+    }
+    // 再打开的时候重新刷新，会让 initialValues 生效
+    if (visible && drawerProps?.destroyOnClose) {
+      formRef.current?.resetFields();
+    }
+  }, [drawerProps?.destroyOnClose, visible]);
 
-  /**
-   * 不妨到 body 上会导致 z-index 的问题
-   * 遮罩什么的都遮不住了
-   */
+  useEffect(() => () => {
+    scrollLocker?.unLock?.();
+  });
+
+  useImperativeHandle(rest.formRef, () => formRef.current);
+
+  const renderDom = useMemo(() => {
+    if (drawerProps?.getContainer) {
+      if (typeof drawerProps?.getContainer === 'function') {
+        return drawerProps?.getContainer?.();
+      }
+      if (typeof drawerProps?.getContainer === 'string') {
+        return document.getElementById(drawerProps?.getContainer);
+      }
+      return drawerProps?.getContainer;
+    }
+    return context?.getPopupContainer?.(document.body);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context, drawerProps, visible]);
+
+  /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
   return (
     <>
       {createPortal(
-        <div>
+        <div onClick={(e) => e.stopPropagation()}>
           <BaseForm
             layout="vertical"
             {...omit(rest, ['visible'])}
@@ -88,6 +149,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
                 resetText: '取消',
               },
               resetButtonProps: {
+                preventDefault: true,
                 onClick: (e: any) => {
                   setVisible(false);
                   drawerProps?.onClose?.(e);
@@ -101,17 +163,19 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
               }
               const success = await onFinish(values);
               if (success) {
-                formRef.current?.resetFields();
                 setVisible(false);
+                setTimeout(() => {
+                  if (drawerProps?.destroyOnClose) formRef.current?.resetFields();
+                }, 300);
               }
             }}
             contentRender={(item, submitter) => {
               return (
                 <Drawer
                   title={title}
-                  getContainer={false}
                   width={width || 800}
                   {...drawerProps}
+                  getContainer={false}
                   visible={visible}
                   onClose={(e) => {
                     setVisible(false);
@@ -128,7 +192,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
                     </div>
                   }
                 >
-                  {item}
+                  {shouldRenderFormItems ? item : null}
                 </Drawer>
               );
             }}
@@ -136,7 +200,7 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
             {children}
           </BaseForm>
         </div>,
-        context?.getPopupContainer?.(document.body) || document.body,
+        renderDom || document.body,
       )}
       {trigger &&
         React.cloneElement(trigger, {
@@ -148,6 +212,6 @@ const DrawerForm: React.FC<DrawerFormProps> = ({
         })}
     </>
   );
-};
+}
 
 export default DrawerForm;

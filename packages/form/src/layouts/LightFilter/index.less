@@ -1,4 +1,4 @@
-@import (reference) '~antd/lib/style/themes/default';
+@import (reference) '~antd/es/style/themes/default';
 
 @pro-form-light-filter-prefix-cls: ~'@{ant-prefix}-pro-form-light-filter';
 
@@ -30,6 +30,7 @@
       margin-right: 8px;
     }
     margin-top: 8px;
+    white-space: nowrap;
   }
 
   &-formlabel {
@@ -39,8 +40,8 @@
   &-line {
     min-width: 198px;
     .@{ant-prefix}-form-item {
-      margin-bottom: 0;
       flex-direction: column;
+      margin-bottom: 0;
     }
   }
 
@@ -54,8 +55,8 @@
   }
 
   &-collapse-icon {
-    height: @height-base;
     width: @height-base;
+    height: @height-base;
     line-height: @height-base + 3px;
     border-radius: 50%;
   }

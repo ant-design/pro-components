@@ -1,9 +1,9 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import { act } from 'react-test-renderer';
+import { act } from 'react-dom/test-utils';
 import Field from '@ant-design/pro-field';
 import moment from 'moment';
-import { waitTime } from '../util';
+import { waitForComponentToPaint } from '../util';
 
 describe('Field', () => {
   const datePickList = ['date', 'dateWeek', 'dateMonth', 'dateQuarter', 'dateYear', 'dateTime'];
@@ -26,12 +26,12 @@ describe('Field', () => {
         html.find('.ant-pro-core-field-label').simulate('mousedown');
       });
 
-      await waitTime(100);
+      await waitForComponentToPaint(html, 100);
 
       act(() => {
         html.find('.anticon-close').simulate('click');
       });
-
+      await waitForComponentToPaint(html, 100);
       expect(fn).toBeCalled();
     });
   });

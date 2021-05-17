@@ -1,4 +1,5 @@
-import React, { useState, ReactText } from 'react';
+import type { ReactText } from 'react';
+import React, { useState } from 'react';
 import { Button, Progress, Tag, Space } from 'antd';
 import ProList from '@ant-design/pro-list';
 
@@ -26,7 +27,7 @@ const dataSource = [
 ];
 
 export default () => {
-  const [expandedRowKeys, setExpandedRowKeys] = useState<ReactText[]>([]);
+  const [expandedRowKeys, setExpandedRowKeys] = useState<readonly ReactText[]>([]);
 
   return (
     <ProList<{ title: string }>

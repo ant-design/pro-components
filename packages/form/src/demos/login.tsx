@@ -1,7 +1,7 @@
 ﻿import React from 'react';
 import { message } from 'antd';
 import ProForm, { ProFormText, ProFormCaptcha } from '@ant-design/pro-form';
-import { MobileTwoTone, MailTwoTone } from '@ant-design/icons';
+import { MobileOutlined, MailOutlined } from '@ant-design/icons';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -64,9 +64,9 @@ export default () => {
         <ProFormText
           fieldProps={{
             size: 'large',
-            prefix: <MobileTwoTone />,
+            prefix: <MobileOutlined />,
           }}
-          name="id"
+          name="phone"
           placeholder="请输入手机号"
           rules={[
             {
@@ -82,11 +82,12 @@ export default () => {
         <ProFormCaptcha
           fieldProps={{
             size: 'large',
-            prefix: <MailTwoTone />,
+            prefix: <MailOutlined />,
           }}
           captchaProps={{
             size: 'large',
           }}
+          phoneName="phone"
           name="captcha"
           rules={[
             {
@@ -95,9 +96,9 @@ export default () => {
             },
           ]}
           placeholder="请输入验证码"
-          onGetCaptcha={async () => {
+          onGetCaptcha={async (phone) => {
             await waitTime(1000);
-            message.success('验证码发送成功!');
+            message.success(`手机号 ${phone} 验证码发送成功!`);
           }}
         />
       </ProForm>

@@ -1,16 +1,17 @@
 import React, { useRef } from 'react';
-import { InputNumber } from 'antd';
-import { RowEditableConfig } from '@ant-design/pro-utils';
+import { InputNumber, Form } from 'antd';
+import type { RowEditableConfig } from '@ant-design/pro-utils';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import Descriptions, {
+import type {
   ProDescriptionsActionType,
   ProDescriptionsItemProps,
 } from '@ant-design/pro-descriptions';
-import { mount } from 'enzyme';
+import Descriptions from '@ant-design/pro-descriptions';
+import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
-interface DataSourceType {
+type DataSourceType = {
   id: number;
   title?: string;
   labels?: {
@@ -22,7 +23,7 @@ interface DataSourceType {
     created_at?: string;
   };
   children?: DataSourceType;
-}
+};
 
 const defaultData: DataSourceType = {
   id: 624748504,
@@ -92,6 +93,7 @@ const DescriptionsDemo = (
     onDataSourceChange?: (dataSource: DataSourceType) => void;
   } & RowEditableConfig<DataSourceType>,
 ) => {
+  const [form] = Form.useForm();
   const actionRef = useRef<ProDescriptionsActionType>();
   const [editableKeys, setEditorRowKeys] = useMergedState<React.Key[]>(
     () => props.defaultKeys || [],
@@ -116,10 +118,21 @@ const DescriptionsDemo = (
         total: 3,
         success: true,
       })}
+      title={
+        <a
+          id="reset_test"
+          onClick={() => {
+            form.resetFields();
+          }}
+        >
+          重置
+        </a>
+      }
       dataSource={dataSource}
       onDataSourceChange={setDataSource}
       editable={{
         ...props,
+        form,
         type: props.type,
         editableKeys,
         onSave: props.onSave,
@@ -134,6 +147,7 @@ describe('Descriptions', () => {
     const wrapper = mount(
       <Descriptions<DataSourceType> columns={columns} dataSource={defaultData} />,
     );
+    await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.find('ProForm').exists()).toBeFalsy();
   });
 
@@ -141,6 +155,7 @@ describe('Descriptions', () => {
     const wrapper = mount(
       <Descriptions<DataSourceType> columns={columns} dataSource={defaultData} editable={{}} />,
     );
+    await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.find('ProForm').exists()).toBeTruthy();
   });
 
@@ -157,12 +172,51 @@ describe('Descriptions', () => {
     act(() => {
       wrapper.find('span.anticon-edit').at(0).simulate('click');
     });
-
+    await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(['title']);
   });
 
+  it('📝 support set Form', async () => {
+    const wrapper = mount(<DescriptionsDemo editorRowKeys={['title']} />);
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper
+        .find('td.ant-descriptions-item .ant-descriptions-item-content')
+        .at(0)
+        .find(`.ant-input`)
+        .simulate('change', {
+          target: {
+            value: 'test',
+          },
+        });
+    });
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper
+        .find('td.ant-descriptions-item .ant-descriptions-item-content')
+        .at(0)
+        .find(`.ant-input`)
+        .props().value,
+    ).toBe('test');
+
+    act(() => {
+      wrapper.find('#reset_test').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(
+      wrapper
+        .find('td.ant-descriptions-item .ant-descriptions-item-content')
+        .at(0)
+        .find(`.ant-input`)
+        .props().value,
+    ).toBe('🐛 [BUG]yarn install命令 antd2.4.5会报错');
+  });
+
   it('📝 renderFormItem run defaultRender', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions<DataSourceType>
         editable={{
           editableKeys: ['title'],
@@ -178,14 +232,14 @@ describe('Descriptions', () => {
         dataSource={defaultData}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('📝 columns support editable test', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <Descriptions
         editable={{
-          editableKeys: ['index'],
+          editableKeys: ['title'],
         }}
         columns={[
           {
@@ -202,7 +256,36 @@ describe('Descriptions', () => {
         dataSource={defaultData}
       />,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('📝 support actionRender', async () => {
+    const wrapper = render(
+      <Descriptions
+        editable={{
+          editableKeys: ['title'],
+          actionRender: () => [
+            <div key="test" id="test">
+              xx
+            </div>,
+          ],
+        }}
+        columns={[
+          {
+            dataIndex: 'title',
+            editable: (text, record, index) => {
+              return index === 1;
+            },
+          },
+          {
+            dataIndex: 'title2',
+            editable: false,
+          },
+        ]}
+        dataSource={defaultData}
+      />,
+    );
+    expect(wrapper.find('div#test').text()).toBe('xx');
   });
 
   it('📝 support editorRowKeys', async () => {
@@ -307,7 +390,7 @@ describe('Descriptions', () => {
         .at(0)
         .find('input')
         .exists(),
-    ).toBeTruthy();
+    ).toBeFalsy();
   });
 
   it('📝 type=single, only edit one rows', async () => {

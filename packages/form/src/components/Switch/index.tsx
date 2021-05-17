@@ -1,8 +1,8 @@
 import React from 'react';
 import ProField from '@ant-design/pro-field';
-import { SwitchProps } from 'antd/lib/switch';
+import type { SwitchProps } from 'antd';
 import createField from '../../BaseForm/createField';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 
 export type ProFormSwitchProps = ProFormItemProps<SwitchProps> & {
   checkedChildren?: SwitchProps['checkedChildren'];
@@ -10,8 +10,8 @@ export type ProFormSwitchProps = ProFormItemProps<SwitchProps> & {
 };
 
 /**
- * 单选 Switch
- * @param
+ * @zh-cn 单选 Switch
+ * @en-us Single Choice Switch
  */
 const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
   ({ fieldProps, unCheckedChildren, checkedChildren, proFieldProps }, ref: any) => {
@@ -20,9 +20,9 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
         valueType="switch"
         mode="edit"
         fieldProps={{
-          ...fieldProps,
           unCheckedChildren,
           checkedChildren,
+          ...fieldProps,
         }}
         text={fieldProps?.checked}
         ref={ref}
@@ -34,4 +34,5 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
 
 export default createField<ProFormSwitchProps>(ProFormSwitch, {
   valuePropName: 'checked',
+  ignoreWidth: true,
 });

@@ -1,13 +1,252 @@
 ---
-title: pro-table
+title: ProTable - 更新日志
 nav:
-  title: Change Log
+  title: 更新日志
   path: /changelog
 group:
   path: /
 ---
 
 # Change Log
+
+## @ant-design/pro-table@2.36.0
+
+`2021-05-11`
+
+- 🐛 fix(table): fix defaultRender will gen two label error [#2715](https://github.com/ant-design/pro-components/pull/2715) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix: toolbar fullScreen default value [#2691](https://github.com/ant-design/pro-components/pull/2691) [@hengkx](https://github.com/hengkx)
+- 🐛 fix(table): fix the style problem of the fixed new button [#2661](https://github.com/ant-design/pro-components/pull/2661) [@wen-haoming](https://github.com/wen-haoming)
+- 💥 feat(table): support sync pageinfo to url [#2701](https://github.com/ant-design/pro-components/pull/2701) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.35.0
+
+`2021-04-29`
+
+- 🐛 fix(table): only onFilter === true run defaultOnFilter [#2640](https://github.com/ant-design/pro-components/pull/2640) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.34.5
+
+`2021-04-22`
+
+- 🐛 fix(utils): stop propagation icon event [#2566](https://github.com/ant-design/pro-components/pull/2566) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(utils): 修复 InlineErrorFormItem 的 Popover 问题 [#2546](https://github.com/ant-design/pro-components/pull/2546) [@xiefengnian](https://github.com/xiefengnian)
+- 🐛 fix(table): fix the problem of nested data reporting errors [#2578](https://github.com/ant-design/pro-components/pull/2578) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.34.2
+
+`2021-04-19`
+
+- 🐛 fix(table): fix add end will error in pagination [#2529](https://github.com/ant-design/pro-components/pull/2529) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.34.0
+
+`2021-04-15`
+
+- 🐛 fix(table): better moblie style [#2490](https://github.com/ant-design/pro-components/pull/2490) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix ProTable always have form error [#2488](https://github.com/ant-design/pro-components/pull/2488) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix valueType no work error [#2486](https://github.com/ant-design/pro-components/pull/2486) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): use user config tableLayout [#2485](https://github.com/ant-design/pro-components/pull/2485) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): if request is null,pageSize change no set datasoucre [#2482](https://github.com/ant-design/pro-components/pull/2482) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix style error when getPopupContainer [#2481](https://github.com/ant-design/pro-components/pull/2481) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix text is 0, initialValue no work error [#2412](https://github.com/ant-design/pro-components/pull/2412) [@luy19](https://github.com/luy19)
+- 🐛 fix(table): defaultSortOrder and defaultFilteredValue [#2392](https://github.com/ant-design/pro-components/pull/2392) [@ousing9](https://github.com/ousing9)
+
+## @ant-design/pro-table@2.33.0
+
+`2021-04-06`
+
+- 💥 feat(table): table column sorter supports field [#2376](https://github.com/ant-design/pro-components/pull/2376) [@xiefengnian](https://github.com/xiefengnian)
+
+## @ant-design/pro-table@2.32.1
+
+`2021-03-31`
+
+- 🐛 fix(table): fix isNewLine is error for editabletable [#2366](https://github.com/ant-design/pro-components/pull/2366) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix pagination no work error [#2349](https://github.com/ant-design/pro-components/pull/2349) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.32.0
+
+`2021-03-29`
+
+- 🐛 fix(table): fix polling alway run after unmount table [#2308](https://github.com/ant-design/pro-components/pull/2308) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix textarea ellipsis no work error [#2294](https://github.com/ant-design/pro-components/pull/2294) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix activeKey no work error [#2299](https://github.com/ant-design/pro-components/pull/2299) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): omit className in treeData [#2261](https://github.com/ant-design/pro-components/pull/2261) [@theprimone](https://github.com/theprimone)
+- 💥 feat(table): search form support className [#2254](https://github.com/ant-design/pro-components/pull/2254) [@drizzlesconsin](https://github.com/drizzlesconsin)
+
+## @ant-design/pro-table@2.30.5
+
+`2021-03-11`
+
+- 🐛 fix(table): remove dragicon [#2124](https://github.com/ant-design/pro-components/pull/2124) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): EditableProTable no tonumber keys [#2135](https://github.com/ant-design/pro-components/pull/2135) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.30.4
+
+`2021-03-08`
+
+- 🐛 fix(table): fix tooltip no work error [#2079](https://github.com/ant-design/pro-components/pull/2079) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.30.3
+
+`2021-02-28`
+
+- 🐛 fix(description): description support editableUtils [#2035](https://github.com/ant-design/pro-components/pull/2035) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): 🇧🇷 Adding stepForm and editableTable translations to pt-BR [#2018](https://github.com/ant-design/pro-components/pull/2018) [@renanwilliam](https://github.com/renanwilliam)
+
+## @ant-design/pro-table@2.30.1
+
+`2021-02-23`
+
+- 🐛 fix(table): manualRequest may not working. [#1963](https://github.com/ant-design/pro-components/pull/1963) [@lxzxl](https://github.com/lxzxl)
+- 💥 feat(table): remove unnecessary tooltip [#1907](https://github.com/ant-design/pro-components/pull/1907) [@beichensky](https://github.com/beichensky)
+- 🐛 fix(table): export Table.Summary [#1943](https://github.com/ant-design/pro-components/pull/1943) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.30.0
+
+`2021-02-22`
+
+- 🐛 fix(table): fix the problem of onInit call sequence [#1889](https://github.com/ant-design/pro-components/pull/1889) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): no has colSize on renderFormItem [#1876](https://github.com/ant-design/pro-components/pull/1876) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): editable support form config [#1879](https://github.com/ant-design/pro-components/pull/1879) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.29.0
+
+`2021-02-04`
+
+- 🐛 fix(table): fix toNumber will gen 0 start number [#1850](https://github.com/ant-design/pro-components/pull/1850) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix table unmount warning [#1840](https://github.com/ant-design/pro-components/pull/1840) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix editabletable initialValue alaway rewirte [#1834](https://github.com/ant-design/pro-components/pull/1834) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix table no close loading when error [#1832](https://github.com/ant-design/pro-components/pull/1832) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): actionRef add pageInfo [#1851](https://github.com/ant-design/pro-components/pull/1851) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.28.0
+
+`2021-02-02`
+
+- 🐛 fix(table): LightFilter dosn't render if options={false} [#1802](https://github.com/ant-design/pro-components/pull/1802) [@ChenCheng220](https://github.com/ChenCheng220)
+- 🐛 fix(table): reset messageVariables to label [#1773](https://github.com/ant-design/pro-components/pull/1773) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix fieldProps no has bug [#1776](https://github.com/ant-design/pro-components/pull/1776) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix manualRequest always show loading error [#1767](https://github.com/ant-design/pro-components/pull/1767) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.27.2
+
+`2021-01-25`
+
+- 🐛 fix(table): fix the problem that it still executes when polling=false [#1747](https://github.com/ant-design/pro-components/pull/1747) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix polling times [#1739](https://github.com/ant-design/pro-components/pull/1739) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix column dragger problem [#1730](https://github.com/ant-design/pro-components/pull/1730) [@ChenCheng220](https://github.com/ChenCheng220)
+
+## @ant-design/pro-table@2.27.0
+
+`2021-01-21`
+
+- 🐛 fix(table): stop passing prop ignoreRules to Form [#1699](https://github.com/ant-design/pro-components/pull/1699) [@ChenCheng220](https://github.com/ChenCheng220)
+- 🐛 fix(pro-table): on option search resetPageIndex [#1689](https://github.com/ant-design/pro-components/pull/1689) [@lzbabd](https://github.com/lzbabd)
+- 💥 feat(table): EditableProTable support onValuesChange [#1713](https://github.com/ant-design/pro-components/pull/1713) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): ProTable supports polling [#1694](https://github.com/ant-design/pro-components/pull/1694) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.26.0
+
+`2021-01-18`
+
+- 💥 feat(table): onSave return response [#1578](https://github.com/ant-design/pro-components/pull/1578) [@DerrickTel](https://github.com/DerrickTel)
+- 💥 feat(table): support hideInSetting props [#1651](https://github.com/ant-design/pro-components/pull/1651) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): table support editable.onValuesChange [#1644](https://github.com/ant-design/pro-components/pull/1644) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.25.1
+
+`2021-01-13`
+
+- 🐛 fix(table): docs debounce time api [#1599](https://github.com/ant-design/pro-components/pull/1599) [@hengkx](https://github.com/hengkx)
+
+## @ant-design/pro-table@2.25.0
+
+`2021-01-13`
+
+- 🐛 feat(table): table request add debounce wait [#1591](https://github.com/ant-design/pro-components/pull/1591) [@hengkx](https://github.com/hengkx)
+
+## @ant-design/pro-table@2.24.0
+
+`2021-01-12`
+
+- 💥 feat(table): table columns use tree [#1583](https://github.com/ant-design/pro-components/pull/1583) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.23.0
+
+`2021-01-11`
+
+- 🐛 fix(table): optimised type to suit oneapi [#1576](https://github.com/ant-design/pro-components/pull/1576) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat: editable table add tableViewRender [#1572](https://github.com/ant-design/pro-components/pull/1572) [@tolerance-go](https://github.com/tolerance-go)
+
+## @ant-design/pro-table@2.22.1
+
+`2021-01-08`
+
+- 🐛 fix(table): fix filters or onFilter style error [#1539](https://github.com/ant-design/pro-components/pull/1539) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix hover dom style error [#1538](https://github.com/ant-design/pro-components/pull/1538) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): add exception handling [#1525](https://github.com/ant-design/pro-components/pull/1525) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.20.1
+
+`2021-01-05`
+
+- 💥 feat(table): add 'internationalization for editabletable action' option [#1491](https://github.com/ant-design/pro-components/pull/1491) [@yanglu758](https://github.com/yanglu758)
+
+## @ant-design/pro-table@2.20.0
+
+`2021-01-05`
+
+- 🐛 fix(list): fix editable for list [#1481](https://github.com/ant-design/pro-components/pull/1481) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix fieldProps.onChange no work error [#1479](https://github.com/ant-design/pro-components/pull/1479) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.19.1
+
+`2021-01-03`
+
+- 🐛 fix(table): fix the compatibility problem of sorting [#1471](https://github.com/ant-design/pro-components/pull/1471) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix colSize no work error [#1470](https://github.com/ant-design/pro-components/pull/1470) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.19.0
+
+`2021-01-01`
+
+- 🐛 fix(table): fix table form submit time error [#1466](https://github.com/ant-design/pro-components/pull/1466) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): support customization valueType [#1456](https://github.com/ant-design/pro-components/pull/1456) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.18.2
+
+`2020-12-31`
+
+- 🐛 fix(table): reloadAndRest should reset page index [#1444](https://github.com/ant-design/pro-components/pull/1444) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(table): valueEnum support function [#1443](https://github.com/ant-design/pro-components/pull/1443) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.17.3
+
+`2020-12-28`
+
+- 🐛 fix(table): fix onfilter no work error [#1422](https://github.com/ant-design/pro-components/pull/1422) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.17.0
+
+`2020-12-24`
+
+- 🐛 fix(table): Filter de parameters van beforeSearchSubmit [#1384](https://github.com/ant-design/pro-components/pull/1384) [@lzbabd](https://github.com/lzbabd)
+- 🐛 fix(table): settings max height (#1376) [#1380](https://github.com/ant-design/pro-components/pull/1380) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-table@2.16.4
+
+`2020-12-21`
+
+- 🐛 fix(compiler): form 修复问题和清空操作冲突，改成 hasOwnProperty 判断 [#1363](https://github.com/ant-design/pro-components/pull/1363) [@oldturkey](https://github.com/oldturkey)
+
+## @ant-design/pro-table@2.16.3
+
+`2020-12-21`
+
+- 🐛 fix(table): 设置 pageSize 后,查询或重置没获取最新的 pageSize [#1352](https://github.com/ant-design/pro-components/pull/1352) [@poyiding](https://github.com/poyiding)
+- fix(table): fix renderFormItem no have index error [#1349](https://github.com/ant-design/pro-components/pull/1349) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(table): support onLoadingChange [#1341](https://github.com/ant-design/pro-components/pull/1341) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-table@2.16.2
 

@@ -1,4 +1,4 @@
-# Contributing to umi
+# Contributing to pro-components
 
 ## Set up
 
@@ -8,13 +8,13 @@ Install dev deps after git clone the repo.
 $ yarn
 ```
 
-Link `umi@3`, `@umijs/utils` and `@umijs/test`,
+run start
 
 ```bash
-$ yarn run link
+$ yarn start
 ```
 
-## Common Tasks
+## Build
 
 Transform with babel and rollup.
 
@@ -27,6 +27,8 @@ $ yarn build --watch
 # Build specified package only
 $ PACKAGE=plugin-antd yarn build --watch
 ```
+
+## Test
 
 Run test.
 
@@ -71,3 +73,5 @@ packages/foo
 ├── README.md
 └── package.json
 ```
+
+change the `authors` in package.json

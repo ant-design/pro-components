@@ -1,38 +1,30 @@
 import React, { useContext } from 'react';
 import { Space, ConfigProvider } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
-import { useIntl, IntlType } from '@ant-design/pro-provider';
+import type { IntlType } from '@ant-design/pro-provider';
+import { useIntl } from '@ant-design/pro-provider';
+import { omitBoolean } from '@ant-design/pro-utils';
 
-export interface ActionsProps {
+export type ActionsProps = {
   submitter: React.ReactNode;
-  /**
-   * 是否收起
-   */
+  /** 是否收起 */
   collapsed?: boolean;
-  /**
-   * 收起按钮的事件
-   */
+  /** 收起按钮的事件 */
   onCollapse?: (collapsed: boolean) => void;
 
   setCollapsed: (collapse: boolean) => void;
   isForm?: boolean;
   style?: React.CSSProperties;
-  /**
-   * 收起按钮的 render
-   */
+  /** 收起按钮的 render */
   collapseRender?:
     | ((
         collapsed: boolean,
-        /**
-         * 是否应该展示，有两种情况
-         * 列只有三列，不需要收起
-         * form 模式 不需要收起
-         */
+        /** 是否应该展示，有两种情况 列只有三列，不需要收起 form 模式 不需要收起 */
         props: ActionsProps,
         intl: IntlType,
       ) => React.ReactNode)
     | false;
-}
+};
 
 const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, intl) => {
   if (collapsed) {
@@ -65,30 +57,24 @@ const defaultCollapseRender: ActionsProps['collapseRender'] = (collapsed, _, int
 
 /**
  * FormFooter 的组件，可以自动进行一些配置
+ *
  * @param props
  */
 const Actions: React.FC<ActionsProps> = (props) => {
-  const {
-    setCollapsed,
-    collapsed = false,
-    collapseRender = defaultCollapseRender,
-    submitter,
-    style,
-  } = props;
+  const { setCollapsed, collapsed = false, submitter, style } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const intl = useIntl();
 
+  const collapseRender = omitBoolean(props.collapseRender) || defaultCollapseRender;
   return (
     <Space style={style} size={16}>
       {submitter}
-      {collapseRender !== false && (
+      {props.collapseRender !== false && (
         <a
           className={getPrefixCls('pro-form-collapse-button')}
-          onClick={() => {
-            setCollapsed(!collapsed);
-          }}
+          onClick={() => setCollapsed(!collapsed)}
         >
-          {collapseRender(collapsed, props, intl)}
+          {collapseRender?.(collapsed, props, intl)}
         </a>
       )}
     </Space>

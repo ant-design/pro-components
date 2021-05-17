@@ -1,20 +1,23 @@
-﻿import React, { useCallback, useMemo } from 'react';
+﻿/* eslint-disable react-hooks/exhaustive-deps */
+import type React from 'react';
+import { useCallback, useMemo } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { FormInstance } from 'antd/lib/form';
+import type { FormInstance } from 'antd';
+import { useIntl } from '@ant-design/pro-provider';
 import { message } from 'antd';
 import ReactDOM from 'react-dom';
-import {
+import type {
+  ActionRenderConfig,
   ActionTypeText,
-  defaultActionRender,
   NewLineConfig,
   RecordKey,
-  recordKeyToString,
   RowEditableConfig,
 } from '../useEditableArray';
+import { defaultActionRender, recordKeyToString } from '../useEditableArray';
 
 /**
- * 使用map 来删除数据，性能一般
- * 但是准确率比较高
+ * 使用map 来删除数据，性能一般 但是准确率比较高
+ *
  * @param params
  * @param action
  */
@@ -29,6 +32,7 @@ export type AddLineOptions = {
 
 /**
  * 一个方便的hooks 用于维护编辑的状态
+ *
  * @param props
  */
 function useEditableMap<RecordType>(
@@ -52,28 +56,24 @@ function useEditableMap<RecordType>(
         }
       : undefined,
   });
-  /**
-   * 一个用来标志的set
-   * 提供了方便的 api 来去重什么的
-   */
+  /** 一个用来标志的set 提供了方便的 api 来去重什么的 */
   const editableKeysSet = useMemo(() => {
-    const keys = editableType === 'single' ? editableKeys.slice(0, 1) : editableKeys;
+    const keys = editableType === 'single' ? editableKeys?.slice(0, 1) : editableKeys;
     return new Set(keys);
-  }, [editableKeys.join(','), editableType]);
+  }, [(editableKeys || []).join(','), editableType]);
 
-  /**
-   * 这行是不是编辑状态
-   */
+  /** 这行是不是编辑状态 */
   const isEditable = useCallback(
     (recordKey: RecordKey) => {
-      if (editableKeys.includes(recordKeyToString(recordKey))) return true;
+      if (editableKeys?.includes(recordKeyToString(recordKey))) return true;
       return false;
     },
-    [editableKeys.join(',')],
+    [(editableKeys || []).join(',')],
   );
 
   /**
    * 进入编辑状态
+   *
    * @param recordKey
    */
   const startEditable = (recordKey: RecordKey) => {
@@ -89,6 +89,7 @@ function useEditableMap<RecordType>(
 
   /**
    * 退出编辑状态
+   *
    * @param recordKey
    */
   const cancelEditable = (recordKey: RecordKey) => {
@@ -105,9 +106,9 @@ function useEditableMap<RecordType>(
     editRow: RecordType & {
       index?: number;
     },
-    isNewLine?: NewLineConfig<any>,
+    newLine?: NewLineConfig<any>,
   ) => {
-    const success = await props?.onCancel?.(recordKey, editRow, isNewLine);
+    const success = await props?.onCancel?.(recordKey, editRow, newLine);
     if (success === false) {
       return false;
     }
@@ -135,21 +136,41 @@ function useEditableMap<RecordType>(
     return true;
   };
 
+  // Internationalization
+  const intl = useIntl();
+  const saveText = intl.getMessage('editableTable.action.save', '保存');
+  const deleteText = intl.getMessage('editableTable.action.delete', '删除');
+  const cancelText = intl.getMessage('editableTable.action.cancel', '取消');
+
   const actionRender = useCallback(
-    (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText<RecordType>) =>
-      (props.actionRender || defaultActionRender)(props.dataSource, {
-        recordKey: recordKeyToString(key),
+    (key: RecordKey, form: FormInstance<any>, config?: ActionTypeText<RecordType>) => {
+      const renderConfig: ActionRenderConfig<RecordType, NewLineConfig<RecordType>> = {
+        recordKey: key,
         cancelEditable,
         onCancel,
         onSave,
         editableKeys,
         setEditableRowKeys,
         form,
+        saveText,
+        cancelText,
+        deleteText,
         deletePopconfirmMessage: '删除此行？',
         editorType: 'Map',
         ...config,
-      }),
-    [editableKeys.join(',')],
+      };
+
+      const defaultDoms = defaultActionRender(props.dataSource, renderConfig);
+      if (props.actionRender) {
+        return props.actionRender(props.dataSource, renderConfig, {
+          save: defaultDoms[0],
+          delete: defaultDoms[1],
+          cancel: defaultDoms[2],
+        });
+      }
+      return defaultDoms;
+    },
+    [editableKeys && editableKeys.join(','), props.dataSource],
   );
 
   return {

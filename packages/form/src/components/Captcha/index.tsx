@@ -1,29 +1,24 @@
-﻿import { Button, Input, Form } from 'antd';
-import { ButtonProps } from 'antd/lib/button';
-import { InputProps } from 'antd/lib/input';
+﻿import type { ButtonProps, InputProps } from 'antd';
+import { Button, Input, Form } from 'antd';
+import type { NamePath } from 'antd/lib/form/interface';
 import React, { useState, useCallback, useEffect } from 'react';
 import createField from '../../BaseForm/createField';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 
 export type ProFormCaptchaProps = ProFormItemProps<InputProps> & {
-  /**
-   * @name 倒计时的秒数
-   */
+  /** @name 倒计时的秒数 */
   countDown?: number;
 
-  /**
-   * @name 获取验证码的方法
-   */
+  /** 手机号的 name */
+  phoneName?: NamePath;
+
+  /** @name 获取验证码的方法 */
   onGetCaptcha: (mobile: string) => Promise<void>;
 
-  /**
-   * @name 渲染按钮的文字
-   */
+  /** @name 渲染按钮的文字 */
   captchaTextRender?: (timing: boolean, count: number) => React.ReactNode;
 
-  /**
-   * @name 获取按钮验证码的props
-   */
+  /** @name 获取按钮验证码的props */
   captchaProps?: ButtonProps;
 
   value?: any;
@@ -33,11 +28,12 @@ export type ProFormCaptchaProps = ProFormItemProps<InputProps> & {
 const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, ref: any) => {
   const [count, setCount] = useState<number>(props.countDown || 60);
   const [timing, setTiming] = useState(false);
-  const [loading, setLoading] = useState<ButtonProps['loading']>();
+  const [loading, setLoading] = useState<boolean>();
   // 这么写是为了防止restProps中 带入 onChange, defaultValue, rules props tabUtil
   const {
     rules,
     name,
+    phoneName,
     fieldProps,
     captchaTextRender = (paramsTiming, paramsCount) => {
       return paramsTiming ? `${paramsCount} 秒后重新获取` : '获取验证码';
@@ -50,14 +46,13 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
 
   const onGetCaptcha = useCallback(async (mobile: string) => {
     try {
-      setLoading({
-        delay: 100,
-      });
+      setLoading(true);
       await restProps.onGetCaptcha(mobile);
       setLoading(false);
       setTiming(true);
     } catch (error) {
       setLoading(false);
+      // eslint-disable-next-line no-console
       console.log(error);
     }
   }, []);
@@ -83,7 +78,7 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
 
   return (
     <Form.Item noStyle shouldUpdate>
-      {({ getFieldValue }) => (
+      {({ getFieldValue, validateFields }) => (
         <div
           style={{
             ...fieldProps?.style,
@@ -109,9 +104,19 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
             disabled={timing}
             loading={loading}
             {...captchaProps}
-            onClick={() => {
-              const mobile = getFieldValue('mobile');
-              onGetCaptcha(mobile);
+            onClick={async () => {
+              try {
+                if (phoneName) {
+                  await validateFields([phoneName].flat(1) as string[]);
+                  const mobile = getFieldValue([phoneName].flat(1) as string[]);
+                  await onGetCaptcha(mobile);
+                } else {
+                  await onGetCaptcha('');
+                }
+              } catch (error) {
+                // eslint-disable-next-line no-console
+                console.log(error);
+              }
             }}
           >
             {captchaTextRender(timing, count)}

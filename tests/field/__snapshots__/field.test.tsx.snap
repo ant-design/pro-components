@@ -9,6 +9,7 @@ exports[`Field 🐴 base use 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
+      aria-disabled="false"
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
@@ -35,6 +36,7 @@ exports[`Field 🐴 base use 1`] = `
       </span>
     </span>
     <span
+      aria-disabled="false"
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
@@ -65,12 +67,9 @@ exports[`Field 🐴 base use 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-valuemax="9007199254740991"
       aria-valuemin="0"
       autocomplete="off"
       class="ant-input-number-input"
-      max="9007199254740991"
-      min="0"
       placeholder="请输入"
       role="spinbutton"
       step="1"
@@ -347,6 +346,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -373,6 +373,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -403,12 +404,9 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
-                      max="9007199254740991"
-                      min="0"
                       placeholder="请输入"
                       role="spinbutton"
                       step="1"
@@ -445,6 +443,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -471,6 +470,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -501,12 +501,8 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
-                      aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
-                      max="9007199254740991"
-                      min="-9007199254740991"
                       placeholder="请输入"
                       role="spinbutton"
                       step="1"
@@ -533,7 +529,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width:100px"
                   text="open"
                 >
@@ -615,7 +611,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width:100px"
                   text="open"
                 >
@@ -699,6 +695,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -725,6 +722,7 @@ exports[`Field 🐴 edit and no plain 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -755,12 +753,8 @@ exports[`Field 🐴 edit and no plain 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
-                      aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
-                      max="9007199254740991"
-                      min="-9007199254740991"
                       placeholder="请输入"
                       role="spinbutton"
                       step="1"
@@ -1533,6 +1527,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -1559,6 +1554,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -1589,12 +1585,9 @@ exports[`Field 🐴 edit and plain 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
                       aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
-                      max="9007199254740991"
-                      min="0"
                       placeholder="请输入"
                       role="spinbutton"
                       step="1"
@@ -1631,6 +1624,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -1657,6 +1651,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -1687,12 +1682,8 @@ exports[`Field 🐴 edit and plain 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
-                      aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
-                      max="9007199254740991"
-                      min="-9007199254740991"
                       placeholder="请输入"
                       role="spinbutton"
                       step="1"
@@ -1719,7 +1710,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width:100px"
                   text="open"
                 >
@@ -1801,7 +1792,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <div
-                  class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                  class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width:100px"
                   text="open"
                 >
@@ -1885,6 +1876,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                     class="ant-input-number-handler-wrap"
                   >
                     <span
+                      aria-disabled="false"
                       aria-label="Increase Value"
                       class="ant-input-number-handler ant-input-number-handler-up"
                       role="button"
@@ -1911,6 +1903,7 @@ exports[`Field 🐴 edit and plain 1`] = `
                       </span>
                     </span>
                     <span
+                      aria-disabled="false"
                       aria-label="Decrease Value"
                       class="ant-input-number-handler ant-input-number-handler-down"
                       role="button"
@@ -1941,12 +1934,8 @@ exports[`Field 🐴 edit and plain 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemax="9007199254740991"
-                      aria-valuemin="-9007199254740991"
                       autocomplete="off"
                       class="ant-input-number-input"
-                      max="9007199254740991"
-                      min="-9007199254740991"
                       placeholder="请输入"
                       role="spinbutton"
                       step="1"
@@ -2463,6 +2452,7 @@ exports[`Field 🐴 money valueType is Object 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
+      aria-disabled="false"
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
@@ -2489,6 +2479,7 @@ exports[`Field 🐴 money valueType is Object 1`] = `
       </span>
     </span>
     <span
+      aria-disabled="false"
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
@@ -2519,12 +2510,9 @@ exports[`Field 🐴 money valueType is Object 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-valuemax="9007199254740991"
       aria-valuemin="0"
       autocomplete="off"
       class="ant-input-number-input"
-      max="9007199254740991"
-      min="0"
       placeholder="请输入"
       role="spinbutton"
       step="1"
@@ -2540,13 +2528,292 @@ exports[`Field 🐴 money valueType is Object 2`] = `
 </span>
 `;
 
+exports[`Field 🐴 money valueType is Object 3`] = `
+<span>
+  ￥ 100
+</span>
+`;
+
+exports[`Field 🐴 money valueType is Object 4`] = `
+<div
+  class="ant-input-number"
+  style="width:100%"
+>
+  <div
+    class="ant-input-number-handler-wrap"
+  >
+    <span
+      aria-disabled="false"
+      aria-label="Increase Value"
+      class="ant-input-number-handler ant-input-number-handler-up"
+      role="button"
+      unselectable="on"
+    >
+      <span
+        aria-label="up"
+        class="anticon anticon-up ant-input-number-handler-up-inner"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="up"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      aria-disabled="false"
+      aria-label="Decrease Value"
+      class="ant-input-number-handler ant-input-number-handler-down"
+      role="button"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-input-number-handler-down-inner"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-input-number-input-wrap"
+  >
+    <input
+      aria-valuemin="0"
+      autocomplete="off"
+      class="ant-input-number-input"
+      placeholder="请输入"
+      role="spinbutton"
+      step="1"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Field 🐴 money valueType is Object 5`] = `
+<span>
+  ￥ 100
+</span>
+`;
+
+exports[`Field 🐴 money valueType is Object 6`] = `
+<span>
+  ￥ 100
+</span>
+`;
+
+exports[`Field 🐴 money valueType is Object 7`] = `
+<div
+  class="ant-input-number"
+  style="width:100%"
+>
+  <div
+    class="ant-input-number-handler-wrap"
+  >
+    <span
+      aria-disabled="false"
+      aria-label="Increase Value"
+      class="ant-input-number-handler ant-input-number-handler-up"
+      role="button"
+      unselectable="on"
+    >
+      <span
+        aria-label="up"
+        class="anticon anticon-up ant-input-number-handler-up-inner"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="up"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      aria-disabled="false"
+      aria-label="Decrease Value"
+      class="ant-input-number-handler ant-input-number-handler-down"
+      role="button"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-input-number-handler-down-inner"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-input-number-input-wrap"
+  >
+    <input
+      aria-valuemin="0"
+      autocomplete="off"
+      class="ant-input-number-input"
+      placeholder="请输入"
+      role="spinbutton"
+      step="1"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Field 🐴 money valueType is Object 8`] = `
+<span>
+  ￥ 100
+</span>
+`;
+
+exports[`Field 🐴 money valueType is Object 9`] = `
+<span>
+  ￥ 100
+</span>
+`;
+
+exports[`Field 🐴 money valueType is Object 10`] = `
+<div
+  class="ant-input-number"
+  style="width:100%"
+>
+  <div
+    class="ant-input-number-handler-wrap"
+  >
+    <span
+      aria-disabled="false"
+      aria-label="Increase Value"
+      class="ant-input-number-handler ant-input-number-handler-up"
+      role="button"
+      unselectable="on"
+    >
+      <span
+        aria-label="up"
+        class="anticon anticon-up ant-input-number-handler-up-inner"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="up"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+    <span
+      aria-disabled="false"
+      aria-label="Decrease Value"
+      class="ant-input-number-handler ant-input-number-handler-down"
+      role="button"
+      unselectable="on"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down ant-input-number-handler-down-inner"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-input-number-input-wrap"
+  >
+    <input
+      aria-valuemin="0"
+      autocomplete="off"
+      class="ant-input-number-input"
+      placeholder="请输入"
+      role="spinbutton"
+      step="1"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Field 🐴 money valueType is Object 11`] = `
+<span>
+  ￥ 100
+</span>
+`;
+
+exports[`Field 🐴 money valueType is Object 12`] = `
+<span>
+  ￥ 100
+</span>
+`;
+
 exports[`Field 🐴 options support dom list 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
 >
   <div
     class="ant-space-item"
-    style="margin-right: 16px;"
+    style="margin-right:16px"
   >
     <button
       class="ant-btn"
@@ -2572,7 +2839,34 @@ exports[`Field 🐴 options support dom list 1`] = `
 </div>
 `;
 
+exports[`Field 🐴 options support dom text 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
+>
+  <div
+    class="ant-space-item"
+    style="margin-right:16px"
+  >
+    新建
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn"
+      type="button"
+    >
+      <span>
+        修 改
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`Field 🐴 options support empty dom 1`] = `null`;
+
+exports[`Field 🐴 options support no text 1`] = `null`;
 
 exports[`Field 🐴 options support one dom 1`] = `
 <div
@@ -2593,6 +2887,12 @@ exports[`Field 🐴 options support one dom 1`] = `
 </div>
 `;
 
+exports[`Field 🐴 percent support unit string 1`] = `
+<span>
+  + 100.00%
+</span>
+`;
+
 exports[`Field 🐴 percent valueType is Object 1`] = `
 <div
   class="ant-input-number"
@@ -2601,6 +2901,7 @@ exports[`Field 🐴 percent valueType is Object 1`] = `
     class="ant-input-number-handler-wrap"
   >
     <span
+      aria-disabled="false"
       aria-label="Increase Value"
       class="ant-input-number-handler ant-input-number-handler-up"
       role="button"
@@ -2627,6 +2928,7 @@ exports[`Field 🐴 percent valueType is Object 1`] = `
       </span>
     </span>
     <span
+      aria-disabled="false"
       aria-label="Decrease Value"
       class="ant-input-number-handler ant-input-number-handler-down"
       role="button"
@@ -2657,12 +2959,8 @@ exports[`Field 🐴 percent valueType is Object 1`] = `
     class="ant-input-number-input-wrap"
   >
     <input
-      aria-valuemax="9007199254740991"
-      aria-valuemin="-9007199254740991"
       autocomplete="off"
       class="ant-input-number-input"
-      max="9007199254740991"
-      min="-9007199254740991"
       placeholder="请输入"
       role="spinbutton"
       step="1"
@@ -2683,7 +2981,7 @@ exports[`Field 🐴 percent=0 1`] = `
 exports[`Field 🐴 progress support no number 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-small"
-  style="min-width: 100px; max-width: 320px;"
+  style="min-width:100px;max-width:320px"
 >
   <div
     class="ant-progress-outer"
@@ -2693,7 +2991,7 @@ exports[`Field 🐴 progress support no number 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 0%; height: 6px;"
+        style="width:0%;height:6px;border-radius:"
       />
     </div>
   </div>
@@ -2709,7 +3007,7 @@ exports[`Field 🐴 progress support no number 1`] = `
 exports[`Field 🐴 progress support string number 1`] = `
 <div
   class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
-  style="min-width: 100px; max-width: 320px;"
+  style="min-width:100px;max-width:320px"
 >
   <div
     class="ant-progress-outer"
@@ -2719,7 +3017,7 @@ exports[`Field 🐴 progress support string number 1`] = `
     >
       <div
         class="ant-progress-bg"
-        style="width: 12%; height: 6px;"
+        style="width:12%;height:6px;border-radius:"
       />
     </div>
   </div>

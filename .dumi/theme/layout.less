@@ -1,3 +1,71 @@
-﻿.__dumi-default-menu .__dumi-default-menu-list > li > a ~ ul {
-  margin-left: 24px !important;
+﻿.__dumi-default-menu .__dumi-default-menu-list > li > a {
+  padding-left: 24px !important;
+
+  ~ ul {
+    margin-left: 24px !important;
+  }
+}
+
+.markdown table {
+  max-width: 100vw !important;
+}
+
+html,
+.__dumi-default-layout-toc,
+.__dumi-default-menu-inner {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(50, 50, 50, 0.3);
+    border-radius: 1em;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: rgba(50, 50, 50, 0.1);
+    border-radius: 1em;
+  }
+}
+
+.__dumi-default-locale-select {
+  margin-right: 16px;
+  margin-left: 16px !important;
+}
+
+html {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 6px;
+  }
+}
+.__dumi-default-layout-hero {
+  background-color: #1890ff !important;
+  background-image: url(https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*xOYlR4e8ihIAAAAAAAAAAABkARQnAQ);
+  background-repeat: no-repeat;
+  background-position: 90% center;
+  background-size: contain;
+  transition: 0.3s all;
+
+  &:hover {
+    background-position-y: -20px;
+  }
+
+  h1 {
+    color: #fff !important;
+  }
+
+  div > p {
+    color: #fff;
+  }
+}
+
+.procomponents_dark_theme_view {
+  height: 64px;
+  background-color: #fff;
+}
+
+@media screen and (max-width: 680px) {
+  .procomponents_dark_theme_view {
+    height: 50px;
+  }
 }

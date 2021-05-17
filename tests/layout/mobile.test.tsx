@@ -1,8 +1,9 @@
 ﻿import { mount, render } from 'enzyme';
 import React from 'react';
 import BasicLayout from '@ant-design/pro-layout';
-import defaultProps from './defaultProps';
+import { act } from 'react-dom/test-utils';
 
+import defaultProps from './defaultProps';
 import { waitForComponentToPaint } from '../util';
 
 describe('mobile BasicLayout', () => {
@@ -122,9 +123,19 @@ describe('mobile BasicLayout', () => {
     );
 
     waitForComponentToPaint(html);
-
-    html.find('span.ant-pro-global-header-collapsed-button').simulate('click');
+    act(() => {
+      html.find('span.ant-pro-global-header-collapsed-button').simulate('click');
+    });
+    waitForComponentToPaint(html);
+    act(() => {
+      html.find('div.ant-drawer-mask').simulate('click');
+    });
+    waitForComponentToPaint(html);
     expect(onCollapse).toHaveBeenCalled();
-    html.unmount();
+
+    waitForComponentToPaint(html);
+    act(() => {
+      html.unmount();
+    });
   });
 });

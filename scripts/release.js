@@ -1,6 +1,7 @@
 const { utils } = require('umi');
 const { join } = require('path');
 const exec = require('./utils/exec');
+const inquirer = require('inquirer');
 const getPackages = require('./utils/getPackages');
 const isNextVersion = require('./utils/isNextVersion');
 
@@ -77,6 +78,7 @@ async function release() {
     // Git Tag
     // Push
     logStep('bump version with lerna version');
+
     const conventionalGraduate = args.conventionalGraduate
       ? ['--conventional-graduate'].concat(
           Array.isArray(args.conventionalGraduate) ? args.conventionalGraduate.join(',') : [],
@@ -87,6 +89,7 @@ async function release() {
           Array.isArray(args.conventionalPrerelease) ? args.conventionalPrerelease.join(',') : [],
         )
       : [];
+
     await exec(
       lernaCli,
       [
@@ -111,6 +114,17 @@ async function release() {
   // Umi must be the latest.
   const pkgs = args.publishOnly ? getPackages() : updated;
   logStep(`publish packages: ${chalk.blue(pkgs.join(', '))}`);
+
+  // 获取 opt 的输入
+  const { otp } = await inquirer.prompt([
+    {
+      type: 'input',
+      name: 'otp',
+      message: '请输入 otp 的值，留空表示不使用 otp',
+    },
+  ]);
+
+  process.env.NPM_CONFIG_OTP = otp;
 
   pkgs.forEach((pkg, index) => {
     const pkgPath = join(cwd, 'packages', pkg.replace('pro-', ''));

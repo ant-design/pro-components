@@ -168,13 +168,12 @@ Array [
 exports[`Table ColumnSetting 🎏 config provide render 1`] = `
 <div
   class="qixian-pro-table"
-  id="ant-design-pro-table"
 >
   <div
     class="qixian-pro-table-search qixian-pro-table-search-query-filter"
   >
     <form
-      class="qixian-form qixian-form-horizontal"
+      class="qixian-form qixian-form-horizontal qixian-pro-form-query-filter"
     >
       <input
         style="display: none;"
@@ -697,7 +696,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
               <li
                 aria-disabled="true"
                 class="qixian-pagination-prev qixian-pagination-disabled"
-                title="Previous Page"
+                title="上一页"
               >
                 <button
                   class="qixian-pagination-item-link"
@@ -784,7 +783,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
               <li
                 class="qixian-pagination-jump-next qixian-pagination-jump-next-custom-icon"
                 tabindex="0"
-                title="Next 5 Pages"
+                title="向后 5 页"
               >
                 <a
                   class="qixian-pagination-item-link"
@@ -834,7 +833,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                 aria-disabled="false"
                 class="qixian-pagination-next"
                 tabindex="0"
-                title="Next Page"
+                title="下一页"
               >
                 <button
                   class="qixian-pagination-item-link"
@@ -893,9 +892,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                     </span>
                     <span
                       class="qixian-select-selection-item"
-                      title="20 / page"
+                      title="20 条/页"
                     >
-                      20 / page
+                      20 条/页
                     </span>
                   </div>
                   <span

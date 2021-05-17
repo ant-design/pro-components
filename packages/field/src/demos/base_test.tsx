@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { Radio, Switch, Space, Descriptions } from 'antd';
+import type { ProFieldFCMode } from '@ant-design/pro-utils';
+
 import moment from 'moment';
 
-import Field, { ProFieldFCMode } from '@ant-design/pro-field';
+import Field from '@ant-design/pro-field';
 
 export default () => {
   const [state, setState] = useState<ProFieldFCMode>('edit');
@@ -33,14 +35,39 @@ export default () => {
         <Descriptions.Item label="文本">
           <Field text="这是一段文本" valueType="text" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="图片">
+          <Field
+            text="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            valueType={{
+              type: 'image',
+              width: 100,
+            }}
+            mode={state}
+            plain={plain}
+          />
+        </Descriptions.Item>
         <Descriptions.Item label="金额">
-          <Field text="100" valueType="money" mode={state} plain={plain} />
+          <Field
+            fieldProps={{
+              precision: 4,
+            }}
+            text="10000"
+            valueType="money"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="数字">
           <Field text="19897979797979" valueType="digit" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="秒格式化">
+          <Field text={2000000} valueType="second" mode={state} plain={plain} />
+        </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <Field text="100" valueType="percent" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="评分">
+          <Field text={3.5} valueType="rate" mode={state} plain={plain} />
         </Descriptions.Item>
         <Descriptions.Item label="选择框">
           <Field
@@ -65,7 +92,7 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="多选">
           <Field
-            text="open"
+            text={['open', 'closed']}
             mode={state}
             valueType="checkbox"
             valueEnum={{
@@ -85,9 +112,18 @@ export default () => {
             }}
           />
         </Descriptions.Item>
-        <Descriptions.Item label="多选">
+        <Descriptions.Item label="多选 labelInValue">
           <Field
-            text={['open', 'closed']}
+            text={[
+              {
+                value: 'open1',
+                label: '打开',
+              },
+              {
+                value: 'closed2',
+                label: '关闭',
+              },
+            ]}
             mode={state}
             valueType="checkbox"
             valueEnum={{
@@ -155,17 +191,38 @@ export default () => {
           <Field
             text="open"
             mode={state}
-            request={async () => [
-              { label: '全部', value: 'all' },
-              { label: '未解决', value: 'open' },
-              { label: '已解决', value: 'closed' },
-              { label: '解决中', value: 'processing' },
-            ]}
+            valueType="select"
+            request={async () => {
+              console.log('r');
+              return [
+                { label: '全部', value: 'all' },
+                { label: '未解决', value: 'open' },
+                { label: '已解决', value: 'closed' },
+                { label: '解决中', value: 'processing' },
+                {
+                  label: '特殊选项',
+                  value: 'optGroup',
+                  optionType: 'optGroup',
+                  children: [
+                    { label: '不解决', value: 'no' },
+                    { label: '已废弃', value: 'clear' },
+                  ],
+                },
+              ];
+            }}
           />
         </Descriptions.Item>
-
         <Descriptions.Item label="进度条">
           <Field text="40" valueType="progress" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="进度条">
+          <Field text="40%" valueType="progress" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="进度条">
+          <Field text="love" valueType="progress" mode={state} plain={plain} />
+        </Descriptions.Item>
+        <Descriptions.Item label="百分比空值">
+          <Field valueType="percent" mode="read" />
         </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <Space>
@@ -173,7 +230,12 @@ export default () => {
               text={10}
               valueType={{
                 type: 'percent',
-                showSymbol: true,
+                showSymbol: (text: number) => {
+                  if (text < 0) {
+                    return true;
+                  }
+                  return false;
+                },
                 showColor: true,
               }}
               mode="read"
@@ -205,6 +267,22 @@ export default () => {
             mode={state}
             plain={plain}
           />
+        </Descriptions.Item>
+        <Descriptions.Item label="相对于当前时间">
+          <Space>
+            <Field
+              text={moment('2019-11-16 12:50:26').valueOf()}
+              valueType="fromNow"
+              mode={state}
+              plain={plain}
+            />
+            <Field
+              text={moment('2020-11-16 12:50:26').valueOf()}
+              valueType="fromNow"
+              mode={state}
+              plain={plain}
+            />
+          </Space>
         </Descriptions.Item>
         <Descriptions.Item label="日期">
           <Field
@@ -241,6 +319,17 @@ export default () => {
             text={moment('2019-11-16 12:50:26').valueOf()}
             plain={plain}
             valueType="time"
+            mode={state}
+          />
+        </Descriptions.Item>
+        <Descriptions.Item label="时间区间">
+          <Field
+            text={[
+              moment('2019-11-16 12:50:26').add(-1, 'd').valueOf(),
+              moment('2019-11-16 12:50:26').valueOf(),
+            ]}
+            plain={plain}
+            valueType="timeRange"
             mode={state}
           />
         </Descriptions.Item>

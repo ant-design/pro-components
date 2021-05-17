@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from 'react';
+import type { BadgeProps } from 'antd';
 import { Button, Badge } from 'antd';
-import { BadgeProps } from 'antd/lib/badge';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 import ProCard from '@ant-design/pro-card';
 // @ts-ignore
 import styles from './split.less';
 
-interface TableListItem {
+type TableListItem = {
   createdAtRange?: number[];
   createdAt: number;
   code: string;
-}
+};
 
-interface DetailListProps {
+type DetailListProps = {
   ip: string;
-}
+};
 
 const DetailList: React.FC<DetailListProps> = (props) => {
   const { ip } = props;
@@ -78,13 +79,13 @@ type statusType = BadgeProps['status'];
 
 const valueEnum: statusType[] = ['success', 'error', 'processing', 'default'];
 
-export interface IpListItem {
+export type IpListItem = {
   ip?: string;
   cpu?: number | string;
   mem?: number | string;
   disk?: number | string;
   status: statusType;
-}
+};
 
 const ipListDataSource: IpListItem[] = [];
 
@@ -98,10 +99,10 @@ for (let i = 0; i < 10; i += 1) {
   });
 }
 
-interface IPListProps {
+type IPListProps = {
   ip: string;
   onChange: (id: string) => void;
-}
+};
 
 const IPList: React.FC<IPListProps> = (props) => {
   const { onChange, ip } = props;

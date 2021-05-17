@@ -1,31 +1,36 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { FormProps } from 'antd/lib/form/Form';
-import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import React, { useState, useContext, useEffect, useMemo } from 'react';
+import type { FormProps } from 'antd';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
 import { Form, ConfigProvider } from 'antd';
 import { FilterDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import { FilterOutlined } from '@ant-design/icons';
-import BaseForm, { CommonFormProps } from '../../BaseForm';
+import omit from 'omit.js';
+
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
 import './index.less';
 
-export interface LightFilterProps extends Omit<FormProps, 'onFinish'>, CommonFormProps {
+export type LightFilterProps<T> = {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
-}
+  ignoreRules?: boolean;
+} & Omit<FormProps<T>, 'onFinish'> &
+  CommonFormProps<T>;
 
 /**
- * 单行的查询表单，一般用于配合 table 或者 list使用
- * 有时也会用于 card 的额外区域
+ * 单行的查询表单，一般用于配合 table 或者 list使用 有时也会用于 card 的额外区域
+ *
  * @param props
  */
 const LightFilterContainer: React.FC<{
   items: React.ReactNode[];
   prefixCls: string;
   size?: SizeType;
-  values?: object;
-  onValuesChange: (values: object) => void;
+  values?: Record<string, any>;
+  onValuesChange: (values: Record<string, any>) => void;
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
@@ -42,24 +47,32 @@ const LightFilterContainer: React.FC<{
   } = props;
   const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
-  const outsideItems: React.ReactNode[] = [];
-  const collapseItems: React.ReactNode[] = [];
 
   const [open, setOpen] = useState<boolean>(false);
-  const [moreValues, setMoreValues] = useState<object>(() => {
+  const [moreValues, setMoreValues] = useState<Record<string, any>>(() => {
     return { ...values };
   });
   useEffect(() => {
     setMoreValues({ ...values });
   }, [values]);
-  items.forEach((item: any) => {
-    const { secondary, name } = item.props || {};
-    if ((secondary && !values[name]) || collapse) {
-      collapseItems.push(item);
-    } else {
-      outsideItems.push(item);
-    }
-  });
+
+  const { collapseItems, outsideItems } = useMemo(() => {
+    const collapseItemsArr: React.ReactNode[] = [];
+    const outsideItemsArr: React.ReactNode[] = [];
+    items.forEach((item: any) => {
+      const { secondary } = item.props || {};
+      if (secondary || collapse) {
+        collapseItemsArr.push(item);
+      } else {
+        outsideItemsArr.push(item);
+      }
+    });
+    return {
+      collapseItems: collapseItemsArr,
+      outsideItems: outsideItemsArr,
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.items.length]);
 
   const collapseLabelRender = () => {
     if (collapseLabel) {
@@ -84,10 +97,10 @@ const LightFilterContainer: React.FC<{
       })}
     >
       <div className={`${lightFilterClassName}-container`}>
-        {outsideItems.map((child: any) => {
+        {outsideItems.map((child: any, index) => {
           const { key } = child;
           return (
-            <div className={`${lightFilterClassName}-item`} key={key}>
+            <div className={`${lightFilterClassName}-item`} key={key || index}>
               {React.cloneElement(child, {
                 // proFieldProps 会直接作为 ProField 的 props 传递过去
                 proFieldProps: {
@@ -116,10 +129,12 @@ const LightFilterContainer: React.FC<{
                 },
                 onClear: () => {
                   const clearValues = {};
-                  Object.keys(moreValues).forEach((key) => {
-                    clearValues[key] = undefined;
+                  collapseItems.forEach((child: any) => {
+                    const { name } = child.props;
+                    clearValues[name] = undefined;
                   });
-                  setMoreValues(clearValues);
+
+                  onValuesChange(clearValues);
                 },
               }}
             >
@@ -136,7 +151,7 @@ const LightFilterContainer: React.FC<{
                     return false;
                   },
                 };
-                if (moreValues[name]) {
+                if (moreValues.hasOwnProperty(name)) {
                   newFieldProps[child.props.valuePropName || 'value'] = moreValues[name];
                 }
                 return (
@@ -155,7 +170,7 @@ const LightFilterContainer: React.FC<{
   );
 };
 
-const LightFilter: React.FC<LightFilterProps> = (props) => {
+function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   const {
     size,
     collapse,
@@ -164,13 +179,14 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
     onValuesChange,
     form: userForm,
     bordered,
+    ignoreRules,
     ...reset
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
   const [form] = Form.useForm();
   const realForm = userForm || form;
-  const [values, setValues] = useState<object>(() => {
+  const [values, setValues] = useState<Record<string, any>>(() => {
     return { ...initialValues };
   });
   return (
@@ -193,7 +209,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
             collapse={collapse}
             collapseLabel={collapseLabel}
             values={values}
-            onValuesChange={(newValues) => {
+            onValuesChange={(newValues: any) => {
               const newAllValues = {
                 ...values,
                 ...newValues,
@@ -217,7 +233,7 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
           width: undefined,
         },
       }}
-      {...reset}
+      {...omit(reset, ['labelWidth'] as any[])}
       onValuesChange={(_, allValues) => {
         setValues(allValues);
         if (onValuesChange) {
@@ -227,6 +243,6 @@ const LightFilter: React.FC<LightFilterProps> = (props) => {
       }}
     />
   );
-};
+}
 
 export default LightFilter;

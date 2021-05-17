@@ -1,16 +1,16 @@
 import React from 'react';
+import type { ListPageSkeletonProps } from './component/List';
 import ListPageSkeleton, {
-  ListPageSkeletonProps,
   PageHeaderSkeleton,
   ListToolbarSkeleton,
   ListSkeleton,
   ListSkeletonItem,
 } from './component/List';
 import ResultPageSkeleton from './component/Result';
+import type { DescriptionsPageSkeletonProps } from './component/Descriptions';
 import DescriptionsPageSkeleton, {
   TableItemSkeleton,
   DescriptionsSkeleton,
-  DescriptionsPageSkeletonProps,
   TableSkeleton,
 } from './component/Descriptions';
 

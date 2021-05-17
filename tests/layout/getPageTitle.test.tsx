@@ -103,7 +103,7 @@ describe('getPageTitle', () => {
     expect(title).toBe('one - Ant Design Pro');
   });
 
-  it('base ignoreTile', () => {
+  it('base ignoreTitle', () => {
     const title = getPageTitle(pageProps, true);
     expect(title).toBe('one');
   });
@@ -116,7 +116,7 @@ describe('getPageTitle', () => {
     expect(title).toBe('one');
   });
 
-  it('base ignoreTile', () => {
+  it('base ignoreTitle', () => {
     const title = getPageTitle({ ...pageProps, pathname: undefined }, true);
     expect(title).toBe('welcome');
   });

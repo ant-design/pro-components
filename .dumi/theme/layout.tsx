@@ -1,15 +1,80 @@
-﻿import React, { useEffect } from 'react';
+﻿import React, { useEffect, useState } from 'react';
 import Layout from 'dumi-theme-default/src/layout';
-import { ConfigProvider } from 'antd';
-import { IRouteComponentProps } from 'umi';
+import { ConfigProvider, Switch } from 'antd';
+import { IRouteComponentProps, isBrowser } from 'umi';
 import zhCN from 'antd/es/locale/zh_CN';
 import moment from 'moment';
+import useDarkreader from './useDarkreader';
 import 'moment/locale/zh-cn';
 import './layout.less';
 moment.locale('zh-cn');
 
+const DarkButton = () => {
+  const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark';
+  const defaultDarken = localStorage.getItem('procomponents_dark_theme') || colorScheme;
+  const [isDark, { toggle }] = useDarkreader(defaultDarken === 'dark');
+  if (!isBrowser()) {
+    return null;
+  }
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        right: 8,
+        top: 0,
+        zIndex: 999,
+        display: 'flex',
+        alignItems: 'center',
+      }}
+      className="procomponents_dark_theme_view"
+    >
+      <Switch
+        checkedChildren="🌜"
+        unCheckedChildren="🌞"
+        defaultChecked={defaultDarken === 'dark'}
+        checked={isDark}
+        onChange={(check) => {
+          toggle();
+          if (!check) {
+            localStorage.setItem('procomponents_dark_theme', 'light');
+            return;
+          }
+          localStorage.setItem('procomponents_dark_theme', 'dark');
+        }}
+      />
+    </div>
+  );
+};
+
+function loadJS(url, callback) {
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.onload = function () {
+    callback?.();
+  };
+  script.src = url;
+
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+
 export default ({ children, ...props }: IRouteComponentProps) => {
   useEffect(() => {
+    if (!isBrowser()) {
+      return null;
+    }
+    loadJS('https://www.googletagmanager.com/gtag/js?id=G-RMBLDHGL1N', function () {
+      // @ts-ignore
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // @ts-ignore
+        dataLayer.push(arguments);
+      }
+      // @ts-ignore
+      gtag('js', new Date());
+      // @ts-ignore
+      gtag('config', 'G-RMBLDHGL1N');
+    });
+
     (function (h, o, t, j, a, r) {
       // @ts-ignore
       h.hj =
@@ -31,7 +96,12 @@ export default ({ children, ...props }: IRouteComponentProps) => {
   }, []);
   return (
     <ConfigProvider locale={zhCN}>
-      <Layout {...props}>{children}</Layout>
+      <Layout {...props}>
+        <>
+          {children}
+          <DarkButton />
+        </>
+      </Layout>
     </ConfigProvider>
   );
 };

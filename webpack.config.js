@@ -1,13 +1,16 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const { readdirSync } = require('fs');
 
 const tailPkgs = readdirSync(path.join(__dirname, 'packages')).filter(
   (pkg) => pkg.charAt(0) !== '.',
 );
+
+// const tailPkgs = ['table'];
 
 const isCI = process.env.PRO_COMPONENTS_CI === 'CI';
 
@@ -52,24 +55,17 @@ tailPkgs.forEach((pkg) => {
             new TerserPlugin({
               include: /\.min\.js$/,
             }),
-            new OptimizeCSSAssetsPlugin({
+            new CssMinimizerPlugin({
               include: /\.min\.js$/,
             }),
           ],
         }
-      : undefined,
+      : { concatenateModules: false },
     module: {
       rules: [
         {
           test: /\.(png|jpg|gif|svg)$/i,
-          use: [
-            {
-              loader: 'url-loader',
-              options: {
-                limit: 8192,
-              },
-            },
-          ],
+          type: 'asset',
         },
         {
           test: /\.jsx?$/,
@@ -81,6 +77,7 @@ tailPkgs.forEach((pkg) => {
                 ['@babel/plugin-proposal-decorators', { legacy: true }],
                 ['@babel/plugin-proposal-class-properties', { loose: true }],
                 '@babel/proposal-object-rest-spread',
+                require('./scripts/replaceLib'),
               ],
             },
           },
@@ -106,6 +103,7 @@ tailPkgs.forEach((pkg) => {
                 ['@babel/plugin-proposal-decorators', { legacy: true }],
                 ['@babel/plugin-proposal-class-properties', { loose: true }],
                 '@babel/proposal-object-rest-spread',
+                require('./scripts/replaceLib'),
               ],
             },
           },
@@ -157,6 +155,7 @@ tailPkgs.forEach((pkg) => {
     ],
     plugins: [
       new ProgressBarPlugin(),
+      // new BundleAnalyzerPlugin(),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional

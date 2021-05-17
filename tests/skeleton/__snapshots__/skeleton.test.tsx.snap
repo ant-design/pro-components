@@ -4253,3 +4253,615 @@ exports[`skeleton 🥩 result base use 1`] = `
   </div>
 </div>
 `;
+
+exports[`skeleton 🥩 statistic=1,span=16 1`] = `
+<div
+  style="width: 100%;"
+>
+  <div
+    class="ant-card"
+    style="margin-bottom: 16px;"
+  >
+    <div
+      class="ant-card-body"
+    >
+      <div
+        style="width: 100%; justify-content: space-between; display: flex;"
+      >
+        <div
+          style="padding-left: 0px; flex: 1; margin-right: 16px;"
+        >
+          <div
+            class="ant-skeleton ant-skeleton-active"
+          >
+            <div
+              class="ant-skeleton-content"
+            >
+              <h3
+                class="ant-skeleton-title"
+                style="width: 100px; margin-top: 0px;"
+              />
+            </div>
+          </div>
+          <div
+            class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+          >
+            <span
+              class="ant-skeleton-button"
+              style="height: 48px;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card"
+  >
+    <div
+      class="ant-card-body"
+      style="padding: 0px;"
+    >
+      <div
+        class="ant-card"
+      >
+        <div
+          class="ant-card-body"
+          style="padding: 0px;"
+        >
+          <div
+            class="ant-card"
+            style="border-radius: 0;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding: 24px;"
+            >
+              <div
+                style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
+              >
+                <div
+                  style="max-width: 100%; flex: 1;"
+                >
+                  <div
+                    class="ant-skeleton ant-skeleton-active"
+                  >
+                    <div
+                      class="ant-skeleton-content"
+                    >
+                      <h3
+                        class="ant-skeleton-title"
+                        style="width: 100px; margin-top: 0px;"
+                      />
+                      <ul
+                        class="ant-skeleton-paragraph"
+                        style="margin: 0px;"
+                      >
+                        <li
+                          style="width: 61%;"
+                        />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                    style="width: 165px; margin-top: 12px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 0px 24px;"
+          >
+            <div
+              class="ant-divider ant-divider-horizontal"
+              role="separator"
+              style="margin: 0px;"
+            />
+          </div>
+          <div
+            class="ant-card"
+            style="border-radius: 0;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding: 24px;"
+            >
+              <div
+                style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
+              >
+                <div
+                  style="max-width: 100%; flex: 1;"
+                >
+                  <div
+                    class="ant-skeleton ant-skeleton-active"
+                  >
+                    <div
+                      class="ant-skeleton-content"
+                    >
+                      <h3
+                        class="ant-skeleton-title"
+                        style="width: 100px; margin-top: 0px;"
+                      />
+                      <ul
+                        class="ant-skeleton-paragraph"
+                        style="margin: 0px;"
+                      >
+                        <li
+                          style="width: 61%;"
+                        />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                    style="width: 165px; margin-top: 12px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 0px 24px;"
+          >
+            <div
+              class="ant-divider ant-divider-horizontal"
+              role="separator"
+              style="margin: 0px;"
+            />
+          </div>
+          <div
+            class="ant-card"
+            style="border-radius: 0;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding: 24px;"
+            >
+              <div
+                style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
+              >
+                <div
+                  style="max-width: 100%; flex: 1;"
+                >
+                  <div
+                    class="ant-skeleton ant-skeleton-active"
+                  >
+                    <div
+                      class="ant-skeleton-content"
+                    >
+                      <h3
+                        class="ant-skeleton-title"
+                        style="width: 100px; margin-top: 0px;"
+                      />
+                      <ul
+                        class="ant-skeleton-paragraph"
+                        style="margin: 0px;"
+                      >
+                        <li
+                          style="width: 61%;"
+                        />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                    style="width: 165px; margin-top: 12px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 0px 24px;"
+          >
+            <div
+              class="ant-divider ant-divider-horizontal"
+              role="separator"
+              style="margin: 0px;"
+            />
+          </div>
+          <div
+            class="ant-card"
+            style="border-radius: 0;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding: 24px;"
+            >
+              <div
+                style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
+              >
+                <div
+                  style="max-width: 100%; flex: 1;"
+                >
+                  <div
+                    class="ant-skeleton ant-skeleton-active"
+                  >
+                    <div
+                      class="ant-skeleton-content"
+                    >
+                      <h3
+                        class="ant-skeleton-title"
+                        style="width: 100px; margin-top: 0px;"
+                      />
+                      <ul
+                        class="ant-skeleton-paragraph"
+                        style="margin: 0px;"
+                      >
+                        <li
+                          style="width: 61%;"
+                        />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                    style="width: 165px; margin-top: 12px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 0px 24px;"
+          >
+            <div
+              class="ant-divider ant-divider-horizontal"
+              role="separator"
+              style="margin: 0px;"
+            />
+          </div>
+          <div
+            class="ant-card"
+            style="border-radius: 0;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding: 24px;"
+            >
+              <div
+                style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
+              >
+                <div
+                  style="max-width: 100%; flex: 1;"
+                >
+                  <div
+                    class="ant-skeleton ant-skeleton-active"
+                  >
+                    <div
+                      class="ant-skeleton-content"
+                    >
+                      <h3
+                        class="ant-skeleton-title"
+                        style="width: 100px; margin-top: 0px;"
+                      />
+                      <ul
+                        class="ant-skeleton-paragraph"
+                        style="margin: 0px;"
+                      >
+                        <li
+                          style="width: 61%;"
+                        />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                    style="width: 165px; margin-top: 12px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 0px 24px;"
+          >
+            <div
+              class="ant-divider ant-divider-horizontal"
+              role="separator"
+              style="margin: 0px;"
+            />
+          </div>
+          <div
+            class="ant-card"
+            style="border-radius: 0;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding: 24px;"
+            >
+              <div
+                style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
+              >
+                <div
+                  style="max-width: 100%; flex: 1;"
+                >
+                  <div
+                    class="ant-skeleton ant-skeleton-active"
+                  >
+                    <div
+                      class="ant-skeleton-content"
+                    >
+                      <h3
+                        class="ant-skeleton-title"
+                        style="width: 100px; margin-top: 0px;"
+                      />
+                      <ul
+                        class="ant-skeleton-paragraph"
+                        style="margin: 0px;"
+                      >
+                        <li
+                          style="width: 61%;"
+                        />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                    style="width: 165px; margin-top: 12px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 0px 24px;"
+          >
+            <div
+              class="ant-divider ant-divider-horizontal"
+              role="separator"
+              style="margin: 0px;"
+            />
+          </div>
+          <div
+            class="ant-card"
+            style="border-radius: 0;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding: 24px;"
+            >
+              <div
+                style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
+              >
+                <div
+                  style="max-width: 100%; flex: 1;"
+                >
+                  <div
+                    class="ant-skeleton ant-skeleton-active"
+                  >
+                    <div
+                      class="ant-skeleton-content"
+                    >
+                      <h3
+                        class="ant-skeleton-title"
+                        style="width: 100px; margin-top: 0px;"
+                      />
+                      <ul
+                        class="ant-skeleton-paragraph"
+                        style="margin: 0px;"
+                      >
+                        <li
+                          style="width: 61%;"
+                        />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                    style="width: 165px; margin-top: 12px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 0px 24px;"
+          >
+            <div
+              class="ant-divider ant-divider-horizontal"
+              role="separator"
+              style="margin: 0px;"
+            />
+          </div>
+          <div
+            class="ant-card"
+            style="border-radius: 0;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding: 24px;"
+            >
+              <div
+                style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
+              >
+                <div
+                  style="max-width: 100%; flex: 1;"
+                >
+                  <div
+                    class="ant-skeleton ant-skeleton-active"
+                  >
+                    <div
+                      class="ant-skeleton-content"
+                    >
+                      <h3
+                        class="ant-skeleton-title"
+                        style="width: 100px; margin-top: 0px;"
+                      />
+                      <ul
+                        class="ant-skeleton-paragraph"
+                        style="margin: 0px;"
+                      >
+                        <li
+                          style="width: 61%;"
+                        />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                    style="width: 165px; margin-top: 12px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 0px 24px;"
+          >
+            <div
+              class="ant-divider ant-divider-horizontal"
+              role="separator"
+              style="margin: 0px;"
+            />
+          </div>
+          <div
+            class="ant-card"
+            style="border-radius: 0;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding: 24px;"
+            >
+              <div
+                style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
+              >
+                <div
+                  style="max-width: 100%; flex: 1;"
+                >
+                  <div
+                    class="ant-skeleton ant-skeleton-active"
+                  >
+                    <div
+                      class="ant-skeleton-content"
+                    >
+                      <h3
+                        class="ant-skeleton-title"
+                        style="width: 100px; margin-top: 0px;"
+                      />
+                      <ul
+                        class="ant-skeleton-paragraph"
+                        style="margin: 0px;"
+                      >
+                        <li
+                          style="width: 61%;"
+                        />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                    style="width: 165px; margin-top: 12px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 0px 24px;"
+          >
+            <div
+              class="ant-divider ant-divider-horizontal"
+              role="separator"
+              style="margin: 0px;"
+            />
+          </div>
+          <div
+            class="ant-card"
+            style="border-radius: 0;"
+          >
+            <div
+              class="ant-card-body"
+              style="padding: 24px;"
+            >
+              <div
+                style="width: 100%; display: flex; align-items: center; justify-content: space-between;"
+              >
+                <div
+                  style="max-width: 100%; flex: 1;"
+                >
+                  <div
+                    class="ant-skeleton ant-skeleton-active"
+                  >
+                    <div
+                      class="ant-skeleton-content"
+                    >
+                      <h3
+                        class="ant-skeleton-title"
+                        style="width: 100px; margin-top: 0px;"
+                      />
+                      <ul
+                        class="ant-skeleton-paragraph"
+                        style="margin: 0px;"
+                      >
+                        <li
+                          style="width: 61%;"
+                        />
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-skeleton ant-skeleton-element ant-skeleton-active"
+                >
+                  <span
+                    class="ant-skeleton-button ant-skeleton-button-sm"
+                    style="width: 165px; margin-top: 12px;"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            style="padding: 0px 24px;"
+          >
+            <div
+              class="ant-divider ant-divider-horizontal"
+              role="separator"
+              style="margin: 0px;"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

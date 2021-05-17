@@ -1,9 +1,11 @@
-import React, { useMemo, useContext } from 'react';
-import { ListProps } from 'antd/lib/list';
+import React, { useMemo, useContext, useRef, useImperativeHandle } from 'react';
+import type { ListProps, PaginationProps } from 'antd';
 import classNames from 'classnames';
-import ProTable, { ProTableProps, ProColumnType } from '@ant-design/pro-table';
-import { ParamsType } from '@ant-design/pro-provider';
-import { ConfigProvider } from 'antd';
+import type { ProTableProps, ProColumnType, ActionType } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
+import type { ParamsType } from '@ant-design/pro-provider';
+import { ConfigProvider, Form } from 'antd';
+
 import ListView from './ListView';
 
 import './index.less';
@@ -12,10 +14,10 @@ type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
 type ProListMeta<T> = Pick<
   ProColumnType<T>,
-  'dataIndex' | 'valueType' | 'render' | 'search' | 'title' | 'valueEnum'
+  'dataIndex' | 'valueType' | 'render' | 'search' | 'title' | 'valueEnum' | 'editable'
 >;
 
-export interface ProListMetas<T> {
+export type ProListMetas<T> = {
   type?: ProListMeta<T>;
   title?: ProListMeta<T>;
   subTitle?: ProListMeta<T>;
@@ -25,73 +27,98 @@ export interface ProListMetas<T> {
   content?: ProListMeta<T>;
   actions?: ProListMeta<T>;
   [key: string]: ProListMeta<T> | undefined;
-}
+};
+
+export type GetComponentProps<RecordType> = (
+  record: RecordType,
+  index: number,
+) => React.HTMLAttributes<HTMLElement>;
 
 export type ProListProps<RecordType, U extends ParamsType> = Omit<
   ProTableProps<RecordType, U>,
   'size'
 > &
   AntdListProps<RecordType> & {
+    tooltip?: string;
     metas?: ProListMetas<RecordType>;
     showActions?: 'hover' | 'always';
+    showExtra?: 'hover' | 'always';
+    onRow?: GetComponentProps<RecordType>;
   };
 
 export type Key = React.Key;
 
 export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
-function ProList<RecordType, U extends { [key: string]: any } = {}>(
-  props: ProListProps<RecordType, U>,
-) {
+function ProList<
+  RecordType extends Record<string, any>,
+  U extends Record<string, any> = Record<string, any>,
+>(props: ProListProps<RecordType, U>) {
   const {
     metas: metals,
     split,
-    pagination,
-    size,
     footer,
     rowKey,
+    tooltip,
     className,
     options = false,
     search = false,
     expandable,
     showActions,
-    rowSelection,
+    showExtra,
+    rowSelection: propRowSelection = false,
+    pagination: propsPagination = false,
     itemLayout,
+    renderItem,
+    grid,
+    onRow,
     ...rest
   } = props;
+
+  const actionRef = useRef<ActionType>();
+
+  useImperativeHandle(rest.actionRef, () => actionRef.current, [actionRef.current]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const proTableColumns: ProColumnType<RecordType>[] = useMemo(() => {
     const columns: ProColumnType<RecordType>[] = [];
     Object.keys(metals || {}).forEach((key) => {
-      if (!metals || !metals[key]) {
-        return;
-      }
-      const meta = metals[key];
-      let { valueType } = meta || {};
+      const meta = metals![key] || {};
+      let { valueType } = meta;
       if (!valueType) {
         // 给默认的 valueType
         if (key === 'avatar') {
           valueType = 'avatar';
         }
+        if (key === 'actions') {
+          valueType = 'option';
+        }
+        if (key === 'description') {
+          valueType = 'textarea';
+        }
       }
       columns.push({
-        key,
+        listKey: key,
+        dataIndex: meta?.dataIndex || key,
         ...meta,
         valueType,
       });
     });
     return columns;
   }, [metals]);
+
   const prefixCls = getPrefixCls('pro-list');
   const listClassName = classNames(prefixCls, {
     [`${prefixCls}-no-split`]: !split,
   });
-
   return (
     <ProTable<RecordType, U>
-      {...rest}
+      tooltip={tooltip}
+      {...(rest as any)}
+      actionRef={actionRef}
+      pagination={propsPagination}
+      rowSelection={propRowSelection}
       search={search}
       options={options}
       className={classNames(prefixCls, className, listClassName)}
@@ -107,23 +134,30 @@ function ProList<RecordType, U extends { [key: string]: any } = {}>(
           padding: '0 24px',
         },
       }}
-      tableViewRender={({ columns, dataSource, loading }) => {
+      tableViewRender={({ columns, size, pagination, rowSelection, dataSource, loading }) => {
         return (
-          <ListView
-            prefixCls={prefixCls}
-            columns={columns}
-            dataSource={dataSource || []}
-            size={size}
-            footer={footer}
-            split={split}
-            rowKey={rowKey}
-            expandable={expandable}
-            rowSelection={rowSelection === false ? undefined : rowSelection}
-            showActions={showActions}
-            pagination={pagination}
-            itemLayout={itemLayout}
-            loading={loading}
-          />
+          <Form component={false}>
+            <ListView
+              grid={grid}
+              prefixCls={prefixCls}
+              columns={columns}
+              renderItem={renderItem}
+              actionRef={actionRef}
+              dataSource={(dataSource || []) as RecordType[]}
+              size={size as 'large'}
+              footer={footer}
+              split={split}
+              rowKey={rowKey}
+              expandable={expandable}
+              rowSelection={propRowSelection === false ? undefined : rowSelection}
+              showActions={showActions}
+              showExtra={showExtra}
+              pagination={pagination as PaginationProps}
+              itemLayout={itemLayout}
+              loading={loading}
+              onRow={onRow}
+            />
+          </Form>
         );
       }}
     />

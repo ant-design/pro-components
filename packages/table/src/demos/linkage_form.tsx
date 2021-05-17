@@ -2,21 +2,20 @@
 import React, { useEffect, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Input, Select } from 'antd';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 
-interface GithubIssueItem {
+type GithubIssueItem = {
   key: number;
   name: string;
   createdAt: number;
-}
+};
 
 const MySelect: React.FC<{
   state: {
     type: number;
   };
-  /**
-   * value 和 onChange 会被自动注入
-   */
+  /** Value 和 onChange 会被自动注入 */
   value?: string;
   onChange?: (value: string) => void;
 }> = (props) => {
@@ -137,24 +136,8 @@ export default () => {
       headerTitle="动态自定义搜索栏"
       search={{
         defaultCollapsed: false,
-        optionRender: ({ searchText, resetText }, { form }) => [
-          <Button
-            key="search"
-            type="primary"
-            onClick={() => {
-              form?.submit();
-            }}
-          >
-            {searchText}
-          </Button>,
-          <Button
-            key="rest"
-            onClick={() => {
-              form?.resetFields();
-            }}
-          >
-            {resetText}
-          </Button>,
+        optionRender: (searchConfig, formProps, dom) => [
+          ...dom.reverse(),
           <Button key="out">导出</Button>,
         ],
       }}

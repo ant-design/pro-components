@@ -1,32 +1,31 @@
 import React, { useContext, useRef, useEffect, useImperativeHandle } from 'react';
-import { FormProps, FormInstance } from 'antd/lib/form/Form';
+import type { FormProps, FormInstance } from 'antd';
+import { noteOnce } from 'rc-util/lib/warning';
 
-import BaseForm, { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
+import BaseForm from '../../BaseForm';
 import { StepsFormProvide } from './index';
 
-export interface StepFormProps
-  extends Omit<FormProps, 'onFinish'>,
-    Omit<CommonFormProps, 'submitter'> {
+export type StepFormProps<T = Record<string, any>> = {
   step?: number;
-}
+} & Omit<FormProps<T>, 'onFinish'> &
+  Omit<CommonFormProps<T>, 'submitter'>;
 
-const StepForm: React.FC<StepFormProps> = ({
+function StepForm<T = Record<string, any>>({
   onFinish,
   step,
   formRef: propFormRef,
   ...restProps
-}) => {
+}: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();
   const context = useContext(StepsFormProvide);
 
-  /**
-   * 重置 formRef
-   */
-  useImperativeHandle(propFormRef, () => formRef.current, [formRef.current]);
+  // eslint-disable-next-line @typescript-eslint/dot-notation
+  noteOnce(!restProps['submitter'], 'StepForm 不包含提交按钮，请在 StepsForm 上');
+  /** 重置 formRef */
+  useImperativeHandle(propFormRef, () => formRef.current);
 
-  /**
-   * dom 不存在的时候解除挂载
-   */
+  /** Dom 不存在的时候解除挂载 */
   useEffect(() => {
     return () => {
       if (restProps.name) {
@@ -47,11 +46,10 @@ const StepForm: React.FC<StepFormProps> = ({
           context?.onFormFinish(restProps.name, values);
         }
         if (onFinish) {
-          context?.setLoading({
-            delay: 100,
-          });
+          context?.setLoading(true);
           // 如果报错，直接抛出
           const success = await onFinish?.(values);
+
           if (success) {
             context?.next();
           }
@@ -64,6 +62,6 @@ const StepForm: React.FC<StepFormProps> = ({
       {...restProps}
     />
   );
-};
+}
 
 export default StepForm;

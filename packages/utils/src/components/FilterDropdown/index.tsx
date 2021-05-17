@@ -1,17 +1,18 @@
 import React, { useContext } from 'react';
 import { Dropdown, ConfigProvider } from 'antd';
-import Footer, { DropdownFooterProps } from '../DropdownFooter';
+import type { DropdownFooterProps } from '../DropdownFooter';
+import Footer from '../DropdownFooter';
 
 import './index.less';
 
-export interface DropdownProps {
+export type DropdownProps = {
   label?: React.ReactNode;
   footer?: DropdownFooterProps;
   padding?: number;
   disabled?: boolean;
   onVisibleChange?: (visible: boolean) => void;
   visible?: boolean;
-}
+};
 
 const FilterDropdown: React.FC<DropdownProps> = (props) => {
   const { children, label, footer, disabled, onVisibleChange, visible } = props;

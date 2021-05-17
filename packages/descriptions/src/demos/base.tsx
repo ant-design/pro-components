@@ -13,7 +13,9 @@ export default () => {
             提交
           </Button>
         </ProDescriptions.Item>
-        <ProDescriptions.Item label="文本">这是一段文本</ProDescriptions.Item>
+        <ProDescriptions.Item span={2} label="文本">
+          这是一段很长很长超级超级长的无意义说明文本并且重复了很多没有意义的词语，就是为了让它变得很长很长超级超级长
+        </ProDescriptions.Item>
         <ProDescriptions.Item label="金额" tooltip="仅供参考，以实际为准" valueType="money">
           100
         </ProDescriptions.Item>

@@ -1,4 +1,4 @@
-@import (reference) '~antd/lib/style/themes/default';
+@import (reference) '~antd/es/style/themes/default';
 
 @pro-core-field-label: ~'@{ant-prefix}-pro-core-field-label';
 
@@ -10,6 +10,10 @@
   line-height: 30px;
   border-radius: 2px;
   cursor: pointer;
+
+  &:hover {
+    background-color: fade(@black, 10%);
+  }
 
   &-active {
     padding: 0 12px;
@@ -76,10 +80,10 @@
   }
 
   &-bordered {
-    border: @border-width-base solid @border-color-base;
-    border-radius: @border-radius-base;
     height: 32px;
     padding: 0 12px;
+    border: @border-width-base solid @border-color-base;
+    border-radius: @border-radius-base;
   }
 
   &-bordered&-small {

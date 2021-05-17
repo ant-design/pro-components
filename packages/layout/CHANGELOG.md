@@ -2,6 +2,262 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.17.1...@ant-design/pro-layout@6.18.0) (2021-05-11)
+
+### Bug Fixes
+
+- typo ([#2683](https://github.com/ant-design/pro-components/issues/2683)) ([6b4c8b2](https://github.com/ant-design/pro-components/commit/6b4c8b21a1ade0d875616f5fc80a023a25e0867d))
+- **table:** fix the style problem of the fixed new button ([#2661](https://github.com/ant-design/pro-components/issues/2661)) ([b80c99f](https://github.com/ant-design/pro-components/commit/b80c99fa298152adc9d4ef39ecfc2c2ac5e4c21f))
+
+### Features
+
+- **layout:** support for all parameters of the Spin component ([#2704](https://github.com/ant-design/pro-components/issues/2704)) ([e2e0232](https://github.com/ant-design/pro-components/commit/e2e0232adda8d94b5cf0d40497dee01cebf2af73))
+
+## [6.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.17.0...@ant-design/pro-layout@6.17.1) (2021-04-29)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.6...@ant-design/pro-layout@6.17.0) (2021-04-22)
+
+### Bug Fixes
+
+- **layout:** routes change should reload menu ([#2573](https://github.com/ant-design/pro-components/issues/2573)) ([2862886](https://github.com/ant-design/pro-components/commit/2862886b588bd0c10432b9a7ca139c0650f4551f))
+
+### Features
+
+- **layout:** layout support params ([#2545](https://github.com/ant-design/pro-components/issues/2545)) ([d4cbda4](https://github.com/ant-design/pro-components/commit/d4cbda4c62bd1326623604a00a501b5af4f79f49))
+
+## [6.16.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.5...@ant-design/pro-layout@6.16.6) (2021-04-19)
+
+### Bug Fixes
+
+- **layout:** fix error loading style ([#2541](https://github.com/ant-design/pro-components/issues/2541)) ([45090b9](https://github.com/ant-design/pro-components/commit/45090b99ac5e1bf1a7831ca609da414eaa82e249))
+
+## [6.16.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.4...@ant-design/pro-layout@6.16.5) (2021-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.16.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.3...@ant-design/pro-layout@6.16.4) (2021-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.2...@ant-design/pro-layout@6.16.3) (2021-04-15)
+
+### Bug Fixes
+
+- **layout:** fix headerTheme no work error when layotu=mix ([#2500](https://github.com/ant-design/pro-components/issues/2500)) ([66998bb](https://github.com/ant-design/pro-components/commit/66998bbc04e6277cfa642d4b7f885fc2ee186cf9))
+- **layout:** use better loading ([#2507](https://github.com/ant-design/pro-components/issues/2507)) ([3edb80f](https://github.com/ant-design/pro-components/commit/3edb80f38bfe214652ec88aed44c004a93cf2bf6))
+
+## [6.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.1...@ant-design/pro-layout@6.16.2) (2021-04-15)
+
+### Bug Fixes
+
+- **layout:** default remove copyright ([#2484](https://github.com/ant-design/pro-components/issues/2484)) ([196be00](https://github.com/ant-design/pro-components/commit/196be00f5dd99d01dd02c170eb3d6d4100bad907))
+- **layout:** fix openkeys=false, splitMenu no work error ([#2491](https://github.com/ant-design/pro-components/issues/2491)) ([430fb9e](https://github.com/ant-design/pro-components/commit/430fb9e7c90e6b8c9e2ecc5bfd7317bc2ca9dd73))
+
+## [6.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.16.0...@ant-design/pro-layout@6.16.1) (2021-04-06)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.5...@ant-design/pro-layout@6.16.0) (2021-03-31)
+
+### Features
+
+- **layout:** layout support request ([#2363](https://github.com/ant-design/pro-components/issues/2363)) ([9ede7b9](https://github.com/ant-design/pro-components/commit/9ede7b9a7f2ba44ce429e42a1b816daf7b53d1d7))
+
+## [6.15.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.4...@ant-design/pro-layout@6.15.5) (2021-03-29)
+
+### Bug Fixes
+
+- **layout:** layout add pro-header-light classname ([00e4d0c](https://github.com/ant-design/pro-components/commit/00e4d0cb0d2289a1c72bffd6a1c7dda353db2524))
+- **layout:** 修复了 pro-layout 数组扩展操作问题 ([#2289](https://github.com/ant-design/pro-components/issues/2289)) ([9f7a60c](https://github.com/ant-design/pro-components/commit/9f7a60cd5cf7aefbd301ddca2d20c5521bdff80e))
+
+## [6.15.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.3...@ant-design/pro-layout@6.15.4) (2021-03-18)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.2...@ant-design/pro-layout@6.15.3) (2021-03-16)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.1...@ant-design/pro-layout@6.15.2) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.15.0...@ant-design/pro-layout@6.15.1) (2021-03-11)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.5...@ant-design/pro-layout@6.15.0) (2021-03-08)
+
+### Features
+
+- **field:** add color pick ([#2089](https://github.com/ant-design/pro-components/issues/2089)) ([e83c2ee](https://github.com/ant-design/pro-components/commit/e83c2ee36f67b66070074562f80f248cbfc1a6e3))
+- **layout:** layout support WaterMark ([#2086](https://github.com/ant-design/pro-components/issues/2086)) ([7413eee](https://github.com/ant-design/pro-components/commit/7413eee8f0f31e5911284ea1bd98941900de6d32))
+- **layout:** SettingDrawer support disableUrlParams ([#2115](https://github.com/ant-design/pro-components/issues/2115)) ([b110101](https://github.com/ant-design/pro-components/commit/b11010160bb99df83f85e54bb4da91f3f4edb5f7))
+
+## [6.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.4...@ant-design/pro-layout@6.14.5) (2021-02-28)
+
+### Bug Fixes
+
+- **layout:** fix layout animation error ([#2027](https://github.com/ant-design/pro-components/issues/2027)) ([df95952](https://github.com/ant-design/pro-components/commit/df95952c9bc4eb3e22f9b43bbebe6a6a97f6755c))
+
+## [6.14.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.3...@ant-design/pro-layout@6.14.4) (2021-02-25)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.2...@ant-design/pro-layout@6.14.3) (2021-02-23)
+
+### Bug Fixes
+
+- **layout:** layout sync url diff params ([#1956](https://github.com/ant-design/pro-components/issues/1956)) ([d68c401](https://github.com/ant-design/pro-components/commit/d68c401dbecf744106dda402e53fdeda0c2fc4d7))
+- **layout:** menu item add title config ([#1944](https://github.com/ant-design/pro-components/issues/1944)) ([5ae3ca1](https://github.com/ant-design/pro-components/commit/5ae3ca1ad0b000097da0fadca1ae9bcf0eac6b98))
+
+## [6.14.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.1...@ant-design/pro-layout@6.14.2) (2021-02-22)
+
+### Bug Fixes
+
+- **layout:** delete basiclayout.less unnecessary semicolon ([#1877](https://github.com/ant-design/pro-components/issues/1877)) ([b6031f2](https://github.com/ant-design/pro-components/commit/b6031f2347c0a3aa4cbd3e24b4ef812a5b812d9a))
+- **layout:** use @umijs/use-params ([#1895](https://github.com/ant-design/pro-components/issues/1895)) ([80aac76](https://github.com/ant-design/pro-components/commit/80aac7665115c8f884c473d78c2fcc12ac042bb3))
+
+## [6.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.14.0...@ant-design/pro-layout@6.14.1) (2021-02-04)
+
+### Bug Fixes
+
+- **layout:** container add width:100% ([#1845](https://github.com/ant-design/pro-components/issues/1845)) ([e3d9f32](https://github.com/ant-design/pro-components/commit/e3d9f32d33607e84a6b80772d6b805cdd7f0b41c))
+
+# [6.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.13.0...@ant-design/pro-layout@6.14.0) (2021-02-02)
+
+### Bug Fixes
+
+- **layout:** footer use div ([#1816](https://github.com/ant-design/pro-components/issues/1816)) ([49ad6d7](https://github.com/ant-design/pro-components/commit/49ad6d7bb92356de0e63e52884379a2e6970702b))
+
+### Features
+
+- **layout:** support menu.autoClose ([#1815](https://github.com/ant-design/pro-components/issues/1815)) ([433d20c](https://github.com/ant-design/pro-components/commit/433d20c4ec62ff9d8d2f23792370fd6ff9bdef58))
+
+# [6.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.12.0...@ant-design/pro-layout@6.13.0) (2021-01-25)
+
+### Features
+
+- **layout:** ProLayout support breadcrumbProps ([#1757](https://github.com/ant-design/pro-components/issues/1757)) ([f15bba8](https://github.com/ant-design/pro-components/commit/f15bba862ff43b349cd91bf2906e29dddf8637f0))
+- **layout:** prolayout support iconPrefixes ([#1750](https://github.com/ant-design/pro-components/issues/1750)) ([b5357a6](https://github.com/ant-design/pro-components/commit/b5357a6c9145792884a131a2ed893661a87ee08a))
+
+# [6.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.11.1...@ant-design/pro-layout@6.12.0) (2021-01-21)
+
+### Features
+
+- **table:** proTable supports polling ([#1694](https://github.com/ant-design/pro-components/issues/1694)) ([b37fe69](https://github.com/ant-design/pro-components/commit/b37fe69c53363acfc431900e01d6c5512fdae118))
+
+## [6.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.11.0...@ant-design/pro-layout@6.11.1) (2021-01-18)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.11.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.9...@ant-design/pro-layout@6.11.0) (2021-01-18)
+
+### Bug Fixes
+
+- **layout:** use use-url-search-params hooks sync url ([#1648](https://github.com/ant-design/pro-components/issues/1648)) ([e00fb5c](https://github.com/ant-design/pro-components/commit/e00fb5cbdc83a5ed830522d88b5b1f28671877df))
+
+### Features
+
+- **form:** support sync url ([#1650](https://github.com/ant-design/pro-components/issues/1650)) ([df6a8ec](https://github.com/ant-design/pro-components/commit/df6a8ec7340891691334ab4acc1c7d8679f649d7))
+
+## [6.10.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.8...@ant-design/pro-layout@6.10.9) (2021-01-13)
+
+### Bug Fixes
+
+- **form:** fix the problem of duplicate form fields ([#1607](https://github.com/ant-design/pro-components/issues/1607)) ([fe237a3](https://github.com/ant-design/pro-components/commit/fe237a3b99738cc19afb8ff63551f5c08076dad7))
+
+## [6.10.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.7...@ant-design/pro-layout@6.10.8) (2021-01-13)
+
+### Bug Fixes
+
+- **layout:** layout return null when content has ([#1598](https://github.com/ant-design/pro-components/issues/1598)) ([eac6819](https://github.com/ant-design/pro-components/commit/eac6819476546b944d38ca324e1bf84db2e2b63e))
+
+## [6.10.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.6...@ant-design/pro-layout@6.10.7) (2021-01-12)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.10.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.5...@ant-design/pro-layout@6.10.6) (2021-01-11)
+
+### Bug Fixes
+
+- **layout:** fix layout headerTitleRender props type error ([#1570](https://github.com/ant-design/pro-components/issues/1570)) ([e366905](https://github.com/ant-design/pro-components/commit/e36690588613683a69d4eeb309f28758ddb1f8a8))
+
+## [6.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.4...@ant-design/pro-layout@6.10.5) (2021-01-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.10.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.3...@ant-design/pro-layout@6.10.4) (2021-01-07)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.10.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.2...@ant-design/pro-layout@6.10.3) (2021-01-05)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.10.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.1...@ant-design/pro-layout@6.10.2) (2021-01-05)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.10.0...@ant-design/pro-layout@6.10.1) (2021-01-04)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.7...@ant-design/pro-layout@6.10.0) (2021-01-01)
+
+### Features
+
+- **table:** support customization valueType ([#1456](https://github.com/ant-design/pro-components/issues/1456)) ([cbce5ba](https://github.com/ant-design/pro-components/commit/cbce5baf9ae456a1ab32a748e7ac86ee592b4344))
+
+## [6.9.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.6...@ant-design/pro-layout@6.9.7) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.9.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.5...@ant-design/pro-layout@6.9.6) (2020-12-31)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.9.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.4...@ant-design/pro-layout@6.9.5) (2020-12-28)
+
+### Bug Fixes
+
+- **layout:** not use important ([babf934](https://github.com/ant-design/pro-components/commit/babf9340678e7b82f75752db113dbb11330295d6))
+
+## [6.9.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.3...@ant-design/pro-layout@6.9.4) (2020-12-28)
+
+### Bug Fixes
+
+- **layout:** fix props is null, no render pageheader ([#1432](https://github.com/ant-design/pro-components/issues/1432)) ([e0574ce](https://github.com/ant-design/pro-components/commit/e0574ce2f97c8848dfc1fa549a0751d7b855a652))
+
+## [6.9.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.2...@ant-design/pro-layout@6.9.3) (2020-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.9.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.1...@ant-design/pro-layout@6.9.2) (2020-12-25)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.9.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.9.0...@ant-design/pro-layout@6.9.1) (2020-12-25)
+
+### Bug Fixes
+
+- **layout:** add PageLoading ([0153505](https://github.com/ant-design/pro-components/commit/0153505ccf6e009137d2e75d41f80830c709174d))
+- **layout:** export PageContainerProps ([f8e7c67](https://github.com/ant-design/pro-components/commit/f8e7c672a0a295630471efb61438b25fda361ca4))
+
+# [6.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.8.0...@ant-design/pro-layout@6.9.0) (2020-12-24)
+
+### Features
+
+- **chore:** adjust information structure ([#1383](https://github.com/ant-design/pro-components/issues/1383)) ([76b3f29](https://github.com/ant-design/pro-components/commit/76b3f2929c5a5dcd4ed78e723b2a01e3a5cdfbf5)), closes [#1376](https://github.com/ant-design/pro-components/issues/1376) [#1380](https://github.com/ant-design/pro-components/issues/1380)
+
+# [6.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.7.0...@ant-design/pro-layout@6.8.0) (2020-12-21)
+
+### Features
+
+- **descriptions:** descriptions support loading and onLoadinChange ([#1344](https://github.com/ant-design/pro-components/issues/1344)) ([b5afe9e](https://github.com/ant-design/pro-components/commit/b5afe9e6fd9dc1b06ef0e76b63aa6c7ab05bc3eb))
+
 # [6.7.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.6.4...@ant-design/pro-layout@6.7.0) (2020-12-17)
 
 ### Features

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Descriptions } from 'antd';
+import Field from '@ant-design/pro-field';
 import moment from 'moment';
-
-import Field, { ProFieldFCMode } from '@ant-design/pro-field';
+import type { ProFieldFCMode } from '@ant-design/pro-utils';
 
 export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => (
   <>
@@ -66,7 +66,7 @@ export default ({ state, plain }: { state: ProFieldFCMode; plain: boolean }) => 
         <Field
           text="open"
           mode={state}
-          request={() => [
+          request={async () => [
             { label: '全部', value: 'all' },
             { label: '未解决', value: 'open' },
             { label: '已解决', value: 'closed' },

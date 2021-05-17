@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Tabs, Tag, Space, message } from 'antd';
-import ProDescriptions, { ProDescriptionsItemProps } from '@ant-design/pro-descriptions';
-import ProTable, { ProColumns, TableDropdown } from '@ant-design/pro-table';
+import type { ProDescriptionsItemProps } from '@ant-design/pro-descriptions';
+import ProDescriptions from '@ant-design/pro-descriptions';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import request from 'umi-request';
 
-interface GithubIssueItem {
+type GithubIssueItem = {
   url: string;
   id: number;
   number: number;
@@ -19,12 +21,13 @@ interface GithubIssueItem {
   created_at: string;
   updated_at: string;
   closed_at?: string;
-}
+};
 
 const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '序号',
     dataIndex: 'index',
+    width: 64,
     valueType: 'indexBorder',
   },
   {
@@ -32,7 +35,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'title',
     copyable: true,
     ellipsis: true,
-    width: 200,
     search: false,
   },
   {
@@ -40,6 +42,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'state',
     initialValue: 'all',
     filters: true,
+    onFilter: true,
     valueType: 'select',
     valueEnum: {
       all: { text: '全部', status: 'Default' },
@@ -60,6 +63,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     hideInDescriptions: true,
     dataIndex: 'direction',
     filters: true,
+    onFilter: true,
     valueType: 'select',
     valueEnum: {
       asc: '正序',

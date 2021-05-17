@@ -1,15 +1,22 @@
 ﻿import React, { useImperativeHandle } from 'react';
-import { Space } from 'antd';
-import { FormItemProps } from 'antd/lib/form';
-import { SpaceProps } from 'antd/lib/space';
+import { Space, Input } from 'antd';
+import type { FormItemProps, SpaceProps } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
+import type { GroupProps } from 'antd/lib/input';
 import createField from '../../BaseForm/createField';
 
 export type ProFormFieldSetProps<T = any> = {
   value?: T[];
   onChange?: (value: T[]) => void;
-  space?: SpaceProps;
+  space?: SpaceProps | GroupProps;
   valuePropName?: string;
+  type?: 'space' | 'group';
+  fieldProps?: any;
+};
+
+const FieldSetType = {
+  space: Space,
+  group: Input.Group,
 };
 
 export function defaultGetValueFromEvent(valuePropName: string, ...args: any) {
@@ -26,6 +33,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   valuePropName,
   onChange,
   space,
+  type = 'space',
 }) => {
   const fieldSetOnChange = (fileValue: any, index: number) => {
     const newValues = [...value];
@@ -51,24 +59,26 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
     }
     return item;
   });
-  return <Space {...space}>{list}</Space>;
+  const Components = FieldSetType[type] as React.FC<SpaceProps>;
+
+  /** Input.Group 需要配置 compact */
+  const typeProps = { ...(type === 'group' ? { compact: true } : {}) };
+  return (
+    <Components {...typeProps} {...(space as SpaceProps)}>
+      {list}
+    </Components>
+  );
 };
 
-const ProFormFieldSet: React.FC<
-  FormItemProps & {
-    space?: SpaceProps;
-  }
-> = React.forwardRef(({ children, space, valuePropName, ...rest }, ref) => {
-  useImperativeHandle(ref, () => {}, []);
-  return (
-    <FieldSet space={space} valuePropName={valuePropName} {...rest}>
-      {children}
-    </FieldSet>
-  );
-});
+const ProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> = React.forwardRef(
+  ({ children, space, valuePropName, ...rest }, ref) => {
+    useImperativeHandle(ref, () => {}, []);
+    return (
+      <FieldSet space={space} valuePropName={valuePropName} {...rest.fieldProps} {...rest}>
+        {children}
+      </FieldSet>
+    );
+  },
+);
 
-export default createField<
-  FormItemProps & {
-    space?: SpaceProps;
-  }
->(ProFormFieldSet);
+export default createField<FormItemProps & ProFormFieldSetProps>(ProFormFieldSet);

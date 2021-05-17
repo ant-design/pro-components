@@ -4,11 +4,11 @@ import { useIntl } from '@ant-design/pro-provider';
 
 import './index.less';
 
-export interface DropdownFooterProps {
+export type DropdownFooterProps = {
   onClear?: (e: React.MouseEvent) => void;
   onConfirm?: (e: React.MouseEvent) => void;
   disabled?: boolean;
-}
+};
 
 const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   const intl = useIntl();

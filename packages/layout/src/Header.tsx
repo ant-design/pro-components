@@ -3,10 +3,11 @@ import './Header.less';
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { Layout } from 'antd';
-import GlobalHeader, { GlobalHeaderProps } from './GlobalHeader';
-import TopNavHeader from './TopNavHeader';
-import { WithFalse } from './typings';
-import { PrivateSiderMenuProps } from './SiderMenu/SiderMenu';
+import type { GlobalHeaderProps } from './components/GlobalHeader';
+import GlobalHeader from './components/GlobalHeader';
+import TopNavHeader from './components/TopNavHeader';
+import type { WithFalse } from './typings';
+import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { clearMenuItem } from './utils/utils';
 
 const { Header } = Layout;
@@ -15,32 +16,25 @@ export type HeaderViewProps = GlobalHeaderProps & {
   isMobile?: boolean;
   collapsed?: boolean;
   logo?: React.ReactNode;
-
   headerRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
   headerTitleRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+    (logo: React.ReactNode, title: React.ReactNode, props: HeaderViewProps) => React.ReactNode
   >;
   headerContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   siderWidth?: number;
   hasSiderMenu?: boolean;
 };
 
-interface HeaderViewState {
+type HeaderViewState = {
   visible: boolean;
-}
+};
 
 class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, HeaderViewState> {
   renderContent = () => {
-    const {
-      isMobile,
-      onCollapse,
-      navTheme,
-      layout,
-      headerRender,
-      headerContentRender,
-    } = this.props;
+    const { isMobile, onCollapse, navTheme, layout, headerRender, headerContentRender } =
+      this.props;
     const isTop = layout === 'top';
     const clearMenuData = clearMenuItem(this.props.menuData || []);
     let defaultDom = (
@@ -71,6 +65,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       layout,
       className: propsClassName,
       style,
+      navTheme,
       collapsed,
       siderWidth,
       hasSiderMenu,
@@ -85,12 +80,12 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
 
     const className = classNames(propsClassName, {
       [`${prefixCls}-fixed-header`]: needFixedHeader,
+      [`${prefixCls}-fixed-header-action`]: !collapsed,
       [`${prefixCls}-top-menu`]: isTop,
+      [`${prefixCls}-header-${navTheme}`]: navTheme && layout !== 'mix',
     });
 
-    /**
-     * 计算侧边栏的宽度，不然导致左边的样式会出问题
-     */
+    /** 计算侧边栏的宽度，不然导致左边的样式会出问题 */
     const width =
       layout !== 'mix' && needSettingWidth
         ? `calc(100% - ${collapsed ? 48 : siderWidth}px)`

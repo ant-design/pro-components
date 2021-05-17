@@ -1,8 +1,8 @@
-import React from 'react';
-import { Upload } from 'antd';
-import { DraggerProps, UploadProps } from 'antd/lib/upload';
+import React, { useContext } from 'react';
+import { Upload, ConfigProvider } from 'antd';
+import type { DraggerProps, UploadProps } from 'antd/lib/upload';
 import { InboxOutlined } from '@ant-design/icons';
-import { ProFormItemProps } from '../../interface';
+import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
 export type ProFormDraggerProps = ProFormItemProps<DraggerProps> & {
@@ -11,9 +11,7 @@ export type ProFormDraggerProps = ProFormItemProps<DraggerProps> & {
   action?: UploadProps['action'];
   accept?: UploadProps['accept'];
   description?: React.ReactNode;
-  /**
-   * 最大文件个数
-   */
+  /** 最大文件个数 */
   max?: number;
   value?: UploadProps['fileList'];
   onChange?: UploadProps['onChange'];
@@ -21,6 +19,7 @@ export type ProFormDraggerProps = ProFormItemProps<DraggerProps> & {
 
 /**
  * 拖动上传组件
+ *
  * @param
  */
 const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
@@ -40,6 +39,8 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
     },
     ref: any,
   ) => {
+    const context = useContext(ConfigProvider.ConfigContext);
+    const baseClassName = context.getPrefixCls('upload');
     // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
     const showUploadButton =
       (max === undefined || !value || value?.length < max) && proFieldProps?.mode !== 'read';
@@ -62,10 +63,16 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
         }}
         style={{ ...fieldProps?.style, display: !showUploadButton ? 'none' : undefined }}
       >
-        <p className="ant-upload-drag-icon">{icon}</p>
-        <p className="ant-upload-text">{title}</p>
-        <p className="ant-upload-hint">{description}</p>
-        {children}
+        <p className={`${baseClassName}-drag-icon`}>{icon}</p>
+        <p className={`${baseClassName}-text`}>{title}</p>
+        <p className={`${baseClassName}-hint`}>{description}</p>
+        <div
+          style={{
+            padding: 16,
+          }}
+        >
+          {children}
+        </div>
       </Upload.Dragger>
     );
   },

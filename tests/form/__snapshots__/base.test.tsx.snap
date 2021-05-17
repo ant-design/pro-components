@@ -1,6 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProForm 📦  submit props actionsRender=()=>[] 1`] = `
+exports[`ProForm 📦 submit props actionsRender is one 1`] = `
+<form
+  class="ant-form ant-form-vertical"
+>
+  <input
+    style="display: none;"
+    type="text"
+  />
+  <a>
+    test
+  </a>
+</form>
+`;
+
+exports[`ProForm 📦 submit props actionsRender=()=>[] 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -11,7 +25,7 @@ exports[`ProForm 📦  submit props actionsRender=()=>[] 1`] = `
 </form>
 `;
 
-exports[`ProForm 📦  submit props actionsRender=()=>false 1`] = `
+exports[`ProForm 📦 submit props actionsRender=()=>false 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -22,7 +36,7 @@ exports[`ProForm 📦  submit props actionsRender=()=>false 1`] = `
 </form>
 `;
 
-exports[`ProForm 📦  submit props actionsRender=false 1`] = `
+exports[`ProForm 📦 submit props actionsRender=false 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -33,7 +47,7 @@ exports[`ProForm 📦  submit props actionsRender=false 1`] = `
 </form>
 `;
 
-exports[`ProForm 📦  submit props actionsRender=false 2`] = `
+exports[`ProForm 📦 submit props actionsRender=false 2`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -44,7 +58,7 @@ exports[`ProForm 📦  submit props actionsRender=false 2`] = `
 </form>
 `;
 
-exports[`ProForm 📦  submit props render=()=>[] 1`] = `
+exports[`ProForm 📦 submit props render=()=>[] 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -52,26 +66,18 @@ exports[`ProForm 📦  submit props render=()=>[] 1`] = `
     style="display: none;"
     type="text"
   />
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
+  <button
+    class="ant-btn ant-btn-primary"
+    type="button"
   >
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
-      >
-        <span>
-          提交并发布
-        </span>
-      </button>
-    </div>
-  </div>
+    <span>
+      提交并发布
+    </span>
+  </button>
 </form>
 `;
 
-exports[`ProForm 📦  submitter props support resetButtonProps 1`] = `
+exports[`ProForm 📦 submitter props support resetButtonProps 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >
@@ -111,7 +117,7 @@ exports[`ProForm 📦  submitter props support resetButtonProps 1`] = `
 </form>
 `;
 
-exports[`ProForm 📦  submitter props support submitButtonProps 1`] = `
+exports[`ProForm 📦 submitter props support submitButtonProps 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >

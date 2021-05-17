@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button, Select, ConfigProvider, Space } from 'antd';
-import ProTable, { ProColumns, ActionType } from '@ant-design/pro-table';
+import type { ProColumns, ActionType } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 import moment from 'moment';
 import enUSIntl from 'antd/lib/locale/en_US';
 import zhCNIntl from 'antd/lib/locale/zh_CN';
@@ -10,6 +11,7 @@ import itITIntl from 'antd/lib/locale/it_IT';
 import jaJPIntl from 'antd/lib/locale/ja_JP';
 import esESIntl from 'antd/lib/locale/es_ES';
 import ruRUIntl from 'antd/lib/locale/ru_RU';
+import srRSIntl from 'antd/lib/locale/sr_RS';
 import msMYIntl from 'antd/lib/locale/ms_MY';
 import zhTWIntl from 'antd/lib/locale/zh_TW';
 import frFRIntl from 'antd/lib/locale/fr_FR';
@@ -23,17 +25,18 @@ const intlMap = {
   jaJPIntl,
   esESIntl,
   ruRUIntl,
+  srRSIntl,
   msMYIntl,
   zhTWIntl,
   frFRIntl,
   ptBRIntl,
 };
 
-interface GithubIssueItem {
+type GithubIssueItem = {
   key: number;
   name: string;
   createdAt: number;
-}
+};
 
 const columns: ProColumns<GithubIssueItem>[] = [
   {
@@ -82,6 +85,9 @@ export default () => {
         }}
         rowKey="key"
         rowSelection={{}}
+        search={{
+          labelWidth: 'auto',
+        }}
         dateFormatter="string"
         headerTitle={
           <Space>

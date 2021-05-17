@@ -5,7 +5,7 @@ exports[`DefaultFooter test copyright support false 1`] = `
   class="ant-layout-footer"
   style="padding:0"
 >
-  <footer
+  <div
     class="ant-pro-global-footer"
   >
     <div
@@ -51,6 +51,6 @@ exports[`DefaultFooter test copyright support false 1`] = `
         Ant Design
       </a>
     </div>
-  </footer>
+  </div>
 </footer>
 `;

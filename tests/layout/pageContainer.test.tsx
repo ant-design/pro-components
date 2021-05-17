@@ -1,16 +1,18 @@
 import { render, mount } from 'enzyme';
 import React from 'react';
-import BasicLayout, {
-  PageContainer,
-  BasicLayoutProps,
-  FooterToolbar,
-} from '@ant-design/pro-layout';
-import { act } from 'react-test-renderer';
+import type { BasicLayoutProps } from '@ant-design/pro-layout';
+import BasicLayout, { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
+import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
 
 describe('PageContainer', () => {
   it('💄 base use', async () => {
     const html = render(<PageContainer title="期贤" />);
+    expect(html).toMatchSnapshot();
+  });
+
+  it('💄 config is null', async () => {
+    const html = render(<PageContainer />);
     expect(html).toMatchSnapshot();
   });
 
@@ -40,6 +42,11 @@ describe('PageContainer', () => {
 
   it('⚡️ support loading', async () => {
     const html = render(<PageContainer title="期贤" loading />);
+    expect(html).toMatchSnapshot();
+  });
+
+  it('⚡️ support more loading props', async () => {
+    const html = render(<PageContainer title="期贤" loading={{ spinning: true, tip: '加载中' }} />);
     expect(html).toMatchSnapshot();
   });
 
@@ -110,6 +117,7 @@ describe('PageContainer', () => {
     const wrapper = mount<BasicLayoutProps>(
       <BasicLayout>
         <PageContainer
+          title="期贤"
           footer={[
             <button type="button" key="button">
               qixian
@@ -166,7 +174,9 @@ describe('PageContainer', () => {
     expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('100%');
     expect(wrapper.render()).toMatchSnapshot();
     // test useUseEffect render function
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('🐲 footer is null, do not render footerToolbar ', async () => {
@@ -189,6 +199,47 @@ describe('PageContainer', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('🐲 prolayout support breadcrumbProps', async () => {
+    const wrapper = mount(
+      <BasicLayout
+        breadcrumbProps={{
+          separator: '>',
+          routes: [
+            {
+              path: 'index',
+              breadcrumbName: 'home',
+            },
+            {
+              path: 'first',
+              breadcrumbName: 'first',
+              children: [
+                {
+                  path: '/general',
+                  breadcrumbName: 'General',
+                },
+                {
+                  path: '/layout',
+                  breadcrumbName: 'Layout',
+                },
+                {
+                  path: '/navigation',
+                  breadcrumbName: 'Navigation',
+                },
+              ],
+            },
+            {
+              path: 'second',
+              breadcrumbName: 'second',
+            },
+          ],
+        }}
+      >
+        <PageContainer />
+      </BasicLayout>,
+    );
+    expect(wrapper.render()).toMatchSnapshot();
+  });
+
   it('🐲 header.footer is null, do not render footerToolbar ', async () => {
     const wrapper = mount(
       <PageContainer
@@ -200,13 +251,12 @@ describe('PageContainer', () => {
       />,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper.find('.ant-pro-footer-bar').exists()).toBeTruthy();
 
-    wrapper.setProps({
-      header: { footer: undefined },
-    });
+    wrapper.setProps({ footer: undefined });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+
+    expect(wrapper.find('.ant-pro-footer-bar').exists()).toBeFalsy();
   });
 
   it('🐲  tabList and onTabChange is run', async () => {
@@ -234,5 +284,13 @@ describe('PageContainer', () => {
     });
 
     expect(fn).toBeCalledWith('info');
+  });
+
+  it('content is text and title is null', () => {
+    const html = render(<PageContainer content="just so so" />);
+    expect(html).toMatchSnapshot();
+
+    const html2 = render(<PageContainer extraContent={<div>extraContent</div>} />);
+    expect(html2).toMatchSnapshot();
   });
 });

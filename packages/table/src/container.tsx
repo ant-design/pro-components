@@ -2,9 +2,9 @@ import { createContainer } from 'unstated-next';
 import { useState, useRef } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-import { ProTableProps } from './index';
-import { DensitySize } from './component/ToolBar/DensityIcon';
-import { ActionType } from './typing';
+import type { ProTableProps } from './index';
+import type { DensitySize } from './components/ToolBar/DensityIcon';
+import type { ActionType } from './typing';
 
 export type ColumnsState = {
   show?: boolean;
@@ -12,18 +12,16 @@ export type ColumnsState = {
   order?: number;
 };
 
-export interface UseCounterProps {
-  columnsStateMap?: {
-    [key: string]: ColumnsState;
-  };
-  onColumnsStateChange?: (map: { [key: string]: ColumnsState }) => void;
+export type UseContainerProps = {
+  columnsStateMap?: Record<string, ColumnsState>;
+  onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
   size?: DensitySize;
   onSizeChange?: (size: DensitySize) => void;
-}
+};
 
-function useCounter(props: UseCounterProps = {}) {
+function useContainer(props: UseContainerProps = {}) {
   const actionRef = useRef<ActionType>();
-  const propsRef = useRef<ProTableProps<any, any>>();
+  const propsRef = useRef<ProTableProps<any, any, any>>();
 
   // 共享状态比较难，就放到这里了
   const [keyWords, setKeyWords] = useState<string | undefined>('');
@@ -35,12 +33,13 @@ function useCounter(props: UseCounterProps = {}) {
     onChange: props.onSizeChange,
   });
 
-  const [columnsMap, setColumnsMap] = useMergedState<{
-    [key: string]: ColumnsState;
-  }>(props.columnsStateMap || {}, {
-    value: props.columnsStateMap,
-    onChange: props.onColumnsStateChange,
-  });
+  const [columnsMap, setColumnsMap] = useMergedState<Record<string, ColumnsState>>(
+    props.columnsStateMap || {},
+    {
+      value: props.columnsStateMap,
+      onChange: props.onColumnsStateChange,
+    },
+  );
 
   return {
     action: actionRef,
@@ -61,10 +60,10 @@ function useCounter(props: UseCounterProps = {}) {
   };
 }
 
-const Counter = createContainer<ReturnType<typeof useCounter>, UseCounterProps>(useCounter);
+const Container = createContainer<ReturnType<typeof useContainer>, UseContainerProps>(useContainer);
 
-export type CounterType = typeof useCounter;
+export type ContainerType = typeof useContainer;
 
-export { useCounter };
+export { useContainer };
 
-export default Counter;
+export default Container;

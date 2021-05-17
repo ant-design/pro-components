@@ -1,9 +1,11 @@
 import { createContext } from 'react';
-import { BreadcrumbListReturn } from './utils/getBreadcrumbProps';
-import { PureSettings } from './defaultSettings';
-import { MenuDataItem } from './typings';
+import type { BreadcrumbProps } from 'antd';
+import type { BreadcrumbListReturn } from './utils/getBreadcrumbProps';
+import type { PureSettings } from './defaultSettings';
+import type { MenuDataItem } from './typings';
+import type { WaterMarkProps } from './components/WaterMark';
 
-export interface RouteContextType extends Partial<PureSettings> {
+export type RouteContextType = {
   breadcrumb?: BreadcrumbListReturn;
   menuData?: MenuDataItem[];
   isMobile?: boolean;
@@ -24,7 +26,10 @@ export interface RouteContextType extends Partial<PureSettings> {
   matchMenus?: MenuDataItem[];
   matchMenuKeys?: string[];
   currentMenu?: PureSettings & MenuDataItem;
-}
+  /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
+  breadcrumbProps?: BreadcrumbProps;
+  waterMarkProps?: WaterMarkProps;
+} & Partial<PureSettings>;
 
 const routeContext: React.Context<RouteContextType> = createContext({});
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import ProTable, { ProColumns } from '@ant-design/pro-table';
+import type { ProColumns } from '@ant-design/pro-table';
+import ProTable from '@ant-design/pro-table';
 
-interface GithubIssueItem {
+type GithubIssueItem = {
   key: number;
   name: string;
   createdAt: number;
-}
+};
 
 const columns: ProColumns<GithubIssueItem>[] = [
   {
@@ -54,28 +55,11 @@ export default () => (
     headerTitle="查询 Table"
     search={{
       defaultCollapsed: false,
-      optionRender: ({ searchText, resetText }, { form }) => {
-        return [
-          <Button
-            key="searchText"
-            type="primary"
-            onClick={() => {
-              form?.submit();
-            }}
-          >
-            {searchText}
-          </Button>,
-          <Button
-            key="resetText"
-            onClick={() => {
-              form?.resetFields();
-            }}
-          >
-            {resetText}
-          </Button>,
-          <Button key="out">导出</Button>,
-        ];
-      },
+      labelWidth: 'auto',
+      optionRender: (searchConfig, formProps, dom) => [
+        ...dom.reverse(),
+        <Button key="out">导出</Button>,
+      ],
     }}
     toolBarRender={() => [
       <Button key="primary" type="primary">

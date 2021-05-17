@@ -15,16 +15,32 @@ import ProFormUploadButton from './components/UploadButton';
 import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
-import ProFormFieldSet, { ProFormFieldSetProps } from './components/FieldSet';
-import ProFormCaptcha, { ProFormCaptchaProps } from './components/Captcha';
+import type { ProFormFieldSetProps } from './components/FieldSet';
+import ProFormFieldSet from './components/FieldSet';
+import type { ProFormCaptchaProps } from './components/Captcha';
+import ProFormCaptcha from './components/Captcha';
+import ProFormDependency from './components/Dependency';
+import ProFormColorPicker from './components/ColorPicker';
+import type { ProFormDependencyProps } from './components/Dependency';
 
-import ProForm, { ProFormProps } from './layouts/ProForm';
-import QueryFilter, { BaseQueryFilterProps, QueryFilterProps } from './layouts/QueryFilter';
+import type { ProFormProps } from './layouts/ProForm';
+import ProForm from './layouts/ProForm';
+import type { BaseQueryFilterProps, QueryFilterProps } from './layouts/QueryFilter';
+import QueryFilter from './layouts/QueryFilter';
 import LightFilter from './layouts/LightFilter';
-import StepsForm, { StepFormProps, StepsFormProps } from './layouts/StepsForm';
-import ModalForm, { ModalFormProps } from './layouts/ModalForm';
-import DrawerForm, { DrawerFormProps } from './layouts/DrawerForm';
+import type { StepFormProps, StepsFormProps } from './layouts/StepsForm';
+import StepsForm from './layouts/StepsForm';
+import type { ModalFormProps } from './layouts/ModalForm';
+import ModalForm from './layouts/ModalForm';
+import type { DrawerFormProps } from './layouts/DrawerForm';
+import DrawerForm from './layouts/DrawerForm';
+import type { ProFormListProps } from './components/List';
+import ProFormList from './components/List';
+import type { FormInstance, FormItemProps, FormProps } from './BaseForm';
+import type { ProFormLayoutType, ProFormColumnsType } from './components/SchemaForm';
+import BetaSchemaForm from './components/SchemaForm';
 import './index.less';
+import { ProFormContext } from '@ant-design/pro-utils';
 
 export type {
   ProFormCaptchaProps,
@@ -33,10 +49,20 @@ export type {
   ModalFormProps,
   ProFormProps,
   StepFormProps,
+  ProFormLayoutType,
   StepsFormProps,
   QueryFilterProps,
   ProFormFieldSetProps,
+  ProFormDependencyProps,
+  FormProps,
+  FormItemProps,
+  FormInstance,
+  ProFormListProps,
+  ProFormColumnsType,
 };
+
+const ProFormGroup = ProForm.Group;
+
 export {
   // controls
   ProFormDatePicker,
@@ -47,6 +73,7 @@ export {
   ProFormTextArea,
   ProFormSwitch,
   ProFormField,
+  ProFormList,
   ProFormSelect,
   ProFormDigit,
   ProFormCheckbox,
@@ -57,13 +84,18 @@ export {
   ProFormSlider,
   ProFormFieldSet,
   ProFormCaptcha,
+  ProFormColorPicker,
   ProFormDateTimeRangePicker,
+  ProFormDependency,
+  ProFormGroup,
+  BetaSchemaForm,
   // layouts
   QueryFilter,
   LightFilter,
   StepsForm,
   DrawerForm,
   ModalForm,
+  ProFormContext,
 };
 
 export default ProForm;

@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-export interface RequestData {
+export type RequestData = {
   data: any;
   success?: boolean;
   [key: string]: any;
-}
-export interface UseFetchDataAction<T extends RequestData> {
+};
+export type UseFetchDataAction<T extends RequestData> = {
   dataSource: T['data'] | T;
   setDataSource: (value: T['data'] | T) => void;
   loading: boolean | undefined;
   reload: () => Promise<void>;
-}
+};
 
 const useFetchData = <T extends RequestData>(
   getData: () => Promise<T>,
@@ -41,9 +41,7 @@ const useFetchData = <T extends RequestData>(
     setEntity(data);
     setLoading(false);
   };
-  /**
-   * 请求数据
-   */
+  /** 请求数据 */
   const fetchList = async () => {
     if (loading) {
       return;

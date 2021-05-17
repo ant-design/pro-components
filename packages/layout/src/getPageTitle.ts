@@ -1,10 +1,10 @@
 import pathToRegexp from 'path-to-regexp';
-import { MenuDataItem } from './typings';
-import { ProSettings } from './defaultSettings';
+import type { MenuDataItem } from './typings';
+import type { ProSettings } from './defaultSettings';
 
 export const matchParamsPath = (
   pathname: string,
-  breadcrumb?: { [path: string]: MenuDataItem },
+  breadcrumb?: Record<string, MenuDataItem>,
   breadcrumbMap?: Map<string, MenuDataItem>,
 ): MenuDataItem => {
   // Internal logic use breadcrumbMap to ensure the order
@@ -31,24 +31,25 @@ export const matchParamsPath = (
   };
 };
 
-export interface GetPageTitleProps {
+export type GetPageTitleProps = {
   pathname?: string;
-  breadcrumb?: { [path: string]: MenuDataItem };
+  breadcrumb?: Record<string, MenuDataItem>;
   breadcrumbMap?: Map<string, MenuDataItem>;
   menu?: ProSettings['menu'];
   title?: ProSettings['title'];
   pageName?: string;
   formatMessage?: (data: { id: any; defaultMessage?: string }) => string;
-}
+};
 
 /**
- * 获取关于 pageTile 的所有信息方便包装
+ * 获取关于 pageTitle 的所有信息方便包装
+ *
  * @param props
- * @param ignoreTile
+ * @param ignoreTitle
  */
 const getPageTitleInfo = (
   props: GetPageTitleProps,
-  ignoreTile?: boolean,
+  ignoreTitle?: boolean,
 ): {
   // 页面标题
   title: string;
@@ -67,7 +68,7 @@ const getPageTitleInfo = (
       locale: false,
     },
   } = props;
-  const pageTitle = ignoreTile ? '' : title || '';
+  const pageTitle = ignoreTitle ? '' : title || '';
   const currRouterData = matchParamsPath(pathname, breadcrumb, breadcrumbMap);
   if (!currRouterData) {
     return {
@@ -92,7 +93,7 @@ const getPageTitleInfo = (
       pageName: pageTitle,
     };
   }
-  if (ignoreTile || !title) {
+  if (ignoreTitle || !title) {
     return {
       title: pageName,
       id: currRouterData.locale || '',
@@ -108,8 +109,8 @@ const getPageTitleInfo = (
 
 export { getPageTitleInfo };
 
-const getPageTitle = (props: GetPageTitleProps, ignoreTile?: boolean) => {
-  return getPageTitleInfo(props, ignoreTile).title;
+const getPageTitle = (props: GetPageTitleProps, ignoreTitle?: boolean) => {
+  return getPageTitleInfo(props, ignoreTitle).title;
 };
 
 export default getPageTitle;

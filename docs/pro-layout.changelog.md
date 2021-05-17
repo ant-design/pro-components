@@ -1,13 +1,128 @@
 ---
-title: pro-layout
+title: ProLayout - 更新日志
 nav:
-  title: Change Log
+  title: 更新日志
   path: /changelog
 group:
   path: /
 ---
 
 # Change Log
+
+## @ant-design/pro-layout@6.18.0
+
+`2021-05-11`
+
+- 💥 feat(layout): support for all parameters of the Spin component [#2704](https://github.com/ant-design/pro-components/pull/2704) [@jiyingzhi](https://github.com/jiyingzhi)
+
+## @ant-design/pro-layout@6.17.0
+
+`2021-04-22`
+
+- 🐛 fix(layout): routes change should reload menu [#2573](https://github.com/ant-design/pro-components/pull/2573) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(layout): layout support params [#2545](https://github.com/ant-design/pro-components/pull/2545) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.16.2
+
+`2021-04-15`
+
+- 🐛 fix(layout): fix openkeys=false, splitMenu no work error [#2491](https://github.com/ant-design/pro-components/pull/2491) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): default remove copyright [#2484](https://github.com/ant-design/pro-components/pull/2484) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.16.0
+
+`2021-03-31`
+
+- 💥 feat(layout): layout support request [#2363](https://github.com/ant-design/pro-components/pull/2363) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.15.5
+
+`2021-03-29`
+
+- 🐛 fix(layout): 修复了 pro-layout 数组扩展操作问题 [#2289](https://github.com/ant-design/pro-components/pull/2289) [@Ives7](https://github.com/Ives7)
+
+## @ant-design/pro-layout@6.15.0
+
+`2021-03-08`
+
+- 💥 feat(layout): SettingDrawer support disableUrlParams [#2115](https://github.com/ant-design/pro-components/pull/2115) [@theprimone](https://github.com/theprimone)
+- 💥 feat(layout): layout support WaterMark [#2086](https://github.com/ant-design/pro-components/pull/2086) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.14.5
+
+`2021-02-28`
+
+- 🐛 fix(layout): fix layout animation error [#2027](https://github.com/ant-design/pro-components/pull/2027) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.14.3
+
+`2021-02-23`
+
+- 🐛 fix(layout): layout sync url diff params [#1956](https://github.com/ant-design/pro-components/pull/1956) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): menu item add title config [#1944](https://github.com/ant-design/pro-components/pull/1944) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.14.2
+
+`2021-02-22`
+
+- 🐛 fix(layout): use @umijs/use-params [#1895](https://github.com/ant-design/pro-components/pull/1895) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): remove BasicLayout.less unnecessary semicolon [#1877](https://github.com/ant-design/pro-components/pull/1877) [@janyin](https://github.com/janyin)
+
+## @ant-design/pro-layout@6.14.1
+
+`2021-02-04`
+
+- 🐛 fix(layout): container add width:100% [#1845](https://github.com/ant-design/pro-components/pull/1845) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.14.0
+
+`2021-02-02`
+
+- 🐛 fix(layout): footer use div [#1816](https://github.com/ant-design/pro-components/pull/1816) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(layout): support menu.autoClose [#1815](https://github.com/ant-design/pro-components/pull/1815) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.13.0
+
+`2021-01-25`
+
+- 💥 feat(layout): ProLayout support breadcrumbProps [#1757](https://github.com/ant-design/pro-components/pull/1757) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix: icon from iconfont.cn starts without icon- [#1750](https://github.com/ant-design/pro-components/pull/1750) [@fengsx](https://github.com/fengsx)
+
+## @ant-design/pro-layout@6.11.0
+
+`2021-01-18`
+
+- 🐛 fix(layout): use use-url-search-params hooks sync url [#1648](https://github.com/ant-design/pro-components/pull/1648) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.10.8
+
+`2021-01-13`
+
+- 🐛 fix(layout): layout return null when content has [#1598](https://github.com/ant-design/pro-components/pull/1598) [@hengkx](https://github.com/hengkx)
+
+## @ant-design/pro-layout@6.10.6
+
+`2021-01-11`
+
+- 🐛 fix(layout): fix layout headerTitleRender props type error [#1570](https://github.com/ant-design/pro-components/pull/1570) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.10.5
+
+`2021-01-08`
+
+- 💥 feat(layout): footer add prop prefixCls [#1523](https://github.com/ant-design/pro-components/pull/1523) [@CoderAha](https://github.com/CoderAha)
+
+## @ant-design/pro-layout@6.9.4
+
+`2020-12-28`
+
+- 🐛 fix(layout): fix props is null, no render pageheader [#1432](https://github.com/ant-design/pro-components/pull/1432) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.9.3
+
+`2020-12-28`
+
+- fix(layout): add new layout demos [#1426](https://github.com/ant-design/pro-components/pull/1426) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-layout@6.7.0
 
