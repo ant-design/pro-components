@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.37.0
+
+`2021-05-18`
+
+- fix(table): A little performance improvement [#2759](https://github.com/ant-design/pro-components/pull/2759) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(list): add editable props types [#2758](https://github.com/ant-design/pro-components/pull/2758) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): tabs and menu add keys [#2733](https://github.com/ant-design/pro-components/pull/2733) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.36.0
 
 `2021-05-11`

@@ -9,6 +9,19 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.24.0
+
+`2021-05-18`
+
+- fix(table): A little performance improvement [#2759](https://github.com/ant-design/pro-components/pull/2759) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): nested-list causes Dependency error [#2752](https://github.com/ant-design/pro-components/pull/2752) [@IronKinoko](https://github.com/IronKinoko)
+- 🐛 fix(form): should only clear collapsed fields when clear button in the more dropdown clicked [#2749](https://github.com/ant-design/pro-components/pull/2749) [@j3r0lin](https://github.com/j3r0lin)
+- 🐛 fix(form): support fieldProps.format [#2735](https://github.com/ant-design/pro-components/pull/2735) [@chenshuai2144](https://github.com/chenshuai2144)
+- fix(form): reset will destroyOnClose [#2731](https://github.com/ant-design/pro-components/pull/2731) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form) : fix Rate text no work error [#2730](https://github.com/ant-design/pro-components/pull/2730) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): select option height light support less(#2667) [#2748](https://github.com/ant-design/pro-components/pull/2748) [@DerrickTel](https://github.com/DerrickTel)
+- 💥 feat(form): valueType digit supports intlProps [#2740](https://github.com/ant-design/pro-components/pull/2740) [@jiyingzhi](https://github.com/jiyingzhi)
+
 ## @ant-design/pro-form@1.23.0
 
 `2021-05-11`

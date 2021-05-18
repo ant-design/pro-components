@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.18.1
+
+`2021-05-18`
+
+- 🐛 fix(card): card loading in layout center [#2739](https://github.com/ant-design/pro-components/pull/2739) [@rdmclin2](https://github.com/rdmclin2)
+- 🐛 fix(layout): do not use base [#2734](https://github.com/ant-design/pro-components/pull/2734) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.18.0
 
 `2021-05-11`
