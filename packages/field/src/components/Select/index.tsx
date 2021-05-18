@@ -114,7 +114,8 @@ const Highlight: React.FC<{
   words: string[];
 }> = ({ label, words }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('pro-select-item-option-content-light');
+  const lightCls = getPrefixCls('pro-select-item-option-content-light');
+  const optionCls = getPrefixCls('pro-select-item-option-content');
   const reg = new RegExp(words.map((w) => w.replace(/\\/g, '\\\\')).join('|'), 'gi');
   const token = label.replace(reg, '#@$&#');
   const elements = token.split('#').map((x) =>
@@ -122,13 +123,19 @@ const Highlight: React.FC<{
       ? React.createElement(
           'span',
           {
-            className: prefixCls,
+            className: lightCls,
           },
           x.slice(1),
         )
       : x,
   );
-  return React.createElement('div', null, ...elements);
+  return React.createElement(
+    'div',
+    {
+      className: optionCls,
+    },
+    ...elements,
+  );
 };
 
 /**
@@ -179,14 +186,14 @@ export const proFieldParsingValueEnumToArray = (
 
     if (typeof value === 'object' && value?.text) {
       enumArray.push({
-        text: value?.text as unknown as string,
+        text: (value?.text as unknown) as string,
         value: key,
         disabled: value.disabled,
       });
       return;
     }
     enumArray.push({
-      text: value as unknown as string,
+      text: (value as unknown) as string,
       value: key,
     });
   });
@@ -359,7 +366,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
       <>
         {proFieldParsingText(
           rest.text,
-          ObjToMap(valueEnum || optionsValueEnum) as unknown as ProSchemaValueEnumObj,
+          (ObjToMap(valueEnum || optionsValueEnum) as unknown) as ProSchemaValueEnumObj,
         )}
       </>
     );
