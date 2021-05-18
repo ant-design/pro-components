@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.13...@ant-design/pro-card@1.12.0) (2021-05-18)
+
+### Bug Fixes
+
+- **card:** card loading in layout center ([#2739](https://github.com/ant-design/pro-components/issues/2739)) ([a4fe7b6](https://github.com/ant-design/pro-components/commit/a4fe7b689ac36a6ae687a8f1a13be210db036fb8))
+
+### Features
+
+- add table drag demo ([#2736](https://github.com/ant-design/pro-components/issues/2736)) ([cedb26e](https://github.com/ant-design/pro-components/commit/cedb26ee26733a1a9e83184b0a1a87b0e2866d60))
+
 ## [1.11.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.12...@ant-design/pro-card@1.11.13) (2021-05-11)
 
 ### Bug Fixes

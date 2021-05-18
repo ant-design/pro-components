@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.18.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.18.0...@ant-design/pro-layout@6.18.1) (2021-05-18)
+
+### Bug Fixes
+
+- **layout:** do not use base ([#2734](https://github.com/ant-design/pro-components/issues/2734)) ([69971e3](https://github.com/ant-design/pro-components/commit/69971e35850681bdd5a0bc1f3c0d193fb78e12a4))
+- **layout:** use [@component-background](https://github.com/component-background) for background-color ([49deb6a](https://github.com/ant-design/pro-components/commit/49deb6a00682d655ba301aae37e8ce3be43beea2))
+
 # [6.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.17.1...@ant-design/pro-layout@6.18.0) (2021-05-11)
 
 ### Bug Fixes

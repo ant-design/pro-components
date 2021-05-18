@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.23.0...@ant-design/pro-form@1.24.0) (2021-05-18)
+
+### Bug Fixes
+
+- **Descriptions:** fix proFieldKey is same error ([#2729](https://github.com/ant-design/pro-components/issues/2729)) ([be501ec](https://github.com/ant-design/pro-components/commit/be501ece15d04a9680fb08bd036e48587857dd9c))
+- **form:** clear collapsed fields when clear button clicked in more dropdown ([#2749](https://github.com/ant-design/pro-components/issues/2749)) ([6572759](https://github.com/ant-design/pro-components/commit/6572759d5cc6b5c3039532307be3ac45042fd2df))
+- **form:** nested-list causes Dependency error ([#2752](https://github.com/ant-design/pro-components/issues/2752)) ([27341e1](https://github.com/ant-design/pro-components/commit/27341e1cbddb8076981fa8e93ede924ba07c471e))
+
+### Features
+
+- add table drag demo ([#2736](https://github.com/ant-design/pro-components/issues/2736)) ([cedb26e](https://github.com/ant-design/pro-components/commit/cedb26ee26733a1a9e83184b0a1a87b0e2866d60))
+
 # [1.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.22.1...@ant-design/pro-form@1.23.0) (2021-05-11)
 
 ### Bug Fixes

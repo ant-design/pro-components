@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.37.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.36.0...@ant-design/pro-table@2.37.0) (2021-05-18)
+
+### Bug Fixes
+
+- **table:** tabs and menu add keys ([#2733](https://github.com/ant-design/pro-components/issues/2733)) ([310bc90](https://github.com/ant-design/pro-components/commit/310bc90b62e74a643bb50e7207185c388997c318))
+
+### Features
+
+- add table drag demo ([#2736](https://github.com/ant-design/pro-components/issues/2736)) ([cedb26e](https://github.com/ant-design/pro-components/commit/cedb26ee26733a1a9e83184b0a1a87b0e2866d60))
+
 # [2.36.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.35.1...@ant-design/pro-table@2.36.0) (2021-05-11)
 
 ### Bug Fixes
