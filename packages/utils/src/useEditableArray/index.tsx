@@ -1,4 +1,4 @@
-﻿/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useContext, useMemo, useRef, useState } from 'react';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -434,15 +434,11 @@ function useEditableArray<RecordType>(
     if (!props.onValuesChange) {
       return;
     }
-    const recordKey = Object.keys(value).pop()?.toString() as string;
     let { dataSource } = props;
-
     // 这里是把正在编辑中的所有表单数据都修改掉
     // 不然会用 props 里面的 dataSource，数据只有正在编辑中的
-    // eslint-disable-next-line @typescript-eslint/no-shadow
     Object.keys(values).forEach((recordKey) => {
       const editRow = values[recordKey.toString()];
-
       dataSource = editableRowByKey(
         {
           data: dataSource,
@@ -455,6 +451,7 @@ function useEditableArray<RecordType>(
       );
     });
 
+    const recordKey = Object.keys(value).pop()?.toString() as string;
     if (recordKey.toString() === newLineRecord?.options.recordKey?.toString()) {
       cancelEditable(recordKey);
       startEditable(recordKey);
@@ -617,3 +614,4 @@ export type UseEditableType = typeof useEditableArray;
 export type UseEditableUtilType = ReturnType<UseEditableType>;
 
 export default useEditableArray;
+
