@@ -186,6 +186,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       onValuesChange={editableUtils.onValuesChange}
       key="table"
       submitter={false}
+      omitNil={false}
     >
       <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
     </ProForm>

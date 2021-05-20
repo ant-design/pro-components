@@ -1,4 +1,4 @@
-﻿/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useContext, useMemo, useRef, useState } from 'react';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -450,8 +450,8 @@ function useEditableArray<RecordType>(
         'update',
       );
     });
-    const recordKey = Object.keys(value).pop()?.toString() as string;
 
+    const recordKey = Object.keys(value).pop()?.toString() as string;
     if (recordKey.toString() === newLineRecord?.options.recordKey?.toString()) {
       cancelEditable(recordKey);
       startEditable(recordKey);
@@ -614,3 +614,4 @@ export type UseEditableType = typeof useEditableArray;
 export type UseEditableUtilType = ReturnType<UseEditableType>;
 
 export default useEditableArray;
+
