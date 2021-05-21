@@ -66,7 +66,7 @@ const useFetchData = <T extends RequestData<any>>(
   const setDataAndLoading = (newData: T[], dataTotal: number) => {
     unstable_batchedUpdates(() => {
       setList(newData);
-      if (pageInfo.total !== dataTotal) {
+      if (pageInfo?.total !== dataTotal) {
         setPageInfo({
           ...pageInfo,
           total: dataTotal || newData.length,
@@ -101,7 +101,7 @@ const useFetchData = <T extends RequestData<any>>(
     }
 
     requesting.current = true;
-    const { pageSize, current } = pageInfo;
+    const { pageSize, current } = pageInfo || {};
     try {
       const pageParams =
         options?.pageInfo !== false
