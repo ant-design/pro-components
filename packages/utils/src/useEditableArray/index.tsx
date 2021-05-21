@@ -605,6 +605,7 @@ function useEditableArray<RecordType>(
     cancelEditable,
     addEditRecord,
     newLineRecord,
+    preEditableKeys: editableKeysRef,
     onValuesChange,
   };
 }
@@ -614,4 +615,3 @@ export type UseEditableType = typeof useEditableArray;
 export type UseEditableUtilType = ReturnType<UseEditableType>;
 
 export default useEditableArray;
-
