@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.16.0...@ant-design/pro-field@1.17.0) (2021-05-21)
+
+### Features
+
+- **form:** select option support ellipsis ([#2765](https://github.com/ant-design/pro-components/issues/2765)) ([ee8a7f2](https://github.com/ant-design/pro-components/commit/ee8a7f2040b72af357b62ff39f7effecac2e91f8))
+
 # [1.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.6...@ant-design/pro-field@1.16.0) (2021-05-18)
 
 ### Bug Fixes

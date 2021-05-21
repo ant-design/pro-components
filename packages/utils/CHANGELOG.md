@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.6...@ant-design/pro-utils@1.16.7) (2021-05-21)
+
+### Bug Fixes
+
+- **EditTable:** allowClear 清除值后保存数据没有更新 ([#2780](https://github.com/ant-design/pro-components/issues/2780)) ([1ac6bb3](https://github.com/ant-design/pro-components/commit/1ac6bb3cfd10160ef9ec6bd3d790005744314c06))
+- **table:** if editableKeys change,should Cell Update ([#2803](https://github.com/ant-design/pro-components/issues/2803)) ([291e27e](https://github.com/ant-design/pro-components/commit/291e27ea073653fff3b0fbc4ef2466d6e4164b91))
+
 ## [1.16.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.5...@ant-design/pro-utils@1.16.6) (2021-05-18)
 
 ### Bug Fixes

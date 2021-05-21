@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.24.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.24.0...@ant-design/pro-form@1.24.1) (2021-05-21)
+
+### Bug Fixes
+
+- **form:** space between button and form ([#2777](https://github.com/ant-design/pro-components/issues/2777)) ([ddceda2](https://github.com/ant-design/pro-components/commit/ddceda2ca019de0c0fe3a29b3a187e90b1ed3398))
+
 # [1.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.23.0...@ant-design/pro-form@1.24.0) (2021-05-18)
 
 ### Bug Fixes
