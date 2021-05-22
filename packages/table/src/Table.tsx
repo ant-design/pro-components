@@ -525,6 +525,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       columnEmptyText,
       type,
       editableUtils,
+      tableProps: props,
     }).sort(columnSort(counter.columnsMap));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -532,6 +533,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     counter,
     columnEmptyText,
     type,
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
   ]);
 
