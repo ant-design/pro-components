@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.24.1
+
+`2021-05-21`
+
+- 🐛 fix(form): space between button and form (#2767) [#2777](https://github.com/ant-design/pro-components/pull/2777) [@DerrickTel](https://github.com/DerrickTel)
+- 💥 feat(form): select option support ellipsis(#2555) [#2765](https://github.com/ant-design/pro-components/pull/2765) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-form@1.24.0
 
 `2021-05-18`

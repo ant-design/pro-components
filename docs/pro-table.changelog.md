@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.37.1
+
+`2021-05-21`
+
+- 🐛 fix(table): if editableKeys change,should Cell Update [#2803](https://github.com/ant-design/pro-components/pull/2803) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.37.0
 
 `2021-05-18`
