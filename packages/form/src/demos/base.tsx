@@ -22,6 +22,7 @@ export default () => {
         console.log(values);
         message.success('提交成功');
       }}
+      params={{}}
       request={async () => {
         await waitTime(100);
         return {
