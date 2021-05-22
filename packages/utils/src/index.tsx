@@ -32,6 +32,8 @@ import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
 import useDeepCompareEffect from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
+import type { ProRequestData } from './hooks/useFetchData';
+import useFetchData from './hooks/useFetchData';
 
 /** Type */
 import type {
@@ -73,6 +75,7 @@ export type {
   ProTableEditableFnType,
   RowEditableConfig,
   RowEditableType,
+  ProRequestData,
   ProFieldRequestData,
   UseEditableType,
   UseEditableUtilType,
@@ -121,4 +124,5 @@ export {
   usePrevious,
   useDebounceFn,
   useMountMergeState,
+  useFetchData,
 };

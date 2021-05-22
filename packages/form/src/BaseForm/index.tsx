@@ -1,15 +1,20 @@
 import React, { useRef, useEffect, useImperativeHandle, useState } from 'react';
-import type { FormProps, FormItemProps, FormInstance } from 'antd';
+import { FormProps, FormItemProps, FormInstance, Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import type {
+  ProFieldValueType,
+  SearchTransformKeyFn,
+  ProRequestData,
+} from '@ant-design/pro-utils';
 import {
   conversionSubmitValue,
   transformKeySubmitValue,
   useMountMergeState,
   ProFormContext,
   runFunction,
+  useFetchData,
 } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -20,7 +25,10 @@ import type { SubmitterProps } from '../components/Submitter';
 import Submitter from '../components/Submitter';
 import type { GroupProps, FieldProps } from '../interface';
 
-export type CommonFormProps<T extends Record<string, any> = Record<string, any>> = {
+export type CommonFormProps<
+  T extends Record<string, any> = Record<string, any>,
+  U extends Record<string, any> = Record<string, any>,
+> = {
   submitter?:
     | SubmitterProps<{
         form?: FormInstance<any>;
@@ -70,6 +78,11 @@ export type CommonFormProps<T extends Record<string, any> = Record<string, any>>
   dateFormatter?: 'number' | 'string' | false;
   /** 表单初始化成功，比如布局，label等计算完成 */
   onInit?: (values: T) => void;
+
+  /** 发起网络请求的参数 */
+  params?: U;
+  /** 发起网络请求的参数,返回值会覆盖给 initialValues */
+  request?: ProRequestData<T, U>;
 };
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -324,6 +337,32 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   );
 }
 
+function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
+  const { request, params, initialValues, ...rest } = props;
+  const [initialData] = useFetchData({
+    request,
+    params,
+  });
+
+  if (!initialData && props.request) {
+    return (
+      <div style={{ paddingTop: 100, textAlign: 'center' }}>
+        <Spin size="large" />
+      </div>
+    );
+  }
+
+  return (
+    <BaseForm
+      {...rest}
+      initialValues={{
+        ...initialValues,
+        ...initialData,
+      }}
+    />
+  );
+}
+
 export type { FormProps, FormItemProps, FormInstance };
 
-export default BaseForm;
+export default RequestForm;
