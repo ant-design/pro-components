@@ -66,8 +66,8 @@ export function genProColumnToColumn<T>(props: {
           if (editableUtils.editableKeys !== editableUtils.preEditableKeys) {
             return true;
           }
-          if (!columnProps.render && !columnProps.renderFormItem) {
-            return false;
+          if (columnProps.render || columnProps.renderFormItem || columnProps.valueEnum) {
+            return true;
           }
           const cellName = [dataIndex || columnsIndex].flat(1);
           return !isDeepEqualReact(get(rowData, cellName), get(preRowData, cellName));
