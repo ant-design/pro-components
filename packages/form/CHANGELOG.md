@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.24.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.24.1...@ant-design/pro-form@1.24.2) (2021-05-23)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
 ## [1.24.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.24.0...@ant-design/pro-form@1.24.1) (2021-05-21)
 
 ### Bug Fixes
