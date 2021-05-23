@@ -112,6 +112,8 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | dateFormatter | AutoFormat data, mainly moment forms, supports string and number modes | `string\| number \|false` | string |
 | syncToUrl | sync parameters to url,url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `true` \| `(values,type)=>values` | - |
 | omitNil | ProForm automatically clears null and undefined data, if you have agreed that nil means something, set to false to disable this feature | `boolean` | true |
+| params | Parameters for initiating network requests, used in conjunction with request | `Record` | - |
+| request | The parameters of the initiating network request, the return value will be overwritten to initialValues | `(params)=>Promise<data>` | - |
 | string | [(...)](https://ant.design/components/form/) | support other antd `Form` component parameters besides `wrapperCol` \| `labelCol` \| `layout` | - |
 
 ### ProForm.Group

@@ -16,6 +16,7 @@ jobs:
       - name: build
         run: |
           yarn
+          yarn run build
           yarn run site
 
       - run: |

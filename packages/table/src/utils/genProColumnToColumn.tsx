@@ -25,8 +25,9 @@ export function genProColumnToColumn<T>(props: {
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
+  tableProps: any;
 }): (TableColumnType<T> & { index?: number })[] {
-  const { columns, counter, columnEmptyText, type, editableUtils } = props;
+  const { columns, counter, tableProps, columnEmptyText, type, editableUtils } = props;
   return columns
     .map((columnProps, columnsIndex) => {
       const {
@@ -59,18 +60,14 @@ export function genProColumnToColumn<T>(props: {
       const tempColumns = {
         index: columnsIndex,
         shouldCellUpdate: (rowData: T, preRowData: T) => {
-          const { isEditable, preIsEditable } = editableUtils.isEditable({
-            ...rowData,
-            index: columnsIndex,
-          });
-          if (isEditable !== preIsEditable) {
+          if (tableProps.editable) {
             return true;
           }
           if (editableUtils.editableKeys !== editableUtils.preEditableKeys) {
             return true;
           }
-          if (!columnProps.render && !columnProps.renderFormItem) {
-            return false;
+          if (columnProps.render || columnProps.renderFormItem || columnProps.valueEnum) {
+            return true;
           }
           const cellName = [dataIndex || columnsIndex].flat(1);
           return !isDeepEqualReact(get(rowData, cellName), get(preRowData, cellName));
