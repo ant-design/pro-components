@@ -117,7 +117,7 @@ API 与 ProTable 相同
 | onSave | 保存一行的时候触发，只更新 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
 | onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<any>` | - |
 | onCancel | 取消编辑一行时触发 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
-| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
+| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>,defaultDom) => ReactNode[]` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
 | onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |
