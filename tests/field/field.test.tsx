@@ -698,4 +698,18 @@ describe('Field', () => {
     );
     expect(html.text()).toBe('2');
   });
+
+  it(`🐴 valueType renderFormItem return number`, async () => {
+    const html = render(
+      <Field
+        text={10000}
+        mode="read"
+        valueType="digit"
+        fieldProps={{
+          formatter: (value: string) => `$${value}`,
+        }}
+      />,
+    );
+    expect(html.text()).toBe('$￥ 10000');
+  });
 });
