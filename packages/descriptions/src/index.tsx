@@ -345,6 +345,8 @@ const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
 
+const DefaultProDescriptionsDom = (dom: { children: any }) => dom.children;
+
 const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'text'>(
   props: ProDescriptionsProps<RecordType, ValueType>,
 ) => {
@@ -449,7 +451,7 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
   );
 
   /** 如果不是可编辑模式，没必要注入 ProForm */
-  const FormComponent = editable ? ProForm : (dom: { children: any }) => dom.children;
+  const FormComponent = editable ? ProForm : DefaultProDescriptionsDom;
 
   /** 即使组件返回null了, 在传递的过程中还是会被Description检测到为有值 */
   let title = null;
@@ -461,6 +463,7 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
   return (
     <ErrorBoundary>
       <FormComponent
+        key="form"
         form={props.editable?.form}
         component={false}
         submitter={false}
