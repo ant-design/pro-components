@@ -699,7 +699,7 @@ describe('Field', () => {
     expect(html.text()).toBe('2');
   });
 
-  it(`🐴 valueType renderFormItem return number`, async () => {
+  it(`🐴 valueType digit support formatter`, async () => {
     const html = render(
       <Field
         text={10000}
