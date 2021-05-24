@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.38.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.37.2...@ant-design/pro-table@2.38.0) (2021-05-24)
+
+### Features
+
+- **form:** form support request and params ([#2812](https://github.com/ant-design/pro-components/issues/2812)) ([8064293](https://github.com/ant-design/pro-components/commit/8064293532e9e937dea973be50d9e8fbc06c3aa9))
+
 ## [2.37.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.37.1...@ant-design/pro-table@2.37.2) (2021-05-23)
 
 **Note:** Version bump only for package @ant-design/pro-table

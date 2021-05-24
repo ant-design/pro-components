@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.7...@ant-design/pro-utils@1.17.0) (2021-05-24)
+
+### Features
+
+- **form:** form support request and params ([#2812](https://github.com/ant-design/pro-components/issues/2812)) ([8064293](https://github.com/ant-design/pro-components/commit/8064293532e9e937dea973be50d9e8fbc06c3aa9))
+
 ## [1.16.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.6...@ant-design/pro-utils@1.16.7) (2021-05-21)
 
 ### Bug Fixes

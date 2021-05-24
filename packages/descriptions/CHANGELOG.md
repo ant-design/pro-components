@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.7.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.11...@ant-design/pro-descriptions@1.7.12) (2021-05-24)
+
+### Bug Fixes
+
+- **descriptions:** Fix the problem of remounting every time you refresh ([#2815](https://github.com/ant-design/pro-components/issues/2815)) ([78df6fa](https://github.com/ant-design/pro-components/commit/78df6faadce48f07aafaa4d319fdca43b32ec2d1))
+
 ## [1.7.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.10...@ant-design/pro-descriptions@1.7.11) (2021-05-23)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

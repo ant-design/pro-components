@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.24.2...@ant-design/pro-form@1.25.0) (2021-05-24)
+
+### Bug Fixes
+
+- **form:** fix formRef no work error ([#2816](https://github.com/ant-design/pro-components/issues/2816)) ([048c8e3](https://github.com/ant-design/pro-components/commit/048c8e3487f0c576f75d6f38357f562df9b7a4c9))
+
+### Features
+
+- **form:** form support request and params ([#2812](https://github.com/ant-design/pro-components/issues/2812)) ([8064293](https://github.com/ant-design/pro-components/commit/8064293532e9e937dea973be50d9e8fbc06c3aa9))
+
 ## [1.24.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.24.1...@ant-design/pro-form@1.24.2) (2021-05-23)
 
 **Note:** Version bump only for package @ant-design/pro-form
