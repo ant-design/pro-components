@@ -97,6 +97,11 @@ export default () => {
       },
     },
     {
+      title: '活动时间',
+      dataIndex: 'created_at',
+      valueType: 'date',
+    },
+    {
       title: '操作',
       valueType: 'option',
       width: 200,

@@ -101,7 +101,6 @@ const conversionSubmitValue = <T = any>(
 
     let valueType: ProFieldValueType = 'text';
     let dateFormat: string | undefined;
-
     if (typeof valueFormatMap === 'string') {
       valueType = valueFormatMap as ProFieldValueType;
     } else if (valueFormatMap) {

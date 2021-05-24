@@ -12,6 +12,7 @@ import ProFormRate from './components/Rate';
 import ProFormSlider from './components/Slider';
 import ProFormUploadDragger from './components/UploadDragger';
 import ProFormUploadButton from './components/UploadButton';
+import type { ProFormFieldProps } from './components/Field';
 import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
@@ -43,6 +44,7 @@ import './index.less';
 import { ProFormContext } from '@ant-design/pro-utils';
 
 export type {
+  ProFormFieldProps,
   ProFormCaptchaProps,
   BaseQueryFilterProps,
   DrawerFormProps,

@@ -1,4 +1,6 @@
 import type { FormItemProps, SpaceProps } from 'antd';
+import type { ReactNode } from 'react';
+import type React from 'react';
 
 export type GroupProps = {
   title?: React.ReactNode;
@@ -49,6 +51,7 @@ export type ProFormItemProps<T = Record<string, any>> = {
   /** 设置到 ProField 上面的 Props，内部属性 */
   proFieldProps?: {
     light?: boolean;
+    emptyText?: ReactNode;
     label?: React.ReactNode;
     mode?: 'read';
     /** 这个属性可以设置useSwr的key */

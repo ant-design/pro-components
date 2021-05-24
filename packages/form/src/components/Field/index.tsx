@@ -15,6 +15,7 @@ export type ProFormFieldProps<T = any> = ProSchema<
     isDefaultDom?: boolean;
     ref?: any;
     plain?: boolean;
+    text?: any;
   },
   any,
   any
