@@ -93,7 +93,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '创建时间',
     dataIndex: 'created_at',
-    valueType: 'timeRange',
+    valueType: 'dateRange',
     hideInTable: true,
     search: {
       transform: (value) => {
