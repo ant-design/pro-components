@@ -58,7 +58,7 @@ const convertMoment = (value: moment.Moment, dateFormatter: string | false, valu
       return value.valueOf();
     }
     if (dateFormatter === 'string') {
-      return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
+      return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD');
     }
     if (typeof dateFormatter === 'string' && dateFormatter !== 'string') {
       return value.format(dateFormatter);
