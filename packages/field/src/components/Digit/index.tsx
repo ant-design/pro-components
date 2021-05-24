@@ -22,7 +22,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
     const digit = new Intl.NumberFormat(undefined, fieldProps?.intlProps).format(
       Number(text) as number,
     );
-    const dom = <span ref={ref}>{digit}</span>;
+    const dom = <span ref={ref}>{fieldProps?.formatter?.(digit) || digit}</span>;
     if (render) {
       return render(text, { mode: type, ...fieldProps }, dom);
     }
