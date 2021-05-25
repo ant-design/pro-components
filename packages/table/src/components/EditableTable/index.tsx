@@ -86,16 +86,14 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
   }, [rowKey]);
 
   useEffect(() => {
-    if (!props?.onValuesChange && !props.editable?.onValuesChange) {
-      return;
-    }
-    const formValue = value.reduce((pre, current, index) => {
-      return {
-        ...pre,
+    // if (!props?.onValuesChange && !props.editable?.onValuesChange) {
+    //   return;
+    // }
+    value.forEach((current, index) => {
+      form.setFieldsValue({
         [getRowKey(current, index)]: current,
-      };
+      });
     }, {});
-    form.setFieldsValue(formValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
@@ -128,6 +126,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
         </RecordCreator>
       )
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [recordCreatorProps, maxLength, value.length]);
 
   const buttonRenderProps = useMemo(() => {

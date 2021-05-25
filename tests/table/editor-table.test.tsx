@@ -148,6 +148,7 @@ const columns: ProColumns<DataSourceType>[] = [
 const EditorProTableDemo = (
   props: {
     type?: 'multiple';
+    hideRules?: boolean;
     defaultKeys?: React.Key[];
     editorRowKeys?: React.Key[];
     onEditorChange?: (editorRowKeys: React.Key[]) => void;
@@ -189,7 +190,13 @@ const EditorProTableDemo = (
           增加一行
         </Button>,
       ]}
-      columns={columns}
+      columns={columns.map((item) => {
+        if (!props.hideRules) {
+          // eslint-disable-next-line no-param-reassign
+          delete item.formItemProps;
+        }
+        return item;
+      })}
       actionRef={actionRef}
       request={async () => ({
         data: defaultData,
@@ -763,7 +770,7 @@ describe('EditorProTable', () => {
 
   it('📝 support onSave', async () => {
     const fn = jest.fn();
-    const wrapper = mount(<EditorProTableDemo onSave={(key) => fn(key)} />);
+    const wrapper = mount(<EditorProTableDemo hideRules onSave={(key) => fn(key)} />);
     await waitForComponentToPaint(wrapper, 1000);
     act(() => {
       wrapper.find('#editor').at(1).simulate('click');
@@ -783,11 +790,12 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
-  fit('📝 support onSave when add newLine', async () => {
+  it('📝 support onSave when add newLine', async () => {
     const onSave = jest.fn();
     const onDataSourceChange = jest.fn();
     const wrapper = mount(
       <EditorProTableDemo
+        hideRules
         onSave={(key) => onSave(key)}
         onDataSourceChange={(dataSource) => onDataSourceChange(dataSource.length)}
       />,
@@ -817,10 +825,11 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
-  fit('📝 support onSave support false', async () => {
+  it('📝 support onSave support false', async () => {
     const onSaveFn = jest.fn();
     const wrapper = mount(
       <EditorProTableDemo
+        hideRules
         onSave={async (key) => {
           onSaveFn(key);
           return false;
@@ -1067,6 +1076,7 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 200);
 
     expect(fn).toBeCalledWith('qixian');
+    wrapper.unmount();
   });
 
   it('📝 support add line for start', async () => {
