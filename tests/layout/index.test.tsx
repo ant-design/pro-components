@@ -93,15 +93,13 @@ describe('BasicLayout', () => {
                       tab: 'adm_rk_cr_tb_trd_byr_ms',
                       tabProj: 'alifin_odps_birisk',
                       name: '_交易_买家_月表',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
                     },
                     {
                       id: 3,
                       isNavHome: '3',
                       name: '_航旅交易_买家_日表',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
                     },
                   ],
                 },
@@ -112,14 +110,12 @@ describe('BasicLayout', () => {
                     {
                       id: 5,
                       name: '_交易_买家_月表',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
                     },
                     {
                       id: 6,
                       name: '_航旅交易_买家_日表',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
                     },
                   ],
                 },
@@ -130,14 +126,12 @@ describe('BasicLayout', () => {
                     {
                       id: 7,
                       name: '_交易_买家_月表2',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
                     },
                     {
                       id: 8,
                       name: '_航旅交易_买家_日表3',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
                     },
                   ],
                 },
@@ -997,12 +991,13 @@ describe('BasicLayout', () => {
 
   it('🥩 BasicLayout support menu.request', async () => {
     const fn = jest.fn();
-    const actionRef = React.createRef<
-      | {
-          reload: () => void;
-        }
-      | undefined
-    >();
+    const actionRef =
+      React.createRef<
+        | {
+            reload: () => void;
+          }
+        | undefined
+      >();
 
     const Demo = () => {
       return (

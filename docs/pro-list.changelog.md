@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.7.4
+
+`2021-05-18`
+
+- 🐛 fix(list): add editable props types [#2758](https://github.com/ant-design/pro-components/pull/2758) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-list@1.7.0
 
 `2021-04-22`

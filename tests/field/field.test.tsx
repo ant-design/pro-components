@@ -102,9 +102,10 @@ describe('Field', () => {
     });
 
     it(`🐴 ${valueType} support request function`, async () => {
-      const ref = React.createRef<{
-        fetchData: () => void;
-      }>();
+      const ref =
+        React.createRef<{
+          fetchData: () => void;
+        }>();
       const fn = jest.fn();
       const html = mount(
         <Field
@@ -696,5 +697,19 @@ describe('Field', () => {
       />,
     );
     expect(html.text()).toBe('2');
+  });
+
+  it(`🐴 valueType digit support formatter`, async () => {
+    const html = render(
+      <Field
+        text={10000}
+        mode="read"
+        valueType="digit"
+        fieldProps={{
+          formatter: (value: string) => `$${value}`,
+        }}
+      />,
+    );
+    expect(html.text()).toBe('$￥ 10000');
   });
 });

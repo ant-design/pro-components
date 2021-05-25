@@ -56,38 +56,36 @@ export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'
 >;
 export type ProDescriptionsActionType = ProCoreActionType;
 
-export type ProDescriptionsProps<
-  RecordType = Record<string, any>,
-  ValueType = 'text'
-> = DescriptionsProps & {
-  /** Params 参数 params 改变的时候会触发 reload */
-  params?: Record<string, any>;
-  /** 网络请求报错 */
-  onRequestError?: (e: Error) => void;
-  /** 获取数据的方法 */
-  request?: (params: Record<string, any>) => Promise<RequestData>;
+export type ProDescriptionsProps<RecordType = Record<string, any>, ValueType = 'text'> =
+  DescriptionsProps & {
+    /** Params 参数 params 改变的时候会触发 reload */
+    params?: Record<string, any>;
+    /** 网络请求报错 */
+    onRequestError?: (e: Error) => void;
+    /** 获取数据的方法 */
+    request?: (params: Record<string, any>) => Promise<RequestData>;
 
-  columns?: ProDescriptionsItemProps<RecordType, ValueType>[];
+    columns?: ProDescriptionsItemProps<RecordType, ValueType>[];
 
-  /** 一些简单的操作 */
-  actionRef?: React.MutableRefObject<ProCoreActionType<any> | undefined>;
+    /** 一些简单的操作 */
+    actionRef?: React.MutableRefObject<ProCoreActionType<any> | undefined>;
 
-  loading?: boolean;
+    loading?: boolean;
 
-  onLoadingChange?: (loading?: boolean) => void;
+    onLoadingChange?: (loading?: boolean) => void;
 
-  tooltip?: string;
-  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
-  tip?: string;
-  /** Form props 的相关配置 */
-  formProps?: FormProps;
-  /** @name 编辑相关的配置 */
-  editable?: RowEditableConfig<RecordType>;
-  /** 默认的数据源 */
-  dataSource?: RecordType;
-  /** 受控数据源改变 */
-  onDataSourceChange?: (value: RecordType) => void;
-};
+    tooltip?: string;
+    /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
+    tip?: string;
+    /** Form props 的相关配置 */
+    formProps?: FormProps;
+    /** @name 编辑相关的配置 */
+    editable?: RowEditableConfig<RecordType>;
+    /** 默认的数据源 */
+    dataSource?: RecordType;
+    /** 受控数据源改变 */
+    onDataSourceChange?: (value: RecordType) => void;
+  };
 
 /**
  * 根据 dataIndex 获取值，支持 dataIndex 为数组
@@ -160,6 +158,7 @@ export const FieldRender: React.FC<
     params,
     plain,
   };
+
   /** 如果是只读模式，fieldProps 的 form是空的，所以需要兜底处理 */
   if (mode === 'read' || !mode || valueType === 'option') {
     const fieldProps = getFieldPropsOrFormItemProps(props.fieldProps, undefined, {
@@ -167,7 +166,8 @@ export const FieldRender: React.FC<
       rowKey: dataIndex,
       isEditable: false,
     });
-    return <ProFormField {...fieldConfig} fieldProps={fieldProps} />;
+
+    return <ProFormField name={dataIndex} {...fieldConfig} fieldProps={fieldProps} />;
   }
 
   return (
@@ -221,9 +221,7 @@ export const FieldRender: React.FC<
                   <ProFormField
                     {...fieldConfig}
                     // @ts-ignore
-                    proFieldProps={{
-                      ...fieldConfig.proFieldProps,
-                    }}
+                    proFieldProps={{ ...fieldConfig.proFieldProps }}
                     fieldProps={fieldProps}
                   />
                 )}
@@ -266,12 +264,13 @@ const schemaToDescriptionsItem = (
         editable,
         ...restItem
       } = item as ProDescriptionsItemProps;
+
       const title =
         typeof restItem.title === 'function'
           ? restItem.title(item, 'descriptions', restItem.title)
           : restItem.title;
 
-      const defaultData = getDataFromConfig(item, entity);
+      const defaultData = getDataFromConfig(item, entity) ?? restItem.children;
       const text = renderText ? renderText(defaultData, entity, index, action) : defaultData;
 
       //  dataIndex 无所谓是否存在
@@ -308,6 +307,7 @@ const schemaToDescriptionsItem = (
           <Component>
             <FieldRender
               {...item}
+              dataIndex={item.dataIndex || index}
               mode={fieldMode}
               text={text}
               valueType={valueType}
@@ -344,6 +344,8 @@ const schemaToDescriptionsItem = (
 const ProDescriptionsItem: React.FC<ProDescriptionsItemProps> = (props) => {
   return <Descriptions.Item {...props}>{props.children}</Descriptions.Item>;
 };
+
+const DefaultProDescriptionsDom = (dom: { children: any }) => dom.children;
 
 const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'text'>(
   props: ProDescriptionsProps<RecordType, ValueType>,
@@ -420,6 +422,7 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
       if (!valueType && !valueEnum && !dataIndex && !itemRequest) {
         return item;
       }
+
       return {
         ...item.props,
         entity: dataSource,
@@ -448,7 +451,7 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
   );
 
   /** 如果不是可编辑模式，没必要注入 ProForm */
-  const FormComponent = editable ? ProForm : (dom: { children: any }) => dom.children;
+  const FormComponent = editable ? ProForm : DefaultProDescriptionsDom;
 
   /** 即使组件返回null了, 在传递的过程中还是会被Description检测到为有值 */
   let title = null;
@@ -460,6 +463,7 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
   return (
     <ErrorBoundary>
       <FormComponent
+        key="form"
         form={props.editable?.form}
         component={false}
         submitter={false}

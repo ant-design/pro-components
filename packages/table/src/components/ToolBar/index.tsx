@@ -164,9 +164,8 @@ function ToolBar<T>({
 
     const options = {
       ...defaultOptions,
-      ...(propsOptions || {
-        fullScreen: false,
-      }),
+      fullScreen: false,
+      ...propsOptions,
     };
 
     return renderDefaultOption<T>(

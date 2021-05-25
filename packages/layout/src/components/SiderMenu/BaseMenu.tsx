@@ -321,12 +321,15 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   }, [matchMenuKeys.join('-'), collapsed]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const openKeysProps = useMemo(() => getOpenKeysProps(openKeys, props), [
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    openKeys && openKeys.join(','),
-    props.layout,
-    props.collapsed,
-  ]);
+  const openKeysProps = useMemo(
+    () => getOpenKeysProps(openKeys, props),
+    [
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      openKeys && openKeys.join(','),
+      props.layout,
+      props.collapsed,
+    ],
+  );
 
   const [menuUtils] = useState(() => new MenuUtil(props));
 

@@ -1,7 +1,20 @@
 @import '~antd/es/style/themes/default.less';
 
 @pro-dropdown-prefix-cls: ~'@{ant-prefix}-pro-table-dropdown';
+@pro-select-item-option-content-light-cls: ~'@{ant-prefix}-pro-select-item-option-content-light';
+@pro-select-item-option-content-cls: ~'@{ant-prefix}-pro-select-item-option-content';
 
 .@{pro-dropdown-prefix-cls} {
   width: auto;
+}
+
+.@{pro-select-item-option-content-light-cls} {
+  color: @primary-color;
+}
+
+.@{pro-select-item-option-content-cls} {
+  flex: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

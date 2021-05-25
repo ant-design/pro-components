@@ -215,7 +215,9 @@ const ProFormList: React.FC<ProFormListProps> = ({
                             key={field.name}
                             value={{
                               ...field,
-                              listName: [name, field.name],
+                              listName: [listContext.listName, rest.name, field.name]
+                                .filter((item) => item !== undefined)
+                                .flat(1),
                             }}
                           >
                             {contentDom}

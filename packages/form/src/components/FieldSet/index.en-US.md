@@ -81,7 +81,7 @@ In some cases, we need to adapt the input box according to the page display, exc
 
 ### ProFormText
 
-Same as [Input](https://ant.design/components/input-cn/).
+Same as [Input](https://ant.design/components/input/).
 
 ```tsx | pure
 <ProFormText name="text" label="Name" placeholder="Please enter a name" fieldProps={inputProps} />
@@ -235,7 +235,7 @@ Same as [radio](https://ant.design/components/radio/) but with support for `opti
 
 ### ProFormSwitch
 
-与 [switch](https://ant.design/components/switch/) 相同。
+Same as [switch](https://ant.design/components/switch/).
 
 ```tsx | pure
 <ProFormSwitch name="switch" label="Switch" />
@@ -243,7 +243,7 @@ Same as [radio](https://ant.design/components/radio/) but with support for `opti
 
 ### ProFormRate
 
-与 [rate](https://ant.design/components/rate/) 相同。
+Same as [rate](https://ant.design/components/rate/).
 
 ```tsx | pure
 <ProFormRate name="rate" label="Rate" />
@@ -251,7 +251,7 @@ Same as [radio](https://ant.design/components/radio/) but with support for `opti
 
 ### ProFormSlider
 
-与 [slider](https://ant.design/components/slider/) 相同。
+Same as [slider](https://ant.design/components/slider/).
 
 ```tsx | pure
 <ProFormSlider
@@ -334,6 +334,28 @@ Same as [select](https://ant.design/components/select/). Both request and valueE
     rules={[{ required: true, message: 'Please select your country!' }]}
   />
 </>
+```
+
+Customize options：
+
+```tsx | pure
+<ProFormSelect
+  name="select"
+  label="Select"
+  options={[
+    { label: '全部', value: 'all' },
+    { label: '未解决', value: 'open' },
+    { label: '已解决', value: 'closed' },
+    { label: '解决中', value: 'processing' },
+  ]}
+  fieldProps={{
+    optionItemRender(item) {
+      return item.label + ' - ' + item.value;
+    },
+  }}
+  placeholder="Please select a country"
+  rules={[{ required: true, message: 'Please select your country!' }]}
+/>
 ```
 
 ### ProFormDigit

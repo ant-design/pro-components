@@ -33,14 +33,8 @@ type HeaderViewState = {
 
 class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, HeaderViewState> {
   renderContent = () => {
-    const {
-      isMobile,
-      onCollapse,
-      navTheme,
-      layout,
-      headerRender,
-      headerContentRender,
-    } = this.props;
+    const { isMobile, onCollapse, navTheme, layout, headerRender, headerContentRender } =
+      this.props;
     const isTop = layout === 'top';
     const clearMenuData = clearMenuItem(this.props.menuData || []);
     let defaultDom = (

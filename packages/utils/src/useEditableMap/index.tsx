@@ -58,14 +58,14 @@ function useEditableMap<RecordType>(
   });
   /** 一个用来标志的set 提供了方便的 api 来去重什么的 */
   const editableKeysSet = useMemo(() => {
-    const keys = editableType === 'single' ? editableKeys.slice(0, 1) : editableKeys;
+    const keys = editableType === 'single' ? editableKeys?.slice(0, 1) : editableKeys;
     return new Set(keys);
   }, [(editableKeys || []).join(','), editableType]);
 
   /** 这行是不是编辑状态 */
   const isEditable = useCallback(
     (recordKey: RecordKey) => {
-      if (editableKeys.includes(recordKeyToString(recordKey))) return true;
+      if (editableKeys?.includes(recordKeyToString(recordKey))) return true;
       return false;
     },
     [(editableKeys || []).join(',')],
@@ -159,16 +159,18 @@ function useEditableMap<RecordType>(
         editorType: 'Map',
         ...config,
       };
+
       const defaultDoms = defaultActionRender(props.dataSource, renderConfig);
-      if (props.actionRender)
+      if (props.actionRender) {
         return props.actionRender(props.dataSource, renderConfig, {
           save: defaultDoms[0],
           delete: defaultDoms[1],
           cancel: defaultDoms[2],
         });
+      }
       return defaultDoms;
     },
-    [editableKeys.join(',')],
+    [editableKeys && editableKeys.join(','), props.dataSource],
   );
 
   return {

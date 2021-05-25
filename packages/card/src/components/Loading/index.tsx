@@ -3,7 +3,7 @@ import { Row, Col } from 'antd';
 
 import './index.less';
 
-type CardLoadingProps = {
+type LoadingProps = {
   /** 类名 */
   className?: string;
   /** 样式属性 */
@@ -12,7 +12,7 @@ type CardLoadingProps = {
   prefix?: string;
 };
 
-const CardLoading: React.FC<CardLoadingProps> = (props) => {
+const Loading: React.FC<LoadingProps> = (props) => {
   const { style, prefix } = props;
 
   return (
@@ -61,4 +61,4 @@ const CardLoading: React.FC<CardLoadingProps> = (props) => {
   );
 };
 
-export default CardLoading;
+export default Loading;

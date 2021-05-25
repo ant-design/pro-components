@@ -1,5 +1,4 @@
-name: Lint CI
-
+name: build-lib CI
 on: [push, pull_request]
 
 jobs:
@@ -36,3 +35,6 @@ jobs:
           steps.cache-node-modules.outputs.cache-hit != 'true'
       - run: yarn run lint
       - run: yarn run tsc --noEmit
+      - run: yarn run webpack
+        env:
+          PRO_COMPONENTS_CI: CI

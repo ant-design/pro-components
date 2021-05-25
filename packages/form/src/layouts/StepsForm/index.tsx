@@ -63,19 +63,22 @@ type StepsFormProps<T = Record<string, any>> = {
   containerStyle?: React.CSSProperties;
 } & FormProviderProps;
 
-export const StepsFormProvide = React.createContext<
-  | {
-      unRegForm: (name: string) => void;
-      onFormFinish: (name: string, formData: any) => void;
-      keyArray: string[];
-      formArrayRef: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
-      loading: boolean;
-      setLoading: (loading: boolean) => void;
-      formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
-      next: () => void;
-    }
-  | undefined
->(undefined);
+export const StepsFormProvide =
+  React.createContext<
+    | {
+        unRegForm: (name: string) => void;
+        onFormFinish: (name: string, formData: any) => void;
+        keyArray: string[];
+        formArrayRef: React.MutableRefObject<
+          React.MutableRefObject<FormInstance<any> | undefined>[]
+        >;
+        loading: boolean;
+        setLoading: (loading: boolean) => void;
+        formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
+        next: () => void;
+      }
+    | undefined
+  >(undefined);
 function StepsForm<T = Record<string, any>>(
   props: StepsFormProps<T> & {
     children: any;
@@ -133,7 +136,7 @@ function StepsForm<T = Record<string, any>>(
 
   useImperativeHandle(propsFormMapRef, () => formArrayRef.current);
 
-  useImperativeHandle(formRef, () => currentFormRef, [step]);
+  useImperativeHandle(formRef, () => currentFormRef);
 
   /** ProForm处理了一下 from 的数据，在其中做了一些操作 如果使用 Provider 自带的，自带的数据处理就无法生效了 */
   const onFormFinish = useCallback(

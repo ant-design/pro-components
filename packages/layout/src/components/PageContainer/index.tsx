@@ -2,7 +2,7 @@ import { PageHeader, Tabs, Affix, ConfigProvider, BreadcrumbProps } from 'antd';
 import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
 import classNames from 'classnames';
-import type { TabsProps, AffixProps, PageHeaderProps, TabPaneProps } from 'antd';
+import type { TabsProps, AffixProps, PageHeaderProps, TabPaneProps, SpinProps } from 'antd';
 
 import type { RouteContextType } from '../../RouteContext';
 import RouteContext from '../../RouteContext';
@@ -74,11 +74,19 @@ export type PageContainerProps = {
    *
    * @name 是否加载
    */
-  loading?: boolean;
+  loading?: boolean | SpinProps;
+
   /** @name 水印的配置 */
   waterMarkProps?: WaterMarkProps;
 } & PageHeaderTabConfig &
   Omit<PageHeaderProps, 'title' | 'footer'>;
+
+function genLoading(spinProps: boolean | SpinProps) {
+  if (typeof spinProps === 'object') {
+    return spinProps;
+  }
+  return { spinning: spinProps };
+}
 
 /**
  * Render Footer tabList In order to be compatible with the old version of the PageHeader basically
@@ -141,16 +149,8 @@ const defaultPageHeaderRender = (
   props: PageContainerProps,
   value: RouteContextType & { prefixedClassName: string },
 ): React.ReactNode => {
-  const {
-    title,
-    content,
-    pageHeaderRender,
-    header,
-    extraContent,
-    style,
-    prefixCls,
-    ...restProps
-  } = props;
+  const { title, content, pageHeaderRender, header, extraContent, style, prefixCls, ...restProps } =
+    props;
 
   if (pageHeaderRender === false) {
     return null;
@@ -199,7 +199,7 @@ const defaultPageHeaderRender = (
 };
 
 const PageContainer: React.FC<PageContainerProps> = (props) => {
-  const { children, loading, style, footer, affixProps, ghost, fixedHeader } = props;
+  const { children, loading = false, style, footer, affixProps, ghost, fixedHeader } = props;
   const value = useContext(RouteContext);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -236,7 +236,8 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   ) : null;
 
   const renderContent = () => {
-    const dom = loading ? <PageLoading /> : content;
+    const spinProps = genLoading(loading);
+    const dom = spinProps.spinning ? <PageLoading {...spinProps} /> : content;
     if (props.waterMarkProps || value.waterMarkProps) {
       return <WaterMark {...(props.waterMarkProps || value.waterMarkProps)}>{dom}</WaterMark>;
     }

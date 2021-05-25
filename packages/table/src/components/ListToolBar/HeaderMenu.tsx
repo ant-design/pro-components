@@ -39,9 +39,9 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
   if (type === 'inline') {
     return (
       <div className={classNames(`${prefixCls}-menu`, `${prefixCls}-inline-menu`)}>
-        {items.map((item) => (
+        {items.map((item, index) => (
           <div
-            key={item.key}
+            key={item.key || index}
             onClick={() => {
               setActiveKey(item.key);
             }}
@@ -60,8 +60,8 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
   if (type === 'tab') {
     return (
       <Tabs activeKey={activeItem.key as string} onTabClick={(key) => setActiveKey(key)}>
-        {items.map(({ label, key, ...rest }) => {
-          return <Tabs.TabPane tab={label} key={key} {...rest} />;
+        {items.map(({ label, key, ...rest }, index) => {
+          return <Tabs.TabPane tab={label} key={key || index} {...rest} />;
         })}
       </Tabs>
     );
@@ -78,8 +78,8 @@ const HeaderMenu: React.FC<ListToolBarHeaderMenuProps> = (props) => {
               setActiveKey(item.key);
             }}
           >
-            {items.map((item) => (
-              <Menu.Item key={item.key} disabled={item.disabled}>
+            {items.map((item, index) => (
+              <Menu.Item key={item.key || index} disabled={item.disabled}>
                 {item.label}
               </Menu.Item>
             ))}

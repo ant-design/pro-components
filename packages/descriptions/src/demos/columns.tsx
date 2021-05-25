@@ -54,6 +54,15 @@ export default () => {
           valueType: 'date',
         },
         {
+          title: '时间',
+          key: 'date',
+          dataIndex: 'date',
+          valueType: 'date',
+          fieldProps: {
+            format: 'DD.MM.YYYY',
+          },
+        },
+        {
           title: '开关',
           key: 'switch',
           dataIndex: 'switch',
@@ -85,7 +94,7 @@ export default () => {
         },
       ]}
     >
-      <ProDescriptions.Item label="百分比" valueType="percent">
+      <ProDescriptions.Item dataIndex="percent" label="百分比" valueType="percent">
         100
       </ProDescriptions.Item>
     </ProDescriptions>

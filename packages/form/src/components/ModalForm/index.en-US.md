@@ -44,7 +44,7 @@ ModalForm combines Modal and ProForm to reduce tedious state management.
 | trigger | The dom used to trigger the Modal to open, usually the button | `ReactNode` | - |
 | visible | whether to open | `boolean` | - |
 | onVisibleChange | trigger when visible changes | `(visible:boolean)=>void` | - |
-| modalProps | Modal's props, used in the same way as [antd](https://ant.design/components/modal-cn/). Note: 'visible' is not supported, please use the global visible | [props](https://ant.design/components/modal-cn/#API) | - |
+| modalProps | Modal's props, used in the same way as [antd](https://ant.design/components/modal/). Note: 'visible' is not supported, please use the global visible | [props](https://ant.design/components/modal/#API) | - |
 | title | The title of the popup box | `ReactNode` | - |
 | width | the width of the popup box | `Number` | - |
 | onFinish | Triggered when submitting data, if returns a true, will close the popup and reset the form | `async (values)=>boolean` | - |
@@ -58,7 +58,7 @@ DrawerForm combines Drawer and ProForm to reduce tedious state management.
 | trigger | The dom used to trigger the opening of the Modal, typically the button | `ReactNode` | - |
 | visible | whether to open | `boolean` | - |
 | onVisibleChange | trigger when visible changes | `(visible:boolean)=>void` | - |
-| drawerProps | Drawer's props, used in the same way as [antd](https://ant.design/components/drawer-cn/). Note: 'visible' is not supported, please use the global visible | [props](https://ant.design/components/drawer-cn/#API) | - |
+| drawerProps | Drawer's props, used in the same way as [antd](https://ant.design/components/drawer/). Note: 'visible' is not supported, please use the global visible | [props](https://ant.design/components/drawer/#API) | - |
 | title | The title of the drawer | `ReactNode` | - |
 | width | width of the drawer | `Number` | - |
 | onFinish | Triggered when data is submitted. If a true is returned, it will close the drawer and reset the form | `async (values)=>boolean` | - |

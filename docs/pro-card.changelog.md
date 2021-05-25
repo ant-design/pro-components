@@ -10,6 +10,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.12.0
+
+`2021-05-18`
+
+- 🐛 fix(card): card loading in layout center [#2739](https://github.com/ant-design/pro-components/pull/2739) [@rdmclin2](https://github.com/rdmclin2)
+
+## @ant-design/pro-card@1.11.13
+
+`2021-05-11`
+
+- 🐛 fix(card): col map lost key [#2694](https://github.com/ant-design/pro-components/pull/2694) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-card@1.11.12
 
 `2021-04-29`

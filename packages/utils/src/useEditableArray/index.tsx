@@ -1,4 +1,4 @@
-﻿/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useContext, useMemo, useRef, useState } from 'react';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -11,6 +11,7 @@ import ReactDOM from 'react-dom';
 import set from 'rc-util/lib/utils/set';
 import useMountMergeState from '../useMountMergeState';
 import ProFormContext from '../components/ProFormContext';
+import { usePrevious } from '..';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -299,16 +300,8 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
 };
 
 const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (props) => {
-  const {
-    recordKey,
-    newLineConfig,
-    form,
-    editorType,
-    onCancel,
-    cancelEditable,
-    row,
-    cancelText,
-  } = props;
+  const { recordKey, newLineConfig, form, editorType, onCancel, cancelEditable, row, cancelText } =
+    props;
   const context = useContext(ProFormContext);
   return (
     <a
@@ -320,6 +313,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         const record = isMapEditor ? set(row, namePath, fields) : { ...row, ...fields };
         const res = await onCancel?.(recordKey, record, newLineConfig);
         cancelEditable(recordKey);
+        form.setFieldsValue(row);
         return res;
       }}
     >
@@ -339,7 +333,7 @@ export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, New
         {deleteText}
       </DeleteEditableAction>
     ) : null,
-    <CancelEditableAction {...config} row={row} />,
+    <CancelEditableAction key="cancel" {...config} row={row} />,
   ];
 }
 
@@ -357,9 +351,8 @@ function useEditableArray<RecordType>(
     setDataSource: (dataSource: RecordType[]) => void;
   },
 ) {
-  const [newLineRecord, setNewLineRecord] = useState<NewLineConfig<RecordType> | undefined>(
-    undefined,
-  );
+  const [newLineRecord, setNewLineRecord] =
+    useState<NewLineConfig<RecordType> | undefined>(undefined);
   const newLineRecordRef = useRef<NewLineConfig<RecordType> | undefined>(undefined);
 
   // 这里这么做是为了存上次的状态，不然每次存一下再拿
@@ -387,18 +380,17 @@ function useEditableArray<RecordType>(
     return new Set(keys);
   }, [(editableKeys || []).join(','), editableType]);
 
+  const editableKeysRef = usePrevious(editableKeys);
+
   /** 这行是不是编辑状态 */
   const isEditable = useCallback(
     (row: RecordType & { index: number }) => {
       const recordKey = props.getRowKey(row, row.index);
-      if (editableKeys.includes(recordKey))
-        return {
-          recordKey,
-          isEditable: true,
-        };
+      const preIsEditable = editableKeysRef?.includes(recordKey);
       return {
         recordKey,
-        isEditable: false,
+        isEditable: editableKeys.includes(recordKey),
+        preIsEditable,
       };
     },
     [(editableKeys || []).join(',')],
@@ -458,8 +450,8 @@ function useEditableArray<RecordType>(
         'update',
       );
     });
-    const recordKey = Object.keys(value).pop()?.toString() as string;
 
+    const recordKey = Object.keys(value).pop()?.toString() as string;
     if (recordKey.toString() === newLineRecord?.options.recordKey?.toString()) {
       cancelEditable(recordKey);
       startEditable(recordKey);
@@ -613,6 +605,7 @@ function useEditableArray<RecordType>(
     cancelEditable,
     addEditRecord,
     newLineRecord,
+    preEditableKeys: editableKeysRef,
     onValuesChange,
   };
 }

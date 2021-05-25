@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.24.2...@ant-design/pro-form@1.25.0) (2021-05-24)
+
+### Bug Fixes
+
+- **form:** fix formRef no work error ([#2816](https://github.com/ant-design/pro-components/issues/2816)) ([048c8e3](https://github.com/ant-design/pro-components/commit/048c8e3487f0c576f75d6f38357f562df9b7a4c9))
+
+### Features
+
+- **form:** form support request and params ([#2812](https://github.com/ant-design/pro-components/issues/2812)) ([8064293](https://github.com/ant-design/pro-components/commit/8064293532e9e937dea973be50d9e8fbc06c3aa9))
+
+## [1.24.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.24.1...@ant-design/pro-form@1.24.2) (2021-05-23)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.24.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.24.0...@ant-design/pro-form@1.24.1) (2021-05-21)
+
+### Bug Fixes
+
+- **form:** space between button and form ([#2777](https://github.com/ant-design/pro-components/issues/2777)) ([ddceda2](https://github.com/ant-design/pro-components/commit/ddceda2ca019de0c0fe3a29b3a187e90b1ed3398))
+
+# [1.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.23.0...@ant-design/pro-form@1.24.0) (2021-05-18)
+
+### Bug Fixes
+
+- **Descriptions:** fix proFieldKey is same error ([#2729](https://github.com/ant-design/pro-components/issues/2729)) ([be501ec](https://github.com/ant-design/pro-components/commit/be501ece15d04a9680fb08bd036e48587857dd9c))
+- **form:** clear collapsed fields when clear button clicked in more dropdown ([#2749](https://github.com/ant-design/pro-components/issues/2749)) ([6572759](https://github.com/ant-design/pro-components/commit/6572759d5cc6b5c3039532307be3ac45042fd2df))
+- **form:** nested-list causes Dependency error ([#2752](https://github.com/ant-design/pro-components/issues/2752)) ([27341e1](https://github.com/ant-design/pro-components/commit/27341e1cbddb8076981fa8e93ede924ba07c471e))
+
+### Features
+
+- add table drag demo ([#2736](https://github.com/ant-design/pro-components/issues/2736)) ([cedb26e](https://github.com/ant-design/pro-components/commit/cedb26ee26733a1a9e83184b0a1a87b0e2866d60))
+
+# [1.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.22.1...@ant-design/pro-form@1.23.0) (2021-05-11)
+
+### Bug Fixes
+
+- **form:** fix ligthfilter no wrap style ([a220685](https://github.com/ant-design/pro-components/commit/a220685f4b4bd7bf5f332377b643cb97baa54d22))
+- **form:** LightFilter 折叠的 ProFormFields 行为异常 ([#2657](https://github.com/ant-design/pro-components/issues/2657)) ([938db61](https://github.com/ant-design/pro-components/commit/938db61a2dc4e15b536f4e445acf4c5995b35a72))
+- **table:** fix defaultRender will gen two label error ([#2715](https://github.com/ant-design/pro-components/issues/2715)) ([687d51b](https://github.com/ant-design/pro-components/commit/687d51b9edf6e0ed7ae07fc49af02701b7355457))
+- **table:** fix the style problem of the fixed new button ([#2661](https://github.com/ant-design/pro-components/issues/2661)) ([b80c99f](https://github.com/ant-design/pro-components/commit/b80c99fa298152adc9d4ef39ecfc2c2ac5e4c21f))
+
+### Features
+
+- **table:** support sync pageinfo to url ([#2701](https://github.com/ant-design/pro-components/issues/2701)) ([384ca36](https://github.com/ant-design/pro-components/commit/384ca364e0606535e4538920d6ecc85cff70c164))
+
 ## [1.22.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.22.0...@ant-design/pro-form@1.22.1) (2021-04-29)
 
 ### Bug Fixes

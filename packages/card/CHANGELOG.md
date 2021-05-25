@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.12.1...@ant-design/pro-card@1.12.2) (2021-05-24)
+
+### Bug Fixes
+
+- **card:** use antd less var for title ([#2817](https://github.com/ant-design/pro-components/issues/2817)) ([b2169f3](https://github.com/ant-design/pro-components/commit/b2169f34aa2c42ab18c4e4e5fde1c281dc1fde32))
+
+## [1.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.12.0...@ant-design/pro-card@1.12.1) (2021-05-21)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+# [1.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.13...@ant-design/pro-card@1.12.0) (2021-05-18)
+
+### Bug Fixes
+
+- **card:** card loading in layout center ([#2739](https://github.com/ant-design/pro-components/issues/2739)) ([a4fe7b6](https://github.com/ant-design/pro-components/commit/a4fe7b689ac36a6ae687a8f1a13be210db036fb8))
+
+### Features
+
+- add table drag demo ([#2736](https://github.com/ant-design/pro-components/issues/2736)) ([cedb26e](https://github.com/ant-design/pro-components/commit/cedb26ee26733a1a9e83184b0a1a87b0e2866d60))
+
+## [1.11.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.12...@ant-design/pro-card@1.11.13) (2021-05-11)
+
+### Bug Fixes
+
+- **card:** col map lost key ([#2694](https://github.com/ant-design/pro-components/issues/2694)) ([ee4c34d](https://github.com/ant-design/pro-components/commit/ee4c34d626d78787add195f853a9d6d5ab131671))
+
 ## [1.11.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.11.11...@ant-design/pro-card@1.11.12) (2021-04-29)
 
 ### Bug Fixes

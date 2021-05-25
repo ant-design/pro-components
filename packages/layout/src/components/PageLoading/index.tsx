@@ -1,11 +1,17 @@
 import React from 'react';
 import { Spin } from 'antd';
+import type { SpinProps } from 'antd';
 
-const PageLoading: React.FC<{
-  tip?: string;
-}> = ({ tip }) => (
+const PageLoading: React.FC<SpinProps & any> = ({
+  isLoading,
+  pastDelay,
+  timedOut,
+  error,
+  retry,
+  ...reset
+}) => (
   <div style={{ paddingTop: 100, textAlign: 'center' }}>
-    <Spin size="large" tip={tip} />
+    <Spin size="large" {...reset} />
   </div>
 );
 

@@ -14,7 +14,7 @@ type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
 type ProListMeta<T> = Pick<
   ProColumnType<T>,
-  'dataIndex' | 'valueType' | 'render' | 'search' | 'title' | 'valueEnum'
+  'dataIndex' | 'valueType' | 'render' | 'search' | 'title' | 'valueEnum' | 'editable'
 >;
 
 export type ProListMetas<T> = {
@@ -52,7 +52,7 @@ export type TriggerEventHandler<RecordType> = (record: RecordType) => void;
 
 function ProList<
   RecordType extends Record<string, any>,
-  U extends Record<string, any> = Record<string, any>
+  U extends Record<string, any> = Record<string, any>,
 >(props: ProListProps<RecordType, U>) {
   const {
     metas: metals,

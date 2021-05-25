@@ -26,6 +26,7 @@ import SearchSelect from './SearchSelect';
 import type { ProFieldStatusType } from '../Status';
 import TableStatus, { ProFieldBadgeColor } from '../Status';
 import type { ProFieldFC } from '../../index';
+import './index.less';
 
 let testId = 0;
 
@@ -112,6 +113,9 @@ const Highlight: React.FC<{
   label: string;
   words: string[];
 }> = ({ label, words }) => {
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const lightCls = getPrefixCls('pro-select-item-option-content-light');
+  const optionCls = getPrefixCls('pro-select-item-option-content');
   const reg = new RegExp(words.map((w) => w.replace(/\\/g, '\\\\')).join('|'), 'gi');
   const token = label.replace(reg, '#@$&#');
   const elements = token.split('#').map((x) =>
@@ -119,15 +123,19 @@ const Highlight: React.FC<{
       ? React.createElement(
           'span',
           {
-            style: {
-              color: '#1890ff',
-            },
+            className: lightCls,
           },
           x.slice(1),
         )
       : x,
   );
-  return React.createElement('div', null, ...elements);
+  return React.createElement(
+    'div',
+    {
+      className: optionCls,
+    },
+    ...elements,
+  );
 };
 
 /**
@@ -178,14 +186,14 @@ export const proFieldParsingValueEnumToArray = (
 
     if (typeof value === 'object' && value?.text) {
       enumArray.push({
-        text: (value?.text as unknown) as string,
+        text: value?.text as unknown as string,
         value: key,
         disabled: value.disabled,
       });
       return;
     }
     enumArray.push({
-      text: (value as unknown) as string,
+      text: value as unknown as string,
       value: key,
     });
   });
@@ -358,7 +366,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
       <>
         {proFieldParsingText(
           rest.text,
-          (ObjToMap(valueEnum || optionsValueEnum) as unknown) as ProSchemaValueEnumObj,
+          ObjToMap(valueEnum || optionsValueEnum) as unknown as ProSchemaValueEnumObj,
         )}
       </>
     );

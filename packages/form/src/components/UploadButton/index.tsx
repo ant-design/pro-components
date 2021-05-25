@@ -60,6 +60,11 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
       fileList={fileList ?? value}
       {...fieldProps}
       onChange={(info) => {
+        // status: 'done', // 状态有：uploading done error removed，被 beforeUpload 拦截的文件没有 status 属性
+        // https://ant.design/components/upload-cn/#onChange
+        if (!info?.file?.status) {
+          return;
+        }
         if (onChange) {
           onChange(info);
         }

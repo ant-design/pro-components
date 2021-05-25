@@ -40,9 +40,12 @@ const FieldDatePicker: ProFieldFC<{
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
   const [open, setOpen] = useState<boolean>(false);
-
   if (mode === 'read') {
-    const dom = <span ref={ref}>{text ? moment(text).format(format || 'YYYY-MM-DD') : '-'}</span>;
+    const dom = (
+      <span ref={ref}>
+        {text ? moment(text).format(format || fieldProps.format || 'YYYY-MM-DD') : '-'}
+      </span>
+    );
     if (render) {
       return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }

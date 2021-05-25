@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.7...@ant-design/pro-utils@1.17.0) (2021-05-24)
+
+### Features
+
+- **form:** form support request and params ([#2812](https://github.com/ant-design/pro-components/issues/2812)) ([8064293](https://github.com/ant-design/pro-components/commit/8064293532e9e937dea973be50d9e8fbc06c3aa9))
+
+## [1.16.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.6...@ant-design/pro-utils@1.16.7) (2021-05-21)
+
+### Bug Fixes
+
+- **EditTable:** allowClear 清除值后保存数据没有更新 ([#2780](https://github.com/ant-design/pro-components/issues/2780)) ([1ac6bb3](https://github.com/ant-design/pro-components/commit/1ac6bb3cfd10160ef9ec6bd3d790005744314c06))
+- **table:** if editableKeys change,should Cell Update ([#2803](https://github.com/ant-design/pro-components/issues/2803)) ([291e27e](https://github.com/ant-design/pro-components/commit/291e27ea073653fff3b0fbc4ef2466d6e4164b91))
+
+## [1.16.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.5...@ant-design/pro-utils@1.16.6) (2021-05-18)
+
+### Bug Fixes
+
+- **Descriptions:** fix Descriptions reset will set value ([#2732](https://github.com/ant-design/pro-components/issues/2732)) ([e36a35d](https://github.com/ant-design/pro-components/commit/e36a35d98111329a575c8316022637b9a4c5959c))
+- **Descriptions:** fix proFieldKey is same error ([#2729](https://github.com/ant-design/pro-components/issues/2729)) ([be501ec](https://github.com/ant-design/pro-components/commit/be501ece15d04a9680fb08bd036e48587857dd9c))
+
+## [1.16.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.4...@ant-design/pro-utils@1.16.5) (2021-05-11)
+
+### Bug Fixes
+
+- **table:** fix defaultRender will gen two label error ([#2715](https://github.com/ant-design/pro-components/issues/2715)) ([687d51b](https://github.com/ant-design/pro-components/commit/687d51b9edf6e0ed7ae07fc49af02701b7355457))
+
 ## [1.16.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.3...@ant-design/pro-utils@1.16.4) (2021-04-29)
 
 **Note:** Version bump only for package @ant-design/pro-utils

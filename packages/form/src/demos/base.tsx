@@ -14,16 +14,21 @@ export default () => {
   return (
     <ProForm<{
       name: string;
-      company: string;
+      company?: string;
+      useMode?: string;
     }>
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
         message.success('提交成功');
       }}
-      initialValues={{
-        name: '蚂蚁设计有限公司',
-        useMode: 'chapter',
+      params={{}}
+      request={async () => {
+        await waitTime(100);
+        return {
+          name: '蚂蚁设计有限公司',
+          useMode: 'chapter',
+        };
       }}
     >
       <ProForm.Group>

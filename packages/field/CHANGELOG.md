@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.17.1...@ant-design/pro-field@1.17.2) (2021-05-24)
+
+### Bug Fixes
+
+- **form:** digit support formatter ([#2818](https://github.com/ant-design/pro-components/issues/2818)) ([25f5417](https://github.com/ant-design/pro-components/commit/25f5417bab8a8d1177ab9da41f94ff1100f91e25))
+
+## [1.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.17.0...@ant-design/pro-field@1.17.1) (2021-05-23)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.16.0...@ant-design/pro-field@1.17.0) (2021-05-21)
+
+### Features
+
+- **form:** select option support ellipsis ([#2765](https://github.com/ant-design/pro-components/issues/2765)) ([ee8a7f2](https://github.com/ant-design/pro-components/commit/ee8a7f2040b72af357b62ff39f7effecac2e91f8))
+
+# [1.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.6...@ant-design/pro-field@1.16.0) (2021-05-18)
+
+### Bug Fixes
+
+- **Descriptions:** fix proFieldKey is same error ([#2729](https://github.com/ant-design/pro-components/issues/2729)) ([be501ec](https://github.com/ant-design/pro-components/commit/be501ece15d04a9680fb08bd036e48587857dd9c))
+- **form:** support fieldProps.format ([#2735](https://github.com/ant-design/pro-components/issues/2735)) ([13bebc6](https://github.com/ant-design/pro-components/commit/13bebc6181e4d6a9b54ca1e8d443c927e0d5559d))
+
+### Features
+
+- **form:** select option height light support less([#2667](https://github.com/ant-design/pro-components/issues/2667)) ([#2748](https://github.com/ant-design/pro-components/issues/2748)) ([a302eb3](https://github.com/ant-design/pro-components/commit/a302eb308c0a2623fd885fca764e15fccce3a07b))
+- **form:** valueType digit supports intlProps ([#2740](https://github.com/ant-design/pro-components/issues/2740)) ([c88c2f7](https://github.com/ant-design/pro-components/commit/c88c2f77f3d3d756e149ad96493d4db8bcbe46f7))
+
+## [1.15.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.5...@ant-design/pro-field@1.15.6) (2021-05-11)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.15.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.4...@ant-design/pro-field@1.15.5) (2021-04-29)
 
 ### Bug Fixes

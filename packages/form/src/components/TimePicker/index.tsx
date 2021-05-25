@@ -9,18 +9,18 @@ import { dateArrayFormatter } from '@ant-design/pro-utils';
 const valueType = 'time';
 
 /** 时间区间选择器 */
-const TimeRangePicker: React.FC<
-  ProFormItemProps<DatePickerProps>
-> = React.forwardRef(({ fieldProps, proFieldProps }, ref: any) => (
-  <ProField
-    ref={ref}
-    text={fieldProps?.value || ''}
-    mode="edit"
-    fieldProps={fieldProps}
-    valueType="timeRange"
-    {...proFieldProps}
-  />
-));
+const TimeRangePicker: React.FC<ProFormItemProps<DatePickerProps>> = React.forwardRef(
+  ({ fieldProps, proFieldProps }, ref: any) => (
+    <ProField
+      ref={ref}
+      text={fieldProps?.value || ''}
+      mode="edit"
+      fieldProps={fieldProps}
+      valueType="timeRange"
+      {...proFieldProps}
+    />
+  ),
+);
 
 /**
  * 时间选择组件
