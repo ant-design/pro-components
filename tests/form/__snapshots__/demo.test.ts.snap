@@ -22874,19 +22874,24 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-light ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
+            class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-menu-inline-collapsed"
+            data-menu-list="true"
             role="menu"
             style="width: 100%;"
+            tabindex="0"
           >
             <li
               class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-selected"
-              role="menuitem"
+              role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-test-/one-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                role="button"
+                data-menu-id="rc-menu-uuid-test-/one"
+                role="menuitem"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -22928,12 +22933,16 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-light ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
+            class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-link-menu ant-menu-inline-collapsed"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-unfold"

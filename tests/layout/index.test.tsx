@@ -272,7 +272,7 @@ describe('BasicLayout', () => {
     const onCollapse = jest.fn();
     const wrapper = mount(<BasicLayout onCollapse={onCollapse} />);
     await waitForComponentToPaint(wrapper);
-    wrapper.find('.ant-pro-sider-collapsed-button').map((item) => item && item.simulate('click'));
+    wrapper.find('li.ant-pro-sider-collapsed-button').map((item) => item && item.simulate('click'));
     expect(onCollapse).toHaveBeenCalled();
 
     await waitForComponentToPaint(wrapper);
@@ -910,7 +910,7 @@ describe('BasicLayout', () => {
       html.find('span.ant-pro-menu-item-link').simulate('click');
     });
 
-    expect(html.find('.ant-menu-submenu-open').length).toBe(2);
+    expect(html.find('li.ant-menu-submenu-open').length).toBe(2);
   });
 
   it('🥩 BasicLayout menu support onSelect', async () => {

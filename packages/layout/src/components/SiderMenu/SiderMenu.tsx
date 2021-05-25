@@ -118,6 +118,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const menuDom = menuContentRender !== false && flatMenuKeys && (
     <BaseMenu
       {...props}
+      key="base-menu"
       mode="inline"
       handleOpenChange={onOpenChange}
       style={{
@@ -127,6 +128,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     />
   );
 
+  const menuRenderDom = menuContentRender ? menuContentRender(props, menuDom) : menuDom;
   return (
     <>
       {fixSiderbar && (
@@ -148,11 +150,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         collapsed={collapsed}
         breakpoint={breakpoint === false ? undefined : breakpoint}
         onCollapse={(collapse) => {
-          if (!isMobile) {
-            if (onCollapse) {
-              onCollapse(collapse);
-            }
-          }
+          if (isMobile) return;
+          onCollapse?.(collapse);
         }}
         collapsedWidth={48}
         style={{
@@ -190,7 +189,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             overflowX: 'hidden',
           }}
         >
-          {menuContentRender ? menuContentRender(props, menuDom) : menuDom}
+          {menuRenderDom}
         </div>
         <div className={`${baseClassName}-links`}>
           <Menu
@@ -211,6 +210,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               <Menu.Item
                 className={`${baseClassName}-collapsed-button`}
                 title={false}
+                key="collapsed"
                 onClick={() => {
                   if (onCollapse) {
                     onCollapse(!collapsed);

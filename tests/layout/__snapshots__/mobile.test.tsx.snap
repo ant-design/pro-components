@@ -88,20 +88,23 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
                               class="ant-pro-menu-item"
@@ -113,7 +116,6 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
                     </div>
@@ -121,8 +123,10 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
                       />
                     </div>
                   </div>
@@ -278,20 +282,23 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
                               class="ant-pro-menu-item"
@@ -303,7 +310,6 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
                     </div>
@@ -311,8 +317,10 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
                       />
                     </div>
                   </div>
@@ -460,20 +468,23 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
                               class="ant-pro-menu-item"
@@ -485,7 +496,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
                     </div>
@@ -493,8 +503,10 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
                       />
                     </div>
                   </div>
@@ -637,20 +649,23 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
                               class="ant-pro-menu-item"
@@ -662,7 +677,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
                     </div>
@@ -670,8 +684,10 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
                       />
                     </div>
                   </div>
@@ -808,20 +824,23 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
                               class="ant-pro-menu-item"
@@ -833,7 +852,6 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
                     </div>
@@ -841,8 +859,10 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
                       />
                     </div>
                   </div>
@@ -978,20 +998,23 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
                               class="ant-pro-menu-item"
@@ -1003,7 +1026,6 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
                     </div>
@@ -1011,8 +1033,10 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
                       />
                     </div>
                   </div>
@@ -1158,20 +1182,23 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
                               class="ant-pro-menu-item"
@@ -1183,7 +1210,6 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
                     </div>
@@ -1191,8 +1217,10 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
                       />
                     </div>
                   </div>

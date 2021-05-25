@@ -1183,38 +1183,30 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <div
                             class="ant-table-filter-column"
                           >
+                            sex
                             <span
-                              class="ant-table-filter-column-title"
-                            >
-                              sex
-                            </span>
-                            <span
-                              class="ant-table-filter-trigger-container"
+                              class="ant-dropdown-trigger ant-table-filter-trigger"
+                              role="button"
+                              tabindex="-1"
                             >
                               <span
-                                class="ant-dropdown-trigger ant-table-filter-trigger"
-                                role="button"
-                                tabindex="-1"
+                                aria-label="filter"
+                                class="anticon anticon-filter"
+                                role="img"
                               >
-                                <span
-                                  aria-label="filter"
-                                  class="anticon anticon-filter"
-                                  role="img"
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="filter"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="filter"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                                    />
-                                  </svg>
-                                </span>
+                                  <path
+                                    d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                                  />
+                                </svg>
                               </span>
                             </span>
                           </div>
@@ -1397,7 +1389,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -1677,7 +1669,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -1957,7 +1949,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -2237,7 +2229,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -2517,7 +2509,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -2797,7 +2789,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -3077,7 +3069,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -3357,7 +3349,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -3637,7 +3629,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -3917,7 +3909,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -4197,7 +4189,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -4477,7 +4469,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -4757,7 +4749,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -5037,7 +5029,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -5317,7 +5309,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -5597,7 +5589,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -5877,7 +5869,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -6157,7 +6149,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -6437,7 +6429,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -6717,7 +6709,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           class="ant-table-cell"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="max-width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >

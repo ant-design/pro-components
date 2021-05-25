@@ -1,4 +1,4 @@
-import { PageHeader, Tabs, Affix, ConfigProvider } from 'antd';
+import { PageHeader, Tabs, Affix, ConfigProvider, BreadcrumbProps } from 'antd';
 import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
 import classNames from 'classnames';
@@ -79,7 +79,7 @@ export type PageContainerProps = {
   /** @name 水印的配置 */
   waterMarkProps?: WaterMarkProps;
 } & PageHeaderTabConfig &
-  Omit<PageHeaderProps, 'title'>;
+  Omit<PageHeaderProps, 'title' | 'footer'>;
 
 function genLoading(spinProps: boolean | SpinProps) {
   if (typeof spinProps === 'object') {
@@ -162,7 +162,7 @@ const defaultPageHeaderRender = (
   if (!title && title !== false) {
     pageHeaderTitle = value.title;
   }
-  const pageHeaderProps = {
+  const pageHeaderProps: PageHeaderProps = {
     ...value,
     title: pageHeaderTitle,
     ...restProps,
@@ -173,16 +173,14 @@ const defaultPageHeaderRender = (
     ...header,
   };
 
+  const { breadcrumb } = pageHeaderProps as {
+    breadcrumb: BreadcrumbProps;
+  };
   if (
-    !pageHeaderProps.title &&
-    !pageHeaderProps.subTitle &&
-    !pageHeaderProps.breadcrumb?.itemRender &&
-    !pageHeaderProps.breadcrumb?.routes?.length &&
-    !pageHeaderProps.extra &&
-    !pageHeaderProps.tags &&
-    !pageHeaderProps.footer &&
-    !pageHeaderProps.avatar &&
-    !pageHeaderProps.backIcon &&
+    ['title', 'subTitle', 'breadcrumb', 'extra', 'tags', 'footer', 'avatar', 'backIcon'].every(
+      (item) => !pageHeaderProps[item],
+    ) &&
+    (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.routes?.length)) &&
     !content &&
     !extraContent
   ) {
@@ -192,7 +190,7 @@ const defaultPageHeaderRender = (
   return (
     <PageHeader
       {...pageHeaderProps}
-      breadcrumb={{ ...pageHeaderProps.breadcrumb, ...pageHeaderProps.breadcrumbProps }}
+      breadcrumb={{ ...pageHeaderProps.breadcrumb, ...value.breadcrumbProps }}
       prefixCls={prefixCls}
     >
       {header?.children || renderPageHeader(content, extraContent, value.prefixedClassName)}

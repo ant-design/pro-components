@@ -32,7 +32,6 @@ function useContainer(props: UseContainerProps = {}) {
     value: props.size,
     onChange: props.onSizeChange,
   });
-
   const [columnsMap, setColumnsMap] = useMergedState<Record<string, ColumnsState>>(
     props.columnsStateMap || {},
     {
