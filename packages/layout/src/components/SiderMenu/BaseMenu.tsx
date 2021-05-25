@@ -3,8 +3,7 @@ import Icon, { createFromIconfontCN } from '@ant-design/icons';
 import { Menu, Skeleton } from 'antd';
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { isUrl, isImg } from '@ant-design/pro-utils';
+import { isUrl, isImg, useMountMergeState } from '@ant-design/pro-utils';
 
 import type { MenuTheme, MenuProps } from 'antd';
 import type { PureSettings } from '../../defaultSettings';
@@ -250,9 +249,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const defaultOpenKeysRef = useRef<string[]>([]);
 
   const { flatMenuKeys } = MenuCounter.useContainer();
-  const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
+  const [defaultOpenAll, setDefaultOpenAll] = useMountMergeState(menu?.defaultOpenAll);
 
-  const [openKeys, setOpenKeys] = useMergedState<WithFalse<React.Key[]>>(
+  const [openKeys, setOpenKeys] = useMountMergeState<WithFalse<React.Key[]>>(
     () => {
       if (menu?.defaultOpenAll) {
         return getOpenKeysFromMenuData(menuData) || [];
@@ -268,7 +267,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     },
   );
 
-  const [selectedKeys, setSelectedKeys] = useMergedState<string[] | undefined>([], {
+  const [selectedKeys, setSelectedKeys] = useMountMergeState<string[] | undefined>([], {
     value: propsSelectedKeys,
     onChange: onSelect
       ? (keys) => {
@@ -320,15 +319,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchMenuKeys.join('-'), collapsed]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const openKeysProps = useMemo(
     () => getOpenKeysProps(openKeys, props),
-    [
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      openKeys && openKeys.join(','),
-      props.layout,
-      props.collapsed,
-    ],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [openKeys && openKeys.join(','), props.layout, props.collapsed],
   );
 
   const [menuUtils] = useState(() => new MenuUtil(props));

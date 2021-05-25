@@ -9,6 +9,7 @@ import type {
   ProSchemaComponentTypes,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
+import { LabelIconTip } from '@ant-design/pro-utils';
 import { omitUndefined } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import omit from 'omit.js';
@@ -81,7 +82,13 @@ export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
 >;
 
 export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
-  title?: React.ReactNode | ((type: string) => React.ReactNode);
+  title?:
+    | React.ReactNode
+    | ((
+        schema: ProFormColumnsType<T, ValueType>,
+        type: 'form',
+        dom: React.ReactNode,
+      ) => React.ReactNode);
   description?: React.ReactNode;
   columns: ProFormColumnsType<T, ValueType>[];
   type?: any;
@@ -125,7 +132,15 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           return (b.index || 0) - (a.index || 0);
         })
         .map((originItem, index) => {
-          const title = runFunction(originItem.title, 'form');
+          const title = runFunction(
+            originItem.title,
+            originItem,
+            'form',
+            <LabelIconTip
+              label={originItem.title}
+              tooltip={originItem.tooltip || originItem.tip}
+            />,
+          );
           const item = omitUndefined({
             name: originItem.name,
             valueType: runFunction(originItem.valueType, {}),

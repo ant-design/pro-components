@@ -548,7 +548,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-84044-7-tmp_key-0"
+              data-menu-id="rc-menu-uuid-84044-7-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -644,7 +644,7 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-84044-7-tmp_key-0"
+              data-menu-id="rc-menu-uuid-84044-7-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -791,7 +791,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-84044-32-tmp_key-0"
+              data-menu-id="rc-menu-uuid-84044-32-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -887,7 +887,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-84044-1-tmp_key-0"
+              data-menu-id="rc-menu-uuid-84044-1-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -997,30 +997,90 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
         <div
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
-          <div
-            style="padding: 24px;"
+          <ul
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+            data-menu-list="true"
+            role="menu"
+            style="width: 100%;"
+            tabindex="0"
           >
-            <div
-              class="ant-skeleton ant-skeleton-active"
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-84044-5-/home"
+              role="menuitem"
+              style="padding-left: 16px;"
+              tabindex="-1"
+            >
+              <span
+                class="ant-pro-menu-item"
+              >
+                <span
+                  class="ant-pro-menu-item-title"
+                >
+                  首页
+                </span>
+              </span>
+            </li>
+            <li
+              class="ant-menu-submenu ant-menu-submenu-inline"
+              role="none"
             >
               <div
-                class="ant-skeleton-content"
+                aria-controls="rc-menu-uuid-84044-5-/data_hui-popup"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-menu-submenu-title"
+                data-menu-id="rc-menu-uuid-84044-5-/data_hui"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
-                <ul
-                  class="ant-skeleton-paragraph"
+                <span
+                  class="ant-pro-menu-item"
+                  title="汇总数据"
                 >
-                  <li />
-                  <li />
-                  <li />
-                  <li />
-                  <li />
-                  <li
-                    style="width: 61%;"
-                  />
-                </ul>
+                  汇总数据
+                </span>
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
               </div>
-            </div>
-          </div>
+            </li>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-84044-5-/data_ming"
+              role="menuitem"
+              style="padding-left: 16px;"
+              tabindex="-1"
+            >
+              <span
+                class="ant-pro-menu-item"
+              >
+                <span
+                  class="ant-pro-menu-item-title"
+                >
+                  明细数据
+                </span>
+              </span>
+            </li>
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-84044-5-/other"
+              role="menuitem"
+              style="padding-left: 16px;"
+              tabindex="-1"
+            >
+              <span
+                class="ant-pro-menu-item"
+              >
+                <span
+                  class="ant-pro-menu-item-title"
+                >
+                  其他
+                </span>
+              </span>
+            </li>
+          </ul>
         </div>
         <div
           class="ant-pro-sider-links"
@@ -1033,7 +1093,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-84044-4-tmp_key-0"
+              data-menu-id="rc-menu-uuid-84044-4-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
