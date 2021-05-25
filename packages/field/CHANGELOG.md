@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.17.2...@ant-design/pro-field@1.18.0) (2021-05-25)
+
+### Features
+
+- **table:** eidt table use Proform ([#2832](https://github.com/ant-design/pro-components/issues/2832)) ([5c8b4ba](https://github.com/ant-design/pro-components/commit/5c8b4bac7169d2d0c091b1d1d9a68f03166abd88))
+
 ## [1.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.17.1...@ant-design/pro-field@1.17.2) (2021-05-24)
 
 ### Bug Fixes

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.7.7...@ant-design/pro-list@1.8.0) (2021-05-25)
+
+### Features
+
+- **list:** list support locale ([#2840](https://github.com/ant-design/pro-components/issues/2840)) ([f4abe37](https://github.com/ant-design/pro-components/commit/f4abe372cc91ad2cd7ec330eb7b0436e3f1ef112))
+- **list:** prolist support itemHeaderRender ([#2844](https://github.com/ant-design/pro-components/issues/2844)) ([83c5eda](https://github.com/ant-design/pro-components/commit/83c5eda8922f0a326689dde56548fa0cda7d2af0))
+
 ## [1.7.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.7.6...@ant-design/pro-list@1.7.7) (2021-05-24)
 
 **Note:** Version bump only for package @ant-design/pro-list

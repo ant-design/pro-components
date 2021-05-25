@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.39.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.38.0...@ant-design/pro-table@2.39.0) (2021-05-25)
+
+### Features
+
+- **table:** eidt table use Proform ([#2832](https://github.com/ant-design/pro-components/issues/2832)) ([5c8b4ba](https://github.com/ant-design/pro-components/commit/5c8b4bac7169d2d0c091b1d1d9a68f03166abd88))
+
 # [2.38.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.37.2...@ant-design/pro-table@2.38.0) (2021-05-24)
 
 ### Features

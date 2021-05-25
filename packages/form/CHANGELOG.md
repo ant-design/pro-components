@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.26.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.25.0...@ant-design/pro-form@1.26.0) (2021-05-25)
+
+### Bug Fixes
+
+- **form:** fix SchemaForm title function ([#2826](https://github.com/ant-design/pro-components/issues/2826)) ([7a48544](https://github.com/ant-design/pro-components/commit/7a48544e44729c4b46f0239dfb75f38dcad77f46))
+
+### Features
+
+- **table:** eidt table use Proform ([#2832](https://github.com/ant-design/pro-components/issues/2832)) ([5c8b4ba](https://github.com/ant-design/pro-components/commit/5c8b4bac7169d2d0c091b1d1d9a68f03166abd88))
+
 # [1.25.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.24.2...@ant-design/pro-form@1.25.0) (2021-05-24)
 
 ### Bug Fixes
