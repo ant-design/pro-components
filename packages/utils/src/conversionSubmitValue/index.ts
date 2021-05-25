@@ -1,3 +1,4 @@
+import type { InternalNamePath, NamePath } from 'antd/lib/form/interface';
 import moment from 'moment';
 import get from 'rc-util/lib/utils/get';
 import isNil from '../isNil';
@@ -86,7 +87,7 @@ const conversionSubmitValue = <T = any>(
     | any
   >,
   omitNil?: boolean,
-  parentKey?: string[],
+  parentKey?: NamePath[],
 ): T => {
   const tmpValue = {} as T;
   // 如果 value 是 string | null | Blob类型 其中之一，直接返回
@@ -94,9 +95,8 @@ const conversionSubmitValue = <T = any>(
   if (typeof value !== 'object' || isNil(value) || value instanceof Blob) {
     return value;
   }
-
   Object.keys(value).forEach((key) => {
-    const namePath = parentKey ? [parentKey, key].flat(1) : [key];
+    const namePath: InternalNamePath = parentKey ? ([parentKey, key].flat(1) as string[]) : [key];
     const valueFormatMap = get(valueTypeMap, namePath) || 'text';
 
     let valueType: ProFieldValueType = 'text';
@@ -137,6 +137,7 @@ const conversionSubmitValue = <T = any>(
     }
     tmpValue[key] = convertMoment(itemValue, dateFormat || dateFormatter, valueType);
   });
+
   return tmpValue;
 };
 
