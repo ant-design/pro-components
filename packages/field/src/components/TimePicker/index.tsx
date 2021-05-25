@@ -44,9 +44,7 @@ const FieldTimePicker: ProFieldFC<{
             ref={ref}
             {...fieldProps}
             onChange={(v) => {
-              if (onChange) {
-                onChange(v);
-              }
+              onChange?.(v);
               setTimeout(() => {
                 setOpen(false);
               }, 0);
@@ -62,9 +60,7 @@ const FieldTimePicker: ProFieldFC<{
             value={valueStr}
             allowClear={allowClear}
             onClear={() => {
-              if (onChange) {
-                onChange(null);
-              }
+              onChange?.(null);
             }}
             expanded={open}
           />
