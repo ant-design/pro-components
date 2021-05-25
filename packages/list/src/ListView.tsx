@@ -26,6 +26,12 @@ export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderI
     renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
     actionRef: React.MutableRefObject<ActionType | undefined>;
     onRow?: GetComponentProps<RecordType>;
+    /** Render 除了 header 之后的代码 */
+    itemHeaderRender?: (
+      item: RecordType,
+      index: number,
+      defaultDom: JSX.Element | null,
+    ) => React.ReactNode;
   };
 
 function ListView<RecordType>(props: ListViewProps<RecordType>) {
@@ -38,6 +44,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     prefixCls,
     actionRef,
     renderItem,
+    itemHeaderRender,
     expandable: expandableConfig,
     rowSelection,
     pagination, // List 的 pagination 默认是 false
@@ -180,6 +187,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             record={item}
             showActions={showActions}
             showExtra={showExtra}
+            itemHeaderRender={itemHeaderRender}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
             selected={selectedKeySet.has(getRowKey(item, index))}
             checkbox={checkboxDom}

@@ -44,6 +44,11 @@ export type ProListProps<RecordType, U extends ParamsType> = Omit<
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
     onRow?: GetComponentProps<RecordType>;
+    itemHeaderRender?: (
+      item: RecordType,
+      index: number,
+      defaultDom: JSX.Element | null,
+    ) => React.ReactNode;
   };
 
 export type Key = React.Key;
@@ -73,6 +78,7 @@ function ProList<
     grid,
     onRow,
     locale,
+    itemHeaderRender,
     ...rest
   } = props;
 
@@ -156,6 +162,7 @@ function ProList<
               pagination={pagination as PaginationProps}
               itemLayout={itemLayout}
               loading={loading}
+              itemHeaderRender={itemHeaderRender}
               onRow={onRow}
               locale={locale}
             />

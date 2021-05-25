@@ -88,6 +88,11 @@ export type ItemProps<RecordType> = {
   cardProps?: ProCardProps;
   record: RecordType;
   onRow?: GetComponentProps<RecordType>;
+  itemHeaderRender?: (
+    item: RecordType,
+    index: number,
+    defaultDom: JSX.Element | null,
+  ) => React.ReactNode;
 };
 
 function ProListItem<RecordType>(props: ItemProps<RecordType>) {
@@ -124,6 +129,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     record,
     extra,
     onRow,
+    itemHeaderRender,
     ...rest
   } = props;
 
@@ -156,7 +162,8 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   });
 
   const needExpanded = expanded || Object.values(expandableConfig || {}).length === 0;
-  const expandedRowDom = expandedRowRender && expandedRowRender(item, index, indentSize, expanded);
+  const expandedRowDom =
+    expandedRowRender && expandedRowRender(record, index, indentSize, expanded);
 
   const actionsDom = useMemo(() => {
     if (actions) {
@@ -168,6 +175,25 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     }
     return [];
   }, [actions]);
+
+  const titleDom =
+    title || avatar || subTitle || description ? (
+      <List.Item.Meta
+        avatar={avatar}
+        title={
+          title || subTitle ? (
+            <div className={`${className}-header-title`}>
+              {title && <div className={`${className}-title`}>{title}</div>}
+              {subTitle && <div className={`${className}-subTitle`}>{subTitle}</div>}
+            </div>
+          ) : null
+        }
+        description={
+          description &&
+          needExpanded && <div className={`${className}-description`}>{description}</div>
+        }
+      />
+    ) : null;
 
   const defaultDom = !cardProps ? (
     <List.Item
@@ -196,30 +222,14 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
                 record,
               })}
           </div>
-          {title || avatar || subTitle || description ? (
-            <List.Item.Meta
-              avatar={avatar}
-              title={
-                title || subTitle ? (
-                  <div className={`${className}-header-title`}>
-                    {title && <div className={`${className}-title`}>{title}</div>}
-                    {subTitle && <div className={`${className}-subTitle`}>{subTitle}</div>}
-                  </div>
-                ) : null
-              }
-              description={
-                description &&
-                needExpanded && <div className={`${className}-description`}>{description}</div>
-              }
-            />
-          ) : null}
+          {itemHeaderRender?.(record, index, titleDom) ?? titleDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={`${className}-content`}>
             {content}
             {expandedRowRender && rowSupportExpand && (
               <div
-                className={expandedRowClassName && expandedRowClassName(item, index, indentSize)}
+                className={expandedRowClassName && expandedRowClassName(record, index, indentSize)}
               >
                 {expandedRowDom}
               </div>
