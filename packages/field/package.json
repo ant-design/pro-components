@@ -37,7 +37,7 @@
     "omit.js": "^2.0.2",
     "rc-util": "^5.4.0",
     "react-color": "2.19.3",
-    "swr": "^0.3.6"
+    "swr": "^0.5.6"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
