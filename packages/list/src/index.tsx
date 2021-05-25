@@ -72,6 +72,7 @@ function ProList<
     renderItem,
     grid,
     onRow,
+    locale,
     ...rest
   } = props;
 
@@ -156,6 +157,7 @@ function ProList<
               itemLayout={itemLayout}
               loading={loading}
               onRow={onRow}
+              locale={locale}
             />
           </Form>
         );
