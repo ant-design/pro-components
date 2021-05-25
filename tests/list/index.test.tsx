@@ -486,4 +486,32 @@ describe('List', () => {
     expect(onClick).toBeCalled();
     expect(onMouseEnter).toBeCalledWith('我是名称');
   });
+
+  it('🚏 ProList support itemHeaderRender', async () => {
+    const html = mount(
+      <ProList<DataSourceType>
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+        ]}
+        itemHeaderRender={(item) => <>qixian:{item.name}</>}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+          description: {
+            dataIndex: ['desc', 'text'],
+          },
+        }}
+      />,
+    );
+
+    waitForComponentToPaint(html);
+
+    expect(html.find('.ant-pro-list-row-header').at(0).text()).toBe('qixian:我是名称');
+  });
 });
