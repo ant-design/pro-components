@@ -42,6 +42,7 @@ const ProFormField: React.FC<
   initialValue,
   onChange,
   valueEnum,
+  name,
   ...restProps
 }) => {
   // 防止 formItem 的值被吃掉
@@ -58,7 +59,6 @@ const ProFormField: React.FC<
     }
     return children as JSX.Element;
   }
-
   return (
     <ProField
       text={fieldProps?.value as string}

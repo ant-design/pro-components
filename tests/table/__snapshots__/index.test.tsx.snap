@@ -183,7 +183,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                 <div
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   hidden=""
-                  name="sex"
                   style="width: 100%;"
                   text=""
                 >
@@ -274,7 +273,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                 <div
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   hidden=""
-                  name="status"
                   style="width: 100%;"
                   text=""
                 >
@@ -7514,7 +7512,6 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                 >
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    name="status"
                     style="width: 100%;"
                     text=""
                   >
@@ -7597,7 +7594,6 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                 >
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
-                    name="status"
                     style="width: 100%;"
                     text=""
                   >

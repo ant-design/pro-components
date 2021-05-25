@@ -15840,7 +15840,6 @@ Array [
           >
             <div
               class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
-              name="state"
               style="min-width: 100px;"
               text=""
             >
@@ -16073,7 +16072,6 @@ Array [
                 >
                   <div
                     class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    name="groupState"
                     style="min-width: 100px;"
                     text=""
                   >
@@ -16276,7 +16274,6 @@ Array [
                                 >
                                   <div
                                     class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                    name="state"
                                     style="min-width: 100px;"
                                     text="all"
                                   >
@@ -16551,7 +16548,6 @@ Array [
               >
                 <div
                   class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  name="groupState"
                   style="min-width: 100px;"
                   text=""
                 >
@@ -16932,7 +16928,6 @@ Array [
                 >
                   <div
                     class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    name="text"
                     style="min-width: 100px;"
                     text="123456"
                   >
@@ -26865,7 +26860,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                           >
                                             <div
                                               class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                              name="624748504,state"
                                               style="min-width: 100px;"
                                               text="open"
                                             >
@@ -27105,7 +27099,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                           >
                                             <div
                                               class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                              name="624691229,state"
                                               style="min-width: 100px;"
                                               text="closed"
                                             >
