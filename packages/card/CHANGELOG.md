@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.12.1...@ant-design/pro-card@1.12.2) (2021-05-24)
+
+### Bug Fixes
+
+- **card:** use antd less var for title ([#2817](https://github.com/ant-design/pro-components/issues/2817)) ([b2169f3](https://github.com/ant-design/pro-components/commit/b2169f34aa2c42ab18c4e4e5fde1c281dc1fde32))
+
 ## [1.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.12.0...@ant-design/pro-card@1.12.1) (2021-05-21)
 
 **Note:** Version bump only for package @ant-design/pro-card

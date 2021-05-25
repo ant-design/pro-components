@@ -9,18 +9,10 @@
   position: relative;
   background-color: @layout-sider-background;
   border-right: 0;
-  transition: background-color 0.3s, min-width 0.3s,
-    max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   // 这里关掉了动画，不然使用无法兼容
   .@{ant-prefix}-menu {
     background: transparent;
-    &-item {
-      transition: none;
-    }
-    &-submenu-title {
-      transition: none;
-    }
   }
 
   &.@{ant-prefix}-layout-sider-light {
@@ -80,10 +72,6 @@
     z-index: 10;
     min-height: 100%;
     box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
-
-    span.@{ant-prefix}-pro-menu-item-title {
-      transition: none;
-    }
   }
 
   .@{ant-prefix}-layout-sider-children {

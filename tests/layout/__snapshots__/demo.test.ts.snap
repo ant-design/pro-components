@@ -1474,14 +1474,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -1495,15 +1499,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/admin-popup"
                   aria-expanded="true"
                   aria-haspopup="true"
-                  aria-owns="/admin$Menu"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/admin"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -1517,13 +1523,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                 </div>
                 <ul
                   class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="/admin$Menu"
-                  role="menu"
+                  data-menu-list="true"
+                  id="rc-menu-uuid-test-/admin-popup"
                 >
                   <li
-                    class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                    class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/admin/process"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -1543,13 +1551,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -1769,14 +1781,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/home"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -1790,15 +1806,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/data_hui-popup"
                   aria-expanded="true"
                   aria-haspopup="true"
-                  aria-owns="/data_hui$Menu"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/data_hui"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -1812,20 +1830,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                 </div>
                 <ul
                   class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="/data_hui$Menu"
-                  role="menu"
+                  data-menu-list="true"
+                  id="rc-menu-uuid-test-/data_hui-popup"
                 >
                   <li
                     class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
-                    role="menuitem"
+                    role="none"
                   >
                     <div
+                      aria-controls="rc-menu-uuid-test-/92d826f9a130fbbb71347a40dada14dd36ba7dea12a60ba715c2b75717f5b3b5-popup"
                       aria-expanded="true"
                       aria-haspopup="true"
-                      aria-owns="/92d826f9a130fbbb71347a40dada14dd36ba7dea12a60ba715c2b75717f5b3b5$Menu"
                       class="ant-menu-submenu-title"
-                      role="button"
-                      style="padding-left: 48px;"
+                      data-menu-id="rc-menu-uuid-test-/92d826f9a130fbbb71347a40dada14dd36ba7dea12a60ba715c2b75717f5b3b5"
+                      role="menuitem"
+                      style="padding-left: 32px;"
+                      tabindex="-1"
                     >
                       <span
                         class="ant-pro-menu-item"
@@ -1839,13 +1859,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     </div>
                     <ul
                       class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/92d826f9a130fbbb71347a40dada14dd36ba7dea12a60ba715c2b75717f5b3b5$Menu"
-                      role="menu"
+                      data-menu-list="true"
+                      id="rc-menu-uuid-test-/92d826f9a130fbbb71347a40dada14dd36ba7dea12a60ba715c2b75717f5b3b5-popup"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/data_hui2"
                         role="menuitem"
-                        style="padding-left: 72px;"
+                        style="padding-left: 48px;"
+                        tabindex="-1"
                       >
                         <span
                           class="ant-pro-menu-item"
@@ -1858,9 +1880,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         </span>
                       </li>
                       <li
-                        class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                        class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/data_hui"
                         role="menuitem"
-                        style="padding-left: 72px;"
+                        style="padding-left: 48px;"
+                        tabindex="-1"
                       >
                         <span
                           class="ant-pro-menu-item"
@@ -1876,15 +1900,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                   </li>
                   <li
                     class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-                    role="menuitem"
+                    role="none"
                   >
                     <div
+                      aria-controls="rc-menu-uuid-test-/de3b3ea22b7dda58cc37be5a07751c94ebc6a2ce87ba542b11cb37ea6d1853d9-popup"
                       aria-expanded="true"
                       aria-haspopup="true"
-                      aria-owns="/de3b3ea22b7dda58cc37be5a07751c94ebc6a2ce87ba542b11cb37ea6d1853d9$Menu"
                       class="ant-menu-submenu-title"
-                      role="button"
-                      style="padding-left: 48px;"
+                      data-menu-id="rc-menu-uuid-test-/de3b3ea22b7dda58cc37be5a07751c94ebc6a2ce87ba542b11cb37ea6d1853d9"
+                      role="menuitem"
+                      style="padding-left: 32px;"
+                      tabindex="-1"
                     >
                       <span
                         class="ant-pro-menu-item"
@@ -1898,13 +1924,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     </div>
                     <ul
                       class="ant-menu ant-menu-sub ant-menu-inline"
-                      id="/de3b3ea22b7dda58cc37be5a07751c94ebc6a2ce87ba542b11cb37ea6d1853d9$Menu"
-                      role="menu"
+                      data-menu-list="true"
+                      id="rc-menu-uuid-test-/de3b3ea22b7dda58cc37be5a07751c94ebc6a2ce87ba542b11cb37ea6d1853d9-popup"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/data_hui3"
                         role="menuitem"
-                        style="padding-left: 72px;"
+                        style="padding-left: 48px;"
+                        tabindex="-1"
                       >
                         <span
                           class="ant-pro-menu-item"
@@ -1918,8 +1946,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk"
                         role="menuitem"
-                        style="padding-left: 72px;"
+                        style="padding-left: 48px;"
+                        tabindex="-1"
                       >
                         <span
                           class="ant-pro-menu-item"
@@ -1937,15 +1967,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/data_ming-popup"
                   aria-expanded="true"
                   aria-haspopup="true"
-                  aria-owns="/data_ming$Menu"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/data_ming"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -1959,13 +1991,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                 </div>
                 <ul
                   class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="/data_ming$Menu"
-                  role="menu"
+                  data-menu-list="true"
+                  id="rc-menu-uuid-test-/data_ming-popup"
                 >
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/other/homeEdit"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -1981,15 +2015,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/other-popup"
                   aria-expanded="true"
                   aria-haspopup="true"
-                  aria-owns="/other$Menu"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/other"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -2003,13 +2039,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                 </div>
                 <ul
                   class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="/other$Menu"
-                  role="menu"
+                  data-menu-list="true"
+                  id="rc-menu-uuid-test-/other-popup"
                 >
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/other/upLoad"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -2023,8 +2061,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/other/upLoadMenu"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -2044,13 +2084,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -2202,14 +2246,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/home"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -2240,8 +2288,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/home/overview"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -2272,8 +2322,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/home/search"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -2308,13 +2360,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -2466,14 +2522,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/home"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -2486,7 +2546,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                 </span>
               </li>
               <li
-                class=" ant-menu-item-group"
+                class="ant-menu-item-group"
               >
                 <div
                   class="ant-menu-item-group-title"
@@ -2502,7 +2562,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                   class="ant-menu-item-group-list"
                 >
                   <li
-                    class=" ant-menu-item-group"
+                    class="ant-menu-item-group"
                   >
                     <div
                       class="ant-menu-item-group-title"
@@ -2519,8 +2579,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/data_hui2"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
+                        tabindex="-1"
                       >
                         <span
                           class="ant-pro-menu-item"
@@ -2533,9 +2595,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                         </span>
                       </li>
                       <li
-                        class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                        class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/data_hui"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
+                        tabindex="-1"
                       >
                         <span
                           class="ant-pro-menu-item"
@@ -2550,7 +2614,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     </ul>
                   </li>
                   <li
-                    class=" ant-menu-item-group"
+                    class="ant-menu-item-group"
                   >
                     <div
                       class="ant-menu-item-group-title"
@@ -2567,8 +2631,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/data_hui3"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
+                        tabindex="-1"
                       >
                         <span
                           class="ant-pro-menu-item"
@@ -2582,8 +2648,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                       </li>
                       <li
                         class="ant-menu-item ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
+                        tabindex="-1"
                       >
                         <span
                           class="ant-pro-menu-item"
@@ -2600,7 +2668,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                 </ul>
               </li>
               <li
-                class=" ant-menu-item-group"
+                class="ant-menu-item-group"
               >
                 <div
                   class="ant-menu-item-group-title"
@@ -2617,8 +2685,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                 >
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/other/homeEdit"
                     role="menuitem"
-                    style="padding-left: 24px;"
+                    style="padding-left: 16px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -2633,7 +2703,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                 </ul>
               </li>
               <li
-                class=" ant-menu-item-group"
+                class="ant-menu-item-group"
               >
                 <div
                   class="ant-menu-item-group-title"
@@ -2650,8 +2720,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                 >
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/other/upLoad"
                     role="menuitem"
-                    style="padding-left: 24px;"
+                    style="padding-left: 16px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -2665,8 +2737,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/other/upLoadMenu"
                     role="menuitem"
-                    style="padding-left: 24px;"
+                    style="padding-left: 16px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -2686,13 +2760,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -2844,21 +2922,25 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/config-popup"
                   aria-expanded="true"
                   aria-haspopup="true"
-                  aria-owns="/config$Menu"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/config"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -2872,13 +2954,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                 </div>
                 <ul
                   class="ant-menu ant-menu-sub ant-menu-inline"
-                  id="/config$Menu"
-                  role="menu"
+                  data-menu-list="true"
+                  id="rc-menu-uuid-test-/config-popup"
                 >
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/config/product"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -2892,8 +2976,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/config/productManage"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -2906,9 +2992,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     </span>
                   </li>
                   <li
-                    class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                    class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/config/template"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -2922,8 +3010,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/config/configItem"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -2937,8 +3027,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   </li>
                   <li
                     class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/config/meta"
                     role="menuitem"
-                    style="padding-left: 48px;"
+                    style="padding-left: 32px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -2954,14 +3046,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/asset-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/asset"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -2973,18 +3068,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/bill-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/bill"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -2996,18 +3093,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/cif-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/cif"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -3019,18 +3118,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/tools-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/tools"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -3042,7 +3143,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
             </ul>
           </div>
@@ -3050,13 +3150,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -3241,13 +3345,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-pro-sider-menu ant-menu-inline-collapsed"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/home"
                 role="menuitem"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -3278,7 +3386,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/home/overview"
                 role="menuitem"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -3309,7 +3419,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/home/search"
                 role="menuitem"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -3344,8 +3456,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-pro-sider-link-menu ant-menu-inline-collapsed"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             />
           </div>
         </div>
@@ -3375,14 +3489,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                     style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                   >
                     <ul
-                      class="ant-menu ant-menu-light ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                      data-menu-list="true"
                       role="menu"
                       style="width: 100%;"
+                      tabindex="0"
                     >
                       <li
-                        class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                        class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/home"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
+                        tabindex="-1"
                       >
                         <span
                           class="ant-pro-menu-item"
@@ -3396,14 +3514,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       </li>
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline"
-                        role="menuitem"
+                        role="none"
                       >
                         <div
+                          aria-controls="rc-menu-uuid-test-/data_hui-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          role="button"
-                          style="padding-left: 24px;"
+                          data-menu-id="rc-menu-uuid-test-/data_hui"
+                          role="menuitem"
+                          style="padding-left: 16px;"
+                          tabindex="-1"
                         >
                           <span
                             class="ant-pro-menu-item"
@@ -3415,18 +3536,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                             class="ant-menu-submenu-arrow"
                           />
                         </div>
-                        <div />
                       </li>
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline"
-                        role="menuitem"
+                        role="none"
                       >
                         <div
+                          aria-controls="rc-menu-uuid-test-/data_ming-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          role="button"
-                          style="padding-left: 24px;"
+                          data-menu-id="rc-menu-uuid-test-/data_ming"
+                          role="menuitem"
+                          style="padding-left: 16px;"
+                          tabindex="-1"
                         >
                           <span
                             class="ant-pro-menu-item"
@@ -3438,18 +3561,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                             class="ant-menu-submenu-arrow"
                           />
                         </div>
-                        <div />
                       </li>
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline"
-                        role="menuitem"
+                        role="none"
                       >
                         <div
+                          aria-controls="rc-menu-uuid-test-/other-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          role="button"
-                          style="padding-left: 24px;"
+                          data-menu-id="rc-menu-uuid-test-/other"
+                          role="menuitem"
+                          style="padding-left: 16px;"
+                          tabindex="-1"
                         >
                           <span
                             class="ant-pro-menu-item"
@@ -3461,7 +3586,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                             class="ant-menu-submenu-arrow"
                           />
                         </div>
-                        <div />
                       </li>
                     </ul>
                   </div>
@@ -3469,13 +3593,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                     class="ant-pro-sider-links"
                   >
                     <ul
-                      class="ant-menu ant-menu-light ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-link-menu"
+                      data-menu-list="true"
                       role="menu"
+                      tabindex="0"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                        data-menu-id="rc-menu-uuid-test-collapsed"
                         role="menuitem"
                         style="padding-left: 16px;"
+                        tabindex="-1"
                       >
                         <span
                           aria-label="menu-fold"
@@ -3704,31 +3832,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu ant-menu-dark top-nav-menu ant-menu-root ant-menu-horizontal"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark top-nav-menu"
+                  data-menu-list="true"
                   role="menu"
+                  tabindex="0"
                 >
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/home"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
+                    style="opacity: 1; order: 0;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -3741,33 +3855,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-                    role="menuitem"
-                    style="display: none;"
+                    class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+                    role="none"
+                    style="opacity: 1; order: 1;"
                   >
                     <div
+                      aria-controls="rc-menu-uuid-test-/data_hui-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal"
-                    role="menuitem"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
+                      role="menuitem"
+                      tabindex="-1"
                     >
                       <span
                         class="ant-pro-menu-item"
@@ -3781,33 +3879,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     </div>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-                    role="menuitem"
-                    style="display: none;"
+                    class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+                    role="none"
+                    style="opacity: 1; order: 2;"
                   >
                     <div
+                      aria-controls="rc-menu-uuid-test-/data_ming-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal"
-                    role="menuitem"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
+                      role="menuitem"
+                      tabindex="-1"
                     >
                       <span
                         class="ant-pro-menu-item"
@@ -3821,33 +3903,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     </div>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-                    role="menuitem"
-                    style="display: none;"
+                    class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+                    role="none"
+                    style="opacity: 1; order: 3;"
                   >
                     <div
+                      aria-controls="rc-menu-uuid-test-/other-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal"
-                    role="menuitem"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
+                      role="menuitem"
+                      tabindex="-1"
                     >
                       <span
                         class="ant-pro-menu-item"
@@ -3861,19 +3927,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     </div>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-                    role="menuitem"
-                    style="visibility: hidden; position: absolute; display: none;"
+                    aria-hidden="true"
+                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+                    role="none"
+                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none;"
                   >
                     <div
+                      aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      role="button"
+                      data-menu-id="rc-menu-uuid-test-rc-menu-more"
+                      role="menuitem"
+                      tabindex="-1"
+                      title="..."
                     >
-                      <span>
-                        ···
-                      </span>
+                      ...
                       <i
                         class="ant-menu-submenu-arrow"
                       />
@@ -3905,14 +3974,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                   >
                     <ul
-                      class="ant-menu ant-menu-light ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                      data-menu-list="true"
                       role="menu"
                       style="width: 100%;"
+                      tabindex="0"
                     >
                       <li
-                        class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                        class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/home"
                         role="menuitem"
-                        style="padding-left: 24px;"
+                        style="padding-left: 16px;"
+                        tabindex="-1"
                       >
                         <span
                           class="ant-pro-menu-item"
@@ -3926,14 +3999,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       </li>
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline"
-                        role="menuitem"
+                        role="none"
                       >
                         <div
+                          aria-controls="rc-menu-uuid-test-/data_hui-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          role="button"
-                          style="padding-left: 24px;"
+                          data-menu-id="rc-menu-uuid-test-/data_hui"
+                          role="menuitem"
+                          style="padding-left: 16px;"
+                          tabindex="-1"
                         >
                           <span
                             class="ant-pro-menu-item"
@@ -3945,18 +4021,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                             class="ant-menu-submenu-arrow"
                           />
                         </div>
-                        <div />
                       </li>
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline"
-                        role="menuitem"
+                        role="none"
                       >
                         <div
+                          aria-controls="rc-menu-uuid-test-/data_ming-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          role="button"
-                          style="padding-left: 24px;"
+                          data-menu-id="rc-menu-uuid-test-/data_ming"
+                          role="menuitem"
+                          style="padding-left: 16px;"
+                          tabindex="-1"
                         >
                           <span
                             class="ant-pro-menu-item"
@@ -3968,18 +4046,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                             class="ant-menu-submenu-arrow"
                           />
                         </div>
-                        <div />
                       </li>
                       <li
                         class="ant-menu-submenu ant-menu-submenu-inline"
-                        role="menuitem"
+                        role="none"
                       >
                         <div
+                          aria-controls="rc-menu-uuid-test-/other-popup"
                           aria-expanded="false"
                           aria-haspopup="true"
                           class="ant-menu-submenu-title"
-                          role="button"
-                          style="padding-left: 24px;"
+                          data-menu-id="rc-menu-uuid-test-/other"
+                          role="menuitem"
+                          style="padding-left: 16px;"
+                          tabindex="-1"
                         >
                           <span
                             class="ant-pro-menu-item"
@@ -3991,7 +4071,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                             class="ant-menu-submenu-arrow"
                           />
                         </div>
-                        <div />
                       </li>
                     </ul>
                   </div>
@@ -3999,13 +4078,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     class="ant-pro-sider-links"
                   >
                     <ul
-                      class="ant-menu ant-menu-light ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                      class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-link-menu"
+                      data-menu-list="true"
                       role="menu"
+                      tabindex="0"
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                        data-menu-id="rc-menu-uuid-test-collapsed"
                         role="menuitem"
                         style="padding-left: 16px;"
+                        tabindex="-1"
                       >
                         <span
                           aria-label="menu-fold"
@@ -4197,21 +4280,25 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+            data-menu-list="true"
             role="menu"
             style="width: 100%;"
+            tabindex="0"
           >
             <li
               class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
-              role="menuitem"
+              role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-test-/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f-popup"
                 aria-expanded="true"
                 aria-haspopup="true"
-                aria-owns="/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f$Menu"
                 class="ant-menu-submenu-title"
-                role="button"
-                style="padding-left: 24px;"
+                data-menu-id="rc-menu-uuid-test-/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -4248,20 +4335,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
               </div>
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
-                id="/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f$Menu"
-                role="menu"
+                data-menu-list="true"
+                id="rc-menu-uuid-test-/20de01dc090a7d561798794cf8b98e2dd4eb9b77d36f072c2f1748f24798e07f-popup"
               >
                 <li
                   class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
-                  role="menuitem"
+                  role="none"
                 >
                   <div
+                    aria-controls="rc-menu-uuid-test-/welcome-popup"
                     aria-expanded="true"
                     aria-haspopup="true"
-                    aria-owns="/welcome$Menu"
                     class="ant-menu-submenu-title"
-                    role="button"
-                    style="padding-left: 48px;"
+                    data-menu-id="rc-menu-uuid-test-/welcome"
+                    role="menuitem"
+                    style="padding-left: 32px;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -4279,13 +4368,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                   </div>
                   <ul
                     class="ant-menu ant-menu-sub ant-menu-inline"
-                    id="/welcome$Menu"
-                    role="menu"
+                    data-menu-list="true"
+                    id="rc-menu-uuid-test-/welcome-popup"
                   >
                     <li
-                      class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                      class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                      data-menu-id="rc-menu-uuid-test-/welcome/welcome"
                       role="menuitem"
-                      style="padding-left: 72px;"
+                      style="padding-left: 48px;"
+                      tabindex="-1"
                     >
                       <span
                         class="ant-pro-menu-item"
@@ -4303,8 +4394,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-/demo"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 class="ant-pro-menu-item"
@@ -4341,13 +4434,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
@@ -4668,13 +4765,17 @@ Array [
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-pro-sider-menu ant-menu-inline-collapsed"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -4707,13 +4808,16 @@ Array [
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-vertical"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/admin-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
+                  data-menu-id="rc-menu-uuid-test-/admin"
+                  role="menuitem"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -4751,13 +4855,16 @@ Array [
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-vertical"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/list-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
+                  data-menu-id="rc-menu-uuid-test-/list"
+                  role="menuitem"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -4795,7 +4902,9 @@ Array [
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item ant-pro-menu-item-link"
@@ -4833,12 +4942,16 @@ Array [
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-pro-sider-link-menu ant-menu-inline-collapsed"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-unfold"
@@ -5077,14 +5190,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <a>
                   <span
@@ -5119,14 +5236,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/admin-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/admin"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -5161,18 +5281,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/list-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/list"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -5207,12 +5329,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <a>
                   <span
@@ -5252,13 +5375,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -6170,14 +6297,18 @@ Array [
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="qixian-menu qixian-menu-dark qixian-pro-sider-menu qixian-menu-root qixian-menu-inline"
+              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-dark qixian-pro-sider-menu"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
-                class="qixian-menu-item qixian-menu-item-only-child qixian-menu-item-selected"
+                class="qixian-menu-item qixian-menu-item-selected qixian-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <a>
                   <span
@@ -6212,14 +6343,17 @@ Array [
               </li>
               <li
                 class="qixian-menu-submenu qixian-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/admin-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="qixian-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/admin"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="qixian-pro-menu-item"
@@ -6254,18 +6388,20 @@ Array [
                     class="qixian-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="qixian-menu-submenu qixian-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/list-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="qixian-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/list"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="qixian-pro-menu-item"
@@ -6300,12 +6436,13 @@ Array [
                     class="qixian-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="qixian-menu-item qixian-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <a>
                   <span
@@ -6345,13 +6482,17 @@ Array [
             class="qixian-pro-sider-links"
           >
             <ul
-              class="qixian-menu qixian-menu-dark qixian-pro-sider-link-menu qixian-menu-root qixian-menu-inline"
+              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-dark qixian-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="qixian-menu-item qixian-menu-item-only-child qixian-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -7977,14 +8118,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-light ant-pro-sider-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+            data-menu-list="true"
             role="menu"
             style="width: 100%;"
+            tabindex="0"
           >
             <li
-              class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+              class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-/welcome"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
+              tabindex="-1"
             >
               <a>
                 <span
@@ -8019,14 +8164,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             </li>
             <li
               class="ant-menu-submenu ant-menu-submenu-inline"
-              role="menuitem"
+              role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-test-/admin-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                role="button"
-                style="padding-left: 24px;"
+                data-menu-id="rc-menu-uuid-test-/admin"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -8061,18 +8209,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                   class="ant-menu-submenu-arrow"
                 />
               </div>
-              <div />
             </li>
             <li
               class="ant-menu-submenu ant-menu-submenu-inline"
-              role="menuitem"
+              role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-test-/list-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                role="button"
-                style="padding-left: 24px;"
+                data-menu-id="rc-menu-uuid-test-/list"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -8107,12 +8257,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                   class="ant-menu-submenu-arrow"
                 />
               </div>
-              <div />
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-https://ant.design"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
+              tabindex="-1"
             >
               <a>
                 <span
@@ -8152,8 +8303,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-light ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           />
         </div>
       </div>
@@ -8358,14 +8511,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <div>
                   pre 
@@ -8401,14 +8558,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/admin-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/admin"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <div>
                     pre 
@@ -8446,18 +8606,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/list-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/list"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <div>
                     pre 
@@ -8495,12 +8657,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <div>
                   pre 
@@ -8541,13 +8704,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -8722,13 +8889,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
@@ -8880,13 +9051,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
+            class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-pro-sider-menu ant-menu-inline-collapsed"
+            data-menu-list="true"
             role="menu"
             style="width: 100%;"
+            tabindex="0"
           >
             <li
-              class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+              class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-/welcome"
               role="menuitem"
+              tabindex="-1"
             >
               <span
                 class="ant-pro-menu-item"
@@ -8919,13 +9094,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             </li>
             <li
               class="ant-menu-submenu ant-menu-submenu-vertical"
-              role="menuitem"
+              role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-test-/admin-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                role="button"
+                data-menu-id="rc-menu-uuid-test-/admin"
+                role="menuitem"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -8963,13 +9141,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             </li>
             <li
               class="ant-menu-submenu ant-menu-submenu-vertical"
-              role="menuitem"
+              role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-test-/list-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                role="button"
+                data-menu-id="rc-menu-uuid-test-/list"
+                role="menuitem"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -9007,7 +9188,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-https://ant.design"
               role="menuitem"
+              tabindex="-1"
             >
               <span
                 class="ant-pro-menu-item ant-pro-menu-item-link"
@@ -9045,12 +9228,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
+            class="ant-menu ant-menu-root ant-menu-vertical ant-menu-dark ant-pro-sider-link-menu ant-menu-inline-collapsed"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-unfold"
@@ -9250,14 +9437,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -9290,14 +9481,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/admin-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/admin"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -9332,18 +9526,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/list-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/list"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -9378,12 +9574,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item ant-pro-menu-item-link"
@@ -9421,13 +9618,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -9755,14 +9956,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -9795,14 +10000,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/admin-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/admin"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -9837,18 +10045,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/list-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/list"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -9883,12 +10093,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item ant-pro-menu-item-link"
@@ -9926,13 +10137,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -10135,14 +10350,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-light ant-pro-sider-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+            data-menu-list="true"
             role="menu"
             style="width: 100%;"
+            tabindex="0"
           >
             <li
-              class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+              class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-/admin/sub-page1"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
+              tabindex="-1"
             >
               <a>
                 <span
@@ -10177,8 +10396,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-/admin/sub-page2"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
+              tabindex="-1"
             >
               <a>
                 <span
@@ -10213,8 +10434,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-/admin/sub-page3"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
+              tabindex="-1"
             >
               <a>
                 <span
@@ -10253,13 +10476,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-light ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
@@ -10671,14 +10898,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-light ant-pro-sider-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+            data-menu-list="true"
             role="menu"
             style="width: 100%;"
+            tabindex="0"
           >
             <li
-              class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+              class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-/welcome"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
+              tabindex="-1"
             >
               <a>
                 <span
@@ -10713,8 +10944,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-/admin/sub-page2"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
+              tabindex="-1"
             >
               <a>
                 <span
@@ -10749,8 +10982,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-test-/admin/sub-page3"
               role="menuitem"
-              style="padding-left: 24px;"
+              style="padding-left: 16px;"
+              tabindex="-1"
             >
               <a>
                 <span
@@ -10789,13 +11024,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-light ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
@@ -11392,14 +11631,18 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
               role="menu"
               style="width: 100%;"
+              tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
+                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/home"
                 role="menuitem"
-                style="padding-left: 24px;"
+                style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -11413,14 +11656,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/data_hui-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/data_hui"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -11432,18 +11678,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/data_ming-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/data_ming"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -11455,18 +11703,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
               <li
                 class="ant-menu-submenu ant-menu-submenu-inline"
-                role="menuitem"
+                role="none"
               >
                 <div
+                  aria-controls="rc-menu-uuid-test-/other-popup"
                   aria-expanded="false"
                   aria-haspopup="true"
                   class="ant-menu-submenu-title"
-                  role="button"
-                  style="padding-left: 24px;"
+                  data-menu-id="rc-menu-uuid-test-/other"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
                 >
                   <span
                     class="ant-pro-menu-item"
@@ -11478,7 +11728,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                     class="ant-menu-submenu-arrow"
                   />
                 </div>
-                <div />
               </li>
             </ul>
           </div>
@@ -11486,13 +11735,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -11695,31 +11948,17 @@ Array [
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu ant-menu-dark top-nav-menu ant-menu-root ant-menu-horizontal"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark top-nav-menu"
+                  data-menu-list="true"
                   role="menu"
+                  tabindex="0"
                 >
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
+                    style="opacity: 1; order: 0;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -11751,27 +11990,10 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
+                    style="opacity: 1; order: 1;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -11803,27 +12025,10 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
+                    style="opacity: 1; order: 2;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -11855,27 +12060,10 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
+                    style="opacity: 1; order: 3;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item ant-pro-menu-item-link"
@@ -11908,19 +12096,22 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-                    role="menuitem"
-                    style="visibility: hidden; position: absolute; display: none;"
+                    aria-hidden="true"
+                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+                    role="none"
+                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none;"
                   >
                     <div
+                      aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      role="button"
+                      data-menu-id="rc-menu-uuid-test-rc-menu-more"
+                      role="menuitem"
+                      tabindex="-1"
+                      title="..."
                     >
-                      <span>
-                        ···
-                      </span>
+                      ...
                       <i
                         class="ant-menu-submenu-arrow"
                       />
@@ -12004,31 +12195,17 @@ Array [
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu ant-menu-light top-nav-menu ant-menu-root ant-menu-horizontal"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light top-nav-menu"
+                  data-menu-list="true"
                   role="menu"
+                  tabindex="0"
                 >
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
-                    role="menuitem"
+                    style="opacity: 1; order: 0;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -12060,27 +12237,10 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
+                    style="opacity: 1; order: 1;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -12112,27 +12272,10 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
+                    style="opacity: 1; order: 2;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -12164,27 +12307,10 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
+                    style="opacity: 1; order: 3;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item ant-pro-menu-item-link"
@@ -12217,19 +12343,22 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-                    role="menuitem"
-                    style="visibility: hidden; position: absolute; display: none;"
+                    aria-hidden="true"
+                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+                    role="none"
+                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none;"
                   >
                     <div
+                      aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      role="button"
+                      data-menu-id="rc-menu-uuid-test-rc-menu-more"
+                      role="menuitem"
+                      tabindex="-1"
+                      title="..."
                     >
-                      <span>
-                        ···
-                      </span>
+                      ...
                       <i
                         class="ant-menu-submenu-arrow"
                       />
@@ -12294,31 +12423,17 @@ Array [
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu ant-menu-dark top-nav-menu ant-menu-root ant-menu-horizontal"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-dark top-nav-menu"
+                  data-menu-list="true"
                   role="menu"
+                  tabindex="0"
                 >
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child ant-menu-item-selected"
-                    role="menuitem"
+                    style="opacity: 1; order: 0;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -12350,27 +12465,10 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
+                    style="opacity: 1; order: 1;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -12402,27 +12500,10 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
+                    style="opacity: 1; order: 2;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item"
@@ -12454,27 +12535,10 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
+                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
                     role="menuitem"
-                    style="display: none;"
-                  >
-                    <div
-                      aria-expanded="false"
-                      aria-haspopup="true"
-                      class="ant-menu-submenu-title"
-                      role="button"
-                    >
-                      <span>
-                        ···
-                      </span>
-                      <i
-                        class="ant-menu-submenu-arrow"
-                      />
-                    </div>
-                  </li>
-                  <li
-                    class="ant-menu-item ant-menu-item-only-child"
-                    role="menuitem"
+                    style="opacity: 1; order: 3;"
+                    tabindex="-1"
                   >
                     <span
                       class="ant-pro-menu-item ant-pro-menu-item-link"
@@ -12507,19 +12571,22 @@ Array [
                     </span>
                   </li>
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-horizontal ant-menu-overflowed-submenu"
-                    role="menuitem"
-                    style="visibility: hidden; position: absolute; display: none;"
+                    aria-hidden="true"
+                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+                    role="none"
+                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none;"
                   >
                     <div
+                      aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
                       aria-expanded="false"
                       aria-haspopup="true"
                       class="ant-menu-submenu-title"
-                      role="button"
+                      data-menu-id="rc-menu-uuid-test-rc-menu-more"
+                      role="menuitem"
+                      tabindex="-1"
+                      title="..."
                     >
-                      <span>
-                        ···
-                      </span>
+                      ...
                       <i
                         class="ant-menu-submenu-arrow"
                       />

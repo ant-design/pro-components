@@ -136,7 +136,7 @@ function StepsForm<T = Record<string, any>>(
 
   useImperativeHandle(propsFormMapRef, () => formArrayRef.current);
 
-  useImperativeHandle(formRef, () => currentFormRef, [step]);
+  useImperativeHandle(formRef, () => currentFormRef);
 
   /** ProForm处理了一下 from 的数据，在其中做了一些操作 如果使用 Provider 自带的，自带的数据处理就无法生效了 */
   const onFormFinish = useCallback(
