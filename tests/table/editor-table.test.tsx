@@ -255,6 +255,8 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(fn).toBeCalledWith(555);
+
+    wrapper.unmount();
   });
 
   it('📝 EditableProTable support maxLength', async () => {
@@ -278,6 +280,8 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 100);
 
     expect(wrapper.find('button.ant-btn-dashed').exists()).toBeTruthy();
+
+    wrapper.unmount();
   });
 
   it('📝 EditableProTable support actionRender', async () => {
@@ -351,6 +355,8 @@ describe('EditorProTable', () => {
     });
 
     expect(fn).toBeCalledWith([624748504]);
+
+    wrapper.unmount();
   });
 
   it('📝 support onValuesChange', async () => {
@@ -385,6 +391,8 @@ describe('EditorProTable', () => {
     });
 
     expect(fn).toBeCalledWith(624748504);
+
+    wrapper.unmount();
   });
 
   it('📝 support onValuesChange when is string key', async () => {
@@ -429,6 +437,7 @@ describe('EditorProTable', () => {
     });
 
     expect(fn).toBeCalledWith('02');
+    wrapper.unmount();
   });
 
   it('📝 support newRecordType = dataSource', async () => {
@@ -458,6 +467,7 @@ describe('EditorProTable', () => {
     });
     await waitForComponentToPaint(wrapper, 1000);
     expect(fn).toBeCalledWith(4);
+    wrapper.unmount();
   });
 
   it('📝 support onValuesChange and recordCreatorProps', async () => {
@@ -501,6 +511,7 @@ describe('EditorProTable', () => {
     });
 
     expect(fn).toBeCalledWith(newLineId);
+    wrapper.unmount();
   });
 
   it('📝 renderFormItem run defaultRender', async () => {
@@ -598,6 +609,7 @@ describe('EditorProTable', () => {
     act(() => {
       expect(wrapper.render()).toMatchSnapshot();
     });
+    wrapper.unmount();
   });
 
   it('📝 support editorRowKeys', async () => {
@@ -641,6 +653,7 @@ describe('EditorProTable', () => {
     expect(
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
     ).toBeFalsy();
+    wrapper.unmount();
   });
 
   it('📝 support cancel click render false', async () => {
@@ -667,6 +680,7 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists());
+    wrapper.unmount();
   });
 
   it('📝 type=single, only edit one rows', async () => {
@@ -687,6 +701,7 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(fn).not.toBeCalled();
+    wrapper.unmount();
   });
 
   it('📝 edit tree data table', async () => {
@@ -723,6 +738,7 @@ describe('EditorProTable', () => {
     ).toBeFalsy();
 
     expect(fn).toBeCalled();
+    wrapper.unmount();
   });
 
   it('📝 type=multiple, edit multiple rows', async () => {
@@ -742,6 +758,7 @@ describe('EditorProTable', () => {
     });
     await waitForComponentToPaint(wrapper, 1000);
     expect(fn).toBeCalledWith([624748504, 624691229]);
+    wrapper.unmount();
   });
 
   it('📝 support onSave', async () => {
@@ -760,12 +777,13 @@ describe('EditorProTable', () => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitForComponentToPaint(wrapper, 1000);
 
     expect(fn).toBeCalledWith(624691229);
+    wrapper.unmount();
   });
 
-  it('📝 support onSave when add newLine', async () => {
+  fit('📝 support onSave when add newLine', async () => {
     const onSave = jest.fn();
     const onDataSourceChange = jest.fn();
     const wrapper = mount(
@@ -791,18 +809,20 @@ describe('EditorProTable', () => {
       wrapper.find('button#addEditRecord').simulate('click');
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitForComponentToPaint(wrapper, 1000);
 
     expect(onSave).toBeCalledWith(624691229);
     expect(onDataSourceChange).toBeCalledWith(3);
+
+    wrapper.unmount();
   });
 
-  it('📝 support onSave support false', async () => {
-    const fn = jest.fn();
+  fit('📝 support onSave support false', async () => {
+    const onSaveFn = jest.fn();
     const wrapper = mount(
       <EditorProTableDemo
         onSave={async (key) => {
-          fn(key);
+          onSaveFn(key);
           return false;
         }}
       />,
@@ -822,11 +842,13 @@ describe('EditorProTable', () => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitForComponentToPaint(wrapper, 1000);
 
     expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
-    expect(fn).toBeCalledWith(624691229);
+    expect(onSaveFn).toBeCalledWith(624691229);
+
+    wrapper.unmount();
   });
 
   it('📝 support onCancel', async () => {
@@ -878,6 +900,7 @@ describe('EditorProTable', () => {
     expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     expect(fn).toBeCalledWith(624691229);
+    wrapper.unmount();
   });
 
   it('📝 onDelete auto close loading when error ', async () => {
@@ -912,6 +935,8 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(wrapper.find('LoadingOutlined').exists()).toBeFalsy();
+
+    wrapper.unmount();
   });
 
   it('📝 support onDelete', async () => {

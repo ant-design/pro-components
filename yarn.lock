@@ -19829,7 +19829,7 @@ swr@^0.3.6:
   dependencies:
     dequal "2.0.2"
 
-swr@^0.5.4:
+swr@^0.5.4, swr@^0.5.6:
   version "0.5.6"
   resolved "https://registry.nlark.com/swr/download/swr-0.5.6.tgz#70bfe9bc9d7ac49a064be4a0f4acf57982e55a31"
   integrity sha1-cL/pvJ16xJoGS+Sg9Kz1eYLlWjE=
