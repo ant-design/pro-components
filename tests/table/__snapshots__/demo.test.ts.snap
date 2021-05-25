@@ -155,6 +155,7 @@ Array [
                         />
                         <col />
                         <col />
+                        <col />
                         <col
                           style="width: 200px; min-width: 200px;"
                         />
@@ -177,6 +178,11 @@ Array [
                             class="ant-table-cell"
                           >
                             描述
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            活动时间
                           </th>
                           <th
                             class="ant-table-cell"
@@ -217,6 +223,13 @@ Array [
                             class="ant-table-cell"
                           >
                             这个活动真好玩
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              2020-05-26
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell"
@@ -271,6 +284,13 @@ Array [
                             class="ant-table-cell"
                           >
                             这个活动真好玩
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              2020-05-26
+                            </span>
                           </td>
                           <td
                             class="ant-table-cell"
@@ -952,6 +972,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800000,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -1193,6 +1214,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800001,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -1434,6 +1456,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800002,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -1675,6 +1698,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800003,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -1916,6 +1940,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800004,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -2157,6 +2182,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800005,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -2398,6 +2424,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800006,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -2639,6 +2666,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800007,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -2880,6 +2908,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800008,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -3121,6 +3150,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800009,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -3362,6 +3392,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800010,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -3603,6 +3634,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800011,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -3844,6 +3876,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800012,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -4085,6 +4118,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800013,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -4326,6 +4360,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800014,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -4567,6 +4602,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800015,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -4808,6 +4844,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800016,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -5049,6 +5086,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800017,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -5290,6 +5328,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800018,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -5531,6 +5570,7 @@ Array [
                                   >
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                      name="1479772800019,state"
                                       style="min-width: 100px;"
                                       text="open"
                                     >
@@ -42644,6 +42684,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                     class="ant-table-cell"
                                   >
                                     <pre
+                                      class=""
                                       style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                                     >
                                       <code>
@@ -42685,6 +42726,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                     class="ant-table-cell"
                                   >
                                     <pre
+                                      class=""
                                       style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                                     >
                                       <code>
@@ -42726,6 +42768,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                     class="ant-table-cell"
                                   >
                                     <pre
+                                      class=""
                                       style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                                     >
                                       <code>
@@ -44425,6 +44468,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                           class="ant-table-cell"
                         >
                           <pre
+                            class=""
                             style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                           >
                             <code>
@@ -44552,6 +44596,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                           class="ant-table-cell"
                         >
                           <pre
+                            class=""
                             style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                           >
                             <code>

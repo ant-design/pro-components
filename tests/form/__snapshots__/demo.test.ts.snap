@@ -26865,6 +26865,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                           >
                                             <div
                                               class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                              name="624748504,state"
                                               style="min-width: 100px;"
                                               text="open"
                                             >
@@ -27104,6 +27105,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                           >
                                             <div
                                               class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                                              name="624691229,state"
                                               style="min-width: 100px;"
                                               text="closed"
                                             >
