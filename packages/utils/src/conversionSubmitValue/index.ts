@@ -87,7 +87,7 @@ const conversionSubmitValue = <T = any>(
     | any
   >,
   omitNil?: boolean,
-  parentKey?: NamePath[],
+  parentKey?: NamePath,
 ): T => {
   const tmpValue = {} as T;
   // 如果 value 是 string | null | Blob类型 其中之一，直接返回
