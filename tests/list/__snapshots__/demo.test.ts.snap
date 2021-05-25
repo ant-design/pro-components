@@ -2760,7 +2760,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                                   >
                                     <div
                                       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                      name="status"
                                       text=""
                                     >
                                       <div

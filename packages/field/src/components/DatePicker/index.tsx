@@ -80,9 +80,7 @@ const FieldDatePicker: ProFieldFC<{
             {...fieldProps}
             value={momentValue}
             onChange={(v) => {
-              if (onChange) {
-                onChange(v);
-              }
+              onChange?.(v);
               setTimeout(() => {
                 setOpen(false);
               }, 0);
@@ -97,9 +95,7 @@ const FieldDatePicker: ProFieldFC<{
             size={size}
             value={valueStr}
             onClear={() => {
-              if (onChange) {
-                onChange(null);
-              }
+              onChange?.(null);
             }}
             allowClear={allowClear}
             bordered={bordered}

@@ -164,15 +164,16 @@ function createField<P extends ProFormItemProps = any>(
             width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
             ...realFieldProps?.style,
           }),
-          className: classnames(realFieldProps?.className, {
-            'pro-field': width && WIDTH_SIZE_ENUM[width],
-            [`pro-field-${width}`]:
-              width &&
-              // 有些 valueType 不需要宽度
-              !ignoreWidthValueType.includes((props as any)?.valueType as 'text') &&
-              !ignoreWidth &&
-              WIDTH_SIZE_ENUM[width],
-          }),
+          className:
+            classnames(realFieldProps?.className, {
+              'pro-field': width && WIDTH_SIZE_ENUM[width],
+              [`pro-field-${width}`]:
+                width &&
+                // 有些 valueType 不需要宽度
+                !ignoreWidthValueType.includes((props as any)?.valueType as 'text') &&
+                !ignoreWidth &&
+                WIDTH_SIZE_ENUM[width],
+            }) || undefined,
         })}
         proFieldProps={omitUndefined({
           mode: readonly ? 'read' : 'edit',
@@ -182,6 +183,7 @@ function createField<P extends ProFormItemProps = any>(
         })}
       />
     );
+
     return (
       <ProFormItem
         // 全局的提供一个 tip 功能，可以减少代码量

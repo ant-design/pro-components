@@ -1,8 +1,8 @@
 import React from 'react';
 import type { FormInstance, FormItemProps } from 'antd';
-import { Form } from 'antd';
-import type { ProFieldEmptyText, ProFieldPropsType } from '@ant-design/pro-field';
-import ProField from '@ant-design/pro-field';
+import type { ProFormFieldProps } from '@ant-design/pro-form';
+import ProForm, { ProFormField } from '@ant-design/pro-form';
+import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
@@ -66,22 +66,26 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
   }
 
   /** 生成公用的 proField dom 配置 */
-  const proFieldProps: ProFieldPropsType = {
+  const proFieldProps: ProFormFieldProps = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
     params: columnProps?.params,
-    proFieldKey: `table-field-${columnProps?.dataIndex?.toString() || columnProps?.key}`,
     text: valueType === 'index' || valueType === 'indexBorder' ? config.index : text,
     mode: config.mode,
-    emptyText: config.columnEmptyText,
     renderFormItem: undefined,
     valueType: valueType as ProFieldValueType,
+    proFieldProps: {
+      emptyText: config.columnEmptyText,
+      proFieldKey: `table-field-${columnProps?.dataIndex?.toString() || columnProps?.key}`,
+    },
   };
 
   /** 只读模式直接返回就好了，不需要处理 formItem */
   if (config.mode !== 'edit') {
     return (
-      <ProField
+      <ProFormField
+        mode="read"
+        ignoreFormItem
         fieldProps={getFieldPropsOrFormItemProps(columnProps?.fieldProps, null, columnProps)}
         {...proFieldProps}
       />
@@ -90,7 +94,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
 
   // 如果是编辑模式，需要用 Form.Item 包一下
   return (
-    <Form.Item
+    <ProForm.Item
       // 一般而言是没有跨行依赖的，所以这里比较行来判断是否应该刷新
       // 对多行编辑有巨大的性能提升
       shouldUpdate={(pre, next) => {
@@ -135,7 +139,9 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
         };
 
         const inputDom = (
-          <ProField
+          <ProFormField
+            name={name}
+            ignoreFormItem
             fieldProps={getFieldPropsOrFormItemProps(
               columnProps?.fieldProps,
               form as FormInstance,
@@ -209,7 +215,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
           </InlineErrorFormItem>
         );
       }}
-    </Form.Item>
+    </ProForm.Item>
   );
 }
 

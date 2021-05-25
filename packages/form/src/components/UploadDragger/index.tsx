@@ -54,9 +54,7 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
         fileList={value}
         {...fieldProps}
         onChange={(info) => {
-          if (onChange) {
-            onChange(info);
-          }
+          onChange?.(info);
           if (fieldProps?.onChange) {
             fieldProps?.onChange(info);
           }

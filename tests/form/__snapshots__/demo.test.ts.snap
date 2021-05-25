@@ -15840,7 +15840,6 @@ Array [
           >
             <div
               class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
-              name="state"
               style="min-width: 100px;"
               text=""
             >
@@ -16073,7 +16072,6 @@ Array [
                 >
                   <div
                     class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    name="groupState"
                     style="min-width: 100px;"
                     text=""
                   >
@@ -16276,7 +16274,6 @@ Array [
                                 >
                                   <div
                                     class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                    name="state"
                                     style="min-width: 100px;"
                                     text="all"
                                   >
@@ -16551,7 +16548,6 @@ Array [
               >
                 <div
                   class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  name="groupState"
                   style="min-width: 100px;"
                   text=""
                 >
@@ -16932,7 +16928,6 @@ Array [
                 >
                   <div
                     class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    name="text"
                     style="min-width: 100px;"
                     text="123456"
                   >

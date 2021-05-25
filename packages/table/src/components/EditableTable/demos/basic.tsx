@@ -43,9 +43,6 @@ export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
   const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
-  const [newRecord, setNewRecord] = useState({
-    id: (Math.random() * 1000000).toFixed(0),
-  });
 
   const columns: ProColumns<DataSourceType>[] = [
     {
@@ -97,6 +94,11 @@ export default () => {
       },
     },
     {
+      title: '活动时间',
+      dataIndex: 'created_at',
+      valueType: 'date',
+    },
+    {
       title: '操作',
       valueType: 'option',
       width: 200,
@@ -131,7 +133,7 @@ export default () => {
           position !== 'hidden'
             ? {
                 position: position as 'top',
-                record: newRecord,
+                record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
               }
             : false
         }
@@ -171,9 +173,6 @@ export default () => {
           editableKeys,
           onSave: async () => {
             await waitTime(2000);
-            setNewRecord({
-              id: (Math.random() * 1000000).toFixed(0),
-            });
           },
           onChange: setEditableRowKeys,
         }}

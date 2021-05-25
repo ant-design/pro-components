@@ -152,9 +152,9 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const submitterProps: SubmitterProps =
     typeof submitter === 'boolean' || !submitter ? {} : submitter;
 
-  const transformKey = (values: any, omit: boolean) =>
+  const transformKey = (values: any, omit: boolean, parentKey?: NamePath) =>
     transformKeySubmitValue(
-      conversionSubmitValue(values, dateFormatter, fieldsValueType.current, omit),
+      conversionSubmitValue(values, dateFormatter, fieldsValueType.current, omit, parentKey),
       transformKeyRef.current,
     );
 
@@ -165,7 +165,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     },
     /** 获取格式化之后的单个数据 */
     getFieldFormatValue: (nameList?: NamePath) => {
-      return transformKey(formRef.current.getFieldValue(nameList!), omitNil);
+      return transformKey(formRef.current.getFieldValue(nameList!), omitNil, nameList);
     },
   };
   // 初始化给一个默认的 form

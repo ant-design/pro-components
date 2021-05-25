@@ -100,9 +100,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
         size={size}
         disabled={disabled}
         onChange={(v, option) => {
-          if (onChange) {
-            onChange(v, option);
-          }
+          onChange?.(v, option);
           if (mode !== 'multiple') {
             setTimeout(() => {
               setOpen(false);

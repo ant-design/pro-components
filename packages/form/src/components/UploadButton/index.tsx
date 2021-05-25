@@ -65,9 +65,7 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
         if (!info?.file?.status) {
           return;
         }
-        if (onChange) {
-          onChange(info);
-        }
+        onChange?.(info);
         if (fieldProps?.onChange) {
           fieldProps?.onChange(info);
         }

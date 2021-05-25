@@ -8,6 +8,8 @@ import Field from '@ant-design/pro-field';
 import Demo from './fixtures/demo';
 import { waitForComponentToPaint, waitTime } from '../util';
 
+const domRef = React.createRef();
+
 describe('Field', () => {
   it('🐴 base use', async () => {
     const html = render(<Field text="100" valueType="money" mode="edit" />);
@@ -89,6 +91,7 @@ describe('Field', () => {
           text="default"
           valueType={valueType as 'radio'}
           mode="read"
+          ref={domRef}
           render={(text, _, dom) => <>pre{dom}</>}
           valueEnum={{
             default: { text: '关闭', status: 'Default' },
@@ -337,6 +340,7 @@ describe('Field', () => {
     it(`🐴 valueType support render ${valueType}`, async () => {
       const html = render(
         <Field
+          ref={domRef}
           text="1994-07-29 12:00:00"
           mode="read"
           valueType={valueType as 'text'}

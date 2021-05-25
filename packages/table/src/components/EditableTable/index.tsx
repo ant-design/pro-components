@@ -1,12 +1,13 @@
-﻿import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
+﻿import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import type { ParamsType } from '@ant-design/pro-provider';
 import type { ButtonProps } from 'antd';
-import { Button } from 'antd';
+import { Button, Form } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
 import { runFunction } from '@ant-design/pro-utils';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
+import { GetRowKey } from 'antd/lib/table/interface';
 
 export type RecordCreatorProps<T> = {
   record: T | ((index: number) => T);
@@ -66,9 +67,9 @@ function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.El
 function EditableTable<T extends Record<string, any>, U extends ParamsType = ParamsType>(
   props: EditableProTableProps<T, U>,
 ) {
-  const { onTableChange, maxLength, recordCreatorProps, ...rest } = props;
+  const { onTableChange, maxLength, recordCreatorProps, rowKey, ...rest } = props;
   const actionRef = useRef<ActionType>();
-
+  const [form] = Form.useForm();
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current);
 
@@ -76,6 +77,25 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
     value: props.value,
     onChange: props.onChange,
   });
+
+  const getRowKey = React.useMemo<GetRowKey<T>>((): GetRowKey<T> => {
+    if (typeof rowKey === 'function' && rowKey) {
+      return rowKey;
+    }
+    return (record: T, index?: number) => (record as any)[rowKey as string] || index;
+  }, [rowKey]);
+
+  useEffect(() => {
+    // if (!props?.onValuesChange && !props.editable?.onValuesChange) {
+    //   return;
+    // }
+    value.forEach((current, index) => {
+      form.setFieldsValue({
+        [getRowKey(current, index)]: current,
+      });
+    }, {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
 
   const { record, position, creatorButtonText, newRecordType, ...restButtonProps } =
     recordCreatorProps || {};
@@ -106,6 +126,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
         </RecordCreator>
       )
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [recordCreatorProps, maxLength, value.length]);
 
   const buttonRenderProps = useMemo(() => {
@@ -162,6 +183,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
         search={false}
         options={false}
         pagination={false}
+        rowKey={rowKey}
         {...rest}
         {...buttonRenderProps}
         tableLayout="fixed"
@@ -169,6 +191,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
         onChange={onTableChange}
         dataSource={value}
         editable={{
+          form,
           ...props.editable,
           onValuesChange:
             props?.onValuesChange || props.editable?.onValuesChange
