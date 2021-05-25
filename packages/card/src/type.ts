@@ -67,6 +67,8 @@ export type CardProps = {
   tabs?: ProCardTabsProps;
   /** 前缀 */
   prefixCls?: string;
+  /** ProCard 的 ref */
+  ref?: React.Ref<HTMLDivElement | undefined>;
 } & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
 
 export type ProCardTabPaneProps = {
