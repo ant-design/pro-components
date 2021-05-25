@@ -22940,7 +22940,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-test-tmp_key-0"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               tabindex="-1"
             >

@@ -654,7 +654,7 @@ exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-test-tmp_key-0"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"

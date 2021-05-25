@@ -1558,7 +1558,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -2091,7 +2091,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -2367,7 +2367,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -2767,7 +2767,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -3157,7 +3157,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -3600,7 +3600,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                        data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                        data-menu-id="rc-menu-uuid-test-collapsed"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -4085,7 +4085,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     >
                       <li
                         class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                        data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                        data-menu-id="rc-menu-uuid-test-collapsed"
                         role="menuitem"
                         style="padding-left: 16px;"
                         tabindex="-1"
@@ -4441,7 +4441,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-test-tmp_key-0"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -4949,7 +4949,7 @@ Array [
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 tabindex="-1"
               >
@@ -5382,7 +5382,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -6489,7 +6489,7 @@ Array [
             >
               <li
                 class="qixian-menu-item qixian-menu-item-only-child qixian-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -8711,7 +8711,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -8896,7 +8896,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-test-tmp_key-0"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -9235,7 +9235,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-test-tmp_key-0"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               tabindex="-1"
             >
@@ -9625,7 +9625,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -10144,7 +10144,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -10483,7 +10483,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-test-tmp_key-0"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -11031,7 +11031,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-test-tmp_key-0"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -11742,7 +11742,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-                data-menu-id="rc-menu-uuid-test-tmp_key-0"
+                data-menu-id="rc-menu-uuid-test-collapsed"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
