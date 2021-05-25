@@ -361,7 +361,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 class="ant-descriptions-item-content"
               >
                 <pre
-                  class=""
                   style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                 >
                   <code>
@@ -395,7 +394,6 @@ Done in 9.70s.
                 class="ant-descriptions-item-content"
               >
                 <pre
-                  class=""
                   style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
                 >
                   <code>
