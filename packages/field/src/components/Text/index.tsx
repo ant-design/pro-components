@@ -19,6 +19,7 @@ const FieldText: ProFieldFC<{
     () => ({
       ...(inputRef.current || {}),
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [inputRef.current],
   );
 
