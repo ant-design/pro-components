@@ -13,7 +13,7 @@ import StepForm from './StepForm';
 import './index.less';
 import type { ProFormProps } from '../ProForm';
 import type { SubmitterProps } from '../../components/Submitter';
-import { merge } from 'lodash-es';
+import merge from 'lodash.merge';
 
 type StepsFormProps<T = Record<string, any>> = {
   /**
