@@ -63,7 +63,7 @@ export function genProColumnToColumn<T>(props: {
           if (tableProps.editable) {
             return true;
           }
-          if (editableUtils.editableKeys !== editableUtils.preEditableKeys) {
+          if (editableUtils.editableKeys.toString() !== editableUtils.preEditableKeys?.toString()) {
             return true;
           }
           if (columnProps.render || columnProps.renderFormItem || columnProps.valueEnum) {
