@@ -29,7 +29,7 @@ nav:
 | `params` | `Record<string, any>` | 额外传递给 `request` 的参数，组件不做处理,但是变化会引起`request` 重新请求数据 |
 | `hideInForm` | `boolean` | 在 Form 中隐藏 |
 | `hideInTable` | `boolean` | 在 Table 中隐藏 |
-| `hideInSearch` | `boolean` | 在 Table 的查询表格中隐藏 |
+| `hideInSearch` | `boolean` | 在 Table 的查询表单中隐藏 |
 | `hideInDescriptions` | `boolean` | 在 descriptions 中隐藏 |
 
 ## valueType
