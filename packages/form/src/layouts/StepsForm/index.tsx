@@ -13,6 +13,7 @@ import StepForm from './StepForm';
 import './index.less';
 import type { ProFormProps } from '../ProForm';
 import type { SubmitterProps } from '../../components/Submitter';
+import merge from 'lodash.merge';
 
 type StepsFormProps<T = Record<string, any>> = {
   /**
@@ -148,12 +149,7 @@ function StepsForm<T = Record<string, any>>(
           return;
         }
         setLoading(true);
-        const values: any = Array.from(formDataRef.current.values()).reduce((pre, cur) => {
-          return {
-            ...pre,
-            ...cur,
-          };
-        }, {});
+        const values: any = merge({}, ...Array.from(formDataRef.current.values()));
         try {
           const success = await props.onFinish(values);
           if (success) {

@@ -47,6 +47,7 @@
     "@types/enzyme": "^3.10.3",
     "@types/history": "^4.7.7",
     "@types/jest": "^26.0.0",
+    "@types/lodash.merge": "^4.6.6",
     "@types/memoize-one": "^5.1.2",
     "@types/mockjs": "^1.0.3",
     "@types/node": "^14.0.26",
@@ -190,6 +191,7 @@
     }
   ],
   "dependencies": {
-    "@umijs/plugin-esbuild": "^1.1.0"
+    "@umijs/plugin-esbuild": "^1.1.0",
+    "lodash.merge": "^4.6.2"
   }
 }
