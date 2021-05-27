@@ -1,6 +1,9 @@
 const isDropdownValueType = (valueType: string) => {
   let isDropdown = false;
-  if (/^date/.test(valueType) || valueType === 'select') {
+  if (
+    (valueType.indexOf('date') > -1 && valueType.indexOf('Range') < 0) ||
+    valueType === 'select'
+  ) {
     isDropdown = true;
   }
   return isDropdown;
