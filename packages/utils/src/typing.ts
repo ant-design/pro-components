@@ -251,6 +251,8 @@ export type ProSchema<
     },
     config: {
       onSelect?: (value: any) => void;
+      onChange?: <T = any>(value: T) => void;
+      value?: any;
       type: ComponentsType;
       recordKey?: React.Key | React.Key[];
       record?: Entity;
