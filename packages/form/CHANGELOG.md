@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.26.0...@ant-design/pro-form@1.27.0) (2021-05-28)
+
+### Bug Fixes
+
+- **form:** The label is displayed when the createButton above ([#2853](https://github.com/ant-design/pro-components/issues/2853)) ([30a173f](https://github.com/ant-design/pro-components/commit/30a173f595324c05d7280a45435d87ca7dbe12a9))
+
+### Features
+
+- step form value deep merge ([#2836](https://github.com/ant-design/pro-components/issues/2836)) ([e5ab9d4](https://github.com/ant-design/pro-components/commit/e5ab9d4e03a5f61c9f1528a27ccbcded9c0f27ef))
+
 # [1.26.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.25.0...@ant-design/pro-form@1.26.0) (2021-05-25)
 
 ### Bug Fixes
