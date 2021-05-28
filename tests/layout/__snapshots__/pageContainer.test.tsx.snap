@@ -647,13 +647,17 @@ exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"

@@ -33,20 +33,23 @@ exports[`BasicLayout base use 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+            data-menu-list="true"
             role="menu"
             style="width:100%"
+            tabindex="0"
           >
             <li
               class="ant-menu-submenu ant-menu-submenu-inline"
-              role="menuitem"
+              role="none"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                role="button"
+                role="menuitem"
                 style="padding-left:16px"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -58,7 +61,6 @@ exports[`BasicLayout base use 1`] = `
                   class="ant-menu-submenu-arrow"
                 />
               </div>
-              <div />
             </li>
           </ul>
         </div>
@@ -66,13 +68,16 @@ exports[`BasicLayout base use 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
               style="padding-left:16px"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
@@ -189,20 +194,23 @@ exports[`BasicLayout content is text 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+            data-menu-list="true"
             role="menu"
             style="width:100%"
+            tabindex="0"
           >
             <li
               class="ant-menu-submenu ant-menu-submenu-inline"
-              role="menuitem"
+              role="none"
             >
               <div
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                role="button"
+                role="menuitem"
                 style="padding-left:16px"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -214,7 +222,6 @@ exports[`BasicLayout content is text 1`] = `
                   class="ant-menu-submenu-arrow"
                 />
               </div>
-              <div />
             </li>
           </ul>
         </div>
@@ -222,13 +229,16 @@ exports[`BasicLayout content is text 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
               style="padding-left:16px"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"

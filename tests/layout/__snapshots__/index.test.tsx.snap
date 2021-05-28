@@ -62,13 +62,16 @@ Array [
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left:16px"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -234,13 +237,16 @@ Array [
             class="ant-pro-sider-links"
           >
             <ul
-              class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
               role="menu"
+              tabindex="0"
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
                 role="menuitem"
                 style="padding-left:16px"
+                tabindex="-1"
               >
                 <span
                   aria-label="menu-fold"
@@ -344,13 +350,16 @@ exports[`BasicLayout 🥩 base use 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
               style="padding-left:16px"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
@@ -436,13 +445,16 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
               role="menuitem"
               style="padding-left:16px"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
@@ -529,13 +541,17 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-84044-7-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
@@ -621,13 +637,17 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-84044-7-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
@@ -710,20 +730,25 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+            data-menu-list="true"
             role="menu"
             style="width: 100%;"
+            tabindex="0"
           >
             <li
               class="ant-menu-submenu ant-menu-submenu-inline"
-              role="menuitem"
+              role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-84044-33-/admin-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                role="button"
+                data-menu-id="rc-menu-uuid-84044-33-/admin"
+                role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -735,12 +760,13 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                   class="ant-menu-submenu-arrow"
                 />
               </div>
-              <div />
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-84044-33-/list"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 class="ant-pro-menu-item"
@@ -758,13 +784,17 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-84044-32-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
@@ -850,13 +880,17 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-84044-1-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
@@ -964,14 +998,18 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+            data-menu-list="true"
             role="menu"
             style="width: 100%;"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-84044-5-/home"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 class="ant-pro-menu-item"
@@ -985,14 +1023,17 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             </li>
             <li
               class="ant-menu-submenu ant-menu-submenu-inline"
-              role="menuitem"
+              role="none"
             >
               <div
+                aria-controls="rc-menu-uuid-84044-5-/data_hui-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                role="button"
+                data-menu-id="rc-menu-uuid-84044-5-/data_hui"
+                role="menuitem"
                 style="padding-left: 16px;"
+                tabindex="-1"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -1004,12 +1045,13 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
                   class="ant-menu-submenu-arrow"
                 />
               </div>
-              <div />
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-84044-5-/data_ming"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 class="ant-pro-menu-item"
@@ -1023,8 +1065,10 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="rc-menu-uuid-84044-5-/other"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 class="ant-pro-menu-item"
@@ -1042,13 +1086,17 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+            data-menu-list="true"
             role="menu"
+            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+              data-menu-id="rc-menu-uuid-84044-4-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
+              tabindex="-1"
             >
               <span
                 aria-label="menu-fold"
