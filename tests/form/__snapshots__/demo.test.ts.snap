@@ -21070,7 +21070,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
         style="margin-right: 32px;"
       >
         <div
-          class="ant-row ant-form-item"
+          class="ant-row ant-form-item ant-form-item-hidden"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -21130,6 +21130,73 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                     <span
                       aria-label="close-circle"
                       class="anticon anticon-close-circle ant-input-clear-icon"
+                      role="button"
+                      tabindex="-1"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-space-item"
+        style="margin-right: 32px;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+          >
+            <label
+              class=""
+              for="company"
+              title="我方公司名称"
+            >
+              我方公司名称
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <span
+                  class="ant-input-affix-wrapper pro-field pro-field-md"
+                >
+                  <input
+                    class="ant-input"
+                    id="company"
+                    placeholder="请输入名称"
+                    type="text"
+                    value=""
+                  />
+                  <span
+                    class="ant-input-suffix"
+                  >
+                    <span
+                      aria-label="close-circle"
+                      class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
                       role="button"
                       tabindex="-1"
                     >
@@ -21544,7 +21611,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
     </div>
   </div>
   <div
-    class="ant-row ant-form-item"
+    class="ant-row ant-form-item ant-form-item-hidden"
   >
     <div
       class="ant-col ant-form-item-label"
@@ -22869,24 +22936,19 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-menu-inline-collapsed"
-            data-menu-list="true"
+            class="ant-menu ant-menu-light ant-menu-inline-collapsed ant-pro-sider-menu ant-menu-root ant-menu-vertical"
             role="menu"
             style="width: 100%;"
-            tabindex="0"
           >
             <li
               class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-selected"
-              role="none"
+              role="menuitem"
             >
               <div
-                aria-controls="rc-menu-uuid-test-/one-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                data-menu-id="rc-menu-uuid-test-/one"
-                role="menuitem"
-                tabindex="-1"
+                role="button"
               >
                 <span
                   class="ant-pro-menu-item"
@@ -22928,16 +22990,12 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           class="ant-pro-sider-links"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-link-menu ant-menu-inline-collapsed"
-            data-menu-list="true"
+            class="ant-menu ant-menu-light ant-menu-inline-collapsed ant-pro-sider-link-menu ant-menu-root ant-menu-vertical"
             role="menu"
-            tabindex="0"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
-              tabindex="-1"
             >
               <span
                 aria-label="menu-unfold"
