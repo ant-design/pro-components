@@ -191,7 +191,6 @@
     }
   ],
   "dependencies": {
-    "@umijs/plugin-esbuild": "^1.1.0",
-    "lodash.merge": "^4.6.2"
+    "@umijs/plugin-esbuild": "^1.1.0"
   }
 }
