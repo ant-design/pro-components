@@ -618,6 +618,21 @@ describe('ProForm', () => {
     expect(fn).not.toBeCalled();
   });
 
+  it('📦 ProForm.Group support FormItem hidden', async () => {
+    const wrapper = mount(
+      <ProForm>
+        <ProForm.Group title="qixian" collapsible>
+          <ProFormText name="mobile" hidden />
+          <ProFormText name="mobile2" />
+        </ProForm.Group>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('div.ant-form-item').length).toBe(1);
+  });
+
   it('📦 ProFormField support onChange', async () => {
     const fn = jest.fn();
     const wrapper = mount(
