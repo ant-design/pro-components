@@ -61,8 +61,8 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   const titleDom = titleRender ? titleRender(label, props) : label;
 
   const renderChild = React.Children.toArray(children).map((element) => {
-    if (React.isValidElement(element)) {
-      return !element?.props?.hidden && React.cloneElement(element);
+    if (React.isValidElement(element) && element?.props?.hidden) {
+      return null;
     }
     return element;
   });
