@@ -16,6 +16,7 @@ import type { Moment } from 'moment';
 import moment from 'moment';
 import { act } from 'react-dom/test-utils';
 import { waitTime, waitForComponentToPaint } from '../util';
+import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/index';
 
 describe('utils', () => {
   it('📅 useDebounceFn', async () => {
@@ -614,5 +615,13 @@ describe('utils', () => {
     );
     expect(isUrl('procomponents.ant.design/en-US/components/layout')).toBe(false);
     expect(isUrl('https:://procomponents.ant.design/en-US/components/layout')).toBe(false);
+  });
+
+  it('isDropdownValueType', async () => {
+    expect(isDropdownValueType('date')).toBeTruthy();
+    expect(isDropdownValueType('dateRange')).toBeFalsy();
+    expect(isDropdownValueType('dateTimeRange')).toBeFalsy();
+    expect(isDropdownValueType('timeRange')).toBeFalsy();
+    expect(isDropdownValueType('select')).toBeTruthy();
   });
 });
