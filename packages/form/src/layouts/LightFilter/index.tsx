@@ -11,12 +11,14 @@ import omit from 'omit.js';
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import './index.less';
+import type { DropdownFooterProps } from '@ant-design/pro-utils/src/components/DropdownFooter';
 
 export type LightFilterProps<T> = {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
   ignoreRules?: boolean;
+  footer?: DropdownFooterProps | null;
 } & Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T>;
 
@@ -34,6 +36,7 @@ const LightFilterContainer: React.FC<{
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
+  footer?: DropdownFooterProps | null;
 }> = (props) => {
   const {
     items,
@@ -44,6 +47,7 @@ const LightFilterContainer: React.FC<{
     onValuesChange,
     bordered,
     values = {},
+    footer,
   } = props;
   const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
@@ -90,6 +94,28 @@ const LightFilterContainer: React.FC<{
     );
   };
 
+  const renderFooter =
+    footer === null
+      ? null
+      : {
+          onConfirm: () => {
+            onValuesChange({
+              ...moreValues,
+            });
+            setOpen(false);
+          },
+          onClear: () => {
+            const clearValues = {};
+            collapseItems.forEach((child: any) => {
+              const { name } = child.props;
+              clearValues[name] = undefined;
+            });
+
+            onValuesChange(clearValues);
+          },
+          content: footer?.content,
+        };
+
   return (
     <div
       className={classNames(lightFilterClassName, `${lightFilterClassName}-${size}`, {
@@ -120,23 +146,7 @@ const LightFilterContainer: React.FC<{
               onVisibleChange={setOpen}
               visible={open}
               label={collapseLabelRender()}
-              footer={{
-                onConfirm: () => {
-                  onValuesChange({
-                    ...moreValues,
-                  });
-                  setOpen(false);
-                },
-                onClear: () => {
-                  const clearValues = {};
-                  collapseItems.forEach((child: any) => {
-                    const { name } = child.props;
-                    clearValues[name] = undefined;
-                  });
-
-                  onValuesChange(clearValues);
-                },
-              }}
+              footer={renderFooter}
             >
               {collapseItems.map((child: any) => {
                 const { key } = child;
@@ -180,6 +190,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     form: userForm,
     bordered,
     ignoreRules,
+    footer,
     ...reset
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -209,6 +220,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
             collapse={collapse}
             collapseLabel={collapseLabel}
             values={values}
+            footer={footer}
             onValuesChange={(newValues: any) => {
               const newAllValues = {
                 ...values,

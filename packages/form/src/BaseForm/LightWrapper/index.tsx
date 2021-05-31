@@ -10,6 +10,7 @@ import {
 import { ConfigProvider } from 'antd';
 
 import './index.less';
+import type { DropdownFooterProps } from '@ant-design/pro-utils/src/components/DropdownFooter';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -92,10 +93,26 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   }
 
   let allowClear;
+  let footer: DropdownFooterProps | null = {
+    onClear: () => setTempValue(undefined),
+    onConfirm: () => {
+      onChange?.(tempValue);
+      setOpen(false);
+    },
+  };
   if (children && React.isValidElement(children)) {
     allowClear = children.props.fieldProps?.allowClear;
+    if (children.props.footer === null) {
+      footer = null;
+    } else {
+      footer = {
+        ...footer,
+        ...(children.props?.footer || {}),
+      };
+    }
   }
   const labelValue = props[valuePropName];
+
   return (
     <FilterDropdown
       disabled={disabled}
@@ -121,13 +138,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           allowClear={allowClear}
         />
       }
-      footer={{
-        onClear: () => setTempValue(undefined),
-        onConfirm: () => {
-          onChange?.(tempValue);
-          setOpen(false);
-        },
-      }}
+      footer={footer}
     >
       <div className={classNames(`${prefixCls}-container`, className)} style={style}>
         {React.isValidElement(children)

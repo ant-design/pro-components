@@ -1,4 +1,5 @@
 import type { FormItemProps, SpaceProps } from 'antd';
+import type { DropdownFooterProps } from '../../utils/src/components/DropdownFooter';
 import type { ReactNode } from 'react';
 import type React from 'react';
 
@@ -58,4 +59,6 @@ export type ProFormItemProps<T = Record<string, any>> = {
     proFieldKey?: string;
     render?: any;
   };
+  /** QueryFilter 上的footer */
+  footer?: DropdownFooterProps | null;
 } & FormItemProps;

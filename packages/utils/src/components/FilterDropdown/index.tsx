@@ -7,7 +7,7 @@ import './index.less';
 
 export type DropdownProps = {
   label?: React.ReactNode;
-  footer?: DropdownFooterProps;
+  footer?: DropdownFooterProps | null;
   padding?: number;
   disabled?: boolean;
   onVisibleChange?: (visible: boolean) => void;
