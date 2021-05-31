@@ -67,7 +67,6 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | span | 表单项宽度 | `number[0 - 24]` | - |
 | split | 每一行是否有分割线 | `boolean` | - |
 | preserve | 是否能够查询收起的数据，如果设置为 true，收起后的表单数据将会丢失 | `boolean` | true |
-| footer | 底部内容，当不需要默认底部按钮时，可以设为 footer={null} | `{onClear?: () => void, onConfirm: () => void, content?: () => React.ReactNode}` | (确定清除按钮) |
 
 #### 响应式断点规则
 
@@ -96,7 +95,8 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
 LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
-| 参数          | 说明                 | 类型        | 默认值                     |
-| ------------- | -------------------- | ----------- | -------------------------- |
-| collapse      | 是否默认折叠全部字段 | `boolean`   | `false`                    |
-| collapseLabel | 折叠区域的标签       | `ReactNode` | `更多筛选 <DownOutlined/>` |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| collapse | 是否默认折叠全部字段 | `boolean` | `false` |
+| collapseLabel | 折叠区域的标签 | `ReactNode` | `更多筛选 <DownOutlined/>` |
+| footerRender | 底部内容，当不需要默认底部按钮时，可以设为 footer={false} | `(onClear?: () => void, onConfirm: () => void) => ReactNode` \| `false` | - |

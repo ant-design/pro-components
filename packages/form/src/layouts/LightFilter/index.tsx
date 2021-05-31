@@ -47,6 +47,7 @@ const LightFilterContainer: React.FC<{
     onValuesChange,
     bordered,
     values = {},
+    footerRender,
   } = props;
   const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
@@ -123,6 +124,7 @@ const LightFilterContainer: React.FC<{
               onVisibleChange={setOpen}
               visible={open}
               label={collapseLabelRender()}
+              footerRender={footerRender}
               footer={{
                 onConfirm: () => {
                   onValuesChange({
