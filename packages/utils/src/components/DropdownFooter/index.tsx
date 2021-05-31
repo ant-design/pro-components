@@ -1,21 +1,22 @@
 import React, { useContext } from 'react';
 import { Button, ConfigProvider } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
+import type { FooterRender } from '@ant-design/pro-form/src/interface';
 
 import './index.less';
 
-type OnClick = (e: React.MouseEvent) => void;
+type OnClick = (e?: React.MouseEvent) => void;
 
 export type DropdownFooterProps = {
   onClear?: OnClick;
   onConfirm?: OnClick;
   disabled?: boolean;
-  content?: (onConfirm?: OnClick, onClear?: OnClick) => JSX.Element;
+  footerRender?: FooterRender;
 };
 
 const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
   const intl = useIntl();
-  const { onClear, onConfirm, disabled, content } = props;
+  const { onClear, onConfirm, disabled, footerRender } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-dropdown-footer');
   const defaultFooter = [
@@ -48,7 +49,11 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
     </Button>,
   ];
 
-  const renderDom = content?.(onConfirm, onClear) || defaultFooter;
+  if (footerRender === false) {
+    return null;
+  }
+
+  const renderDom = (footerRender && footerRender(onConfirm, onClear)) || defaultFooter;
 
   return (
     <div

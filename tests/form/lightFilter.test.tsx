@@ -175,16 +175,16 @@ describe('LightFilter', () => {
     });
   });
 
-  it(' 🪕 QueryFilter FormItem support footer', async () => {
+  it(' 🪕 QueryFilter FormItem support footerRender', async () => {
     const wrapper = mount(
       <LightFilter
         initialValues={{
           name: 'Jack2',
         }}
         collapse
-        footer={null}
+        footerRender={false}
       >
-        <ProFormText footer={null} name="name" label="名称" />
+        <ProFormText name="name" label="名称" />
       </LightFilter>,
     );
 
@@ -210,7 +210,7 @@ describe('LightFilter', () => {
           name: 'Jack2',
         }}
       >
-        <ProFormText footer={null} name="name1" label="名称" />
+        <ProFormText footerRender={false} name="name1" label="名称" />
       </LightFilter>,
     );
 
@@ -221,36 +221,6 @@ describe('LightFilter', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-core-dropdown-footer').length).toEqual(0);
-
-    act(() => {
-      wrapper.unmount();
-    });
-  });
-
-  it(' 🪕 QueryFilter FormItem support onClear', async () => {
-    const onClear = jest.fn();
-
-    const wrapper = mount(
-      <LightFilter
-        initialValues={{
-          name: 'Jack2',
-        }}
-      >
-        <ProFormText footer={{ onClear }} name="name1" label="名称" />
-      </LightFilter>,
-    );
-
-    act(() => {
-      wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('.ant-pro-core-dropdown-footer .ant-btn-link').at(0).simulate('click'));
-
-    await waitForComponentToPaint(wrapper);
-
-    expect(onClear).toBeCalled();
 
     act(() => {
       wrapper.unmount();

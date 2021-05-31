@@ -10,7 +10,7 @@ import {
 import { ConfigProvider } from 'antd';
 
 import './index.less';
-import type { DropdownFooterProps } from '@ant-design/pro-utils/src/components/DropdownFooter';
+import type { FooterRender } from '../../interface';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -32,6 +32,7 @@ export type LightWrapperProps = {
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
   otherFieldProps?: any;
+  footerRender?: FooterRender;
 };
 
 const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {
@@ -93,23 +94,10 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   }
 
   let allowClear;
-  let footer: DropdownFooterProps | null = {
-    onClear: () => setTempValue(undefined),
-    onConfirm: () => {
-      onChange?.(tempValue);
-      setOpen(false);
-    },
-  };
+  let footerRender;
   if (children && React.isValidElement(children)) {
     allowClear = children.props.fieldProps?.allowClear;
-    if (children.props.footer === null) {
-      footer = null;
-    } else {
-      footer = {
-        ...footer,
-        ...(children.props?.footer || {}),
-      };
-    }
+    footerRender = children.props.footerRender;
   }
   const labelValue = props[valuePropName];
 
@@ -138,7 +126,14 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           allowClear={allowClear}
         />
       }
-      footer={footer}
+      footer={{
+        onClear: () => setTempValue(undefined),
+        onConfirm: () => {
+          onChange?.(tempValue);
+          setOpen(false);
+        },
+      }}
+      footerRender={footerRender}
     >
       <div className={classNames(`${prefixCls}-container`, className)} style={style}>
         {React.isValidElement(children)
