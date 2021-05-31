@@ -191,6 +191,8 @@
     }
   ],
   "dependencies": {
-    "@umijs/plugin-esbuild": "^1.1.0"
+    "@ant-design/icons": "^4.6.2",
+    "@umijs/plugin-esbuild": "^1.1.0",
+    "rc-resize-observer": "^1.0.0"
   }
 }
