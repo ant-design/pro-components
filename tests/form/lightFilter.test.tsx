@@ -227,6 +227,36 @@ describe('LightFilter', () => {
     });
   });
 
+  it(' 🪕 QueryFilter FormItem support onClear', async () => {
+    const onClear = jest.fn();
+
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+      >
+        <ProFormText footer={{ onClear }} name="name1" label="名称" />
+      </LightFilter>,
+    );
+
+    act(() => {
+      wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-core-dropdown-footer .ant-btn-link').at(0).simulate('click'));
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(onClear).toBeCalled();
+
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
   it(' 🪕 select showSearch', async () => {
     const wrapper = mount(
       <LightFilter
