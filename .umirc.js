@@ -24,6 +24,8 @@ const tailPkgList = pkgList
 
 const isProduction = process.env.NODE_ENV === 'production';
 
+const isDeploy = process.env.SITE_DEPLOY === 'TRUE';
+
 export default {
   title: 'ProComponents',
   mode: 'site',
@@ -103,9 +105,7 @@ export default {
       }
     : false,
   hash: true,
-  // ssr: {
-  //   devServerRender: false,
-  // },
+  ssr: isDeploy ? {} : undefined,
   exportStatic: {},
   targets: {
     chrome: 80,

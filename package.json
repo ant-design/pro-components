@@ -10,7 +10,7 @@
     "build-lib": "cross-env BUILD_TYPE=lib father-build && cross-env BUILD_TYPE=es father-build",
     "changelog": "pro-changelog",
     "createRelease": "node ./scripts/createRelease.js",
-    "deploy": "npm run site && gh-pages -d ./dist",
+    "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
     "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./packages && npm run lint:prettier",
     "lint:prettier": "npm run prettier &&  git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\"",
