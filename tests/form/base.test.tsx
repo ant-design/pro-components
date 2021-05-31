@@ -12,6 +12,7 @@ import ProForm, {
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import { waitTime, waitForComponentToPaint } from '../util';
+import { waitForDebugger } from 'inspector';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -616,6 +617,22 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(fn).not.toBeCalled();
+  });
+  it('📦 ProForm.Group support FormItem hidden', async () => {
+    const wrapper = mount(
+      <ProForm>
+        <ProForm.Group title="qixian" collapsible>
+          <ProFormText name="mobile" hidden />
+          <div>mobile</div>
+          <ProFormText name="mobile2" />
+        </ProForm.Group>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-form-group-container div.ant-form-item').length).toBe(1);
+    expect(wrapper.find('.ant-pro-form-group-container div.ant-space-item').length).toBe(2);
   });
 
   it('📦 ProFormField support onChange', async () => {

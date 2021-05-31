@@ -35,7 +35,7 @@ export default [
           },
           {
             name: '日表',
-            path: '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+            path: '/data_hui3?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
           },
         ],
       },
@@ -45,12 +45,12 @@ export default [
         children: [
           {
             name: '月表',
-            path: '/data_hui3',
+            path: '/data_hui4',
           },
           {
             name: '日表',
             key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
-            path: '/data_hui4',
+            path: '/data_hui5',
           },
         ],
       },

@@ -60,6 +60,13 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   );
   const titleDom = titleRender ? titleRender(label, props) : label;
 
+  const renderChild = React.Children.toArray(children).map((element) => {
+    if (React.isValidElement(element) && element?.props?.hidden) {
+      return null;
+    }
+    return element;
+  });
+
   return (
     <div
       className={classNames(className, {
@@ -95,7 +102,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
       )}
       {collapsible && collapsed ? null : (
         <Space className={`${className}-container`} size={size} align={align} direction={direction}>
-          {children}
+          {renderChild}
         </Space>
       )}
     </div>
