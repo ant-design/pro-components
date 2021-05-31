@@ -9,6 +9,24 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.39.2
+
+`2021-05-31`
+
+- 🐛 fix(table): dateRange render wrong with light mode [#2867](https://github.com/ant-design/pro-components/pull/2867) [@dingtianxiu](https://github.com/dingtianxiu)
+
+## @ant-design/pro-table@2.39.1
+
+`2021-05-28`
+
+- 🐛 fix(table): fix table shouldUpdate [#2848](https://github.com/ant-design/pro-components/pull/2848) [@linxianxi](https://github.com/linxianxi)
+
+## @ant-design/pro-table@2.39.0
+
+`2021-05-25`
+
+- 💥 feat(table): eidt table use Proform [#2832](https://github.com/ant-design/pro-components/pull/2832) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.37.1
 
 `2021-05-21`

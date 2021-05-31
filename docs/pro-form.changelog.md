@@ -9,6 +9,33 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.27.1
+
+`2021-05-31`
+
+- 🐛 fix(form): fix abnormal gap [#2883](https://github.com/ant-design/pro-components/pull/2883) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.27.0
+
+`2021-05-28`
+
+- 🐛 fix(form): The label is displayed when the createButton above（#2786） [#2853](https://github.com/ant-design/pro-components/pull/2853) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-form@1.26.0
+
+`2021-05-25`
+
+- 🐛 fix(form): fix SchemaForm title function [#2826](https://github.com/ant-design/pro-components/pull/2826) [@hui5](https://github.com/hui5)
+- 💥 feat(table): eidt table use Proform [#2832](https://github.com/ant-design/pro-components/pull/2832) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.25.0
+
+`2021-05-24`
+
+- 🐛 fix(form): digit support formatter [#2818](https://github.com/ant-design/pro-components/pull/2818) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix formRef no work error [#2816](https://github.com/ant-design/pro-components/pull/2816) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): form support request and params [#2812](https://github.com/ant-design/pro-components/pull/2812) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.24.1
 
 `2021-05-21`

@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.8.0
+
+`2021-05-25`
+
+- 💥 feat(list): prolist support itemHeaderRender [#2844](https://github.com/ant-design/pro-components/pull/2844) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(list): list support locale(#2828) [#2840](https://github.com/ant-design/pro-components/pull/2840) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-list@1.7.4
 
 `2021-05-18`

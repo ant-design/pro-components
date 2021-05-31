@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.7.12
+
+`2021-05-24`
+
+- 🐛 fix(descriptions): Fix the problem of remounting every time you refresh [#2815](https://github.com/ant-design/pro-components/pull/2815) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-descriptions@1.6.11
 
 `2021-03-31`

@@ -10,6 +10,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.13.0
+
+`2021-05-25`
+
+- 💥 feat(card): card support ref(#2831) [#2842](https://github.com/ant-design/pro-components/pull/2842) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-card@1.12.2
+
+`2021-05-24`
+
+- 🐛 fix(card): use antd less var for title [#2817](https://github.com/ant-design/pro-components/pull/2817) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-card@1.12.0
 
 `2021-05-18`
