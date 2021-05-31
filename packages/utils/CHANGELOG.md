@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.18.1...@ant-design/pro-utils@1.18.2) (2021-05-31)
+
+### Bug Fixes
+
+- **table:** dateRange render wrong with light mode ([#2867](https://github.com/ant-design/pro-components/issues/2867)) ([09396f3](https://github.com/ant-design/pro-components/commit/09396f339befd974b0c66196cc04a68d66b13c2c))
+
 ## [1.18.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.18.0...@ant-design/pro-utils@1.18.1) (2021-05-28)
 
 **Note:** Version bump only for package @ant-design/pro-utils

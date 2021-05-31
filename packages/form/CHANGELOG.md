@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.27.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.27.0...@ant-design/pro-form@1.27.1) (2021-05-31)
+
+### Bug Fixes
+
+- **form:** fix abnormal gap ([#2883](https://github.com/ant-design/pro-components/issues/2883)) ([6aa13f0](https://github.com/ant-design/pro-components/commit/6aa13f0ac1416d11e501f0be9c71f80137c0be82))
+- build error ([#2880](https://github.com/ant-design/pro-components/issues/2880)) ([c90591a](https://github.com/ant-design/pro-components/commit/c90591a82e91de886fd2ede7dcbb7059fac8ca83))
+
 # [1.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.26.0...@ant-design/pro-form@1.27.0) (2021-05-28)
 
 ### Bug Fixes
