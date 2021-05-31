@@ -46,7 +46,7 @@ export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | Reac
 export type BaseProFieldFC = {
   /** 值的类型 */
   text: React.ReactNode;
-
+  /** 放置到组件上 props */
   fieldProps?: any;
   /** 模式类型 */
   mode: ProFieldFCMode;
@@ -58,7 +58,7 @@ export type BaseProFieldFC = {
   label?: React.ReactNode;
   /** 映射值的类型 */
   valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
-
+  /** 唯一的key，用于网络请求 */
   proFieldKey?: React.Key;
 };
 
