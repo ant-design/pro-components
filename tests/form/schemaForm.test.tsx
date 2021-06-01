@@ -125,4 +125,33 @@ describe('SchemaForm', () => {
     await waitForComponentToPaint(html);
     expect(html.find('input').exists()).toBeTruthy();
   });
+
+  it('SchemaForm support hidenInForm', async () => {
+    const html = mount(
+      <BetaSchemaForm
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            renderFormItem: () => {
+              return <Input id="title" />;
+            },
+          },
+          {
+            title: '类型',
+            dataIndex: 'category',
+            width: 200,
+            hideInForm: true,
+            renderFormItem: () => {
+              return <Input id="category" />;
+            },
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(html.find('#title').exists()).toBeTruthy();
+    expect(html.find('#category').exists()).toBeFalsy();
+  });
 });
