@@ -4,7 +4,7 @@ import ProField from '@ant-design/pro-field';
 import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
-type ProFormDigitProps = ProFormItemProps<InputNumberProps> & {
+export type ProFormDigitProps = ProFormItemProps<InputNumberProps> & {
   min?: InputNumberProps['min'];
   max?: InputNumberProps['max'];
 };
