@@ -10,6 +10,7 @@ import {
 import { ConfigProvider } from 'antd';
 
 import './index.less';
+import type { FooterRender } from '../../interface';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -31,6 +32,7 @@ export type LightWrapperProps = {
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
   otherFieldProps?: any;
+  footerRender?: FooterRender;
 };
 
 const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {
@@ -92,10 +94,13 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   }
 
   let allowClear;
+  let footerRender;
   if (children && React.isValidElement(children)) {
     allowClear = children.props.fieldProps?.allowClear;
+    footerRender = children.props.footerRender;
   }
   const labelValue = props[valuePropName];
+
   return (
     <FilterDropdown
       disabled={disabled}
@@ -128,6 +133,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           setOpen(false);
         },
       }}
+      footerRender={footerRender}
     >
       <div className={classNames(`${prefixCls}-container`, className)} style={style}>
         {React.isValidElement(children)

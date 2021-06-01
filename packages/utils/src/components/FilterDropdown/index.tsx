@@ -2,12 +2,14 @@ import React, { useContext } from 'react';
 import { Dropdown, ConfigProvider } from 'antd';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import Footer from '../DropdownFooter';
+import type { FooterRender } from '@ant-design/pro-form/src/interface';
 
 import './index.less';
 
 export type DropdownProps = {
   label?: React.ReactNode;
   footer?: DropdownFooterProps;
+  footerRender?: FooterRender;
   padding?: number;
   disabled?: boolean;
   onVisibleChange?: (visible: boolean) => void;
@@ -15,7 +17,7 @@ export type DropdownProps = {
 };
 
 const FilterDropdown: React.FC<DropdownProps> = (props) => {
-  const { children, label, footer, disabled, onVisibleChange, visible } = props;
+  const { children, label, footer, disabled, onVisibleChange, visible, footerRender } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-core-field-dropdown');
 
@@ -28,7 +30,7 @@ const FilterDropdown: React.FC<DropdownProps> = (props) => {
       overlay={
         <div className={`${prefixCls}-overlay`}>
           <div className={`${prefixCls}-content`}>{children}</div>
-          {footer && <Footer disabled={disabled} {...footer} />}
+          {footer && <Footer disabled={disabled} footerRender={footerRender} {...footer} />}
         </div>
       }
     >

@@ -11,12 +11,14 @@ import omit from 'omit.js';
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import './index.less';
+import type { FooterRender } from '../../interface';
 
 export type LightFilterProps<T> = {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
   ignoreRules?: boolean;
+  footerRender?: FooterRender;
 } & Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T>;
 
@@ -34,6 +36,7 @@ const LightFilterContainer: React.FC<{
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
+  footerRender?: FooterRender;
 }> = (props) => {
   const {
     items,
@@ -44,6 +47,7 @@ const LightFilterContainer: React.FC<{
     onValuesChange,
     bordered,
     values = {},
+    footerRender,
   } = props;
   const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
@@ -120,6 +124,7 @@ const LightFilterContainer: React.FC<{
               onVisibleChange={setOpen}
               visible={open}
               label={collapseLabelRender()}
+              footerRender={footerRender}
               footer={{
                 onConfirm: () => {
                   onValuesChange({
@@ -180,6 +185,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     form: userForm,
     bordered,
     ignoreRules,
+    footerRender,
     ...reset
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -209,6 +215,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
             collapse={collapse}
             collapseLabel={collapseLabel}
             values={values}
+            footerRender={footerRender}
             onValuesChange={(newValues: any) => {
               const newAllValues = {
                 ...values,

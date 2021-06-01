@@ -36,6 +36,10 @@ nav:
 
 <code src="./demos/light-filter.tsx" height="86px" title="轻量筛选" />
 
+### 轻量筛选-自定义 footer
+
+<code src="./demos/light-filter-footer.tsx" height="86px" title="轻量筛选-自定义footer" />
+
 ### 轻量筛选-边框模式
 
 <code src="./demos/light-filter-bordered.tsx" height="32px" title="轻量筛选-边框模式"/>
@@ -91,7 +95,8 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
 LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
-| 参数          | 说明                 | 类型        | 默认值                     |
-| ------------- | -------------------- | ----------- | -------------------------- |
-| collapse      | 是否默认折叠全部字段 | `boolean`   | `false`                    |
-| collapseLabel | 折叠区域的标签       | `ReactNode` | `更多筛选 <DownOutlined/>` |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| collapse | 是否默认折叠全部字段 | `boolean` | `false` |
+| collapseLabel | 折叠区域的标签 | `ReactNode` | `更多筛选 <DownOutlined/>` |
+| footerRender | 底部内容，当不需要默认底部按钮时，可以设为 footer={false} | `(onClear?: () => void, onConfirm: () => void) => ReactNode` \| `false` | - |

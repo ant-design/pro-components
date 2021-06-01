@@ -175,6 +175,58 @@ describe('LightFilter', () => {
     });
   });
 
+  it(' 🪕 QueryFilter FormItem support footerRender', async () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+        collapse
+        footerRender={false}
+      >
+        <ProFormText name="name" label="名称" />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-form-light-filter-effective').length).toEqual(1);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-light-filter-container').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-core-dropdown-footer').length).toEqual(0);
+
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
+  it(' 🪕 QueryFilter FormItem support footer', async () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+      >
+        <ProFormText footerRender={false} name="name1" label="名称" />
+      </LightFilter>,
+    );
+
+    act(() => {
+      wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-core-dropdown-footer').length).toEqual(0);
+
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
   it(' 🪕 select showSearch', async () => {
     const wrapper = mount(
       <LightFilter

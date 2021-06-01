@@ -33,6 +33,13 @@ export type FieldProps = {
   format?: string;
 };
 
+export type FooterRender =
+  | ((
+      onConfirm?: (e?: React.MouseEvent) => void,
+      onClear?: (e?: React.MouseEvent) => void,
+    ) => JSX.Element)
+  | false;
+
 export type ProFormItemProps<T = Record<string, any>> = {
   fieldProps?: FieldProps & T;
   placeholder?: string | string[];
@@ -58,4 +65,6 @@ export type ProFormItemProps<T = Record<string, any>> = {
     proFieldKey?: string;
     render?: any;
   };
+  /** QueryFilter 上的footer */
+  footerRender?: FooterRender;
 } & FormItemProps;
