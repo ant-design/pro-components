@@ -3,13 +3,13 @@
 import type { Moment } from 'moment';
 import React, { useEffect, useRef } from 'react';
 import moment from 'moment';
+import type { FormInstance } from 'antd';
 import {
   ProFormDateRangePicker,
   ProFormSelect,
   ProFormText,
   StepsForm,
 } from '@ant-design/pro-form';
-import { FormInstance } from 'antd';
 
 type FormValue = {
   jobInfo: {
@@ -20,11 +20,6 @@ type FormValue = {
     timeRange: [Moment, Moment];
     title: string;
   };
-};
-const useMounted = (fn: () => void) => {
-  useEffect(() => {
-    fn();
-  }, []);
 };
 const formValue: FormValue = {
   jobInfo: {
@@ -55,13 +50,15 @@ const jobType = [
 ];
 const EditExample = () => {
   const formMapRef = useRef<React.MutableRefObject<FormInstance<any> | undefined>[]>([]);
-  useMounted(async () => {
-    const formData = await waitTime(1000);
-    // 编辑场景下需要使用formMapRef循环设置formData
-    formMapRef.current.forEach((formInstanceRef) => {
-      formInstanceRef.current?.setFieldsValue(formData);
+  useEffect(() => {
+    waitTime(1000).then(() => {
+      // 编辑场景下需要使用formMapRef循环设置formData
+      formMapRef.current.forEach((formInstanceRef) => {
+        formInstanceRef.current?.setFieldsValue(formValue);
+      });
     });
-  });
+  }, []);
+
   return (
     <StepsForm
       formMapRef={formMapRef}
@@ -70,13 +67,13 @@ const EditExample = () => {
         return Promise.resolve(true);
       }}
     >
-      <StepsForm.StepForm name={'step1'} title={'工作信息'}>
-        <ProFormText label={'姓名'} name={['jobInfo', 'name']} />
-        <ProFormSelect label={'工作类型'} name={['jobInfo', 'type']} options={jobType} />
+      <StepsForm.StepForm name="step1" title="工作信息">
+        <ProFormText label="姓名" name={['jobInfo', 'name']} />
+        <ProFormSelect label="工作类型" name={['jobInfo', 'type']} options={jobType} />
       </StepsForm.StepForm>
-      <StepsForm.StepForm name={'step2'} title={'同步表单信息'}>
-        <ProFormDateRangePicker label={'时间区间'} name={['syncTableInfo', 'timeRange']} />
-        <ProFormText label={'标题'} name={['syncTableInfo', 'title']} />
+      <StepsForm.StepForm name="step2" title={'同步表单信息'}>
+        <ProFormDateRangePicker label="时间区间" name={['syncTableInfo', 'timeRange']} />
+        <ProFormText label="标题" name={['syncTableInfo', 'title']} />
       </StepsForm.StepForm>
     </StepsForm>
   );
