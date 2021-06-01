@@ -30,7 +30,7 @@ StepsForm 通过 Provider 来管理子表单的数据，每个字表单都是完
 
 <code src="./demos/modal-step-form.tsx"  background="#f5f5f5" height="32px" title="分步表单-与 Modal 配合使用"/>
 
-## 可编辑分步表单
+## 编辑场景下的分步表单
 
 <code src="./demos/add-or-edit-step-form.tsx" height="532px" title="自定义分步表单按钮"/>
 
