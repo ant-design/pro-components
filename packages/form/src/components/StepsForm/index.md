@@ -45,6 +45,7 @@ StepsForm 通过 Provider 来管理子表单的数据，每个字表单都是完
 | stepFormRender | 自定义当前展示的表单，返回 dom 在表单内部 | `(form) => ReactNode` | - |
 | stepsFormRender | 自定义整个表单区域，返回的 dom 在表单的外部 | `(form,submitter) => ReactNode` | - |
 | stepsRender | 自定义步骤器 | `(steps,dom)=>ReactNode` | - |
+| formRef | StepForm action 的引用，便于自定义触发 | `MutableRefObject<FormInstance>` | - |
 
 ### StepForm
 
