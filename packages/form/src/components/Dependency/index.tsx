@@ -75,18 +75,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
             ...value,
           };
         }, {});
-        const nameValues = name
-          .map((itemName) => {
-            const namePath = getNamePath(itemName);
-            return set({}, [itemName].flat(1) as string[], get(values, namePath));
-          })
-          .reduce((pre, next) => {
-            return {
-              ...pre,
-              ...next,
-            };
-          }, {});
-        return children?.({ ...values, ...nameValues }, form as FormInstance<any>);
+        return children?.({ ...values }, form as FormInstance<any>);
       }}
     </Form.Item>
   );

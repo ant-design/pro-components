@@ -123,6 +123,10 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 <code src="./demos/dependency.tsx" heigh="1774px" title="ProForm.List" />
 
+### 获取表单依赖值
+
+<code src="./demos/dependency2.tsx" heigh="1774px" title="ProForm.List" />
+
 ### 表单互相嵌套
 
 <code src="./demos/nested-list.tsx" heigh="1774px" title="ProForm.List" />
