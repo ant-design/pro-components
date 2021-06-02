@@ -10,7 +10,7 @@ type ColorPickerProps = SketchPickerProps & {
   onChange?: (color: string) => void;
 };
 
-type ProFormColorPickerProps = ProFormItemProps<ColorPickerProps> & {
+export type ProFormColorPickerProps = ProFormItemProps<ColorPickerProps> & {
   popoverProps?: PopoverProps;
   colors?: string[];
 };
