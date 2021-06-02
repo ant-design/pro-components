@@ -41,6 +41,7 @@ StepsForm manages the data of sub forms through a Provider, each word form is a 
 | stepFormRender | Customize the currently displayed form, return dom inside the form | `(form) => ReactNode` | - |
 | stepsFormRender | Customize the entire form area, returning the dom on the outside of the form | `(form,submitter) => ReactNode` | - |
 | stepsRender | Customize the stepsizer | `(steps,dom)=> ReactNode` | - |
+| formRef | A reference to the StepForm action for custom triggering | `MutableRefObject<FormInstance>` | - |
 
 ### StepForm
 
