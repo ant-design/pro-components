@@ -4004,10 +4004,10 @@
     jest-worker "24.9.0"
     prettier "2.2.1"
 
-"@umijs/fabric@2.5.9":
-  version "2.5.9"
-  resolved "https://registry.nlark.com/@umijs/fabric/download/@umijs/fabric-2.5.9.tgz?cache=0&sync_timestamp=1620469849685&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40umijs%2Ffabric%2Fdownload%2F%40umijs%2Ffabric-2.5.9.tgz#97580ed86e39382dd40375e3d6494df4ff78c7e3"
-  integrity sha1-l1gO2G45OC3UA3Xj1klN9P94x+M=
+"@umijs/fabric@2.6.1":
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/@umijs/fabric/-/fabric-2.6.1.tgz#39c12ac27d184994263dfc047373690c2f413705"
+  integrity sha512-lAn4SKn6arL0iMjQKt835MFY9k10uGfdF891UN4y1oyl2Or2CLnphezDn8iT71WtPeXcYJLxuvBKnBLLtARePw==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/eslint-parser" "^7.12.1"
