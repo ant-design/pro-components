@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useImperativeHandle, useState } from 'react';
-import { FormProps, FormItemProps, FormInstance, Spin } from 'antd';
+import type { FormProps, FormItemProps, FormInstance } from 'antd';
+import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';

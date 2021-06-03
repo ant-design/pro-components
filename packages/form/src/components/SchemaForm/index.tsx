@@ -125,6 +125,12 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   const genItems = useCallback(
     (items: FormSchema<T, ValueType>['columns'], update?: number) =>
       items
+        .filter((originItem) => {
+          if (originItem.hideInForm) {
+            return false;
+          }
+          return true;
+        })
         .sort((a, b) => {
           if (b.order || a.order) {
             return (b.order || 0) - (a.order || 0);
