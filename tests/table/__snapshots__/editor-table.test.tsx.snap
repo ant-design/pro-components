@@ -88,7 +88,11 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           <div
                             class="ant-table-filter-column"
                           >
-                            状态
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              状态
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-table-filter-trigger"
                               role="button"
@@ -567,7 +571,11 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                           <div
                             class="ant-table-filter-column"
                           >
-                            状态
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              状态
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-table-filter-trigger"
                               role="button"
@@ -1092,7 +1100,11 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           <div
                             class="ant-table-filter-column"
                           >
-                            状态
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              状态
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-table-filter-trigger"
                               role="button"

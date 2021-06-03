@@ -107,10 +107,14 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                             tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
@@ -118,6 +122,10 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                           </div>
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
@@ -127,6 +135,10 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                         data-menu-list="true"
                         role="menu"
                         tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -301,10 +313,14 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                             tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
@@ -312,6 +328,10 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                           </div>
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
@@ -321,6 +341,10 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                         data-menu-list="true"
                         role="menu"
                         tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -487,10 +511,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                             tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
@@ -498,6 +526,10 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                           </div>
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
@@ -507,6 +539,10 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                         data-menu-list="true"
                         role="menu"
                         tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -668,10 +704,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                             tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
@@ -679,6 +719,10 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                           </div>
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
@@ -688,6 +732,10 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                         data-menu-list="true"
                         role="menu"
                         tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -843,10 +891,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                             tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
@@ -854,6 +906,10 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                           </div>
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
@@ -863,6 +919,10 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                         data-menu-list="true"
                         role="menu"
                         tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -1017,10 +1077,14 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                             tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
@@ -1028,6 +1092,10 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                           </div>
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
@@ -1037,6 +1105,10 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                         data-menu-list="true"
                         role="menu"
                         tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -1201,10 +1273,14 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                             tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
@@ -1212,6 +1288,10 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                           </div>
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
@@ -1221,6 +1301,10 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                         data-menu-list="true"
                         role="menu"
                         tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
