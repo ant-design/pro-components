@@ -6312,7 +6312,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               容器数量
                             </span>
                             <span
@@ -7297,7 +7299,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               容器数量
                             </span>
                             <span
@@ -8282,7 +8286,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               容器数量
                             </span>
                             <span
@@ -9225,7 +9231,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               容器数量
                             </span>
                             <span
@@ -10218,7 +10226,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               容器数量
                             </span>
                             <span
@@ -10979,7 +10989,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               容器数量
                             </span>
                             <span
@@ -11052,7 +11064,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               创建时间
                             </span>
                             <span
@@ -12304,7 +12318,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                           <div
                             class="ant-table-filter-column"
                           >
-                            状态
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              状态
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-table-filter-trigger"
                               role="button"
@@ -13264,7 +13282,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           <div
                             class="qixian-table-filter-column"
                           >
-                            状态
+                            <span
+                              class="qixian-table-column-title"
+                            >
+                              状态
+                            </span>
                             <span
                               class="qixian-dropdown-trigger qixian-table-filter-trigger"
                               role="button"
@@ -17709,7 +17731,11 @@ Array [
                             <div
                               class="ant-table-filter-column"
                             >
-                              状态
+                              <span
+                                class="ant-table-column-title"
+                              >
+                                状态
+                              </span>
                               <span
                                 class="ant-dropdown-trigger ant-table-filter-trigger"
                                 role="button"
@@ -20339,7 +20365,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           <div
                             class="ant-table-filter-column"
                           >
-                            应用名称
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              应用名称
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-table-filter-trigger"
                               role="button"
@@ -20378,7 +20408,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           <div
                             class="ant-table-filter-column"
                           >
-                            状态
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              状态
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-table-filter-trigger"
                               role="button"
@@ -20412,7 +20446,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               创建时间
                               <span
                                 aria-label="question-circle"
@@ -22762,7 +22798,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     <div
                                       class="ant-table-filter-column"
                                     >
-                                      Address
+                                      <span
+                                        class="ant-table-column-title"
+                                      >
+                                        Address
+                                      </span>
                                       <span
                                         class="ant-dropdown-trigger ant-table-filter-trigger"
                                         role="button"
@@ -22796,7 +22836,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     <div
                                       class="ant-table-column-sorters"
                                     >
-                                      <span>
+                                      <span
+                                        class="ant-table-column-title"
+                                      >
                                         Action
                                       </span>
                                       <span
@@ -26833,7 +26875,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               创建时间
                               <span
                                 aria-label="question-circle"
@@ -28860,7 +28904,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                           <div
                             class="ant-table-filter-column"
                           >
-                            状态
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              状态
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-table-filter-trigger"
                               role="button"
@@ -28895,7 +28943,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               容器数量
                             </span>
                             <span
@@ -28952,7 +29002,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               创建时间
                               <span
                                 aria-label="question-circle"
@@ -30533,7 +30585,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               容器数量
                             </span>
                             <span
@@ -30600,7 +30654,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               创建时间
                               <span
                                 aria-label="question-circle"
@@ -32095,7 +32151,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                           <div
                             class="ant-table-filter-column"
                           >
-                            状态
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              状态
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-table-filter-trigger"
                               role="button"
@@ -33524,7 +33584,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                           <div
                             class="ant-table-filter-column"
                           >
-                            状态
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              状态
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-table-filter-trigger"
                               role="button"
@@ -34065,28 +34129,32 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
           style="padding-left: 24px;"
           tabindex="-1"
         >
-          <span>
-            <span
-              aria-label="mail"
-              class="anticon anticon-mail"
-              role="img"
-            >
-              <svg
-                aria-hidden="true"
-                data-icon="mail"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
-                />
-              </svg>
-            </span>
+          <span
+            class="ant-menu-title-content"
+          >
             <span>
-              Navigation One
+              <span
+                aria-label="mail"
+                class="anticon anticon-mail"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="mail"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M928 160H96c-17.7 0-32 14.3-32 32v640c0 17.7 14.3 32 32 32h832c17.7 0 32-14.3 32-32V192c0-17.7-14.3-32-32-32zm-40 110.8V792H136V270.8l-27.6-21.5 39.3-50.5 42.8 33.3h643.1l42.8-33.3 39.3 50.5-27.7 21.5zM833.6 232L512 482 190.4 232l-42.8-33.3-39.3 50.5 27.6 21.5 341.6 265.6a55.99 55.99 0 0068.7 0L888 270.8l27.6-21.5-39.3-50.5-42.7 33.2z"
+                  />
+                </svg>
+              </span>
+              <span>
+                Navigation One
+              </span>
             </span>
           </span>
           <i
@@ -34117,7 +34185,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                 style="padding-left: 48px;"
                 tabindex="-1"
               >
-                Option 1
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 1
+                </span>
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
@@ -34126,7 +34198,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                 style="padding-left: 48px;"
                 tabindex="-1"
               >
-                Option 2
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 2
+                </span>
               </li>
             </ul>
           </li>
@@ -34149,7 +34225,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                 style="padding-left: 48px;"
                 tabindex="-1"
               >
-                Option 3
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 3
+                </span>
               </li>
               <li
                 class="ant-menu-item ant-menu-item-only-child"
@@ -34158,13 +34238,21 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                 style="padding-left: 48px;"
                 tabindex="-1"
               >
-                Option 4
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 4
+                </span>
               </li>
             </ul>
           </li>
         </ul>
       </li>
     </ul>
+    <div
+      aria-hidden="true"
+      style="display: none;"
+    />
     <div
       style="flex: 1;"
     >
@@ -35230,7 +35318,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                           <div
                             class="ant-table-filter-column"
                           >
-                            الحالة
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              الحالة
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-dropdown-rtl ant-table-filter-trigger"
                               role="button"
@@ -38174,7 +38266,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           <div
                             class="ant-table-filter-column"
                           >
-                            状态
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              状态
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-table-filter-trigger"
                               role="button"
@@ -38213,7 +38309,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               创建时间
                             </span>
                             <span
@@ -42961,7 +43059,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               容器数量
                             </span>
                             <span
@@ -43023,7 +43123,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                           <div
                             class="ant-table-column-sorters"
                           >
-                            <span>
+                            <span
+                              class="ant-table-column-title"
+                            >
                               创建时间
                               <span
                                 aria-label="question-circle"

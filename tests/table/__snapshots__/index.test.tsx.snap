@@ -1091,7 +1091,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           <div
                             class="ant-table-filter-column"
                           >
-                            sex
+                            <span
+                              class="ant-table-column-title"
+                            >
+                              sex
+                            </span>
                             <span
                               class="ant-dropdown-trigger ant-table-filter-trigger"
                               role="button"

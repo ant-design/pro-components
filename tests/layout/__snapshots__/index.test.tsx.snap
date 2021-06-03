@@ -74,26 +74,34 @@ Array [
                 tabindex="-1"
               >
                 <span
-                  aria-label="menu-fold"
-                  class="anticon anticon-menu-fold"
-                  role="img"
+                  class="ant-menu-title-content"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="menu-fold"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="menu-fold"
+                    class="anticon anticon-menu-fold"
+                    role="img"
                   >
-                    <path
-                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="menu-fold"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                      />
+                    </svg>
+                  </span>
                 </span>
               </li>
             </ul>
+            <div
+              aria-hidden="true"
+              style="display:none"
+            />
           </div>
         </div>
       </aside>
@@ -249,26 +257,34 @@ Array [
                 tabindex="-1"
               >
                 <span
-                  aria-label="menu-fold"
-                  class="anticon anticon-menu-fold"
-                  role="img"
+                  class="ant-menu-title-content"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="menu-fold"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="menu-fold"
+                    class="anticon anticon-menu-fold"
+                    role="img"
                   >
-                    <path
-                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                    />
-                  </svg>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="menu-fold"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                      />
+                    </svg>
+                  </span>
                 </span>
               </li>
             </ul>
+            <div
+              aria-hidden="true"
+              style="display:none"
+            />
           </div>
         </div>
       </aside>
@@ -362,26 +378,34 @@ exports[`BasicLayout 🥩 base use 1`] = `
               tabindex="-1"
             >
               <span
-                aria-label="menu-fold"
-                class="anticon anticon-menu-fold"
-                role="img"
+                class="ant-menu-title-content"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="menu-fold"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="menu-fold"
+                  class="anticon anticon-menu-fold"
+                  role="img"
                 >
-                  <path
-                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="menu-fold"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </li>
           </ul>
+          <div
+            aria-hidden="true"
+            style="display:none"
+          />
         </div>
       </div>
     </aside>
@@ -457,26 +481,34 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
               tabindex="-1"
             >
               <span
-                aria-label="menu-fold"
-                class="anticon anticon-menu-fold"
-                role="img"
+                class="ant-menu-title-content"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="menu-fold"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="menu-fold"
+                  class="anticon anticon-menu-fold"
+                  role="img"
                 >
-                  <path
-                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="menu-fold"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </li>
           </ul>
+          <div
+            aria-hidden="true"
+            style="display:none"
+          />
         </div>
       </div>
     </aside>
@@ -554,26 +586,34 @@ exports[`BasicLayout 🥩 menuDataRender change date 1`] = `
               tabindex="-1"
             >
               <span
-                aria-label="menu-fold"
-                class="anticon anticon-menu-fold"
-                role="img"
+                class="ant-menu-title-content"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="menu-fold"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="menu-fold"
+                  class="anticon anticon-menu-fold"
+                  role="img"
                 >
-                  <path
-                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="menu-fold"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </li>
           </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
         </div>
       </div>
     </aside>
@@ -650,26 +690,34 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
               tabindex="-1"
             >
               <span
-                aria-label="menu-fold"
-                class="anticon anticon-menu-fold"
-                role="img"
+                class="ant-menu-title-content"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="menu-fold"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="menu-fold"
+                  class="anticon anticon-menu-fold"
+                  role="img"
                 >
-                  <path
-                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="menu-fold"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </li>
           </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
         </div>
       </div>
     </aside>
@@ -751,10 +799,14 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                 tabindex="-1"
               >
                 <span
-                  class="ant-pro-menu-item"
-                  title="管理页"
+                  class="ant-menu-title-content"
                 >
-                  管理页
+                  <span
+                    class="ant-pro-menu-item"
+                    title="管理页"
+                  >
+                    管理页
+                  </span>
                 </span>
                 <i
                   class="ant-menu-submenu-arrow"
@@ -769,16 +821,24 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               tabindex="-1"
             >
               <span
-                class="ant-pro-menu-item"
+                class="ant-menu-title-content"
               >
                 <span
-                  class="ant-pro-menu-item-title"
+                  class="ant-pro-menu-item"
                 >
-                  列表页
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    列表页
+                  </span>
                 </span>
               </span>
             </li>
           </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
         </div>
         <div
           class="ant-pro-sider-links"
@@ -797,26 +857,34 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               tabindex="-1"
             >
               <span
-                aria-label="menu-fold"
-                class="anticon anticon-menu-fold"
-                role="img"
+                class="ant-menu-title-content"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="menu-fold"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="menu-fold"
+                  class="anticon anticon-menu-fold"
+                  role="img"
                 >
-                  <path
-                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="menu-fold"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </li>
           </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
         </div>
       </div>
     </aside>
@@ -893,26 +961,34 @@ exports[`BasicLayout 🥩 support loading 1`] = `
               tabindex="-1"
             >
               <span
-                aria-label="menu-fold"
-                class="anticon anticon-menu-fold"
-                role="img"
+                class="ant-menu-title-content"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="menu-fold"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="menu-fold"
+                  class="anticon anticon-menu-fold"
+                  role="img"
                 >
-                  <path
-                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="menu-fold"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </li>
           </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
         </div>
       </div>
     </aside>
@@ -1012,12 +1088,16 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               tabindex="-1"
             >
               <span
-                class="ant-pro-menu-item"
+                class="ant-menu-title-content"
               >
                 <span
-                  class="ant-pro-menu-item-title"
+                  class="ant-pro-menu-item"
                 >
-                  首页
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    首页
+                  </span>
                 </span>
               </span>
             </li>
@@ -1036,10 +1116,14 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
                 tabindex="-1"
               >
                 <span
-                  class="ant-pro-menu-item"
-                  title="汇总数据"
+                  class="ant-menu-title-content"
                 >
-                  汇总数据
+                  <span
+                    class="ant-pro-menu-item"
+                    title="汇总数据"
+                  >
+                    汇总数据
+                  </span>
                 </span>
                 <i
                   class="ant-menu-submenu-arrow"
@@ -1054,12 +1138,16 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               tabindex="-1"
             >
               <span
-                class="ant-pro-menu-item"
+                class="ant-menu-title-content"
               >
                 <span
-                  class="ant-pro-menu-item-title"
+                  class="ant-pro-menu-item"
                 >
-                  明细数据
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    明细数据
+                  </span>
                 </span>
               </span>
             </li>
@@ -1071,16 +1159,24 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               tabindex="-1"
             >
               <span
-                class="ant-pro-menu-item"
+                class="ant-menu-title-content"
               >
                 <span
-                  class="ant-pro-menu-item-title"
+                  class="ant-pro-menu-item"
                 >
-                  其他
+                  <span
+                    class="ant-pro-menu-item-title"
+                  >
+                    其他
+                  </span>
                 </span>
               </span>
             </li>
           </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
         </div>
         <div
           class="ant-pro-sider-links"
@@ -1099,26 +1195,34 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               tabindex="-1"
             >
               <span
-                aria-label="menu-fold"
-                class="anticon anticon-menu-fold"
-                role="img"
+                class="ant-menu-title-content"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="menu-fold"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
+                <span
+                  aria-label="menu-fold"
+                  class="anticon anticon-menu-fold"
+                  role="img"
                 >
-                  <path
-                    d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
-                  />
-                </svg>
+                  <svg
+                    aria-hidden="true"
+                    data-icon="menu-fold"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                    />
+                  </svg>
+                </span>
               </span>
             </li>
           </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
         </div>
       </div>
     </aside>
