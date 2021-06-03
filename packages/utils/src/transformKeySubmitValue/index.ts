@@ -9,10 +9,9 @@ export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>
 const transformKeySubmitValue = <T = any>(
   values: T,
   dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined>,
-  omit: boolean,
+  omit: boolean = true,
 ) => {
   // ignore nil transfrom
-
   const dataFormatMap = Object.keys(dataFormatMapRaw).reduce((ret, key) => {
     const value = dataFormatMapRaw[key];
     if (!isNil(value)) {
@@ -73,7 +72,7 @@ const transformKeySubmitValue = <T = any>(
         result = namePathSet(result, [tempKey], itemValue);
       }
     });
-    // namePath在omitNil为true时返回空对象 https://github.com/ant-design/pro-components/issues/2901#issue-908097115
+    // namePath、transform在omit为false时需正常返回 https://github.com/ant-design/pro-components/issues/2901#issue-908097115
     return omit ? result : tempValues;
   };
 
