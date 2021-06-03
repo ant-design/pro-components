@@ -15,7 +15,6 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 分步表单，Modal 表单，Drawer 表单，查询表单，轻量筛选等多种 layout 可以覆盖大部分的使用场景，脱离复杂而且繁琐的表单布局工作，更少的代码完成更多的功能。
 
 - 如果你想要设置默认值，请使用 `initialValues`,任何直接使用组件 `value` 和 `onChange` 的方式都有可能导致值绑定失效。
-
 - 如果想要表单联动或者做一些依赖，可以使用 render props 模式, ProFormDependency 绝对是最好的选择
 - ProForm 的 onFinish 与 antd 的 Form 不同，是个 Promise，如果你正常返回会自动为你设置按钮的加载效果
 - 如果想要监听某个值，建议使用 `onValuesChange`。保持单向的数据流无论对开发者还是维护者都大有脾益
@@ -83,6 +82,12 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 ### 表单联动
 
 <code src="./demos/dependency.tsx" height="248px" title="表单联动" />
+
+### 表单方法调用
+
+你可以通过 `formRef` 获取到表单实例的引用，通过引用可以调用表单方法实现表单重置，设置表单，获取表单值等功能。
+
+<code src="./demos/formRef.tsx" height="248px" title="表单方法调用" />
 
 ### 同步提交结果到 url
 
