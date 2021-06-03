@@ -156,6 +156,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     transformKeySubmitValue(
       conversionSubmitValue(values, dateFormatter, fieldsValueType.current, omit, parentKey),
       transformKeyRef.current,
+      omit,
     );
 
   const formatValues = {
