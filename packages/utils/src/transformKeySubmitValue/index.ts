@@ -9,6 +9,7 @@ export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>
 const transformKeySubmitValue = <T = any>(
   values: T,
   dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined>,
+  omit: boolean = true,
 ) => {
   // ignore nil transfrom
   const dataFormatMap = Object.keys(dataFormatMapRaw).reduce((ret, key) => {
@@ -32,6 +33,7 @@ const transformKeySubmitValue = <T = any>(
 
   const gen = (tempValues: T, parentsKey?: React.Key) => {
     let result = {} as T;
+
     if (tempValues == null || tempValues === undefined) {
       return result;
     }
@@ -70,8 +72,10 @@ const transformKeySubmitValue = <T = any>(
         result = namePathSet(result, [tempKey], itemValue);
       }
     });
-    return result;
+    // namePath、transform在omit为false时需正常返回 https://github.com/ant-design/pro-components/issues/2901#issue-908097115
+    return omit ? result : tempValues;
   };
+
   finalValues = {
     ...gen(values),
     ...finalValues,
