@@ -7,7 +7,7 @@ import { PlusOutlined } from '@ant-design/icons';
 import { runFunction } from '@ant-design/pro-utils';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
-import { GetRowKey } from 'antd/lib/table/interface';
+import type { GetRowKey } from 'antd/lib/table/interface';
 
 export type RecordCreatorProps<T> = {
   record: T | ((index: number) => T);

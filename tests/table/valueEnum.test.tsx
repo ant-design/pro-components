@@ -58,7 +58,6 @@ describe('Table valueEnum', () => {
           {
             title: '状态',
             dataIndex: 'status',
-            hideInForm: true,
             valueEnum: {},
             fieldProps: {
               open: true,
@@ -84,7 +83,6 @@ describe('Table valueEnum', () => {
           {
             title: '状态',
             dataIndex: 'status',
-            hideInForm: true,
             valueEnum: {
               0: { text: '关闭', status: 'Default' },
               1: { text: '运行中', status: 'Processing', disabled: true },

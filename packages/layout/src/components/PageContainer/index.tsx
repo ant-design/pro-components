@@ -1,8 +1,15 @@
-import { PageHeader, Tabs, Affix, ConfigProvider, BreadcrumbProps } from 'antd';
+import { PageHeader, Tabs, Affix, ConfigProvider } from 'antd';
 import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
 import classNames from 'classnames';
-import type { TabsProps, AffixProps, PageHeaderProps, TabPaneProps, SpinProps } from 'antd';
+import type {
+  TabsProps,
+  AffixProps,
+  PageHeaderProps,
+  TabPaneProps,
+  SpinProps,
+  BreadcrumbProps,
+} from 'antd';
 
 import type { RouteContextType } from '../../RouteContext';
 import RouteContext from '../../RouteContext';
