@@ -672,7 +672,49 @@ exports[`BasicLayout 🥩 menuDataRender change date 2`] = `
         </div>
         <div
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
-        />
+        >
+          <ul
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+            data-menu-list="true"
+            role="menu"
+            style="width: 100%;"
+            tabindex="0"
+          >
+            <li
+              class="ant-menu-submenu ant-menu-submenu-inline"
+              role="none"
+            >
+              <div
+                aria-controls="rc-menu-uuid-84044-8-/home-popup"
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="ant-menu-submenu-title"
+                data-menu-id="rc-menu-uuid-84044-8-/home"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  <span
+                    class="ant-pro-menu-item"
+                    title="首页"
+                  >
+                    首页
+                  </span>
+                </span>
+                <i
+                  class="ant-menu-submenu-arrow"
+                />
+              </div>
+            </li>
+          </ul>
+          <div
+            aria-hidden="true"
+            style="display: none;"
+          />
+        </div>
         <div
           class="ant-pro-sider-links"
         >
@@ -789,11 +831,11 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               role="none"
             >
               <div
-                aria-controls="rc-menu-uuid-84044-33-/admin-popup"
+                aria-controls="rc-menu-uuid-84044-34-/admin-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                data-menu-id="rc-menu-uuid-84044-33-/admin"
+                data-menu-id="rc-menu-uuid-84044-34-/admin"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -815,7 +857,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-33-/list"
+              data-menu-id="rc-menu-uuid-84044-34-/list"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -851,7 +893,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-84044-32-collapsed"
+              data-menu-id="rc-menu-uuid-84044-33-collapsed"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
