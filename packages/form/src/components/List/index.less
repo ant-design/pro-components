@@ -15,10 +15,12 @@
   }
 
   &-item {
-    div:first-of-type {
-      .@{ant-prefix}-form-item {
-        .@{ant-prefix}-form-item-label {
-          display: inline-block;
+    &:first-of-type {
+      div:first-of-type {
+        .@{ant-prefix}-form-item {
+          .@{ant-prefix}-form-item-label {
+            display: inline-block;
+          }
         }
       }
     }
