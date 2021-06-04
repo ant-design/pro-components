@@ -11,7 +11,7 @@ import {
   DropdownFooter,
   LabelIconTip,
 } from '@ant-design/pro-utils';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import { Form, Input } from 'antd';
 import type { Moment } from 'moment';
 import moment from 'moment';
@@ -627,7 +627,11 @@ describe('utils', () => {
     expect(isDropdownValueType('select')).toBeTruthy();
   });
   it('LabelIconTip', async () => {
+<<<<<<< HEAD
     const html = mount(
+=======
+    const html = render(
+>>>>>>> master
       <LabelIconTip
         label="xxx"
         subTitle="xxx"
