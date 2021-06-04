@@ -627,11 +627,7 @@ describe('utils', () => {
     expect(isDropdownValueType('select')).toBeTruthy();
   });
   it('LabelIconTip', async () => {
-<<<<<<< HEAD
     const html = mount(
-=======
-    const html = render(
->>>>>>> master
       <LabelIconTip
         label="xxx"
         subTitle="xxx"
