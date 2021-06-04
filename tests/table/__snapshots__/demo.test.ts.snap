@@ -5983,26 +5983,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                     这里是子标题
                   </div>
                   <span
-                    aria-label="info-circle"
-                    class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
-                    role="img"
+                    class="ant-pro-core-label-tip-icon"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="info-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
                     >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                      />
-                      <path
-                        d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
                   </span>
                 </div>
               </div>
@@ -13253,26 +13257,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           >
                             标题
                             <span
-                              aria-label="info-circle"
-                              class="anticon anticon-info-circle qixian-pro-core-label-tip-icon"
-                              role="img"
+                              class="qixian-pro-core-label-tip-icon"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="info-circle"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <span
+                                aria-label="info-circle"
+                                class="anticon anticon-info-circle"
+                                role="img"
                               >
-                                <path
-                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                />
-                                <path
-                                  d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="info-circle"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                  />
+                                  <path
+                                    d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </div>
                         </th>
@@ -20110,26 +20118,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                 >
                   高级表格
                   <span
-                    aria-label="info-circle"
-                    class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
-                    role="img"
+                    class="ant-pro-core-label-tip-icon"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="info-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
                     >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                      />
-                      <path
-                        d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
                   </span>
                 </div>
               </div>
@@ -22549,26 +22561,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                           >
                             高级表格
                             <span
-                              aria-label="info-circle"
-                              class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
-                              role="img"
+                              class="ant-pro-core-label-tip-icon"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="info-circle"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <span
+                                aria-label="info-circle"
+                                class="anticon anticon-info-circle"
+                                role="img"
                               >
-                                <path
-                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                />
-                                <path
-                                  d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="info-circle"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                  />
+                                  <path
+                                    d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </div>
                         </div>
@@ -24329,26 +24345,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 工具栏
                               </div>
                               <span
-                                aria-label="info-circle"
-                                class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
-                                role="img"
+                                class="ant-pro-core-label-tip-icon"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="info-circle"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-label="info-circle"
+                                  class="anticon anticon-info-circle"
+                                  role="img"
                                 >
-                                  <path
-                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                  />
-                                  <path
-                                    d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                  />
-                                </svg>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="info-circle"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                    />
+                                    <path
+                                      d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                    />
+                                  </svg>
+                                </span>
                               </span>
                             </div>
                             <span>
@@ -32122,26 +32142,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                           >
                             标题
                             <span
-                              aria-label="info-circle"
-                              class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
-                              role="img"
+                              class="ant-pro-core-label-tip-icon"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="info-circle"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <span
+                                aria-label="info-circle"
+                                class="anticon anticon-info-circle"
+                                role="img"
                               >
-                                <path
-                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                />
-                                <path
-                                  d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="info-circle"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                  />
+                                  <path
+                                    d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </div>
                         </th>
@@ -35289,26 +35313,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                           >
                             العنوان
                             <span
-                              aria-label="info-circle"
-                              class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
-                              role="img"
+                              class="ant-pro-core-label-tip-icon"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="info-circle"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <span
+                                aria-label="info-circle"
+                                class="anticon anticon-info-circle"
+                                role="img"
                               >
-                                <path
-                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                />
-                                <path
-                                  d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="info-circle"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                  />
+                                  <path
+                                    d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </div>
                         </th>
@@ -38237,26 +38265,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           >
                             标题
                             <span
-                              aria-label="info-circle"
-                              class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
-                              role="img"
+                              class="ant-pro-core-label-tip-icon"
                             >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="info-circle"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
+                              <span
+                                aria-label="info-circle"
+                                class="anticon anticon-info-circle"
+                                role="img"
                               >
-                                <path
-                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                />
-                                <path
-                                  d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                />
-                              </svg>
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="info-circle"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                  />
+                                  <path
+                                    d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                  />
+                                </svg>
+                              </span>
                             </span>
                           </div>
                         </th>
@@ -40912,26 +40944,30 @@ Array [
                             >
                               标题
                               <span
-                                aria-label="info-circle"
-                                class="anticon anticon-info-circle ant-pro-core-label-tip-icon"
-                                role="img"
+                                class="ant-pro-core-label-tip-icon"
                               >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="info-circle"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="64 64 896 896"
-                                  width="1em"
+                                <span
+                                  aria-label="info-circle"
+                                  class="anticon anticon-info-circle"
+                                  role="img"
                                 >
-                                  <path
-                                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                  />
-                                  <path
-                                    d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                  />
-                                </svg>
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="info-circle"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                    />
+                                    <path
+                                      d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                    />
+                                  </svg>
+                                </span>
                               </span>
                             </div>
                           </th>

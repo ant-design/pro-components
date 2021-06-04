@@ -5,6 +5,7 @@ import type { ProTableProps, ProColumnType, ActionType } from '@ant-design/pro-t
 import ProTable from '@ant-design/pro-table';
 import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider, Form } from 'antd';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
 import ListView from './ListView';
 
@@ -39,7 +40,7 @@ export type ProListProps<RecordType, U extends ParamsType> = Omit<
   'size'
 > &
   AntdListProps<RecordType> & {
-    tooltip?: string;
+    tooltip?: LabelTooltipType | string;
     metas?: ProListMetas<RecordType>;
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';

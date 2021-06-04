@@ -15,6 +15,7 @@ import DensityIcon from './DensityIcon';
 import Container from '../../container';
 import type { ActionType, ProTableProps } from '../../typing';
 import { omitUndefined } from '@ant-design/pro-utils';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
 export type OptionConfig = {
   density?: boolean;
@@ -35,7 +36,7 @@ export type OptionsType =
 
 export type ToolBarProps<T = unknown> = {
   headerTitle?: React.ReactNode;
-  tooltip?: string;
+  tooltip?: string | LabelTooltipType;
   /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
   toolbar?: ListToolBarProps;
@@ -225,7 +226,7 @@ export type ToolbarRenderProps<T> = {
   onFormSearchSubmit: (params: any) => void;
   searchNode: React.ReactNode;
   tableColumn: any[];
-  tooltip?: string;
+  tooltip?: string | LabelTooltipType;
   selectedRows: T[];
   selectedRowKeys: React.Key[];
   headerTitle: React.ReactNode;

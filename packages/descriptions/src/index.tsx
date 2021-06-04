@@ -25,6 +25,8 @@ import ProSkeleton from '@ant-design/pro-skeleton';
 import type { RequestData } from './useFetchData';
 import useFetchData from './useFetchData';
 import type { ProFieldFCMode } from '@ant-design/pro-utils';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+
 import './index.less';
 
 // todo remove it
@@ -74,7 +76,7 @@ export type ProDescriptionsProps<RecordType = Record<string, any>, ValueType = '
 
     onLoadingChange?: (loading?: boolean) => void;
 
-    tooltip?: string;
+    tooltip?: LabelTooltipType | string;
     /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
     tip?: string;
     /** Form props 的相关配置 */

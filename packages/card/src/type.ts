@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import type { TabsProps } from 'antd';
 import type { TabPaneProps } from 'antd';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
@@ -20,7 +21,7 @@ export type CardProps = {
   /** 副标题 */
   subTitle?: React.ReactNode;
   /** 标题说明 */
-  tooltip?: string;
+  tooltip?: string | LabelTooltipType;
   /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
   /** 右上角自定义区域 */

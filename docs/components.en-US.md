@@ -124,7 +124,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /**
    *@name shows an icon, hover shows some hints
    */
-  tooltip?: string;
+  tooltip?: LabelTooltipType | string;
 
   /**
    * @deprecated you can use tooltip, this change is for consistency with antd

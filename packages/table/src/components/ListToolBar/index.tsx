@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
-import type { TooltipProps, TabPaneProps } from 'antd';
+import type { TabPaneProps } from 'antd';
 import { Tooltip, Space, Input, ConfigProvider, Tabs } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import type { SearchProps } from 'antd/lib/input';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import { LabelIconTip } from '@ant-design/pro-utils';
 import type { ListToolBarHeaderMenuProps } from './HeaderMenu';
 import HeaderMenu from './HeaderMenu';
@@ -12,7 +13,7 @@ import './index.less';
 
 export type ListToolBarSetting = {
   icon: React.ReactNode;
-  tooltip?: string;
+  tooltip?: LabelTooltipType | string;
   key?: string;
   onClick?: (key?: string) => void;
 };
@@ -42,7 +43,7 @@ export type ListToolBarProps = {
   /** 副标题 */
   subTitle?: React.ReactNode;
   /** 标题提示 */
-  tooltip?: string | TooltipProps;
+  tooltip?: string | LabelTooltipType;
   /** 搜索输入栏相关配置 */
   search?: SearchPropType;
   /** 搜索回调 */
