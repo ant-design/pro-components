@@ -192,9 +192,7 @@ describe('BasicLayout', () => {
   it('🥩 menuDataRender change date', async () => {
     const wrapper = mount(<BasicLayout menuDataRender={() => []} />);
     await waitForComponentToPaint(wrapper, 100);
-    act(() => {
-      expect(wrapper.render()).toMatchSnapshot();
-    });
+    expect(wrapper.find('ul.ant-pro-sider-menu').exists()).toBeFalsy();
     act(() => {
       wrapper.setProps({
         menuDataRender: () => [
@@ -217,11 +215,9 @@ describe('BasicLayout', () => {
         ],
       });
     });
-    await waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 1000);
 
-    act(() => {
-      expect(wrapper.render()).toMatchSnapshot();
-    });
+    expect(wrapper.find('ul.ant-pro-sider-menu').exists()).toBeTruthy();
   });
 
   it('🥩 use onLogoClick', async () => {
