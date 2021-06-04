@@ -151,13 +151,13 @@ Array [
                     >
                       <colgroup>
                         <col
-                          style="width: 30%; min-width: 30%;"
+                          style="width: 30%;"
                         />
                         <col />
                         <col />
                         <col />
                         <col
-                          style="width: 200px; min-width: 200px;"
+                          style="width: 200px;"
                         />
                       </colgroup>
                       <thead
@@ -535,14 +535,14 @@ Array [
                     >
                       <colgroup>
                         <col
-                          style="width: 30%; min-width: 30%;"
+                          style="width: 30%;"
                         />
                         <col />
                         <col
-                          style="width: 20%; min-width: 20%;"
+                          style="width: 20%;"
                         />
                         <col
-                          style="width: 250px; min-width: 250px;"
+                          style="width: 250px;"
                         />
                       </colgroup>
                       <thead
@@ -856,12 +856,12 @@ Array [
                     >
                       <colgroup>
                         <col
-                          style="width: 30%; min-width: 30%;"
+                          style="width: 30%;"
                         />
                         <col />
                         <col />
                         <col
-                          style="width: 250px; min-width: 250px;"
+                          style="width: 250px;"
                         />
                       </colgroup>
                       <thead
@@ -6293,7 +6293,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                       <col />
                       <col />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -7280,7 +7280,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                       <col />
                       <col />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -8267,7 +8267,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                       <col />
                       <col />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -9212,7 +9212,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                       <col />
                       <col />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -10207,7 +10207,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                       <col />
                       <col />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -10900,24 +10900,24 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                         class="ant-table-selection-col"
                       />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                       <col
-                        style="width: 120px; min-width: 120px;"
-                      />
-                      <col />
-                      <col
-                        style="width: 120px; min-width: 120px;"
-                      />
-                      <col
-                        style="width: 140px; min-width: 140px;"
+                        style="width: 120px;"
                       />
                       <col />
                       <col
-                        style="width: 80px; min-width: 80px;"
+                        style="width: 120px;"
+                      />
+                      <col
+                        style="width: 140px;"
+                      />
+                      <col />
+                      <col
+                        style="width: 80px;"
                       />
                     </colgroup>
                     <thead
@@ -12305,7 +12305,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                       <col />
                       <col />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -13224,16 +13224,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                     <colgroup>
                       <col />
                       <col
-                        style="width: 30%; min-width: 30%;"
+                        style="width: 30%;"
                       />
                       <col
-                        style="width: 10%; min-width: 10%;"
+                        style="width: 10%;"
                       />
                       <col
-                        style="width: 10%; min-width: 10%;"
+                        style="width: 10%;"
                       />
                       <col
-                        style="width: 20%; min-width: 20%;"
+                        style="width: 20%;"
                       />
                     </colgroup>
                     <thead
@@ -17703,12 +17703,12 @@ Array [
                     >
                       <colgroup>
                         <col
-                          style="width: 64px; min-width: 64px;"
+                          style="width: 64px;"
                         />
                         <col />
                         <col />
                         <col
-                          style="width: 120px; min-width: 120px;"
+                          style="width: 120px;"
                         />
                       </colgroup>
                       <thead
@@ -20337,17 +20337,17 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                   >
                     <colgroup>
                       <col
-                        style="width: 48px; min-width: 48px;"
+                        style="width: 48px;"
                       />
                       <col />
                       <col />
                       <col />
                       <col
-                        style="width: 140px; min-width: 140px;"
+                        style="width: 140px;"
                       />
                       <col />
                       <col
-                        style="width: 180px; min-width: 180px;"
+                        style="width: 180px;"
                       />
                     </colgroup>
                     <thead
@@ -21983,7 +21983,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/drag.tsx correctly 
                   >
                     <colgroup>
                       <col
-                        style="width: 60px; min-width: 60px;"
+                        style="width: 60px;"
                       />
                     </colgroup>
                     <thead
@@ -26090,7 +26090,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                       <col />
                       <col />
                       <col
-                        style="width: 100px; min-width: 100px;"
+                        style="width: 100px;"
                       />
                     </colgroup>
                     <thead
@@ -26852,7 +26852,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                       <col />
                       <col />
                       <col
-                        style="width: 164px; min-width: 164px;"
+                        style="width: 164px;"
                       />
                     </colgroup>
                     <thead
@@ -28878,10 +28878,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                       <col />
                       <col />
                       <col
-                        style="width: 140px; min-width: 140px;"
+                        style="width: 140px;"
                       />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -29630,7 +29630,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
                   >
                     <colgroup>
                       <col
-                        style="width: 150px; min-width: 150px;"
+                        style="width: 150px;"
                       />
                     </colgroup>
                     <thead
@@ -30552,21 +30552,21 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                   >
                     <colgroup>
                       <col
-                        style="width: 80px; min-width: 80px;"
+                        style="width: 80px;"
                       />
                       <col />
                       <col
-                        style="width: 80px; min-width: 80px;"
+                        style="width: 80px;"
                       />
                       <col
-                        style="width: 80px; min-width: 80px;"
+                        style="width: 80px;"
                       />
                       <col
-                        style="width: 140px; min-width: 140px;"
+                        style="width: 140px;"
                       />
                       <col />
                       <col
-                        style="width: 180px; min-width: 180px;"
+                        style="width: 180px;"
                       />
                     </colgroup>
                     <thead
@@ -32107,7 +32107,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                   >
                     <colgroup>
                       <col
-                        style="width: 30%; min-width: 30%;"
+                        style="width: 30%;"
                       />
                     </colgroup>
                     <thead
@@ -33566,7 +33566,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                   >
                     <colgroup>
                       <col
-                        style="width: 80px; min-width: 80px;"
+                        style="width: 80px;"
                       />
                     </colgroup>
                     <thead
@@ -34409,7 +34409,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                       >
                         <colgroup>
                           <col
-                            style="width: 80px; min-width: 80px;"
+                            style="width: 80px;"
                           />
                         </colgroup>
                         <thead
@@ -35268,10 +35268,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                   >
                     <colgroup>
                       <col
-                        style="width: 48px; min-width: 48px;"
+                        style="width: 48px;"
                       />
                       <col
-                        style="width: 30%; min-width: 30%;"
+                        style="width: 30%;"
                       />
                     </colgroup>
                     <thead
@@ -37354,7 +37354,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                       <col />
                       <col />
                       <col
-                        style="width: 100px; min-width: 100px;"
+                        style="width: 100px;"
                       />
                     </colgroup>
                     <thead
@@ -38219,7 +38219,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                   >
                     <colgroup>
                       <col
-                        style="width: 48px; min-width: 48px;"
+                        style="width: 48px;"
                       />
                     </colgroup>
                     <thead
@@ -40880,23 +40880,23 @@ Array [
                     >
                       <colgroup>
                         <col
-                          style="width: 30%; min-width: 30%;"
+                          style="width: 30%;"
                         />
                         <col />
                         <col
-                          style="width: 10%; min-width: 10%;"
+                          style="width: 10%;"
                         />
                         <col
-                          style="width: 10%; min-width: 10%;"
+                          style="width: 10%;"
                         />
                         <col
-                          style="width: 20%; min-width: 20%;"
+                          style="width: 20%;"
                         />
                         <col
-                          style="width: 20%; min-width: 20%;"
+                          style="width: 20%;"
                         />
                         <col
-                          style="width: 200px; min-width: 200px;"
+                          style="width: 200px;"
                         />
                       </colgroup>
                       <thead
@@ -42589,10 +42589,10 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                               <colgroup>
                                 <col />
                                 <col
-                                  style="width: 80px; min-width: 80px;"
+                                  style="width: 80px;"
                                 />
                                 <col
-                                  style="width: 80px; min-width: 80px;"
+                                  style="width: 80px;"
                                 />
                               </colgroup>
                               <thead
@@ -43017,22 +43017,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                         class="ant-table-expand-icon-col"
                       />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                       <col
-                        style="width: 140px; min-width: 140px;"
+                        style="width: 140px;"
                       />
                       <col
-                        style="width: 164px; min-width: 164px;"
+                        style="width: 164px;"
                       />
                     </colgroup>
                     <thead
@@ -44344,14 +44344,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                       <col />
                       <col />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                       <col
-                        style="width: 150px; min-width: 150px;"
+                        style="width: 150px;"
                       />
                       <col />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -45639,19 +45639,19 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                   >
                     <colgroup>
                       <col
-                        style="width: 100px; min-width: 100px;"
+                        style="width: 100px;"
                       />
                       <col
-                        style="width: 100px; min-width: 100px;"
+                        style="width: 100px;"
                       />
                       <col
-                        style="width: 100px; min-width: 100px;"
+                        style="width: 100px;"
                       />
                       <col
-                        style="width: 100px; min-width: 100px;"
+                        style="width: 100px;"
                       />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -46823,7 +46823,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                       <col />
                       <col />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -48075,22 +48075,22 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                   >
                     <colgroup>
                       <col
-                        style="width: 200px; min-width: 200px;"
+                        style="width: 200px;"
                       />
                       <col
-                        style="width: 150px; min-width: 150px;"
+                        style="width: 150px;"
                       />
                       <col
-                        style="width: 150px; min-width: 150px;"
+                        style="width: 150px;"
                       />
                       <col
-                        style="width: 150px; min-width: 150px;"
+                        style="width: 150px;"
                       />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                       <col
-                        style="width: 120px; min-width: 120px;"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead

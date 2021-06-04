@@ -35,13 +35,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                   >
                     <colgroup>
                       <col
-                        style="width:48px;min-width:48px"
+                        style="width:48px"
                       />
                       <col
-                        style="width:30%;min-width:30%"
+                        style="width:30%"
                       />
                       <col
-                        style="width:120px;min-width:120px"
+                        style="width:120px"
                       />
                     </colgroup>
                     <thead
@@ -518,13 +518,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                   >
                     <colgroup>
                       <col
-                        style="width:48px;min-width:48px"
+                        style="width:48px"
                       />
                       <col
-                        style="width:30%;min-width:30%"
+                        style="width:30%"
                       />
                       <col
-                        style="width:120px;min-width:120px"
+                        style="width:120px"
                       />
                     </colgroup>
                     <thead
@@ -1047,13 +1047,13 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                   >
                     <colgroup>
                       <col
-                        style="width:48px;min-width:48px"
+                        style="width:48px"
                       />
                       <col
-                        style="width:30%;min-width:30%"
+                        style="width:30%"
                       />
                       <col
-                        style="width:120px;min-width:120px"
+                        style="width:120px"
                       />
                     </colgroup>
                     <thead
@@ -1498,13 +1498,13 @@ exports[`EditorProTable 📝 columns initialValue alway work 1`] = `
                   >
                     <colgroup>
                       <col
-                        style="width: 48px; min-width: 48px;"
+                        style="width: 48px;"
                       />
                       <col
-                        style="width: 48px; min-width: 48px;"
+                        style="width: 48px;"
                       />
                       <col
-                        style="width: 48px; min-width: 48px;"
+                        style="width: 48px;"
                       />
                     </colgroup>
                     <thead
@@ -1842,10 +1842,10 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                   >
                     <colgroup>
                       <col
-                        style="width:48px;min-width:48px"
+                        style="width:48px"
                       />
                       <col
-                        style="width:48px;min-width:48px"
+                        style="width:48px"
                       />
                     </colgroup>
                     <thead
@@ -2039,7 +2039,7 @@ exports[`EditorProTable 📝 renderFormItem run defaultRender 1`] = `
                   >
                     <colgroup>
                       <col
-                        style="width:48px;min-width:48px"
+                        style="width:48px"
                       />
                     </colgroup>
                     <thead

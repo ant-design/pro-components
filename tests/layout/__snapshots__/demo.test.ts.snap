@@ -4202,7 +4202,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     aria-hidden="true"
                     class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
                     role="none"
-                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none;"
+                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                   >
                     <div
                       aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
@@ -12768,7 +12768,7 @@ Array [
                     aria-hidden="true"
                     class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
                     role="none"
-                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none;"
+                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                   >
                     <div
                       aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
@@ -13052,7 +13052,7 @@ Array [
                     aria-hidden="true"
                     class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
                     role="none"
-                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none;"
+                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                   >
                     <div
                       aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
@@ -13317,7 +13317,7 @@ Array [
                     aria-hidden="true"
                     class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
                     role="none"
-                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none;"
+                    style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                   >
                     <div
                       aria-controls="rc-menu-uuid-test-rc-menu-more-popup"
