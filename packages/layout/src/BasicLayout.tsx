@@ -286,7 +286,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     menuData?: MenuDataItem[];
   }>(() => getMenuData(route?.routes || [], menu, formatMessage, menuDataRender));
 
-  const { breadcrumb = {}, breadcrumbMap, menuData } = menuInfoData;
+  const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData || {};
 
   const { data } = useSWR(
     defaultId,
