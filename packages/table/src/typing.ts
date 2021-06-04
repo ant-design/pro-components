@@ -21,6 +21,7 @@ import type { OptionConfig, ToolBarProps } from './components/ToolBar';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ColumnsState, useContainer } from './container';
 import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
 export type PageInfo = {
   pageSize: number;
@@ -237,7 +238,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   headerTitle?: React.ReactNode;
 
   /** @name 标题旁边的 tooltip */
-  tooltip?: string;
+  tooltip?: string | LabelTooltipType;
 
   /** @name 操作栏配置 */
   options?: OptionConfig | false;

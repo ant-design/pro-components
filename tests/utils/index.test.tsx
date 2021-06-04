@@ -9,14 +9,16 @@ import {
   useDebounceFn,
   pickProProps,
   DropdownFooter,
+  LabelIconTip,
 } from '@ant-design/pro-utils';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import { Form, Input } from 'antd';
 import type { Moment } from 'moment';
 import moment from 'moment';
 import { act } from 'react-dom/test-utils';
 import { waitTime, waitForComponentToPaint } from '../util';
 import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/index';
+import { CodeFilled } from '@ant-design/icons';
 
 describe('utils', () => {
   it('📅 useDebounceFn', async () => {
@@ -623,5 +625,17 @@ describe('utils', () => {
     expect(isDropdownValueType('dateTimeRange')).toBeFalsy();
     expect(isDropdownValueType('timeRange')).toBeFalsy();
     expect(isDropdownValueType('select')).toBeTruthy();
+  });
+  it('LabelIconTip', async () => {
+    const html = render(
+      <LabelIconTip
+        label="xxx"
+        subTitle="xxx"
+        tooltip={{
+          icon: <CodeFilled />,
+        }}
+      />,
+    );
+    expect(html).toMatchSnapshot();
   });
 });

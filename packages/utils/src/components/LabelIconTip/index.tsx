@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { Tooltip, ConfigProvider } from 'antd';
-import type { TooltipProps } from 'antd';
 import './index.less';
+import type { LabelTooltipType, WrapperTooltipProps } from 'antd/lib/form/FormItemLabel';
 
 /**
  * 在 form 的 label 后面增加一个 tips 来展示一些说明文案
@@ -12,7 +12,7 @@ import './index.less';
 const LabelIconTip: React.FC<{
   label: React.ReactNode;
   subTitle?: React.ReactNode;
-  tooltip?: string | TooltipProps;
+  tooltip?: string | LabelTooltipType;
 }> = (props) => {
   const { label, tooltip, subTitle } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -21,7 +21,12 @@ const LabelIconTip: React.FC<{
     return <>{label}</>;
   }
   const className = getPrefixCls('pro-core-label-tip');
-  const tooltipProps = typeof tooltip === 'string' ? { title: tooltip } : (tooltip as TooltipProps);
+  const tooltipProps =
+    typeof tooltip === 'string' || React.isValidElement(tooltip)
+      ? { title: tooltip }
+      : (tooltip as WrapperTooltipProps);
+
+  const icon = tooltipProps?.icon || <InfoCircleOutlined />;
   return (
     <div
       className={className}
@@ -33,7 +38,7 @@ const LabelIconTip: React.FC<{
       {subTitle && <div className={`${className}-subtitle`}>{subTitle}</div>}
       {tooltip && (
         <Tooltip {...tooltipProps}>
-          <InfoCircleOutlined className={`${className}-icon`} />
+          <span className={`${className}-icon`}>{icon}</span>
         </Tooltip>
       )}
     </div>

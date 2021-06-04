@@ -10,9 +10,10 @@ import ProForm, {
   ProFormField,
 } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
+import { FontSizeOutlined } from '@ant-design/icons';
+
 import { mount } from 'enzyme';
 import { waitTime, waitForComponentToPaint } from '../util';
-import { waitForDebugger } from 'inspector';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -30,7 +31,13 @@ describe('ProForm', () => {
         }}
         syncToUrl
       >
-        <ProFormText name="navTheme" />
+        <ProFormText
+          tooltip={{
+            title: '主题',
+            icon: <FontSizeOutlined />,
+          }}
+          name="navTheme"
+        />
       </ProForm>,
     );
     await waitForComponentToPaint(wrapper);

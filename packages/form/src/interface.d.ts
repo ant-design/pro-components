@@ -1,11 +1,12 @@
 import type { FormItemProps, SpaceProps } from 'antd';
 import type { ReactNode } from 'react';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type React from 'react';
 
 export type GroupProps = {
   title?: React.ReactNode;
   label?: React.ReactNode;
-  tooltip?: string;
+  tooltip?: LabelTooltipType | string;
   extra?: React.ReactNode;
   /** 组件之前的间隔 */
   size?: number;

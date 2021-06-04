@@ -1,4 +1,5 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
@@ -173,7 +174,7 @@ export type ProSchema<
     | React.ReactNode;
 
   /** @name 展示一个 icon，hover 是展示一些提示信息 */
-  tooltip?: string;
+  tooltip?: LabelTooltipType | string;
 
   /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
