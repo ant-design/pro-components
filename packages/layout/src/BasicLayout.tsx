@@ -41,6 +41,7 @@ import compatibleLayout from './utils/compatibleLayout';
 import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
 import type { WaterMarkProps } from './components/WaterMark';
+import { stringify } from 'use-json-comparison';
 
 let layoutIndex = 0;
 
@@ -310,7 +311,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     }
     mutate(defaultId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [defaultId, menu?.params]);
+  }, [defaultId, stringify(menu?.params)]);
 
   if (actionRef && menu?.request) {
     actionRef.current = {

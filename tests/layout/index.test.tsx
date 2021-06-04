@@ -1057,4 +1057,64 @@ describe('BasicLayout', () => {
 
     expect(fn).toBeCalledTimes(2);
   });
+
+  it('🥩 BasicLayout support menu.params', async () => {
+    const fn = jest.fn();
+
+    const Demo = (props: any) => {
+      return (
+        <BasicLayout
+          menu={{
+            locale: false,
+            request: async () => {
+              fn();
+              return [
+                {
+                  path: '/admin',
+                  name: '管理页',
+                },
+                {
+                  name: '列表页',
+                  path: '/list',
+                },
+              ];
+            },
+          }}
+          {...props}
+        />
+      );
+    };
+
+    const html = mount(<Demo />);
+    await waitForComponentToPaint(html, 1000);
+
+    expect(fn).toBeCalledTimes(1);
+
+    html.setProps({
+      menu: {
+        params: {
+          id: '1212',
+        },
+      },
+    });
+    expect(fn).toBeCalledTimes(2);
+
+    html.setProps({
+      menu: {
+        params: {
+          id: '1212',
+        },
+      },
+    });
+    expect(fn).toBeCalledTimes(2);
+
+    html.setProps({
+      menu: {
+        params: {
+          id: '123',
+        },
+      },
+    });
+    expect(fn).toBeCalledTimes(3);
+  });
 });
