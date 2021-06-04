@@ -397,7 +397,7 @@ ref.current.cancelEditable(rowKey);
 | order | Query the weight of the form, with the higher weight sorted first | `number` | - |
 | renderFormItem | Render the input component of the query form | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
 | fieldProps | The props of the query form that will be passed through to the form item | `{ [prop: string]: any }` | - |
-| search | search-related configuration columns, false is hidden | `false` \| `{ transform: (value: any) => any }` | true |
+| search | search-related configuration columns, false is hidden | `false` \| `{ transform: (value: any) => any }` | - |
 | search.transform | The key of the transformed value, typically used for transforming event intervals | `(value: any) => any` | - |
 | editable | Whether or not editable in the edit table, the function's arguments are the same as the table's render | `false` \| `(text: any, record: T,index: number) => boolean` | true |
 | colSize | the number of cells occupied by a form item, `occupy= colSize*span`, `colSize` defaults to 1, `span` is 8, `span` is `form={{span:8}}` set globally | `number` | - |
