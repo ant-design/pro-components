@@ -27644,7 +27644,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                             >
                               <colgroup>
                                 <col
-                                  style="width: 30%; min-width: 30%;"
+                                  style="width: 30%;"
                                 />
                               </colgroup>
                               <thead
