@@ -627,7 +627,7 @@ describe('utils', () => {
     expect(isDropdownValueType('select')).toBeTruthy();
   });
   it('LabelIconTip', async () => {
-    const html = render(
+    const html = mount(
       <LabelIconTip
         label="xxx"
         subTitle="xxx"
@@ -636,6 +636,13 @@ describe('utils', () => {
         }}
       />,
     );
-    expect(html).toMatchSnapshot();
+
+    act(() => {
+      html.find('div').at(0).simulate('mousedown');
+      html.find('div').at(0).simulate('mouseleave');
+      html.find('div').at(0).simulate('mousemove');
+    });
+
+    expect(html.render()).toMatchSnapshot();
   });
 });
