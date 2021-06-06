@@ -11,7 +11,7 @@ import {
   DropdownFooter,
   LabelIconTip,
 } from '@ant-design/pro-utils';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import { Form, Input } from 'antd';
 import type { Moment } from 'moment';
 import moment from 'moment';
@@ -506,6 +506,32 @@ describe('utils', () => {
     expect((html as any).dateTimeRange2).toBe('2019-11-16 12:55:26');
     expect((html as any).dateRange1).toBe('2019-11-16 12:50:26');
     expect((html as any).dateRange2).toBe('2019-11-16 12:55:26');
+  });
+
+  it('📅 transformKeySubmitValue return nest object', async () => {
+    const html = transformKeySubmitValue(
+      {
+        a: {
+          b: {
+            name: 'test',
+          },
+        },
+      },
+      {
+        a: {
+          b: {
+            name: (e: string) => ({
+              a: {
+                b: {
+                  name: `qixian_${e}`,
+                },
+              },
+            }),
+          } as any,
+        },
+      },
+    );
+    expect(html.a.b.name).toBe('qixian_test');
   });
 
   it('📅 transformKeySubmitValue return array', async () => {

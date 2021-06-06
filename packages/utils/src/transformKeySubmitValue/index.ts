@@ -8,15 +8,15 @@ export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>
 
 const transformKeySubmitValue = <T = any>(
   values: T,
-  dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined>,
+  dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined | DataFormatMapType>,
   omit: boolean = true,
 ) => {
-  // ignore nil transfrom
+  // ignore nil transform
   const dataFormatMap = Object.keys(dataFormatMapRaw).reduce((ret, key) => {
     const value = dataFormatMapRaw[key];
     if (!isNil(value)) {
       // eslint-disable-next-line no-param-reassign
-      ret[key] = value!; // can't be undefined
+      ret[key] = value! as SearchTransformKeyFn; // can't be undefined
     }
     return ret;
   }, {} as Record<string, SearchTransformKeyFn>);
@@ -31,14 +31,14 @@ const transformKeySubmitValue = <T = any>(
   }
   let finalValues = {} as T;
 
-  const gen = (tempValues: T, parentsKey?: React.Key) => {
+  const gen = (tempValues: T, parentsKey?: React.Key[]) => {
     let result = {} as T;
 
     if (tempValues == null || tempValues === undefined) {
       return result;
     }
     Object.keys(tempValues).forEach((entryKey) => {
-      const key = parentsKey ? [parentsKey, entryKey] : [entryKey];
+      const key = parentsKey ? [parentsKey, entryKey].flat(1) : [entryKey].flat(1);
       const itemValue = tempValues[entryKey];
       if (
         typeof itemValue === 'object' &&
@@ -46,7 +46,7 @@ const transformKeySubmitValue = <T = any>(
         !React.isValidElement(itemValue) && // ignore walk throungh React Element
         !(itemValue instanceof Blob) // ignore walk throungh Blob
       ) {
-        const genValues = gen(itemValue, entryKey);
+        const genValues = gen(itemValue, key);
         if (Object.keys(genValues).length < 1) {
           return;
         }
