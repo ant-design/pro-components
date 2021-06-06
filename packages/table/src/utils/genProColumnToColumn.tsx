@@ -63,7 +63,14 @@ export function genProColumnToColumn<T>(props: {
           if (tableProps.editable) {
             return true;
           }
-          if (columnProps.render || columnProps.renderFormItem || columnProps.valueEnum) {
+
+          if (
+            columnProps.render ||
+            columnProps.renderFormItem ||
+            columnProps.valueEnum ||
+            // 嵌套表格也需要更新，不然状态更新不上
+            !children
+          ) {
             return true;
           }
           const cellName = [dataIndex || columnsIndex].flat(1);

@@ -202,5 +202,6 @@ export function columnRender<T>({
   }
 
   const isReactRenderNode = React.isValidElement(dom) || ['string', 'number'].includes(typeof dom);
+
   return !isNil(dom) && isReactRenderNode ? dom : null;
 }
