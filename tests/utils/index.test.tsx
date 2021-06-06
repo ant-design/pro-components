@@ -11,7 +11,7 @@ import {
   DropdownFooter,
   LabelIconTip,
 } from '@ant-design/pro-utils';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import { Form, Input } from 'antd';
 import type { Moment } from 'moment';
 import moment from 'moment';

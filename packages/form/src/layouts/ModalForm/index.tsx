@@ -83,6 +83,7 @@ function ModalForm<T = Record<string, any>>({
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
+    return () => scrollLocker?.unLock?.();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 

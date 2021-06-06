@@ -22,6 +22,10 @@ ModalForm 和 DrawerForm 都提供了 trigger 来减少 state 的使用，如果
 
 <code src="./demos/drawer-form.tsx"  background="#f5f5f5" height="32px" title="Drawer 表单" />
 
+## 嵌套浮沉表单
+
+<code src="./demos/drawer-form-nested.tsx" background="#f5f5f5" height="32px" title="Drawer Forms"/>
+
 ## 自定义 Modal 表单按钮
 
 <code src="./demos/modal-form-submitter.tsx"  background="#f5f5f5" height="32px" title="自定义 Modal 表单按钮"/>
