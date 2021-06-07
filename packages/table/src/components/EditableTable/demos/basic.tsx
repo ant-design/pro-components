@@ -19,6 +19,7 @@ type DataSourceType = {
   decs?: string;
   state?: string;
   created_at?: string;
+  update_at?: string;
   children?: DataSourceType[];
 };
 
@@ -29,6 +30,7 @@ const defaultData: DataSourceType[] = [
     decs: '这个活动真好玩',
     state: 'open',
     created_at: '2020-05-26T09:42:56Z',
+    update_at: '2020-05-26T09:42:56Z',
   },
   {
     id: 624691229,
@@ -36,6 +38,7 @@ const defaultData: DataSourceType[] = [
     decs: '这个活动真好玩',
     state: 'closed',
     created_at: '2020-05-26T08:19:22Z',
+    update_at: '2020-05-26T08:19:22Z',
   },
 ];
 
@@ -171,7 +174,8 @@ export default () => {
         editable={{
           type: 'multiple',
           editableKeys,
-          onSave: async () => {
+          onSave: async (rowKey, data, row) => {
+            console.log(rowKey, data, row);
             await waitTime(2000);
           },
           onChange: setEditableRowKeys,

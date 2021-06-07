@@ -317,9 +317,9 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | type | The type of editable form, single or multiple | `single` \| `multiple` | - |
 | editableKeys | The row being edited, a controlled property. The default `key` will use the `rowKey` configuration, if not configured it will use `index`, it is recommended to use rowKey | `Key[]` | - |
 | onChange | triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | Triggered when a row is saved, only updated | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
+| onSave | Triggered when a row is savedd | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<boolean>` | - |
 | onDelete | Triggered when a line is deleted | `(key: Key, row: T) => Promise<boolean>` | - |
-| onCancel | Triggered when you cancel editing a line | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
+| onCancel | Triggered when you cancel editing a line | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<boolean>` | - |
 | actionRender | Customize the action bar for edit mode | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
 | deletePopconfirmMessage | popup confirmation message when deleting | `ReactNode` | `Delete this row?` |
 | onlyOneLineEditorAlertMessage | Message that only one line can be edited | `ReactNode` | `Only one line can be edited at a time` |
