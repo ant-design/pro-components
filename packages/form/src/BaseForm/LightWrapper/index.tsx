@@ -74,7 +74,6 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
         children,
         omitUndefined({
           value,
-          onChange: propsOnChange,
           onBlur,
           ...children.props,
           fieldProps: omitUndefined({
