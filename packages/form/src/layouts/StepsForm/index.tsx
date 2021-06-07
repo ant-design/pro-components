@@ -5,7 +5,7 @@ import toArray from 'rc-util/lib/Children/toArray';
 import type { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import { useIntl } from '@ant-design/pro-provider';
+import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
 import { useMountMergeState } from '@ant-design/pro-utils';
 
 import type { StepFormProps } from './StepForm';
@@ -188,7 +188,6 @@ function StepsForm<T = Record<string, any>>(
     const from = formArrayRef.current[step];
     from.current?.submit();
   };
-
   const next = submitter !== false && (
     <Button
       key="next"
@@ -354,9 +353,21 @@ function StepsForm<T = Record<string, any>>(
   );
 }
 
-StepsForm.StepForm = StepForm;
-StepsForm.useForm = Form.useForm;
-
 export type { StepFormProps, StepsFormProps };
 
-export default StepsForm;
+function StepsFormWarp<T = Record<string, any>>(
+  props: StepsFormProps<T> & {
+    children: any;
+  },
+) {
+  return (
+    <ConfigProviderWrap>
+      <StepsForm<T> {...props} />
+    </ConfigProviderWrap>
+  );
+}
+
+StepsFormWarp.StepForm = StepForm;
+StepsFormWarp.useForm = Form.useForm;
+
+export default StepsFormWarp;

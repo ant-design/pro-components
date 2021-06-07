@@ -236,6 +236,7 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
     <ConfigConsumer>
       {(value) => {
         const localeName = locale?.locale;
+
         const key = findIntlKeyByAntdLocaleKey(localeName);
         // antd 的 key 存在的时候以 antd 的为主
         const intl =
@@ -250,6 +251,7 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
                 locale: zh_CN,
               }
             : {};
+
         return (
           <Provider {...configProvider}>
             <ConfigProvider
