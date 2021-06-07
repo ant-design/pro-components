@@ -48,9 +48,9 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 | form | Form instance of editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
 | editableKeys | Row being edited, controlled attributes. The default `key` will use the configuration of `rowKey`, if there is no configuration, it will use the `index`, it is recommended to use rowKey | `Key[]` | - |
 | onChange | Triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | Triggered when a row is saved, only update | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onSave | Triggered when a row is saved, only update | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | onDelete | Triggered when a row is deleted | `(key: Key, row: T) => Promise<any>` | - |
-| onCancel | Triggered when cancel editing a line | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onCancel | Triggered when cancel editing a line | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | actionRender | Custom edit mode action bar | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
 | deletePopconfirmMessage | The pop-up confirmation box prompt message when deleting | `ReactNode` | `Delete this line? ` |
 | onlyOneLineEditorAlertMessage | Only one line can be edited | `ReactNode` | `Only one line can be edited at the same time` |

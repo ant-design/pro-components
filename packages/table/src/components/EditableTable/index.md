@@ -45,9 +45,9 @@ nav:
 | form | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用 | `FormInstance` | - |
 | editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
 | onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | 保存一行的时候触发，只更新 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onSave | 保存一行的时候触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<any>` | - |
-| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
