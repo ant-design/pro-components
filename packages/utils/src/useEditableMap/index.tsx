@@ -106,9 +106,10 @@ function useEditableMap<RecordType>(
     editRow: RecordType & {
       index?: number;
     },
+    originRow: RecordType & { index?: number },
     newLine?: NewLineConfig<any>,
   ) => {
-    const success = await props?.onCancel?.(recordKey, editRow, newLine);
+    const success = await props?.onCancel?.(recordKey, editRow, originRow, newLine);
     if (success === false) {
       return false;
     }
@@ -120,8 +121,11 @@ function useEditableMap<RecordType>(
     editRow: RecordType & {
       index?: number;
     },
+    originRow: RecordType & {
+      index?: number;
+    },
   ) => {
-    const success = await props?.onSave?.(recordKey, editRow);
+    const success = await props?.onSave?.(recordKey, editRow, originRow);
     if (success === false) {
       return false;
     }

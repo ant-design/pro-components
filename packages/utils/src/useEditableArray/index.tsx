@@ -61,18 +61,27 @@ export type RowEditableConfig<T> = {
   actionRender?: ActionRenderFunction<T>;
   /** 行保存的时候 */
   onSave?: (
+    /** 行 id，一般是唯一id */
     key: RecordKey,
-    row: T & { index?: number },
+    /** 当前修改的行的值，只有 form 在内的会被设置 */
+    record: T & { index?: number },
+    /** 原始值，可以用于判断是否修改 */
+    originRow: T & { index?: number },
+    /** 新建一行的配置，一般无用 */
     newLineConfig?: NewLineConfig<T>,
   ) => Promise<any | void>;
 
   /** 行保存的时候 */
   onCancel?: (
+    /** 行 id，一般是唯一id */
     key: RecordKey,
-    row: T & { index?: number },
+    /** 当前修改的行的值，只有 form 在内的会被设置 */
+    record: T & { index?: number },
+    /** 原始值，可以用于判断是否修改 */
+    originRow: T & { index?: number },
+    /** 新建一行的配置，一般无用 */
     newLineConfig?: NewLineConfig<T>,
   ) => Promise<any | void>;
-
   /** 行删除的时候 */
   onDelete?: (key: RecordKey, row: T & { index?: number }) => Promise<any | void>;
   /** 删除行时的确认消息 */
@@ -205,7 +214,7 @@ function editableRowByKey<RecordType>(
  *
  * @param ActionRenderConfig
  */
-export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = ({
+export function SaveEditableAction<T>({
   recordKey,
   onSave,
   form,
@@ -213,7 +222,7 @@ export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }
   children,
   newLineConfig,
   editorType,
-}) => {
+}: ActionRenderConfig<T> & { row: any; children: any }) {
   const context = useContext(ProFormContext);
   const [loading, setLoading] = useMountMergeState<boolean>(false);
   return (
@@ -229,8 +238,16 @@ export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }
             recursive: true,
           });
           const fields = (context.getFieldFormatValue || form.getFieldValue)(namePath);
-          const record = isMapEditor ? set(row, namePath, fields) : { ...row, ...fields };
-          const res = await onSave?.(recordKey, record, newLineConfig);
+          // 获取数据并保存
+          const res = await onSave?.(
+            recordKey,
+
+            // 如果是 map 模式，fields 就是一个值，所以需要set 到对象中
+            // 数据模式 fields 是一个对象，所以不需要
+            isMapEditor ? set({}, namePath, fields, true) : fields,
+            row,
+            newLineConfig,
+          );
           setLoading(false);
           return res;
         } catch (e) {
@@ -251,7 +268,7 @@ export const SaveEditableAction: React.FC<ActionRenderConfig<any> & { row: any }
       {children || '保存'}
     </a>
   );
-};
+}
 
 /**
  * 删除按钮 dom
@@ -310,8 +327,8 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         const isMapEditor = editorType === 'Map';
         const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
         const fields = (context.getFieldFormatValue || form.getFieldValue)(namePath);
-        const record = isMapEditor ? set(row, namePath, fields) : { ...row, ...fields };
-        const res = await onCancel?.(recordKey, record, newLineConfig);
+        const record = isMapEditor ? set({}, namePath, fields) : fields;
+        const res = await onCancel?.(recordKey, record, row, newLineConfig);
         cancelEditable(recordKey);
         form.setFieldsValue(row);
         return res;
@@ -322,10 +339,13 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
   );
 };
 
-export function defaultActionRender<T>(row: T, config: ActionRenderConfig<T, NewLineConfig<T>>) {
+export function defaultActionRender<T extends Record<string, any>>(
+  row: T,
+  config: ActionRenderConfig<T, NewLineConfig<T>>,
+) {
   const { recordKey, newLineConfig, saveText, deleteText } = config;
   return [
-    <SaveEditableAction key="save" {...config} row={row}>
+    <SaveEditableAction<T> key="save" {...config} row={row}>
       {saveText}
     </SaveEditableAction>,
     newLineConfig?.options.recordKey !== recordKey ? (
@@ -529,9 +549,10 @@ function useEditableArray<RecordType>(
         editRow: RecordType & {
           index?: number;
         },
+        originRow: RecordType & { index?: number },
         newLine?: NewLineConfig<RecordType>,
       ) => {
-        const res = await props?.onCancel?.(recordKey, editRow, newLine);
+        const res = await props?.onCancel?.(recordKey, editRow, originRow, newLine);
         return res;
       },
       onDelete: async (
@@ -556,10 +577,13 @@ function useEditableArray<RecordType>(
         editRow: RecordType & {
           index?: number;
         },
+        originRow: RecordType & {
+          index?: number;
+        },
         newLine?: NewLineConfig<RecordType>,
       ) => {
         const { options } = newLine || {};
-        const res = await props?.onSave?.(recordKey, editRow, newLine);
+        const res = await props?.onSave?.(recordKey, editRow, originRow, newLine);
         // 保存时解除编辑模式
         cancelEditable(recordKey);
         if (newLine && options?.recordKey === recordKey) {
