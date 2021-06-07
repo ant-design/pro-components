@@ -308,7 +308,6 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   const domList = useMemo(() => {
     return genItems(columns, updateTime);
   }, [columns, genItems, updateTime]);
-
   return (
     <Form
       formRef={formRef}
