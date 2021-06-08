@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.13.2...@ant-design/pro-card@1.14.0) (2021-06-08)
+
+### Features
+
+- **form:** support more tooltip props ([#2932](https://github.com/ant-design/pro-components/issues/2932)) ([bedd7eb](https://github.com/ant-design/pro-components/commit/bedd7ebb0784da8fbb9c4998651f39f5efff5354))
+
 ## [1.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.13.1...@ant-design/pro-card@1.13.2) (2021-05-31)
 
 **Note:** Version bump only for package @ant-design/pro-card

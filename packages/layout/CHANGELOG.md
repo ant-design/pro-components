@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.19.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.19.3...@ant-design/pro-layout@6.19.4) (2021-06-08)
+
+### Bug Fixes
+
+- **form:** hideInForm is invalid ([#2889](https://github.com/ant-design/pro-components/issues/2889)) ([361941d](https://github.com/ant-design/pro-components/commit/361941d1cca0d7b6289a484b3366b3993fbec643))
+- **layout:** fix layout fast load error ([#2933](https://github.com/ant-design/pro-components/issues/2933)) ([0c1264e](https://github.com/ant-design/pro-components/commit/0c1264ea2e1c66b39c9335f32640f88ff56bcae6))
+- **layout:** fix menu params alway run error ([#2931](https://github.com/ant-design/pro-components/issues/2931)) ([0b1539e](https://github.com/ant-design/pro-components/commit/0b1539ea3f997ecde5e9dd6629fbd692437f6850))
+- **layout:** if have menuDataRender, alway render layout ([#2920](https://github.com/ant-design/pro-components/issues/2920)) ([5282fae](https://github.com/ant-design/pro-components/commit/5282faefd090c3a7faf83824a14b762f85047568))
+
 ## [6.19.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.19.2...@ant-design/pro-layout@6.19.3) (2021-05-31)
 
 ### Bug Fixes
