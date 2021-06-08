@@ -97,7 +97,7 @@ RTL means right-to-left.
 
 `fieldProps` 可以把 props 透传，可以设置 select 的样式和多选等问题。
 
-`renderFormItem` 可以完成重写渲染逻辑，传入 item 和 props 来进行渲染，需要注意的是我们必须要将 props 中的 `value` 和 `onChange` 必须要被赋值，否则 form 无法拿到参数。
+`renderFormItem` 可以完成重写渲染逻辑，传入 item 和 props 来进行渲染，需要注意的是我们必须要将 props 中的 `value` 和 `onChange` 必须要被赋值，否则 form 无法拿到参数。如果你需要自定义需要先了解 antd 表单的[工作原理](https://ant.design/components/form-cn/#Form.Item)。
 
 ```tsx | pure
 renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest }, form) => {
@@ -106,7 +106,15 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
   }
   const status = form.getFieldValue('state');
   if (status !== 'open') {
-    return <Input {...fieldProps} placeholder="请输入test" />;
+    return (
+      // value 和 onchange 会通过 form 自动注入。
+      <Input
+        // 组件的配置
+        {...fieldProps}
+        // 自定义配置
+        placeholder="请输入test"
+      />
+    );
   }
   return defaultRender(_);
 };
@@ -126,6 +134,22 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
     form: FormInstance,
   ) => JSX.Element | false | null;
 ```
+
+#### FAQ
+
+#### 为什么不能自己设置 value 和 onchange
+
+被 ProTable 包装的控件，表单控件会自动添加 value（或 valuePropName 指定的其他属性） onChange（或 trigger 指定的其他属性），数据同步将被 Form 接管，这会导致以下结果：
+
+- 你不再需要也不应该用 onChange 来做数据收集同步（你可以使用 Form 的 onValuesChange），但还是可以继续监听 onChange 事件。
+
+- 你不能用控件的 value 或 defaultValue 等属性来设置表单域的值，默认值可以用 Form 里的 initialValues 来设置。注意 initialValues 不能被 setState 动态更新，你需要用 setFieldsValue 来更新。
+
+- 你不应该用 setState，可以使用 form.setFieldsValue 来动态改变表单值。
+
+##### 为什么设置 defaultValue 不生效？#
+
+因为 ProTable 子组件会转为受控模式。因而 defaultValue 不会生效。你需要在 Form 上通过 initialValues 设置默认值。
 
 <code src="./demos/linkage_form.tsx" background="#f5f5f5" height="310px" title="搜索表单自定义" />
 
@@ -227,7 +251,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 
 ### request
 
-`request` 是 ProTable 最重要的 API，`request` 会接收一个对象。对象中必须要有 `data` 和 `success`，如果需要手动分页 `total` 也是必需的。`request` 会接管 `loading` 的设置，同时在查询表单查询和 `params` 参数发生修改时重新执行。同时 查询表单的值和 `params` 参数也会带入。以下是一个实例：
+`request` 是 ProTable 最重要的 API，`request` 会接收一个对象。对象中必须要有 `data` 和 `success`，如果需要手动分页 `total` 也是必需的。`request` 会接管 `loading` 的设置，同时在查询表单查询和 `params` 参数发生修改时重新执行。同时 查询表单的值和 `params` 参数也会带入。以下是一个例子：
 
 ```tsx | pure
 <ProTable<T, U>
@@ -261,6 +285,8 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
   }}
 />
 ```
+
+列配置中也支持 request，但是只有几种 [valueType](/components/schema#valuetype) 支持。
 
 ### ProTable
 
@@ -400,7 +426,7 @@ ref.current.cancelEditable(rowKey);
 | ellipsis | 是否自动缩略 | `boolean` | - |
 | copyable | 是否支持复制 | `boolean` | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](#valueenum) | - |
-| valueType | 值的类型 | `money` \| `option` \| `date` \| `dateTime` \| `time` \| `text`\| `index`\|`indexBorder` | `text` |
+| valueType | 值的类型,会生成不同的渲染器 | [`valueType`](/components/schema#valuetype) | `text` |
 | order | 查询表单中的权重，权重大排序靠前 | `number` | - |
 | fieldProps | 查询表单的 props，会透传给表单项,如果渲染出来是 Input,就支持 input 的所有 props，同理如果是 select，也支持 select 的所有 props。也支持方法传入 | `` (form,config)=>Record`\| `Record `` | - |
 | `formItemProps` | 传递给 Form.Item 的配置,可以配置 rules，但是默认的查询表单 rules 是不生效的。需要配置 `ignoreRules` | `(form,config)=>formItemProps` \| `formItemProps` | - |
@@ -419,7 +445,7 @@ ref.current.cancelEditable(rowKey);
 
 ### valueType 值类型
 
-ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，配置一个 [`valueType`](/components/schema) 即可展示格式化响应的数据。
+ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，配置一个 [`valueType`](/components/schema#valuetype) 即可展示格式化响应的数据。
 
 ### 批量操作
 
@@ -440,24 +466,9 @@ ProTable 会根据列来生成一个 Form，用于筛选列表数据，最后的
 
 按照规范，table 的表单不需要任何的必选参数，所有点击搜索和重置都会触发 `request`来发起一次查询。
 
-Form 的列是根据 `valueType` 来生成不同的类型。
+Form 的列是根据 `valueType` 来生成不同的类型,详细的值类型请查看[通用配置](/components/schema#valuetype)。
 
 > valueType 为 index indexBorder option 和没有 dataIndex 和 key 的列将会忽略。
-
-| 类型 | 对应的组件 |
-| --- | --- |
-| text | [Input](https://ant.design/components/input-cn/) |
-| textarea | [Input.TextArea](https://ant.design/components/input-cn/#components-input-demo-textarea) |
-| date | [DatePicker](https://ant.design/components/date-picker-cn/) |
-| dateTime | [DatePicker](https://ant.design/components/date-picker-cn/#components-date-picker-demo-time) |
-| time | [TimePicker](https://ant.design/components/time-picker-cn/) |
-| dateTimeRange | [RangePicker](https://ant.design/components/time-picker-cn/#components-time-picker-demo-range-picker) |
-| dateRange | [RangePicker](https://ant.design/components/time-picker-cn/#components-time-picker-demo-range-picker) |
-| money | [InputNumber](https://ant.design/components/input-number-cn/) |
-| digit | [InputNumber](https://ant.design/components/input-number-cn/) |
-| option | 不展示 |
-| index | 不展示 |
-| progress | 不展示 |
 
 ### 列表工具栏
 
