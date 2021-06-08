@@ -36,6 +36,7 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 | recordCreatorProps | Configuration related to creating a new row of data | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button/ #API) | - |
 | maxLength | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number | - |
 | editable | Whether or not editable in the edit table, the function's arguments are the same as the table's render | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| controlled | Whether controlled, if controlled every edit modifies the dataSource | `boolean` | false |
 
 > Other APIs are the same as ProTable.
 
