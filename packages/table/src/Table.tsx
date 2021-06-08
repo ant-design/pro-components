@@ -434,7 +434,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   }, [action.dataSource]);
 
   useEffect(() => {
-    selectedRowsRef.current = selectedRowKeys.map(
+    selectedRowsRef.current = selectedRowKeys?.map(
       (key): T => preserveRecordsRef.current?.get(key) as T,
     );
   }, [selectedRowKeys]);
