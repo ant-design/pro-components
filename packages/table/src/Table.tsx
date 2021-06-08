@@ -2,7 +2,6 @@
 import React, { useContext, useRef, useCallback, useMemo, useEffect } from 'react';
 import type { TablePaginationConfig } from 'antd';
 import { Table, ConfigProvider, Card } from 'antd';
-import useSelection from 'antd/lib/table/hooks/useSelection';
 
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
@@ -342,7 +341,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const setSelectedRowsAndKey = useCallback(
     (keys: React.ReactText[], rows: T[]) => {
       setSelectedRowKeys(keys);
-      if (!rowSelection?.selectedRowKeys) {
+      if (!propsRowSelection || !propsRowSelection?.selectedRowKeys) {
         selectedRowsRef.current = rows;
       }
     },
@@ -420,19 +419,18 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** SelectedRowKeys受控处理selectRows */
   const preserveRecordsRef = React.useRef(new Map<any, T>());
-  const dataKeysCache = useMemo(() => {
+  useMemo(() => {
     if (action.dataSource?.length) {
       const newCache = new Map<any, T>();
       const keys = action.dataSource.map((data, index) => {
-        let key = data.key === undefined ? index : data.key;
+        const key = data.key === undefined ? index : data.key;
         newCache.set(key, data);
         return key;
       });
       preserveRecordsRef.current = newCache;
       return keys;
-    } else {
-      return [];
     }
+    return [];
   }, [action.dataSource]);
 
   useEffect(() => {
