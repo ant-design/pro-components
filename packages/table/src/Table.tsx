@@ -2,6 +2,7 @@
 import React, { useContext, useRef, useCallback, useMemo, useEffect } from 'react';
 import type { TablePaginationConfig } from 'antd';
 import { Table, ConfigProvider, Card } from 'antd';
+
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
@@ -340,7 +341,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const setSelectedRowsAndKey = useCallback(
     (keys: React.ReactText[], rows: T[]) => {
       setSelectedRowKeys(keys);
-      selectedRowsRef.current = rows;
+      if (!propsRowSelection || !propsRowSelection?.selectedRowKeys) {
+        selectedRowsRef.current = rows;
+      }
     },
     [setSelectedRowKeys],
   );
@@ -413,6 +416,28 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     },
   });
   // ============================ END ============================
+
+  /** SelectedRowKeys受控处理selectRows */
+  const preserveRecordsRef = React.useRef(new Map<any, T>());
+  useMemo(() => {
+    if (action.dataSource?.length) {
+      const newCache = new Map<any, T>();
+      const keys = action.dataSource.map((data, index) => {
+        const key = data.key === undefined ? index : data.key;
+        newCache.set(key, data);
+        return key;
+      });
+      preserveRecordsRef.current = newCache;
+      return keys;
+    }
+    return [];
+  }, [action.dataSource]);
+
+  useEffect(() => {
+    selectedRowsRef.current = selectedRowKeys.map(
+      (key): T => preserveRecordsRef.current?.get(key) as T,
+    );
+  }, [selectedRowKeys]);
 
   /** 页面编辑的计算 */
   const pagination = useMemo(() => {
