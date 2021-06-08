@@ -166,7 +166,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width:100%;margin:0;padding:0"
+                            style="width:100%;margin:0;padding:0"
                             title=""
                           >
                             🐛 [BUG]yarn install命令 antd2.4.5会报错
@@ -267,7 +267,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width:100%;margin:0;padding:0"
+                            style="width:100%;margin:0;padding:0"
                             title=""
                           >
                             🐛 [BUG]无法创建工程npm create umi
@@ -368,7 +368,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width:100%;margin:0;padding:0"
+                            style="width:100%;margin:0;padding:0"
                             title=""
                           >
                             🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
@@ -731,7 +731,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width:100%;margin:0;padding:0"
+                            style="width:100%;margin:0;padding:0"
                             title=""
                           >
                             🐛 [BUG]yarn install命令 antd2.4.5会报错
@@ -832,7 +832,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width:100%;margin:0;padding:0"
+                            style="width:100%;margin:0;padding:0"
                             title=""
                           >
                             🐛 [BUG]无法创建工程npm create umi
@@ -933,7 +933,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width:100%;margin:0;padding:0"
+                            style="width:100%;margin:0;padding:0"
                             title=""
                           >
                             🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
@@ -1186,7 +1186,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width:100%;margin:0;padding:0"
+                            style="width:100%;margin:0;padding:0"
                             title=""
                           >
                             🐛 [BUG]yarn install命令 antd2.4.5会报错
@@ -1287,7 +1287,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width:100%;margin:0;padding:0"
+                            style="width:100%;margin:0;padding:0"
                             title=""
                           >
                             🐛 [BUG]无法创建工程npm create umi
@@ -1388,7 +1388,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width:100%;margin:0;padding:0"
+                            style="width:100%;margin:0;padding:0"
                             title=""
                           >
                             🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
