@@ -2,6 +2,8 @@
 import React, { useContext, useRef, useCallback, useMemo, useEffect } from 'react';
 import type { TablePaginationConfig } from 'antd';
 import { Table, ConfigProvider, Card } from 'antd';
+import useSelection from 'antd/lib/table/hooks/useSelection';
+
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
@@ -340,32 +342,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const setSelectedRowsAndKey = useCallback(
     (keys: React.ReactText[], rows: T[]) => {
       setSelectedRowKeys(keys);
-      selectedRowsRef.current = rows;
+      if (!rowSelection?.selectedRowKeys) {
+        selectedRowsRef.current = rows;
+      }
     },
     [setSelectedRowKeys],
   );
-
-  /** SelectedRowKeys受控处理selectRows */
-  useEffect(() => {
-    if (selectedRowKeys.length !== selectedRowsRef.current.length) {
-      let selectedRows: T[] = [];
-      selectedRowKeys.forEach((key) => {
-        for (let i = 0; i < action.dataSource.length; i++) {
-          let data = action.dataSource[i];
-          if (rowKey !== undefined) {
-            if (key === data[rowKey as string]) {
-              selectedRows.push(data);
-            }
-          } else {
-            if (key === i) {
-              selectedRows.push(data);
-            }
-          }
-        }
-      });
-      selectedRowsRef.current = selectedRows;
-    }
-  }, [selectedRowKeys]);
 
   const [formSearch, setFormSearch] = useMountMergeState<Record<string, any> | undefined>(() => {
     // 如果手动模式，或者 search 不存在的时候设置为 undefined
@@ -435,6 +417,29 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     },
   });
   // ============================ END ============================
+
+  /** SelectedRowKeys受控处理selectRows */
+  const preserveRecordsRef = React.useRef(new Map<any, T>());
+  const dataKeysCache = useMemo(() => {
+    if (action.dataSource?.length) {
+      const newCache = new Map<any, T>();
+      const keys = action.dataSource.map((data, index) => {
+        let key = data.key === undefined ? index : data.key;
+        newCache.set(key, data);
+        return key;
+      });
+      preserveRecordsRef.current = newCache;
+      return keys;
+    } else {
+      return [];
+    }
+  }, [action.dataSource]);
+
+  useEffect(() => {
+    selectedRowsRef.current = selectedRowKeys.map(
+      (key): T => preserveRecordsRef.current?.get(key) as T,
+    );
+  }, [selectedRowKeys]);
 
   /** 页面编辑的计算 */
   const pagination = useMemo(() => {
