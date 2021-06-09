@@ -9,6 +9,19 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.40.0
+
+`2021-06-08`
+
+- 🐛 fix(table): SelectedRowKeys 受控处理 selectRows (#2446) [#2963](https://github.com/ant-design/pro-components/pull/2963) [@dingtianxiu](https://github.com/dingtianxiu)
+- 🐛 fix(table): fix table ellipsis automatically (#2948) [#2964](https://github.com/ant-design/pro-components/pull/2964) [@DerrickTel](https://github.com/DerrickTel)
+- 🐛 fix(pro-table): fix alert style [#2953](https://github.com/ant-design/pro-components/pull/2953) [@hemengke1997](https://github.com/hemengke1997)
+- 🐛 fix(table): fix onChange multiple calls error [#2945](https://github.com/ant-design/pro-components/pull/2945) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix tree table no work error [#2943](https://github.com/ant-design/pro-components/pull/2943) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): support three levels of nesting [#2941](https://github.com/ant-design/pro-components/pull/2941) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): EditableTable support controlled [#2965](https://github.com/ant-design/pro-components/pull/2965) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): onsave support origin data and no merge record [#2949](https://github.com/ant-design/pro-components/pull/2949) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.39.2
 
 `2021-05-31`
