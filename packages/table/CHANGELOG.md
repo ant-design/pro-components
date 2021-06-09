@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.40.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.40.0...@ant-design/pro-table@2.40.1) (2021-06-09)
+
+### Bug Fixes
+
+- **table:** fix table rowselection bug when set false ([#2967](https://github.com/ant-design/pro-components/issues/2967)) ([b851407](https://github.com/ant-design/pro-components/commit/b851407a8f196ba4bd1106c097099ed562ccf195))
+
 # [2.40.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.39.2...@ant-design/pro-table@2.40.0) (2021-06-08)
 
 ### Bug Fixes
