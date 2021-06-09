@@ -19,7 +19,7 @@ export default function useDarkreader(defaultDarken: boolean = false): [
     disable: disableDarkMode,
     exportGeneratedCSS: collectCSS,
     setFetchMethod,
-  } = window.DarkReader || {};
+  } = DarkReader || {};
 
   const [isDark, setIsDark] = useState(defaultDarken);
 
@@ -37,10 +37,10 @@ export default function useDarkreader(defaultDarken: boolean = false): [
   };
 
   useEffect(() => {
-    if (!window.DarkReader) {
+    if (!DarkReader) {
       return () => null;
     }
-    setFetchMethod(window.fetch);
+    setFetchMethod(fetch);
 
     isDark ? enableDarkMode(defaultTheme, defaultFixes) : disableDarkMode();
 

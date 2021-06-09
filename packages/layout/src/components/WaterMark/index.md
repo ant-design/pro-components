@@ -1,5 +1,5 @@
 ---
-title: WaterMark 水印组件
+title: WaterMark - 水印组件
 order: 0
 legacy: /layout
 group:

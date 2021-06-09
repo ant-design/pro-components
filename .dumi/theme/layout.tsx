@@ -1,4 +1,4 @@
-﻿import React, { useContext, useEffect, useState } from 'react';
+﻿import React, { useContext, useEffect, useMemo, useState } from 'react';
 import Layout from 'dumi-theme-default/src/layout';
 import dumiContext from '@umijs/preset-dumi/lib/theme/context';
 import { ConfigProvider, Switch } from 'antd';
@@ -12,8 +12,20 @@ import './layout.less';
 moment.locale('zh-cn');
 
 const DarkButton = () => {
-  const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark';
-  const defaultDarken = localStorage.getItem('procomponents_dark_theme') || colorScheme;
+  const colorScheme = useMemo(() => {
+    if (!isBrowser()) {
+      return 'light';
+    }
+    return matchMedia?.('(prefers-color-scheme: dark)').matches && 'dark';
+  }, []);
+
+  const defaultDarken = useMemo(() => {
+    if (!isBrowser()) {
+      return 'light';
+    }
+    return localStorage.getItem('procomponents_dark_theme') || colorScheme;
+  }, []);
+
   const [isDark, { toggle }] = useDarkreader(defaultDarken === 'dark');
   if (!isBrowser()) {
     return null;
@@ -99,16 +111,26 @@ export default ({ children, ...props }: IRouteComponentProps) => {
     })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
   }, []);
 
+  const title = useMemo(() => {
+    if (context.meta.title?.includes('-')) {
+      return `${context.meta.title}`;
+    }
+    if (!context.meta.title) {
+      return 'ProComponents - 模板组件';
+    }
+    return `${context.meta.title} - ProComponents`;
+  }, [context]);
+
   return (
     <HelmetProvider>
       <ConfigProvider locale={zhCN}>
         <Layout {...props}>
           <>
             <Helmet>
-              <title>{`${context.meta.title} - ProComponents`}</title>
+              <title>{title}</title>
             </Helmet>
             {children}
-            <DarkButton />
+            {isBrowser() ? <DarkButton /> : null}
           </>
         </Layout>
       </ConfigProvider>

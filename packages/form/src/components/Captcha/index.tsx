@@ -88,14 +88,14 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
           ref={ref}
         >
           <Input
+            value={value}
+            onChange={onChange}
             {...fieldProps}
             style={{
               flex: 1,
               transition: 'width .3s',
               marginRight: 8,
             }}
-            value={value}
-            onChange={onChange}
           />
           <Button
             style={{
