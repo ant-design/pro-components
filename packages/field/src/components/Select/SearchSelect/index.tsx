@@ -81,7 +81,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     onSearch,
     onFocus,
     onChange,
-    autoClearSearchValue = true,
+    autoClearSearchValue,
     searchOnFocus = false,
     resetAfterSelect = false,
     optionFilterProp = 'label',
@@ -201,7 +201,11 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         onChange?.(mergeValue, optionList, ...rest);
 
         // 将搜索框置空 和 antd 行为保持一致
-        if (autoClearSearchValue) setSearchValue(undefined);
+        if (restProps?.showSearch && autoClearSearchValue) {
+          fetchData('');
+          onSearch?.('');
+          setSearchValue('');
+        }
         // 将搜索结果置空，重新搜索
         if (resetAfterSelect) resetData();
       }}
