@@ -39,8 +39,6 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
       return paramsTiming ? `${paramsCount} 秒后重新获取` : '获取验证码';
     },
     captchaProps,
-    value,
-    onChange,
     ...restProps
   } = props;
 
@@ -88,8 +86,6 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
           ref={ref}
         >
           <Input
-            value={value}
-            onChange={onChange}
             {...fieldProps}
             style={{
               flex: 1,
