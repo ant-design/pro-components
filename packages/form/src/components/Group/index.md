@@ -125,6 +125,13 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ### 获取表单依赖值
 
+下面例子演示了不同情形下的依赖取值顺序：
+
+- `<ProFormDependency>`**不在**`<ProFormList>`中：根据`name`声明的依赖项，从全局取值（情形 1）
+- `<ProFormDependency>`**在**`<ProFormList>`中
+  - `<ProFormDependency>`的`ignoreFormListField`为`true`：根据`name`声明的依赖项，从全局取值（情形 2）
+  - `<ProFormDependency>`的`ignoreFormListField`为`false`：根据`name`声明的依赖项，从局部取值（情形 3）
+
 <code src="./demos/dependency2.tsx" heigh="1774px" title="ProForm.List" />
 
 ### 表单互相嵌套
