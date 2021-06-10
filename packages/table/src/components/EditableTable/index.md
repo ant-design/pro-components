@@ -34,6 +34,7 @@ nav:
 | recordCreatorProps | 新建一行数据的相关配置 | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/#API) | - |
 | maxLength | 最大的行数，到达最大行数新建按钮会自动消失 | number | - |
 | editable | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| controlled | 是否受控, 如果受控每次编辑都会修改 dataSource | `boolean` | false |
 
 > 别的 API 与 ProTable 相同。
 

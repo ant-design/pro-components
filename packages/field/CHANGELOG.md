@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.3...@ant-design/pro-field@1.18.4) (2021-06-09)
+
+### Bug Fixes
+
+- **form:** fix autoClearSearchValue not work ([#2970](https://github.com/ant-design/pro-components/issues/2970)) ([51e5467](https://github.com/ant-design/pro-components/commit/51e5467043091f16eb3552963e967d8e2215ff8f))
+
+## [1.18.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.2...@ant-design/pro-field@1.18.3) (2021-06-08)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.18.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.1...@ant-design/pro-field@1.18.2) (2021-05-31)
 
 **Note:** Version bump only for package @ant-design/pro-field

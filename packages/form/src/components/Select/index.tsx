@@ -6,8 +6,8 @@ import { runFunction } from '@ant-design/pro-utils';
 import type { ProFormItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
-export type ProFormSelectProps = ProFormItemProps<
-  SelectProps<any> & {
+export type ProFormSelectProps<T = any> = ProFormItemProps<
+  SelectProps<T> & {
     /**
      * 是否在输入框聚焦时触发搜索
      *
@@ -20,6 +20,12 @@ export type ProFormSelectProps = ProFormItemProps<
      * @default false
      */
     resetAfterSelect?: boolean;
+    /**
+     * 自定义选项渲染
+     *
+     * @default undefined
+     */
+    optionItemRender?: (item: T) => React.ReactNode;
   }
 > & {
   valueEnum?: ProSchema['valueEnum'];
@@ -36,7 +42,7 @@ export type ProFormSelectProps = ProFormItemProps<
  *
  * @param
  */
-const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps>(
+const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps<any>>(
   (
     { fieldProps, children, params, proFieldProps, mode, valueEnum, request, showSearch, options },
     ref,
@@ -63,7 +69,7 @@ const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps>(
   },
 );
 
-const SearchSelect = React.forwardRef<any, ProFormSelectProps>(
+const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
   ({ fieldProps, children, params, proFieldProps, mode, valueEnum, request, options }, ref) => {
     const props: Omit<SelectProps<any>, 'options'> & {
       options?: ProFormSelectProps['options'];
@@ -97,15 +103,17 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps>(
 
 const ProFormSelect = createField<ProFormSelectProps>(ProFormSelectComponents, {
   customLightMode: true,
-});
+}) as <T>(props: ProFormSelectProps<T>) => React.ReactElement;
 
 const ProFormSearchSelect = createField<ProFormSelectProps>(SearchSelect, {
   customLightMode: true,
-});
+}) as <T>(props: ProFormSelectProps<T>) => React.ReactElement;
 
-const WrappedProFormSelect: typeof ProFormSelect & {
+const WrappedProFormSelect = ProFormSelect as (<T = any>(
+  props: ProFormSelectProps<T>,
+) => React.ReactElement) & {
   SearchSelect: typeof ProFormSearchSelect;
-} = ProFormSelect as any;
+};
 
 WrappedProFormSelect.SearchSelect = ProFormSearchSelect;
 

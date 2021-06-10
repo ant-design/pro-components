@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.8.0...@ant-design/pro-descriptions@1.8.1) (2021-06-09)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+# [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.15...@ant-design/pro-descriptions@1.8.0) (2021-06-08)
+
+### Features
+
+- **form:** support more tooltip props ([#2932](https://github.com/ant-design/pro-components/issues/2932)) ([bedd7eb](https://github.com/ant-design/pro-components/commit/bedd7ebb0784da8fbb9c4998651f39f5efff5354))
+- **table:** onsave support origin data and no merge record ([#2949](https://github.com/ant-design/pro-components/issues/2949)) ([8c9d021](https://github.com/ant-design/pro-components/commit/8c9d0218c2d8927bae4fb0bad9a911a3b905d580))
+
 ## [1.7.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.14...@ant-design/pro-descriptions@1.7.15) (2021-05-31)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

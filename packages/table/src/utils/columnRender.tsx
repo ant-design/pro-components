@@ -67,7 +67,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
     return (
       <Typography.Text
         style={{
-          maxWidth: '100%',
+          width: '100%',
           margin: 0,
           padding: 0,
         }}

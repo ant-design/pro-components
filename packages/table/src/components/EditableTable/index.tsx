@@ -41,6 +41,8 @@ export type EditableProTableProps<T, U extends ParamsType> = Omit<
   maxLength?: number;
   /** Table 的值发生改变，为了适应 Form 调整了顺序 */
   onValuesChange?: (values: T[], record: T) => void;
+  /** 是否受控，如果受控，每次 value 更新都会重置表单 */
+  controlled?: boolean;
 };
 
 const EditableTableActionContext =
@@ -86,16 +88,14 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
   }, [rowKey]);
 
   useEffect(() => {
-    // if (!props?.onValuesChange && !props.editable?.onValuesChange) {
-    //   return;
-    // }
+    if (!props.controlled) return;
     value.forEach((current, index) => {
       form.setFieldsValue({
         [getRowKey(current, index)]: current,
       });
     }, {});
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value]);
+  }, [value, props.controlled]);
 
   const { record, position, creatorButtonText, newRecordType, ...restButtonProps } =
     recordCreatorProps || {};
@@ -198,6 +198,9 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
               ? (r: T, dataSource: T[]) => {
                   props.editable?.onValuesChange?.(r, dataSource);
                   props.onValuesChange?.(dataSource, r);
+                  if (props.controlled) {
+                    props?.onChange?.(dataSource);
+                  }
                 }
               : undefined,
         }}

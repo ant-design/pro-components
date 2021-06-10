@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.40.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.40.0...@ant-design/pro-table@2.40.1) (2021-06-09)
+
+### Bug Fixes
+
+- **table:** fix table rowselection bug when set false ([#2967](https://github.com/ant-design/pro-components/issues/2967)) ([b851407](https://github.com/ant-design/pro-components/commit/b851407a8f196ba4bd1106c097099ed562ccf195))
+
+# [2.40.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.39.2...@ant-design/pro-table@2.40.0) (2021-06-08)
+
+### Bug Fixes
+
+- **form:** hideInForm is invalid ([#2889](https://github.com/ant-design/pro-components/issues/2889)) ([361941d](https://github.com/ant-design/pro-components/commit/361941d1cca0d7b6289a484b3366b3993fbec643))
+- **pro-table:** fix alter style ([#2953](https://github.com/ant-design/pro-components/issues/2953)) ([d33b187](https://github.com/ant-design/pro-components/commit/d33b187c9e089c3472f4ed0213167953b119ff00))
+- **table:** fix table ellipsis automatically ([#2948](https://github.com/ant-design/pro-components/issues/2948)) ([#2964](https://github.com/ant-design/pro-components/issues/2964)) ([e64b964](https://github.com/ant-design/pro-components/commit/e64b964b9de3857871c9b534e640b484157702e7))
+- **table:** fix tree table no work error ([#2943](https://github.com/ant-design/pro-components/issues/2943)) ([b699812](https://github.com/ant-design/pro-components/commit/b699812b5dbcbf7985607e2d82bfb67fabfb2130))
+- **table:** SelectedRowKeys 受控处理 selectRows ([#2446](https://github.com/ant-design/pro-components/issues/2446)) ([#2963](https://github.com/ant-design/pro-components/issues/2963)) ([52301dd](https://github.com/ant-design/pro-components/commit/52301dd4810ad7150710de04d8ea6f7a56f4b2c1))
+- **table:** support three levels of nesting ([#2941](https://github.com/ant-design/pro-components/issues/2941)) ([c9dc346](https://github.com/ant-design/pro-components/commit/c9dc346c309d54da2b8b7c4a4500b1b54a0305cb))
+
+### Features
+
+- **form:** support more tooltip props ([#2932](https://github.com/ant-design/pro-components/issues/2932)) ([bedd7eb](https://github.com/ant-design/pro-components/commit/bedd7ebb0784da8fbb9c4998651f39f5efff5354))
+- **table:** EditableTable support controlled ([#2965](https://github.com/ant-design/pro-components/issues/2965)) ([f5432f8](https://github.com/ant-design/pro-components/commit/f5432f899687c36fd7a6aa934860851a95bc1e31))
+- **table:** onsave support origin data and no merge record ([#2949](https://github.com/ant-design/pro-components/issues/2949)) ([8c9d021](https://github.com/ant-design/pro-components/commit/8c9d0218c2d8927bae4fb0bad9a911a3b905d580))
+
 ## [2.39.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.39.1...@ant-design/pro-table@2.39.2) (2021-05-31)
 
 **Note:** Version bump only for package @ant-design/pro-table

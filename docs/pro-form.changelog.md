@@ -9,6 +9,20 @@ group:
 
 # Change Log
 
+
+## @ant-design/pro-form@1.28.0
+
+`2021-06-08`
+
+- 🐛 fix(form) : stepform support intl [#2954](https://github.com/ant-design/pro-components/pull/2954) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): add optionItemRender types [#2951](https://github.com/ant-design/pro-components/pull/2951) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix scrollLocker no unlock error [#2940](https://github.com/ant-design/pro-components/pull/2940) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix formitem lable display none [#2928](https://github.com/ant-design/pro-components/pull/2928) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): namePath and transform support omitNil [#2913](https://github.com/ant-design/pro-components/pull/2913) [@hemengke1997](https://github.com/hemengke1997)
+- 🐛 fix(form): hideInForm is invalid [#2889](https://github.com/ant-design/pro-components/pull/2889) [@dingtianxiu](https://github.com/dingtianxiu)
+- 💥 feat(form): support more tooltip props [#2932](https://github.com/ant-design/pro-components/pull/2932) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): LightFilter support footer (#2794) [#2884](https://github.com/ant-design/pro-components/pull/2884) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-form@1.27.1
 
 `2021-05-31`

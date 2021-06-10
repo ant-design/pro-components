@@ -17382,6 +17382,22 @@ react-dom@16.x, react-dom@^16.0.0, react-dom@^16.8.6:
     prop-types "^15.6.2"
     scheduler "^0.19.1"
 
+react-fast-compare@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npm.taobao.org/react-fast-compare/download/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
+  integrity sha1-ZBqdqBtqYyDycOiXJPtFoLOeQ7s=
+
+react-helmet-async@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.npm.taobao.org/react-helmet-async/download/react-helmet-async-1.0.9.tgz#5b9ed2059de6b4aab47f769532f9fbcbce16c5ca"
+  integrity sha1-W57SBZ3mtKq0f3aVMvn7y84Wxco=
+  dependencies:
+    "@babel/runtime" "^7.12.5"
+    invariant "^2.2.4"
+    prop-types "^15.7.2"
+    react-fast-compare "^3.2.0"
+    shallowequal "^1.1.0"
+
 react-intl@*:
   version "5.19.0"
   resolved "https://registry.nlark.com/react-intl/download/react-intl-5.19.0.tgz?cache=0&sync_timestamp=1622774054688&other_urls=https%3A%2F%2Fregistry.nlark.com%2Freact-intl%2Fdownload%2Freact-intl-5.19.0.tgz#b268792721fcfdd438b68872440655122afb7614"

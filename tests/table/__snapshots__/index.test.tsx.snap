@@ -1290,7 +1290,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 0
@@ -1328,7 +1328,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 0
@@ -1392,7 +1392,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -1570,7 +1570,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 1
@@ -1608,7 +1608,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 1
@@ -1672,7 +1672,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -1850,7 +1850,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 2
@@ -1888,7 +1888,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 2
@@ -1952,7 +1952,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -2130,7 +2130,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 3
@@ -2168,7 +2168,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 3
@@ -2232,7 +2232,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -2410,7 +2410,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 4
@@ -2448,7 +2448,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 4
@@ -2512,7 +2512,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -2690,7 +2690,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 5
@@ -2728,7 +2728,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 5
@@ -2792,7 +2792,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -2970,7 +2970,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 6
@@ -3008,7 +3008,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 6
@@ -3072,7 +3072,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -3250,7 +3250,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 7
@@ -3288,7 +3288,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 7
@@ -3352,7 +3352,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -3530,7 +3530,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 8
@@ -3568,7 +3568,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 8
@@ -3632,7 +3632,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -3810,7 +3810,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 9
@@ -3848,7 +3848,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 9
@@ -3912,7 +3912,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -4090,7 +4090,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 10
@@ -4128,7 +4128,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 10
@@ -4192,7 +4192,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -4370,7 +4370,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 11
@@ -4408,7 +4408,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 11
@@ -4472,7 +4472,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -4650,7 +4650,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 12
@@ -4688,7 +4688,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 12
@@ -4752,7 +4752,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -4930,7 +4930,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 13
@@ -4968,7 +4968,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 13
@@ -5032,7 +5032,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -5210,7 +5210,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 14
@@ -5248,7 +5248,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 14
@@ -5312,7 +5312,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -5490,7 +5490,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 15
@@ -5528,7 +5528,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 15
@@ -5592,7 +5592,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -5770,7 +5770,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 16
@@ -5808,7 +5808,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 16
@@ -5872,7 +5872,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -6050,7 +6050,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 17
@@ -6088,7 +6088,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 17
@@ -6152,7 +6152,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -6330,7 +6330,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 18
@@ -6368,7 +6368,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 18
@@ -6432,7 +6432,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>
@@ -6610,7 +6610,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 19
@@ -6648,7 +6648,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 19
@@ -6712,7 +6712,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             <span>

@@ -1,8 +1,10 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿import React, { useContext, useEffect, useMemo, useState } from 'react';
 import Layout from 'dumi-theme-default/src/layout';
+import dumiContext from '@umijs/preset-dumi/lib/theme/context';
 import { ConfigProvider, Switch } from 'antd';
 import { IRouteComponentProps, isBrowser } from 'umi';
 import zhCN from 'antd/es/locale/zh_CN';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import moment from 'moment';
 import useDarkreader from './useDarkreader';
 import 'moment/locale/zh-cn';
@@ -10,8 +12,20 @@ import './layout.less';
 moment.locale('zh-cn');
 
 const DarkButton = () => {
-  const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark';
-  const defaultDarken = localStorage.getItem('procomponents_dark_theme') || colorScheme;
+  const colorScheme = useMemo(() => {
+    if (!isBrowser()) {
+      return 'light';
+    }
+    return matchMedia?.('(prefers-color-scheme: dark)').matches && 'dark';
+  }, []);
+
+  const defaultDarken = useMemo(() => {
+    if (!isBrowser()) {
+      return 'light';
+    }
+    return localStorage.getItem('procomponents_dark_theme') || colorScheme;
+  }, []);
+
   const [isDark, { toggle }] = useDarkreader(defaultDarken === 'dark');
   if (!isBrowser()) {
     return null;
@@ -58,10 +72,12 @@ function loadJS(url, callback) {
 }
 
 export default ({ children, ...props }: IRouteComponentProps) => {
+  const context = useContext(dumiContext);
   useEffect(() => {
     if (!isBrowser()) {
       return null;
     }
+
     loadJS('https://www.googletagmanager.com/gtag/js?id=G-RMBLDHGL1N', function () {
       // @ts-ignore
       window.dataLayer = window.dataLayer || [];
@@ -94,14 +110,30 @@ export default ({ children, ...props }: IRouteComponentProps) => {
       a.appendChild(r);
     })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
   }, []);
+
+  const title = useMemo(() => {
+    if (context.meta.title?.includes('-')) {
+      return `${context.meta.title}`;
+    }
+    if (!context.meta.title) {
+      return 'ProComponents - 模板组件';
+    }
+    return `${context.meta.title} - ProComponents`;
+  }, [context]);
+
   return (
-    <ConfigProvider locale={zhCN}>
-      <Layout {...props}>
-        <>
-          {children}
-          <DarkButton />
-        </>
-      </Layout>
-    </ConfigProvider>
+    <HelmetProvider>
+      <ConfigProvider locale={zhCN}>
+        <Layout {...props}>
+          <>
+            <Helmet>
+              <title>{title}</title>
+            </Helmet>
+            {children}
+            {isBrowser() ? <DarkButton /> : null}
+          </>
+        </Layout>
+      </ConfigProvider>
+    </HelmetProvider>
   );
 };

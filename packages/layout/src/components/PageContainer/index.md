@@ -7,7 +7,7 @@ nav:
   path: /components
 ---
 
-# PageContainer
+# PageContainer - 页容器
 
 PageContainer 是为了减少繁杂的面包屑配置和标题，很多页面都需要面包屑和标题的配置。当然也可以关掉自动生成的，而使用自己的配置。
 

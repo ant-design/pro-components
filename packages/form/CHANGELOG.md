@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.28.0...@ant-design/pro-form@1.28.1) (2021-06-09)
+
+### Bug Fixes
+
+- **form:** fix ProFormCaptcha now work error ([#2981](https://github.com/ant-design/pro-components/issues/2981)) ([2784e0e](https://github.com/ant-design/pro-components/commit/2784e0ec5eb5127939aeb518ca31e5338f76099d))
+
+# [1.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.27.1...@ant-design/pro-form@1.28.0) (2021-06-08)
+
+### Bug Fixes
+
+- **form:** add optionItemRender types ([#2951](https://github.com/ant-design/pro-components/issues/2951)) ([4626f54](https://github.com/ant-design/pro-components/commit/4626f545e635ac81fa6d5ba2e951b21e35e79bf4))
+- **form:** fix formitem lable display none ([#2928](https://github.com/ant-design/pro-components/issues/2928)) ([7de49c7](https://github.com/ant-design/pro-components/commit/7de49c7d20804551c010c4d8c80eaf0c55f2beb9))
+- **form:** fix scrollLocker no unlock error ([#2940](https://github.com/ant-design/pro-components/issues/2940)) ([b62979b](https://github.com/ant-design/pro-components/commit/b62979b477018e6004b53f9674048e07cdb49b9b))
+- **form:** hideInForm is invalid ([#2889](https://github.com/ant-design/pro-components/issues/2889)) ([361941d](https://github.com/ant-design/pro-components/commit/361941d1cca0d7b6289a484b3366b3993fbec643))
+- **form:** namePath and transform support omitNil ([#2913](https://github.com/ant-design/pro-components/issues/2913)) ([dd3f740](https://github.com/ant-design/pro-components/commit/dd3f740594f22e12ed9146dc00387ed276fd9072))
+- **table:** fix onChange multiple calls error ([#2945](https://github.com/ant-design/pro-components/issues/2945)) ([18cb698](https://github.com/ant-design/pro-components/commit/18cb698bf29de97e92350d365a10bb2f2f813137))
+
+### Features
+
+- **form:** LightFilter support footer ([#2794](https://github.com/ant-design/pro-components/issues/2794)) ([#2884](https://github.com/ant-design/pro-components/issues/2884)) ([042daa6](https://github.com/ant-design/pro-components/commit/042daa6035361ae65b401004eb06f697186f33c8))
+- **form:** support more tooltip props ([#2932](https://github.com/ant-design/pro-components/issues/2932)) ([bedd7eb](https://github.com/ant-design/pro-components/commit/bedd7ebb0784da8fbb9c4998651f39f5efff5354))
+
 ## [1.27.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.27.0...@ant-design/pro-form@1.27.1) (2021-05-31)
 
 ### Bug Fixes

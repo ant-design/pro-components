@@ -388,7 +388,7 @@ ref.current.cancelEditable(rowKey);
 | ellipsis | whether to auto-indent | `boolean` | - |
 | copyable | whether to support copying | `boolean` | - |
 | valueEnum | An enumeration of values that will be automatically transformed to treat the value as a key to retrieve the content to be displayed | [valueEnum](#valueenum) | - |
-| valueType | the type of the value | `money` \| `option` \| `date` \| `dateTime` \| `time` \| `text` \| `index` \| `indexBorder` | `text` |
+| valueType | the type of the value | [`valueType`](/components/schema) | `text` |
 | hideInSearch | do not show this item in the query form | `boolean` | - |
 | hideInTable | do not show this column in Table | `boolean` | - |
 | hideInForm | Do not show this column in Form mode | `boolean` | - |
@@ -425,24 +425,9 @@ ProTable will generate a Form for filtering list data based on columns, and the 
 
 As per the specification, table forms do not require any mandatory parameters, and all clicks on search and reset will trigger a `request` to initiate a query.
 
-Form's columns are generated with different types based on `valueType`.
+Form's columns are generated with different types based on [`valueType`](/components/schema#valuetype).
 
 > Columns with a valueType of index indexBorder option and no dataIndex and key will be ignored.
-
-| Type | Corresponding component |
-| --- | --- |
-| text | [Input](https://ant.design/components/input/) |
-| textarea | [Input.TextArea](https://ant.design/components/input/#components-input-demo-textarea) |
-| date | [DatePicker](https://ant.design/components/date-picker/) |
-| dateTime | [DatePicker](https://ant.design/components/date-picker/#components-date-picker-demo-time) |
-| time | [TimePicker](https://ant.design/components/time-picker/) |
-| dateTimeRange | [RangePicker](https://ant.design/components/time-picker/#components-time-picker-demo-range-picker) |
-| dateRange | [RangePicker](https://ant.design/components/time-picker/#components-time-picker-demo-range-picker) |
-| money | [InputNumber](https://ant.design/components/input-number/) |
-| digit | [InputNumber](https://ant.design/components/input-number/) |
-| option | don't show |
-| index | don't show |
-| progress | don't show |
 
 ### ListToolbar
 

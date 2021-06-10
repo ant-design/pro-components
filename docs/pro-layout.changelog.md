@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.19.4
+
+`2021-06-08`
+
+- 🐛 fix(layout): fix layout fast load error [#2933](https://github.com/ant-design/pro-components/pull/2933) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): fix menu params alway run error [#2931](https://github.com/ant-design/pro-components/pull/2931) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): if have menuDataRender, alway render layout [#2920](https://github.com/ant-design/pro-components/pull/2920) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.18.1
 
 `2021-05-18`
