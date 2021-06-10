@@ -89,7 +89,7 @@ export type CommonFormProps<
 export type BaseFormProps<T = Record<string, any>> = {
   contentRender?: (
     items: React.ReactNode[],
-    submitter: React.ReactElement<SubmitterProps> | undefined,
+    submitter: React.ReactElement<SubmitterProps> | null,
     form: FormInstance<any>,
   ) => React.ReactNode;
   fieldProps?: FieldProps;
@@ -177,7 +177,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   }));
   /** 渲染提交按钮与重置按钮 */
   const submitterNode =
-    submitter === false ? undefined : (
+    submitter === false ? null : (
       <Submitter
         key="submitter"
         {...submitterProps}
