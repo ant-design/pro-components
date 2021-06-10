@@ -246,7 +246,7 @@ describe('ModalForm', () => {
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('button.ant-btn-primary').simulate('click');
+      wrapper.find('button#new').simulate('click');
     });
 
     await waitForComponentToPaint(wrapper);
