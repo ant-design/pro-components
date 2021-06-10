@@ -191,7 +191,7 @@ function ModalForm<T = Record<string, any>>({
                     setVisible(false);
                     modalProps?.onCancel?.(e);
                   }}
-                  footer={submitter}
+                  footer={submitter === undefined ? null : submitter}
                 >
                   {shouldRenderFormItems ? item : null}
                 </Modal>
