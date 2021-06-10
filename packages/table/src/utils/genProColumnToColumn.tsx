@@ -59,23 +59,6 @@ export function genProColumnToColumn<T>(props: {
 
       const tempColumns = {
         index: columnsIndex,
-        shouldCellUpdate: (rowData: T, preRowData: T) => {
-          if (tableProps.editable) {
-            return true;
-          }
-
-          if (
-            columnProps.render ||
-            columnProps.renderFormItem ||
-            columnProps.valueEnum ||
-            // 嵌套表格也需要更新，不然状态更新不上
-            !children
-          ) {
-            return true;
-          }
-          const cellName = [dataIndex || columnsIndex].flat(1);
-          return !isDeepEqualReact(get(rowData, cellName), get(preRowData, cellName));
-        },
         ...columnProps,
         title: renderColumnsTitle(columnProps),
         valueEnum,
