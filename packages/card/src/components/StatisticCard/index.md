@@ -1,5 +1,5 @@
 ---
-title: StatisticCard 指标卡
+title: StatisticCard - 指标卡
 order: 1
 group:
   path: /
