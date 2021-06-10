@@ -1,16 +1,19 @@
 import React, { useContext } from 'react';
 import classnames from 'classnames';
 import { DownOutlined, EllipsisOutlined } from '@ant-design/icons';
+import type { MenuItemProps } from 'antd';
 import { Dropdown, Menu, Button, ConfigProvider } from 'antd';
 import './index.less';
+
+interface MenuItems extends MenuItemProps {
+  name: React.ReactNode;
+  key: string;
+}
 
 export type DropdownProps = {
   className?: string;
   style?: React.CSSProperties;
-  menus?: {
-    name: React.ReactNode;
-    key: string;
-  }[];
+  menus?: MenuItems[];
   onSelect?: (key: string) => void;
 };
 
@@ -52,8 +55,10 @@ const TableDropdown: React.FC<DropdownProps> & {
   const className = getPrefixCls('pro-table-dropdown');
   const menu = (
     <Menu onClick={(params) => onSelect && onSelect(params.key as string)}>
-      {menus.map((item) => (
-        <Menu.Item key={item.key}>{item.name}</Menu.Item>
+      {menus.map(({ key, name, ...rest }) => (
+        <Menu.Item key={key} {...rest}>
+          {name}
+        </Menu.Item>
       ))}
     </Menu>
   );
