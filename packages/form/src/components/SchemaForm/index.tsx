@@ -126,7 +126,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     (items: FormSchema<T, ValueType>['columns'], update?: number) =>
       items
         .filter((originItem) => {
-          if (originItem.hideInForm) {
+          if (originItem.hideInForm && type === 'form') {
             return false;
           }
           return true;
