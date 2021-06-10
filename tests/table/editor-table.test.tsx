@@ -335,7 +335,7 @@ describe('EditorProTable', () => {
     const onChange = jest.fn();
     const wrapper = mount(
       <EditableProTable<DataSourceType>
-        rowKey="id"
+        rowKey={(row) => row.id}
         controlled
         recordCreatorProps={{
           creatorButtonText: '测试添加数据',
