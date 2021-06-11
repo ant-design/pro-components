@@ -2,8 +2,6 @@
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import type { TableColumnType } from 'antd';
 import { runFunction } from '@ant-design/pro-utils';
-import isDeepEqualReact from 'fast-deep-equal/es6/react';
-import get from 'rc-util/lib/utils/get';
 import { omitBoolean, omitUndefinedAndEmptyArr } from '@ant-design/pro-utils';
 import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
 
@@ -25,9 +23,8 @@ export function genProColumnToColumn<T>(props: {
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
-  tableProps: any;
 }): (TableColumnType<T> & { index?: number })[] {
-  const { columns, counter, tableProps, columnEmptyText, type, editableUtils } = props;
+  const { columns, counter, columnEmptyText, type, editableUtils } = props;
   return columns
     .map((columnProps, columnsIndex) => {
       const {
@@ -59,23 +56,6 @@ export function genProColumnToColumn<T>(props: {
 
       const tempColumns = {
         index: columnsIndex,
-        shouldCellUpdate: (rowData: T, preRowData: T) => {
-          if (tableProps.editable) {
-            return true;
-          }
-
-          if (
-            columnProps.render ||
-            columnProps.renderFormItem ||
-            columnProps.valueEnum ||
-            // 嵌套表格也需要更新，不然状态更新不上
-            !children
-          ) {
-            return true;
-          }
-          const cellName = [dataIndex || columnsIndex].flat(1);
-          return !isDeepEqualReact(get(rowData, cellName), get(preRowData, cellName));
-        },
         ...columnProps,
         title: renderColumnsTitle(columnProps),
         valueEnum,

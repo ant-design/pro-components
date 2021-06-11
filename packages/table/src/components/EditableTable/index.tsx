@@ -41,7 +41,7 @@ export type EditableProTableProps<T, U extends ParamsType> = Omit<
   maxLength?: number;
   /** Table 的值发生改变，为了适应 Form 调整了顺序 */
   onValuesChange?: (values: T[], record: T) => void;
-  /** 是否受控，如果受控，每次 value 更新都会重置表单 */
+  /** 是否受控，如果为 true，每次 value 更新都会重置表单 */
   controlled?: boolean;
 };
 
@@ -69,7 +69,7 @@ function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.El
 function EditableTable<T extends Record<string, any>, U extends ParamsType = ParamsType>(
   props: EditableProTableProps<T, U>,
 ) {
-  const { onTableChange, maxLength, recordCreatorProps, rowKey, ...rest } = props;
+  const { onTableChange, maxLength, recordCreatorProps, rowKey, controlled, ...rest } = props;
   const actionRef = useRef<ActionType>();
   const [form] = Form.useForm();
   // 设置 ref
@@ -194,7 +194,10 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
           form,
           ...props.editable,
           onValuesChange:
-            props?.onValuesChange || props.editable?.onValuesChange
+            props?.onValuesChange ||
+            props.editable?.onValuesChange ||
+            // 受控模式需要触发 onchange
+            (props.controlled && props?.onChange)
               ? (r: T, dataSource: T[]) => {
                   props.editable?.onValuesChange?.(r, dataSource);
                   props.onValuesChange?.(dataSource, r);

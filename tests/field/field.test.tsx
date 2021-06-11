@@ -16,6 +16,29 @@ describe('Field', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('🐴 money onchange values', async () => {
+    const html = mount(<Field text="100" valueType="money" mode="edit" />);
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 1000');
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: '￥ 100',
+        },
+      });
+    });
+
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 100');
+  });
+
   it('🐴 percent=0', async () => {
     const html = render(
       <Field

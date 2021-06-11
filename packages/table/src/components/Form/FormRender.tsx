@@ -125,7 +125,7 @@ const FormRender = <T, U = any>({
   onReset,
   submitButtonLoading,
   search: searchConfig,
-  form: formConfig = {},
+  form: formConfig,
   bordered,
 }: TableFormItem<T, U>) => {
   const isForm = type === 'form';
@@ -200,7 +200,7 @@ const FormRender = <T, U = any>({
         type={type}
         {...loadingProps}
         {...getFromProps(isForm, searchConfig, competentName)}
-        {...getFormConfigs(isForm, formConfig)}
+        {...getFormConfigs(isForm, formConfig || {})}
         formRef={formRef}
         action={action}
         dateFormatter={dateFormatter}
@@ -226,7 +226,7 @@ const FormRender = <T, U = any>({
         onFinish={(values: T) => {
           submit(values, false);
         }}
-        initialValues={formConfig.initialValues}
+        initialValues={formConfig?.initialValues}
       />
     </div>
   );
