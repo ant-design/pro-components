@@ -93,11 +93,11 @@ class MenuUtil {
 
   props: BaseMenuProps;
 
-  getNavMenuItems = (menusData: MenuDataItem[] = []): React.ReactNode[] =>
-    menusData.map((item) => this.getSubMenuOrItem(item)).filter((item) => item);
+  getNavMenuItems = (menusData: MenuDataItem[] = [], isChildren: boolean): React.ReactNode[] =>
+    menusData.map((item) => this.getSubMenuOrItem(item, isChildren)).filter((item) => item);
 
   /** Get SubMenu or Item */
-  getSubMenuOrItem = (item: MenuDataItem): React.ReactNode => {
+  getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
     if (Array.isArray(item.children) && item && item.children.length > 0) {
       const name = this.getIntlName(item);
       const { subMenuItemRender, prefixCls, menu, iconPrefixes } = this.props;
@@ -121,12 +121,13 @@ class MenuUtil {
       return (
         <MenuComponents
           // antd Menu.Item&Menu.SubMenu 支持直接传`icon`作为参数
-          icon={getIcon(item.icon, iconPrefixes)}
+          className={`${prefixCls}-menu-item`}
+          icon={!isChildren && getIcon(item.icon, iconPrefixes)}
           title={title}
           key={item.key || item.path}
           onTitleClick={item.onTitleClick}
         >
-          {this.getNavMenuItems(item.children)}
+          {this.getNavMenuItems(item.children, true)}
         </MenuComponents>
       );
     }
@@ -388,7 +389,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       onOpenChange={setOpenKeys}
       {...props.menuProps}
     >
-      {menuUtils.getNavMenuItems(finallyData)}
+      {menuUtils.getNavMenuItems(finallyData, false)}
     </Menu>
   );
 };
