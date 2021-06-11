@@ -137,7 +137,7 @@ class MenuUtil {
     return (
       <Menu.Item
         // antd Menu.Item&Menu.SubMenu 支持直接传`icon`作为参数
-        icon={getIcon(item.icon, iconPrefixes)}
+        icon={!isChildren && getIcon(item.icon, iconPrefixes)}
         disabled={item.disabled}
         key={item.key || item.path}
         onClick={item.onTitleClick}

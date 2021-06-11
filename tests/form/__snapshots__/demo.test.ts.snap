@@ -24451,7 +24451,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             tabindex="0"
           >
             <li
-              class="ant-menu-submenu ant-menu-submenu-vertical ant-menu-submenu-selected"
+              class="ant-menu-submenu ant-menu-submenu-vertical ant-pro-menu-item ant-menu-submenu-selected"
               role="none"
             >
               <div
