@@ -100,7 +100,7 @@ const useFetchData = <T extends RequestData<any>>(
     if (!fetchData) {
       return [];
     }
-    if ((loading || requesting) && !block) {
+    if ((loading || requesting.current) && !block) {
       return [];
     }
 
