@@ -88,8 +88,8 @@ const useFetchData = <T extends RequestData<any>>(
       return [];
     }
 
-    if (pageInfo.total && pageInfo.total === list?.length) {
-      return;
+    if ((options.pageInfo && list && list?.length > pageInfo?.pageSize) || 0) {
+      return [];
     }
 
     // 需要手动触发的首次请求
