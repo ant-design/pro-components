@@ -27,13 +27,24 @@ const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
   return { current: 1, total: 0, pageSize: 20 };
 };
 
+let requestingList: any[] = [];
+
 const useFetchData = <T extends RequestData<any>>(
-  getData: undefined | ((params?: { pageSize: number; current: number }) => Promise<T>),
+  fetchData: undefined | ((params?: { pageSize: number; current: number }) => Promise<T>),
   defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
-  const umountRef = useRef<boolean>();
-  const { onLoad, manual, polling, onRequestError, debounceTime = 20 } = options || {};
+  /** 组件是否卸载 */
+  const unmountRef = useRef<boolean>();
+
+  const {
+    onLoad,
+    manual,
+    polling,
+    onRequestError,
+    debounceTime = 20,
+    block = true,
+  } = options || {};
 
   /** 是否首次加载的指示器 */
   const manualRequestRef = useRef<boolean>(manual);
@@ -84,12 +95,17 @@ const useFetchData = <T extends RequestData<any>>(
 
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {
-    if (loading || requesting.current || !getData) {
+    const fetchFlag = {};
+
+    if (!fetchData) {
+      return [];
+    }
+    if ((loading || requesting) && !block) {
       return [];
     }
 
-    // 需要手动触发的首次请求
     if (manualRequestRef.current) {
+      // 需要手动触发的首次请求
       manualRequestRef.current = false;
       return [];
     }
@@ -111,7 +127,11 @@ const useFetchData = <T extends RequestData<any>>(
             }
           : undefined;
 
-      const { data = [], success, total = 0, ...rest } = (await getData(pageParams)) || {};
+      requestingList.push(fetchFlag);
+
+      const { data = [], success, total = 0, ...rest } = (await fetchData(pageParams)) || {};
+
+      requestingList = requestingList.filter((item) => item !== fetchFlag);
 
       requesting.current = false;
 
@@ -135,8 +155,10 @@ const useFetchData = <T extends RequestData<any>>(
       onRequestError(e);
     } finally {
       requestAnimationFrame(() => {
-        setLoading(false);
-        setPollingLoading(false);
+        if (requestingList.length === 0) {
+          setLoading(false);
+          setPollingLoading(false);
+        }
       });
     }
 
@@ -156,7 +178,7 @@ const useFetchData = <T extends RequestData<any>>(
 
       // 如果需要轮询，搞个一段时间后执行
       // 如果解除了挂载，删除一下
-      if (needPolling && !umountRef.current) {
+      if (needPolling && !unmountRef.current) {
         pollingSetTimeRef.current = setTimeout(() => {
           fetchListDebounce.run(needPolling);
           // 这里判断最小要2000ms，不然一直loading
@@ -184,7 +206,7 @@ const useFetchData = <T extends RequestData<any>>(
 
   useEffect(
     () => () => {
-      umountRef.current = true;
+      unmountRef.current = true;
     },
     [],
   );

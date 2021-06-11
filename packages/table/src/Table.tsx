@@ -398,6 +398,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     pageInfo: propsPagination === false ? false : fetchPagination,
     loading: props.loading,
     dataSource: props.dataSource,
+    block: props.block,
     onDataSourceChange: props.onDataSourceChange,
     onLoad,
     onLoadingChange,

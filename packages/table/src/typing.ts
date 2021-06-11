@@ -304,6 +304,9 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   cardBordered?: Bordered;
   /** Debounce time */
   debounceTime?: number;
+
+  /** @name 是否阻塞请求 */
+  block?: boolean;
 } & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {
@@ -332,4 +335,7 @@ export type UseFetchProps = {
   manual: boolean;
   debounceTime?: number;
   polling?: number | ((dataSource: any[]) => number);
+
+  /** 是否阻塞请求 */
+  block?: boolean;
 };

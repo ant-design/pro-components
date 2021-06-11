@@ -128,6 +128,7 @@ export default () => {
       }}
       form={{
         ignoreRules: false,
+        omitNil: false,
       }}
       pagination={{
         pageSize: 5,
