@@ -43,7 +43,7 @@ const useFetchData = <T extends RequestData<any>>(
     polling,
     onRequestError,
     debounceTime = 20,
-    block = true,
+    block = false,
   } = options || {};
 
   /** 是否首次加载的指示器 */
