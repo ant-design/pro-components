@@ -43,7 +43,7 @@ const FieldDatePicker: ProFieldFC<{
   if (mode === 'read') {
     const dom = (
       <span ref={ref}>
-        {text ? moment(text).format(format || fieldProps.format || 'YYYY-MM-DD') : '-'}
+        {text ? moment(text).format(fieldProps.format || format || 'YYYY-MM-DD') : '-'}
       </span>
     );
     if (render) {

@@ -19,7 +19,7 @@ const FieldFromNow: ProFieldFC<{
 
   if (mode === 'read') {
     const dom = (
-      <Tooltip title={moment(text).format(format || 'YYYY-MM-DD HH:mm:ss')}>
+      <Tooltip title={moment(text).format(fieldProps?.format || format || 'YYYY-MM-DD HH:mm:ss')}>
         {moment(text).fromNow()}
       </Tooltip>
     );

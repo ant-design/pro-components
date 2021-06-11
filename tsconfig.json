@@ -34,6 +34,7 @@
     "tests",
     "jest.config.js",
     "**/fixtures",
-    "./tests/no-duplicated.ts"
+    "./tests/no-duplicated.ts",
+    "packages/descriptions/src/demos/.tsx"
   ]
 }
