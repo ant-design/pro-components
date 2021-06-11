@@ -36,10 +36,20 @@ The main feature of ProForm is that it has a lot of pre-defined layouts, so if y
 ## Configuring Use with the Web Request Library
 
 ProTable, ProList uses a new data structure which is very easy to use if you use the parameters we have agreed upon.
-
-``tsx | pure const msg: { data: T[]; page: number; success: boolean; total: number; } = { data: [], page: 1, success: true, total: 0, };
-
-````
+  
+```tsx | pure
+const msg: {
+  data: T[];
+  page: number;
+  success: boolean;
+  total: number;
+} = {
+  data: [],
+  page: 1,
+  success: true,
+  total: 0,
+};
+```
 
 If your backend data uses a familiar url, we could use a request to convert it, but it would be a pain to configure each table. If you're using umi's request, we can define a global transformer. We need to configure this in app.tsx
 
