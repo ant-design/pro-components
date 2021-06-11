@@ -8,6 +8,7 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import { message, Popconfirm } from 'antd';
 import ReactDOM from 'react-dom';
+import merge from 'lodash.merge';
 import set from 'rc-util/lib/utils/set';
 import useMountMergeState from '../useMountMergeState';
 import ProFormContext from '../components/ProFormContext';
@@ -238,13 +239,14 @@ export function SaveEditableAction<T>({
             recursive: true,
           });
           const fields = (context.getFieldFormatValue || form.getFieldValue)(namePath);
+          const data = isMapEditor ? set({}, namePath, fields, true) : fields;
           // 获取数据并保存
           const res = await onSave?.(
             recordKey,
 
             // 如果是 map 模式，fields 就是一个值，所以需要set 到对象中
             // 数据模式 fields 是一个对象，所以不需要
-            isMapEditor ? set({}, namePath, fields, true) : fields,
+            merge(row, data),
             row,
             newLineConfig,
           );
