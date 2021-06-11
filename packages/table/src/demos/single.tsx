@@ -146,7 +146,7 @@ export default () => {
     <ProTable<GithubIssueItem>
       columns={columns}
       actionRef={actionRef}
-      request={async (params = {}, sort, filter) => {
+      request={async (params = {}) => {
         return request<{
           data: GithubIssueItem[];
         }>('https://proapi.azurewebsites.net/github/issues', {
