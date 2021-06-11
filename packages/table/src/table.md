@@ -530,3 +530,11 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | activeKey | 当前选中项     | `string`                            | -      |
 | items     | 菜单项         | `{ key: string; tab: ReactNode }[]` | -      |
 | onChange  | 切换菜单的回调 | `(activeKey)=>void`                 | -      |
+
+#### TableDropdown
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| key | 唯一标志 | `string` | - |
+| name | 内容 | `ReactNode` | - |
+| (...Menu.Item) | antd 的 [Menu.Item](https://ant.design/components/menu-cn/#Menu.Item) | Menu.Item | - |

@@ -104,6 +104,11 @@ const useFetchData = <T extends RequestData<any>>(
       return [];
     }
 
+    if ((options.pageInfo && list && list?.length > pageInfo?.pageSize) || 0) {
+      return [];
+    }
+
+    // 需要手动触发的首次请求
     if (manualRequestRef.current) {
       // 需要手动触发的首次请求
       manualRequestRef.current = false;

@@ -137,6 +137,27 @@ function ModalForm<T = Record<string, any>>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context, modalProps, visible]);
 
+  const renderSubmitter =
+    rest.submitter === false
+      ? false
+      : {
+          searchConfig: {
+            submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
+            resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
+          },
+          submitButtonProps: {
+            type: (modalProps?.okType as 'text') || 'primary',
+          },
+          resetButtonProps: {
+            preventDefault: true,
+            onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+              modalProps?.onCancel?.(e);
+              setVisible(false);
+            },
+          },
+          ...rest.submitter,
+        };
+
   return (
     <>
       {createPortal(
@@ -157,23 +178,7 @@ function ModalForm<T = Record<string, any>>({
                 }, 300);
               }
             }}
-            submitter={{
-              searchConfig: {
-                submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
-                resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
-              },
-              submitButtonProps: {
-                type: (modalProps?.okType as 'text') || 'primary',
-              },
-              resetButtonProps: {
-                preventDefault: true,
-                onClick: (e) => {
-                  modalProps?.onCancel?.(e);
-                  setVisible(false);
-                },
-              },
-              ...rest.submitter,
-            }}
+            submitter={renderSubmitter}
             contentRender={(item, submitter) => {
               return (
                 <Modal
@@ -186,7 +191,7 @@ function ModalForm<T = Record<string, any>>({
                     setVisible(false);
                     modalProps?.onCancel?.(e);
                   }}
-                  footer={submitter}
+                  footer={submitter === undefined ? null : submitter}
                 >
                   {shouldRenderFormItems ? item : null}
                 </Modal>

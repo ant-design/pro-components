@@ -9092,7 +9092,7 @@ Array [
         class="ant-modal-root"
       >
         <div
-          aria-labelledby="rcDialogTitle6"
+          aria-labelledby="rcDialogTitle7"
           class="ant-modal-wrap"
           role="dialog"
           style="display: none;"
@@ -9199,6 +9199,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/ModalForm/demos/
   </div>
   <div
     class="ant-space-item"
+    style="margin-right: 8px;"
   >
     <button
       class="ant-btn ant-btn-primary"
@@ -9206,6 +9207,18 @@ exports[`form demos 📸 renders ./packages/form/src/components/ModalForm/demos/
     >
       <span>
         隐藏或修改按钮样式
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn ant-btn-primary"
+      type="button"
+    >
+      <span>
+        隐藏footer
       </span>
     </button>
   </div>
@@ -9301,7 +9314,7 @@ Array [
         class="ant-modal-root"
       >
         <div
-          aria-labelledby="rcDialogTitle7"
+          aria-labelledby="rcDialogTitle8"
           class="ant-modal-wrap"
           role="dialog"
           style="display: none;"

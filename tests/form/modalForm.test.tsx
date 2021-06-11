@@ -236,4 +236,21 @@ describe('ModalForm', () => {
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledTimes(1);
   });
+
+  it('📦 ModalForm support submitter is false', async () => {
+    const wrapper = mount(
+      <ModalForm visible trigger={<Button id="new">新建</Button>} submitter={false}>
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button#new').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-modal-footer').length).toBe(0);
+  });
 });

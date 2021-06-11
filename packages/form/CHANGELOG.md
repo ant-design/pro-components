@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.28.0...@ant-design/pro-form@1.28.1) (2021-06-09)
+
+### Bug Fixes
+
+- **form:** fix ProFormCaptcha now work error ([#2981](https://github.com/ant-design/pro-components/issues/2981)) ([2784e0e](https://github.com/ant-design/pro-components/commit/2784e0ec5eb5127939aeb518ca31e5338f76099d))
+
 # [1.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.27.1...@ant-design/pro-form@1.28.0) (2021-06-08)
 
 ### Bug Fixes

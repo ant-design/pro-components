@@ -331,6 +331,122 @@ describe('EditorProTable', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('📝 EditableProTable support controlled', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey={(row) => row.id}
+        controlled
+        recordCreatorProps={{
+          creatorButtonText: '测试添加数据',
+          record: { id: 9999 },
+        }}
+        editable={{
+          editableKeys: ['624748504'],
+        }}
+        columns={columns}
+        value={[
+          {
+            id: '624748504',
+            title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ]}
+        onChange={onChange}
+      />,
+    );
+
+    expect(
+      wrapper
+        .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
+        .at(1)
+        .props().value,
+    ).toBe('🐛 [BUG]yarn install命令 antd2.4.5会报错');
+
+    act(() => {
+      wrapper.setProps({
+        value: [
+          {
+            id: '624748504',
+            title: '🐛 [BUG]无法创建工程npm create umi',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ],
+      });
+    });
+
+    waitForComponentToPaint(wrapper, 100);
+    expect(
+      wrapper
+        .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
+        .at(1)
+        .props().value,
+    ).toBe('🐛 [BUG]无法创建工程npm create umi');
+  });
+
+  it('📝 EditableProTable controlled will trigger onchange ', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        controlled
+        recordCreatorProps={{
+          creatorButtonText: '测试添加数据',
+          record: { id: 9999 },
+        }}
+        editable={{
+          editableKeys: ['624748504'],
+        }}
+        columns={columns}
+        value={[
+          {
+            id: '624748504',
+            title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ]}
+        onChange={(data) => {
+          onChange(data[0]);
+        }}
+      />,
+    );
+
+    act(() => {
+      wrapper
+        .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
+        .at(1)
+        .simulate('change', {
+          target: {
+            value: '🐛 [BUG]yarn install命令',
+          },
+        });
+    });
+
+    waitForComponentToPaint(wrapper, 100);
+
+    expect(onChange).toBeCalled();
+    expect(onChange).toBeCalledWith({
+      id: '624748504',
+      title: '🐛 [BUG]yarn install命令',
+      labels: [{ name: 'bug', color: 'error' }],
+      time: { created_at: '2020-05-26T09:42:56Z' },
+      state: 'processing',
+      index: undefined,
+    });
+  });
+
   it('📝 EditableProTable support recordCreatorProps.position', async () => {
     const wrapper = render(
       <EditableProTable<DataSourceType>

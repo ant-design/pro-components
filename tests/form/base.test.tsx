@@ -368,6 +368,39 @@ describe('ProForm', () => {
     expect(wrapper.find('Button#test').text()).toBe('获取验证码');
   });
 
+  it('📦 ProFormCaptcha support value and onchange', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <ProForm onFinish={(values) => onFinish(values.name)}>
+        <ProFormCaptcha
+          onGetCaptcha={async () => {
+            await waitTime(10);
+          }}
+          countDown={2}
+          label="name"
+          name="name"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('input#name').simulate('change', {
+        target: {
+          value: 'test',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(onFinish).toBeCalledWith('test');
+  });
+
   it('📦 ProFormCaptcha support captchaTextRender', async () => {
     const wrapper = mount(
       <ProForm>
