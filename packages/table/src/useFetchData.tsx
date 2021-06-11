@@ -88,6 +88,10 @@ const useFetchData = <T extends RequestData<any>>(
       return [];
     }
 
+    if ((options.pageInfo && list && list?.length > pageInfo?.pageSize) || 0) {
+      return [];
+    }
+
     // 需要手动触发的首次请求
     if (manualRequestRef.current) {
       manualRequestRef.current = false;
@@ -112,7 +116,6 @@ const useFetchData = <T extends RequestData<any>>(
           : undefined;
 
       const { data = [], success, total = 0, ...rest } = (await getData(pageParams)) || {};
-
       requesting.current = false;
 
       // 如果失败了，直接返回，不走剩下的逻辑了
