@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { PlusOutlined, EllipsisOutlined } from '@ant-design/icons';
 import { Button, Tag, Space, Menu, Dropdown } from 'antd';
 import type { ProColumns, ActionType } from '@ant-design/pro-table';
@@ -142,59 +142,51 @@ const menu = (
 export default () => {
   const actionRef = useRef<ActionType>();
 
-  const [extraParams, setExtraParams] = React.useState<any>();
-
   return (
-    <>
-      <Space>
-        <Button onClick={() => setExtraParams({ a: Math.random() })}>改变额外参数</Button>
-      </Space>
-      <ProTable<GithubIssueItem>
-        columns={columns}
-        params={extraParams}
-        actionRef={actionRef}
-        request={async (params = {}, sort, filter) => {
-          return request<{
-            data: GithubIssueItem[];
-          }>('https://proapi.azurewebsites.net/github/issues', {
-            params,
-          });
-        }}
-        editable={{
-          type: 'multiple',
-        }}
-        rowKey="id"
-        search={{
-          labelWidth: 'auto',
-        }}
-        form={{
-          // 由于配置了 transform，提交的参与与定义的不同这里需要转化一下
-          syncToUrl: (values, type) => {
-            if (type === 'get') {
-              return {
-                ...values,
-                created_at: [values.startTime, values.endTime],
-              };
-            }
-            return values;
-          },
-        }}
-        pagination={{
-          pageSize: 5,
-        }}
-        dateFormatter="string"
-        headerTitle="高级表格"
-        toolBarRender={() => [
-          <Button key="button" icon={<PlusOutlined />} type="primary">
-            新建
-          </Button>,
-          <Dropdown key="menu" overlay={menu}>
-            <Button>
-              <EllipsisOutlined />
-            </Button>
-          </Dropdown>,
-        ]}
-      />
-    </>
+    <ProTable<GithubIssueItem>
+      columns={columns}
+      actionRef={actionRef}
+      request={async (params = {}, sort, filter) => {
+        return request<{
+          data: GithubIssueItem[];
+        }>('https://proapi.azurewebsites.net/github/issues', {
+          params,
+        });
+      }}
+      editable={{
+        type: 'multiple',
+      }}
+      rowKey="id"
+      search={{
+        labelWidth: 'auto',
+      }}
+      form={{
+        // 由于配置了 transform，提交的参与与定义的不同这里需要转化一下
+        syncToUrl: (values, type) => {
+          if (type === 'get') {
+            return {
+              ...values,
+              created_at: [values.startTime, values.endTime],
+            };
+          }
+          return values;
+        },
+      }}
+      pagination={{
+        pageSize: 5,
+      }}
+      dateFormatter="string"
+      headerTitle="高级表格"
+      toolBarRender={() => [
+        <Button key="button" icon={<PlusOutlined />} type="primary">
+          新建
+        </Button>,
+        <Dropdown key="menu" overlay={menu}>
+          <Button>
+            <EllipsisOutlined />
+          </Button>
+        </Dropdown>,
+      ]}
+    />
   );
 };
