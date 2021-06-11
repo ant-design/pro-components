@@ -9,18 +9,20 @@ nav:
   order: 1
 ---
 
-# ProDescriptions - 高级定义列表
+# ProDescriptions
 
-## 何时使用
+# ProDescriptions
 
-高级描述列表组件，提供一个更加方便快速的方案来构建描述列表。
+## When to use
 
-ProDescriptions 的诞生是为了解决项目中需要写很多 Descriptions 的样板代码的问题，所以在其中做了封装了很多常用的逻辑。在 React 中写一个 Descriptions 免不了需要定义一些雷同的属性。所以 ProDescriptions 默认封装了请求网络，columns 列展示的逻辑。
+The advanced description list component provides a more convenient and faster solution to build a description list.
 
-比如 ProDescriptions 封装了请求网络的行为，ProDescriptions 会将 props.params 中的数据默认带入到请求中，如果接口恰好与我们的定义相同，实现一个查询会非常简单。
+ProDescriptions was born to solve the problem of writing a lot of boilerplate code of Descriptions in the project, so many common logics are encapsulated in it. Writing a Descriptions in React will inevitably need to define some similar properties. So ProDescriptions encapsulates the request network by default, and the logic shown in the columns column.
+
+For example, ProDescriptions encapsulates the behavior of the request network, and ProDescriptions will bring the data in props.params into the request by default. If the interface happens to be the same as our definition, it will be very simple to implement a query.
 
 ```tsx | pure
-import request from 'umi-request';
+import request from'umi-request';
 
 const fetchData = (params) =>
   request<{
@@ -34,13 +36,13 @@ const keyWords = "Ant Design"
 <ProDescriptions<T,U> request={fetchData} />;
 ```
 
-我们约定 request 拥有一个参数， `params` 会自带 props 中的 `params` 。类型如下:
+We agree that request has a parameter, and `params` will carry the `params` in props. The types are as follows:
 
 ```tsx | pure
 (params: U) => RequestData;
 ```
 
-对与请求回来的结果的 ProDescriptions 也有一些约定，类型如下：
+There are also some conventions on the ProDescriptions of the results returned by the request, the types are as follows:
 
 ```tsx | pure
 interface RequestData {
@@ -49,118 +51,124 @@ interface RequestData {
 }
 ```
 
-## 代码演示
+## Code Demo
 
-### 基础定义列表
+### Basic definition list
 
-### 常见配置
+### Common configuration
 
-<code src="./demos/dynamic-descriptions.tsx" title="常见配置" height="500px"/>
+<code src="./demos/dynamic-descriptions.tsx" title="Common configuration" height="500px"/>
 
-### 基本使用
+### Basic usage
 
-<code src="./demos/base.tsx" title="基础定义列表" />
+<code src="./demos/base.tsx" title="Basic definition list" />
 
-### 远程请求数据
+### Request data remotely
 
-通过请求接口数据来展示定义列表
+Display the definition list by requesting interface data
 
-<code src="./demos/request.tsx" title="远程请求数据" />
+<code src="./demos/request.tsx" title="remote request data" />
 
-### columns 配置
+### columns configuration
 
-通过请求接口数据和 columns 来展示定义列表
+Display the definition list by requesting interface data and columns
 
-<code src="./demos/columns.tsx" title="columns 配置" />
+<code src="./demos/columns.tsx" title="columns configuration" />
 
-### dataSource 配置数据
+### format configuration
 
-ProDescriptions 支持了和 Table 相同的 dataSource
+Format the date according to format
 
-<code src="./demos/data-source.tsx" title="dataSource 配置数据"/>
+<code src="./demos/format.tsx" title="format configuration" />
 
-### 可编辑的定义列表
+### dataSource configuration data
 
-API 与 ProTable 相同
+ProDescriptions supports the same dataSource as Table
 
-<code src="./demos/editable.tsx" title="可编辑的定义列表" />
+<code src="./demos/data-source.tsx" title="dataSource configuration data"/>
+
+### Editable definition list
+
+API is the same as ProTable
+
+<code src="./demos/editable.tsx" title="Editable definition list" />
 
 ## API
 
 ### ProDescriptions
 
-> 更多功能查看 antd 的 [Descriptions](https://ant.design/components/descriptions-cn/)
+> For more features, see [Descriptions](https://ant.design/components/descriptions-cn/) of antd
 
-| 参数 | 说明 | 类型 | 默认值 |
+| Parameters | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| title | 描述列表的标题，显示在最顶部 | `ReactNode` | - |
-| tooltip | 内容的补充描述，hover 后显示 | `string` | - |
-| loading | 展示一个加载的骨架屏，骨架屏和 dom 不会一一对应 | `boolean` | - |
-| extra | 描述列表的操作区域，显示在右上方 | `string` \| `ReactNode` | - |
-| bordered | 是否展示边框 | boolean | false |
-| column | 一行的 `ProDescriptionsItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | number | 3 |
-| size | 设置列表的大小。可以设置为 `middle` 、`small`, 或不填（只有设置 `bordered={true}` 生效） | `default` \| `middle` \| `small` | - |
-| layout | 描述布局 | `horizontal` \| `vertical` | `horizontal` |
-| colon | 配置 `ProDescriptions.Item` 的 `colon` 的默认值 | boolean | true |
-| request | 请求数据，不设置 columns 时 ProDescriptions.Item 需设置对应的 dataIndex | - | - |
-| onRequestError | 处理 request 的错误，默认会直接抛出错误 | - | - |
-| columns | 列定义，与 request 配合使用 [columns](/components/table#columns) | - | - |
-| editable | 编辑的相关配置 | [EditableConfig]('#editable') | - |
+| title | The title of the description list, displayed at the top | `ReactNode` | - |
+| tooltip | Supplementary description of the content, displayed after hover | `string` | - |
+| loading | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one | `boolean` | - |
+| extra | Describe the operation area of ​​the list, displayed on the upper right | `string` \| `ReactNode` | - |
+| bordered | Whether to display the border | boolean | false |
+| column | The number of `ProDescriptionsItems` in a row, can be written as pixel value or support responsive object writing `{ xs: 8, sm: 16, md: 24}` | number | 3 |
+| size | Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect) | `default` \| `middle` \| `small` | - |
+| layout | Description layout | `horizontal` \| `vertical` | `horizontal` |
+| colon | Configure the default value of `colon` of `ProDescriptions.Item` | boolean | true |
+| request | Request data, when columns are not set, ProDescriptions.Item needs to set the corresponding dataIndex | - | - |
+| onRequestError | Handling request errors, by default an error will be thrown directly | - | - |
+| columns | Column definition, used with request [columns](/components/table#columns) | - | - |
+| editable | Editable related configuration | [EditableConfig]('#editable') | - |
 
-### editable 编辑配置
+### editable edit configuration
 
-| 属性 | 描述 | 类型 | 默认值 |
+| Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| form | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用 | `FormInstance` | - |
-| editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
-| onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | 保存一行的时候触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
-| onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<any>` | - |
-| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
-| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>,defaultDom) => ReactNode[]` | - |
-| deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
-| onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
-| onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |
+| form | The form instance of the editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
+| editableKeys | Row being edited, controlled attributes. The default `key` will use the configuration of `rowKey`, if there is no configuration, it will use the `index`, it is recommended to use rowKey | `Key[]` | - |
+| onChange | Triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
+| onSave | Triggered when a row is saved | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| onDelete | Triggered when a row is deleted | `(key: Key, row: T) => Promise<any>` | - |
+| onCancel | Triggered when cancel editing a line | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| actionRender | Custom edit mode action bar | `(row: T, config: ActionRenderConfig<T>,defaultDom) => ReactNode[]` | - |
+| deletePopconfirmMessage | The pop-up confirmation box prompt message when deleting | `ReactNode` | `Delete this line? ` |
+| onlyOneLineEditorAlertMessage | Only one line can be edited | `ReactNode` | `Only one line can be edited at the same time` |
+| onlyAddOneLineAlertMessage | Only one line can be added at the same time | `ReactNode` | `Only add one line` |
 
 ### ProDescriptions.Item
 
-| 参数 | 说明 | 类型 | 默认值 |
+| Parameters | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| label | 内容的描述 | ReactNode | - |
-| tooltip | 内容的补充描述，hover 后显示 | string | - |
-| span | 包含列的数量 | number | 1 |
-| valueType | 格式化的类型 | `ValueType` | - |
-| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
-| request | 从网络请求枚举数据 | `()=>Promise<{[key:string`\|`number]:any}>` | - |
-| dataIndex | 返回数据的 key 与 ProDescriptions 的 request 配合使用，用于配置式的定义列表 | `React.Text` \| `React.Text[]` | - |
-| editable | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| label | Description of content | ReactNode | - |
+| tooltip | Supplementary description of the content, displayed after hover | string | - |
+| span | number of columns included | number | 1 |
+| valueType | Formatted type | `ValueType` | - |
+| valueEnum | Enumeration of current column values ​​[valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
+| request | Request enumerated data from the network | `()=>Promise<{[key:string`\|`number]:any}>` | - |
+| dataIndex | The key of the returned data is used in conjunction with the request of ProDescriptions for the definition list of the profile | `React.Text` \| `React.Text[]` | - |
+| editable | Whether it is editable in the edit table, the parameters of the function are the same as the render of the table | `false` \| `(text: any, record: T,index: number) => boolean` | true |
 
-> span 是 Description.Item 的数量。 span={2} 会占用两个 DescriptionItem 的宽度。
+> span is the number of Description.Item. span={2} will occupy the width of two DescriptionItem.
 
 ### ActionRef
 
-在进行了操作，或者 tab 切换等时候我们需要手动触发一下描述列表的更新，纯粹的 props 很难解决这个问题，所以我们提供一个 ref 来支持一些默认的操作。
+We need to manually trigger the update of the description list when performing an operation or tab switching. It is difficult to solve this problem with pure props, so we provide a ref to support some default operations.
 
 ```tsx | pure
 const ref = useRef<ActionType>();
 
-// 两秒刷新一次
+// refresh every two seconds
 useEffect(() => {
   setInterval(() => {
     ref.current.reload();
   }, 2000);
 }, []);
 
-// hooks 绑定
+// hooks binding
 <ProDescriptions actionRef={ref} />;
 
 // class
 <ProDescriptions actionRef={(ref) => (this.ref = ref)} />;
 ```
 
-`ActionRef` 还支持了一些别的行为,某些时候会减少的你的编码成本，但是 ref 会脱离 react 的生命周期，所以这些 action 都是不受控的。
+`ActionRef` also supports some other behaviors, which will reduce your coding cost in some cases, but ref will break away from the life cycle of react, so these actions are not controlled.
 
 ```tsx | pure
-// 刷新
+// refresh
 ref.current.reload();
 ```

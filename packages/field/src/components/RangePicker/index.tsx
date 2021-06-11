@@ -19,10 +19,10 @@ const FieldRangePicker: ProFieldFC<{
   const [startText, endText] = Array.isArray(text) ? text : [];
   // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
   const parsedStartText: string = startText
-    ? moment(startText).format(format || fieldProps.format || 'YYYY-MM-DD')
+    ? moment(startText).format(fieldProps?.format || format || 'YYYY-MM-DD')
     : '';
   const parsedEndText: string = endText
-    ? moment(endText).format(format || fieldProps.format || 'YYYY-MM-DD')
+    ? moment(endText).format(fieldProps?.format || format || 'YYYY-MM-DD')
     : '';
 
   if (mode === 'read') {
