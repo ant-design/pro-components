@@ -27,8 +27,6 @@ const mergeOptionAndPageInfo = ({ pageInfo }: UseFetchProps) => {
   return { current: 1, total: 0, pageSize: 20 };
 };
 
-let requestingList: any[] = [];
-
 const useFetchData = <T extends RequestData<any>>(
   fetchData: undefined | ((params?: { pageSize: number; current: number }) => Promise<T>),
   defaultData: any[] | undefined,
@@ -37,13 +35,15 @@ const useFetchData = <T extends RequestData<any>>(
   /** 组件是否卸载 */
   const unmountRef = useRef<boolean>();
 
+  const requestingList = useRef<any[]>([]);
+
   const {
     onLoad,
     manual,
     polling,
     onRequestError,
     debounceTime = 20,
-    block = false,
+    block = true,
   } = options || {};
 
   /** 是否首次加载的指示器 */
@@ -100,7 +100,7 @@ const useFetchData = <T extends RequestData<any>>(
     if (!fetchData) {
       return [];
     }
-    if ((loading || requesting.current) && !block) {
+    if ((loading || requesting.current) && block) {
       return [];
     }
 
@@ -132,11 +132,11 @@ const useFetchData = <T extends RequestData<any>>(
             }
           : undefined;
 
-      requestingList.push(fetchFlag);
+      requestingList.current.push(fetchFlag);
 
       const { data = [], success, total = 0, ...rest } = (await fetchData(pageParams)) || {};
 
-      requestingList = requestingList.filter((item) => item !== fetchFlag);
+      requestingList.current = requestingList.current.filter((item) => item !== fetchFlag);
 
       requesting.current = false;
 
@@ -159,12 +159,12 @@ const useFetchData = <T extends RequestData<any>>(
       if (list === undefined) setList([]);
       onRequestError(e);
     } finally {
-      requestAnimationFrame(() => {
-        if (requestingList.length === 0) {
+      if (requestingList.current.length === 0) {
+        requestAnimationFrame(() => {
           setLoading(false);
           setPollingLoading(false);
-        }
-      });
+        });
+      }
     }
 
     return [];
