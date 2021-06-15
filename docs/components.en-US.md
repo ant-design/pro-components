@@ -36,7 +36,7 @@ The main feature of ProForm is that it has a lot of pre-defined layouts, so if y
 ## Configuring Use with the Web Request Library
 
 ProTable, ProList uses a new data structure which is very easy to use if you use the parameters we have agreed upon.
-  
+
 ```tsx | pure
 const msg: {
   data: T[];
@@ -74,7 +74,7 @@ export const request: RequestConfig = {
 import { request } from 'umi';
 
 <ProTable request={request('/list')} />;
-````
+```
 
 If fetch is used, you can customize fetch.
 
