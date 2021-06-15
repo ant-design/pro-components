@@ -10,8 +10,8 @@ import { mount } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
 import { SnippetsOutlined, CloseOutlined } from '@ant-design/icons';
 import { Form } from 'antd';
-import get from 'rc-util/lib/utils/get';
 import _ from 'lodash';
+import type { NamePath } from 'antd/es/form/interface';
 
 describe('ProForm List', () => {
   it('♨️  ProForm.List', async () => {
@@ -522,7 +522,17 @@ describe('ProForm List', () => {
         e: [{ a: 8, b: 9 }],
       },
     };
-    const name1 = [];
+    const depName1: NamePath[] = [
+      'a',
+      'b',
+      ['c', 'a'],
+      ['c', 'b'],
+      ['c', 'c', 'a'],
+      ['c', 'd'],
+      ['c', 'e'],
+    ];
+    const depName2: NamePath[] = ['a', 'b', ['c', 'a']];
+    const depName3: NamePath[] = ['a', 'b', ['c', 'a']];
     const html = mount(
       <ProForm initialValues={initialValues}>
         <ProFormGroup>
@@ -536,10 +546,12 @@ describe('ProForm List', () => {
               <ProFormGroup>
                 <ProFormText name="a" label="a" />
                 <ProFormText name="b" label="b" />
-                <ProFormDependency name={['a', 'b', ['c', 'a']]}>
+                <ProFormDependency name={depName3}>
                   {(depValues) => (
                     <Form.Item
-                      label="搜集依赖值（情形3） <ProFormDependency name={['a', 'b', ['c', 'a']]}>"
+                      label={`搜集依赖值（情形3） <ProFormDependency name={${JSON.stringify(
+                        depName3,
+                      )}}>`}
                       extra="a, b, c.a取自局部"
                     >
                       <pre>
@@ -556,10 +568,12 @@ describe('ProForm List', () => {
               <ProFormGroup>
                 <ProFormText name="a" label="a" />
                 <ProFormText name="b" label="b" />
-                <ProFormDependency name={['a', 'b', ['c', 'a']]} ignoreFormListField>
+                <ProFormDependency name={depName2} ignoreFormListField>
                   {(depValues) => (
                     <Form.Item
-                      label="搜集依赖值（情形2) <ProFormDependency name={['a', 'b', ['c', 'a']]} ignoreFormListField>"
+                      label={`搜集依赖值（情形2) <ProFormDependency name={${JSON.stringify(
+                        depName2,
+                      )}} ignoreFormListField>`}
                       extra="a, b, c.a取自全局"
                     >
                       <pre>
@@ -572,10 +586,10 @@ describe('ProForm List', () => {
             </ProFormList>
           </ProFormGroup>
         </ProFormGroup>
-        <ProFormGroup title="收集依赖值（情形1) <ProFormDependency name={['a', 'b', ['c', 'a'], ['c', 'b'], ['c', 'c', 'a'], ['c', 'd'], ['c', 'e']]}>">
-          <ProFormDependency
-            name={['a', 'b', ['c', 'a'], ['c', 'b'], ['c', 'c', 'a'], ['c', 'd'], ['c', 'e']]}
-          >
+        <ProFormGroup
+          title={`收集依赖值（情形1) <ProFormDependency name={${JSON.stringify(depName1)}}>`}
+        >
+          <ProFormDependency name={depName1}>
             {(depValues) => (
               <pre>
                 <code className="case1">{JSON.stringify(depValues)}</code>
@@ -588,9 +602,15 @@ describe('ProForm List', () => {
 
     await waitForComponentToPaint(html);
 
-    expect(html.find('code.case1').text()).toBe(JSON.stringify(initialValues));
+    const namePaths2PropertyPaths = (name: NamePath[]) => {
+      return name.map((item) => (Array.isArray(item) ? item.join('.') : item));
+    };
+
+    expect(html.find('code.case1').text()).toBe(
+      JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName1))),
+    );
     expect(html.find('code.case2').text()).toBe(
-      JSON.stringify(_.pick(initialValues, 'a', 'b', 'c.a')),
+      JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName2))),
     );
     expect(html.find('code.case3').text()).toBe(
       JSON.stringify({ a: initialValues.c.d[0].a, b: initialValues.c.d[0].b, c: {} }),

@@ -6,24 +6,35 @@ import ProForm, {
   ProFormList,
 } from '@ant-design/pro-form';
 import { Form } from 'antd';
+import type { NamePath } from 'antd/es/form/interface';
 
 const Demo = () => {
+  const initialValues = {
+    a: 1,
+    b: 2,
+    c: {
+      a: 3,
+      b: 4,
+      c: {
+        a: 5,
+      },
+      d: [{ a: 6, b: 7 }],
+      e: [{ a: 8, b: 9 }],
+    },
+  };
+  const depName1: NamePath[] = [
+    'a',
+    'b',
+    ['c', 'a'],
+    ['c', 'b'],
+    ['c', 'c', 'a'],
+    ['c', 'd'],
+    ['c', 'e'],
+  ];
+  const depName2: NamePath[] = ['a', 'b', ['c', 'a']];
+  const depName3: NamePath[] = ['a', 'b', ['c', 'a']];
   return (
-    <ProForm
-      initialValues={{
-        a: 1,
-        b: 2,
-        c: {
-          a: 3,
-          b: 4,
-          c: {
-            a: 5,
-          },
-          d: [{ a: 6, b: 7 }],
-          e: [{ a: 8, b: 9 }],
-        },
-      }}
-    >
+    <ProForm initialValues={initialValues}>
       <ProFormGroup>
         <ProFormText name="a" label="a" />
         <ProFormText name="b" label="b" />
@@ -35,10 +46,12 @@ const Demo = () => {
             <ProFormGroup>
               <ProFormText name="a" label="a" />
               <ProFormText name="b" label="b" />
-              <ProFormDependency name={['a', 'b', ['c', 'a']]}>
+              <ProFormDependency name={depName3}>
                 {(depValues) => (
                   <Form.Item
-                    label="搜集依赖值（情形3） <ProFormDependency name={['a', 'b', ['c', 'a']]}>"
+                    label={`搜集依赖值（情形3） <ProFormDependency name={${JSON.stringify(
+                      depName3,
+                    )}}>`}
                     extra="a, b, c.a取自局部"
                   >
                     <pre>
@@ -55,10 +68,12 @@ const Demo = () => {
             <ProFormGroup>
               <ProFormText name="a" label="a" />
               <ProFormText name="b" label="b" />
-              <ProFormDependency name={['a', 'b', ['c', 'a']]} ignoreFormListField>
+              <ProFormDependency name={depName2} ignoreFormListField>
                 {(depValues) => (
                   <Form.Item
-                    label="搜集依赖值（情形2) <ProFormDependency name={['a', 'b', ['c', 'a']]} ignoreFormListField>"
+                    label={`搜集依赖值（情形2) <ProFormDependency name={${JSON.stringify(
+                      depName2,
+                    )}} ignoreFormListField>`}
                     extra="a, b, c.a取自全局"
                   >
                     <pre>
@@ -71,10 +86,10 @@ const Demo = () => {
           </ProFormList>
         </ProFormGroup>
       </ProFormGroup>
-      <ProFormGroup title="收集依赖值（情形1) <ProFormDependency name={['a', 'b', ['c', 'a'], ['c', 'b'], ['c', 'c', 'a'], ['c', 'd'], ['c', 'e']]}>">
-        <ProFormDependency
-          name={['a', 'b', ['c', 'a'], ['c', 'b'], ['c', 'c', 'a'], ['c', 'd'], ['c', 'e']]}
-        >
+      <ProFormGroup
+        title={`收集依赖值（情形1) <ProFormDependency name={${JSON.stringify(depName1)}}>`}
+      >
+        <ProFormDependency name={depName1}>
           {(depValues) => (
             <pre>
               <code>{JSON.stringify(depValues)}</code>
