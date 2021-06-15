@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.41.0
+
+`2021-06-15`
+
+- 🐛 fix(table): 处理分页问题 (#2212) [#3008](https://github.com/ant-design/pro-components/pull/3008) [@dingtianxiu](https://github.com/dingtianxiu)
+- 🐛 fix(table): hideInForm true 的时候，hideInSearch 失效 (#2986) [#2993](https://github.com/ant-design/pro-components/pull/2993) [@dingtianxiu](https://github.com/dingtianxiu)
+- 💥 feat(table): TableDropdown support all Menu.Item [#2989](https://github.com/ant-design/pro-components/pull/2989) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-table@2.40.0
 
 `2021-06-08`

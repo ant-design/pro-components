@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.8.2
+
+`2021-06-15`
+
+- 🐛 fix(descriptions): fix descriptions fomart error [#3015](https://github.com/ant-design/pro-components/pull/3015) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-descriptions@1.7.12
 
 `2021-05-24`
