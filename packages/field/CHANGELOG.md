@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.4...@ant-design/pro-field@1.18.5) (2021-06-15)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions fomart error ([#3015](https://github.com/ant-design/pro-components/issues/3015)) ([beb6ce2](https://github.com/ant-design/pro-components/commit/beb6ce2881f94862663051bf597c4a035646729a))
+
 ## [1.18.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.3...@ant-design/pro-field@1.18.4) (2021-06-09)
 
 ### Bug Fixes

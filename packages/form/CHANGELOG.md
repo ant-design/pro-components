@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.28.1...@ant-design/pro-form@1.29.0) (2021-06-15)
+
+### Bug Fixes
+
+- select 参数类型丢失 ([#3003](https://github.com/ant-design/pro-components/issues/3003)) ([1b0014d](https://github.com/ant-design/pro-components/commit/1b0014dfd7b103c031361d958498b1e4235cced4))
+- **table:** hideInForm true 的时候，hideInSearch 失效 ([#2986](https://github.com/ant-design/pro-components/issues/2986)) ([#2993](https://github.com/ant-design/pro-components/issues/2993)) ([908461b](https://github.com/ant-design/pro-components/commit/908461b5d2d402d6ccc8cb1db16b9783cee4d11f)), closes [#2446](https://github.com/ant-design/pro-components/issues/2446) [#2446](https://github.com/ant-design/pro-components/issues/2446) [#2446](https://github.com/ant-design/pro-components/issues/2446)
+
+### Features
+
+- **form:** ModalForm support footer is null ([#3001](https://github.com/ant-design/pro-components/issues/3001)) ([92c07b0](https://github.com/ant-design/pro-components/commit/92c07b02e8d9441843ce614821d4c41cc6842c7f))
+
 ## [1.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.28.0...@ant-design/pro-form@1.28.1) (2021-06-09)
 
 ### Bug Fixes

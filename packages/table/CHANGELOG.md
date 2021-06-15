@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.41.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.40.1...@ant-design/pro-table@2.41.0) (2021-06-15)
+
+### Bug Fixes
+
+- **table:** 处理分页问题 ([#2212](https://github.com/ant-design/pro-components/issues/2212)) ([#3008](https://github.com/ant-design/pro-components/issues/3008)) ([ac630f9](https://github.com/ant-design/pro-components/commit/ac630f9af0d7a5addbbbda2742a8d3b520c695cf))
+
+### Features
+
+- **table:** TableDropdown support all Menu.Item ([#2989](https://github.com/ant-design/pro-components/issues/2989)) ([907fdd4](https://github.com/ant-design/pro-components/commit/907fdd4f3113b52945083d739d37c4523da66684))
+
 ## [2.40.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.40.0...@ant-design/pro-table@2.40.1) (2021-06-09)
 
 ### Bug Fixes

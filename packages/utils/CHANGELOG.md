@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.0...@ant-design/pro-utils@1.19.1) (2021-06-15)
+
+### Bug Fixes
+
+- **form:** use merge repacle assign ([#3011](https://github.com/ant-design/pro-components/issues/3011)) ([82df9a4](https://github.com/ant-design/pro-components/commit/82df9a4dfa42be4d0e58f624b14b7ff21c07ff02))
+
 # [1.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.18.2...@ant-design/pro-utils@1.19.0) (2021-06-08)
 
 ### Bug Fixes
