@@ -9,7 +9,7 @@ export type GroupProps = {
   tooltip?: LabelTooltipType | string;
   extra?: React.ReactNode;
   /** 组件之前的间隔 */
-  size?: number;
+  size?: SpaceProps['size'];
   style?: React.CSSProperties;
   titleStyle?: React.CSSProperties;
   titleRender?: (title: React.ReactNode, props: GroupProps) => React.ReactNode;
