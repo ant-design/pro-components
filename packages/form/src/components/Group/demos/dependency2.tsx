@@ -55,7 +55,7 @@ const Demo = () => {
                     extra="a, b, c.a取自局部"
                   >
                     <pre>
-                      <code>{JSON.stringify(depValues)}</code>
+                      <code>{JSON.stringify(depValues, null, 2)}</code>
                     </pre>
                   </Form.Item>
                 )}

@@ -555,7 +555,7 @@ describe('ProForm List', () => {
                       extra="a, b, c.a取自局部"
                     >
                       <pre>
-                        <code className="case3">{JSON.stringify(depValues)}</code>
+                        <code className="case3">{JSON.stringify(depValues, null, 2)}</code>
                       </pre>
                     </Form.Item>
                   )}
@@ -577,7 +577,7 @@ describe('ProForm List', () => {
                       extra="a, b, c.a取自全局"
                     >
                       <pre>
-                        <code className="case2">{JSON.stringify(depValues)}</code>
+                        <code className="case2">{JSON.stringify(depValues, null, 2)}</code>
                       </pre>
                     </Form.Item>
                   )}
@@ -592,7 +592,7 @@ describe('ProForm List', () => {
           <ProFormDependency name={depName1}>
             {(depValues) => (
               <pre>
-                <code className="case1">{JSON.stringify(depValues)}</code>
+                <code className="case1">{JSON.stringify(depValues, null, 2)}</code>
               </pre>
             )}
           </ProFormDependency>
@@ -607,13 +607,13 @@ describe('ProForm List', () => {
     };
 
     expect(html.find('code.case1').text()).toBe(
-      JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName1))),
+      JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName1)), null, 2),
     );
     expect(html.find('code.case2').text()).toBe(
-      JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName2))),
+      JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName2)), null, 2),
     );
     expect(html.find('code.case3').text()).toBe(
-      JSON.stringify({ a: initialValues.c.d[0].a, b: initialValues.c.d[0].b, c: {} }),
+      JSON.stringify({ a: initialValues.c.d[0].a, b: initialValues.c.d[0].b, c: {} }, null, 2),
     );
   });
 
