@@ -9,18 +9,18 @@ nav:
   order: 1
 ---
 
-## ProDescriptions - Advanced Definition List
+# ProDescriptions
 
 ## When to use
 
-Advanced Descriptions List component to provide a more convenient and faster solution to build description lists.
+The advanced description list component provides a more convenient and faster solution to build a description list.
 
-ProDescriptions was created to solve the problem of having to write a lot of sample code for Descriptions in a project, so a lot of common logic was encapsulated in it. Writing a Descriptions in React inevitably requires defining some of the same properties. So ProDescriptions by default encapsulates the logic of requesting network, columns display.
+ProDescriptions was born to solve the problem of writing a lot of boilerplate code of Descriptions in the project, so many common logics are encapsulated in it. Writing a Descriptions in React will inevitably need to define some similar properties. So ProDescriptions encapsulates the request network by default, and the logic shown in the columns column.
 
-For example, if ProDescriptions encapsulates the behavior of the request network, ProDescriptions will bring the data in props.params into the request by default, and if the interface happens to be the same as our definition, it will be very easy to implement a query.
+For example, ProDescriptions encapsulates the behavior of the request network, and ProDescriptions will bring the data in props.params into the request by default. If the interface happens to be the same as our definition, it will be very simple to implement a query.
 
 ```tsx | pure
-import request from 'umi-request';
+import request from'umi-request';
 
 const fetchData = (params) =>
   request<{
@@ -34,13 +34,13 @@ const keyWords = "Ant Design"
 <ProDescriptions<T,U> request={fetchData} />;
 ```
 
-We agree that request has one parameter and `params` will take its own `params` in props. The type is as follows:
+We agree that request has a parameter, and `params` will carry the `params` in props. The types are as follows:
 
 ```tsx | pure
 (params: U) => RequestData;
 ```
 
-There are also conventions for ProDescriptions with the results of the request back, of the following type.
+There are also some conventions on the ProDescriptions of the results returned by the request, the types are as follows:
 
 ```tsx | pure
 interface RequestData {
@@ -51,64 +51,74 @@ interface RequestData {
 
 ## Code Demo
 
-### List of basic definitions
+### Basic definition list
 
-Basic use.
+### Common configuration
 
-<code src="./demos/base.tsx" />
+<code src="./demos/dynamic-descriptions.tsx" title="Common configuration" height="500px"/>
 
-### Requesting data remotely
+### Basic usage
+
+<code src="./demos/base.tsx" title="Basic definition list" />
+
+### Request data remotely
 
 Display the definition list by requesting interface data
 
-<code src="./demos/request.tsx" />
+<code src="./demos/request.tsx" title="remote request data" />
 
-### Configure data by request and columns
+### columns configuration
 
 Display the definition list by requesting interface data and columns
 
-<code src="./demos/columns.tsx" />
+<code src="./demos/columns.tsx" title="columns configuration" />
 
-### Configuring data with dataSource and columns
+### format configuration
+
+Format the date according to format
+
+<code src="./demos/format.tsx" title="format configuration" />
+
+### dataSource configuration data
 
 ProDescriptions supports the same dataSource as Table
 
-<code src="./demos/data-source.tsx" />
+<code src="./demos/data-source.tsx" title="dataSource configuration data"/>
 
-### Editable list of definitions
+### Editable definition list
 
 API is the same as ProTable
 
-<code src="./demos/editable.tsx" />
+<code src="./demos/editable.tsx" title="Editable definition list" />
 
 ## API
 
 ### ProDescriptions
 
-> See antd's [Descriptions](https://ant.design/components/descriptions/) for more features
+> For more features, see [Descriptions](https://ant.design/components/descriptions-cn/) of antd
 
-| Parameters | Description | Type | Default |
+| Parameters | Description | Type | Default Value |
 | --- | --- | --- | --- |
 | title | The title of the description list, displayed at the top | `ReactNode` | - |
-| tooltip | A complementary description of the content, displayed after hover | `string` | - |
-| loading | Show a loading skeleton screen, the skeleton screen and the dom will not correspond to each other | `boolean` | - |
-| extra | Description of the action area of the list, shown in the top right | `string` \| `ReactNode` | - |
-| bordered | Whether to show borders | boolean | false |
-| column | The number of `ProDescriptionsItems` in a row, either written as a pixel value or supporting responsive object writing `{ xs: 8, sm: 16, md: 24}` | number | 3 |
-| size | Set the size of the list. Can be set to `middle`, `small`, or none (only if `bordered={true}` is set) | `default` \| `middle` \| `small` | - |
-| layout | describe the layout | `horizontal` \| `vertical` | `horizontal` |
-| colon | configure the default value of `colon` for `ProDescriptions.Item` | boolean | true |
-| request | Request data, set dataIndex for ProDescriptions.Item if columns are not set | - | - |
-| onRequestError | Handles request errors. |
-| columns | Column definitions to use with request [columns](/components/table#columns) | - | - |
-| editable | EditableConfig]('#editable') | - |
+| tooltip | Supplementary description of the content, displayed after hover | `string` | - |
+| loading | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one | `boolean` | - |
+| extra | Describe the operation area of ​​the list, displayed on the upper right | `string` \| `ReactNode` | - |
+| bordered | Whether to display the border | boolean | false |
+| column | The number of `ProDescriptionsItems` in a row, can be written as pixel value or support responsive object writing `{ xs: 8, sm: 16, md: 24}` | number | 3 |
+| size | Set the size of the list. Can be set to `middle`, `small`, or left blank (only setting `bordered={true}` takes effect) | `default` \| `middle` \| `small` | - |
+| layout | Description layout | `horizontal` \| `vertical` | `horizontal` |
+| colon | Configure the default value of `colon` of `ProDescriptions.Item` | boolean | true |
+| request | Request data, when columns are not set, ProDescriptions.Item needs to set the corresponding dataIndex | - | - |
+| onRequestError | Handling request errors, by default an error will be thrown directly | - | - |
+| columns | Column definition, used with request [columns](/components/table#columns) | - | - |
+| editable | Editable related configuration | [EditableConfig]('#editable') | - |
 
 ### editable edit configuration
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| form | editableKForm instance of editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
-| eys | Row being edited, controlled attributes. The default `key` will use the configuration of `rowKey`, if there is no configuration, it will use the `index`, it is recommended to use rowKey | `Key[]` | - |
+| form | The form instance of the editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
+| editableKeys | Row being edited, controlled attributes. The default `key` will use the configuration of `rowKey`, if there is no configuration, it will use the `index`, it is recommended to use rowKey | `Key[]` | - |
 | onChange | Triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
 | onSave | Triggered when a row is saved | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | onDelete | Triggered when a row is deleted | `(key: Key, row: T) => Promise<any>` | - |
@@ -120,27 +130,27 @@ API is the same as ProTable
 
 ### ProDescriptions.Item
 
-| Parameters | Description | Type | Default |
+| Parameters | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| label | Description of the content | ReactNode | - |
-| tooltip | Additional description of the content, displayed after hover | string | - |
-| span | Number of columns to include | number | 1 |
-| valueType | The type of formatting | `ValueType` | - |
-| valueEnum | Enumeration of current column values [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
-| request | Enumerate data from a network request | `()=>Promise<{[key:string`\|`number]:any}>` | - |
-| dataIndex | Returns the key of the data to be used with the request for ProDescriptions for a configurable list of definitions | `React.Text` \| `React.Text[]` | - |
-| editable | editable in the edit table, the function takes the same arguments as render for table | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| label | Description of content | ReactNode | - |
+| tooltip | Supplementary description of the content, displayed after hover | string | - |
+| span | number of columns included | number | 1 |
+| valueType | Formatted type | `ValueType` | - |
+| valueEnum | Enumeration of current column values ​​[valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
+| request | Request enumerated data from the network | `()=>Promise<{[key:string`\|`number]:any}>` | - |
+| dataIndex | The key of the returned data is used in conjunction with the request of ProDescriptions for the definition list of the profile | `React.Text` \| `React.Text[]` | - |
+| editable | Whether it is editable in the edit table, the parameters of the function are the same as the render of the table | `false` \| `(text: any, record: T,index: number) => boolean` | true |
 
-> span is the number of Description. span={2} will take up the width of two DescriptionItems.
+> span is the number of Description.Item. span={2} will occupy the width of two DescriptionItem.
 
 ### ActionRef
 
-We need to trigger a manual update of the description list when we perform an action, or a tab switch, etc. Pure props are hard to solve this problem, so we provide a ref to support some default actions.
+We need to manually trigger the update of the description list when performing an operation or tab switching. It is difficult to solve this problem with pure props, so we provide a ref to support some default operations.
 
 ```tsx | pure
 const ref = useRef<ActionType>();
 
-// Refresh once every two seconds
+// refresh every two seconds
 useEffect(() => {
   setInterval(() => {
     ref.current.reload();
@@ -154,9 +164,9 @@ useEffect(() => {
 <ProDescriptions actionRef={(ref) => (this.ref = ref)} />;
 ```
 
-`ActionRef` also supports some other behaviors that may reduce your coding costs in some cases, but the ref is out of the react lifecycle, so these actions are uncontrolled.
+`ActionRef` also supports some other behaviors, which will reduce your coding cost in some cases, but ref will break away from the life cycle of react, so these actions are not controlled.
 
 ```tsx | pure
-// Refresh
+// refresh
 ref.current.reload();
 ```
