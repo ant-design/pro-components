@@ -60,4 +60,8 @@ export default {
       delete: 'Delete',
     },
   },
+  switch: {
+    open: 'open',
+    close: 'close',
+  },
 };

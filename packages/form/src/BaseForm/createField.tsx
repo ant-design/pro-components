@@ -152,6 +152,13 @@ function createField<P extends ProFormItemProps = any>(
     );
 
     const ignoreWidthValueType = ['switch', 'radioButton', 'radio', 'rate'];
+
+    const realFieldPropsStyle = {
+      ...realFieldProps?.style,
+    };
+    if (realFieldPropsStyle.width !== undefined && (rest as any).valueType === 'switch') {
+      delete realFieldPropsStyle.width;
+    }
     const field = (
       <Field
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
@@ -162,7 +169,7 @@ function createField<P extends ProFormItemProps = any>(
           ...realFieldProps,
           style: omitUndefined({
             width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
-            ...realFieldProps?.style,
+            ...realFieldPropsStyle,
           }),
           className:
             classnames(realFieldProps?.className, {
@@ -183,7 +190,6 @@ function createField<P extends ProFormItemProps = any>(
         })}
       />
     );
-
     return (
       <ProFormItem
         // 全局的提供一个 tip 功能，可以减少代码量
