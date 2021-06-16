@@ -21,11 +21,7 @@ export type ProFormSelectProps<T = any> = ProFormItemProps<
      * @default false
      */
     resetAfterSelect?: boolean;
-    /**
-     * 自定义选项渲染
-     *
-     * @default undefined
-     */
+    /** 自定义选项渲染 */
     optionItemRender?: (item: T) => React.ReactNode;
   }
 > & {
