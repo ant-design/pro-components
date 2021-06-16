@@ -1,9 +1,17 @@
 ﻿import React from 'react';
-import ProForm, { ProFormText, ProFormList, ProFormDependency } from '@ant-design/pro-form';
+import ProForm, {
+  ProFormText,
+  ProFormList,
+  ProFormDependency,
+  ProFormGroup,
+} from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
 import { SnippetsOutlined, CloseOutlined } from '@ant-design/icons';
+import { Form } from 'antd';
+import _ from 'lodash';
+import type { NamePath } from 'antd/es/form/interface';
 
 describe('ProForm List', () => {
   it('♨️  ProForm.List', async () => {
@@ -498,6 +506,115 @@ describe('ProForm List', () => {
     expect(html.find('input.ant-input').length).toBe(4);
 
     expect(fn).toBeCalledWith('222');
+  });
+
+  it('♨️  ProForm.List support ProFormDependency2', async () => {
+    const initialValues = {
+      a: 1,
+      b: 2,
+      c: {
+        a: 3,
+        b: 4,
+        c: {
+          a: 5,
+        },
+        d: [{ a: 6, b: 7 }],
+        e: [{ a: 8, b: 9 }],
+      },
+    };
+    const depName1: NamePath[] = [
+      'a',
+      'b',
+      ['c', 'a'],
+      ['c', 'b'],
+      ['c', 'c', 'a'],
+      ['c', 'd'],
+      ['c', 'e'],
+    ];
+    const depName2: NamePath[] = ['a', 'b', ['c', 'a']];
+    const depName3: NamePath[] = ['a', 'b', ['c', 'a']];
+    const html = mount(
+      <ProForm initialValues={initialValues}>
+        <ProFormGroup>
+          <ProFormText name="a" label="a" />
+          <ProFormText name="b" label="b" />
+          <ProFormText name={['c', 'a']} label="c.a" />
+          <ProFormText name={['c', 'b']} label="c.b" />
+          <ProFormText name={['c', 'c', 'a']} label="c.c.a" />
+          <ProFormGroup title="c.d">
+            <ProFormList name={['c', 'd']}>
+              <ProFormGroup>
+                <ProFormText name="a" label="a" />
+                <ProFormText name="b" label="b" />
+                <ProFormDependency name={depName3}>
+                  {(depValues) => (
+                    <Form.Item
+                      label={`搜集依赖值（情形3） <ProFormDependency name={${JSON.stringify(
+                        depName3,
+                      )}}>`}
+                      extra="a, b, c.a取自局部"
+                    >
+                      <pre>
+                        <code className="case3">{JSON.stringify(depValues, null, 2)}</code>
+                      </pre>
+                    </Form.Item>
+                  )}
+                </ProFormDependency>
+              </ProFormGroup>
+            </ProFormList>
+          </ProFormGroup>
+          <ProFormGroup title="c.e">
+            <ProFormList name={['c', 'e']}>
+              <ProFormGroup>
+                <ProFormText name="a" label="a" />
+                <ProFormText name="b" label="b" />
+                <ProFormDependency name={depName2} ignoreFormListField>
+                  {(depValues) => (
+                    <Form.Item
+                      label={`搜集依赖值（情形2) <ProFormDependency name={${JSON.stringify(
+                        depName2,
+                      )}} ignoreFormListField>`}
+                      extra="a, b, c.a取自全局"
+                    >
+                      <pre>
+                        <code className="case2">{JSON.stringify(depValues, null, 2)}</code>
+                      </pre>
+                    </Form.Item>
+                  )}
+                </ProFormDependency>
+              </ProFormGroup>
+            </ProFormList>
+          </ProFormGroup>
+        </ProFormGroup>
+        <ProFormGroup
+          title={`收集依赖值（情形1) <ProFormDependency name={${JSON.stringify(depName1)}}>`}
+        >
+          <ProFormDependency name={depName1}>
+            {(depValues) => (
+              <pre>
+                <code className="case1">{JSON.stringify(depValues, null, 2)}</code>
+              </pre>
+            )}
+          </ProFormDependency>
+        </ProFormGroup>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+
+    const namePaths2PropertyPaths = (name: NamePath[]) => {
+      return name.map((item) => (Array.isArray(item) ? item.join('.') : item));
+    };
+
+    expect(html.find('code.case1').text()).toBe(
+      JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName1)), null, 2),
+    );
+    expect(html.find('code.case2').text()).toBe(
+      JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName2)), null, 2),
+    );
+    expect(html.find('code.case3').text()).toBe(
+      JSON.stringify({ a: initialValues.c.d[0].a, b: initialValues.c.d[0].b, c: {} }, null, 2),
+    );
   });
 
   it('♨️  ProForm.List support copyIconProps and deleteIconProps', async () => {
