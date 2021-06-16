@@ -33,13 +33,11 @@ describe('mobile BasicLayout', () => {
     const html = render(
       <BasicLayout {...defaultProps} getContainer={false} onCollapse={() => {}} />,
     );
-    waitForComponentToPaint(html);
     expect(html).toMatchSnapshot();
   });
 
   it('📱 collapsed=false', async () => {
     const html = render(<BasicLayout {...defaultProps} getContainer={false} collapsed={false} />);
-    waitForComponentToPaint(html);
     expect(html).toMatchSnapshot();
   });
 
@@ -47,7 +45,6 @@ describe('mobile BasicLayout', () => {
     const html = render(
       <BasicLayout {...defaultProps} getContainer={false} layout="mix" collapsed={false} />,
     );
-    waitForComponentToPaint(html);
     expect(html).toMatchSnapshot();
   });
 
@@ -61,7 +58,6 @@ describe('mobile BasicLayout', () => {
         collapsed={false}
       />,
     );
-    waitForComponentToPaint(html);
     expect(html).toMatchSnapshot();
   });
 
@@ -75,7 +71,6 @@ describe('mobile BasicLayout', () => {
         menuHeaderRender={false}
       />,
     );
-    waitForComponentToPaint(html);
     expect(html).toMatchSnapshot();
   });
 
@@ -89,7 +84,6 @@ describe('mobile BasicLayout', () => {
         menuHeaderRender={() => 'title'}
       />,
     );
-    waitForComponentToPaint(html);
     expect(html).toMatchSnapshot();
   });
 
@@ -103,7 +97,6 @@ describe('mobile BasicLayout', () => {
         menuHeaderRender={() => 'title'}
       />,
     );
-    waitForComponentToPaint(html);
     expect(html).toMatchSnapshot();
   });
 
