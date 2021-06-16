@@ -577,7 +577,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             tabindex="0"
           >
             <li
-              class="ant-menu-submenu ant-menu-submenu-inline"
+              class="ant-menu-submenu ant-menu-submenu-inline ant-pro-menu-item"
               role="none"
             >
               <div
@@ -894,7 +894,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </span>
             </li>
             <li
-              class="ant-menu-submenu ant-menu-submenu-inline"
+              class="ant-menu-submenu ant-menu-submenu-inline ant-pro-menu-item"
               role="none"
             >
               <div
