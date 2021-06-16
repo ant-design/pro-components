@@ -171,7 +171,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           >
                             🐛 [BUG]yarn install命令 antd2.4.5会报错
                             <div
-                              aria-label="复制"
+                              aria-label=""
                               class="ant-typography-copy"
                               role="button"
                               style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -272,7 +272,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           >
                             🐛 [BUG]无法创建工程npm create umi
                             <div
-                              aria-label="复制"
+                              aria-label=""
                               class="ant-typography-copy"
                               role="button"
                               style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -373,7 +373,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           >
                             🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
                             <div
-                              aria-label="复制"
+                              aria-label=""
                               class="ant-typography-copy"
                               role="button"
                               style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -736,7 +736,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                           >
                             🐛 [BUG]yarn install命令 antd2.4.5会报错
                             <div
-                              aria-label="复制"
+                              aria-label=""
                               class="ant-typography-copy"
                               role="button"
                               style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -837,7 +837,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                           >
                             🐛 [BUG]无法创建工程npm create umi
                             <div
-                              aria-label="复制"
+                              aria-label=""
                               class="ant-typography-copy"
                               role="button"
                               style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -938,7 +938,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                           >
                             🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
                             <div
-                              aria-label="复制"
+                              aria-label=""
                               class="ant-typography-copy"
                               role="button"
                               style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -1191,7 +1191,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           >
                             🐛 [BUG]yarn install命令 antd2.4.5会报错
                             <div
-                              aria-label="复制"
+                              aria-label=""
                               class="ant-typography-copy"
                               role="button"
                               style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -1292,7 +1292,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           >
                             🐛 [BUG]无法创建工程npm create umi
                             <div
-                              aria-label="复制"
+                              aria-label=""
                               class="ant-typography-copy"
                               role="button"
                               style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
@@ -1393,7 +1393,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           >
                             🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
                             <div
-                              aria-label="复制"
+                              aria-label=""
                               class="ant-typography-copy"
                               role="button"
                               style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
