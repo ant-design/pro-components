@@ -15,7 +15,7 @@ group:
 
 - 🐛 fix(form): use merge repacle assign [#3011](https://github.com/ant-design/pro-components/pull/3011) [@chenshuai2144](https://github.com/chenshuai2144)
 - 💥 feat(form): ModalForm support footer is null [#3001](https://github.com/ant-design/pro-components/pull/3001) [@DerrickTel](https://github.com/DerrickTel)
-- 
+
 ## @ant-design/pro-form@1.28.0
 
 `2021-06-08`
