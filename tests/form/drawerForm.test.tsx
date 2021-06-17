@@ -411,10 +411,12 @@ describe('DrawerForm', () => {
     });
 
     await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
+
     act(() => {
       wrapper.unmount();
     });
-    expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
   });
 
   it('📦 ModalForm getContainer is string', async () => {
