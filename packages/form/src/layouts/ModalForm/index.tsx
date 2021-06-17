@@ -64,15 +64,34 @@ function ModalForm<T = Record<string, any>>({
     onChange: onVisibleChange,
   });
 
-  const [scrollLocker] = useState(() => new ScrollLocker());
+  const context = useContext(ConfigProvider.ConfigContext);
+
+  const renderDom = useMemo(() => {
+    if (modalProps?.getContainer) {
+      if (typeof modalProps?.getContainer === 'function') {
+        return modalProps?.getContainer?.();
+      }
+      if (typeof modalProps?.getContainer === 'string') {
+        return document.getElementById(modalProps?.getContainer);
+      }
+      return modalProps?.getContainer;
+    }
+    return context?.getPopupContainer?.(document.body);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context, modalProps, visible]);
+
+  const [scrollLocker] = useState(
+    () =>
+      new ScrollLocker({
+        container: renderDom || document.body,
+      }),
+  );
 
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
     !rest['footer'] || !modalProps?.footer,
     'ModalForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
-
-  const context = useContext(ConfigProvider.ConfigContext);
 
   useEffect(() => {
     if (visible) {
@@ -83,13 +102,18 @@ function ModalForm<T = Record<string, any>>({
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
-    return () => scrollLocker?.unLock?.();
+    return () => {
+      if (!visible) scrollLocker?.unLock?.();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
-  useEffect(() => () => {
-    scrollLocker?.unLock?.();
-  });
+  useEffect(
+    () => () => {
+      scrollLocker?.unLock?.();
+    },
+    [],
+  );
 
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
   const isFirstRender = useRef(!modalProps?.forceRender);
@@ -122,20 +146,6 @@ function ModalForm<T = Record<string, any>>({
   }, [modalProps?.destroyOnClose, visible]);
 
   useImperativeHandle(rest.formRef, () => formRef.current);
-
-  const renderDom = useMemo(() => {
-    if (modalProps?.getContainer) {
-      if (typeof modalProps?.getContainer === 'function') {
-        return modalProps?.getContainer?.();
-      }
-      if (typeof modalProps?.getContainer === 'string') {
-        return document.getElementById(modalProps?.getContainer);
-      }
-      return modalProps?.getContainer;
-    }
-    return context?.getPopupContainer?.(document.body);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [context, modalProps, visible]);
 
   const renderSubmitter =
     rest.submitter === false

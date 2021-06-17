@@ -22,7 +22,9 @@ describe('DrawerForm', () => {
     act(() => {
       wrapper.find('button#new').simulate('click');
     });
-
+    act(() => {
+      wrapper.unmount();
+    });
     expect(fn).toBeCalledWith(true);
   });
 
@@ -409,6 +411,9 @@ describe('DrawerForm', () => {
     });
 
     await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.unmount();
+    });
     expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
   });
 
