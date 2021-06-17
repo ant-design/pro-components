@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# StepsForm
+# StepsForm - 分步表单
 
 StepsForm 通过 Provider 来管理子表单的数据，每个字表单都是完整的数据，在 StepsForm 组合成最后的数据。同时自带了一个进度条，和管理进度条的相关 API.
 
