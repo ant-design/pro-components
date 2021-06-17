@@ -88,11 +88,12 @@ export type ItemProps<RecordType> = {
   cardProps?: ProCardProps;
   record: RecordType;
   onRow?: GetComponentProps<RecordType>;
-  itemHeaderRender?: (
-    item: RecordType,
-    index: number,
-    defaultDom: JSX.Element | null,
-  ) => React.ReactNode;
+  itemHeaderRender?:
+    | ((item: RecordType, index: number, defaultDom: JSX.Element | null) => React.ReactNode)
+    | false;
+  itemTitleRender?:
+    | ((item: RecordType, index: number, defaultDom: JSX.Element | null) => React.ReactNode)
+    | false;
 };
 
 function ProListItem<RecordType>(props: ItemProps<RecordType>) {
@@ -105,6 +106,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     title,
     subTitle,
     content,
+    itemTitleRender,
     prefixCls: restPrefixCls,
     actions,
     item,
@@ -177,17 +179,18 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   }, [actions]);
 
   const titleDom =
+    title || subTitle ? (
+      <div className={`${className}-header-title`}>
+        {title && <div className={`${className}-title`}>{title}</div>}
+        {subTitle && <div className={`${className}-subTitle`}>{subTitle}</div>}
+      </div>
+    ) : null;
+
+  const metaDom =
     title || avatar || subTitle || description ? (
       <List.Item.Meta
         avatar={avatar}
-        title={
-          title || subTitle ? (
-            <div className={`${className}-header-title`}>
-              {title && <div className={`${className}-title`}>{title}</div>}
-              {subTitle && <div className={`${className}-subTitle`}>{subTitle}</div>}
-            </div>
-          ) : null
-        }
+        title={(itemHeaderRender && itemHeaderRender?.(record, index, titleDom)) ?? titleDom}
         description={
           description &&
           needExpanded && <div className={`${className}-description`}>{description}</div>
@@ -222,7 +225,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
                 record,
               })}
           </div>
-          {itemHeaderRender?.(record, index, titleDom) ?? titleDom}
+          {(itemHeaderRender && itemHeaderRender?.(record, index, metaDom)) ?? metaDom}
         </div>
         {needExpanded && (content || expandedRowDom) && (
           <div className={`${className}-content`}>

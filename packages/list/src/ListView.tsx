@@ -8,6 +8,7 @@ import get from 'rc-util/lib/utils/get';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import useSelection from 'antd/lib/table/hooks/useSelection';
 import usePagination from 'antd/lib/table/hooks/usePagination';
+import type { ItemProps } from './Item';
 import ProListItem from './Item';
 import { PRO_LIST_KEYS } from './constants';
 
@@ -27,11 +28,8 @@ export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderI
     actionRef: React.MutableRefObject<ActionType | undefined>;
     onRow?: GetComponentProps<RecordType>;
     /** Render 除了 header 之后的代码 */
-    itemHeaderRender?: (
-      item: RecordType,
-      index: number,
-      defaultDom: JSX.Element | null,
-    ) => React.ReactNode;
+    itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
+    itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
   };
 
 function ListView<RecordType>(props: ListViewProps<RecordType>) {
@@ -43,6 +41,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     showExtra,
     prefixCls,
     actionRef,
+    itemTitleRender,
     renderItem,
     itemHeaderRender,
     expandable: expandableConfig,
@@ -184,9 +183,12 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             onExpand={() => {
               onTriggerExpand(item);
             }}
+            index={index}
             record={item}
+            item={item}
             showActions={showActions}
             showExtra={showExtra}
+            itemTitleRender={itemTitleRender}
             itemHeaderRender={itemHeaderRender}
             rowSupportExpand={!rowExpandable || (rowExpandable && rowExpandable(item))}
             selected={selectedKeySet.has(getRowKey(item, index))}

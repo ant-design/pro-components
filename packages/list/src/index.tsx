@@ -10,6 +10,7 @@ import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import ListView from './ListView';
 
 import './index.less';
+import type { ItemProps } from './Item';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
@@ -45,11 +46,8 @@ export type ProListProps<RecordType, U extends ParamsType> = Omit<
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
     onRow?: GetComponentProps<RecordType>;
-    itemHeaderRender?: (
-      item: RecordType,
-      index: number,
-      defaultDom: JSX.Element | null,
-    ) => React.ReactNode;
+    itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
+    itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
   };
 
 export type Key = React.Key;
@@ -80,6 +78,7 @@ function ProList<
     onRow,
     locale,
     itemHeaderRender,
+    itemTitleRender,
     ...rest
   } = props;
 
@@ -147,6 +146,7 @@ function ProList<
           <Form component={false}>
             <ListView
               grid={grid}
+              itemTitleRender={itemTitleRender}
               prefixCls={prefixCls}
               columns={columns}
               renderItem={renderItem}
