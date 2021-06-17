@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.42.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.41.0...@ant-design/pro-table@2.42.0) (2021-06-17)
+
+### Features
+
+- **table:** onSearch support return true ([#3033](https://github.com/ant-design/pro-components/issues/3033)) ([440e271](https://github.com/ant-design/pro-components/commit/440e271acba12d50c7c1af56d1ecf74b1cd4a802))
+
 # [2.41.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.40.1...@ant-design/pro-table@2.41.0) (2021-06-15)
 
 ### Bug Fixes

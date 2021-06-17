@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.9.2...@ant-design/pro-list@1.10.0) (2021-06-17)
+
+### Features
+
+- **list:** support itemTitleRender props ([#3032](https://github.com/ant-design/pro-components/issues/3032)) ([c5262f2](https://github.com/ant-design/pro-components/commit/c5262f22c96402fa1c250d971aa09604fc098eed))
+
 ## [1.9.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.9.1...@ant-design/pro-list@1.9.2) (2021-06-15)
 
 **Note:** Version bump only for package @ant-design/pro-list

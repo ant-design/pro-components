@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.29.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.29.0...@ant-design/pro-form@1.29.1) (2021-06-17)
+
+### Bug Fixes
+
+- **form:** fix ProForm.Group size typescript ([#3030](https://github.com/ant-design/pro-components/issues/3030)) ([a7c7005](https://github.com/ant-design/pro-components/commit/a7c7005f28aaffb93b61f7fb9ed2ca1ee2e6f600))
+- **form:** fix ProFormDependency missing some dependency values ([#3031](https://github.com/ant-design/pro-components/issues/3031)) ([6c20a0b](https://github.com/ant-design/pro-components/commit/6c20a0b30a5e779cdc6108ae76789787d4532990)), closes [#2888](https://github.com/ant-design/pro-components/issues/2888)
+- **form:** switch width style fixed ([4e7543d](https://github.com/ant-design/pro-components/commit/4e7543daca5c5da3cfef2761737301e392a41cac))
+- **form:** use same antd lock ([#3043](https://github.com/ant-design/pro-components/issues/3043)) ([e6d46e5](https://github.com/ant-design/pro-components/commit/e6d46e54d2618537709ab2cdd8847d844f174fb1))
+
 # [1.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.28.1...@ant-design/pro-form@1.29.0) (2021-06-15)
 
 ### Bug Fixes
