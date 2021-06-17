@@ -1017,6 +1017,68 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledWith('name');
   });
 
+  it('🎏 search = true, name = test,onSearch return false', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable<
+        Record<string, any>,
+        {
+          test: string;
+        }
+      >
+        columns={[{ dataIndex: 'name' }]}
+        options={{
+          search: {
+            name: 'test',
+            onSearch: (keyword) => keyword !== 'name',
+          },
+        }}
+        request={async (params) => {
+          fn(params.test);
+          return { data: [] };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    act(() => {
+      html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
+        target: {
+          value: 'name',
+        },
+      });
+    });
+
+    act(() => {
+      html
+        .find('.ant-pro-table-list-toolbar-search input')
+        .simulate('keydown', { key: 'Enter', keyCode: 13 });
+    });
+
+    await waitForComponentToPaint(html, 600);
+
+    expect(fn).toBeCalledWith(undefined);
+
+    act(() => {
+      html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
+        target: {
+          value: 'name1',
+        },
+      });
+    });
+
+    act(() => {
+      html
+        .find('.ant-pro-table-list-toolbar-search input')
+        .simulate('keydown', { key: 'Enter', keyCode: 13 });
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(fn).toBeCalledWith('name1');
+  });
+
   it('🎏 bordered = true', async () => {
     const html = mount(
       <ProTable

@@ -125,12 +125,13 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
     if (React.isValidElement(searchObject)) {
       return searchObject;
     }
+
     return (
       <Input.Search
         style={{ width: 200 }}
         placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        onSearch={onSearch}
         {...(searchObject as SearchProps)}
+        onSearch={onSearch || (searchObject as SearchProps).onSearch}
       />
     );
   };
