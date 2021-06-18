@@ -173,7 +173,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         onSortChange(
           omitUndefined({
             [`${isSortByField ? sorterOfColumn : sorter.field}`]: sorter.order as SortOrder,
-          }),
+          }) || {},
         );
       }
     },
@@ -362,7 +362,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     return {};
   });
 
-  const [proFilter, setProFilter] = useMountMergeState<Record<string, React.ReactText[]>>({});
+  const [proFilter, setProFilter] = useMountMergeState<Record<string, React.ReactText[] | null>>(
+    {},
+  );
   const [proSort, setProSort] = useMountMergeState<Record<string, SortOrder>>({});
 
   /** 设置默认排序和筛选值 */
