@@ -176,7 +176,7 @@ function parseDataIndex(dataIndex: ProColumnType['dataIndex']): string | undefin
  * @param columns ProColumns
  */
 export function parseDefaultColumnConfig<T, Value>(columns: ProColumns<T, Value>[]) {
-  const filter: Record<string, React.ReactText[]> = {};
+  const filter: Record<string, React.ReactText[] | null> = {};
   const sort: Record<string, SortOrder> = {};
   columns.forEach((column) => {
     // 转换 dataIndex
@@ -185,8 +185,13 @@ export function parseDefaultColumnConfig<T, Value>(columns: ProColumns<T, Value>
       return;
     }
     // 当 column 启用 filters 功能时，取出默认的筛选值
-    if (column.filters && column.defaultFilteredValue) {
-      filter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
+    if (column.filters) {
+      const defaultFilteredValue = column.defaultFilteredValue as React.ReactText[];
+      if (defaultFilteredValue === undefined) {
+        filter[dataIndex] = null;
+      } else {
+        filter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
+      }
     }
     // 当 column 启用 sorter 功能时，取出默认的排序值
     if (column.sorter && column.defaultSortOrder) {

@@ -88,10 +88,6 @@ const useFetchData = <T extends RequestData<any>>(
       return [];
     }
 
-    if ((options.pageInfo && list && list?.length > pageInfo?.pageSize) || 0) {
-      return [];
-    }
-
     // 需要手动触发的首次请求
     if (manualRequestRef.current) {
       manualRequestRef.current = false;
@@ -200,6 +196,11 @@ const useFetchData = <T extends RequestData<any>>(
     if ((!prePage || prePage === current) && (!prePageSize || prePageSize === pageSize)) {
       return;
     }
+
+    if ((options.pageInfo && list && list?.length > pageSize) || 0) {
+      return;
+    }
+
     // 如果 list 的长度大于 pageSize 的长度
     // 说明是一个假分页
     // (pageIndex - 1 || 1) 至少要第一页
@@ -225,6 +226,8 @@ const useFetchData = <T extends RequestData<any>>(
     if (!manual) {
       manualRequestRef.current = false;
     }
+    console.log(effects);
+    console.log(manual);
     return () => {
       fetchListDebounce.cancel();
     };
