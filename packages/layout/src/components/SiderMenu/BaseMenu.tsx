@@ -104,6 +104,7 @@ class MenuUtil {
       //  get defaultTitle by menuItemRender
       const defaultTitle = item.icon ? (
         <span className={`${prefixCls}-menu-item`} title={name}>
+          {!isChildren && getIcon(item.icon, iconPrefixes)}
           <span className={`${prefixCls}-menu-item-title`}>{name}</span>
         </span>
       ) : (
@@ -117,32 +118,16 @@ class MenuUtil {
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
         : defaultTitle;
       const MenuComponents: React.ElementType = menu?.type === 'group' ? ItemGroup : SubMenu;
-
       return (
-        <MenuComponents
-          // antd Menu.Item&Menu.SubMenu 支持直接传`icon`作为参数
-          className={`${prefixCls}-menu-item`}
-          icon={!isChildren && getIcon(item.icon, iconPrefixes)}
-          title={title}
-          key={item.key || item.path}
-          onTitleClick={item.onTitleClick}
-        >
+        <MenuComponents title={title} key={item.key || item.path} onTitleClick={item.onTitleClick}>
           {this.getNavMenuItems(item.children, true)}
         </MenuComponents>
       );
     }
 
-    const { iconPrefixes } = this.props;
-
     return (
-      <Menu.Item
-        // antd Menu.Item&Menu.SubMenu 支持直接传`icon`作为参数
-        icon={!isChildren && getIcon(item.icon, iconPrefixes)}
-        disabled={item.disabled}
-        key={item.key || item.path}
-        onClick={item.onTitleClick}
-      >
-        {this.getMenuItemPath(item)}
+      <Menu.Item disabled={item.disabled} key={item.key || item.path} onClick={item.onTitleClick}>
+        {this.getMenuItemPath(item, isChildren)}
       </Menu.Item>
     );
   };
@@ -164,19 +149,25 @@ class MenuUtil {
    *
    * @memberof SiderMenu
    */
-  getMenuItemPath = (item: MenuDataItem) => {
+  getMenuItemPath = (item: MenuDataItem, isChildren: boolean) => {
     const itemPath = this.conversionPath(item.path || '/');
-    const { location = { pathname: '/' }, isMobile, onCollapse, menuItemRender } = this.props;
+    const {
+      location = { pathname: '/' },
+      isMobile,
+      onCollapse,
+      menuItemRender,
+      iconPrefixes,
+    } = this.props;
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
     const { prefixCls } = this.props;
-
+    const icon = isChildren ? null : getIcon(item.icon, iconPrefixes);
     let defaultItem = (
       <span className={`${prefixCls}-menu-item`}>
+        {icon}
         <span className={`${prefixCls}-menu-item-title`}>{name}</span>
       </span>
     );
-
     const isHttpUrl = isUrl(itemPath);
 
     // Is it a http link
@@ -189,6 +180,7 @@ class MenuUtil {
           }}
           className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
         >
+          {icon}
           <span className={`${prefixCls}-menu-item-title`}>{name}</span>
         </span>
       );
