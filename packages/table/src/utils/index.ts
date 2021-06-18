@@ -48,8 +48,8 @@ export function mergePagination<T>(
         '条/总共',
       )} ${all} ${intl.getMessage('pagination.total.item', '条')}`,
     showSizeChanger: true,
-    total,
     ...(defaultPagination as TablePaginationConfig),
+    total,
     current,
     pageSize,
     onChange: (page: number, newPageSize?: number) => {
