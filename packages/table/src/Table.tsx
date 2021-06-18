@@ -7,7 +7,12 @@ import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
 import classNames from 'classnames';
 import { stringify } from 'use-json-comparison';
-import type { TableCurrentDataSource, SorterResult, SortOrder } from 'antd/lib/table/interface';
+import type {
+  TableCurrentDataSource,
+  SorterResult,
+  SortOrder,
+  GetRowKey,
+} from 'antd/lib/table/interface';
 import {
   useDeepCompareEffect,
   omitUndefined,
@@ -419,13 +424,22 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** SelectedRowKeys受控处理selectRows */
   const preserveRecordsRef = React.useRef(new Map<any, T>());
+
+  // ============================ RowKey ============================
+  const getRowKey = React.useMemo<GetRowKey<any>>(() => {
+    if (typeof rowKey === 'function') {
+      return rowKey;
+    }
+    return (record: T, index?: number) => (record as any)?.[rowKey as string] ?? index;
+  }, [rowKey]);
+
   useMemo(() => {
     if (action.dataSource?.length) {
       const newCache = new Map<any, T>();
       const keys = action.dataSource.map((data, index) => {
-        const key = data.key === undefined ? index : data.key;
-        newCache.set(key, data);
-        return key;
+        const dataRowKey = getRowKey(data, index) as string;
+        newCache.set(dataRowKey, data);
+        return dataRowKey;
       });
       preserveRecordsRef.current = newCache;
       return keys;
@@ -479,14 +493,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   counter.setAction(actionRef.current);
   counter.propsRef.current = props;
-
-  // ============================ RowKey ============================
-  const getRowKey = React.useMemo<any>(() => {
-    if (typeof rowKey === 'function') {
-      return rowKey;
-    }
-    return (record: T, index: number) => (record as any)?.[rowKey as string] ?? index;
-  }, [rowKey]);
 
   /** 可编辑行的相关配置 */
   const editableUtils = useEditableArray<any>({
