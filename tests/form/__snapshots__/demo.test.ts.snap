@@ -3120,7 +3120,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                     </span>
                     <span
                       class="ant-picker-clear"
-                      role="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -3216,7 +3215,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                     </span>
                     <span
                       class="ant-picker-clear"
-                      role="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -3504,7 +3502,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                     </span>
                     <span
                       class="ant-picker-clear"
-                      role="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -3600,7 +3597,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                     </span>
                     <span
                       class="ant-picker-clear"
-                      role="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -3696,7 +3692,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                     </span>
                     <span
                       class="ant-picker-clear"
-                      role="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -3792,7 +3787,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                     </span>
                     <span
                       class="ant-picker-clear"
-                      role="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -3888,7 +3882,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                     </span>
                     <span
                       class="ant-picker-clear"
-                      role="button"
                     >
                       <span
                         aria-label="close-circle"
@@ -8940,7 +8933,6 @@ Array [
                                       </span>
                                       <span
                                         class="ant-picker-clear"
-                                        role="button"
                                       >
                                         <span
                                           aria-label="close-circle"
