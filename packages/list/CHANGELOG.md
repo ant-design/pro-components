@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.0...@ant-design/pro-list@1.10.1) (2021-06-18)
+
+### Bug Fixes
+
+- **proList:** proList props type ([#3041](https://github.com/ant-design/pro-components/issues/3041)) ([#3044](https://github.com/ant-design/pro-components/issues/3044)) ([142ee4f](https://github.com/ant-design/pro-components/commit/142ee4f49ab25f89c7cef5dac558376f38e79566))
+
 # [1.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.9.2...@ant-design/pro-list@1.10.0) (2021-06-17)
 
 ### Features

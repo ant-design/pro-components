@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.19.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.19.6...@ant-design/pro-layout@6.19.7) (2021-06-18)
+
+### Reverts
+
+- Revert "fix(layout) : menu icon use antd code style (#2983)" (#3047) ([f313ac0](https://github.com/ant-design/pro-components/commit/f313ac06ccfe8eceed4048d7b18f3778de0137dd)), closes [#2983](https://github.com/ant-design/pro-components/issues/2983) [#3047](https://github.com/ant-design/pro-components/issues/3047)
+
 ## [6.19.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.19.5...@ant-design/pro-layout@6.19.6) (2021-06-17)
 
 **Note:** Version bump only for package @ant-design/pro-layout

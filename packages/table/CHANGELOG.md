@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.42.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.42.0...@ant-design/pro-table@2.42.1) (2021-06-18)
+
+### Bug Fixes
+
+- **table:** fix selectedRows is null error ([#3045](https://github.com/ant-design/pro-components/issues/3045)) ([0c99a65](https://github.com/ant-design/pro-components/commit/0c99a6566538e41b35f52d36cde3f7d3dfcc8ab2))
+- **table:** reset can not request ([#3046](https://github.com/ant-design/pro-components/issues/3046)) ([637291a](https://github.com/ant-design/pro-components/commit/637291a5e0a9bfc75d763838477cef24a7b3adb8))
+
 # [2.42.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.41.0...@ant-design/pro-table@2.42.0) (2021-06-17)
 
 ### Features
