@@ -49,7 +49,6 @@ export function mergePagination<T>(
       )} ${all} ${intl.getMessage('pagination.total.item', '条')}`,
     showSizeChanger: true,
     total,
-    ...(defaultPagination as TablePaginationConfig),
     current,
     pageSize,
     onChange: (page: number, newPageSize?: number) => {
@@ -60,6 +59,7 @@ export function mergePagination<T>(
         setPageInfo({ pageSize: newPageSize, current: page });
       }
     },
+    ...(defaultPagination as TablePaginationConfig),
   };
 }
 
