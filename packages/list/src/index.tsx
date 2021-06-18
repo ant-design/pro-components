@@ -38,7 +38,7 @@ export type GetComponentProps<RecordType> = (
 
 export type ProListProps<RecordType, U extends ParamsType> = Omit<
   ProTableProps<RecordType, U>,
-  'size'
+  'size'|'footer'
 > &
   AntdListProps<RecordType> & {
     tooltip?: LabelTooltipType | string;
