@@ -41,3 +41,7 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 ### JSON 来生成表单
 
 <code src="./demos/schema.tsx" height="764px" title="schema 表单" />
+
+### JSON 来生成分布表单
+
+<code src="./demos/steps-form.tsx" height="764px" title="schema 表单" />

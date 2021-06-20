@@ -1150,7 +1150,7 @@ describe('BasicTable', () => {
     for (let i = 0; i < 10; i += 1) {
       ref.current?.reload();
     }
-    await waitForComponentToPaint(html, 500);
+    await waitForComponentToPaint(html, 2000);
 
     expect(fn).toBeCalledTimes(2);
   });

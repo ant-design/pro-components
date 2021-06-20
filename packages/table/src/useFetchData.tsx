@@ -226,8 +226,6 @@ const useFetchData = <T extends RequestData<any>>(
     if (!manual) {
       manualRequestRef.current = false;
     }
-    console.log(effects);
-    console.log(manual);
     return () => {
       fetchListDebounce.cancel();
     };

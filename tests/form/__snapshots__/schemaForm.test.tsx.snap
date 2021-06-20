@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SchemaForm 😊 SchemaForm support table 1`] = `
+exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
 <form
   class="ant-form ant-form-vertical"
 >

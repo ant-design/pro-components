@@ -90,7 +90,8 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
         dom: React.ReactNode,
       ) => React.ReactNode);
   description?: React.ReactNode;
-  columns: ProFormColumnsType<T, ValueType>[];
+  steps?: StepFormProps[];
+  columns: ProFormColumnsType<T, ValueType>[] | ProFormColumnsType<T, ValueType>[][];
   type?: any;
   action?: React.MutableRefObject<ProCoreActionType | undefined>;
 } & Omit<FormProps<T>, 'onFinish'> &
@@ -111,7 +112,7 @@ const FormComments = {
  * @see 此组件仍为 beta 版本，api 可能发生变化
  */
 function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
-  const { columns, layoutType = 'ProForm', type = 'form', action, ...rest } = props;
+  const { columns, layoutType = 'ProForm', steps = [], type = 'form', action, ...rest } = props;
   const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
   const [form] = ProForm.useForm();
   const formRef = useRef<FormInstance>(form);
@@ -123,8 +124,9 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
    * @param items
    */
   const genItems = useCallback(
-    (items: FormSchema<T, ValueType>['columns'], update?: number) =>
-      items
+    (items: FormSchema<T, ValueType>['columns'], update?: number) => {
+      if (layoutType === 'StepsForm') return [];
+      return (items as ProFormColumnsType<T, ValueType>[])
         .filter((originItem) => {
           if (originItem.hideInForm && type === 'form') {
             return false;
@@ -292,22 +294,39 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
               }
             />
           );
-        }),
-    [action, type],
+        });
+    },
+    [action, layoutType, type],
   );
 
   const needRealUpdate = useMemo(() => {
-    return columns.some(
+    if (layoutType === 'StepsForm') return [];
+    return (columns as ProFormColumnsType<T, ValueType>[]).some(
       (item) =>
         item.renderFormItem ||
         typeof item.fieldProps === 'function' ||
         typeof item.formItemProps === 'function',
     );
-  }, [columns]);
+  }, [columns, layoutType]);
 
   const domList = useMemo(() => {
     return genItems(columns, updateTime);
   }, [columns, genItems, updateTime]);
+
+  if (layoutType === 'StepsForm') {
+    return (
+      <StepsForm formRef={formRef} form={form} {...rest}>
+        {steps?.map((item, index) => (
+          <BetaSchemaForm<T, ValueType>
+            {...(item as FormSchema<T, ValueType>)}
+            key={index}
+            layoutType="StepForm"
+            columns={columns[index] as ProFormColumnsType<T, ValueType>[]}
+          />
+        ))}
+      </StepsForm>
+    );
+  }
   return (
     <Form
       formRef={formRef}
