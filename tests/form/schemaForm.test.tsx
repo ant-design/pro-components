@@ -4,6 +4,7 @@ import { BetaSchemaForm } from '@ant-design/pro-form';
 import type { ProFormColumnsType } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
 import { Input } from 'antd';
+import { act } from 'react-test-renderer';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -57,9 +58,57 @@ const columns: ProFormColumnsType<any>[] = [
 ];
 
 describe('SchemaForm', () => {
-  it('😊 SchemaForm support table', () => {
+  it('😊 SchemaForm support columns', () => {
     const html = render(<BetaSchemaForm columns={columns} />);
     expect(html).toMatchSnapshot();
+  });
+
+  it('🐲 SchemaForm support StepsForm', async () => {
+    const html = mount(
+      <BetaSchemaForm
+        layoutType="StepsForm"
+        steps={[
+          {
+            title: '表单1',
+          },
+          {
+            title: '表单2',
+          },
+          {
+            title: '表单3',
+          },
+        ]}
+        columns={[
+          [
+            {
+              title: '邮件',
+              dataIndex: 'email',
+            },
+          ],
+          [
+            {
+              title: '姓名',
+              dataIndex: 'name',
+            },
+          ],
+          [
+            {
+              title: '地址',
+              dataIndex: 'addr',
+            },
+          ],
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(html.find('span.ant-steps-icon').length).toBe(3);
+    expect(html.find('div.ant-steps-item-title').at(0).text()).toBe('表单1');
+    expect(html.find('div.ant-steps-item-title').at(1).text()).toBe('表单2');
+    expect(html.find('div.ant-steps-item-title').at(2).text()).toBe('表单3');
+    await waitForComponentToPaint(html, 100);
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('😊 SchemaForm support table columns', async () => {
