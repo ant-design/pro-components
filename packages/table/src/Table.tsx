@@ -218,10 +218,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       style={{
         height: '100%',
       }}
-      bodyStyle={{
-        paddingTop: 0,
-        paddingBottom: 0,
-      }}
       {...cardProps}
     >
       {toolbarDom}
