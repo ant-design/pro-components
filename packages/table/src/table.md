@@ -439,9 +439,11 @@ ref.current.cancelEditable(rowKey);
 | colSize | 一个表单项占用的格子数量, `占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的 | `number` | - |
 | hideInSearch | 在查询表单中不展示此项 | `boolean` | - |
 | hideInTable | 在 Table 中不展示此列 | `boolean` | - |
-| hideInForm | 在 Form 模式下 中不展示此列 | `boolean` | - |
+| hideInForm | 在 Form 中不展示此列 | `boolean` | - |
+| hideInDescriptions | 在 Descriptions 中不展示此列 | `boolean` | - |
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
 | onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| 'false' | false |
+| request | 从服务器请求枚举 | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) | - |
 
 ### valueType 值类型
 
