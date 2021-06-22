@@ -113,10 +113,11 @@ const Highlight: React.FC<{
   label: string;
   words: string[];
 }> = ({ label, words }) => {
+  const REG_LIST = '.^$*+-?()[]{}\\|';
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const lightCls = getPrefixCls('pro-select-item-option-content-light');
   const optionCls = getPrefixCls('pro-select-item-option-content');
-  const reg = new RegExp(words.map((w) => w.replace(/\\/g, '\\\\')).join('|'), 'gi');
+  const reg = new RegExp(words.map((w) => (REG_LIST.includes(w) ? `\\${w}` : w)).join('|'), 'gi');
   const token = label.replace(reg, '#@$&#');
   const elements = token.split('#').map((x) =>
     x[0] === '@'
