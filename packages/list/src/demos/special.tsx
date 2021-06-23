@@ -66,7 +66,6 @@ export default () => {
         avatar: string;
         children: JSX.Element;
       }>
-        itemTitleRender={() => `qixian`}
         metas={{
           title: {},
           subTitle: {},
