@@ -75,6 +75,12 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/layout-change.tsx" height="548px" title="Form 的 layout 切换" />
 
+### 标签与表单项布局
+
+除了 `LightFilter` 和 `QueryFilter` 这样固定布局的表单样式，其他表单布局支持配置与 `antd` 一致的三种布局方式。
+
+<code src="./demos/form-layout.tsx" title="标签与表单项布局" />
+
 ### 登录
 
 <code src="./demos/login.tsx" height="300px" title="登录" />
@@ -122,7 +128,7 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
 | omitNil | ProForm 会自动清空 null 和 undefined 的数数据，如果你约定了 nil 代表某种数据，可以设置为 false 关闭此功能 | `boolean` | true |
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
 | request | 发起网络请求的参数,返回值会覆盖给 initialValues | `(params)=>Promise<data>` | - |
-| [(...)](https://ant.design/components/form-cn/) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
+| [(...)](https://ant.design/components/form-cn/) | 注意 `LightFilter` 和 `QueryFilter` 仅支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
 
 ### ProForm.Group
 
