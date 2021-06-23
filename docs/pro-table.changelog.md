@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.43.0
+
+`2021-06-23`
+
+- 🐛 fix(table): fix mergePagination order (#2985) [#3050](https://github.com/ant-design/pro-components/pull/3050) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-table@2.41.0
 
 `2021-06-15`
