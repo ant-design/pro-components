@@ -40,6 +40,9 @@ export default () => {
       <ProFormSelect.SearchSelect
         name="userQuery3"
         label="查询选择器 - options"
+        fieldProps={{
+          labelInValue: false,
+        }}
         options={[
           { label: '全部', value: 'all' },
           { label: '未解决', value: 'open' },
