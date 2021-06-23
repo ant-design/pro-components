@@ -540,6 +540,6 @@ describe('List', () => {
 
     waitForComponentToPaint(html);
 
-    expect(html.find('.ant-pro-list-row-header').at(0).text()).toBe('我是名称desc text');
+    expect(html.find('.ant-pro-list-row-header').at(0).text()).toBe('qixian:我是名称desc text');
   });
 });
