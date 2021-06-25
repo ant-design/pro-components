@@ -1,6 +1,6 @@
 ﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
 import type { FormInstance, FormProps } from 'antd';
-import type { DrawerFormProps, QueryFilterProps, ProFormProps, StepFormProps } from '../../index';
+import type { DrawerFormProps, QueryFilterProps, ProFormProps, StepFormProps, ModalFormProps } from '../../index';
 import { ProFormFieldSet } from '../../index';
 import { ProFormGroup, ProFormField } from '../../index';
 import type {
@@ -49,7 +49,8 @@ export type ProFormLayoutType =
 export type ProFormPropsType<T> = Omit<DrawerFormProps<T>, 'onFinish'> &
   Omit<QueryFilterProps<T>, 'onFinish'> &
   ProFormProps<T> &
-  Omit<StepFormProps<T>, 'onFinish'> & {
+  Omit<StepFormProps<T>, 'onFinish'> &
+  Omit<ModalFormProps<T>, 'onFinish'> & {
     layoutType?: ProFormLayoutType;
   };
 
