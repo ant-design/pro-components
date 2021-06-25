@@ -104,7 +104,7 @@ API 与 ProTable 相同
 | loading | 展示一个加载的骨架屏，骨架屏和 dom 不会一一对应 | `boolean` | - |
 | extra | 描述列表的操作区域，显示在右上方 | `string` \| `ReactNode` | - |
 | bordered | 是否展示边框 | boolean | false |
-| column | 一行的 `ProDescriptionsItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | number | 3 |
+| column | 一行的 `ProDescriptionsItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 1, sm: 2, md: 3}` | number | 3 |
 | size | 设置列表的大小。可以设置为 `middle` 、`small`, 或不填（只有设置 `bordered={true}` 生效） | `default` \| `middle` \| `small` | - |
 | layout | 描述布局 | `horizontal` \| `vertical` | `horizontal` |
 | colon | 配置 `ProDescriptions.Item` 的 `colon` 的默认值 | boolean | true |
