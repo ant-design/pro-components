@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.1...@ant-design/pro-list@1.10.2) (2021-06-23)
+
+### Bug Fixes
+
+- **prolist:** title&description wordBreak ([#3059](https://github.com/ant-design/pro-components/issues/3059)) ([e84ced5](https://github.com/ant-design/pro-components/commit/e84ced54cf6128c79bf71b67f35d32bbba8cb9a1))
+
 ## [1.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.0...@ant-design/pro-list@1.10.1) (2021-06-18)
 
 ### Bug Fixes

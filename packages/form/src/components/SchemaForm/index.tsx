@@ -1,6 +1,12 @@
 ﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
 import type { FormInstance, FormProps } from 'antd';
-import type { DrawerFormProps, QueryFilterProps, ProFormProps, StepFormProps } from '../../index';
+import type {
+  DrawerFormProps,
+  QueryFilterProps,
+  ProFormProps,
+  StepFormProps,
+  ModalFormProps,
+} from '../../index';
 import { ProFormFieldSet } from '../../index';
 import { ProFormGroup, ProFormField } from '../../index';
 import type {
@@ -43,13 +49,15 @@ export type ProFormLayoutType =
   | 'StepsForm'
   | 'StepForm'
   | 'LightFilter'
-  | 'QueryFilter';
+  | 'QueryFilter'
+  | 'Embed';
 
 /** ProForm 支持的相关类型 */
 export type ProFormPropsType<T> = Omit<DrawerFormProps<T>, 'onFinish'> &
   Omit<QueryFilterProps<T>, 'onFinish'> &
   ProFormProps<T> &
-  Omit<StepFormProps<T>, 'onFinish'> & {
+  Omit<StepFormProps<T>, 'onFinish'> &
+  Omit<ModalFormProps<T>, 'onFinish'> & {
     layoutType?: ProFormLayoutType;
   };
 
@@ -327,6 +335,10 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
       </StepsForm>
     );
   }
+
+  /** 如果是行内模式 */
+  if (layoutType === 'Embed') return <>{domList}</>;
+
   return (
     <Form
       formRef={formRef}

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.43.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.42.1...@ant-design/pro-table@2.43.0) (2021-06-23)
+
+### Bug Fixes
+
+- **table:** fix mergePagination order ([#3050](https://github.com/ant-design/pro-components/issues/3050)) ([5df2144](https://github.com/ant-design/pro-components/commit/5df2144136f1588b5116f4c6d1aea2d4ebbdc472))
+
+### Features
+
+- **form:** SchemaForm support steps form ([#3058](https://github.com/ant-design/pro-components/issues/3058)) ([146f0fb](https://github.com/ant-design/pro-components/commit/146f0fb32e1f01b24917c225da4cb32e81861524))
+
 ## [2.42.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.42.0...@ant-design/pro-table@2.42.1) (2021-06-18)
 
 ### Bug Fixes

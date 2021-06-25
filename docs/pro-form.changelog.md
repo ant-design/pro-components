@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.30.0
+
+`2021-06-23`
+
+- 🐛 fix(form) : close onchange filter [#3072](https://github.com/ant-design/pro-components/pull/3072) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix regular match [#3064](https://github.com/ant-design/pro-components/pull/3064) [@DerrickTel](https://github.com/DerrickTel)
+- 💥 feat(form): SchemaForm support steps form [#3058](https://github.com/ant-design/pro-components/pull/3058) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.29.0
 
 `2021-06-15`

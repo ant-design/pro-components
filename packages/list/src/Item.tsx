@@ -190,7 +190,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     title || avatar || subTitle || description ? (
       <List.Item.Meta
         avatar={avatar}
-        title={(itemHeaderRender && itemHeaderRender?.(record, index, titleDom)) ?? titleDom}
+        title={(itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom}
         description={
           description &&
           needExpanded && <div className={`${className}-description`}>{description}</div>

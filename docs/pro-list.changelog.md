@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.10.2
+
+`2021-06-23`
+
+- 🐛 fix(prolist): title&description wordBreak [#3059](https://github.com/ant-design/pro-components/pull/3059) [@binvb](https://github.com/binvb)
+- 🐛 fix(list):fix itemTitleRender no work error [#3069](https://github.com/ant-design/pro-components/pull/3069) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-list@1.8.0
 
 `2021-05-25`
