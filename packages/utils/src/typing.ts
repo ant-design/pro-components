@@ -55,7 +55,7 @@ export type RequestOptionsType = {
   value?: React.ReactText;
   /** 渲染的节点类型 */
   optionType?: 'optGroup' | 'option';
-  children?: Omit<RequestOptionsType, 'children' | 'optionType'>[];
+  options?: Omit<RequestOptionsType, 'children' | 'optionType'>[];
   [key: string]: any;
 };
 
