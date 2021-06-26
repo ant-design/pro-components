@@ -1,6 +1,6 @@
 import { mount, render } from 'enzyme';
 import React from 'react';
-import { ListToolBar } from '@ant-design/pro-table';
+import ProTable, { ListToolBar } from '@ant-design/pro-table';
 import { SettingOutlined, FullscreenOutlined } from '@ant-design/icons';
 import { Button, Input } from 'antd';
 import { act } from 'react-dom/test-utils';
@@ -30,6 +30,52 @@ describe('Table valueEnum', () => {
       wrapper.find('button.ant-btn-primary').simulate('click');
     });
     expect(onAction).toHaveBeenLastCalledWith('add');
+  });
+
+  it('ListToolBar onAction', async () => {
+    const onSearch = jest.fn();
+    const wrapper = mount(
+      <ProTable<{
+        name: string;
+      }>
+        columns={[
+          {
+            title: '应用名称',
+            dataIndex: 'name',
+          },
+        ]}
+        request={() => {
+          return Promise.resolve({
+            data: [],
+            success: true,
+          });
+        }}
+        toolbar={{
+          title: '这里是标题',
+          search: {
+            onSearch: (value: string) => {
+              onSearch(value);
+            },
+          },
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
+        target: {
+          value: '1111111',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('.ant-pro-table-list-toolbar-search input').simulate('keyDown', { keyCode: 13 });
+    });
+
+    await waitForComponentToPaint(wrapper);
+    expect(onSearch).toBeCalledWith('1111111');
   });
 
   it('ListToolBar action no array', async () => {

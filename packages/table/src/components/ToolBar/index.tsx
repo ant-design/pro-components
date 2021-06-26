@@ -213,6 +213,7 @@ function ToolBar<T>({
       onSearch?.('');
     }
   }, [counter.keyWords, onSearch]);
+
   return (
     <ListToolBar
       title={headerTitle}
@@ -253,6 +254,7 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
 
     /** 如果传入的 onSearch 返回值为 false，应该直接拦截请求 */
     const success = (options.search as OptionSearchProps)?.onSearch?.(keyword);
+
     if (success === false) return;
 
     // 查询的时候的回到第一页
