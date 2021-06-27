@@ -818,15 +818,15 @@ describe('ProForm', () => {
     expect(wrapper.find('.ant-select-item-option-content div span').text()).toBe('全');
   });
 
-  it('📦 SearchSelect onSearch support valueEnum', async () => {
+  it('📦 SearchSelect onSearch support valueEnum clear', async () => {
     const onSearch = jest.fn();
-    const onFinish = jest.fn();
+    const onValuesChange = jest.fn();
     const wrapper = mount(
       <ProForm
         onValuesChange={async (values) => {
           console.log(values);
           //  {"disabled": undefined, "key": "all", "label": "全部", "value": "all"}
-          onFinish(values.userQuery[0].label);
+          onValuesChange(values.userQuery[0].label);
         }}
       >
         <ProFormSelect.SearchSelect
@@ -878,10 +878,10 @@ describe('ProForm', () => {
 
     await waitForComponentToPaint(wrapper);
 
-    expect(onFinish).toBeCalledWith('全部');
+    expect(onValuesChange).toBeCalledWith('全部');
   });
 
-  it('📦 SearchSelect onSearch support valueEnum', async () => {
+  it('📦 SearchSelect onSearch support valueEnum clear item filter', async () => {
     const onSearch = jest.fn();
     const wrapper = mount(
       <ProForm>
@@ -1234,6 +1234,84 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(onFinish).toBeCalledWith(2);
+  });
+
+  fit('📦 SearchSelect filter support optionGroup', async () => {
+    const onValuesChange = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onValuesChange={async (values) => {
+          onValuesChange(values?.userQuery[0].value);
+        }}
+      >
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="业务线"
+          rules={[{ required: true }]}
+          options={[
+            {
+              label: 'A系统',
+              value: 'A系统',
+              optionType: 'optGroup',
+              children: [
+                { label: '门店小程序', value: '门店小程序' },
+                { label: '资金线', value: '资金线' },
+              ],
+            },
+            {
+              label: 'B系统',
+              value: 'B系统',
+              optionType: 'optGroup',
+              children: [
+                { label: 'B门店小程序', value: 'B门店小程序' },
+                { label: 'B资金线', value: 'B资金线' },
+              ],
+            },
+          ]}
+          showSearch
+          fieldProps={{
+            allowClear: false,
+            showSearch: true,
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: '门',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+    expect(wrapper.find('.ant-select-item-option-content div span').at(0).text()).toBe('门');
+
+    // 应该有两个 item 被筛选出来
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(2);
+
+    act(() => {
+      wrapper.find('.ant-select-item.ant-select-item-option').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(onValuesChange).toBeCalledWith('门店小程序');
+
+    // 应该有两个 item 被筛选出来
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
   });
 
   it('📦 Select support singe', async () => {
