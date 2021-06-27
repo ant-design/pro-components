@@ -1235,7 +1235,7 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalledWith(2);
   });
 
-  fit('📦 SearchSelect filter support optionGroup', async () => {
+  it('📦 SearchSelect filter support optionGroup', async () => {
     const onValuesChange = jest.fn();
     const wrapper = mount(
       <ProForm
