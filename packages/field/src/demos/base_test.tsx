@@ -193,7 +193,6 @@ export default () => {
             mode={state}
             valueType="select"
             request={async () => {
-              console.log('r');
               return [
                 { label: '全部', value: 'all' },
                 { label: '未解决', value: 'open' },
@@ -203,7 +202,7 @@ export default () => {
                   label: '特殊选项',
                   value: 'optGroup',
                   optionType: 'optGroup',
-                  children: [
+                  options: [
                     { label: '不解决', value: 'no' },
                     { label: '已废弃', value: 'clear' },
                   ],

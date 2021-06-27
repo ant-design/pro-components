@@ -192,7 +192,7 @@ export default () => {
                 label: '特殊选项',
                 value: 'optGroup',
                 optionType: 'optGroup',
-                children: [
+                options: [
                   { label: '不解决', value: 'no' },
                   { label: '已废弃', value: 'clear' },
                 ],

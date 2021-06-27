@@ -157,6 +157,39 @@ function getType(obj: any) {
 }
 
 /**
+ * 递归筛选 item
+ *
+ * @param item
+ * @param keyWords
+ * @returns
+ */
+function filerByItem(
+  item: {
+    label: string;
+    value: string;
+    optionType: string;
+    children: any[];
+    options: any[];
+  },
+  keyWords?: string,
+) {
+  if (!keyWords) return true;
+  if (
+    item?.label?.toString().toLowerCase().includes(keyWords.toLowerCase()) ||
+    item?.value?.toString().toLowerCase().includes(keyWords.toLowerCase())
+  ) {
+    return true;
+  }
+  if (item.optionType === 'optGroup' && (item.children || item.options)) {
+    const findItem = [...(item.children || []), item.options || []].find((mapItem) => {
+      return filerByItem(mapItem, keyWords);
+    });
+    if (findItem) return true;
+  }
+  return false;
+}
+
+/**
  * 把 value 的枚举转化为数组
  *
  * @param valueEnum
@@ -288,17 +321,24 @@ export const useFieldFetchData = (
                 value: item,
               };
             }
+            if (item?.optionType === 'optGroup' && (item.children || item.options)) {
+              const childrenOptions = [...(item.children || []), ...(item.options || [])].filter(
+                (mapItem) => {
+                  return filerByItem(mapItem, keyWords);
+                },
+              );
+              return {
+                ...item,
+                children: childrenOptions,
+                options: childrenOptions,
+              };
+            }
             return item;
           })
           ?.filter((item) => {
+            if (!item) return false;
             if (!keyWords) return true;
-            if (
-              item?.label?.toString().toLowerCase().includes(keyWords.toLowerCase()) ||
-              item.value.toString().toLowerCase().includes(keyWords.toLowerCase())
-            ) {
-              return true;
-            }
-            return false;
+            return filerByItem(item as any, keyWords);
           }),
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
