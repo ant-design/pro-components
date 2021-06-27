@@ -5022,7 +5022,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
             >
               <div
                 class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
-                style="min-width: 100px;"
+                style="min-width: 140px;"
                 text=""
               >
                 <div
@@ -5105,7 +5105,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
             >
               <div
                 class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
-                style="min-width: 100px;"
+                style="min-width: 140px;"
                 text=""
               >
                 <div
@@ -5187,7 +5187,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
             >
               <div
                 class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
-                style="min-width: 100px;"
+                style="min-width: 140px;"
                 text=""
               >
                 <div
