@@ -1092,7 +1092,7 @@ describe('ProForm', () => {
     expect(wrapper.find('.ant-select-item').length).toBe(4);
   });
 
-  it('📦 SearchSelect support searchOnFocus', async () => {
+  it('📦 SearchSelect support resetAfterSelect', async () => {
     const onSearch = jest.fn();
     const wrapper = mount(
       <ProForm>
@@ -1300,6 +1300,84 @@ describe('ProForm', () => {
 
     // 应该有两个 item 被筛选出来
     expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(2);
+
+    act(() => {
+      wrapper.find('.ant-select-item.ant-select-item-option').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(onValuesChange).toBeCalledWith('门店小程序');
+
+    // 应该有两个 item 被筛选出来
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
+  });
+
+  it('📦 SearchSelect filter support (', async () => {
+    const onValuesChange = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onValuesChange={async (values) => {
+          onValuesChange(values?.userQuery[0].value);
+        }}
+      >
+        <ProFormSelect.SearchSelect
+          name="userQuery"
+          label="业务线"
+          rules={[{ required: true }]}
+          options={[
+            {
+              label: 'A系统',
+              value: 'A系统',
+              optionType: 'optGroup',
+              children: [
+                { label: '门店小程序(测试)', value: '门店小程序' },
+                { label: '资金线', value: '资金线' },
+              ],
+            },
+            {
+              label: 'B系统',
+              value: 'B系统',
+              optionType: 'optGroup',
+              children: [
+                { label: 'B门店小程序', value: 'B门店小程序' },
+                { label: 'B资金线', value: 'B资金线' },
+              ],
+            },
+          ]}
+          showSearch
+          fieldProps={{
+            allowClear: false,
+            showSearch: true,
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: '(测试)',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+    expect(wrapper.find('.ant-select-item-option-content div span').at(0).text()).toBe('(测试)');
+
+    // 应该有两个 item 被筛选出来
+    expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(1);
 
     act(() => {
       wrapper.find('.ant-select-item.ant-select-item-option').at(0).simulate('click');
