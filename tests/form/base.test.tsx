@@ -824,7 +824,6 @@ describe('ProForm', () => {
     const wrapper = mount(
       <ProForm
         onValuesChange={async (values) => {
-          console.log(values);
           //  {"disabled": undefined, "key": "all", "label": "全部", "value": "all"}
           onValuesChange(values.userQuery[0].label);
         }}
