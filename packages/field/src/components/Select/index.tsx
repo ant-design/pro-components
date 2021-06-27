@@ -128,7 +128,6 @@ const Highlight: React.FC<{
       .join('|'),
     'gi',
   );
-  console.log(reg);
   const token = label.replace(reg, '#@$&#');
   const elements = token.split('#').map((x) =>
     x[0] === '@'
