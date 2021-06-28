@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.43.1
+
+`2021-06-28`
+
+- Revert "fix(table): fix mergePagination order (#2985)" [#3111](https://github.com/ant-design/pro-components/pull/3111) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): remove onchange form renderFormItem [#3106](https://github.com/ant-design/pro-components/pull/3106) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix onSearch no work error [#3097](https://github.com/ant-design/pro-components/pull/3097) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.43.0
 
 `2021-06-23`

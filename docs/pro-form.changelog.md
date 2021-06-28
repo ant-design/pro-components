@@ -9,6 +9,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.31.0
+
+`2021-06-28`
+
+- 🐛 fix(table): remove onchange form renderFormItem [#3106](https://github.com/ant-design/pro-components/pull/3106) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix reg inclubes “(” error [#3103](https://github.com/ant-design/pro-components/pull/3103) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix Group vertical style error [#3102](https://github.com/ant-design/pro-components/pull/3102) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix select optionGroup no filter error [#3100](https://github.com/ant-design/pro-components/pull/3100) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): ProFormPropsType error type [#3089](https://github.com/ant-design/pro-components/pull/3089) [@zjjjjjjjjjjd](https://github.com/zjjjjjjjjjjd)
+- 💥 feat(form) : support Embed mode [#3091](https://github.com/ant-design/pro-components/pull/3091) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): add layout demo [#3076](https://github.com/ant-design/pro-components/pull/3076) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-form@1.30.0
 
 `2021-06-23`
