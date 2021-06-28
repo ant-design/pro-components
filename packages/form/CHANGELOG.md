@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.30.0...@ant-design/pro-form@1.31.0) (2021-06-28)
+
+### Bug Fixes
+
+- **form:** fix reg inclubes “(” error ([#3103](https://github.com/ant-design/pro-components/issues/3103)) ([cc1f9d0](https://github.com/ant-design/pro-components/commit/cc1f9d06eb796df620f0f28f4764ff797a96692f))
+- **form:** fix select optionGroup no filter error ([#3100](https://github.com/ant-design/pro-components/issues/3100)) ([5a9419c](https://github.com/ant-design/pro-components/commit/5a9419c89e40cf6de953258ef00a382887922519))
+- **form:** ProFormPropsType error type ([#3089](https://github.com/ant-design/pro-components/issues/3089)) ([15e9ce5](https://github.com/ant-design/pro-components/commit/15e9ce566cc341fb5235d3a5656410831fd134fc))
+- **table:** remove onchange form renderFormItem ([#3106](https://github.com/ant-design/pro-components/issues/3106)) ([00f5e44](https://github.com/ant-design/pro-components/commit/00f5e440eddf4e63c7af4b21bf9b315ee3363b32))
+
+### Features
+
+- **form:** add layout demo ([#3076](https://github.com/ant-design/pro-components/issues/3076)) ([1def19d](https://github.com/ant-design/pro-components/commit/1def19d061d148fec40cf3a4c4f39a1bfcc0c9ad))
+
 # [1.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.29.1...@ant-design/pro-form@1.30.0) (2021-06-23)
 
 ### Bug Fixes

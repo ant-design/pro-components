@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.43.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.43.0...@ant-design/pro-table@2.43.1) (2021-06-28)
+
+### Bug Fixes
+
+- **form:** fix reg inclubes “(” error ([#3103](https://github.com/ant-design/pro-components/issues/3103)) ([cc1f9d0](https://github.com/ant-design/pro-components/commit/cc1f9d06eb796df620f0f28f4764ff797a96692f))
+- **table:** fix onSearch no work error ([#3097](https://github.com/ant-design/pro-components/issues/3097)) ([8c99641](https://github.com/ant-design/pro-components/commit/8c99641a547b6a7f34cb8842e69aaa9c6f047621))
+- **table:** remove onchange form renderFormItem ([#3106](https://github.com/ant-design/pro-components/issues/3106)) ([00f5e44](https://github.com/ant-design/pro-components/commit/00f5e440eddf4e63c7af4b21bf9b315ee3363b32))
+
+### Reverts
+
+- Revert "fix(table): fix mergePagination order (#3050)" (#3111) ([2dd7a09](https://github.com/ant-design/pro-components/commit/2dd7a092e954e9bf8798eeda05edca5f83041c8a)), closes [#3050](https://github.com/ant-design/pro-components/issues/3050) [#3111](https://github.com/ant-design/pro-components/issues/3111)
+
 # [2.43.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.42.1...@ant-design/pro-table@2.43.0) (2021-06-23)
 
 ### Bug Fixes

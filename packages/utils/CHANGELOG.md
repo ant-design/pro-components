@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.2...@ant-design/pro-utils@1.19.3) (2021-06-28)
+
+### Bug Fixes
+
+- **form:** fix select optionGroup no filter error ([#3100](https://github.com/ant-design/pro-components/issues/3100)) ([5a9419c](https://github.com/ant-design/pro-components/commit/5a9419c89e40cf6de953258ef00a382887922519))
+- **table:** remove onchange form renderFormItem ([#3106](https://github.com/ant-design/pro-components/issues/3106)) ([00f5e44](https://github.com/ant-design/pro-components/commit/00f5e440eddf4e63c7af4b21bf9b315ee3363b32))
+
 ## [1.19.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.1...@ant-design/pro-utils@1.19.2) (2021-06-17)
 
 **Note:** Version bump only for package @ant-design/pro-utils

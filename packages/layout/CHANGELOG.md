@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.19.7...@ant-design/pro-layout@6.20.0) (2021-06-28)
+
+### Bug Fixes
+
+- **layout:** defaultSettings do not set menu locale ([#3105](https://github.com/ant-design/pro-components/issues/3105)) ([3da4bfa](https://github.com/ant-design/pro-components/commit/3da4bfa826fe2a3f788718f6331ea7a791d9aa4c))
+
+### Features
+
+- **layout:** 给 menuItemRender 添加参数 ([#3081](https://github.com/ant-design/pro-components/issues/3081)) ([40b7ab2](https://github.com/ant-design/pro-components/commit/40b7ab2a67603f5199690c75897f5dddc70e6518))
+
 ## [6.19.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.19.6...@ant-design/pro-layout@6.19.7) (2021-06-18)
 
 ### Reverts

@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.7...@ant-design/pro-field@1.18.8) (2021-06-28)
+
+### Bug Fixes
+
+- **form:** fix Group vertical style error ([#3102](https://github.com/ant-design/pro-components/issues/3102)) ([0f05bae](https://github.com/ant-design/pro-components/commit/0f05baea7e375174f2af2b18963b678698bae618))
+- **form:** fix reg inclubes “(” error ([#3103](https://github.com/ant-design/pro-components/issues/3103)) ([cc1f9d0](https://github.com/ant-design/pro-components/commit/cc1f9d06eb796df620f0f28f4764ff797a96692f))
+- **form:** fix select optionGroup no filter error ([#3100](https://github.com/ant-design/pro-components/issues/3100)) ([5a9419c](https://github.com/ant-design/pro-components/commit/5a9419c89e40cf6de953258ef00a382887922519))
+
 ## [1.18.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.6...@ant-design/pro-field@1.18.7) (2021-06-23)
 
 ### Bug Fixes
