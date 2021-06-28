@@ -116,7 +116,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
 
   const prefixCls = getPrefixCls('pro-card');
 
-  const normalizedGutter = getNormalizedGutter(gutter);
+  const [horizonalGutter, verticalGutter] = getNormalizedGutter(gutter);
 
   // 判断是否套了卡片，如果套了的话将自身卡片内部内容的 padding 设置为0
   let containProCard = false;
@@ -141,13 +141,13 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
         <div
           style={{
             ...colSpanStyle,
-            ...getStyle(normalizedGutter[0]! > 0, {
-              paddingRight: normalizedGutter[0] / 2,
-              paddingLeft: normalizedGutter[0] / 2,
+            ...getStyle(horizonalGutter! > 0, {
+              paddingRight: horizonalGutter / 2,
+              paddingLeft: horizonalGutter / 2,
             }),
-            ...getStyle(normalizedGutter[1]! > 0, {
-              paddingTop: normalizedGutter[1] / 2,
-              paddingBottom: normalizedGutter[1] / 2,
+            ...getStyle(verticalGutter! > 0, {
+              paddingTop: verticalGutter / 2,
+              paddingBottom: verticalGutter / 2,
             }),
           }}
           // eslint-disable-next-line react/no-array-index-key
@@ -180,13 +180,13 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
   });
 
   const cardBodyStyle = {
-    ...getStyle(normalizedGutter[0]! > 0, {
-      marginRight: -normalizedGutter[0] / 2,
-      marginLeft: -normalizedGutter[0] / 2,
+    ...getStyle(horizonalGutter! > 0, {
+      marginRight: -horizonalGutter / 2,
+      marginLeft: -horizonalGutter / 2,
     }),
-    ...getStyle(normalizedGutter[1]! > 0, {
-      marginTop: -normalizedGutter[1] / 2,
-      marginBottom: -normalizedGutter[1] / 2,
+    ...getStyle(verticalGutter! > 0, {
+      marginTop: -verticalGutter / 2,
+      marginBottom: -verticalGutter / 2,
     }),
     ...bodyStyle,
   };
