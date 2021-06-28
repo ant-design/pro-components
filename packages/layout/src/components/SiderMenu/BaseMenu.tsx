@@ -50,6 +50,7 @@ export type BaseMenuProps = {
         onClick: () => void;
       },
       defaultDom: React.ReactNode,
+      menuProps: BaseMenuProps,
     ) => React.ReactNode
   >;
   postMenuData?: (menusData?: MenuDataItem[]) => MenuDataItem[];
@@ -195,7 +196,7 @@ class MenuUtil {
         replace: itemPath === location.pathname,
         onClick: () => onCollapse && onCollapse(true),
       };
-      return menuItemRender(renderItemProps, defaultItem);
+      return menuItemRender(renderItemProps, defaultItem, this.props);
     }
     return defaultItem;
   };
