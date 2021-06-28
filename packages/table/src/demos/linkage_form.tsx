@@ -117,7 +117,8 @@ export default () => {
   return (
     <ProTable<GithubIssueItem>
       columns={columns}
-      request={async () => {
+      request={async (params) => {
+        console.log(`request params:`, params);
         return {
           data: [
             {

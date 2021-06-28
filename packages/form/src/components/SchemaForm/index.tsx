@@ -15,8 +15,7 @@ import type {
   ProSchemaComponentTypes,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
-import { LabelIconTip } from '@ant-design/pro-utils';
-import { omitUndefined } from '@ant-design/pro-utils';
+import { LabelIconTip, omitUndefined } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import omit from 'omit.js';
 import ProForm, { DrawerForm, ModalForm, QueryFilter, LightFilter, StepsForm } from '../../index';
@@ -284,20 +283,22 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
               transform={item.transform}
               renderFormItem={
                 item?.renderFormItem
-                  ? (_, config) =>
-                      item?.renderFormItem?.(
+                  ? (_, config) => {
+                      const renderConfig = omitUndefined({ ...config, onChange: undefined });
+                      return item?.renderFormItem?.(
                         {
                           type,
                           ...item,
                           originProps: originItem,
                         },
                         {
-                          ...config,
+                          ...renderConfig,
                           defaultRender,
                           type,
                         },
                         formRef.current,
-                      )
+                      );
+                    }
                   : undefined
               }
             />
