@@ -145,6 +145,10 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
               paddingRight: normalizedGutter[0] / 2,
               paddingLeft: normalizedGutter[0] / 2,
             }),
+            ...getStyle(normalizedGutter[1]! > 0, {
+              paddingTop: normalizedGutter[1] / 2,
+              paddingBottom: normalizedGutter[1] / 2,
+            }),
           }}
           // eslint-disable-next-line react/no-array-index-key
           key={`pro-card-col-${index}`}
@@ -181,7 +185,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       marginLeft: -normalizedGutter[0] / 2,
     }),
     ...getStyle(normalizedGutter[1]! > 0, {
-      rowGap: normalizedGutter[1],
+      marginTop: -normalizedGutter[1] / 2,
+      marginBottom: -normalizedGutter[1] / 2,
     }),
     ...bodyStyle,
   };
