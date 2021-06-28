@@ -66,8 +66,8 @@ describe('settingDrawer.test', () => {
         <SettingDrawer
           getContainer={false}
           collapse
-          onSettingChange={() => {
-            fn();
+          onSettingChange={(setting) => {
+            fn(setting);
           }}
         />
       </div>,
@@ -84,7 +84,21 @@ describe('settingDrawer.test', () => {
       html.find('div.ant-drawer-mask').simulate('click');
     });
 
+    await waitForComponentToPaint(html, 1000);
+
     expect(fn).toBeCalled();
+    expect(fn).toBeCalledWith({
+      navTheme: 'realDark',
+      layout: 'mix',
+      contentWidth: 'Fluid',
+      fixedHeader: true,
+      fixSiderbar: false,
+      headerHeight: 48,
+      title: 'Ant Design Pro',
+      iconfontUrl: '',
+      primaryColor: 'daybreak',
+      splitMenus: false,
+    });
     act(() => {
       html.unmount();
     });

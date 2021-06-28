@@ -268,9 +268,8 @@ const initState = (
       replaceSetting[key] = urlParams[key];
     }
   });
-
   // 同步数据到外部
-  onSettingChange?.(merge(settings, replaceSetting));
+  onSettingChange?.(merge({}, settings, replaceSetting));
 
   // 如果 url 中设置主题，进行一次加载。
   if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
@@ -346,6 +345,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       onChange: onSettingChange,
     },
   );
+
   const preStateRef = useRef(settingState);
 
   const { navTheme, primaryColor, layout, colorWeak } = settingState || {};
