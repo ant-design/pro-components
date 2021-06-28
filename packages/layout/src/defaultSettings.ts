@@ -70,9 +70,6 @@ const defaultSettings: ProSettings = {
   contentWidth: 'Fluid',
   fixedHeader: false,
   fixSiderbar: false,
-  menu: {
-    locale: true,
-  },
   headerHeight: 48,
   title: 'Ant Design Pro',
   iconfontUrl: '',

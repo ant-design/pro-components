@@ -11,6 +11,7 @@ import { useUrlSearchParams } from '@umijs/use-params';
 import { Button, Divider, Drawer, List, Switch, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import merge from 'lodash.merge';
 import omit from 'omit.js';
 import type { ProSettings } from '../../defaultSettings';
 import defaultSettings from '../../defaultSettings';
@@ -267,13 +268,8 @@ const initState = (
       replaceSetting[key] = urlParams[key];
     }
   });
-
-  if (onSettingChange) {
-    onSettingChange({
-      ...settings,
-      ...replaceSetting,
-    });
-  }
+  // 同步数据到外部
+  onSettingChange?.(merge({}, settings, replaceSetting));
 
   // 如果 url 中设置主题，进行一次加载。
   if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
@@ -349,6 +345,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       onChange: onSettingChange,
     },
   );
+
   const preStateRef = useRef(settingState);
 
   const { navTheme, primaryColor, layout, colorWeak } = settingState || {};
