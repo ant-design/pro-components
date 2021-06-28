@@ -398,7 +398,7 @@ function useEditableArray<RecordType>(
   });
   /** 一个用来标志的set 提供了方便的 api 来去重什么的 */
   const editableKeysSet = useMemo(() => {
-    const keys = editableType === 'single' ? editableKeys.slice(0, 1) : editableKeys;
+    const keys = editableType === 'single' ? editableKeys?.slice(0, 1) : editableKeys;
     return new Set(keys);
   }, [(editableKeys || []).join(','), editableType]);
 
@@ -411,7 +411,7 @@ function useEditableArray<RecordType>(
       const preIsEditable = editableKeysRef?.includes(recordKey);
       return {
         recordKey,
-        isEditable: editableKeys.includes(recordKey),
+        isEditable: editableKeys?.includes(recordKey),
         preIsEditable,
       };
     },
