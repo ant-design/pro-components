@@ -557,6 +557,20 @@ describe('Field', () => {
     expect(html.text()).toBe('- 100.0%');
   });
 
+  it('🐴 digitOption valueType is Object', async () => {
+    let html = render(
+      <Field
+        text={100.0051}
+        valueType={{
+          type: 'digitOption',
+          precision: 2,
+        }}
+        mode="read"
+      />,
+    );
+    expect(html.text()).toBe('100.01');
+  });
+
   it('🐴 password support visible', async () => {
     const html = mount(<Field text={123456} valueType="password" mode="read" />);
     await waitForComponentToPaint(html);
