@@ -17,6 +17,7 @@ type DataSourceType = {
   id: React.Key;
   title?: string;
   decs?: string;
+  cost?: number;
   state?: string;
   created_at?: string;
   update_at?: string;
@@ -29,6 +30,7 @@ const defaultData: DataSourceType[] = [
     title: '活动名称一',
     decs: '这个活动真好玩',
     state: 'open',
+    cost: 543.2,
     created_at: '2020-05-26T09:42:56Z',
     update_at: '2020-05-26T09:42:56Z',
   },
@@ -36,6 +38,7 @@ const defaultData: DataSourceType[] = [
     id: 624691229,
     title: '活动名称二',
     decs: '这个活动真好玩',
+    cost: 342.534,
     state: 'closed',
     created_at: '2020-05-26T08:19:22Z',
     update_at: '2020-05-26T08:19:22Z',
@@ -78,6 +81,14 @@ export default () => {
           status: 'Success',
         },
       },
+    },
+    {
+      title: '花费',
+      dataIndex: 'cost',
+      valueType: () => ({
+        type: 'digitOption',
+        precision: 2,
+      }),
     },
     {
       title: '描述',

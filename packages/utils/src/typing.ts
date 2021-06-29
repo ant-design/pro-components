@@ -13,7 +13,8 @@ type PageInfo = {
 /**
  * Password 密码框 money 金额 option 操作 需要返回一个数组 date 日期 YYYY-MM-DD dateRange 日期范围 YYYY-MM-DD[] dateTime
  * 日期和时间 YYYY-MM-DD HH:mm:ss dateTimeRange 范围日期和时间 YYYY-MM-DD HH:mm:ss[] time: 时间 HH:mm:ss index：序列
- * progress: 进度条 percent: 百分比 digit 数值 avatar 头像 code 代码块 jsonCode json 的代码块，格式化了一下
+ * progress: 进度条 percent: 百分比 digit 数值 avatar 头像 code 代码块 jsonCode json 的代码块，格式化了一下 digitOption:
+ * 设置数字小数精度，需要返回一个对象
  */
 export type ProFieldValueType =
   | 'password'
@@ -40,6 +41,7 @@ export type ProFieldValueType =
   | 'indexBorder'
   | 'progress'
   | 'percent'
+  | 'digitOption'
   | 'digit'
   | 'second'
   | 'avatar'
@@ -65,12 +67,13 @@ export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumOb
 
 // function return type
 export type ProFieldValueObjectType = {
-  type: 'progress' | 'money' | 'percent' | 'image';
+  type: 'progress' | 'money' | 'percent' | 'image' | 'digitOption';
   status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
   locale?: string;
   /** Percent */
   showSymbol?: ((value: any) => boolean) | boolean;
   showColor?: boolean;
+  /** Precision also for digitOption */
   precision?: number;
   moneySymbol?: boolean;
   request?: ProFieldRequestData;

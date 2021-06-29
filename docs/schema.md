@@ -59,6 +59,7 @@ valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映
 | `radioButton`   | 按钮单选框                   |
 | `progress`      | 进度条                       |
 | `percent`       | 百分比组件                   |
+| `digitOption`   | 支持小数点精度的数字输入框   |
 | `digit`         | 数字输入框                   |
 | `second`        | 秒格式化                     |
 | `avatar`        | 头像                         |
@@ -108,6 +109,12 @@ return { type: 'money', locale: 'en-Us' };
 
 ```js
 return { type: 'percent', showSymbol: true | false, precision: 2 };
+```
+
+#### digitOption
+
+```js
+return { type: 'digitOption', precision: 2 };
 ```
 
 ### valueType 查看

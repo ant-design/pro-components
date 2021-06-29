@@ -111,6 +111,9 @@ const defaultRenderTextByObject = (
   if (valueType.type === 'image') {
     return <FieldImage {...props} text={text as string} width={valueType.width} />;
   }
+  if (valueType.type === 'digitOption') {
+    return <FieldDigit text={text as number} {...props} precision={valueType.precision} />;
+  }
   return text;
 };
 

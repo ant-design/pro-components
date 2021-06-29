@@ -156,6 +156,7 @@ Array [
                         <col />
                         <col />
                         <col />
+                        <col />
                         <col
                           style="width: 200px;"
                         />
@@ -173,6 +174,11 @@ Array [
                             class="ant-table-cell"
                           >
                             状态
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            花费
                           </th>
                           <th
                             class="ant-table-cell"
@@ -217,6 +223,13 @@ Array [
                               >
                                 未解决
                               </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              543.20
                             </span>
                           </td>
                           <td
@@ -278,6 +291,13 @@ Array [
                               >
                                 已解决
                               </span>
+                            </span>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <span>
+                              342.53
                             </span>
                           </td>
                           <td
@@ -406,6 +426,7 @@ Array [
     "title": "活动名称一",
     "decs": "这个活动真好玩",
     "state": "open",
+    "cost": 543.2,
     "created_at": "2020-05-26T09:42:56Z",
     "update_at": "2020-05-26T09:42:56Z"
   },
@@ -413,6 +434,7 @@ Array [
     "id": 624691229,
     "title": "活动名称二",
     "decs": "这个活动真好玩",
+    "cost": 342.534,
     "state": "closed",
     "created_at": "2020-05-26T08:19:22Z",
     "update_at": "2020-05-26T08:19:22Z"

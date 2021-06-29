@@ -37,6 +37,7 @@ const valueTypeArray = [
   'indexBorder',
   'progress',
   'percent',
+  'digitOption',
   'digit',
   'second',
   'avatar',
