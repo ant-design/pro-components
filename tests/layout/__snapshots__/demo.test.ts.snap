@@ -287,10 +287,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             >
               <div
                 class="ant-pro-card-body ant-pro-card-body-direction-column"
-                style="row-gap: 16px;"
+                style="margin-top: -8px; margin-bottom: -8px;"
               >
                 <div
                   class="ant-pro-card-col"
+                  style="padding-top: 8px; padding-bottom: 8px;"
                 >
                   <div
                     class="ant-pro-card"
@@ -303,6 +304,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                 </div>
                 <div
                   class="ant-pro-card-col"
+                  style="padding-top: 8px; padding-bottom: 8px;"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -613,10 +615,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             >
               <div
                 class="ant-pro-card-body ant-pro-card-body-direction-column"
-                style="row-gap: 16px;"
+                style="margin-top: -8px; margin-bottom: -8px;"
               >
                 <div
                   class="ant-pro-card-col"
+                  style="padding-top: 8px; padding-bottom: 8px;"
                 >
                   <div
                     class="ant-pro-card"
@@ -629,6 +632,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                 </div>
                 <div
                   class="ant-pro-card-col"
+                  style="padding-top: 8px; padding-bottom: 8px;"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -838,10 +842,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             >
               <div
                 class="ant-pro-card-body ant-pro-card-body-direction-column"
-                style="row-gap: 16px;"
+                style="margin-top: -8px; margin-bottom: -8px;"
               >
                 <div
                   class="ant-pro-card-col"
+                  style="padding-top: 8px; padding-bottom: 8px;"
                 >
                   <div
                     class="ant-pro-card"
@@ -854,6 +859,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                 </div>
                 <div
                   class="ant-pro-card-col"
+                  style="padding-top: 8px; padding-bottom: 8px;"
                 >
                   <div
                     class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -12460,10 +12466,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                     >
                       <div
                         class="ant-pro-card-body ant-pro-card-body-direction-column"
-                        style="row-gap: 16px;"
+                        style="margin-top: -8px; margin-bottom: -8px;"
                       >
                         <div
                           class="ant-pro-card-col"
+                          style="padding-top: 8px; padding-bottom: 8px;"
                         >
                           <div
                             class="ant-pro-card"
@@ -12476,6 +12483,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                         </div>
                         <div
                           class="ant-pro-card-col"
+                          style="padding-top: 8px; padding-bottom: 8px;"
                         >
                           <div
                             class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"

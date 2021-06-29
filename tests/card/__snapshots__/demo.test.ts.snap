@@ -4933,10 +4933,11 @@ Array [
   >
     <div
       class="ant-pro-card-body ant-pro-card-body-direction-column"
-      style="row-gap: 8px;"
+      style="margin-top: -4px; margin-bottom: -4px;"
     >
       <div
         class="ant-pro-card-col"
+        style="padding-top: 4px; padding-bottom: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -4950,6 +4951,7 @@ Array [
       </div>
       <div
         class="ant-pro-card-col ant-pro-card-col-12"
+        style="padding-top: 4px; padding-bottom: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -4963,6 +4965,7 @@ Array [
       </div>
       <div
         class="ant-pro-card-col ant-pro-card-col-8"
+        style="padding-top: 4px; padding-bottom: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -4976,6 +4979,7 @@ Array [
       </div>
       <div
         class="ant-pro-card-col ant-pro-card-col-0"
+        style="padding-top: 4px; padding-bottom: 4px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -5409,11 +5413,11 @@ Array [
   >
     <div
       class="ant-pro-card-body"
-      style="margin-right: -8px; margin-left: -8px; row-gap: 16px;"
+      style="margin: -8px -8px -8px -8px;"
     >
       <div
         class="ant-pro-card-col"
-        style="width: 30%; flex-shrink: 0; padding-right: 8px; padding-left: 8px;"
+        style="width: 30%; flex-shrink: 0; padding: 8px 8px 8px 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -5439,7 +5443,7 @@ Array [
       </div>
       <div
         class="ant-pro-card-col"
-        style="padding-right: 8px; padding-left: 8px;"
+        style="padding: 8px 8px 8px 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -5459,10 +5463,11 @@ Array [
   >
     <div
       class="ant-pro-card-body"
-      style="row-gap: 16px;"
+      style="margin-top: -8px; margin-bottom: -8px;"
     >
       <div
         class="ant-pro-card-col"
+        style="padding-top: 8px; padding-bottom: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -5476,6 +5481,7 @@ Array [
       </div>
       <div
         class="ant-pro-card-col"
+        style="padding-top: 8px; padding-bottom: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -5489,6 +5495,7 @@ Array [
       </div>
       <div
         class="ant-pro-card-col"
+        style="padding-top: 8px; padding-bottom: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border"
@@ -5733,10 +5740,11 @@ Array [
     </div>
     <div
       class="ant-pro-card-body ant-pro-card-body-direction-column"
-      style="row-gap: 16px;"
+      style="margin-top: -8px; margin-bottom: -8px;"
     >
       <div
         class="ant-pro-card-col"
+        style="padding-top: 8px; padding-bottom: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
@@ -5762,6 +5770,7 @@ Array [
       </div>
       <div
         class="ant-pro-card-col"
+        style="padding-top: 8px; padding-bottom: 8px;"
       >
         <div
           class="ant-pro-card ant-pro-card-border ant-pro-card-type-inner"
@@ -6108,11 +6117,11 @@ exports[`card demos 📸 renders ./packages/card/src/demos/multipleLine.tsx corr
   </div>
   <div
     class="ant-pro-card-body ant-pro-card-body-wrap"
-    style="margin-right: -8px; margin-left: -8px; row-gap: 16px;"
+    style="margin: -8px -8px -8px -8px;"
   >
     <div
       class="ant-pro-card-col"
-      style="padding-right: 8px; padding-left: 8px;"
+      style="padding: 8px 8px 8px 8px;"
     >
       <div
         class="ant-pro-card ant-pro-card-border"
@@ -6126,7 +6135,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/multipleLine.tsx corr
     </div>
     <div
       class="ant-pro-card-col"
-      style="padding-right: 8px; padding-left: 8px;"
+      style="padding: 8px 8px 8px 8px;"
     >
       <div
         class="ant-pro-card ant-pro-card-border"
@@ -6140,7 +6149,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/multipleLine.tsx corr
     </div>
     <div
       class="ant-pro-card-col"
-      style="padding-right: 8px; padding-left: 8px;"
+      style="padding: 8px 8px 8px 8px;"
     >
       <div
         class="ant-pro-card ant-pro-card-border"
@@ -6154,7 +6163,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/multipleLine.tsx corr
     </div>
     <div
       class="ant-pro-card-col"
-      style="padding-right: 8px; padding-left: 8px;"
+      style="padding: 8px 8px 8px 8px;"
     >
       <div
         class="ant-pro-card ant-pro-card-border"
