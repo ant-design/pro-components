@@ -1063,8 +1063,8 @@ describe('BasicLayout', () => {
     const defaultMenu = {
       locale: false,
       params: {},
-      request: async () => {
-        fn();
+      request: async (params: Record<string, string>) => {
+        fn(params);
         return [
           {
             path: '/admin',
@@ -1098,7 +1098,9 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(html, 100);
 
     expect(fn).toBeCalledTimes(2);
-
+    expect(fn).toBeCalledWith({
+      id: '1212',
+    });
     act(() => {
       html.setProps({
         menu: {
@@ -1111,6 +1113,9 @@ describe('BasicLayout', () => {
     });
     await waitForComponentToPaint(html, 100);
     expect(fn).toBeCalledTimes(3);
+    expect(fn).toBeCalledWith({
+      id: '123',
+    });
 
     act(() => {
       html.setProps({

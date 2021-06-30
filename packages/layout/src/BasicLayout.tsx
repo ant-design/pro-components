@@ -291,7 +291,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   const swrKey = useMemo(() => {
     if (!menu?.params) return [defaultId];
-    return [defaultId, stringify(menu?.params)];
+    return [defaultId, menu?.params];
   }, [defaultId, stringify(menu?.params)]);
 
   const preData = useRef<MenuDataItem[] | undefined>(undefined);
