@@ -1060,61 +1060,69 @@ describe('BasicLayout', () => {
 
   it('🥩 BasicLayout support menu.params', async () => {
     const fn = jest.fn();
-
-    const Demo = (props: any) => {
-      return (
-        <BasicLayout
-          menu={{
-            locale: false,
-            request: async () => {
-              fn();
-              return [
-                {
-                  path: '/admin',
-                  name: '管理页',
-                },
-                {
-                  name: '列表页',
-                  path: '/list',
-                },
-              ];
-            },
-          }}
-          {...props}
-        />
-      );
+    const defaultMenu = {
+      locale: false,
+      params: {},
+      request: async () => {
+        fn();
+        return [
+          {
+            path: '/admin',
+            name: '管理页',
+          },
+          {
+            name: '列表页',
+            path: '/list',
+          },
+        ];
+      },
     };
 
-    const html = mount(<Demo />);
+    const html = mount(<BasicLayout menu={defaultMenu} />);
+
     await waitForComponentToPaint(html, 1000);
 
     expect(fn).toBeCalledTimes(1);
 
-    html.setProps({
-      menu: {
-        params: {
-          id: '1212',
+    act(() => {
+      html.setProps({
+        menu: {
+          ...defaultMenu,
+          params: {
+            id: '1212',
+          },
         },
-      },
+      });
     });
+
+    await waitForComponentToPaint(html, 100);
+
     expect(fn).toBeCalledTimes(2);
 
-    html.setProps({
-      menu: {
-        params: {
-          id: '1212',
+    act(() => {
+      html.setProps({
+        menu: {
+          ...defaultMenu,
+          params: {
+            id: '123',
+          },
         },
-      },
+      });
     });
-    expect(fn).toBeCalledTimes(2);
+    await waitForComponentToPaint(html, 100);
+    expect(fn).toBeCalledTimes(3);
 
-    html.setProps({
-      menu: {
-        params: {
-          id: '123',
+    act(() => {
+      html.setProps({
+        menu: {
+          ...defaultMenu,
+          params: {
+            id: '123',
+          },
         },
-      },
+      });
     });
+    await waitForComponentToPaint(html, 100);
     expect(fn).toBeCalledTimes(3);
   });
 });

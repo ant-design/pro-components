@@ -1,6 +1,6 @@
 import './BasicLayout.less';
 import type { CSSProperties } from 'react';
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import type { BreadcrumbProps as AntdBreadcrumbProps, BreadcrumbProps } from 'antd/lib/breadcrumb';
 import { Layout, ConfigProvider } from 'antd';
@@ -289,11 +289,18 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData || {};
 
+  const swrKey = useMemo(() => {
+    if (!menu?.params) return [defaultId];
+    return [defaultId, stringify(menu?.params)];
+  }, [defaultId, stringify(menu?.params)]);
+
+  const preData = useRef<MenuDataItem[] | undefined>(undefined);
+
   const { data } = useSWR(
-    defaultId,
-    async () => {
+    swrKey,
+    async (_, params) => {
       setMenuLoading(true);
-      const msg = await menu?.request?.(menu?.params || {}, route?.routes || []);
+      const msg = await menu?.request?.(params || {}, route?.routes || []);
       setMenuLoading(false);
       return msg;
     },
@@ -303,20 +310,21 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       revalidateOnReconnect: false,
     },
   );
+  preData.current = data;
 
   // params 更新的时候重新请求
   useEffect(() => {
-    if (!data) {
+    if (!preData.current) {
       return;
     }
-    mutate(defaultId);
+    mutate(swrKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [defaultId, stringify(menu?.params)]);
+  }, [swrKey]);
 
   if (actionRef && menu?.request) {
     actionRef.current = {
       reload: () => {
-        mutate(defaultId);
+        mutate(swrKey);
       },
     };
   }
