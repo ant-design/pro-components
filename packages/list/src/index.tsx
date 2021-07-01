@@ -132,8 +132,12 @@ function ProList<
       columns={proTableColumns}
       rowKey={rowKey}
       cardProps={{
+        style: {
+          background: 'transparent',
+        },
         bodyStyle: {
           padding: 0,
+          background: 'transparent',
         },
       }}
       toolbar={{

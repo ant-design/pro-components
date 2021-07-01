@@ -509,9 +509,6 @@ Array [
                 </div>
               </div>
             </div>
-            <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
-            />
           </div>
         </div>
         <div
@@ -6931,6 +6928,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
           >
             <div
               class="ant-space-item"
+              style="margin-right: 8px;"
+            >
+              <div
+                class="ant-pro-table-list-toolbar-title"
+              />
+            </div>
+            <div
+              class="ant-space-item"
             >
               <div
                 class="ant-pro-table-list-toolbar-menu ant-pro-table-list-toolbar-dropdownmenu"
@@ -8903,6 +8908,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
           <div
             class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
           >
+            <div
+              class="ant-space-item"
+              style="margin-right: 8px;"
+            >
+              <div
+                class="ant-pro-table-list-toolbar-title"
+              />
+            </div>
             <div
               class="ant-space-item"
             >
@@ -26854,8 +26867,30 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
         <div
           class="ant-spin-nested-loading"
         >
+          <div>
+            <div
+              class="ant-spin ant-spin-spinning"
+            >
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
+              >
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
+            </div>
+          </div>
           <div
-            class="ant-spin-container"
+            class="ant-spin-container ant-spin-blur"
           >
             <div
               class="ant-table ant-table-middle"
@@ -28399,6 +28434,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
           <div
             class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
           >
+            <div
+              class="ant-space-item"
+              style="margin-right: 8px;"
+            >
+              <div
+                class="ant-pro-table-list-toolbar-title"
+              />
+            </div>
             <div
               class="ant-space-item"
             >
@@ -39940,9 +39983,6 @@ Array [
             class="ant-pro-table-list-toolbar-container"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
-            />
-            <div
               class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
             >
               <div
@@ -42122,6 +42162,14 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                     <div
                       class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
                     >
+                      <div
+                        class="ant-space-item"
+                        style="margin-right: 8px;"
+                      >
+                        <div
+                          class="ant-pro-table-list-toolbar-title"
+                        />
+                      </div>
                       <div
                         class="ant-space-item"
                       >

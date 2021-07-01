@@ -174,39 +174,46 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   };
 
   const actionDom = renderActionsDom();
+  const hasRight =
+    (hasTitle && searchNode) || (!multipleLine && filtersNode) || actionDom || settings?.length;
+  const hasLeft = tooltip || title || subTitle || menu || (!hasTitle && searchNode);
+
+  if (!hasRight && !hasLeft) return null;
 
   return (
     <div style={style} className={classNames(`${prefixCls}`, className)}>
       <div className={`${prefixCls}-container`}>
-        <Space className={`${prefixCls}-left`}>
-          {tooltip || title || subTitle ? (
+        {hasLeft ? (
+          <Space className={`${prefixCls}-left`}>
             <div className={`${prefixCls}-title`}>
               <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
             </div>
-          ) : null}
-          {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
-          {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
-        </Space>
-        <Space className={`${prefixCls}-right`} size={16}>
-          {hasTitle && searchNode ? (
-            <div className={`${prefixCls}-search`}>{searchNode}</div>
-          ) : null}
-          {!multipleLine ? filtersNode : null}
-          {actionDom}
-          {settings?.length ? (
-            <Space size={12} align="center" className={`${prefixCls}-setting-items`}>
-              {settings.map((setting, index) => {
-                const settingItem = getSettingItem(setting);
-                return (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <div key={index} className={`${prefixCls}-setting-item`}>
-                    {settingItem}
-                  </div>
-                );
-              })}
-            </Space>
-          ) : null}
-        </Space>
+            {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
+            {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
+          </Space>
+        ) : null}
+        {hasRight ? (
+          <Space className={`${prefixCls}-right`} size={16}>
+            {hasTitle && searchNode ? (
+              <div className={`${prefixCls}-search`}>{searchNode}</div>
+            ) : null}
+            {!multipleLine ? filtersNode : null}
+            {actionDom}
+            {settings?.length ? (
+              <Space size={12} align="center" className={`${prefixCls}-setting-items`}>
+                {settings.map((setting, index) => {
+                  const settingItem = getSettingItem(setting);
+                  return (
+                    // eslint-disable-next-line react/no-array-index-key
+                    <div key={index} className={`${prefixCls}-setting-item`}>
+                      {settingItem}
+                    </div>
+                  );
+                })}
+              </Space>
+            ) : null}
+          </Space>
+        ) : null}
       </div>
       {multipleLine ? (
         <div className={`${prefixCls}-extra-line`}>
