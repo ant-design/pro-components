@@ -39961,6 +39961,9 @@ Array [
             class="ant-pro-table-list-toolbar-container"
           >
             <div
+              class="ant-pro-table-list-toolbar-left"
+            />
+            <div
               class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
             >
               <div
