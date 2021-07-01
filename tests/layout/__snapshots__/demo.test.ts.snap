@@ -1611,30 +1611,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
           <div
             class="ant-spin-nested-loading"
           >
-            <div>
-              <div
-                class="ant-spin ant-spin-spinning"
-              >
-                <span
-                  class="ant-spin-dot ant-spin-dot-spin"
-                >
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                  <i
-                    class="ant-spin-dot-item"
-                  />
-                </span>
-              </div>
-            </div>
             <div
-              class="ant-spin-container ant-spin-blur"
+              class="ant-spin-container"
             >
               <div
                 class="ant-table ant-table-middle ant-table-layout-fixed"
