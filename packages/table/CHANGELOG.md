@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.43.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.43.2...@ant-design/pro-table@2.43.3) (2021-07-01)
+
+### Bug Fixes
+
+- **table:** fix table button no right error ([#3141](https://github.com/ant-design/pro-components/issues/3141)) ([1542386](https://github.com/ant-design/pro-components/commit/1542386f2b99de1bb803bce3d8317597c0738976))
+
 ## [2.43.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.43.1...@ant-design/pro-table@2.43.2) (2021-07-01)
 
 ### Bug Fixes
