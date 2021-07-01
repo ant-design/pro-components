@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.14.3...@ant-design/pro-card@1.14.4) (2021-07-01)
+
+### Bug Fixes
+
+- **card:** support chrome under 85 that not support rowgap ([#3112](https://github.com/ant-design/pro-components/issues/3112)) ([cbb20a4](https://github.com/ant-design/pro-components/commit/cbb20a4b3584f687c4acfd29298a9ff70f652959))
+
 ## [1.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.14.2...@ant-design/pro-card@1.14.3) (2021-06-28)
 
 **Note:** Version bump only for package @ant-design/pro-card

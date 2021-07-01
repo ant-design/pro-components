@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.3...@ant-design/pro-list@1.10.4) (2021-07-01)
+
+### Bug Fixes
+
+- **list:** fix list title node is null will render error ([#3138](https://github.com/ant-design/pro-components/issues/3138)) ([cfc9297](https://github.com/ant-design/pro-components/commit/cfc92977ca1a6451a3be2068255e5913c7882234))
+
 ## [1.10.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.2...@ant-design/pro-list@1.10.3) (2021-06-28)
 
 **Note:** Version bump only for package @ant-design/pro-list

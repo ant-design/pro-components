@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.20.0...@ant-design/pro-layout@6.21.0) (2021-07-01)
+
+### Bug Fixes
+
+- **layout:** swr should effect for params ([#3121](https://github.com/ant-design/pro-components/issues/3121)) ([54da344](https://github.com/ant-design/pro-components/commit/54da344a8240ff8afaa33bd8f1d7bf0956b26aa8))
+
+### Features
+
+- **layout:** add WaterMark demo ([#3114](https://github.com/ant-design/pro-components/issues/3114)) ([959620d](https://github.com/ant-design/pro-components/commit/959620dbc6c842682ded3d2b159dc6587e8b240a))
+
 # [6.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.19.7...@ant-design/pro-layout@6.20.0) (2021-06-28)
 
 ### Bug Fixes
