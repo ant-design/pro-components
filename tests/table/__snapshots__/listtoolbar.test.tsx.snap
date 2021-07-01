@@ -8,9 +8,6 @@ exports[`Table valueEnum ListToolBar action is empty array 1`] = `
     class="ant-pro-table-list-toolbar-container"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
-    />
-    <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
     />
   </div>
@@ -24,9 +21,6 @@ exports[`Table valueEnum ListToolBar action no array 1`] = `
   <div
     class="ant-pro-table-list-toolbar-container"
   >
-    <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
-    />
     <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
     >
@@ -54,9 +48,6 @@ exports[`Table valueEnum ListToolBar action no jsx 1`] = `
   <div
     class="ant-pro-table-list-toolbar-container"
   >
-    <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
-    />
     <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
     >

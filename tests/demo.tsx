@@ -101,7 +101,7 @@ function demoTest(component: string, options: Options = {}) {
         MockDate.set(moment('2016-11-22').valueOf());
         const Demo = require(`.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         const wrapper = mount(<Demo />);
-        await waitForComponentToPaint(wrapper, ['table', 'list'].includes(component) ? 1200 : 160);
+        await waitForComponentToPaint(wrapper, ['table', 'list'].includes(component) ? 2000 : 160);
         // Convert aria related content
         const dom = wrapper.render();
         ariaConvert(dom);
