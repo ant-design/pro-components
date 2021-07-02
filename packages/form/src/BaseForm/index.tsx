@@ -285,6 +285,10 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                 if (!rest.onFinish) {
                   return;
                 }
+                // 防止重复提交
+                if (loading) {
+                  return;
+                }
                 setLoading(true);
                 try {
                   const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
