@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import type { TabPaneProps } from 'antd';
 import { Tooltip, Space, Input, ConfigProvider, Tabs } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
@@ -95,6 +95,27 @@ function getSettingItem(setting: SettingPropType) {
   return null;
 }
 
+const ListToolBarTabBar: React.FC<{
+  prefixCls: string;
+  filtersNode: React.ReactNode;
+  multipleLine: boolean;
+  tabs: ListToolBarProps['tabs'];
+}> = ({ prefixCls, tabs = {}, multipleLine, filtersNode }) => {
+  if (!multipleLine) return null;
+  return (
+    <div className={`${prefixCls}-extra-line`}>
+      {tabs.items && tabs.items.length ? (
+        <Tabs activeKey={tabs.activeKey} onChange={tabs.onChange} tabBarExtraContent={filtersNode}>
+          {tabs.items.map((tab, index) => (
+            <Tabs.TabPane key={tab.key || index} {...tab} />
+          ))}
+        </Tabs>
+      ) : (
+        filtersNode
+      )}
+    </div>
+  );
+};
 const ListToolBar: React.FC<ListToolBarProps> = ({
   prefixCls: customizePrefixCls,
   title,
@@ -113,43 +134,50 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
 }) => {
   const intl = useIntl();
 
+  const placeholder = intl.getMessage('tableForm.inputPlaceholder', '请输入');
+
   /**
    * 获取搜索栏 DOM
    *
    * @param search 搜索框相关配置
    */
-  const getSearchInput = (searchObject: SearchPropType) => {
-    if (!searchObject) {
+  const searchNode = useMemo(() => {
+    if (!search) {
       return null;
     }
-    if (React.isValidElement(searchObject)) {
-      return searchObject;
+    if (React.isValidElement(search)) {
+      return search;
     }
     return (
       <Input.Search
         style={{ width: 200 }}
-        placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        {...(searchObject as SearchProps)}
+        placeholder={placeholder}
+        {...(search as SearchProps)}
         onSearch={(...restParams) => {
           onSearch?.(restParams?.[0]);
-          (searchObject as SearchProps).onSearch?.(...restParams);
+          (search as SearchProps).onSearch?.(...restParams);
         }}
       />
     );
-  };
+  }, [placeholder, onSearch, search]);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-table-list-toolbar', customizePrefixCls);
 
-  /** 根据配置自动生成的查询框 */
-  const searchNode: React.ReactNode = getSearchInput(search);
   /** 轻量筛选组件 */
-  const filtersNode = filter ? <div className={`${prefixCls}-filter`}>{filter}</div> : null;
+  const filtersNode = useMemo(() => {
+    if (filter) return <div className={`${prefixCls}-filter`}>{filter}</div>;
+    return null;
+  }, [filter, prefixCls]);
 
-  /** 有没有 title，判断了多个场景 */
-  const hasTitle = menu || title || subTitle || tooltip;
+  /** 有没有 title，需要结合多个场景判断 */
+  const hasTitle = useMemo(
+    () => menu || title || subTitle || tooltip,
+    [menu, subTitle, title, tooltip],
+  );
+
   /** 没有 key 的时候帮忙加一下 key 不加的话很烦人 */
-  const renderActionsDom = () => {
+  const actionDom = useMemo(() => {
     if (!Array.isArray(actions)) {
       return actions;
     }
@@ -171,69 +199,77 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         })}
       </Space>
     );
-  };
+  }, [actions]);
 
-  const actionDom = renderActionsDom();
-  const hasRight =
-    (hasTitle && searchNode) || (!multipleLine && filtersNode) || actionDom || settings?.length;
-  const hasLeft = tooltip || title || subTitle || menu || (!hasTitle && searchNode);
+  const hasRight = useMemo(() => {
+    return (
+      (hasTitle && searchNode) || (!multipleLine && filtersNode) || actionDom || settings?.length
+    );
+  }, [actionDom, filtersNode, hasTitle, multipleLine, searchNode, settings?.length]);
 
-  if (!hasRight && !hasLeft) return null;
+  const hasLeft = useMemo(
+    () => tooltip || title || subTitle || menu || (!hasTitle && searchNode),
+    [hasTitle, menu, searchNode, subTitle, title, tooltip],
+  );
+
+  const leftTitleDom = useMemo(() => {
+    if (!hasLeft && hasRight) {
+      return <div className={`${prefixCls}-left`} />;
+    }
+    return (
+      <Space className={`${prefixCls}-left`}>
+        <div className={`${prefixCls}-title`}>
+          <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
+        </div>
+        {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
+        {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
+      </Space>
+    );
+  }, [hasLeft, hasRight, hasTitle, menu, prefixCls, searchNode, subTitle, title, tooltip]);
+
+  const rightTitleDom = useMemo(() => {
+    if (!hasRight) return null;
+    return (
+      <Space className={`${prefixCls}-right`} size={16}>
+        {hasTitle && searchNode ? <div className={`${prefixCls}-search`}>{searchNode}</div> : null}
+        {!multipleLine ? filtersNode : null}
+        {actionDom}
+        {settings?.length ? (
+          <Space size={12} align="center" className={`${prefixCls}-setting-items`}>
+            {settings.map((setting, index) => {
+              const settingItem = getSettingItem(setting);
+              return (
+                // eslint-disable-next-line react/no-array-index-key
+                <div key={index} className={`${prefixCls}-setting-item`}>
+                  {settingItem}
+                </div>
+              );
+            })}
+          </Space>
+        ) : null}
+      </Space>
+    );
+  }, [actionDom, filtersNode, hasRight, hasTitle, multipleLine, prefixCls, searchNode, settings]);
+
+  const titleNode = useMemo(() => {
+    if (!hasRight && !hasLeft) return null;
+    return (
+      <div className={`${prefixCls}-container`}>
+        {leftTitleDom}
+        {rightTitleDom}
+      </div>
+    );
+  }, [hasLeft, hasRight, leftTitleDom, prefixCls, rightTitleDom]);
 
   return (
     <div style={style} className={classNames(`${prefixCls}`, className)}>
-      <div className={`${prefixCls}-container`}>
-        {hasLeft ? (
-          <Space className={`${prefixCls}-left`}>
-            <div className={`${prefixCls}-title`}>
-              <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
-            </div>
-            {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
-            {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
-          </Space>
-        ) : (
-          <div className={`${prefixCls}-left`} />
-        )}
-        {hasRight ? (
-          <Space className={`${prefixCls}-right`} size={16}>
-            {hasTitle && searchNode ? (
-              <div className={`${prefixCls}-search`}>{searchNode}</div>
-            ) : null}
-            {!multipleLine ? filtersNode : null}
-            {actionDom}
-            {settings?.length ? (
-              <Space size={12} align="center" className={`${prefixCls}-setting-items`}>
-                {settings.map((setting, index) => {
-                  const settingItem = getSettingItem(setting);
-                  return (
-                    // eslint-disable-next-line react/no-array-index-key
-                    <div key={index} className={`${prefixCls}-setting-item`}>
-                      {settingItem}
-                    </div>
-                  );
-                })}
-              </Space>
-            ) : null}
-          </Space>
-        ) : null}
-      </div>
-      {multipleLine ? (
-        <div className={`${prefixCls}-extra-line`}>
-          {tabs.items && tabs.items.length ? (
-            <Tabs
-              activeKey={tabs.activeKey}
-              onChange={tabs.onChange}
-              tabBarExtraContent={filtersNode}
-            >
-              {tabs.items.map((tab, index) => (
-                <Tabs.TabPane key={tab.key || index} {...tab} />
-              ))}
-            </Tabs>
-          ) : (
-            filtersNode
-          )}
-        </div>
-      ) : null}
+      {titleNode}
+      <ListToolBarTabBar
+        filtersNode={filtersNode}
+        prefixCls={prefixCls}
+        tabs={tabs}
+        multipleLine={multipleLine}
+      />
     </div>
   );
 };
