@@ -987,13 +987,12 @@ describe('BasicLayout', () => {
 
   it('🥩 BasicLayout support menu.request', async () => {
     const fn = jest.fn();
-    const actionRef =
-      React.createRef<
-        | {
-            reload: () => void;
-          }
-        | undefined
-      >();
+    const actionRef = React.createRef<
+      | {
+          reload: () => void;
+        }
+      | undefined
+    >();
 
     const Demo = () => {
       return (

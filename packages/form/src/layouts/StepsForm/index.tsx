@@ -64,22 +64,19 @@ type StepsFormProps<T = Record<string, any>> = {
   containerStyle?: React.CSSProperties;
 } & FormProviderProps;
 
-export const StepsFormProvide =
-  React.createContext<
-    | {
-        unRegForm: (name: string) => void;
-        onFormFinish: (name: string, formData: any) => void;
-        keyArray: string[];
-        formArrayRef: React.MutableRefObject<
-          React.MutableRefObject<FormInstance<any> | undefined>[]
-        >;
-        loading: boolean;
-        setLoading: (loading: boolean) => void;
-        formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
-        next: () => void;
-      }
-    | undefined
-  >(undefined);
+export const StepsFormProvide = React.createContext<
+  | {
+      unRegForm: (name: string) => void;
+      onFormFinish: (name: string, formData: any) => void;
+      keyArray: string[];
+      formArrayRef: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
+      loading: boolean;
+      setLoading: (loading: boolean) => void;
+      formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
+      next: () => void;
+    }
+  | undefined
+>(undefined);
 function StepsForm<T = Record<string, any>>(
   props: StepsFormProps<T> & {
     children: any;
