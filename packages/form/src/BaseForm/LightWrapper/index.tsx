@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import {
   FilterDropdown,
@@ -68,7 +68,31 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     propsOnChange?.(...restParams);
   };
 
-  if (!light || customLightMode || isDropdown) {
+  const isLight = useMemo(() => {
+    if (!light || customLightMode || isDropdown) {
+      return true;
+    }
+    return false;
+  }, [customLightMode, isDropdown, light]);
+
+  const childrenIsValidElement = useMemo(
+    () => children && React.isValidElement(children),
+    [children],
+  );
+
+  const allowClear = useMemo(() => {
+    if (isLight) return undefined;
+    if (childrenIsValidElement) return (children as JSX.Element)?.props?.fieldProps?.allowClear;
+    return undefined;
+  }, [children, childrenIsValidElement, isLight]);
+
+  const footerRender = useMemo(() => {
+    if (isLight) return undefined;
+    if (childrenIsValidElement) return (children as JSX.Element)?.props.footerRender;
+    return undefined;
+  }, [children, childrenIsValidElement, isLight]);
+
+  if (isLight) {
     if (React.isValidElement(children)) {
       return React.cloneElement(
         children,
@@ -88,16 +112,9 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
         }),
       );
     }
-
     return children as JSX.Element;
   }
 
-  let allowClear;
-  let footerRender;
-  if (children && React.isValidElement(children)) {
-    allowClear = children.props.fieldProps?.allowClear;
-    footerRender = children.props.footerRender;
-  }
   const labelValue = props[valuePropName];
 
   return (

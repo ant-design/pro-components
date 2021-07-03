@@ -1230,6 +1230,11 @@ describe('ProForm', () => {
       wrapper.find('.ant-btn-primary').simulate('submit');
     });
 
+    // 多次提交需要阻止
+    act(() => {
+      wrapper.find('.ant-btn-primary').simulate('submit');
+    });
+
     await waitForComponentToPaint(wrapper);
 
     expect(onFinish).toBeCalledWith(2);

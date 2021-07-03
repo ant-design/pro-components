@@ -1,4 +1,11 @@
-import React, { useRef, useEffect, useImperativeHandle, useState } from 'react';
+import React, {
+  useRef,
+  useEffect,
+  useImperativeHandle,
+  useState,
+  useMemo,
+  useCallback,
+} from 'react';
 import type { FormProps, FormItemProps, FormInstance } from 'antd';
 import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
@@ -150,34 +157,47 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const [loading, setLoading] = useMountMergeState<boolean>(false);
 
   const items = React.Children.toArray(children);
-  const submitterProps: SubmitterProps =
-    typeof submitter === 'boolean' || !submitter ? {} : submitter;
+  /** 计算 props 的对象 */
+  const submitterProps: SubmitterProps = useMemo(
+    () => (typeof submitter === 'boolean' || !submitter ? {} : submitter),
+    [submitter],
+  );
 
-  const transformKey = (values: any, omit: boolean, parentKey?: NamePath) =>
-    transformKeySubmitValue(
-      conversionSubmitValue(values, dateFormatter, fieldsValueType.current, omit, parentKey),
-      transformKeyRef.current,
-      omit,
-    );
+  /** 使用 callback 的类型 */
+  const transformKey = useCallback(
+    (values: any, omit: boolean, parentKey?: NamePath) =>
+      transformKeySubmitValue(
+        conversionSubmitValue(values, dateFormatter, fieldsValueType.current, omit, parentKey),
+        transformKeyRef.current,
+        omit,
+      ),
+    [dateFormatter],
+  );
 
-  const formatValues = {
-    /** 获取格式化之后所有数据 */
-    getFieldsFormatValue: (nameList?: NamePath[] | true) => {
-      return transformKey(formRef.current.getFieldsValue(nameList!), omitNil);
-    },
-    /** 获取格式化之后的单个数据 */
-    getFieldFormatValue: (nameList?: NamePath) => {
-      return transformKey(formRef.current.getFieldValue(nameList!), omitNil, nameList);
-    },
-  };
+  const formatValues = useMemo(
+    () => ({
+      /** 获取格式化之后所有数据 */
+      getFieldsFormatValue: (nameList?: NamePath[] | true) => {
+        return transformKey(formRef.current.getFieldsValue(nameList!), omitNil);
+      },
+      /** 获取格式化之后的单个数据 */
+      getFieldFormatValue: (nameList?: NamePath) => {
+        return transformKey(formRef.current.getFieldValue(nameList!), omitNil, nameList);
+      },
+    }),
+    [omitNil, transformKey],
+  );
+
   // 初始化给一个默认的 form
   useImperativeHandle(propsFormRef, () => ({
     ...formRef.current,
     ...formatValues,
   }));
+
   /** 渲染提交按钮与重置按钮 */
-  const submitterNode =
-    submitter === false ? undefined : (
+  const submitterNode = useMemo(() => {
+    if (submitter === false) return undefined;
+    return (
       <Submitter
         key="submitter"
         {...submitterProps}
@@ -208,8 +228,26 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
         }}
       />
     );
+  }, [
+    extraUrlParams,
+    form,
+    loading,
+    omitNil,
+    onReset,
+    setUrlSearch,
+    submitter,
+    submitterProps,
+    syncToUrl,
+    transformKey,
+    userForm,
+  ]);
 
-  const content = contentRender ? contentRender(items, submitterNode, formRef.current) : items;
+  const content = useMemo(() => {
+    if (contentRender) {
+      return contentRender(items, submitterNode, formRef.current);
+    }
+    return items;
+  }, [contentRender, items, submitterNode]);
 
   useEffect(() => {
     const finalValues = transformKey(formRef.current.getFieldsValue(true), omitNil);
@@ -282,13 +320,11 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                 );
               }}
               onFinish={async () => {
-                if (!rest.onFinish) {
-                  return;
-                }
+                // 没设置 onFinish 就不执行
+                if (!rest.onFinish) return;
                 // 防止重复提交
-                if (loading) {
-                  return;
-                }
+                if (loading) return;
+
                 setLoading(true);
                 try {
                   const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
