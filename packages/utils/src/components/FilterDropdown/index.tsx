@@ -2,9 +2,14 @@ import React, { useContext } from 'react';
 import { Dropdown, ConfigProvider } from 'antd';
 import type { DropdownFooterProps } from '../DropdownFooter';
 import Footer from '../DropdownFooter';
-import type { FooterRender } from '@ant-design/pro-form/src/interface';
-
 import './index.less';
+
+export type FooterRender =
+  | ((
+      onConfirm?: (e?: React.MouseEvent) => void,
+      onClear?: (e?: React.MouseEvent) => void,
+    ) => JSX.Element)
+  | false;
 
 export type DropdownProps = {
   label?: React.ReactNode;
