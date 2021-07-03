@@ -76,6 +76,8 @@ export default () => {
         });
       }}
       toolbar={{
+        title: '标签',
+        multipleLine: true,
         filter: (
           <LightFilter>
             <ProFormDatePicker name="startdate" label="响应日期" />
