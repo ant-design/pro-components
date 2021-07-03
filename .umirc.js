@@ -192,5 +192,6 @@ export default {
     ],
   },
   webpack5: {},
+  // mfsu: !isDeploy ? {} : undefined,
   fastRefresh: {},
 };

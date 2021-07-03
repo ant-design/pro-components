@@ -1876,7 +1876,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             >
                               简短备注文案
                               <div
-                                aria-label=""
+                                aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
                                 style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2027,7 +2027,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </span>
                               </span>
                               <div
-                                aria-label=""
+                                aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
                                 style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2170,7 +2170,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             >
                               简短备注文案
                               <div
-                                aria-label=""
+                                aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
                                 style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2321,7 +2321,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </span>
                               </span>
                               <div
-                                aria-label=""
+                                aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
                                 style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2464,7 +2464,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             >
                               简短备注文案
                               <div
-                                aria-label=""
+                                aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
                                 style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2615,7 +2615,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </span>
                               </span>
                               <div
-                                aria-label=""
+                                aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
                                 style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2758,7 +2758,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             >
                               简短备注文案
                               <div
-                                aria-label=""
+                                aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
                                 style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2909,7 +2909,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </span>
                               </span>
                               <div
-                                aria-label=""
+                                aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
                                 style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -3052,7 +3052,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             >
                               简短备注文案
                               <div
-                                aria-label=""
+                                aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
                                 style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -3203,7 +3203,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </span>
                               </span>
                               <div
-                                aria-label=""
+                                aria-label="复制"
                                 class="ant-typography-copy"
                                 role="button"
                                 style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
