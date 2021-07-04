@@ -291,7 +291,7 @@ export const useFieldFetchData = (
     setOptions(getOptionsFormValueEnum(props.valueEnum));
   }, [props.valueEnum]);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useMountMergeState(false);
 
   const fetchData = async () => {
     if (!props.request) {

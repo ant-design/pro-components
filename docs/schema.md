@@ -198,6 +198,34 @@ const valueEnum = {
 };
 ```
 
+```tsx
+import React from 'react';
+import { ProFormSelect } from '@ant-design/pro-form';
+
+const valueEnum = {
+  all: { text: '全部', status: 'Default' },
+  open: {
+    text: '未解决',
+    status: 'Error',
+  },
+  closed: {
+    text: '已解决',
+    status: 'Success',
+  },
+};
+
+export default () => (
+  <ProFormSelect
+    name="select2"
+    label="Select"
+    params={{}}
+    valueType="select"
+    valueEnum={valueEnum}
+    placeholder="Please select a country"
+  />
+);
+```
+
 ### `fieldProps.options`
 
 options 是 antd 定义的标准，但是只有部分组件支持， ProComponents 扩展了组件，使得 `select`, `checkbox`, `radio`, `radioButton` 都支持了 `options`, 他们的用法是相同的。
@@ -248,6 +276,36 @@ const columns = [
 ];
 ```
 
+```tsx
+import React from 'react';
+import { ProFormSelect } from '@ant-design/pro-form';
+
+const options = [
+  {
+    label: 'item 1',
+    value: 'a',
+  },
+  {
+    label: 'item 2',
+    value: 'b',
+  },
+  {
+    label: 'item 3',
+    value: 'c',
+  },
+];
+
+export default () => (
+  <ProFormSelect
+    name="select2"
+    label="Select"
+    valueType="select"
+    fieldProps={{ options }}
+    placeholder="Please select a country"
+  />
+);
+```
+
 ### `request` 和 `params`
 
 大部分时候我们是从网络中获取数据，但是获取写一个 hooks 来请求数据还是比较繁琐的，同时还要定义一系列状态，所以我们提供了 `request` 和 `params` 来获取数据。
@@ -283,6 +341,29 @@ const columns = [
     params: {},
   },
 ];
+```
+
+```tsx
+import React from 'react';
+import { ProFormSelect } from '@ant-design/pro-form';
+
+const request = async () => [
+  { label: '全部', value: 'all' },
+  { label: '未解决', value: 'open' },
+  { label: '已解决', value: 'closed' },
+  { label: '解决中', value: 'processing' },
+];
+
+export default () => (
+  <ProFormSelect
+    name="select2"
+    label="Select"
+    valueType="select"
+    params={{}}
+    request={request}
+    placeholder="Please select a country"
+  />
+);
 ```
 
 在实际的使用中 `request` 增加了一个 5s 缓存，可能会导致数据更新不及时，如果需要频繁更新，建议使用 `state`+`fieldProps.options`。
