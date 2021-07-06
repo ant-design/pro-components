@@ -1,8 +1,8 @@
 /** Title: 前置水印 */
 import React from 'react';
 import { WaterMark } from '@ant-design/pro-layout';
-import { Button, Tooltip } from 'antd';
-import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import { Tooltip } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 
@@ -122,14 +122,7 @@ export default () => (
   <WaterMark content="蚂蚁集团">
     <ProTable<TableListItem>
       columns={columns}
-      request={(params: any, sorter: any, filter: any) => {
-        // 表单搜索项会从 params 传入，传递给后端接口。
-        console.log(params, sorter, filter);
-        return Promise.resolve({
-          data: tableListDataSource,
-          success: true,
-        });
-      }}
+      dataSource={tableListDataSource}
       rowKey="key"
       pagination={{
         showQuickJumper: true,
@@ -137,16 +130,7 @@ export default () => (
       search={false}
       dateFormatter="string"
       headerTitle="表格标题"
-      toolBarRender={() => [
-        <Button key="show">查看日志</Button>,
-        <Button key="out">
-          导出数据
-          <DownOutlined />
-        </Button>,
-        <Button type="primary" key="primary">
-          创建应用
-        </Button>,
-      ]}
+      toolBarRender={false}
     />
   </WaterMark>
 );
