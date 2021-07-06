@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.43.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.43.3...@ant-design/pro-table@2.43.4) (2021-07-06)
+
+### Bug Fixes
+
+- **table:** fix table listbar no render error ([#3154](https://github.com/ant-design/pro-components/issues/3154)) ([178e6e7](https://github.com/ant-design/pro-components/commit/178e6e7246c6a3bcf0a72fe52a381c5990592883))
+
 ## [2.43.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.43.2...@ant-design/pro-table@2.43.3) (2021-07-01)
 
 ### Bug Fixes

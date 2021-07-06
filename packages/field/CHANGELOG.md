@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.9...@ant-design/pro-field@1.18.10) (2021-07-06)
+
+### Bug Fixes
+
+- **select:** fix FieldSelect request warning ([#3159](https://github.com/ant-design/pro-components/issues/3159)) ([473736f](https://github.com/ant-design/pro-components/commit/473736fcf400c271b5ab4d6bd24cb29ac39b317d))
+
 ## [1.18.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.8...@ant-design/pro-field@1.18.9) (2021-07-01)
 
 **Note:** Version bump only for package @ant-design/pro-field

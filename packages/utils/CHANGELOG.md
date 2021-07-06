@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.4...@ant-design/pro-utils@1.19.5) (2021-07-06)
+
+### Bug Fixes
+
+- **form:** fix vite build error ([3b8be53](https://github.com/ant-design/pro-components/commit/3b8be53b2b8e02356cd9c66e278131c943623b58))
+
 ## [1.19.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.3...@ant-design/pro-utils@1.19.4) (2021-07-01)
 
 **Note:** Version bump only for package @ant-design/pro-utils
