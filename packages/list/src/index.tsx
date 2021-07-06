@@ -125,6 +125,7 @@ function ProList<
       {...(rest as any)}
       actionRef={actionRef}
       pagination={propsPagination}
+      type="list"
       rowSelection={propRowSelection}
       search={search}
       options={options}

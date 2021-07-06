@@ -416,7 +416,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     debounceTime: props.debounceTime,
     onPageInfoChange: (pageInfo) => {
       // 总是触发一下 onChange 和  onShowSizeChange
-      if (propsPagination) {
+      // 目前只有 List 和 Table 支持分页, List 有分页的时候打断 Table 的分页
+      if (propsPagination && type !== 'list') {
         propsPagination?.onChange?.(pageInfo.current, pageInfo.pageSize);
         propsPagination?.onShowSizeChange?.(pageInfo.current, pageInfo.pageSize);
       }
