@@ -275,6 +275,21 @@ function StepsForm<T = Record<string, any>>(
           submitter: false,
         }
       : {};
+
+    const configProps = {
+      ...config,
+      ...formProps,
+      ...itemProps,
+      title: '',
+      name,
+      step: index,
+      key: name,
+    };
+
+    if (typeof configProps.title !== 'string') {
+      configProps.title = '';
+    }
+
     return (
       <div
         className={classNames(`${prefixCls}-step`, {
@@ -282,14 +297,7 @@ function StepsForm<T = Record<string, any>>(
         })}
         key={name}
       >
-        {React.cloneElement(item, {
-          ...config,
-          ...formProps,
-          ...itemProps,
-          name,
-          step: index,
-          key: name,
-        })}
+        {React.cloneElement(item, configProps)}
       </div>
     );
   });
