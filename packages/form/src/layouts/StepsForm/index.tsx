@@ -280,7 +280,6 @@ function StepsForm<T = Record<string, any>>(
       ...config,
       ...formProps,
       ...itemProps,
-      title: '',
       name,
       step: index,
       key: name,
