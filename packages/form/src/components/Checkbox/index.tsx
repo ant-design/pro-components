@@ -10,13 +10,13 @@ import type { ProFormItemProps } from '../../interface';
 
 export type ProFormCheckboxGroupProps = ProFormItemProps<CheckboxGroupProps> & {
   layout?: 'horizontal' | 'vertical';
-  options: CheckboxGroupProps['options'];
+  options?: CheckboxGroupProps['options'];
   valueEnum?: ProSchema['valueEnum'];
   request?: ProSchema['request'];
 };
 
 const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
-  ({ options, fieldProps, proFieldProps, valueEnum, ...rest }, ref) => (
+  ({ options = [], fieldProps, proFieldProps, valueEnum, ...rest }, ref) => (
     <ProField
       ref={ref}
       valueType="checkbox"
