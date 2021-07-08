@@ -544,4 +544,21 @@ describe('StepsForm', () => {
       },
     });
   });
+
+  it('🐲 delete title when title not string', async () => {
+    const html = mount(
+      <StepsForm>
+        <StepsForm.StepForm title="表单1">
+          <ProFormText name="姓名" />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm>
+          <ProFormText name="邮箱" title={<div>title</div>} />
+        </StepsForm.StepForm>
+      </StepsForm>,
+    );
+    expect(html).toMatchSnapshot();
+    act(() => {
+      html.unmount();
+    });
+  });
 });

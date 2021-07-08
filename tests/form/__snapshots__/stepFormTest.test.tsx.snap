@@ -1,0 +1,2115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StepsForm 🐲 delete title when title not string 1`] = `
+<StepsFormWarp>
+  <ConfigProviderWrap>
+    <ConfigProvider
+      locale={
+        Object {
+          "Calendar": Object {
+            "lang": Object {
+              "backToToday": "返回今天",
+              "clear": "清除",
+              "dateFormat": "YYYY年M月D日",
+              "dateSelect": "选择日期",
+              "dateTimeFormat": "YYYY年M月D日 HH时mm分ss秒",
+              "dayFormat": "D日",
+              "decadeSelect": "选择年代",
+              "locale": "zh_CN",
+              "month": "月",
+              "monthPlaceholder": "请选择月份",
+              "monthSelect": "选择月份",
+              "nextCentury": "下一世纪",
+              "nextDecade": "下一年代",
+              "nextMonth": "下个月 (翻页下键)",
+              "nextYear": "下一年 (Control键加右方向键)",
+              "now": "此刻",
+              "ok": "确 定",
+              "placeholder": "请选择日期",
+              "previousCentury": "上一世纪",
+              "previousDecade": "上一年代",
+              "previousMonth": "上个月 (翻页上键)",
+              "previousYear": "上一年 (Control键加左方向键)",
+              "quarterPlaceholder": "请选择季度",
+              "rangeMonthPlaceholder": Array [
+                "开始月份",
+                "结束月份",
+              ],
+              "rangePlaceholder": Array [
+                "开始日期",
+                "结束日期",
+              ],
+              "rangeWeekPlaceholder": Array [
+                "开始周",
+                "结束周",
+              ],
+              "rangeYearPlaceholder": Array [
+                "开始年份",
+                "结束年份",
+              ],
+              "timeSelect": "选择时间",
+              "today": "今天",
+              "weekPlaceholder": "请选择周",
+              "weekSelect": "选择周",
+              "year": "年",
+              "yearFormat": "YYYY年",
+              "yearPlaceholder": "请选择年份",
+              "yearSelect": "选择年份",
+            },
+            "timePickerLocale": Object {
+              "placeholder": "请选择时间",
+              "rangePlaceholder": Array [
+                "开始时间",
+                "结束时间",
+              ],
+            },
+          },
+          "DatePicker": Object {
+            "lang": Object {
+              "backToToday": "返回今天",
+              "clear": "清除",
+              "dateFormat": "YYYY年M月D日",
+              "dateSelect": "选择日期",
+              "dateTimeFormat": "YYYY年M月D日 HH时mm分ss秒",
+              "dayFormat": "D日",
+              "decadeSelect": "选择年代",
+              "locale": "zh_CN",
+              "month": "月",
+              "monthPlaceholder": "请选择月份",
+              "monthSelect": "选择月份",
+              "nextCentury": "下一世纪",
+              "nextDecade": "下一年代",
+              "nextMonth": "下个月 (翻页下键)",
+              "nextYear": "下一年 (Control键加右方向键)",
+              "now": "此刻",
+              "ok": "确 定",
+              "placeholder": "请选择日期",
+              "previousCentury": "上一世纪",
+              "previousDecade": "上一年代",
+              "previousMonth": "上个月 (翻页上键)",
+              "previousYear": "上一年 (Control键加左方向键)",
+              "quarterPlaceholder": "请选择季度",
+              "rangeMonthPlaceholder": Array [
+                "开始月份",
+                "结束月份",
+              ],
+              "rangePlaceholder": Array [
+                "开始日期",
+                "结束日期",
+              ],
+              "rangeWeekPlaceholder": Array [
+                "开始周",
+                "结束周",
+              ],
+              "rangeYearPlaceholder": Array [
+                "开始年份",
+                "结束年份",
+              ],
+              "timeSelect": "选择时间",
+              "today": "今天",
+              "weekPlaceholder": "请选择周",
+              "weekSelect": "选择周",
+              "year": "年",
+              "yearFormat": "YYYY年",
+              "yearPlaceholder": "请选择年份",
+              "yearSelect": "选择年份",
+            },
+            "timePickerLocale": Object {
+              "placeholder": "请选择时间",
+              "rangePlaceholder": Array [
+                "开始时间",
+                "结束时间",
+              ],
+            },
+          },
+          "Empty": Object {
+            "description": "暂无数据",
+          },
+          "Form": Object {
+            "defaultValidateMessages": Object {
+              "array": Object {
+                "len": "须为\${len}个\${label}",
+                "max": "最多\${max}个\${label}",
+                "min": "最少\${min}个\${label}",
+                "range": "\${label}数量须在\${min}-\${max}之间",
+              },
+              "date": Object {
+                "format": "\${label}日期格式无效",
+                "invalid": "\${label}是一个无效日期",
+                "parse": "\${label}不能转换为日期",
+              },
+              "default": "字段验证错误\${label}",
+              "enum": "\${label}必须是其中一个[\${enum}]",
+              "number": Object {
+                "len": "\${label}必须等于\${len}",
+                "max": "\${label}最大值为\${max}",
+                "min": "\${label}最小值为\${min}",
+                "range": "\${label}须在\${min}-\${max}之间",
+              },
+              "pattern": Object {
+                "mismatch": "\${label}与模式不匹配\${pattern}",
+              },
+              "required": "请输入\${label}",
+              "string": Object {
+                "len": "\${label}须为\${len}个字符",
+                "max": "\${label}最多\${max}个字符",
+                "min": "\${label}最少\${min}个字符",
+                "range": "\${label}须在\${min}-\${max}字符之间",
+              },
+              "types": Object {
+                "array": "\${label}不是一个有效的\${type}",
+                "boolean": "\${label}不是一个有效的\${type}",
+                "date": "\${label}不是一个有效的\${type}",
+                "email": "\${label}不是一个有效的\${type}",
+                "float": "\${label}不是一个有效的\${type}",
+                "hex": "\${label}不是一个有效的\${type}",
+                "integer": "\${label}不是一个有效的\${type}",
+                "method": "\${label}不是一个有效的\${type}",
+                "number": "\${label}不是一个有效的\${type}",
+                "object": "\${label}不是一个有效的\${type}",
+                "regexp": "\${label}不是一个有效的\${type}",
+                "string": "\${label}不是一个有效的\${type}",
+                "url": "\${label}不是一个有效的\${type}",
+              },
+              "whitespace": "\${label}不能为空字符",
+            },
+            "optional": "（可选）",
+          },
+          "Icon": Object {
+            "icon": "图标",
+          },
+          "Image": Object {
+            "preview": "预览",
+          },
+          "Modal": Object {
+            "cancelText": "取消",
+            "justOkText": "知道了",
+            "okText": "确定",
+          },
+          "PageHeader": Object {
+            "back": "返回",
+          },
+          "Pagination": Object {
+            "items_per_page": "条/页",
+            "jump_to": "跳至",
+            "jump_to_confirm": "确定",
+            "next_3": "向后 3 页",
+            "next_5": "向后 5 页",
+            "next_page": "下一页",
+            "page": "页",
+            "prev_3": "向前 3 页",
+            "prev_5": "向前 5 页",
+            "prev_page": "上一页",
+          },
+          "Popconfirm": Object {
+            "cancelText": "取消",
+            "okText": "确定",
+          },
+          "Table": Object {
+            "cancelSort": "取消排序",
+            "collapse": "关闭行",
+            "expand": "展开行",
+            "filterConfirm": "确定",
+            "filterEmptyText": "无筛选项",
+            "filterReset": "重置",
+            "filterTitle": "筛选",
+            "selectAll": "全选当页",
+            "selectInvert": "反选当页",
+            "selectNone": "清空所有",
+            "selectionAll": "全选所有",
+            "sortTitle": "排序",
+            "triggerAsc": "点击升序",
+            "triggerDesc": "点击降序",
+          },
+          "Text": Object {
+            "copied": "复制成功",
+            "copy": "复制",
+            "edit": "编辑",
+            "expand": "展开",
+          },
+          "TimePicker": Object {
+            "placeholder": "请选择时间",
+            "rangePlaceholder": Array [
+              "开始时间",
+              "结束时间",
+            ],
+          },
+          "Transfer": Object {
+            "itemUnit": "项",
+            "itemsUnit": "项",
+            "remove": "删除",
+            "removeAll": "删除全部",
+            "removeCurrent": "删除当页",
+            "searchPlaceholder": "请输入搜索内容",
+            "selectAll": "全选所有",
+            "selectCurrent": "全选当页",
+            "selectInvert": "反选当页",
+          },
+          "Upload": Object {
+            "downloadFile": "下载文件",
+            "previewFile": "预览文件",
+            "removeFile": "删除文件",
+            "uploadError": "上传错误",
+            "uploading": "文件上传中",
+          },
+          "global": Object {
+            "placeholder": "请选择",
+          },
+          "locale": "zh-cn",
+        }
+      }
+    >
+      <LocaleReceiver
+        componentName="global"
+      >
+        <ProviderChildren
+          locale={
+            Object {
+              "Calendar": Object {
+                "lang": Object {
+                  "backToToday": "返回今天",
+                  "clear": "清除",
+                  "dateFormat": "YYYY年M月D日",
+                  "dateSelect": "选择日期",
+                  "dateTimeFormat": "YYYY年M月D日 HH时mm分ss秒",
+                  "dayFormat": "D日",
+                  "decadeSelect": "选择年代",
+                  "locale": "zh_CN",
+                  "month": "月",
+                  "monthPlaceholder": "请选择月份",
+                  "monthSelect": "选择月份",
+                  "nextCentury": "下一世纪",
+                  "nextDecade": "下一年代",
+                  "nextMonth": "下个月 (翻页下键)",
+                  "nextYear": "下一年 (Control键加右方向键)",
+                  "now": "此刻",
+                  "ok": "确 定",
+                  "placeholder": "请选择日期",
+                  "previousCentury": "上一世纪",
+                  "previousDecade": "上一年代",
+                  "previousMonth": "上个月 (翻页上键)",
+                  "previousYear": "上一年 (Control键加左方向键)",
+                  "quarterPlaceholder": "请选择季度",
+                  "rangeMonthPlaceholder": Array [
+                    "开始月份",
+                    "结束月份",
+                  ],
+                  "rangePlaceholder": Array [
+                    "开始日期",
+                    "结束日期",
+                  ],
+                  "rangeWeekPlaceholder": Array [
+                    "开始周",
+                    "结束周",
+                  ],
+                  "rangeYearPlaceholder": Array [
+                    "开始年份",
+                    "结束年份",
+                  ],
+                  "timeSelect": "选择时间",
+                  "today": "今天",
+                  "weekPlaceholder": "请选择周",
+                  "weekSelect": "选择周",
+                  "year": "年",
+                  "yearFormat": "YYYY年",
+                  "yearPlaceholder": "请选择年份",
+                  "yearSelect": "选择年份",
+                },
+                "timePickerLocale": Object {
+                  "placeholder": "请选择时间",
+                  "rangePlaceholder": Array [
+                    "开始时间",
+                    "结束时间",
+                  ],
+                },
+              },
+              "DatePicker": Object {
+                "lang": Object {
+                  "backToToday": "返回今天",
+                  "clear": "清除",
+                  "dateFormat": "YYYY年M月D日",
+                  "dateSelect": "选择日期",
+                  "dateTimeFormat": "YYYY年M月D日 HH时mm分ss秒",
+                  "dayFormat": "D日",
+                  "decadeSelect": "选择年代",
+                  "locale": "zh_CN",
+                  "month": "月",
+                  "monthPlaceholder": "请选择月份",
+                  "monthSelect": "选择月份",
+                  "nextCentury": "下一世纪",
+                  "nextDecade": "下一年代",
+                  "nextMonth": "下个月 (翻页下键)",
+                  "nextYear": "下一年 (Control键加右方向键)",
+                  "now": "此刻",
+                  "ok": "确 定",
+                  "placeholder": "请选择日期",
+                  "previousCentury": "上一世纪",
+                  "previousDecade": "上一年代",
+                  "previousMonth": "上个月 (翻页上键)",
+                  "previousYear": "上一年 (Control键加左方向键)",
+                  "quarterPlaceholder": "请选择季度",
+                  "rangeMonthPlaceholder": Array [
+                    "开始月份",
+                    "结束月份",
+                  ],
+                  "rangePlaceholder": Array [
+                    "开始日期",
+                    "结束日期",
+                  ],
+                  "rangeWeekPlaceholder": Array [
+                    "开始周",
+                    "结束周",
+                  ],
+                  "rangeYearPlaceholder": Array [
+                    "开始年份",
+                    "结束年份",
+                  ],
+                  "timeSelect": "选择时间",
+                  "today": "今天",
+                  "weekPlaceholder": "请选择周",
+                  "weekSelect": "选择周",
+                  "year": "年",
+                  "yearFormat": "YYYY年",
+                  "yearPlaceholder": "请选择年份",
+                  "yearSelect": "选择年份",
+                },
+                "timePickerLocale": Object {
+                  "placeholder": "请选择时间",
+                  "rangePlaceholder": Array [
+                    "开始时间",
+                    "结束时间",
+                  ],
+                },
+              },
+              "Empty": Object {
+                "description": "暂无数据",
+              },
+              "Form": Object {
+                "defaultValidateMessages": Object {
+                  "array": Object {
+                    "len": "须为\${len}个\${label}",
+                    "max": "最多\${max}个\${label}",
+                    "min": "最少\${min}个\${label}",
+                    "range": "\${label}数量须在\${min}-\${max}之间",
+                  },
+                  "date": Object {
+                    "format": "\${label}日期格式无效",
+                    "invalid": "\${label}是一个无效日期",
+                    "parse": "\${label}不能转换为日期",
+                  },
+                  "default": "字段验证错误\${label}",
+                  "enum": "\${label}必须是其中一个[\${enum}]",
+                  "number": Object {
+                    "len": "\${label}必须等于\${len}",
+                    "max": "\${label}最大值为\${max}",
+                    "min": "\${label}最小值为\${min}",
+                    "range": "\${label}须在\${min}-\${max}之间",
+                  },
+                  "pattern": Object {
+                    "mismatch": "\${label}与模式不匹配\${pattern}",
+                  },
+                  "required": "请输入\${label}",
+                  "string": Object {
+                    "len": "\${label}须为\${len}个字符",
+                    "max": "\${label}最多\${max}个字符",
+                    "min": "\${label}最少\${min}个字符",
+                    "range": "\${label}须在\${min}-\${max}字符之间",
+                  },
+                  "types": Object {
+                    "array": "\${label}不是一个有效的\${type}",
+                    "boolean": "\${label}不是一个有效的\${type}",
+                    "date": "\${label}不是一个有效的\${type}",
+                    "email": "\${label}不是一个有效的\${type}",
+                    "float": "\${label}不是一个有效的\${type}",
+                    "hex": "\${label}不是一个有效的\${type}",
+                    "integer": "\${label}不是一个有效的\${type}",
+                    "method": "\${label}不是一个有效的\${type}",
+                    "number": "\${label}不是一个有效的\${type}",
+                    "object": "\${label}不是一个有效的\${type}",
+                    "regexp": "\${label}不是一个有效的\${type}",
+                    "string": "\${label}不是一个有效的\${type}",
+                    "url": "\${label}不是一个有效的\${type}",
+                  },
+                  "whitespace": "\${label}不能为空字符",
+                },
+                "optional": "（可选）",
+              },
+              "Icon": Object {
+                "icon": "图标",
+              },
+              "Image": Object {
+                "preview": "预览",
+              },
+              "Modal": Object {
+                "cancelText": "取消",
+                "justOkText": "知道了",
+                "okText": "确定",
+              },
+              "PageHeader": Object {
+                "back": "返回",
+              },
+              "Pagination": Object {
+                "items_per_page": "条/页",
+                "jump_to": "跳至",
+                "jump_to_confirm": "确定",
+                "next_3": "向后 3 页",
+                "next_5": "向后 5 页",
+                "next_page": "下一页",
+                "page": "页",
+                "prev_3": "向前 3 页",
+                "prev_5": "向前 5 页",
+                "prev_page": "上一页",
+              },
+              "Popconfirm": Object {
+                "cancelText": "取消",
+                "okText": "确定",
+              },
+              "Table": Object {
+                "cancelSort": "取消排序",
+                "collapse": "关闭行",
+                "expand": "展开行",
+                "filterConfirm": "确定",
+                "filterEmptyText": "无筛选项",
+                "filterReset": "重置",
+                "filterTitle": "筛选",
+                "selectAll": "全选当页",
+                "selectInvert": "反选当页",
+                "selectNone": "清空所有",
+                "selectionAll": "全选所有",
+                "sortTitle": "排序",
+                "triggerAsc": "点击升序",
+                "triggerDesc": "点击降序",
+              },
+              "Text": Object {
+                "copied": "复制成功",
+                "copy": "复制",
+                "edit": "编辑",
+                "expand": "展开",
+              },
+              "TimePicker": Object {
+                "placeholder": "请选择时间",
+                "rangePlaceholder": Array [
+                  "开始时间",
+                  "结束时间",
+                ],
+              },
+              "Transfer": Object {
+                "itemUnit": "项",
+                "itemsUnit": "项",
+                "remove": "删除",
+                "removeAll": "删除全部",
+                "removeCurrent": "删除当页",
+                "searchPlaceholder": "请输入搜索内容",
+                "selectAll": "全选所有",
+                "selectCurrent": "全选当页",
+                "selectInvert": "反选当页",
+              },
+              "Upload": Object {
+                "downloadFile": "下载文件",
+                "previewFile": "预览文件",
+                "removeFile": "删除文件",
+                "uploadError": "上传错误",
+                "uploading": "文件上传中",
+              },
+              "global": Object {
+                "placeholder": "请选择",
+              },
+              "locale": "zh-cn",
+            }
+          }
+          parentContext={
+            Object {
+              "getPrefixCls": [Function],
+              "renderEmpty": [Function],
+            }
+          }
+        >
+          <LocaleProvider
+            _ANT_MARK__="internalMark"
+            locale={
+              Object {
+                "Calendar": Object {
+                  "lang": Object {
+                    "backToToday": "返回今天",
+                    "clear": "清除",
+                    "dateFormat": "YYYY年M月D日",
+                    "dateSelect": "选择日期",
+                    "dateTimeFormat": "YYYY年M月D日 HH时mm分ss秒",
+                    "dayFormat": "D日",
+                    "decadeSelect": "选择年代",
+                    "locale": "zh_CN",
+                    "month": "月",
+                    "monthPlaceholder": "请选择月份",
+                    "monthSelect": "选择月份",
+                    "nextCentury": "下一世纪",
+                    "nextDecade": "下一年代",
+                    "nextMonth": "下个月 (翻页下键)",
+                    "nextYear": "下一年 (Control键加右方向键)",
+                    "now": "此刻",
+                    "ok": "确 定",
+                    "placeholder": "请选择日期",
+                    "previousCentury": "上一世纪",
+                    "previousDecade": "上一年代",
+                    "previousMonth": "上个月 (翻页上键)",
+                    "previousYear": "上一年 (Control键加左方向键)",
+                    "quarterPlaceholder": "请选择季度",
+                    "rangeMonthPlaceholder": Array [
+                      "开始月份",
+                      "结束月份",
+                    ],
+                    "rangePlaceholder": Array [
+                      "开始日期",
+                      "结束日期",
+                    ],
+                    "rangeWeekPlaceholder": Array [
+                      "开始周",
+                      "结束周",
+                    ],
+                    "rangeYearPlaceholder": Array [
+                      "开始年份",
+                      "结束年份",
+                    ],
+                    "timeSelect": "选择时间",
+                    "today": "今天",
+                    "weekPlaceholder": "请选择周",
+                    "weekSelect": "选择周",
+                    "year": "年",
+                    "yearFormat": "YYYY年",
+                    "yearPlaceholder": "请选择年份",
+                    "yearSelect": "选择年份",
+                  },
+                  "timePickerLocale": Object {
+                    "placeholder": "请选择时间",
+                    "rangePlaceholder": Array [
+                      "开始时间",
+                      "结束时间",
+                    ],
+                  },
+                },
+                "DatePicker": Object {
+                  "lang": Object {
+                    "backToToday": "返回今天",
+                    "clear": "清除",
+                    "dateFormat": "YYYY年M月D日",
+                    "dateSelect": "选择日期",
+                    "dateTimeFormat": "YYYY年M月D日 HH时mm分ss秒",
+                    "dayFormat": "D日",
+                    "decadeSelect": "选择年代",
+                    "locale": "zh_CN",
+                    "month": "月",
+                    "monthPlaceholder": "请选择月份",
+                    "monthSelect": "选择月份",
+                    "nextCentury": "下一世纪",
+                    "nextDecade": "下一年代",
+                    "nextMonth": "下个月 (翻页下键)",
+                    "nextYear": "下一年 (Control键加右方向键)",
+                    "now": "此刻",
+                    "ok": "确 定",
+                    "placeholder": "请选择日期",
+                    "previousCentury": "上一世纪",
+                    "previousDecade": "上一年代",
+                    "previousMonth": "上个月 (翻页上键)",
+                    "previousYear": "上一年 (Control键加左方向键)",
+                    "quarterPlaceholder": "请选择季度",
+                    "rangeMonthPlaceholder": Array [
+                      "开始月份",
+                      "结束月份",
+                    ],
+                    "rangePlaceholder": Array [
+                      "开始日期",
+                      "结束日期",
+                    ],
+                    "rangeWeekPlaceholder": Array [
+                      "开始周",
+                      "结束周",
+                    ],
+                    "rangeYearPlaceholder": Array [
+                      "开始年份",
+                      "结束年份",
+                    ],
+                    "timeSelect": "选择时间",
+                    "today": "今天",
+                    "weekPlaceholder": "请选择周",
+                    "weekSelect": "选择周",
+                    "year": "年",
+                    "yearFormat": "YYYY年",
+                    "yearPlaceholder": "请选择年份",
+                    "yearSelect": "选择年份",
+                  },
+                  "timePickerLocale": Object {
+                    "placeholder": "请选择时间",
+                    "rangePlaceholder": Array [
+                      "开始时间",
+                      "结束时间",
+                    ],
+                  },
+                },
+                "Empty": Object {
+                  "description": "暂无数据",
+                },
+                "Form": Object {
+                  "defaultValidateMessages": Object {
+                    "array": Object {
+                      "len": "须为\${len}个\${label}",
+                      "max": "最多\${max}个\${label}",
+                      "min": "最少\${min}个\${label}",
+                      "range": "\${label}数量须在\${min}-\${max}之间",
+                    },
+                    "date": Object {
+                      "format": "\${label}日期格式无效",
+                      "invalid": "\${label}是一个无效日期",
+                      "parse": "\${label}不能转换为日期",
+                    },
+                    "default": "字段验证错误\${label}",
+                    "enum": "\${label}必须是其中一个[\${enum}]",
+                    "number": Object {
+                      "len": "\${label}必须等于\${len}",
+                      "max": "\${label}最大值为\${max}",
+                      "min": "\${label}最小值为\${min}",
+                      "range": "\${label}须在\${min}-\${max}之间",
+                    },
+                    "pattern": Object {
+                      "mismatch": "\${label}与模式不匹配\${pattern}",
+                    },
+                    "required": "请输入\${label}",
+                    "string": Object {
+                      "len": "\${label}须为\${len}个字符",
+                      "max": "\${label}最多\${max}个字符",
+                      "min": "\${label}最少\${min}个字符",
+                      "range": "\${label}须在\${min}-\${max}字符之间",
+                    },
+                    "types": Object {
+                      "array": "\${label}不是一个有效的\${type}",
+                      "boolean": "\${label}不是一个有效的\${type}",
+                      "date": "\${label}不是一个有效的\${type}",
+                      "email": "\${label}不是一个有效的\${type}",
+                      "float": "\${label}不是一个有效的\${type}",
+                      "hex": "\${label}不是一个有效的\${type}",
+                      "integer": "\${label}不是一个有效的\${type}",
+                      "method": "\${label}不是一个有效的\${type}",
+                      "number": "\${label}不是一个有效的\${type}",
+                      "object": "\${label}不是一个有效的\${type}",
+                      "regexp": "\${label}不是一个有效的\${type}",
+                      "string": "\${label}不是一个有效的\${type}",
+                      "url": "\${label}不是一个有效的\${type}",
+                    },
+                    "whitespace": "\${label}不能为空字符",
+                  },
+                  "optional": "（可选）",
+                },
+                "Icon": Object {
+                  "icon": "图标",
+                },
+                "Image": Object {
+                  "preview": "预览",
+                },
+                "Modal": Object {
+                  "cancelText": "取消",
+                  "justOkText": "知道了",
+                  "okText": "确定",
+                },
+                "PageHeader": Object {
+                  "back": "返回",
+                },
+                "Pagination": Object {
+                  "items_per_page": "条/页",
+                  "jump_to": "跳至",
+                  "jump_to_confirm": "确定",
+                  "next_3": "向后 3 页",
+                  "next_5": "向后 5 页",
+                  "next_page": "下一页",
+                  "page": "页",
+                  "prev_3": "向前 3 页",
+                  "prev_5": "向前 5 页",
+                  "prev_page": "上一页",
+                },
+                "Popconfirm": Object {
+                  "cancelText": "取消",
+                  "okText": "确定",
+                },
+                "Table": Object {
+                  "cancelSort": "取消排序",
+                  "collapse": "关闭行",
+                  "expand": "展开行",
+                  "filterConfirm": "确定",
+                  "filterEmptyText": "无筛选项",
+                  "filterReset": "重置",
+                  "filterTitle": "筛选",
+                  "selectAll": "全选当页",
+                  "selectInvert": "反选当页",
+                  "selectNone": "清空所有",
+                  "selectionAll": "全选所有",
+                  "sortTitle": "排序",
+                  "triggerAsc": "点击升序",
+                  "triggerDesc": "点击降序",
+                },
+                "Text": Object {
+                  "copied": "复制成功",
+                  "copy": "复制",
+                  "edit": "编辑",
+                  "expand": "展开",
+                },
+                "TimePicker": Object {
+                  "placeholder": "请选择时间",
+                  "rangePlaceholder": Array [
+                    "开始时间",
+                    "结束时间",
+                  ],
+                },
+                "Transfer": Object {
+                  "itemUnit": "项",
+                  "itemsUnit": "项",
+                  "remove": "删除",
+                  "removeAll": "删除全部",
+                  "removeCurrent": "删除当页",
+                  "searchPlaceholder": "请输入搜索内容",
+                  "selectAll": "全选所有",
+                  "selectCurrent": "全选当页",
+                  "selectInvert": "反选当页",
+                },
+                "Upload": Object {
+                  "downloadFile": "下载文件",
+                  "previewFile": "预览文件",
+                  "removeFile": "删除文件",
+                  "uploadError": "上传错误",
+                  "uploading": "文件上传中",
+                },
+                "global": Object {
+                  "placeholder": "请选择",
+                },
+                "locale": "zh-cn",
+              }
+            }
+          >
+            <FormProvider
+              validateMessages={
+                Object {
+                  "array": Object {
+                    "len": "须为\${len}个\${label}",
+                    "max": "最多\${max}个\${label}",
+                    "min": "最少\${min}个\${label}",
+                    "range": "\${label}数量须在\${min}-\${max}之间",
+                  },
+                  "date": Object {
+                    "format": "\${label}日期格式无效",
+                    "invalid": "\${label}是一个无效日期",
+                    "parse": "\${label}不能转换为日期",
+                  },
+                  "default": "字段验证错误\${label}",
+                  "enum": "\${label}必须是其中一个[\${enum}]",
+                  "number": Object {
+                    "len": "\${label}必须等于\${len}",
+                    "max": "\${label}最大值为\${max}",
+                    "min": "\${label}最小值为\${min}",
+                    "range": "\${label}须在\${min}-\${max}之间",
+                  },
+                  "pattern": Object {
+                    "mismatch": "\${label}与模式不匹配\${pattern}",
+                  },
+                  "required": "请输入\${label}",
+                  "string": Object {
+                    "len": "\${label}须为\${len}个字符",
+                    "max": "\${label}最多\${max}个字符",
+                    "min": "\${label}最少\${min}个字符",
+                    "range": "\${label}须在\${min}-\${max}字符之间",
+                  },
+                  "types": Object {
+                    "array": "\${label}不是一个有效的\${type}",
+                    "boolean": "\${label}不是一个有效的\${type}",
+                    "date": "\${label}不是一个有效的\${type}",
+                    "email": "\${label}不是一个有效的\${type}",
+                    "float": "\${label}不是一个有效的\${type}",
+                    "hex": "\${label}不是一个有效的\${type}",
+                    "integer": "\${label}不是一个有效的\${type}",
+                    "method": "\${label}不是一个有效的\${type}",
+                    "number": "\${label}不是一个有效的\${type}",
+                    "object": "\${label}不是一个有效的\${type}",
+                    "regexp": "\${label}不是一个有效的\${type}",
+                    "string": "\${label}不是一个有效的\${type}",
+                    "url": "\${label}不是一个有效的\${type}",
+                  },
+                  "whitespace": "\${label}不能为空字符",
+                }
+              }
+            >
+              <StepsForm>
+                <div
+                  className="ant-pro-steps-form"
+                >
+                  <FormProvider>
+                    <FormProvider>
+                      <div
+                        className="ant-pro-steps-form-steps-container"
+                        style={
+                          Object {
+                            "maxWidth": 0,
+                          }
+                        }
+                      >
+                        <Steps
+                          current={0}
+                        >
+                          <Steps
+                            className=""
+                            current={0}
+                            direction="horizontal"
+                            iconPrefix="ant"
+                            icons={
+                              Object {
+                                "error": <ForwardRef(CloseOutlined)
+                                  className="ant-steps-error-icon"
+                                />,
+                                "finish": <ForwardRef(CheckOutlined)
+                                  className="ant-steps-finish-icon"
+                                />,
+                              }
+                            }
+                            initial={0}
+                            labelPlacement="horizontal"
+                            prefixCls="ant-steps"
+                            progressDot={false}
+                            size=""
+                            status="process"
+                            stepIcon={[Function]}
+                            type="default"
+                          >
+                            <div
+                              className="ant-steps ant-steps-horizontal ant-steps-label-horizontal"
+                              style={Object {}}
+                            />
+                          </Steps>
+                        </Steps>
+                      </div>
+                      <div
+                        className="ant-pro-steps-form-container"
+                      >
+                        <div
+                          className="ant-pro-steps-form-step ant-pro-steps-form-step-active"
+                          key="0"
+                        >
+                          <StepForm
+                            key="0"
+                            name="0"
+                            step={0}
+                            submitter={false}
+                            title="表单1"
+                          >
+                            <RequestForm
+                              formRef={
+                                Object {
+                                  "current": Object {
+                                    "__INTERNAL__": Object {
+                                      "itemRef": [Function],
+                                      "name": "0",
+                                    },
+                                    "getFieldError": [Function],
+                                    "getFieldFormatValue": [Function],
+                                    "getFieldInstance": [Function],
+                                    "getFieldValue": [Function],
+                                    "getFieldsError": [Function],
+                                    "getFieldsFormatValue": [Function],
+                                    "getFieldsValue": [Function],
+                                    "getInternalHooks": [Function],
+                                    "isFieldTouched": [Function],
+                                    "isFieldValidating": [Function],
+                                    "isFieldsTouched": [Function],
+                                    "isFieldsValidating": [Function],
+                                    "resetFields": [Function],
+                                    "scrollToField": [Function],
+                                    "setFields": [Function],
+                                    "setFieldsValue": [Function],
+                                    "submit": [Function],
+                                    "validateFields": [Function],
+                                    "validateTrigger": "onChange",
+                                  },
+                                }
+                              }
+                              layout="vertical"
+                              name="0"
+                              onFinish={[Function]}
+                              submitter={false}
+                              title="表单1"
+                            >
+                              <BaseForm
+                                formRef={
+                                  Object {
+                                    "current": Object {
+                                      "__INTERNAL__": Object {
+                                        "itemRef": [Function],
+                                        "name": "0",
+                                      },
+                                      "getFieldError": [Function],
+                                      "getFieldFormatValue": [Function],
+                                      "getFieldInstance": [Function],
+                                      "getFieldValue": [Function],
+                                      "getFieldsError": [Function],
+                                      "getFieldsFormatValue": [Function],
+                                      "getFieldsValue": [Function],
+                                      "getInternalHooks": [Function],
+                                      "isFieldTouched": [Function],
+                                      "isFieldValidating": [Function],
+                                      "isFieldsTouched": [Function],
+                                      "isFieldsValidating": [Function],
+                                      "resetFields": [Function],
+                                      "scrollToField": [Function],
+                                      "setFields": [Function],
+                                      "setFieldsValue": [Function],
+                                      "submit": [Function],
+                                      "validateFields": [Function],
+                                      "validateTrigger": "onChange",
+                                    },
+                                  }
+                                }
+                                initialValues={Object {}}
+                                layout="vertical"
+                                name="0"
+                                onFinish={[Function]}
+                                submitter={false}
+                                title="表单1"
+                              >
+                                <ConfigProviderWrap>
+                                  <ForwardRef(InternalForm)
+                                    form={
+                                      Object {
+                                        "__INTERNAL__": Object {
+                                          "itemRef": [Function],
+                                          "name": "0",
+                                        },
+                                        "getFieldError": [Function],
+                                        "getFieldInstance": [Function],
+                                        "getFieldValue": [Function],
+                                        "getFieldsError": [Function],
+                                        "getFieldsValue": [Function],
+                                        "getInternalHooks": [Function],
+                                        "isFieldTouched": [Function],
+                                        "isFieldValidating": [Function],
+                                        "isFieldsTouched": [Function],
+                                        "isFieldsValidating": [Function],
+                                        "resetFields": [Function],
+                                        "scrollToField": [Function],
+                                        "setFields": [Function],
+                                        "setFieldsValue": [Function],
+                                        "submit": [Function],
+                                        "validateFields": [Function],
+                                      }
+                                    }
+                                    initialValues={Object {}}
+                                    layout="vertical"
+                                    name="0"
+                                    onFinish={[Function]}
+                                    onKeyPress={[Function]}
+                                    onValuesChange={[Function]}
+                                    title="表单1"
+                                  >
+                                    <SizeContextProvider>
+                                      <ForwardRef(Form)
+                                        className="ant-form ant-form-vertical"
+                                        form={
+                                          Object {
+                                            "__INTERNAL__": Object {
+                                              "itemRef": [Function],
+                                              "name": "0",
+                                            },
+                                            "getFieldError": [Function],
+                                            "getFieldInstance": [Function],
+                                            "getFieldValue": [Function],
+                                            "getFieldsError": [Function],
+                                            "getFieldsValue": [Function],
+                                            "getInternalHooks": [Function],
+                                            "isFieldTouched": [Function],
+                                            "isFieldValidating": [Function],
+                                            "isFieldsTouched": [Function],
+                                            "isFieldsValidating": [Function],
+                                            "resetFields": [Function],
+                                            "scrollToField": [Function],
+                                            "setFields": [Function],
+                                            "setFieldsValue": [Function],
+                                            "submit": [Function],
+                                            "validateFields": [Function],
+                                          }
+                                        }
+                                        id="0"
+                                        initialValues={Object {}}
+                                        name="0"
+                                        onFinish={[Function]}
+                                        onFinishFailed={[Function]}
+                                        onKeyPress={[Function]}
+                                        onValuesChange={[Function]}
+                                        title="表单1"
+                                      >
+                                        <form
+                                          className="ant-form ant-form-vertical"
+                                          id="0"
+                                          onKeyPress={[Function]}
+                                          onReset={[Function]}
+                                          onSubmit={[Function]}
+                                          title="表单1"
+                                        >
+                                          <input
+                                            style={
+                                              Object {
+                                                "display": "none",
+                                              }
+                                            }
+                                            type="text"
+                                          />
+                                          <FormItem
+                                            noStyle={true}
+                                            shouldUpdate={true}
+                                          >
+                                            <WrapperField
+                                              messageVariables={Object {}}
+                                              noStyle={true}
+                                              onReset={[Function]}
+                                              shouldUpdate={true}
+                                              trigger="onChange"
+                                              validateTrigger="onChange"
+                                            >
+                                              <Field
+                                                fieldContext={
+                                                  Object {
+                                                    "__INTERNAL__": Object {
+                                                      "itemRef": [Function],
+                                                      "name": "0",
+                                                    },
+                                                    "getFieldError": [Function],
+                                                    "getFieldInstance": [Function],
+                                                    "getFieldValue": [Function],
+                                                    "getFieldsError": [Function],
+                                                    "getFieldsValue": [Function],
+                                                    "getInternalHooks": [Function],
+                                                    "isFieldTouched": [Function],
+                                                    "isFieldValidating": [Function],
+                                                    "isFieldsTouched": [Function],
+                                                    "isFieldsValidating": [Function],
+                                                    "resetFields": [Function],
+                                                    "scrollToField": [Function],
+                                                    "setFields": [Function],
+                                                    "setFieldsValue": [Function],
+                                                    "submit": [Function],
+                                                    "validateFields": [Function],
+                                                    "validateTrigger": "onChange",
+                                                  }
+                                                }
+                                                key="_"
+                                                messageVariables={Object {}}
+                                                noStyle={true}
+                                                onReset={[Function]}
+                                                shouldUpdate={true}
+                                                trigger="onChange"
+                                                validateTrigger="onChange"
+                                                valuePropName="value"
+                                              />
+                                            </WrapperField>
+                                          </FormItem>
+                                          <FieldWithContext
+                                            key=".0"
+                                            name="姓名"
+                                          >
+                                            <ProFormItem
+                                              messageVariables={
+                                                Object {
+                                                  "label": undefined,
+                                                }
+                                              }
+                                              name="姓名"
+                                              valuePropName="value"
+                                              valueType="text"
+                                            >
+                                              <FormItem
+                                                messageVariables={
+                                                  Object {
+                                                    "label": undefined,
+                                                  }
+                                                }
+                                                name="姓名"
+                                                valuePropName="value"
+                                              >
+                                                <WrapperField
+                                                  messageVariables={
+                                                    Object {
+                                                      "label": undefined,
+                                                    }
+                                                  }
+                                                  name="姓名"
+                                                  onReset={[Function]}
+                                                  trigger="onChange"
+                                                  validateTrigger="onChange"
+                                                  valuePropName="value"
+                                                >
+                                                  <Field
+                                                    fieldContext={
+                                                      Object {
+                                                        "__INTERNAL__": Object {
+                                                          "itemRef": [Function],
+                                                          "name": "0",
+                                                        },
+                                                        "getFieldError": [Function],
+                                                        "getFieldInstance": [Function],
+                                                        "getFieldValue": [Function],
+                                                        "getFieldsError": [Function],
+                                                        "getFieldsValue": [Function],
+                                                        "getInternalHooks": [Function],
+                                                        "isFieldTouched": [Function],
+                                                        "isFieldValidating": [Function],
+                                                        "isFieldsTouched": [Function],
+                                                        "isFieldsValidating": [Function],
+                                                        "resetFields": [Function],
+                                                        "scrollToField": [Function],
+                                                        "setFields": [Function],
+                                                        "setFieldsValue": [Function],
+                                                        "submit": [Function],
+                                                        "validateFields": [Function],
+                                                        "validateTrigger": "onChange",
+                                                      }
+                                                    }
+                                                    key="_姓名"
+                                                    messageVariables={
+                                                      Object {
+                                                        "label": undefined,
+                                                      }
+                                                    }
+                                                    name={
+                                                      Array [
+                                                        "姓名",
+                                                      ]
+                                                    }
+                                                    onReset={[Function]}
+                                                    trigger="onChange"
+                                                    validateTrigger="onChange"
+                                                    valuePropName="value"
+                                                  >
+                                                    <Row
+                                                      className="ant-form-item"
+                                                      key="row"
+                                                    >
+                                                      <div
+                                                        className="ant-row ant-form-item"
+                                                        style={Object {}}
+                                                      >
+                                                        <FormItemLabel
+                                                          htmlFor="0_姓名"
+                                                          messageVariables={
+                                                            Object {
+                                                              "label": undefined,
+                                                            }
+                                                          }
+                                                          name="姓名"
+                                                          prefixCls="ant-form"
+                                                          required={false}
+                                                          requiredMark={true}
+                                                          valuePropName="value"
+                                                        />
+                                                        <FormItemInput
+                                                          errors={Array []}
+                                                          messageVariables={
+                                                            Object {
+                                                              "label": undefined,
+                                                            }
+                                                          }
+                                                          name={
+                                                            Array [
+                                                              "姓名",
+                                                            ]
+                                                          }
+                                                          onDomErrorVisibleChange={[Function]}
+                                                          prefixCls="ant-form"
+                                                          status=""
+                                                          touched={false}
+                                                          validateStatus=""
+                                                          validating={false}
+                                                          valuePropName="value"
+                                                        >
+                                                          <Col
+                                                            className="ant-form-item-control"
+                                                          >
+                                                            <div
+                                                              className="ant-col ant-form-item-control"
+                                                              style={Object {}}
+                                                            >
+                                                              <div
+                                                                className="ant-form-item-control-input"
+                                                              >
+                                                                <div
+                                                                  className="ant-form-item-control-input-content"
+                                                                >
+                                                                  <Component
+                                                                    update={1}
+                                                                  >
+                                                                    <LightWrapper
+                                                                      id="0_姓名"
+                                                                      onChange={[Function]}
+                                                                      style={Object {}}
+                                                                      valuePropName="value"
+                                                                    >
+                                                                      <Component
+                                                                        fieldProps={
+                                                                          Object {
+                                                                            "id": "0_姓名",
+                                                                            "onChange": [Function],
+                                                                          }
+                                                                        }
+                                                                        name="姓名"
+                                                                        proFieldProps={
+                                                                          Object {
+                                                                            "mode": "edit",
+                                                                            "proFieldKey": "form-field-姓名",
+                                                                          }
+                                                                        }
+                                                                      >
+                                                                        <ForwardRef(ProField)
+                                                                          fieldProps={
+                                                                            Object {
+                                                                              "id": "0_姓名",
+                                                                              "onChange": [Function],
+                                                                            }
+                                                                          }
+                                                                          mode="edit"
+                                                                          proFieldKey="form-field-姓名"
+                                                                          valueType="text"
+                                                                        >
+                                                                          <FieldText
+                                                                            fieldProps={
+                                                                              Object {
+                                                                                "id": "0_姓名",
+                                                                                "onChange": [Function],
+                                                                                "value": undefined,
+                                                                              }
+                                                                            }
+                                                                            mode="edit"
+                                                                            placeholder="请输入"
+                                                                            proFieldKey="form-field-姓名"
+                                                                            text=""
+                                                                          >
+                                                                            <Input
+                                                                              allowClear={true}
+                                                                              id="0_姓名"
+                                                                              onChange={[Function]}
+                                                                              placeholder="请输入"
+                                                                              type="text"
+                                                                            >
+                                                                              <ClearableLabeledInput
+                                                                                allowClear={true}
+                                                                                bordered={true}
+                                                                                element={
+                                                                                  <input
+                                                                                    className="ant-input"
+                                                                                    id="0_姓名"
+                                                                                    onBlur={[Function]}
+                                                                                    onChange={[Function]}
+                                                                                    onFocus={[Function]}
+                                                                                    onKeyDown={[Function]}
+                                                                                    placeholder="请输入"
+                                                                                    type="text"
+                                                                                  />
+                                                                                }
+                                                                                focused={false}
+                                                                                handleReset={[Function]}
+                                                                                id="0_姓名"
+                                                                                inputType="input"
+                                                                                onChange={[Function]}
+                                                                                placeholder="请输入"
+                                                                                prefixCls="ant-input"
+                                                                                triggerFocus={[Function]}
+                                                                                type="text"
+                                                                                value=""
+                                                                              >
+                                                                                <span
+                                                                                  className="ant-input-affix-wrapper"
+                                                                                  onMouseUp={[Function]}
+                                                                                >
+                                                                                  <input
+                                                                                    className="ant-input"
+                                                                                    id="0_姓名"
+                                                                                    onBlur={[Function]}
+                                                                                    onChange={[Function]}
+                                                                                    onFocus={[Function]}
+                                                                                    onKeyDown={[Function]}
+                                                                                    placeholder="请输入"
+                                                                                    style={null}
+                                                                                    type="text"
+                                                                                    value=""
+                                                                                  />
+                                                                                  <span
+                                                                                    className="ant-input-suffix"
+                                                                                  >
+                                                                                    <ForwardRef(CloseCircleFilled)
+                                                                                      className="ant-input-clear-icon-hidden ant-input-clear-icon"
+                                                                                      onClick={[Function]}
+                                                                                      role="button"
+                                                                                    >
+                                                                                      <AntdIcon
+                                                                                        className="ant-input-clear-icon-hidden ant-input-clear-icon"
+                                                                                        icon={
+                                                                                          Object {
+                                                                                            "icon": Object {
+                                                                                              "attrs": Object {
+                                                                                                "focusable": "false",
+                                                                                                "viewBox": "64 64 896 896",
+                                                                                              },
+                                                                                              "children": Array [
+                                                                                                Object {
+                                                                                                  "attrs": Object {
+                                                                                                    "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z",
+                                                                                                  },
+                                                                                                  "tag": "path",
+                                                                                                },
+                                                                                              ],
+                                                                                              "tag": "svg",
+                                                                                            },
+                                                                                            "name": "close-circle",
+                                                                                            "theme": "filled",
+                                                                                          }
+                                                                                        }
+                                                                                        onClick={[Function]}
+                                                                                        role="button"
+                                                                                      >
+                                                                                        <span
+                                                                                          aria-label="close-circle"
+                                                                                          className="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                                                                          onClick={[Function]}
+                                                                                          role="button"
+                                                                                          tabIndex={-1}
+                                                                                        >
+                                                                                          <IconReact
+                                                                                            icon={
+                                                                                              Object {
+                                                                                                "icon": Object {
+                                                                                                  "attrs": Object {
+                                                                                                    "focusable": "false",
+                                                                                                    "viewBox": "64 64 896 896",
+                                                                                                  },
+                                                                                                  "children": Array [
+                                                                                                    Object {
+                                                                                                      "attrs": Object {
+                                                                                                        "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z",
+                                                                                                      },
+                                                                                                      "tag": "path",
+                                                                                                    },
+                                                                                                  ],
+                                                                                                  "tag": "svg",
+                                                                                                },
+                                                                                                "name": "close-circle",
+                                                                                                "theme": "filled",
+                                                                                              }
+                                                                                            }
+                                                                                          >
+                                                                                            <svg
+                                                                                              aria-hidden="true"
+                                                                                              data-icon="close-circle"
+                                                                                              fill="currentColor"
+                                                                                              focusable="false"
+                                                                                              height="1em"
+                                                                                              key="svg-close-circle"
+                                                                                              viewBox="64 64 896 896"
+                                                                                              width="1em"
+                                                                                            >
+                                                                                              <path
+                                                                                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                                                                                key="svg-close-circle-svg-0"
+                                                                                              />
+                                                                                            </svg>
+                                                                                          </IconReact>
+                                                                                        </span>
+                                                                                      </AntdIcon>
+                                                                                    </ForwardRef(CloseCircleFilled)>
+                                                                                  </span>
+                                                                                </span>
+                                                                              </ClearableLabeledInput>
+                                                                            </Input>
+                                                                          </FieldText>
+                                                                        </ForwardRef(ProField)>
+                                                                      </Component>
+                                                                    </LightWrapper>
+                                                                  </Component>
+                                                                </div>
+                                                              </div>
+                                                              <ErrorList
+                                                                errors={Array []}
+                                                                onDomErrorVisibleChange={[Function]}
+                                                              >
+                                                                <CSSMotion
+                                                                  motionAppear={true}
+                                                                  motionDeadline={500}
+                                                                  motionName="ant-show-help"
+                                                                  onLeaveEnd={[Function]}
+                                                                  removeOnLeave={true}
+                                                                  visible={false}
+                                                                >
+                                                                  <DomWrapper />
+                                                                </CSSMotion>
+                                                              </ErrorList>
+                                                            </div>
+                                                          </Col>
+                                                        </FormItemInput>
+                                                      </div>
+                                                    </Row>
+                                                  </Field>
+                                                </WrapperField>
+                                              </FormItem>
+                                            </ProFormItem>
+                                          </FieldWithContext>
+                                        </form>
+                                      </ForwardRef(Form)>
+                                    </SizeContextProvider>
+                                  </ForwardRef(InternalForm)>
+                                </ConfigProviderWrap>
+                              </BaseForm>
+                            </RequestForm>
+                          </StepForm>
+                        </div>
+                        <div
+                          className="ant-pro-steps-form-step"
+                          key="1"
+                        >
+                          <StepForm
+                            key="1"
+                            name="1"
+                            step={1}
+                            title=""
+                          >
+                            <RequestForm
+                              formRef={
+                                Object {
+                                  "current": Object {
+                                    "__INTERNAL__": Object {
+                                      "itemRef": [Function],
+                                      "name": "1",
+                                    },
+                                    "getFieldError": [Function],
+                                    "getFieldFormatValue": [Function],
+                                    "getFieldInstance": [Function],
+                                    "getFieldValue": [Function],
+                                    "getFieldsError": [Function],
+                                    "getFieldsFormatValue": [Function],
+                                    "getFieldsValue": [Function],
+                                    "getInternalHooks": [Function],
+                                    "isFieldTouched": [Function],
+                                    "isFieldValidating": [Function],
+                                    "isFieldsTouched": [Function],
+                                    "isFieldsValidating": [Function],
+                                    "resetFields": [Function],
+                                    "scrollToField": [Function],
+                                    "setFields": [Function],
+                                    "setFieldsValue": [Function],
+                                    "submit": [Function],
+                                    "validateFields": [Function],
+                                    "validateTrigger": "onChange",
+                                  },
+                                }
+                              }
+                              layout="vertical"
+                              name="1"
+                              onFinish={[Function]}
+                              title=""
+                            >
+                              <BaseForm
+                                formRef={
+                                  Object {
+                                    "current": Object {
+                                      "__INTERNAL__": Object {
+                                        "itemRef": [Function],
+                                        "name": "1",
+                                      },
+                                      "getFieldError": [Function],
+                                      "getFieldFormatValue": [Function],
+                                      "getFieldInstance": [Function],
+                                      "getFieldValue": [Function],
+                                      "getFieldsError": [Function],
+                                      "getFieldsFormatValue": [Function],
+                                      "getFieldsValue": [Function],
+                                      "getInternalHooks": [Function],
+                                      "isFieldTouched": [Function],
+                                      "isFieldValidating": [Function],
+                                      "isFieldsTouched": [Function],
+                                      "isFieldsValidating": [Function],
+                                      "resetFields": [Function],
+                                      "scrollToField": [Function],
+                                      "setFields": [Function],
+                                      "setFieldsValue": [Function],
+                                      "submit": [Function],
+                                      "validateFields": [Function],
+                                      "validateTrigger": "onChange",
+                                    },
+                                  }
+                                }
+                                initialValues={Object {}}
+                                layout="vertical"
+                                name="1"
+                                onFinish={[Function]}
+                                title=""
+                              >
+                                <ConfigProviderWrap>
+                                  <ForwardRef(InternalForm)
+                                    form={
+                                      Object {
+                                        "__INTERNAL__": Object {
+                                          "itemRef": [Function],
+                                          "name": "1",
+                                        },
+                                        "getFieldError": [Function],
+                                        "getFieldInstance": [Function],
+                                        "getFieldValue": [Function],
+                                        "getFieldsError": [Function],
+                                        "getFieldsValue": [Function],
+                                        "getInternalHooks": [Function],
+                                        "isFieldTouched": [Function],
+                                        "isFieldValidating": [Function],
+                                        "isFieldsTouched": [Function],
+                                        "isFieldsValidating": [Function],
+                                        "resetFields": [Function],
+                                        "scrollToField": [Function],
+                                        "setFields": [Function],
+                                        "setFieldsValue": [Function],
+                                        "submit": [Function],
+                                        "validateFields": [Function],
+                                      }
+                                    }
+                                    initialValues={Object {}}
+                                    layout="vertical"
+                                    name="1"
+                                    onFinish={[Function]}
+                                    onKeyPress={[Function]}
+                                    onValuesChange={[Function]}
+                                    title=""
+                                  >
+                                    <SizeContextProvider>
+                                      <ForwardRef(Form)
+                                        className="ant-form ant-form-vertical"
+                                        form={
+                                          Object {
+                                            "__INTERNAL__": Object {
+                                              "itemRef": [Function],
+                                              "name": "1",
+                                            },
+                                            "getFieldError": [Function],
+                                            "getFieldInstance": [Function],
+                                            "getFieldValue": [Function],
+                                            "getFieldsError": [Function],
+                                            "getFieldsValue": [Function],
+                                            "getInternalHooks": [Function],
+                                            "isFieldTouched": [Function],
+                                            "isFieldValidating": [Function],
+                                            "isFieldsTouched": [Function],
+                                            "isFieldsValidating": [Function],
+                                            "resetFields": [Function],
+                                            "scrollToField": [Function],
+                                            "setFields": [Function],
+                                            "setFieldsValue": [Function],
+                                            "submit": [Function],
+                                            "validateFields": [Function],
+                                          }
+                                        }
+                                        id="1"
+                                        initialValues={Object {}}
+                                        name="1"
+                                        onFinish={[Function]}
+                                        onFinishFailed={[Function]}
+                                        onKeyPress={[Function]}
+                                        onValuesChange={[Function]}
+                                        title=""
+                                      >
+                                        <form
+                                          className="ant-form ant-form-vertical"
+                                          id="1"
+                                          onKeyPress={[Function]}
+                                          onReset={[Function]}
+                                          onSubmit={[Function]}
+                                          title=""
+                                        >
+                                          <input
+                                            style={
+                                              Object {
+                                                "display": "none",
+                                              }
+                                            }
+                                            type="text"
+                                          />
+                                          <FormItem
+                                            noStyle={true}
+                                            shouldUpdate={true}
+                                          >
+                                            <WrapperField
+                                              messageVariables={Object {}}
+                                              noStyle={true}
+                                              onReset={[Function]}
+                                              shouldUpdate={true}
+                                              trigger="onChange"
+                                              validateTrigger="onChange"
+                                            >
+                                              <Field
+                                                fieldContext={
+                                                  Object {
+                                                    "__INTERNAL__": Object {
+                                                      "itemRef": [Function],
+                                                      "name": "1",
+                                                    },
+                                                    "getFieldError": [Function],
+                                                    "getFieldInstance": [Function],
+                                                    "getFieldValue": [Function],
+                                                    "getFieldsError": [Function],
+                                                    "getFieldsValue": [Function],
+                                                    "getInternalHooks": [Function],
+                                                    "isFieldTouched": [Function],
+                                                    "isFieldValidating": [Function],
+                                                    "isFieldsTouched": [Function],
+                                                    "isFieldsValidating": [Function],
+                                                    "resetFields": [Function],
+                                                    "scrollToField": [Function],
+                                                    "setFields": [Function],
+                                                    "setFieldsValue": [Function],
+                                                    "submit": [Function],
+                                                    "validateFields": [Function],
+                                                    "validateTrigger": "onChange",
+                                                  }
+                                                }
+                                                key="_"
+                                                messageVariables={Object {}}
+                                                noStyle={true}
+                                                onReset={[Function]}
+                                                shouldUpdate={true}
+                                                trigger="onChange"
+                                                validateTrigger="onChange"
+                                                valuePropName="value"
+                                              />
+                                            </WrapperField>
+                                          </FormItem>
+                                          <FieldWithContext
+                                            key=".0"
+                                            name="邮箱"
+                                            title={
+                                              <div>
+                                                title
+                                              </div>
+                                            }
+                                          >
+                                            <ProFormItem
+                                              messageVariables={
+                                                Object {
+                                                  "label": undefined,
+                                                }
+                                              }
+                                              name="邮箱"
+                                              valuePropName="value"
+                                              valueType="text"
+                                            >
+                                              <FormItem
+                                                messageVariables={
+                                                  Object {
+                                                    "label": undefined,
+                                                  }
+                                                }
+                                                name="邮箱"
+                                                valuePropName="value"
+                                              >
+                                                <WrapperField
+                                                  messageVariables={
+                                                    Object {
+                                                      "label": undefined,
+                                                    }
+                                                  }
+                                                  name="邮箱"
+                                                  onReset={[Function]}
+                                                  trigger="onChange"
+                                                  validateTrigger="onChange"
+                                                  valuePropName="value"
+                                                >
+                                                  <Field
+                                                    fieldContext={
+                                                      Object {
+                                                        "__INTERNAL__": Object {
+                                                          "itemRef": [Function],
+                                                          "name": "1",
+                                                        },
+                                                        "getFieldError": [Function],
+                                                        "getFieldInstance": [Function],
+                                                        "getFieldValue": [Function],
+                                                        "getFieldsError": [Function],
+                                                        "getFieldsValue": [Function],
+                                                        "getInternalHooks": [Function],
+                                                        "isFieldTouched": [Function],
+                                                        "isFieldValidating": [Function],
+                                                        "isFieldsTouched": [Function],
+                                                        "isFieldsValidating": [Function],
+                                                        "resetFields": [Function],
+                                                        "scrollToField": [Function],
+                                                        "setFields": [Function],
+                                                        "setFieldsValue": [Function],
+                                                        "submit": [Function],
+                                                        "validateFields": [Function],
+                                                        "validateTrigger": "onChange",
+                                                      }
+                                                    }
+                                                    key="_邮箱"
+                                                    messageVariables={
+                                                      Object {
+                                                        "label": undefined,
+                                                      }
+                                                    }
+                                                    name={
+                                                      Array [
+                                                        "邮箱",
+                                                      ]
+                                                    }
+                                                    onReset={[Function]}
+                                                    trigger="onChange"
+                                                    validateTrigger="onChange"
+                                                    valuePropName="value"
+                                                  >
+                                                    <Row
+                                                      className="ant-form-item"
+                                                      key="row"
+                                                    >
+                                                      <div
+                                                        className="ant-row ant-form-item"
+                                                        style={Object {}}
+                                                      >
+                                                        <FormItemLabel
+                                                          htmlFor="1_邮箱"
+                                                          messageVariables={
+                                                            Object {
+                                                              "label": undefined,
+                                                            }
+                                                          }
+                                                          name="邮箱"
+                                                          prefixCls="ant-form"
+                                                          required={false}
+                                                          requiredMark={true}
+                                                          valuePropName="value"
+                                                        />
+                                                        <FormItemInput
+                                                          errors={Array []}
+                                                          messageVariables={
+                                                            Object {
+                                                              "label": undefined,
+                                                            }
+                                                          }
+                                                          name={
+                                                            Array [
+                                                              "邮箱",
+                                                            ]
+                                                          }
+                                                          onDomErrorVisibleChange={[Function]}
+                                                          prefixCls="ant-form"
+                                                          status=""
+                                                          touched={false}
+                                                          validateStatus=""
+                                                          validating={false}
+                                                          valuePropName="value"
+                                                        >
+                                                          <Col
+                                                            className="ant-form-item-control"
+                                                          >
+                                                            <div
+                                                              className="ant-col ant-form-item-control"
+                                                              style={Object {}}
+                                                            >
+                                                              <div
+                                                                className="ant-form-item-control-input"
+                                                              >
+                                                                <div
+                                                                  className="ant-form-item-control-input-content"
+                                                                >
+                                                                  <Component
+                                                                    update={1}
+                                                                  >
+                                                                    <LightWrapper
+                                                                      id="1_邮箱"
+                                                                      onChange={[Function]}
+                                                                      style={Object {}}
+                                                                      valuePropName="value"
+                                                                    >
+                                                                      <Component
+                                                                        fieldProps={
+                                                                          Object {
+                                                                            "id": "1_邮箱",
+                                                                            "onChange": [Function],
+                                                                          }
+                                                                        }
+                                                                        name="邮箱"
+                                                                        proFieldProps={
+                                                                          Object {
+                                                                            "mode": "edit",
+                                                                            "proFieldKey": "form-field-邮箱",
+                                                                          }
+                                                                        }
+                                                                        title={
+                                                                          <div>
+                                                                            title
+                                                                          </div>
+                                                                        }
+                                                                      >
+                                                                        <ForwardRef(ProField)
+                                                                          fieldProps={
+                                                                            Object {
+                                                                              "id": "1_邮箱",
+                                                                              "onChange": [Function],
+                                                                            }
+                                                                          }
+                                                                          mode="edit"
+                                                                          proFieldKey="form-field-邮箱"
+                                                                          valueType="text"
+                                                                        >
+                                                                          <FieldText
+                                                                            fieldProps={
+                                                                              Object {
+                                                                                "id": "1_邮箱",
+                                                                                "onChange": [Function],
+                                                                                "value": undefined,
+                                                                              }
+                                                                            }
+                                                                            mode="edit"
+                                                                            placeholder="请输入"
+                                                                            proFieldKey="form-field-邮箱"
+                                                                            text=""
+                                                                          >
+                                                                            <Input
+                                                                              allowClear={true}
+                                                                              id="1_邮箱"
+                                                                              onChange={[Function]}
+                                                                              placeholder="请输入"
+                                                                              type="text"
+                                                                            >
+                                                                              <ClearableLabeledInput
+                                                                                allowClear={true}
+                                                                                bordered={true}
+                                                                                element={
+                                                                                  <input
+                                                                                    className="ant-input"
+                                                                                    id="1_邮箱"
+                                                                                    onBlur={[Function]}
+                                                                                    onChange={[Function]}
+                                                                                    onFocus={[Function]}
+                                                                                    onKeyDown={[Function]}
+                                                                                    placeholder="请输入"
+                                                                                    type="text"
+                                                                                  />
+                                                                                }
+                                                                                focused={false}
+                                                                                handleReset={[Function]}
+                                                                                id="1_邮箱"
+                                                                                inputType="input"
+                                                                                onChange={[Function]}
+                                                                                placeholder="请输入"
+                                                                                prefixCls="ant-input"
+                                                                                triggerFocus={[Function]}
+                                                                                type="text"
+                                                                                value=""
+                                                                              >
+                                                                                <span
+                                                                                  className="ant-input-affix-wrapper"
+                                                                                  onMouseUp={[Function]}
+                                                                                >
+                                                                                  <input
+                                                                                    className="ant-input"
+                                                                                    id="1_邮箱"
+                                                                                    onBlur={[Function]}
+                                                                                    onChange={[Function]}
+                                                                                    onFocus={[Function]}
+                                                                                    onKeyDown={[Function]}
+                                                                                    placeholder="请输入"
+                                                                                    style={null}
+                                                                                    type="text"
+                                                                                    value=""
+                                                                                  />
+                                                                                  <span
+                                                                                    className="ant-input-suffix"
+                                                                                  >
+                                                                                    <ForwardRef(CloseCircleFilled)
+                                                                                      className="ant-input-clear-icon-hidden ant-input-clear-icon"
+                                                                                      onClick={[Function]}
+                                                                                      role="button"
+                                                                                    >
+                                                                                      <AntdIcon
+                                                                                        className="ant-input-clear-icon-hidden ant-input-clear-icon"
+                                                                                        icon={
+                                                                                          Object {
+                                                                                            "icon": Object {
+                                                                                              "attrs": Object {
+                                                                                                "focusable": "false",
+                                                                                                "viewBox": "64 64 896 896",
+                                                                                              },
+                                                                                              "children": Array [
+                                                                                                Object {
+                                                                                                  "attrs": Object {
+                                                                                                    "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z",
+                                                                                                  },
+                                                                                                  "tag": "path",
+                                                                                                },
+                                                                                              ],
+                                                                                              "tag": "svg",
+                                                                                            },
+                                                                                            "name": "close-circle",
+                                                                                            "theme": "filled",
+                                                                                          }
+                                                                                        }
+                                                                                        onClick={[Function]}
+                                                                                        role="button"
+                                                                                      >
+                                                                                        <span
+                                                                                          aria-label="close-circle"
+                                                                                          className="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
+                                                                                          onClick={[Function]}
+                                                                                          role="button"
+                                                                                          tabIndex={-1}
+                                                                                        >
+                                                                                          <IconReact
+                                                                                            icon={
+                                                                                              Object {
+                                                                                                "icon": Object {
+                                                                                                  "attrs": Object {
+                                                                                                    "focusable": "false",
+                                                                                                    "viewBox": "64 64 896 896",
+                                                                                                  },
+                                                                                                  "children": Array [
+                                                                                                    Object {
+                                                                                                      "attrs": Object {
+                                                                                                        "d": "M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z",
+                                                                                                      },
+                                                                                                      "tag": "path",
+                                                                                                    },
+                                                                                                  ],
+                                                                                                  "tag": "svg",
+                                                                                                },
+                                                                                                "name": "close-circle",
+                                                                                                "theme": "filled",
+                                                                                              }
+                                                                                            }
+                                                                                          >
+                                                                                            <svg
+                                                                                              aria-hidden="true"
+                                                                                              data-icon="close-circle"
+                                                                                              fill="currentColor"
+                                                                                              focusable="false"
+                                                                                              height="1em"
+                                                                                              key="svg-close-circle"
+                                                                                              viewBox="64 64 896 896"
+                                                                                              width="1em"
+                                                                                            >
+                                                                                              <path
+                                                                                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
+                                                                                                key="svg-close-circle-svg-0"
+                                                                                              />
+                                                                                            </svg>
+                                                                                          </IconReact>
+                                                                                        </span>
+                                                                                      </AntdIcon>
+                                                                                    </ForwardRef(CloseCircleFilled)>
+                                                                                  </span>
+                                                                                </span>
+                                                                              </ClearableLabeledInput>
+                                                                            </Input>
+                                                                          </FieldText>
+                                                                        </ForwardRef(ProField)>
+                                                                      </Component>
+                                                                    </LightWrapper>
+                                                                  </Component>
+                                                                </div>
+                                                              </div>
+                                                              <ErrorList
+                                                                errors={Array []}
+                                                                onDomErrorVisibleChange={[Function]}
+                                                              >
+                                                                <CSSMotion
+                                                                  motionAppear={true}
+                                                                  motionDeadline={500}
+                                                                  motionName="ant-show-help"
+                                                                  onLeaveEnd={[Function]}
+                                                                  removeOnLeave={true}
+                                                                  visible={false}
+                                                                >
+                                                                  <DomWrapper />
+                                                                </CSSMotion>
+                                                              </ErrorList>
+                                                            </div>
+                                                          </Col>
+                                                        </FormItemInput>
+                                                      </div>
+                                                    </Row>
+                                                  </Field>
+                                                </WrapperField>
+                                              </FormItem>
+                                            </ProFormItem>
+                                          </FieldWithContext>
+                                        </form>
+                                      </ForwardRef(Form)>
+                                    </SizeContextProvider>
+                                  </ForwardRef(InternalForm)>
+                                </ConfigProviderWrap>
+                              </BaseForm>
+                            </RequestForm>
+                          </StepForm>
+                        </div>
+                        <Space>
+                          <div
+                            className="ant-space ant-space-horizontal ant-space-align-center"
+                            style={Object {}}
+                          >
+                            <Item
+                              className="ant-space-item"
+                              direction="horizontal"
+                              index={0}
+                              key="ant-space-item-0"
+                              marginDirection="marginRight"
+                              wrap={false}
+                            >
+                              <div
+                                className="ant-space-item"
+                                style={Object {}}
+                              >
+                                <Button
+                                  key="next"
+                                  loading={false}
+                                  onClick={[Function]}
+                                  type="primary"
+                                >
+                                  <Wave>
+                                    <button
+                                      className="ant-btn ant-btn-primary"
+                                      onClick={[Function]}
+                                      type="button"
+                                    >
+                                      <LoadingIcon
+                                        existIcon={false}
+                                        loading={false}
+                                        prefixCls="ant-btn"
+                                      >
+                                        <CSSMotion
+                                          motionName="ant-btn-loading-icon-motion"
+                                          onAppearActive={[Function]}
+                                          onAppearStart={[Function]}
+                                          onEnterActive={[Function]}
+                                          onEnterStart={[Function]}
+                                          onLeaveActive={[Function]}
+                                          onLeaveStart={[Function]}
+                                          removeOnLeave={true}
+                                          visible={false}
+                                        >
+                                          <DomWrapper />
+                                        </CSSMotion>
+                                      </LoadingIcon>
+                                      <span
+                                        key=".0"
+                                      >
+                                        下一步
+                                      </span>
+                                    </button>
+                                  </Wave>
+                                </Button>
+                              </div>
+                            </Item>
+                          </div>
+                        </Space>
+                      </div>
+                    </FormProvider>
+                  </FormProvider>
+                </div>
+              </StepsForm>
+            </FormProvider>
+          </LocaleProvider>
+        </ProviderChildren>
+      </LocaleReceiver>
+    </ConfigProvider>
+  </ConfigProviderWrap>
+</StepsFormWarp>
+`;
