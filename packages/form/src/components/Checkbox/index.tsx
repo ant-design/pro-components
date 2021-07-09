@@ -10,7 +10,7 @@ import type { ProFormItemProps } from '../../interface';
 
 export type ProFormCheckboxGroupProps = ProFormItemProps<CheckboxGroupProps> & {
   layout?: 'horizontal' | 'vertical';
-  options: CheckboxGroupProps['options'];
+  options?: CheckboxGroupProps['options'];
   valueEnum?: ProSchema['valueEnum'];
   request?: ProSchema['request'];
 };
