@@ -275,11 +275,11 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [upload](https://ant.design/components/upload-cn/) 相同。预设了 Dragger 的样式，其他与 Upload 相同。
 
-| 参数        | 说明             | 类型        | 默认值                           |
-| ----------- | ---------------- | ----------- | -------------------------------- |
-| icon        | Dragger 的图表。 | `ReactNode` | InboxOutlined                    |
-| title       | Dragger 的标题   | `ReactNode` | '单击或拖动文件到此区域进行上传' |
-| description | Dragger 的描述   | `ReactNode` | '支持单次或批量上传'             |
+| 参数        | 说明           | 类型        | 默认值                           |
+| ----------- | -------------- | ----------- | -------------------------------- |
+| icon        | Dragger 的图标 | `ReactNode` | InboxOutlined                    |
+| title       | Dragger 的标题 | `ReactNode` | '单击或拖动文件到此区域进行上传' |
+| description | Dragger 的描述 | `ReactNode` | '支持单次或批量上传'             |
 
 ```tsx | pure
 <ProFormUploadDragger label="Dragger" name="dragger" action="upload.do" />
@@ -289,10 +289,10 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 与 [upload](https://ant.design/components/upload-cn/) 相同。预设了 Button 的样式，其他与 Upload 相同。
 
-| 参数  | 说明             | 类型        | 默认值         |
-| ----- | ---------------- | ----------- | -------------- |
-| icon  | Dragger 的图表。 | `ReactNode` | UploadOutlined |
-| title | Dragger 的标题   | `ReactNode` | 单击上传       |
+| 参数  | 说明           | 类型        | 默认值         |
+| ----- | -------------- | ----------- | -------------- |
+| icon  | Dragger 的图标 | `ReactNode` | UploadOutlined |
+| title | Dragger 的标题 | `ReactNode` | 单击上传       |
 
 ```tsx | pure
 <ProFormUploadButton label="upload" name="upload" action="upload.do" />
