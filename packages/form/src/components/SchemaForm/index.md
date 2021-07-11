@@ -12,6 +12,28 @@ nav:
 
 SchemaForm 是根据 JSON Schema 来生成表单的工具。SchemaForm 会根据 valueType 来映射成不同的[表单项](/components/schema)。
 
+## API
+
+SchemaForm 提供了与 [ProForm](/components/form#proform) 相同的 API，并且增加了部分 API，以下的 SchemaForm 新增的 API。
+
+| 字段名称 | 类型 | 说明 |
+| --- | --- | --- |
+| `layoutType` | [`ProFormLayoutType`](/components/schema-form#proformlayouttype) | 使用的表单布局模式 |
+| `steps` | `StepFormProps[]` | `layoutType=steps`中的分布表单配置，需要配置 columns 为数组使用 |
+| `columns` | [`ProFormColumnsType` \| `ProFormColumnsType[]`](/components/schema-form#schema-定义) | 表单的定义，一般是 json 对象，如果是分布表单，需要使用 json 数组来生成多个表单 |
+
+## ProFormLayoutType
+
+| 字段名称 | 说明 |
+| --- | --- |
+| `Form` | [ProForm](/components/form) 是基本的表单类型 |
+| `ModalForm` | 弹框表单，配置之后支持 [ModalForm](/components/modal-form) 的所有配置 |
+| `DrawerForm` | 抽屉表单，配置之后支持 [DrawerForm](/components/modal-form) 的所有配置 |
+| `StepsForm`\|`StepForm` | 配置之后为分步表单，有两种模式一种使用 `steps` 和 `columns` 来生成，一种是通过 `layoutType=StepsForm` 嵌套 `layoutType=StepForm` 来实现 |
+| `LightFilter` | 轻量筛选，配置之后支持 [`LightFilter`](/components/query-filter) 的所有配置 |
+| `QueryFilter` | 查询表单，配置之后支持 [`QueryFilter`](/components/query-filter) 的所有配置 |
+| `Embed` | 内嵌模式，只生成表单项，不生成 Form 可以混合使用 |
+
 ## Schema 定义
 
 SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 table 的相同的表单定义，同时扩展了部分字段。
