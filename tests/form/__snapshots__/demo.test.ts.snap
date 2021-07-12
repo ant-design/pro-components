@@ -17646,6 +17646,16 @@ Array [
     class="ant-row ant-form-item"
   >
     <div
+      class="ant-col ant-form-item-label"
+    >
+      <label
+        class=""
+        title="布局方式"
+      >
+        布局方式
+      </label>
+    </div>
+    <div
       class="ant-col ant-form-item-control"
     >
       <div
