@@ -25087,9 +25087,9 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
             <label
               class=""
               for="unusedMode"
-              title="合同约定失效效方式"
+              title="合同约定失效方式"
             >
-              合同约定失效效方式
+              合同约定失效方式
             </label>
           </div>
           <div
