@@ -233,7 +233,6 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
           /** 分割线 */
           if (item.valueType === 'divider') {
-            if (!item.readonly) return null;
             return <Divider {...item.fieldProps} />;
           }
 
