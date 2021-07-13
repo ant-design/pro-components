@@ -11,14 +11,15 @@ import type { ProFieldFC } from '../../index';
  */
 const FieldText: ProFieldFC<{
   text: string;
-}> = ({ text, mode, render, renderFormItem, fieldProps }) => {
+  emptyText?: React.ReactNode;
+}> = ({ text, mode, render, renderFormItem, fieldProps, emptyText = '-' }) => {
   const intl = useIntl();
 
   if (mode === 'read') {
-    const dom = text ?? '-';
+    const dom = text ?? emptyText;
 
     if (render) {
-      return render(text, { mode, ...fieldProps }, <>{dom}</>);
+      return render(text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText;
     }
     return <>{dom}</>;
   }
