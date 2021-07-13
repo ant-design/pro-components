@@ -73,7 +73,7 @@ export default () => {
             },
           ]}
           name="unusedMode"
-          label="合同约定失效效方式"
+          label="合同约定失效方式"
         />
       </ProForm.Group>
       <ProFormText width="sm" name="id" label="主合同编号" />
