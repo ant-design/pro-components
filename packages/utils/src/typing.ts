@@ -48,7 +48,8 @@ export type ProFieldValueType =
   | 'fromNow'
   | 'image'
   | 'jsonCode'
-  | 'color';
+  | 'color'
+  | 'divider';
 
 export type RequestOptionsType = {
   label?: React.ReactNode;

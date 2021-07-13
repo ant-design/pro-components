@@ -57,6 +57,9 @@ const columns: ProFormColumnsType<DataItem>[] = [
     valueType: 'date',
   },
   {
+    valueType: 'divider',
+  },
+  {
     title: '分组',
     valueType: 'group',
     columns: [

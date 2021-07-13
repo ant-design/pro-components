@@ -1,5 +1,6 @@
 ﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
 import type { FormInstance, FormProps } from 'antd';
+import { Divider } from 'antd';
 import type {
   DrawerFormProps,
   QueryFilterProps,
@@ -229,6 +230,12 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
               </ProFormFieldSet>
             );
           }
+
+          /** 分割线 */
+          if (item.valueType === 'divider') {
+            return <Divider {...item.fieldProps} />;
+          }
+
           /** 公用的 类型 props */
           const formFieldProps: ProFormFieldProps = {
             key,
