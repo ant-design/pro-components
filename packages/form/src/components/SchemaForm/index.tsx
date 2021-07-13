@@ -61,7 +61,7 @@ export type ProFormPropsType<T> = Omit<DrawerFormProps<T>, 'onFinish'> &
     layoutType?: ProFormLayoutType;
   };
 
-export type FormFieldType = 'group' | 'formList' | 'formSet';
+export type FormFieldType = 'group' | 'formList' | 'formSet' | 'divider';
 
 export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
   T,
@@ -233,6 +233,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
           /** 分割线 */
           if (item.valueType === 'divider') {
+            if (!item.readonly) return null;
             return <Divider {...item.fieldProps} />;
           }
 
