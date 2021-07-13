@@ -240,13 +240,13 @@ export function SaveEditableAction<T>({
           });
           const fields = (context.getFieldFormatValue || form.getFieldValue)(namePath);
           const data = isMapEditor ? set({}, namePath, fields, true) : fields;
+
           // 获取数据并保存
           const res = await onSave?.(
             recordKey,
-
             // 如果是 map 模式，fields 就是一个值，所以需要set 到对象中
             // 数据模式 fields 是一个对象，所以不需要
-            merge(row, data),
+            merge({}, row, data),
             row,
             newLineConfig,
           );

@@ -593,7 +593,7 @@ describe('utils', () => {
     });
     expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
     expect(html.tag).not.toBe(labelInValue);
-    expect(html.tag.label).toBe(labelInValue.label);
+    expect(React.isValidElement(html.tag.label)).toBeTruthy();
   });
 
   it('📅 transformKeySubmitValue ignore Blob', async () => {

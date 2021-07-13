@@ -71,7 +71,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
           const values = names.reduce((pre, next) => {
             const value = context?.getFieldsFormatValue?.([next]);
             const noFormatValue = form.getFieldsValue([next]);
-            return merge(pre, noFormatValue, value);
+            return merge({}, pre, noFormatValue, value);
           }, {});
           return children?.({ ...values }, form as FormInstance<any>);
         }

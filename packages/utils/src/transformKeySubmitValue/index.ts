@@ -77,7 +77,7 @@ const transformKeySubmitValue = <T = any>(
     return omit ? result : tempValues;
   };
 
-  finalValues = merge(gen(values), finalValues);
+  finalValues = merge({}, gen(values), finalValues);
 
   return finalValues;
 };
