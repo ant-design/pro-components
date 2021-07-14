@@ -68,7 +68,9 @@ const Content: React.FC<{
   isTouched: boolean;
   rules: Rule[];
   progressProps?: ProgressProps | false;
-}> = ({ rules, isTouched, isValidating, value, fieldError, progressProps }) => {
+  name: NamePath;
+  form: Omit<FormInstance, 'scrollToField' | '__INTERNAL__' | 'getFieldInstance'>;
+}> = ({ rules, isTouched, isValidating, value, fieldError, progressProps, name, form }) => {
   const percent = Math.max(
     0,
     Math.min(100, ((rules.length - fieldError.length) / rules.length) * 100),
@@ -96,18 +98,23 @@ const Content: React.FC<{
             : { margin: 0, marginTop: '10px', listStyle: 'none', padding: '0' }
         }
       >
-        {rules?.map((rule, idx) => (
-          <li key={idx} style={{ display: 'flex', alignItems: 'center' }}>
-            <Space>
-              {isValidating ? (
-                <LoadingOutlined style={{ color: COLORS.PRIMARY }} />
-              ) : (
-                getIcon(fieldError, rule, isTouched, hasRequired ? requiredChecked : true)
-              )}
-              <span style={{ color: 'rgba(0,0,0,0.65)' }}>{(rule as any).message}</span>
-            </Space>
-          </li>
-        ))}
+        {rules?.map((rule, idx) => {
+          const getRule = typeof rule === 'function' ? rule(form) : rule;
+          return (
+            <li key={idx} style={{ display: 'flex', alignItems: 'center' }}>
+              <Space>
+                {isValidating ? (
+                  <LoadingOutlined style={{ color: COLORS.PRIMARY }} />
+                ) : (
+                  getIcon(fieldError, rule, isTouched, hasRequired ? requiredChecked : true)
+                )}
+                <span style={{ color: 'rgba(0,0,0,0.65)' }}>
+                  {getRule.required ? getRule.message ?? `${name} 是必选字段` : getRule.message}
+                </span>
+              </Space>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );
@@ -180,6 +187,8 @@ const InternalFormItem: React.FC<
                   isTouched={isTouched}
                   rules={rules}
                   progressProps={progressProps}
+                  name={name}
+                  form={form}
                 />
               }
             >
