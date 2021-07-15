@@ -44,6 +44,9 @@ export default () => {
         }>
           name="base"
           title="创建实验"
+          stepProps={{
+            description: '这里填入的都是基本信息',
+          }}
           onFinish={async () => {
             console.log(formRef.current?.getFieldsValue());
             await waitTime(2000);
@@ -67,6 +70,9 @@ export default () => {
         }>
           name="checkbox"
           title="设置参数"
+          stepProps={{
+            description: '这里填入运维参数',
+          }}
           onFinish={async () => {
             console.log(formRef.current?.getFieldsValue());
             return true;
@@ -88,7 +94,13 @@ export default () => {
             />
           </ProForm.Group>
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="time" title="发布实验">
+        <StepsForm.StepForm
+          name="time"
+          title="发布实验"
+          stepProps={{
+            description: '这里填入发布判断',
+          }}
+        >
           <ProFormCheckbox.Group
             name="checkbox"
             label="部署单元"

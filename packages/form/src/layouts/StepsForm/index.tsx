@@ -175,7 +175,7 @@ function StepsForm<T = Record<string, any>>(
       <Steps {...stepsProps} current={step} onChange={undefined}>
         {formArray.map((item) => {
           const itemProps = formMapRef.current.get(item);
-          return <Steps.Step key={item} title={itemProps?.title} />;
+          return <Steps.Step key={item} title={itemProps?.title} {...itemProps?.stepProps} />;
         })}
       </Steps>
     </div>
