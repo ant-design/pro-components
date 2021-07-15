@@ -371,8 +371,10 @@ describe('DrawerForm', () => {
 
     const wrapper = mount(<Demo />);
 
-    wrapper.setProps({
-      id: '1212',
+    act(() => {
+      wrapper.setProps({
+        id: '1212',
+      });
     });
 
     await waitForComponentToPaint(wrapper);
@@ -470,9 +472,10 @@ describe('DrawerForm', () => {
     );
 
     const wrapper = mount(<Demo />);
-
-    wrapper.setProps({
-      id: '1212',
+    act(() => {
+      wrapper.setProps({
+        id: '1212',
+      });
     });
 
     await waitForComponentToPaint(wrapper);

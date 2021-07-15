@@ -1,93 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PageContainer content is text and title is null 1`] = `
-<div
-  class="ant-pro-page-container"
->
-  <div
-    class="ant-pro-page-container-warp"
-  >
-    <div
-      class="ant-page-header ant-page-header-ghost"
-    >
-      <div
-        class="ant-page-header-content"
-      >
-        <div
-          class="ant-pro-page-container-detail"
-        >
-          <div
-            class="ant-pro-page-container-main"
-          >
-            <div
-              class="ant-pro-page-container-row"
-            >
-              <div
-                class="ant-pro-page-container-content"
-              >
-                just so so
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
-</div>
-`;
-
-exports[`PageContainer content is text and title is null 2`] = `
-<div
-  class="ant-pro-page-container"
->
-  <div
-    class="ant-pro-page-container-warp"
-  >
-    <div
-      class="ant-page-header ant-page-header-ghost"
-    >
-      <div
-        class="ant-page-header-content"
-      >
-        <div
-          class="ant-pro-page-container-detail"
-        >
-          <div
-            class="ant-pro-page-container-main"
-          >
-            <div
-              class="ant-pro-page-container-row"
-            >
-              <div
-                class="ant-pro-page-container-extraContent"
-              >
-                <div>
-                  extraContent
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
-</div>
-`;
-
 exports[`PageContainer ⚡️ support fixHeader 1`] = `
 <div
   class="ant-pro-page-container"
@@ -341,6 +253,94 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
         </div>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`PageContainer 🐲  content is text and title is null 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-content"
+      >
+        <div
+          class="ant-pro-page-container-detail"
+        >
+          <div
+            class="ant-pro-page-container-main"
+          >
+            <div
+              class="ant-pro-page-container-row"
+            >
+              <div
+                class="ant-pro-page-container-content"
+              >
+                just so so
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+</div>
+`;
+
+exports[`PageContainer 🐲  content is text and title is null 2`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header ant-page-header-ghost"
+    >
+      <div
+        class="ant-page-header-content"
+      >
+        <div
+          class="ant-pro-page-container-detail"
+        >
+          <div
+            class="ant-pro-page-container-main"
+          >
+            <div
+              class="ant-pro-page-container-row"
+            >
+              <div
+                class="ant-pro-page-container-extraContent"
+              >
+                <div>
+                  extraContent
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
   </div>
 </div>
 `;
@@ -613,15 +613,15 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
 
 exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side"
 >
   <section
-    class="ant-layout ant-layout-has-sider"
-    style="min-height: 100%;"
+    class="ant-layout"
+    style="min-height:100%"
   >
     <aside
       class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
-      style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
+      style="overflow:hidden;flex:0 0 208px;max-width:208px;min-width:208px;width:208px"
     >
       <div
         class="ant-layout-sider-children"
@@ -641,7 +641,7 @@ exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
           </a>
         </div>
         <div
-          style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+          style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
           class="ant-pro-sider-links"
@@ -654,9 +654,8 @@ exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-test-collapsed"
               role="menuitem"
-              style="padding-left: 16px;"
+              style="padding-left:16px"
               tabindex="-1"
             >
               <span
@@ -686,24 +685,24 @@ exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
           </ul>
           <div
             aria-hidden="true"
-            style="display: none;"
+            style="display:none"
           />
         </div>
       </div>
     </aside>
     <div
       class="ant-layout"
-      style="position: relative;"
+      style="position:relative"
     >
       <header
         class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
-        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
+        style="padding:0;height:48px;line-height:48px;width:100%;z-index:19"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-side"
         >
           <div
-            style="flex: 1;"
+            style="flex:1"
           />
         </div>
       </header>
