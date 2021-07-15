@@ -42,6 +42,7 @@ import type { ProFormLayoutType, ProFormColumnsType } from './components/SchemaF
 import BetaSchemaForm from './components/SchemaForm';
 import './index.less';
 import { ProFormContext } from '@ant-design/pro-utils';
+import type { LightFilterFooterRender } from './interface';
 
 export type {
   ProFormFieldProps,
@@ -60,6 +61,7 @@ export type {
   FormItemProps,
   FormInstance,
   ProFormListProps,
+  LightFilterFooterRender,
   ProFormColumnsType,
 };
 
