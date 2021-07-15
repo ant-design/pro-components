@@ -131,11 +131,10 @@ describe('StepsForm', () => {
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
+
     await waitForComponentToPaint(html);
+
     expect(onFinish).toBeCalled();
-
-    await waitForComponentToPaint(html);
-
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalled();
 
