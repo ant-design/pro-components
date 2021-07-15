@@ -2678,6 +2678,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                   class="ant-pro-table-search ant-pro-table-search-light-filter"
                 >
                   <form
+                    autocomplete="off"
                     class="ant-form ant-form-horizontal"
                   >
                     <input

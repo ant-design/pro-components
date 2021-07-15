@@ -396,6 +396,7 @@ function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   return (
     <BaseForm
+      autoComplete="off"
       {...rest}
       initialValues={{
         ...initialValues,

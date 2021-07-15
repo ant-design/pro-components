@@ -22,6 +22,7 @@ Array [
       class="ant-pro-card-body"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-vertical"
         title="自定义 valueType"
       >
@@ -293,6 +294,7 @@ Array [
           class="ant-pro-table-search ant-pro-table-search-query-filter"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-horizontal ant-pro-form-query-filter"
           >
             <input
@@ -727,6 +729,7 @@ Array [
     </div>
   </div>,
   <form
+    autocomplete="off"
     class="ant-form ant-form-vertical"
     trigger="[object Object]"
   >
