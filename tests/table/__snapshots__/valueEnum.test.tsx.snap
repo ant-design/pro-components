@@ -8,6 +8,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
     class="ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
+      autocomplete="off"
       class="ant-form ant-form-horizontal ant-pro-form-query-filter"
     >
       <input

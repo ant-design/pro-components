@@ -2,6 +2,7 @@
 
 exports[`ProForm 📦 submit props actionsRender is one 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -16,6 +17,7 @@ exports[`ProForm 📦 submit props actionsRender is one 1`] = `
 
 exports[`ProForm 📦 submit props actionsRender=()=>[] 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -27,6 +29,7 @@ exports[`ProForm 📦 submit props actionsRender=()=>[] 1`] = `
 
 exports[`ProForm 📦 submit props actionsRender=()=>false 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -38,6 +41,7 @@ exports[`ProForm 📦 submit props actionsRender=()=>false 1`] = `
 
 exports[`ProForm 📦 submit props actionsRender=false 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -49,6 +53,7 @@ exports[`ProForm 📦 submit props actionsRender=false 1`] = `
 
 exports[`ProForm 📦 submit props actionsRender=false 2`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -60,6 +65,7 @@ exports[`ProForm 📦 submit props actionsRender=false 2`] = `
 
 exports[`ProForm 📦 submit props render=()=>[] 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -79,6 +85,7 @@ exports[`ProForm 📦 submit props render=()=>[] 1`] = `
 
 exports[`ProForm 📦 submitter props support resetButtonProps 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -119,6 +126,7 @@ exports[`ProForm 📦 submitter props support resetButtonProps 1`] = `
 
 exports[`ProForm 📦 submitter props support submitButtonProps 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input

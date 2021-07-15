@@ -1277,6 +1277,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
       </div>
     </div>
     <form
+      autocomplete="off"
       class="ant-form ant-form-vertical"
     >
       <input

@@ -5,6 +5,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
   style="padding: 24px;"
 >
   <form
+    autocomplete="off"
     class="ant-form ant-form-vertical"
     id="validate_other"
   >
@@ -1624,6 +1625,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
   style="padding: 24px;"
 >
   <form
+    autocomplete="off"
     class="ant-form ant-form-vertical"
     id="validate_other"
   >
@@ -3036,6 +3038,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
 
 exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/datatime.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -4528,6 +4531,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
 
 exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/form-fieldset.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -5254,6 +5258,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
 
 exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/upload.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -5558,6 +5563,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
           class="ant-pro-card-body"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-vertical"
           >
             <input
@@ -5879,6 +5885,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
           class="ant-pro-card-body"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-vertical"
           >
             <input
@@ -6908,6 +6915,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
 
 exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/dependency.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -7252,6 +7260,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
 
 exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/dependency2.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -8344,6 +8353,7 @@ Array [
     </div>
   </div>,
   <form
+    autocomplete="off"
     class="ant-form ant-form-vertical"
   >
     <input
@@ -9255,6 +9265,7 @@ Array [
 
 exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nested-list.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -9894,6 +9905,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/ModalForm/demos/
 Array [
   <div>
     <form
+      autocomplete="off"
       class="ant-form ant-form-vertical"
     >
       <input
@@ -10122,6 +10134,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/ModalForm/demos/
 Array [
   <div>
     <form
+      autocomplete="off"
       class="ant-form ant-form-vertical"
     >
       <input
@@ -10344,6 +10357,7 @@ Array [
   </div>,
   <div>
     <form
+      autocomplete="off"
       class="ant-form ant-form-vertical"
     >
       <input
@@ -10365,6 +10379,7 @@ Array [
   </div>,
   <div>
     <form
+      autocomplete="off"
       class="ant-form ant-form-vertical"
     >
       <input
@@ -10523,6 +10538,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
   <br />
   <br />
   <form
+    autocomplete="off"
     class="ant-form ant-form-horizontal ant-form-middle"
   >
     <input
@@ -11486,6 +11502,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/light-filter-bordered.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-horizontal"
 >
   <input
@@ -11851,6 +11868,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/light-filter-collapse.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-horizontal"
 >
   <input
@@ -11950,6 +11968,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-bottom: 8px;"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-horizontal ant-form-middle"
       >
         <input
@@ -12043,6 +12062,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-bottom: 8px;"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-horizontal ant-form-middle"
       >
         <input
@@ -12136,6 +12156,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       style="margin-bottom: 8px;"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-horizontal ant-form-middle"
       >
         <input
@@ -12165,6 +12186,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       class="ant-space-item"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-horizontal ant-form-middle"
       >
         <input
@@ -12196,6 +12218,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-horizontal ant-pro-form-query-filter"
 >
   <input
@@ -12778,6 +12801,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter-collapsed.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-horizontal ant-pro-form-query-filter"
 >
   <input
@@ -13238,6 +13262,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter-test.tsx correctly 1`] = `
 Array [
   <form
+    autocomplete="off"
     class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
@@ -13457,6 +13482,7 @@ Array [
     </div>
   </form>,
   <form
+    autocomplete="off"
     class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
@@ -13745,6 +13771,7 @@ Array [
     </div>
   </form>,
   <form
+    autocomplete="off"
     class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
@@ -14270,6 +14297,7 @@ Array [
     </div>
   </form>,
   <form
+    autocomplete="off"
     class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
@@ -14795,6 +14823,7 @@ Array [
     </div>
   </form>,
   <form
+    autocomplete="off"
     class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
@@ -15320,6 +15349,7 @@ Array [
     </div>
   </form>,
   <form
+    autocomplete="off"
     class="ant-form ant-form-horizontal ant-pro-form-query-filter"
   >
     <input
@@ -15849,6 +15879,7 @@ Array [
 
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter-vertical.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical ant-pro-form-query-filter"
 >
   <input
@@ -16576,6 +16607,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
     </div>
     <form
+      autocomplete="off"
       class="ant-form ant-form-horizontal ant-pro-form-query-filter filter"
     >
       <input
@@ -16828,6 +16860,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 
 exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos/customization-value-type.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
   title="自定义 valueType"
 >
@@ -17075,6 +17108,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
 
 exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos/embed.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -17757,6 +17791,7 @@ Array [
     </div>
   </div>,
   <form
+    autocomplete="off"
     class="ant-form ant-form-vertical"
     trigger="[object Object]"
   >
@@ -18915,6 +18950,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-vertical"
         id="0"
       >
@@ -19078,6 +19114,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       class="ant-pro-steps-form-step"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-vertical"
         id="1"
       >
@@ -19392,6 +19429,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       class="ant-pro-steps-form-step"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-vertical"
         id="2"
       >
@@ -20065,6 +20103,7 @@ Array [
     </div>
   </div>,
   <form
+    autocomplete="off"
     class="ant-form ant-form-vertical"
     trigger="[object Object]"
   >
@@ -20348,6 +20387,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-vertical"
         id="step1"
       >
@@ -20511,6 +20551,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       class="ant-pro-steps-form-step"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-vertical"
         id="step2"
       >
@@ -20824,6 +20865,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-vertical"
             id="base"
           >
@@ -21130,6 +21172,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           class="ant-pro-steps-form-step"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-vertical"
             id="checkbox"
           >
@@ -21491,6 +21534,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           class="ant-pro-steps-form-step"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-vertical"
             id="time"
           >
@@ -21987,6 +22031,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-vertical"
         id="base"
       >
@@ -22815,6 +22860,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       class="ant-pro-steps-form-step"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-vertical"
         id="checkbox"
       >
@@ -23180,6 +23226,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       class="ant-pro-steps-form-step"
     >
       <form
+        autocomplete="off"
         class="ant-form ant-form-vertical"
         id="time"
       >
@@ -23665,6 +23712,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-vertical"
             id="base"
           >
@@ -23971,6 +24019,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           class="ant-pro-steps-form-step"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-vertical"
             id="checkbox"
           >
@@ -24332,6 +24381,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           class="ant-pro-steps-form-step"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-vertical"
             id="time"
           >
@@ -24684,6 +24734,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
 
 exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -25396,6 +25447,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
 
 exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
   id="validate_other"
 >
@@ -25853,6 +25905,7 @@ Array [
         class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
       >
         <form
+          autocomplete="off"
           class="ant-form ant-form-vertical"
           id="0"
         >
@@ -25932,6 +25985,7 @@ Array [
     </div>
   </div>,
   <form
+    autocomplete="off"
     class="ant-form ant-form-vertical"
     id="validate_other"
   >
@@ -26342,6 +26396,7 @@ Array [
 
 exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -26780,6 +26835,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
 
 exports[`form demos 📸 renders ./packages/form/src/demos/form-layout.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-horizontal"
 >
   <input
@@ -27116,6 +27172,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout.tsx corre
 
 exports[`form demos 📸 renders ./packages/form/src/demos/formRef.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
   title="新建表单"
 >
@@ -27329,6 +27386,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/formRef.tsx correctly
 
 exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-horizontal"
   id="basic"
 >
@@ -27810,6 +27868,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                       class="ant-card-body"
                     >
                       <form
+                        autocomplete="off"
                         class="ant-form ant-form-vertical"
                       >
                         <input
@@ -29275,6 +29334,7 @@ Array [
     style="margin: 24px;"
   >
     <form
+      autocomplete="off"
       class="ant-form ant-form-horizontal"
       trigger="[object Object]"
     >
@@ -29948,6 +30008,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
           class="ant-pro-steps-form-step ant-pro-steps-form-step-active"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-vertical"
             id="base"
           >
@@ -30254,6 +30315,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
           class="ant-pro-steps-form-step"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-vertical"
             id="checkbox"
           >
@@ -30572,6 +30634,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
           class="ant-pro-steps-form-step"
         >
           <form
+            autocomplete="off"
             class="ant-form ant-form-vertical"
             id="time"
           >
@@ -30940,6 +31003,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/login.tsx correctly 1
   style="width: 330px; margin: auto;"
 >
   <form
+    autocomplete="off"
     class="ant-form ant-form-vertical"
   >
     <input
@@ -31114,6 +31178,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/login.tsx correctly 1
 
 exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTable.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
@@ -32040,6 +32105,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
 
 exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical"
 >
   <input
