@@ -1,9 +1,15 @@
 import React, { useContext } from 'react';
 import { Button, ConfigProvider } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
-import type { FooterRender } from '@ant-design/pro-form/src/interface';
 
 import './index.less';
+
+type LightFilterFooterRender =
+  | ((
+      onConfirm?: (e?: React.MouseEvent) => void,
+      onClear?: (e?: React.MouseEvent) => void,
+    ) => JSX.Element)
+  | false;
 
 type OnClick = (e?: React.MouseEvent) => void;
 
@@ -11,7 +17,7 @@ export type DropdownFooterProps = {
   onClear?: OnClick;
   onConfirm?: OnClick;
   disabled?: boolean;
-  footerRender?: FooterRender;
+  footerRender?: LightFilterFooterRender;
 };
 
 const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {

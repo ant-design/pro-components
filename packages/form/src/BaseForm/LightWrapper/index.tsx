@@ -10,7 +10,7 @@ import {
 import { ConfigProvider } from 'antd';
 
 import './index.less';
-import type { FooterRender } from '../../interface';
+import type { LightFilterFooterRender } from '../../interface';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -32,7 +32,7 @@ export type LightWrapperProps = {
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
   otherFieldProps?: any;
-  footerRender?: FooterRender;
+  footerRender?: LightFilterFooterRender;
 };
 
 const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {

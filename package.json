@@ -9,9 +9,10 @@
     "build": "npm run build-lib && webpack && node ./scripts/gen_less_entry.js",
     "build-lib": "cross-env BUILD_TYPE=lib father-build && cross-env BUILD_TYPE=es father-build",
     "changelog": "pro-changelog",
+    "check-deps": "node ./scripts/checkDeps.js",
     "createRelease": "node ./scripts/createRelease.js",
     "deploy": "cross-env SITE_DEPLOY='TRUE' npm run site && gh-pages -d ./dist",
-    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./packages && npm run lint:prettier",
+    "lint": "eslint --cache --ext .js,.jsx,.ts,.tsx  --fix --format=pretty ./packages && npm run lint:prettier && npm run check-deps",
     "lint:prettier": "npm run prettier &&  git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\"",
     "release": "npm run test && node ./scripts/release.js",
@@ -33,6 +34,12 @@
     "> 1%",
     "ie >= 11"
   ],
+  "dependencies": {
+    "@ant-design/icons": "^4.6.2",
+    "@umijs/plugin-esbuild": "^1.1.0",
+    "babel-types": "^6.26.0",
+    "rc-resize-observer": "^1.0.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
@@ -190,10 +197,5 @@
       "webpack": false,
       "running": false
     }
-  ],
-  "dependencies": {
-    "@ant-design/icons": "^4.6.2",
-    "@umijs/plugin-esbuild": "^1.1.0",
-    "rc-resize-observer": "^1.0.0"
-  }
+  ]
 }

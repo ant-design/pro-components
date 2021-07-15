@@ -34,7 +34,7 @@ export type FieldProps = {
   format?: string;
 };
 
-export type FooterRender =
+export type LightFilterFooterRender =
   | ((
       onConfirm?: (e?: React.MouseEvent) => void,
       onClear?: (e?: React.MouseEvent) => void,
@@ -67,5 +67,5 @@ export type ProFormItemProps<T = Record<string, any>> = {
     render?: any;
   };
   /** QueryFilter 上的footer */
-  footerRender?: FooterRender;
+  footerRender?: LightFilterFooterRender;
 } & FormItemProps;

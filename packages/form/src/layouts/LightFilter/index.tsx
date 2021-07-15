@@ -11,14 +11,14 @@ import omit from 'omit.js';
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import './index.less';
-import type { FooterRender } from '../../interface';
+import type { LightFilterFooterRender } from '../../interface';
 
 export type LightFilterProps<T> = {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
   ignoreRules?: boolean;
-  footerRender?: FooterRender;
+  footerRender?: LightFilterFooterRender;
 } & Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T>;
 
@@ -36,7 +36,7 @@ const LightFilterContainer: React.FC<{
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
-  footerRender?: FooterRender;
+  footerRender?: LightFilterFooterRender;
 }> = (props) => {
   const {
     items,
