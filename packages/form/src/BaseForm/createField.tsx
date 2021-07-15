@@ -122,7 +122,6 @@ function createField<P extends ProFormItemProps = any>(
 
     const formNeedProps = {
       value: (rest as any).value,
-      onChange: (rest as any).onChange,
     };
     const realFieldProps = {
       ...(ignoreFormItem ? formNeedProps : {}),

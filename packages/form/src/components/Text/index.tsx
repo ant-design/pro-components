@@ -12,9 +12,22 @@ const valueType = 'text';
  * @param
  */
 const ProFormText = createField<ProFormItemProps<InputProps>>(
-  ({ fieldProps, proFieldProps }: ProFormItemProps<InputProps>) => (
-    <ProField mode="edit" valueType={valueType} fieldProps={fieldProps} {...proFieldProps} />
-  ),
+  ({ fieldProps, proFieldProps, ...rest }: ProFormItemProps<InputProps>) => {
+    return (
+      <ProField
+        mode="edit"
+        valueType={valueType}
+        fieldProps={{
+          ...fieldProps,
+          onChange: (...restParams: any) => {
+            (fieldProps?.onChange as any)?.(...restParams);
+            (rest as any)?.onChange?.(...restParams);
+          },
+        }}
+        {...proFieldProps}
+      />
+    );
+  },
   {
     valueType,
   },
