@@ -98,8 +98,8 @@ const Content: React.FC<{
             : { margin: 0, marginTop: '10px', listStyle: 'none', padding: '0' }
         }
       >
-        {rules?.map((rule, idx) => {
-          const getRule = typeof rule === 'function' ? rule(form) : rule;
+        {rules?.map((item, idx) => {
+          const rule = typeof item === 'function' ? item(form) : item;
           return (
             <li key={idx} style={{ display: 'flex', alignItems: 'center' }}>
               <Space>
@@ -109,7 +109,7 @@ const Content: React.FC<{
                   getIcon(fieldError, rule, isTouched, hasRequired ? requiredChecked : true)
                 )}
                 <span style={{ color: 'rgba(0,0,0,0.65)' }}>
-                  {getRule.required ? getRule.message ?? `${name} 是必选字段` : getRule.message}
+                  {rule.required ? rule.message ?? `${name} 是必选字段` : rule.message}
                 </span>
               </Space>
             </li>
