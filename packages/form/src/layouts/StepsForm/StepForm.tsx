@@ -1,5 +1,5 @@
 import React, { useContext, useRef, useEffect, useImperativeHandle } from 'react';
-import type { FormProps, FormInstance } from 'antd';
+import type { FormProps, FormInstance, StepProps } from 'antd';
 import { noteOnce } from 'rc-util/lib/warning';
 
 import type { CommonFormProps } from '../../BaseForm';
@@ -8,6 +8,7 @@ import { StepsFormProvide } from './index';
 
 export type StepFormProps<T = Record<string, any>> = {
   step?: number;
+  stepProps?: StepProps;
 } & Omit<FormProps<T>, 'onFinish'> &
   Omit<CommonFormProps<T>, 'submitter'>;
 
@@ -15,6 +16,8 @@ function StepForm<T = Record<string, any>>({
   onFinish,
   step,
   formRef: propFormRef,
+  title,
+  stepProps,
   ...restProps
 }: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();

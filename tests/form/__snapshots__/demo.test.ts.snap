@@ -18917,7 +18917,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       <form
         class="ant-form ant-form-vertical"
         id="0"
-        title="第一步"
       >
         <input
           style="display: none;"
@@ -19081,7 +19080,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       <form
         class="ant-form ant-form-vertical"
         id="1"
-        title="第二步"
       >
         <input
           style="display: none;"
@@ -19396,7 +19394,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       <form
         class="ant-form ant-form-vertical"
         id="2"
-        title="第三步"
       >
         <input
           style="display: none;"
@@ -20353,7 +20350,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       <form
         class="ant-form ant-form-vertical"
         id="step1"
-        title="工作信息"
       >
         <input
           style="display: none;"
@@ -20517,7 +20513,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       <form
         class="ant-form ant-form-vertical"
         id="step2"
-        title="同步表单信息"
       >
         <input
           style="display: none;"
@@ -20831,7 +20826,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           <form
             class="ant-form ant-form-vertical"
             id="base"
-            title="创建实验"
           >
             <input
               style="display: none;"
@@ -21138,7 +21132,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           <form
             class="ant-form ant-form-vertical"
             id="checkbox"
-            title="设置参数"
           >
             <input
               style="display: none;"
@@ -21500,7 +21493,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           <form
             class="ant-form ant-form-vertical"
             id="time"
-            title="发布实验"
           >
             <input
               style="display: none;"
@@ -21997,7 +21989,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       <form
         class="ant-form ant-form-vertical"
         id="base"
-        title="第一步骤"
       >
         <input
           style="display: none;"
@@ -22826,7 +22817,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       <form
         class="ant-form ant-form-vertical"
         id="checkbox"
-        title="第二步骤"
       >
         <input
           style="display: none;"
@@ -23192,7 +23182,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
       <form
         class="ant-form ant-form-vertical"
         id="time"
-        title="第三步骤"
       >
         <input
           style="display: none;"
@@ -23591,6 +23580,11 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                 >
                   创建实验
                 </div>
+                <div
+                  class="ant-steps-item-description"
+                >
+                  这里填入的都是基本信息
+                </div>
               </div>
             </div>
           </div>
@@ -23619,6 +23613,11 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                   class="ant-steps-item-title"
                 >
                   设置参数
+                </div>
+                <div
+                  class="ant-steps-item-description"
+                >
+                  这里填入运维参数
                 </div>
               </div>
             </div>
@@ -23649,6 +23648,11 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                 >
                   发布实验
                 </div>
+                <div
+                  class="ant-steps-item-description"
+                >
+                  这里填入发布判断
+                </div>
               </div>
             </div>
           </div>
@@ -23663,7 +23667,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           <form
             class="ant-form ant-form-vertical"
             id="base"
-            title="创建实验"
           >
             <input
               style="display: none;"
@@ -23970,7 +23973,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           <form
             class="ant-form ant-form-vertical"
             id="checkbox"
-            title="设置参数"
           >
             <input
               style="display: none;"
@@ -24332,7 +24334,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
           <form
             class="ant-form ant-form-vertical"
             id="time"
-            title="发布实验"
           >
             <input
               style="display: none;"
@@ -25854,7 +25855,6 @@ Array [
         <form
           class="ant-form ant-form-vertical"
           id="0"
-          title="新建"
         >
           <input
             style="display: none;"
@@ -29950,7 +29950,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
           <form
             class="ant-form ant-form-vertical"
             id="base"
-            title="创建实验"
           >
             <input
               style="display: none;"
@@ -30257,7 +30256,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
           <form
             class="ant-form ant-form-vertical"
             id="checkbox"
-            title="设置参数"
           >
             <input
               style="display: none;"
@@ -30576,7 +30574,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
           <form
             class="ant-form ant-form-vertical"
             id="time"
-            title="发布实验"
           >
             <input
               style="display: none;"
