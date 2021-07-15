@@ -40,7 +40,7 @@ StepsForm 通过 Provider 来管理子表单的数据，每个字表单都是完
 | --- | --- | --- | --- |
 | current | 当前表单的步骤数，从 `0` 开始 | `number` | 0 |
 | onCurrentChange | current 发生改变的事件 | `(current:number)=>void` | - |
-| onFinish | 表单最后一步提交成功触发 | `(values:T)=>void` | - |
+| onFinish | 表单最后一步提交成功触发，如果返回`true`就会自动重置表单(包括`StepForm`变回第一步) | `(values:T)=>void \| true` | - |
 | stepsProps | StepsForm 自带的 Steps 的 props，使用方式与 [antd](https://ant.design/components/steps-cn/) 相同，但是去掉了 current 和 onChange | [props](https://ant.design/components/steps-cn/#API) | - |
 | stepFormRender | 自定义当前展示的表单，返回 dom 在表单内部 | `(form) => ReactNode` | - |
 | stepsFormRender | 自定义整个表单区域，返回的 dom 在表单的外部 | `(form,submitter) => ReactNode` | - |
