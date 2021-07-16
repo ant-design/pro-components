@@ -129,20 +129,24 @@ describe('PageContainer', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 208px)');
-    wrapper.setProps({
-      collapsed: true,
+    act(() => {
+      wrapper.setProps({
+        collapsed: true,
+      });
     });
 
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 48px)');
-
-    wrapper.setProps({
-      layout: 'top',
+    act(() => {
+      wrapper.setProps({
+        layout: 'top',
+      });
     });
-
     expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('100%');
-    expect(wrapper.render()).toMatchSnapshot();
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
   });
 
   it('🐲 FooterToolbar should know width', async () => {
@@ -160,19 +164,24 @@ describe('PageContainer', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 208px)');
-    wrapper.setProps({
-      collapsed: true,
+    act(() => {
+      wrapper.setProps({
+        collapsed: true,
+      });
     });
 
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 48px)');
-
-    wrapper.setProps({
-      layout: 'top',
+    act(() => {
+      wrapper.setProps({
+        layout: 'top',
+      });
     });
     expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('100%');
-    expect(wrapper.render()).toMatchSnapshot();
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
     // test useUseEffect render function
     act(() => {
       wrapper.unmount();
@@ -190,17 +199,22 @@ describe('PageContainer', () => {
       />,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
-
-    wrapper.setProps({
-      footer: undefined,
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
+    act(() => {
+      wrapper.setProps({
+        footer: undefined,
+      });
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
   });
 
   it('🐲 prolayout support breadcrumbProps', async () => {
-    const wrapper = mount(
+    const wrapper = render(
       <BasicLayout
         breadcrumbProps={{
           separator: '>',
@@ -237,7 +251,7 @@ describe('PageContainer', () => {
         <PageContainer />
       </BasicLayout>,
     );
-    expect(wrapper.render()).toMatchSnapshot();
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('🐲 header.footer is null, do not render footerToolbar ', async () => {
@@ -252,8 +266,9 @@ describe('PageContainer', () => {
     );
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-footer-bar').exists()).toBeTruthy();
-
-    wrapper.setProps({ footer: undefined });
+    act(() => {
+      wrapper.setProps({ footer: undefined });
+    });
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-footer-bar').exists()).toBeFalsy();
@@ -286,7 +301,7 @@ describe('PageContainer', () => {
     expect(fn).toBeCalledWith('info');
   });
 
-  it('content is text and title is null', () => {
+  it('🐲  content is text and title is null', () => {
     const html = render(<PageContainer content="just so so" />);
     expect(html).toMatchSnapshot();
 

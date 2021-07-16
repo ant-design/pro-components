@@ -566,49 +566,6 @@ describe('Field', () => {
     expect(html.find('span.anticon-eye').exists()).toBeTruthy();
   });
 
-  it('🐴 valueType=text', async () => {
-    const html = mount(
-      <Field
-        text="100"
-        fieldProps={{
-          composition: true,
-        }}
-        valueType="text"
-        mode="edit"
-      />,
-    );
-    await waitForComponentToPaint(html);
-    html.find('input').simulate('compositionstart', {
-      target: {
-        value: 'xxx',
-      },
-    });
-    await waitForComponentToPaint(html);
-
-    html.find('input').simulate('change', {
-      target: {
-        value: 'xxx',
-      },
-    });
-
-    await waitForComponentToPaint(html);
-
-    html.find('input').simulate('compositionend', {
-      target: {
-        value: 'xxx',
-      },
-    });
-
-    await waitForComponentToPaint(html);
-
-    html.find('input').simulate('change', {
-      target: {
-        value: 'xxx',
-      },
-    });
-    expect(html.find('input').props().value).toBe('xxx');
-  });
-
   it('🐴 password support controlled visible', async () => {
     const fn = jest.fn();
     const html = mount(

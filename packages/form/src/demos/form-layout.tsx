@@ -57,20 +57,22 @@ export default () => {
         }}
         options={['horizontal', 'vertical', 'inline']}
       />
-      <ProFormText
-        width="md"
-        name="name"
-        label="签约客户名称"
-        tooltip="最长为 24 位"
-        placeholder="请输入名称"
-      />
-      <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
-      <ProFormText
-        name={['contract', 'name']}
-        width="md"
-        label="合同名称"
-        placeholder="请输入名称"
-      />
+      <div>
+        <ProFormText
+          width="md"
+          name="name"
+          label="签约客户名称"
+          tooltip="最长为 24 位"
+          placeholder="请输入名称"
+        />
+        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+        <ProFormText
+          name={['contract', 'name']}
+          width="md"
+          label="合同名称"
+          placeholder="请输入名称"
+        />
+      </div>
     </ProForm>
   );
 };

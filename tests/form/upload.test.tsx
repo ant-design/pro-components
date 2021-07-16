@@ -32,7 +32,7 @@ describe('ProFormUpload', () => {
     errorSpy.mockReset();
   });
 
-  it('ProFormUploadButton support onChange', async () => {
+  it('🏐 ProFormUploadButton support onChange', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -60,7 +60,7 @@ describe('ProFormUpload', () => {
     expect(fn).toBeCalled();
   });
 
-  it('ProFormUploadButton support beforeUpload', async () => {
+  it('🏐 ProFormUploadButton support beforeUpload', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -96,7 +96,7 @@ describe('ProFormUpload', () => {
     });
   });
 
-  it('ProFormUploadButton support disable', async () => {
+  it('🏐 ProFormUploadButton support disable', async () => {
     const wrapper = mount(
       <ProFormUploadButton
         disabled
@@ -107,28 +107,30 @@ describe('ProFormUpload', () => {
       />,
     );
     expect(wrapper.find('Upload Button')).toMatchSnapshot();
-
-    wrapper.setProps({
-      buttonProps: {
-        disabled: true,
-        type: 'dashed',
-      },
+    act(() => {
+      wrapper.setProps({
+        buttonProps: {
+          disabled: true,
+          type: 'dashed',
+        },
+      });
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('Upload Button')).toMatchSnapshot();
-
-    wrapper.setProps({
-      disabled: false,
-      buttonProps: {},
-      fieldProps: {
-        disabled: true,
-      },
+    act(() => {
+      wrapper.setProps({
+        disabled: false,
+        buttonProps: {},
+        fieldProps: {
+          disabled: true,
+        },
+      });
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('Upload Button')).toMatchSnapshot();
   });
 
-  it('ProFormUploadDragger support onChange', async () => {
+  it('🏐 ProFormUploadDragger support onChange', async () => {
     const fn = jest.fn();
     const onChangeFn = jest.fn();
     const wrapper = mount(
@@ -158,7 +160,7 @@ describe('ProFormUpload', () => {
     expect(onChangeFn).toBeCalled();
   });
 
-  it('ProFormUploadDragger hide when max', async () => {
+  it('🏐 ProFormUploadDragger hide when max', async () => {
     const wrapper = mount(
       // @ts-ignore
       <ProFormUploadDragger
@@ -174,7 +176,7 @@ describe('ProFormUpload', () => {
     expect(wrapper.find('.ant-upload.ant-upload-drag').props().style?.display).toBe('none');
   });
 
-  it('ProFormUploadButton hide when max', async () => {
+  it('🏐 ProFormUploadButton hide when max', async () => {
     const wrapper = mount(
       // @ts-ignore
       <ProFormUploadButton

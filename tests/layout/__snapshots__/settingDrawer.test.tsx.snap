@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`settingDrawer.test base user 1`] = `
+exports[`settingDrawer.test 🌺  base user 1`] = `
 <div
   class=""
 >
@@ -606,7 +606,7 @@ exports[`settingDrawer.test base user 1`] = `
 </div>
 `;
 
-exports[`settingDrawer.test hideColors = true 1`] = `
+exports[`settingDrawer.test 🌺  hideColors = true 1`] = `
 <div
   class=""
 >
@@ -1180,7 +1180,7 @@ exports[`settingDrawer.test hideColors = true 1`] = `
 </div>
 `;
 
-exports[`settingDrawer.test hideCopyButton = true 1`] = `
+exports[`settingDrawer.test 🌺  hideCopyButton = true 1`] = `
 <div
   class=""
 >
@@ -1758,7 +1758,7 @@ exports[`settingDrawer.test hideCopyButton = true 1`] = `
 </div>
 `;
 
-exports[`settingDrawer.test hideHintAlert = true 1`] = `
+exports[`settingDrawer.test 🌺  hideHintAlert = true 1`] = `
 <div
   class=""
 >
@@ -2326,7 +2326,7 @@ exports[`settingDrawer.test hideHintAlert = true 1`] = `
 </div>
 `;
 
-exports[`settingDrawer.test hideLoading = true 1`] = `
+exports[`settingDrawer.test 🌺  hideLoading = true 1`] = `
 <div
   class=""
 >
@@ -2932,11 +2932,7 @@ exports[`settingDrawer.test hideLoading = true 1`] = `
 </div>
 `;
 
-exports[`settingDrawer.test onLanguageChange support 1`] = `"整体风格设置"`;
-
-exports[`settingDrawer.test onLanguageChange support 2`] = `"Page style setting"`;
-
-exports[`settingDrawer.test settings = undefined 1`] = `
+exports[`settingDrawer.test 🌺  settings = undefined 1`] = `
 <div
   class=""
 >
