@@ -497,12 +497,16 @@ describe('settingDrawer.test', () => {
     const html = mount(<SettingDrawer settings={defaultSettings} getContainer={false} collapse />);
     await waitForComponentToPaint(html, 200);
     act(() => {
-      expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toMatchSnapshot();
+      expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toBe('整体风格设置');
     });
-    window.localStorage.setItem('umi_locale', 'en-US');
-    global.window.dispatchEvent(new Event('languagechange'));
+
     act(() => {
-      expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toMatchSnapshot();
+      window.localStorage.setItem('umi_locale', 'en-US');
+    });
+    window.document.dispatchEvent(new Event('languagechange'));
+
+    act(() => {
+      expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toBe('Page style setting');
     });
     await waitForComponentToPaint(html, 200);
     act(() => {

@@ -366,11 +366,11 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       setSettingState,
       props.publicPath,
     );
-    window.addEventListener('languagechange', onLanguageChange, {
+    window.document.addEventListener('languagechange', onLanguageChange, {
       passive: true,
     });
 
-    return () => window.removeEventListener('languagechange', onLanguageChange);
+    return () => window.document.removeEventListener('languagechange', onLanguageChange);
   }, []);
   /**
    * 修改设置
