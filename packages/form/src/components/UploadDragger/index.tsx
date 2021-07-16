@@ -66,6 +66,7 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
         <p className={`${baseClassName}-hint`}>{description}</p>
         {children ? (
           <div
+            className={`${baseClassName}-extra`}
             style={{
               padding: 16,
             }}
