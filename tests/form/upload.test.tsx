@@ -176,6 +176,24 @@ describe('ProFormUpload', () => {
     expect(wrapper.find('.ant-upload.ant-upload-drag').props().style?.display).toBe('none');
   });
 
+  it('🏐 ProFormUploadDragger support children', async () => {
+    const extra = 'extra';
+    const wrapper = mount(
+      // @ts-ignore
+      <ProFormUploadDragger
+        value={[mockFile, mockFile, mockFile]}
+        action="http://upload.com"
+        label="upload"
+        name="files"
+      >
+        {extra}
+      </ProFormUploadDragger>,
+    );
+
+    await waitTime(200);
+    expect(wrapper.find('.ant-upload-drag .ant-upload-extra').first().text()).toBe(extra);
+  });
+
   it('🏐 ProFormUploadButton hide when max', async () => {
     const wrapper = mount(
       // @ts-ignore

@@ -1,6 +1,6 @@
 export default {
   moneySymbol: '$',
-    form: {
+  form: {
     lightFilter: {
       more: '更多篩選',
       clear: '清除',
