@@ -562,20 +562,21 @@ describe('BasicTable Search', () => {
     );
     await waitForComponentToPaint(html, 1200);
     expect(html.find('div.ant-form-item').length).toBe(2);
-
-    html.setProps({
-      columns: [
-        {
-          title: '金额',
-          dataIndex: 'money',
-          valueType: 'money',
-        },
-        {
-          title: 'Name',
-          key: 'name',
-          dataIndex: 'name',
-        },
-      ],
+    act(() => {
+      html.setProps({
+        columns: [
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ],
+      });
     });
 
     await waitForComponentToPaint(html, 200);

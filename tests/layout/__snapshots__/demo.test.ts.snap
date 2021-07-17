@@ -15968,3 +15968,355 @@ Array [
   </div>,
 ]
 `;
+
+exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.tsx correctly 1`] = `
+<div
+  style="height: 100vh;"
+>
+  <div
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+  >
+    <section
+      class="ant-layout ant-layout-has-sider"
+      style="min-height: 100%;"
+    >
+      <aside
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
+        style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
+      >
+        <div
+          class="ant-layout-sider-children"
+        >
+          <div
+            class="ant-pro-sider-logo"
+            id="logo"
+          >
+            <a>
+              <img
+                alt="logo"
+                src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
+              />
+              <h1>
+                Ant Design Pro
+              </h1>
+            </a>
+          </div>
+          <div
+            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+          >
+            <ul
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
+              role="menu"
+              style="width: 100%;"
+              tabindex="0"
+            >
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/welcome"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    <span
+                      class="ant-pro-menu-item-title"
+                    >
+                      欢迎
+                    </span>
+                  </span>
+                </span>
+              </li>
+              <li
+                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                role="none"
+              >
+                <div
+                  aria-controls="rc-menu-uuid-test-/admin-popup"
+                  aria-expanded="true"
+                  aria-haspopup="true"
+                  class="ant-menu-submenu-title"
+                  data-menu-id="rc-menu-uuid-test-/admin"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    <span
+                      class="ant-pro-menu-item"
+                      title="管理"
+                    >
+                      管理
+                    </span>
+                  </span>
+                  <i
+                    class="ant-menu-submenu-arrow"
+                  />
+                </div>
+                <ul
+                  class="ant-menu ant-menu-sub ant-menu-inline"
+                  data-menu-list="true"
+                  id="rc-menu-uuid-test-/admin-popup"
+                >
+                  <li
+                    class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                    data-menu-id="rc-menu-uuid-test-/admin/process"
+                    role="menuitem"
+                    style="padding-left: 32px;"
+                    tabindex="-1"
+                  >
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      <span
+                        class="ant-pro-menu-item"
+                      >
+                        <span
+                          class="ant-pro-menu-item-title"
+                        >
+                          申请单列表
+                        </span>
+                      </span>
+                    </span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <div
+              aria-hidden="true"
+              style="display: none;"
+            />
+          </div>
+          <div
+            class="ant-pro-sider-links"
+          >
+            <ul
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
+              role="menu"
+              tabindex="0"
+            >
+              <li
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  <span
+                    aria-label="menu-fold"
+                    class="anticon anticon-menu-fold"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="menu-fold"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </li>
+            </ul>
+            <div
+              aria-hidden="true"
+              style="display: none;"
+            />
+          </div>
+        </div>
+      </aside>
+      <div
+        class="ant-layout"
+        style="position: relative;"
+      >
+        <header
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
+        >
+          <div
+            class="ant-pro-global-header ant-pro-global-header-layout-side"
+          >
+            <div
+              style="flex: 1;"
+            >
+              <div
+                style="height: 100%; display: flex; align-items: center;"
+              >
+                <div
+                  class="ant-breadcrumb"
+                >
+                  <span>
+                    <span
+                      class="ant-breadcrumb-link"
+                    >
+                      <a
+                        href="/"
+                      >
+                        主页
+                      </a>
+                    </span>
+                    <span
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
+                    </span>
+                  </span>
+                  <span>
+                    <span
+                      class="ant-breadcrumb-link"
+                    >
+                      <a
+                        href="/"
+                      >
+                        测试页
+                      </a>
+                    </span>
+                    <span
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
+                    </span>
+                  </span>
+                  <span>
+                    <span
+                      class="ant-breadcrumb-link"
+                    >
+                      <a
+                        href="/admin"
+                      >
+                        管理
+                      </a>
+                    </span>
+                    <span
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
+                    </span>
+                  </span>
+                  <span>
+                    <span
+                      class="ant-breadcrumb-link"
+                    >
+                      <a
+                        href="/admin/process"
+                      >
+                        申请单列表
+                      </a>
+                    </span>
+                    <span
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
+                    </span>
+                  </span>
+                  <span>
+                    <span
+                      class="ant-breadcrumb-link"
+                    >
+                      <a
+                        href="/admin/process/edit/123"
+                      >
+                        编辑申请单
+                      </a>
+                    </span>
+                    <span
+                      class="ant-breadcrumb-separator"
+                    >
+                      /
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        >
+          <div
+            class="ant-pro-page-container"
+          >
+            <div
+              class="ant-pro-page-container-warp"
+            >
+              <div
+                class="ant-page-header ant-page-header-ghost"
+              >
+                <div
+                  class="ant-page-header-heading"
+                >
+                  <div
+                    class="ant-page-header-heading-left"
+                  >
+                    <span
+                      class="ant-page-header-heading-title"
+                      title="编辑申请单"
+                    >
+                      编辑申请单
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="ant-page-header-content"
+                >
+                  <div
+                    class="ant-pro-page-container-detail"
+                  >
+                    <div
+                      class="ant-pro-page-container-main"
+                    >
+                      <div
+                        class="ant-pro-page-container-row"
+                      >
+                        <div
+                          class="ant-pro-page-container-content"
+                        >
+                          欢迎使用
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-pro-grid-content"
+            >
+              <div
+                class="ant-pro-grid-content-children"
+              >
+                <div>
+                  <div
+                    class="ant-pro-page-container-children-content"
+                  >
+                    <div>
+                      Hello World
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </section>
+  </div>
+</div>
+`;

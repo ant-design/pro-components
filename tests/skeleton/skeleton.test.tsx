@@ -1,5 +1,6 @@
 import { render, mount } from 'enzyme';
 import React from 'react';
+import { act } from 'react-dom/test-utils';
 
 import ProSkeleton from '../../packages/skeleton/src/index';
 
@@ -22,8 +23,10 @@ describe('skeleton', () => {
   it('🥩 descriptions api use', async () => {
     const wrapper = mount(<ProSkeleton type="descriptions" pageHeader={false} list={10} />);
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({
-      table: false,
+    act(() => {
+      wrapper.setProps({
+        table: false,
+      });
     });
     expect(wrapper.render()).toMatchSnapshot();
   });
@@ -40,9 +43,11 @@ describe('skeleton', () => {
       />,
     );
     expect(wrapper.render()).toMatchSnapshot();
-    wrapper.setProps({
-      list: false,
-      statistic: false,
+    act(() => {
+      wrapper.setProps({
+        list: false,
+        statistic: false,
+      });
     });
     expect(wrapper.render()).toMatchSnapshot();
   });

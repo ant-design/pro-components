@@ -58,8 +58,10 @@ describe('Card', () => {
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-card-collapse').exists()).toBeTruthy();
 
-    wrapper.setProps({
-      collapsed: false,
+    act(() => {
+      wrapper.setProps({
+        collapsed: false,
+      });
     });
 
     await waitForComponentToPaint(wrapper);

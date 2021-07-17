@@ -4,7 +4,7 @@ import { BetaSchemaForm } from '@ant-design/pro-form';
 import type { ProFormColumnsType } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
 import { Input } from 'antd';
-import { act } from 'react-test-renderer';
+import { act } from 'react-dom/test-utils';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -175,7 +175,7 @@ describe('SchemaForm', () => {
     expect(html.find('input').exists()).toBeTruthy();
   });
 
-  it('SchemaForm support hidenInForm', async () => {
+  it('😊 SchemaForm support hidenInForm', async () => {
     const html = mount(
       <BetaSchemaForm
         columns={[

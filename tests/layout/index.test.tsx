@@ -268,7 +268,11 @@ describe('BasicLayout', () => {
     const onCollapse = jest.fn();
     const wrapper = mount(<BasicLayout onCollapse={onCollapse} />);
     await waitForComponentToPaint(wrapper);
-    wrapper.find('li.ant-pro-sider-collapsed-button').map((item) => item && item.simulate('click'));
+    act(() => {
+      wrapper
+        .find('li.ant-pro-sider-collapsed-button')
+        .map((item) => item && item.simulate('click'));
+    });
     expect(onCollapse).toHaveBeenCalled();
 
     await waitForComponentToPaint(wrapper);
@@ -811,18 +815,19 @@ describe('BasicLayout', () => {
       });
     });
     await waitForComponentToPaint(wrapper);
-
-    wrapper.setProps({
-      menu: {
-        loading: false,
-      },
-      menuDataRender: () => [
-        {
-          path: '/welcome',
-          name: '欢迎',
-          layout: 'top',
+    act(() => {
+      wrapper.setProps({
+        menu: {
+          loading: false,
         },
-      ],
+        menuDataRender: () => [
+          {
+            path: '/welcome',
+            name: '欢迎',
+            layout: 'top',
+          },
+        ],
+      });
     });
     await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.find('.ant-pro-basicLayout-top').exists()).toBeTruthy();
