@@ -19,6 +19,7 @@ import getPageTitle from './getPageTitle';
 import PageLoading from './components/PageLoading';
 import FooterToolbar from './components/FooterToolbar';
 import WaterMark from './components/WaterMark';
+import { ProPageHeader, ProBreadcrumb } from './components/PageContainer';
 
 export type { ProSettings as Settings, ProSettings } from './defaultSettings';
 
@@ -41,6 +42,8 @@ export {
   PageContainer,
   FooterToolbar,
   WaterMark,
+  ProPageHeader,
+  ProBreadcrumb,
 };
 
 export type {

@@ -81,6 +81,10 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 
 <code src="./demos/customize-collapsed.tsx" iframe="500px" title="自定义的 collapsed" />
 
+### 面包屑显示在顶部
+
+<code src="./demos/top-breadcrumb.tsx" iframe="500px" title="面包屑显示在顶部" />
+
 ### 多级站点导航
 
 <code src="./demos/immersive-navigation.tsx" iframe="500px" title="多级站点导航" />

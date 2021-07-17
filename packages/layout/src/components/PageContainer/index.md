@@ -105,3 +105,21 @@ FooterToolbar api 比较简单，主要功能是实现了在 layout 中自动控
   <Button>提交</Button>
 </FooterToolbar>
 ```
+
+### ProBreadcrumb
+
+配置与面包屑相同，只是增加了自动根据路由计算面包屑的功能。此功能必须要在 ProLayout 中使用。
+
+```tsx | pure
+import { ProLayout,ProBreadcrumb } from '@ant-design/pro-layout';
+
+return (props) => (
+  <ProLayout
+    {...props}
+    // 将面包屑显示在顶部
+    headerContentRender={) => {
+      return <ProBreadcrumb/>;
+    }}
+  />
+);
+```
