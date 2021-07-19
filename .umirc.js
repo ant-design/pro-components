@@ -176,6 +176,7 @@ export default {
           'form',
           'FieldSet/index',
           'Group/index',
+          'SchemaForm/index',
           'QueryFilter/index',
           'StepsForm/index',
           'ModalForm/index',
