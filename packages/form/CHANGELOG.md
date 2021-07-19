@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.32.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.31.2...@ant-design/pro-form@1.32.0) (2021-07-19)
+
+### Bug Fixes
+
+- **form:** proform onValuesChange 触发两次 ([#3241](https://github.com/ant-design/pro-components/issues/3241)) ([864a795](https://github.com/ant-design/pro-components/commit/864a7955f0965975ab7cc89571556fb13e9890b5)), closes [#3240](https://github.com/ant-design/pro-components/issues/3240)
+- **form:** ProFormCheckbox 的 options 属性改为可选 ([#3195](https://github.com/ant-design/pro-components/issues/3195)) ([dd1aa43](https://github.com/ant-design/pro-components/commit/dd1aa43b771537086c176f58cd2cd6a214e94b06))
+- **form:** proformUploadDragger padding ([#3251](https://github.com/ant-design/pro-components/issues/3251)) ([3b2b43c](https://github.com/ant-design/pro-components/commit/3b2b43c050e324c92beb22f314a98dbab2988f06))
+- **form:** set BaseForm autoComplete=off ([#3246](https://github.com/ant-design/pro-components/issues/3246)) ([a71bade](https://github.com/ant-design/pro-components/commit/a71bade57acde696ec210e1113d2de9920651394))
+- **table:** fix onSave will merge origin data error ([#3221](https://github.com/ant-design/pro-components/issues/3221)) ([a16473e](https://github.com/ant-design/pro-components/commit/a16473ec56f1b3d1114c9b73fd18be97605ccfae))
+- **utils:** fix error import type and add check-deps script ([#3242](https://github.com/ant-design/pro-components/issues/3242)) ([7c49079](https://github.com/ant-design/pro-components/commit/7c49079746001e8434c187d8fad4288a39525f3d))
+
+### Features
+
+- **form:** StepForm support step props ([#3239](https://github.com/ant-design/pro-components/issues/3239)) ([3aaad4b](https://github.com/ant-design/pro-components/commit/3aaad4b2c47f76a0bf0b8f76ac78c844652af313))
+
 ## [1.31.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.31.1...@ant-design/pro-form@1.31.2) (2021-07-06)
 
 **Note:** Version bump only for package @ant-design/pro-form

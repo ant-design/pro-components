@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.14.5...@ant-design/pro-card@1.14.6) (2021-07-19)
+
+### Bug Fixes
+
+- **utils:** fix error import type and add check-deps script ([#3242](https://github.com/ant-design/pro-components/issues/3242)) ([7c49079](https://github.com/ant-design/pro-components/commit/7c49079746001e8434c187d8fad4288a39525f3d))
+
 ## [1.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.14.4...@ant-design/pro-card@1.14.5) (2021-07-06)
 
 **Note:** Version bump only for package @ant-design/pro-card

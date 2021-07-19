@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.15...@ant-design/pro-provider@1.4.16) (2021-07-19)
+
+### Bug Fixes
+
+- **form:** proformUploadDragger padding ([#3251](https://github.com/ant-design/pro-components/issues/3251)) ([3b2b43c](https://github.com/ant-design/pro-components/commit/3b2b43c050e324c92beb22f314a98dbab2988f06))
+
 ## [1.4.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.14...@ant-design/pro-provider@1.4.15) (2021-07-01)
 
 **Note:** Version bump only for package @ant-design/pro-provider

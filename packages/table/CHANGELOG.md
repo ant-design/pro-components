@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.43.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.43.4...@ant-design/pro-table@2.43.5) (2021-07-19)
+
+### Bug Fixes
+
+- update demos ([40b4c15](https://github.com/ant-design/pro-components/commit/40b4c1528f4c724172519c1690037f3afbbd7597))
+
 ## [2.43.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.43.3...@ant-design/pro-table@2.43.4) (2021-07-06)
 
 ### Bug Fixes

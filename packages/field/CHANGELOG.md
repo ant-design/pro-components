@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.10...@ant-design/pro-field@1.18.11) (2021-07-19)
+
+### Bug Fixes
+
+- 修复用户自定义的 render 在返回空时报错问题 ([#3225](https://github.com/ant-design/pro-components/issues/3225)) ([b15a306](https://github.com/ant-design/pro-components/commit/b15a3063ca96e66ec7868d3d09d00aad43c3b4c3))
+
 ## [1.18.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.9...@ant-design/pro-field@1.18.10) (2021-07-06)
 
 ### Bug Fixes

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.22.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.21.1...@ant-design/pro-layout@6.22.0) (2021-07-19)
+
+### Features
+
+- **layout:** add ProBreadcrumb ([#3257](https://github.com/ant-design/pro-components/issues/3257)) ([481c80e](https://github.com/ant-design/pro-components/commit/481c80e4f66b4f6ecf223d1be09af4f2ba517803))
+- **layout:** support breadcrumbProps.minLength to set breadcrumb length ([#3263](https://github.com/ant-design/pro-components/issues/3263)) ([ea400d0](https://github.com/ant-design/pro-components/commit/ea400d0c65fa684faf7ae9b0d869baa1e3a46139))
+
 ## [6.21.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.21.0...@ant-design/pro-layout@6.21.1) (2021-07-06)
 
 **Note:** Version bump only for package @ant-design/pro-layout

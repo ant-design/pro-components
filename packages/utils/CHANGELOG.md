@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.5...@ant-design/pro-utils@1.19.6) (2021-07-19)
+
+### Bug Fixes
+
+- **table:** fix onSave will merge origin data error ([#3221](https://github.com/ant-design/pro-components/issues/3221)) ([a16473e](https://github.com/ant-design/pro-components/commit/a16473ec56f1b3d1114c9b73fd18be97605ccfae))
+- **table:** fix table align with tooltip ([#3193](https://github.com/ant-design/pro-components/issues/3193)) ([3b0647e](https://github.com/ant-design/pro-components/commit/3b0647e6a0f64366ae4716a01d2b7a21b86c3805))
+- **utils:** fix error import type and add check-deps script ([#3242](https://github.com/ant-design/pro-components/issues/3242)) ([7c49079](https://github.com/ant-design/pro-components/commit/7c49079746001e8434c187d8fad4288a39525f3d))
+
 ## [1.19.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.4...@ant-design/pro-utils@1.19.5) (2021-07-06)
 
 ### Bug Fixes

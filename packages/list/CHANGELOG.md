@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.6...@ant-design/pro-list@1.10.7) (2021-07-19)
+
+### Bug Fixes
+
+- **table:** fix onSave will merge origin data error ([#3221](https://github.com/ant-design/pro-components/issues/3221)) ([a16473e](https://github.com/ant-design/pro-components/commit/a16473ec56f1b3d1114c9b73fd18be97605ccfae))
+
 ## [1.10.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.5...@ant-design/pro-list@1.10.6) (2021-07-06)
 
 **Note:** Version bump only for package @ant-design/pro-list
