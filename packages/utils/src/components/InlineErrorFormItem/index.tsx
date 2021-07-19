@@ -68,9 +68,8 @@ const Content: React.FC<{
   isTouched: boolean;
   rules: Rule[];
   progressProps?: ProgressProps | false;
-  name: NamePath;
   form: Omit<FormInstance, 'scrollToField' | '__INTERNAL__' | 'getFieldInstance'>;
-}> = ({ rules, isTouched, isValidating, value, fieldError, progressProps, name, form }) => {
+}> = ({ rules, isTouched, isValidating, value, fieldError, progressProps, form }) => {
   const percent = Math.max(
     0,
     Math.min(100, ((rules.length - fieldError.length) / rules.length) * 100),
@@ -108,9 +107,7 @@ const Content: React.FC<{
                 ) : (
                   getIcon(fieldError, rule, isTouched, hasRequired ? requiredChecked : true)
                 )}
-                <span style={{ color: 'rgba(0,0,0,0.65)' }}>
-                  {rule.required ? rule.message ?? `${name} 是必选字段` : rule.message}
-                </span>
+                <span style={{ color: 'rgba(0,0,0,0.65)' }}>{rule.message}</span>
               </Space>
             </li>
           );
@@ -187,7 +184,6 @@ const InternalFormItem: React.FC<
                   isTouched={isTouched}
                   rules={rules}
                   progressProps={progressProps}
-                  name={name}
                   form={form}
                 />
               }
