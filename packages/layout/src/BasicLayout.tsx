@@ -2,7 +2,7 @@ import './BasicLayout.less';
 import type { CSSProperties } from 'react';
 import { useCallback, useRef } from 'react';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
-import type { BreadcrumbProps as AntdBreadcrumbProps, BreadcrumbProps } from 'antd/lib/breadcrumb';
+import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import { Layout, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';
@@ -44,6 +44,10 @@ import type { WaterMarkProps } from './components/WaterMark';
 import { stringify } from 'use-json-comparison';
 
 let layoutIndex = 0;
+
+export type LayoutBreadcrumbProps = {
+  minLength?: number;
+};
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
@@ -99,7 +103,7 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
     disableContentMargin?: boolean;
 
     /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
-    breadcrumbProps?: BreadcrumbProps;
+    breadcrumbProps?: AntdBreadcrumbProps & LayoutBreadcrumbProps;
     /** @name 水印的相关配置 */
     waterMarkProps?: WaterMarkProps;
 
@@ -420,11 +424,14 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   );
 
   // gen breadcrumbProps, parameter for pageHeader
-  const breadcrumbProps = getBreadcrumbProps({
-    ...defaultProps,
-    breadcrumbRender: props.breadcrumbRender,
-    breadcrumbMap,
-  });
+  const breadcrumbProps = getBreadcrumbProps(
+    {
+      ...defaultProps,
+      breadcrumbRender: props.breadcrumbRender,
+      breadcrumbMap,
+    },
+    props,
+  );
 
   // render sider dom
   const siderMenuDom = renderSiderMenu(
