@@ -1,44 +1,25 @@
-﻿import React, { useState } from 'react';
-import { Form, Popover, Progress, Space } from 'antd';
+﻿import React, { useState, useContext } from 'react';
+import { Form, Popover, Progress, Space, ConfigProvider } from 'antd';
+import classNames from 'classnames';
 import type { FormItemProps, PopoverProps, ProgressProps, FormInstance } from 'antd';
 import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
 import type { Rule, NamePath, RuleObject } from 'rc-field-form/lib/interface';
-
-const RED = '#ff4d4f';
-const YELLOW = '#faad14';
-const GREEN = '#52c41a';
-const PRIMARY = '#1890ff';
-const COLORS = { RED, YELLOW, GREEN, PRIMARY };
+import './index.less';
 
 const getStrokeColor = (percent: number) => {
   if (percent < 50) {
-    return COLORS.RED;
+    return 'error';
   }
   if (percent < 100) {
-    return COLORS.YELLOW;
+    return 'warning';
   }
-  return COLORS.GREEN;
+  return 'success';
 };
 
-const CircleRender = () => {
+const CircleRender = ({ prefixCls }: { prefixCls: string }) => {
   return (
-    <div
-      style={{
-        width: 14,
-        height: 22,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <div
-        style={{
-          width: '6px',
-          height: '6px',
-          borderRadius: '4px',
-          backgroundColor: 'rgba(0,0,0,0.45)',
-        }}
-      />
+    <div className={`${prefixCls}-rule-content-icon-default`}>
+      <div className={`${prefixCls}-rule-content-icon-default-circle`} />
     </div>
   );
 };
@@ -48,17 +29,19 @@ const getIcon = (
   rule: Rule,
   isTouched: boolean,
   requiredChecked: boolean,
+  isValidating: boolean,
+  prefixCls: string,
 ) => {
+  if (isValidating) {
+    return <LoadingOutlined className={`${prefixCls}-rule-content-icon-loading`} />;
+  }
   if (!isTouched) {
-    return <CircleRender></CircleRender>;
+    return <CircleRender prefixCls={prefixCls}></CircleRender>;
   }
-  if (!requiredChecked) {
-    return <CloseCircleFilled style={{ color: COLORS.RED }} />;
+  if (!requiredChecked || fieldError.includes((rule as any).message)) {
+    return <CloseCircleFilled className={`${prefixCls}-rule-content-icon-error`} />;
   }
-  if (fieldError.includes((rule as any).message)) {
-    return <CloseCircleFilled style={{ color: COLORS.RED }} />;
-  }
-  return <CheckCircleFilled style={{ color: COLORS.GREEN }} />;
+  return <CheckCircleFilled className={`${prefixCls}-rule-content-icon-success`} />;
 };
 
 const Content: React.FC<{
@@ -74,45 +57,48 @@ const Content: React.FC<{
     0,
     Math.min(100, ((rules.length - fieldError.length) / rules.length) * 100),
   );
-  const isSingleRule = rules.length === 1;
-  const requiredRule = rules.filter((_) => (_ as RuleObject).required)[0] as RuleObject;
+  const isMultipleRule = rules.length > 1;
+  const requiredRule = rules.find((_) => (_ as RuleObject).required) as RuleObject;
   const hasRequired = !!requiredRule;
   const requiredChecked = hasRequired && !fieldError.includes(requiredRule?.message as string);
+
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('pro-inline-error-form-item');
+
   return (
-    <div style={isSingleRule ? {} : { padding: '6px 8px 12px 8px' }}>
-      {(progressProps === undefined || progressProps) && (
-        <Progress
-          percent={value && isTouched ? percent : 0}
-          strokeColor={getStrokeColor(percent)}
-          showInfo={false}
-          size="small"
-          strokeLinecap={'butt'}
-          {...progressProps}
-        />
-      )}
-      <ul
-        style={
-          isSingleRule
-            ? { margin: 0, padding: 0, listStyle: 'none' }
-            : { margin: 0, marginTop: '10px', listStyle: 'none', padding: '0' }
-        }
-      >
-        {rules?.map((item, idx) => {
-          const rule = typeof item === 'function' ? item(form) : item;
-          return (
-            <li key={idx} style={{ display: 'flex', alignItems: 'center' }}>
-              <Space>
-                {isValidating ? (
-                  <LoadingOutlined style={{ color: COLORS.PRIMARY }} />
-                ) : (
-                  getIcon(fieldError, rule, isTouched, hasRequired ? requiredChecked : true)
-                )}
-                <span style={{ color: 'rgba(0,0,0,0.65)' }}>{rule.message}</span>
-              </Space>
-            </li>
-          );
-        })}
-      </ul>
+    <div className={classNames(prefixCls, { [`${prefixCls}-multiple`]: isMultipleRule })}>
+      <Space direction="vertical">
+        {(progressProps === undefined || progressProps) && (
+          <Progress
+            className={`${prefixCls}-progress-${getStrokeColor(percent)}`}
+            percent={value && isTouched ? percent : 0}
+            showInfo={false}
+            size="small"
+            strokeLinecap={'butt'}
+            {...progressProps}
+          />
+        )}
+        <ul className={`${prefixCls}-rule`}>
+          {rules?.map((item, idx) => {
+            const rule = typeof item === 'function' ? item(form) : item;
+            return (
+              <li key={idx} className={`${prefixCls}-rule-content`}>
+                <Space>
+                  {getIcon(
+                    fieldError,
+                    rule,
+                    isTouched,
+                    hasRequired ? requiredChecked : true,
+                    isValidating,
+                    prefixCls,
+                  )}
+                  <span className={`${prefixCls}-rule-content-text`}>{rule.message}</span>
+                </Space>
+              </li>
+            );
+          })}
+        </ul>
+      </Space>
     </div>
   );
 };
