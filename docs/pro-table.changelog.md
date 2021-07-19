@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.43.5
+
+`2021-07-19`
+
+- 🐛 fix(table): fix onSave will merge origin data error [#3221](https://github.com/ant-design/pro-components/pull/3221) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix table align with tooltip [#3193](https://github.com/ant-design/pro-components/pull/3193) [@linxianxi](https://github.com/linxianxi)
+
 ## @ant-design/pro-table@2.43.1
 
 `2021-06-28`

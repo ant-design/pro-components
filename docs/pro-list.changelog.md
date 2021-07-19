@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.10.7
+
+`2021-07-19`
+
+- 🎨 chore(list): update depend rc-resize-observer [#3206](https://github.com/ant-design/pro-components/pull/3206) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-list@1.10.2
 
 `2021-06-23`

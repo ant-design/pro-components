@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.22.0
+
+`2021-07-19`
+
+- 💥 feat(layout): support breadcrumbProps.minLength to set breadcrumb length [#3263](https://github.com/ant-design/pro-components/pull/3263) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(layout): add ProBreadcrumb [#3257](https://github.com/ant-design/pro-components/pull/3257) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.20.0
 
 `2021-06-28`

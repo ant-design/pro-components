@@ -9,6 +9,17 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.32.0
+
+`2021-07-19`
+
+- fix: proformUploadDragger padding [#3251](https://github.com/ant-design/pro-components/pull/3251) [@rdmclin2](https://github.com/rdmclin2)
+- 🐛 fix(form): set BaseForm autoComplete=off [#3246](https://github.com/ant-design/pro-components/pull/3246) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): proform onValuesChange 触发两次 [#3241](https://github.com/ant-design/pro-components/pull/3241) [@dingtianxiu](https://github.com/dingtianxiu)
+- chore(form): ProFormCheckbox 的 options 属性改为可选 [#3195](https://github.com/ant-design/pro-components/pull/3195) [@0x219](https://github.com/0x219)
+- 💥 feat(form): StepForm support step props [#3239](https://github.com/ant-design/pro-components/pull/3239) [@chenshuai2144](https://github.com/chenshuai2144)
+- ✨ feat(form): feat new valueType -> divider [#3215](https://github.com/ant-design/pro-components/pull/3215) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-form@1.31.0
 
 `2021-06-28`
