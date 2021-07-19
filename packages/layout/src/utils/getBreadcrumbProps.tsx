@@ -6,6 +6,7 @@ import pathToRegexp from 'path-to-regexp';
 import type { ProSettings } from '../defaultSettings';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typings';
 import { urlToList } from './pathTools';
+import { BasicLayoutProps } from '../BasicLayout';
 
 export type BreadcrumbProps = {
   breadcrumbList?: { title: string; href: string }[];
@@ -113,8 +114,12 @@ export const genBreadcrumbProps = (props: BreadcrumbProps): AntdBreadcrumbProps[
 };
 
 // use breadcrumbRender to change routes
-export const getBreadcrumbProps = (props: BreadcrumbProps): BreadcrumbListReturn => {
+export const getBreadcrumbProps = (
+  props: BreadcrumbProps,
+  layoutPros: BasicLayoutProps,
+): BreadcrumbListReturn => {
   const { breadcrumbRender, itemRender: propsItemRender } = props;
+  const { minLength = 2 } = layoutPros.breadcrumbProps || {};
   const routesArray = genBreadcrumbProps(props);
   const itemRender = propsItemRender || defaultItemRender;
   let routes = routesArray;
@@ -122,7 +127,7 @@ export const getBreadcrumbProps = (props: BreadcrumbProps): BreadcrumbListReturn
   if (breadcrumbRender) {
     routes = breadcrumbRender(routes) || [];
   }
-  if ((routes && routes.length < 2) || breadcrumbRender === false) {
+  if ((routes && routes.length < minLength) || breadcrumbRender === false) {
     routes = undefined;
   }
   return {
