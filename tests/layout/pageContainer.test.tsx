@@ -17,7 +17,7 @@ describe('PageContainer', () => {
   });
 
   it('⚡️ support footer', async () => {
-    const html = render(
+    const wrapper = mount(
       <PageContainer
         title="期贤"
         footer={[
@@ -27,6 +27,8 @@ describe('PageContainer', () => {
         ]}
       />,
     );
+    expect(wrapper?.find('.ant-pro-page-container-with-footer').length).toBe(1);
+    const html = wrapper.render();
     expect(html).toMatchSnapshot();
   });
 

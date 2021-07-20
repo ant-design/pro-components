@@ -254,6 +254,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
 
   const className = classNames(prefixedClassName, props.className, {
     [`${prefixCls}-page-container-ghost`]: ghost,
+    [`${prefixCls}-page-container-with-footer`]: footer,
   });
 
   const content = children ? (
