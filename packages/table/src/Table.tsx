@@ -185,20 +185,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     props.tableLayout ?? props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
-  const baseTableDom = props.editable ? (
-    <ProForm
-      component={false}
-      form={props.editable?.form}
-      onValuesChange={editableUtils.onValuesChange}
-      key="table"
-      submitter={false}
-      omitNil={false}
-    >
-      <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
-    </ProForm>
-  ) : (
-    <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />
-  );
+  const baseTableDom = <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />;
 
   /** 自定义的 render */
   const tableDom = props.tableViewRender
@@ -232,7 +219,20 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     >
       {toolbarDom}
       {alertDom}
-      {tableDom}
+      {props.editable ? (
+        <ProForm
+          component={false}
+          form={props.editable?.form}
+          onValuesChange={editableUtils.onValuesChange}
+          key="table"
+          submitter={false}
+          omitNil={false}
+        >
+          {tableDom}
+        </ProForm>
+      ) : (
+        tableDom
+      )}
     </Card>
   );
 

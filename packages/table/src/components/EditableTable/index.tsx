@@ -67,25 +67,26 @@ function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.El
  *
  * @param props
  */
-function EditableTable<T extends Record<string, any>, U extends ParamsType = ParamsType>(
-  props: EditableProTableProps<T, U>,
-) {
+function EditableTable<
+  DataType extends Record<string, any>,
+  Params extends ParamsType = ParamsType,
+>(props: EditableProTableProps<DataType, Params>) {
   const { onTableChange, maxLength, recordCreatorProps, rowKey, controlled, ...rest } = props;
   const actionRef = useRef<ActionType>();
   const [form] = Form.useForm();
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current);
 
-  const [value, setValue] = useMergedState<T[]>(() => props.value || [], {
+  const [value, setValue] = useMergedState<DataType[]>(() => props.value || [], {
     value: props.value,
     onChange: props.onChange,
   });
 
-  const getRowKey = React.useMemo<GetRowKey<T>>((): GetRowKey<T> => {
+  const getRowKey = React.useMemo<GetRowKey<DataType>>((): GetRowKey<DataType> => {
     if (typeof rowKey === 'function' && rowKey) {
       return rowKey;
     }
-    return (record: T, index?: number) => (record as any)[rowKey as string] || index;
+    return (record: DataType, index?: number) => (record as any)[rowKey as string] || index;
   }, [rowKey]);
 
   useEffect(() => {
@@ -199,7 +200,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
             props.editable?.onValuesChange ||
             // 受控模式需要触发 onchange
             (props.controlled && props?.onChange)
-              ? (r: T, dataSource: T[]) => {
+              ? (r: DataType, dataSource: DataType[]) => {
                   props.editable?.onValuesChange?.(r, dataSource);
                   props.onValuesChange?.(dataSource, r);
                   if (props.controlled) {
