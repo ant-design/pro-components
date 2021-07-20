@@ -217,7 +217,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 `request` is the most important API of ProTable, `request` takes an object. The object must have `data` and `success` in it, and `total` is also required if manual paging is needed. `request` takes over the `loading` settings and re-executes them when the query form is queried and the `params` parameters are modified. Also the query form values and `params` parameters are brought in. The following is an example.
 
 ```tsx | pure
-<ProTable<T, U>
+<ProTable<DataType, Params>
   // params is a parameter that needs to be self-contained
   // This parameter has higher priority and will override the parameters of the query form
   params={params}

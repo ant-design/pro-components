@@ -180,7 +180,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
 
   return (
     <EditableTableActionContext.Provider value={actionRef}>
-      <ProTable<T, U>
+      <ProTable<DataType, Params>
         search={false}
         options={false}
         pagination={false}

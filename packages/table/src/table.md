@@ -254,7 +254,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 `request` 是 ProTable 最重要的 API，`request` 会接收一个对象。对象中必须要有 `data` 和 `success`，如果需要手动分页 `total` 也是必需的。`request` 会接管 `loading` 的设置，同时在查询表单查询和 `params` 参数发生修改时重新执行。同时 查询表单的值和 `params` 参数也会带入。以下是一个例子：
 
 ```tsx | pure
-<ProTable<T, U>
+<ProTable<DataType, Params>
   // params 是需要自带的参数
   // 这个参数优先级更高，会覆盖查询表单的参数
   params={params}

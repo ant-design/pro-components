@@ -694,18 +694,21 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
  * @param props
  */
 const ProviderWarp = <
-  T extends Record<string, any>,
-  U extends ParamsType = ParamsType,
+  DataType extends Record<string, any>,
+  Params extends ParamsType = ParamsType,
   ValueType = 'text',
 >(
-  props: ProTableProps<T, U, ValueType>,
+  props: ProTableProps<DataType, Params, ValueType>,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   return (
     <Container.Provider initialState={props}>
       <ConfigProviderWrap>
         <ErrorBoundary>
-          <ProTable<T, U, ValueType> defaultClassName={getPrefixCls('pro-table')} {...props} />
+          <ProTable<DataType, Params, ValueType>
+            defaultClassName={getPrefixCls('pro-table')}
+            {...props}
+          />
         </ErrorBoundary>
       </ConfigProviderWrap>
     </Container.Provider>
