@@ -238,7 +238,8 @@ export function SaveEditableAction<T>({
           await form.validateFields(namePath, {
             recursive: true,
           });
-          const fields = (context.getFieldFormatValue || form.getFieldValue)(namePath);
+
+          const fields = context.getFieldFormatValue?.(namePath) || form.getFieldValue(namePath);
           const data = isMapEditor ? set({}, namePath, fields, true) : fields;
 
           // 获取数据并保存
@@ -328,7 +329,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
       onClick={async () => {
         const isMapEditor = editorType === 'Map';
         const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
-        const fields = (context.getFieldFormatValue || form.getFieldValue)(namePath);
+        const fields = context.getFieldFormatValue?.(namePath) || form.getFieldValue(namePath);
         const record = isMapEditor ? set({}, namePath, fields) : fields;
         const res = await onCancel?.(recordKey, record, row, newLineConfig);
         cancelEditable(recordKey);
