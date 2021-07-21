@@ -9,8 +9,8 @@ import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
 import type { GetRowKey } from 'antd/lib/table/interface';
 
-export type RecordCreatorProps<T> = {
-  record: T | ((index: number) => T);
+export type RecordCreatorProps<DataSourceType> = {
+  record: DataSourceType | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
   position?: 'top' | 'bottom';
   /**
    * 新增一行的类型
@@ -109,7 +109,7 @@ function EditableTable<
     return (
       recordCreatorProps !== false && (
         <RecordCreator
-          record={runFunction(record, value.length) || {}}
+          record={runFunction(record, value.length, value) || {}}
           position={position}
           newRecordType={newRecordType}
         >
