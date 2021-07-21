@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import type { ProTableProps, ProColumnType, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import type { ParamsType } from '@ant-design/pro-provider';
-import { ConfigProvider, Form } from 'antd';
+import { ConfigProvider } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
 import ListView from './ListView';
@@ -148,31 +148,29 @@ function ProList<
       }}
       tableViewRender={({ columns, size, pagination, rowSelection, dataSource, loading }) => {
         return (
-          <Form component={false}>
-            <ListView
-              grid={grid}
-              itemTitleRender={itemTitleRender}
-              prefixCls={prefixCls}
-              columns={columns}
-              renderItem={renderItem}
-              actionRef={actionRef}
-              dataSource={(dataSource || []) as RecordType[]}
-              size={size as 'large'}
-              footer={footer}
-              split={split}
-              rowKey={rowKey}
-              expandable={expandable}
-              rowSelection={propRowSelection === false ? undefined : rowSelection}
-              showActions={showActions}
-              showExtra={showExtra}
-              pagination={pagination as PaginationProps}
-              itemLayout={itemLayout}
-              loading={loading}
-              itemHeaderRender={itemHeaderRender}
-              onRow={onRow}
-              locale={locale}
-            />
-          </Form>
+          <ListView
+            grid={grid}
+            itemTitleRender={itemTitleRender}
+            prefixCls={prefixCls}
+            columns={columns}
+            renderItem={renderItem}
+            actionRef={actionRef}
+            dataSource={(dataSource || []) as RecordType[]}
+            size={size as 'large'}
+            footer={footer}
+            split={split}
+            rowKey={rowKey}
+            expandable={expandable}
+            rowSelection={propRowSelection === false ? undefined : rowSelection}
+            showActions={showActions}
+            showExtra={showExtra}
+            pagination={pagination as PaginationProps}
+            itemLayout={itemLayout}
+            loading={loading}
+            itemHeaderRender={itemHeaderRender}
+            onRow={onRow}
+            locale={locale}
+          />
         );
       }}
     />
