@@ -1,10 +1,12 @@
 import { createContainer } from 'unstated-next';
-import { useState, useRef } from 'react';
+import { useState, useRef, useMemo } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { ProTableProps } from './index';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ActionType } from './typing';
+import type { TableColumnType } from 'antd';
+import { genColumnKey } from './utils';
 
 export type ColumnsState = {
   show?: boolean;
@@ -12,11 +14,12 @@ export type ColumnsState = {
   order?: number;
 };
 
-export type UseContainerProps = {
+export type UseContainerProps<T = any> = {
   columnsStateMap?: Record<string, ColumnsState>;
   onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
   size?: DensitySize;
   onSizeChange?: (size: DensitySize) => void;
+  columns?: TableColumnType<T>[];
 };
 
 function useContainer(props: UseContainerProps = {}) {
@@ -32,8 +35,24 @@ function useContainer(props: UseContainerProps = {}) {
     value: props.size,
     onChange: props.onSizeChange,
   });
+
+  /** 默认全选中 */
+  const defaultColumnKeyMap = useMemo(() => {
+    const columnKeyMap = {};
+    props.columns?.forEach(({ key, fixed }, index) => {
+      const columnKey = genColumnKey(key, index);
+      if (columnKey) {
+        columnKeyMap[columnKey] = {
+          show: true,
+          fixed,
+        };
+      }
+    });
+    return columnKeyMap;
+  }, [props.columns]);
+
   const [columnsMap, setColumnsMap] = useMergedState<Record<string, ColumnsState>>(
-    props.columnsStateMap || {},
+    props.columnsStateMap || defaultColumnKeyMap,
     {
       value: props.columnsStateMap,
       onChange: props.onColumnsStateChange,
@@ -56,6 +75,7 @@ function useContainer(props: UseContainerProps = {}) {
     setTableSize,
     tableSize,
     setColumnsMap,
+    columns: props.columns,
   };
 }
 
