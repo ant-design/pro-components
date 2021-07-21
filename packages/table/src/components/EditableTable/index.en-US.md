@@ -212,8 +212,8 @@ render: (text, record, _, action) => [
     Edit
   </a>,
   <EditableProTable.RecordCreator
-    record={{
-      ... .record,
+    record={()=>{
+      ...record,
       id: (Math.random() * 1000000).toFixed(0),
     }}
   >
