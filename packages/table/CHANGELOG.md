@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.44.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.43.6...@ant-design/pro-table@2.44.0) (2021-07-21)
+
+### Features
+
+- **table:** record function add new params dataSource ([#3278](https://github.com/ant-design/pro-components/issues/3278)) ([b532a70](https://github.com/ant-design/pro-components/commit/b532a70272c20b5fbab14a773f206a26418cf3c7))
+
 ## [2.43.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.43.5...@ant-design/pro-table@2.43.6) (2021-07-20)
 
 ### Bug Fixes

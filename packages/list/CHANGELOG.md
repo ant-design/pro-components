@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.8...@ant-design/pro-list@1.10.9) (2021-07-21)
+
+### Bug Fixes
+
+- **list:** add list bgcolor #fff ([f3aa561](https://github.com/ant-design/pro-components/commit/f3aa56172f2c29211e8b59becb5725b4c9040013))
+
 ## [1.10.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.7...@ant-design/pro-list@1.10.8) (2021-07-20)
 
 **Note:** Version bump only for package @ant-design/pro-list
