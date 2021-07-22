@@ -52,7 +52,9 @@ const EditableTableActionContext = React.createContext<
 >(undefined);
 
 /** 可编辑表格的按钮 */
-function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.Element }) {
+function RecordCreator<T = Record<string, any>>(
+  props: RecordCreatorProps<T> & { children: JSX.Element },
+) {
   const { children, record, position, newRecordType, parentKey } = props;
   const actionRef = useContext(EditableTableActionContext);
   return React.cloneElement(children, {
@@ -186,6 +188,26 @@ function EditableTable<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTop, creatorButtonDom]);
 
+  const editableProps = {
+    form,
+    ...props.editable,
+  };
+
+  if (
+    props?.onValuesChange ||
+    props.editable?.onValuesChange ||
+    // 受控模式需要触发 onchange
+    (props.controlled && props?.onChange)
+  ) {
+    editableProps.onValuesChange = (r: DataType, dataSource: DataType[]) => {
+      props.editable?.onValuesChange?.(r, dataSource);
+      props.onValuesChange?.(dataSource, r);
+      if (props.controlled) {
+        props?.onChange?.(dataSource);
+      }
+    };
+  }
+
   return (
     <EditableTableActionContext.Provider value={actionRef}>
       <ProTable<DataType, Params>
@@ -199,23 +221,7 @@ function EditableTable<
         actionRef={actionRef}
         onChange={onTableChange}
         dataSource={value}
-        editable={{
-          form,
-          ...props.editable,
-          onValuesChange:
-            props?.onValuesChange ||
-            props.editable?.onValuesChange ||
-            // 受控模式需要触发 onchange
-            (props.controlled && props?.onChange)
-              ? (r: DataType, dataSource: DataType[]) => {
-                  props.editable?.onValuesChange?.(r, dataSource);
-                  props.onValuesChange?.(dataSource, r);
-                  if (props.controlled) {
-                    props?.onChange?.(dataSource);
-                  }
-                }
-              : undefined,
-        }}
+        editable={editableProps}
         onDataSourceChange={setValue}
       />
     </EditableTableActionContext.Provider>

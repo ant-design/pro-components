@@ -165,7 +165,7 @@ const EditorProTableDemo = (
       onChange: props.onEditorChange,
     },
   );
-  const [dataSource, setDataSource] = useMergedState<DataSourceType[]>([], {
+  const [tableDataSource, setDataSource] = useMergedState<DataSourceType[]>([], {
     value: props.dataSource,
     onChange: props.onDataSourceChange,
   });
@@ -204,7 +204,7 @@ const EditorProTableDemo = (
         success: true,
       })}
       pagination={{}}
-      value={dataSource}
+      value={tableDataSource}
       onChange={setDataSource}
       editable={{
         ...props,
@@ -262,6 +262,64 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(fn).toBeCalledWith(555);
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable add support children column', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        pagination={{
+          pageSize: 2,
+          current: 2,
+        }}
+        editable={{}}
+        onChange={(data) => fn(data[0].children?.length)}
+        recordCreatorProps={{
+          position: 'bottom',
+          newRecordType: 'dataSource',
+          parentKey: () => 624674790,
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        value={[
+          {
+            id: 624674790,
+            title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '2020-05-26T07:54:25Z',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '2020-05-26T07:54:25Z',
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper.find('button#addEditRecord').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(2);
 
     wrapper.unmount();
   });
@@ -913,7 +971,7 @@ describe('EditorProTable', () => {
       <EditorProTableDemo
         hideRules
         onSave={(key) => onSave(key)}
-        onDataSourceChange={(dataSource) => onDataSourceChange(dataSource.length)}
+        onDataSourceChange={(data) => onDataSourceChange(data.length)}
       />,
     );
     await waitForComponentToPaint(wrapper, 1000);

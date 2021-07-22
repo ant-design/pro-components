@@ -83,7 +83,7 @@ interface RequestData {
 
 ProDescriptions 支持了和 Table 相同的 dataSource
 
-<code src="./demos/data-source.tsx" title="dataSource 配置数据"/>
+<code src="./demos/use-data-source.tsx" title="dataSource 配置数据"/>
 
 ### 可编辑的定义列表
 
