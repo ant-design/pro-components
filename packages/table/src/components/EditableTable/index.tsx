@@ -19,6 +19,8 @@ export type RecordCreatorProps<DataSourceType> = {
    * @augments cache 将会把数据放到缓存中，取消后消失
    */
   newRecordType?: 'dataSource' | 'cache';
+
+  parentKey?: React.Key;
 };
 
 export type EditableProTableProps<T, U extends ParamsType> = Omit<
@@ -51,12 +53,12 @@ const EditableTableActionContext = React.createContext<
 
 /** 可编辑表格的按钮 */
 function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.Element }) {
-  const { children, record, position, newRecordType } = props;
+  const { children, record, position, newRecordType, parentKey } = props;
   const actionRef = useContext(EditableTableActionContext);
   return React.cloneElement(children, {
     ...children.props,
     onClick: (e: any) => {
-      actionRef?.current?.addEditRecord(record, { position, newRecordType });
+      actionRef?.current?.addEditRecord(record, { position, newRecordType, parentKey });
       children.props.onClick?.(e);
     },
   });
@@ -99,7 +101,7 @@ function EditableTable<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, props.controlled]);
 
-  const { record, position, creatorButtonText, newRecordType, ...restButtonProps } =
+  const { record, position, creatorButtonText, newRecordType, parentKey, ...restButtonProps } =
     recordCreatorProps || {};
   const isTop = position === 'top';
   const creatorButtonDom = useMemo(() => {
@@ -111,6 +113,7 @@ function EditableTable<
         <RecordCreator
           record={runFunction(record, value.length, value) || {}}
           position={position}
+          parentKey={parentKey}
           newRecordType={newRecordType}
         >
           <Button

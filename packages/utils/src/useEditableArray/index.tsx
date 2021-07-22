@@ -27,6 +27,8 @@ export type AddLineOptions = {
   position?: 'top' | 'bottom';
   recordKey?: RecordKey;
   newRecordType?: 'dataSource' | 'cache';
+  /** 要增加到哪个节点下，一般用于多重嵌套表格 */
+  parentKey?: RecordKey;
 };
 
 export type NewLineConfig<T> = {
@@ -172,6 +174,7 @@ function editableRowByKey<RecordType>(
   if (action === 'delete') {
     kvMap.delete(key);
   }
+
   const fill = (map: Map<string, RecordType & { map_row_parentKey?: string }>) => {
     const kvArrayMap = new Map<string, RecordType[]>();
     const kvSource: RecordType[] = [];
@@ -182,14 +185,13 @@ function editableRowByKey<RecordType>(
         if (kvArrayMap.has(map_row_key)) {
           reset[childrenColumnName] = kvArrayMap.get(map_row_key);
         }
-
         kvArrayMap.set(map_row_parentKey, [
           ...(kvArrayMap.get(map_row_parentKey) || []),
           reset as RecordType,
         ]);
-        return;
       }
-
+    });
+    map.forEach((value) => {
       if (!value.map_row_parentKey) {
         // @ts-ignore
         const { map_row_key, ...rest } = value;
@@ -207,6 +209,7 @@ function editableRowByKey<RecordType>(
     return kvSource;
   };
   const source = fill(kvMap);
+
   return source;
 }
 
@@ -517,7 +520,19 @@ function useEditableArray<RecordType>(
       editableKeysSet.add(recordKey);
       setEditableRowKeys(Array.from(editableKeysSet));
       if (options?.newRecordType === 'dataSource') {
-        props.setDataSource?.([...props.dataSource, row]);
+        const actionProps = {
+          data: props.dataSource,
+          getRowKey: props.getRowKey,
+          row: {
+            ...row,
+            map_row_parentKey: options?.parentKey
+              ? recordKeyToString(options?.parentKey)?.toString()
+              : undefined,
+          },
+          key: recordKey,
+          childrenColumnName: props.childrenColumnName || 'children',
+        };
+        props.setDataSource(editableRowByKey(actionProps, 'update'));
       } else {
         setNewLineRecord({
           defaultValue: row,

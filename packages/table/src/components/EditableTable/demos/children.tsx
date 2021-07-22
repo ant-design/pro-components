@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
 import ProField from '@ant-design/pro-field';
-import { ProFormRadio } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
 
 const waitTime = (time: number = 100) => {
@@ -14,7 +13,7 @@ const waitTime = (time: number = 100) => {
 };
 
 type DataSourceType = {
-  id: React.Key;
+  id?: React.Key;
   title?: string;
   decs?: string;
   state?: string;
@@ -33,7 +32,7 @@ const defaultData: DataSourceType[] = [
     update_at: '2020-05-26T09:42:56Z',
     children: [
       {
-        id: 624691229,
+        id: 6246912293,
         title: '活动名称二',
         decs: '这个活动真好玩',
         state: 'closed',
@@ -54,9 +53,8 @@ const defaultData: DataSourceType[] = [
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
-  const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
-  const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
-
+  const [dataSource, setDataSource] = useState<DataSourceType[]>(() => defaultData);
+  console.log(editableKeys);
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '活动名称',
@@ -115,31 +113,28 @@ export default () => {
       title: '操作',
       valueType: 'option',
       width: 200,
-      render: (text, record, _, action) => [
-        <a
-          key="add"
-          onClick={() => {
-            const listArr: DataSourceType = [...defaultData];
-            const id = (Math.random() * 1000000).toFixed(0);
-            listArr[_].children.push({ id });
-            action?.startEditable(id);
-            setDataSource(listArr);
-          }}
-        >
-          添加
-        </a>,
-        <a
-          key="editable"
-          onClick={() => {
-            action?.startEditable?.(record.id);
-          }}
-        >
-          编辑
-        </a>,
+      render: (text, record) => [
         <a
           key="delete"
           onClick={() => {
-            setDataSource(dataSource.filter((item) => item.id !== record.id));
+            const loopDataSourceFilter = (data: DataSourceType[]): DataSourceType[] => {
+              return data
+                .map((item) => {
+                  if (item.id !== record.id) {
+                    if (item.children) {
+                      const newChildren = loopDataSourceFilter(item.children);
+                      return {
+                        ...item,
+                        children: newChildren.length > 0 ? newChildren : undefined,
+                      };
+                    }
+                    return item;
+                  }
+                  return null;
+                })
+                .filter(Boolean) as DataSourceType[];
+            };
+            setDataSource(loopDataSourceFilter(dataSource));
           }}
         >
           删除
@@ -157,43 +152,13 @@ export default () => {
         rowKey="id"
         headerTitle="可编辑表格"
         maxLength={5}
-        recordCreatorProps={
-          position !== 'hidden'
-            ? {
-                position: position as 'top',
-                record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
-              }
-            : false
-        }
-        toolBarRender={() => [
-          <ProFormRadio.Group
-            key="render"
-            fieldProps={{
-              value: position,
-              onChange: (e) => setPosition(e.target.value),
-            }}
-            options={[
-              {
-                label: '添加到顶部',
-                value: 'top',
-              },
-              {
-                label: '添加到底部',
-                value: 'bottom',
-              },
-              {
-                label: '隐藏',
-                value: 'hidden',
-              },
-            ]}
-          />,
-        ]}
+        recordCreatorProps={{
+          position: 'bottom',
+          newRecordType: 'dataSource',
+          parentKey: 624748504,
+          record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
+        }}
         columns={columns}
-        request={async () => ({
-          data: defaultData,
-          total: 3,
-          success: true,
-        })}
         value={dataSource}
         onChange={setDataSource}
         editable={{
