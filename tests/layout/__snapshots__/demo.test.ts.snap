@@ -5,7 +5,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
   style="background: rgb(245, 247, 250);"
 >
   <div
-    class="ant-pro-page-container"
+    class="ant-pro-page-container ant-pro-page-container-with-footer"
   >
     <div
       class="ant-pro-page-container-warp"
@@ -7754,7 +7754,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
         >
           <div
-            class="ant-pro-page-container"
+            class="ant-pro-page-container ant-pro-page-container-with-footer"
           >
             <div
               class="ant-pro-page-container-warp"
@@ -8889,7 +8889,7 @@ Array [
           class="qixian-layout-content qixian-pro-basicLayout-content qixian-pro-basicLayout-has-header"
         >
           <div
-            class="qixian-pro-page-container"
+            class="qixian-pro-page-container qixian-pro-page-container-with-footer"
           >
             <div
               class="qixian-pro-page-container-warp"

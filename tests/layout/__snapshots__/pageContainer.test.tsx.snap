@@ -80,7 +80,7 @@ exports[`PageContainer ⚡️ support fixedHeader 1`] = `
 
 exports[`PageContainer ⚡️ support footer 1`] = `
 <div
-  class="ant-pro-page-container"
+  class="ant-pro-page-container ant-pro-page-container-with-footer"
 >
   <div
     class="ant-pro-page-container-warp"
@@ -463,7 +463,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
 
 exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
 <div
-  class="ant-pro-page-container"
+  class="ant-pro-page-container ant-pro-page-container-with-footer"
 >
   <div
     class="ant-pro-grid-content"
@@ -556,7 +556,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       >
         <div
-          class="ant-pro-page-container"
+          class="ant-pro-page-container ant-pro-page-container-with-footer"
         >
           <div
             class="ant-pro-page-container-warp"
@@ -907,7 +907,7 @@ exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
 
 exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
 <div
-  class="ant-pro-page-container"
+  class="ant-pro-page-container ant-pro-page-container-with-footer"
 >
   <div
     class="ant-pro-page-container-warp"
