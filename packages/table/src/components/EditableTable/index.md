@@ -66,6 +66,8 @@ nav:
 
 ```typescript
 recordCreatorProps = {
+  // 要增加到哪个节点下，一般用于多重嵌套表格
+  parentKey: React.key,
   // 顶部添加还是末尾添加
   position: 'end',
   // 新增一行的方式，默认是缓存，取消后就会消失

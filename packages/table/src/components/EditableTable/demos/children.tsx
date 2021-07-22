@@ -153,7 +153,7 @@ export default () => {
         recordCreatorProps={{
           position: 'bottom',
           newRecordType: 'dataSource',
-          parentKey: 624748504,
+          parentKey: () => 624748504,
           record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
         }}
         columns={columns}
