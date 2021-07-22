@@ -83,7 +83,7 @@ Format the date according to format
 
 ProDescriptions supports the same dataSource as Table
 
-<code src="./demos/data-source.tsx" title="dataSource configuration data"/>
+<code src="./demos/use-data-source.tsx" title="dataSource configuration data"/>
 
 ### Editable definition list
 

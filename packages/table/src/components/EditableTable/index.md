@@ -17,6 +17,10 @@ nav:
 
 <code src="./demos/basic.tsx" background="#f5f5f5" height="420px" title="可编辑表格" />
 
+### 有子列的表格增加
+
+<code src="./demos/children.tsx" background="#f5f5f5" height="420px" title="可展开表格" />
+
 ### 自定义可编辑表格
 
 <code src="./demos/custom.tsx" background="#f5f5f5" height="420px" title="自定义可编辑表格" />
@@ -62,6 +66,8 @@ nav:
 
 ```typescript
 recordCreatorProps = {
+  // 要增加到哪个节点下，一般用于多重嵌套表格
+  parentKey: React.key,
   // 顶部添加还是末尾添加
   position: 'end',
   // 新增一行的方式，默认是缓存，取消后就会消失

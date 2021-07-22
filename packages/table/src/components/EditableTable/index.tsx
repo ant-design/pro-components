@@ -19,6 +19,8 @@ export type RecordCreatorProps<DataSourceType> = {
    * @augments cache 将会把数据放到缓存中，取消后消失
    */
   newRecordType?: 'dataSource' | 'cache';
+  /** 要增加到哪个节点下，一般用于多重嵌套表格 */
+  parentKey?: React.Key | ((index: number, dataSource: DataSourceType[]) => React.Key);
 };
 
 export type EditableProTableProps<T, U extends ParamsType> = Omit<
@@ -50,13 +52,19 @@ const EditableTableActionContext = React.createContext<
 >(undefined);
 
 /** 可编辑表格的按钮 */
-function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.Element }) {
-  const { children, record, position, newRecordType } = props;
+function RecordCreator<T = Record<string, any>>(
+  props: RecordCreatorProps<T> & { children: JSX.Element },
+) {
+  const { children, record, position, newRecordType, parentKey } = props;
   const actionRef = useContext(EditableTableActionContext);
   return React.cloneElement(children, {
     ...children.props,
     onClick: (e: any) => {
-      actionRef?.current?.addEditRecord(record, { position, newRecordType });
+      actionRef?.current?.addEditRecord(record, {
+        position,
+        newRecordType,
+        parentKey: parentKey as React.Key,
+      });
       children.props.onClick?.(e);
     },
   });
@@ -99,7 +107,7 @@ function EditableTable<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, props.controlled]);
 
-  const { record, position, creatorButtonText, newRecordType, ...restButtonProps } =
+  const { record, position, creatorButtonText, newRecordType, parentKey, ...restButtonProps } =
     recordCreatorProps || {};
   const isTop = position === 'top';
   const creatorButtonDom = useMemo(() => {
@@ -111,6 +119,7 @@ function EditableTable<
         <RecordCreator
           record={runFunction(record, value.length, value) || {}}
           position={position}
+          parentKey={runFunction(parentKey, value.length, value)}
           newRecordType={newRecordType}
         >
           <Button
@@ -179,6 +188,26 @@ function EditableTable<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTop, creatorButtonDom]);
 
+  const editableProps = {
+    form,
+    ...props.editable,
+  };
+
+  if (
+    props?.onValuesChange ||
+    props.editable?.onValuesChange ||
+    // 受控模式需要触发 onchange
+    (props.controlled && props?.onChange)
+  ) {
+    editableProps.onValuesChange = (r: DataType, dataSource: DataType[]) => {
+      props.editable?.onValuesChange?.(r, dataSource);
+      props.onValuesChange?.(dataSource, r);
+      if (props.controlled) {
+        props?.onChange?.(dataSource);
+      }
+    };
+  }
+
   return (
     <EditableTableActionContext.Provider value={actionRef}>
       <ProTable<DataType, Params>
@@ -192,23 +221,7 @@ function EditableTable<
         actionRef={actionRef}
         onChange={onTableChange}
         dataSource={value}
-        editable={{
-          form,
-          ...props.editable,
-          onValuesChange:
-            props?.onValuesChange ||
-            props.editable?.onValuesChange ||
-            // 受控模式需要触发 onchange
-            (props.controlled && props?.onChange)
-              ? (r: DataType, dataSource: DataType[]) => {
-                  props.editable?.onValuesChange?.(r, dataSource);
-                  props.onValuesChange?.(dataSource, r);
-                  if (props.controlled) {
-                    props?.onChange?.(dataSource);
-                  }
-                }
-              : undefined,
-        }}
+        editable={editableProps}
         onDataSourceChange={setValue}
       />
     </EditableTableActionContext.Provider>
