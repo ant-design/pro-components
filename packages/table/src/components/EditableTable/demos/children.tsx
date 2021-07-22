@@ -51,10 +51,29 @@ const defaultData: DataSourceType[] = [
   },
 ];
 
+const loopDataSourceFilter = (
+  data: DataSourceType[],
+  id: React.Key | undefined,
+): DataSourceType[] => {
+  return data
+    .map((item) => {
+      if (item.id !== id) {
+        if (item.children) {
+          const newChildren = loopDataSourceFilter(item.children, id);
+          return {
+            ...item,
+            children: newChildren.length > 0 ? newChildren : undefined,
+          };
+        }
+        return item;
+      }
+      return null;
+    })
+    .filter(Boolean) as DataSourceType[];
+};
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<DataSourceType[]>(() => defaultData);
-  console.log(editableKeys);
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '活动名称',
@@ -63,10 +82,6 @@ export default () => {
         return {
           rules: rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
         };
-      },
-      // 第二行不允许编辑
-      editable: (text, record, index) => {
-        return index !== 0;
       },
       width: '30%',
     },
@@ -117,24 +132,7 @@ export default () => {
         <a
           key="delete"
           onClick={() => {
-            const loopDataSourceFilter = (data: DataSourceType[]): DataSourceType[] => {
-              return data
-                .map((item) => {
-                  if (item.id !== record.id) {
-                    if (item.children) {
-                      const newChildren = loopDataSourceFilter(item.children);
-                      return {
-                        ...item,
-                        children: newChildren.length > 0 ? newChildren : undefined,
-                      };
-                    }
-                    return item;
-                  }
-                  return null;
-                })
-                .filter(Boolean) as DataSourceType[];
-            };
-            setDataSource(loopDataSourceFilter(dataSource));
+            setDataSource(loopDataSourceFilter(dataSource, record.id));
           }}
         >
           删除

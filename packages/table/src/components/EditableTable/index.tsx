@@ -19,8 +19,8 @@ export type RecordCreatorProps<DataSourceType> = {
    * @augments cache 将会把数据放到缓存中，取消后消失
    */
   newRecordType?: 'dataSource' | 'cache';
-
-  parentKey?: React.Key;
+  /** 要增加到哪个节点下，一般用于多重嵌套表格 */
+  parentKey?: React.Key | ((index: number, dataSource: DataSourceType[]) => React.Key);
 };
 
 export type EditableProTableProps<T, U extends ParamsType> = Omit<
@@ -58,7 +58,11 @@ function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.El
   return React.cloneElement(children, {
     ...children.props,
     onClick: (e: any) => {
-      actionRef?.current?.addEditRecord(record, { position, newRecordType, parentKey });
+      actionRef?.current?.addEditRecord(record, {
+        position,
+        newRecordType,
+        parentKey: parentKey as React.Key,
+      });
       children.props.onClick?.(e);
     },
   });
@@ -113,7 +117,7 @@ function EditableTable<
         <RecordCreator
           record={runFunction(record, value.length, value) || {}}
           position={position}
-          parentKey={parentKey}
+          parentKey={runFunction(parentKey, value.length, value)}
           newRecordType={newRecordType}
         >
           <Button
