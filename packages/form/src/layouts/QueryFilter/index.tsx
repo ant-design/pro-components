@@ -181,7 +181,7 @@ const QueryFilterContent: React.FC<{
   const { optionRender, collapseRender, split, items, spanSize, showLength } = props;
 
   const submitter = useMemo(() => {
-    if (!props.submitter) {
+    if (!props.submitter || optionRender === false) {
       return null;
     }
     return React.cloneElement(props.submitter, {

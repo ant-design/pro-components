@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.19.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.6...@ant-design/pro-utils@1.19.7) (2021-07-20)
+
+### Bug Fixes
+
+- **list:** fix form context no render error ([#3274](https://github.com/ant-design/pro-components/issues/3274)) ([851c408](https://github.com/ant-design/pro-components/commit/851c40870dab3c953109e6bfedd9650e10609449))
+
 ## [1.19.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.5...@ant-design/pro-utils@1.19.6) (2021-07-19)
 
 ### Bug Fixes
