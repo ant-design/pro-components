@@ -61,19 +61,27 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 </ProForm>
 ```
 
-## 何时使用
+## 何时使用 ProForm？
 
 当你想快速实现一个表单但不想花太多时间去布局时 ProForm 是最好的选择。
+
+ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对其，但是在其之上还增加一些预设行为和多种布局。这些布局之间可以无缝切换，并且拥有公共的 API。
+
+| 布局 | 使用场景 |
+| --- | --- |
+| [ProForm](/components/form#proform) | 标准 Form，增加了 `onFinish` 中自动 `loading` 和 根据 `request` 自动获取默认值的功能。 |
+| [ModalForm\|DrawerForm](/components/modal-form) | 在 ProForm 的基础上增加了 `trigger` ，无需维护 `visible` 状态 |
+| [QueryFilter](/components/query-filter) | 一般用于作为筛选表单，需要配合其他数据展示组件使用 |
+| [LightFilter](/components/query-filter) | 一般用于作为行内内置的筛选，比如卡片操作栏和 表格操作栏。 |
+| [StepsForm](/components/steps-form) | 分步表单，需要配置 StepForm 使用。 |
+
+<code src="./demos/layout-change.tsx" height="488px" title="Form 的 layout 切换" />
 
 ## 代码示例
 
 ### 基本使用
 
 <code src="./demos/base.tsx" height="548px" title="基本使用" />
-
-### Form 的 layout 切换
-
-<code src="./demos/layout-change.tsx" height="548px" title="Form 的 layout 切换" />
 
 ### 标签与表单项布局
 
@@ -109,9 +117,7 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/pro-form-editableTable.tsx" heigh="1774px" title="ProForm 和 EditableTable 同时使用"/>
 
-## Layouts API
-
-### ProForm
+## ProForm
 
 ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProForm 与 antd 的方法是相同的，你仍然可以用 FormItem + 自定义组件的方式来自定义。当然这样不会影响到别的组件，QueryFilter 等组件同理。
 
