@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# JSON 表单
+# Schema Form - JSON 表单
 
 SchemaForm 是根据 JSON Schema 来生成表单的工具。SchemaForm 会根据 valueType 来映射成不同的[表单项](/components/schema)。
 
