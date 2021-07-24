@@ -33,6 +33,7 @@ const ProFormText = (props) => {
 | 组件 | 使用场景 |
 | --- | --- |
 | [ProFormText](https://ant.design/components/input-cn/#Input.Password)>) | 用于输入各类文本 |
+| [ProFormDigit](https://ant.design/components/input-number-cn/) | 用于输入数字，它自带了一个格式化(保留 2 位小数，最小值为 0)，有需要你可以关掉它。 |
 | [ProFormText.Password](https://ant.design/components/input-cn/#Input.Password) | 用于输入密码 |
 | [ProFormTextArea](https://ant.design/components/input-cn/#Input.Password) | 用于输入多行文本 |
 | [ProFormCaptcha] | 用于输入验证码， 一般需要与发送验证码接口一起使用 |
