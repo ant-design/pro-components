@@ -151,6 +151,39 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 <ProFormText.Password label="InputPassword" name="input-password" />
 ```
 
+### ProFormTextArea
+
+与 [Input.TextArea](https://ant.design/components/input-cn/#Input.TextArea) 相同。
+
+```tsx | pure
+<ProFormTextArea
+  name="text"
+  label="名称"
+  placeholder="请输入名称"
+  fieldProps={inputTextAreaProps}
+/>
+```
+
+### ProFormDigit
+
+与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化(保留 2 位小数，最小值为 0)，有需要你可以关掉它。
+
+```tsx | pure
+<ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
+```
+
+如果要修改小数位数：
+
+```tsx | pure
+<ProFormDigit
+  label="InputNumber"
+  name="input-number"
+  min={1}
+  max={10}
+  fieldProps={{ precision: 0 }}
+/>
+```
+
 ### ProFormDatePicker
 
 与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
@@ -192,16 +225,66 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 <ProFormTimePicker.RangePicker name="timeRange" label="时间区间" />
 ```
 
-### ProFormTextArea
+### ProFormSelect
 
-与 [Input.TextArea](https://ant.design/components/input-cn/#Input.TextArea) 相同。
+与 [select](https://ant.design/components/select-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
+
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{[key:string`\|`number]:any}>` | - |
+
+> 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
 
 ```tsx | pure
-<ProFormTextArea
-  name="text"
-  label="名称"
-  placeholder="请输入名称"
-  fieldProps={inputTextAreaProps}
+<>
+  <ProFormSelect
+    name="select"
+    label="Select"
+    valueEnum={{
+      open: '未解决',
+      closed: '已解决',
+    }}
+    placeholder="Please select a country"
+    rules={[{ required: true, message: 'Please select your country!' }]}
+  />
+
+  <ProFormSelect
+    name="select2"
+    label="Select"
+    request={async () => [
+      { label: '全部', value: 'all' },
+      { label: '未解决', value: 'open' },
+      { label: '已解决', value: 'closed' },
+      { label: '解决中', value: 'processing' },
+    ]}
+    placeholder="Please select a country"
+    rules={[{ required: true, message: 'Please select your country!' }]}
+  />
+</>
+```
+
+自定义选项：
+
+```tsx | pure
+<ProFormSelect
+  name="select"
+  label="Select"
+  options={[
+    { label: '全部', value: 'all' },
+    { label: '未解决', value: 'open' },
+    { label: '已解决', value: 'closed' },
+    { label: '解决中', value: 'processing' },
+  ]}
+  fieldProps={{
+    optionItemRender(item) {
+      return item.label + ' - ' + item.value;
+    },
+  }}
+  placeholder="Please select a country"
+  rules={[{ required: true, message: 'Please select your country!' }]}
 />
 ```
 
@@ -317,87 +400,4 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ```tsx | pure
 <ProFormUploadButton label="upload" name="upload" action="upload.do" />
-```
-
-### ProFormSelect
-
-与 [select](https://ant.design/components/select-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
-
-> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
-
-> 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
-
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
-| request | 从网络请求枚举数据 | `()=>Promise<{[key:string`\|`number]:any}>` | - |
-
-```tsx | pure
-<>
-  <ProFormSelect
-    name="select"
-    label="Select"
-    valueEnum={{
-      open: '未解决',
-      closed: '已解决',
-    }}
-    placeholder="Please select a country"
-    rules={[{ required: true, message: 'Please select your country!' }]}
-  />
-
-  <ProFormSelect
-    name="select2"
-    label="Select"
-    request={async () => [
-      { label: '全部', value: 'all' },
-      { label: '未解决', value: 'open' },
-      { label: '已解决', value: 'closed' },
-      { label: '解决中', value: 'processing' },
-    ]}
-    placeholder="Please select a country"
-    rules={[{ required: true, message: 'Please select your country!' }]}
-  />
-</>
-```
-
-自定义选项：
-
-```tsx | pure
-<ProFormSelect
-  name="select"
-  label="Select"
-  options={[
-    { label: '全部', value: 'all' },
-    { label: '未解决', value: 'open' },
-    { label: '已解决', value: 'closed' },
-    { label: '解决中', value: 'processing' },
-  ]}
-  fieldProps={{
-    optionItemRender(item) {
-      return item.label + ' - ' + item.value;
-    },
-  }}
-  placeholder="Please select a country"
-  rules={[{ required: true, message: 'Please select your country!' }]}
-/>
-```
-
-### ProFormDigit
-
-与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化(保留 2 位小数，最小值为 0)，有需要你可以关掉它。
-
-```tsx | pure
-<ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
-```
-
-如果要修改小数位数：
-
-```tsx | pure
-<ProFormDigit
-  label="InputNumber"
-  name="input-number"
-  min={1}
-  max={10}
-  fieldProps={{ precision: 0 }}
-/>
 ```
