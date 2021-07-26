@@ -1,5 +1,10 @@
 ﻿import React from 'react';
-import ProForm, { ProFormFieldSet, ProFormText, ProFormRate } from '@ant-design/pro-form';
+import ProForm, {
+  ProFormFieldSet,
+  ProFormText,
+  ProFormRate,
+  ProFormTextArea,
+} from '@ant-design/pro-form';
 import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
@@ -21,6 +26,12 @@ describe('ProFormFieldSet', () => {
             key="filedSet1"
           />
           <ProFormRate key="filedSet2" />
+          <ProFormTextArea
+            fieldProps={{
+              id: 'filedSet3',
+            }}
+            key="filedSet3"
+          />
         </ProFormFieldSet>
       </ProForm>,
     );
@@ -36,9 +47,19 @@ describe('ProFormFieldSet', () => {
     expect(valueFn).toBeCalledWith(['111']);
 
     act(() => {
+      html.find('textarea#filedSet3').simulate('change', {
+        target: {
+          value: '333',
+        },
+      });
+    });
+    await waitForComponentToPaint(html);
+    expect(valueFn).toBeCalledWith(['111', undefined, '333']);
+
+    act(() => {
       html.find('li > div').at(1).simulate('click');
     });
-    expect(valueFn).toBeCalledWith(['111', 2]);
+    expect(valueFn).toBeCalledWith(['111', 2, '333']);
     await waitForComponentToPaint(html);
 
     await waitForComponentToPaint(html, 200);
@@ -48,7 +69,7 @@ describe('ProFormFieldSet', () => {
     });
     await waitForComponentToPaint(html, 200);
 
-    expect(fn).toBeCalledWith(['111', 2]);
+    expect(fn).toBeCalledWith(['111', 2, '333']);
     html.unmount();
   });
 
