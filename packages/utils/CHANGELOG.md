@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.7...@ant-design/pro-utils@1.20.0) (2021-07-26)
+
+### Features
+
+- **table:** support children column add function ([#3273](https://github.com/ant-design/pro-components/issues/3273)) ([2396e03](https://github.com/ant-design/pro-components/commit/2396e031d771ae818445d386e573898708b64f07))
+
 ## [1.19.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.6...@ant-design/pro-utils@1.19.7) (2021-07-20)
 
 ### Bug Fixes

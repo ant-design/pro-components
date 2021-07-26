@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.22.1...@ant-design/pro-layout@6.23.0) (2021-07-26)
+
+### Features
+
+- **layout:** Add .ant-pro-page-container-with-footer className when footer exists ([#3275](https://github.com/ant-design/pro-components/issues/3275)) ([25d6a95](https://github.com/ant-design/pro-components/commit/25d6a95713040652d9b99bad9b50e855d6f947d2))
+
 ## [6.22.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.22.0...@ant-design/pro-layout@6.22.1) (2021-07-20)
 
 **Note:** Version bump only for package @ant-design/pro-layout
