@@ -10,7 +10,7 @@ import type { TextAreaProps } from 'antd/lib/input';
  * @param
  */
 const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormItemProps<TextAreaProps>> = (
-  { fieldProps, proFieldProps },
+  { fieldProps, proFieldProps, ...rest },
   ref,
 ) => {
   return (
@@ -19,7 +19,13 @@ const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormItemProps<Text
       ref={ref}
       mode="edit"
       valueType="textarea"
-      fieldProps={fieldProps}
+      fieldProps={{
+        ...fieldProps,
+        onChange: (...restParams: any) => {
+          (fieldProps?.onChange as any)?.(...restParams);
+          (rest as any)?.onChange?.(...restParams);
+        },
+      }}
       {...proFieldProps}
     />
   );
