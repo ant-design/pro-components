@@ -23,6 +23,7 @@ export type HeaderViewProps = GlobalHeaderProps & {
     (logo: React.ReactNode, title: React.ReactNode, props: HeaderViewProps) => React.ReactNode
   >;
   headerContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  collapsedWidth: number;
   siderWidth?: number;
   hasSiderMenu?: boolean;
 };
@@ -67,6 +68,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       style,
       navTheme,
       collapsed,
+      collapsedWidth = 48,
       siderWidth,
       hasSiderMenu,
       isMobile,
@@ -88,7 +90,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
     /** 计算侧边栏的宽度，不然导致左边的样式会出问题 */
     const width =
       layout !== 'mix' && needSettingWidth
-        ? `calc(100% - ${collapsed ? 48 : siderWidth}px)`
+        ? `calc(100% - ${collapsed ? collapsedWidth : siderWidth}px)`
         : '100%';
 
     const right = needFixedHeader ? 0 : undefined;

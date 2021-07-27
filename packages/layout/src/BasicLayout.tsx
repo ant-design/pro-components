@@ -225,10 +225,11 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
 const getPaddingLeft = (
   hasLeftPadding: boolean,
   collapsed: boolean | undefined,
+  collapsedWidth: number,
   siderWidth: number,
 ): number | undefined => {
   if (hasLeftPadding) {
-    return collapsed ? 48 : siderWidth;
+    return collapsed ? collapsedWidth : siderWidth;
   }
   return 0;
 };
@@ -248,6 +249,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     defaultCollapsed,
     style,
     disableContentMargin,
+    collapsedWidth = 48,
     siderWidth = 208,
     menu,
     isChildrenLayout: propsIsChildrenLayout,
@@ -484,7 +486,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   });
 
   /** 计算 slider 的宽度 */
-  const leftSiderWidth = getPaddingLeft(!!hasLeftPadding, collapsed, siderWidth);
+  const leftSiderWidth = getPaddingLeft(!!hasLeftPadding, collapsed, collapsedWidth, siderWidth);
 
   // siderMenuDom 为空的时候，不需要 padding
   const genLayoutStyle: CSSProperties = {
