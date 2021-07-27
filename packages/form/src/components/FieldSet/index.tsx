@@ -50,6 +50,14 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
         key: index,
         ignoreFormItem: true,
         ...((item.props as any) || {}),
+        fieldProps: {
+          ...(item?.props as any)?.fieldProps,
+          onChange: (...restParams: any) => {
+            (item.props as any)?.fieldProps?.onChange?.(...restParams);
+            (item.props as any)?.onChange?.(...restParams);
+            fieldSetOnChange(restParams[0], index);
+          },
+        },
         value: value[index],
         onChange: (itemValue: any) => {
           fieldSetOnChange(itemValue, index);
