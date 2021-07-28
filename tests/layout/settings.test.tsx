@@ -8,7 +8,7 @@ describe('settings.test', () => {
   it('set title', async () => {
     const wrapper = mount(<BasicLayout title="test-title" />);
     await waitForComponentToPaint(wrapper);
-    let title = wrapper.find('#logo').text();
+    let title = wrapper.find('#logo').at(0).text();
     expect(title).toEqual('test-title');
     act(() => {
       wrapper.setProps({
