@@ -91,7 +91,7 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对其，�
 
 ### 登录
 
-<code src="./demos/login.tsx" height="300px" title="登录" />
+<code src="./demos/login-form.tsx" height="300px" title="登录" />
 
 ### 表单联动
 

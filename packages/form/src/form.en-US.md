@@ -78,7 +78,7 @@ ProForm is the best choice when you want to implement a form quickly but don't w
 
 ### Login
 
-<code src="./demos/login.tsx" height="300px"/>
+<code src="./demos/login-form.tsx" height="300px"/>
 
 ### Interdependent form entries
 
