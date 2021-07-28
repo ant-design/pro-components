@@ -451,6 +451,44 @@ describe('DrawerForm', () => {
     expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
   });
 
+  it('📦 submitter config no reset default config', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <DrawerForm
+        width={600}
+        submitter={{
+          searchConfig: {
+            submitText: '确认',
+            resetText: '取消',
+          },
+          resetButtonProps: {
+            style: {
+              width: '80px',
+            },
+            id: 'reset',
+          },
+        }}
+        trigger={<Button id="new">新建</Button>}
+        onVisibleChange={(visible) => fn(visible)}
+      >
+        <ProFormText name="name" />
+      </DrawerForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button#new').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toBeCalledWith(true);
+
+    act(() => {
+      wrapper.find('button#reset').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toBeCalledWith(false);
+  });
+
   it('📦 ModalForm getContainer is element', async () => {
     const ref = React.createRef<HTMLDivElement>();
     const Demo = () => (
