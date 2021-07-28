@@ -10,7 +10,6 @@ import ProForm, {
   ProFormDateRangePicker,
   ProFormSelect,
   ProFormRadio,
-  LoginForm,
 } from '@ant-design/pro-form';
 import { PlusOutlined } from '@ant-design/icons';
 
@@ -31,7 +30,6 @@ export default () => {
     QueryFilter,
     LightFilter,
     StepsForm,
-    LoginForm,
   };
 
   if (type === 'StepsForm') {
