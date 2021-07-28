@@ -155,20 +155,26 @@ function DrawerForm<T = Record<string, any>>({
             layout="vertical"
             {...omit(rest, ['visible'])}
             formRef={formRef}
-            submitter={{
-              searchConfig: {
-                submitText: '确认',
-                resetText: '取消',
-              },
-              resetButtonProps: {
-                preventDefault: true,
-                onClick: (e: any) => {
-                  setVisible(false);
-                  drawerProps?.onClose?.(e);
-                },
-              },
-              ...rest.submitter,
-            }}
+            submitter={
+              rest.submitter === false
+                ? false
+                : {
+                    ...rest.submitter,
+                    searchConfig: {
+                      submitText: '确认',
+                      resetText: '取消',
+                      ...rest.submitter?.searchConfig,
+                    },
+                    resetButtonProps: {
+                      preventDefault: true,
+                      onClick: (e: any) => {
+                        setVisible(false);
+                        drawerProps?.onClose?.(e);
+                      },
+                      ...rest.submitter?.resetButtonProps,
+                    },
+                  }
+            }
             onFinish={async (values) => {
               if (!onFinish) {
                 return;
