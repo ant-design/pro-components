@@ -458,7 +458,7 @@ describe('DrawerForm', () => {
         <div id="render-form" ref={ref}></div>
         <ModalForm
           modalProps={{
-            getContainer: ref.current,
+            getContainer: ref.current || undefined,
           }}
           trigger={
             <Button id="new" type="primary">
