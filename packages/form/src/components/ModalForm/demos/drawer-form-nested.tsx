@@ -22,7 +22,7 @@ export default () => {
   return (
     <div
       style={{
-        height: '120vh',
+        height: '325px',
       }}
     >
       <Space>
