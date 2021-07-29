@@ -200,14 +200,16 @@ function DrawerForm<T = Record<string, any>>({
                     drawerProps?.onClose?.(e);
                   }}
                   footer={
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'flex-end',
-                      }}
-                    >
-                      {submitter}
-                    </div>
+                    !!submitter && (
+                      <div
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'flex-end',
+                        }}
+                      >
+                        {submitter}
+                      </div>
+                    )
                   }
                 >
                   {shouldRenderFormItems ? item : null}

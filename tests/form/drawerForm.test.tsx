@@ -78,6 +78,23 @@ describe('DrawerForm', () => {
     expect(wrapper.find('input#test').exists()).toBeTruthy();
   });
 
+  it('📦 DrawerForm support submitter is false', async () => {
+    const wrapper = mount(
+      <DrawerForm visible trigger={<Button id="new">新建</Button>} submitter={false}>
+        <ProFormText name="name" />
+      </DrawerForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button#new').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-drawer-footer').length).toBe(0);
+  });
+
   it('📦 DrawerForm destroyOnClose', async () => {
     const fn = jest.fn();
     const wrapper = mount(
