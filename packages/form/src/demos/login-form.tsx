@@ -1,15 +1,42 @@
 import { LoginForm, ProFormText, ProFormCaptcha, ProFormCheckbox } from '@ant-design/pro-form';
-import { UserOutlined, MobileOutlined, LockOutlined } from '@ant-design/icons';
-import { message, Tabs } from 'antd';
+import {
+  UserOutlined,
+  MobileOutlined,
+  LockOutlined,
+  AlipayCircleOutlined,
+  TaobaoCircleOutlined,
+  WeiboCircleOutlined,
+} from '@ant-design/icons';
+import { message, Tabs, Space } from 'antd';
+import type { CSSProperties } from 'react';
 import { useState } from 'react';
 
 type LoginType = 'phone' | 'account';
+
+const iconStyles: CSSProperties = {
+  marginLeft: '16px',
+  color: 'rgba(0, 0, 0, 0.2)',
+  fontSize: '24px',
+  verticalAlign: 'middle',
+  cursor: 'pointer',
+};
 
 export default () => {
   const [loginType, setLoginType] = useState<LoginType>('phone');
   return (
     <div style={{ backgroundColor: 'white' }}>
-      <LoginForm title="Github" subTitle="全球最大同性交友网站">
+      <LoginForm
+        title="Github"
+        subTitle="全球最大同性交友网站"
+        actions={
+          <Space>
+            其他登录方式
+            <AlipayCircleOutlined style={iconStyles}></AlipayCircleOutlined>
+            <TaobaoCircleOutlined style={iconStyles}></TaobaoCircleOutlined>
+            <WeiboCircleOutlined style={iconStyles}></WeiboCircleOutlined>
+          </Space>
+        }
+      >
         <Tabs activeKey={loginType} onChange={(activeKey) => setLoginType(activeKey as LoginType)}>
           <Tabs.TabPane key={'account'} tab={'账号密码登录'} />
           <Tabs.TabPane key={'phone'} tab={'手机号登录'} />

@@ -3,11 +3,14 @@ import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
 import { AlipayCircleOutlined, TaobaoCircleOutlined, WeiboCircleOutlined } from '@ant-design/icons';
+import { Alert, Space } from 'antd';
 
 describe('LoginForm', () => {
   it('📦 LoginForm should show login message correctly', async () => {
+    const LoginMessage = <Alert type="error" message="登录失败"></Alert>;
+
     const wrapper = mount(
-      <LoginForm loginMessage={{ type: 'error', message: '登录失败' }}>
+      <LoginForm message={LoginMessage}>
         <ProFormText name="name" />
       </LoginForm>,
     );
@@ -19,29 +22,17 @@ describe('LoginForm', () => {
     );
   });
 
-  it('📦 LoginForm should render other login methods correctly', async () => {
-    const fn = jest.fn();
+  it('📦 LoginForm should render actions correctly', async () => {
     const wrapper = mount(
       <LoginForm
-        otherLoginMethodsProps={{
-          methods: [
-            {
-              icon: AlipayCircleOutlined,
-              key: 'alipay',
-            },
-            {
-              icon: WeiboCircleOutlined,
-              key: 'weibo',
-            },
-            {
-              icon: TaobaoCircleOutlined,
-              key: 'taobao',
-            },
-          ],
-          onClick: (e) => {
-            fn(e);
-          },
-        }}
+        actions={
+          <Space>
+            其他登录方式
+            <AlipayCircleOutlined></AlipayCircleOutlined>
+            <TaobaoCircleOutlined></TaobaoCircleOutlined>
+            <WeiboCircleOutlined></WeiboCircleOutlined>
+          </Space>
+        }
       >
         <ProFormText name="name" />
       </LoginForm>,
@@ -49,12 +40,5 @@ describe('LoginForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-pro-form-login-other .anticon').length).toEqual(3);
-
-    act(() => {
-      wrapper.find('.ant-pro-form-login-other .anticon').at(0).simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper);
-    expect(fn.mock.calls.length).toEqual(1);
   });
 });
