@@ -1,7 +1,7 @@
 import type { GithubOutlined } from '@ant-design/icons';
 import { AlipayCircleOutlined, TaobaoCircleOutlined, WeiboCircleOutlined } from '@ant-design/icons';
-import type { AlertProps, TabPaneProps, TabsProps } from 'antd';
-import { Alert, Space, Tabs } from 'antd';
+import type { AlertProps } from 'antd';
+import { Alert, Space } from 'antd';
 import React, { useContext } from 'react';
 import ProForm from '@ant-design/pro-form';
 import type { FooterProps } from '@ant-design/pro-layout';
@@ -18,9 +18,6 @@ export type OtherLoginMethodsProps = {
 };
 
 export type LoginFormProps = {
-  tabs: TabPaneProps[];
-  onTabChange: TabsProps['onChange'];
-  tabActiveKey: TabsProps['activeKey'];
   loginMessage: Pick<AlertProps, 'message' | 'type' | 'showIcon'>;
   title: React.ReactNode | false;
   subTitle: React.ReactNode | false;
@@ -68,12 +65,9 @@ const LoginMessage: React.FC<LoginFormProps['loginMessage']> = (props) => (
 );
 
 const LoginForm: React.FC<Partial<LoginFormProps>> = ({
-  tabs,
   title,
   subTitle,
   loginMessage,
-  tabActiveKey,
-  onTabChange,
   children,
   submitting,
   onFinish,
@@ -126,13 +120,6 @@ const LoginForm: React.FC<Partial<LoginFormProps>> = ({
             submitter={submitter}
             onFinish={onFinish}
           >
-            {tabs && (
-              <Tabs activeKey={tabActiveKey} onChange={onTabChange}>
-                {tabs.map((tab) => (
-                  <Tabs.TabPane key={tab.tabKey} {...tab}></Tabs.TabPane>
-                ))}
-              </Tabs>
-            )}
             {loginMessage?.message && <LoginMessage {...loginMessage} />}
             {children}
           </ProForm>

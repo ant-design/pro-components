@@ -151,12 +151,15 @@ function ModalForm<T = Record<string, any>>({
     rest.submitter === false
       ? false
       : {
+          ...rest.submitter,
           searchConfig: {
             submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
             resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
+            ...rest.submitter?.searchConfig,
           },
           submitButtonProps: {
             type: (modalProps?.okType as 'text') || 'primary',
+            ...rest.submitter?.submitButtonProps,
           },
           resetButtonProps: {
             preventDefault: true,
@@ -164,8 +167,8 @@ function ModalForm<T = Record<string, any>>({
               modalProps?.onCancel?.(e);
               setVisible(false);
             },
+            ...rest.submitter?.resetButtonProps,
           },
-          ...rest.submitter,
         };
 
   return (

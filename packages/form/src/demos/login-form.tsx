@@ -1,32 +1,19 @@
 import { LoginForm, ProFormText, ProFormCaptcha, ProFormCheckbox } from '@ant-design/pro-form';
 import { UserOutlined, MobileOutlined, LockOutlined } from '@ant-design/icons';
-import { message } from 'antd';
+import { message, Tabs } from 'antd';
 import { useState } from 'react';
 
-export default () => {
-  const [loginType, setLoginType] = useState<'phone' | 'account'>('phone');
+type LoginType = 'phone' | 'account';
 
+export default () => {
+  const [loginType, setLoginType] = useState<LoginType>('phone');
   return (
     <div style={{ backgroundColor: 'white' }}>
-      <LoginForm
-        title="Github"
-        subTitle="全球最大同性交友网站"
-        tabs={[
-          {
-            tab: '账户密码登录',
-            tabKey: 'account',
-          },
-          {
-            tab: '手机号登录',
-            tabKey: 'phone',
-          },
-        ]}
-        tabActiveKey={loginType}
-        onTabChange={(e) => {
-          // @ts-ignore
-          setLoginType(e);
-        }}
-      >
+      <LoginForm title="Github" subTitle="全球最大同性交友网站">
+        <Tabs activeKey={loginType} onChange={(activeKey) => setLoginType(activeKey as LoginType)}>
+          <Tabs.TabPane key={'account'} tab={'账号密码登录'} />
+          <Tabs.TabPane key={'phone'} tab={'手机号登录'} />
+        </Tabs>
         {loginType === 'account' && (
           <>
             <ProFormText

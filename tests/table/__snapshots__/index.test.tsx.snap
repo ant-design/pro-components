@@ -1396,15 +1396,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 0"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 0
                           </span>
                         </td>
                         <td
@@ -1676,15 +1668,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 1"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 1
                           </span>
                         </td>
                         <td
@@ -1956,15 +1940,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 2"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 2
                           </span>
                         </td>
                         <td
@@ -2236,15 +2212,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 3"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 3
                           </span>
                         </td>
                         <td
@@ -2516,15 +2484,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 4"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 4
                           </span>
                         </td>
                         <td
@@ -2796,15 +2756,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 5"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 5
                           </span>
                         </td>
                         <td
@@ -3076,15 +3028,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 6"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 6
                           </span>
                         </td>
                         <td
@@ -3356,15 +3300,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 7"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 7
                           </span>
                         </td>
                         <td
@@ -3636,15 +3572,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 8"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 8
                           </span>
                         </td>
                         <td
@@ -3916,15 +3844,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 9"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 9
                           </span>
                         </td>
                         <td
@@ -4196,15 +4116,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 10"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 10
                           </span>
                         </td>
                         <td
@@ -4476,15 +4388,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 11"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 11
                           </span>
                         </td>
                         <td
@@ -4756,15 +4660,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 12"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 12
                           </span>
                         </td>
                         <td
@@ -5036,15 +4932,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 13"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 13
                           </span>
                         </td>
                         <td
@@ -5316,15 +5204,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 14"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 14
                           </span>
                         </td>
                         <td
@@ -5596,15 +5476,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 15"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 15
                           </span>
                         </td>
                         <td
@@ -5876,15 +5748,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 16"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 16
                           </span>
                         </td>
                         <td
@@ -6156,15 +6020,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 17"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 17
                           </span>
                         </td>
                         <td
@@ -6436,15 +6292,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 18"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 18
                           </span>
                         </td>
                         <td
@@ -6716,15 +6564,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 19"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 19
                           </span>
                         </td>
                         <td

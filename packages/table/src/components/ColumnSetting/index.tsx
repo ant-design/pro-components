@@ -210,6 +210,10 @@ const GroupCheckboxList: React.FC<{
   const intl = useIntl();
 
   localColumns.forEach((item) => {
+    /** 不在 setting 中展示的 */
+    if (item.hideInSetting) {
+      return;
+    }
     const { fixed } = item;
     if (fixed === 'left') {
       leftList.push(item);
@@ -217,11 +221,6 @@ const GroupCheckboxList: React.FC<{
     }
     if (fixed === 'right') {
       rightList.push(item);
-      return;
-    }
-
-    /** 不在 setting 中展示的 */
-    if (item.hideInSetting) {
       return;
     }
     list.push(item);
