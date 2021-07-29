@@ -1,12 +1,16 @@
-import { DownloadOutlined, ReloadOutlined, SettingOutlined } from '@ant-design/icons';
-import type { IntlType } from '@ant-design/pro-provider';
-import { useIntl } from '@ant-design/pro-provider';
+import React, { useEffect, useMemo } from 'react';
+import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
 import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
 import type { SearchProps } from 'antd/lib/input';
+import type { IntlType } from '@ant-design/pro-provider';
+import { useIntl } from '@ant-design/pro-provider';
 import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
+import ColumnSetting from '../ColumnSetting';
+import './index.less';
+import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
 import Container from '../../container';
 import type { ActionType, ProTableProps } from '../../typing';
@@ -18,7 +22,7 @@ type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
   onSearch?: (keyword: string) => boolean | undefined;
 };
 
-export type OptionConfig<T = unknown, ValueType = 'text'> = {
+export type OptionConfig = {
   density?: boolean;
   fullScreen?: OptionsType;
   reload?: OptionsType;
@@ -35,7 +39,7 @@ export type OptionsType =
   | ((e: React.MouseEvent<HTMLSpanElement>, action?: ActionType) => void)
   | boolean;
 
-export type ToolBarProps<T = unknown, ValueType = 'text'> = {
+export type ToolBarProps<T = unknown> = {
   headerTitle?: React.ReactNode;
   tooltip?: string | LabelTooltipType;
   /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
@@ -49,15 +53,12 @@ export type ToolBarProps<T = unknown, ValueType = 'text'> = {
     },
   ) => React.ReactNode[];
   action?: React.MutableRefObject<ActionType | undefined>;
-  options?: OptionConfig<T, ValueType> | false;
+  options?: OptionConfig | false;
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
   className?: string;
   onSearch?: (keyWords: string) => void;
   columns: TableColumnType<T>[];
-  proColumns: ProColumns<T, ValueType>[];
-  tableColumns: TableColumnType<T>[];
-  dataSource?: readonly T[];
 };
 
 function getButtonText({
@@ -82,10 +83,6 @@ function getButtonText({
       text: intl.getMessage('tableToolBar.fullScreen', '全屏'),
       icon: <FullScreenIcon />,
     },
-    export: {
-      text: intl.getMessage('tableToolBar.export.tooltip', '导出'),
-      icon: <DownloadOutlined />,
-    },
   };
 }
 
@@ -95,16 +92,12 @@ function getButtonText({
  * @param options
  * @param className
  */
-function renderDefaultOption<T = unknown, ValueType = 'text'>(
-  options: OptionConfig<T, ValueType>,
-  defaultOptions: OptionConfig<T, ValueType> & {
+function renderDefaultOption<T>(
+  options: OptionConfig,
+  defaultOptions: OptionConfig & {
     intl: IntlType;
   },
   columns: TableColumnType<T>[],
-  tableColumns: TableColumnType<T>[],
-  proColumns: ProColumns<T, ValueType>[],
-  dataSource?: readonly T[],
-  action?: React.MutableRefObject<ActionType | undefined>,
 ) {
   return Object.keys(options)
     .filter((item) => item)
@@ -114,37 +107,13 @@ function renderDefaultOption<T = unknown, ValueType = 'text'>(
         return null;
       }
       if (key === 'setting') {
-        return <ColumnSetting {...options[key]} columns={tableColumns} key={key} />;
+        return <ColumnSetting {...options[key]} columns={columns} key={key} />;
       }
       if (key === 'fullScreen') {
         return (
           <span key={key} onClick={value === true ? defaultOptions[key] : value}>
             <FullScreenIcon />
           </span>
-        );
-      }
-      if (key === 'export') {
-        const getMeta = () => {
-          if (typeof value === 'function') {
-            return { onExport: (...args) => value(...args, action) } as ExportToExcelActionProps;
-          }
-          if (typeof value === 'object') {
-            return {
-              ...value,
-              onExport: (...args) => value.onExport?.(...args, action),
-            } as ExportToExcelActionProps;
-          }
-          return value;
-        };
-
-        return (
-          <ExportToExcelAction<T, ValueType>
-            key={key}
-            {...getMeta()}
-            columns={columns}
-            proColumns={proColumns}
-            dataSource={dataSource}
-          />
         );
       }
       const optionItem = getButtonText(defaultOptions)[key];
@@ -171,7 +140,7 @@ function renderDefaultOption<T = unknown, ValueType = 'text'>(
     .filter((item) => item);
 }
 
-function ToolBar<T, ValueType>({
+function ToolBar<T>({
   headerTitle,
   tooltip,
   toolBarRender,
@@ -182,11 +151,8 @@ function ToolBar<T, ValueType>({
   toolbar,
   onSearch,
   columns,
-  dataSource,
-  proColumns,
-  tableColumns,
   ...rest
-}: ToolBarProps<T, ValueType>) {
+}: ToolBarProps<T>) {
   const counter = Container.useContainer();
 
   const intl = useIntl();
@@ -196,7 +162,6 @@ function ToolBar<T, ValueType>({
       density: true,
       setting: true,
       search: false,
-      export: false,
       fullScreen: () => action?.current?.fullScreen?.(),
     };
     if (propsOptions === false) {
@@ -209,19 +174,15 @@ function ToolBar<T, ValueType>({
       ...propsOptions,
     };
 
-    return renderDefaultOption<T, ValueType>(
+    return renderDefaultOption<T>(
       options,
       {
         ...defaultOptions,
         intl,
       },
       columns,
-      tableColumns,
-      proColumns,
-      dataSource,
-      action,
     );
-  }, [action, columns, proColumns, intl, propsOptions, tableColumns, dataSource]);
+  }, [action, columns, intl, propsOptions]);
   // 操作列表
   const actions = toolBarRender
     ? toolBarRender(action?.current, { selectedRowKeys, selectedRows })

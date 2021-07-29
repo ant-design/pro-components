@@ -572,12 +572,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
   useDeepCompareEffect(() => {
-    if (tableColumns && tableColumns.length > 0) {
+    if (tableColumn && tableColumn.length > 0) {
       // 重新生成key的字符串用于排序
-      const columnKeys = tableColumns.map((item) => genColumnKey(item.key, item.index));
+      const columnKeys = tableColumn.map((item) => genColumnKey(item.key, item.index));
       counter.setSortKeyColumns(columnKeys);
     }
-  }, [tableColumns]);
+  }, [tableColumn]);
 
   /** 同步 Pagination，支持受控的 页码 和 pageSize */
   useDeepCompareEffect(() => {
@@ -636,7 +636,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 内置的工具栏 */
   const toolbarDom =
     toolBarRender === false ? null : (
-      <Toolbar<T>
+      <Toolbar<T, ValueType>
         headerTitle={headerTitle}
         hideToolbar={
           options === false && !headerTitle && !toolBarRender && !toolbar && !isLightFilter
