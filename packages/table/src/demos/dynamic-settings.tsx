@@ -217,16 +217,15 @@ const DynamicSettings = () => {
         colon={false}
         onValuesChange={(_, values) => updateConfig.run(values)}
       >
-        <ProCard colSpan="500px" tabs={{}} />
         <ProCard
-          colSpan="500px"
+          colSpan="470px"
           style={{
             height: '100vh',
             overflow: 'auto',
-            position: 'fixed',
             boxShadow: '2px 0 6px rgba(0, 21, 41, 0.35)',
             top: 0,
             right: 0,
+            width: 470,
           }}
           tabs={{}}
         >
@@ -608,12 +607,17 @@ const DynamicSettings = () => {
                       marginBottom: 8,
                       position: 'relative',
                     }}
+                    bodyStyle={{
+                      padding: 8,
+                      paddingRight: 16,
+                      paddingTop: 16,
+                    }}
                   >
                     <div
                       style={{
                         position: 'absolute',
-                        top: -2,
-                        right: 4,
+                        top: -4,
+                        right: 2,
                       }}
                     >
                       {action}
@@ -623,12 +627,6 @@ const DynamicSettings = () => {
                 );
               }}
             >
-              {/*  {
-                title: 'time',
-                dataIndex: 'time',
-                valueType: 'date',
-              }, */}
-
               <ProFormText
                 rules={[
                   {
@@ -673,6 +671,14 @@ const DynamicSettings = () => {
                     value,
                   }))}
                 />
+              </ProFormGroup>
+              <ProFormGroup
+                style={{
+                  marginTop: 8,
+                }}
+                size={8}
+              >
+                <ProFormText width="xs" label="列提示" name="tooltip" />
               </ProFormGroup>
               <ProFormDependency name={['valueType', 'valueEnum']}>
                 {({ valueType, valueEnum }) => {

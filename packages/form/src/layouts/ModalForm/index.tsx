@@ -1,4 +1,11 @@
-﻿import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
+﻿import React, {
+  useContext,
+  useState,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react';
 import { Modal, ConfigProvider } from 'antd';
 import type { FormInstance, ModalProps, FormProps } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -8,6 +15,7 @@ import { createPortal } from 'react-dom';
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
+import ScrollLocker from 'rc-util/lib/Dom/scrollLocker';
 
 export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish' | 'title'> &
   CommonFormProps<T> & {
@@ -56,19 +64,56 @@ function ModalForm<T = Record<string, any>>({
     onChange: onVisibleChange,
   });
 
+  const context = useContext(ConfigProvider.ConfigContext);
+
+  const renderDom = useMemo(() => {
+    if (modalProps?.getContainer) {
+      if (typeof modalProps?.getContainer === 'function') {
+        return modalProps?.getContainer?.();
+      }
+      if (typeof modalProps?.getContainer === 'string') {
+        return document.getElementById(modalProps?.getContainer);
+      }
+      return modalProps?.getContainer;
+    }
+    return context?.getPopupContainer?.(document.body);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context, modalProps, visible]);
+
+  const [scrollLocker] = useState(
+    () =>
+      new ScrollLocker({
+        container: renderDom || document.body,
+      }),
+  );
+
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
     !rest['footer'] || !modalProps?.footer,
     'ModalForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
 
-  const context = useContext(ConfigProvider.ConfigContext);
-
   useEffect(() => {
+    if (visible) {
+      scrollLocker?.lock?.();
+    } else {
+      scrollLocker?.unLock?.();
+    }
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
+    return () => {
+      if (!visible) scrollLocker?.unLock?.();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
+
+  useEffect(
+    () => () => {
+      scrollLocker?.unLock?.();
+    },
+    [],
+  );
 
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
   const isFirstRender = useRef(!modalProps?.forceRender);
@@ -100,7 +145,31 @@ function ModalForm<T = Record<string, any>>({
     }
   }, [modalProps?.destroyOnClose, visible]);
 
-  useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
+  useImperativeHandle(rest.formRef, () => formRef.current);
+
+  const renderSubmitter =
+    rest.submitter === false
+      ? false
+      : {
+          ...rest.submitter,
+          searchConfig: {
+            submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
+            resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
+            ...rest.submitter?.searchConfig,
+          },
+          submitButtonProps: {
+            type: (modalProps?.okType as 'text') || 'primary',
+            ...rest.submitter?.submitButtonProps,
+          },
+          resetButtonProps: {
+            preventDefault: true,
+            onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
+              modalProps?.onCancel?.(e);
+              setVisible(false);
+            },
+            ...rest.submitter?.resetButtonProps,
+          },
+        };
 
   return (
     <>
@@ -116,40 +185,26 @@ function ModalForm<T = Record<string, any>>({
               }
               const success = await onFinish(values);
               if (success) {
-                formRef.current?.resetFields();
                 setVisible(false);
+                setTimeout(() => {
+                  if (modalProps?.destroyOnClose) formRef.current?.resetFields();
+                }, 300);
               }
             }}
-            submitter={{
-              searchConfig: {
-                submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
-                resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
-              },
-              submitButtonProps: {
-                type: (modalProps?.okType as 'text') || 'primary',
-              },
-              resetButtonProps: {
-                preventDefault: true,
-                onClick: (e) => {
-                  modalProps?.onCancel?.(e);
-                  setVisible(false);
-                },
-              },
-              ...rest.submitter,
-            }}
+            submitter={renderSubmitter}
             contentRender={(item, submitter) => {
               return (
                 <Modal
                   title={title}
-                  getContainer={false}
                   width={width || 800}
                   {...modalProps}
+                  getContainer={false}
                   visible={visible}
                   onCancel={(e) => {
                     setVisible(false);
                     modalProps?.onCancel?.(e);
                   }}
-                  footer={submitter}
+                  footer={submitter === undefined ? null : submitter}
                 >
                   {shouldRenderFormItems ? item : null}
                 </Modal>
@@ -159,7 +214,7 @@ function ModalForm<T = Record<string, any>>({
             {children}
           </BaseForm>
         </div>,
-        context?.getPopupContainer?.(document.body) || document.body,
+        renderDom || document.body,
       )}
       {trigger &&
         React.cloneElement(trigger, {

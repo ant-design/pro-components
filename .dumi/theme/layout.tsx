@@ -1,19 +1,96 @@
-﻿import React, { useEffect, useState } from 'react';
+﻿import React, { useContext, useEffect, useMemo, useState } from 'react';
 import Layout from 'dumi-theme-default/src/layout';
-import { ConfigProvider } from 'antd';
-import { IRouteComponentProps } from 'umi';
+import dumiContext from '@umijs/preset-dumi/lib/theme/context';
+import { ConfigProvider, Switch } from 'antd';
+import { IRouteComponentProps, isBrowser } from 'umi';
 import zhCN from 'antd/es/locale/zh_CN';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import moment from 'moment';
-import Darkreader from 'react-darkreader';
+import useDarkreader from './useDarkreader';
 import 'moment/locale/zh-cn';
 import './layout.less';
 moment.locale('zh-cn');
 
-export default ({ children, ...props }: IRouteComponentProps) => {
-  const colorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches && 'dark';
-  const defaultDarken = localStorage.getItem('procomponents_dark_theme') || colorScheme;
+const DarkButton = () => {
+  const colorScheme = useMemo(() => {
+    if (!isBrowser()) {
+      return 'light';
+    }
+    return matchMedia?.('(prefers-color-scheme: dark)').matches && 'dark';
+  }, []);
 
+  const defaultDarken = useMemo(() => {
+    if (!isBrowser()) {
+      return 'light';
+    }
+    return localStorage.getItem('procomponents_dark_theme') || colorScheme;
+  }, []);
+
+  const [isDark, { toggle }] = useDarkreader(defaultDarken === 'dark');
+  if (!isBrowser()) {
+    return null;
+  }
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        right: 8,
+        top: 0,
+        zIndex: 999,
+        display: 'flex',
+        alignItems: 'center',
+      }}
+      className="procomponents_dark_theme_view"
+    >
+      <Switch
+        checkedChildren="🌜"
+        unCheckedChildren="🌞"
+        defaultChecked={defaultDarken === 'dark'}
+        checked={isDark}
+        onChange={(check) => {
+          toggle();
+          if (!check) {
+            localStorage.setItem('procomponents_dark_theme', 'light');
+            return;
+          }
+          localStorage.setItem('procomponents_dark_theme', 'dark');
+        }}
+      />
+    </div>
+  );
+};
+
+function loadJS(url, callback) {
+  const script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.onload = function () {
+    callback?.();
+  };
+  script.src = url;
+
+  document.getElementsByTagName('head')[0].appendChild(script);
+}
+
+export default ({ children, ...props }: IRouteComponentProps) => {
+  const context = useContext(dumiContext);
   useEffect(() => {
+    if (!isBrowser()) {
+      return null;
+    }
+
+    loadJS('https://www.googletagmanager.com/gtag/js?id=G-RMBLDHGL1N', function () {
+      // @ts-ignore
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        // @ts-ignore
+        dataLayer.push(arguments);
+      }
+      // @ts-ignore
+      gtag('js', new Date());
+      // @ts-ignore
+      gtag('config', 'G-RMBLDHGL1N');
+    });
+
     (function (h, o, t, j, a, r) {
       // @ts-ignore
       h.hj =
@@ -33,30 +110,30 @@ export default ({ children, ...props }: IRouteComponentProps) => {
       a.appendChild(r);
     })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
   }, []);
+
+  const title = useMemo(() => {
+    if (context.meta.title?.includes('-')) {
+      return `${context.meta.title}`;
+    }
+    if (!context.meta.title) {
+      return 'ProComponents - 模板组件';
+    }
+    return `${context.meta.title} - ProComponents`;
+  }, [context]);
+
   return (
-    <>
-      <div
-        style={{
-          position: 'fixed',
-          right: 8,
-          top: 20,
-          zIndex: 999,
-        }}
-      >
-        <Darkreader
-          defaultDarken={defaultDarken === 'dark'}
-          onChange={(check) => {
-            if (!check) {
-              localStorage.setItem('procomponents_dark_theme', 'light');
-              return;
-            }
-            localStorage.setItem('procomponents_dark_theme', 'dark');
-          }}
-        />
-      </div>
+    <HelmetProvider>
       <ConfigProvider locale={zhCN}>
-        <Layout {...props}>{children}</Layout>
+        <Layout {...props}>
+          <>
+            <Helmet>
+              <title>{title}</title>
+            </Helmet>
+            {children}
+            {isBrowser() ? <DarkButton /> : null}
+          </>
+        </Layout>
       </ConfigProvider>
-    </>
+    </HelmetProvider>
   );
 };

@@ -3,6 +3,7 @@ import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { SettingDrawer } from '@ant-design/pro-layout';
 import defaultSettings from './defaultSettings';
+
 import { waitForComponentToPaint } from '../util';
 
 describe('settingDrawer.test', () => {
@@ -12,6 +13,8 @@ describe('settingDrawer.test', () => {
 
     Object.defineProperty(window, 'navigator', {
       value: {
+        userAgent:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4437.0 Safari/537.36 Edg/91.0.831.1',
         clipboard: {
           writeText: async () => {
             return true;
@@ -21,33 +24,33 @@ describe('settingDrawer.test', () => {
     });
   });
 
-  it('base user', () => {
+  it('🌺  base user', () => {
     const html = render(<SettingDrawer settings={defaultSettings} getContainer={false} collapse />);
     expect(html).toMatchSnapshot();
   });
 
-  it('settings = undefined', () => {
+  it('🌺  settings = undefined', () => {
     const html = render(
       <SettingDrawer settings={undefined as any} getContainer={false} collapse />,
     );
     expect(html).toMatchSnapshot();
   });
 
-  it('hideColors = true', () => {
+  it('🌺  hideColors = true', () => {
     const html = render(
       <SettingDrawer settings={defaultSettings} hideColors getContainer={false} collapse />,
     );
     expect(html).toMatchSnapshot();
   });
 
-  it('hideHintAlert = true', () => {
+  it('🌺  hideHintAlert = true', () => {
     const html = render(
       <SettingDrawer settings={defaultSettings} hideHintAlert getContainer={false} collapse />,
     );
     expect(html).toMatchSnapshot();
   });
 
-  it('hideLoading = true', () => {
+  it('🌺  hideLoading = true', () => {
     window.localStorage.removeItem('umi_locale');
     const html = render(
       <SettingDrawer settings={defaultSettings} hideLoading getContainer={false} collapse />,
@@ -56,16 +59,18 @@ describe('settingDrawer.test', () => {
     window.localStorage.setItem('umi_locale', 'zh-CN');
   });
 
-  it('initState form query', async () => {
+  it('🌺  initState form query', async () => {
     const fn = jest.fn();
     const html = mount(
-      <SettingDrawer
-        getContainer={false}
-        collapse
-        onSettingChange={() => {
-          fn();
-        }}
-      />,
+      <div>
+        <SettingDrawer
+          getContainer={false}
+          collapse
+          onSettingChange={(setting) => {
+            fn(setting);
+          }}
+        />
+      </div>,
     );
     await waitForComponentToPaint(html);
 
@@ -79,22 +84,38 @@ describe('settingDrawer.test', () => {
       html.find('div.ant-drawer-mask').simulate('click');
     });
 
+    await waitForComponentToPaint(html, 1000);
+
     expect(fn).toBeCalled();
+    expect(fn).toBeCalledWith({
+      navTheme: 'realDark',
+      layout: 'mix',
+      contentWidth: 'Fluid',
+      fixedHeader: true,
+      fixSiderbar: false,
+      headerHeight: 48,
+      title: 'Ant Design Pro',
+      iconfontUrl: '',
+      primaryColor: 'daybreak',
+      splitMenus: false,
+    });
     act(() => {
       html.unmount();
     });
   });
 
-  it('hideCopyButton = true', () => {
+  it('🌺  hideCopyButton = true', () => {
     const html = render(
       <SettingDrawer settings={defaultSettings} hideCopyButton getContainer={false} collapse />,
     );
     expect(html).toMatchSnapshot();
   });
 
-  it('clipboard throw error', async () => {
+  it('🌺  clipboard throw error', async () => {
     Object.defineProperty(window, 'navigator', {
       value: {
+        userAgent:
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_2_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4437.0 Safari/537.36 Edg/91.0.831.1',
         clipboard: {
           writeText: async () => {
             throw new Error('error');
@@ -124,7 +145,7 @@ describe('settingDrawer.test', () => {
     });
   });
 
-  it('onCollapseChange', async () => {
+  it('🌺  onCollapseChange', async () => {
     const onCollapseChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
@@ -141,11 +162,13 @@ describe('settingDrawer.test', () => {
     );
     await waitForComponentToPaint(wrapper);
     const button = wrapper.find('.ant-pro-setting-drawer-handle');
-    button.simulate('click');
+    act(() => {
+      button.simulate('click');
+    });
     expect(onCollapseChange).toHaveBeenCalled();
   });
 
-  it('onLayout Change', async () => {
+  it('🌺  onLayout Change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
@@ -172,7 +195,7 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith('top');
   });
 
-  it('fix-siderbar Change', async () => {
+  it('🌺  fix-siderbar Change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
@@ -197,7 +220,7 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith(false);
   });
 
-  it('content-width change', async () => {
+  it('🌺  content-width change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
@@ -227,7 +250,7 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith('Fluid');
   });
 
-  it('splitMenu change', async () => {
+  it('🌺  splitMenu change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
@@ -250,7 +273,7 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith(true);
   });
 
-  it('fixed-header Change', async () => {
+  it('🌺  fixed-header Change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
@@ -277,7 +300,7 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith(false);
   });
 
-  it('theme Change', async () => {
+  it('🌺  theme Change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
@@ -304,7 +327,7 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith('dark');
   });
 
-  it('colorWeak Change', async () => {
+  it('🌺  colorWeak Change', async () => {
     const onSettingChange = jest.fn();
     document.body.appendChild(document.createElement('div'));
     const wrapper = mount(
@@ -340,7 +363,7 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith(false);
   });
 
-  it('regional config change', async () => {
+  it('🌺  regional config change', async () => {
     const fn = jest.fn();
     const html = mount(
       <SettingDrawer
@@ -370,7 +393,7 @@ describe('settingDrawer.test', () => {
     expect(fn).toBeCalledWith(['header', 'footer', 'menu', 'menuHeader']);
   });
 
-  it('theme color Change', async () => {
+  it('🌺  theme color Change', async () => {
     const onSettingChange = jest.fn();
     (window as any).umi_plugin_ant_themeVar = [
       { key: 'dark', fileName: 'dark.css', theme: 'dark' },
@@ -470,16 +493,20 @@ describe('settingDrawer.test', () => {
     });
   });
 
-  it('onLanguageChange support', async () => {
+  it('🌺  onLanguageChange support', async () => {
     const html = mount(<SettingDrawer settings={defaultSettings} getContainer={false} collapse />);
     await waitForComponentToPaint(html, 200);
     act(() => {
-      expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toMatchSnapshot();
+      expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toBe('整体风格设置');
     });
-    window.localStorage.setItem('umi_locale', 'en-US');
-    global.window.dispatchEvent(new Event('languagechange'));
+
     act(() => {
-      expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toMatchSnapshot();
+      window.localStorage.setItem('umi_locale', 'en-US');
+    });
+    window.document.dispatchEvent(new Event('languagechange'));
+
+    act(() => {
+      expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toBe('Page style setting');
     });
     await waitForComponentToPaint(html, 200);
     act(() => {

@@ -4,22 +4,26 @@
 
 .@{pro-table-prefix-cls}-list {
   max-width: 100%;
-  .@{ant-prefix}-form-item-label {
-    display: none;
-  }
-
-  .@{ant-prefix}-space {
-    &:first-child {
-      .@{ant-prefix}-form-item {
-        .@{ant-prefix}-form-item-label {
-          display: inline-block;
-        }
-      }
+  &-item {
+    .@{ant-prefix}-form-item-label {
+      display: none;
     }
   }
 
   &-container {
     margin-right: 8px;
+  }
+
+  &-item {
+    &:first-of-type {
+      div:first-of-type {
+        .@{ant-prefix}-form-item {
+          .@{ant-prefix}-form-item-label {
+            display: inline-block;
+          }
+        }
+      }
+    }
   }
 
   &-action {
@@ -46,5 +50,9 @@
     &:last-child {
       margin-right: 0;
     }
+  }
+
+  &-creator-button-top {
+    margin-bottom: 24px;
   }
 }

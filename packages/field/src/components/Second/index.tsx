@@ -4,6 +4,7 @@ import type { ProFieldFC } from '../../index';
 
 export type FieldDigitProps = {
   text: number;
+  placeholder?: any;
 };
 
 /**
@@ -33,7 +34,7 @@ export function formatSecond(result: number) {
  * @param FieldSecond
  */
 const Second: ProFieldFC<FieldDigitProps> = (
-  { text, mode: type, plain, render, renderFormItem, proFieldKey, fieldProps, ...rest },
+  { text, mode: type, render, renderFormItem, fieldProps, placeholder },
   ref,
 ) => {
   if (type === 'read') {
@@ -52,7 +53,7 @@ const Second: ProFieldFC<FieldDigitProps> = (
         style={{
           width: '100%',
         }}
-        {...rest}
+        placeholder={placeholder}
         {...fieldProps}
       />
     );

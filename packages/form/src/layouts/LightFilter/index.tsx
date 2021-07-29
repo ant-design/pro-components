@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext, useEffect, useMemo } from 'react';
 import type { FormProps } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
@@ -11,12 +11,14 @@ import omit from 'omit.js';
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import './index.less';
+import type { LightFilterFooterRender } from '../../interface';
 
 export type LightFilterProps<T> = {
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
   ignoreRules?: boolean;
+  footerRender?: LightFilterFooterRender;
 } & Omit<FormProps<T>, 'onFinish'> &
   CommonFormProps<T>;
 
@@ -34,6 +36,7 @@ const LightFilterContainer: React.FC<{
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
   bordered?: boolean;
+  footerRender?: LightFilterFooterRender;
 }> = (props) => {
   const {
     items,
@@ -44,11 +47,10 @@ const LightFilterContainer: React.FC<{
     onValuesChange,
     bordered,
     values = {},
+    footerRender,
   } = props;
   const intl = useIntl();
   const lightFilterClassName = `${prefixCls}-light-filter`;
-  const outsideItems: React.ReactNode[] = [];
-  const collapseItems: React.ReactNode[] = [];
 
   const [open, setOpen] = useState<boolean>(false);
   const [moreValues, setMoreValues] = useState<Record<string, any>>(() => {
@@ -57,14 +59,24 @@ const LightFilterContainer: React.FC<{
   useEffect(() => {
     setMoreValues({ ...values });
   }, [values]);
-  items.forEach((item: any) => {
-    const { secondary, name } = item.props || {};
-    if ((secondary && !values[name]) || collapse) {
-      collapseItems.push(item);
-    } else {
-      outsideItems.push(item);
-    }
-  });
+
+  const { collapseItems, outsideItems } = useMemo(() => {
+    const collapseItemsArr: React.ReactNode[] = [];
+    const outsideItemsArr: React.ReactNode[] = [];
+    items.forEach((item: any) => {
+      const { secondary } = item.props || {};
+      if (secondary || collapse) {
+        collapseItemsArr.push(item);
+      } else {
+        outsideItemsArr.push(item);
+      }
+    });
+    return {
+      collapseItems: collapseItemsArr,
+      outsideItems: outsideItemsArr,
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.items.length]);
 
   const collapseLabelRender = () => {
     if (collapseLabel) {
@@ -112,6 +124,7 @@ const LightFilterContainer: React.FC<{
               onVisibleChange={setOpen}
               visible={open}
               label={collapseLabelRender()}
+              footerRender={footerRender}
               footer={{
                 onConfirm: () => {
                   onValuesChange({
@@ -121,10 +134,12 @@ const LightFilterContainer: React.FC<{
                 },
                 onClear: () => {
                   const clearValues = {};
-                  Object.keys(moreValues).forEach((key) => {
-                    clearValues[key] = undefined;
+                  collapseItems.forEach((child: any) => {
+                    const { name } = child.props;
+                    clearValues[name] = undefined;
                   });
-                  setMoreValues(clearValues);
+
+                  onValuesChange(clearValues);
                 },
               }}
             >
@@ -170,6 +185,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     form: userForm,
     bordered,
     ignoreRules,
+    footerRender,
     ...reset
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -199,6 +215,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
             collapse={collapse}
             collapseLabel={collapseLabel}
             values={values}
+            footerRender={footerRender}
             onValuesChange={(newValues: any) => {
               const newAllValues = {
                 ...values,

@@ -216,4 +216,47 @@ describe('BasicTable pagination', () => {
 
     expect(fn).toBeCalledWith(10);
   });
+
+  it('🎏 request call once when data.length more then pageSize', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable<{
+        money: number;
+      }>
+        size="small"
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        pagination={{
+          pageSize: 1,
+        }}
+        request={() => {
+          fn();
+          return new Promise((resolve) => {
+            resolve({
+              success: true,
+              total: 2,
+              data: [
+                {
+                  money: 1,
+                },
+                {
+                  money: 2,
+                },
+              ],
+            });
+          });
+        }}
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    act(() => {
+      html.find('li.ant-pagination-item.ant-pagination-item-2').simulate('click');
+    });
+    await waitForComponentToPaint(html, 200);
+    expect(fn).toBeCalledTimes(1);
+  });
 });

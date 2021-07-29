@@ -2,6 +2,193 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.7...@ant-design/pro-utils@1.20.0) (2021-07-26)
+
+### Features
+
+- **table:** support children column add function ([#3273](https://github.com/ant-design/pro-components/issues/3273)) ([2396e03](https://github.com/ant-design/pro-components/commit/2396e031d771ae818445d386e573898708b64f07))
+
+## [1.19.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.6...@ant-design/pro-utils@1.19.7) (2021-07-20)
+
+### Bug Fixes
+
+- **list:** fix form context no render error ([#3274](https://github.com/ant-design/pro-components/issues/3274)) ([851c408](https://github.com/ant-design/pro-components/commit/851c40870dab3c953109e6bfedd9650e10609449))
+
+## [1.19.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.5...@ant-design/pro-utils@1.19.6) (2021-07-19)
+
+### Bug Fixes
+
+- **table:** fix onSave will merge origin data error ([#3221](https://github.com/ant-design/pro-components/issues/3221)) ([a16473e](https://github.com/ant-design/pro-components/commit/a16473ec56f1b3d1114c9b73fd18be97605ccfae))
+- **table:** fix table align with tooltip ([#3193](https://github.com/ant-design/pro-components/issues/3193)) ([3b0647e](https://github.com/ant-design/pro-components/commit/3b0647e6a0f64366ae4716a01d2b7a21b86c3805))
+- **utils:** fix error import type and add check-deps script ([#3242](https://github.com/ant-design/pro-components/issues/3242)) ([7c49079](https://github.com/ant-design/pro-components/commit/7c49079746001e8434c187d8fad4288a39525f3d))
+
+## [1.19.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.4...@ant-design/pro-utils@1.19.5) (2021-07-06)
+
+### Bug Fixes
+
+- **form:** fix vite build error ([3b8be53](https://github.com/ant-design/pro-components/commit/3b8be53b2b8e02356cd9c66e278131c943623b58))
+
+## [1.19.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.3...@ant-design/pro-utils@1.19.4) (2021-07-01)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.19.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.2...@ant-design/pro-utils@1.19.3) (2021-06-28)
+
+### Bug Fixes
+
+- **form:** fix select optionGroup no filter error ([#3100](https://github.com/ant-design/pro-components/issues/3100)) ([5a9419c](https://github.com/ant-design/pro-components/commit/5a9419c89e40cf6de953258ef00a382887922519))
+- **table:** remove onchange form renderFormItem ([#3106](https://github.com/ant-design/pro-components/issues/3106)) ([00f5e44](https://github.com/ant-design/pro-components/commit/00f5e440eddf4e63c7af4b21bf9b315ee3363b32))
+
+## [1.19.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.1...@ant-design/pro-utils@1.19.2) (2021-06-17)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.19.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.19.0...@ant-design/pro-utils@1.19.1) (2021-06-15)
+
+### Bug Fixes
+
+- **form:** use merge repacle assign ([#3011](https://github.com/ant-design/pro-components/issues/3011)) ([82df9a4](https://github.com/ant-design/pro-components/commit/82df9a4dfa42be4d0e58f624b14b7ff21c07ff02))
+
+# [1.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.18.2...@ant-design/pro-utils@1.19.0) (2021-06-08)
+
+### Bug Fixes
+
+- **form:** namePath and transform support omitNil ([#2913](https://github.com/ant-design/pro-components/issues/2913)) ([dd3f740](https://github.com/ant-design/pro-components/commit/dd3f740594f22e12ed9146dc00387ed276fd9072))
+- **table:** support three levels of nesting ([#2941](https://github.com/ant-design/pro-components/issues/2941)) ([c9dc346](https://github.com/ant-design/pro-components/commit/c9dc346c309d54da2b8b7c4a4500b1b54a0305cb))
+
+### Features
+
+- **form:** LightFilter support footer ([#2794](https://github.com/ant-design/pro-components/issues/2794)) ([#2884](https://github.com/ant-design/pro-components/issues/2884)) ([042daa6](https://github.com/ant-design/pro-components/commit/042daa6035361ae65b401004eb06f697186f33c8))
+- **form:** support more tooltip props ([#2932](https://github.com/ant-design/pro-components/issues/2932)) ([bedd7eb](https://github.com/ant-design/pro-components/commit/bedd7ebb0784da8fbb9c4998651f39f5efff5354))
+- **table:** onsave support origin data and no merge record ([#2949](https://github.com/ant-design/pro-components/issues/2949)) ([8c9d021](https://github.com/ant-design/pro-components/commit/8c9d0218c2d8927bae4fb0bad9a911a3b905d580))
+
+## [1.18.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.18.1...@ant-design/pro-utils@1.18.2) (2021-05-31)
+
+### Bug Fixes
+
+- **table:** dateRange render wrong with light mode ([#2867](https://github.com/ant-design/pro-components/issues/2867)) ([09396f3](https://github.com/ant-design/pro-components/commit/09396f339befd974b0c66196cc04a68d66b13c2c))
+
+## [1.18.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.18.0...@ant-design/pro-utils@1.18.1) (2021-05-28)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+# [1.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.17.0...@ant-design/pro-utils@1.18.0) (2021-05-25)
+
+### Features
+
+- **table:** eidt table use Proform ([#2832](https://github.com/ant-design/pro-components/issues/2832)) ([5c8b4ba](https://github.com/ant-design/pro-components/commit/5c8b4bac7169d2d0c091b1d1d9a68f03166abd88))
+
+# [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.7...@ant-design/pro-utils@1.17.0) (2021-05-24)
+
+### Features
+
+- **form:** form support request and params ([#2812](https://github.com/ant-design/pro-components/issues/2812)) ([8064293](https://github.com/ant-design/pro-components/commit/8064293532e9e937dea973be50d9e8fbc06c3aa9))
+
+## [1.16.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.6...@ant-design/pro-utils@1.16.7) (2021-05-21)
+
+### Bug Fixes
+
+- **EditTable:** allowClear 清除值后保存数据没有更新 ([#2780](https://github.com/ant-design/pro-components/issues/2780)) ([1ac6bb3](https://github.com/ant-design/pro-components/commit/1ac6bb3cfd10160ef9ec6bd3d790005744314c06))
+- **table:** if editableKeys change,should Cell Update ([#2803](https://github.com/ant-design/pro-components/issues/2803)) ([291e27e](https://github.com/ant-design/pro-components/commit/291e27ea073653fff3b0fbc4ef2466d6e4164b91))
+
+## [1.16.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.5...@ant-design/pro-utils@1.16.6) (2021-05-18)
+
+### Bug Fixes
+
+- **Descriptions:** fix Descriptions reset will set value ([#2732](https://github.com/ant-design/pro-components/issues/2732)) ([e36a35d](https://github.com/ant-design/pro-components/commit/e36a35d98111329a575c8316022637b9a4c5959c))
+- **Descriptions:** fix proFieldKey is same error ([#2729](https://github.com/ant-design/pro-components/issues/2729)) ([be501ec](https://github.com/ant-design/pro-components/commit/be501ece15d04a9680fb08bd036e48587857dd9c))
+
+## [1.16.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.4...@ant-design/pro-utils@1.16.5) (2021-05-11)
+
+### Bug Fixes
+
+- **table:** fix defaultRender will gen two label error ([#2715](https://github.com/ant-design/pro-components/issues/2715)) ([687d51b](https://github.com/ant-design/pro-components/commit/687d51b9edf6e0ed7ae07fc49af02701b7355457))
+
+## [1.16.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.3...@ant-design/pro-utils@1.16.4) (2021-04-29)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.16.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.2...@ant-design/pro-utils@1.16.3) (2021-04-22)
+
+### Bug Fixes
+
+- **form:** fix transformKeySubmitValue will gen null value error ([#2571](https://github.com/ant-design/pro-components/issues/2571)) ([c3e5118](https://github.com/ant-design/pro-components/commit/c3e5118a91fa5bf9560e6cd036dca9864fac1b09))
+- **form:** support moneySymbol=undefined ([#2579](https://github.com/ant-design/pro-components/issues/2579)) ([029482d](https://github.com/ant-design/pro-components/commit/029482d557c8de3cb761af59560aa5e7a9166082))
+- **utils:** stop propagation icon event ([#2566](https://github.com/ant-design/pro-components/issues/2566)) ([7f0cab6](https://github.com/ant-design/pro-components/commit/7f0cab6cec7b52fc9237e977521903308f19793b))
+- **utils:** 修复 InlineErrorFormItem 的 Popover 问题 ([#2546](https://github.com/ant-design/pro-components/issues/2546)) ([9765668](https://github.com/ant-design/pro-components/commit/9765668e25c7f9191ecc32a5485b2572f0edaaab))
+
+## [1.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.1...@ant-design/pro-utils@1.16.2) (2021-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.16.0...@ant-design/pro-utils@1.16.1) (2021-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+# [1.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.15.3...@ant-design/pro-utils@1.16.0) (2021-04-15)
+
+### Bug Fixes
+
+- **form:** transform support format config ([#2489](https://github.com/ant-design/pro-components/issues/2489)) ([c3dd999](https://github.com/ant-design/pro-components/commit/c3dd9993d71032703e7f5ef7010bee0db2485a0c))
+
+### Features
+
+- **form:** support SchemaForm ([#2040](https://github.com/ant-design/pro-components/issues/2040)) ([423f476](https://github.com/ant-design/pro-components/commit/423f4761eecde5a62c4a8476441aa0484ff94711))
+
+## [1.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.15.2...@ant-design/pro-utils@1.15.3) (2021-04-06)
+
+### Bug Fixes
+
+- **utils:** 优化 inline-error-form-item 的 popover 展示逻辑 ([#2372](https://github.com/ant-design/pro-components/issues/2372)) ([5436161](https://github.com/ant-design/pro-components/commit/543616114cf69a4ccdbbdac89d8807e4a5051f07)), closes [#2361](https://github.com/ant-design/pro-components/issues/2361)
+
+## [1.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.15.1...@ant-design/pro-utils@1.15.2) (2021-03-31)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions onsave no work where key is array ([#2350](https://github.com/ant-design/pro-components/issues/2350)) ([36b34a1](https://github.com/ant-design/pro-components/commit/36b34a1a8e63838e3262e6f8edc24e43c1e8a4bc))
+- **table:** fix isNewLine is error for editabletable ([#2366](https://github.com/ant-design/pro-components/issues/2366)) ([ea3bc5a](https://github.com/ant-design/pro-components/commit/ea3bc5a62cae4ef98961445d60e64f0b929c54f4))
+
+## [1.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.15.0...@ant-design/pro-utils@1.15.1) (2021-03-29)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+# [1.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.14.3...@ant-design/pro-utils@1.15.0) (2021-03-18)
+
+### Features
+
+- **field:** add percent field support showSymbol is function ([#2228](https://github.com/ant-design/pro-components/issues/2228)) ([01480f7](https://github.com/ant-design/pro-components/commit/01480f7937efc7435aebc9a40414558643e00b97))
+- **utils:** fix inline-error-form-item problems ([#2223](https://github.com/ant-design/pro-components/issues/2223)) ([ee4ad37](https://github.com/ant-design/pro-components/commit/ee4ad3769fb02de02e07a82d5f26f448c355580e))
+- **utils:** upgrade inline-error-form-item ([#2168](https://github.com/ant-design/pro-components/issues/2168)) ([077c168](https://github.com/ant-design/pro-components/commit/077c1689c86484acae8d7e9146934c1af137a802))
+
+## [1.14.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.14.2...@ant-design/pro-utils@1.14.3) (2021-03-16)
+
+### Bug Fixes
+
+- **form:** fix text is 0, initialValue no work error ([#2183](https://github.com/ant-design/pro-components/issues/2183)) ([e8f0d70](https://github.com/ant-design/pro-components/commit/e8f0d709fa7b7b870fcd2d2a1b9077f6031ed204))
+
+## [1.14.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.14.1...@ant-design/pro-utils@1.14.2) (2021-03-11)
+
+### Bug Fixes
+
+- **table:** fix rowkey is number will error ([#2158](https://github.com/ant-design/pro-components/issues/2158)) ([fc38af8](https://github.com/ant-design/pro-components/commit/fc38af890846fd439e00c224d8bc7a00ef3a6723))
+
+## [1.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.14.0...@ant-design/pro-utils@1.14.1) (2021-03-11)
+
+### Bug Fixes
+
+- **table:** EditableProTable no tonumber keys ([#2135](https://github.com/ant-design/pro-components/issues/2135)) ([b4d3c0a](https://github.com/ant-design/pro-components/commit/b4d3c0ac13e8ef2a981e2bc3132b951c583c1e58))
+
+# [1.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.13.2...@ant-design/pro-utils@1.14.0) (2021-03-08)
+
+### Bug Fixes
+
+- **utils:** support value of BLOB array types ([#2082](https://github.com/ant-design/pro-components/issues/2082)) ([77cad4a](https://github.com/ant-design/pro-components/commit/77cad4a5b417a4878acaad811d626000da150c2e))
+
+### Features
+
+- **field:** add color pick ([#2089](https://github.com/ant-design/pro-components/issues/2089)) ([e83c2ee](https://github.com/ant-design/pro-components/commit/e83c2ee36f67b66070074562f80f248cbfc1a6e3))
+- **form:** select optipn support optGroup ([#2067](https://github.com/ant-design/pro-components/issues/2067)) ([2a99e27](https://github.com/ant-design/pro-components/commit/2a99e27ea8f5d9d24b646f96ccd11967c059159e))
+
 ## [1.13.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.13.1...@ant-design/pro-utils@1.13.2) (2021-02-28)
 
 **Note:** Version bump only for package @ant-design/pro-utils

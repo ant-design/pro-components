@@ -136,7 +136,7 @@ const columns: ProColumns<DataSourceType>[] = [
         key="editor"
         id="editor"
         onClick={() => {
-          action.startEditable?.(row.id);
+          action?.startEditable?.(row.id);
         }}
       >
         编辑
@@ -148,6 +148,7 @@ const columns: ProColumns<DataSourceType>[] = [
 const EditorProTableDemo = (
   props: {
     type?: 'multiple';
+    hideRules?: boolean;
     defaultKeys?: React.Key[];
     editorRowKeys?: React.Key[];
     onEditorChange?: (editorRowKeys: React.Key[]) => void;
@@ -164,7 +165,7 @@ const EditorProTableDemo = (
       onChange: props.onEditorChange,
     },
   );
-  const [dataSource, setDataSource] = useMergedState<DataSourceType[]>([], {
+  const [tableDataSource, setDataSource] = useMergedState<DataSourceType[]>([], {
     value: props.dataSource,
     onChange: props.onDataSourceChange,
   });
@@ -189,14 +190,21 @@ const EditorProTableDemo = (
           增加一行
         </Button>,
       ]}
-      columns={columns}
+      columns={columns.map((item) => {
+        if (!props.hideRules) {
+          // eslint-disable-next-line no-param-reassign
+          delete item.formItemProps;
+        }
+        return item;
+      })}
       actionRef={actionRef}
       request={async () => ({
         data: defaultData,
         total: 3,
         success: true,
       })}
-      value={dataSource}
+      pagination={{}}
+      value={tableDataSource}
       onChange={setDataSource}
       editable={{
         ...props,
@@ -254,6 +262,66 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(fn).toBeCalledWith(555);
+
+    wrapper.unmount();
+  });
+
+  it('📝 EditableProTable add support children column', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        pagination={{
+          pageSize: 2,
+          current: 2,
+        }}
+        editable={{}}
+        onChange={(data) => fn(data[0].children?.length)}
+        recordCreatorProps={{
+          position: 'bottom',
+          newRecordType: 'dataSource',
+          parentKey: () => 624674790,
+          record: {
+            id: 555,
+          },
+          id: 'addEditRecord',
+        }}
+        columns={columns}
+        value={[
+          {
+            id: 624674790,
+            title: '🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）',
+            labels: [{ name: 'question', color: 'success' }],
+            state: 'open',
+            time: {
+              created_at: '2020-05-26T07:54:25Z',
+            },
+            children: [
+              {
+                id: 6246747901,
+                title: '嵌套数据的编辑',
+                labels: [{ name: 'question', color: 'success' }],
+                state: 'closed',
+                time: {
+                  created_at: '2020-05-26T07:54:25Z',
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper.find('button#addEditRecord').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(2);
+
+    wrapper.unmount();
   });
 
   it('📝 EditableProTable support maxLength', async () => {
@@ -277,6 +345,8 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 100);
 
     expect(wrapper.find('button.ant-btn-dashed').exists()).toBeTruthy();
+
+    wrapper.unmount();
   });
 
   it('📝 EditableProTable support actionRender', async () => {
@@ -319,6 +389,122 @@ describe('EditorProTable', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
+  it('📝 EditableProTable support controlled', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey={(row) => row.id}
+        controlled
+        recordCreatorProps={{
+          creatorButtonText: '测试添加数据',
+          record: { id: 9999 },
+        }}
+        editable={{
+          editableKeys: ['624748504'],
+        }}
+        columns={columns}
+        value={[
+          {
+            id: '624748504',
+            title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ]}
+        onChange={onChange}
+      />,
+    );
+
+    expect(
+      wrapper
+        .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
+        .at(1)
+        .props().value,
+    ).toBe('🐛 [BUG]yarn install命令 antd2.4.5会报错');
+
+    act(() => {
+      wrapper.setProps({
+        value: [
+          {
+            id: '624748504',
+            title: '🐛 [BUG]无法创建工程npm create umi',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ],
+      });
+    });
+
+    waitForComponentToPaint(wrapper, 100);
+    expect(
+      wrapper
+        .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
+        .at(1)
+        .props().value,
+    ).toBe('🐛 [BUG]无法创建工程npm create umi');
+  });
+
+  it('📝 EditableProTable controlled will trigger onchange ', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        controlled
+        recordCreatorProps={{
+          creatorButtonText: '测试添加数据',
+          record: { id: 9999 },
+        }}
+        editable={{
+          editableKeys: ['624748504'],
+        }}
+        columns={columns}
+        value={[
+          {
+            id: '624748504',
+            title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ]}
+        onChange={(data) => {
+          onChange(data[0]);
+        }}
+      />,
+    );
+
+    act(() => {
+      wrapper
+        .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
+        .at(1)
+        .simulate('change', {
+          target: {
+            value: '🐛 [BUG]yarn install命令',
+          },
+        });
+    });
+
+    waitForComponentToPaint(wrapper, 100);
+
+    expect(onChange).toBeCalled();
+    expect(onChange).toBeCalledWith({
+      id: '624748504',
+      title: '🐛 [BUG]yarn install命令',
+      labels: [{ name: 'bug', color: 'error' }],
+      time: { created_at: '2020-05-26T09:42:56Z' },
+      state: 'processing',
+      index: undefined,
+    });
+  });
+
   it('📝 EditableProTable support recordCreatorProps.position', async () => {
     const wrapper = render(
       <EditableProTable<DataSourceType>
@@ -350,6 +536,8 @@ describe('EditorProTable', () => {
     });
 
     expect(fn).toBeCalledWith([624748504]);
+
+    wrapper.unmount();
   });
 
   it('📝 support onValuesChange', async () => {
@@ -384,6 +572,8 @@ describe('EditorProTable', () => {
     });
 
     expect(fn).toBeCalledWith(624748504);
+
+    wrapper.unmount();
   });
 
   it('📝 support onValuesChange when is string key', async () => {
@@ -428,6 +618,7 @@ describe('EditorProTable', () => {
     });
 
     expect(fn).toBeCalledWith('02');
+    wrapper.unmount();
   });
 
   it('📝 support newRecordType = dataSource', async () => {
@@ -440,6 +631,9 @@ describe('EditorProTable', () => {
           record: {
             id: Date.now(),
           },
+        }}
+        pagination={{
+          pageSize: 2,
         }}
         columns={columns}
         value={defaultData}
@@ -454,6 +648,7 @@ describe('EditorProTable', () => {
     });
     await waitForComponentToPaint(wrapper, 1000);
     expect(fn).toBeCalledWith(4);
+    wrapper.unmount();
   });
 
   it('📝 support onValuesChange and recordCreatorProps', async () => {
@@ -480,7 +675,7 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     act(() => {
-      wrapper.find('button.ant-btn-dashed').simulate('click');
+      wrapper.find('button.ant-btn-dashed').at(1).simulate('click');
     });
     await waitForComponentToPaint(wrapper, 200);
     act(() => {
@@ -497,6 +692,7 @@ describe('EditorProTable', () => {
     });
 
     expect(fn).toBeCalledWith(newLineId);
+    wrapper.unmount();
   });
 
   it('📝 renderFormItem run defaultRender', async () => {
@@ -594,6 +790,7 @@ describe('EditorProTable', () => {
     act(() => {
       expect(wrapper.render()).toMatchSnapshot();
     });
+    wrapper.unmount();
   });
 
   it('📝 support editorRowKeys', async () => {
@@ -637,6 +834,7 @@ describe('EditorProTable', () => {
     expect(
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
     ).toBeFalsy();
+    wrapper.unmount();
   });
 
   it('📝 support cancel click render false', async () => {
@@ -663,6 +861,7 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists());
+    wrapper.unmount();
   });
 
   it('📝 type=single, only edit one rows', async () => {
@@ -683,6 +882,7 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(fn).not.toBeCalled();
+    wrapper.unmount();
   });
 
   it('📝 edit tree data table', async () => {
@@ -713,11 +913,13 @@ describe('EditorProTable', () => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('td a').at(0).simulate('click');
     });
     await waitForComponentToPaint(wrapper, 1000);
+
     expect(
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
     ).toBeFalsy();
 
     expect(fn).toBeCalled();
+    wrapper.unmount();
   });
 
   it('📝 type=multiple, edit multiple rows', async () => {
@@ -737,11 +939,12 @@ describe('EditorProTable', () => {
     });
     await waitForComponentToPaint(wrapper, 1000);
     expect(fn).toBeCalledWith([624748504, 624691229]);
+    wrapper.unmount();
   });
 
   it('📝 support onSave', async () => {
     const fn = jest.fn();
-    const wrapper = mount(<EditorProTableDemo onSave={(key) => fn(key)} />);
+    const wrapper = mount(<EditorProTableDemo hideRules onSave={(key) => fn(key)} />);
     await waitForComponentToPaint(wrapper, 1000);
     act(() => {
       wrapper.find('#editor').at(1).simulate('click');
@@ -755,17 +958,54 @@ describe('EditorProTable', () => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitForComponentToPaint(wrapper, 1000);
 
     expect(fn).toBeCalledWith(624691229);
+    wrapper.unmount();
+  });
+
+  it('📝 support onSave when add newLine', async () => {
+    const onSave = jest.fn();
+    const onDataSourceChange = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        hideRules
+        onSave={(key) => onSave(key)}
+        onDataSourceChange={(data) => onDataSourceChange(data.length)}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
+    });
+
+    act(() => {
+      wrapper.find('button#addEditRecord').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(onSave).toBeCalledWith(624691229);
+    expect(onDataSourceChange).toBeCalledWith(3);
+
+    wrapper.unmount();
   });
 
   it('📝 support onSave support false', async () => {
-    const fn = jest.fn();
+    const onSaveFn = jest.fn();
     const wrapper = mount(
       <EditorProTableDemo
+        hideRules
         onSave={async (key) => {
-          fn(key);
+          onSaveFn(key);
           return false;
         }}
       />,
@@ -785,11 +1025,13 @@ describe('EditorProTable', () => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
     });
 
-    await waitForComponentToPaint(wrapper, 200);
+    await waitForComponentToPaint(wrapper, 1000);
 
     expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
-    expect(fn).toBeCalledWith(624691229);
+    expect(onSaveFn).toBeCalledWith(624691229);
+
+    wrapper.unmount();
   });
 
   it('📝 support onCancel', async () => {
@@ -841,6 +1083,7 @@ describe('EditorProTable', () => {
     expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
 
     expect(fn).toBeCalledWith(624691229);
+    wrapper.unmount();
   });
 
   it('📝 onDelete auto close loading when error ', async () => {
@@ -875,6 +1118,8 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(wrapper.find('LoadingOutlined').exists()).toBeFalsy();
+
+    wrapper.unmount();
   });
 
   it('📝 support onDelete', async () => {
@@ -1005,6 +1250,7 @@ describe('EditorProTable', () => {
     await waitForComponentToPaint(wrapper, 200);
 
     expect(fn).toBeCalledWith('qixian');
+    wrapper.unmount();
   });
 
   it('📝 support add line for start', async () => {

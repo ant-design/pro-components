@@ -7,7 +7,7 @@ export default () => {
     <>
       <ProCard
         title="Actions 操作项"
-        style={{ width: 300 }}
+        style={{ maxWidth: 300 }}
         actions={[
           <SettingOutlined key="setting" />,
           <EditOutlined key="edit" />,

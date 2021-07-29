@@ -17,6 +17,10 @@ nav:
 
 <code src="./demos/basic.tsx" background="#f5f5f5" height="420px" title="可编辑表格" />
 
+### 有子列的表格增加
+
+<code src="./demos/children.tsx" background="#f5f5f5" height="420px" title="可展开表格" />
+
 ### 自定义可编辑表格
 
 <code src="./demos/custom.tsx" background="#f5f5f5" height="420px" title="自定义可编辑表格" />
@@ -29,11 +33,12 @@ nav:
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| value | 同 dataSource，传入一个数组,是 table 渲染的元数据 | `T[]` | `undefined` |
-| onChange | dataSource 修改时触发，删除和修改都会触发,如果设置了 value，Table 会成为一个受控组件。 | `(value:T[])=>void` | `undefined` |
-| recordCreatorProps | 新建一行数据的相关配置 | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/#API) | - |
-| maxLength | 最大的行数，到达最大行数新建按钮会自动消失 | number | - |
-| editable | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| `value` | 同 dataSource，传入一个数组,是 table 渲染的元数据 | `T[]` | `undefined` |
+| `onChange` | dataSource 修改时触发，删除和修改都会触发,如果设置了 value，Table 会成为一个受控组件。 | `(value:T[])=>void` | `undefined` |
+| `recordCreatorProps` | 新建一行数据的相关配置 | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/#API) | - |
+| `maxLength` | 最大的行数，到达最大行数新建按钮会自动消失 | number | - |
+| `editable` | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| `controlled` | 是否受控, 如果受控每次编辑都会触发 onChange，并且会修改 dataSource | `boolean` | false |
 
 > 别的 API 与 ProTable 相同。
 
@@ -45,9 +50,9 @@ nav:
 | form | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用 | `FormInstance` | - |
 | editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
 | onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | 保存一行的时候触发，只更新 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onSave | 保存一行的时候触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<any>` | - |
-| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
@@ -61,6 +66,8 @@ nav:
 
 ```typescript
 recordCreatorProps = {
+  // 要增加到哪个节点下，一般用于多重嵌套表格
+  parentKey: React.key,
   // 顶部添加还是末尾添加
   position: 'end',
   // 新增一行的方式，默认是缓存，取消后就会消失
@@ -68,6 +75,8 @@ recordCreatorProps = {
   newRecordType: 'dataSource',
   // 不写 key ，会使用 index 当行 id
   record: {},
+  // 设置按钮文案
+  creatorButtonText: '新增一行',
   // 按钮的样式设置，可以设置按钮是否显示
   // 这样可以做最大行限制和最小行限制之类的功能
   style: {
@@ -183,7 +192,7 @@ render: (text, record, _, action) => [
   <a
     key="editable"
     onClick={() => {
-      action.startEditable?.(record.id);
+      action?.startEditable?.(record.id);
     }}
   >
     编辑

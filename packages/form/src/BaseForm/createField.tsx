@@ -1,6 +1,6 @@
-﻿import React, { useEffect, useContext, useMemo } from 'react';
+﻿import React, { useContext } from 'react';
 import type { FormItemProps } from 'antd';
-import { Form, ConfigProvider } from 'antd';
+import { ConfigProvider } from 'antd';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import { omitUndefined } from '@ant-design/pro-utils';
 import { pickProFormItemProps } from '@ant-design/pro-utils';
@@ -9,7 +9,7 @@ import { noteOnce } from 'rc-util/lib/warning';
 import FieldContext from '../FieldContext';
 import LightWrapper from './LightWrapper';
 import type { ProFormItemProps } from '../interface';
-import { FormListContext } from '../components/List';
+import ProFormItem from '../components/FormItem';
 
 export type ProFormItemCreateConfig = {
   /** 自定义类型 */
@@ -20,6 +20,8 @@ export type ProFormItemCreateConfig = {
   lightFilterLabelFormatter?: (value: any) => string;
   /** 默认的props，如果用户设置会被覆盖 */
   defaultProps?: Record<string, any>;
+  /** @name 不使用默认的宽度 */
+  ignoreWidth?: boolean;
 } & FormItemProps;
 
 const WIDTH_SIZE_ENUM = {
@@ -38,7 +40,7 @@ const WIDTH_SIZE_ENUM = {
   xl: 552,
 };
 
-type ProFormComponent<P, Extends> = React.ComponentType<Omit<P & Extends, 'proFieldProps'>>;
+type ProFormComponent<P, Extends> = React.ComponentType<P & Extends>;
 
 // 给控件扩展的通用的属性
 export type ExtendsProps = {
@@ -86,13 +88,13 @@ function createField<P extends ProFormItemProps = any>(
 ): ProFormComponent<P, ExtendsProps> {
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
     const size = useContext(ConfigProvider.SizeContext);
-
     const {
       valueType,
       customLightMode,
       lightFilterLabelFormatter,
       valuePropName = 'value',
       defaultProps,
+      ignoreWidth,
       ...defaultFormItemProps
     } = config || {};
     const {
@@ -112,18 +114,14 @@ function createField<P extends ProFormItemProps = any>(
       ...rest
     } = { ...defaultProps, ...props } as P & ExtendsProps;
 
-    // ProFromList 的 filed，里面有name和key
-    const formListField = useContext(FormListContext);
-
     /** 从 context 中拿到的值 */
-    const { fieldProps, formItemProps, setFieldValueType } = React.useContext(FieldContext);
+    const { fieldProps, formItemProps } = React.useContext(FieldContext);
 
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
 
     const formNeedProps = {
       value: (rest as any).value,
-      onChange: (rest as any).onChange,
     };
     const realFieldProps = {
       ...(ignoreFormItem ? formNeedProps : {}),
@@ -146,38 +144,20 @@ function createField<P extends ProFormItemProps = any>(
       ...propsFormItemProps,
     };
 
-    const name = useMemo(() => {
-      if (ignoreFormItem) {
-        return [];
-      }
-      if (formListField.name !== undefined) {
-        return [formListField.name, otherProps.name].flat(1) as string[];
-      }
-      return otherProps.name as string[];
-    }, [formListField.name, otherProps.name]);
-
-    useEffect(() => {
-      // 如果 setFieldValueType 和 props.name 不存在不存入
-      if (!setFieldValueType || !props.name) {
-        return;
-      }
-      // Field.type === 'ProField' 时 props 里面是有 valueType 的，所以要设置一下
-      // 写一个 ts 比较麻烦，用 any 顶一下
-      setFieldValueType(
-        [formListField.listName, name].flat(1).filter((itemName) => itemName !== undefined),
-        {
-          valueType: valueType || (rest as any).valueType || 'text',
-          transform,
-        },
-      );
-    }, [name, transform, valueType]);
-
     noteOnce(
       // eslint-disable-next-line @typescript-eslint/dot-notation
       !rest['defaultValue'],
       '请不要在 Form 中使用 defaultXXX。如果需要默认值请使用 initialValues 和 initialValue。',
     );
 
+    const ignoreWidthValueType = ['switch', 'radioButton', 'radio', 'rate'];
+
+    const realFieldPropsStyle = {
+      ...realFieldProps?.style,
+    };
+    if (realFieldPropsStyle.width !== undefined && (rest as any).valueType === 'switch') {
+      delete realFieldPropsStyle.width;
+    }
     const field = (
       <Field
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
@@ -188,34 +168,39 @@ function createField<P extends ProFormItemProps = any>(
           ...realFieldProps,
           style: omitUndefined({
             width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
-            ...realFieldProps?.style,
+            ...realFieldPropsStyle,
           }),
-          className: classnames(realFieldProps?.className, {
-            [`pro-field-${width}`]: width && WIDTH_SIZE_ENUM[width],
-          }),
+          className:
+            classnames(realFieldProps?.className, {
+              'pro-field': width && WIDTH_SIZE_ENUM[width],
+              [`pro-field-${width}`]:
+                width &&
+                // 有些 valueType 不需要宽度
+                !ignoreWidthValueType.includes((props as any)?.valueType as 'text') &&
+                !ignoreWidth &&
+                WIDTH_SIZE_ENUM[width],
+            }) || undefined,
         })}
         proFieldProps={omitUndefined({
           mode: readonly ? 'read' : 'edit',
           params: rest.params,
-          proFieldKey: otherProps?.name,
+          proFieldKey: `form-field-${otherProps?.name}`,
           ...proFieldProps,
         })}
       />
     );
-
-    /** 被放到 FormSet 的时候 */
-    if (ignoreFormItem) {
-      return field;
-    }
     return (
-      <Form.Item
+      <ProFormItem
         // 全局的提供一个 tip 功能，可以减少代码量
         // 轻量模式下不通过 FormItem 显示 label
         label={label && proFieldProps?.light !== true ? label : undefined}
         tooltip={proFieldProps?.light !== true && tooltip}
         valuePropName={valuePropName}
         {...otherProps}
-        name={name}
+        ignoreFormItem={ignoreFormItem}
+        transform={transform}
+        dataFormat={rest.fieldProps?.format}
+        valueType={valueType || (rest as any).valueType}
         messageVariables={{
           label: label as string,
           ...otherProps?.messageVariables,
@@ -234,7 +219,7 @@ function createField<P extends ProFormItemProps = any>(
         >
           {field}
         </LightWrapper>
-      </Form.Item>
+      </ProFormItem>
     );
   };
   return FieldWithContext as ProFormComponent<P, ExtendsProps>;

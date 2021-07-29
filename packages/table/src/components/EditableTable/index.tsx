@@ -1,15 +1,16 @@
-﻿import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
+﻿import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import type { ParamsType } from '@ant-design/pro-provider';
 import type { ButtonProps } from 'antd';
-import { Button } from 'antd';
+import { Button, Form } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
 import { runFunction } from '@ant-design/pro-utils';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
+import type { GetRowKey } from 'antd/lib/table/interface';
 
-export type RecordCreatorProps<T> = {
-  record: T | ((index: number) => T);
+export type RecordCreatorProps<DataSourceType> = {
+  record: DataSourceType | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
   position?: 'top' | 'bottom';
   /**
    * 新增一行的类型
@@ -18,6 +19,8 @@ export type RecordCreatorProps<T> = {
    * @augments cache 将会把数据放到缓存中，取消后消失
    */
   newRecordType?: 'dataSource' | 'cache';
+  /** 要增加到哪个节点下，一般用于多重嵌套表格 */
+  parentKey?: React.Key | ((index: number, dataSource: DataSourceType[]) => React.Key);
 };
 
 export type EditableProTableProps<T, U extends ParamsType> = Omit<
@@ -40,6 +43,8 @@ export type EditableProTableProps<T, U extends ParamsType> = Omit<
   maxLength?: number;
   /** Table 的值发生改变，为了适应 Form 调整了顺序 */
   onValuesChange?: (values: T[], record: T) => void;
+  /** 是否受控，如果为 true，每次 value 更新都会重置表单 */
+  controlled?: boolean;
 };
 
 const EditableTableActionContext = React.createContext<
@@ -47,13 +52,19 @@ const EditableTableActionContext = React.createContext<
 >(undefined);
 
 /** 可编辑表格的按钮 */
-function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.Element }) {
-  const { children, record, position, newRecordType } = props;
+function RecordCreator<T = Record<string, any>>(
+  props: RecordCreatorProps<T> & { children: JSX.Element },
+) {
+  const { children, record, position, newRecordType, parentKey } = props;
   const actionRef = useContext(EditableTableActionContext);
   return React.cloneElement(children, {
     ...children.props,
     onClick: (e: any) => {
-      actionRef?.current?.addEditRecord(record, { position, newRecordType });
+      actionRef?.current?.addEditRecord(record, {
+        position,
+        newRecordType,
+        parentKey: parentKey as React.Key,
+      });
       children.props.onClick?.(e);
     },
   });
@@ -64,19 +75,39 @@ function RecordCreator<T = {}>(props: RecordCreatorProps<T> & { children: JSX.El
  *
  * @param props
  */
-function EditableTable<T extends Record<string, any>, U extends ParamsType = ParamsType>(
-  props: EditableProTableProps<T, U>,
-) {
-  const { onTableChange, maxLength, recordCreatorProps, ...rest } = props;
+function EditableTable<
+  DataType extends Record<string, any>,
+  Params extends ParamsType = ParamsType,
+>(props: EditableProTableProps<DataType, Params>) {
+  const { onTableChange, maxLength, recordCreatorProps, rowKey, controlled, ...rest } = props;
   const actionRef = useRef<ActionType>();
-  useImperativeHandle(rest.actionRef, () => actionRef.current, [actionRef.current]);
+  const [form] = Form.useForm();
+  // 设置 ref
+  useImperativeHandle(rest.actionRef, () => actionRef.current);
 
-  const [value, setValue] = useMergedState<T[]>(() => props.value || [], {
+  const [value, setValue] = useMergedState<DataType[]>(() => props.value || [], {
     value: props.value,
     onChange: props.onChange,
   });
 
-  const { record, position, creatorButtonText, newRecordType, ...restButtonProps } =
+  const getRowKey = React.useMemo<GetRowKey<DataType>>((): GetRowKey<DataType> => {
+    if (typeof rowKey === 'function' && rowKey) {
+      return rowKey;
+    }
+    return (record: DataType, index?: number) => (record as any)[rowKey as string] || index;
+  }, [rowKey]);
+
+  useEffect(() => {
+    if (!props.controlled) return;
+    value.forEach((current, index) => {
+      form.setFieldsValue({
+        [getRowKey(current, index)]: current,
+      });
+    }, {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value, props.controlled]);
+
+  const { record, position, creatorButtonText, newRecordType, parentKey, ...restButtonProps } =
     recordCreatorProps || {};
   const isTop = position === 'top';
   const creatorButtonDom = useMemo(() => {
@@ -86,8 +117,9 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
     return (
       recordCreatorProps !== false && (
         <RecordCreator
-          record={runFunction(record, value.length) || {}}
+          record={runFunction(record, value.length, value) || {}}
           position={position}
+          parentKey={runFunction(parentKey, value.length, value)}
           newRecordType={newRecordType}
         >
           <Button
@@ -105,6 +137,7 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
         </RecordCreator>
       )
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [recordCreatorProps, maxLength, value.length]);
 
   const buttonRenderProps = useMemo(() => {
@@ -124,8 +157,17 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
             }) => (
               <thead className={className}>
                 {children}
-                <tr>
-                  <td colSpan={rest.columns?.length}>{creatorButtonDom}</td>
+                <tr style={{ position: 'relative' }}>
+                  {/* 占位 */}
+                  <td colSpan={0} style={{ visibility: 'hidden' }}>
+                    {creatorButtonDom}
+                  </td>
+                  <td
+                    style={{ position: 'absolute', left: 0, width: '100%' }}
+                    colSpan={rest.columns?.length}
+                  >
+                    {creatorButtonDom}
+                  </td>
                 </tr>
               </thead>
             ),
@@ -143,30 +185,43 @@ function EditableTable<T extends Record<string, any>, U extends ParamsType = Par
         );
       },
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTop, creatorButtonDom]);
+
+  const editableProps = {
+    form,
+    ...props.editable,
+  };
+
+  if (
+    props?.onValuesChange ||
+    props.editable?.onValuesChange ||
+    // 受控模式需要触发 onchange
+    (props.controlled && props?.onChange)
+  ) {
+    editableProps.onValuesChange = (r: DataType, dataSource: DataType[]) => {
+      props.editable?.onValuesChange?.(r, dataSource);
+      props.onValuesChange?.(dataSource, r);
+      if (props.controlled) {
+        props?.onChange?.(dataSource);
+      }
+    };
+  }
 
   return (
     <EditableTableActionContext.Provider value={actionRef}>
-      <ProTable<T, U>
+      <ProTable<DataType, Params>
         search={false}
         options={false}
         pagination={false}
+        rowKey={rowKey}
         {...rest}
         {...buttonRenderProps}
         tableLayout="fixed"
         actionRef={actionRef}
         onChange={onTableChange}
         dataSource={value}
-        editable={{
-          ...props.editable,
-          onValuesChange:
-            props?.onValuesChange || props.editable?.onValuesChange
-              ? (r: T, dataSource: T[]) => {
-                  props.editable?.onValuesChange?.(r, dataSource);
-                  props.onValuesChange?.(dataSource, r);
-                }
-              : undefined,
-        }}
+        editable={editableProps}
         onDataSourceChange={setValue}
       />
     </EditableTableActionContext.Provider>

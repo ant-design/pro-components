@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# QueryFilter / LightFilter
+# QueryFilter / LightFilter 筛选表单
 
 有些是时候表单要与别的组件组合使用，常见的有 Table ，List 等，这时候就需要一些特殊形态的表单。QueryFilter 和 LightFilter 解决了配合组件使用的问题，避免了复杂的样式设置。ProTable 中默认 支持了 QueryFilter 和 LightFilter 作为自己的筛选表单。
 
@@ -35,6 +35,10 @@ nav:
 ### 轻量筛选
 
 <code src="./demos/light-filter.tsx" height="86px" title="轻量筛选" />
+
+### 轻量筛选-自定义 footer
+
+<code src="./demos/light-filter-footer.tsx" height="86px" title="轻量筛选-自定义footer" />
 
 ### 轻量筛选-边框模式
 
@@ -91,7 +95,8 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
 LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
-| 参数          | 说明                 | 类型        | 默认值                     |
-| ------------- | -------------------- | ----------- | -------------------------- |
-| collapse      | 是否默认折叠全部字段 | `boolean`   | `false`                    |
-| collapseLabel | 折叠区域的标签       | `ReactNode` | `更多筛选 <DownOutlined/>` |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| collapse | 是否默认折叠全部字段 | `boolean` | `false` |
+| collapseLabel | 折叠区域的标签 | `ReactNode` | `更多筛选 <DownOutlined/>` |
+| footerRender | 底部内容，当不需要默认底部按钮时，可以设为 footer={false} | `(onClear?: () => void, onConfirm: () => void) => ReactNode` \| `false` | - |

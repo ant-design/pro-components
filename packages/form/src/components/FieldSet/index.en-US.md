@@ -32,11 +32,27 @@ So the props we set for ProFormText are actually for Form.Item, and the fieldPro
 
 ### Full amount of form field
 
-<code src="./demos/components-other.tsx" heigh="1774px"/>
+<code src="./demos/components-other.tsx" heigh="774px"/>
+
+### Query form
+
+<code src="./demos/search-select.tsx" heigh="774px" title=" Query form"/>
+
+### Date form
+
+<code src="./demos/datatime.tsx" heigh="774px" title="Date form"/>
+
+### Upload form
+
+<code src="./demos/upload.tsx" heigh="774px" title="Upload form"/>
+
+### Structured data
+
+<code src="./demos/form-fieldset.tsx" heigh="774px" title="Structured data"/>
 
 ### Read-only for form field
 
-<code src="./demos/components-other-readonly.tsx" heigh="1774px"/>
+<code src="./demos/components-other-readonly.tsx" heigh="774px"/>
 
 ## API
 
@@ -65,7 +81,7 @@ In some cases, we need to adapt the input box according to the page display, exc
 
 ### ProFormText
 
-Same as [Input](https://ant.design/components/input-cn/).
+Same as [Input](https://ant.design/components/input/).
 
 ```tsx | pure
 <ProFormText name="text" label="Name" placeholder="Please enter a name" fieldProps={inputProps} />
@@ -112,7 +128,7 @@ ProFormCaptcha is a component developed to support common CAPTCHA functionality 
 
 ### ProFormText.Password
 
-Same as [Input.Password](https://ant.design/components/input-cn/#Input.Password).
+Same as [Input.Password](https://ant.design/components/input/#Input.Password).
 
 ```tsx | pure
 <ProFormText.Password label="InputPassword" name="input-password" />
@@ -120,7 +136,7 @@ Same as [Input.Password](https://ant.design/components/input-cn/#Input.Password)
 
 ### ProFormDatePicker
 
-Same as [DatePicker](https://ant.design/components/date-picker-cn/).
+Same as [DatePicker](https://ant.design/components/date-picker/).
 
 ```tsx | pure
 <ProFormDatePicker name="date" label="date" />
@@ -128,15 +144,15 @@ Same as [DatePicker](https://ant.design/components/date-picker-cn/).
 
 ### ProFormDateTimePicker
 
-Same as [DatePicker](https://ant.design/components/date-picker-cn/).
+Same as [DatePicker](https://ant.design/components/date-picker/).
 
 ```tsx | pure
-<ProFormDateTimePicker name="datetime" label="date" />
+<ProFormDateTimePicker name="datetime" label="datetime" />
 ```
 
 ### ProFormDateRangePicker
 
-Same as [DatePicker](https://ant.design/components/date-picker-cn/).
+Same as [DatePicker.RangePicker](https://ant.design/components/date-picker/#RangePicker).
 
 ```tsx | pure
 <ProFormDateRangePicker name="dateRange" label="date" />
@@ -144,15 +160,15 @@ Same as [DatePicker](https://ant.design/components/date-picker-cn/).
 
 ### ProFormDateTimeRangePicker
 
-Same as [DatePicker](https://ant.design/components/date-picker-cn/).
+Same as [DatePicker.RangePicker](https://ant.design/components/date-picker/#RangePicker).
 
 ```tsx | pure
-<ProFormDateRangePicker name="datetimeRange" label="date" />
+<ProFormDateTimeRangePicker name="datetimeRange" label="datetime" />
 ```
 
 ### ProFormTimePicker
 
-Same as [DatePicker](https://ant.design/components/date-picker-cn/)
+Same as [DatePicker](https://ant.design/components/date-picker/)
 
 ```tsx | pure
 <ProFormDateRangePicker name="time" label="time" />
@@ -160,7 +176,7 @@ Same as [DatePicker](https://ant.design/components/date-picker-cn/)
 
 ### ProFormTextArea
 
-Same as [Input](https://ant.design/components/input-cn/).
+Same as [Input.TextArea](https://ant.design/components/input/#Input.TextArea).
 
 ```tsx | pure
 <ProFormTextArea
@@ -175,7 +191,7 @@ Same as [Input](https://ant.design/components/input-cn/).
 
 > Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
 
-Same as [checkbox](https://ant.design/components/checkbox-cn/), but supports `options` and `layout`.
+Same as [checkbox](https://ant.design/components/checkbox/), but supports `options` and `layout`.
 
 | parameters | description | type | default | | --- | --- | --- | --- | options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - | | layout | Configure the look of the checkbox to support vertical `vertical` and `horizontal` | `horizontal` \| `vertical` | - |
 
@@ -192,7 +208,7 @@ Same as [checkbox](https://ant.design/components/checkbox-cn/), but supports `op
 
 > Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
 
-Same as [radio](https://ant.design/components/radio-cn/) but with support for `options`.
+Same as [radio](https://ant.design/components/radio/) but with support for `options`.
 
 | parameters | description | type | default | | --- | --- | --- | --- | options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - | | radioType | Set whether button mode or radio mode | `button` \| `radio` | `radio` |
 
@@ -219,7 +235,7 @@ Same as [radio](https://ant.design/components/radio-cn/) but with support for `o
 
 ### ProFormSwitch
 
-与 [switch](https://ant.design/components/switch-cn/) 相同。
+Same as [switch](https://ant.design/components/switch/).
 
 ```tsx | pure
 <ProFormSwitch name="switch" label="Switch" />
@@ -227,7 +243,7 @@ Same as [radio](https://ant.design/components/radio-cn/) but with support for `o
 
 ### ProFormRate
 
-与 [rate](https://ant.design/components/rate-cn/) 相同。
+Same as [rate](https://ant.design/components/rate/).
 
 ```tsx | pure
 <ProFormRate name="rate" label="Rate" />
@@ -235,7 +251,7 @@ Same as [radio](https://ant.design/components/radio-cn/) but with support for `o
 
 ### ProFormSlider
 
-与 [slider](https://ant.design/components/slider-cn/) 相同。
+Same as [slider](https://ant.design/components/slider/).
 
 ```tsx | pure
 <ProFormSlider
@@ -254,7 +270,7 @@ Same as [radio](https://ant.design/components/radio-cn/) but with support for `o
 
 ### ProFormUploadDragger
 
-Same as [upload](https://ant.design/components/upload-cn/). Dragger style is preset, otherwise it is the same as Upload.
+Same as [upload](https://ant.design/components/upload/). Dragger style is preset, otherwise it is the same as Upload.
 
 | Parameters  | Description               | Type            | Default                          |
 | ----------- | ------------------------- | --------------- | -------------------------------- | -------------------------------------------- |
@@ -268,7 +284,7 @@ Same as [upload](https://ant.design/components/upload-cn/). Dragger style is pre
 
 ### ProFormUploadButton
 
-Same as [upload](https://ant.design/components/upload-cn/). The Button style is preset, otherwise it is the same as Upload.
+Same as [upload](https://ant.design/components/upload/). The Button style is preset, otherwise it is the same as Upload.
 
 | Parameters | Description           | Type        | Default         |
 | ---------- | --------------------- | ----------- | --------------- |
@@ -281,7 +297,7 @@ Same as [upload](https://ant.design/components/upload-cn/). The Button style is 
 
 ### ProFormSelect
 
-Same as [select](https://ant.design/components/select-cn/). Both request and valueEnum are supported to generate options.
+Same as [select](https://ant.design/components/select/). Both request and valueEnum are supported to generate options.
 
 > Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
 
@@ -320,9 +336,31 @@ Same as [select](https://ant.design/components/select-cn/). Both request and val
 </>
 ```
 
+Customize options：
+
+```tsx | pure
+<ProFormSelect
+  name="select"
+  label="Select"
+  options={[
+    { label: '全部', value: 'all' },
+    { label: '未解决', value: 'open' },
+    { label: '已解决', value: 'closed' },
+    { label: '解决中', value: 'processing' },
+  ]}
+  fieldProps={{
+    optionItemRender(item) {
+      return item.label + ' - ' + item.value;
+    },
+  }}
+  placeholder="Please select a country"
+  rules={[{ required: true, message: 'Please select your country!' }]}
+/>
+```
+
 ### ProFormDigit
 
-Same as [inputNumber](https://ant.design/components/input-number-cn/). It comes with a formatting (retains 2 decimal places, minimum value is 0), you can turn it off if needed.
+Same as [inputNumber](https://ant.design/components/input-number/). It comes with a formatting (retains 2 decimal places, minimum value is 0), you can turn it off if needed.
 
 ```tsx | pure
 <ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />

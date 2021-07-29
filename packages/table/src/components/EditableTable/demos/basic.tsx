@@ -19,6 +19,7 @@ type DataSourceType = {
   decs?: string;
   state?: string;
   created_at?: string;
+  update_at?: string;
   children?: DataSourceType[];
 };
 
@@ -29,6 +30,7 @@ const defaultData: DataSourceType[] = [
     decs: '这个活动真好玩',
     state: 'open',
     created_at: '2020-05-26T09:42:56Z',
+    update_at: '2020-05-26T09:42:56Z',
   },
   {
     id: 624691229,
@@ -36,6 +38,7 @@ const defaultData: DataSourceType[] = [
     decs: '这个活动真好玩',
     state: 'closed',
     created_at: '2020-05-26T08:19:22Z',
+    update_at: '2020-05-26T08:19:22Z',
   },
 ];
 
@@ -43,9 +46,6 @@ export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>([]);
   const [dataSource, setDataSource] = useState<DataSourceType[]>([]);
   const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
-  const [newRecord, setNewRecord] = useState({
-    id: (Math.random() * 1000000).toFixed(0),
-  });
 
   const columns: ProColumns<DataSourceType>[] = [
     {
@@ -97,6 +97,11 @@ export default () => {
       },
     },
     {
+      title: '活动时间',
+      dataIndex: 'created_at',
+      valueType: 'date',
+    },
+    {
       title: '操作',
       valueType: 'option',
       width: 200,
@@ -104,7 +109,7 @@ export default () => {
         <a
           key="editable"
           onClick={() => {
-            action.startEditable?.(record.id);
+            action?.startEditable?.(record.id);
           }}
         >
           编辑
@@ -131,7 +136,7 @@ export default () => {
           position !== 'hidden'
             ? {
                 position: position as 'top',
-                record: newRecord,
+                record: () => ({ id: (Math.random() * 1000000).toFixed(0) }),
               }
             : false
         }
@@ -169,11 +174,9 @@ export default () => {
         editable={{
           type: 'multiple',
           editableKeys,
-          onSave: async () => {
+          onSave: async (rowKey, data, row) => {
+            console.log(rowKey, data, row);
             await waitTime(2000);
-            setNewRecord({
-              id: (Math.random() * 1000000).toFixed(0),
-            });
           },
           onChange: setEditableRowKeys,
         }}

@@ -9,6 +9,70 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.10.7
+
+`2021-07-19`
+
+- 🎨 chore(list): update depend rc-resize-observer [#3206](https://github.com/ant-design/pro-components/pull/3206) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-list@1.10.2
+
+`2021-06-23`
+
+- 🐛 fix(prolist): title&description wordBreak [#3059](https://github.com/ant-design/pro-components/pull/3059) [@binvb](https://github.com/binvb)
+- 🐛 fix(list):fix itemTitleRender no work error [#3069](https://github.com/ant-design/pro-components/pull/3069) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-list@1.8.0
+
+`2021-05-25`
+
+- 💥 feat(list): prolist support itemHeaderRender [#2844](https://github.com/ant-design/pro-components/pull/2844) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(list): list support locale(#2828) [#2840](https://github.com/ant-design/pro-components/pull/2840) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-list@1.7.4
+
+`2021-05-18`
+
+- 🐛 fix(list): add editable props types [#2758](https://github.com/ant-design/pro-components/pull/2758) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-list@1.7.0
+
+`2021-04-22`
+
+- 💥 feat(list): support onRow [#2543](https://github.com/ant-design/pro-components/pull/2543) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-list@1.6.0
+
+`2021-04-15`
+
+- 🐛 fix(form): fix ProFormUploadButton listType=picture-card style error [#2483](https://github.com/ant-design/pro-components/pull/2483) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-list@1.5.11
+
+`2021-03-29`
+
+- 🐛 fix(list): fix list no use dataIndex error [#2298](https://github.com/ant-design/pro-components/pull/2298) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-list@1.5.6
+
+`2021-03-11`
+
+- ✨ feat(list): support showExtra(#2090) [#2145](https://github.com/ant-design/pro-components/pull/2145) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-list@1.5.5
+
+`2021-03-08`
+
+- 🐛 fix(form): fix list key no had error [#2122](https://github.com/ant-design/pro-components/pull/2122) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(list): fix nested list copy no work error [#2117](https://github.com/ant-design/pro-components/pull/2117) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix form list copy no work error [#2081](https://github.com/ant-design/pro-components/pull/2081) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-list@1.5.4
+
+`2021-02-28`
+
+- 🐛 fix(list): default close rowSelection [#2032](https://github.com/ant-design/pro-components/pull/2032) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-list@1.5.3
 
 `2021-02-25`

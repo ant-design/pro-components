@@ -47,7 +47,15 @@ export default () => {
           />
         </Descriptions.Item>
         <Descriptions.Item label="金额">
-          <Field text="100" valueType="money" mode={state} plain={plain} />
+          <Field
+            fieldProps={{
+              precision: 4,
+            }}
+            text="10000"
+            valueType="money"
+            mode={state}
+            plain={plain}
+          />
         </Descriptions.Item>
         <Descriptions.Item label="数字">
           <Field text="19897979797979" valueType="digit" mode={state} plain={plain} />
@@ -184,21 +192,23 @@ export default () => {
             text="open"
             mode={state}
             valueType="select"
-            request={async () => [
-              { label: '全部', value: 'all' },
-              { label: '未解决', value: 'open' },
-              { label: '已解决', value: 'closed' },
-              { label: '解决中', value: 'processing' },
-              {
-                label: '特殊选项',
-                value: 'optGroup',
-                optionType: 'optGroup',
-                children: [
-                  { label: '不解决', value: 'no' },
-                  { label: '已废弃', value: 'clear' },
-                ],
-              },
-            ]}
+            request={async () => {
+              return [
+                { label: '全部', value: 'all' },
+                { label: '未解决', value: 'open' },
+                { label: '已解决', value: 'closed' },
+                { label: '解决中', value: 'processing' },
+                {
+                  label: '特殊选项',
+                  value: 'optGroup',
+                  optionType: 'optGroup',
+                  options: [
+                    { label: '不解决', value: 'no' },
+                    { label: '已废弃', value: 'clear' },
+                  ],
+                },
+              ];
+            }}
           />
         </Descriptions.Item>
         <Descriptions.Item label="进度条">
@@ -210,13 +220,21 @@ export default () => {
         <Descriptions.Item label="进度条">
           <Field text="love" valueType="progress" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="百分比空值">
+          <Field valueType="percent" mode="read" />
+        </Descriptions.Item>
         <Descriptions.Item label="百分比">
           <Space>
             <Field
               text={10}
               valueType={{
                 type: 'percent',
-                showSymbol: true,
+                showSymbol: (text: number) => {
+                  if (text < 0) {
+                    return true;
+                  }
+                  return false;
+                },
                 showColor: true,
               }}
               mode="read"

@@ -8,7 +8,8 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
     class="ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
-      class="ant-form ant-form-horizontal"
+      autocomplete="off"
+      class="ant-form ant-form-horizontal ant-pro-form-query-filter"
     >
       <input
         style="display: none;"
@@ -145,7 +146,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           />
           <div
             class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"

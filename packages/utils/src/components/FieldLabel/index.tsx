@@ -86,7 +86,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
       return (
         <span title={str}>
           {prefix}
-          {str.substr(0, 32)}
+          {str?.substr(0, 32)}
           {tail}
         </span>
       );

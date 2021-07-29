@@ -1,4 +1,11 @@
-﻿import React, { useContext, useEffect, useMemo, useImperativeHandle, useRef } from 'react';
+﻿import React, {
+  useContext,
+  useEffect,
+  useMemo,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from 'react';
 import type { DrawerProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -8,6 +15,7 @@ import omit from 'omit.js';
 import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
+import ScrollLocker from 'rc-util/lib/Dom/scrollLocker';
 
 export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
   CommonFormProps<T> & {
@@ -55,6 +63,29 @@ function DrawerForm<T = Record<string, any>>({
     onChange: onVisibleChange,
   });
 
+  const context = useContext(ConfigProvider.ConfigContext);
+
+  const renderDom = useMemo(() => {
+    if (drawerProps?.getContainer) {
+      if (typeof drawerProps?.getContainer === 'function') {
+        return drawerProps?.getContainer?.();
+      }
+      if (typeof drawerProps?.getContainer === 'string') {
+        return document.getElementById(drawerProps?.getContainer);
+      }
+      return drawerProps?.getContainer;
+    }
+    return context?.getPopupContainer?.(document.body);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [context, drawerProps, visible]);
+
+  const [scrollLocker] = useState(
+    () =>
+      new ScrollLocker({
+        container: renderDom || document.body,
+      }),
+  );
+
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
     !rest['footer'] || !drawerProps?.footer,
@@ -62,9 +93,18 @@ function DrawerForm<T = Record<string, any>>({
   );
 
   useEffect(() => {
+    if (visible) {
+      scrollLocker.lock();
+    } else {
+      scrollLocker.unLock();
+    }
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
+    return () => {
+      if (!visible) scrollLocker?.unLock?.();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
@@ -85,7 +125,6 @@ function DrawerForm<T = Record<string, any>>({
   }, [visible, drawerProps?.destroyOnClose]);
   /** 同步 props 和 本地 */
   const formRef = useRef<FormInstance>();
-  const context = useContext(ConfigProvider.ConfigContext);
 
   /** 如果 destroyOnClose ，重置一下表单 */
   useEffect(() => {
@@ -98,7 +137,14 @@ function DrawerForm<T = Record<string, any>>({
     }
   }, [drawerProps?.destroyOnClose, visible]);
 
-  useImperativeHandle(rest.formRef, () => formRef.current, [formRef.current]);
+  useEffect(
+    () => () => {
+      scrollLocker?.unLock?.();
+    },
+    [],
+  );
+
+  useImperativeHandle(rest.formRef, () => formRef.current);
 
   /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
   return (
@@ -109,51 +155,61 @@ function DrawerForm<T = Record<string, any>>({
             layout="vertical"
             {...omit(rest, ['visible'])}
             formRef={formRef}
-            submitter={{
-              searchConfig: {
-                submitText: '确认',
-                resetText: '取消',
-              },
-              resetButtonProps: {
-                preventDefault: true,
-                onClick: (e: any) => {
-                  setVisible(false);
-                  drawerProps?.onClose?.(e);
-                },
-              },
-              ...rest.submitter,
-            }}
+            submitter={
+              rest.submitter === false
+                ? false
+                : {
+                    ...rest.submitter,
+                    searchConfig: {
+                      submitText: '确认',
+                      resetText: '取消',
+                      ...rest.submitter?.searchConfig,
+                    },
+                    resetButtonProps: {
+                      preventDefault: true,
+                      onClick: (e: any) => {
+                        setVisible(false);
+                        drawerProps?.onClose?.(e);
+                      },
+                      ...rest.submitter?.resetButtonProps,
+                    },
+                  }
+            }
             onFinish={async (values) => {
               if (!onFinish) {
                 return;
               }
               const success = await onFinish(values);
               if (success) {
-                formRef.current?.resetFields();
                 setVisible(false);
+                setTimeout(() => {
+                  if (drawerProps?.destroyOnClose) formRef.current?.resetFields();
+                }, 300);
               }
             }}
             contentRender={(item, submitter) => {
               return (
                 <Drawer
                   title={title}
-                  getContainer={false}
                   width={width || 800}
                   {...drawerProps}
+                  getContainer={false}
                   visible={visible}
                   onClose={(e) => {
                     setVisible(false);
                     drawerProps?.onClose?.(e);
                   }}
                   footer={
-                    <div
-                      style={{
-                        display: 'flex',
-                        justifyContent: 'flex-end',
-                      }}
-                    >
-                      {submitter}
-                    </div>
+                    !!submitter && (
+                      <div
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'flex-end',
+                        }}
+                      >
+                        {submitter}
+                      </div>
+                    )
                   }
                 >
                   {shouldRenderFormItems ? item : null}
@@ -164,7 +220,7 @@ function DrawerForm<T = Record<string, any>>({
             {children}
           </BaseForm>
         </div>,
-        context?.getPopupContainer?.(document.body) || document.body,
+        renderDom || document.body,
       )}
       {trigger &&
         React.cloneElement(trigger, {

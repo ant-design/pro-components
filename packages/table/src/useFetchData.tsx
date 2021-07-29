@@ -8,7 +8,7 @@ import {
 } from '@ant-design/pro-utils';
 import { unstable_batchedUpdates } from 'react-dom';
 import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
-import { postDataPipeline } from './utils';
+import { postDataPipeline } from './utils/index';
 
 /**
  * 组合用户的配置和默认值
@@ -32,6 +32,7 @@ const useFetchData = <T extends RequestData<any>>(
   defaultData: any[] | undefined,
   options: UseFetchProps,
 ): UseFetchDataAction => {
+  const umountRef = useRef<boolean>();
   const { onLoad, manual, polling, onRequestError, debounceTime = 20 } = options || {};
 
   /** 是否首次加载的指示器 */
@@ -52,8 +53,11 @@ const useFetchData = <T extends RequestData<any>>(
 
   const requesting = useRef(false);
 
-  const [pageInfo, setPageInfo] = useMountMergeState<PageInfo>(() =>
-    mergeOptionAndPageInfo(options),
+  const [pageInfo, setPageInfo] = useMountMergeState<PageInfo>(
+    () => mergeOptionAndPageInfo(options),
+    {
+      onChange: options?.onPageInfoChange,
+    },
   );
 
   const [pollingLoading, setPollingLoading] = useMountMergeState(false);
@@ -62,7 +66,7 @@ const useFetchData = <T extends RequestData<any>>(
   const setDataAndLoading = (newData: T[], dataTotal: number) => {
     unstable_batchedUpdates(() => {
       setList(newData);
-      if (pageInfo.total !== dataTotal) {
+      if (pageInfo?.total !== dataTotal) {
         setPageInfo({
           ...pageInfo,
           total: dataTotal || newData.length,
@@ -72,8 +76,8 @@ const useFetchData = <T extends RequestData<any>>(
   };
 
   // pre state
-  const prePage = usePrevious(pageInfo.current);
-  const prePageSize = usePrevious(pageInfo.pageSize);
+  const prePage = usePrevious(pageInfo?.current);
+  const prePageSize = usePrevious(pageInfo?.pageSize);
   const prePolling = usePrevious(polling);
 
   const { effects = [] } = options || {};
@@ -97,7 +101,7 @@ const useFetchData = <T extends RequestData<any>>(
     }
 
     requesting.current = true;
-    const { pageSize, current } = pageInfo;
+    const { pageSize, current } = pageInfo || {};
     try {
       const pageParams =
         options?.pageInfo !== false
@@ -108,7 +112,6 @@ const useFetchData = <T extends RequestData<any>>(
           : undefined;
 
       const { data = [], success, total = 0, ...rest } = (await getData(pageParams)) || {};
-
       requesting.current = false;
 
       // 如果失败了，直接返回，不走剩下的逻辑了
@@ -151,7 +154,8 @@ const useFetchData = <T extends RequestData<any>>(
       const needPolling = runFunction(polling, msg);
 
       // 如果需要轮询，搞个一段时间后执行
-      if (needPolling) {
+      // 如果解除了挂载，删除一下
+      if (needPolling && !umountRef.current) {
         pollingSetTimeRef.current = setTimeout(() => {
           fetchListDebounce.run(needPolling);
           // 这里判断最小要2000ms，不然一直loading
@@ -160,7 +164,7 @@ const useFetchData = <T extends RequestData<any>>(
       return msg;
     },
     [],
-    debounceTime,
+    debounceTime || 10,
   );
 
   // 如果轮询结束了，直接销毁定时器
@@ -174,16 +178,29 @@ const useFetchData = <T extends RequestData<any>>(
     return () => {
       clearTimeout(pollingSetTimeRef.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [polling]);
+
+  useEffect(
+    () => () => {
+      umountRef.current = true;
+    },
+    [],
+  );
 
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {
-    const { current, pageSize } = pageInfo;
+    const { current, pageSize } = pageInfo || {};
     // 如果上次的页码为空或者两次页码等于是没必要查询的
     // 如果 pageSize 发生变化是需要查询的，所以又加了 prePageSize
     if ((!prePage || prePage === current) && (!prePageSize || prePageSize === pageSize)) {
       return;
     }
+
+    if ((options.pageInfo && list && list?.length > pageSize) || 0) {
+      return;
+    }
+
     // 如果 list 的长度大于 pageSize 的长度
     // 说明是一个假分页
     // (pageIndex - 1 || 1) 至少要第一页
@@ -192,7 +209,8 @@ const useFetchData = <T extends RequestData<any>>(
     if (current !== undefined && list && list.length <= pageSize) {
       fetchListDebounce.run(false);
     }
-  }, [pageInfo.current]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageInfo?.current]);
 
   // pageSize 修改后返回第一页
   useEffect(() => {
@@ -200,10 +218,14 @@ const useFetchData = <T extends RequestData<any>>(
       return;
     }
     fetchListDebounce.run(false);
-  }, [pageInfo.pageSize]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageInfo?.pageSize]);
 
   useDeepCompareEffect(() => {
     fetchListDebounce.run(false);
+    if (!manual) {
+      manualRequestRef.current = false;
+    }
     return () => {
       fetchListDebounce.cancel();
     };

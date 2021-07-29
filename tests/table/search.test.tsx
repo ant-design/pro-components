@@ -32,8 +32,10 @@ describe('BasicTable Search', () => {
   const LINE_STR_COUNT = 20;
   // Mock offsetHeight
   // @ts-expect-error
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
-    .get;
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetHeight',
+  ).get;
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
       let html = this.innerHTML;
@@ -460,7 +462,6 @@ describe('BasicTable Search', () => {
       />,
     );
     await waitForComponentToPaint(html, 1400);
-
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
@@ -561,20 +562,21 @@ describe('BasicTable Search', () => {
     );
     await waitForComponentToPaint(html, 1200);
     expect(html.find('div.ant-form-item').length).toBe(2);
-
-    html.setProps({
-      columns: [
-        {
-          title: '金额',
-          dataIndex: 'money',
-          valueType: 'money',
-        },
-        {
-          title: 'Name',
-          key: 'name',
-          dataIndex: 'name',
-        },
-      ],
+    act(() => {
+      html.setProps({
+        columns: [
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ],
+      });
     });
 
     await waitForComponentToPaint(html, 200);

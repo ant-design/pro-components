@@ -4,10 +4,11 @@ import ProField from '@ant-design/pro-field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import type { ProFormItemProps } from '../../interface';
+import type { ExtendsProps } from '../../BaseForm/createField';
 import createField from '../../BaseForm/createField';
 
-export type ProFormSelectProps = ProFormItemProps<
-  SelectProps<any> & {
+export type ProFormSelectProps<T = any> = ProFormItemProps<
+  SelectProps<T> & {
     /**
      * 是否在输入框聚焦时触发搜索
      *
@@ -20,13 +21,15 @@ export type ProFormSelectProps = ProFormItemProps<
      * @default false
      */
     resetAfterSelect?: boolean;
+    /** 自定义选项渲染 */
+    optionItemRender?: (item: T) => React.ReactNode;
   }
 > & {
   valueEnum?: ProSchema['valueEnum'];
   params?: ProSchema['params'];
   request?: ProSchema['request'];
-  options?: SelectProps<any>['options'];
-  mode?: SelectProps<any>['mode'];
+  options?: SelectProps<any>['options'] | string[];
+  mode?: SelectProps<any>['mode'] | 'singe';
   showSearch?: SelectProps<any>['showSearch'];
   readonly?: boolean;
 };
@@ -36,7 +39,7 @@ export type ProFormSelectProps = ProFormItemProps<
  *
  * @param
  */
-const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps>(
+const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps<any>>(
   (
     { fieldProps, children, params, proFieldProps, mode, valueEnum, request, showSearch, options },
     ref,
@@ -63,11 +66,13 @@ const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps>(
   },
 );
 
-const SearchSelect = React.forwardRef<any, ProFormSelectProps>(
-  ({ fieldProps, children, params, proFieldProps, valueEnum, request, options }, ref) => {
-    const props: SelectProps<any> = {
+const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
+  ({ fieldProps, children, params, proFieldProps, mode, valueEnum, request, options }, ref) => {
+    const props: Omit<SelectProps<any>, 'options'> & {
+      options?: ProFormSelectProps['options'];
+    } = {
       options,
-      mode: 'multiple',
+      mode: (mode as 'multiple') || 'multiple',
       labelInValue: true,
       showSearch: true,
       showArrow: false,
@@ -95,12 +100,18 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps>(
 
 const ProFormSelect = createField<ProFormSelectProps>(ProFormSelectComponents, {
   customLightMode: true,
-}) as React.FunctionComponent<ProFormSelectProps> & {
-  SearchSelect: React.FunctionComponent<ProFormSelectProps>;
+}) as <T>(props: ProFormSelectProps<T> & ExtendsProps) => React.ReactElement;
+
+const ProFormSearchSelect = createField<ProFormSelectProps>(SearchSelect, {
+  customLightMode: true,
+}) as <T>(props: ProFormSelectProps<T> & ExtendsProps) => React.ReactElement;
+
+const WrappedProFormSelect = ProFormSelect as (<T = any>(
+  props: ProFormSelectProps<T>,
+) => React.ReactElement) & {
+  SearchSelect: typeof ProFormSearchSelect;
 };
 
-ProFormSelect.SearchSelect = createField<ProFormSelectProps>(SearchSelect, {
-  customLightMode: true,
-}) as React.FunctionComponent<ProFormSelectProps>;
+WrappedProFormSelect.SearchSelect = ProFormSearchSelect;
 
-export default ProFormSelect;
+export default WrappedProFormSelect;

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProFormUpload ProFormUploadButton support disable 1`] = `
+exports[`ProFormUpload 🏐 ProFormUploadButton support disable 1`] = `
 <Button
   disabled={true}
 >
@@ -113,7 +113,7 @@ exports[`ProFormUpload ProFormUploadButton support disable 1`] = `
 </Button>
 `;
 
-exports[`ProFormUpload ProFormUploadButton support disable 2`] = `
+exports[`ProFormUpload 🏐 ProFormUploadButton support disable 2`] = `
 <Button
   disabled={true}
   type="dashed"
@@ -227,7 +227,7 @@ exports[`ProFormUpload ProFormUploadButton support disable 2`] = `
 </Button>
 `;
 
-exports[`ProFormUpload ProFormUploadButton support disable 3`] = `
+exports[`ProFormUpload 🏐 ProFormUploadButton support disable 3`] = `
 <Button
   disabled={true}
 >

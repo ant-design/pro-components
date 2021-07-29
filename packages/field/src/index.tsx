@@ -35,9 +35,9 @@ import FieldRate from './components/Rate';
 import FieldSwitch from './components/Switch';
 import FieldDigit from './components/Digit';
 import FieldSecond from './components/Second';
-
 import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
+import FieldColorPicker from './components/ColorPicker';
 
 export type ProFieldEmptyText = string | false;
 
@@ -126,10 +126,24 @@ const defaultRenderText = (
   props: RenderProps,
   valueTypeMap: Record<string, ProRenderFieldPropsType>,
 ): React.ReactNode => {
+  const { mode = 'read', emptyText = '-' } = props;
+
+  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
+    if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
+      const { fieldProps, render } = props;
+      if (render) {
+        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
+      }
+      return <>{emptyText}</>;
+    }
+  }
+
+  // eslint-disable-next-line no-param-reassign
+  delete props.emptyText;
+
   if (typeof valueType === 'object') {
     return defaultRenderTextByObject(text, valueType, props);
   }
-  const { mode = 'read', emptyText = '-' } = props;
 
   const customValueTypeConfig = valueTypeMap && valueTypeMap[valueType as string];
   if (customValueTypeConfig) {
@@ -157,20 +171,6 @@ const defaultRenderText = (
       );
     }
   }
-
-  if (emptyText !== false && mode === 'read' && valueType !== 'option' && valueType !== 'switch') {
-    if (typeof text !== 'boolean' && typeof text !== 'number' && !text) {
-      const { fieldProps, render } = props;
-      if (render) {
-        return render(text, { mode, ...fieldProps }, <>{emptyText}</>);
-      }
-      return <>{emptyText}</>;
-    }
-  }
-
-  // eslint-disable-next-line no-param-reassign
-  delete props.emptyText;
-
   /** 如果是金额的值 */
   if (valueType === 'money') {
     return <FieldMoney {...props} text={text as number} />;
@@ -310,6 +310,10 @@ const defaultRenderText = (
     return <FieldImage text={text as string} {...props} />;
   }
 
+  if (valueType === 'color') {
+    return <FieldColorPicker text={text as string} {...props} />;
+  }
+
   return <FieldText text={text as string} {...props} />;
 };
 
@@ -322,13 +326,13 @@ export type ProFieldPropsType = {
 } & RenderProps;
 
 const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
-  { text, valueType = 'text', onChange, value, ...rest },
+  { text, valueType = 'text', onChange, renderFormItem, value, ...rest },
   ref,
 ) => {
   const intl = useIntl();
   const context = useContext(ConfigContext);
 
-  const fieldProps = (value || onChange || rest?.fieldProps) && {
+  const fieldProps = (value !== undefined || onChange || rest?.fieldProps) && {
     value,
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
@@ -347,6 +351,20 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
           ...rest,
           mode: rest.mode || 'read',
           ref,
+          renderFormItem: renderFormItem
+            ? (...restProps) => {
+                const newDom = renderFormItem(...restProps);
+                // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
+                if (React.isValidElement(newDom))
+                  return React.cloneElement(newDom, {
+                    placeholder:
+                      rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+                    ...fieldProps,
+                    ...((newDom.props as any) || {}),
+                  });
+                return newDom;
+              }
+            : undefined,
           placeholder: rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
           fieldProps: pickProProps(fieldProps),
         },

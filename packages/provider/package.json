@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-provider",
-  "version": "1.4.6",
+  "version": "1.4.16",
   "description": "@ant-design/pro-provider",
   "keywords": [
     "antd",
@@ -34,7 +34,7 @@
   },
   "peerDependencies": {
     "antd": "4.x",
-    "react": "^16.x"
+    "react": ">=16.9.0"
   },
   "publishConfig": {
     "access": "public"

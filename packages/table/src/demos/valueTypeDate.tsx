@@ -79,7 +79,7 @@ export default () => (
         },
         {
           title: '更新时间',
-          key: 'since2',
+          key: 'since4',
           dataIndex: 'createdAt',
           valueType: 'fromNow',
         },
@@ -98,7 +98,7 @@ export default () => (
             <a
               key="a"
               onClick={() => {
-                action.startEditable(row.key);
+                action?.startEditable(row.key);
               }}
             >
               编辑

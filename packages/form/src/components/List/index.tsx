@@ -9,6 +9,13 @@ import type { NamePath } from 'antd/lib/form/interface';
 import { DeleteOutlined, PlusOutlined, CopyOutlined } from '@ant-design/icons';
 
 import './index.less';
+import get from 'rc-util/lib/utils/get';
+import { runFunction } from '@ant-design/pro-utils';
+
+type IconConfig = {
+  Icon?: React.FC<any>;
+  tooltipText?: string;
+};
 
 const FormListContext = React.createContext<
   | (FormListFieldData & {
@@ -32,7 +39,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
         creatorButtonText?: ReactNode;
         position?: 'top' | 'bottom';
       });
-  creatorRecord?: Record<string, any>;
+  creatorRecord?: Record<string, any> | (() => Record<string, any>);
   label?: ReactNode;
   tooltip?: LabelTooltipType;
   actionRender?: (
@@ -54,6 +61,8 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
       };
     },
   ) => ReactNode;
+  copyIconProps?: IconConfig | false;
+  deleteIconProps?: IconConfig | false;
 };
 
 const ProFormList: React.FC<ProFormListProps> = ({
@@ -65,6 +74,14 @@ const ProFormList: React.FC<ProFormListProps> = ({
   creatorRecord,
   itemRender,
   rules,
+  copyIconProps = {
+    Icon: CopyOutlined,
+    tooltipText: '复制此行',
+  },
+  deleteIconProps = {
+    Icon: DeleteOutlined,
+    tooltipText: '删除此行',
+  },
   ...rest
 }) => {
   const context = useContext(ConfigProvider.ConfigContext);
@@ -72,14 +89,20 @@ const ProFormList: React.FC<ProFormListProps> = ({
   const baseClassName = context.getPrefixCls('pro-form-list');
   // 处理 list 的嵌套
   const name = useMemo(() => {
-    if (listContext.fieldKey === undefined) {
-      return rest.name;
+    if (listContext.name === undefined) {
+      return [rest.name].flat(1);
     }
-    return [listContext.fieldKey, rest.name].flat(1);
-  }, [listContext.fieldKey, rest.name]);
-
+    return [listContext.name, rest.name].flat(1);
+  }, [listContext.name, rest.name]);
   return (
-    <Form.Item label={label} tooltip={tooltip} rules={rules} shouldUpdate>
+    <Form.Item
+      label={label}
+      tooltip={tooltip}
+      rules={rules}
+      shouldUpdate={(prevValues, nextValues) => {
+        return get(prevValues, name) !== get(nextValues, name);
+      }}
+    >
       {({ getFieldValue }) => {
         return (
           <div className={baseClassName}>
@@ -97,7 +120,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                     onClick={() => {
                       let index;
                       if (creatorButtonProps?.position === 'top') index = 0;
-                      action.add(creatorRecord, index);
+                      action.add(runFunction(creatorRecord), index);
                     }}
                   >
                     {creatorButtonProps?.creatorButtonText || '添加一行数据'}
@@ -111,33 +134,52 @@ const ProFormList: React.FC<ProFormListProps> = ({
                     <div
                       style={{
                         width: 'max-content',
+                        maxWidth: '100%',
                       }}
                     >
                       {creatorButtonProps !== false &&
                         creatorButtonProps?.position === 'top' &&
                         creatorButton}
                       {fields.map((field) => {
-                        const defaultActionDom = [
-                          <Tooltip title="复制此行" key="copy">
-                            <CopyOutlined
-                              className={`${baseClassName}-action-icon`}
-                              onClick={() => {
-                                action.add(getFieldValue([rest.name, field.key].flat(1)));
-                              }}
-                            />
-                          </Tooltip>,
-                          <Tooltip title="删除此行" key="delete">
-                            <DeleteOutlined
-                              className={`${baseClassName}-action-icon`}
-                              onClick={() => action.remove(field.name)}
-                            />
-                          </Tooltip>,
-                        ];
-                        const dom = (
-                          <div className={`${baseClassName}-action`}>
-                            {actionRender?.(field, action, defaultActionDom) || defaultActionDom}
-                          </div>
-                        );
+                        const defaultActionDom: React.ReactNode[] = [];
+                        if (copyIconProps) {
+                          const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
+                          defaultActionDom.push(
+                            <Tooltip title={tooltipText} key="copy">
+                              <Icon
+                                className={`${baseClassName}-action-icon`}
+                                onClick={() => {
+                                  action.add(
+                                    getFieldValue(
+                                      [listContext.listName, rest.name, field.name]
+                                        .filter((item) => item !== undefined)
+                                        .flat(1),
+                                    ),
+                                  );
+                                }}
+                              />
+                            </Tooltip>,
+                          );
+                        }
+                        if (deleteIconProps) {
+                          const { Icon = DeleteOutlined, tooltipText } = deleteIconProps;
+                          defaultActionDom.push(
+                            <Tooltip title={tooltipText} key="delete">
+                              <Icon
+                                className={`${baseClassName}-action-icon`}
+                                onClick={() => action.remove(field.name)}
+                              />
+                            </Tooltip>,
+                          );
+                        }
+
+                        const actions =
+                          actionRender?.(field, action, defaultActionDom) || defaultActionDom;
+
+                        const dom =
+                          actions.length > 0 ? (
+                            <div className={`${baseClassName}-action`}>{actions}</div>
+                          ) : null;
 
                         const contentDom = itemRender?.(
                           {
@@ -146,13 +188,18 @@ const ProFormList: React.FC<ProFormListProps> = ({
                           },
                           {
                             field,
-                            record: getFieldValue([rest.name, field.key].flat(1)),
+                            record: getFieldValue(
+                              [listContext.listName, rest.name, field.name]
+                                .filter((item) => item !== undefined)
+                                .flat(1),
+                            ),
                             fields,
                             operation: action,
                             meta,
                           },
                         ) || (
                           <div
+                            className={`${baseClassName}-item`}
                             style={{
                               display: 'flex',
                               alignItems: 'flex-end',
@@ -168,7 +215,9 @@ const ProFormList: React.FC<ProFormListProps> = ({
                             key={field.name}
                             value={{
                               ...field,
-                              listName: rest.name,
+                              listName: [listContext.listName, rest.name, field.name]
+                                .filter((item) => item !== undefined)
+                                .flat(1),
                             }}
                           >
                             {contentDom}

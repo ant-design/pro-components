@@ -1,5 +1,5 @@
 ---
-title: ProCard - 标准卡片
+title: ProCard - 高级卡片
 nav:
   title: 组件
   path: /components
@@ -7,9 +7,12 @@ group:
   path: /
 ---
 
-# ProCard 标准卡片
+# ProCard 高级卡片
 
-页内容器卡片，提供标准卡片样式，卡片切分以及栅格布局能力。
+页内容器卡片，提供标准卡片样式，卡片切分以及栅格布局能力。ProCard 创造性地将 `Col`, `Row`, `Card`, `Tabs` 等组件实现结合在一起，让你仅用一个组件就能够完成卡片相关的各种布局。
+
+- 如果你还需要结合图表一起使用，可以参考 `StatisticCard` 指标卡组件，他是 ProCard 的进一步封装。
+- 若您也需要封装 `ProCard`，注意需要透出 `isProCard=true` 的静态属性让 ProCard 可以识别为同一个元素。
 
 ## 何时使用
 
@@ -34,7 +37,7 @@ group:
 
 ### 响应式
 
-`colSpan` 支持 antd 定义的[栅格式响应布局](https://ant.design/components/grid-cn/#components-grid-demo-responsive)。预设六个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl`。如果要支持响应式，可以写成 `{ xs: 4, sm: 8, md: 10, lg: 12 }`
+`colSpan` 支持 antd 定义的[栅格式响应布局](https://ant.design/components/grid-cn/#components-grid-demo-responsive)。预设六个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl`。如果要支持响应式，可以写成 `{ xs: 4, sm: 8, md: 10, lg: 12 }`。
 
 <code src="./demos/responsive.tsx"  background="#f0f2f5" title="响应式" />
 
@@ -49,9 +52,13 @@ group:
 
 ### 左右分栏
 
+通过卡片切分能力我们很容易实现左右分栏的效果，很适合左侧是列表，右侧是详情的结构。
+
 <code src="./demos/split23.tsx" background="#f0f2f5" title="左右分栏" />
 
 ### 复杂切分
+
+通过卡片切分能力我们可以实现更加复杂的数据展现形式。
 
 <code src="./demos/split.tsx" background="#f0f2f5" title="复杂切分" />
 
@@ -60,6 +67,12 @@ group:
 栅格常常需要和间隔进行配合，你可以使用 `gutter` 属性，我们推荐使用 `(16+8n)px` 作为栅格间隔(n 是自然数)，如果要支持响应式，可以写成 `{ xs: 8, sm: 16, md: 24, lg: 32 }`。如果需要垂直间距，可以写成数组形式 `[水平间距, 垂直间距][16, { xs: 8, sm: 16, md: 24, lg: 32 }]`。
 
 <code src="./demos/gutter.tsx" background="#f0f2f5" title="栅格间隔" />
+
+### 多行卡片
+
+默认卡片布局不可换行，你可以配置 `wrap` 为 `true` 来让多个卡片之间可以换行，适用于多个卡片排版的情况。
+
+<code src="./demos/multipleLine.tsx" background="#f0f2f5" title="多行卡片" />
 
 ### 分组展示
 
@@ -88,7 +101,7 @@ group:
 
 ### 内容居中
 
-配置 `layout`属性为`center`控制内容垂直居中。
+配置 `layout` 属性为 `center` 控制内容垂直居中，设置居中时内容部分转为 `flex` 布局，可以使用 `direction` 控制 `flex` 方向。
 
 <code src="./demos/layout.tsx" background="#f0f2f5" title="内容居中" />
 
@@ -146,21 +159,22 @@ group:
 
 ## API
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
 | title | 标题 | `React.ReactNode` | - |
 | subTitle | 副标题 | `React.ReactNode` | - |
 | tooltip | 标题右侧图标 hover 提示信息 | `string` | - |
 | extra | 右上角自定义区域 | `React.ReactNode` | - |
 | layout | 内容布局，支持垂直居中 | `default` \| `center`  | default |
 | loading | 加载中，支持自定义 loading 样式 | `boolean` \| `ReactNode` | false |
-| colSpan | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比, 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `string` | 24 |
+| colSpan | 栅格布局宽度，24 栅格，支持指定宽度 px 或百分比, 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}`, 仅在嵌套的子卡片上设置有效。 | `number` \| `string` | 24 |
 | gutter | 数字或使用数组形式同时设置 [水平间距, 垂直间距], 支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | `number` \| `array` | 0 |
 | split | 拆分卡片的方向 | `vertical` \| `horizontal`  | - |
 | type | 卡片类型 | `inner` \| `default` | - |
 | size | 卡片尺寸 | `default` \| `small` | - |
 | actions | 卡片操作组，位置在卡片底部 | `Array&lt;ReactNode>` | - |
 | direction | 指定 Flex 方向，仅在嵌套子卡片时有效，默认方向为 row 横向 | `column` | - |
+| wrap | 是否支持换行，仅在嵌套子卡片时有效 | false | - | 1.12.0 |
 | bordered | 是否有边框 | `boolean` | false |
 | ghost | 幽灵模式，即是否取消卡片内容区域的 padding 和 卡片的背景颜色。 | `boolean` | false |
 | headerBordered | 页头是否有分割线 | `boolean` | false |
@@ -194,6 +208,10 @@ group:
 ### ProCard.Divider
 
 用于在将内容进行分组时进行分隔。
+
+| 参数 | 说明     | 类型                     | 默认值 |
+| ---- | -------- | ------------------------ | ------ |
+| type | 分隔类型 | `horizontal \| vertical` | -      |
 
 ### ProCard.Group
 

@@ -12,7 +12,8 @@ export type PercentPropInt = {
   text?: number | string;
   precision?: number;
   showColor?: boolean;
-  showSymbol?: boolean;
+  showSymbol?: boolean | ((value: any) => boolean);
+  placeholder?: any;
 };
 
 /**
@@ -25,16 +26,14 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
     text,
     prefix,
     precision,
-    showSymbol,
     suffix = '%',
     mode,
     showColor = false,
     render,
     renderFormItem,
     fieldProps,
-    proFieldKey,
-    plain,
-    ...rest
+    placeholder,
+    showSymbol: propsShowSymbol,
   },
   ref,
 ) => {
@@ -45,6 +44,12 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
         : toNumber(text),
     [text],
   );
+  const showSymbol = useMemo(() => {
+    if (typeof propsShowSymbol === 'function') {
+      return propsShowSymbol?.(text);
+    }
+    return propsShowSymbol;
+  }, [propsShowSymbol, text]);
 
   if (mode === 'read') {
     /** 颜色有待确定, 根据提供 colors: ['正', '负'] | boolean */
@@ -76,8 +81,8 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
         parser={(value) =>
           value ? value.replace(new RegExp(`\\${prefix}\\s?|(,*)`, 'g'), '') : ''
         }
+        placeholder={placeholder}
         {...fieldProps}
-        {...rest}
       />
     );
     if (renderFormItem) {

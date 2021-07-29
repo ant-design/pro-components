@@ -11,7 +11,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 `request` is the most important API of ProTable, `request` takes an object. The object must have `data` and `success` in it, and `total` is also required if manual paging is needed. `request` takes over the `loading` settings and re-executes them when the query form is queried and the `params` parameters are modified. Also the query form values and `params` parameters are brought in. The following is an example.
 
 ```tsx | pure
-<ProTable<T, U>
+<ProTable<DataType, Params>
   // params is a parameter that needs to be self-contained
   // This parameter has higher priority and will override the parameters of the query form
   params={params}
@@ -60,7 +60,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | className of the encapsulated table | string | - |
 | tableStyle | The style of the wrapped table | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
 | options | table toolbar, not shown when set to false | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true }}` | `{ fullScreen: true, reload:true, setting: true}`` |
-| search | Whether to display the search form, pass in the object for the search form configuration | `false` \| [SearchConfig](#search-search-form) | true |
+| search | Whether to display the search form, pass in the object for the search form configuration | `false`\| [SearchConfig](#search-search-form) | true |
 | dateFormatter | Converts moment format data to a specific type, false does not convert | `"string"` \| `"number"` \| `false` | `"string"` |
 | beforeSearchSubmit | make some changes before searching | `(params:T)=>T` | - |
 | onSizeChange | table size changed | `(size: 'default' \| 'middle' \| 'small') => void` | - |
@@ -100,7 +100,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | defaultCollapsed | whether to collapse by default | `boolean` | true |
 | collapsed | collapsed or not | `boolean` | - |
 | onCollapse | The event of the collapsed button | `(collapsed: boolean) => void;` | - |
-| optionRender | Custom action bar | `((searchConfig,formProps) => ReactNode[])\|`false` | - |
+| optionRender | Custom action bar | `((searchConfig,formProps,dom) => ReactNode[])\|`false` | - |
 
 ### editable edit line configuration
 
@@ -109,7 +109,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | type | The type of editable form, single or multiple | `single` \| `multiple` | - |
 | editableKeys | The row being edited, a controlled property. The default `key` will use the `rowKey` configuration, if not configured it will use `index`, it is recommended to use rowKey | `Key[]` | - |
 | onChange | triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | Triggered when a row is saved, only updated | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
+| onSave | Triggered when a row is savedd | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<boolean>` | - |
 | onDelete | Triggered when a line is deleted | `(key: Key, row: T) => Promise<boolean>` | - |
 | onCancel | Triggered when you cancel editing a line | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
 | actionRender | Customize the action bar for edit mode | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |

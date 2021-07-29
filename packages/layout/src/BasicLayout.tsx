@@ -1,16 +1,21 @@
 import './BasicLayout.less';
-
 import type { CSSProperties } from 'react';
+import { useCallback, useRef } from 'react';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
-import type { BreadcrumbProps as AntdBreadcrumbProps, BreadcrumbProps } from 'antd/lib/breadcrumb';
+import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import { Layout, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import warning from 'warning';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { stringify } from 'use-json-comparison';
 import useAntdMediaQuery from 'use-media-antd-query';
-import { useDeepCompareEffect, useDocumentTitle, isBrowser } from '@ant-design/pro-utils';
+import {
+  useDeepCompareEffect,
+  useDocumentTitle,
+  isBrowser,
+  useMountMergeState,
+} from '@ant-design/pro-utils';
 import Omit from 'omit.js';
+import useSWR, { mutate } from 'swr';
 import { getMatchMenu } from '@umijs/route-utils';
 
 import type { HeaderViewProps } from './Header';
@@ -35,6 +40,14 @@ import WrapContent from './WrapContent';
 import compatibleLayout from './utils/compatibleLayout';
 import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
+import type { WaterMarkProps } from './components/WaterMark';
+import { stringify } from 'use-json-comparison';
+
+let layoutIndex = 0;
+
+export type LayoutBreadcrumbProps = {
+  minLength?: number;
+};
 
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
@@ -90,7 +103,17 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
     disableContentMargin?: boolean;
 
     /** PageHeader 的 BreadcrumbProps 配置，会透传下去 */
-    breadcrumbProps?: BreadcrumbProps;
+    breadcrumbProps?: AntdBreadcrumbProps & LayoutBreadcrumbProps;
+    /** @name 水印的相关配置 */
+    waterMarkProps?: WaterMarkProps;
+
+    /** @name 操作菜单重新刷新 */
+    actionRef?: React.MutableRefObject<
+      | {
+          reload: () => void;
+        }
+      | undefined
+    >;
   };
 
 const headerRender = (
@@ -123,7 +146,7 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
   let { menuData } = props;
 
   /** 如果是分割菜单模式，需要专门实现一下 */
-  if (splitMenus && openKeys !== false && !isMobile) {
+  if (splitMenus && (openKeys !== false || layout === 'mix') && !isMobile) {
     const [key] = matchMenuKeys;
     if (key) {
       menuData = props.menuData?.find((item) => item.key === key)?.children || [];
@@ -148,6 +171,7 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
         menuData={clearMenuData}
       />
     );
+
     return menuRender(props, defaultDom);
   }
 
@@ -228,29 +252,38 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     menu,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
+    actionRef,
+    formatMessage: propsFormatMessage,
     loading,
-  } = props;
+  } = props || {};
   const context = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
 
-  const formatMessage = ({
-    id,
-    defaultMessage,
-    ...restParams
-  }: {
-    id: string;
-    defaultMessage?: string;
-  }): string => {
-    if (props.formatMessage) {
-      return props.formatMessage({
-        id,
-        defaultMessage,
-        ...restParams,
-      });
-    }
-    const locales = getLocales();
-    return locales[id] ? locales[id] : (defaultMessage as string);
-  };
+  const [menuLoading, setMenuLoading] = useMountMergeState(false, {
+    value: menu?.loading,
+    onChange: menu?.onLoadingChange,
+  });
+
+  // give a default key for swr
+  const [defaultId] = useState(() => {
+    layoutIndex += 1;
+    return `pro-layout-${layoutIndex}`;
+  });
+
+  const formatMessage = useCallback(
+    ({ id, defaultMessage, ...restParams }: { id: string; defaultMessage?: string }): string => {
+      if (propsFormatMessage) {
+        return propsFormatMessage({
+          id,
+          defaultMessage,
+          ...restParams,
+        });
+      }
+      const locales = getLocales();
+      return locales[id] ? locales[id] : (defaultMessage as string);
+    },
+    [propsFormatMessage],
+  );
 
   const [menuInfoData, setMenuInfoData] = useMergedState<{
     breadcrumb?: Record<string, MenuDataItem>;
@@ -258,12 +291,64 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     menuData?: MenuDataItem[];
   }>(() => getMenuData(route?.routes || [], menu, formatMessage, menuDataRender));
 
-  const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData;
+  const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData || {};
 
-  const matchMenus = useMemo(() => getMatchMenu(location.pathname || '/', menuData, true), [
-    location.pathname,
-    menuInfoData,
-  ]);
+  const swrKey = useMemo(() => {
+    if (!menu?.params) return [defaultId];
+    return [defaultId, menu?.params];
+  }, [defaultId, stringify(menu?.params)]);
+
+  const preData = useRef<MenuDataItem[] | undefined>(undefined);
+
+  const { data } = useSWR(
+    swrKey,
+    async (_, params) => {
+      setMenuLoading(true);
+      const msg = await menu?.request?.(params || {}, route?.routes || []);
+      setMenuLoading(false);
+      return msg;
+    },
+    {
+      revalidateOnFocus: false,
+      shouldRetryOnError: false,
+      revalidateOnReconnect: false,
+    },
+  );
+  preData.current = data;
+
+  // params 更新的时候重新请求
+  useEffect(() => {
+    if (!preData.current) {
+      return;
+    }
+    mutate(swrKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [swrKey]);
+
+  if (actionRef && menu?.request) {
+    actionRef.current = {
+      reload: () => {
+        mutate(swrKey);
+      },
+    };
+  }
+
+  useDeepCompareEffect(() => {
+    if (!menu?.request || !data?.length) {
+      return;
+    }
+    const menuDataMap = getMenuData(
+      data || route?.routes || [],
+      menu,
+      formatMessage,
+      menuDataRender,
+    );
+    setMenuInfoData(menuDataMap);
+  }, [data, menu?.request, menu?.loading, route?.routes]);
+
+  const matchMenus = useMemo(() => {
+    return getMatchMenu(location.pathname || '/', menuData || [], true);
+  }, [location.pathname, menuData]);
 
   const matchMenuKeys = useMemo(
     () => Array.from(new Set(matchMenus.map((item) => item.key || item.path || ''))),
@@ -275,7 +360,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   const currentMenuLayoutProps = useCurrentMenuLayoutProps(currentMenu);
 
-  const { fixSiderbar, navTheme, layout: defaultPropsLayout, ...rest } = {
+  const {
+    fixSiderbar,
+    navTheme,
+    layout: defaultPropsLayout,
+    ...rest
+  } = {
     ...props,
     ...currentMenuLayoutProps,
   };
@@ -288,7 +378,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   /** 如果 menuRender 不存在，可以做一下性能优化 只要 routers 没有更新就不需要重新计算 */
   useDeepCompareEffect(() => {
-    if (menu?.loading) {
+    if (menu?.loading || menu?.request) {
       return () => null;
     }
     const infoData = getMenuData(route?.routes || [], menu, formatMessage, menuDataRender);
@@ -297,7 +387,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       setMenuInfoData(infoData);
     });
     return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
-  }, [props.route, stringify(menu), props.location?.pathname]);
+  }, [menu?.loading, menu?.request, route?.routes, location?.pathname, menuDataRender]);
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
@@ -317,6 +407,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       ...currentMenuLayoutProps,
       formatMessage,
       breadcrumb,
+      menu: { ...menu, loading: menuLoading },
       layout: propsLayout as 'side',
     },
     ['className', 'style', 'breadcrumbRender'],
@@ -333,11 +424,14 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   );
 
   // gen breadcrumbProps, parameter for pageHeader
-  const breadcrumbProps = getBreadcrumbProps({
-    ...defaultProps,
-    breadcrumbRender: props.breadcrumbRender,
-    breadcrumbMap,
-  });
+  const breadcrumbProps = getBreadcrumbProps(
+    {
+      ...defaultProps,
+      breadcrumbRender: props.breadcrumbRender,
+      breadcrumbMap,
+    },
+    props,
+  );
 
   // render sider dom
   const siderMenuDom = renderSiderMenu(
@@ -409,15 +503,13 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   /** 页面切换的时候触发 */
   useEffect(() => {
-    const { onPageChange } = props;
-    if (onPageChange) {
-      onPageChange(props.location);
-    }
-  }, [props.location?.pathname, props.location?.pathname?.search]);
+    props.onPageChange?.(props.location);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname, location.pathname?.search]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
 
-  useDocumentTitle(pageTitleInfo, props.title || defaultSettings.title);
+  useDocumentTitle(pageTitleInfo, props.title || false);
 
   return (
     <MenuCounter.Provider>
@@ -473,8 +565,89 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   );
 };
 
+const Logo = () => (
+  <svg width="32px" height="32px" viewBox="0 0 200 200">
+    <defs>
+      <linearGradient
+        x1="62.1023273%"
+        y1="0%"
+        x2="108.19718%"
+        y2="37.8635764%"
+        id="linearGradient-1"
+      >
+        <stop stopColor="#4285EB" offset="0%" />
+        <stop stopColor="#2EC7FF" offset="100%" />
+      </linearGradient>
+      <linearGradient
+        x1="69.644116%"
+        y1="0%"
+        x2="54.0428975%"
+        y2="108.456714%"
+        id="linearGradient-2"
+      >
+        <stop stopColor="#29CDFF" offset="0%" />
+        <stop stopColor="#148EFF" offset="37.8600687%" />
+        <stop stopColor="#0A60FF" offset="100%" />
+      </linearGradient>
+      <linearGradient
+        x1="69.6908165%"
+        y1="-12.9743587%"
+        x2="16.7228981%"
+        y2="117.391248%"
+        id="linearGradient-3"
+      >
+        <stop stopColor="#FA816E" offset="0%" />
+        <stop stopColor="#F74A5C" offset="41.472606%" />
+        <stop stopColor="#F51D2C" offset="100%" />
+      </linearGradient>
+      <linearGradient
+        x1="68.1279872%"
+        y1="-35.6905737%"
+        x2="30.4400914%"
+        y2="114.942679%"
+        id="linearGradient-4"
+      >
+        <stop stopColor="#FA8E7D" offset="0%" />
+        <stop stopColor="#F74A5C" offset="51.2635191%" />
+        <stop stopColor="#F51D2C" offset="100%" />
+      </linearGradient>
+    </defs>
+    <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+      <g transform="translate(-20.000000, -20.000000)">
+        <g transform="translate(20.000000, 20.000000)">
+          <g>
+            <g fillRule="nonzero">
+              <g>
+                <path
+                  d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                  fill="url(#linearGradient-1)"
+                />
+                <path
+                  d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                  fill="url(#linearGradient-2)"
+                />
+              </g>
+              <path
+                d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                fill="url(#linearGradient-3)"
+              />
+            </g>
+            <ellipse
+              fill="url(#linearGradient-4)"
+              cx="100.519339"
+              cy="100.436681"
+              rx="23.6001926"
+              ry="23.580786"
+            />
+          </g>
+        </g>
+      </g>
+    </g>
+  </svg>
+);
+
 BasicLayout.defaultProps = {
-  logo: 'https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg',
+  logo: <Logo />,
   ...defaultSettings,
   location: isBrowser() ? window.location : undefined,
 };

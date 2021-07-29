@@ -32,7 +32,7 @@ In addition to display type form items, we also provide form items for combining
 
 ## ProFormList
 
-ProFormList is basically the same as the [Form.List](https://ant.design/components/form-cn/#Form.List) API. It adds its own operation buttons: delete and copy, and it also includes a `new row` button.
+ProFormList is basically the same as the [Form.List](https://ant.design/components/form/#Form.List) API. It adds its own operation buttons: delete and copy, and it also includes a `new row` button.
 
 ```tsx | pure
 <ProFormList
@@ -85,6 +85,9 @@ ProFormFieldSet can combine the values of multiple children inside and store the
 <ProFormFieldSet
   name="list"
   label="List of components"
+  // Two methods are supported, type="group" will be wrapped with input.group
+  // If not configured, use space by default
+  type="group"
   transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
 >
   <ProFormText width="md" />

@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-card",
-  "version": "1.10.5",
+  "version": "1.14.8",
   "description": "@ant-design/pro-card",
   "keywords": [
     "antd",
@@ -34,13 +34,14 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-utils": "1.13.2",
+    "@ant-design/pro-utils": "1.20.0",
     "classnames": "^2.2.6",
-    "omit.js": "^2.0.2"
+    "omit.js": "^2.0.2",
+    "rc-util": "^5.4.0"
   },
   "peerDependencies": {
     "antd": "4.x",
-    "react": "^16.x"
+    "react": ">=16.9.0"
   },
   "publishConfig": {
     "access": "public"
@@ -48,5 +49,8 @@
   "authors": [
     "rdmclin2 <rdmclin2@gmail.com> (https://github.com/rdmclin2)",
     "chenshuai2144 <qixian.cs@outlook.com> (https://github.com/chenshuai2144)"
-  ]
+  ],
+  "devDependencies": {
+    "rc-resize-observer": "^0.2.3"
+  }
 }

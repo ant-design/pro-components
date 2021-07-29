@@ -117,7 +117,8 @@ export default () => {
   return (
     <ProTable<GithubIssueItem>
       columns={columns}
-      request={async () => {
+      request={async (params) => {
+        console.log(`request params:`, params);
         return {
           data: [
             {
@@ -136,24 +137,8 @@ export default () => {
       headerTitle="动态自定义搜索栏"
       search={{
         defaultCollapsed: false,
-        optionRender: ({ searchText, resetText }, { form }) => [
-          <Button
-            key="search"
-            type="primary"
-            onClick={() => {
-              form?.submit();
-            }}
-          >
-            {searchText}
-          </Button>,
-          <Button
-            key="rest"
-            onClick={() => {
-              form?.resetFields();
-            }}
-          >
-            {resetText}
-          </Button>,
+        optionRender: (searchConfig, formProps, dom) => [
+          ...dom.reverse(),
           <Button key="out">导出</Button>,
         ],
       }}

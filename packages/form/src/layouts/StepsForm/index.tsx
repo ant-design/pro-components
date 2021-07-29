@@ -1,11 +1,11 @@
-import React, { useRef, useCallback, useEffect, useContext } from 'react';
+import React, { useRef, useCallback, useEffect, useContext, useImperativeHandle } from 'react';
 import type { StepsProps, FormInstance } from 'antd';
 import { Form, Steps, ConfigProvider, Button, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import type { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
-import { useIntl } from '@ant-design/pro-provider';
+import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
 import { useMountMergeState } from '@ant-design/pro-utils';
 
 import type { StepFormProps } from './StepForm';
@@ -13,6 +13,7 @@ import StepForm from './StepForm';
 import './index.less';
 import type { ProFormProps } from '../ProForm';
 import type { SubmitterProps } from '../../components/Submitter';
+import merge from 'lodash.merge';
 
 type StepsFormProps<T = Record<string, any>> = {
   /**
@@ -33,7 +34,10 @@ type StepsFormProps<T = Record<string, any>> = {
     }[],
     defaultDom: React.ReactNode,
   ) => React.ReactNode;
-
+  /** @name 当前展示表单的 formRef */
+  formRef?: React.MutableRefObject<FormInstance<any> | undefined>;
+  /** @name 所有表单的 formMapRef */
+  formMapRef?: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
   /**
    * 自定义单个表单
    *
@@ -92,6 +96,8 @@ function StepsForm<T = Record<string, any>>(
     onFinish,
     formProps,
     containerStyle,
+    formRef,
+    formMapRef: propsFormMapRef,
     ...rest
   } = props;
   const formDataRef = useRef(new Map<string, Record<string, any>>());
@@ -121,7 +127,14 @@ function StepsForm<T = Record<string, any>>(
   /** Children 计算完成之后，重新生成一下当前的步骤列表 */
   useEffect(() => {
     setFormArray(Array.from(formMapRef.current.keys()));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Array.from(formMapRef.current.keys()).join(',')]);
+
+  const currentFormRef = formArrayRef.current[step || 0]?.current;
+
+  useImperativeHandle(propsFormMapRef, () => formArrayRef.current);
+
+  useImperativeHandle(formRef, () => currentFormRef);
 
   /** ProForm处理了一下 from 的数据，在其中做了一些操作 如果使用 Provider 自带的，自带的数据处理就无法生效了 */
   const onFormFinish = useCallback(
@@ -133,12 +146,7 @@ function StepsForm<T = Record<string, any>>(
           return;
         }
         setLoading(true);
-        const values: any = Array.from(formDataRef.current.values()).reduce((pre, cur) => {
-          return {
-            ...pre,
-            ...cur,
-          };
-        }, {});
+        const values: any = merge({}, ...Array.from(formDataRef.current.values()));
         try {
           const success = await props.onFinish(values);
           if (success) {
@@ -146,13 +154,15 @@ function StepsForm<T = Record<string, any>>(
             formArrayRef.current.forEach((form) => form.current?.resetFields());
           }
         } catch (error) {
+          // eslint-disable-next-line no-console
           console.log(error);
         } finally {
           setLoading(false);
         }
       }
     },
-    [step],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [props, step],
   );
 
   const stepsDom = (
@@ -165,7 +175,7 @@ function StepsForm<T = Record<string, any>>(
       <Steps {...stepsProps} current={step} onChange={undefined}>
         {formArray.map((item) => {
           const itemProps = formMapRef.current.get(item);
-          return <Steps.Step key={item} title={itemProps?.title} />;
+          return <Steps.Step key={item} title={itemProps?.title} {...itemProps?.stepProps} />;
         })}
       </Steps>
     </div>
@@ -175,7 +185,6 @@ function StepsForm<T = Record<string, any>>(
     const from = formArrayRef.current[step];
     from.current?.submit();
   };
-
   const next = submitter !== false && (
     <Button
       key="next"
@@ -341,9 +350,21 @@ function StepsForm<T = Record<string, any>>(
   );
 }
 
-StepsForm.StepForm = StepForm;
-StepsForm.useForm = Form.useForm;
-
 export type { StepFormProps, StepsFormProps };
 
-export default StepsForm;
+function StepsFormWarp<T = Record<string, any>>(
+  props: StepsFormProps<T> & {
+    children: any;
+  },
+) {
+  return (
+    <ConfigProviderWrap>
+      <StepsForm<T> {...props} />
+    </ConfigProviderWrap>
+  );
+}
+
+StepsFormWarp.StepForm = StepForm;
+StepsFormWarp.useForm = Form.useForm;
+
+export default StepsFormWarp;

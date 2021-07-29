@@ -32,7 +32,7 @@ describe('ProFormUpload', () => {
     errorSpy.mockReset();
   });
 
-  it('ProFormUploadButton support onChange', async () => {
+  it('🏐 ProFormUploadButton support onChange', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -60,7 +60,43 @@ describe('ProFormUpload', () => {
     expect(fn).toBeCalled();
   });
 
-  it('ProFormUploadButton support disable', async () => {
+  it('🏐 ProFormUploadButton support beforeUpload', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onValuesChange={(_, values) => {
+          fn(values.files);
+        }}
+      >
+        <ProFormUploadButton
+          action="http://upload.com"
+          listType="text"
+          label="upload"
+          name="files"
+          fieldProps={{
+            beforeUpload: () => {
+              return false;
+            },
+          }}
+        />
+      </ProForm>,
+    );
+
+    act(() => {
+      wrapper.find('.ant-upload input').simulate('change', {
+        target: {
+          files: [mockFile],
+        },
+      });
+    });
+    await waitTime(200);
+
+    act(() => {
+      expect(wrapper.find('div.ant-upload-list-picture-container').length).toBe(0);
+    });
+  });
+
+  it('🏐 ProFormUploadButton support disable', async () => {
     const wrapper = mount(
       <ProFormUploadButton
         disabled
@@ -71,28 +107,30 @@ describe('ProFormUpload', () => {
       />,
     );
     expect(wrapper.find('Upload Button')).toMatchSnapshot();
-
-    wrapper.setProps({
-      buttonProps: {
-        disabled: true,
-        type: 'dashed',
-      },
+    act(() => {
+      wrapper.setProps({
+        buttonProps: {
+          disabled: true,
+          type: 'dashed',
+        },
+      });
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('Upload Button')).toMatchSnapshot();
-
-    wrapper.setProps({
-      disabled: false,
-      buttonProps: {},
-      fieldProps: {
-        disabled: true,
-      },
+    act(() => {
+      wrapper.setProps({
+        disabled: false,
+        buttonProps: {},
+        fieldProps: {
+          disabled: true,
+        },
+      });
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('Upload Button')).toMatchSnapshot();
   });
 
-  it('ProFormUploadDragger support onChange', async () => {
+  it('🏐 ProFormUploadDragger support onChange', async () => {
     const fn = jest.fn();
     const onChangeFn = jest.fn();
     const wrapper = mount(
@@ -122,7 +160,7 @@ describe('ProFormUpload', () => {
     expect(onChangeFn).toBeCalled();
   });
 
-  it('ProFormUploadDragger hide when max', async () => {
+  it('🏐 ProFormUploadDragger hide when max', async () => {
     const wrapper = mount(
       // @ts-ignore
       <ProFormUploadDragger
@@ -138,7 +176,25 @@ describe('ProFormUpload', () => {
     expect(wrapper.find('.ant-upload.ant-upload-drag').props().style?.display).toBe('none');
   });
 
-  it('ProFormUploadButton hide when max', async () => {
+  it('🏐 ProFormUploadDragger support children', async () => {
+    const extra = 'extra';
+    const wrapper = mount(
+      // @ts-ignore
+      <ProFormUploadDragger
+        value={[mockFile, mockFile, mockFile]}
+        action="http://upload.com"
+        label="upload"
+        name="files"
+      >
+        {extra}
+      </ProFormUploadDragger>,
+    );
+
+    await waitTime(200);
+    expect(wrapper.find('.ant-upload-drag .ant-upload-extra').first().text()).toBe(extra);
+  });
+
+  it('🏐 ProFormUploadButton hide when max', async () => {
     const wrapper = mount(
       // @ts-ignore
       <ProFormUploadButton

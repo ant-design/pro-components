@@ -81,6 +81,10 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 
 <code src="./demos/customize-collapsed.tsx" iframe="500px" title="自定义的 collapsed" />
 
+### 面包屑显示在顶部
+
+<code src="./demos/top-breadcrumb.tsx" iframe="500px" title="面包屑显示在顶部" />
+
 ### 多级站点导航
 
 <code src="./demos/immersive-navigation.tsx" iframe="500px" title="多级站点导航" />
@@ -108,14 +112,15 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | menuExtraRender | 在菜单标题的下面渲染一个区域 | `(menuProps)=>ReactNode` | - |
 | onTopMixMenuHeaderClick | mix 模式下顶部栏的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
 | contentStyle | layout 的内容区 style | CSSProperties | - |
-| layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | `side` \| `top` | `side` |
+| layout | layout 的菜单模式,side：右侧导航，top：顶部导航 | `side` \| `top`\|`mix` | `side` |
 | contentWidth | layout 的内容模式,Fluid：自适应，Fixed：定宽 1200px | `Fluid` \| `Fixed` | `Fluid` |
 | navTheme | 导航的主题，side 和 mix 模式下是左侧菜单的主题，top 模式下是顶部菜单 | `light` \| `dark` | `dark` |
+| actionRef | layout 的常见的操作，比如刷新菜单 | `MutableRefObject<ActionType>` | - |
 | headerTheme | 顶部导航的主题，mix 模式生效 | `light` \| `dark` | `dark` |
 | fixedHeader | 是否固定 header 到顶部 | `boolean` | `false` |
 | fixSiderbar | 是否固定导航 | `boolean` | `false` |
 | breakpoint | 触发响应式布局的[断点](https://ant.design/components/grid-cn/#Col) | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
-| menu | 关于 menu 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | `{ locale: boolean, defaultOpenAll: boolean }` | `{ locale: true }` |
+| menu | 关于 [menu](#menu) 的配置，暂时只有 locale,locale 可以关闭 menu 的自带的全球化 | [`menuConfig`](#menu) | `{ locale: true }` |
 | iconfontUrl | 使用 [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) 的图标配置 | `URL` | - |
 | locale | 当前 layout 的语言设置 | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | - |
@@ -130,10 +135,10 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | rightContentRender | 自定义头右部的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | `(collapsed: boolean) => ReactNode` | - |
 | footerRender | 自定义页脚的 render 方法 | `(props: BasicLayoutProps) => ReactNode` | - |
-| pageTitleRender | 自定义页面标题的显示方法 | `(props: BasicLayoutProps) => ReactNode` | - |
+| pageTitleRender | 自定义页面标题的显示方法 | `(props: BasicLayoutProps) => string` | - |
 | menuRender | 自定义菜单的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | 在显示前对菜单数据进行查看，修改不会触发重新渲染 | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
-| menuItemRender | 自定义菜单项的 render 方法 | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
+| menuItemRender | 自定义菜单项的 render 方法 | [`(itemProps: MenuDataItem, defaultDom: React.ReactNode, props: BaseMenuProps) => ReactNode`](/components/layout/#menudataitem) | - |
 | subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
 | menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | breadcrumbRender | 自定义面包屑的数据 | `(route)=>route` | - |
@@ -141,8 +146,21 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | disableMobile | 禁止自动切换到移动页面 | `boolean` | false |
 | links | 显示在菜单右下角的快捷操作 | `ReactNode[]` | - |
 | menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
+| waterMarkProps | 配置水印，水印是 PageContainer 的功能，layout 只是透传给 PageContainer | [WaterMarkProps](/components/water-mark) | - |
 
-在 4.5.13 以后 Layout 通过 `menuProps` 支持 [Menu](https://ant.design/components/menu-cn/#Menu) 的大部分 props。
+### menu
+
+menu 中支持了部分常用的 menu 配置， 可以帮助我们更好的管理 menu
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| locale | menu 是否使用国际化，还需要 formatMessage 的配合。 | `boolean` | `true` |
+| defaultOpenAll | 默认打开所有的菜单项，要注意只有 layout 挂载之前生效，异步加载菜单是不支持的 | `boolean` | `false` |
+| type | 菜单的类型 | `sub` \| `group` | `group` |
+| autoClose | 选中菜单是否自动关闭菜单 | `boolean` | `true` |
+| loading | 菜单是否正在加载中 | `boolean` | `false` |
+| onLoadingChange | 菜单的加载状态变更 | `(loading)=>void` | - |
+| request | 远程加载菜单的方法，会自动的修改 loading 状态 | `(params,defaultMenuDat) => Promise<MenuDataItem[]>` | - |
 
 ### SettingDrawer
 
@@ -153,14 +171,15 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
+| disableUrlParams | 禁止同步设置到查询参数 | `boolean` | `false` |
 
 ### PageLoading
 
 一个简单的加载页面
 
-| 参数 | 说明         | 类型      | 默认值 |
-| ---- | ------------ | --------- | ------ |
-| tip  | 加载的小说明 | ReactNode | -      |
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| [(...)](https://ant.design/components/spin-cn/#API) | 支持所有的 antd `Spin` 组件参数 | - | - |
 
 ### RouteContext
 
@@ -300,7 +319,7 @@ export interface Route {
 
 ```tsx | pure
 <Footer
-  copyright="2019 蚂蚁金服体验技术部出品"
+  copyright="@2019 蚂蚁金服体验技术部出品"
   links={[
     {
       key: 'Ant Design Pro',

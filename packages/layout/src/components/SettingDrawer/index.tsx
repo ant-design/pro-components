@@ -11,6 +11,7 @@ import { useUrlSearchParams } from '@umijs/use-params';
 import { Button, Divider, Drawer, List, Switch, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import merge from 'lodash.merge';
 import omit from 'omit.js';
 import type { ProSettings } from '../../defaultSettings';
 import defaultSettings from '../../defaultSettings';
@@ -59,6 +60,7 @@ export type SettingDrawerProps = {
   onCollapseChange?: (collapse: boolean) => void;
   onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
   pathname?: string;
+  disableUrlParams?: boolean;
 };
 
 export type SettingDrawerState = {
@@ -266,13 +268,8 @@ const initState = (
       replaceSetting[key] = urlParams[key];
     }
   });
-
-  if (onSettingChange) {
-    onSettingChange({
-      ...settings,
-      ...replaceSetting,
-    });
-  }
+  // 同步数据到外部
+  onSettingChange?.(merge({}, settings, replaceSetting));
 
   // 如果 url 中设置主题，进行一次加载。
   if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
@@ -331,6 +328,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onSettingChange,
     prefixCls = 'ant-pro',
     pathname = window.location.pathname,
+    disableUrlParams = false,
   } = props;
   const firstRender = useRef<boolean>(true);
 
@@ -347,6 +345,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       onChange: onSettingChange,
     },
   );
+
   const preStateRef = useRef(settingState);
 
   const { navTheme, primaryColor, layout, colorWeak } = settingState || {};
@@ -367,11 +366,11 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       setSettingState,
       props.publicPath,
     );
-    window.addEventListener('languagechange', onLanguageChange, {
+    window.document.addEventListener('languagechange', onLanguageChange, {
       passive: true,
     });
 
-    return () => window.removeEventListener('languagechange', onLanguageChange);
+    return () => window.document.removeEventListener('languagechange', onLanguageChange);
   }, []);
   /**
    * 修改设置
@@ -431,13 +430,14 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   useEffect(() => {
     /** 如果不是浏览器 都没有必要做了 */
     if (!isBrowser()) return;
+    if (disableUrlParams) return;
     if (firstRender.current) {
       firstRender.current = false;
       return;
     }
     const diffParams = getDifferentSetting({ ...urlParams, ...settingState });
     setUrlParams(diffParams);
-  }, [setUrlParams, settingState, urlParams, pathname]);
+  }, [setUrlParams, settingState, urlParams, pathname, disableUrlParams]);
   const baseClassName = `${prefixCls}-setting`;
   return (
     <Drawer

@@ -5,18 +5,20 @@ import ProForm, {
   ProFormRadio,
   ProFormCheckbox,
   ProFormRate,
-  ProFormDatePicker,
   ProFormSelect,
   ProFormDigit,
-  ProFormDateTimePicker,
   ProFormSlider,
-  ProFormDateTimeRangePicker,
-  ProFormDateRangePicker,
-  ProFormUploadButton,
-  ProFormUploadDragger,
-  ProFormFieldSet,
-  ProFormTimePicker,
+  ProFormGroup,
 } from '@ant-design/pro-form';
+import Mock from 'mockjs';
+
+export const waitTime = (time: number = 100) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(true);
+    }, time);
+  });
+};
 
 const Demo = () => (
   <div
@@ -39,35 +41,44 @@ const Demo = () => (
       }}
       onFinish={async (value) => console.log(value)}
     >
-      <ProFormText width="md" name="name" label="name" />
-      <ProFormSelect
-        name="select"
-        label="Select"
-        valueEnum={{
-          china: 'China',
-          usa: 'U.S.A',
-        }}
-        placeholder="Please select a country"
-        rules={[{ required: true, message: 'Please select your country!' }]}
-      />
-      <ProFormSelect
-        width="md"
-        fieldProps={{
-          labelInValue: true,
-        }}
-        request={async () => [
-          { label: '全部', value: 'all' },
-          { label: '未解决', value: 'open' },
-          { label: '已解决', value: 'closed' },
-          { label: '解决中', value: 'processing' },
-        ]}
-        name="useMode"
-        label="合同约定生效方式"
-      />
-      <ProForm.Group>
-        <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
+      <ProFormGroup label="文本类">
+        <ProFormText width="md" name="name" label="name" />
+        <ProFormText.Password width="md" name="password" label="password" />
+      </ProFormGroup>
+      <ProFormGroup label="选择类">
+        <ProFormSelect
+          name="select"
+          label="Select"
+          valueEnum={{
+            china: 'China',
+            usa: 'U.S.A',
+          }}
+          placeholder="Please select a country"
+          rules={[{ required: true, message: 'Please select your country!' }]}
+        />
+        <ProFormSelect
+          name="select2"
+          label="支持搜索查询的 Select"
+          showSearch
+          request={async ({ keyWords }) => {
+            await waitTime(1000);
+            return Mock.mock({
+              'data|1-10': [
+                {
+                  value: '@id',
+                  label: '@name',
+                },
+              ],
+            }).data.concat({
+              value: keyWords,
+              label: '目标_target',
+            });
+          }}
+          placeholder="Please select a country"
+          rules={[{ required: true, message: 'Please select your country!' }]}
+        />
+        <ProFormSelect
+          width="md"
           fieldProps={{
             labelInValue: true,
           }}
@@ -77,156 +88,106 @@ const Demo = () => (
             { label: '已解决', value: 'closed' },
             { label: '解决中', value: 'processing' },
           ]}
+          name="useMode"
+          label="合同约定生效方式"
         />
-        <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
+        <ProFormSelect
+          name="select-multiple"
+          label="Select[multiple]"
           valueEnum={{
-            all: { text: '全部', status: 'Default' },
-            open: {
-              text: '未解决',
-              status: 'Error',
-            },
-            closed: {
-              text: '已解决',
-              status: 'Success',
-            },
-            processing: {
-              text: '解决中',
-              status: 'Processing',
-            },
+            red: 'Red',
+            green: 'Green',
+            blue: 'Blue',
           }}
-        />
-        <ProFormSelect.SearchSelect
-          name="userQuery"
-          label="查询选择器"
-          options={[
-            { label: '全部', value: 'all' },
-            { label: '未解决', value: 'open' },
-            { label: '已解决', value: 'closed' },
-            { label: '解决中', value: 'processing' },
+          fieldProps={{
+            mode: 'multiple',
+          }}
+          placeholder="Please select favorite colors"
+          rules={[
+            { required: true, message: 'Please select your favorite colors!', type: 'array' },
           ]}
         />
-      </ProForm.Group>
-      <ProFormSelect
-        name="select-multiple"
-        label="Select[multiple]"
-        valueEnum={{
-          red: 'Red',
-          green: 'Green',
-          blue: 'Blue',
-        }}
-        fieldProps={{
-          mode: 'multiple',
-        }}
-        placeholder="Please select favorite colors"
-        rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
-      />
-      <ProFormDigit label="InputNumber" name="input-number" width="sm" min={1} max={10} />
-      <ProFormSwitch name="switch" label="Switch" />
-      <ProFormSlider
-        name="slider"
-        label="Slider"
-        marks={{
-          0: 'A',
-          20: 'B',
-          40: 'C',
-          60: 'D',
-          80: 'E',
-          100: 'F',
-        }}
-      />
-      <ProFormRadio.Group
-        name="radio"
-        label="Radio.Group"
-        options={[
-          {
-            label: 'item 1',
-            value: 'a',
-          },
-          {
-            label: 'item 2',
-            value: 'b',
-          },
-          {
-            label: 'item 3',
-            value: 'c',
-          },
-        ]}
-      />
-      <ProFormRadio.Group
-        name="radio-vertical"
-        layout="vertical"
-        label="Radio.Group"
-        options={[
-          {
-            label: 'item 1',
-            value: 'a',
-          },
-          {
-            label: 'item 2',
-            value: 'b',
-          },
-          {
-            label: 'item 3',
-            value: 'c',
-          },
-        ]}
-      />
-      <ProFormRadio.Group
-        name="radio-button"
-        label="Radio.Button"
-        radioType="button"
-        options={[
-          {
-            label: 'item 1',
-            value: 'a',
-          },
-          {
-            label: 'item 2',
-            value: 'b',
-          },
-          {
-            label: 'item 3',
-            value: 'c',
-          },
-        ]}
-      />
-      <ProFormCheckbox.Group
-        name="checkbox-group"
-        label="Checkbox.Group"
-        options={['A', 'B', 'C', 'D', 'E', 'F']}
-      />
-      <ProFormRate name="rate" label="Rate" />
-      <ProFormUploadButton
-        name="upload"
-        label="Upload"
-        max={2}
-        action="/upload.do"
-        extra="longgggggggggggggggggggggggggggggggggg"
-      />
-      <ProFormFieldSet
-        name="list"
-        label="组件列表"
-        transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
-      >
-        <ProFormText width="md" />
-        <ProFormText width="md" />
-        <ProFormText width="md" />
-      </ProFormFieldSet>
-      <ProForm.Group title="日期相关分组">
-        <ProFormDatePicker name="date" label="日期" />
-        <ProFormTimePicker name="time" label="时间" />
-        <ProFormTimePicker.RangePicker name="timeRange" label="时间区间" />
-        <ProFormDatePicker.Week name="dateWeek" label="周" />
-        <ProFormDatePicker.Month name="dateMonth" label="月" />
-        <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
-        <ProFormDatePicker.Year name="dateYear" label="年" />
-        <ProFormDateTimePicker name="dateTime" label="日期时间" />
-        <ProFormDateRangePicker name="dateRange" label="日期区间" />
-        <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
-      </ProForm.Group>
-      <ProFormUploadDragger max={4} label="Dragger" name="dragger" />
+
+        <ProFormRadio.Group
+          name="radio"
+          label="Radio.Group"
+          options={[
+            {
+              label: 'item 1',
+              value: 'a',
+            },
+            {
+              label: 'item 2',
+              value: 'b',
+            },
+            {
+              label: 'item 3',
+              value: 'c',
+            },
+          ]}
+        />
+        <ProFormRadio.Group
+          name="radio-vertical"
+          layout="vertical"
+          label="Radio.Group"
+          options={[
+            {
+              label: 'item 1',
+              value: 'a',
+            },
+            {
+              label: 'item 2',
+              value: 'b',
+            },
+            {
+              label: 'item 3',
+              value: 'c',
+            },
+          ]}
+        />
+        <ProFormRadio.Group
+          name="radio-button"
+          label="Radio.Button"
+          radioType="button"
+          options={[
+            {
+              label: 'item 1',
+              value: 'a',
+            },
+            {
+              label: 'item 2',
+              value: 'b',
+            },
+            {
+              label: 'item 3',
+              value: 'c',
+            },
+          ]}
+        />
+        <ProFormCheckbox.Group
+          name="checkbox-group"
+          label="Checkbox.Group"
+          options={['A', 'B', 'C', 'D', 'E', 'F']}
+        />
+      </ProFormGroup>
+      <ProFormGroup label="数字类">
+        <ProFormDigit label="InputNumber" name="input-number" width="sm" min={1} max={10} />
+        <ProFormSwitch name="switch" label="Switch" />
+        <ProFormSlider
+          name="slider"
+          label="Slider"
+          width="lg"
+          marks={{
+            0: 'A',
+            20: 'B',
+            40: 'C',
+            60: 'D',
+            80: 'E',
+            100: 'F',
+          }}
+        />
+        <ProFormRate name="rate" label="Rate" />
+      </ProFormGroup>
     </ProForm>
   </div>
 );

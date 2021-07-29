@@ -1,7 +1,8 @@
 /* eslint-disable no-param-reassign */
 import type { ReactElement } from 'react';
+import { useContext } from 'react';
 import React, { useMemo } from 'react';
-import { Row, Col, Form, Divider } from 'antd';
+import { Row, Col, Form, Divider, ConfigProvider } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
 import { useIntl } from '@ant-design/pro-provider';
@@ -12,6 +13,9 @@ import type { CommonFormProps } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
+import classNames from 'classnames';
+
+import './index.less';
 
 const CONFIG_SPAN_BREAKPOINTS = {
   xs: 513,
@@ -50,12 +54,6 @@ const getSpanConfig = (
   width: number,
   span?: SpanConfig,
 ): { span: number; layout: FormProps['layout'] } => {
-  if (width === 16) {
-    return {
-      span: 8,
-      layout: 'inline',
-    };
-  }
   if (span && typeof span === 'number') {
     return {
       span,
@@ -92,6 +90,7 @@ export type BaseQueryFilterProps = Omit<ActionsProps, 'submitter' | 'setCollapse
   defaultColsNumber?: number;
   labelWidth?: number | 'auto';
   split?: boolean;
+  className?: string;
   /** 配置列数 */
   span?: SpanConfig;
 
@@ -182,7 +181,7 @@ const QueryFilterContent: React.FC<{
   const { optionRender, collapseRender, split, items, spanSize, showLength } = props;
 
   const submitter = useMemo(() => {
-    if (!props.submitter) {
+    if (!props.submitter || optionRender === false) {
       return null;
     }
     return React.cloneElement(props.submitter, {
@@ -330,6 +329,10 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     ignoreRules,
     ...rest
   } = props;
+
+  const context = useContext(ConfigProvider.ConfigContext);
+  const baseClassName = context.getPrefixCls('pro-form-query-filter');
+
   const [width, setWidth] = useMountMergeState(
     () => (typeof style?.width === 'number' ? style?.width : defaultWidth) as number,
   );
@@ -354,7 +357,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     <RcResizeObserver
       key="resize-observer"
       onResize={(offset) => {
-        if (width !== offset.width) {
+        if (width !== offset.width && offset.width > 17) {
           setWidth(offset.width);
         }
       }}
@@ -362,6 +365,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
       <BaseForm
         preserve={preserve}
         {...rest}
+        className={classNames(baseClassName, rest.className)}
         onReset={onReset}
         style={style}
         layout={spanSize.layout}

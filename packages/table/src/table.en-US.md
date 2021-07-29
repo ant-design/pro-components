@@ -217,7 +217,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 `request` is the most important API of ProTable, `request` takes an object. The object must have `data` and `success` in it, and `total` is also required if manual paging is needed. `request` takes over the `loading` settings and re-executes them when the query form is queried and the `params` parameters are modified. Also the query form values and `params` parameters are brought in. The following is an example.
 
 ```tsx | pure
-<ProTable<T, U>
+<ProTable<DataType, Params>
   // params is a parameter that needs to be self-contained
   // This parameter has higher priority and will override the parameters of the query form
   params={params}
@@ -273,7 +273,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | columnsStateMap | State enumeration for columns | `{key:{ show,fixed }}}` | - |
 | onColumnsStateChange | columns state changed | `(props: {key:{ show,fixed }}}) => void` | - |
 | type | pro-table type | `"form"` | - |
-| form | configuration of antd form | [FormProps](https://ant.design/components/form-cn/#API) | - |
+| form | configuration of antd form | [FormProps](https://ant.design/components/form/#API) | - |
 | onSubmit | Triggered when the form is submitted | `(params: U) => void` | - |
 | onReset | Triggered when resetting the form | `() => void` | - |
 | columnEmptyText | display when empty, display when not set `-`, false to disable this function | `string` \| `false` | false |
@@ -291,7 +291,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | --- | --- | --- | --- |
 | record | The row to be added, generally containing a unique key | `T` | `{}` |
 | position | where the row should be added, at the beginning or at the end | `top` \| `bottom` | `bottom` |
-| (... .buttonProps) | antd's [ButtonProps](https://ant.design/components/button-cn/#API) | ButtonProps | - |
+| (... .buttonProps) | antd's [ButtonProps](https://ant.design/components/button/#API) | ButtonProps | - |
 
 #### Search Search form
 
@@ -303,11 +303,12 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | submitText | the text of the submit button | `string` | submit |
 | labelWidth | The width of the label | `'number'` \| `'auto'` | 80 |
 | span | Configure the number of columns in the query form | `'number'` \| [`'ColConfig'`](#ColConfig) | defaultColConfig |
+| className | The className of the search form | `string` | - |
 | collapseRender | render of the collapse button | `(collapsed: boolean,showCollapseButton?: boolean,) => ReactNode` | - |
 | defaultCollapsed | whether to collapse by default | `boolean` | true |
 | collapsed | collapsed or not | `boolean` | - |
 | onCollapse | The event of the collapsed button | `(collapsed: boolean) => void;` | - |
-| optionRender | Custom action bar | `((searchConfig,formProps) => ReactNode[])\|`false` | - |
+| optionRender | Custom action bar | `((searchConfig,formProps,dom) => ReactNode[])\|`false` | - |
 
 ### editable edit line configuration
 
@@ -316,9 +317,9 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | type | The type of editable form, single or multiple | `single` \| `multiple` | - |
 | editableKeys | The row being edited, a controlled property. The default `key` will use the `rowKey` configuration, if not configured it will use `index`, it is recommended to use rowKey | `Key[]` | - |
 | onChange | triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | Triggered when a row is saved, only updated | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
+| onSave | Triggered when a row is savedd | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<boolean>` | - |
 | onDelete | Triggered when a line is deleted | `(key: Key, row: T) => Promise<boolean>` | - |
-| onCancel | Triggered when you cancel editing a line | `(key: Key, row: T,newLine?:newLineConfig) => Promise<boolean>` | - |
+| onCancel | Triggered when you cancel editing a line | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<boolean>` | - |
 | actionRender | Customize the action bar for edit mode | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
 | deletePopconfirmMessage | popup confirmation message when deleting | `ReactNode` | `Delete this row?` |
 | onlyOneLineEditorAlertMessage | Message that only one line can be edited | `ReactNode` | `Only one line can be edited at a time` |
@@ -387,7 +388,7 @@ ref.current.cancelEditable(rowKey);
 | ellipsis | whether to auto-indent | `boolean` | - |
 | copyable | whether to support copying | `boolean` | - |
 | valueEnum | An enumeration of values that will be automatically transformed to treat the value as a key to retrieve the content to be displayed | [valueEnum](#valueenum) | - |
-| valueType | the type of the value | `money` \| `option` \| `date` \| `dateTime` \| `time` \| `text` \| `index` \| `indexBorder` | `text` |
+| valueType | the type of the value | [`valueType`](/components/schema) | `text` |
 | hideInSearch | do not show this item in the query form | `boolean` | - |
 | hideInTable | do not show this column in Table | `boolean` | - |
 | hideInForm | Do not show this column in Form mode | `boolean` | - |
@@ -396,132 +397,14 @@ ref.current.cancelEditable(rowKey);
 | order | Query the weight of the form, with the higher weight sorted first | `number` | - |
 | renderFormItem | Render the input component of the query form | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
 | fieldProps | The props of the query form that will be passed through to the form item | `{ [prop: string]: any }` | - |
-| search | search-related configuration columns, false is hidden | `false` \| `{ transform: (value: any) => any }` | true |
+| search | search-related configuration columns, false is hidden | `false` \| `{ transform: (value: any) => any }` | - |
 | search.transform | The key of the transformed value, typically used for transforming event intervals | `(value: any) => any` | - |
 | editable | Whether or not editable in the edit table, the function's arguments are the same as the table's render | `false` \| `(text: any, record: T,index: number) => boolean` | true |
 | colSize | the number of cells occupied by a form item, `occupy= colSize*span`, `colSize` defaults to 1, `span` is 8, `span` is `form={{span:8}}` set globally | `number` | - |
 
-### valueType value type
+### ValueType type
 
-ProTable wraps some common value types to reduce repetitive `render` operations, and a `valueType` can be configured to display the formatted response data.
-
-The following values are now supported
-
-| type | description | example |
-| --- | --- | --- | --- |
-| money | Converts the value to an amount | ¥10,000.26 |
-| date | date | 2019-11-16 |
-| dateRange | dateRange | dateRange | 2019-11-16 2019-11-18 |
-| dateTime | Date and Time | 2019-11-16 12:50:00 |
-| dateTimeRange | date and time interval | 2019-11-16 12:50:00 2019-11-18 12:50:00 |
-| time | time | 12:50:00 |
-| option | Action item, will automatically add marginRight, only support an array, will be automatically ignored in the form | '[<a>action a</a>,<a>action b</a>]` |
-| text | Default value, no processing | - |
-| select | select | - |
-| textarea | Same as text, form transforms to a textarea component | - |
-| index | serial column | - - |
-| indexBorder | column with border | - |
-| progress | progress bar | - |
-| digit | [formatted](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) number display, the form will be converted to to inputNumber | - |
-| percent | percentage | +1.12 |
-| code | code block | `const a = b` |
-| avatar | Show an avatar |
-| password | password box | password-related display |
-
-#### Pass in function
-
-A single value does not represent many types, and `progress` is a good example. So we support passing in a function, and you can use it like this.
-
-```tsx |pure
-const columns = {
-  title: 'progress',
-  key: 'progress',
-  dataIndex: 'progress',
-  valueType: (item: T) => ({
-    type: 'progress',
-    status: item.status! == 'error' ? 'active' : 'exception',
-  }),
-};
-```
-
-#### Supported return values
-
-#### progress
-
-```js
-return {
-  type: 'progress',
-  status: 'success' | 'exception' | 'normal' | 'active',
-};
-```
-
-#### money
-
-```js
-return { type: 'money', locale: 'en-Us' };
-```
-
-#### percent
-
-```js
-return { type: 'percent', showSymbol: true | false, precision: 2 };
-```
-
-The valueEnum needs to be passed in as an enumeration and ProTable will automatically get the responsive enumeration based on the value and generate a dropdown box in the form. It looks like this.
-
-```ts | pure
-const valueEnum = {
-  open: {
-    text: 'Unresolved',
-    status: 'Error',
-  },
-  closed: {
-    text: 'Resolved',
-    status: 'Success',
-  },
-};
-
-// Can also be set as a function
-const valueEnum = (row) =>
-  row.isMe
-    ? {
-        open: {
-          text: 'Unresolved',
-          status: 'Error',
-        },
-        closed: {
-          text: 'Resolved',
-          status: 'Success',
-        },
-      }
-    : {
-        open: {
-          text: 'Waiting for resolution',
-          status: 'Error',
-        },
-        closed: {
-          text: 'Responded',
-          status: 'Success',
-        },
-      };
-```
-
-> It's worth noting here that there is no row in the form, so a null is passed in, and you can use this to determine what options to display in the form.
-
-### valueEnum
-
-When the enumeration of the former values
-
-```typescript | pure
-interface IValueEnum {
-  [key: string]:
-    | ReactNode
-    | {
-        text: ReactNode;
-        status: 'Success' | 'Error' | 'Processing' | 'Warning' | 'Default';
-      };
-}
-```
+ProTable encapsulates some commonly used value types to reduce duplicate `render` operations, and configures a [valueType](components/schema) to display the data for formatting responses.
 
 ### Batch operations
 
@@ -542,24 +425,9 @@ ProTable will generate a Form for filtering list data based on columns, and the 
 
 As per the specification, table forms do not require any mandatory parameters, and all clicks on search and reset will trigger a `request` to initiate a query.
 
-Form's columns are generated with different types based on `valueType`.
+Form's columns are generated with different types based on [`valueType`](/components/schema#valuetype).
 
 > Columns with a valueType of index indexBorder option and no dataIndex and key will be ignored.
-
-| Type | Corresponding component |
-| --- | --- |
-| text | [Input](https://ant.design/components/input-cn/) |
-| textarea | [Input.TextArea](https://ant.design/components/input-cn/#components-input-demo-textarea) |
-| date | [DatePicker](https://ant.design/components/date-picker-cn/) |
-| dateTime | [DatePicker](https://ant.design/components/date-picker-cn/#components-date-picker-demo-time) |
-| time | [TimePicker](https://ant.design/components/time-picker-cn/) |
-| dateTimeRange | [RangePicker](https://ant.design/components/time-picker-cn/#components-time-picker-demo-range-picker) |
-| dateRange | [RangePicker](https://ant.design/components/time-picker-cn/#components-time-picker-demo-range-picker) |
-| money | [InputNumber](https://ant.design/components/input-number-cn/) |
-| digit | [InputNumber](https://ant.design/components/input-number-cn/) |
-| option | don't show |
-| index | don't show |
-| progress | don't show |
 
 ### ListToolbar
 
@@ -594,7 +462,7 @@ Toolbar configuration properties for lists and tables
 | menu | menu configuration | `ListToolBarMenu` | - |
 | tabs | Tabs configuration, only valid if `multipleLine` is true | `ListToolBarTabs` | - |
 
-SearchProps is a property of antd's [Input.Search](https://ant.design/components/input-cn/#Input.Search).
+SearchProps is a property of antd's [Input.Search](https://ant.design/components/input/#Input.Search).
 
 #### Setting
 

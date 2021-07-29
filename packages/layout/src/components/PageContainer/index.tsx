@@ -1,16 +1,24 @@
-import { PageHeader, Tabs, Affix, ConfigProvider } from 'antd';
+import { PageHeader, Tabs, Affix, ConfigProvider, Breadcrumb } from 'antd';
 import type { ReactNode } from 'react';
 import React, { useContext } from 'react';
 import classNames from 'classnames';
-import type { TabsProps, AffixProps, PageHeaderProps, TabPaneProps } from 'antd';
+import type {
+  TabsProps,
+  AffixProps,
+  PageHeaderProps,
+  TabPaneProps,
+  SpinProps,
+  BreadcrumbProps,
+} from 'antd';
 
-import type { RouteContextType } from '../../RouteContext';
 import RouteContext from '../../RouteContext';
 import GridContent from '../GridContent';
 import FooterToolbar from '../FooterToolbar';
 import './index.less';
 import PageLoading from '../PageLoading';
 import type { WithFalse } from '../../typings';
+import type { WaterMarkProps } from '../WaterMark';
+import WaterMark from '../WaterMark';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -72,9 +80,22 @@ export type PageContainerProps = {
    *
    * @name 是否加载
    */
-  loading?: boolean;
+  loading?: boolean | SpinProps;
+
+  /** 自定义 breadcrumb,返回false不展示 */
+  breadcrumbRender?: PageHeaderProps['breadcrumbRender'] | false;
+
+  /** @name 水印的配置 */
+  waterMarkProps?: WaterMarkProps;
 } & PageHeaderTabConfig &
-  Omit<PageHeaderProps, 'title'>;
+  Omit<PageHeaderProps, 'title' | 'footer' | 'breadcrumbRender'>;
+
+function genLoading(spinProps: boolean | SpinProps) {
+  if (typeof spinProps === 'object') {
+    return spinProps;
+  }
+  return { spinning: spinProps };
+}
 
 /**
  * Render Footer tabList In order to be compatible with the old version of the PageHeader basically
@@ -133,18 +154,39 @@ const renderPageHeader = (
   );
 };
 
-const defaultPageHeaderRender = (
-  props: PageContainerProps,
-  value: RouteContextType & { prefixedClassName: string },
-): React.ReactNode => {
+/**
+ * 配置与面包屑相同，只是增加了自动根据路由计算面包屑的功能。此功能必须要在 ProLayout 中使用。
+ *
+ * @param props
+ * @returns
+ */
+const ProBreadcrumb: React.FC<BreadcrumbProps> = (props) => {
+  const value = useContext(RouteContext);
+  return (
+    <div
+      style={{
+        height: '100%',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <Breadcrumb {...value?.breadcrumb} {...value?.breadcrumbProps} {...props} />
+    </div>
+  );
+};
+
+const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }> = (props) => {
+  const value = useContext(RouteContext);
   const {
     title,
     content,
     pageHeaderRender,
     header,
+    prefixedClassName,
     extraContent,
     style,
     prefixCls,
+    breadcrumbRender,
     ...restProps
   } = props;
 
@@ -152,33 +194,32 @@ const defaultPageHeaderRender = (
     return null;
   }
   if (pageHeaderRender) {
-    return pageHeaderRender({ ...props, ...value });
+    return <> {pageHeaderRender({ ...props, ...value })}</>;
   }
   let pageHeaderTitle = title;
   if (!title && title !== false) {
     pageHeaderTitle = value.title;
   }
-  const pageHeaderProps = {
+  const pageHeaderProps: PageHeaderProps = {
     ...value,
     title: pageHeaderTitle,
     ...restProps,
     footer: renderFooter({
       ...restProps,
-      prefixedClassName: value.prefixedClassName,
+      breadcrumbRender,
+      prefixedClassName,
     }),
     ...header,
   };
 
+  const { breadcrumb } = pageHeaderProps as {
+    breadcrumb: BreadcrumbProps;
+  };
   if (
-    !pageHeaderProps.title &&
-    !pageHeaderProps.subTitle &&
-    !pageHeaderProps.breadcrumb?.itemRender &&
-    !pageHeaderProps.breadcrumb?.routes?.length &&
-    !pageHeaderProps.extra &&
-    !pageHeaderProps.tags &&
-    !pageHeaderProps.footer &&
-    !pageHeaderProps.avatar &&
-    !pageHeaderProps.backIcon &&
+    ['title', 'subTitle', 'breadcrumb', 'extra', 'tags', 'footer', 'avatar', 'backIcon'].every(
+      (item) => !pageHeaderProps[item],
+    ) &&
+    (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.routes?.length)) &&
     !content &&
     !extraContent
   ) {
@@ -186,18 +227,24 @@ const defaultPageHeaderRender = (
   }
 
   return (
-    <PageHeader
-      {...pageHeaderProps}
-      breadcrumb={{ ...pageHeaderProps.breadcrumb, ...pageHeaderProps.breadcrumbProps }}
-      prefixCls={prefixCls}
-    >
-      {header?.children || renderPageHeader(content, extraContent, value.prefixedClassName)}
-    </PageHeader>
+    <div className={`${prefixedClassName}-warp`}>
+      <PageHeader
+        {...pageHeaderProps}
+        breadcrumb={
+          breadcrumbRender === false
+            ? undefined
+            : { ...pageHeaderProps.breadcrumb, ...value.breadcrumbProps }
+        }
+        prefixCls={prefixCls}
+      >
+        {header?.children || renderPageHeader(content, extraContent, prefixedClassName)}
+      </PageHeader>
+    </div>
   );
 };
 
 const PageContainer: React.FC<PageContainerProps> = (props) => {
-  const { children, loading, style, footer, affixProps, ghost, fixedHeader } = props;
+  const { children, loading = false, style, footer, affixProps, ghost, fixedHeader } = props;
   const value = useContext(RouteContext);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -207,6 +254,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
 
   const className = classNames(prefixedClassName, props.className, {
     [`${prefixCls}-page-container-ghost`]: ghost,
+    [`${prefixCls}-page-container-with-footer`]: footer,
   });
 
   const content = children ? (
@@ -223,33 +271,37 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     </div>
   ) : null;
 
-  const pageHeaderDom = defaultPageHeaderRender(props, {
-    ...value,
-    prefixCls: undefined,
-    prefixedClassName,
-  });
+  const pageHeaderDom = (
+    <ProPageHeader {...props} prefixCls={undefined} prefixedClassName={prefixedClassName} />
+  );
 
-  const headerDom = pageHeaderDom ? (
-    <div className={`${prefixedClassName}-warp`}>{pageHeaderDom}</div>
-  ) : null;
-
+  const renderContent = () => {
+    const spinProps = genLoading(loading);
+    const dom = spinProps.spinning ? <PageLoading {...spinProps} /> : content;
+    if (props.waterMarkProps || value.waterMarkProps) {
+      return <WaterMark {...(props.waterMarkProps || value.waterMarkProps)}>{dom}</WaterMark>;
+    }
+    return dom;
+  };
   return (
     <div style={style} className={className}>
-      {fixedHeader && headerDom ? (
+      {fixedHeader && pageHeaderDom ? (
         // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
         <Affix
           offsetTop={value.hasHeader && value.fixedHeader ? value.headerHeight : 0}
           {...affixProps}
         >
-          {headerDom}
+          {pageHeaderDom}
         </Affix>
       ) : (
-        headerDom
+        pageHeaderDom
       )}
-      <GridContent>{loading ? <PageLoading /> : content}</GridContent>
+      <GridContent>{renderContent()}</GridContent>
       {footer && <FooterToolbar prefixCls={prefixCls}>{footer}</FooterToolbar>}
     </div>
   );
 };
+
+export { ProPageHeader, ProBreadcrumb };
 
 export default PageContainer;

@@ -54,9 +54,7 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
         fileList={value}
         {...fieldProps}
         onChange={(info) => {
-          if (onChange) {
-            onChange(info);
-          }
+          onChange?.(info);
           if (fieldProps?.onChange) {
             fieldProps?.onChange(info);
           }
@@ -66,7 +64,16 @@ const ProFormUploadDragger: React.FC<ProFormDraggerProps> = React.forwardRef(
         <p className={`${baseClassName}-drag-icon`}>{icon}</p>
         <p className={`${baseClassName}-text`}>{title}</p>
         <p className={`${baseClassName}-hint`}>{description}</p>
-        {children}
+        {children ? (
+          <div
+            className={`${baseClassName}-extra`}
+            style={{
+              padding: 16,
+            }}
+          >
+            {children}
+          </div>
+        ) : null}
       </Upload.Dragger>
     );
   },

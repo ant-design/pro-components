@@ -9,6 +9,81 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.22.0
+
+`2021-07-19`
+
+- 💥 feat(layout): support breadcrumbProps.minLength to set breadcrumb length [#3263](https://github.com/ant-design/pro-components/pull/3263) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(layout): add ProBreadcrumb [#3257](https://github.com/ant-design/pro-components/pull/3257) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.20.0
+
+`2021-06-28`
+
+- 🐛 fix(layout): defaultSettings do not set menu locale [#3105](https://github.com/ant-design/pro-components/pull/3105) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(layout): 给 menuItemRender 添加参数 [#3081](https://github.com/ant-design/pro-components/pull/3081) [@snadn](https://github.com/snadn)
+- 💥 feat(form): add layout demo [#3076](https://github.com/ant-design/pro-components/pull/3076) [@rdmclin2](https://github.com/rdmclin2)
+
+## @ant-design/pro-layout@6.19.4
+
+`2021-06-08`
+
+- 🐛 fix(layout): fix layout fast load error [#2933](https://github.com/ant-design/pro-components/pull/2933) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): fix menu params alway run error [#2931](https://github.com/ant-design/pro-components/pull/2931) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): if have menuDataRender, alway render layout [#2920](https://github.com/ant-design/pro-components/pull/2920) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.18.1
+
+`2021-05-18`
+
+- 🐛 fix(card): card loading in layout center [#2739](https://github.com/ant-design/pro-components/pull/2739) [@rdmclin2](https://github.com/rdmclin2)
+- 🐛 fix(layout): do not use base [#2734](https://github.com/ant-design/pro-components/pull/2734) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.18.0
+
+`2021-05-11`
+
+- 💥 feat(layout): support for all parameters of the Spin component [#2704](https://github.com/ant-design/pro-components/pull/2704) [@jiyingzhi](https://github.com/jiyingzhi)
+
+## @ant-design/pro-layout@6.17.0
+
+`2021-04-22`
+
+- 🐛 fix(layout): routes change should reload menu [#2573](https://github.com/ant-design/pro-components/pull/2573) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(layout): layout support params [#2545](https://github.com/ant-design/pro-components/pull/2545) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.16.2
+
+`2021-04-15`
+
+- 🐛 fix(layout): fix openkeys=false, splitMenu no work error [#2491](https://github.com/ant-design/pro-components/pull/2491) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): default remove copyright [#2484](https://github.com/ant-design/pro-components/pull/2484) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.16.0
+
+`2021-03-31`
+
+- 💥 feat(layout): layout support request [#2363](https://github.com/ant-design/pro-components/pull/2363) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.15.5
+
+`2021-03-29`
+
+- 🐛 fix(layout): 修复了 pro-layout 数组扩展操作问题 [#2289](https://github.com/ant-design/pro-components/pull/2289) [@Ives7](https://github.com/Ives7)
+
+## @ant-design/pro-layout@6.15.0
+
+`2021-03-08`
+
+- 💥 feat(layout): SettingDrawer support disableUrlParams [#2115](https://github.com/ant-design/pro-components/pull/2115) [@theprimone](https://github.com/theprimone)
+- 💥 feat(layout): layout support WaterMark [#2086](https://github.com/ant-design/pro-components/pull/2086) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.14.5
+
+`2021-02-28`
+
+- 🐛 fix(layout): fix layout animation error [#2027](https://github.com/ant-design/pro-components/pull/2027) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.14.3
 
 `2021-02-23`

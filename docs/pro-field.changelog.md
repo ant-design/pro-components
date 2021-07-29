@@ -9,6 +9,32 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.15.0
+
+`2021-04-15`
+
+- 🐛 fix(field): fix index column align center [#2454](https://github.com/ant-design/pro-components/pull/2454) [@drizzlesconsin](https://github.com/drizzlesconsin)
+
+## @ant-design/pro-field@1.14.1
+
+`2021-04-06`
+
+- 💥 feat(table): table column sorter supports field [#2376](https://github.com/ant-design/pro-components/pull/2376) [@xiefengnian](https://github.com/xiefengnian)
+
+## @ant-design/pro-field@1.11.0
+
+`2021-03-08`
+
+- 🐛 fix(field): valueType 为对象时 不走 空值判断 [#2100](https://github.com/ant-design/pro-components/pull/2100) [@tolerance-go](https://github.com/tolerance-go)
+- 💥 feat(field): add color pick [#2089](https://github.com/ant-design/pro-components/pull/2089) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-field@1.10.0
+
+`2021-02-22`
+
+- 🐛 fix(field): omit fieldProps and support onChange [#1886](https://github.com/ant-design/pro-components/pull/1886) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(field): support timeRange [#1884](https://github.com/ant-design/pro-components/pull/1884) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-field@1.9.3
 
 `2021-02-02`

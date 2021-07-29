@@ -19,7 +19,11 @@ const FieldTimePicker: ProFieldFC<{
   const prefixCls = getPrefixCls('pro-field-date-picker');
 
   if (mode === 'read') {
-    const dom = <span ref={ref}>{text ? moment(text).format(format || 'HH:mm:ss') : '-'}</span>;
+    const dom = (
+      <span ref={ref}>
+        {text ? moment(text).format(fieldProps?.format || format || 'HH:mm:ss') : '-'}
+      </span>
+    );
     if (render) {
       return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }
@@ -30,7 +34,8 @@ const FieldTimePicker: ProFieldFC<{
     const { disabled, onChange, placeholder, allowClear, value } = fieldProps;
     const momentValue = parseValueToMoment(value) as moment.Moment;
     if (light) {
-      const valueStr: string = (momentValue && momentValue.format(format || 'HH:mm:ss')) || '';
+      const valueStr: string =
+        (momentValue && momentValue.format(fieldProps?.format || format || 'HH:mm:ss')) || '';
       dom = (
         <div
           className={`${prefixCls}-light`}
@@ -44,9 +49,7 @@ const FieldTimePicker: ProFieldFC<{
             ref={ref}
             {...fieldProps}
             onChange={(v) => {
-              if (onChange) {
-                onChange(v);
-              }
+              onChange?.(v);
               setTimeout(() => {
                 setOpen(false);
               }, 0);
@@ -62,9 +65,7 @@ const FieldTimePicker: ProFieldFC<{
             value={valueStr}
             allowClear={allowClear}
             onClear={() => {
-              if (onChange) {
-                onChange(null);
-              }
+              onChange?.(null);
             }}
             expanded={open}
           />
@@ -100,8 +101,12 @@ const FieldTimeRangePicker: ProFieldFC<{
   format: string;
 }> = ({ text, mode, format, render, renderFormItem, plain, fieldProps }) => {
   const [startText, endText] = Array.isArray(text) ? text : [];
-  const parsedStartText: string = startText ? moment(startText).format(format || 'YYYY-MM-DD') : '';
-  const parsedEndText: string = endText ? moment(endText).format(format || 'YYYY-MM-DD') : '';
+  const parsedStartText: string = startText
+    ? moment(startText).format(fieldProps?.format || format || 'YYYY-MM-DD')
+    : '';
+  const parsedEndText: string = endText
+    ? moment(endText).format(fieldProps?.format || format || 'YYYY-MM-DD')
+    : '';
 
   if (mode === 'read') {
     const dom = (

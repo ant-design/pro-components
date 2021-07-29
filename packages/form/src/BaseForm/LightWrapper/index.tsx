@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import {
   FilterDropdown,
@@ -10,6 +10,7 @@ import {
 import { ConfigProvider } from 'antd';
 
 import './index.less';
+import type { LightFilterFooterRender } from '../../interface';
 
 export type SizeType = 'small' | 'middle' | 'large' | undefined;
 
@@ -30,6 +31,8 @@ export type LightWrapperProps = {
   id?: string;
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
+  otherFieldProps?: any;
+  footerRender?: LightFilterFooterRender;
 };
 
 const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (props) => {
@@ -37,7 +40,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     label,
     size,
     disabled,
-    onChange,
+    onChange: propsOnChange,
     onBlur,
     className,
     style,
@@ -50,23 +53,51 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     labelFormatter,
     bordered,
     value,
+    otherFieldProps,
   } = props;
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName]);
   const [open, setOpen] = useMountMergeState<boolean>(false);
-
   const isDropdown =
     React.isValidElement(children) && isDropdownValueType(children.props.valueType);
 
-  if (!light || customLightMode || isDropdown) {
+  const onChange = (...restParams: any[]) => {
+    otherFieldProps?.onChange?.(...restParams);
+    propsOnChange?.(...restParams);
+  };
+
+  const isLight = useMemo(() => {
+    if (!light || customLightMode || isDropdown) {
+      return true;
+    }
+    return false;
+  }, [customLightMode, isDropdown, light]);
+
+  const childrenIsValidElement = useMemo(
+    () => children && React.isValidElement(children),
+    [children],
+  );
+
+  const allowClear = useMemo(() => {
+    if (isLight) return undefined;
+    if (childrenIsValidElement) return (children as JSX.Element)?.props?.fieldProps?.allowClear;
+    return undefined;
+  }, [children, childrenIsValidElement, isLight]);
+
+  const footerRender = useMemo(() => {
+    if (isLight) return undefined;
+    if (childrenIsValidElement) return (children as JSX.Element)?.props.footerRender;
+    return undefined;
+  }, [children, childrenIsValidElement, isLight]);
+
+  if (isLight) {
     if (React.isValidElement(children)) {
       return React.cloneElement(
         children,
         omitUndefined({
           value,
-          onChange,
           onBlur,
           ...children.props,
           fieldProps: omitUndefined({
@@ -81,15 +112,11 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
         }),
       );
     }
-
     return children as JSX.Element;
   }
 
-  let allowClear;
-  if (children && React.isValidElement(children)) {
-    allowClear = children.props.fieldProps?.allowClear;
-  }
   const labelValue = props[valuePropName];
+
   return (
     <FilterDropdown
       disabled={disabled}
@@ -122,6 +149,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           setOpen(false);
         },
       }}
+      footerRender={footerRender}
     >
       <div className={classNames(`${prefixCls}-container`, className)} style={style}>
         {React.isValidElement(children)

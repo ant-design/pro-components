@@ -133,8 +133,15 @@ const columns: ProColumns<DataSourceType>[] = [
     title: '标签',
     dataIndex: 'labels',
     width: '20%',
-    renderFormItem: (_, { isEditable, record, recordKey }) => {
-      console.log(record, recordKey);
+    formItemProps: {
+      rules: [
+        {
+          required: true,
+          message: '此项为必填项',
+        },
+      ],
+    },
+    renderFormItem: (_, { isEditable }) => {
       return isEditable ? <TagList /> : <Input />;
     },
     render: (_, row) => row?.labels?.map((item) => <Tag key={item.key}>{item.label}</Tag>),
@@ -147,12 +154,13 @@ const columns: ProColumns<DataSourceType>[] = [
       <a
         key="editable"
         onClick={() => {
-          action.startEditable?.(record.id);
+          action?.startEditable?.(record.id);
         }}
       >
         编辑
       </a>,
       <EditableProTable.RecordCreator
+        key="copy"
         record={{
           ...record,
           id: (Math.random() * 1000000).toFixed(0),
@@ -185,6 +193,7 @@ export default () => {
           新建一行
         </Button>
         <Button
+          key="rest"
           onClick={() => {
             form.resetFields();
           }}

@@ -12,6 +12,7 @@ import ProFormRate from './components/Rate';
 import ProFormSlider from './components/Slider';
 import ProFormUploadDragger from './components/UploadDragger';
 import ProFormUploadButton from './components/UploadButton';
+import type { ProFormFieldProps } from './components/Field';
 import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
@@ -20,6 +21,7 @@ import ProFormFieldSet from './components/FieldSet';
 import type { ProFormCaptchaProps } from './components/Captcha';
 import ProFormCaptcha from './components/Captcha';
 import ProFormDependency from './components/Dependency';
+import ProFormColorPicker from './components/ColorPicker';
 import type { ProFormDependencyProps } from './components/Dependency';
 
 import type { ProFormProps } from './layouts/ProForm';
@@ -36,15 +38,21 @@ import DrawerForm from './layouts/DrawerForm';
 import type { ProFormListProps } from './components/List';
 import ProFormList from './components/List';
 import type { FormInstance, FormItemProps, FormProps } from './BaseForm';
+import type { ProFormLayoutType, ProFormColumnsType } from './components/SchemaForm';
+import BetaSchemaForm from './components/SchemaForm';
 import './index.less';
+import { ProFormContext } from '@ant-design/pro-utils';
+import type { LightFilterFooterRender } from './interface';
 
 export type {
+  ProFormFieldProps,
   ProFormCaptchaProps,
   BaseQueryFilterProps,
   DrawerFormProps,
   ModalFormProps,
   ProFormProps,
   StepFormProps,
+  ProFormLayoutType,
   StepsFormProps,
   QueryFilterProps,
   ProFormFieldSetProps,
@@ -53,6 +61,8 @@ export type {
   FormItemProps,
   FormInstance,
   ProFormListProps,
+  LightFilterFooterRender,
+  ProFormColumnsType,
 };
 
 const ProFormGroup = ProForm.Group;
@@ -78,15 +88,18 @@ export {
   ProFormSlider,
   ProFormFieldSet,
   ProFormCaptcha,
+  ProFormColorPicker,
   ProFormDateTimeRangePicker,
   ProFormDependency,
   ProFormGroup,
+  BetaSchemaForm,
   // layouts
   QueryFilter,
   LightFilter,
   StepsForm,
   DrawerForm,
   ModalForm,
+  ProFormContext,
 };
 
 export default ProForm;

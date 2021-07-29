@@ -17,6 +17,7 @@ export default () => {
         return Promise.resolve({
           success: true,
           data: {
+            rate: 5,
             id: '这是一段文本columns',
             date: '20200809',
             money: '1212100',
@@ -65,6 +66,12 @@ export default () => {
           valueType: 'date',
         },
         {
+          title: 'Rate',
+          key: 'rate',
+          dataIndex: 'rate',
+          valueType: 'rate',
+        },
+        {
           title: 'money',
           key: 'money',
           dataIndex: 'money',
@@ -100,7 +107,7 @@ export default () => {
         },
       ]}
     >
-      <ProDescriptions.Item label="百分比" valueType="percent">
+      <ProDescriptions.Item dataIndex="percent" label="百分比" valueType="percent">
         100
       </ProDescriptions.Item>
     </ProDescriptions>

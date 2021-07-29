@@ -6,27 +6,16 @@ exports[`List 🚏 only has content 1`] = `
 >
   <div
     class="ant-card"
-    style="height: 100%;"
+    style="background: transparent;"
   >
     <div
       class="ant-card-body"
-      style="padding: 0px;"
+      style="padding: 0px; background: transparent;"
     >
       <div
         class="ant-pro-table-list-toolbar"
         style="padding: 0px 24px;"
-      >
-        <div
-          class="ant-pro-table-list-toolbar-container"
-        >
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
-          />
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
-          />
-        </div>
-      </div>
+      />
       <div
         class="ant-list ant-list-split"
       >
@@ -59,6 +48,9 @@ exports[`List 🚏 only has content 1`] = `
                       段落示意：蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态，提供跨越设计与开发的体验解决方案。蚂蚁金服设计平台 design.alipay.com，用最小的工作量，无缝接入蚂蚁金服生态提供跨越设计与开发的体验解决方案。
                     </div>
                   </div>
+                  <div
+                    class=""
+                  />
                 </li>
               </div>
             </ul>
@@ -76,27 +68,16 @@ exports[`List 🚏 only has description 1`] = `
 >
   <div
     class="ant-card"
-    style="height: 100%;"
+    style="background: transparent;"
   >
     <div
       class="ant-card-body"
-      style="padding: 0px;"
+      style="padding: 0px; background: transparent;"
     >
       <div
         class="ant-pro-table-list-toolbar"
         style="padding: 0px 24px;"
-      >
-        <div
-          class="ant-pro-table-list-toolbar-container"
-        >
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
-          />
-          <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
-          />
-        </div>
-      </div>
+      />
       <div
         class="ant-list ant-list-split"
       >
@@ -153,6 +134,9 @@ exports[`List 🚏 only has description 1`] = `
                       </div>
                     </div>
                   </div>
+                  <div
+                    class=""
+                  />
                 </li>
               </div>
             </ul>

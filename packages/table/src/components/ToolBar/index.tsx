@@ -4,18 +4,19 @@ import { useIntl } from '@ant-design/pro-provider';
 import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
 import type { SearchProps } from 'antd/lib/input';
-import React, { useEffect, useMemo } from 'react';
-import Container from '../../container';
-import type { ActionType, ProColumns } from '../../typing';
-import ColumnSetting from '../ColumnSetting';
-import type { ExportToExcelActionProps } from '../ExportToExcelAction';
-import ExportToExcelAction from '../ExportToExcelAction';
-import type { ExportToExcelActionExport } from '../ExportToExcelAction/typings';
+import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
 import DensityIcon from './DensityIcon';
-import FullScreenIcon from './FullscreenIcon';
-import './index.less';
+import Container from '../../container';
+import type { ActionType, ProTableProps } from '../../typing';
+import { omitUndefined } from '@ant-design/pro-utils';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+
+type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
+  /** 如果 onSearch 返回一个false，直接拦截请求 */
+  onSearch?: (keyword: string) => boolean | undefined;
+};
 
 export type OptionConfig<T = unknown, ValueType = 'text'> = {
   density?: boolean;
@@ -27,13 +28,7 @@ export type OptionConfig<T = unknown, ValueType = 'text'> = {
         draggable?: boolean;
         checkable?: boolean;
       };
-  search?: (SearchProps & { name?: string }) | boolean;
-  export?:
-    | boolean
-    | ((
-        ...args: [...Parameters<ExportToExcelActionExport<T, ValueType>>, ActionType?]
-      ) => ReturnType<ExportToExcelActionExport<T, ValueType>>)
-    | Omit<ExportToExcelActionProps, 'dataSource' | 'columns' | 'proColumns'>;
+  search?: (OptionSearchProps & { name?: string }) | boolean;
 };
 
 export type OptionsType =
@@ -42,7 +37,7 @@ export type OptionsType =
 
 export type ToolBarProps<T = unknown, ValueType = 'text'> = {
   headerTitle?: React.ReactNode;
-  tooltip?: string;
+  tooltip?: string | LabelTooltipType;
   /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
   toolbar?: ListToolBarProps;
@@ -210,9 +205,8 @@ function ToolBar<T, ValueType>({
 
     const options = {
       ...defaultOptions,
-      ...(propsOptions || {
-        fullScreen: false,
-      }),
+      fullScreen: false,
+      ...propsOptions,
     };
 
     return renderDefaultOption<T, ValueType>(
@@ -258,6 +252,7 @@ function ToolBar<T, ValueType>({
       onSearch?.('');
     }
   }, [counter.keyWords, onSearch]);
+
   return (
     <ListToolBar
       title={headerTitle}
@@ -271,4 +266,134 @@ function ToolBar<T, ValueType>({
   );
 }
 
-export default ToolBar;
+export type ToolbarRenderProps<T> = {
+  hideToolbar: boolean;
+  onFormSearchSubmit: (params: any) => void;
+  searchNode: React.ReactNode;
+  tableColumn: any[];
+  tooltip?: string | LabelTooltipType;
+  selectedRows: T[];
+  selectedRowKeys: React.Key[];
+  headerTitle: React.ReactNode;
+  toolbar: ProTableProps<T, any, any>['toolbar'];
+  options: ProTableProps<T, any, any>['options'];
+  toolBarRender?: ToolBarProps<T>['toolBarRender'];
+  actionRef: React.MutableRefObject<ActionType | undefined>;
+};
+
+/** 这里负责与table交互，并且减少 render次数 */
+class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
+  onSearch = (keyword: string) => {
+    const { options, onFormSearchSubmit, actionRef } = this.props;
+
+    if (!options || !options.search) {
+      return;
+    }
+    const { name = 'keyword' } = options.search === true ? {} : options.search;
+
+    /** 如果传入的 onSearch 返回值为 false，应该直接拦截请求 */
+    const success = (options.search as OptionSearchProps)?.onSearch?.(keyword);
+
+    if (success === false) return;
+
+    // 查询的时候的回到第一页
+    actionRef?.current?.setPageInfo?.({
+      current: 1,
+    });
+
+    onFormSearchSubmit(
+      omitUndefined({
+        // ...formSearch,
+        _timestamp: Date.now(),
+        [name]: keyword,
+      }),
+    );
+  };
+  isEquals = (next: ToolbarRenderProps<T>) => {
+    const {
+      hideToolbar,
+      tableColumn,
+      options,
+      tooltip,
+      toolbar,
+      selectedRows,
+      selectedRowKeys,
+      headerTitle,
+      actionRef,
+      toolBarRender,
+    } = this.props;
+
+    return isDeepEqualReact(
+      {
+        hideToolbar,
+        tableColumn,
+        options,
+        tooltip,
+        toolbar,
+        selectedRows,
+        selectedRowKeys,
+        headerTitle,
+        actionRef,
+        toolBarRender,
+      },
+      {
+        hideToolbar: next.hideToolbar,
+        tableColumn: next.tableColumn,
+        options: next.options,
+        tooltip: next.tooltip,
+        toolbar: next.toolbar,
+        selectedRows: next.selectedRows,
+        selectedRowKeys: next.selectedRowKeys,
+        headerTitle: next.headerTitle,
+        actionRef: next.actionRef,
+        toolBarRender: next.toolBarRender,
+      },
+    );
+  };
+  shouldComponentUpdate = (next: ToolbarRenderProps<T>) => {
+    if (next.searchNode) {
+      return true;
+    }
+    return !this.isEquals(next);
+  };
+
+  render = () => {
+    const {
+      hideToolbar,
+      tableColumn,
+      options,
+      searchNode,
+      tooltip,
+      toolbar,
+      selectedRows,
+      selectedRowKeys,
+      headerTitle,
+      actionRef,
+      toolBarRender,
+    } = this.props;
+
+    // 不展示 toolbar
+    if (hideToolbar) {
+      return null;
+    }
+    return (
+      <ToolBar<T>
+        tooltip={tooltip}
+        columns={tableColumn}
+        options={options}
+        headerTitle={headerTitle}
+        action={actionRef}
+        onSearch={this.onSearch}
+        selectedRows={selectedRows}
+        selectedRowKeys={selectedRowKeys}
+        toolBarRender={toolBarRender}
+        toolbar={{
+          filter: searchNode,
+          ...toolbar,
+        }}
+      />
+    );
+  };
+}
+
+export default ToolbarRender;

@@ -147,9 +147,9 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | headerTheme | The theme for the top navigation, with mix mode in effect | `light` \| `dark` | `dark` |
 | fixedHeader | Whether to fix the header to the top | `boolean` | `false` |
 | fixSiderbar | whether to fix the navigation | `boolean` | `false` |
-| breakpoint | Trigger [breakpoint](https://ant.design/components/grid-cn/#Col) for responsive layouts | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
+| breakpoint | Trigger [breakpoint](https://ant.design/components/grid/#Col) for responsive layouts | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
 | menu | For the moment, only locale,locale can be turned off for the menu's own globalization | `{ locale: boolean, defaultOpenAll: boolean }` | `{ locale: true }` |
-| iconfontUrl | Use the icon configuration of [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) | `URL` | - |
+| iconfontUrl | Use the icon configuration of [IconFont](https://ant.design/components/icon/#components-icon-demo-iconfont) | `URL` | - |
 | iconPrefixes | icon prefix of side menu | `string` | `icon-` |
 | locale | Language settings for the current layout | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | settings for layout | [`Settings`](#Settings) | - |
@@ -167,16 +167,15 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | pageTitleRender | The render method for custom page titles | `(props: BasicLayoutProps) => ReactNode` | - |
 | menuRender | The render method for custom menus | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | View the menu data before displaying it, changes will not trigger a re-render | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
-| menuItemRender | The render method for custom menu items | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
+| menuItemRender | The render method for custom menu items | [`(itemProps: MenuDataItem, defaultDom: React.ReactNode, props: BaseMenuProps) => ReactNode`](/components/layout/#menudataitem) | - |
 | subMenuItemRender | Customize the render method with submenu items | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
 | menuDataRender | The render method of menuData, used to customize menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | breadcrumbRender | customize the data for breadcrumbs | `(route)=>route` | - |
 | route | Used to generate menus and breadcrumbs. umi's Layout will automatically have | [route](#Route) | - |
 | disableMobile | disable automatic switching to mobile pages | `boolean` | false |
 | links | Show shortcut actions in the lower right corner of the menu | `ReactNode[]` | - |
-| menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
-
-As of 4.5.13 Layout supports most props of [Menu](https://ant.design/components/menu-cn/#Menu) via `menuProps`.
+| menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu/) | `MenuProps` | undefined |
+| waterMarkProps | Configure watermark, watermark is a function of PageContainer, layout is only transparently transmitted to PageContainer | [WaterMarkProps](/components/water-mark) | - |
 
 ### SettingDrawer
 
@@ -192,9 +191,9 @@ As of 4.5.13 Layout supports most props of [Menu](https://ant.design/components/
 
 A simple loading page
 
-| parameters | description                    | type      | default |
-| ---------- | ------------------------------ | --------- | ------- |
-| tip        | A small description of loading | ReactNode | -       |
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| [(...)](https://ant.design/components/spin-cn/#API) | support all other antd `Spin` component parameters | - | - |
 
 ### RouteContext
 
@@ -333,7 +332,7 @@ The default ProLayout does not provide a footer, but does provide a footer compo
 
 ```tsx | pure
 <Footer
-  copyright="2019 by Anthem Experience Technologies"
+  copyright="@2019 by Anthem Experience Technologies"
   links={[
     {
       key: 'Ant Design Pro',

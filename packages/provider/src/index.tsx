@@ -10,6 +10,7 @@ import itIT from './locale/it_IT';
 import esES from './locale/es_ES';
 import jaJP from './locale/ja_JP';
 import ruRU from './locale/ru_RU';
+import srRS from './locale/sr_RS';
 import msMY from './locale/ms_MY';
 import zhTW from './locale/zh_TW';
 import frFR from './locale/fr_FR';
@@ -19,6 +20,7 @@ import idID from './locale/id_ID';
 import deDE from './locale/de_DE';
 import faIR from './locale/fa_IR';
 import trTR from './locale/tr_TR';
+import plPL from './locale/pl_PL';
 
 export type ProSchemaValueEnumType = {
   /** @name 演示的文案 */
@@ -44,7 +46,7 @@ export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | Reac
 export type BaseProFieldFC = {
   /** 值的类型 */
   text: React.ReactNode;
-
+  /** 放置到组件上 props */
   fieldProps?: any;
   /** 模式类型 */
   mode: ProFieldFCMode;
@@ -56,7 +58,7 @@ export type BaseProFieldFC = {
   label?: React.ReactNode;
   /** 映射值的类型 */
   valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
-
+  /** 唯一的key，用于网络请求 */
   proFieldKey?: React.Key;
 };
 
@@ -128,6 +130,7 @@ const itITIntl = createIntl('it_IT', itIT);
 const jaJPIntl = createIntl('ja_JP', jaJP);
 const esESIntl = createIntl('es_ES', esES);
 const ruRUIntl = createIntl('ru_RU', ruRU);
+const srRSIntl = createIntl('sr_RS', srRS);
 const msMYIntl = createIntl('ms_MY', msMY);
 const zhTWIntl = createIntl('zh_TW', zhTW);
 const frFRIntl = createIntl('fr_FR', frFR);
@@ -137,6 +140,7 @@ const idIDIntl = createIntl('id_ID', idID);
 const deDEIntl = createIntl('de_DE', deDE);
 const faIRIntl = createIntl('fa_IR', faIR);
 const trTRIntl = createIntl('tr_TR', trTR);
+const plPLIntl = createIntl('pl_PL', plPL);
 
 const intlMap = {
   'ar-EG': arEGIntl,
@@ -147,6 +151,7 @@ const intlMap = {
   'ja-JP': jaJPIntl,
   'es-ES': esESIntl,
   'ru-RU': ruRUIntl,
+  'sr-RS': srRSIntl,
   'ms-MY': msMYIntl,
   'zh-TW': zhTWIntl,
   'fr-FR': frFRIntl,
@@ -156,6 +161,7 @@ const intlMap = {
   'de-DE': deDEIntl,
   'fa-IR': faIRIntl,
   'tr-TR': trTRIntl,
+  'pl-PL': plPLIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -171,6 +177,7 @@ export {
   jaJPIntl,
   esESIntl,
   ruRUIntl,
+  srRSIntl,
   msMYIntl,
   zhTWIntl,
   frFRIntl,
@@ -180,6 +187,7 @@ export {
   deDEIntl,
   faIRIntl,
   trTRIntl,
+  plPLIntl,
   intlMap,
   intlMapKeys,
 };
@@ -228,6 +236,7 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
     <ConfigConsumer>
       {(value) => {
         const localeName = locale?.locale;
+
         const key = findIntlKeyByAntdLocaleKey(localeName);
         // antd 的 key 存在的时候以 antd 的为主
         const intl =
@@ -242,6 +251,7 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
                 locale: zh_CN,
               }
             : {};
+
         return (
           <Provider {...configProvider}>
             <ConfigProvider

@@ -53,8 +53,10 @@ function demoTest(component: string, options: Options = {}) {
 
   // Mock offsetHeight
   // @ts-expect-error
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
-    .get;
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetHeight',
+  ).get;
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
       let html = this.innerHTML;
@@ -87,6 +89,7 @@ function demoTest(component: string, options: Options = {}) {
   });
   // 支持 demos 下的所有非_开头的tsx文件
   const files = glob.sync(`./packages/${component}/**/demos/**/[!_]*.tsx`);
+  files.push(...glob.sync(`./${component}/**/**/demos/[!_]*.tsx`));
 
   describe(`${component} demos`, () => {
     files.forEach((file) => {
@@ -98,8 +101,7 @@ function demoTest(component: string, options: Options = {}) {
         MockDate.set(moment('2016-11-22').valueOf());
         const Demo = require(`.${file}`).default; // eslint-disable-line global-require, import/no-dynamic-require
         const wrapper = mount(<Demo />);
-
-        await waitForComponentToPaint(wrapper, component === 'table' ? 1000 : 16);
+        await waitForComponentToPaint(wrapper, ['table', 'list'].includes(component) ? 2000 : 160);
         // Convert aria related content
         const dom = wrapper.render();
         ariaConvert(dom);

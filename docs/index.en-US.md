@@ -4,7 +4,7 @@ order: 10
 sidebar: false
 hero:
   title: ProComponents
-  desc: 🏆 Use Ant Design like a Pro!
+  desc: 🏆 Make middle and backstage development easier
   actions:
     - text: 🥳 quick-start →
       link: /en-US/docs/getting-started
@@ -29,7 +29,7 @@ features:
     title: TypeScript
     desc: Development with TypeScript, complete with type definition files
 
-footer: Open-source MIT Licensed | Copyright © 2017-present
+footer: Open-source MIT Licensed | © 2017-present
 ---
 
 ## Component Board

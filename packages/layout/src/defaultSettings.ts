@@ -1,3 +1,4 @@
+import type { MenuDataItem } from '@umijs/route-utils';
 import type { MenuTheme } from 'antd/lib/menu/MenuContext';
 
 export type ContentWidth = 'Fluid' | 'Fixed';
@@ -29,6 +30,12 @@ export type PureSettings = {
     locale?: boolean;
     defaultOpenAll?: boolean;
     loading?: boolean;
+    onLoadingChange?: (loading?: boolean) => void;
+    params?: Record<string, any>;
+    request?: (
+      params: Record<string, any>,
+      defaultMenuData: MenuDataItem[],
+    ) => Promise<MenuDataItem[]>;
     type?: 'sub' | 'group';
     autoClose?: false;
   };
@@ -63,9 +70,6 @@ const defaultSettings: ProSettings = {
   contentWidth: 'Fluid',
   fixedHeader: false,
   fixSiderbar: false,
-  menu: {
-    locale: true,
-  },
   headerHeight: 48,
   title: 'Ant Design Pro',
   iconfontUrl: '',

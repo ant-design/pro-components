@@ -53,9 +53,19 @@ interface RequestData {
 
 ### 基础定义列表
 
-基本使用。
+### 常见配置
+
+<code src="./demos/dynamic-descriptions.tsx" title="常见配置" height="500px"/>
+
+### 基本使用
 
 <code src="./demos/base.tsx" title="基础定义列表" />
+
+### 格式化配置
+
+根据配置格式化日期
+
+<code src="./demos/format.tsx" title="format configuration" />
 
 ### 远程请求数据
 
@@ -73,17 +83,13 @@ interface RequestData {
 
 ProDescriptions 支持了和 Table 相同的 dataSource
 
-<code src="./demos/data-source.tsx" title="dataSource 配置数据"/>
+<code src="./demos/use-data-source.tsx" title="dataSource 配置数据"/>
 
 ### 可编辑的定义列表
 
 API 与 ProTable 相同
 
 <code src="./demos/editable.tsx" title="可编辑的定义列表" />
-
-### 自定义 valueType
-
-<code src="./demos/customization-value-type.tsx" title="自定义 valueType" />
 
 ## API
 
@@ -98,7 +104,7 @@ API 与 ProTable 相同
 | loading | 展示一个加载的骨架屏，骨架屏和 dom 不会一一对应 | `boolean` | - |
 | extra | 描述列表的操作区域，显示在右上方 | `string` \| `ReactNode` | - |
 | bordered | 是否展示边框 | boolean | false |
-| column | 一行的 `ProDescriptionsItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | number | 3 |
+| column | 一行的 `ProDescriptionsItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 1, sm: 2, md: 3}` | number | 3 |
 | size | 设置列表的大小。可以设置为 `middle` 、`small`, 或不填（只有设置 `bordered={true}` 生效） | `default` \| `middle` \| `small` | - |
 | layout | 描述布局 | `horizontal` \| `vertical` | `horizontal` |
 | colon | 配置 `ProDescriptions.Item` 的 `colon` 的默认值 | boolean | true |
@@ -114,10 +120,10 @@ API 与 ProTable 相同
 | form | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用 | `FormInstance` | - |
 | editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
 | onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | 保存一行的时候触发，只更新 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onSave | 保存一行的时候触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<any>` | - |
-| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
-| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
+| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>,defaultDom) => ReactNode[]` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
 | onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |

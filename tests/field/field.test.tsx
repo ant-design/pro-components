@@ -8,10 +8,35 @@ import Field from '@ant-design/pro-field';
 import Demo from './fixtures/demo';
 import { waitForComponentToPaint, waitTime } from '../util';
 
+const domRef = React.createRef();
+
 describe('Field', () => {
   it('🐴 base use', async () => {
     const html = render(<Field text="100" valueType="money" mode="edit" />);
     expect(html).toMatchSnapshot();
+  });
+
+  it('🐴 money onchange values', async () => {
+    const html = mount(<Field text="100" valueType="money" mode="edit" />);
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 1000');
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: '￥ 100',
+        },
+      });
+    });
+
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 100');
   });
 
   it('🐴 percent=0', async () => {
@@ -89,6 +114,7 @@ describe('Field', () => {
           text="default"
           valueType={valueType as 'radio'}
           mode="read"
+          ref={domRef}
           render={(text, _, dom) => <>pre{dom}</>}
           valueEnum={{
             default: { text: '关闭', status: 'Default' },
@@ -330,11 +356,13 @@ describe('Field', () => {
     'jsonCode',
     'rate',
     'image',
+    'color',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType support render ${valueType}`, async () => {
       const html = render(
         <Field
+          ref={domRef}
           text="1994-07-29 12:00:00"
           mode="read"
           valueType={valueType as 'text'}
@@ -395,42 +423,49 @@ describe('Field', () => {
   });
 
   it('🐴 money valueType is Object', async () => {
-    let html = render(
-      <Field
-        text="100"
-        valueType={{
-          type: 'money',
-          locale: 'en_US',
-        }}
-        mode="edit"
-      />,
-    );
-    expect(html).toMatchSnapshot();
+    const renderField = (locale: string) => {
+      let html = render(
+        <Field
+          text="100"
+          valueType={{
+            type: 'money',
+            locale,
+          }}
+          mode="edit"
+        />,
+      );
+      expect(html).toMatchSnapshot();
 
-    html = render(
-      <Field
-        text="100"
-        valueType={{
-          type: 'money',
-          locale: 'en_US',
-        }}
-        mode="read"
-      />,
-    );
-    expect(html).toMatchSnapshot();
+      html = render(
+        <Field
+          text="100"
+          valueType={{
+            type: 'money',
+            moneySymbol: false,
+            locale,
+          }}
+          mode="read"
+        />,
+      );
+      expect(html).toMatchSnapshot();
 
-    html = render(
-      <Field
-        text="100"
-        valueType={{
-          type: 'money',
-          moneySymbol: '',
-          locale: 'en_US',
-        }}
-        mode="read"
-      />,
-    );
-    expect(html).toMatchSnapshot();
+      html = render(
+        <Field
+          text="100"
+          valueType={{
+            type: 'money',
+            locale,
+          }}
+          mode="read"
+        />,
+      );
+      expect(html).toMatchSnapshot();
+    };
+
+    renderField('en_US');
+    renderField('ru_RU');
+    renderField('ms_MY');
+    renderField('sr_RS');
   });
 
   it('🐴 percent support unit string', async () => {
@@ -529,49 +564,6 @@ describe('Field', () => {
     });
     await waitForComponentToPaint(html);
     expect(html.find('span.anticon-eye').exists()).toBeTruthy();
-  });
-
-  it('🐴 valueType=text', async () => {
-    const html = mount(
-      <Field
-        text="100"
-        fieldProps={{
-          composition: true,
-        }}
-        valueType="text"
-        mode="edit"
-      />,
-    );
-    await waitForComponentToPaint(html);
-    html.find('input').simulate('compositionstart', {
-      target: {
-        value: 'xxx',
-      },
-    });
-    await waitForComponentToPaint(html);
-
-    html.find('input').simulate('change', {
-      target: {
-        value: 'xxx',
-      },
-    });
-
-    await waitForComponentToPaint(html);
-
-    html.find('input').simulate('compositionend', {
-      target: {
-        value: 'xxx',
-      },
-    });
-
-    await waitForComponentToPaint(html);
-
-    html.find('input').simulate('change', {
-      target: {
-        value: 'xxx',
-      },
-    });
-    expect(html.find('input').props().value).toBe('xxx');
   });
 
   it('🐴 password support controlled visible', async () => {
@@ -676,5 +668,31 @@ describe('Field', () => {
     });
     await waitForComponentToPaint(html);
     expect(html.text()).toBe('qixian');
+  });
+
+  it(`🐴 valueType renderFormItem return number`, async () => {
+    const html = render(
+      <Field
+        text={moment('2019-11-16 12:50:26').valueOf()}
+        mode="edit"
+        // @ts-expect-error
+        renderFormItem={() => 2}
+      />,
+    );
+    expect(html.text()).toBe('2');
+  });
+
+  it(`🐴 valueType digit support formatter`, async () => {
+    const html = render(
+      <Field
+        text={10000}
+        mode="read"
+        valueType="digit"
+        fieldProps={{
+          formatter: (value: string) => `$${value}`,
+        }}
+      />,
+    );
+    expect(html.text()).toBe('$￥ 10000');
   });
 });

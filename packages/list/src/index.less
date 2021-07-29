@@ -4,6 +4,8 @@
 @pro-list-prefix-cls: ~'@{ant-prefix}-pro-list';
 
 .@{pro-list-prefix-cls} {
+  background-color: @component-background;
+
   .@{ant-prefix}-list-grid {
     padding: 0 24px;
   }
@@ -19,10 +21,25 @@
   .@{pro-list-prefix-cls}-row {
     padding: 0 18px 0 24px;
 
+    &:last-child {
+      border-bottom: none;
+      .@{ant-prefix}-list-item {
+        border-bottom: none;
+      }
+    }
+
     &:hover {
       background-color: rgba(0, 0, 0, 0.02);
       transition: background-color 0.3s;
       .@{ant-prefix}-list-item-action {
+        display: block;
+      }
+
+      .@{ant-prefix}-list-item-extra {
+        display: flex;
+      }
+
+      .@{pro-list-prefix-cls}-row-extra {
         display: block;
       }
 
@@ -83,6 +100,16 @@
       .@{ant-prefix}-list-item-action {
         display: none;
       }
+    }
+
+    &-show-extra-hover {
+      .@{ant-prefix}-list-item-extra {
+        display: none;
+      }
+    }
+
+    &-extra {
+      display: none;
     }
 
     &-subheader {
@@ -146,6 +173,7 @@
 
     &-title {
       margin-right: 16px;
+      word-break: break-all;
       cursor: pointer;
       &:hover {
         color: @primary-color;
@@ -166,13 +194,7 @@
 
     &-description {
       margin-top: 4px;
-    }
-
-    &:last-child {
-      border-bottom: none;
-      .@{ant-prefix}-list-item {
-        border-bottom: none;
-      }
+      word-break: break-all;
     }
 
     &-avatar {
@@ -253,6 +275,11 @@
   .@{ant-prefix}-list-bordered .@{ant-prefix}-list-item {
     padding-right: 0;
     padding-left: 0;
+  }
+  .@{pro-list-prefix-cls}-row-show-extra-hover {
+    .@{ant-prefix}-list-item-extra {
+      display: none;
+    }
   }
 }
 

@@ -40,9 +40,12 @@ const FieldDatePicker: ProFieldFC<{
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
   const [open, setOpen] = useState<boolean>(false);
-
   if (mode === 'read') {
-    const dom = <span ref={ref}>{text ? moment(text).format(format || 'YYYY-MM-DD') : '-'}</span>;
+    const dom = (
+      <span ref={ref}>
+        {text ? moment(text).format(fieldProps.format || format || 'YYYY-MM-DD') : '-'}
+      </span>
+    );
     if (render) {
       return render(text, { mode, ...fieldProps }, <span>{dom}</span>);
     }
@@ -77,9 +80,7 @@ const FieldDatePicker: ProFieldFC<{
             {...fieldProps}
             value={momentValue}
             onChange={(v) => {
-              if (onChange) {
-                onChange(v);
-              }
+              onChange?.(v);
               setTimeout(() => {
                 setOpen(false);
               }, 0);
@@ -94,9 +95,7 @@ const FieldDatePicker: ProFieldFC<{
             size={size}
             value={valueStr}
             onClear={() => {
-              if (onChange) {
-                onChange(null);
-              }
+              onChange?.(null);
             }}
             allowClear={allowClear}
             bordered={bordered}

@@ -56,28 +56,10 @@ export default () => (
     search={{
       defaultCollapsed: false,
       labelWidth: 'auto',
-      optionRender: ({ searchText, resetText }, { form }) => {
-        return [
-          <Button
-            key="searchText"
-            type="primary"
-            onClick={() => {
-              form?.submit();
-            }}
-          >
-            {searchText}
-          </Button>,
-          <Button
-            key="resetText"
-            onClick={() => {
-              form?.resetFields();
-            }}
-          >
-            {resetText}
-          </Button>,
-          <Button key="out">导出</Button>,
-        ];
-      },
+      optionRender: (searchConfig, formProps, dom) => [
+        ...dom.reverse(),
+        <Button key="out">导出</Button>,
+      ],
     }}
     toolBarRender={() => [
       <Button key="primary" type="primary">

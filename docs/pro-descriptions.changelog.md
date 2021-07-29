@@ -9,6 +9,36 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.8.2
+
+`2021-06-15`
+
+- 🐛 fix(descriptions): fix descriptions fomart error [#3015](https://github.com/ant-design/pro-components/pull/3015) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-descriptions@1.7.12
+
+`2021-05-24`
+
+- 🐛 fix(descriptions): Fix the problem of remounting every time you refresh [#2815](https://github.com/ant-design/pro-components/pull/2815) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-descriptions@1.6.11
+
+`2021-03-31`
+
+- 🐛 fix(descriptions): fix descriptions onsave no work where key is array [#2350](https://github.com/ant-design/pro-components/pull/2350) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-descriptions@1.6.10
+
+`2021-03-29`
+
+- 🐛 fix(descriptions): if label is null, no render lable [#2292](https://github.com/ant-design/pro-components/pull/2292) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-descriptions@1.6.0
+
+`2021-02-22`
+
+- 🐛 fix(descriptions): fix descriptions editor error [#1878](https://github.com/ant-design/pro-components/pull/1878) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-descriptions@1.6.0
 
 `2021-02-22`

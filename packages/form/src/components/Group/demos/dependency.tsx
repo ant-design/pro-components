@@ -6,7 +6,7 @@ const Demo = () => {
     <ProForm>
       <ProFormText name="name" label="姓名" />
       <ProFormList
-        name="users"
+        name={['default', 'users']}
         label="用户信息"
         initialValue={[
           {

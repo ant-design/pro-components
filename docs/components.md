@@ -1,5 +1,5 @@
 ---
-title: ProComponents - 组件总览
+title: 组件总览
 order: 0
 group:
   path: /
@@ -18,6 +18,8 @@ ProComponents 是基于 Ant Design 而开发的模板组件，提供了更高级
 - [ProCard](/components/card) 提供卡片切分以及栅格布局能力
 - [ProDescriptions](/components/descriptions) 定义列表模板组件，ProTable 的配套组件
 - [ProSkeleton](/components/skeleton) 页面级别的骨架屏
+
+> 如果您是阿里内网用户，欢迎尝试使用 [TechUI](https://techui.alipay.com)。TechUI 在封装 ProComponents 的基础上还提供了丰富的 Ant Design 扩展组件。
 
 ## CRUD
 
@@ -105,7 +107,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /** @name 确定这个列的唯一值 */
   key?: React.ReactText;
   /**
-   * 支持一个数字，[a,b] 会转化为 obj.a.b
+   * 支持一个数组，[a,b] 会转化为 obj.a.b
    *
    * @name 与实体映射的key
    */
@@ -127,7 +129,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
     | React.ReactNode;
 
   /** @name 展示一个 icon，hover 是展示一些提示信息 */
-  tooltip?: string;
+  tooltip?: string | LabelTooltipType;
 
   /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;

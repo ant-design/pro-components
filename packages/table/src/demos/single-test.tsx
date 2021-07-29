@@ -21,6 +21,28 @@ type GithubIssueItem = {
   closed_at?: string;
 };
 
+const nestedColumns = [
+  {
+    title: 'col without dataIndex',
+    key: 'expand',
+  },
+  {
+    title: 'normal col',
+    dataIndex: 'key',
+  },
+];
+
+const nestedData = [
+  {
+    key: 1,
+    children: [
+      {
+        key: 11,
+      },
+    ],
+  },
+];
+
 const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '序号',
@@ -135,7 +157,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       </a>,
       <TableDropdown
         key="actionGroup"
-        onSelect={() => action.reload()}
+        onSelect={() => action?.reload()}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
@@ -170,6 +192,7 @@ export default () => {
           </Button>,
         ]}
       />
+      <ProTable columns={nestedColumns} dataSource={nestedData} />
       <ProTable<GithubIssueItem>
         columns={columns}
         actionRef={(ref) => console.log(ref)}

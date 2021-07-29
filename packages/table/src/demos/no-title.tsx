@@ -47,7 +47,7 @@ const permissions = [[], ['权限点名称1', '权限点名称4'], ['权限点�
 for (let i = 0; i < 5; i += 1) {
   tableListDataSource.push({
     outUserNo: `${102047 + i}`,
-    avatar: `//work.alibaba-inc.com/photo/${102047 + i}.32x32.jpg`,
+    avatar: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
     role: i === 0 ? 'admin' : 'operator',
     realName: realNames[i % 4],
     nickName: nickNames[i % 4],

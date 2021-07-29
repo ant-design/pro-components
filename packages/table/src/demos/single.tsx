@@ -41,7 +41,6 @@ const columns: ProColumns<GithubIssueItem>[] = [
         },
       ],
     },
-    width: '30%',
   },
   {
     title: '状态',
@@ -88,6 +87,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     key: 'showTime',
     dataIndex: 'created_at',
     valueType: 'date',
+    sorter: true,
     hideInSearch: true,
   },
   {
@@ -111,7 +111,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       <a
         key="editable"
         onClick={() => {
-          action.startEditable?.(record.id);
+          action?.startEditable?.(record.id);
         }}
       >
         编辑
@@ -121,7 +121,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
       </a>,
       <TableDropdown
         key="actionGroup"
-        onSelect={() => action.reload()}
+        onSelect={() => action?.reload()}
         menus={[
           { key: 'copy', name: '复制' },
           { key: 'delete', name: '删除' },
@@ -145,13 +145,14 @@ export default () => {
     <ProTable<GithubIssueItem>
       columns={columns}
       actionRef={actionRef}
-      request={async (params = {}) =>
-        request<{
+      request={async (params = {}, sort, filter) => {
+        console.log(sort, filter);
+        return request<{
           data: GithubIssueItem[];
         }>('https://proapi.azurewebsites.net/github/issues', {
           params,
-        })
-      }
+        });
+      }}
       editable={{
         type: 'multiple',
       }}

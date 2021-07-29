@@ -25,11 +25,7 @@ const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) 
   const className = getPrefixCls('pro-field-option');
 
   if (render) {
-    const doms = (render(
-      text,
-      { mode: type, ...fieldProps },
-      <></>,
-    ) as unknown) as React.ReactNode[];
+    const doms = render(text, { mode: type, ...fieldProps }, <></>) as unknown as React.ReactNode[];
 
     if (!doms || doms?.length < 1 || !Array.isArray(doms)) {
       return null;

@@ -5,13 +5,9 @@ import ProForm, {
   ProFormRadio,
   ProFormCheckbox,
   ProFormRate,
-  ProFormDatePicker,
   ProFormSelect,
   ProFormDigit,
-  ProFormDateTimePicker,
   ProFormSlider,
-  ProFormDateTimeRangePicker,
-  ProFormDateRangePicker,
   ProFormUploadButton,
   ProFormUploadDragger,
   ProFormFieldSet,
@@ -37,14 +33,6 @@ const Demo = () => (
         list: ['1', '2', '3'],
         select: 'china',
         'radio-button': 'a',
-        date: Date.now(),
-        dateWeek: Date.now(),
-        dateMonth: Date.now(),
-        dateQuarter: Date.now(),
-        dateYear: Date.now(),
-        dateTime: Date.now(),
-        dateTimeRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
-        dateRange: [Date.now(), Date.now() - 1000 * 60 * 60 * 24],
         dragger: [
           {
             uid: '1',
@@ -221,16 +209,6 @@ const Demo = () => (
         -
         <ProFormText width="md" readonly />
       </ProFormFieldSet>
-      <ProForm.Group title="日期相关分组">
-        <ProFormDatePicker readonly name="date" label="日期" />
-        <ProFormDatePicker.Week readonly name="dateWeek" label="周" />
-        <ProFormDatePicker.Month readonly name="dateMonth" label="月" />
-        <ProFormDatePicker.Quarter readonly name="dateQuarter" label="季度" />
-        <ProFormDatePicker.Year readonly name="dateYear" label="年" />
-        <ProFormDateTimePicker readonly name="dateTime" label="日期时间" />
-        <ProFormDateRangePicker readonly name="dateRange" label="日期区间" />
-        <ProFormDateTimeRangePicker readonly name="dateTimeRange" label="日期时间区间" />
-      </ProForm.Group>
       <ProFormUploadDragger readonly max={4} label="Dragger" name="dragger" />
     </ProForm>
   </div>

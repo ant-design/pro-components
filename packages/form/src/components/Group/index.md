@@ -8,7 +8,7 @@ nav:
   path: /components
 ---
 
-# ProFormFields
+# 数据结构化
 
 我们还提供了用来进行结构化数据的录入:
 
@@ -59,7 +59,7 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | itemRender | 自定义 Item，可以用来将 action 放到别的地方 | `doms,listMeta)=> ReactNode` | - |
-| creatorRecord | 新建一行的默认值 | `Record<string, any>` | - |
+| creatorRecord | 新建一行的默认值 | `Record<string, any> \| () => Record<string, any>` | - |
 | creatorButtonProps | 新建一行按钮的配置 | `buttonProps & { creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"新建一行"}` |
 | label | 与 From.Item 相同 | `ReactNode` | - |
 | name | list 在 form 中的值，必填项 | `NamePath` | - |
@@ -72,6 +72,9 @@ ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 Pr
 <ProFormFieldSet
   name="list"
   label="组件列表"
+  // 支持 两种方式，type="group" 会用input.group 包裹
+  // 如果不配置 默认使用 space
+  type="group"
   transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
 >
   <ProFormText width="md" />
@@ -108,6 +111,10 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ## 代码示例
 
+### 自定义 List
+
+<code src="./demos/customize.tsx" heigh="1774px" title="ProForm.List" />
+
 ### 基本使用
 
 <code src="./demos/list.tsx" heigh="1774px" title="ProForm.List" />
@@ -115,6 +122,17 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 ### 互相依赖表单
 
 <code src="./demos/dependency.tsx" heigh="1774px" title="ProForm.List" />
+
+### 获取表单依赖值
+
+下面例子演示了不同情形下的依赖取值顺序：
+
+- `<ProFormDependency>`**不在**`<ProFormList>`中：根据`name`声明的依赖项，从全局取值（情形 1）
+- `<ProFormDependency>`**在**`<ProFormList>`中
+  - `<ProFormDependency>`的`ignoreFormListField`为`true`：根据`name`声明的依赖项，从全局取值（情形 2）
+  - `<ProFormDependency>`的`ignoreFormListField`为`false`：根据`name`声明的依赖项，从局部取值（情形 3）
+
+<code src="./demos/dependency2.tsx" heigh="1774px" title="ProForm.List" />
 
 ### 表单互相嵌套
 

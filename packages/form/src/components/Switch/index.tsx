@@ -20,9 +20,9 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
         valueType="switch"
         mode="edit"
         fieldProps={{
-          ...fieldProps,
           unCheckedChildren,
           checkedChildren,
+          ...fieldProps,
         }}
         text={fieldProps?.checked}
         ref={ref}
@@ -34,4 +34,5 @@ const ProFormSwitch: React.FC<ProFormSwitchProps> = React.forwardRef(
 
 export default createField<ProFormSwitchProps>(ProFormSwitch, {
   valuePropName: 'checked',
+  ignoreWidth: true,
 });

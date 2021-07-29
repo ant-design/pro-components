@@ -1,5 +1,13 @@
 export default {
   moneySymbol: '₽',
+  form: {
+    lightFilter: {
+      more: 'Еще',
+      clear: 'Очистить',
+      confirm: 'ОК',
+      itemUnit: 'Позиции',
+    },
+  },
   tableForm: {
     search: 'Найти',
     reset: 'Сброс',
@@ -39,5 +47,17 @@ export default {
     densityLarger: 'Большой',
     densityMiddle: 'Средний',
     densitySmall: 'Сжатый',
+  },
+  stepsForm: {
+    next: 'Следующий',
+    prev: 'Предыдущий',
+    submit: 'Завершить',
+  },
+  editableTable: {
+    action: {
+      save: 'Сохранить',
+      cancel: 'Отменить',
+      delete: 'Удалить',
+    },
   },
 };

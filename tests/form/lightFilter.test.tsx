@@ -91,16 +91,19 @@ describe('LightFilter', () => {
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-input').simulate('change', {
-        target: {
-          value: 'name1 update',
-        },
-      });
+      wrapper
+        .find('.ant-input')
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'name1 update',
+          },
+        });
     });
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-btn.ant-btn-primary').simulate('click');
+      wrapper.find('.ant-btn.ant-btn-primary').at(0).simulate('click');
     });
     await waitForComponentToPaint(wrapper);
 
@@ -112,7 +115,7 @@ describe('LightFilter', () => {
 
     act(() => {
       // DatePicker click
-      wrapper.find('.ant-pro-core-field-label').at(2).simulate('click');
+      wrapper.find('.ant-pro-core-field-label').at(1).simulate('click');
     });
     await waitForComponentToPaint(wrapper);
 
@@ -166,6 +169,58 @@ describe('LightFilter', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('.ant-pro-core-field-label').text()).toEqual('名称');
+
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
+  it(' 🪕 QueryFilter FormItem support footerRender', async () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+        collapse
+        footerRender={false}
+      >
+        <ProFormText name="name" label="名称" />
+      </LightFilter>,
+    );
+
+    expect(wrapper.find('.ant-pro-form-light-filter-effective').length).toEqual(1);
+
+    act(() => {
+      wrapper.find('.ant-pro-form-light-filter-container').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-core-dropdown-footer').length).toEqual(0);
+
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
+  it(' 🪕 QueryFilter FormItem support footer', async () => {
+    const wrapper = mount(
+      <LightFilter
+        initialValues={{
+          name: 'Jack2',
+        }}
+      >
+        <ProFormText footerRender={false} name="name1" label="名称" />
+      </LightFilter>,
+    );
+
+    act(() => {
+      wrapper.find('.ant-pro-core-field-label').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-core-dropdown-footer').length).toEqual(0);
 
     act(() => {
       wrapper.unmount();

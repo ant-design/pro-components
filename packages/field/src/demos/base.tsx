@@ -45,6 +45,9 @@ export default () => {
         <Descriptions.Item label="金额">
           <Field text="100" valueType="money" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="颜色">
+          <Field text="blue" valueType="color" mode={state} plain={plain} />
+        </Descriptions.Item>
         <Descriptions.Item label="数字">
           <Field text="19897979797979" valueType="digit" mode={state} plain={plain} />
         </Descriptions.Item>
@@ -189,7 +192,7 @@ export default () => {
                 label: '特殊选项',
                 value: 'optGroup',
                 optionType: 'optGroup',
-                children: [
+                options: [
                   { label: '不解决', value: 'no' },
                   { label: '已废弃', value: 'clear' },
                 ],

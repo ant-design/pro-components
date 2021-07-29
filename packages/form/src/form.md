@@ -8,14 +8,13 @@ nav:
   path: /components
 ---
 
-# ProForm
+# ProForm 高级表单
 
 ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设置，帮助我们快速的开发一个表单。同时添加一些默认行为，让我们的表单默认好用。
 
 分步表单，Modal 表单，Drawer 表单，查询表单，轻量筛选等多种 layout 可以覆盖大部分的使用场景，脱离复杂而且繁琐的表单布局工作，更少的代码完成更多的功能。
 
 - 如果你想要设置默认值，请使用 `initialValues`,任何直接使用组件 `value` 和 `onChange` 的方式都有可能导致值绑定失效。
-
 - 如果想要表单联动或者做一些依赖，可以使用 render props 模式, ProFormDependency 绝对是最好的选择
 - ProForm 的 onFinish 与 antd 的 Form 不同，是个 Promise，如果你正常返回会自动为你设置按钮的加载效果
 - 如果想要监听某个值，建议使用 `onValuesChange`。保持单向的数据流无论对开发者还是维护者都大有脾益
@@ -62,9 +61,21 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 </ProForm>
 ```
 
-## 何时使用
+## 何时使用 ProForm？
 
 当你想快速实现一个表单但不想花太多时间去布局时 ProForm 是最好的选择。
+
+ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对其，但是在其之上还增加一些预设行为和多种布局。这些布局之间可以无缝切换，并且拥有公共的 API。
+
+| 布局 | 使用场景 |
+| --- | --- |
+| [ProForm](/components/form#proform) | 标准 Form，增加了 `onFinish` 中自动 `loading` 和 根据 `request` 自动获取默认值的功能。 |
+| [ModalForm\|DrawerForm](/components/modal-form) | 在 ProForm 的基础上增加了 `trigger` ，无需维护 `visible` 状态 |
+| [QueryFilter](/components/query-filter) | 一般用于作为筛选表单，需要配合其他数据展示组件使用 |
+| [LightFilter](/components/query-filter) | 一般用于作为行内内置的筛选，比如卡片操作栏和 表格操作栏。 |
+| [StepsForm](/components/steps-form) | 分步表单，需要配置 StepForm 使用。 |
+
+<code src="./demos/layout-change.tsx" height="488px" title="Form 的 layout 切换" />
 
 ## 代码示例
 
@@ -72,9 +83,11 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/base.tsx" height="548px" title="基本使用" />
 
-### Form 的 layout 切换
+### 标签与表单项布局
 
-<code src="./demos/layout-change.tsx" height="548px" title="Form 的 layout 切换" />
+除了 `LightFilter` 和 `QueryFilter` 这样固定布局的表单样式，其他表单布局支持配置与 `antd` 一致的三种布局方式。
+
+<code src="./demos/form-layout.tsx" title="标签与表单项布局" />
 
 ### 登录
 
@@ -83,6 +96,12 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 ### 表单联动
 
 <code src="./demos/dependency.tsx" height="248px" title="表单联动" />
+
+### 表单方法调用
+
+你可以通过 `formRef` 获取到表单实例的引用，通过引用可以调用表单方法实现表单重置，设置表单，获取表单值等功能。
+
+<code src="./demos/formRef.tsx" height="248px" title="表单方法调用" />
 
 ### 同步提交结果到 url
 
@@ -98,9 +117,7 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 
 <code src="./demos/pro-form-editableTable.tsx" heigh="1774px" title="ProForm 和 EditableTable 同时使用"/>
 
-## Layouts API
-
-### ProForm
+## ProForm
 
 ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProForm 与 antd 的方法是相同的，你仍然可以用 FormItem + 自定义组件的方式来自定义。当然这样不会影响到别的组件，QueryFilter 等组件同理。
 
@@ -109,12 +126,15 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | onFinish | 提交表单且数据验证成功后回调事件，同 antd 4 `Form` 组件 API | `(values)=>Promise<void>` | - |
-| onReset | 点击重置按钮的回调，设置后重置按钮才会被渲染 | `(e)=>void` | - |
+| onReset | 点击重置按钮的回调 | `(e)=>void` | - |
 | submitter | 提交按钮相关配置 | `boolean` \| `SubmitterProps` | `true` |
-| syncToUrl | 同步参数到 url 上,url 只支持 string，在使用之前最好读一下[文档](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) | `true` \| `(values,type)=>values` | - |
+| syncToUrl | 同步参数到 url 上,url 只支持 string，在使用之前最好读一下[url 中的参数类型](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) | `true` \| `(values,type)=>values` | - |
+| syncToInitialValues | 同步结果到 initialValues,默认为 true 如果为 false，form.reset 的时将会忽略从 url 上获取的数据 | `boolean` | `true` |
 | dateFormatter | 自动格式数据,主要是 moment 的表单,支持 string 和 number 两种模式 | `string\| number \|false` | string |
 | omitNil | ProForm 会自动清空 null 和 undefined 的数数据，如果你约定了 nil 代表某种数据，可以设置为 false 关闭此功能 | `boolean` | true |
-| [(...)](https://ant.design/components/form-cn/) | 支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| request | 发起网络请求的参数,返回值会覆盖给 initialValues | `(params)=>Promise<data>` | - |
+| [(...)](https://ant.design/components/form-cn/) | 注意 `LightFilter` 和 `QueryFilter` 仅支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
 
 ### ProForm.Group
 

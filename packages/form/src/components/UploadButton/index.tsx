@@ -8,6 +8,7 @@ import createField from '../../BaseForm/createField';
 export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
   icon?: React.ReactNode;
   title?: React.ReactNode;
+  name?: UploadProps['name'];
   listType?: UploadProps['listType'];
   action?: UploadProps['action'];
   accept?: UploadProps['accept'];
@@ -16,6 +17,7 @@ export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
   onChange?: UploadProps['onChange'];
   buttonProps?: ButtonProps;
   disabled?: ButtonProps['disabled'];
+  fileList?: UploadProps['fileList'];
 };
 
 /**
@@ -26,6 +28,7 @@ export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
 const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerProps> = (
   {
     fieldProps,
+    name,
     action,
     accept,
     listType,
@@ -37,36 +40,43 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
     onChange,
     disabled,
     proFieldProps,
+    fileList,
   },
   ref,
 ) => {
   // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
   const showUploadButton =
     (max === undefined || !value || value?.length < max) && proFieldProps?.mode !== 'read';
+
+  const isPictureCard = (listType ?? fieldProps?.listType) === 'picture-card';
   return (
     <Upload
       action={action}
       accept={accept}
       ref={ref}
-      name="fileList"
+      // 'fileList' 改成和 ant.design 文档中 Update 组件 默认 file字段一样
+      name={name || 'file'}
       listType={listType || 'picture'}
-      fileList={value}
+      fileList={fileList ?? value}
       {...fieldProps}
       onChange={(info) => {
-        if (onChange) {
-          onChange(info);
-        }
+        onChange?.(info);
         if (fieldProps?.onChange) {
           fieldProps?.onChange(info);
         }
       }}
     >
-      {showUploadButton && (
-        <Button disabled={disabled || fieldProps?.disabled} {...buttonProps}>
-          {icon}
-          {title}
-        </Button>
-      )}
+      {showUploadButton &&
+        (isPictureCard ? (
+          <span>
+            {icon} {title}
+          </span>
+        ) : (
+          <Button disabled={disabled || fieldProps?.disabled} {...buttonProps}>
+            {icon}
+            {title}
+          </Button>
+        ))}
     </Upload>
   );
 };
