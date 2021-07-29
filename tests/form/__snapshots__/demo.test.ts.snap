@@ -10044,7 +10044,7 @@ Array [
 
 exports[`form demos 📸 renders ./packages/form/src/components/ModalForm/demos/drawer-form-nested.tsx correctly 1`] = `
 <div
-  style="height: 120vh;"
+  style="height: 325px;"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
