@@ -1,42 +1,35 @@
 import { ConfigProvider } from 'antd';
 import React, { useContext } from 'react';
-import type { BaseFormProps } from '../../BaseForm';
+import type { ProFormProps } from '../ProForm';
 import ProForm from '../ProForm';
 
 import './index.less';
 
-export type LoginFormProps = {
+export type LoginFormProps<T> = {
   message: React.ReactNode | false;
   title: React.ReactNode | false;
   subTitle: React.ReactNode | false;
   submitting: boolean;
-  onFinish: BaseFormProps['onFinish'];
-  submitter: BaseFormProps['submitter'];
   actions: React.ReactNode;
-};
+} & ProFormProps<T>;
 
-const LoginForm: React.FC<Partial<LoginFormProps>> = ({
-  title,
-  subTitle,
-  message,
-  children,
-  submitting,
-  onFinish,
-  submitter = {
-    searchConfig: {
-      submitText: '登录',
-    },
-    render: (_, dom) => dom.pop(),
-    submitButtonProps: {
-      loading: submitting,
-      size: 'large',
-      style: {
-        width: '100%',
+function LoginForm<T = Record<string, any>>(props: LoginFormProps<T>) {
+  const { message, title, subTitle, submitting, actions, children, ...proFormProps } = props;
+  const {
+    submitter = {
+      searchConfig: {
+        submitText: '登录',
+      },
+      render: (_, dom) => dom.pop(),
+      submitButtonProps: {
+        loading: submitting,
+        size: 'large',
+        style: {
+          width: '100%',
+        },
       },
     },
-  },
-  actions,
-}) => {
+  } = proFormProps;
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login');
   const getCls = (className: string) => `${baseClassName}-${className}`;
@@ -55,7 +48,7 @@ const LoginForm: React.FC<Partial<LoginFormProps>> = ({
               autoLogin: true,
             }}
             submitter={submitter}
-            onFinish={onFinish}
+            {...proFormProps}
           >
             {message}
             {children}
@@ -65,6 +58,5 @@ const LoginForm: React.FC<Partial<LoginFormProps>> = ({
       </div>
     </div>
   );
-};
-
+}
 export default LoginForm;
