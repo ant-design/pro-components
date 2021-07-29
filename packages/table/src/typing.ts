@@ -277,7 +277,11 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   tableAlertOptionRender?: AlertRenderType<T>;
 
   /** @name 选择项配置 */
-  rowSelection?: TableProps<T>['rowSelection'] | false;
+  rowSelection?:
+    | (TableProps<T>['rowSelection'] & {
+        alwayShowAlert?: boolean;
+      })
+    | false;
 
   style?: React.CSSProperties;
 
