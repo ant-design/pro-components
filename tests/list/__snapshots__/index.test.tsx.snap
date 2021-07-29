@@ -17,7 +17,7 @@ exports[`List 🚏 only has content 1`] = `
         style="padding: 0px 24px;"
       />
       <div
-        class="ant-list ant-list-split"
+        class="ant-list ant-list-split ant-pro-list-container"
       >
         <div
           class="ant-spin-nested-loading"
@@ -79,7 +79,7 @@ exports[`List 🚏 only has description 1`] = `
         style="padding: 0px 24px;"
       />
       <div
-        class="ant-list ant-list-split"
+        class="ant-list ant-list-split ant-pro-list-container"
       >
         <div
           class="ant-spin-nested-loading"

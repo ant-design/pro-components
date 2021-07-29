@@ -1,5 +1,5 @@
-import React from 'react';
-import type { ListProps, TableColumnType, TableProps } from 'antd';
+import React, { useContext } from 'react';
+import { ConfigProvider, ListProps, TableColumnType, TableProps } from 'antd';
 import { List } from 'antd';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import type { ActionType } from '@ant-design/pro-table';
@@ -11,6 +11,7 @@ import usePagination from 'antd/lib/table/hooks/usePagination';
 import type { ItemProps } from './Item';
 import ProListItem from './Item';
 import { PRO_LIST_KEYS } from './constants';
+import classNames from 'classnames';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
@@ -50,6 +51,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     onRow,
     ...rest
   } = props;
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {
     if (typeof rowKey === 'function' && rowKey) {
@@ -149,6 +151,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
   return (
     <List<RecordType>
       {...rest}
+      className={classNames(getPrefixCls('pro-list-container'), rest.className)}
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
