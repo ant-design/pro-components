@@ -43,8 +43,6 @@ export default {
       tooltip: 'Export',
       defaultFileName: 'Default File Name',
       defaultSheetName: 'sheet 1',
-      exportAllMenuTitle: 'export all',
-      exportVisibleMenuTitle: 'export visible',
     },
     fullScreen: 'Full Screen',
     exitFullScreen: 'Exit Full Screen',

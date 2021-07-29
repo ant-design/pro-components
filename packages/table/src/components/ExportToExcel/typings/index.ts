@@ -1,26 +1,23 @@
+import type { ProColumns } from '../../../typing';
 import type { TableColumnType } from 'antd';
 import type { ColumnType } from 'antd/es/table';
-import type { MenuInfo } from 'rc-menu/es/interface';
 import type XLSX from 'xlsx';
 import type { CellObject } from 'xlsx';
-import type { ProColumns } from '../../../typing';
 
-type ExportToExcelActionConfig<T = unknown, V = 'text'> = {
+type ExportToExcelActionConfig<DateType = unknown, ValueType = 'text'> = {
   getSheetDataSourceItemMeta?: (
     cellVal: unknown,
-    col: ColumnType<T>,
+    col: ColumnType<DateType>,
     rowIndex: number,
   ) => CellObject | null;
   sheetName?: string;
-  columns: TableColumnType<T>[] | ProColumns<T, V>[];
-  dataSource: T[];
+  columns: TableColumnType<DateType>[] | ProColumns<DateType, ValueType>[];
+  dataSource: DateType[];
 };
 
 type ExportToExcelActionExport<T = unknown, V = 'text'> = (options: {
-  info?: MenuInfo;
   configs: ExportToExcelActionConfig<T, V>[];
   xlsx: typeof XLSX;
-  allColumns: ProColumns<T, V>[];
   columns: TableColumnType<T>[];
   dataSource?: T[];
 }) => boolean | void;
@@ -36,12 +33,10 @@ type ExportToExcelActionProps<RecordType = unknown, ValueType = 'text'> = {
     dataSource: RecordType[],
     options: {
       isExportAll: boolean;
-      allColumns: ProColumns<RecordType, ValueType>[];
       columns: TableColumnType<RecordType>[];
     },
   ) => Promise<ExportToExcelActionConfig<RecordType, ValueType>[]>;
-  proColumns: ProColumns<RecordType, ValueType>[];
-  columns: TableColumnType<RecordType>[];
+  columns?: TableColumnType<RecordType>[];
   dataSource?: RecordType[];
   onExport?: ExportToExcelActionExport<RecordType, ValueType>;
 };

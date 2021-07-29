@@ -67,9 +67,10 @@ const getSpanConfig = (
   const breakPoint = (spanConfig || BREAKPOINTS.default).find(
     (item: [number, number, FormProps['layout']]) => width < item[0] + 16, // 16 = 2 * (ant-row -8px margin)
   );
+  const [breakPointSpan, breakPointLayout] = breakPoint || [];
   return {
-    span: 24 / breakPoint[1],
-    layout: breakPoint[2],
+    span: 24 / breakPointSpan,
+    layout: breakPointLayout,
   };
 };
 

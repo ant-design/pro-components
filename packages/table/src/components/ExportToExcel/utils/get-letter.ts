@@ -37,16 +37,16 @@ const LETTERS = [
  * 27 -> [1, 1] -> AB
  */
 const getLetter = (index: number) => {
-  const arrs = [];
+  const letArray = [];
   let next = index;
   do {
     const s = Math.floor(next / 26);
     const y = next % 26;
-    arrs.unshift(y);
+    letArray.unshift(y);
     next = s;
   } while (next !== 0);
-  return arrs
-    .map((item, iindex) => LETTERS[item - (arrs.length > 1 && iindex === 0 ? 1 : 0)])
+  return letArray
+    .map((item, subIndex) => LETTERS[item - (letArray.length > 1 && subIndex === 0 ? 1 : 0)])
     .join('');
 };
 

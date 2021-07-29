@@ -1,26 +1,21 @@
-import type { LabelIconTipProps } from '@ant-design/pro-utils';
-import utl from 'lodash';
+import flatten from 'lodash.flatten';
 import get from 'lodash.get';
-import type { MenuInfo } from 'rc-menu/es/interface';
 import React from 'react';
 import XLSX from 'xlsx';
 import type { ExportToExcelActionConfig, ExportToExcelActionExport } from '../typings';
 import { getLetter } from './get-letter';
-import type { ProColumns } from '../../../typing';
 import type { TableColumnType } from 'antd';
 
 function exportToExcel<RecordType = unknown, ValueType = 'text'>(options: {
-  info?: MenuInfo;
   dataSource?: RecordType[];
-  allColumns: ProColumns<RecordType, ValueType>[];
   columns: TableColumnType<RecordType>[];
   fileName: string;
   configs: ExportToExcelActionConfig<RecordType, ValueType>[];
   onExport?: ExportToExcelActionExport<RecordType, ValueType>;
 }) {
-  const { info, fileName, configs, onExport, dataSource, allColumns, columns } = options;
+  const { fileName, configs, onExport, dataSource, columns } = options;
 
-  const result = onExport?.({ info, configs, xlsx: XLSX, dataSource, allColumns, columns });
+  const result = onExport?.({ configs, xlsx: XLSX, dataSource, columns });
 
   if (result === false) return;
 
@@ -46,7 +41,7 @@ function exportToExcel<RecordType = unknown, ValueType = 'text'>(options: {
     });
 
     /** 暂时不支持 table-group-column 形式 */
-    const rowDatas = [
+    const rowDataList = [
       targetColumns.map((col) => {
         if (col.excelColTitle != null) {
           return col.excelColTitle;
@@ -55,7 +50,7 @@ function exportToExcel<RecordType = unknown, ValueType = 'text'>(options: {
           return col.title;
         }
         if (React.isValidElement(col.title)) {
-          return (col.title as React.ReactElement<LabelIconTipProps>).props.label;
+          return (col.title as React.ReactElement<any>)?.props?.label;
         }
         return null;
       }),
@@ -71,8 +66,8 @@ function exportToExcel<RecordType = unknown, ValueType = 'text'>(options: {
       }),
     ];
 
-    const sheetDataSourceMeta = utl.flatten(
-      rowDatas.map((rowData, rowIndex) => {
+    const sheetDataSourceMeta = flatten(
+      rowDataList.map((rowData, rowIndex) => {
         return rowData.map((cellVal, index) => ({
           pos: `${getLetter(index)}${rowIndex + 1}`,
           value: cellVal,
@@ -81,7 +76,7 @@ function exportToExcel<RecordType = unknown, ValueType = 'text'>(options: {
       }),
     );
 
-    const ws = XLSX.utils.aoa_to_sheet(rowDatas);
+    const ws = XLSX.utils.aoa_to_sheet(rowDataList);
 
     sheetDataSourceMeta
       .filter((item) => item.meta != null)

@@ -16,6 +16,7 @@ import Container from '../../container';
 import type { ActionType, ProTableProps } from '../../typing';
 import { omitUndefined } from '@ant-design/pro-utils';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import ExportToExcel from '../ExportToExcel';
 
 type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
   /** 如果 onSearch 返回一个false，直接拦截请求 */
@@ -221,7 +222,7 @@ function ToolBar<T>({
       search={searchConfig}
       onSearch={onSearch}
       actions={actions}
-      settings={optionDom}
+      settings={[...optionDom, <ExportToExcel />]}
       {...toolbar}
     />
   );
