@@ -88,7 +88,7 @@ export default () => {
                   message: '请输入验证码！',
                 },
               ]}
-              onGetCaptcha={async (phone) => {
+              onGetCaptcha={async () => {
                 message.success('获取验证码成功！验证码为：1234');
               }}
             />

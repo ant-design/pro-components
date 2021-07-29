@@ -1,15 +1,11 @@
 import type { GithubOutlined } from '@ant-design/icons';
-import { AlipayCircleOutlined, TaobaoCircleOutlined, WeiboCircleOutlined } from '@ant-design/icons';
 import type { AlertProps } from 'antd';
-import { Alert, Space } from 'antd';
+import { Alert, Space, ConfigProvider } from 'antd';
 import React, { useContext } from 'react';
-import ProForm from '@ant-design/pro-form';
-import type { FooterProps } from '@ant-design/pro-layout';
-import { DefaultFooter } from '@ant-design/pro-layout';
+import type { BaseFormProps } from '../../BaseForm';
+import ProForm from '../ProForm';
 
 import './index.less';
-import type { BaseFormProps } from '../../BaseForm';
-import ConfigProvider from 'antd/es/config-provider';
 
 type AntdIconType = typeof GithubOutlined;
 export type OtherLoginMethodsProps = {
@@ -24,7 +20,6 @@ export type LoginFormProps = {
   submitting: boolean;
   onFinish: BaseFormProps['onFinish'];
   submitter: BaseFormProps['submitter'];
-  footerProps: FooterProps | false;
   otherLoginMethodsProps: OtherLoginMethodsProps | false;
 };
 
@@ -84,23 +79,7 @@ const LoginForm: React.FC<Partial<LoginFormProps>> = ({
       },
     },
   },
-  footerProps = false,
-  otherLoginMethodsProps = {
-    methods: [
-      {
-        icon: AlipayCircleOutlined,
-        key: 'alipay',
-      },
-      {
-        icon: WeiboCircleOutlined,
-        key: 'weibo',
-      },
-      {
-        icon: TaobaoCircleOutlined,
-        key: 'taobao',
-      },
-    ],
-  },
+  otherLoginMethodsProps = false,
 }) => {
   const { getCls } = useClassName();
   return (
@@ -128,7 +107,6 @@ const LoginForm: React.FC<Partial<LoginFormProps>> = ({
           )}
         </div>
       </div>
-      {footerProps && <DefaultFooter {...footerProps}></DefaultFooter>}
     </div>
   );
 };
