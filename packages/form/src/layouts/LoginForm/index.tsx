@@ -43,13 +43,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
           <div className={getCls('desc')}>{subTitle}</div>
         </div>
         <div className={getCls('main')}>
-          <ProForm
-            initialValues={{
-              autoLogin: true,
-            }}
-            submitter={submitter}
-            {...proFormProps}
-          >
+          <ProForm submitter={submitter} {...proFormProps}>
             {message}
             {children}
           </ProForm>
