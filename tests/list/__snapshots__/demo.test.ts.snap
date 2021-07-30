@@ -89,7 +89,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
         </div>
       </div>
       <div
-        class="ant-list ant-list-split"
+        class="ant-list ant-list-split ant-pro-list-container"
       >
         <div
           class="ant-spin-nested-loading"
@@ -672,7 +672,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
         </div>
       </div>
       <div
-        class="ant-list ant-list-split ant-list-grid ant-list-something-after-last-item"
+        class="ant-list ant-list-split ant-list-grid ant-list-something-after-last-item ant-pro-list-container"
       >
         <div
           class="ant-spin-nested-loading"
@@ -1649,7 +1649,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
         </div>
       </div>
       <div
-        class="ant-list ant-list-split"
+        class="ant-list ant-list-split ant-pro-list-container"
       >
         <div
           class="ant-spin-nested-loading"
@@ -2156,7 +2156,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
         </div>
       </div>
       <div
-        class="ant-list ant-list-split"
+        class="ant-list ant-list-split ant-pro-list-container"
       >
         <div
           class="ant-spin-nested-loading"
@@ -2878,7 +2878,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
         </div>
       </div>
       <div
-        class="ant-list ant-list-split ant-list-something-after-last-item"
+        class="ant-list ant-list-split ant-list-something-after-last-item ant-pro-list-container"
       >
         <div
           class="ant-spin-nested-loading"
@@ -3700,7 +3700,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
         </div>
       </div>
       <div
-        class="ant-list ant-list-vertical ant-list-split"
+        class="ant-list ant-list-vertical ant-list-split ant-pro-list-container"
       >
         <div
           class="ant-spin-nested-loading"
@@ -4467,7 +4467,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
         </div>
       </div>
       <div
-        class="ant-list ant-list-split ant-list-something-after-last-item"
+        class="ant-list ant-list-split ant-list-something-after-last-item ant-pro-list-container"
       >
         <div
           class="ant-spin-nested-loading"
@@ -5465,7 +5465,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
         </div>
       </div>
       <div
-        class="ant-list ant-list-split"
+        class="ant-list ant-list-split ant-pro-list-container"
       >
         <div
           class="ant-spin-nested-loading"
@@ -6230,7 +6230,7 @@ Array [
           </div>
         </div>
         <div
-          class="ant-list ant-list-split"
+          class="ant-list ant-list-split ant-pro-list-container"
         >
           <div
             class="ant-spin-nested-loading"
@@ -6766,7 +6766,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
         </div>
       </div>
       <div
-        class="ant-list ant-list-split"
+        class="ant-list ant-list-split ant-pro-list-container"
       >
         <div
           class="ant-spin-nested-loading"
