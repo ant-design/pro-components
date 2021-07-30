@@ -11,11 +11,34 @@ export type PageInfo = {
 };
 
 /**
- * Password 密码框 money 金额 option 操作 需要返回一个数组 date 日期 YYYY-MM-DD dateRange 日期范围 YYYY-MM-DD[] dateTime
- * 日期和时间 YYYY-MM-DD HH:mm:ss dateTimeRange 范围日期和时间 YYYY-MM-DD HH:mm:ss[] time: 时间 HH:mm:ss index：序列
- * progress: 进度条 percent: 百分比 digit 数值 avatar 头像 code 代码块 jsonCode json 的代码块，格式化了一下
+ * @param textarea 文本框
+ * @param password 密码框
+ * @param money 金额 option 操作 需要返回一个数组
+ * @param date 日期 YYYY-MM-DD
+ * @param dateWeek 周选择器
+ * @param dateMonth 月选择器
+ * @param dateQuarter 季度选择器
+ * @param dateYear 年选择器
+ * @param dateRange 日期范围 YYYY-MM-DD[]
+ * @param dateTime 日期和时间 YYYY-MM-DD HH:mm:ss
+ * @param dateTimeRange 范围日期和时间 YYYY-MM-DD HH:mm:ss[]
+ * @param time: 时间 HH:mm:ss
+ * @param timeRange: 时间区间 HH:mm:ss[]
+ * @param index：序列
+ * @param indexBorder：序列
+ * @param progress: 进度条
+ * @param percent: 百分比
+ * @param digit 数值
+ * @param second 秒速
+ * @param fromNow 相对于当前时间
+ * @param avatar 头像
+ * @param code 代码块
+ * @param image 图片设置
+ * @param jsonCode Json 的代码块，格式化了一下
+ * @param color 颜色选择器
  */
 export type ProFieldValueType =
+  | 'text'
   | 'password'
   | 'money'
   | 'textarea'
@@ -30,7 +53,6 @@ export type ProFieldValueType =
   | 'dateTime'
   | 'time'
   | 'timeRange'
-  | 'text'
   | 'select'
   | 'checkbox'
   | 'rate'
