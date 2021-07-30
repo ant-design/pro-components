@@ -1830,7 +1830,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                              <span>
+                                很长很长很长很长很长很长很长的文字
+                                <span
+                                  aria-hidden="true"
+                                  title="要展示但是要留下尾巴"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -2116,7 +2124,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                              <span>
+                                很长很长很长很长很长很长很长的文字
+                                <span
+                                  aria-hidden="true"
+                                  title="要展示但是要留下尾巴"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -2402,7 +2418,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                              <span>
+                                很长很长很长很长很长很长很长的文字
+                                <span
+                                  aria-hidden="true"
+                                  title="要展示但是要留下尾巴"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -2688,7 +2712,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                              <span>
+                                很长很长很长很长很长很长很长的文字
+                                <span
+                                  aria-hidden="true"
+                                  title="要展示但是要留下尾巴"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -2974,7 +3006,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                              <span>
+                                很长很长很长很长很长很长很长的文字
+                                <span
+                                  aria-hidden="true"
+                                  title="要展示但是要留下尾巴"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"

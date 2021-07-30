@@ -158,13 +158,29 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             />,
           );
           const item = omitUndefined({
-            ...originItem,
+            name: originItem.name,
             valueType: runFunction(originItem.valueType, {}),
+            key: originItem.key,
+            columns: originItem.columns,
             fieldProps: runFunction(originItem.fieldProps, formRef.current, originItem),
+            valueEnum: originItem.valueEnum,
             dataIndex: originItem.key || originItem.dataIndex,
+            initialValue: originItem.initialValue,
             formItemProps: runFunction(originItem.formItemProps, formRef.current, originItem),
+            width: originItem.width,
+            render: originItem.render,
+            renderFormItem: originItem.renderFormItem,
+            index: originItem.index,
+            readonly: originItem.readonly,
+            transform: originItem.transform,
+            colSize: originItem.colSize,
+            className: originItem.className,
+            renderText: originItem.renderText,
+            request: originItem.request,
+            params: originItem.params,
             tooltip: originItem.tooltip || originItem.tip,
             title,
+            proFieldProps: originItem.proFieldProps,
           });
           // 几种特殊的 value 不处理
           if (

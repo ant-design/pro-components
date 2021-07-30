@@ -11880,7 +11880,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                            <span>
+                              很长很长很长很长很长很长很长的文字
+                              <span
+                                aria-hidden="true"
+                                title="要展示但是要留下尾巴"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -12158,7 +12166,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                            <span>
+                              很长很长很长很长很长很长很长的文字
+                              <span
+                                aria-hidden="true"
+                                title="要展示但是要留下尾巴"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -13773,7 +13789,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]yarn install命令 antd2.4.5会报错
+                            <span>
+                              🐛 [BUG]yarn inst
+                              <span
+                                aria-hidden="true"
+                                title="all命令 antd2.4.5会报错"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -13933,7 +13957,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]无法创建工程npm create umi
+                            <span>
+                              🐛 [BUG]无法创建工程npm
+                              <span
+                                aria-hidden="true"
+                                title=" create umi"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -14096,7 +14128,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                            <span>
+                              🧐 [问题] build 后还存
+                              <span
+                                aria-hidden="true"
+                                title="在 es6 的代码（Umi@2.13.13）"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -14422,7 +14462,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            hideChildrenInMenu设置后，子路由找不到了
+                            <span>
+                              hideChildrenInMen
+                              <span
+                                aria-hidden="true"
+                                title="u设置后，子路由找不到了"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -14585,7 +14633,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]Umi UI 添加多个空白页，就会出错把空白页都变成选中状态
+                            <span>
+                              🐛 [BUG]Umi UI 添加
+                              <span
+                                aria-hidden="true"
+                                title="多个空白页，就会出错把空白页都变成选中状态"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -14748,7 +14804,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]第一次载入页面，菜单仅图标时，图标没有居中
+                            <span>
+                              🐛 [BUG]第一次载入页面，菜
+                              <span
+                                aria-hidden="true"
+                                title="单仅图标时，图标没有居中"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -14911,7 +14975,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            build(deps-dev): bump eslint from 6.8.0 to 7.1.0
+                            <span>
+                              build(deps-dev): 
+                              <span
+                                aria-hidden="true"
+                                title="bump eslint from 6.8.0 to 7.1.0"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -15074,7 +15146,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🧐 [问题] V4版本如何使用第三方的enhanceReduxMiddleware
+                            <span>
+                              🧐 [问题] V4版本如何使用第
+                              <span
+                                aria-hidden="true"
+                                title="三方的enhanceReduxMiddleware"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -15237,7 +15317,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常
+                            <span>
+                              🐛 [BUG] 官网预览页面，第
+                              <span
+                                aria-hidden="true"
+                                title="一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -15400,7 +15488,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🧐 [问题] 从自建 block 仓库下载区块报错。
+                            <span>
+                              🧐 [问题] 从自建 block
+                              <span
+                                aria-hidden="true"
+                                title=" 仓库下载区块报错。"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -15563,7 +15659,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🧐 [问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次
+                            <span>
+                              🧐 [问题] fetchCurr
+                              <span
+                                aria-hidden="true"
+                                title="ent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -15726,7 +15830,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG] V5 左侧栏收缩时，点击图标无效。
+                            <span>
+                              🐛 [BUG] V5 左侧栏收缩
+                              <span
+                                aria-hidden="true"
+                                title="时，点击图标无效。"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -15889,7 +16001,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🧐 [问题]不知道有没有大佬将这个模板迁移至Electron的例子
+                            <span>
+                              🧐 [问题]不知道有没有大佬将这
+                              <span
+                                aria-hidden="true"
+                                title="个模板迁移至Electron的例子"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -16052,7 +16172,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            npm run start 为什么不能打开浏览器
+                            <span>
+                              npm run start 为什么
+                              <span
+                                aria-hidden="true"
+                                title="不能打开浏览器"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -16215,7 +16343,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🧐 [问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来
+                            <span>
+                              🧐 [问题]在重新npm ins
+                              <span
+                                aria-hidden="true"
+                                title="tall后运行npm start报出一些less找不到，但项目可以正常运行起来"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -16378,7 +16514,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]错误通知：http code 200
+                            <span>
+                              🐛 [BUG]错误通知：http
+                              <span
+                                aria-hidden="true"
+                                title=" code 200"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -16541,7 +16685,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因
+                            <span>
+                              🐛 [BUG]线上预览项目好多布
+                              <span
+                                aria-hidden="true"
+                                title="局错乱，不知道是antd的锅还是啥原因"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -16704,7 +16856,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG] umi 偶尔出现没有导出成员
+                            <span>
+                              🐛 [BUG] umi 偶尔出现
+                              <span
+                                aria-hidden="true"
+                                title="没有导出成员"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -16867,7 +17027,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答
+                            <span>
+                              🐛 [BUG]请问大佬，为什么无
+                              <span
+                                aria-hidden="true"
+                                title="论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="qixian-typography-copy"
@@ -18071,7 +18239,15 @@ Array [
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛 [BUG]yarn install命令 antd2.4.5会报错
+                              <span>
+                                🐛 [BUG]yarn inst
+                                <span
+                                  aria-hidden="true"
+                                  title="all命令 antd2.4.5会报错"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -18209,7 +18385,15 @@ Array [
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛 [BUG]无法创建工程npm create umi
+                              <span>
+                                🐛 [BUG]无法创建工程npm
+                                <span
+                                  aria-hidden="true"
+                                  title=" create umi"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -18348,7 +18532,15 @@ Array [
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                              <span>
+                                🧐 [问题] build 后还存
+                                <span
+                                  aria-hidden="true"
+                                  title="在 es6 的代码（Umi@2.13.13）"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -18626,7 +18818,15 @@ Array [
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              hideChildrenInMenu设置后，子路由找不到了
+                              <span>
+                                hideChildrenInMen
+                                <span
+                                  aria-hidden="true"
+                                  title="u设置后，子路由找不到了"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -20980,7 +21180,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                            <span>
+                              很长很长很长很长很长很长很长的文字
+                              <span
+                                aria-hidden="true"
+                                title="要展示但是要留下尾巴"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -21272,7 +21480,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                            <span>
+                              很长很长很长很长很长很长很长的文字
+                              <span
+                                aria-hidden="true"
+                                title="要展示但是要留下尾巴"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -30993,7 +31209,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                            <span>
+                              很长很长很长很长很长很长很长的文字
+                              <span
+                                aria-hidden="true"
+                                title="要展示但是要留下尾巴"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -31279,7 +31503,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                            <span>
+                              很长很长很长很长很长很长很长的文字
+                              <span
+                                aria-hidden="true"
+                                title="要展示但是要留下尾巴"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -33020,7 +33252,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                            <span>
+                              很长很长很长很长很长很长很长的文字
+                              <span
+                                aria-hidden="true"
+                                title="要展示但是要留下尾巴"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -33306,7 +33546,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            很长很长很长很长很长很长很长的文字要展示但是要留下尾巴
+                            <span>
+                              很长很长很长很长很长很长很长的文字
+                              <span
+                                aria-hidden="true"
+                                title="要展示但是要留下尾巴"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -34278,7 +34526,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]yarn install命令 antd2.4.5会报错
+                            <span>
+                              🐛 [BUG]yarn inst
+                              <span
+                                aria-hidden="true"
+                                title="all命令 antd2.4.5会报错"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -34361,7 +34617,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]无法创建工程npm create umi
+                            <span>
+                              🐛 [BUG]无法创建工程npm
+                              <span
+                                aria-hidden="true"
+                                title=" create umi"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -34444,7 +34708,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                            <span>
+                              🧐 [问题] build 后还存
+                              <span
+                                aria-hidden="true"
+                                title="在 es6 的代码（Umi@2.13.13）"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -34610,7 +34882,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            hideChildrenInMenu设置后，子路由找不到了
+                            <span>
+                              hideChildrenInMen
+                              <span
+                                aria-hidden="true"
+                                title="u设置后，子路由找不到了"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -37435,7 +37715,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]yarn install命令 antd2.4.5会报错
+                            <span>
+                              🐛 [BUG]yarn inst
+                              <span
+                                aria-hidden="true"
+                                title="all命令 antd2.4.5会报错"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="نسخ"
                               class="ant-typography-copy"
@@ -37585,7 +37873,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]无法创建工程npm create umi
+                            <span>
+                              🐛 [BUG]无法创建工程npm
+                              <span
+                                aria-hidden="true"
+                                title=" create umi"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="نسخ"
                               class="ant-typography-copy"
@@ -37737,7 +38033,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                            <span>
+                              🧐 [问题] build 后还存
+                              <span
+                                aria-hidden="true"
+                                title="在 es6 的代码（Umi@2.13.13）"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="نسخ"
                               class="ant-typography-copy"
@@ -38041,7 +38345,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            hideChildrenInMenu设置后，子路由找不到了
+                            <span>
+                              hideChildrenInMen
+                              <span
+                                aria-hidden="true"
+                                title="u设置后，子路由找不到了"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="نسخ"
                               class="ant-typography-copy"
@@ -40410,7 +40722,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]yarn install命令 antd2.4.5会报错
+                            <span>
+                              🐛 [BUG]yarn inst
+                              <span
+                                aria-hidden="true"
+                                title="all命令 antd2.4.5会报错"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -40556,7 +40876,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🐛 [BUG]无法创建工程npm create umi
+                            <span>
+                              🐛 [BUG]无法创建工程npm
+                              <span
+                                aria-hidden="true"
+                                title=" create umi"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -40703,7 +41031,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                            <span>
+                              🧐 [问题] build 后还存
+                              <span
+                                aria-hidden="true"
+                                title="在 es6 的代码（Umi@2.13.13）"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -40997,7 +41333,15 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            hideChildrenInMenu设置后，子路由找不到了
+                            <span>
+                              hideChildrenInMen
+                              <span
+                                aria-hidden="true"
+                                title="u设置后，子路由找不到了"
+                              >
+                                ...
+                              </span>
+                            </span>
                             <div
                               aria-label="复制"
                               class="ant-typography-copy"
@@ -43090,7 +43434,15 @@ Array [
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛 [BUG]yarn install命令 antd2.4.5会报错
+                              <span>
+                                🐛 [BUG]yarn inst
+                                <span
+                                  aria-hidden="true"
+                                  title="all命令 antd2.4.5会报错"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -43236,7 +43588,15 @@ Array [
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🐛 [BUG]无法创建工程npm create umi
+                              <span>
+                                🐛 [BUG]无法创建工程npm
+                                <span
+                                  aria-hidden="true"
+                                  title=" create umi"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -43383,7 +43743,15 @@ Array [
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                              <span>
+                                🧐 [问题] build 后还存
+                                <span
+                                  aria-hidden="true"
+                                  title="在 es6 的代码（Umi@2.13.13）"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
@@ -43677,7 +44045,15 @@ Array [
                               style="width: 100%; margin: 0px; padding: 0px;"
                               title=""
                             >
-                              hideChildrenInMenu设置后，子路由找不到了
+                              <span>
+                                hideChildrenInMen
+                                <span
+                                  aria-hidden="true"
+                                  title="u设置后，子路由找不到了"
+                                >
+                                  ...
+                                </span>
+                              </span>
                               <div
                                 aria-label="复制"
                                 class="ant-typography-copy"
