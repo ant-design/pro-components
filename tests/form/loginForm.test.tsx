@@ -7,10 +7,10 @@ import { Alert, Space } from 'antd';
 
 describe('LoginForm', () => {
   it('📦 LoginForm should show login message correctly', async () => {
-    const LoginMessage = <Alert type="error" message="登录失败"></Alert>;
+    const loginMessage = <Alert type="error" message="登录失败"></Alert>;
 
     const wrapper = mount(
-      <LoginForm message={LoginMessage}>
+      <LoginForm message={loginMessage}>
         <ProFormText name="name" />
       </LoginForm>,
     );
