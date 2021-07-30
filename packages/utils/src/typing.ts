@@ -4,7 +4,7 @@ import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
 
-type PageInfo = {
+export type PageInfo = {
   pageSize: number;
   total: number;
   current: number;
