@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.10...@ant-design/pro-list@1.10.11) (2021-07-30)
+
+### Bug Fixes
+
+- **list:** better snapshot update style ([#3338](https://github.com/ant-design/pro-components/issues/3338)) ([b7596b9](https://github.com/ant-design/pro-components/commit/b7596b9fdbd9f3e7a53213b34e3ffb495d4f4026))
+
 ## [1.10.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.10.9...@ant-design/pro-list@1.10.10) (2021-07-26)
 
 **Note:** Version bump only for package @ant-design/pro-list

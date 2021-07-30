@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.46.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.45.0...@ant-design/pro-table@2.46.0) (2021-07-30)
+
+### Bug Fixes
+
+- **table:** fix ColumnSetting hover style error ([#3330](https://github.com/ant-design/pro-components/issues/3330)) ([7c9eca0](https://github.com/ant-design/pro-components/commit/7c9eca0f4946b2d2e816a0c66989fd67752c88cc))
+
+### Features
+
+- **table:** table rowSelection support alwayShowAlert ([#3339](https://github.com/ant-design/pro-components/issues/3339)) ([f25d93f](https://github.com/ant-design/pro-components/commit/f25d93f5220c06ecdfa63ccd3d8973f2df1c887f))
+
 # [2.45.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.44.0...@ant-design/pro-table@2.45.0) (2021-07-26)
 
 ### Bug Fixes
