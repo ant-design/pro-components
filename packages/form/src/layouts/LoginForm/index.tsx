@@ -17,6 +17,7 @@ export type LoginFormProps<T> = {
 function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   const { message, title, subTitle, submitting, actions, children, ...proFormProps } = props;
   const submitter = merge(
+    {},
     {
       searchConfig: {
         submitText: '登录',
