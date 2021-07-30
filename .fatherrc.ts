@@ -37,7 +37,10 @@ if (type === 'es') {
       type: 'babel',
     },
     pkgs: [...headPkgs, ...tailPkgs],
-    extraBabelPlugins: [[require('./scripts/replaceLib')]],
+    extraBabelPlugins: [
+      ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],
+      [require('./scripts/replaceLib')],
+    ],
   };
 }
 
