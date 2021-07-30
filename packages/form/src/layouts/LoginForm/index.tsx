@@ -2,6 +2,7 @@ import { ConfigProvider } from 'antd';
 import React, { useContext } from 'react';
 import type { ProFormProps } from '../ProForm';
 import ProForm from '../ProForm';
+import merge from 'lodash.merge';
 
 import './index.less';
 
@@ -15,8 +16,8 @@ export type LoginFormProps<T> = {
 
 function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   const { message, title, subTitle, submitting, actions, children, ...proFormProps } = props;
-  const {
-    submitter = {
+  const submitter = merge(
+    {
       searchConfig: {
         submitText: '登录',
       },
@@ -28,8 +29,9 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
           width: '100%',
         },
       },
-    },
-  } = proFormProps;
+    } as ProFormProps['submitter'],
+    proFormProps.submitter,
+  );
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login');
   const getCls = (className: string) => `${baseClassName}-${className}`;
