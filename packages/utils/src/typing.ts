@@ -1,6 +1,7 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { Moment } from 'moment';
+import type { ProFormItemProps } from 'packages/form/src/interface';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
 
@@ -282,4 +283,5 @@ export type ProSchema<
   hideInTable?: boolean;
   /** @name 在 table的查询表单 中隐藏 */
   hideInSearch?: boolean;
-} & ExtraProps;
+} & ExtraProps &
+  Pick<ProFormItemProps, 'proFieldProps'>;
