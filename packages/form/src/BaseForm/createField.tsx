@@ -202,7 +202,7 @@ function createField<P extends ProFormItemProps = any>(
         dataFormat={rest.fieldProps?.format}
         valueType={valueType || (rest as any).valueType}
         messageVariables={{
-          label: label as string,
+          label: (label as string) || '',
           ...otherProps?.messageVariables,
         }}
       >

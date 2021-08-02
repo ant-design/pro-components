@@ -1396,7 +1396,7 @@ describe('ProForm', () => {
     expect(wrapper.find('div.ant-select-item.ant-select-item-option').length).toBe(4);
   });
 
-  it('📦 Select support singe', async () => {
+  it('📦 Select support single', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <ProForm
@@ -1460,7 +1460,7 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalledWith('open');
   });
 
-  it('📦 Select support labelInValue singe', async () => {
+  it('📦 Select support labelInValue single', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
       <ProForm
