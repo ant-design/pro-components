@@ -4,26 +4,20 @@
 
 .@{pro-form-login-prefix-cls}-container {
   display: flex;
+  flex: 1;
   flex-direction: column;
   height: 100%;
+  padding: 32px 0;
   overflow: auto;
   background: inherit;
 }
 
-.@{pro-form-login-prefix-cls}-content {
-  flex: 1;
-  padding: 32px 0;
-}
-
 @media (min-width: @screen-md-min) {
   .@{pro-form-login-prefix-cls}-container {
+    padding: 32px 0 24px;
     background-repeat: no-repeat;
     background-position: center 110px;
     background-size: 100%;
-  }
-
-  .@{pro-form-login-prefix-cls}-content {
-    padding: 32px 0 24px;
   }
 }
 

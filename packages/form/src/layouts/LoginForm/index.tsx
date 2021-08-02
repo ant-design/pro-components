@@ -38,20 +38,20 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   const getCls = (className: string) => `${baseClassName}-${className}`;
   return (
     <div className={getCls('container')}>
-      <div className={getCls('content')}>
-        <div className={getCls('top')}>
+      <div className={getCls('top')}>
+        {title ? (
           <div className={getCls('header')}>
             <span className={getCls('title')}>{title}</span>
           </div>
-          <div className={getCls('desc')}>{subTitle}</div>
-        </div>
-        <div className={getCls('main')}>
-          <ProForm submitter={submitter} {...proFormProps}>
-            {message}
-            {children}
-          </ProForm>
-          <div className={getCls('other')}>{actions}</div>
-        </div>
+        ) : null}
+        {subTitle ? <div className={getCls('desc')}>{subTitle}</div> : null}
+      </div>
+      <div className={getCls('main')}>
+        <ProForm submitter={submitter} {...proFormProps}>
+          {message}
+          {children}
+        </ProForm>
+        {actions ? <div className={getCls('other')}>{actions}</div> : null}
       </div>
     </div>
   );
