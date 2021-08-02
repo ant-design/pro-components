@@ -1,7 +1,7 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { Moment } from 'moment';
-import type { ProFormItemProps } from 'packages/form/src/interface';
+import type { ProFormItemProps } from '../../form/src/interface';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
 
