@@ -180,6 +180,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             params: originItem.params,
             tooltip: originItem.tooltip || originItem.tip,
             title,
+            proFieldProps: originItem.proFieldProps,
           });
           // 几种特殊的 value 不处理
           if (
