@@ -35,6 +35,8 @@ import type { ModalFormProps } from './layouts/ModalForm';
 import ModalForm from './layouts/ModalForm';
 import type { DrawerFormProps } from './layouts/DrawerForm';
 import DrawerForm from './layouts/DrawerForm';
+import type { LoginFormProps } from './layouts/LoginForm';
+import LoginForm from './layouts/LoginForm';
 import type { ProFormListProps } from './components/List';
 import ProFormList from './components/List';
 import type { FormInstance, FormItemProps, FormProps } from './BaseForm';
@@ -63,6 +65,7 @@ export type {
   ProFormListProps,
   LightFilterFooterRender,
   ProFormColumnsType,
+  LoginFormProps,
 };
 
 const ProFormGroup = ProForm.Group;
@@ -100,6 +103,7 @@ export {
   DrawerForm,
   ModalForm,
   ProFormContext,
+  LoginForm,
 };
 
 export default ProForm;

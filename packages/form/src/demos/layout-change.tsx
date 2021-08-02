@@ -151,7 +151,15 @@ export default () => {
           value: type,
           onChange: (e) => setType(e.target.value),
         }}
-        options={['LightFilter', 'ProForm', 'ModalForm', 'DrawerForm', 'QueryFilter', 'StepsForm']}
+        options={[
+          'LightFilter',
+          'ProForm',
+          'ModalForm',
+          'DrawerForm',
+          'QueryFilter',
+          'StepsForm',
+          'LoginForm',
+        ]}
       />
       <div
         style={{
