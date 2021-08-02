@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.32.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.32.3...@ant-design/pro-form@1.32.4) (2021-07-30)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.32.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.32.2...@ant-design/pro-form@1.32.3) (2021-07-30)
+
+### Bug Fixes
+
+- **form:** fix DrawerForm&ModalForm submitter overwirter error ([#3332](https://github.com/ant-design/pro-components/issues/3332)) ([022b19b](https://github.com/ant-design/pro-components/commit/022b19b20f6a53c24107f879804f0d781b684a46))
+- **form:** ProFormSelect can not get values ([#3321](https://github.com/ant-design/pro-components/issues/3321)) ([fc9e448](https://github.com/ant-design/pro-components/commit/fc9e4487ef0ba661dc9e8c2e9470773d7e246eb0))
+
 ## [1.32.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.32.1...@ant-design/pro-form@1.32.2) (2021-07-26)
 
 ### Bug Fixes

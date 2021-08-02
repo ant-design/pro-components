@@ -77,7 +77,7 @@ export default () => {
         label="valueType 选择"
         options={options}
         width={200}
-        mode="singe"
+        mode="single"
         fieldProps={{
           labelInValue: false,
           value: valueType,

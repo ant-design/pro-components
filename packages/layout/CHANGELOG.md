@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.23.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.23.1...@ant-design/pro-layout@6.23.2) (2021-07-30)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.23.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.23.0...@ant-design/pro-layout@6.23.1) (2021-07-30)
+
+### Bug Fixes
+
+- **layout:** no use cdn img ([#3331](https://github.com/ant-design/pro-components/issues/3331)) ([16b1f5d](https://github.com/ant-design/pro-components/commit/16b1f5d101dfd4266846534780ff419fee065fdb))
+
 # [6.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.22.1...@ant-design/pro-layout@6.23.0) (2021-07-26)
 
 ### Features
