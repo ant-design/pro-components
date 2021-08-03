@@ -2,7 +2,7 @@
 import React, { useCallback, useContext, useMemo, useRef, useState } from 'react';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { FormInstance } from 'antd';
+import type { FormInstance, FormProps } from 'antd';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
@@ -46,7 +46,9 @@ export type ActionRenderFunction<T> = (
   },
 ) => React.ReactNode[];
 
-export type RowEditableConfig<T> = {
+export type RowEditableConfig<DataType> = {
+  /** @name 控制可编辑表格的 From的设置 */
+  formProps?: Omit<FormProps<DataType>, 'onFinish'>;
   /** @name 控制可编辑表格的 form */
   form?: FormInstance;
   /**
@@ -57,21 +59,21 @@ export type RowEditableConfig<T> = {
   /** @name 正在编辑的列 */
   editableKeys?: React.Key[];
   /** 正在编辑的列修改的时候 */
-  onChange?: (editableKeys: React.Key[], editableRows: T[] | T) => void;
+  onChange?: (editableKeys: React.Key[], editableRows: DataType[] | DataType) => void;
   /** 正在编辑的列修改的时候 */
-  onValuesChange?: (record: T, dataSource: T[]) => void;
+  onValuesChange?: (record: DataType, dataSource: DataType[]) => void;
   /** @name 自定义编辑的操作 */
-  actionRender?: ActionRenderFunction<T>;
+  actionRender?: ActionRenderFunction<DataType>;
   /** 行保存的时候 */
   onSave?: (
     /** 行 id，一般是唯一id */
     key: RecordKey,
     /** 当前修改的行的值，只有 form 在内的会被设置 */
-    record: T & { index?: number },
+    record: DataType & { index?: number },
     /** 原始值，可以用于判断是否修改 */
-    originRow: T & { index?: number },
+    originRow: DataType & { index?: number },
     /** 新建一行的配置，一般无用 */
-    newLineConfig?: NewLineConfig<T>,
+    newLineConfig?: NewLineConfig<DataType>,
   ) => Promise<any | void>;
 
   /** 行保存的时候 */
@@ -79,14 +81,14 @@ export type RowEditableConfig<T> = {
     /** 行 id，一般是唯一id */
     key: RecordKey,
     /** 当前修改的行的值，只有 form 在内的会被设置 */
-    record: T & { index?: number },
+    record: DataType & { index?: number },
     /** 原始值，可以用于判断是否修改 */
-    originRow: T & { index?: number },
+    originRow: DataType & { index?: number },
     /** 新建一行的配置，一般无用 */
-    newLineConfig?: NewLineConfig<T>,
+    newLineConfig?: NewLineConfig<DataType>,
   ) => Promise<any | void>;
   /** 行删除的时候 */
-  onDelete?: (key: RecordKey, row: T & { index?: number }) => Promise<any | void>;
+  onDelete?: (key: RecordKey, row: DataType & { index?: number }) => Promise<any | void>;
   /** 删除行时的确认消息 */
   deletePopconfirmMessage?: React.ReactNode;
   /** 只能编辑一行的的提示 */

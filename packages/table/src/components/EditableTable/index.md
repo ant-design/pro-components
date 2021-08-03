@@ -48,6 +48,7 @@ nav:
 | --- | --- | --- | --- |
 | type | 可编辑表格的类型，单行编辑或者多行编辑 | `single` \| `multiple` | - |
 | form | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用 | `FormInstance` | - |
+| formProps | 可以配置 form 的属性，但是不支持 onFinish | [`FormProps`](https://procomponents.ant.design/components/form#proform) | - |
 | editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
 | onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
 | onSave | 保存一行的时候触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
