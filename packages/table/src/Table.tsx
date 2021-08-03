@@ -204,6 +204,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       {alertDom}
       {props.editable ? (
         <ProForm
+          {...props.editable?.formProps}
           component={false}
           form={props.editable?.form}
           onValuesChange={editableUtils.onValuesChange}
