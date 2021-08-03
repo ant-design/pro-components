@@ -89,7 +89,7 @@ describe('ProForm', () => {
 
   it('📦 ProForm initialValues update will warning', async () => {
     const fn = jest.fn();
-    const wrapper = mount<{ navTheme: string }>(
+    const wrapper = mount(
       <ProForm
         onFinish={async (values) => {
           fn(values.navTheme);
@@ -109,7 +109,9 @@ describe('ProForm', () => {
 
     act(() => {
       wrapper.setProps({
-        navTheme: 'xxx',
+        initialValues: {
+          navTheme: 'xxx',
+        },
       });
     });
     await waitForComponentToPaint(wrapper);

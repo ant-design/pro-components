@@ -285,7 +285,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       props.initialValues === preInitialValues,
       `The initialValues only take effect when the form is initialized, if you need to load asynchronously recommended request, or the initialValues?<Form/>:null `,
     );
-  }, [syncToUrl, props.initialValues, preInitialValues]);
+  }, [props.initialValues]);
 
   useEffect(() => {
     if (!syncToUrl) return;
