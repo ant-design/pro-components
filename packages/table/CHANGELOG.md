@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.47.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.46.1...@ant-design/pro-table@2.47.0) (2021-08-03)
+
+### Features
+
+- **list:** ProList add base proList ([#3361](https://github.com/ant-design/pro-components/issues/3361)) ([753afd8](https://github.com/ant-design/pro-components/commit/753afd81d0ca554f67bf92ef6dec1fab21efb8dd))
+
 ## [2.46.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.46.0...@ant-design/pro-table@2.46.1) (2021-07-30)
 
 **Note:** Version bump only for package @ant-design/pro-table

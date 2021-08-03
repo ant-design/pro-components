@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.33.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.32.4...@ant-design/pro-form@1.33.0) (2021-08-03)
+
+### Bug Fixes
+
+- typo error ([#3349](https://github.com/ant-design/pro-components/issues/3349)) ([f1b4c73](https://github.com/ant-design/pro-components/commit/f1b4c736b35657e840d231771e3f332073811c2d))
+- **form:** error info undefined while label is undefined ([#3348](https://github.com/ant-design/pro-components/issues/3348)) ([2f8c784](https://github.com/ant-design/pro-components/commit/2f8c78423cbec6fe228c3fbf6187bb80edec4045))
+
+### Features
+
+- **form:** add login form ([#3328](https://github.com/ant-design/pro-components/issues/3328)) ([5966fad](https://github.com/ant-design/pro-components/commit/5966fad52ef3a139f313458090589d3f6a02f3dc))
+
 ## [1.32.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.32.3...@ant-design/pro-form@1.32.4) (2021-07-30)
 
 **Note:** Version bump only for package @ant-design/pro-form
