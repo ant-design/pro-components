@@ -122,6 +122,14 @@ function ProList<
   return (
     <ProTable<RecordType, U>
       tooltip={tooltip}
+      cardProps={{
+        style: {
+          background: 'transparent',
+        },
+        bodyStyle: {
+          background: 'transparent',
+        },
+      }}
       {...(rest as any)}
       actionRef={actionRef}
       pagination={propsPagination}
@@ -132,20 +140,6 @@ function ProList<
       className={classNames(prefixCls, className, listClassName)}
       columns={proTableColumns}
       rowKey={rowKey}
-      cardProps={{
-        style: {
-          background: 'transparent',
-        },
-        bodyStyle: {
-          padding: 0,
-          background: 'transparent',
-        },
-      }}
-      toolbar={{
-        style: {
-          padding: '0 24px',
-        },
-      }}
       tableViewRender={({ columns, size, pagination, rowSelection, dataSource, loading }) => {
         return (
           <ListView
@@ -176,5 +170,13 @@ function ProList<
     />
   );
 }
+
+function BaseProList<
+  RecordType extends Record<string, any>,
+  U extends Record<string, any> = Record<string, any>,
+>(props: ProListProps<RecordType, U>) {
+  return <ProList cardProps={false} search={false} toolBarRender={false} {...props} />;
+}
+export { BaseProList };
 
 export default ProList;

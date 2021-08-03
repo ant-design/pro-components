@@ -169,7 +169,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   onSizeChange?: (size: DensitySize) => void;
 
   /** @name table 外面卡片的设置 */
-  cardProps?: CardProps;
+  cardProps?: CardProps | false;
 
   /** @name 渲染 table */
   tableRender?: (

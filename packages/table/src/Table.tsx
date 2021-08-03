@@ -198,25 +198,8 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       )
     : baseTableDom;
 
-  /** Table 区域的 dom，为了方便 render */
-  const tableAreaDom = (
-    <Card
-      bordered={isBordered('table', cardBordered)}
-      style={{
-        height: '100%',
-      }}
-      bodyStyle={
-        toolbarDom
-          ? {
-              paddingTop: 0,
-              paddingBottom: 0,
-            }
-          : {
-              padding: 0,
-            }
-      }
-      {...cardProps}
-    >
+  const tableContentDom = (
+    <>
       {toolbarDom}
       {alertDom}
       {props.editable ? (
@@ -233,8 +216,33 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       ) : (
         tableDom
       )}
-    </Card>
+    </>
   );
+  /** Table 区域的 dom，为了方便 render */
+  const tableAreaDom =
+    cardProps === false ? (
+      tableContentDom
+    ) : (
+      <Card
+        bordered={isBordered('table', cardBordered)}
+        style={{
+          height: '100%',
+        }}
+        bodyStyle={
+          toolbarDom
+            ? {
+                paddingTop: 0,
+                paddingBottom: 0,
+              }
+            : {
+                padding: 0,
+              }
+        }
+        {...cardProps}
+      >
+        {tableContentDom}
+      </Card>
+    );
 
   const renderTable = () => {
     if (props.tableRender) {
