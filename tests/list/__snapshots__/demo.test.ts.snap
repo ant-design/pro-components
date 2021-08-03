@@ -10,11 +10,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
   >
     <div
       class="ant-card-body"
-      style="padding: 0px; background: transparent;"
+      style="background: transparent;"
     >
       <div
         class="ant-pro-table-list-toolbar"
-        style="padding: 0px 24px;"
       >
         <div
           class="ant-pro-table-list-toolbar-container"
@@ -104,7 +103,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -227,16 +226,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class="ant-pro-list-row-extra"
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -359,16 +355,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class="ant-pro-list-row-extra"
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -491,16 +484,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class="ant-pro-list-row-extra"
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-show-extra-hover ant-pro-list-row-header"
@@ -623,9 +613,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class="ant-pro-list-row-extra"
-                  />
                 </li>
               </div>
             </ul>
@@ -647,11 +634,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
   >
     <div
       class="ant-card-body"
-      style="padding: 0px; background: transparent;"
+      style="background: transparent;"
     >
       <div
         class="ant-pro-table-list-toolbar"
-        style="padding: 0px 24px;"
       >
         <div
           class="ant-pro-table-list-toolbar-container"
@@ -1624,11 +1610,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
   >
     <div
       class="ant-card-body"
-      style="padding: 0px; background: transparent;"
+      style="background: transparent;"
     >
       <div
         class="ant-pro-table-list-toolbar"
-        style="padding: 0px 24px;"
       >
         <div
           class="ant-pro-table-list-toolbar-container"
@@ -1664,7 +1649,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -1762,16 +1747,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -1869,16 +1851,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -1976,16 +1955,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -2083,9 +2059,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
             </ul>
@@ -2107,11 +2080,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
   >
     <div
       class="ant-card-body"
-      style="padding: 0px; background: transparent;"
+      style="background: transparent;"
     >
       <div
         class="ant-pro-table-list-toolbar"
-        style="padding: 0px 24px;"
       >
         <div
           class="ant-pro-table-list-toolbar-container"
@@ -2171,7 +2143,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -2276,16 +2248,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -2390,16 +2359,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -2504,16 +2470,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -2618,9 +2581,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
             </ul>
@@ -2642,11 +2602,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
   >
     <div
       class="ant-card-body"
-      style="padding: 0px; background: transparent;"
+      style="background: transparent;"
     >
       <div
         class="ant-pro-table-list-toolbar"
-        style="padding: 0px 24px;"
       >
         <div
           class="ant-pro-table-list-toolbar-container"
@@ -2893,7 +2852,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -2993,16 +2952,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -3105,16 +3061,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -3217,16 +3170,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -3329,16 +3279,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-show-action-hover ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-show-action-hover ant-pro-list-row-item-has-avatar ant-pro-list-row-show-action-hover ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
@@ -3441,9 +3388,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
             </ul>
@@ -3651,11 +3595,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
   >
     <div
       class="ant-card-body"
-      style="padding: 0px; background: transparent;"
+      style="background: transparent;"
     >
       <div
         class="ant-pro-table-list-toolbar"
-        style="padding: 0px 24px;"
       >
         <div
           class="ant-pro-table-list-toolbar-container"
@@ -3715,7 +3658,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row"
                 >
                   <div
                     class="ant-list-item-main"
@@ -3893,7 +3836,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row"
                 >
                   <div
                     class="ant-list-item-main"
@@ -4071,7 +4014,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row"
                 >
                   <div
                     class="ant-list-item-main"
@@ -4249,7 +4192,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row"
                 >
                   <div
                     class="ant-list-item-main"
@@ -4442,11 +4385,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
   >
     <div
       class="ant-card-body"
-      style="padding: 0px; background: transparent;"
+      style="background: transparent;"
     >
       <div
         class="ant-pro-table-list-toolbar"
-        style="padding: 0px 24px;"
       >
         <div
           class="ant-pro-table-list-toolbar-container"
@@ -4482,7 +4424,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -4624,16 +4566,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -4775,16 +4714,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -4926,16 +4862,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -5077,16 +5010,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -5228,9 +5158,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
             </ul>
@@ -5416,11 +5343,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
   >
     <div
       class="ant-card-body"
-      style="padding: 0px; background: transparent;"
+      style="background: transparent;"
     >
       <div
         class="ant-pro-table-list-toolbar"
-        style="padding: 0px 24px;"
       >
         <div
           class="ant-pro-table-list-toolbar-container"
@@ -5480,7 +5406,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -5620,7 +5546,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -5760,7 +5686,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -5900,7 +5826,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -6181,11 +6107,10 @@ Array [
     >
       <div
         class="ant-card-body"
-        style="padding: 0px; background: transparent;"
+        style="background: transparent;"
       >
         <div
           class="ant-pro-table-list-toolbar"
-          style="padding: 0px 24px;"
         >
           <div
             class="ant-pro-table-list-toolbar-container"
@@ -6245,7 +6170,7 @@ Array [
                   class="ant-pro-list-row"
                 >
                   <li
-                    class="ant-list-item"
+                    class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row"
                   >
                     <div
                       class="ant-pro-list-row-header"
@@ -6350,16 +6275,13 @@ Array [
                         </div>
                       </li>
                     </ul>
-                    <div
-                      class=""
-                    />
                   </li>
                 </div>
                 <div
                   class="ant-pro-list-row"
                 >
                   <li
-                    class="ant-list-item"
+                    class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row"
                   >
                     <div
                       class="ant-pro-list-row-header"
@@ -6464,16 +6386,13 @@ Array [
                         </div>
                       </li>
                     </ul>
-                    <div
-                      class=""
-                    />
                   </li>
                 </div>
                 <div
                   class="ant-pro-list-row"
                 >
                   <li
-                    class="ant-list-item"
+                    class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row"
                   >
                     <div
                       class="ant-pro-list-row-header"
@@ -6578,16 +6497,13 @@ Array [
                         </div>
                       </li>
                     </ul>
-                    <div
-                      class=""
-                    />
                   </li>
                 </div>
                 <div
                   class="ant-pro-list-row"
                 >
                   <li
-                    class="ant-list-item"
+                    class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row"
                   >
                     <div
                       class="ant-pro-list-row-header"
@@ -6692,9 +6608,6 @@ Array [
                         </div>
                       </li>
                     </ul>
-                    <div
-                      class=""
-                    />
                   </li>
                 </div>
               </ul>
@@ -6717,11 +6630,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
   >
     <div
       class="ant-card-body"
-      style="padding: 0px; background: transparent;"
+      style="background: transparent;"
     >
       <div
         class="ant-pro-table-list-toolbar"
-        style="padding: 0px 24px;"
       >
         <div
           class="ant-pro-table-list-toolbar-container"
@@ -6781,7 +6693,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                 class="ant-pro-list-row-type-top ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-type-top ant-pro-list-row-item-has-checkbox ant-pro-list-row-type-top ant-pro-list-row-item-has-avatar ant-pro-list-row-type-top ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-type-top ant-pro-list-row-header"
@@ -6930,16 +6842,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-type-inline ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-type-inline ant-pro-list-row-item-has-checkbox ant-pro-list-row-type-inline ant-pro-list-row-item-has-avatar ant-pro-list-row-type-inline ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-type-inline ant-pro-list-row-header"
@@ -7088,16 +6997,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row-type-new ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-type-new ant-pro-list-row-item-has-checkbox ant-pro-list-row-type-new ant-pro-list-row-item-has-avatar ant-pro-list-row-type-new ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-type-new ant-pro-list-row-header"
@@ -7246,16 +7152,13 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
               <div
                 class="ant-pro-list-row"
               >
                 <li
-                  class="ant-list-item"
+                  class="ant-list-item ant-pro-list-row-item-has-checkbox ant-pro-list-row-item-has-avatar ant-pro-list-row"
                 >
                   <div
                     class="ant-pro-list-row-header"
@@ -7404,9 +7307,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
                       </div>
                     </li>
                   </ul>
-                  <div
-                    class=""
-                  />
                 </li>
               </div>
             </ul>

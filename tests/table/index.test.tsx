@@ -157,6 +157,35 @@ describe('BasicTable', () => {
     expect(html.find('.ant-btn').at(0).text()).toBe('test2');
   });
 
+  it('🎏 ProTable support card props is false', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        cardProps={false}
+        toolBarRender={false}
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        dataSource={[]}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    expect(html.find('.ant-card').exists()).toBe(false);
+
+    act(() => {
+      html.setProps({
+        cardProps: undefined,
+      });
+    });
+    await waitForComponentToPaint(html, 1200);
+    expect(html.find('.ant-card').exists()).toBe(true);
+  });
+
   it('🎏 do not render setting', async () => {
     const html = mount(
       <ProTable

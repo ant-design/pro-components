@@ -1841,110 +1841,30 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
         <div
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
-          <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
-            data-menu-list="true"
-            role="menu"
-            style="width: 100%;"
-            tabindex="0"
+          <div
+            style="padding: 24px;"
           >
-            <li
-              class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-5-/home"
-              role="menuitem"
-              style="padding-left: 16px;"
-              tabindex="-1"
-            >
-              <span
-                class="ant-menu-title-content"
-              >
-                <span
-                  class="ant-pro-menu-item"
-                >
-                  <span
-                    class="ant-pro-menu-item-title"
-                  >
-                    首页
-                  </span>
-                </span>
-              </span>
-            </li>
-            <li
-              class="ant-menu-submenu ant-menu-submenu-inline"
-              role="none"
+            <div
+              class="ant-skeleton ant-skeleton-active"
             >
               <div
-                aria-controls="rc-menu-uuid-84044-5-/data_hui-popup"
-                aria-expanded="false"
-                aria-haspopup="true"
-                class="ant-menu-submenu-title"
-                data-menu-id="rc-menu-uuid-84044-5-/data_hui"
-                role="menuitem"
-                style="padding-left: 16px;"
-                tabindex="-1"
+                class="ant-skeleton-content"
               >
-                <span
-                  class="ant-menu-title-content"
+                <ul
+                  class="ant-skeleton-paragraph"
                 >
-                  <span
-                    class="ant-pro-menu-item"
-                    title="汇总数据"
-                  >
-                    汇总数据
-                  </span>
-                </span>
-                <i
-                  class="ant-menu-submenu-arrow"
-                />
+                  <li />
+                  <li />
+                  <li />
+                  <li />
+                  <li />
+                  <li
+                    style="width: 61%;"
+                  />
+                </ul>
               </div>
-            </li>
-            <li
-              class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-5-/data_ming"
-              role="menuitem"
-              style="padding-left: 16px;"
-              tabindex="-1"
-            >
-              <span
-                class="ant-menu-title-content"
-              >
-                <span
-                  class="ant-pro-menu-item"
-                >
-                  <span
-                    class="ant-pro-menu-item-title"
-                  >
-                    明细数据
-                  </span>
-                </span>
-              </span>
-            </li>
-            <li
-              class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-5-/other"
-              role="menuitem"
-              style="padding-left: 16px;"
-              tabindex="-1"
-            >
-              <span
-                class="ant-menu-title-content"
-              >
-                <span
-                  class="ant-pro-menu-item"
-                >
-                  <span
-                    class="ant-pro-menu-item-title"
-                  >
-                    其他
-                  </span>
-                </span>
-              </span>
-            </li>
-          </ul>
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
+            </div>
+          </div>
         </div>
         <div
           class="ant-pro-sider-links"

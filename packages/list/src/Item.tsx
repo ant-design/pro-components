@@ -175,7 +175,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         </div>,
       ];
     }
-    return [];
+    return undefined;
   }, [actions]);
 
   const titleDom =
@@ -198,10 +198,17 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       />
     ) : null;
 
+  const rowClassName = classNames({
+    [`${className}-item-has-checkbox`]: checkbox,
+    [`${className}-item-has-avatar`]: avatar,
+    [className]: className,
+  });
+
   const defaultDom = !cardProps ? (
     <List.Item
+      className={rowClassName}
       actions={actionsDom}
-      extra={<div className={extraClassName}>{extra}</div>}
+      extra={!!extra && <div className={extraClassName}>{extra}</div>}
       {...rest}
       {...onRow?.(record, index)}
       onClick={(e) => {
@@ -214,7 +221,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       <Skeleton avatar title={false} loading={loading} active>
         <div className={`${className}-header`}>
           <div className={`${className}-header-option`}>
-            {checkbox && <div className={`${className}-checkbox`}>{checkbox}</div>}
+            {!!checkbox && <div className={`${className}-checkbox`}>{checkbox}</div>}
             {Object.values(expandableConfig || {}).length > 0 &&
               rowSupportExpand &&
               renderExpandIcon({
