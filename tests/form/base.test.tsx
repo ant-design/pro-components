@@ -87,6 +87,41 @@ describe('ProForm', () => {
     expect(fn).toHaveBeenCalledWith(undefined);
   });
 
+  it('📦 ProForm initialValues update will warning', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.navTheme);
+        }}
+        initialValues={{}}
+      >
+        <ProFormText name="navTheme" />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith(undefined);
+
+    act(() => {
+      wrapper.setProps({
+        initialValues: {
+          navTheme: 'xxx',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(fn).toHaveBeenCalledWith(undefined);
+  });
+
   it('📦 onFinish should simulate button loading', async () => {
     const fn = jest.fn();
     const wrapper = mount(

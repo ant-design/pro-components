@@ -11,10 +11,11 @@ import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import type {
+import {
   ProFieldValueType,
   SearchTransformKeyFn,
   ProRequestData,
+  usePrevious,
 } from '@ant-design/pro-utils';
 import {
   conversionSubmitValue,
@@ -32,6 +33,7 @@ import FieldContext from '../FieldContext';
 import type { SubmitterProps } from '../components/Submitter';
 import Submitter from '../components/Submitter';
 import type { GroupProps, FieldProps } from '../interface';
+import warningOnce from 'rc-util/lib/warning';
 
 export type CommonFormProps<
   T extends Record<string, any> = Record<string, any>,
@@ -269,6 +271,21 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       setUrlParamsMergeInitialValues({});
     });
   }, [syncToInitialValues]);
+
+  const preInitialValues = usePrevious(props.initialValues);
+
+  // 提示一个 initialValues ，问的人实在是太多了
+  useEffect(() => {
+    if (syncToUrl || !props.initialValues || !preInitialValues) return;
+    warningOnce(
+      props.initialValues === preInitialValues,
+      `initialValues 只在 form 初始化时生效，如果你需要异步加载推荐使用 request，或者 initialValues?<Form/>:null `,
+    );
+    warningOnce(
+      props.initialValues === preInitialValues,
+      `The initialValues only take effect when the form is initialized, if you need to load asynchronously recommended request, or the initialValues?<Form/>:null `,
+    );
+  }, [props.initialValues]);
 
   useEffect(() => {
     if (!syncToUrl) return;
