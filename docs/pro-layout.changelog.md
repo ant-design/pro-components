@@ -9,6 +9,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.23.1
+
+`2021-07-30`
+
+- 🐛 fix(layout): no use cdn img [#3331](https://github.com/ant-design/pro-components/pull/3331) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.23.0
+
+`2021-07-26`
+
+- 💥 feat(layout): Add .ant-pro-page-container-with-footer className when footer exists [#3275](https://github.com/ant-design/pro-components/pull/3275) [@dengfuping](https://github.com/dengfuping)
+
 ## @ant-design/pro-layout@6.22.0
 
 `2021-07-19`

@@ -9,6 +9,27 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.46.0
+
+`2021-07-30`
+
+- 🐛 fix(table): hideInSetting can't work when fixed [#3325](https://github.com/ant-design/pro-components/pull/3325) [@DerrickTel](https://github.com/DerrickTel)
+- 🐛 fix(table): fix ColumnSetting hover style error [#3330](https://github.com/ant-design/pro-components/pull/3330) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): table rowSelection support alwayShowAlert [#3339](https://github.com/ant-design/pro-components/pull/3339) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.45.0
+
+`2021-07-26`
+
+- 🐛 fix(table): add ListToolBar column default value [#3281](https://github.com/ant-design/pro-components/pull/3281) [@DerrickTel](https://github.com/DerrickTel)
+- 💥 feat(table): support children column add funtion [#3273](https://github.com/ant-design/pro-components/pull/3273) [@jetBn](https://github.com/jetBn)
+
+## @ant-design/pro-table@2.44.0
+
+`2021-07-21`
+
+- 💥 feat(table): record function add new params dataSource [#3278](https://github.com/ant-design/pro-components/pull/3278) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.43.5
 
 `2021-07-19`

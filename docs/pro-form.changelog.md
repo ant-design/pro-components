@@ -9,6 +9,34 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.33.0
+
+`2021-08-03`
+
+- fix: error info undefined while label is undefined [#3348](https://github.com/ant-design/pro-components/pull/3348) [@yklydxtt](https://github.com/yklydxtt)
+- 💥 feat(form): add login form [#3328](https://github.com/ant-design/pro-components/pull/3328) [@xiefengnian](https://github.com/xiefengnian)
+- ✨ feat(form): SchemaForm add proFieldProps [#3347](https://github.com/ant-design/pro-components/pull/3347) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-form@1.32.3
+
+`2021-07-30`
+
+- 🐛 fix(form): fix DrawerForm&ModalForm submitter overwirter error [#3332](https://github.com/ant-design/pro-components/pull/3332) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): ProFormSelect can not get values [#3321](https://github.com/ant-design/pro-components/pull/3321) [@dingtianxiu](https://github.com/dingtianxiu)
+- 🐛 fix(form): ProFormTextArea onChange [#3305](https://github.com/ant-design/pro-components/pull/3305) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-form@1.32.2
+
+`2021-07-26`
+
+- 🐛 fix(QueryFilter): 修复 QueryFilter 组件 optionRender 设为 false 无效问题 [#3283](https://github.com/ant-design/pro-components/pull/3283) [@0x219](https://github.com/0x219)
+
+## @ant-design/pro-form@1.32.1
+
+`2021-07-20`
+
+- 🐛 fix(list): fix form context no render error [#3274](https://github.com/ant-design/pro-components/pull/3274) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.32.0
 
 `2021-07-19`
