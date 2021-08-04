@@ -306,4 +306,4 @@ export type ProSchema<
   /** @name 在 table的查询表单 中隐藏 */
   hideInSearch?: boolean;
 } & ExtraProps &
-  Pick<ProFormItemProps, 'proFieldProps'>;
+  Partial<Pick<ProFormItemProps, 'proFieldProps'>>;
