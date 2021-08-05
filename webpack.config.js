@@ -72,13 +72,8 @@ tailPkgs.forEach((pkg) => {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/typescript', '@babel/env', '@babel/react'],
-              plugins: [
-                ['@babel/plugin-proposal-decorators', { legacy: true }],
-                ['@babel/plugin-proposal-class-properties', { loose: true }],
-                '@babel/proposal-object-rest-spread',
-                require('./scripts/replaceLib'),
-              ],
+              presets: ['@umijs/babel-preset-umi/app'],
+              plugins: [require('./scripts/replaceLib')],
             },
           },
         },
@@ -88,23 +83,8 @@ tailPkgs.forEach((pkg) => {
           use: {
             loader: 'babel-loader',
             options: {
-              presets: [
-                '@babel/typescript',
-                [
-                  '@babel/env',
-                  {
-                    loose: true,
-                    modules: false,
-                  },
-                ],
-                '@babel/react',
-              ],
-              plugins: [
-                ['@babel/plugin-proposal-decorators', { legacy: true }],
-                ['@babel/plugin-proposal-class-properties', { loose: true }],
-                '@babel/proposal-object-rest-spread',
-                require('./scripts/replaceLib'),
-              ],
+              presets: ['@umijs/babel-preset-umi/app'],
+              plugins: [require('./scripts/replaceLib')],
             },
           },
         },
