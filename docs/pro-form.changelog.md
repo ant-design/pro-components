@@ -9,6 +9,14 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.33.1
+
+`2021-08-05`
+
+- 🐛 fix(form): ProFormGroup value of label [#3377](https://github.com/ant-design/pro-components/pull/3377) [@DerrickTel](https://github.com/DerrickTel)
+- 🐛 fix(form): reset initialValues add warning [#3364](https://github.com/ant-design/pro-components/pull/3364) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat(table): table support editable.formProps [#3363](https://github.com/ant-design/pro-components/pull/3363) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.33.0
 
 `2021-08-03`

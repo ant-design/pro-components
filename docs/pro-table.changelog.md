@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.47.1
+
+`2021-08-05`
+
+- 🐛 fix(table): 设置 ProSchema 的 proFieldProps 为可选属性 [#3374](https://github.com/ant-design/pro-components/pull/3374) [@0x219](https://github.com/0x219)
+- feat(table): table support editable.formProps [#3363](https://github.com/ant-design/pro-components/pull/3363) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.46.0
 
 `2021-07-30`
