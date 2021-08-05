@@ -32,6 +32,10 @@ nav:
 
 <code src="./demos/selectedRow.tsx" background="#f5f5f5" title="支持选中的列表"/>
 
+### 查询列表
+
+<code src="./demos/search.tsx" background="#f5f5f5" title="查询列表" />
+
 ### 带筛选和异步请求的列表
 
 <code src="./demos/filter.tsx" background="#f5f5f5" title="带筛选和异步请求的列表" />
