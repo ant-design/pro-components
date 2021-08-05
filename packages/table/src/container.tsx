@@ -18,6 +18,7 @@ export type UseContainerProps<T = any> = {
   columnsStateMap?: Record<string, ColumnsState>;
   onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
   size?: DensitySize;
+  defaultSize?: DensitySize;
   onSizeChange?: (size: DensitySize) => void;
   columns?: TableColumnType<T>[];
 };
@@ -31,10 +32,13 @@ function useContainer(props: UseContainerProps = {}) {
   // 用于排序的数组
   const sortKeyColumns = useRef<string[]>([]);
 
-  const [tableSize, setTableSize] = useMergedState<DensitySize>(props.size || 'middle', {
-    value: props.size,
-    onChange: props.onSizeChange,
-  });
+  const [tableSize, setTableSize] = useMergedState<DensitySize>(
+    () => props.size || props.defaultSize || 'middle',
+    {
+      value: props.size,
+      onChange: props.onSizeChange,
+    },
+  );
 
   /** 默认全选中 */
   const defaultColumnKeyMap = useMemo(() => {

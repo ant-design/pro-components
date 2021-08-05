@@ -70,6 +70,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     pagination,
     rowSelection,
     size,
+    defaultSize,
     tableStyle,
     toolbarDom,
     searchNode,
