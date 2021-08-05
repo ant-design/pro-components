@@ -50,7 +50,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
-  const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName]);
+  const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName!]);
   const [open, setOpen] = useMountMergeState<boolean>(false);
 
   const onChange = (...restParams: any[]) => {
@@ -58,7 +58,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     propsOnChange?.(...restParams);
   };
 
-  const labelValue = props[valuePropName];
+  const labelValue = props[valuePropName!];
 
   return (
     <FilterDropdown
@@ -97,7 +97,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
       <div className={classNames(`${prefixCls}-container`, className)} style={style}>
         {React.cloneElement(children as JSX.Element, {
           ...rest,
-          [valuePropName]: tempValue,
+          [valuePropName!]: tempValue,
           onChange: (e: any) => {
             setTempValue(e?.target ? e.target.value : e);
           },
