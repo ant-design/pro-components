@@ -195,7 +195,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           if (item.valueType === 'group') {
             if (!item.columns) return null;
             return (
-              <ProFormGroup key={key} label={item.title} {...item.fieldProps}>
+              <ProFormGroup key={key} label={title} {...item.fieldProps}>
                 {genItems(item.columns)}
               </ProFormGroup>
             );
