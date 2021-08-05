@@ -25,6 +25,7 @@ export type LightWrapperProps = {
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
   otherFieldProps?: any;
+  allowClear?: boolean;
   footerRender?: LightFilterFooterRender;
 };
 
