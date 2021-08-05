@@ -22,6 +22,7 @@ import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ColumnsState, useContainer } from './container';
 import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import { SizeType } from 'packages/form/src/BaseForm/LightWrapper';
 
 export type PageInfo = {
   pageSize: number;
@@ -308,6 +309,8 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   cardBordered?: Bordered;
   /** Debounce time */
   debounceTime?: number;
+  /** 默认的表格大小 */
+  defaultSize?: SizeType;
 } & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {
