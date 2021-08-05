@@ -38,7 +38,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     className,
     style,
     children,
-    valuePropName = 'value',
+    valuePropName,
     placeholder,
     labelFormatter,
     bordered,
