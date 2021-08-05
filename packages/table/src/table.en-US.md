@@ -268,6 +268,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | options | table toolbar, not displayed when set to false | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true, density?: boolean }}` | `{ fullScreen: false, reload :true, setting: true}` |
 | search | Whether to display the search form, when the object is passed in, it is the configuration of the search form | `false` \| [SearchConfig](#search-search form) | - |
 | dateFormatter | Convert moment format data to a specific type, false will not be converted | `"string"` \| `"number"` \| `false` | `"string"` |
+| defaultSize | Default size | SizeType | - |
 | beforeSearchSubmit | Make some changes before searching | `(params:T)=>T` | - |
 | onSizeChange | The table size has changed | `(size:'default' \|'middle' \|'small') => void` | - |
 | columnsStateMap | column state enumeration | `{key:{ show,fixed }}}` | - |

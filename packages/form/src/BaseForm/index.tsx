@@ -11,12 +11,12 @@ import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import {
+import type {
   ProFieldValueType,
   SearchTransformKeyFn,
   ProRequestData,
-  usePrevious,
 } from '@ant-design/pro-utils';
+import { usePrevious } from '@ant-design/pro-utils';
 import {
   conversionSubmitValue,
   transformKeySubmitValue,
