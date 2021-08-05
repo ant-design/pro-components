@@ -6,7 +6,7 @@ import pathToRegexp from 'path-to-regexp';
 import type { ProSettings } from '../defaultSettings';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typings';
 import { urlToList } from './pathTools';
-import { BasicLayoutProps } from '../BasicLayout';
+import type { BasicLayoutProps } from '../BasicLayout';
 
 export type BreadcrumbProps = {
   breadcrumbList?: { title: string; href: string }[];

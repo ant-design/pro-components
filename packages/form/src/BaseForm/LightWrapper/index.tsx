@@ -1,4 +1,4 @@
-import React, { useState, useContext, useMemo } from 'react';
+import React, { useState, useContext } from 'react';
 import classNames from 'classnames';
 import { FilterDropdown, FieldLabel, useMountMergeState } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
