@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.33.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.33.0...@ant-design/pro-form@1.33.1) (2021-08-05)
+
+### Bug Fixes
+
+- **form:** reset initialValues add warning ([#3364](https://github.com/ant-design/pro-components/issues/3364)) ([071cecf](https://github.com/ant-design/pro-components/commit/071cecf335dac1d2175a4e6b7bcdf3386c3c0501))
+
 # [1.33.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.32.4...@ant-design/pro-form@1.33.0) (2021-08-03)
 
 ### Bug Fixes
