@@ -1,12 +1,6 @@
-import React, { useState, useContext, useMemo } from 'react';
+import React, { useState, useContext } from 'react';
 import classNames from 'classnames';
-import {
-  FilterDropdown,
-  FieldLabel,
-  isDropdownValueType,
-  useMountMergeState,
-  omitUndefined,
-} from '@ant-design/pro-utils';
+import { FilterDropdown, FieldLabel, useMountMergeState } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
 
 import './index.less';
@@ -25,13 +19,13 @@ export type LightWrapperProps = {
   style?: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;
-  valuePropName: string;
+  valuePropName?: string;
   customLightMode?: boolean;
   light?: boolean;
-  id?: string;
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
   otherFieldProps?: any;
+  allowClear?: boolean;
   footerRender?: LightFilterFooterRender;
 };
 
@@ -41,81 +35,30 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     size,
     disabled,
     onChange: propsOnChange,
-    onBlur,
     className,
     style,
     children,
     valuePropName,
-    light,
-    customLightMode,
     placeholder,
-    id,
     labelFormatter,
     bordered,
-    value,
+    footerRender,
+    allowClear,
     otherFieldProps,
+    ...rest
   } = props;
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
-  const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName]);
+  const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName!]);
   const [open, setOpen] = useMountMergeState<boolean>(false);
-  const isDropdown =
-    React.isValidElement(children) && isDropdownValueType(children.props.valueType);
 
   const onChange = (...restParams: any[]) => {
     otherFieldProps?.onChange?.(...restParams);
     propsOnChange?.(...restParams);
   };
 
-  const isLight = useMemo(() => {
-    if (!light || customLightMode || isDropdown) {
-      return true;
-    }
-    return false;
-  }, [customLightMode, isDropdown, light]);
-
-  const childrenIsValidElement = useMemo(
-    () => children && React.isValidElement(children),
-    [children],
-  );
-
-  const allowClear = useMemo(() => {
-    if (isLight) return undefined;
-    if (childrenIsValidElement) return (children as JSX.Element)?.props?.fieldProps?.allowClear;
-    return undefined;
-  }, [children, childrenIsValidElement, isLight]);
-
-  const footerRender = useMemo(() => {
-    if (isLight) return undefined;
-    if (childrenIsValidElement) return (children as JSX.Element)?.props.footerRender;
-    return undefined;
-  }, [children, childrenIsValidElement, isLight]);
-
-  if (isLight) {
-    if (React.isValidElement(children)) {
-      return React.cloneElement(
-        children,
-        omitUndefined({
-          value,
-          onBlur,
-          ...children.props,
-          fieldProps: omitUndefined({
-            id,
-            [valuePropName]: props[valuePropName],
-            // 优先使用 children.props.fieldProps，比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
-            ...children.props.fieldProps,
-            // 这个 onChange 是 Form.Item 添加上的，要通过 fieldProps 透传给 ProField 调用
-            onChange,
-            onBlur,
-          }),
-        }),
-      );
-    }
-    return children as JSX.Element;
-  }
-
-  const labelValue = props[valuePropName];
+  const labelValue = props[valuePropName!];
 
   return (
     <FilterDropdown
@@ -152,21 +95,14 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
       footerRender={footerRender}
     >
       <div className={classNames(`${prefixCls}-container`, className)} style={style}>
-        {React.isValidElement(children)
-          ? React.cloneElement(children, {
-              ...children.props,
-              fieldProps: {
-                className: `${prefixCls}-field`,
-                [valuePropName]: tempValue,
-                id,
-                onChange: (e: any) => {
-                  setTempValue(e?.target ? e.target.value : e);
-                },
-                allowClear,
-                ...children.props.fieldProps,
-              },
-            })
-          : children}
+        {React.cloneElement(children as JSX.Element, {
+          ...rest,
+          [valuePropName!]: tempValue,
+          onChange: (e: any) => {
+            setTempValue(e?.target ? e.target.value : e);
+          },
+          ...(children as JSX.Element).props,
+        })}
       </div>
     </FilterDropdown>
   );

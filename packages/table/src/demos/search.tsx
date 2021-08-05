@@ -22,7 +22,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '创建时间',
     key: 'since',
-    dataIndex: 'created_at',
+    dataIndex: 'createdAt',
     valueType: 'dateTime',
   },
 ];

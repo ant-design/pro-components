@@ -38619,7 +38619,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          -
+                          <span>
+                            2020-10-13 07:09:54
+                          </span>
                         </td>
                       </tr>
                     </tbody>

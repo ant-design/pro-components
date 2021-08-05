@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { ConfigProvider, ListProps, TableColumnType, TableProps } from 'antd';
-import { List } from 'antd';
+import type { ListProps, TableColumnType, TableProps } from 'antd';
+import { ConfigProvider, List } from 'antd';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import type { ActionType } from '@ant-design/pro-table';
 import type { GetComponentProps } from './index';
