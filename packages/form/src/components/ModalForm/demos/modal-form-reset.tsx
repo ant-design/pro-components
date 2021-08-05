@@ -12,6 +12,7 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const restFormRef = useRef<FormInstance>();
   const formRef = useRef<FormInstance>();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
@@ -19,7 +20,7 @@ export default () => {
     <Space>
       <ModalForm
         title="新建表单"
-        formRef={formRef}
+        formRef={restFormRef}
         visible={modalVisible}
         trigger={
           <Button
