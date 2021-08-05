@@ -10,7 +10,6 @@ import ProForm, {
   ProFormSlider,
   ProFormUploadDragger,
 } from '@ant-design/pro-form';
-import LightWrapper from '../BaseForm/LightWrapper';
 import { Input } from 'antd';
 
 const Demo = () => {
@@ -49,8 +48,6 @@ const Demo = () => {
           showUploadList: true,
         }}
       />
-      <LightWrapper valuePropName="value">test</LightWrapper>
-      <LightWrapper valuePropName="value">test</LightWrapper>
       <ProFormSlider name="range" label="范围" />
       <ProFormField>test</ProFormField>
       <ProFormField>

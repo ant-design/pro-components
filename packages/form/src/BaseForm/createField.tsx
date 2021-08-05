@@ -1,15 +1,15 @@
-﻿import React, { useContext } from 'react';
+﻿import React from 'react';
 import type { FormItemProps } from 'antd';
-import { ConfigProvider } from 'antd';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import { omitUndefined } from '@ant-design/pro-utils';
 import { pickProFormItemProps } from '@ant-design/pro-utils';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
 import FieldContext from '../FieldContext';
-import LightWrapper from './LightWrapper';
 import type { ProFormItemProps } from '../interface';
 import ProFormItem from '../components/FormItem';
+
+export const TYPE = Symbol('ProFormComponent');
 
 export type ProFormItemCreateConfig = {
   /** 自定义类型 */
@@ -86,8 +86,12 @@ function createField<P extends ProFormItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
   config?: ProFormItemCreateConfig,
 ): ProFormComponent<P, ExtendsProps> {
+  // 标记是否是 proform 的组件
+  // @ts-ignore
+  // eslint-disable-next-line no-param-reassign
+  Field.displayName = 'ProFormComponent';
+
   const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
-    const size = useContext(ConfigProvider.SizeContext);
     const {
       valueType,
       customLightMode,
@@ -149,7 +153,6 @@ function createField<P extends ProFormItemProps = any>(
       !rest['defaultValue'],
       '请不要在 Form 中使用 defaultXXX。如果需要默认值请使用 initialValues 和 initialValue。',
     );
-
     const ignoreWidthValueType = ['switch', 'radioButton', 'radio', 'rate'];
 
     const realFieldPropsStyle = {
@@ -189,6 +192,7 @@ function createField<P extends ProFormItemProps = any>(
         })}
       />
     );
+
     return (
       <ProFormItem
         // 全局的提供一个 tip 功能，可以减少代码量
@@ -196,6 +200,7 @@ function createField<P extends ProFormItemProps = any>(
         label={label && proFieldProps?.light !== true ? label : undefined}
         tooltip={proFieldProps?.light !== true && tooltip}
         valuePropName={valuePropName}
+        key={otherProps.name?.toString()}
         {...otherProps}
         ignoreFormItem={ignoreFormItem}
         transform={transform}
@@ -205,23 +210,23 @@ function createField<P extends ProFormItemProps = any>(
           label: (label as string) || '',
           ...otherProps?.messageVariables,
         }}
+        lightProps={omitUndefined({
+          ...realFieldProps,
+          bordered,
+          allowClear: field?.props?.allowClear ?? allowClear,
+          light: proFieldProps?.light,
+          label,
+          customLightMode,
+          labelFormatter: lightFilterLabelFormatter,
+          valuePropName,
+          footerRender: field?.props?.footerRender,
+        })}
       >
-        <LightWrapper
-          {...realFieldProps}
-          allowClear={allowClear}
-          bordered={bordered}
-          size={size}
-          light={proFieldProps?.light}
-          customLightMode={customLightMode}
-          label={label}
-          labelFormatter={lightFilterLabelFormatter}
-          valuePropName={valuePropName}
-        >
-          {field}
-        </LightWrapper>
+        {field}
       </ProFormItem>
     );
   };
+
   return FieldWithContext as ProFormComponent<P, ExtendsProps>;
 }
 
