@@ -305,13 +305,15 @@ export type ProSchema<
   /** @name 在 table的查询表单 中隐藏 */
   hideInSearch?: boolean;
   /** 设置到 ProField 上面的 Props，内部属性 */
-  proFieldProps?: {
-    light?: boolean;
-    emptyText?: ReactNode;
-    label?: React.ReactNode;
-    mode?: 'read';
-    /** 这个属性可以设置useSwr的key */
-    proFieldKey?: string;
-    render?: any;
-  };
+  proFieldProps?: ProFieldProps;
 } & ExtraProps;
+
+export interface ProFieldProps {
+  light?: boolean;
+  emptyText?: ReactNode;
+  label?: React.ReactNode;
+  mode?: 'read';
+  /** 这个属性可以设置useSwr的key */
+  proFieldKey?: string;
+  render?: any;
+}
