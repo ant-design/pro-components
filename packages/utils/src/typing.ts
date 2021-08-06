@@ -1,7 +1,6 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { Moment } from 'moment';
-import type { ProFormItemProps } from '../../form/src/interface';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
 
@@ -305,5 +304,14 @@ export type ProSchema<
   hideInTable?: boolean;
   /** @name 在 table的查询表单 中隐藏 */
   hideInSearch?: boolean;
-} & ExtraProps &
-  Partial<Pick<ProFormItemProps, 'proFieldProps'>>;
+  /** 设置到 ProField 上面的 Props，内部属性 */
+  proFieldProps?: {
+    light?: boolean;
+    emptyText?: ReactNode;
+    label?: React.ReactNode;
+    mode?: 'read';
+    /** 这个属性可以设置useSwr的key */
+    proFieldKey?: string;
+    render?: any;
+  };
+} & ExtraProps;
