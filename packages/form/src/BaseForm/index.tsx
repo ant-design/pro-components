@@ -32,6 +32,7 @@ import FieldContext from '../FieldContext';
 import type { SubmitterProps } from '../components/Submitter';
 import Submitter from '../components/Submitter';
 import type { GroupProps, FieldProps } from '../interface';
+import { noteOnce } from 'rc-util/lib/warning';
 
 export type CommonFormProps<
   T extends Record<string, any> = Record<string, any>,
@@ -269,6 +270,21 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       setUrlParamsMergeInitialValues({});
     });
   }, [syncToInitialValues]);
+
+  const preInitialValues = usePrevious(props.initialValues);
+
+  // 提示一个 initialValues ，问的人实在是太多了
+  useEffect(() => {
+    if (syncToUrl || !props.initialValues || !preInitialValues || rest.request) return;
+    noteOnce(
+      props.initialValues === preInitialValues,
+      `initialValues 只在 form 初始化时生效，如果你需要异步加载推荐使用 request，或者 initialValues ? <Form/> : null `,
+    );
+    noteOnce(
+      props.initialValues === preInitialValues,
+      `The initialValues only take effect when the form is initialized, if you need to load asynchronously recommended request, or the initialValues ? <Form/> : null `,
+    );
+  }, [props.initialValues, rest.request]);
 
   useEffect(() => {
     if (!syncToUrl) return;
