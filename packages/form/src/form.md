@@ -121,7 +121,7 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 
 ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProForm 与 antd 的方法是相同的，你仍然可以用 FormItem + 自定义组件的方式来自定义。当然这样不会影响到别的组件，QueryFilter 等组件同理。
 
-> antd 的 Form api 查看[这里](https://ant.design/components/form-cn/)
+> antd 的 Form api 查看[这里](https://ant.design/components/form-cn/) initialValues 相关知识查看[这里](https://procomponents.ant.design/docs/faq)
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
