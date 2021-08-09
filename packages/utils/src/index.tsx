@@ -50,6 +50,7 @@ import type {
   ProFieldValueObjectType,
   ProFieldTextType,
   RequestOptionsType,
+  ProFieldProps,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
@@ -89,6 +90,7 @@ export type {
   ProFieldTextType,
   ProFieldValueEnumType,
   ProFieldValueObjectType,
+  ProFieldProps,
 };
 
 export {

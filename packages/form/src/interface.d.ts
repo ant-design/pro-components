@@ -2,6 +2,7 @@ import type { FormItemProps, SpaceProps } from 'antd';
 import type { ReactNode } from 'react';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type React from 'react';
+import type { ProFieldProps } from '@ant-design/pro-utils';
 
 export type GroupProps = {
   title?: React.ReactNode;
@@ -57,15 +58,7 @@ export type ProFormItemProps<T = Record<string, any>> = {
    */
   width?: number | 'sm' | 'md' | 'xl' | 'xs' | 'lg';
   /** 设置到 ProField 上面的 Props，内部属性 */
-  proFieldProps?: {
-    light?: boolean;
-    emptyText?: ReactNode;
-    label?: React.ReactNode;
-    mode?: 'read';
-    /** 这个属性可以设置useSwr的key */
-    proFieldKey?: string;
-    render?: any;
-  };
+  proFieldProps?: ProFieldProps;
   /** QueryFilter 上的footer */
   footerRender?: LightFilterFooterRender;
 } & FormItemProps;
