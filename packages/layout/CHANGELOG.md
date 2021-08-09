@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.23.4...@ant-design/pro-layout@6.24.0) (2021-08-09)
+
+### Features
+
+- **form:** FormItem support FilterDropdown ([#3381](https://github.com/ant-design/pro-components/issues/3381)) ([f5f7dbb](https://github.com/ant-design/pro-components/commit/f5f7dbb2730496a836d684840462c08715caff62))
+
 ## [6.23.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.23.3...@ant-design/pro-layout@6.23.4) (2021-08-05)
 
 **Note:** Version bump only for package @ant-design/pro-layout

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.48.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.47.1...@ant-design/pro-table@2.48.0) (2021-08-09)
+
+### Bug Fixes
+
+- **table:** fix typo ([87850ec](https://github.com/ant-design/pro-components/commit/87850ecbb7574d83ef89e20b4d4a9d11eda179f7))
+
+### Features
+
+- **form:** FormItem support FilterDropdown ([#3381](https://github.com/ant-design/pro-components/issues/3381)) ([f5f7dbb](https://github.com/ant-design/pro-components/commit/f5f7dbb2730496a836d684840462c08715caff62))
+- **table:** support defualt size ([#3383](https://github.com/ant-design/pro-components/issues/3383)) ([442f716](https://github.com/ant-design/pro-components/commit/442f716dcbd36dde436ebdf4a85a8fa6e9e3b1b1))
+
 ## [2.47.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.47.0...@ant-design/pro-table@2.47.1) (2021-08-05)
 
 **Note:** Version bump only for package @ant-design/pro-table

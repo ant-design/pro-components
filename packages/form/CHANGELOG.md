@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.34.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.33.1...@ant-design/pro-form@1.34.0) (2021-08-09)
+
+### Bug Fixes
+
+- **table:** 订正 ProSchema 类型中 proFieldProps 的类型 & 导出 ProFormItemProps 类型 ([#3388](https://github.com/ant-design/pro-components/issues/3388)) ([b1aef5d](https://github.com/ant-design/pro-components/commit/b1aef5decddf6e8a790639c920a9d5ab12c6bf03))
+
+### Features
+
+- **form:** FormItem support FilterDropdown ([#3381](https://github.com/ant-design/pro-components/issues/3381)) ([f5f7dbb](https://github.com/ant-design/pro-components/commit/f5f7dbb2730496a836d684840462c08715caff62))
+- **table:** support defualt size ([#3383](https://github.com/ant-design/pro-components/issues/3383)) ([442f716](https://github.com/ant-design/pro-components/commit/442f716dcbd36dde436ebdf4a85a8fa6e9e3b1b1))
+
 ## [1.33.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.33.0...@ant-design/pro-form@1.33.1) (2021-08-05)
 
 ### Bug Fixes

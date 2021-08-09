@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.20.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.20.3...@ant-design/pro-utils@1.20.4) (2021-08-09)
+
+### Bug Fixes
+
+- **table:** 订正 ProSchema 类型中 proFieldProps 的类型 & 导出 ProFormItemProps 类型 ([#3388](https://github.com/ant-design/pro-components/issues/3388)) ([b1aef5d](https://github.com/ant-design/pro-components/commit/b1aef5decddf6e8a790639c920a9d5ab12c6bf03))
+
 ## [1.20.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.20.2...@ant-design/pro-utils@1.20.3) (2021-08-05)
 
 ### Bug Fixes

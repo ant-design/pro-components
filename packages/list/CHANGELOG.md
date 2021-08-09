@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.11.1...@ant-design/pro-list@1.12.0) (2021-08-09)
+
+### Features
+
+- **form:** FormItem support FilterDropdown ([#3381](https://github.com/ant-design/pro-components/issues/3381)) ([f5f7dbb](https://github.com/ant-design/pro-components/commit/f5f7dbb2730496a836d684840462c08715caff62))
+- **list:** 添加列表查询 demo ([#3387](https://github.com/ant-design/pro-components/issues/3387)) ([25be644](https://github.com/ant-design/pro-components/commit/25be644fbceff1583963b5c9381517be6815aa84))
+
 ## [1.11.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.11.0...@ant-design/pro-list@1.11.1) (2021-08-05)
 
 **Note:** Version bump only for package @ant-design/pro-list

@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "6.23.4",
+  "version": "6.24.0",
   "description": "@ant-design/pro-layout",
   "keywords": [
     "antd",
@@ -35,7 +35,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
     "@ant-design/pro-provider": "1.4.16",
-    "@ant-design/pro-utils": "1.20.3",
+    "@ant-design/pro-utils": "1.20.4",
     "@umijs/route-utils": "^1.0.35",
     "@umijs/use-params": "^1.0.2",
     "classnames": "^2.2.6",
