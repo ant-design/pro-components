@@ -673,7 +673,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         onCleanSelected={onCleanSelected}
         alertOptionRender={rest.tableAlertOptionRender}
         alertInfoRender={tableAlertRender}
-        alwayShowAlert={propsRowSelection?.alwayShowAlert}
+        alwaysShowAlert={propsRowSelection?.alwaysShowAlert}
       />
     ) : null;
 

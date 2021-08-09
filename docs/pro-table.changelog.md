@@ -22,7 +22,7 @@ group:
 
 - 🐛 fix(table): hideInSetting can't work when fixed [#3325](https://github.com/ant-design/pro-components/pull/3325) [@DerrickTel](https://github.com/DerrickTel)
 - 🐛 fix(table): fix ColumnSetting hover style error [#3330](https://github.com/ant-design/pro-components/pull/3330) [@chenshuai2144](https://github.com/chenshuai2144)
-- 💥 feat(table): table rowSelection support alwayShowAlert [#3339](https://github.com/ant-design/pro-components/pull/3339) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(table): table rowSelection support alwaysShowAlert [#3339](https://github.com/ant-design/pro-components/pull/3339) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-table@2.45.0
 

@@ -418,7 +418,7 @@ Like antd, batch operations need to be set to "rowSelection" to enable. Unlike a
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| alwayShowAlert | Always show alert, no choice not to show by default | `boolean` | - |
+| alwaysShowAlert | Always show alert, no choice not to show by default | `boolean` | - |
 | tableAlertRender | Customize the information area on the left side of the batch operation toolbar, not displayed when false | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\| `false` | - |
 | tableAlertOptionRender | Customize the option area on the right side of the bulk operation toolbar, not displayed when false | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\| `false` | - |
 

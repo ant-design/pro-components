@@ -16,7 +16,7 @@ export type AlertRenderType<T> =
 export type TableAlertProps<T> = {
   selectedRowKeys: (number | string)[];
   selectedRows: T[];
-  alwayShowAlert?: boolean;
+  alwaysShowAlert?: boolean;
   alertInfoRender?: AlertRenderType<T>;
   onCleanSelected: () => void;
   alertOptionRender?: AlertRenderType<T>;
@@ -34,7 +34,7 @@ const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () =
 function TableAlert<T>({
   selectedRowKeys,
   onCleanSelected,
-  alwayShowAlert,
+  alwaysShowAlert,
   selectedRows,
   alertInfoRender = ({ intl }) => (
     <Space>
@@ -63,7 +63,7 @@ function TableAlert<T>({
   }
   const dom = alertInfoRender({ intl, selectedRowKeys, selectedRows, onCleanSelected });
 
-  if (dom === false || (selectedRowKeys.length < 1 && !alwayShowAlert)) {
+  if (dom === false || (selectedRowKeys.length < 1 && !alwaysShowAlert)) {
     return null;
   }
   return (

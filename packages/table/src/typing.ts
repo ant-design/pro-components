@@ -280,7 +280,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   /** @name 选择项配置 */
   rowSelection?:
     | (TableProps<T>['rowSelection'] & {
-        alwayShowAlert?: boolean;
+        alwaysShowAlert?: boolean;
       })
     | false;
 

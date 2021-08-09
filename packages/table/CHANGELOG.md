@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file. See [Conven
 
 ### Features
 
-- **table:** table rowSelection support alwayShowAlert ([#3339](https://github.com/ant-design/pro-components/issues/3339)) ([f25d93f](https://github.com/ant-design/pro-components/commit/f25d93f5220c06ecdfa63ccd3d8973f2df1c887f))
+- **table:** table rowSelection support alwaysShowAlert ([#3339](https://github.com/ant-design/pro-components/issues/3339)) ([f25d93f](https://github.com/ant-design/pro-components/commit/f25d93f5220c06ecdfa63ccd3d8973f2df1c887f))
 
 # [2.45.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.44.0...@ant-design/pro-table@2.45.0) (2021-07-26)
 
