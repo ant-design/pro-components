@@ -443,7 +443,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (typeof rowKey === 'function') {
       return rowKey;
     }
-    return (record: T, index?: number) => (record as any)?.[rowKey as string] ?? index;
+    return (record: T) => (record as any)?.[rowKey as string] ?? record?.key;
   }, [rowKey]);
 
   useMemo(() => {
