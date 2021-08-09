@@ -6,11 +6,11 @@ exports[`List 🚏 only has content 1`] = `
 >
   <div
     class="ant-card"
-    style="background: transparent;"
+    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="background: transparent;"
+      style="padding-top: 0px; padding-bottom: 0px;"
     >
       <div
         class="ant-list ant-list-split ant-pro-list-container"
@@ -61,11 +61,11 @@ exports[`List 🚏 only has description 1`] = `
 >
   <div
     class="ant-card"
-    style="background: transparent;"
+    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="background: transparent;"
+      style="padding-top: 0px; padding-bottom: 0px;"
     >
       <div
         class="ant-list ant-list-split ant-pro-list-container"
