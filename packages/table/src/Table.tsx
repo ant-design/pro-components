@@ -443,14 +443,14 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (typeof rowKey === 'function') {
       return rowKey;
     }
-    return (record: T) => (record as any)?.[rowKey as string] ?? record?.key;
+    return (record: T, index?: number) => (record as any)?.[rowKey as string] ?? index;
   }, [rowKey]);
 
   useMemo(() => {
     if (action.dataSource?.length) {
       const newCache = new Map<any, T>();
-      const keys = action.dataSource.map((data, index) => {
-        const dataRowKey = getRowKey(data, index) as string;
+      const keys = action.dataSource.map((data) => {
+        const dataRowKey = (data as any)?.[rowKey as string] ?? data?.key;
         newCache.set(dataRowKey, data);
         return dataRowKey;
       });
@@ -458,7 +458,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       return keys;
     }
     return [];
-  }, [action.dataSource]);
+  }, [action.dataSource, rowKey]);
 
   useEffect(() => {
     selectedRowsRef.current = selectedRowKeys?.map(
