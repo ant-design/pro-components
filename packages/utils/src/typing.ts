@@ -223,7 +223,12 @@ export type ProSchema<
           entity: Entity;
         },
       ) => Record<string, any>)
-    | Record<string, any>;
+    | Record<string, any>
+    | {
+        placeholder?: string;
+        maxLength?: number;
+        [key: string]: any;
+      };
 
   /** @name 自定义的 formItemProps */
   formItemProps?:
