@@ -166,7 +166,7 @@ export type ProSchema<
   Entity = Record<string, any>,
   ExtraProps = unknown,
   ComponentsType = ProSchemaComponentTypes,
-  ValueType = 'text',
+  ValueType = 'text'
 > = {
   /** @name 确定这个列的唯一值,一般用于 dataIndex 重复的情况 */
   key?: React.Key;

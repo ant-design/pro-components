@@ -60,7 +60,7 @@ export type ProDescriptionsActionType = ProCoreActionType;
 
 export type ProDescriptionsProps<
   RecordType = Record<string, any>,
-  ValueType = 'text',
+  ValueType = 'text'
 > = DescriptionsProps & {
   /** Params 参数 params 改变的时候会触发 reload */
   params?: Record<string, any>;

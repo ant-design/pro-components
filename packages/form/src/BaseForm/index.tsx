@@ -37,7 +37,7 @@ import { noteOnce } from 'rc-util/lib/warning';
 
 export type CommonFormProps<
   T extends Record<string, any> = Record<string, any>,
-  U extends Record<string, any> = Record<string, any>,
+  U extends Record<string, any> = Record<string, any>
 > = {
   submitter?:
     | SubmitterProps<{

@@ -1,20 +1,13 @@
-import React, { useState } from 'react';
-import { SortableContainer, SortableElement, SortableHandle } from 'react-sortable-hoc';
-import { MenuOutlined } from '@ant-design/icons';
+import React from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
-import arrayMove from 'array-move';
 import './drag.less';
-
-const DragHandle = SortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
+import { MenuOutlined } from '@ant-design/icons';
 
 const columns: ProColumns[] = [
   {
     title: '排序',
     dataIndex: 'sort',
-    width: 60,
-    className: 'drag-visible',
-    render: () => <DragHandle />,
   },
   {
     title: '姓名',
@@ -56,47 +49,38 @@ const data = [
 ];
 
 export default () => {
-  const [dataSource, setDataSource] = useState(data);
-  const SortableItem = SortableElement((props: any) => <tr {...props} />);
-  const SortContainer = SortableContainer((props: any) => <tbody {...props} />);
-
-  const onSortEnd = ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
-    if (oldIndex !== newIndex) {
-      const newData = arrayMove([...dataSource], oldIndex, newIndex).filter((el) => !!el);
-      setDataSource([...newData]);
-    }
+  const handleDragSortEnd = (newDataSource: any) => {
+    console.log('排序后的数据', newDataSource);
   };
 
-  const DraggableContainer = (props: any) => (
-    <SortContainer
-      useDragHandle
-      disableAutoscroll
-      helperClass="row-dragging"
-      onSortEnd={onSortEnd}
-      {...props}
-    />
+  const dragHandleRender = (rowData: any, idx: any) => (
+    <>
+      <MenuOutlined style={{ cursor: 'grab', color: 'gold' }} />
+      {idx + 1} - {rowData.name}
+    </>
   );
 
-  const DraggableBodyRow = (props: any) => {
-    const { className, style, ...restProps } = props;
-    // function findIndex base on Table rowKey props and should always be a right array index
-    const index = dataSource.findIndex((x) => x.index === restProps['data-row-key']);
-    return <SortableItem index={index} {...restProps} />;
-  };
-
   return (
-    <ProTable
-      headerTitle="拖拽排序"
-      columns={columns}
-      rowKey="index"
-      pagination={false}
-      dataSource={dataSource}
-      components={{
-        body: {
-          wrapper: DraggableContainer,
-          row: DraggableBodyRow,
-        },
-      }}
-    />
+    <>
+      <ProTable
+        headerTitle="拖拽排序(默认把手)"
+        columns={columns}
+        rowKey="index"
+        pagination={false}
+        dataSource={data}
+        dragSortKey="sort"
+        onDragSortEnd={handleDragSortEnd}
+      />
+      <ProTable
+        headerTitle="拖拽排序(自定义把手)"
+        columns={columns}
+        rowKey="index"
+        pagination={false}
+        dataSource={data}
+        dragSortKey="sort"
+        dragSortHandlerRender={dragHandleRender}
+        onDragSortEnd={handleDragSortEnd}
+      />
+    </>
   );
 };

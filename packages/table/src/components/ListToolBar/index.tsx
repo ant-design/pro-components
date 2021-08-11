@@ -171,10 +171,12 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   }, [filter, prefixCls]);
 
   /** 有没有 title，需要结合多个场景判断 */
-  const hasTitle = useMemo(
-    () => menu || title || subTitle || tooltip,
-    [menu, subTitle, title, tooltip],
-  );
+  const hasTitle = useMemo(() => menu || title || subTitle || tooltip, [
+    menu,
+    subTitle,
+    title,
+    tooltip,
+  ]);
 
   /** 没有 key 的时候帮忙加一下 key 不加的话很烦人 */
   const actionDom = useMemo(() => {
@@ -207,10 +209,14 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
     );
   }, [actionDom, filtersNode, hasTitle, multipleLine, searchNode, settings?.length]);
 
-  const hasLeft = useMemo(
-    () => tooltip || title || subTitle || menu || (!hasTitle && searchNode),
-    [hasTitle, menu, searchNode, subTitle, title, tooltip],
-  );
+  const hasLeft = useMemo(() => tooltip || title || subTitle || menu || (!hasTitle && searchNode), [
+    hasTitle,
+    menu,
+    searchNode,
+    subTitle,
+    title,
+    tooltip,
+  ]);
 
   const leftTitleDom = useMemo(() => {
     if (!hasLeft && hasRight) {

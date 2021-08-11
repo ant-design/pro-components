@@ -135,13 +135,8 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     ...rest
   } = props;
 
-  const {
-    expandedRowRender,
-    expandIcon,
-    expandRowByClick,
-    indentSize = 8,
-    expandedRowClassName,
-  } = expandableConfig || {};
+  const { expandedRowRender, expandIcon, expandRowByClick, indentSize = 8, expandedRowClassName } =
+    expandableConfig || {};
 
   const [expanded, onExpand] = useMergedState<boolean>(!!propsExpand, {
     value: propsExpand,

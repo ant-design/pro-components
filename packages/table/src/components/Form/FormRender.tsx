@@ -167,10 +167,10 @@ const FormRender = <T, U = any>({
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
 
-  const competentName = useMemo(
-    () => getFormCompetent(isForm, searchConfig),
-    [searchConfig, isForm],
-  );
+  const competentName = useMemo(() => getFormCompetent(isForm, searchConfig), [
+    searchConfig,
+    isForm,
+  ]);
 
   // 传给每个表单的配置，理论上大家都需要
   const loadingProps: any = useMemo(

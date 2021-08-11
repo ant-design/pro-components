@@ -22,7 +22,7 @@ import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ColumnsState, useContainer } from './container';
 import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 
 export type PageInfo = {
   pageSize: number;
@@ -311,6 +311,12 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   debounceTime?: number;
   /** 默认的表格大小 */
   defaultSize?: SizeType;
+  /** @name 拖动排序列key值 如配置此参数，则会在该key对应的行显示拖拽排序把手，允许拖拽排序 */
+  dragSortKey?: string;
+  /** @name 渲染自定义拖动排序把手的函数 如配置了dragSortKey但未配置此参数，则使用默认把手图标 */
+  dragSortHandlerRender?: (rowData: T, idx: number) => React.ReactNode;
+  /** @name 拖动排序完成回调 */
+  onDragSortEnd?: (newDataSource: T[]) => Promise<void> | void;
 } & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {

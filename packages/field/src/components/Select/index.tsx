@@ -230,14 +230,14 @@ export const proFieldParsingValueEnumToArray = (
 
     if (typeof value === 'object' && value?.text) {
       enumArray.push({
-        text: value?.text as unknown as string,
+        text: (value?.text as unknown) as string,
         value: key,
         disabled: value.disabled,
       });
       return;
     }
     enumArray.push({
-      text: value as unknown as string,
+      text: (value as unknown) as string,
       value: key,
     });
   });
@@ -417,7 +417,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
       <>
         {proFieldParsingText(
           rest.text,
-          ObjToMap(valueEnum || optionsValueEnum) as unknown as ProSchemaValueEnumObj,
+          (ObjToMap(valueEnum || optionsValueEnum) as unknown) as ProSchemaValueEnumObj,
         )}
       </>
     );
