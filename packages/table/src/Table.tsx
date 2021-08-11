@@ -46,9 +46,7 @@ import type {
 import type { ActionType } from '.';
 import { columnSort } from './utils/columnSort';
 import ProForm from '@ant-design/pro-form';
-import { SortableContainer, SortableElement } from 'react-sortable-hoc';
-import arrayMove from 'array-move';
-import type { TableComponents } from 'rc-table/lib/interface';
+import { useDragSort } from './utils/useDragSort';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -285,7 +283,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   }
   return (
     <ConfigProvider
-      getPopupContainer={() => ((rootRef.current || document.body) as any) as HTMLElement}
+      getPopupContainer={() => (rootRef.current || document.body) as any as HTMLElement}
     >
       {proTableDom}
     </ConfigProvider>
@@ -338,19 +336,14 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     ...rest
   } = props;
 
-  const [dataSource, setDataSource] = useState(props.dataSource || []);
-
   const className = classNames(defaultClassName, propsClassName);
+  const [dataSource, setDatasource] = useState<T[] | null>(null);
 
   /** 通用的来操作子节点的工具类 */
   const actionRef = useRef<ActionType>();
 
   const defaultFormRef = useRef();
   const formRef = propRef || defaultFormRef;
-
-  useEffect(() => {
-    setDataSource(props.dataSource || []);
-  }, [props.dataSource]);
 
   useEffect(() => {
     if (typeof propsActionRef === 'function' && actionRef.current) {
@@ -418,7 +411,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       };
       // eslint-disable-next-line no-underscore-dangle
       delete (actionParams as any)._timestamp;
-      const response = await request((actionParams as unknown) as U, proSort, proFilter);
+      const response = await request(actionParams as unknown as U, proSort, proFilter);
       return response as RequestData<T>;
     };
   }, [formSearch, params, proFilter, proSort, request]);
@@ -426,9 +419,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const action = useFetchData(fetchData, defaultData, {
     pageInfo: propsPagination === false ? false : fetchPagination,
     loading: props.loading,
-    dataSource,
+    dataSource: dataSource || props.dataSource,
     onDataSourceChange: (ds: any) => {
-      setDataSource(ds);
+      setDatasource(ds);
       if (props.onDataSourceChange) props.onDataSourceChange(ds);
     },
     onLoad,
@@ -450,6 +443,14 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   });
   // ============================ END ============================
 
+  const { components } = useDragSort<T>({
+    data: action.dataSource,
+    dragSortKey,
+    action,
+    onDragSortEnd,
+    components: props.components,
+  });
+
   /** SelectedRowKeys受控处理selectRows */
   const preserveRecordsRef = React.useRef(new Map<any, T>());
 
@@ -464,8 +465,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   useMemo(() => {
     if (action.dataSource?.length) {
       const newCache = new Map<any, T>();
-      const keys = action.dataSource.map((data, index) => {
-        const dataRowKey = getRowKey(data, index) as string;
+      const keys = action.dataSource.map((data) => {
+        const dataRowKey = (data as any)?.[rowKey as string] ?? data?.key;
         newCache.set(dataRowKey, data);
         return dataRowKey;
       });
@@ -473,7 +474,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       return keys;
     }
     return [];
-  }, [action.dataSource]);
+  }, [action.dataSource, rowKey]);
 
   useEffect(() => {
     selectedRowsRef.current = selectedRowKeys?.map(
@@ -694,44 +695,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       />
     ) : null;
 
-  // 拖拽排序相关逻辑
-  const SortableItem = SortableElement((p: any) => <tr {...p} />);
-  const SortContainer = SortableContainer((p: any) => <tbody {...p} />);
-
-  const onSortEnd = ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
-    if (oldIndex !== newIndex) {
-      const newData = arrayMove([...dataSource], oldIndex, newIndex).filter((el) => !!el);
-      setDataSource([...newData]);
-      onDragSortEnd([...newData]);
-    }
-  };
-
-  const DraggableContainer = (p: any) => (
-    <SortContainer
-      useDragHandle
-      disableAutoscroll
-      helperClass="row-dragging"
-      onSortEnd={onSortEnd}
-      {...p}
-    />
-  );
-
-  const DraggableBodyRow = (p: any) => {
-    const { className: DraggableBodyRowClassName, style: DraggableBodyRowStyle, ...restProps } = p;
-    // function findIndex base on Table rowKey props and should always be a right array index
-    const index = dataSource.findIndex((x) => x.index === restProps['data-row-key']);
-    return <SortableItem index={index} {...restProps} />;
-  };
-
-  const components: TableComponents<T> = props.components || {};
-  if (dragSortKey) {
-    components.body = {
-      ...(props.components?.body || {}),
-      wrapper: DraggableContainer,
-      row: DraggableBodyRow,
-    };
-  }
-
   return (
     <TableRender
       {...props}
@@ -763,7 +726,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 const ProviderWarp = <
   DataType extends Record<string, any>,
   Params extends ParamsType = ParamsType,
-  ValueType = 'text'
+  ValueType = 'text',
 >(
   props: ProTableProps<DataType, Params, ValueType>,
 ) => {

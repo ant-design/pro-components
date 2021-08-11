@@ -16,7 +16,9 @@ import React from 'react';
 // 用于创建可拖拽把手组件的工厂
 const handleCreator = (handle: React.ReactNode) => SortableHandle(() => <>{handle}</>);
 // 默认拖拽把手
-const DragHandle = handleCreator(<MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
+const DragHandle = handleCreator(
+  <MenuOutlined className="dragSortDefaultHandle" style={{ cursor: 'grab', color: '#999' }} />,
+);
 
 export type GenProColumnToColumnProps<T> = {
   columns: ProColumns<T, any>[];
@@ -45,7 +47,7 @@ export function genProColumnToColumn<T>(
     dragSortKey,
     dragSortHandlerRender,
   } = props;
-  return (columns
+  return columns
     .map((columnProps, columnsIndex) => {
       const {
         key,
@@ -145,7 +147,7 @@ export function genProColumnToColumn<T>(
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
-    .filter((item) => !item.hideInTable) as unknown) as (TableColumnType<T> & {
+    .filter((item) => !item.hideInTable) as unknown as (TableColumnType<T> & {
     index?: number;
   })[];
 }

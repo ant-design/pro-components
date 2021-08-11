@@ -22246,7 +22246,7 @@ Array [
                           >
                             <span
                               aria-label="menu"
-                              class="anticon anticon-menu"
+                              class="anticon anticon-menu dragSortDefaultHandle"
                               role="img"
                               style="cursor: grab; color: rgb(153, 153, 153);"
                             >
@@ -22289,7 +22289,7 @@ Array [
                           >
                             <span
                               aria-label="menu"
-                              class="anticon anticon-menu"
+                              class="anticon anticon-menu dragSortDefaultHandle"
                               role="img"
                               style="cursor: grab; color: rgb(153, 153, 153);"
                             >
@@ -22332,7 +22332,7 @@ Array [
                           >
                             <span
                               aria-label="menu"
-                              class="anticon anticon-menu"
+                              class="anticon anticon-menu dragSortDefaultHandle"
                               role="img"
                               style="cursor: grab; color: rgb(153, 153, 153);"
                             >
