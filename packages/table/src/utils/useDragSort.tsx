@@ -10,6 +10,14 @@ export interface UseDragSortOptions<T> {
   components?: TableComponents<T>;
 }
 
+export type OnSortEndParams = { oldIndex: number; newIndex: number };
+export function onSortEnd<T>({ oldIndex, newIndex }: OnSortEndParams,data: T[], cb: (newDs: T[]) => void){
+  if (oldIndex !== newIndex) {
+    const newData = arrayMove([...(data || [])], oldIndex, newIndex).filter((el) => !!el);
+    cb([...newData]);
+  }
+}
+
 export function useDragSort<T>(props: UseDragSortOptions<T>) {
   const { data = [], onDragSortEnd = () => {}, dragSortKey } = props;
 
@@ -17,19 +25,16 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
   const SortableItem = SortableElement((p: any) => <tr {...p} />);
   const SortContainer = SortableContainer((p: any) => <tbody {...p} />);
 
-  const onSortEnd = ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
-    if (oldIndex !== newIndex) {
-      const newData = arrayMove([...(data || [])], oldIndex, newIndex).filter((el) => !!el);
-      onDragSortEnd([...newData]);
-    }
-  };
+  const handleSortEnd = (params: { oldIndex: number; newIndex: number }) => {
+    onSortEnd(params, data, onDragSortEnd)
+  }
 
   const DraggableContainer = (p: any) => (
     <SortContainer
       useDragHandle
       disableAutoscroll
       helperClass="row-dragging"
-      onSortEnd={onSortEnd}
+      onSortEnd={handleSortEnd}
       {...p}
     />
   );

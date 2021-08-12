@@ -18,6 +18,7 @@ import moment from 'moment';
 import { act } from 'react-dom/test-utils';
 import { waitTime, waitForComponentToPaint } from '../util';
 import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/index';
+import { onSortEnd } from "../../packages/table/src/utils/useDragSort";
 import { CodeFilled } from '@ant-design/icons';
 
 describe('utils', () => {
@@ -671,4 +672,33 @@ describe('utils', () => {
 
     expect(html.render()).toMatchSnapshot();
   });
+
+
+  it('📅 [dragSort] sort core', async () => {
+    const callBack = jest.fn();
+    type DataSourceItemStruct = {
+      id: number,
+      name: string
+    };
+    const dataSource: DataSourceItemStruct[] = [
+      {
+        id: 1,
+        name: "kiner"
+      },
+      {
+        id: 2,
+        name: "WenHui Tang"
+      },
+      {
+        id: 3,
+        name: "Kiner Tang"
+      }
+    ];
+    onSortEnd<DataSourceItemStruct>({oldIndex: 1, newIndex: 0}, dataSource, (newDs: DataSourceItemStruct[]) => {
+      callBack(newDs[0].id)
+    });
+    expect(callBack).toBeCalled();
+    expect(callBack).toBeCalledWith(2);
+  });
+
 });

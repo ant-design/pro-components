@@ -138,8 +138,7 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html, 1200);
     expect(html.find('td.ant-table-cell')).toMatchSnapshot();
   });
-
-  it('🎏 render drag sort default handle by dragSortKey', async () => {
+  it('🎏 [dragSort] render drag sort default handle by dragSortKey', async () => {
     const html = mount(
       <ProTable
         size="small"
@@ -171,7 +170,7 @@ describe('Table ColumnSetting', () => {
     expect(html.find('.dragSortDefaultHandle')).toMatchSnapshot();
   });
 
-  it('🎏 render drag sort custom handle by dragSortHandlerRender', async () => {
+  it('🎏 [dragSort] render drag sort custom handle by dragSortHandlerRender', async () => {
     const dragHandleRender = (rowData: any, idx: any) => (
       <>
         <MenuOutlined className="dragSortCustomHandle" style={{ cursor: 'grab', color: 'gold' }} />
