@@ -216,5 +216,6 @@ export function sortData<T>({ oldIndex, newIndex }: SortDataParams, data: T[]): 
     const newData = arrayMove([...(data || [])], oldIndex, newIndex).filter((el) => !!el);
     return [...newData];
   }
+  /* istanbul ignore next */
   return null;
 }
