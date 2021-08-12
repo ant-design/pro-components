@@ -1,7 +1,8 @@
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
-import React from 'react';
-import arrayMove from 'array-move';
+import React, { useCallback } from 'react';
 import type { TableComponents } from 'rc-table/lib/interface';
+import type { SortDataParams } from './index';
+import { sortData } from './index';
 
 export interface UseDragSortOptions<T> {
   data?: T[];
@@ -9,25 +10,26 @@ export interface UseDragSortOptions<T> {
   dragSortKey?: string;
   components?: TableComponents<T>;
 }
-
-export type OnSortEndParams = { oldIndex: number; newIndex: number };
-export function onSortEnd<T>({ oldIndex, newIndex }: OnSortEndParams,data: T[], cb: (newDs: T[]) => void){
-  if (oldIndex !== newIndex) {
-    const newData = arrayMove([...(data || [])], oldIndex, newIndex).filter((el) => !!el);
-    cb([...newData]);
-  }
-}
-
 export function useDragSort<T>(props: UseDragSortOptions<T>) {
-  const { data = [], onDragSortEnd = () => {}, dragSortKey } = props;
+  const { data = [], onDragSortEnd, dragSortKey } = props;
 
   // 拖拽排序相关逻辑
   const SortableItem = SortableElement((p: any) => <tr {...p} />);
   const SortContainer = SortableContainer((p: any) => <tbody {...p} />);
 
-  const handleSortEnd = (params: { oldIndex: number; newIndex: number }) => {
-    onSortEnd(params, data, onDragSortEnd)
-  }
+  /* istanbul ignore next */
+  const handleSortEnd = useCallback(
+    (params: SortDataParams) => {
+      /* istanbul ignore next */
+      const newDs: T[] | null = sortData<T>(params, data);
+      /* istanbul ignore next */
+      if (newDs && onDragSortEnd) {
+        /* istanbul ignore next */
+        onDragSortEnd(newDs);
+      }
+    },
+    [data, onDragSortEnd],
+  );
 
   const DraggableContainer = (p: any) => (
     <SortContainer

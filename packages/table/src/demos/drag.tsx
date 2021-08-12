@@ -3,6 +3,7 @@ import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import './drag.less';
 import { MenuOutlined } from '@ant-design/icons';
+import { message } from 'antd';
 
 const columns: ProColumns[] = [
   {
@@ -54,32 +55,12 @@ export default () => {
   const handleDragSortEnd1 = (newDataSource: any) => {
     console.log('排序后的数据', newDataSource);
     setDatasource1(newDataSource);
-    setTimeout(() => {
-      console.log('异步新增元素');
-      newDataSource.push({
-        key: `${newDataSource.length + 1}`,
-        name: 'kiner tang',
-        age: 28,
-        address: 'guangzhou',
-        index: newDataSource.length,
-      });
-      setDatasource1([...newDataSource]);
-    }, 3000);
+    message.success('修改列表排序成功');
   };
   const handleDragSortEnd2 = (newDataSource: any) => {
     console.log('排序后的数据', newDataSource);
     setDatasource2(newDataSource);
-    setTimeout(() => {
-      console.log('异步新增元素');
-      newDataSource.push({
-        key: `${newDataSource.length + 1}`,
-        name: 'kiner tang',
-        age: 28,
-        address: 'guangzhou',
-        index: newDataSource.length,
-      });
-      setDatasource2([...newDataSource]);
-    }, 3000);
+    message.success('修改列表排序成功');
   };
 
   const dragHandleRender = (rowData: any, idx: any) => (
