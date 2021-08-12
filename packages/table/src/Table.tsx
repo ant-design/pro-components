@@ -1,5 +1,5 @@
 /* eslint max-classes-per-file: ["error", 3] */
-import React, { useContext, useRef, useCallback, useMemo, useEffect, useState } from 'react';
+import React, { useContext, useRef, useCallback, useMemo, useEffect } from 'react';
 import type { TablePaginationConfig } from 'antd';
 import { Table, ConfigProvider, Card } from 'antd';
 
@@ -337,7 +337,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   } = props;
 
   const className = classNames(defaultClassName, propsClassName);
-  const [dataSource, setDatasource] = useState<T[] | null>(null);
 
   /** 通用的来操作子节点的工具类 */
   const actionRef = useRef<ActionType>();
@@ -419,9 +418,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const action = useFetchData(fetchData, defaultData, {
     pageInfo: propsPagination === false ? false : fetchPagination,
     loading: props.loading,
-    dataSource: dataSource || props.dataSource,
+    dataSource: props.dataSource,
     onDataSourceChange: (ds: any) => {
-      setDatasource(ds);
       if (props.onDataSourceChange) props.onDataSourceChange(ds);
     },
     onLoad,
@@ -446,7 +444,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const { components } = useDragSort<T>({
     data: action.dataSource,
     dragSortKey,
-    action,
     onDragSortEnd,
     components: props.components,
   });

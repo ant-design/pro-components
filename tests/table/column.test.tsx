@@ -207,6 +207,6 @@ describe('Table ColumnSetting', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
-    expect(html.find('.dragSortDefaultHandle')).toMatchSnapshot();
+    expect(html.find('.dragSortCustomHandle')).toMatchSnapshot();
   });
 });

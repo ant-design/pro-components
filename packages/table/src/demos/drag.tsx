@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import './drag.less';
@@ -49,8 +49,37 @@ const data = [
 ];
 
 export default () => {
-  const handleDragSortEnd = (newDataSource: any) => {
+  const [dataSource1, setDatasource1] = useState(data);
+  const [dataSource2, setDatasource2] = useState(data);
+  const handleDragSortEnd1 = (newDataSource: any) => {
     console.log('排序后的数据', newDataSource);
+    setDatasource1(newDataSource);
+    setTimeout(() => {
+      console.log('异步新增元素');
+      newDataSource.push({
+        key: `${newDataSource.length + 1}`,
+        name: 'kiner tang',
+        age: 28,
+        address: 'guangzhou',
+        index: newDataSource.length,
+      });
+      setDatasource1([...newDataSource]);
+    }, 3000);
+  };
+  const handleDragSortEnd2 = (newDataSource: any) => {
+    console.log('排序后的数据', newDataSource);
+    setDatasource2(newDataSource);
+    setTimeout(() => {
+      console.log('异步新增元素');
+      newDataSource.push({
+        key: `${newDataSource.length + 1}`,
+        name: 'kiner tang',
+        age: 28,
+        address: 'guangzhou',
+        index: newDataSource.length,
+      });
+      setDatasource2([...newDataSource]);
+    }, 3000);
   };
 
   const dragHandleRender = (rowData: any, idx: any) => (
@@ -67,19 +96,19 @@ export default () => {
         columns={columns}
         rowKey="index"
         pagination={false}
-        dataSource={data}
+        dataSource={dataSource1}
         dragSortKey="sort"
-        onDragSortEnd={handleDragSortEnd}
+        onDragSortEnd={handleDragSortEnd1}
       />
       <ProTable
         headerTitle="拖拽排序(自定义把手)"
         columns={columns}
         rowKey="index"
         pagination={false}
-        dataSource={data}
+        dataSource={dataSource2}
         dragSortKey="sort"
         dragSortHandlerRender={dragHandleRender}
-        onDragSortEnd={handleDragSortEnd}
+        onDragSortEnd={handleDragSortEnd2}
       />
     </>
   );
