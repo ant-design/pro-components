@@ -26,6 +26,9 @@ const antdFormItemPropsList = [
   'valuePropName',
   'wrapperCol',
   'hidden',
+  // 我自定义的
+  'addonBefore',
+  'addonAfter',
 ];
 
 export default function pickProFormItemProps(props: object) {
