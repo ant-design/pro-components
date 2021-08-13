@@ -3,11 +3,11 @@ import type { SelectProps } from 'antd';
 import ProField from '@ant-design/pro-field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
-import type { ProFormItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../interface';
 import type { ExtendsProps } from '../../BaseForm/createField';
 import createField from '../../BaseForm/createField';
 
-export type ProFormSelectProps<T = any> = ProFormItemProps<
+export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
   SelectProps<T> & {
     /**
      * 是否在输入框聚焦时触发搜索

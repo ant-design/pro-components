@@ -1,7 +1,6 @@
 ﻿import React, { useContext, useEffect, useMemo } from 'react';
 import type { FormItemProps } from 'antd';
-import { ConfigProvider } from 'antd';
-import { Form } from 'antd';
+import { ConfigProvider, Form } from 'antd';
 import { FormListContext } from '../List';
 import FieldContext from '../../FieldContext';
 import type { SearchTransformKeyFn } from '@ant-design/pro-utils';
@@ -59,16 +58,56 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (filedProps) => {
   );
 };
 
-const ProFormItem: React.FC<
-  FormItemProps & {
-    ignoreFormItem?: boolean;
-    valueType?: any;
-    /** @name 提交时转化值，一般用于数组类型 */
-    transform?: SearchTransformKeyFn;
-    dataFormat?: string;
-    lightProps?: LightWrapperProps;
-  }
-> = (props) => {
+type WarpFormItemProps = {
+  /** @name 前置的dom * */
+  addonBefore?: React.ReactNode;
+  /** @name 后置的dom * */
+  addonAfter?: React.ReactNode;
+};
+
+/**
+ * 支持了一下前置 dom 和后置的 dom
+ *
+ * @param WarpFormItemProps
+ * @returns
+ */
+const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
+  children,
+  addonAfter,
+  addonBefore,
+  ...props
+}) => {
+  if (!addonAfter && !addonBefore) return <Form.Item {...props}>{children}</Form.Item>;
+  return (
+    <Form.Item {...props}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        {addonBefore ? <div style={{ marginRight: 8 }}>{addonBefore}</div> : null}
+        <div style={{ flex: 1 }}>
+          <Form.Item {...props} noStyle>
+            {children}
+          </Form.Item>
+        </div>
+        {addonAfter ? <div style={{ marginLeft: 8 }}>{addonAfter}</div> : null}
+      </div>
+    </Form.Item>
+  );
+};
+
+type ProFormItemProps = FormItemProps & {
+  ignoreFormItem?: boolean;
+  valueType?: any;
+  /** @name 提交时转化值，一般用于数组类型 */
+  transform?: SearchTransformKeyFn;
+  dataFormat?: string;
+  lightProps?: LightWrapperProps;
+} & WarpFormItemProps;
+
+const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   const size = useContext(ConfigProvider.SizeContext);
   const { valueType, transform, dataFormat, ignoreFormItem, lightProps = {}, ...rest } = props;
   const formListField = useContext(FormListContext);
@@ -123,9 +162,9 @@ const ProFormItem: React.FC<
 
   if (typeof props.children === 'function') {
     return (
-      <Form.Item {...rest} name={name}>
+      <WarpFormItem {...rest} name={name}>
         {props.children}
-      </Form.Item>
+      </WarpFormItem>
     );
   }
 
@@ -149,10 +188,12 @@ const ProFormItem: React.FC<
     return <>{lightDom}</>;
   }
   return (
-    <Form.Item {...rest} name={name}>
+    <WarpFormItem {...rest} name={name}>
       {lightDom}
-    </Form.Item>
+    </WarpFormItem>
   );
 };
+
+export type { ProFormItemProps };
 
 export default ProFormItem;
