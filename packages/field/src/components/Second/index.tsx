@@ -15,6 +15,7 @@ export type FieldDigitProps = {
  */
 export function formatSecond(result: number) {
   let formatText = '';
+  const d = Math.floor(result / (3600 * 24));
   const h = Math.floor(result / 3600);
   const m = Math.floor((result / 60) % 60);
   const s = Math.floor(result % 60);
@@ -24,6 +25,9 @@ export function formatSecond(result: number) {
   }
   if (h > 0) {
     formatText = `${h}小时${formatText}`;
+  }
+  if (d > 0) {
+    formatText = `${d}天${formatText}`;
   }
   return formatText;
 }
