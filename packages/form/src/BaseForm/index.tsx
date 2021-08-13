@@ -114,11 +114,11 @@ const genParams = (
   return runFunction(syncUrl, params, type);
 };
 
-type ProFormInstance<T> = FormInstance<T> & {
+type ProFormInstance<T = Record<string, any>> = FormInstance<T> & {
   /** 获取格式化之后所有数据 */
-  getFieldsFormatValue: (nameList?: NamePath[] | true) => Record<string, any>;
+  getFieldsFormatValue?: (nameList?: NamePath[] | true) => Record<string, any>;
   /** 获取格式化之后的单个数据 */
-  getFieldFormatValue: (nameList?: NamePath) => Record<string, any>;
+  getFieldFormatValue?: (nameList?: NamePath) => Record<string, any>;
 };
 
 function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {

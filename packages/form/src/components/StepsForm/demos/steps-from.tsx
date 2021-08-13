@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
   StepsForm,
   ProFormText,
@@ -9,7 +10,6 @@ import ProForm, {
   ProFormDateRangePicker,
 } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
-import type { FormInstance } from 'antd';
 import { message } from 'antd';
 
 const waitTime = (time: number = 100) => {
@@ -21,7 +21,7 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const formRef = useRef<FormInstance>();
+  const formRef = useRef<ProFormInstance>();
 
   return (
     <ProCard>

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button, message, Space } from 'antd';
-import type { FormInstance } from 'antd';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import { ModalForm, ProFormText } from '@ant-design/pro-form';
 
 const waitTime = (time: number = 100) => {
@@ -12,8 +12,8 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const restFormRef = useRef<FormInstance>();
-  const formRef = useRef<FormInstance>();
+  const restFormRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
