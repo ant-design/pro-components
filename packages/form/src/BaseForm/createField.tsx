@@ -6,7 +6,7 @@ import { pickProFormItemProps } from '@ant-design/pro-utils';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
 import FieldContext from '../FieldContext';
-import type { ProFormItemProps } from '../interface';
+import type { ProFormFieldItemProps } from '../interface';
 import ProFormItem from '../components/FormItem';
 
 export const TYPE = Symbol('ProFormComponent');
@@ -82,7 +82,7 @@ export type ExtendsProps = {
  * @param Field
  * @param config
  */
-function createField<P extends ProFormItemProps = any>(
+function createField<P extends ProFormFieldItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
   config?: ProFormItemCreateConfig,
 ): ProFormComponent<P, ExtendsProps> {
@@ -192,7 +192,6 @@ function createField<P extends ProFormItemProps = any>(
         })}
       />
     );
-
     return (
       <ProFormItem
         // 全局的提供一个 tip 功能，可以减少代码量

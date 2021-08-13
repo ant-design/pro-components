@@ -2,7 +2,7 @@ import React from 'react';
 import ProField from '@ant-design/pro-field';
 import type { DatePickerProps } from 'antd';
 import createField from '../../BaseForm/createField';
-import type { ProFormItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../interface';
 
 const valueType = 'dateQuarter';
 /**
@@ -10,7 +10,7 @@ const valueType = 'dateQuarter';
  *
  * @param
  */
-const ProFormDatePickerQuarter: React.FC<ProFormItemProps<DatePickerProps>> = React.forwardRef(
+const ProFormDatePickerQuarter: React.FC<ProFormFieldItemProps<DatePickerProps>> = React.forwardRef(
   ({ proFieldProps, fieldProps }, ref: any) => {
     return (
       <ProField
@@ -25,7 +25,7 @@ const ProFormDatePickerQuarter: React.FC<ProFormItemProps<DatePickerProps>> = Re
   },
 );
 
-export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePickerQuarter, {
+export default createField<ProFormFieldItemProps<DatePickerProps>>(ProFormDatePickerQuarter, {
   valueType,
   customLightMode: true,
 });

@@ -1,10 +1,10 @@
 import React from 'react';
 import type { SliderSingleProps } from 'antd';
 import { Slider } from 'antd';
-import type { ProFormItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
-export type ProFormSliderProps = ProFormItemProps<SliderSingleProps> & {
+export type ProFormSliderProps = ProFormFieldItemProps<SliderSingleProps> & {
   range?: boolean;
   min?: SliderSingleProps['min'];
   max?: SliderSingleProps['max'];
