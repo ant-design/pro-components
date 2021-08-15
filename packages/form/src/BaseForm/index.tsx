@@ -407,8 +407,8 @@ function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   if (!initialData && props.request) {
     return (
-      <div style={{ paddingTop: 100, textAlign: 'center' }}>
-        <Spin size="large" />
+      <div style={{ textAlign: 'center' }}>
+        <Spin />
       </div>
     );
   }
