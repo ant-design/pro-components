@@ -46,7 +46,6 @@ import type {
 import type { ActionType } from '.';
 import { columnSort } from './utils/columnSort';
 import ProForm from '@ant-design/pro-form';
-import { useDragSort } from './utils/useDragSort';
 
 function TableRender<T extends Record<string, any>, U, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
@@ -330,9 +329,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     manualRequest,
     polling,
     tooltip,
-    dragSortKey,
-    dragSortHandlerRender,
-    onDragSortEnd = () => {},
     ...rest
   } = props;
 
@@ -419,9 +415,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     pageInfo: propsPagination === false ? false : fetchPagination,
     loading: props.loading,
     dataSource: props.dataSource,
-    onDataSourceChange: (ds: any) => {
-      if (props.onDataSourceChange) props.onDataSourceChange(ds);
-    },
+    onDataSourceChange: props.onDataSourceChange,
     onLoad,
     onLoadingChange,
     onRequestError,
@@ -440,13 +434,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     },
   });
   // ============================ END ============================
-
-  const { components } = useDragSort<T>({
-    data: action.dataSource,
-    dragSortKey,
-    onDragSortEnd,
-    components: props.components,
-  });
 
   /** SelectedRowKeys受控处理selectRows */
   const preserveRecordsRef = React.useRef(new Map<any, T>());
@@ -582,8 +569,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       columnEmptyText,
       type,
       editableUtils,
-      dragSortKey,
-      dragSortHandlerRender,
     }).sort(columnSort(counter.columnsMap));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
@@ -710,7 +695,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       onSortChange={setProSort}
       onFilterChange={setProFilter}
       editableUtils={editableUtils}
-      components={components}
     />
   );
 };
