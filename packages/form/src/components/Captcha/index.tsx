@@ -3,9 +3,9 @@ import { Button, Input, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import React, { useState, useCallback, useEffect } from 'react';
 import createField from '../../BaseForm/createField';
-import type { ProFormItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../interface';
 
-export type ProFormCaptchaProps = ProFormItemProps<InputProps> & {
+export type ProFormCaptchaProps = ProFormFieldItemProps<InputProps> & {
   /** @name 倒计时的秒数 */
   countDown?: number;
 

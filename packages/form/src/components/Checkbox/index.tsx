@@ -6,9 +6,9 @@ import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import createField from '../../BaseForm/createField';
-import type { ProFormItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../interface';
 
-export type ProFormCheckboxGroupProps = ProFormItemProps<CheckboxGroupProps> & {
+export type ProFormCheckboxGroupProps = ProFormFieldItemProps<CheckboxGroupProps> & {
   layout?: 'horizontal' | 'vertical';
   options?: CheckboxGroupProps['options'];
   valueEnum?: ProSchema['valueEnum'];
@@ -32,7 +32,7 @@ const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
   ),
 );
 
-export type ProFormCheckboxProps = ProFormItemProps<CheckboxProps>;
+export type ProFormCheckboxProps = ProFormFieldItemProps<CheckboxProps>;
 
 /**
  * 多选框的

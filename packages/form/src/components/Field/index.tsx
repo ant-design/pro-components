@@ -5,11 +5,11 @@ import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 
 import createField from '../../BaseForm/createField';
-import type { ProFormItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../interface';
 
 export type ProFormFieldProps<T = any> = ProSchema<
   T,
-  ProFormItemProps<InputProps & SelectProps<string>> & {
+  ProFormFieldItemProps<InputProps & SelectProps<string>> & {
     mode?: 'edit' | 'read' | 'update';
     // 用来判断是不是被嵌套渲染的 dom
     isDefaultDom?: boolean;

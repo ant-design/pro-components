@@ -37,7 +37,7 @@ import { noteOnce } from 'rc-util/lib/warning';
 
 export type CommonFormProps<
   T extends Record<string, any> = Record<string, any>,
-  U extends Record<string, any> = Record<string, any>
+  U extends Record<string, any> = Record<string, any>,
 > = {
   submitter?:
     | SubmitterProps<{
@@ -53,12 +53,7 @@ export type CommonFormProps<
   onFinish?: (formData: T) => Promise<boolean | void>;
 
   /** @name 获取真正的可以获得值的 from */
-  formRef?: React.MutableRefObject<
-    | (FormInstance & {
-        getFieldsFormatValue?: () => T;
-      })
-    | undefined
-  >;
+  formRef?: React.MutableRefObject<ProFormInstance<T> | undefined>;
 
   /** @name 同步结果到 url 中 */
   syncToUrl?: boolean | ((values: T, type: 'get' | 'set') => T);
@@ -117,6 +112,13 @@ const genParams = (
     return params;
   }
   return runFunction(syncUrl, params, type);
+};
+
+type ProFormInstance<T = Record<string, any>> = FormInstance<T> & {
+  /** 获取格式化之后所有数据 */
+  getFieldsFormatValue?: (nameList?: NamePath[] | true) => Record<string, any>;
+  /** 获取格式化之后的单个数据 */
+  getFieldFormatValue?: (nameList?: NamePath) => Record<string, any>;
 };
 
 function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
@@ -285,7 +287,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       props.initialValues === preInitialValues,
       `The initialValues only take effect when the form is initialized, if you need to load asynchronously recommended request, or the initialValues ? <Form/> : null `,
     );
-  }, [props.initialValues, rest.request]);
+  }, [props.initialValues]);
 
   useEffect(() => {
     if (!syncToUrl) return;
@@ -423,6 +425,6 @@ function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   );
 }
 
-export type { FormProps, FormItemProps, FormInstance };
+export type { FormProps, ProFormInstance, FormItemProps, FormInstance };
 
 export default RequestForm;

@@ -1,5 +1,6 @@
-import type { FormItemProps, SpaceProps } from 'antd';
+import type { SpaceProps } from 'antd';
 import type { ReactNode } from 'react';
+import type { ProFormItemProps } from './components/FormItem';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type React from 'react';
 import type { ProFieldProps } from '@ant-design/pro-utils';
@@ -42,7 +43,7 @@ export type LightFilterFooterRender =
     ) => JSX.Element)
   | false;
 
-export type ProFormItemProps<T = Record<string, any>> = {
+export type ProFormFieldItemProps<T = Record<string, any>> = {
   fieldProps?: FieldProps & T;
   placeholder?: string | string[];
   secondary?: boolean;
@@ -61,4 +62,4 @@ export type ProFormItemProps<T = Record<string, any>> = {
   proFieldProps?: ProFieldProps;
   /** QueryFilter 上的footer */
   footerRender?: LightFilterFooterRender;
-} & FormItemProps;
+} & ProFormItemProps;

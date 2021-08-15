@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { message, Button } from 'antd';
-import type { FormInstance } from 'antd';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, { ProFormText } from '@ant-design/pro-form';
 
 const waitTime = (time: number = 100) => {
@@ -12,7 +12,7 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const formRef = useRef<FormInstance>();
+  const formRef = useRef<ProFormInstance>();
 
   const onFill = () => {
     formRef?.current?.setFieldsValue({

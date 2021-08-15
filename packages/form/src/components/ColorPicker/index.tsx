@@ -2,7 +2,7 @@
 import type { SketchPickerProps } from 'react-color';
 import type { PopoverProps } from 'antd';
 import ProField from '@ant-design/pro-field';
-import type { ProFormItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 
 type ColorPickerProps = SketchPickerProps & {
@@ -10,7 +10,7 @@ type ColorPickerProps = SketchPickerProps & {
   onChange?: (color: string) => void;
 };
 
-export type ProFormColorPickerProps = ProFormItemProps<ColorPickerProps> & {
+export type ProFormColorPickerProps = ProFormFieldItemProps<ColorPickerProps> & {
   popoverProps?: PopoverProps;
   colors?: string[];
 };

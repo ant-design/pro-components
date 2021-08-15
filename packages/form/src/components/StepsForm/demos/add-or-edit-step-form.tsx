@@ -3,7 +3,7 @@
 import type { Moment } from 'moment';
 import React, { useEffect, useRef } from 'react';
 import moment from 'moment';
-import type { FormInstance } from 'antd';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import {
   ProFormDateRangePicker,
   ProFormSelect,
@@ -49,7 +49,7 @@ const jobType = [
   },
 ];
 const EditExample = () => {
-  const formMapRef = useRef<React.MutableRefObject<FormInstance<any> | undefined>[]>([]);
+  const formMapRef = useRef<React.MutableRefObject<ProFormInstance<any> | undefined>[]>([]);
   useEffect(() => {
     waitTime(1000).then(() => {
       // 编辑场景下需要使用formMapRef循环设置formData

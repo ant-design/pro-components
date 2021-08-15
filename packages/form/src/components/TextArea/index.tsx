@@ -1,7 +1,7 @@
 import React from 'react';
 
 import ProField from '@ant-design/pro-field';
-import type { ProFormItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../interface';
 import createField from '../../BaseForm/createField';
 import type { TextAreaProps } from 'antd/lib/input';
 /**
@@ -9,7 +9,7 @@ import type { TextAreaProps } from 'antd/lib/input';
  *
  * @param
  */
-const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormItemProps<TextAreaProps>> = (
+const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormFieldItemProps<TextAreaProps>> = (
   { fieldProps, proFieldProps, ...rest },
   ref,
 ) => {
@@ -31,4 +31,4 @@ const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormItemProps<Text
   );
 };
 
-export default createField<ProFormItemProps<TextAreaProps>>(React.forwardRef(ProFormTextArea));
+export default createField<ProFormFieldItemProps<TextAreaProps>>(React.forwardRef(ProFormTextArea));

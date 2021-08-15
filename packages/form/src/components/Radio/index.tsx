@@ -5,9 +5,9 @@ import ProField from '@ant-design/pro-field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import createField from '../../BaseForm/createField';
-import type { ProFormItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../interface';
 
-export type ProFormRadioGroupProps = ProFormItemProps<RadioGroupProps> & {
+export type ProFormRadioGroupProps = ProFormFieldItemProps<RadioGroupProps> & {
   layout?: 'horizontal' | 'vertical';
   radioType?: 'button' | 'radio';
   options?: RadioGroupProps['options'];
@@ -40,7 +40,7 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
  *
  * @param
  */
-const ProFormRadioComponents: React.FC<ProFormItemProps<RadioProps>> = React.forwardRef(
+const ProFormRadioComponents: React.FC<ProFormFieldItemProps<RadioProps>> = React.forwardRef(
   ({ fieldProps, children }, ref: any) => {
     return (
       <Radio {...fieldProps} ref={ref}>
@@ -50,7 +50,7 @@ const ProFormRadioComponents: React.FC<ProFormItemProps<RadioProps>> = React.for
   },
 );
 
-const ProFormRadio = createField<ProFormItemProps<RadioProps>>(ProFormRadioComponents, {
+const ProFormRadio = createField<ProFormFieldItemProps<RadioProps>>(ProFormRadioComponents, {
   valuePropName: 'checked',
   ignoreWidth: true,
 });

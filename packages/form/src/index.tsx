@@ -39,12 +39,12 @@ import type { LoginFormProps } from './layouts/LoginForm';
 import LoginForm from './layouts/LoginForm';
 import type { ProFormListProps } from './components/List';
 import ProFormList from './components/List';
-import type { FormInstance, FormItemProps, FormProps } from './BaseForm';
+import type { FormInstance, FormItemProps, FormProps, ProFormInstance } from './BaseForm';
 import type { ProFormLayoutType, ProFormColumnsType } from './components/SchemaForm';
 import BetaSchemaForm from './components/SchemaForm';
 import './index.less';
 import { ProFormContext } from '@ant-design/pro-utils';
-import type { LightFilterFooterRender, ProFormItemProps } from './interface';
+import type { LightFilterFooterRender, ProFormFieldItemProps } from './interface';
 
 export type {
   ProFormFieldProps,
@@ -64,9 +64,10 @@ export type {
   FormInstance,
   ProFormListProps,
   LightFilterFooterRender,
-  ProFormItemProps,
+  ProFormFieldItemProps as ProFormItemProps,
   ProFormColumnsType,
   LoginFormProps,
+  ProFormInstance,
 };
 
 const ProFormGroup = ProForm.Group;
