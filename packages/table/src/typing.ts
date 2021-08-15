@@ -22,7 +22,7 @@ import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ColumnsState, useContainer } from './container';
 import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import { SizeType } from 'antd/lib/config-provider/SizeContext';
+import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 
 export type PageInfo = {
   pageSize: number;
