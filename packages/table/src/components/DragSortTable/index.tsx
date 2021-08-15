@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { useDragSort } from '../../utils/useDragSort';
 import type { ParamsType } from '@ant-design/pro-provider';
-import type { ProColumns, ProTableProps } from 'packages/table/es';
-import ProTable from '@ant-design/pro-table';
+import ProTable from '../../Table';
 import { SortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
+import type { ProColumns, ProTableProps } from '../../typing';
 
 export type DragTableProps<T, U extends ParamsType> = {
   /** @name 拖动排序列key值 如配置此参数，则会在该key对应的行显示拖拽排序把手，允许拖拽排序 */
