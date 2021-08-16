@@ -1,7 +1,7 @@
 ﻿import type { ButtonProps, InputProps } from 'antd';
 import { Button, Input, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import createField from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
 
@@ -42,7 +42,7 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
     ...restProps
   } = props;
 
-  const onGetCaptcha = useCallback(async (mobile: string) => {
+  const onGetCaptcha = async (mobile: string) => {
     try {
       setLoading(true);
       await restProps.onGetCaptcha(mobile);
@@ -53,7 +53,7 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
       // eslint-disable-next-line no-console
       console.log(error);
     }
-  }, []);
+  };
 
   useEffect(() => {
     let interval: number = 0;
