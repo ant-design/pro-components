@@ -27,9 +27,9 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
     dragSortKey,
     dragSortHandlerRender,
     onDragSortEnd,
-    onDataSourceChange = () => {},
+    onDataSourceChange,
     columns,
-    dataSource: oriDs,
+    dataSource: oriDs = [],
     ...otherProps
   } = props;
   // 根据dragSortKey查找目标列配置
@@ -40,7 +40,7 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
   const originColumnRef = useRef<ProColumns<T, 'text'> | undefined>({ ...handleColumn });
   // 使用自定义hooks获取拖拽相关组件的components集合
   const { components } = useDragSort<T>({
-    data: [...(oriDs || [])],
+    data: [...oriDs],
     dragSortKey,
     onDragSortEnd,
     components: props.components,
@@ -63,26 +63,24 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
         );
       };
     }
+    /* istanbul ignore next */
     return () => {
       if (handleColumn) handleColumn.render = originColumn?.render;
     };
   }, [dragSortHandlerRender, handleColumn]);
 
-  if (!handleColumn) {
-    return (
-      <ProTable
-        {...otherProps}
-        dataSource={oriDs}
-        columns={columns}
-        onDataSourceChange={onDataSourceChange}
-      />
-    );
-  }
-  return (
+  return handleColumn ? (
     <ProTable
       {...otherProps}
       dataSource={oriDs}
       components={components || props.components}
+      columns={columns}
+      onDataSourceChange={onDataSourceChange}
+    />
+  ) : (
+    <ProTable
+      {...otherProps}
+      dataSource={oriDs}
       columns={columns}
       onDataSourceChange={onDataSourceChange}
     />
