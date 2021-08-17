@@ -315,6 +315,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         newKeys = Array.from(new Set([...matchMenuKeys, ...(openKeys || [])]));
       }
       setOpenKeys(newKeys);
+    } else if (menu?.ignoreFlatMenu && defaultOpenAll) {
+      // 忽略用户手动折叠过的菜单状态，折叠按钮切换之后也可实现默认展开所有菜单
+      setOpenKeys(getOpenKeysFromMenuData(menuData));
     } else if (flatMenuKeys.length > 0) setDefaultOpenAll(false);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
