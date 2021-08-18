@@ -54,6 +54,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
     listMeta: {
       field: FormListFieldData;
       fields: FormListFieldData[];
+      index: number;
       operation: FormListOperation;
       record: Record<string, any>;
       meta: {
@@ -140,7 +141,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                       {creatorButtonProps !== false &&
                         creatorButtonProps?.position === 'top' &&
                         creatorButton}
-                      {fields.map((field) => {
+                      {fields.map((field, index) => {
                         const defaultActionDom: React.ReactNode[] = [];
                         if (copyIconProps) {
                           const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
@@ -188,6 +189,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                           },
                           {
                             field,
+                            index,
                             record: getFieldValue(
                               [listContext.listName, rest.name, field.name]
                                 .filter((item) => item !== undefined)
