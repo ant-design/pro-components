@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-export type RequestData = {
-  data: any;
+export type RequestData<T = any> = {
+  data?: T;
   success?: boolean;
   [key: string]: any;
-};
+} & Record<string, any>;
 export type UseFetchDataAction<T extends RequestData> = {
   dataSource: T['data'] | T;
   setDataSource: (value: T['data'] | T) => void;

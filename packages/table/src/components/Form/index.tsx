@@ -172,11 +172,11 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
         dateFormatter={dateFormatter}
         search={search}
         form={{
+          ...form,
           extraUrlParams: {
             ...pageInfo,
             ...form?.extraUrlParams,
           },
-          ...form,
         }}
         action={action}
         bordered={isBordered('search', cardBordered)}

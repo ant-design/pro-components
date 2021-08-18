@@ -94,6 +94,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     prefixCls: customizePrefixCls,
     onClear,
     searchValue: propsSearchValue,
+    showSearch,
     ...restProps
   } = props;
   const [searchValue, setSearchValue] = useState(propsSearchValue);
@@ -166,17 +167,20 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       allowClear
       disabled={disabled}
       mode={mode}
+      showSearch={showSearch}
       searchValue={searchValue}
       optionFilterProp={optionFilterProp}
       optionLabelProp={optionLabelProp}
       onClear={() => {
         onClear?.();
         fetchData('');
-        setSearchValue('');
+        if (showSearch) {
+          setSearchValue('');
+        }
       }}
       {...restProps}
       onSearch={
-        restProps?.showSearch
+        showSearch
           ? (value) => {
               fetchData(value);
               onSearch?.(value);
@@ -186,7 +190,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
       }
       onChange={(value, optionList, ...rest) => {
         // 将搜索框置空 和 antd 行为保持一致
-        if (restProps?.showSearch && autoClearSearchValue) {
+        if (showSearch && autoClearSearchValue) {
           fetchData('');
           onSearch?.('');
           setSearchValue('');
