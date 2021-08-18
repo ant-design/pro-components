@@ -924,17 +924,17 @@ exports[`BasicTable 🎏 base use 1`] = `
         class="ant-pro-table-list-toolbar"
       >
         <div
-          class="ant-pro-table-list-toolbar-container"
+          class="ant-pro-table-list-toolbar-container ant-pro-table-list-toolbar-container-mobile"
         >
           <div
             class="ant-pro-table-list-toolbar-left"
           />
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+            class="ant-space ant-space-vertical ant-space-align-end ant-pro-table-list-toolbar-right"
           >
             <div
               class="ant-space-item"
-              style="margin-right: 16px;"
+              style="margin-right: 16px; margin-bottom: 16px;"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center"
