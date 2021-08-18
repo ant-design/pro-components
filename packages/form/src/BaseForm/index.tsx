@@ -7,6 +7,7 @@ import React, {
   useCallback,
 } from 'react';
 import type { FormProps, FormItemProps, FormInstance } from 'antd';
+import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
@@ -279,12 +280,13 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   // 提示一个 initialValues ，问的人实在是太多了
   useEffect(() => {
     if (syncToUrl || !props.initialValues || !preInitialValues || rest.request) return;
+    const isEqual = isDeepEqualReact(props.initialValues, preInitialValues);
     noteOnce(
-      props.initialValues === preInitialValues,
+      isEqual,
       `initialValues 只在 form 初始化时生效，如果你需要异步加载推荐使用 request，或者 initialValues ? <Form/> : null `,
     );
     noteOnce(
-      props.initialValues === preInitialValues,
+      isEqual,
       `The initialValues only take effect when the form is initialized, if you need to load asynchronously recommended request, or the initialValues ? <Form/> : null `,
     );
   }, [props.initialValues]);
