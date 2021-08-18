@@ -21154,7 +21154,7 @@ use-media-antd-query@1.0.6:
   resolved "https://registry.nlark.com/use-media-antd-query/download/use-media-antd-query-1.0.6.tgz#2395fc52a9bc810fa7360bff43eb84609eee1b2f"
   integrity sha1-I5X8Uqm8gQ+nNgv/Q+uEYJ7uGy8=
 
-use-media-antd-query@^1.0.6:
+use-media-antd-query@^1.0.6, use-media-antd-query@^1.1.0:
   version "1.1.0"
   resolved "https://registry.nlark.com/use-media-antd-query/download/use-media-antd-query-1.1.0.tgz#f083ad7e292c1c0261b6bbfaac0edc3e0920d85d"
   integrity sha1-8IOtfiksHAJhtrv6rA7cPgkg2F0=

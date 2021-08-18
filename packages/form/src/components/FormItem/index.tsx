@@ -39,6 +39,7 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (filedProps) => {
           // 要通过 fieldProps 透传给 ProField 调用
           onChange: (...restParams: any[]) => {
             onChange?.(...restParams);
+            filedChildren?.props?.onChange?.(...restParams);
             filedChildren?.props?.fieldProps?.onChange?.(...restParams);
           },
           onBlur,
