@@ -456,7 +456,7 @@ siderWidth 可以自定义菜单的宽度，你可以设置的更短或者更长
 
 ### 自定义菜单
 
-ProLayout 会自动生成菜单，同时根据 pathname 进行自动选中。配合 PageContainer 可以实现自动推算面包屑和页面标题。如果和 umi 配置使用，只需要将 Page 的 props 交个 ProLayout 就根据 config 中的 routers 的配置 可以自动生成菜单的配置。
+ProLayout 会自动生成菜单，同时根据 pathname 进行自动选中。配合 PageContainer 可以实现自动推算面包屑和页面标题。如果和 umi 配置使用，只需要将 Page 的 props 交给 ProLayout，ProLayout 会根据 config 中的 routers 的配置可以自动生成菜单。
 
 为了提供更多的功能，我们扩展了 routers 配置，增加了几个配置方便自定义，数据结构定义如下:
 
