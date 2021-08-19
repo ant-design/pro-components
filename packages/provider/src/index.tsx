@@ -5,6 +5,7 @@ import zh_CN from 'antd/lib/locale/zh_CN';
 import arEG from './locale/ar_EG';
 import zhCN from './locale/zh_CN';
 import enUS from './locale/en_US';
+import enGB from './locale/en_GB';
 import viVN from './locale/vi_VN';
 import itIT from './locale/it_IT';
 import esES from './locale/es_ES';
@@ -125,6 +126,7 @@ const createIntl = (locale: string, localeMap: Record<string, any>): IntlType =>
 const arEGIntl = createIntl('ar_EG', arEG);
 const zhCNIntl = createIntl('zh_CN', zhCN);
 const enUSIntl = createIntl('en_US', enUS);
+const enGBIntl = createIntl('en_GB', enGB);
 const viVNIntl = createIntl('vi_VN', viVN);
 const itITIntl = createIntl('it_IT', itIT);
 const jaJPIntl = createIntl('ja_JP', jaJP);
@@ -146,6 +148,7 @@ const intlMap = {
   'ar-EG': arEGIntl,
   'zh-CN': zhCNIntl,
   'en-US': enUSIntl,
+  'en-GB': enGBIntl,
   'vi-VN': viVNIntl,
   'it-IT': itITIntl,
   'ja-JP': jaJPIntl,
@@ -171,6 +174,7 @@ export type ParamsType = Record<string, any>;
 export {
   arEGIntl,
   enUSIntl,
+  enGBIntl,
   zhCNIntl,
   viVNIntl,
   itITIntl,
