@@ -9,6 +9,19 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.35.0
+
+`2021-08-19`
+
+- 🐛 fix(form): ProFormItem work like Form.Item [#3471](https://github.com/ant-design/pro-components/pull/3471) [@chenshuai2144](https://github.com/chenshuai2144)
+- 调整 Spin 大小使其保持垂直居中，更协调 [#3446](https://github.com/ant-design/pro-components/pull/3446) [@hihuangwei](https://github.com/hihuangwei)
+- 🐛 fix(form): ProFormSelect: can not search after triggered clear event [#3455](https://github.com/ant-design/pro-components/pull/3455) [@ohhoney1](https://github.com/ohhoney1)
+- 🐛 fix(form): ProFormCaptcha onGetCaptcha setSate no work [#3419](https://github.com/ant-design/pro-components/pull/3419) [@cc7gs](https://github.com/cc7gs)
+- 💥 feat(form): FormList itemRender support index [#3466](https://github.com/ant-design/pro-components/pull/3466) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): Second support day [#3437](https://github.com/ant-design/pro-components/pull/3437) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): support ProFormInstance types [#3432](https://github.com/ant-design/pro-components/pull/3432) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): support addonBefore and addonAfter [#3434](https://github.com/ant-design/pro-components/pull/3434) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.33.1
 
 `2021-08-05`

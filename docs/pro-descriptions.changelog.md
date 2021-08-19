@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.9.6
+
+`2021-08-19`
+
+- 🐛 fix(descriptions): RequestData 类型优化 [#3448](https://github.com/ant-design/pro-components/pull/3448) [@ohhoney1](https://github.com/ohhoney1)
+
 ## @ant-design/pro-descriptions@1.8.2
 
 `2021-06-15`
