@@ -65,7 +65,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     rowKey,
     tableClassName,
     action,
-    tableColumn,
+    tableColumn: tableColumns,
     type,
     pagination,
     rowSelection,
@@ -89,17 +89,29 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   } = props;
   const counter = Container.useContainer();
 
+  /** 需要遍历一下，不然不支持嵌套表格 */
   const columns = useMemo(() => {
-    return tableColumn.filter((item) => {
-      // 删掉不应该显示的
-      const columnKey = genColumnKey(item.key, item.index);
-      const config = counter.columnsMap[columnKey];
-      if (config && config.show === false) {
-        return false;
-      }
-      return true;
-    });
-  }, [counter.columnsMap, tableColumn]);
+    const loopFilter = (column: any[]): any[] => {
+      return column
+        .map((item) => {
+          // 删掉不应该显示的
+          const columnKey = genColumnKey(item.key, item.index);
+          const config = counter.columnsMap[columnKey];
+          if (config && config.show === false) {
+            return false;
+          }
+          if (item.children) {
+            return {
+              ...item,
+              children: loopFilter(item.children),
+            };
+          }
+          return item;
+        })
+        .filter(Boolean);
+    };
+    return loopFilter(tableColumns);
+  }, [counter.columnsMap, tableColumns]);
 
   /** 如果所有列中的 filters=true| undefined 说明是用的是本地筛选 任何一列配置 filters=false，就能绕过这个判断 */
   const useLocaleFilter = useMemo(
@@ -579,7 +591,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // eslint-disable-next-line react-hooks/exhaustive-deps
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
   ]);
-
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
   useDeepCompareEffect(() => {
     if (tableColumn && tableColumn.length > 0) {

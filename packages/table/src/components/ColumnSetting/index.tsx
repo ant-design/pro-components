@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useMemo, useRef } from 'react';
 import { useIntl } from '@ant-design/pro-provider';
 import {
   SettingOutlined,
@@ -60,37 +60,41 @@ const CheckboxListItem: React.FC<{
   className?: string;
   title?: React.ReactNode;
   fixed?: boolean | 'left' | 'right';
-}> = ({ columnKey, title, className, fixed }) => {
+  isLeaf?: boolean;
+}> = ({ columnKey, isLeaf, title, className, fixed }) => {
   const intl = useIntl();
+  const dom = (
+    <span className={`${className}-list-item-option`}>
+      <ToolTipIcon
+        columnKey={columnKey}
+        fixed="left"
+        title={intl.getMessage('tableToolBar.leftPin', '固定在列首')}
+        show={fixed !== 'left'}
+      >
+        <VerticalAlignTopOutlined />
+      </ToolTipIcon>
+      <ToolTipIcon
+        columnKey={columnKey}
+        fixed={undefined}
+        title={intl.getMessage('tableToolBar.noPin', '不固定')}
+        show={!!fixed}
+      >
+        <VerticalAlignMiddleOutlined />
+      </ToolTipIcon>
+      <ToolTipIcon
+        columnKey={columnKey}
+        fixed="right"
+        title={intl.getMessage('tableToolBar.rightPin', '固定在列尾')}
+        show={fixed !== 'right'}
+      >
+        <VerticalAlignBottomOutlined />
+      </ToolTipIcon>
+    </span>
+  );
   return (
     <span className={`${className}-list-item`} key={columnKey}>
       <div className={`${className}-list-item-title`}>{title}</div>
-      <span className={`${className}-list-item-option`}>
-        <ToolTipIcon
-          columnKey={columnKey}
-          fixed="left"
-          title={intl.getMessage('tableToolBar.leftPin', '固定在列首')}
-          show={fixed !== 'left'}
-        >
-          <VerticalAlignTopOutlined />
-        </ToolTipIcon>
-        <ToolTipIcon
-          columnKey={columnKey}
-          fixed={undefined}
-          title={intl.getMessage('tableToolBar.noPin', '不固定')}
-          show={!!fixed}
-        >
-          <VerticalAlignMiddleOutlined />
-        </ToolTipIcon>
-        <ToolTipIcon
-          columnKey={columnKey}
-          fixed="right"
-          title={intl.getMessage('tableToolBar.rightPin', '固定在列尾')}
-          show={fixed !== 'right'}
-        >
-          <VerticalAlignBottomOutlined />
-        </ToolTipIcon>
-      </span>
+      {!isLeaf ? dom : null}
     </span>
   );
 };
@@ -105,9 +109,34 @@ const CheckboxList: React.FC<{
 }> = ({ list, draggable, checkable, className, showTitle = true, title: listTitle }) => {
   const { columnsMap, setColumnsMap, sortKeyColumns, setSortKeyColumns } = Container.useContainer();
   const show = list && list.length > 0;
+  const treeDataConfig = useMemo(() => {
+    if (!show) return {};
+    const checkedKeys: string[] = [];
+
+    const loopData = (data: any[], parentConfig?: ColumnsState): DataNode[] =>
+      data.map(({ key, dataIndex, children, ...rest }) => {
+        const columnKey = genColumnKey(key, rest.index);
+        const config = columnsMap[columnKey || 'null'] || { show: true };
+        if (config.show !== false && parentConfig?.show !== false && !children) {
+          checkedKeys.push(columnKey);
+        }
+        const item: DataNode = {
+          key: columnKey,
+          ...omit(rest, ['className']),
+          selectable: false,
+          isLeaf: parentConfig ? true : undefined,
+        };
+        if (children) {
+          item.children = loopData(children, config);
+        }
+        return item;
+      });
+    return { list: loopData(list), keys: checkedKeys };
+  }, [columnsMap, list, show]);
   if (!show) {
     return null;
   }
+
   const move = (id: React.Key, targetId: React.Key, dropPosition: number) => {
     const newMap = { ...columnsMap };
     const newColumns = [...sortKeyColumns.current];
@@ -132,22 +161,6 @@ const CheckboxList: React.FC<{
     setColumnsMap(newMap);
     setSortKeyColumns(newColumns);
   };
-
-  const checkedKeys: string[] = [];
-
-  const treeData = list.map(({ key, dataIndex, ...rest }) => {
-    const columnKey = genColumnKey(key, rest.index);
-    const config = columnsMap[columnKey || 'null'] || { show: true };
-    if (config.show !== false) {
-      checkedKeys.push(columnKey);
-    }
-    return {
-      key: columnKey,
-      ...omit(rest, ['className']),
-      selectable: false,
-      switcherIcon: () => false,
-    };
-  });
 
   const listDom = (
     <Tree
@@ -181,13 +194,20 @@ const CheckboxList: React.FC<{
         }
         setColumnsMap(columnKeyMap);
       }}
-      checkedKeys={checkedKeys}
+      checkedKeys={treeDataConfig.keys}
       showLine={false}
       titleRender={(node) => {
-        return <CheckboxListItem className={className} {...node} columnKey={node.key} />;
+        return (
+          <CheckboxListItem
+            className={className}
+            {...node}
+            children={undefined}
+            columnKey={node.key}
+          />
+        );
       }}
       height={280}
-      treeData={treeData as DataNode[]}
+      treeData={treeDataConfig.list}
     />
   );
   return (
@@ -287,15 +307,21 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
    */
   const setAllSelectAction = (show: boolean = true) => {
     const columnKeyMap = {};
-    localColumns.forEach(({ key, fixed, index }) => {
-      const columnKey = genColumnKey(key, index);
-      if (columnKey) {
-        columnKeyMap[columnKey] = {
-          show,
-          fixed,
-        };
-      }
-    });
+    const loopColumns = (columns: any) => {
+      columns.forEach(({ key, fixed, index, children }: any) => {
+        const columnKey = genColumnKey(key, index);
+        if (columnKey) {
+          columnKeyMap[columnKey] = {
+            show,
+            fixed,
+          };
+        }
+        if (children) {
+          loopColumns(children);
+        }
+      });
+    };
+    loopColumns(localColumns);
     setColumnsMap(columnKeyMap);
   };
 
