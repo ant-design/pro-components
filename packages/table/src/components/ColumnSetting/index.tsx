@@ -133,6 +133,7 @@ const CheckboxList: React.FC<{
       });
     return { list: loopData(list), keys: checkedKeys };
   }, [columnsMap, list, show]);
+
   if (!show) {
     return null;
   }
