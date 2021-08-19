@@ -8,7 +8,7 @@ exports[`PageContainer ⚡️ support fixHeader 1`] = `
     class="ant-pro-page-container-warp"
   >
     <div
-      class="ant-page-header ant-page-header-ghost"
+      class="ant-page-header"
     >
       <div
         class="ant-page-header-heading"
@@ -48,7 +48,7 @@ exports[`PageContainer ⚡️ support fixedHeader 1`] = `
         class="ant-pro-page-container-warp"
       >
         <div
-          class="ant-page-header ant-page-header-ghost"
+          class="ant-page-header"
         >
           <div
             class="ant-page-header-heading"
@@ -86,7 +86,7 @@ exports[`PageContainer ⚡️ support footer 1`] = `
     class="ant-pro-page-container-warp"
   >
     <div
-      class="ant-page-header ant-page-header-ghost"
+      class="ant-page-header"
     >
       <div
         class="ant-page-header-heading"
@@ -138,7 +138,7 @@ exports[`PageContainer ⚡️ support loading 1`] = `
     class="ant-pro-page-container-warp"
   >
     <div
-      class="ant-page-header ant-page-header-ghost"
+      class="ant-page-header"
     >
       <div
         class="ant-page-header-heading"
@@ -199,7 +199,7 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
     class="ant-pro-page-container-warp"
   >
     <div
-      class="ant-page-header ant-page-header-ghost"
+      class="ant-page-header"
     >
       <div
         class="ant-page-header-heading"
@@ -257,80 +257,28 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
 </div>
 `;
 
-exports[`PageContainer 🐲  content is text and title is null 1`] = `
+exports[`PageContainer 🐛 className prop should not be passed to its page header, fix #3493 1`] = `
 <div
-  class="ant-pro-page-container"
+  class="ant-pro-page-container custom-className"
 >
   <div
     class="ant-pro-page-container-warp"
   >
     <div
-      class="ant-page-header ant-page-header-ghost"
+      class="ant-page-header"
     >
       <div
-        class="ant-page-header-content"
+        class="ant-page-header-heading"
       >
         <div
-          class="ant-pro-page-container-detail"
+          class="ant-page-header-heading-left"
         >
-          <div
-            class="ant-pro-page-container-main"
+          <span
+            class="ant-page-header-heading-title"
+            title="页面标题"
           >
-            <div
-              class="ant-pro-page-container-row"
-            >
-              <div
-                class="ant-pro-page-container-content"
-              >
-                just so so
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
-</div>
-`;
-
-exports[`PageContainer 🐲  content is text and title is null 2`] = `
-<div
-  class="ant-pro-page-container"
->
-  <div
-    class="ant-pro-page-container-warp"
-  >
-    <div
-      class="ant-page-header ant-page-header-ghost"
-    >
-      <div
-        class="ant-page-header-content"
-      >
-        <div
-          class="ant-pro-page-container-detail"
-        >
-          <div
-            class="ant-pro-page-container-main"
-          >
-            <div
-              class="ant-pro-page-container-row"
-            >
-              <div
-                class="ant-pro-page-container-extraContent"
-              >
-                <div>
-                  extraContent
-                </div>
-              </div>
-            </div>
-          </div>
+            页面标题
+          </span>
         </div>
       </div>
     </div>
@@ -524,7 +472,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header ant-page-header-ghost"
+              class="ant-page-header"
             >
               <div
                 class="ant-page-header-heading"
@@ -580,6 +528,94 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
       </main>
     </div>
   </section>
+</div>
+`;
+
+exports[`PageContainer 🐲 content is text and title is null 1`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header"
+    >
+      <div
+        class="ant-page-header-content"
+      >
+        <div
+          class="ant-pro-page-container-detail"
+        >
+          <div
+            class="ant-pro-page-container-main"
+          >
+            <div
+              class="ant-pro-page-container-row"
+            >
+              <div
+                class="ant-pro-page-container-content"
+              >
+                just so so
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
+</div>
+`;
+
+exports[`PageContainer 🐲 content is text and title is null 2`] = `
+<div
+  class="ant-pro-page-container"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header"
+    >
+      <div
+        class="ant-page-header-content"
+      >
+        <div
+          class="ant-pro-page-container-detail"
+        >
+          <div
+            class="ant-pro-page-container-main"
+          >
+            <div
+              class="ant-pro-page-container-row"
+            >
+              <div
+                class="ant-pro-page-container-extraContent"
+              >
+                <div>
+                  extraContent
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    />
+  </div>
 </div>
 `;
 
@@ -806,7 +842,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header ant-page-header-ghost"
+              class="ant-page-header"
             >
               <div
                 class="ant-page-header-heading"
@@ -1082,7 +1118,7 @@ exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header has-breadcrumb"
             >
               <div
                 class="ant-breadcrumb"
@@ -1197,7 +1233,7 @@ exports[`PageContainer 💄 base use 1`] = `
     class="ant-pro-page-container-warp"
   >
     <div
-      class="ant-page-header ant-page-header-ghost"
+      class="ant-page-header"
     >
       <div
         class="ant-page-header-heading"
@@ -1279,7 +1315,7 @@ exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
     class="ant-pro-page-container-warp"
   >
     <div
-      class="ant-page-header has-breadcrumb ant-page-header-ghost"
+      class="ant-page-header has-breadcrumb"
     >
       <div
         class="ant-breadcrumb"

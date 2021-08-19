@@ -267,7 +267,7 @@ exports[`BasicLayout base use 1`] = `
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header ant-page-header-ghost"
+              class="ant-page-header"
             >
               <div
                 class="ant-page-header-heading"
@@ -566,7 +566,7 @@ exports[`BasicLayout content is text 1`] = `
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header ant-page-header-ghost"
+              class="ant-page-header"
             >
               <div
                 class="ant-page-header-heading"
