@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.20.4...@ant-design/pro-utils@1.21.0) (2021-08-19)
+
+### Bug Fixes
+
+- **table:** fix typo entry -> entity ([#3474](https://github.com/ant-design/pro-components/issues/3474)) ([e4fbb58](https://github.com/ant-design/pro-components/commit/e4fbb587d24b6f84ff7c2228ec1fe2d1c15a61ce))
+
+### Features
+
+- **form:** support addonBefore and addonAfter ([#3434](https://github.com/ant-design/pro-components/issues/3434)) ([ff23de6](https://github.com/ant-design/pro-components/commit/ff23de663852e628447a25243b20c97395f30fc5))
+- **table:** 增加在 ProTable 中的 ProColumns 中 fieldProps 支持的属性类型描述 ([#3410](https://github.com/ant-design/pro-components/issues/3410)) ([652bad9](https://github.com/ant-design/pro-components/commit/652bad9bdafeaee17e30ccd3d516068182ffa1ec))
+
 ## [1.20.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.20.3...@ant-design/pro-utils@1.20.4) (2021-08-09)
 
 ### Bug Fixes

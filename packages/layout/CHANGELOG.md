@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.24.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.24.0...@ant-design/pro-layout@6.24.1) (2021-08-19)
+
+### Bug Fixes
+
+- **layout:** 解决侧边栏菜单折叠按钮切换之后，defaultOpenAll 失效 ([#3460](https://github.com/ant-design/pro-components/issues/3460)) ([1cc744b](https://github.com/ant-design/pro-components/commit/1cc744b860d8a3c1999a315dd6e78197928784a9))
+
 # [6.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.23.4...@ant-design/pro-layout@6.24.0) (2021-08-09)
 
 ### Features
