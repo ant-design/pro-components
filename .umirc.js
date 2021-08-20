@@ -67,8 +67,12 @@ export default {
       content: 'yes',
     },
     {
-      name: 'apple-mobile-web-app-status-bar-style"',
+      name: 'apple-mobile-web-app-status-bar-style',
       content: 'black-translucent',
+    },
+    {
+      name: 'theme-color',
+      content: '#1890ff',
     },
   ],
   alias: process.env === 'development' ? alias : {},

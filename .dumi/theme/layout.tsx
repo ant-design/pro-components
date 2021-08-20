@@ -16,6 +16,7 @@ const DarkButton = () => {
     if (!isBrowser()) {
       return 'light';
     }
+
     return matchMedia?.('(prefers-color-scheme: dark)').matches && 'dark';
   }, []);
 
@@ -26,7 +27,19 @@ const DarkButton = () => {
     return localStorage.getItem('procomponents_dark_theme') || colorScheme;
   }, []);
 
+  const setColor = (isDarken: boolean) => {
+    try {
+      const theme = document.getElementsByTagName('meta')['theme-color'];
+      theme.setAttribute('content', isDarken ? '#242525' : '#1890ff');
+    } catch (error) {}
+  };
+
   const [isDark, { toggle }] = useDarkreader(defaultDarken === 'dark');
+
+  useEffect(() => {
+    setColor(isDark);
+  }, [isDark]);
+
   if (!isBrowser()) {
     return null;
   }
@@ -51,9 +64,9 @@ const DarkButton = () => {
           toggle();
           if (!check) {
             localStorage.setItem('procomponents_dark_theme', 'light');
-            return;
+          } else {
+            localStorage.setItem('procomponents_dark_theme', 'dark');
           }
-          localStorage.setItem('procomponents_dark_theme', 'dark');
         }}
       />
     </div>
