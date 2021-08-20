@@ -556,6 +556,84 @@ describe('Field', () => {
     );
     expect(html.text()).toBe('- 100.0%');
   });
+  it('🐴 percent prefix="???" onchange values', async () => {
+    const html = mount(
+      <Field
+        text="100"
+        valueType={{
+          type: 'percent',
+        }}
+        prefix="???"
+        mode="read"
+      />,
+    );
+    // read test
+    expect(html.text()).toBe('???100.00%');
+    // change edit mode
+    html.setProps({
+      mode: 'edit',
+    });
+    // edit test
+    act(() => {
+      html.find('.ant-input-number-input').simulate('change', {
+        target: {
+          value: '123',
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('??? 123');
+    act(() => {
+      html.find('.ant-input-number-input').simulate('change', {
+        target: {
+          value: '123456',
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('??? 123,456');
+  });
+  it('🐴 percent magic prefix onchange values', async () => {
+    const words = '1234567890 ~!@#$%^&*()_+{}:"?> <?>L:'.split('');
+    const magicPrefix = words
+      .map(() => words[Math.floor(Math.random() * words.length - 1)])
+      .join('');
+    const html = mount(
+      <Field
+        text="100"
+        valueType={{
+          type: 'percent',
+        }}
+        prefix={magicPrefix}
+        mode="read"
+      />,
+    );
+    // read test
+    expect(html.text()).toBe(`${magicPrefix}100.00%`);
+    // change edit mode
+    html.setProps({
+      mode: 'edit',
+    });
+    // edit test
+    act(() => {
+      html.find('.ant-input-number-input').simulate('change', {
+        target: {
+          value: '123',
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe(`${magicPrefix} 123`);
+    act(() => {
+      html.find('.ant-input-number-input').simulate('change', {
+        target: {
+          value: '123456',
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe(`${magicPrefix} 123,456`);
+  });
 
   it('🐴 password support visible', async () => {
     const html = mount(<Field text={123456} valueType="password" mode="read" />);
