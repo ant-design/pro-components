@@ -276,7 +276,7 @@ describe('PageContainer', () => {
     expect(wrapper.find('.ant-pro-footer-bar').exists()).toBeFalsy();
   });
 
-  it('🐲  tabList and onTabChange is run', async () => {
+  it('🐲 tabList and onTabChange is run', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <PageContainer
@@ -303,11 +303,27 @@ describe('PageContainer', () => {
     expect(fn).toBeCalledWith('info');
   });
 
-  it('🐲  content is text and title is null', () => {
+  it('🐲 content is text and title is null', () => {
     const html = render(<PageContainer content="just so so" />);
     expect(html).toMatchSnapshot();
 
     const html2 = render(<PageContainer extraContent={<div>extraContent</div>} />);
     expect(html2).toMatchSnapshot();
+  });
+
+  it('🐛 className prop should not be passed to its page header, fix #3493', async () => {
+    const wrapper = mount(
+      <PageContainer
+        className="custom-className"
+        header={{
+          title: '页面标题',
+        }}
+      />,
+    );
+    // 对于 enzyme 3.x，透传下去的 className，直接 find 的结果数为 2，同时包含 React 组件实例和 DOM 节点，需要用 hostNodes() 方法筛选出 DOM 节点
+    // issue: https://github.com/enzymejs/enzyme/issues/836#issuecomment-401260477
+    expect(wrapper?.find('.custom-className').hostNodes().length).toBe(1);
+    const html = wrapper.render();
+    expect(html).toMatchSnapshot();
   });
 });
