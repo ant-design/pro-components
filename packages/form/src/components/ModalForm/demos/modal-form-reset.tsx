@@ -39,7 +39,7 @@ export default () => {
           },
           resetButtonProps: {
             onClick: () => {
-              formRef.current?.resetFields();
+              restFormRef.current?.resetFields();
               //   setModalVisible(false);
             },
           },
