@@ -24,36 +24,44 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (filedProps) => {
     ...restProps
   } = filedProps;
 
-  if (!React.isValidElement(filedChildren)) return filedChildren as JSX.Element;
-
-  const fieldProps =
+  const fieldProps = useMemo(() => {
     // @ts-ignore
-    filedChildren?.type.displayName === 'ProFormComponent'
-      ? omitUndefined({
-          id: restProps.id,
-          [valuePropName]: filedProps[valuePropName],
-          // 优先使用 children.props.fieldProps，
-          // 比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
-          ...filedChildren?.props?.fieldProps,
-          // 这个 onChange 是 Form.Item 添加上的，
-          // 要通过 fieldProps 透传给 ProField 调用
-          onChange: (...restParams: any[]) => {
-            onChange?.(...restParams);
-            filedChildren?.props?.onChange?.(...restParams);
-            filedChildren?.props?.fieldProps?.onChange?.(...restParams);
-          },
-          onBlur,
-        })
-      : undefined;
+    if (filedChildren?.type.displayName !== 'ProFormComponent') return undefined;
+    if (!React.isValidElement(filedChildren)) return undefined;
+
+    return omitUndefined({
+      ...(filedChildren?.props?.fieldProps || {}),
+      id: restProps.id,
+      // 优先使用 children.props.fieldProps，
+      // 比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
+      [valuePropName]: filedProps[valuePropName],
+      onBlur: (...restParams: any[]) => {
+        onBlur?.(...restParams);
+        filedChildren?.props?.onBlur?.(...restParams);
+        filedChildren?.props?.fieldProps?.onBlur?.(...restParams);
+      },
+      // 这个 onChange 是 Form.Item 添加上的，
+      // 要通过 fieldProps 透传给 ProField 调用
+      onChange: (...restParams: any[]) => {
+        onChange?.(...restParams);
+        filedChildren?.props?.onChange?.(...restParams);
+        filedChildren?.props?.fieldProps?.onChange?.(...restParams);
+      },
+    });
+  }, [filedChildren, filedProps, onBlur, onChange, restProps.id, valuePropName]);
+
+  if (!React.isValidElement(filedChildren)) return filedChildren as JSX.Element;
 
   return React.cloneElement(
     filedChildren,
     omitUndefined({
       ...restProps,
       value,
-      onChange,
-      onBlur,
       ...filedChildren.props,
+      onChange: (...restParams: any[]) => {
+        onChange?.(...restParams);
+        filedChildren?.props?.onChange?.(...restParams);
+      },
       fieldProps,
     }),
   );
