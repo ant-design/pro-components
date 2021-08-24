@@ -38,9 +38,9 @@ const transformKeySubmitValue = <T = any>(
     if (tempValues == null || tempValues === undefined) {
       return result;
     }
-    Object.keys(tempValues).forEach((entryKey) => {
-      const key = parentsKey ? [parentsKey, entryKey].flat(1) : [entryKey].flat(1);
-      const itemValue = tempValues[entryKey];
+    Object.keys(tempValues).forEach((entityKey) => {
+      const key = parentsKey ? [parentsKey, entityKey].flat(1) : [entityKey].flat(1);
+      const itemValue = tempValues[entityKey];
       if (
         typeof itemValue === 'object' &&
         !Array.isArray(itemValue) &&
@@ -51,14 +51,14 @@ const transformKeySubmitValue = <T = any>(
         if (Object.keys(genValues).length < 1) {
           return;
         }
-        result = namePathSet(result, [entryKey], genValues);
+        result = namePathSet(result, [entityKey], genValues);
         return;
       }
       const transformFunction = get(dataFormatMap, key);
       const tempKey =
         typeof transformFunction === 'function'
-          ? transformFunction?.(itemValue, entryKey, tempValues)
-          : entryKey;
+          ? transformFunction?.(itemValue, entityKey, tempValues)
+          : entityKey;
       // { [key:string]:any } 数组也能通过编译
       if (Array.isArray(tempKey)) {
         result = namePathSet(result, tempKey, itemValue);

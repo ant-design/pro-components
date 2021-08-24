@@ -2,6 +2,7 @@ import React, { useContext, useMemo } from 'react';
 import type { TabPaneProps } from 'antd';
 import { Tooltip, Space, Input, ConfigProvider, Tabs } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
+import useAntdMediaQuery from 'use-media-antd-query';
 import classNames from 'classnames';
 import type { SearchProps } from 'antd/lib/input';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
@@ -134,6 +135,10 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
 }) => {
   const intl = useIntl();
 
+  const colSize = useAntdMediaQuery();
+
+  const isMobile = colSize === 'sm' || colSize === 'xs';
+
   const placeholder = intl.getMessage('tableForm.inputPlaceholder', '请输入');
 
   /**
@@ -171,12 +176,10 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   }, [filter, prefixCls]);
 
   /** 有没有 title，需要结合多个场景判断 */
-  const hasTitle = useMemo(() => menu || title || subTitle || tooltip, [
-    menu,
-    subTitle,
-    title,
-    tooltip,
-  ]);
+  const hasTitle = useMemo(
+    () => menu || title || subTitle || tooltip,
+    [menu, subTitle, title, tooltip],
+  );
 
   /** 没有 key 的时候帮忙加一下 key 不加的话很烦人 */
   const actionDom = useMemo(() => {
@@ -209,18 +212,26 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
     );
   }, [actionDom, filtersNode, hasTitle, multipleLine, searchNode, settings?.length]);
 
-  const hasLeft = useMemo(() => tooltip || title || subTitle || menu || (!hasTitle && searchNode), [
-    hasTitle,
-    menu,
-    searchNode,
-    subTitle,
-    title,
-    tooltip,
-  ]);
+  const hasLeft = useMemo(
+    () => tooltip || title || subTitle || menu || (!hasTitle && searchNode),
+    [hasTitle, menu, searchNode, subTitle, title, tooltip],
+  );
 
   const leftTitleDom = useMemo(() => {
+    // 保留dom是为了占位，不然 right 就变到左边了
     if (!hasLeft && hasRight) {
       return <div className={`${prefixCls}-left`} />;
+    }
+
+    // 减少 space 的dom，渲染的时候能节省点性能
+    if (!menu && (hasTitle || !searchNode)) {
+      return (
+        <div className={`${prefixCls}-left`}>
+          <div className={`${prefixCls}-title`}>
+            <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
+          </div>
+        </div>
+      );
     }
     return (
       <Space className={`${prefixCls}-left`}>
@@ -228,7 +239,7 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
           <LabelIconTip tooltip={tooltip} label={title} subTitle={subTitle} />
         </div>
         {menu && <HeaderMenu {...menu} prefixCls={prefixCls} />}
-        {!hasTitle && searchNode && <div className={`${prefixCls}-search`}>{searchNode}</div>}
+        {!hasTitle && searchNode ? <div className={`${prefixCls}-search`}>{searchNode}</div> : null}
       </Space>
     );
   }, [hasLeft, hasRight, hasTitle, menu, prefixCls, searchNode, subTitle, title, tooltip]);
@@ -236,7 +247,12 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
   const rightTitleDom = useMemo(() => {
     if (!hasRight) return null;
     return (
-      <Space className={`${prefixCls}-right`} size={16}>
+      <Space
+        className={`${prefixCls}-right`}
+        direction={isMobile ? 'vertical' : 'horizontal'}
+        size={16}
+        align={isMobile ? 'end' : 'center'}
+      >
         {hasTitle && searchNode ? <div className={`${prefixCls}-search`}>{searchNode}</div> : null}
         {!multipleLine ? filtersNode : null}
         {actionDom}
@@ -255,17 +271,30 @@ const ListToolBar: React.FC<ListToolBarProps> = ({
         ) : null}
       </Space>
     );
-  }, [actionDom, filtersNode, hasRight, hasTitle, multipleLine, prefixCls, searchNode, settings]);
+  }, [
+    actionDom,
+    isMobile,
+    filtersNode,
+    hasRight,
+    hasTitle,
+    multipleLine,
+    prefixCls,
+    searchNode,
+    settings,
+  ]);
 
   const titleNode = useMemo(() => {
     if (!hasRight && !hasLeft) return null;
+    const containerClassName = classNames(`${prefixCls}-container`, {
+      [`${prefixCls}-container-mobile`]: isMobile,
+    });
     return (
-      <div className={`${prefixCls}-container`}>
+      <div className={containerClassName}>
         {leftTitleDom}
         {rightTitleDom}
       </div>
     );
-  }, [hasLeft, hasRight, leftTitleDom, prefixCls, rightTitleDom]);
+  }, [hasLeft, hasRight, isMobile, leftTitleDom, prefixCls, rightTitleDom]);
 
   return (
     <div style={style} className={classNames(`${prefixCls}`, className)}>

@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.24.1
+
+`2021-08-19`
+
+- 🐛 fix(layout): 解决侧边栏菜单折叠按钮切换之后，defaultOpenAll 失效 [#3460](https://github.com/ant-design/pro-components/pull/3460) [@GargantuaX](https://github.com/GargantuaX)
+
 ## @ant-design/pro-layout@6.23.1
 
 `2021-07-30`

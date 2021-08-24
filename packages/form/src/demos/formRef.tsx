@@ -33,10 +33,10 @@ export default () => {
         render: (props, doms) => {
           return [
             ...doms,
-            <Button htmlType="button" onClick={onFill}>
+            <Button htmlType="button" onClick={onFill} key="edit">
               一键填写
             </Button>,
-            <Button htmlType="button" onClick={getCompanyName}>
+            <Button htmlType="button" onClick={getCompanyName} key="read">
               读取公司
             </Button>,
           ];

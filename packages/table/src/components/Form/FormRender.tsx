@@ -167,10 +167,10 @@ const FormRender = <T, U = any>({
   const className = getPrefixCls('pro-table-search');
   const formClassName = getPrefixCls('pro-table-form');
 
-  const competentName = useMemo(() => getFormCompetent(isForm, searchConfig), [
-    searchConfig,
-    isForm,
-  ]);
+  const competentName = useMemo(
+    () => getFormCompetent(isForm, searchConfig),
+    [searchConfig, isForm],
+  );
 
   // 传给每个表单的配置，理论上大家都需要
   const loadingProps: any = useMemo(
@@ -209,6 +209,7 @@ const FormRender = <T, U = any>({
           if (type !== 'form') {
             // 修改 pageSize，变成从 url 中获取的
             const pageInfo = action.current?.pageInfo;
+            // 从 values 里获取是因为有时候要从 url中获取的 pageSize。
             const { current = pageInfo?.current, pageSize = pageInfo?.pageSize } = values as any;
             action.current?.setPageInfo?.({
               ...pageInfo,

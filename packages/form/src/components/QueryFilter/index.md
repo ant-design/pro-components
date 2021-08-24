@@ -16,8 +16,6 @@ nav:
 
 <code src="./demos/query-filter.tsx" height="168px" title="查询筛选" />
 
-## 不同 span 的宽度
-
 <code src="./demos/query-filter-test.tsx" height="168px" title="查询筛选" debug/>
 
 ### 查询筛选-默认收起

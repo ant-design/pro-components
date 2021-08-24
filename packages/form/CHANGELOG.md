@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.35.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.34.0...@ant-design/pro-form@1.35.0) (2021-08-19)
+
+### Bug Fixes
+
+- **form:** ProFormItem work same to Form.Item ([#3471](https://github.com/ant-design/pro-components/issues/3471)) ([eb0da77](https://github.com/ant-design/pro-components/commit/eb0da771a85cd4f7ae867b4c13315054270d5825))
+- **form:** remove onCaptcha deps ([#3419](https://github.com/ant-design/pro-components/issues/3419)) ([d30bb35](https://github.com/ant-design/pro-components/commit/d30bb35733bd6ebe50d07757263def2611f9e0ff))
+- **form:** 调整 Spin 大小使其保持垂直居中，更协调 ([#3446](https://github.com/ant-design/pro-components/issues/3446)) ([ddf7ac3](https://github.com/ant-design/pro-components/commit/ddf7ac3cb7effabda37e1ffc7d30f5e59d317be3))
+- **table:** fix table reload style error ([6967fc6](https://github.com/ant-design/pro-components/commit/6967fc61f7a425379876b31086f90381695bd413))
+- **table:** 添加滚动条，防止小屏幕下溢出 ([#3449](https://github.com/ant-design/pro-components/issues/3449)) ([cf23e82](https://github.com/ant-design/pro-components/commit/cf23e82dcd4263dd40a912ed6acebb8f9da3bf5e))
+
+### Features
+
+- **form:** FormList itemRender support index ([#3466](https://github.com/ant-design/pro-components/issues/3466)) ([1fcb715](https://github.com/ant-design/pro-components/commit/1fcb715a938d750ec917f64c49aa5655daa15e61))
+- **form:** support addonBefore and addonAfter ([#3434](https://github.com/ant-design/pro-components/issues/3434)) ([ff23de6](https://github.com/ant-design/pro-components/commit/ff23de663852e628447a25243b20c97395f30fc5))
+- **form:** support ProFormInstance types ([#3432](https://github.com/ant-design/pro-components/issues/3432)) ([e341b08](https://github.com/ant-design/pro-components/commit/e341b082994492eaca6773c325f37a3bebf29d00))
+
 # [1.34.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.33.1...@ant-design/pro-form@1.34.0) (2021-08-09)
 
 ### Bug Fixes

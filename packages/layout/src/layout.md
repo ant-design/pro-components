@@ -61,7 +61,13 @@ ProLayout 默认不提供页脚，要是和 Pro 官网相同的样式，需要�
 
 ### 默认打开所有菜单
 
+menu 配置 `defaultOpenAll` 可以默认打开所有菜单
+
 <code src="./demos/DefaultOpenAllMenu.tsx" iframe="500px" title="默认打开所有菜单" />
+
+折叠按钮反复切换后`defaultOpenAll`将失效，menu 配置 `ignoreFlatMenu` 可以忽略手动折叠过的菜单，实现总是默认打开所有菜单
+
+<code src="./demos/AlwaysDefaultOpenAllMenu.tsx" iframe="500px" title="总是默认打开所有菜单" />
 
 ### 使用 IconFont
 
@@ -156,6 +162,7 @@ menu 中支持了部分常用的 menu 配置， 可以帮助我们更好的管�
 | --- | --- | --- | --- |
 | locale | menu 是否使用国际化，还需要 formatMessage 的配合。 | `boolean` | `true` |
 | defaultOpenAll | 默认打开所有的菜单项，要注意只有 layout 挂载之前生效，异步加载菜单是不支持的 | `boolean` | `false` |
+| ignoreFlatMenu | 是否忽略手动折叠过的菜单状态，结合 defaultOpenAll 可实现折叠按钮切换后，同样可以展开所有子菜单 | `boolean` | `false` |
 | type | 菜单的类型 | `sub` \| `group` | `group` |
 | autoClose | 选中菜单是否自动关闭菜单 | `boolean` | `true` |
 | loading | 菜单是否正在加载中 | `boolean` | `false` |
@@ -449,7 +456,7 @@ siderWidth 可以自定义菜单的宽度，你可以设置的更短或者更长
 
 ### 自定义菜单
 
-ProLayout 会自动生成菜单，同时根据 pathname 进行自动选中。配合 PageContainer 可以实现自动推算面包屑和页面标题。如果和 umi 配置使用，只需要将 Page 的 props 交个 ProLayout 就根据 config 中的 routers 的配置 可以自动生成菜单的配置。
+ProLayout 会自动生成菜单，同时根据 pathname 进行自动选中。配合 PageContainer 可以实现自动推算面包屑和页面标题。如果和 umi 配置使用，只需要将 Page 的 props 交给 ProLayout，ProLayout 会根据 config 中的 routers 的配置可以自动生成菜单。
 
 为了提供更多的功能，我们扩展了 routers 配置，增加了几个配置方便自定义，数据结构定义如下:
 

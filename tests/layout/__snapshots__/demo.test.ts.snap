@@ -393,7 +393,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           class="ant-pro-page-container-warp"
         >
           <div
-            class="ant-page-header has-breadcrumb has-footer ant-page-header-ghost"
+            class="ant-page-header has-breadcrumb has-footer"
           >
             <div
               class="ant-breadcrumb"
@@ -3274,6 +3274,524 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
 </div>
 `;
 
+exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpenAllMenu.tsx correctly 1`] = `
+<div
+  style="height: 100vh;"
+>
+  <div
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+  >
+    <section
+      class="ant-layout ant-layout-has-sider"
+      style="min-height: 100%;"
+    >
+      <aside
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
+        style="overflow: hidden; flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;"
+      >
+        <div
+          class="ant-layout-sider-children"
+        >
+          <div
+            class="ant-pro-sider-logo"
+            id="logo"
+          >
+            <a>
+              <svg
+                height="32px"
+                viewBox="0 0 200 200"
+                width="32px"
+              >
+                <defs>
+                  <linearGradient
+                    id="linearGradient-1"
+                    x1="62.1023273%"
+                    x2="108.19718%"
+                    y1="0%"
+                    y2="37.8635764%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#4285EB"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#2EC7FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-2"
+                    x1="69.644116%"
+                    x2="54.0428975%"
+                    y1="0%"
+                    y2="108.456714%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#29CDFF"
+                    />
+                    <stop
+                      offset="37.8600687%"
+                      stop-color="#148EFF"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#0A60FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-3"
+                    x1="69.6908165%"
+                    x2="16.7228981%"
+                    y1="-12.9743587%"
+                    y2="117.391248%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA816E"
+                    />
+                    <stop
+                      offset="41.472606%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-4"
+                    x1="68.1279872%"
+                    x2="30.4400914%"
+                    y1="-35.6905737%"
+                    y2="114.942679%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA8E7D"
+                    />
+                    <stop
+                      offset="51.2635191%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                </defs>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    transform="translate(-20.000000, -20.000000)"
+                  >
+                    <g
+                      transform="translate(20.000000, 20.000000)"
+                    >
+                      <g>
+                        <g
+                          fill-rule="nonzero"
+                        >
+                          <g>
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-1)"
+                            />
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-2)"
+                            />
+                          </g>
+                          <path
+                            d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                            fill="url(#linearGradient-3)"
+                          />
+                        </g>
+                        <ellipse
+                          cx="100.519339"
+                          cy="100.436681"
+                          fill="url(#linearGradient-4)"
+                          rx="23.6001926"
+                          ry="23.580786"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+              <h1>
+                Ant Design Pro
+              </h1>
+            </a>
+          </div>
+          <div
+            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+          >
+            <ul
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+              data-menu-list="true"
+              role="menu"
+              style="width: 100%;"
+              tabindex="0"
+            >
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="rc-menu-uuid-test-/home"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    <span
+                      class="ant-pro-menu-item-title"
+                    >
+                      首页
+                    </span>
+                  </span>
+                </span>
+              </li>
+              <li
+                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                role="none"
+              >
+                <div
+                  aria-controls="rc-menu-uuid-test-/data_hui-popup"
+                  aria-expanded="true"
+                  aria-haspopup="true"
+                  class="ant-menu-submenu-title"
+                  data-menu-id="rc-menu-uuid-test-/data_hui"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    <span
+                      class="ant-pro-menu-item"
+                      title="汇总数据"
+                    >
+                      汇总数据
+                    </span>
+                  </span>
+                  <i
+                    class="ant-menu-submenu-arrow"
+                  />
+                </div>
+                <ul
+                  class="ant-menu ant-menu-sub ant-menu-inline"
+                  data-menu-list="true"
+                  id="rc-menu-uuid-test-/data_hui-popup"
+                >
+                  <li
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                    role="none"
+                  >
+                    <div
+                      aria-controls="rc-menu-uuid-test-/c047142c8b6e3d1750fc5cd1683ceddc90ae23339eb295d23aa23fe68529b28d-popup"
+                      aria-expanded="true"
+                      aria-haspopup="true"
+                      class="ant-menu-submenu-title"
+                      data-menu-id="rc-menu-uuid-test-/c047142c8b6e3d1750fc5cd1683ceddc90ae23339eb295d23aa23fe68529b28d"
+                      role="menuitem"
+                      style="padding-left: 32px;"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        <span
+                          class="ant-pro-menu-item"
+                          title="域买家维度交易"
+                        >
+                          域买家维度交易
+                        </span>
+                      </span>
+                      <i
+                        class="ant-menu-submenu-arrow"
+                      />
+                    </div>
+                    <ul
+                      class="ant-menu ant-menu-sub ant-menu-inline"
+                      data-menu-list="true"
+                      id="rc-menu-uuid-test-/c047142c8b6e3d1750fc5cd1683ceddc90ae23339eb295d23aa23fe68529b28d-popup"
+                    >
+                      <li
+                        class="ant-menu-item ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/data_hui2"
+                        role="menuitem"
+                        style="padding-left: 48px;"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="ant-menu-title-content"
+                        >
+                          <span
+                            class="ant-pro-menu-item"
+                          >
+                            <span
+                              class="ant-pro-menu-item-title"
+                            >
+                              月表
+                            </span>
+                          </span>
+                        </span>
+                      </li>
+                      <li
+                        class="ant-menu-item ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/data_hui3"
+                        role="menuitem"
+                        style="padding-left: 48px;"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="ant-menu-title-content"
+                        >
+                          <span
+                            class="ant-pro-menu-item"
+                          >
+                            <span
+                              class="ant-pro-menu-item-title"
+                            >
+                              日表
+                            </span>
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                  <li
+                    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                    role="none"
+                  >
+                    <div
+                      aria-controls="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                      aria-expanded="true"
+                      aria-haspopup="true"
+                      class="ant-menu-submenu-title"
+                      data-menu-id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe"
+                      role="menuitem"
+                      style="padding-left: 32px;"
+                      tabindex="-1"
+                    >
+                      <span
+                        class="ant-menu-title-content"
+                      >
+                        <span
+                          class="ant-pro-menu-item"
+                          title="维度交易"
+                        >
+                          维度交易
+                        </span>
+                      </span>
+                      <i
+                        class="ant-menu-submenu-arrow"
+                      />
+                    </div>
+                    <ul
+                      class="ant-menu ant-menu-sub ant-menu-inline"
+                      data-menu-list="true"
+                      id="rc-menu-uuid-test-/9449c99785ac015b1ec5af4ac62f9e00fe23fa6c23f3f0d36303c9e840f54ffe-popup"
+                    >
+                      <li
+                        class="ant-menu-item ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-/data_hui4"
+                        role="menuitem"
+                        style="padding-left: 48px;"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="ant-menu-title-content"
+                        >
+                          <span
+                            class="ant-pro-menu-item"
+                          >
+                            <span
+                              class="ant-pro-menu-item-title"
+                            >
+                              月表
+                            </span>
+                          </span>
+                        </span>
+                      </li>
+                      <li
+                        class="ant-menu-item ant-menu-item-only-child"
+                        data-menu-id="rc-menu-uuid-test-tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk"
+                        role="menuitem"
+                        style="padding-left: 48px;"
+                        tabindex="-1"
+                      >
+                        <span
+                          class="ant-menu-title-content"
+                        >
+                          <span
+                            class="ant-pro-menu-item"
+                          >
+                            <span
+                              class="ant-pro-menu-item-title"
+                            >
+                              日表
+                            </span>
+                          </span>
+                        </span>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <div
+              aria-hidden="true"
+              style="display: none;"
+            />
+          </div>
+          <div
+            class="ant-pro-sider-links"
+          >
+            <ul
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+              data-menu-list="true"
+              role="menu"
+              tabindex="0"
+            >
+              <li
+                class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
+                data-menu-id="rc-menu-uuid-test-collapsed"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  <span
+                    aria-label="menu-fold"
+                    class="anticon anticon-menu-fold"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="menu-fold"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 000 13.8z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </li>
+            </ul>
+            <div
+              aria-hidden="true"
+              style="display: none;"
+            />
+          </div>
+        </div>
+      </aside>
+      <div
+        class="ant-layout"
+        style="position: relative;"
+      >
+        <header
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-header-dark"
+          style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 19;"
+        >
+          <div
+            class="ant-pro-global-header ant-pro-global-header-layout-side"
+          >
+            <div
+              style="flex: 1;"
+            />
+          </div>
+        </header>
+        <main
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        >
+          <div
+            class="ant-pro-page-container"
+          >
+            <div
+              class="ant-pro-page-container-warp"
+            >
+              <div
+                class="ant-page-header"
+              >
+                <div
+                  class="ant-page-header-heading"
+                >
+                  <div
+                    class="ant-page-header-heading-left"
+                  >
+                    <span
+                      class="ant-page-header-heading-title"
+                      title="Ant Design Pro"
+                    >
+                      Ant Design Pro
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="ant-page-header-content"
+                >
+                  <div
+                    class="ant-pro-page-container-detail"
+                  >
+                    <div
+                      class="ant-pro-page-container-main"
+                    >
+                      <div
+                        class="ant-pro-page-container-row"
+                      >
+                        <div
+                          class="ant-pro-page-container-content"
+                        >
+                          欢迎使用
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-pro-grid-content"
+            >
+              <div
+                class="ant-pro-grid-content-children"
+              >
+                <div>
+                  <div
+                    class="ant-pro-page-container-children-content"
+                  >
+                    <div>
+                      Hello World
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </section>
+  </div>
+</div>
+`;
+
 exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat.tsx correctly 1`] = `
 <div
   style="height: 100vh;"
@@ -3595,7 +4113,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               class="ant-pro-page-container-warp"
             >
               <div
-                class="ant-page-header has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header has-breadcrumb"
               >
                 <div
                   class="ant-breadcrumb"
@@ -4314,7 +4832,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               class="ant-pro-page-container-warp"
             >
               <div
-                class="ant-page-header ant-page-header-ghost"
+                class="ant-page-header"
               >
                 <div
                   class="ant-page-header-heading"
@@ -4736,7 +5254,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               class="ant-pro-page-container-warp"
             >
               <div
-                class="ant-page-header ant-page-header-ghost"
+                class="ant-page-header"
               >
                 <div
                   class="ant-page-header-heading"
@@ -5302,7 +5820,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               class="ant-pro-page-container-warp"
             >
               <div
-                class="ant-page-header ant-page-header-ghost"
+                class="ant-page-header"
               >
                 <div
                   class="ant-page-header-heading"
@@ -5866,7 +6384,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               class="ant-pro-page-container-warp"
             >
               <div
-                class="ant-page-header has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header has-breadcrumb"
               >
                 <div
                   class="ant-breadcrumb"
@@ -6504,7 +7022,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       class="ant-pro-page-container-warp"
                     >
                       <div
-                        class="ant-page-header has-breadcrumb ant-page-header-ghost"
+                        class="ant-page-header has-breadcrumb"
                       >
                         <div
                           class="ant-breadcrumb"
@@ -7151,7 +7669,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       class="ant-pro-page-container-warp"
                     >
                       <div
-                        class="ant-page-header has-breadcrumb ant-page-header-ghost"
+                        class="ant-page-header has-breadcrumb"
                       >
                         <div
                           class="ant-breadcrumb"
@@ -7657,7 +8175,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header has-breadcrumb"
             >
               <div
                 class="ant-breadcrumb"
@@ -8323,7 +8841,7 @@ Array [
               class="ant-pro-page-container-warp"
             >
               <div
-                class="ant-page-header ant-page-header-ghost"
+                class="ant-page-header"
               >
                 <div
                   class="ant-page-header-heading"
@@ -8940,7 +9458,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               class="ant-pro-page-container-warp"
             >
               <div
-                class="ant-page-header has-footer ant-page-header-ghost"
+                class="ant-page-header has-footer"
               >
                 <div
                   class="ant-page-header-heading"
@@ -10197,7 +10715,7 @@ Array [
               class="qixian-pro-page-container-warp"
             >
               <div
-                class="qixian-page-header has-footer qixian-page-header-ghost"
+                class="qixian-page-header has-footer"
               >
                 <div
                   class="qixian-page-header-heading"
@@ -12118,7 +12636,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header ant-page-header-ghost"
+              class="ant-page-header"
             >
               <div
                 class="ant-page-header-heading"
@@ -12551,7 +13069,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               class="ant-pro-page-container-warp"
             >
               <div
-                class="ant-page-header ant-page-header-ghost"
+                class="ant-page-header"
               >
                 <div
                   class="ant-page-header-heading"
@@ -12866,7 +13384,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header ant-page-header-ghost"
+              class="ant-page-header"
             >
               <div
                 class="ant-page-header-heading"
@@ -13354,7 +13872,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header ant-page-header-ghost"
+              class="ant-page-header"
             >
               <div
                 class="ant-page-header-heading"
@@ -14567,7 +15085,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header ant-page-header-ghost"
+              class="ant-page-header"
             >
               <div
                 class="ant-page-header-heading"
@@ -15612,7 +16130,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header ant-page-header-ghost"
+              class="ant-page-header"
               style="padding: 4px 16px; position: fixed; top: 0px; width: 100%; left: 0px; z-index: 999; box-shadow: 0 2px 8px #f0f1f2;"
             >
               <div
@@ -16484,7 +17002,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               class="ant-pro-page-container-warp"
             >
               <div
-                class="ant-page-header has-breadcrumb ant-page-header-ghost"
+                class="ant-page-header has-breadcrumb"
               >
                 <div
                   class="ant-breadcrumb"
@@ -18901,7 +19419,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               class="ant-pro-page-container-warp"
             >
               <div
-                class="ant-page-header ant-page-header-ghost"
+                class="ant-page-header"
               >
                 <div
                   class="ant-page-header-heading"

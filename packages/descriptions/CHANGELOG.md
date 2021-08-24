@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.5...@ant-design/pro-descriptions@1.9.6) (2021-08-19)
+
+### Bug Fixes
+
+- **descriptions:** RequestData 类型优化 ([#3448](https://github.com/ant-design/pro-components/issues/3448)) ([d4253e0](https://github.com/ant-design/pro-components/commit/d4253e0efb330e06157f9739c638fe56722ad9eb))
+
 ## [1.9.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.4...@ant-design/pro-descriptions@1.9.5) (2021-08-09)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

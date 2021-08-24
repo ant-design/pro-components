@@ -56,7 +56,7 @@ function useContainer(props: UseContainerProps = {}) {
   }, [props.columns]);
 
   const [columnsMap, setColumnsMap] = useMergedState<Record<string, ColumnsState>>(
-    props.columnsStateMap || defaultColumnKeyMap,
+    () => props.columnsStateMap || defaultColumnKeyMap,
     {
       value: props.columnsStateMap,
       onChange: props.onColumnsStateChange,

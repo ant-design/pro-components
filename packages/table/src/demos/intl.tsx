@@ -5,6 +5,7 @@ import type { ProColumns, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import moment from 'moment';
 import enUSIntl from 'antd/lib/locale/en_US';
+import enGBIntl from 'antd/lib/locale/en_GB';
 import zhCNIntl from 'antd/lib/locale/zh_CN';
 import viVNIntl from 'antd/lib/locale/vi_VN';
 import itITIntl from 'antd/lib/locale/it_IT';
@@ -20,6 +21,7 @@ import ptBRIntl from 'antd/lib/locale/pt_BR';
 const intlMap = {
   zhCNIntl,
   enUSIntl,
+  enGBIntl,
   viVNIntl,
   itITIntl,
   jaJPIntl,

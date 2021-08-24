@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.49.0
+
+`2021-08-19`
+
+- 🐛 fix(table): fix typo entry -> entity [#3474](https://github.com/ant-design/pro-components/pull/3474) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): 添加滚动条，防止小屏幕下溢出 [#3449](https://github.com/ant-design/pro-components/pull/3449) [@hihuangwei](https://github.com/hihuangwei)
+- 🐛 fix(table): rowSelection rowKey of default value [#3407](https://github.com/ant-design/pro-components/pull/3407) [@DerrickTel](https://github.com/DerrickTel)
+- 💥 feat(table): 增加在 ProTable 中的 ProColumns 中 fieldProps 支持的属性类型描述 [#3410](https://github.com/ant-design/pro-components/pull/3410) [@kiner-tang](https://github.com/kiner-tang)
+
 ## @ant-design/pro-table@2.47.1
 
 `2021-08-05`

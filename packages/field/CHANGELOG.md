@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.17...@ant-design/pro-field@1.19.0) (2021-08-19)
+
+### Bug Fixes
+
+- **form:** ProFormSelect: can not search after triggered clear event ([#3455](https://github.com/ant-design/pro-components/issues/3455)) ([7d7bf60](https://github.com/ant-design/pro-components/commit/7d7bf606f2c2eee24a4403eac2f273f4f0e6b392))
+
+### Features
+
+- **form:** Second support day ([#3437](https://github.com/ant-design/pro-components/issues/3437)) ([9bd255a](https://github.com/ant-design/pro-components/commit/9bd255a1a4f94b15803616b65849ce24f313387a))
+
 ## [1.18.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.16...@ant-design/pro-field@1.18.17) (2021-08-09)
 
 **Note:** Version bump only for package @ant-design/pro-field

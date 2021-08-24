@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.49.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.48.0...@ant-design/pro-table@2.49.0) (2021-08-19)
+
+### Bug Fixes
+
+- **descriptions:** RequestData 类型优化 ([#3448](https://github.com/ant-design/pro-components/issues/3448)) ([d4253e0](https://github.com/ant-design/pro-components/commit/d4253e0efb330e06157f9739c638fe56722ad9eb))
+- **table:** fix table reload style error ([6967fc6](https://github.com/ant-design/pro-components/commit/6967fc61f7a425379876b31086f90381695bd413))
+- **table:** fix typo entry -> entity ([#3474](https://github.com/ant-design/pro-components/issues/3474)) ([e4fbb58](https://github.com/ant-design/pro-components/commit/e4fbb587d24b6f84ff7c2228ec1fe2d1c15a61ce))
+- **table:** 添加滚动条，防止小屏幕下溢出 ([#3449](https://github.com/ant-design/pro-components/issues/3449)) ([cf23e82](https://github.com/ant-design/pro-components/commit/cf23e82dcd4263dd40a912ed6acebb8f9da3bf5e))
+- setting extraUrlParams causes pageInfo to fail to sync to url ([#3439](https://github.com/ant-design/pro-components/issues/3439)) ([423f511](https://github.com/ant-design/pro-components/commit/423f511a5c876c585663130b6e2426f769a0b28f))
+
+### Features
+
+- **form:** support ProFormInstance types ([#3432](https://github.com/ant-design/pro-components/issues/3432)) ([e341b08](https://github.com/ant-design/pro-components/commit/e341b082994492eaca6773c325f37a3bebf29d00))
+
 # [2.48.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.47.1...@ant-design/pro-table@2.48.0) (2021-08-09)
 
 ### Bug Fixes

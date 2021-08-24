@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.12.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.12.0...@ant-design/pro-list@1.12.1) (2021-08-19)
+
+### Bug Fixes
+
+- **table:** 添加滚动条，防止小屏幕下溢出 ([#3449](https://github.com/ant-design/pro-components/issues/3449)) ([cf23e82](https://github.com/ant-design/pro-components/commit/cf23e82dcd4263dd40a912ed6acebb8f9da3bf5e))
+
 # [1.12.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.11.1...@ant-design/pro-list@1.12.0) (2021-08-09)
 
 ### Features

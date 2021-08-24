@@ -19,45 +19,41 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-table-list-toolbar-title"
             >
               <div
-                class="ant-pro-table-list-toolbar-title"
+                class="ant-pro-core-label-tip"
               >
-                <div
-                  class="ant-pro-core-label-tip"
+                基础列表
+                <span
+                  class="ant-pro-core-label-tip-icon"
                 >
-                  基础列表
                   <span
-                    class="ant-pro-core-label-tip-icon"
+                    aria-label="info-circle"
+                    class="anticon anticon-info-circle"
+                    role="img"
                   >
-                    <span
-                      aria-label="info-circle"
-                      class="anticon anticon-info-circle"
-                      role="img"
+                    <svg
+                      aria-hidden="true"
+                      data-icon="info-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
                     >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="info-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                        />
-                        <path
-                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                        />
-                      </svg>
-                    </span>
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                      />
+                      <path
+                        d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                      />
+                    </svg>
                   </span>
-                </div>
+                </span>
               </div>
             </div>
           </div>
@@ -643,16 +639,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-table-list-toolbar-title"
             >
-              <div
-                class="ant-pro-table-list-toolbar-title"
-              >
-                翻页
-              </div>
+              翻页
             </div>
           </div>
         </div>
@@ -1619,16 +1611,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-table-list-toolbar-title"
             >
-              <div
-                class="ant-pro-table-list-toolbar-title"
-              >
-                基础列表
-              </div>
+              基础列表
             </div>
           </div>
         </div>
@@ -2089,16 +2077,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-table-list-toolbar-title"
             >
-              <div
-                class="ant-pro-table-list-toolbar-title"
-              >
-                支持展开的列表
-              </div>
+              支持展开的列表
             </div>
           </div>
           <div
@@ -2611,16 +2595,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-table-list-toolbar-title"
             >
-              <div
-                class="ant-pro-table-list-toolbar-title"
-              >
-                基础列表
-              </div>
+              基础列表
             </div>
           </div>
           <div
@@ -3604,16 +3584,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-table-list-toolbar-title"
             >
-              <div
-                class="ant-pro-table-list-toolbar-title"
-              >
-                竖排样式
-              </div>
+              竖排样式
             </div>
           </div>
           <div
@@ -4394,16 +4370,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-table-list-toolbar-title"
             >
-              <div
-                class="ant-pro-table-list-toolbar-title"
-              >
-                翻页
-              </div>
+              翻页
             </div>
           </div>
         </div>
@@ -5601,16 +5573,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-table-list-toolbar-title"
             >
-              <div
-                class="ant-pro-table-list-toolbar-title"
-              >
-                基础列表
-              </div>
+              基础列表
             </div>
           </div>
           <div
@@ -6407,16 +6375,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-table-list-toolbar-title"
             >
-              <div
-                class="ant-pro-table-list-toolbar-title"
-              >
-                支持选中的列表
-              </div>
+              支持选中的列表
             </div>
           </div>
           <div
@@ -7171,16 +7135,12 @@ Array [
             class="ant-pro-table-list-toolbar-container"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+              class="ant-pro-table-list-toolbar-left"
             >
               <div
-                class="ant-space-item"
+                class="ant-pro-table-list-toolbar-title"
               >
-                <div
-                  class="ant-pro-table-list-toolbar-title"
-                >
-                  大小和分割线
-                </div>
+                大小和分割线
               </div>
             </div>
             <div
@@ -7694,16 +7654,12 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           >
             <div
-              class="ant-space-item"
+              class="ant-pro-table-list-toolbar-title"
             >
-              <div
-                class="ant-pro-table-list-toolbar-title"
-              >
-                预设的列状态
-              </div>
+              预设的列状态
             </div>
           </div>
           <div

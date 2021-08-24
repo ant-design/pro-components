@@ -22,10 +22,10 @@ function ariaConvert(wrapper: CheerIO) {
 
   const matches = new Map();
 
-  function process(entry: any) {
-    const { attribs, children } = entry;
-    if (matches.has(entry)) return;
-    matches.set(entry, true);
+  function process(entity: any) {
+    const { attribs, children } = entity;
+    if (matches.has(entity)) return;
+    matches.set(entity, true);
 
     // Change aria
     if (attribs && attribs['aria-controls']) {
@@ -37,7 +37,7 @@ function ariaConvert(wrapper: CheerIO) {
     (Array.isArray(children) ? children : [children]).forEach(process);
   }
 
-  wrapper.each((_: any, entry: CheerIOElement) => process(entry));
+  wrapper.each((_: any, entity: CheerIOElement) => process(entity));
 
   return wrapper;
 }
@@ -53,8 +53,10 @@ function demoTest(component: string, options: Options = {}) {
 
   // Mock offsetHeight
   // @ts-expect-error
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
-    .get;
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetHeight',
+  ).get;
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
       let html = this.innerHTML;

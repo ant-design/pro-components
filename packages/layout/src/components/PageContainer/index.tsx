@@ -244,7 +244,17 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
 };
 
 const PageContainer: React.FC<PageContainerProps> = (props) => {
-  const { children, loading = false, style, footer, affixProps, ghost, fixedHeader } = props;
+  const {
+    children,
+    loading = false,
+    className,
+    style,
+    footer,
+    affixProps,
+    ghost,
+    fixedHeader,
+    ...restProps
+  } = props;
   const value = useContext(RouteContext);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -252,7 +262,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
 
   const prefixedClassName = `${prefixCls}-page-container`;
 
-  const className = classNames(prefixedClassName, props.className, {
+  const containerClassName = classNames(prefixedClassName, className, {
     [`${prefixCls}-page-container-ghost`]: ghost,
     [`${prefixCls}-page-container-with-footer`]: footer,
   });
@@ -272,7 +282,12 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   ) : null;
 
   const pageHeaderDom = (
-    <ProPageHeader {...props} prefixCls={undefined} prefixedClassName={prefixedClassName} />
+    <ProPageHeader
+      {...restProps}
+      ghost={ghost}
+      prefixCls={undefined}
+      prefixedClassName={prefixedClassName}
+    />
   );
 
   const renderContent = () => {
@@ -284,7 +299,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     return dom;
   };
   return (
-    <div style={style} className={className}>
+    <div style={style} className={containerClassName}>
       {fixedHeader && pageHeaderDom ? (
         // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
         <Affix

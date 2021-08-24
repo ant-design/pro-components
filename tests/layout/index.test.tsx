@@ -93,15 +93,13 @@ describe('BasicLayout', () => {
                       tab: 'adm_rk_cr_tb_trd_byr_ms',
                       tabProj: 'alifin_odps_birisk',
                       name: '_交易_买家_月表',
-                      path:
-                        '/data_hui1?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui1?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
                     },
                     {
                       id: 3,
                       isNavHome: '3',
                       name: '_航旅交易_买家_日表',
-                      path:
-                        '/data_hui2?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui2?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
                     },
                   ],
                 },
@@ -112,14 +110,12 @@ describe('BasicLayout', () => {
                     {
                       id: 5,
                       name: '_交易_买家_月表',
-                      path:
-                        '/data_hui3?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui3?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
                     },
                     {
                       id: 6,
                       name: '_航旅交易_买家_日表',
-                      path:
-                        '/data_hui4?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui4?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
                     },
                   ],
                 },
@@ -130,14 +126,12 @@ describe('BasicLayout', () => {
                     {
                       id: 7,
                       name: '_交易_买家_月表2',
-                      path:
-                        '/data_hui5?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui5?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
                     },
                     {
                       id: 8,
                       name: '_航旅交易_买家_日表3',
-                      path:
-                        '/data_hui6?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui6?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
                     },
                   ],
                 },
@@ -1139,5 +1133,194 @@ describe('BasicLayout', () => {
     });
     await waitForComponentToPaint(html, 100);
     expect(fn).toBeCalledTimes(3);
+  });
+
+  it('🥩 BasicLayout support menu.defaultOpenAll', async () => {
+    const Demo = () => {
+      const [pathname, setPathname] = useState('/admin/sub-page1');
+      return (
+        <BasicLayout
+          menu={{
+            defaultOpenAll: true,
+          }}
+          location={{ pathname }}
+          menuItemRender={(item, dom) => (
+            <a
+              onClick={() => {
+                item.onClick();
+                setPathname(item.path || '/welcome');
+              }}
+            >
+              {dom}
+            </a>
+          )}
+          menuDataRender={() => [
+            {
+              path: '/home',
+              name: '首页',
+              locale: 'menu.home',
+              children: [
+                {
+                  path: '/home/overview',
+                  name: '概述',
+                  hideInMenu: true,
+                  locale: 'menu.home.overview',
+                },
+                {
+                  path: '/home/search',
+                  name: '搜索',
+                  hideInMenu: true,
+                  locale: 'menu.home.search',
+                },
+              ],
+            },
+            {
+              path: '/data_hui',
+              name: '汇总数据',
+              locale: 'menu.data_hui',
+              children: [
+                {
+                  collapsed: true,
+                  menuName: '域买家维度交易',
+                  name: '域买家维度交易',
+                  children: [
+                    {
+                      id: 2,
+                      name: '月表',
+                      path: '/data_hui2',
+                    },
+                    {
+                      name: '日表',
+                      path: '/data_hui3?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                    },
+                  ],
+                },
+                {
+                  name: '维度交易',
+                  path: '/',
+                  children: [
+                    {
+                      name: '月表',
+                      path: '/data_hui4',
+                    },
+                    {
+                      name: '日表',
+                      key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui5',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+        />
+      );
+    };
+    const html = mount(<Demo />);
+    await waitForComponentToPaint(html);
+
+    expect(html.find('li.ant-menu-submenu').length).toBe(3);
+    expect(html.find('li.ant-menu-submenu-open').length).toBe(3);
+  });
+
+  it('🥩 BasicLayout support menu.ignoreFlatMenu', async () => {
+    const Demo = () => {
+      const [pathname, setPathname] = useState('/admin/sub-page1');
+      return (
+        <BasicLayout
+          menu={{
+            defaultOpenAll: true,
+            ignoreFlatMenu: true,
+          }}
+          location={{ pathname }}
+          menuItemRender={(item, dom) => (
+            <a
+              onClick={() => {
+                item.onClick();
+                setPathname(item.path || '/welcome');
+              }}
+            >
+              {dom}
+            </a>
+          )}
+          menuDataRender={() => [
+            {
+              path: '/home',
+              name: '首页',
+              locale: 'menu.home',
+              children: [
+                {
+                  path: '/home/overview',
+                  name: '概述',
+                  hideInMenu: true,
+                  locale: 'menu.home.overview',
+                },
+                {
+                  path: '/home/search',
+                  name: '搜索',
+                  hideInMenu: true,
+                  locale: 'menu.home.search',
+                },
+              ],
+            },
+            {
+              path: '/data_hui',
+              name: '汇总数据',
+              locale: 'menu.data_hui',
+              children: [
+                {
+                  collapsed: true,
+                  menuName: '域买家维度交易',
+                  name: '域买家维度交易',
+                  children: [
+                    {
+                      id: 2,
+                      name: '月表',
+                      path: '/data_hui2',
+                    },
+                    {
+                      name: '日表',
+                      path: '/data_hui3?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                    },
+                  ],
+                },
+                {
+                  name: '维度交易',
+                  path: '/',
+                  children: [
+                    {
+                      name: '月表',
+                      path: '/data_hui4',
+                    },
+                    {
+                      name: '日表',
+                      key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui5',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+        />
+      );
+    };
+    const html = mount(<Demo />);
+    await waitForComponentToPaint(html);
+
+    expect(html.find('li.ant-menu-submenu').length).toBe(3);
+    expect(html.find('li.ant-menu-submenu-open').length).toBe(3);
+
+    act(() => {
+      html.find('li.ant-pro-sider-collapsed-button').simulate('click');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('li.ant-menu-submenu-open').length).toBe(0);
+
+    act(() => {
+      html.find('li.ant-pro-sider-collapsed-button').simulate('click');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('li.ant-menu-submenu-open').length).toBe(3);
   });
 });

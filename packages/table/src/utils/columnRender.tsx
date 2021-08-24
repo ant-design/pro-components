@@ -136,7 +136,10 @@ export function columnRender<T>({
     rowData,
     columnProps: {
       ...columnProps,
+      // 为了兼容性，原来写了个错别字
+      // @ts-ignore
       entry: rowData,
+      entity: rowData,
     },
     columnEmptyText,
     type,

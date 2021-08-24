@@ -36,7 +36,7 @@ export function genProColumnToColumn<T>(props: {
         onFilter,
         filters = [],
       } = columnProps as ProColumnGroupType<T, any>;
-      const columnKey = genColumnKey(key, columnsIndex);
+      const columnKey = genColumnKey(key || dataIndex?.toString(), columnsIndex);
       // 这些都没有，说明是普通的表格不需要 pro 管理
       const noNeedPro = !valueEnum && !valueType && !children;
       if (noNeedPro) {
@@ -56,6 +56,7 @@ export function genProColumnToColumn<T>(props: {
 
       const tempColumns = {
         index: columnsIndex,
+        key: columnKey,
         ...columnProps,
         title: renderColumnsTitle(columnProps),
         valueEnum,

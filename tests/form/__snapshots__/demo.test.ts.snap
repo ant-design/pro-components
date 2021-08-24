@@ -27985,7 +27985,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header has-breadcrumb ant-page-header-ghost"
+              class="ant-page-header has-breadcrumb"
             >
               <div
                 class="ant-breadcrumb"

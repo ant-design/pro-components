@@ -30,7 +30,7 @@ type RenderToFromItemProps<T> = {
   rowData?: T;
   columnEmptyText?: ProFieldEmptyText;
   columnProps?: ProColumnType<T> & {
-    entry: T;
+    entity: T;
   };
   type?: ProSchemaComponentTypes;
   // 行的唯一 key
