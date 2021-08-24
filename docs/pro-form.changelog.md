@@ -9,6 +9,16 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.36.0
+
+`2021-08-24`
+
+- 🐛 fix(form): proformtext support prefix and suffix [#3524](https://github.com/ant-design/pro-components/pull/3524) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix ProForm onBlur no work error [#3515](https://github.com/ant-design/pro-components/pull/3515) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(field-percent): fix parser and formatter regexp #3459 [#3505](https://github.com/ant-design/pro-components/pull/3505) [@yangger6](https://github.com/yangger6)
+- 🐛 fix(form): fix incorrect formRef in demo code [#3501](https://github.com/ant-design/pro-components/pull/3501) [@Symous](https://github.com/Symous)
+- 💥 feat(form): form columns support dependencies [#3523](https://github.com/ant-design/pro-components/pull/3523) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.35.0
 
 `2021-08-19`
