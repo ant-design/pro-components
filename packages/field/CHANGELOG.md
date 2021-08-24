@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.19.0...@ant-design/pro-field@1.20.0) (2021-08-24)
+
+### Bug Fixes
+
+- **field-percent:** fix parser and formatter regexp [#3459](https://github.com/ant-design/pro-components/issues/3459) ([#3505](https://github.com/ant-design/pro-components/issues/3505)) ([3f469a1](https://github.com/ant-design/pro-components/commit/3f469a145ab6a3ff607f7fc6d0a797d880521353))
+- **form:** proformtext support prefix and suffix ([#3524](https://github.com/ant-design/pro-components/issues/3524)) ([d368def](https://github.com/ant-design/pro-components/commit/d368defbbc378edeb50ef3b2d4e86ec4c4805ca2))
+
+### Features
+
+- **form:** form columns support dependencies ([#3523](https://github.com/ant-design/pro-components/issues/3523)) ([73624c8](https://github.com/ant-design/pro-components/commit/73624c87cf81e417cc3547386050261a45903bce))
+
 # [1.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.17...@ant-design/pro-field@1.19.0) (2021-08-19)
 
 ### Bug Fixes

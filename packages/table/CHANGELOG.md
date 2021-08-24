@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.50.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.49.0...@ant-design/pro-table@2.50.0) (2021-08-24)
+
+### Features
+
+- **table:** support column.chilren render ([#3487](https://github.com/ant-design/pro-components/issues/3487)) ([99cb645](https://github.com/ant-design/pro-components/commit/99cb645e51bb50e4cac7b6fd71666cb6efad5693))
+
 # [2.49.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.48.0...@ant-design/pro-table@2.49.0) (2021-08-19)
 
 ### Bug Fixes

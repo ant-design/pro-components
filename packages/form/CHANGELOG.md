@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.36.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.35.0...@ant-design/pro-form@1.36.0) (2021-08-24)
+
+### Bug Fixes
+
+- **form:** fix incorrect formRef in demo code ([#3501](https://github.com/ant-design/pro-components/issues/3501)) ([857c95d](https://github.com/ant-design/pro-components/commit/857c95d4c38681d3f63850381937ffd21be444af))
+- **form:** fix ProForm onBlur no work error ([#3515](https://github.com/ant-design/pro-components/issues/3515)) ([abb5894](https://github.com/ant-design/pro-components/commit/abb5894db4a44565a4531535b16a75b313ccb583))
+- **form:** proformtext support prefix and suffix ([#3524](https://github.com/ant-design/pro-components/issues/3524)) ([d368def](https://github.com/ant-design/pro-components/commit/d368defbbc378edeb50ef3b2d4e86ec4c4805ca2))
+
+### Features
+
+- **form:** form columns support dependencies ([#3523](https://github.com/ant-design/pro-components/issues/3523)) ([73624c8](https://github.com/ant-design/pro-components/commit/73624c87cf81e417cc3547386050261a45903bce))
+
 # [1.35.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.34.0...@ant-design/pro-form@1.35.0) (2021-08-19)
 
 ### Bug Fixes

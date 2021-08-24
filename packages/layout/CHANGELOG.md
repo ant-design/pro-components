@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.24.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.24.1...@ant-design/pro-layout@6.24.2) (2021-08-24)
+
+### Bug Fixes
+
+- **PageContainer:** className prop should not be passed to its page header, fix [#3493](https://github.com/ant-design/pro-components/issues/3493) ([#3496](https://github.com/ant-design/pro-components/issues/3496)) ([819d134](https://github.com/ant-design/pro-components/commit/819d134ff0716081ab5801f1d7bc5d4a4214cb13))
+
 ## [6.24.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.24.0...@ant-design/pro-layout@6.24.1) (2021-08-19)
 
 ### Bug Fixes
