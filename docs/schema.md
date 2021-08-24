@@ -345,24 +345,32 @@ const columns = [
 
 ```tsx
 import React from 'react';
-import { ProFormSelect } from '@ant-design/pro-form';
+import ProForm, { ProFormText, ProFormSelect } from '@ant-design/pro-form';
 
-const request = async () => [
-  { label: '全部', value: 'all' },
-  { label: '未解决', value: 'open' },
-  { label: '已解决', value: 'closed' },
-  { label: '解决中', value: 'processing' },
-];
+const request = async (params) => {
+  return [
+    { label: '全部', value: 'all' },
+    { label: '未解决', value: 'open' },
+    { label: '已解决', value: 'closed' },
+    { label: '解决中', value: 'processing' },
+  ];
+};
 
 export default () => (
-  <ProFormSelect
-    name="select2"
-    label="Select"
-    valueType="select"
-    params={{}}
-    request={request}
-    placeholder="Please select a country"
-  />
+  <ProForm>
+    <ProFormText label="相互依赖的" name="text" />
+    <ProFormSelect
+      name="select2"
+      label="Select"
+      valueType="select"
+      params={(from) => {
+        const values = from.getFieldsValue();
+        return values;
+      }}
+      request={request}
+      placeholder="Please select a country"
+    />
+  </ProForm>
 );
 ```
 

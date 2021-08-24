@@ -1,13 +1,18 @@
-﻿import React from 'react';
+﻿import React, { useState } from 'react';
 import type { FormItemProps } from 'antd';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
-import { omitUndefined } from '@ant-design/pro-utils';
-import { pickProFormItemProps } from '@ant-design/pro-utils';
+import {
+  runFunction,
+  pickProFormItemProps,
+  omitUndefined,
+  useDeepCompareEffect,
+} from '@ant-design/pro-utils';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
 import FieldContext from '../FieldContext';
 import type { ProFormFieldItemProps } from '../interface';
 import ProFormItem from '../components/FormItem';
+import type { ProFormInstance } from '.';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -53,7 +58,7 @@ export type ExtendsProps = {
    *
    * @name 网络请求用的输出，会触发reload
    */
-  params?: any;
+  params?: ((form: ProFormInstance) => Record<string, any>) | Record<string, any>;
 
   /** @name 需要放在formItem 时使用 */
   ignoreFormItem?: boolean;
@@ -119,7 +124,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     } = { ...defaultProps, ...props } as P & ExtendsProps;
 
     /** 从 context 中拿到的值 */
-    const { fieldProps, formItemProps } = React.useContext(FieldContext);
+    const { fieldProps, formItemProps, formRef } = React.useContext(FieldContext);
 
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
@@ -161,6 +166,15 @@ function createField<P extends ProFormFieldItemProps = any>(
     if (realFieldPropsStyle.width !== undefined && (rest as any).valueType === 'switch') {
       delete realFieldPropsStyle.width;
     }
+
+    const [params, setParams] = useState(() => runFunction(rest.params, formRef?.current));
+    console.log(formRef?.current?.getFieldsValue());
+    /** 防止返回值相同也重新更新的问题 */
+    useDeepCompareEffect(() => {
+      const requestParams = runFunction(rest.params, formRef?.current);
+      setParams(requestParams);
+    }, [formRef?.current?.getFieldsValue()]);
+
     const field = (
       <Field
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
@@ -186,7 +200,7 @@ function createField<P extends ProFormFieldItemProps = any>(
         })}
         proFieldProps={omitUndefined({
           mode: readonly ? 'read' : 'edit',
-          params: rest.params,
+          params,
           proFieldKey: `form-field-${otherProps?.name}`,
           ...proFieldProps,
         })}
