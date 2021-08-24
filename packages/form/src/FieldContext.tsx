@@ -3,6 +3,7 @@ import type { FormItemProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import type { GroupProps, FieldProps } from './interface';
+import type { ProFormInstance } from '.';
 
 export type FiledContextProps = {
   fieldProps?: FieldProps;
@@ -17,6 +18,7 @@ export type FiledContextProps = {
       transform?: SearchTransformKeyFn;
     },
   ) => void;
+  formRef?: React.MutableRefObject<ProFormInstance>;
 };
 
 const FieldContext = React.createContext<FiledContextProps>({});

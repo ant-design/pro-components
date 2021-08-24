@@ -1,13 +1,13 @@
 ﻿import React from 'react';
 import type { FormItemProps } from 'antd';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
-import { omitUndefined } from '@ant-design/pro-utils';
-import { pickProFormItemProps } from '@ant-design/pro-utils';
+import { pickProFormItemProps, omitUndefined } from '@ant-design/pro-utils';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
 import FieldContext from '../FieldContext';
 import type { ProFormFieldItemProps } from '../interface';
 import ProFormItem from '../components/FormItem';
+import type { ProFormInstance } from '.';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -53,7 +53,7 @@ export type ExtendsProps = {
    *
    * @name 网络请求用的输出，会触发reload
    */
-  params?: any;
+  params?: ((form: ProFormInstance) => Record<string, any>) | Record<string, any>;
 
   /** @name 需要放在formItem 时使用 */
   ignoreFormItem?: boolean;
@@ -161,6 +161,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     if (realFieldPropsStyle.width !== undefined && (rest as any).valueType === 'switch') {
       delete realFieldPropsStyle.width;
     }
+
     const field = (
       <Field
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，

@@ -305,6 +305,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     <ConfigProviderWrap>
       <FieldContext.Provider
         value={{
+          formRef,
           fieldProps,
           formItemProps,
           groupProps,

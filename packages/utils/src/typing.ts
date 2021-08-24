@@ -1,5 +1,6 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import type { NamePath } from 'antd/lib/form/interface';
 import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
@@ -300,6 +301,8 @@ export type ProSchema<
   request?: ProFieldRequestData;
   /** @name 从服务器请求的参数，改变了会触发 reload */
   params?: Record<string, any>;
+  /** @name 依赖字段的name，暂时只在拥有 request 的项目中生效，会自动注入到 params 中 */
+  dependencies?: NamePath[];
 
   /** @name 在 descriptions 隐藏 */
   hideInDescriptions?: boolean;

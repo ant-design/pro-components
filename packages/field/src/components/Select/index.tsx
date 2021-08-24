@@ -378,6 +378,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     children,
     light,
     proFieldKey,
+    params,
     ...rest
   } = props;
 
