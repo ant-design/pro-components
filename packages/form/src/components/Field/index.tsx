@@ -6,6 +6,7 @@ import { runFunction } from '@ant-design/pro-utils';
 
 import createField from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
+import ProFormDependency from '../Dependency';
 
 export type ProFormFieldProps<T = any> = ProSchema<
   T,
@@ -29,41 +30,41 @@ const ProFormField: React.FC<
   ProFormFieldProps<any> & {
     onChange?: Function;
   }
-> = React.forwardRef(
-  (
-    {
-      fieldProps,
-      children,
-      labelCol,
-      label,
-      isDefaultDom,
-      render,
-      proFieldProps,
-      renderFormItem,
-      valueType,
-      initialValue,
-      onChange,
-      valueEnum,
-      name,
-      ...restProps
-    },
-    ref,
-  ) => {
-    // 防止 formItem 的值被吃掉
-    if (children) {
-      if (React.isValidElement(children)) {
-        return React.cloneElement(children, {
-          ...restProps,
-          onChange: (...restParams: any) => {
-            (fieldProps?.onChange as any)?.(...restParams);
-            onChange?.(...restParams);
-          },
-          ...children.props,
-        });
-      }
-      return children as JSX.Element;
+> = React.forwardRef((props, ref) => {
+  const {
+    fieldProps,
+    children,
+    labelCol,
+    label,
+    isDefaultDom,
+    render,
+    proFieldProps,
+    renderFormItem,
+    valueType,
+    initialValue,
+    onChange,
+    valueEnum,
+    params,
+    name,
+    ...restProps
+  } = props;
+  // 防止 formItem 的值被吃掉
+  if (children) {
+    if (React.isValidElement(children)) {
+      return React.cloneElement(children, {
+        ...restProps,
+        onChange: (...restParams: any) => {
+          (fieldProps?.onChange as any)?.(...restParams);
+          onChange?.(...restParams);
+        },
+        ...children.props,
+      });
     }
+    return children as JSX.Element;
+  }
 
+  const renderDom = (values?: Record<string, any>) => {
+    const propsParams = values ? { ...params, ...(values || {}) } : params;
     return (
       <ProField
         ref={ref}
@@ -82,9 +83,22 @@ const ProFormField: React.FC<
         valueEnum={runFunction(valueEnum)}
         {...proFieldProps}
         {...restProps}
+        params={propsParams}
       />
     );
-  },
-);
+  };
+
+  if (restProps.dependencies && restProps.request && restProps?.mode !== 'read') {
+    return (
+      <ProFormDependency name={restProps.dependencies}>
+        {(values) => {
+          return renderDom(values);
+        }}
+      </ProFormDependency>
+    );
+  }
+
+  return renderDom();
+});
 
 export default createField<ProFormFieldProps>(ProFormField);

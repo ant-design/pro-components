@@ -1,12 +1,7 @@
-﻿import React, { useState } from 'react';
+﻿import React from 'react';
 import type { FormItemProps } from 'antd';
 import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
-import {
-  runFunction,
-  pickProFormItemProps,
-  omitUndefined,
-  useDeepCompareEffect,
-} from '@ant-design/pro-utils';
+import { pickProFormItemProps, omitUndefined } from '@ant-design/pro-utils';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
 import FieldContext from '../FieldContext';
@@ -124,7 +119,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     } = { ...defaultProps, ...props } as P & ExtendsProps;
 
     /** 从 context 中拿到的值 */
-    const { fieldProps, formItemProps, formRef } = React.useContext(FieldContext);
+    const { fieldProps, formItemProps } = React.useContext(FieldContext);
 
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
@@ -167,14 +162,6 @@ function createField<P extends ProFormFieldItemProps = any>(
       delete realFieldPropsStyle.width;
     }
 
-    const [params, setParams] = useState(() => runFunction(rest.params, formRef?.current));
-    console.log(formRef?.current?.getFieldsValue());
-    /** 防止返回值相同也重新更新的问题 */
-    useDeepCompareEffect(() => {
-      const requestParams = runFunction(rest.params, formRef?.current);
-      setParams(requestParams);
-    }, [formRef?.current?.getFieldsValue()]);
-
     const field = (
       <Field
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
@@ -200,7 +187,7 @@ function createField<P extends ProFormFieldItemProps = any>(
         })}
         proFieldProps={omitUndefined({
           mode: readonly ? 'read' : 'edit',
-          params,
+          params: rest.params,
           proFieldKey: `form-field-${otherProps?.name}`,
           ...proFieldProps,
         })}
