@@ -11594,7 +11594,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     </span>
                   </div>
                   <span
-                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
+                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
                   >
                     <span
                       title="男"
@@ -32241,14 +32241,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                                   class="ant-select-selection-search"
                                                 >
                                                   <input
-                                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                                                    aria-activedescendant="624748504_state_list_0"
                                                     aria-autocomplete="list"
-                                                    aria-controls="rc_select_TEST_OR_SSR_list"
+                                                    aria-controls="624748504_state_list"
                                                     aria-haspopup="listbox"
-                                                    aria-owns="rc_select_TEST_OR_SSR_list"
+                                                    aria-owns="624748504_state_list"
                                                     autocomplete="off"
                                                     class="ant-select-selection-search-input"
-                                                    id="rc_select_TEST_OR_SSR"
+                                                    id="624748504_state"
                                                     readonly=""
                                                     role="combobox"
                                                     style="opacity: 0;"
@@ -32479,14 +32479,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                                   class="ant-select-selection-search"
                                                 >
                                                   <input
-                                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                                                    aria-activedescendant="624691229_state_list_0"
                                                     aria-autocomplete="list"
-                                                    aria-controls="rc_select_TEST_OR_SSR_list"
+                                                    aria-controls="624691229_state_list"
                                                     aria-haspopup="listbox"
-                                                    aria-owns="rc_select_TEST_OR_SSR_list"
+                                                    aria-owns="624691229_state_list"
                                                     autocomplete="off"
                                                     class="ant-select-selection-search-input"
-                                                    id="rc_select_TEST_OR_SSR"
+                                                    id="624691229_state"
                                                     readonly=""
                                                     role="combobox"
                                                     style="opacity: 0;"

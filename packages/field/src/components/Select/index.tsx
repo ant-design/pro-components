@@ -30,7 +30,7 @@ import './index.less';
 
 let testId = 0;
 
-export type FieldSelectProps = {
+export type FieldSelectProps<FieldProps = any> = {
   text: string;
   /** 值的枚举，如果存在枚举，Search 中会生成 select */
   valueEnum?: ProFieldValueEnumType;
@@ -41,7 +41,10 @@ export type FieldSelectProps = {
   params?: any;
 
   /** 组件的全局设置 */
-  fieldProps?: any;
+  fieldProps?: FieldProps;
+
+  bordered?: boolean;
+  id?: string;
 };
 
 export const ObjToMap = (value: ProFieldValueEnumType | undefined): ProSchemaValueEnumMap => {
@@ -380,6 +383,8 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     proFieldKey,
     params,
     label,
+    bordered,
+    id,
     ...rest
   } = props;
 
@@ -435,6 +440,8 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
       if (light) {
         return (
           <LightSelect
+            bordered={bordered}
+            id={id}
             loading={loading}
             ref={inputRef}
             allowClear
@@ -452,6 +459,8 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
           style={{
             minWidth: 100,
           }}
+          bordered={bordered}
+          id={id}
           loading={loading}
           ref={inputRef}
           allowClear
