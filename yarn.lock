@@ -4058,7 +4058,7 @@
 
 "@umijs/fabric@2.6.2":
   version "2.6.2"
-  resolved "https://registry.nlark.com/@umijs/fabric/download/@umijs/fabric-2.6.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40umijs%2Ffabric%2Fdownload%2F%40umijs%2Ffabric-2.6.2.tgz#5c862cd7a8cf624a2a5beb6150bad3e8f03f484d"
+  resolved "https://registry.nlark.com/@umijs/fabric/download/@umijs/fabric-2.6.2.tgz#5c862cd7a8cf624a2a5beb6150bad3e8f03f484d"
   integrity sha1-XIYs16jPYkoqW+thULrT6PA/SE0=
   dependencies:
     "@babel/core" "^7.12.10"
@@ -4297,9 +4297,9 @@
     webpack-chain "6.5.1"
 
 "@umijs/use-params@^1.0.2":
-  version "1.0.5"
-  resolved "https://registry.nlark.com/@umijs/use-params/download/@umijs/use-params-1.0.5.tgz#1dce25ba6ba26425e2d9aa056cfff64d1b132edc"
-  integrity sha1-Hc4lumuiZCXi2aoFbP/2TRsTLtw=
+  version "1.0.6"
+  resolved "https://registry.nlark.com/@umijs/use-params/download/@umijs/use-params-1.0.6.tgz#c5b33725c88ae831c86c16edb9de2df7cfd65707"
+  integrity sha1-xbM3JciK6DHIbBbtud4t98/WVwc=
 
 "@umijs/use-request@^1.4.3":
   version "1.4.3"
