@@ -1,8 +1,7 @@
 import React from 'react';
 
-import ProField from '@ant-design/pro-field';
+import ProField from '../Field';
 import type { ProFormFieldItemProps } from '../../interface';
-import createField from '../../BaseForm/createField';
 import type { TextAreaProps } from 'antd/lib/input';
 /**
  * 文本选择组件
@@ -15,7 +14,6 @@ const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormFieldItemProps
 ) => {
   return (
     <ProField
-      text={fieldProps?.value as string}
       ref={ref}
       mode="edit"
       valueType="textarea"
@@ -26,9 +24,10 @@ const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormFieldItemProps
           (rest as any)?.onChange?.(...restParams);
         },
       }}
-      {...proFieldProps}
+      proFieldProps={proFieldProps}
+      {...rest}
     />
   );
 };
 
-export default createField<ProFormFieldItemProps<TextAreaProps>>(React.forwardRef(ProFormTextArea));
+export default React.forwardRef(ProFormTextArea);

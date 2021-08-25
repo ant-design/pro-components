@@ -1,9 +1,8 @@
 import React from 'react';
 import type { InputProps } from 'antd';
 import type { PasswordProps } from 'antd/lib/input';
-import ProField from '@ant-design/pro-field';
+import ProField from '../Field';
 import type { ProFormFieldItemProps } from '../../interface';
-import createField from '../../BaseForm/createField';
 
 const valueType = 'text';
 /**
@@ -11,36 +10,49 @@ const valueType = 'text';
  *
  * @param
  */
-const ProFormText = createField<ProFormFieldItemProps<InputProps>>(
-  ({ fieldProps, proFieldProps, ...rest }: ProFormFieldItemProps<InputProps>) => {
-    return (
-      <ProField
-        mode="edit"
-        valueType={valueType}
-        fieldProps={{
-          ...fieldProps,
-          onChange: (...restParams: any) => {
-            (fieldProps?.onChange as any)?.(...restParams);
-            (rest as any)?.onChange?.(...restParams);
-          },
-        }}
-        {...proFieldProps}
-      />
-    );
-  },
-  {
-    valueType,
-  },
-);
+const ProFormText: React.FC<ProFormFieldItemProps<InputProps>> = ({
+  fieldProps,
+  proFieldProps,
+  ...rest
+}: ProFormFieldItemProps<InputProps>) => {
+  return (
+    <ProField
+      mode="edit"
+      valueType={valueType}
+      fieldProps={{
+        ...fieldProps,
+        onChange: (...restParams: any) => {
+          (fieldProps?.onChange as any)?.(...restParams);
+          (rest as any)?.onChange?.(...restParams);
+        },
+      }}
+      filedConfig={{
+        valueType,
+      }}
+      proFieldProps={proFieldProps}
+      {...rest}
+    />
+  );
+};
 
-const Password = createField<ProFormFieldItemProps<PasswordProps>>(
-  ({ fieldProps, proFieldProps }: ProFormFieldItemProps<InputProps>) => {
-    return <ProField mode="edit" valueType="password" fieldProps={fieldProps} {...proFieldProps} />;
-  },
-  {
-    valueType,
-  },
-);
+const Password: React.FC<ProFormFieldItemProps<PasswordProps>> = ({
+  fieldProps,
+  proFieldProps,
+  ...rest
+}: ProFormFieldItemProps<InputProps>) => {
+  return (
+    <ProField
+      mode="edit"
+      valueType="password"
+      fieldProps={fieldProps}
+      proFieldProps={proFieldProps}
+      filedConfig={{
+        valueType,
+      }}
+      {...rest}
+    />
+  );
+};
 
 const WrappedProFormText: typeof ProFormText & {
   Password: typeof Password;

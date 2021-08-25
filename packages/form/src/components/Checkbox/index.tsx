@@ -1,12 +1,12 @@
 import React from 'react';
 import type { CheckboxProps } from 'antd';
 import { Checkbox } from 'antd';
-import ProField from '@ant-design/pro-field';
+import ProFormField from '../Field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
-import createField from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
+import createField from '../../BaseForm/createField';
 
 export type ProFormCheckboxGroupProps = ProFormFieldItemProps<CheckboxGroupProps> & {
   layout?: 'horizontal' | 'vertical';
@@ -17,17 +17,17 @@ export type ProFormCheckboxGroupProps = ProFormFieldItemProps<CheckboxGroupProps
 
 const CheckboxGroup: React.FC<ProFormCheckboxGroupProps> = React.forwardRef(
   ({ options, fieldProps, proFieldProps, valueEnum, ...rest }, ref) => (
-    <ProField
+    <ProFormField
       ref={ref}
       valueType="checkbox"
       mode="edit"
       valueEnum={runFunction<[any]>(valueEnum, undefined)}
-      {...rest}
       fieldProps={{
         options,
         ...fieldProps,
       }}
-      {...proFieldProps}
+      proFieldProps={proFieldProps}
+      {...rest}
     />
   ),
 );
@@ -54,12 +54,10 @@ const ProFormCheckbox = createField<ProFormCheckboxProps>(ProFormCheckboxCompone
   valuePropName: 'checked',
 });
 
-const Group = createField(CheckboxGroup);
-
-const WrappedProFormCheckbox: typeof ProFormCheckbox & {
-  Group: typeof Group;
+const WrappedProFormCheckbox: typeof ProFormCheckboxComponents & {
+  Group: typeof CheckboxGroup;
 } = ProFormCheckbox as any;
 
-WrappedProFormCheckbox.Group = Group;
+WrappedProFormCheckbox.Group = CheckboxGroup;
 
 export default WrappedProFormCheckbox;

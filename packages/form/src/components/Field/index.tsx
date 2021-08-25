@@ -3,7 +3,6 @@ import ProField from '@ant-design/pro-field';
 import type { InputProps, SelectProps } from 'antd';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
-import type { ProFormItemCreateConfig } from '../../BaseForm/createField';
 import createField from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
 import ProFormDependency from '../Dependency';
@@ -29,8 +28,6 @@ export type ProFormFieldProps<T = any, FiledProps = InputProps & SelectProps<str
 const ProFormField: React.FC<
   ProFormFieldProps<any> & {
     onChange?: Function;
-    /** 给自定义组件行为开的口子 */
-    filedConfig?: ProFormItemCreateConfig;
   }
 > = React.forwardRef((props, ref) => {
   const {
@@ -48,6 +45,7 @@ const ProFormField: React.FC<
     valueEnum,
     params,
     name,
+    valuePropName = 'value',
     ...restProps
   } = props;
   // 防止 formItem 的值被吃掉
@@ -70,7 +68,8 @@ const ProFormField: React.FC<
     return (
       <ProField
         ref={ref}
-        text={fieldProps?.value as string}
+        valuePropName={valuePropName}
+        text={fieldProps?.[valuePropName]}
         render={render as any}
         renderFormItem={renderFormItem as any}
         valueType={(valueType as 'text') || 'text'}
@@ -104,8 +103,5 @@ const ProFormField: React.FC<
 });
 
 export default createField<ProFormFieldProps>(ProFormField) as <FiledProps, DataType = {}>(
-  props: ProFormFieldProps<DataType, FiledProps> & {
-    /** 给自定义组件行为开的口子 */
-    filedConfig?: ProFormItemCreateConfig;
-  },
+  props: ProFormFieldProps<DataType, FiledProps>,
 ) => React.ReactElement;

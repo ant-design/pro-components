@@ -1,8 +1,7 @@
 import React from 'react';
-import ProField from '@ant-design/pro-field';
+import ProField from '../Field';
 import type { RateProps } from 'antd';
 import type { ProFormFieldItemProps } from '../../interface';
-import createField from '../../BaseForm/createField';
 /**
  * 评分组件
  *
@@ -24,11 +23,13 @@ const ProFormRate: React.ForwardRefRenderFunction<any, ProFormFieldItemProps<Rat
         },
       }}
       ref={ref}
-      {...proFieldProps}
+      proFieldProps={proFieldProps}
+      filedConfig={{
+        ignoreWidth: true,
+      }}
+      {...rest}
     />
   );
 };
 
-export default createField<ProFormFieldItemProps<RateProps>>(React.forwardRef(ProFormRate), {
-  ignoreWidth: true,
-});
+export default React.forwardRef(ProFormRate);
