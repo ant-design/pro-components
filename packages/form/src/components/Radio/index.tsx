@@ -1,11 +1,11 @@
 import React from 'react';
 import type { RadioProps, RadioGroupProps } from 'antd';
 import { Radio } from 'antd';
-import ProField from '@ant-design/pro-field';
+import ProField from '../Field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
-import createField from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
+import createField from '../../BaseForm/createField';
 
 export type ProFormRadioGroupProps = ProFormFieldItemProps<RadioGroupProps> & {
   layout?: 'horizontal' | 'vertical';
@@ -29,7 +29,10 @@ const RadioGroup: React.FC<ProFormRadioGroupProps> = React.forwardRef(
           layout,
           ...fieldProps,
         }}
-        {...proFieldProps}
+        proFieldProps={proFieldProps}
+        filedConfig={{
+          customLightMode: true,
+        }}
       />
     );
   },
@@ -55,16 +58,12 @@ const ProFormRadio = createField<ProFormFieldItemProps<RadioProps>>(ProFormRadio
   ignoreWidth: true,
 });
 
-const Group = createField(RadioGroup, {
-  customLightMode: true,
-});
-
 const WrappedProFormRadio: typeof ProFormRadio & {
-  Group: typeof Group;
+  Group: typeof RadioGroup;
   Button: typeof Radio.Button;
 } = ProFormRadio as any;
 
-WrappedProFormRadio.Group = Group;
+WrappedProFormRadio.Group = RadioGroup;
 
 WrappedProFormRadio.Button = Radio.Button;
 

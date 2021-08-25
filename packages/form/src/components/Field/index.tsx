@@ -48,6 +48,7 @@ const ProFormField: React.FC<
     valueEnum,
     params,
     name,
+    valuePropName = 'value',
     ...restProps
   } = props;
   // 防止 formItem 的值被吃掉
@@ -70,7 +71,8 @@ const ProFormField: React.FC<
     return (
       <ProField
         ref={ref}
-        text={fieldProps?.value as string}
+        valuePropName={valuePropName}
+        text={fieldProps?.[valuePropName]}
         render={render as any}
         renderFormItem={renderFormItem as any}
         valueType={(valueType as 'text') || 'text'}

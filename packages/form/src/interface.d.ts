@@ -62,4 +62,6 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
   proFieldProps?: ProFieldProps;
   /** QueryFilter 上的footer */
   footerRender?: LightFilterFooterRender;
+  /** 是否只读 */
+  readonly?: boolean;
 } & ProFormItemProps;

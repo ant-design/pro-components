@@ -15,7 +15,6 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
   ref,
 ) => {
   const intl = useIntl();
-
   const dom = useMemo(() => {
     if (text === undefined || text === null || `${text}`.length < 1) {
       return '-';

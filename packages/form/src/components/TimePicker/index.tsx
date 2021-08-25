@@ -1,23 +1,25 @@
 import React from 'react';
-
-import ProField from '@ant-design/pro-field';
+import ProField from '../Field';
 import type { DatePickerProps } from 'antd';
 import type { ProFormFieldItemProps } from '../../interface';
-import createField from '../../BaseForm/createField';
 import { dateArrayFormatter } from '@ant-design/pro-utils';
 
 const valueType = 'time';
 
 /** 时间区间选择器 */
 const TimeRangePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = React.forwardRef(
-  ({ fieldProps, proFieldProps }, ref: any) => (
+  ({ fieldProps, proFieldProps, ...rest }, ref: any) => (
     <ProField
       ref={ref}
-      text={fieldProps?.value || ''}
       mode="edit"
       fieldProps={fieldProps}
       valueType="timeRange"
-      {...proFieldProps}
+      proFieldProps={proFieldProps}
+      filedConfig={{
+        valueType: 'timeRange',
+        lightFilterLabelFormatter: (value) => dateArrayFormatter(value, 'HH:mm:SS'),
+      }}
+      {...rest}
     />
   ),
 );
@@ -27,34 +29,28 @@ const TimeRangePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = React.
  *
  * @param
  */
-const TimePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
+const ProFormTimePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
   fieldProps,
   proFieldProps,
+  ...rest
 }) => (
   <ProField
-    text={fieldProps?.value || ''}
     mode="edit"
     fieldProps={fieldProps}
     valueType={valueType}
-    {...proFieldProps}
+    proFieldProps={proFieldProps}
+    filedConfig={{
+      customLightMode: true,
+      valueType,
+    }}
+    {...rest}
   />
 );
 
-/** 时间选择器 */
-const ProFormTimePicker = createField<ProFormFieldItemProps<DatePickerProps>>(TimePicker, {
-  customLightMode: true,
-  valueType,
-});
-
-const RangePicker = createField<ProFormFieldItemProps<DatePickerProps>>(TimeRangePicker, {
-  valueType: 'timeRange',
-  lightFilterLabelFormatter: (value) => dateArrayFormatter(value, 'HH:mm:SS'),
-});
-
 const WrappedProFormTimePicker: typeof ProFormTimePicker & {
-  RangePicker: typeof RangePicker;
+  RangePicker: typeof TimeRangePicker;
 } = ProFormTimePicker as any;
 
-WrappedProFormTimePicker.RangePicker = RangePicker;
+WrappedProFormTimePicker.RangePicker = TimeRangePicker;
 
 export default WrappedProFormTimePicker;

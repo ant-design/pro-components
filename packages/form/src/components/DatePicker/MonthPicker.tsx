@@ -1,7 +1,6 @@
 import React from 'react';
-import ProField from '@ant-design/pro-field';
+import ProField from '../Field';
 import type { MonthPickerProps } from 'antd/lib/date-picker';
-import createField from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
 
 const valueType = 'dateMonth';
@@ -11,21 +10,22 @@ const valueType = 'dateMonth';
  * @param
  */
 const ProFormDatePickerMonth: React.FC<ProFormFieldItemProps<MonthPickerProps>> = React.forwardRef(
-  ({ proFieldProps, fieldProps }, ref) => {
+  ({ proFieldProps, fieldProps, ...rest }, ref) => {
     return (
       <ProField
         ref={ref}
-        text={fieldProps?.value}
         mode="edit"
         valueType={valueType}
         fieldProps={fieldProps}
-        {...proFieldProps}
+        proFieldProps={proFieldProps}
+        filedConfig={{
+          valueType,
+          customLightMode: true,
+        }}
+        {...rest}
       />
     );
   },
 );
 
-export default createField<ProFormFieldItemProps<MonthPickerProps>>(ProFormDatePickerMonth, {
-  valueType,
-  customLightMode: true,
-});
+export default ProFormDatePickerMonth;
