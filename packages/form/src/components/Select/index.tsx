@@ -4,7 +4,6 @@ import ProFormField from '../Field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import type { ProFormFieldItemProps } from '../../interface';
-import type { ExtendsProps } from '../../BaseForm/createField';
 
 export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
   SelectProps<T> & {
@@ -118,12 +117,10 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
 );
 
 const ProFormSelect = ProFormSelectComponents as <T>(
-  props: ProFormSelectProps<T> & ExtendsProps,
+  props: ProFormSelectProps<T>,
 ) => React.ReactElement;
 
-const ProFormSearchSelect = SearchSelect as <T>(
-  props: ProFormSelectProps<T> & ExtendsProps,
-) => React.ReactElement;
+const ProFormSearchSelect = SearchSelect as <T>(props: ProFormSelectProps<T>) => React.ReactElement;
 
 const WrappedProFormSelect = ProFormSelect as (<T = any>(
   props: ProFormSelectProps<T>,
