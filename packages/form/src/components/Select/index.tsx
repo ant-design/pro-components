@@ -28,7 +28,7 @@ export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
   params?: ProSchema['params'];
   request?: ProSchema['request'];
   options?: SelectProps<any>['options'] | string[];
-  mode?: SelectProps<any>['mode'];
+  mode?: SelectProps<any>['mode'] | 'single';
   showSearch?: SelectProps<any>['showSearch'];
   readonly?: boolean;
 };
