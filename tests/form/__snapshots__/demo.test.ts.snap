@@ -203,7 +203,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"
@@ -296,7 +295,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-loading ant-select-show-search"
                     style="min-width: 100px;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"
@@ -386,7 +384,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   <div
                     class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"
@@ -479,7 +476,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                     style="min-width: 100px;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"
@@ -4640,7 +4636,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
               <div
                 class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                 style="min-width: 100px;"
-                text="2"
               >
                 <div
                   class="ant-select-selector"
@@ -5031,7 +5026,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
               <div
                 class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                 style="min-width: 140px;"
-                text=""
               >
                 <div
                   class="ant-select-selector"
@@ -5114,7 +5108,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
               <div
                 class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                 style="min-width: 140px;"
-                text=""
               >
                 <div
                   class="ant-select-selector"
@@ -5196,7 +5189,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
               <div
                 class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
                 style="min-width: 140px;"
-                text=""
               >
                 <div
                   class="ant-select-selector"
@@ -6023,7 +6015,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                 <div
                                   class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                   style="min-width: 100px;"
-                                  text="PlusOutlined"
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -6164,7 +6155,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                 <div
                                   class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                   style="min-width: 100px;"
-                                  text="button"
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -6283,7 +6273,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                 <div
                                   class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                   style="min-width: 100px;"
-                                  text="dashed"
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -6514,7 +6503,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                 <div
                                   class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                   style="min-width: 100px;"
-                                  text="CopyOutlined"
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -6762,7 +6750,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                                 <div
                                   class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                   style="min-width: 100px;"
-                                  text="DeleteOutlined"
                                 >
                                   <div
                                     class="ant-select-selector"
@@ -8787,7 +8774,6 @@ Array [
                                   <div
                                     class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                     style="min-width: 100px;"
-                                    text="man"
                                   >
                                     <div
                                       class="ant-select-selector"
@@ -9009,7 +8995,6 @@ Array [
                                       <div
                                         class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
-                                        text=""
                                       >
                                         <div
                                           class="ant-select-selector"
@@ -9074,7 +9059,6 @@ Array [
                                       <div
                                         class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
-                                        text=""
                                       >
                                         <div
                                           class="ant-select-selector"
@@ -10565,7 +10549,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   >
                     <div
                       class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
-                      text="[object Object],[object Object]"
                     >
                       <div
                         class="ant-select-selector"
@@ -10676,7 +10659,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   >
                     <div
                       class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
-                      text=""
                     >
                       <div
                         class="ant-select-selector"
@@ -10721,7 +10703,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                         <span
                           class="ant-select-selection-placeholder"
                         >
-                          请输入
+                          请选择
                         </span>
                       </div>
                     </div>
@@ -11529,7 +11511,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 >
                   <div
                     class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
-                    text="man"
                   >
                     <div
                       class="ant-select-selector"
@@ -11613,7 +11594,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                     </span>
                   </div>
                   <span
-                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-bordered ant-pro-core-field-label-allow-clear"
+                    class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
                   >
                     <span
                       title="男"
@@ -12388,7 +12369,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
             <div
               class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-show-search"
               style="width: 100%;"
-              text=""
             >
               <div
                 class="ant-select-selector"
@@ -17189,7 +17169,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
           <div
             class="ant-select ant-pro-filed-search-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
             style="min-width: 100px;"
-            text=""
           >
             <div
               class="ant-select-selector"
@@ -17332,7 +17311,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
           <div
             class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="min-width: 100px;"
-            text=""
           >
             <div
               class="ant-select-selector"
@@ -17505,7 +17483,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 <div
                   class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width: 100px;"
-                  text=""
                 >
                   <div
                     class="ant-select-selector"
@@ -17695,7 +17672,6 @@ Array [
           <div
             class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="min-width: 100px;"
-            text="Form"
           >
             <div
               class="ant-select-selector"
@@ -17881,7 +17857,6 @@ Array [
             <div
               class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
               style="min-width: 100px;"
-              text=""
             >
               <div
                 class="ant-select-selector"
@@ -18117,7 +18092,6 @@ Array [
                   <div
                     class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"
@@ -18319,7 +18293,6 @@ Array [
                                   <div
                                     class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                     style="min-width: 100px;"
-                                    text="all"
                                   >
                                     <div
                                       class="ant-select-selector"
@@ -18593,7 +18566,6 @@ Array [
                 <div
                   class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width: 100px;"
-                  text=""
                 >
                   <div
                     class="ant-select-selector"
@@ -19040,7 +19012,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 <div
                   class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width: 100px;"
-                  text=""
                 >
                   <div
                     class="ant-select-selector"
@@ -19286,7 +19257,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                       <div
                         class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                         style="min-width: 100px;"
-                        text=""
                       >
                         <div
                           class="ant-select-selector"
@@ -19502,7 +19472,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                                       <div
                                         class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
-                                        text="all"
                                       >
                                         <div
                                           class="ant-select-selector"
@@ -19776,7 +19745,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     <div
                       class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
-                      text=""
                     >
                       <div
                         class="ant-select-selector"
@@ -20036,7 +20004,6 @@ Array [
           <div
             class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
             style="width: 200px;"
-            text="text"
           >
             <div
               class="ant-select-selector"
@@ -20146,7 +20113,6 @@ Array [
                   <div
                     class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
-                    text="123456"
                   >
                     <div
                       class="ant-select-selector"
@@ -20477,7 +20443,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                 <div
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width: 100px;"
-                  text=""
                 >
                   <div
                     class="ant-select-selector"
@@ -21652,7 +21617,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     <div
                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
-                      text="1"
                     >
                       <div
                         class="ant-select-selector"
@@ -21767,7 +21731,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     <div
                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
-                      text="2"
                     >
                       <div
                         class="ant-select-selector"
@@ -22188,7 +22151,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           <div
                             class="ant-select ant-pro-filed-search-select pro-field pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="min-width: 100px;"
-                            text=""
                           >
                             <div
                               class="ant-select-selector"
@@ -22269,7 +22231,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                           <div
                             class="ant-select ant-pro-filed-search-select pro-field pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
                             style="min-width: 100px;"
-                            text=""
                           >
                             <div
                               class="ant-select-selector"
@@ -22699,7 +22660,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     <div
                       class="ant-select ant-pro-filed-search-select pro-field pro-field-lg ant-select-multiple ant-select-allow-clear ant-select-show-search"
                       style="min-width: 100px;"
-                      text="吴家豪,周星星"
                     >
                       <div
                         class="ant-select-selector"
@@ -23353,7 +23313,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     <div
                       class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
-                      text="1"
                     >
                       <div
                         class="ant-select-selector"
@@ -23468,7 +23427,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     <div
                       class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
-                      text="2"
                     >
                       <div
                         class="ant-select-selector"
@@ -24502,7 +24460,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     <div
                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
-                      text="1"
                     >
                       <div
                         class="ant-select-selector"
@@ -24617,7 +24574,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     <div
                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
-                      text="2"
                     >
                       <div
                         class="ant-select-selector"
@@ -25183,7 +25139,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 <div
                   class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width: 100px;"
-                  text=""
                 >
                   <div
                     class="ant-select-selector"
@@ -26668,7 +26623,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
           <div
             class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="min-width: 100px;"
-            text="chapter"
           >
             <div
               class="ant-select-selector"
@@ -26783,7 +26737,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
           <div
             class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="min-width: 100px;"
-            text="chapter"
           >
             <div
               class="ant-select-selector"
@@ -28460,7 +28413,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       <div
                                         class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
-                                        text=""
                                       >
                                         <div
                                           class="ant-select-selector"
@@ -28552,7 +28504,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       <div
                                         class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
-                                        text=""
                                       >
                                         <div
                                           class="ant-select-selector"
@@ -28841,7 +28792,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       <div
                                         class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
-                                        text="money"
                                       >
                                         <div
                                           class="ant-select-selector"
@@ -28961,7 +28911,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                       <div
                                         class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                         style="min-width: 100px;"
-                                        text="6"
                                       >
                                         <div
                                           class="ant-select-selector"
@@ -29999,7 +29948,6 @@ Array [
                     <div
                       class="ant-select ant-pro-filed-search-select pro-field pro-field-xs ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
-                      text=""
                     >
                       <div
                         class="ant-select-selector"
@@ -31149,7 +31097,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                     <div
                       class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
-                      text="1"
                     >
                       <div
                         class="ant-select-selector"
@@ -31264,7 +31211,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                     <div
                       class="ant-select ant-pro-filed-search-select pro-field pro-field-md ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="min-width: 100px;"
-                      text="2"
                     >
                       <div
                         class="ant-select-selector"
@@ -32287,7 +32233,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             <div
                                               class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                               style="min-width: 100px;"
-                                              text="open"
                                             >
                                               <div
                                                 class="ant-select-selector"
@@ -32296,14 +32241,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                                   class="ant-select-selection-search"
                                                 >
                                                   <input
-                                                    aria-activedescendant="624748504_state_list_0"
+                                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                                     aria-autocomplete="list"
-                                                    aria-controls="624748504_state_list"
+                                                    aria-controls="rc_select_TEST_OR_SSR_list"
                                                     aria-haspopup="listbox"
-                                                    aria-owns="624748504_state_list"
+                                                    aria-owns="rc_select_TEST_OR_SSR_list"
                                                     autocomplete="off"
                                                     class="ant-select-selection-search-input"
-                                                    id="624748504_state"
+                                                    id="rc_select_TEST_OR_SSR"
                                                     readonly=""
                                                     role="combobox"
                                                     style="opacity: 0;"
@@ -32526,7 +32471,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                             <div
                                               class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                               style="min-width: 100px;"
-                                              text="closed"
                                             >
                                               <div
                                                 class="ant-select-selector"
@@ -32535,14 +32479,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                                                   class="ant-select-selection-search"
                                                 >
                                                   <input
-                                                    aria-activedescendant="624691229_state_list_0"
+                                                    aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                                     aria-autocomplete="list"
-                                                    aria-controls="624691229_state_list"
+                                                    aria-controls="rc_select_TEST_OR_SSR_list"
                                                     aria-haspopup="listbox"
-                                                    aria-owns="624691229_state_list"
+                                                    aria-owns="rc_select_TEST_OR_SSR_list"
                                                     autocomplete="off"
                                                     class="ant-select-selection-search-input"
-                                                    id="624691229_state"
+                                                    id="rc_select_TEST_OR_SSR"
                                                     readonly=""
                                                     role="combobox"
                                                     style="opacity: 0;"
@@ -33030,7 +32974,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
           <div
             class="ant-select ant-pro-filed-search-select pro-field pro-field-sm ant-select-single ant-select-allow-clear ant-select-show-arrow"
             style="min-width: 100px;"
-            text="chapter"
           >
             <div
               class="ant-select-selector"

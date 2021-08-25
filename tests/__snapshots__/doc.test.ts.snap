@@ -668,7 +668,6 @@ Array [
           <div
             class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
             style="width: 200px;"
-            text="text"
           >
             <div
               class="ant-select-selector"
@@ -778,7 +777,6 @@ Array [
                   <div
                     class="ant-select ant-pro-filed-search-select pro-field pro-field-m ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
-                    text="123456"
                   >
                     <div
                       class="ant-select-selector"

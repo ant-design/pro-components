@@ -531,7 +531,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                 <div
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width:100px"
-                  text="open"
                 >
                   <div
                     class="ant-select-selector"
@@ -613,7 +612,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
                 <div
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width:100px"
-                  text="open"
                 >
                   <div
                     class="ant-select-selector"
@@ -1712,7 +1710,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                 <div
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width:100px"
-                  text="open"
                 >
                   <div
                     class="ant-select-selector"
@@ -1794,7 +1791,6 @@ exports[`Field 🐴 edit and plain 1`] = `
                 <div
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width:100px"
-                  text="open"
                 >
                   <div
                     class="ant-select-selector"

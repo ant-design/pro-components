@@ -320,7 +320,7 @@ export interface ProFieldProps {
   light?: boolean;
   emptyText?: ReactNode;
   label?: React.ReactNode;
-  mode?: 'read';
+  mode?: 'read' | 'edit';
   /** 这个属性可以设置useSwr的key */
   proFieldKey?: string;
   render?: any;

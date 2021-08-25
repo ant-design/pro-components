@@ -1,11 +1,10 @@
 import React from 'react';
 import type { SelectProps } from 'antd';
-import ProField from '@ant-design/pro-field';
+import ProFormField from '../Field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import type { ProFormFieldItemProps } from '../../interface';
 import type { ExtendsProps } from '../../BaseForm/createField';
-import createField from '../../BaseForm/createField';
 
 export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
   SelectProps<T> & {
@@ -29,7 +28,7 @@ export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
   params?: ProSchema['params'];
   request?: ProSchema['request'];
   options?: SelectProps<any>['options'] | string[];
-  mode?: SelectProps<any>['mode'] | 'single';
+  mode?: SelectProps<any>['mode'];
   showSearch?: SelectProps<any>['showSearch'];
   readonly?: boolean;
 };
@@ -41,33 +40,51 @@ export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
  */
 const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps<any>>(
   (
-    { fieldProps, children, params, proFieldProps, mode, valueEnum, request, showSearch, options },
+    {
+      fieldProps,
+      children,
+      params,
+      proFieldProps,
+      mode,
+      valueEnum,
+      request,
+      showSearch,
+      options,
+      ...rest
+    },
     ref,
   ) => {
     return (
-      <ProField
+      <ProFormField<any>
         mode="edit"
         valueEnum={runFunction(valueEnum)}
         request={request}
         params={params}
         valueType="select"
-        fieldProps={{
-          options,
-          mode,
-          showSearch,
-          ...fieldProps,
-        }}
+        filedConfig={{ customLightMode: true }}
+        fieldProps={
+          {
+            options,
+            mode,
+            showSearch,
+            ...fieldProps,
+          } as SelectProps<any>
+        }
         ref={ref}
-        {...proFieldProps}
+        proFieldProps={proFieldProps}
+        {...rest}
       >
         {children}
-      </ProField>
+      </ProFormField>
     );
   },
 );
 
 const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
-  ({ fieldProps, children, params, proFieldProps, mode, valueEnum, request, options }, ref) => {
+  (
+    { fieldProps, children, params, proFieldProps, mode, valueEnum, request, options, ...rest },
+    ref,
+  ) => {
     const props: Omit<SelectProps<any>, 'options'> & {
       options?: ProFormSelectProps['options'];
     } = {
@@ -82,29 +99,31 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
       ...fieldProps,
     };
     return (
-      <ProField
+      <ProFormField<any>
         mode="edit"
         valueEnum={runFunction(valueEnum)}
         request={request}
         params={params}
         valueType="select"
+        filedConfig={{ customLightMode: true }}
         fieldProps={props}
         ref={ref}
-        {...proFieldProps}
+        proFieldProps={proFieldProps}
+        {...rest}
       >
         {children}
-      </ProField>
+      </ProFormField>
     );
   },
 );
 
-const ProFormSelect = createField<ProFormSelectProps>(ProFormSelectComponents, {
-  customLightMode: true,
-}) as <T>(props: ProFormSelectProps<T> & ExtendsProps) => React.ReactElement;
+const ProFormSelect = ProFormSelectComponents as <T>(
+  props: ProFormSelectProps<T> & ExtendsProps,
+) => React.ReactElement;
 
-const ProFormSearchSelect = createField<ProFormSelectProps>(SearchSelect, {
-  customLightMode: true,
-}) as <T>(props: ProFormSelectProps<T> & ExtendsProps) => React.ReactElement;
+const ProFormSearchSelect = SearchSelect as <T>(
+  props: ProFormSelectProps<T> & ExtendsProps,
+) => React.ReactElement;
 
 const WrappedProFormSelect = ProFormSelect as (<T = any>(
   props: ProFormSelectProps<T>,

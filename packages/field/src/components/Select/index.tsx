@@ -379,6 +379,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     light,
     proFieldKey,
     params,
+    label,
     ...rest
   } = props;
 
@@ -438,8 +439,9 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
             ref={inputRef}
             allowClear
             size={size}
-            {...rest}
             options={options}
+            label={label}
+            placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
             {...fieldProps}
           />
         );
@@ -465,8 +467,8 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
             }
             return item.label;
           }}
-          {...rest}
           placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+          label={label}
           {...fieldProps}
           options={options}
         />

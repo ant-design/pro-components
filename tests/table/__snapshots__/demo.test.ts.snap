@@ -1361,7 +1361,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -1370,14 +1369,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800000_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800000_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800000_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800000_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -1602,7 +1601,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -1611,14 +1609,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800001_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800001_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800001_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800001_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -1843,7 +1841,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -1852,14 +1849,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800002_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800002_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800002_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800002_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -2084,7 +2081,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -2093,14 +2089,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800003_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800003_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800003_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800003_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -2325,7 +2321,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -2334,14 +2329,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800004_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800004_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800004_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800004_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -2566,7 +2561,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -2575,14 +2569,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800005_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800005_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800005_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800005_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -2807,7 +2801,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -2816,14 +2809,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800006_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800006_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800006_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800006_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -3048,7 +3041,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -3057,14 +3049,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800007_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800007_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800007_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800007_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -3289,7 +3281,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -3298,14 +3289,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800008_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800008_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800008_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800008_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -3530,7 +3521,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -3539,14 +3529,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800009_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800009_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800009_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800009_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -3771,7 +3761,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -3780,14 +3769,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800010_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800010_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800010_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800010_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -4012,7 +4001,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -4021,14 +4009,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800011_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800011_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800011_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800011_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -4253,7 +4241,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -4262,14 +4249,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800012_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800012_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800012_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800012_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -4494,7 +4481,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -4503,14 +4489,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800013_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800013_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800013_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800013_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -4735,7 +4721,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -4744,14 +4729,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800014_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800014_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800014_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800014_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -4976,7 +4961,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -4985,14 +4969,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800015_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800015_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800015_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800015_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -5217,7 +5201,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -5226,14 +5209,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800016_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800016_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800016_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800016_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -5458,7 +5441,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -5467,14 +5449,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800017_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800017_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800017_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800017_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -5699,7 +5681,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -5708,14 +5689,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800018_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800018_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800018_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800018_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -5940,7 +5921,6 @@ Array [
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="open"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -5949,14 +5929,14 @@ Array [
                                           class="ant-select-selection-search"
                                         >
                                           <input
-                                            aria-activedescendant="1479772800019_state_list_0"
+                                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                             aria-autocomplete="list"
-                                            aria-controls="1479772800019_state_list"
+                                            aria-controls="rc_select_TEST_OR_SSR_list"
                                             aria-haspopup="listbox"
-                                            aria-owns="1479772800019_state_list"
+                                            aria-owns="rc_select_TEST_OR_SSR_list"
                                             autocomplete="off"
                                             class="ant-select-selection-search-input"
-                                            id="1479772800019_state"
+                                            id="rc_select_TEST_OR_SSR"
                                             readonly=""
                                             role="combobox"
                                             style="opacity: 0;"
@@ -13075,7 +13055,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                   <div
                     class="qixian-select qixian-pro-filed-search-select qixian-select-single qixian-select-allow-clear qixian-select-show-arrow"
                     style="width: 100%;"
-                    text="open"
                   >
                     <div
                       class="qixian-select-selector"
@@ -17315,7 +17294,6 @@ Array [
                     <div
                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
-                      text="all"
                     >
                       <div
                         class="ant-select-selector"
@@ -17436,7 +17414,6 @@ Array [
                     <div
                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
-                      text=""
                     >
                       <div
                         class="ant-select-selector"
@@ -19823,7 +19800,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="width: 100%;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"
@@ -19916,7 +19892,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="width: 100%;"
-                    text="all"
                   >
                     <div
                       class="ant-select-selector"
@@ -22527,9 +22502,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                         >
                           <div
                             class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                            hidden=""
                             style="width: 100%;"
-                            text=""
                           >
                             <div
                               class="ant-select-selector"
@@ -26667,7 +26640,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                   >
                                     <div
                                       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                      text=""
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -26696,7 +26668,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                                         <span
                                           class="ant-select-selection-placeholder"
                                         >
-                                          请输入
+                                          请选择
                                         </span>
                                       </div>
                                       <span
@@ -27838,7 +27810,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="width: 100%;"
-                    text="1"
                   >
                     <div
                       class="ant-select-selector"
@@ -29970,7 +29941,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="width: 100%;"
-                    text="all"
                   >
                     <div
                       class="ant-select-selector"
@@ -30091,7 +30061,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="width: 100%;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"
@@ -33771,7 +33740,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="width: 100%;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"
@@ -34853,7 +34821,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="width: 100%;"
-                    text="all"
                   >
                     <div
                       class="ant-select-selector"
@@ -36702,7 +36669,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                   <div
                     class="ant-select ant-select-rtl ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="width: 100%;"
-                    text="open"
                   >
                     <div
                       class="ant-select-selector"
@@ -39642,7 +39608,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="width: 100%;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"
@@ -41266,7 +41231,6 @@ Array [
                 <div
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   style="min-width: 100px;"
-                  text="all"
                 >
                   <div
                     class="ant-select-selector"
@@ -42177,7 +42141,6 @@ Array [
                     <div
                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                       style="width: 100%;"
-                      text="all"
                     >
                       <div
                         class="ant-select-selector"
@@ -46929,7 +46892,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="width: 100%;"
-                    text="all"
                   >
                     <div
                       class="ant-select-selector"
