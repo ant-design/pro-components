@@ -1301,7 +1301,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="horizontal"
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -1490,7 +1489,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                     <div
                                       class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                                       style="min-width: 100px;"
-                                      text="default"
                                     >
                                       <div
                                         class="ant-select-selector"

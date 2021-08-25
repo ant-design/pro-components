@@ -2241,7 +2241,6 @@ Array [
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
-                    text="open"
                   >
                     <div
                       class="ant-select-selector"
@@ -2728,7 +2727,6 @@ Array [
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="min-width: 100px;"
-                    text="open"
                   >
                     <div
                       class="ant-select-selector"
@@ -3870,7 +3868,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/search-value.tsx co
           <div
             class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
             style="width: 330px;"
-            text=""
           >
             <div
               class="ant-select-selector"

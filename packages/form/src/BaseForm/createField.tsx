@@ -74,6 +74,8 @@ export type ExtendsProps = {
    * @name 自定义的 formItemProps
    */
   formItemProps?: FormItemProps;
+  /** 给自定义组件行为开的口子 */
+  filedConfig?: ProFormItemCreateConfig;
 };
 
 /**
@@ -97,10 +99,11 @@ function createField<P extends ProFormFieldItemProps = any>(
       customLightMode,
       lightFilterLabelFormatter,
       valuePropName = 'value',
-      defaultProps,
       ignoreWidth,
+      defaultProps,
       ...defaultFormItemProps
-    } = config || {};
+    } = { ...props?.filedConfig, ...config } || {};
+
     const {
       label,
       tooltip,
@@ -115,6 +118,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       allowClear,
       colSize,
       formItemProps: propsFormItemProps,
+      filedConfig,
       ...rest
     } = { ...defaultProps, ...props } as P & ExtendsProps;
 
@@ -186,7 +190,8 @@ function createField<P extends ProFormFieldItemProps = any>(
             }) || undefined,
         })}
         proFieldProps={omitUndefined({
-          mode: readonly ? 'read' : 'edit',
+          // @ts-ignore
+          mode: readonly ? 'read' : rest?.mode,
           params: rest.params,
           proFieldKey: `form-field-${otherProps?.name}`,
           ...proFieldProps,
