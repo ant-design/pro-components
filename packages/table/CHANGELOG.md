@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.50.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.50.0...@ant-design/pro-table@2.50.1) (2021-08-26)
+
+### Bug Fixes
+
+- **form:** fix ranger date render error in table ([#3541](https://github.com/ant-design/pro-components/issues/3541)) ([3ba6022](https://github.com/ant-design/pro-components/commit/3ba6022c27be7c7b6fb7e8ba691d6f9e0cca9579))
+
 # [2.50.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.49.0...@ant-design/pro-table@2.50.0) (2021-08-24)
 
 ### Features

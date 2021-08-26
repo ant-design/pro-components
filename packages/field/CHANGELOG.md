@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.20.0...@ant-design/pro-field@1.21.0) (2021-08-26)
+
+### Features
+
+- **form:** huge performance improvement ([#3528](https://github.com/ant-design/pro-components/issues/3528)) ([31be4cc](https://github.com/ant-design/pro-components/commit/31be4cc533b222607808742dd51d9016017fb4f0))
+- **form:** huge performance improvement ([#3533](https://github.com/ant-design/pro-components/issues/3533)) ([8092203](https://github.com/ant-design/pro-components/commit/8092203475a61380365821cf1c4e3b9886fec0b6))
+
 # [1.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.19.0...@ant-design/pro-field@1.20.0) (2021-08-24)
 
 ### Bug Fixes
