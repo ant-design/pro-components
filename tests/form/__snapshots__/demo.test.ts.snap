@@ -25798,6 +25798,33 @@ exports[`form demos 📸 renders ./packages/form/src/demos/components-test.tsx c
     </div>
   </div>
   <div
+    class="ant-row ant-form-item"
+  >
+    <div
+      class="ant-col ant-form-item-control"
+    >
+      <div
+        class="ant-form-item-control-input"
+      >
+        <div
+          class="ant-form-item-control-input-content"
+        >
+          <button
+            class="ant-btn"
+            type="button"
+          >
+            <span>
+              查看记录数
+            </span>
+          </button>
+          <span>
+            共有200条
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
     <div
