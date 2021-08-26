@@ -19,7 +19,7 @@ import type {
 } from '@ant-design/pro-utils';
 import { usePrevious } from '@ant-design/pro-utils';
 import {
-  conversionSubmitValue,
+  conversionMomentValue,
   transformKeySubmitValue,
   useMountMergeState,
   ProFormContext,
@@ -172,7 +172,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const transformKey = useCallback(
     (values: any, omit: boolean, parentKey?: NamePath) =>
       transformKeySubmitValue(
-        conversionSubmitValue(values, dateFormatter, fieldsValueType.current, omit, parentKey),
+        conversionMomentValue(values, dateFormatter, fieldsValueType.current, omit, parentKey),
         transformKeyRef.current,
         omit,
       ),

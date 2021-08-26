@@ -1,6 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useMemo } from 'react';
 import classNames from 'classnames';
-import { FilterDropdown, FieldLabel, useMountMergeState } from '@ant-design/pro-utils';
+import {
+  FilterDropdown,
+  FieldLabel,
+  useMountMergeState,
+  dateArrayFormatter,
+  dateFormatterMap,
+} from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
 
 import './index.less';
@@ -25,6 +31,7 @@ export type LightWrapperProps = {
   labelFormatter?: (value: any) => string;
   bordered?: boolean;
   otherFieldProps?: any;
+  valueType?: string;
   allowClear?: boolean;
   footerRender?: LightFilterFooterRender;
 };
@@ -45,9 +52,9 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     footerRender,
     allowClear,
     otherFieldProps,
+    valueType,
     ...rest
   } = props;
-
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-light-wrapper');
   const [tempValue, setTempValue] = useState<string | undefined>(props[valuePropName!]);
@@ -59,6 +66,14 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   };
 
   const labelValue = props[valuePropName!];
+
+  /** DataRange的转化，moment 的 toString 有点不好用 */
+  const labelText = useMemo(() => {
+    if (valueType?.toLowerCase()?.endsWith('range') && !labelFormatter) {
+      return dateArrayFormatter(labelValue, dateFormatterMap[valueType] || 'YYYY-MM-DD');
+    }
+    return labelValue;
+  }, [labelValue, valueType, labelFormatter]);
 
   return (
     <FilterDropdown
@@ -78,7 +93,7 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
           className={className}
           label={label}
           placeholder={placeholder}
-          value={labelValue}
+          value={labelText}
           disabled={disabled}
           expanded={open}
           formatter={labelFormatter}

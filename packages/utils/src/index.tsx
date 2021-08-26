@@ -27,7 +27,7 @@ import useMountMergeState from './useMountMergeState';
 /** Hooks */
 import useDebounceFn from './hooks/useDebounceFn';
 import usePrevious from './hooks/usePrevious';
-import conversionSubmitValue from './conversionSubmitValue';
+import conversionMomentValue, { dateFormatterMap } from './conversionMomentValue';
 import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
 import useDeepCompareEffect from './hooks/useDeepCompareEffect';
@@ -101,9 +101,11 @@ export {
   InlineErrorFormItem,
   DropdownFooter,
   ErrorBoundary,
+  dateFormatterMap,
   // function
   transformKeySubmitValue,
-  conversionSubmitValue,
+  conversionMomentValue as conversionSubmitValue,
+  conversionMomentValue,
   parseValueToMoment,
   useDocumentTitle,
   isImg,

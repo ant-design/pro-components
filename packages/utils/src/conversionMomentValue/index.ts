@@ -6,7 +6,7 @@ import type { ProFieldValueType } from '../typing';
 
 type DateFormatter = 'number' | 'string' | false;
 
-const dateFormatterMap = {
+export const dateFormatterMap = {
   time: 'HH:mm:ss',
   timeRange: 'HH:mm:ss',
   date: 'YYYY-MM-DD',
@@ -75,7 +75,7 @@ const convertMoment = (value: moment.Moment, dateFormatter: string | false, valu
  * @param dateFormatter
  * @param proColumnsMap
  */
-const conversionSubmitValue = <T = any>(
+const conversionMomentValue = <T = any>(
   value: T,
   dateFormatter: DateFormatter,
   valueTypeMap: Record<
@@ -119,7 +119,7 @@ const conversionSubmitValue = <T = any>(
       // 不是 moment
       !moment.isMoment(itemValue)
     ) {
-      tmpValue[key] = conversionSubmitValue(itemValue, dateFormatter, valueTypeMap, omitNil, [key]);
+      tmpValue[key] = conversionMomentValue(itemValue, dateFormatter, valueTypeMap, omitNil, [key]);
       return;
     }
     // 处理 FormList 的 value
@@ -128,7 +128,7 @@ const conversionSubmitValue = <T = any>(
         if (moment.isMoment(arrayValue)) {
           return convertMoment(arrayValue, dateFormat || dateFormatter, valueType);
         }
-        return conversionSubmitValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [
+        return conversionMomentValue(arrayValue, dateFormatter, valueTypeMap, omitNil, [
           key,
           `${index}`,
         ]);
@@ -141,4 +141,4 @@ const conversionSubmitValue = <T = any>(
   return tmpValue;
 };
 
-export default conversionSubmitValue;
+export default conversionMomentValue;
