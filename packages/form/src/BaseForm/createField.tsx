@@ -165,6 +165,7 @@ function createField<P extends ProFormFieldItemProps = any>(
         }}
         lightProps={omitUndefined({
           ...realFieldProps,
+          valueType: valueType || (rest as any).valueType,
           bordered,
           allowClear: field?.props?.allowClear ?? allowClear,
           light: proFieldProps?.light,
