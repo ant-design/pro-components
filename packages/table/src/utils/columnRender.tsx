@@ -55,6 +55,16 @@ function isEditableCell<T>(
   return editable?.(text, rowData, index) === false;
 }
 
+const isNeedTranText = (item: ProColumns<any>): boolean => {
+  if (item?.valueType?.toString().startsWith('date')) {
+    return true;
+  }
+  if (item?.valueType === 'select' || item?.valueEnum) {
+    return true;
+  }
+  return false;
+};
+
 /**
  * 生成 Copyable 或 Ellipsis 的 dom
  *
@@ -64,6 +74,22 @@ function isEditableCell<T>(
  */
 export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: string) => {
   if (item.copyable || item.ellipsis) {
+    const copyable =
+      item.copyable && text
+        ? {
+            text,
+            tooltips: ['', ''],
+          }
+        : undefined;
+
+    /** 有些 valueType 需要设置copy的为string */
+    const needTranText = isNeedTranText(item);
+    const ellipsis =
+      item.ellipsis && text
+        ? {
+            tooltip: needTranText ? <div className="pro-table-tooltip-text">{dom}</div> : text,
+          }
+        : false;
     return (
       <Typography.Text
         style={{
@@ -72,15 +98,8 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
           padding: 0,
         }}
         title=""
-        copyable={
-          item.copyable && text
-            ? {
-                text,
-                tooltips: ['', ''],
-              }
-            : undefined
-        }
-        ellipsis={item.ellipsis && text ? { tooltip: text } : false}
+        copyable={copyable}
+        ellipsis={ellipsis}
       >
         {dom}
       </Typography.Text>
