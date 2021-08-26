@@ -26,7 +26,7 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
 
   const fieldProps = useMemo(() => {
     // @ts-ignore
-    if (filedChildren?.type.displayName !== 'ProFormComponent') return undefined;
+    if (filedChildren?.type?.displayName !== 'ProFormComponent') return undefined;
     if (!React.isValidElement(filedChildren)) return undefined;
 
     return omitUndefined({
