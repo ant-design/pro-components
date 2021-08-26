@@ -49,6 +49,7 @@ const ProFormCaptcha: React.FC<ProFormCaptchaProps> = React.forwardRef((props, r
       setLoading(false);
       setTiming(true);
     } catch (error) {
+      setTiming(false);
       setLoading(false);
       // eslint-disable-next-line no-console
       console.log(error);
