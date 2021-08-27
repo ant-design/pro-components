@@ -1,5 +1,5 @@
 ﻿import type { ReactNode } from 'react';
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useRef, useMemo } from 'react';
 import type { ButtonProps } from 'antd';
 import omit from 'omit.js';
 import { Button, Form, Tooltip, ConfigProvider } from 'antd';
@@ -64,6 +64,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
   ) => ReactNode;
   copyIconProps?: IconConfig | false;
   deleteIconProps?: IconConfig | false;
+  actionRef?: React.MutableRefObject<FormListOperation | undefined>;
 };
 
 const ProFormList: React.FC<ProFormListProps> = ({
@@ -85,6 +86,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   },
   ...rest
 }) => {
+  const actionRef = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
@@ -95,6 +97,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
     }
     return [listContext.name, rest.name].flat(1);
   }, [listContext.name, rest.name]);
+
   return (
     <Form.Item
       label={label}
@@ -109,6 +112,10 @@ const ProFormList: React.FC<ProFormListProps> = ({
           <div className={baseClassName}>
             <Form.List rules={rules} {...rest} name={name}>
               {(fields, action, meta) => {
+                // 将 action 暴露给外部
+                actionRef.current = action;
+
+                // 生成按钮
                 const creatorButton = creatorButtonProps !== false && (
                   <Button
                     className={`${baseClassName}-creator-button-${
@@ -120,7 +127,9 @@ const ProFormList: React.FC<ProFormListProps> = ({
                     {...omit(creatorButtonProps || {}, ['position', 'creatorButtonText'])}
                     onClick={() => {
                       let index;
+                      // 如果是顶部，加到第一个，如果不是，为空就是最后一个
                       if (creatorButtonProps?.position === 'top') index = 0;
+
                       action.add(runFunction(creatorRecord), index);
                     }}
                   >
