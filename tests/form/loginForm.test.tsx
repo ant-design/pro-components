@@ -40,4 +40,32 @@ describe('LoginForm', () => {
 
     expect(wrapper.find('.ant-pro-form-login-other .anticon').length).toEqual(3);
   });
+
+  it('📦 LoginForm support string logo', async () => {
+    const wrapper = mount(
+      <LoginForm logo="https://avatars.githubusercontent.com/u/8186664?v=4">
+        <ProFormText name="name" />
+      </LoginForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-form-login-logo img').exists()).toBeTruthy();
+    expect(wrapper.find('.ant-pro-form-login-logo img').props().src).toBe(
+      'https://avatars.githubusercontent.com/u/8186664?v=4',
+    );
+  });
+
+  it('📦 LoginForm support react node logo', async () => {
+    const wrapper = mount(
+      <LoginForm logo={<img id="test" src="https://avatars.githubusercontent.com/u/8186664?v=4" />}>
+        <ProFormText name="name" />
+      </LoginForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('.ant-pro-form-login-logo #test').exists()).toBeTruthy();
+    expect(wrapper.find('.ant-pro-form-login-logo #test').props().src).toBe(
+      'https://avatars.githubusercontent.com/u/8186664?v=4',
+    );
+  });
 });
