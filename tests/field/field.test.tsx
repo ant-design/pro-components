@@ -773,4 +773,17 @@ describe('Field', () => {
     );
     expect(html.text()).toBe('$￥ 10000');
   });
+
+  it(`🐴 text render null`, async () => {
+    const html = render(
+      <Field
+        text={10000}
+        mode="read"
+        // @ts-ignore
+        render={() => undefined}
+        emptyText="-"
+      />,
+    );
+    expect(html.text()).toBe('-');
+  });
 });

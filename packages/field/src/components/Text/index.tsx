@@ -19,9 +19,25 @@ const FieldText: ProFieldFC<{
     const dom = text ?? emptyText;
 
     if (render) {
-      return render(text, { mode, ...fieldProps }, <>{dom}</>) ?? emptyText;
+      return (
+        render(
+          text,
+          { mode, ...fieldProps },
+          <>
+            {fieldProps?.prefix || ''}
+            {dom}
+            {fieldProps?.suffix || ''}
+          </>,
+        ) ?? emptyText
+      );
     }
-    return <>{dom}</>;
+    return (
+      <>
+        {fieldProps?.prefix || ''}
+        {dom}
+        {fieldProps?.suffix || ''}
+      </>
+    );
   }
   if (mode === 'edit' || mode === 'update') {
     const placeholder = intl.getMessage('tableForm.inputPlaceholder', '请输入');

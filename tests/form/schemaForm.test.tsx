@@ -63,6 +63,50 @@ describe('SchemaForm', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('😊 SchemaForm support dependencies', async () => {
+    const onChange = jest.fn();
+    const html = mount(
+      <BetaSchemaForm
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            initialValue: 'name',
+            fieldProps: {
+              id: 'title',
+            },
+          },
+          {
+            title: '选择器',
+            dataIndex: 'state',
+            valueType: 'select',
+            dependencies: ['title'],
+            request: async ({ title }) => {
+              onChange(title);
+              return [
+                {
+                  label: title,
+                  value: 'title',
+                },
+              ];
+            },
+          },
+        ]}
+      />,
+    );
+    expect(onChange).toBeCalledWith('name');
+    act(() => {
+      html.find('input#title').simulate('change', {
+        target: {
+          value: 'qixian',
+        },
+      });
+    });
+    await waitForComponentToPaint(html);
+    expect(onChange).toBeCalledWith('qixian');
+  });
+
   it('🐲 SchemaForm support StepsForm', async () => {
     const html = mount(
       <BetaSchemaForm

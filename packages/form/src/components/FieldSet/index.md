@@ -71,6 +71,10 @@ const ProFormText = (props) => {
 
 <code src="./demos/upload.tsx" heigh="574px" title="上传表单"/>
 
+### 只读表单
+
+<code src="./demos/components-other-readonly.tsx" heigh="774px"  debug/>
+
 ## API
 
 ProForm 自带的 Filed ,与 valueType 基本上一一对应。

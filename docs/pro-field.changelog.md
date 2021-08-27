@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.20.0
+
+`2021-08-24`
+
+- 🐛 fix(field-percent): fix parser and formatter regexp #3459 [#3505](https://github.com/ant-design/pro-components/pull/3505) [@yangger6](https://github.com/yangger6)
+
 ## @ant-design/pro-field@1.19.0
 
 `2021-08-19`

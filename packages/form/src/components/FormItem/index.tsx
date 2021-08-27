@@ -14,7 +14,7 @@ import LightWrapper from '../../BaseForm/LightWrapper';
  * @param param0
  * @returns
  */
-const WithValueFomFiledProps: React.FC<Record<string, any>> = (formfieldProps) => {
+const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) => {
   const {
     children: filedChildren,
     value,
@@ -22,18 +22,18 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formfieldProps) =
     onBlur,
     valuePropName = 'value',
     ...restProps
-  } = formfieldProps;
+  } = formFieldProps;
 
   const fieldProps = useMemo(() => {
     // @ts-ignore
-    if (filedChildren?.type.displayName !== 'ProFormComponent') return undefined;
+    if (filedChildren?.type?.displayName !== 'ProFormComponent') return undefined;
     if (!React.isValidElement(filedChildren)) return undefined;
 
     return omitUndefined({
       id: restProps.id,
       // 优先使用 children.props.fieldProps，
       // 比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
-      [valuePropName]: formfieldProps[valuePropName],
+      [valuePropName]: formFieldProps[valuePropName],
       ...(filedChildren?.props?.fieldProps || {}),
       onBlur: (...restParams: any[]) => {
         onBlur?.(...restParams);
@@ -48,10 +48,10 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formfieldProps) =
         filedChildren?.props?.fieldProps?.onChange?.(...restParams);
       },
     });
-  }, [filedChildren, formfieldProps, onBlur, onChange, restProps.id, valuePropName]);
+  }, [filedChildren, formFieldProps, onBlur, onChange, restProps.id, valuePropName]);
 
   if (!React.isValidElement(filedChildren)) return filedChildren as JSX.Element;
-  console.log(fieldProps);
+
   return React.cloneElement(
     filedChildren,
     omitUndefined({

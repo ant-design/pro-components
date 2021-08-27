@@ -3,6 +3,7 @@ import { Button, Tooltip } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import moment from 'moment';
 
 export type TableListItem = {
   key: number;
@@ -28,6 +29,13 @@ const columns: ProColumns<TableListItem>[] = [
     title: '应用名称',
     dataIndex: 'name',
     render: (_) => <a>{_}</a>,
+  },
+  {
+    title: '日期范围',
+    dataIndex: 'startTime',
+    valueType: 'dateRange',
+    hideInTable: true,
+    initialValue: [moment(), moment().add(1, 'day')],
   },
   {
     title: '创建者',

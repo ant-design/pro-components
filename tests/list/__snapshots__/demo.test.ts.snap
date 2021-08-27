@@ -2698,7 +2698,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                                   >
                                     <div
                                       class="ant-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                                      text=""
                                     >
                                       <div
                                         class="ant-select-selector"
@@ -2727,7 +2726,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                                         <span
                                           class="ant-select-selection-placeholder"
                                         >
-                                          请输入
+                                          请选择
                                         </span>
                                       </div>
                                       <span
@@ -5424,7 +5423,6 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
                     style="width: 100%;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"

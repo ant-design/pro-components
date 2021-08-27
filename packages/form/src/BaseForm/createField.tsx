@@ -1,28 +1,12 @@
 ﻿import React from 'react';
-import type { FormItemProps } from 'antd';
-import type { ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
-import { omitUndefined } from '@ant-design/pro-utils';
-import { pickProFormItemProps } from '@ant-design/pro-utils';
+import { pickProFormItemProps, omitUndefined } from '@ant-design/pro-utils';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
 import FieldContext from '../FieldContext';
-import type { ProFormFieldItemProps } from '../interface';
+import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../interface';
 import ProFormItem from '../components/FormItem';
 
 export const TYPE = Symbol('ProFormComponent');
-
-export type ProFormItemCreateConfig = {
-  /** 自定义类型 */
-  valueType?: ProFieldValueType;
-  /** 自定义 lightMode */
-  customLightMode?: boolean;
-  /** Light mode 自定义的 label 模式 */
-  lightFilterLabelFormatter?: (value: any) => string;
-  /** 默认的props，如果用户设置会被覆盖 */
-  defaultProps?: Record<string, any>;
-  /** @name 不使用默认的宽度 */
-  ignoreWidth?: boolean;
-} & FormItemProps;
 
 const WIDTH_SIZE_ENUM = {
   // 适用于短数字，短文本或者选项
@@ -41,40 +25,6 @@ const WIDTH_SIZE_ENUM = {
 };
 
 type ProFormComponent<P, Extends> = React.ComponentType<P & Extends>;
-
-// 给控件扩展的通用的属性
-export type ExtendsProps = {
-  secondary?: boolean;
-  allowClear?: boolean;
-  bordered?: boolean;
-  colSize?: number;
-  /**
-   * 需要与 request 配合使用
-   *
-   * @name 网络请求用的输出，会触发reload
-   */
-  params?: any;
-
-  /** @name 需要放在formItem 时使用 */
-  ignoreFormItem?: boolean;
-
-  /**
-   * 实验性质，可能 api 会有改动，谨慎使用
-   *
-   * @name 只读模式
-   */
-  readonly?: boolean;
-
-  /** @name 提交时转化值，一般用于数组类型 */
-  transform?: SearchTransformKeyFn;
-
-  /**
-   * 给 protable 开的口子
-   *
-   * @name 自定义的 formItemProps
-   */
-  formItemProps?: FormItemProps;
-};
 
 /**
  * 这个方法的主要作用的帮助 Field 增加 FormItem 同时也会处理 lightFilter
@@ -97,10 +47,11 @@ function createField<P extends ProFormFieldItemProps = any>(
       customLightMode,
       lightFilterLabelFormatter,
       valuePropName = 'value',
-      defaultProps,
       ignoreWidth,
+      defaultProps,
       ...defaultFormItemProps
-    } = config || {};
+    } = { ...props?.filedConfig, ...config } || {};
+
     const {
       label,
       tooltip,
@@ -115,6 +66,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       allowClear,
       colSize,
       formItemProps: propsFormItemProps,
+      filedConfig,
       ...rest
     } = { ...defaultProps, ...props } as P & ExtendsProps;
 
@@ -161,6 +113,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     if (realFieldPropsStyle.width !== undefined && (rest as any).valueType === 'switch') {
       delete realFieldPropsStyle.width;
     }
+
     const field = (
       <Field
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
@@ -185,7 +138,8 @@ function createField<P extends ProFormFieldItemProps = any>(
             }) || undefined,
         })}
         proFieldProps={omitUndefined({
-          mode: readonly ? 'read' : 'edit',
+          // @ts-ignore
+          mode: readonly ? 'read' : rest?.mode,
           params: rest.params,
           proFieldKey: `form-field-${otherProps?.name}`,
           ...proFieldProps,
@@ -211,6 +165,7 @@ function createField<P extends ProFormFieldItemProps = any>(
         }}
         lightProps={omitUndefined({
           ...realFieldProps,
+          valueType: valueType || (rest as any).valueType,
           bordered,
           allowClear: field?.props?.allowClear ?? allowClear,
           light: proFieldProps?.light,

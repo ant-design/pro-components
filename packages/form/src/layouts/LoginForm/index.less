@@ -26,6 +26,9 @@
 }
 
 .@{pro-form-login-prefix-cls}-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 44px;
   line-height: 44px;
   a {
@@ -39,7 +42,17 @@
   color: @heading-color;
   font-weight: 600;
   font-size: 33px;
-  font-family: Avenir, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+.@{pro-form-login-prefix-cls}-logo {
+  width: 44px;
+  height: 44px;
+  margin-right: 16px;
+  vertical-align: top;
+
+  img {
+    width: 100%;
+  }
 }
 
 .@{pro-form-login-prefix-cls}-desc {

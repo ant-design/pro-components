@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
-import ProField from '@ant-design/pro-field';
-import { ProFormRadio } from '@ant-design/pro-form';
+import { ProFormRadio, ProFormField } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
 
 const waitTime = (time: number = 100) => {
@@ -182,7 +181,8 @@ export default () => {
         }}
       />
       <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
-        <ProField
+        <ProFormField
+          ignoreFormItem
           fieldProps={{
             style: {
               width: '100%',

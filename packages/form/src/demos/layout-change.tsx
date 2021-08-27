@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, message } from 'antd';
+import { Button, message, Space } from 'antd';
 import ProForm, {
   ModalForm,
   DrawerForm,
@@ -10,8 +10,24 @@ import ProForm, {
   ProFormDateRangePicker,
   ProFormSelect,
   ProFormRadio,
+  LoginForm,
 } from '@ant-design/pro-form';
-import { PlusOutlined } from '@ant-design/icons';
+import {
+  AlipayCircleOutlined,
+  LockOutlined,
+  PlusOutlined,
+  TaobaoCircleOutlined,
+  UserOutlined,
+  WeiboCircleOutlined,
+} from '@ant-design/icons';
+
+const iconStyles = {
+  marginLeft: '16px',
+  color: 'rgba(0, 0, 0, 0.2)',
+  fontSize: '24px',
+  verticalAlign: 'middle',
+  cursor: 'pointer',
+};
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -30,6 +46,7 @@ export default () => {
     QueryFilter,
     LightFilter,
     StepsForm,
+    LoginForm,
   };
 
   if (type === 'StepsForm') {
@@ -51,6 +68,7 @@ export default () => {
             'DrawerForm',
             'QueryFilter',
             'StepsForm',
+            'LoginForm',
           ]}
         />
         <StepsForm
@@ -140,6 +158,54 @@ export default () => {
   }
 
   const FormComponents = Components[type];
+
+  if (type === 'LoginForm') {
+    return (
+      <FormComponents
+        title="Github"
+        subTitle="全球最大同性交友网站"
+        actions={
+          <Space>
+            其他登录方式
+            <AlipayCircleOutlined style={iconStyles}></AlipayCircleOutlined>
+            <TaobaoCircleOutlined style={iconStyles}></TaobaoCircleOutlined>
+            <WeiboCircleOutlined style={iconStyles}></WeiboCircleOutlined>
+          </Space>
+        }
+      >
+        {' '}
+        <ProFormText
+          name="username"
+          fieldProps={{
+            size: 'large',
+            prefix: <UserOutlined className={'prefixIcon'} />,
+          }}
+          placeholder={'用户名: admin or user'}
+          rules={[
+            {
+              required: true,
+              message: '请输入用户名!',
+            },
+          ]}
+        />
+        <ProFormText.Password
+          name="password"
+          fieldProps={{
+            size: 'large',
+            prefix: <LockOutlined className={'prefixIcon'} />,
+          }}
+          placeholder={'密码: ant.design'}
+          rules={[
+            {
+              required: true,
+              message: '请输入密码！',
+            },
+          ]}
+        />
+      </FormComponents>
+    );
+  }
+
   return (
     <>
       <ProFormRadio.Group

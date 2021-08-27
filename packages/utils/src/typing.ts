@@ -1,5 +1,6 @@
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import type { NamePath } from 'antd/lib/form/interface';
 import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
 import type { UseEditableUtilType } from './useEditableArray';
@@ -166,7 +167,7 @@ export type ProSchema<
   Entity = Record<string, any>,
   ExtraProps = unknown,
   ComponentsType = ProSchemaComponentTypes,
-  ValueType = 'text'
+  ValueType = 'text',
 > = {
   /** @name 确定这个列的唯一值,一般用于 dataIndex 重复的情况 */
   key?: React.Key;
@@ -300,6 +301,8 @@ export type ProSchema<
   request?: ProFieldRequestData;
   /** @name 从服务器请求的参数，改变了会触发 reload */
   params?: Record<string, any>;
+  /** @name 依赖字段的name，暂时只在拥有 request 的项目中生效，会自动注入到 params 中 */
+  dependencies?: NamePath[];
 
   /** @name 在 descriptions 隐藏 */
   hideInDescriptions?: boolean;
@@ -317,7 +320,7 @@ export interface ProFieldProps {
   light?: boolean;
   emptyText?: ReactNode;
   label?: React.ReactNode;
-  mode?: 'read';
+  mode?: 'read' | 'edit';
   /** 这个属性可以设置useSwr的key */
   proFieldKey?: string;
   render?: any;

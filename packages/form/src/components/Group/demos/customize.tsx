@@ -6,8 +6,8 @@ import ProForm, {
   ProFormSwitch,
   ProFormText,
   ProFormSelect,
+  ProFormField,
 } from '@ant-design/pro-form';
-import ProField from '@ant-design/pro-field';
 import ProCard from '@ant-design/pro-card';
 import {
   HeartOutlined,
@@ -270,7 +270,7 @@ const Demo = () => {
               }}
             </ProFormDependency>
           </ProForm.Group>
-          <ProField valueType="jsonCode" text={json} mode="read" />
+          <ProFormField ignoreFormItem valueType="jsonCode" text={json} mode="read" />
         </ProForm>
       </ProCard>
     </ProCard>

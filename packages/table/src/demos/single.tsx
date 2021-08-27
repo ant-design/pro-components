@@ -86,7 +86,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '创建时间',
     key: 'showTime',
     dataIndex: 'created_at',
-    valueType: 'date',
+    valueType: 'dateTime',
     sorter: true,
     hideInSearch: true,
   },

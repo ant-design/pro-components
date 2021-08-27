@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.22.0...@ant-design/pro-utils@1.23.0) (2021-08-26)
+
+### Bug Fixes
+
+- **form:** fix ranger date render error in table ([#3541](https://github.com/ant-design/pro-components/issues/3541)) ([3ba6022](https://github.com/ant-design/pro-components/commit/3ba6022c27be7c7b6fb7e8ba691d6f9e0cca9579))
+
+### Features
+
+- **form:** huge performance improvement ([#3528](https://github.com/ant-design/pro-components/issues/3528)) ([31be4cc](https://github.com/ant-design/pro-components/commit/31be4cc533b222607808742dd51d9016017fb4f0))
+
+# [1.22.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.21.0...@ant-design/pro-utils@1.22.0) (2021-08-24)
+
+### Features
+
+- **form:** form columns support dependencies ([#3523](https://github.com/ant-design/pro-components/issues/3523)) ([73624c8](https://github.com/ant-design/pro-components/commit/73624c87cf81e417cc3547386050261a45903bce))
+
 # [1.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.20.4...@ant-design/pro-utils@1.21.0) (2021-08-19)
 
 ### Bug Fixes

@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.50.0
+
+`2021-08-24`
+
+- 💥 feat(table): support column.chilren render [#3487](https://github.com/ant-design/pro-components/pull/3487) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.49.0
 
 `2021-08-19`
