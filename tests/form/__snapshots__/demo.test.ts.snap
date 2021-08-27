@@ -31377,6 +31377,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/login-form.tsx correc
         class="ant-pro-form-login-header"
       >
         <span
+          class="ant-pro-form-login-logo"
+        >
+          <img
+            src="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
+          />
+        </span>
+        <span
           class="ant-pro-form-login-title"
         >
           Github
