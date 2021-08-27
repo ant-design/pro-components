@@ -1,5 +1,5 @@
 import { ConfigProvider } from 'antd';
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import type { ProFormProps } from '../ProForm';
 import ProForm from '../ProForm';
 import merge from 'lodash.merge';
@@ -12,10 +12,11 @@ export type LoginFormProps<T> = {
   subTitle: React.ReactNode | false;
   submitting: boolean;
   actions: React.ReactNode;
+  logo?: React.ReactNode | string;
 } & ProFormProps<T>;
 
 function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
-  const { message, title, subTitle, submitting, actions, children, ...proFormProps } = props;
+  const { logo, message, title, subTitle, submitting, actions, children, ...proFormProps } = props;
   const submitter = merge(
     {},
     {
@@ -36,12 +37,23 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login');
   const getCls = (className: string) => `${baseClassName}-${className}`;
+
+  /** 生成logo 的dom，如果是string 设置为图片 如果是个 dom 就原样保留 */
+  const logoDom = useMemo(() => {
+    if (!logo) return null;
+    if (typeof logo === 'string') {
+      return <img src={logo} />;
+    }
+    return logo;
+  }, [logo]);
+
   return (
     <div className={getCls('container')}>
       <div className={getCls('top')}>
-        {title ? (
+        {title || logoDom ? (
           <div className={getCls('header')}>
-            <span className={getCls('title')}>{title}</span>
+            {logoDom ? <span className={getCls('logo')}>{logoDom}</span> : null}
+            {title ? <span className={getCls('title')}>{title}</span> : null}
           </div>
         ) : null}
         {subTitle ? <div className={getCls('desc')}>{subTitle}</div> : null}

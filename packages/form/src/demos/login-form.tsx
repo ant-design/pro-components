@@ -26,6 +26,7 @@ export default () => {
   return (
     <div style={{ backgroundColor: 'white' }}>
       <LoginForm
+        logo="https://github.githubassets.com/images/modules/logos_page/Octocat.png"
         title="Github"
         subTitle="全球最大同性交友网站"
         actions={
