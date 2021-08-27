@@ -2,8 +2,13 @@
 
 @pro-table-prefix-cls: ~'@{ant-prefix}-pro-table';
 
+.pro-table-tooltip-text span {
+  color: @component-background;
+}
+
 .@{pro-table-prefix-cls} {
   z-index: 1;
+
   &:not(:root):fullscreen {
     min-height: 100vh;
     overflow: auto;
