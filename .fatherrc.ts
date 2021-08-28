@@ -9,6 +9,7 @@ const headPkgs: string[] = [
   'utils',
   'field',
   'skeleton',
+  'layout',
   'form',
   'table',
   'card',
