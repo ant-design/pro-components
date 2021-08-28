@@ -16,7 +16,7 @@
     "lint:prettier": "npm run prettier &&  git diff && prettier --version && prettier --check \"packages/**/**.{js,jsx,tsx,ts,less,md,json}\" --end-of-line auto",
     "prettier": "prettier --write \"**/**.{js,jsx,tsx,ts,less,md,json}\"",
     "release": "npm run test && node ./scripts/release.js",
-    "site": "node ./scripts/preDeploy && dumi build",
+    "site": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
     "size": "npm run build && size-limit",
     "size:build": "cross-env PRO_COMPONENTS_CI='CI' webpack",
     "start": "dumi dev",

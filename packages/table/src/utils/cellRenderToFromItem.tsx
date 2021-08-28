@@ -3,9 +3,8 @@ import type { FormInstance, FormItemProps } from 'antd';
 import type { ProFormFieldProps } from '@ant-design/pro-form';
 import ProForm, { ProFormField } from '@ant-design/pro-form';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
-import { runFunction } from '@ant-design/pro-utils';
+import { runFunction, isDeepEqualReact } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
 
 import type { ProColumnType } from '../index';

@@ -7,6 +7,7 @@ import { join } from 'path';
 const headPkgs: string[] = [
   'provider',
   'utils',
+  'layout',
   'field',
   'skeleton',
   'layout',
