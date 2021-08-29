@@ -99,6 +99,10 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 
 <code src="./demos/immersive-navigation-top.tsx" iframe="500px" title="沉浸式导航" />
 
+### layout 自带了错误处理功能，防止白屏
+
+<code src="./demos/error-boundaries.tsx" iframe="500px" title="沉浸式导航" />
+
 ## API
 
 ### ProLayout

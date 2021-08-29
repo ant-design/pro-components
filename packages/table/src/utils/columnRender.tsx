@@ -6,8 +6,7 @@ import type {
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
-import isDeepEqualReact from 'fast-deep-equal/es6/react';
-import { isNil } from '@ant-design/pro-utils';
+import { isNil, isDeepEqualReact } from '@ant-design/pro-utils';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import cellRenderToFromItem from './cellRenderToFromItem';
 import { LabelIconTip } from '@ant-design/pro-utils';
