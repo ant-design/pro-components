@@ -15,7 +15,7 @@ module.exports = {
     'packages/**/src/**/*.{ts,tsx}',
     '!packages/**/src/demos/**',
     '!packages/**/src/**/demos/**',
-    '!packages/utils/src/isDeepEqualReact',
+    '!packages/utils/src/isDeepEqualReact/*.{ts,tsx}',
   ],
   moduleNameMapper,
   testURL:
