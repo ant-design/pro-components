@@ -234,7 +234,9 @@ export function SaveEditableAction<T>({
   return (
     <a
       key="save"
-      onClick={async () => {
+      onClick={async (e) => {
+        e.stopPropagation();
+        e.preventDefault();
         try {
           const isMapEditor = editorType === 'Map';
           const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
@@ -258,9 +260,9 @@ export function SaveEditableAction<T>({
           );
           setLoading(false);
           return res;
-        } catch (e) {
+        } catch (error) {
           // eslint-disable-next-line no-console
-          console.log(e);
+          console.log(error);
           setLoading(false);
           return null;
         }
@@ -331,7 +333,9 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
   return (
     <a
       key="cancel"
-      onClick={async () => {
+      onClick={async (e) => {
+        e.stopPropagation();
+        e.preventDefault();
         const isMapEditor = editorType === 'Map';
         const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
         const fields = context.getFieldFormatValue?.(namePath) || form.getFieldValue(namePath);
