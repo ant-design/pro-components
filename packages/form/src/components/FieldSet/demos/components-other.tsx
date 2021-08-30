@@ -45,7 +45,12 @@ const Demo = () => (
         <ProFormText width="md" name="name" label="name" />
         <ProFormText.Password width="md" name="password" label="password" />
       </ProFormGroup>
-      <ProFormGroup label="选择类">
+      <ProFormGroup
+        label="选择类"
+        style={{
+          gap: '0 32px',
+        }}
+      >
         <ProFormSelect
           name="select"
           label="Select"

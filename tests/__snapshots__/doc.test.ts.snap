@@ -39,7 +39,8 @@ Array [
             标签
           </div>
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+            style="row-gap: 0;"
           >
             <div
               class="ant-space-item"
@@ -125,7 +126,8 @@ Array [
             路径
           </div>
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+            style="row-gap: 0;"
           >
             <div
               class="ant-space-item"
@@ -745,7 +747,8 @@ Array [
         分组
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+        class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+        style="row-gap: 0;"
       >
         <div
           class="ant-space-item"

@@ -52,7 +52,7 @@ So the props we set for ProFormText are actually for Form.Item, and the fieldPro
 
 ### Read-only for form field
 
-<code src="./demos/components-other-readonly.tsx" heigh="774px"/>
+<code src="./demos/components-other-readonly.tsx" heigh="774px" debug/>
 
 ## API
 

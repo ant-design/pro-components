@@ -171,6 +171,10 @@ const Demo = () => (
           },
         ]}
       />
+      <ProForm.Group>
+        <ProFormText hidden label="text1" />
+        <ProFormText label="text2" />
+      </ProForm.Group>
       <ProFormRadio.Group
         readonly
         name="radio-button"
