@@ -95,6 +95,10 @@ RTL means right-to-left.
 
 <code src="./demos/drag.tsx" background="#f5f5f5" height="360px" title="拖拽排序" />
 
+### 内部集成拖拽排序的可编辑表格
+
+<code src="./demos/drag-sort-table.tsx" background="#f5f5f5" height="360px" title="可编辑表格" />
+
 ### 搜索表单自定义
 
 当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
