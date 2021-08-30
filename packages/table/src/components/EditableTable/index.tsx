@@ -23,8 +23,8 @@ export type RecordCreatorProps<DataSourceType> = {
   parentKey?: React.Key | ((index: number, dataSource: DataSourceType[]) => React.Key);
 };
 
-export type EditableProTableProps<T, U extends ParamsType> = Omit<
-  ProTableProps<T, U>,
+export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> = Omit<
+  ProTableProps<T, U, ValueType>,
   'onChange'
 > & {
   value?: T[];
@@ -78,7 +78,8 @@ function RecordCreator<T = Record<string, any>>(
 function EditableTable<
   DataType extends Record<string, any>,
   Params extends ParamsType = ParamsType,
->(props: EditableProTableProps<DataType, Params>) {
+  ValueType = 'text',
+>(props: EditableProTableProps<DataType, Params, ValueType>) {
   const { onTableChange, maxLength, recordCreatorProps, rowKey, controlled, ...rest } = props;
   const actionRef = useRef<ActionType>();
   const [form] = Form.useForm();
@@ -210,7 +211,7 @@ function EditableTable<
 
   return (
     <EditableTableActionContext.Provider value={actionRef}>
-      <ProTable<DataType, Params>
+      <ProTable<DataType, Params, ValueType>
         search={false}
         options={false}
         pagination={false}
