@@ -1269,7 +1269,8 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                         class="ant-pro-form-group"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                          style="row-gap: 0;"
                         >
                           <div
                             class="ant-space-item"

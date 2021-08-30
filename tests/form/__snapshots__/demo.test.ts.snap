@@ -22,7 +22,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         文本类
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+        class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+        style="row-gap: 0;"
       >
         <div
           class="ant-space-item"
@@ -164,6 +165,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
     </div>
     <div
       class="ant-pro-form-group"
+      style="gap: 0 32px;"
     >
       <div
         class="ant-pro-form-group-title"
@@ -171,7 +173,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         选择类
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+        class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+        style="row-gap: 0;"
       >
         <div
           class="ant-space-item"
@@ -975,7 +978,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         数字类
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+        class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+        style="row-gap: 0;"
       >
         <div
           class="ant-space-item"
@@ -3047,7 +3051,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
       日期相关分组
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+      style="row-gap: 0;"
     >
       <div
         class="ant-space-item"
@@ -4197,7 +4202,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
       只读
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+      style="row-gap: 0;"
     >
       <div
         class="ant-space-item"
@@ -4994,7 +5000,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/s
   class="ant-pro-form-group"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+    class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+    style="row-gap: 0;"
   >
     <div
       class="ant-space-item"
@@ -5595,7 +5602,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                               class="ant-pro-form-group"
                             >
                               <div
-                                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                                class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                                style="row-gap: 0;"
                               >
                                 <div
                                   class="ant-space-item"
@@ -5907,7 +5915,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                 </div>
               </div>
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                style="row-gap: 0;"
               >
                 <div
                   class="ant-space-item"
@@ -5916,7 +5925,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                     class="ant-pro-form-group"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                      style="row-gap: 0;"
                     >
                       <div
                         class="ant-space-item"
@@ -6396,7 +6406,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                 </div>
               </div>
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                style="row-gap: 0;"
               >
                 <div
                   class="ant-space-item"
@@ -6405,7 +6416,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                     class="ant-pro-form-group"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                      style="row-gap: 0;"
                     >
                       <div
                         class="ant-space-item"
@@ -6643,7 +6655,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                 </div>
               </div>
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                style="row-gap: 0;"
               >
                 <div
                   class="ant-space-item"
@@ -6652,7 +6665,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                     class="ant-pro-form-group"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                      style="row-gap: 0;"
                     >
                       <div
                         class="ant-space-item"
@@ -7252,7 +7266,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
     class="ant-pro-form-group"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+      style="row-gap: 0;"
     >
       <div
         class="ant-space-item"
@@ -7602,7 +7617,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
             c.d
           </div>
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+            style="row-gap: 0;"
           >
             <div
               class="ant-space-item"
@@ -7636,7 +7652,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                                 class="ant-pro-form-group"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                                  class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                                  style="row-gap: 0;"
                                 >
                                   <div
                                     class="ant-space-item"
@@ -7917,7 +7934,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
             c.e
           </div>
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+            style="row-gap: 0;"
           >
             <div
               class="ant-space-item"
@@ -7951,7 +7969,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
                                 class="ant-pro-form-group"
                               >
                                 <div
-                                  class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                                  class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                                  style="row-gap: 0;"
                                 >
                                   <div
                                     class="ant-space-item"
@@ -8227,7 +8246,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
       收集依赖值（情形1) &lt;ProFormDependency name={["a","b",["c","a"],["c","b"],["c","c","a"],["c","d"],["c","e"]]}&gt;
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+      style="row-gap: 0;"
     >
       <div
         class="ant-space-item"
@@ -8566,7 +8586,8 @@ Array [
                       class="ant-pro-form-group"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                        class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                        style="row-gap: 0;"
                       >
                         <div
                           class="ant-space-item"
@@ -9411,7 +9432,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                       class="ant-pro-form-group"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                        class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                        style="row-gap: 0;"
                       >
                         <div
                           class="ant-space-item"
@@ -9587,7 +9609,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                                       class="ant-pro-form-group"
                                     >
                                       <div
-                                        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                                        class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                                        style="row-gap: 0;"
                                       >
                                         <div
                                           class="ant-space-item"
@@ -16606,7 +16629,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               姓名
             </div>
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+              style="row-gap: 0;"
             >
               <div
                 class="ant-space-item"
@@ -16681,7 +16705,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               详情
             </div>
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+              class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+              style="row-gap: 0;"
             >
               <div
                 class="ant-space-item"
@@ -16851,7 +16876,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       标签
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+      style="row-gap: 0;"
     >
       <div
         class="ant-space-item"
@@ -16937,7 +16963,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       路径
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+      style="row-gap: 0;"
     >
       <div
         class="ant-space-item"
@@ -17451,7 +17478,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       分组
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+      style="row-gap: 0;"
     >
       <div
         class="ant-space-item"
@@ -18060,7 +18088,8 @@ Array [
         分组
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+        class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+        style="row-gap: 0;"
       >
         <div
           class="ant-space-item"
@@ -18261,7 +18290,8 @@ Array [
                       class="ant-pro-form-group"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                        class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                        style="row-gap: 0;"
                       >
                         <div
                           class="ant-space-item"
@@ -19225,7 +19255,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
             分组
           </div>
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+            style="row-gap: 0;"
           >
             <div
               class="ant-space-item"
@@ -19440,7 +19471,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                           class="ant-pro-form-group"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                            style="row-gap: 0;"
                           >
                             <div
                               class="ant-space-item"
@@ -20081,7 +20113,8 @@ Array [
         分组
       </div>
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+        class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+        style="row-gap: 0;"
       >
         <div
           class="ant-space-item"
@@ -21252,7 +21285,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
               class="ant-pro-form-group"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                style="row-gap: 0;"
               >
                 <div
                   class="ant-space-item"
@@ -22130,7 +22164,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                 节点
               </div>
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                style="row-gap: 0;"
               >
                 <div
                   class="ant-space-item"
@@ -22944,7 +22979,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
               class="ant-pro-form-group"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                style="row-gap: 0;"
               >
                 <div
                   class="ant-space-item"
@@ -24095,7 +24131,8 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
               class="ant-pro-form-group"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                style="row-gap: 0;"
               >
                 <div
                   class="ant-space-item"
@@ -24699,7 +24736,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
     class="ant-pro-form-group"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+      style="row-gap: 0;"
     >
       <div
         class="ant-space-item"
@@ -24887,7 +24925,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
     class="ant-pro-form-group"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+      style="row-gap: 0;"
     >
       <div
         class="ant-space-item"
@@ -25075,7 +25114,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
     class="ant-pro-form-group"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+      style="row-gap: 0;"
     >
       <div
         class="ant-space-item"
@@ -28056,7 +28096,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                           class="ant-pro-form-group"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                            style="row-gap: 0;"
                           >
                             <div
                               class="ant-space-item"
@@ -28220,7 +28261,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                           class="ant-pro-form-group"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                            style="row-gap: 0;"
                           >
                             <div
                               class="ant-space-item"
@@ -28408,7 +28450,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                           class="ant-pro-form-group"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                            style="row-gap: 0;"
                           >
                             <div
                               class="ant-space-item"
@@ -28787,7 +28830,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                           class="ant-pro-form-group"
                         >
                           <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                            class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                            style="row-gap: 0;"
                           >
                             <div
                               class="ant-space-item"
@@ -29559,7 +29603,8 @@ Array [
         class="ant-pro-form-group"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+          style="row-gap: 0;"
         >
           <div
             class="ant-space-item"
@@ -29723,7 +29768,8 @@ Array [
         class="ant-pro-form-group"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+          style="row-gap: 0;"
         >
           <div
             class="ant-space-item"
@@ -29911,7 +29957,8 @@ Array [
         class="ant-pro-form-group"
       >
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+          class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+          style="row-gap: 0;"
         >
           <div
             class="ant-space-item"
@@ -30802,7 +30849,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
               class="ant-pro-form-group"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+                class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+                style="row-gap: 0;"
               >
                 <div
                   class="ant-space-item"
@@ -31799,7 +31847,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
     class="ant-pro-form-group"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-pro-form-group-container"
+      class="ant-space ant-space-horizontal ant-space-align-start ant-pro-form-group-container"
+      style="row-gap: 0;"
     >
       <div
         class="ant-space-item"

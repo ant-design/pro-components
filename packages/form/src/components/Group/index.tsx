@@ -17,11 +17,12 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     labelLayout,
     title = props.label,
     tooltip,
-    align,
+    align = 'start',
     direction,
     size = 32,
     titleStyle,
     titleRender,
+    spaceProps,
     extra,
   } = {
     ...groupProps,
@@ -101,7 +102,17 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
         </div>
       )}
       {collapsible && collapsed ? null : (
-        <Space className={`${className}-container`} size={size} align={align} direction={direction}>
+        <Space
+          {...spaceProps}
+          className={`${className}-container`}
+          size={size}
+          align={align}
+          direction={direction}
+          style={{
+            rowGap: 0,
+            ...spaceProps?.style,
+          }}
+        >
           {renderChild}
         </Space>
       )}
