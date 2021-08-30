@@ -114,6 +114,7 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
         }
       | undefined
     >;
+    ErrorBoundary?: any;
   };
 
 const headerRender = (

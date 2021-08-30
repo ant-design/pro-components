@@ -39,6 +39,7 @@ jobs:
           CI: true
           GA_KEY: G-RMBLDHGL1N
           PROGRESS: none
+          SITE_DEPLOY: 'TRUE'
         run: npm run site
 
       - name: Deploy

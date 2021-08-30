@@ -7,7 +7,6 @@ import React, {
   useCallback,
 } from 'react';
 import type { FormProps, FormItemProps, FormInstance } from 'antd';
-import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
@@ -25,6 +24,7 @@ import {
   ProFormContext,
   runFunction,
   useFetchData,
+  isDeepEqualReact,
 } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { NamePath } from 'antd/lib/form/interface';

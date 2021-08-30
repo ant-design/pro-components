@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.13.0...@ant-design/pro-list@1.13.1) (2021-08-30)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+# [1.13.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.12.3...@ant-design/pro-list@1.13.0) (2021-08-30)
+
+### Bug Fixes
+
+- ProListMeta 的类型提示补充 ([#3548](https://github.com/ant-design/pro-components/issues/3548)) ([c2b627e](https://github.com/ant-design/pro-components/commit/c2b627efb99e6cca75e9cc30981823e064d4159b))
+
+### Features
+
+- **layout:** support layout error boundaries ([#3551](https://github.com/ant-design/pro-components/issues/3551)) ([5b5f76a](https://github.com/ant-design/pro-components/commit/5b5f76a86df14ce42f12ce0e1e916e4b3b2ea357))
+
 ## [1.12.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.12.2...@ant-design/pro-list@1.12.3) (2021-08-26)
 
 **Note:** Version bump only for package @ant-design/pro-list

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.38.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.37.0...@ant-design/pro-form@1.38.0) (2021-08-30)
+
+### Bug Fixes
+
+- **form:** fix onGetCaptcha error will reset timimg ([#3544](https://github.com/ant-design/pro-components/issues/3544)) ([b75f843](https://github.com/ant-design/pro-components/commit/b75f8433e429e2dc8ec5531b0878a994da41117c))
+
+### Features
+
+- **form:** FormList support actionRef ([#3550](https://github.com/ant-design/pro-components/issues/3550)) ([8eea358](https://github.com/ant-design/pro-components/commit/8eea35894ec06aa738d761d3f8c9f2b0bf8a11f6))
+- **form:** LoginForm support logo ([#3545](https://github.com/ant-design/pro-components/issues/3545)) ([c10a960](https://github.com/ant-design/pro-components/commit/c10a960d9758523ba331e0a31888d99339569b14))
+- **layout:** support layout error boundaries ([#3551](https://github.com/ant-design/pro-components/issues/3551)) ([5b5f76a](https://github.com/ant-design/pro-components/commit/5b5f76a86df14ce42f12ce0e1e916e4b3b2ea357))
+
 # [1.37.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.36.0...@ant-design/pro-form@1.37.0) (2021-08-26)
 
 ### Bug Fixes
