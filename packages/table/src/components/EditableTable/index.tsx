@@ -59,13 +59,15 @@ function RecordCreator<T = Record<string, any>>(
   const actionRef = useContext(EditableTableActionContext);
   return React.cloneElement(children, {
     ...children.props,
-    onClick: (e: any) => {
+    onClick: async (e: any) => {
+      // 如果返回了false，接触掉默认行为
+      const isOk = await children.props.onClick?.(e);
+      if (isOk === false) return;
       actionRef?.current?.addEditRecord(record, {
         position,
         newRecordType,
         parentKey: parentKey as React.Key,
       });
-      children.props.onClick?.(e);
     },
   });
 }
