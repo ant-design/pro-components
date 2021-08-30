@@ -106,6 +106,7 @@ export default () => {
         headerTitle="拖拽排序(自定义把手)"
         columns={columns2}
         rowKey="index"
+        search={false}
         pagination={false}
         dataSource={dataSource2}
         dragSortKey="sort"
