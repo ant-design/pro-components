@@ -43,6 +43,7 @@
     "moment": "^2.24.0",
     "omit.js": "^2.0.2",
     "rc-util": "^5.0.1",
+    "react-sortable-hoc": "^2.0.0",
     "unstated-next": "^1.1.0",
     "use-json-comparison": "^1.0.5",
     "use-media-antd-query": "^1.1.0"
