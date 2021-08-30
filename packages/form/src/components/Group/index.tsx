@@ -60,9 +60,10 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     />
   );
   const titleDom = titleRender ? titleRender(label, props) : label;
-
+  const hiddenChildren: React.ReactNode[] = [];
   const renderChild = React.Children.toArray(children).map((element) => {
     if (React.isValidElement(element) && element?.props?.hidden) {
+      hiddenChildren.push(element);
       return null;
     }
     return element;
@@ -76,6 +77,15 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
       style={style}
       ref={ref}
     >
+      {hiddenChildren.length > 0 && (
+        <div
+          style={{
+            display: 'none',
+          }}
+        >
+          {hiddenChildren}
+        </div>
+      )}
       {(title || tooltip || extra) && (
         <div
           className={`${className}-title`}
