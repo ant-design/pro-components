@@ -77,7 +77,7 @@ function RecordCreator<T = Record<string, any>>(
  */
 function EditableTable<
   DataType extends Record<string, any>,
-  Params extends ParamsType = ParamsType
+  Params extends ParamsType = ParamsType,
 >(props: EditableProTableProps<DataType, Params>) {
   const { onTableChange, maxLength, recordCreatorProps, rowKey, controlled, ...rest } = props;
   const actionRef = useRef<ActionType>();
