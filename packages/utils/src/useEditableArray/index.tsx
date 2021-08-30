@@ -325,16 +325,8 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
 };
 
 const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (props) => {
-  const {
-    recordKey,
-    newLineConfig,
-    form,
-    editorType,
-    onCancel,
-    cancelEditable,
-    row,
-    cancelText,
-  } = props;
+  const { recordKey, newLineConfig, form, editorType, onCancel, cancelEditable, row, cancelText } =
+    props;
   const context = useContext(ProFormContext);
   return (
     <a

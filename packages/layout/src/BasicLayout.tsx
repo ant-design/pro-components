@@ -360,7 +360,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 
   const currentMenuLayoutProps = useCurrentMenuLayoutProps(currentMenu);
 
-  const { fixSiderbar, navTheme, layout: defaultPropsLayout, ...rest } = {
+  const {
+    fixSiderbar,
+    navTheme,
+    layout: defaultPropsLayout,
+    ...rest
+  } = {
     ...props,
     ...currentMenuLayoutProps,
   };
