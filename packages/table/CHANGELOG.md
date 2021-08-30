@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.51.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.51.0...@ant-design/pro-table@2.51.1) (2021-08-30)
+
+### Bug Fixes
+
+- **table:** RecordCreator support return false ([83e93b6](https://github.com/ant-design/pro-components/commit/83e93b6e3f74083d0844f9e36501df7f05fe72b2))
+
 # [2.51.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.50.1...@ant-design/pro-table@2.51.0) (2021-08-30)
 
 ### Bug Fixes
