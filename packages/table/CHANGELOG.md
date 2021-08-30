@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.51.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.50.1...@ant-design/pro-table@2.51.0) (2021-08-30)
+
+### Bug Fixes
+
+- **table:** fix tooltip no render dom ([#3543](https://github.com/ant-design/pro-components/issues/3543)) ([98e0a64](https://github.com/ant-design/pro-components/commit/98e0a648d3e90923e581b740279ee05e7769e3d3)), closes [#3473](https://github.com/ant-design/pro-components/issues/3473)
+
+### Features
+
+- ProTable 集成拖拽排序功能 ([#3420](https://github.com/ant-design/pro-components/issues/3420)) ([a33826a](https://github.com/ant-design/pro-components/commit/a33826a42dd5e1cc8cdf64d3ab8b36b53ddb8184))
+- **layout:** support layout error boundaries ([#3551](https://github.com/ant-design/pro-components/issues/3551)) ([5b5f76a](https://github.com/ant-design/pro-components/commit/5b5f76a86df14ce42f12ce0e1e916e4b3b2ea357))
+
 ## [2.50.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.50.0...@ant-design/pro-table@2.50.1) (2021-08-26)
 
 ### Bug Fixes

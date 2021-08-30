@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.23.0...@ant-design/pro-utils@1.24.0) (2021-08-30)
+
+### Features
+
+- **layout:** support layout error boundaries ([#3551](https://github.com/ant-design/pro-components/issues/3551)) ([5b5f76a](https://github.com/ant-design/pro-components/commit/5b5f76a86df14ce42f12ce0e1e916e4b3b2ea357))
+
 # [1.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.22.0...@ant-design/pro-utils@1.23.0) (2021-08-26)
 
 ### Bug Fixes
