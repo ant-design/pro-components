@@ -1,8 +1,8 @@
 import type React from 'react';
 import type { TablePaginationConfig } from 'antd';
 import type { SortOrder } from 'antd/es/table/interface';
-
 import type { UseEditableUtilType } from '@ant-design/pro-utils';
+import { arrayMoveImmutable } from '@ant-design/pro-utils';
 import type { IntlType } from '@ant-design/pro-provider';
 
 import type {
@@ -13,7 +13,6 @@ import type {
   ProColumnType,
   UseFetchDataAction,
 } from '../typing';
-import arrayMove from 'array-move';
 
 /**
  * 检查值是否存在 为了 避开 0 和 false
@@ -213,7 +212,7 @@ export type SortDataParams = { oldIndex: number; newIndex: number };
  */
 export function sortData<T>({ oldIndex, newIndex }: SortDataParams, data: T[]): T[] | null {
   if (oldIndex !== newIndex) {
-    const newData = arrayMove([...(data || [])], oldIndex, newIndex).filter((el) => !!el);
+    const newData = arrayMoveImmutable([...(data || [])], oldIndex, newIndex).filter((el) => !!el);
     return [...newData];
   }
   /* istanbul ignore next */
