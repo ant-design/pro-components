@@ -71,7 +71,7 @@
     "@umijs/test-utils": "^3.2.10",
     "@umijs/utils": "^3.2.11",
     "antd": "^4.16.1",
-    "array-move": "^3.0.1",
+    "array-move": "^4.0.0",
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.12.2",
     "babel-types": "^6.26.0",
