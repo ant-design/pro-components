@@ -120,6 +120,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
       <InputNumber
         ref={ref}
         precision={precision}
+        // 删除默认min={0}，允许输入一个负数的金额，用户可自行配置min来限制是否允许小于0的金额
         formatter={(value) => {
           if (value) {
             const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
