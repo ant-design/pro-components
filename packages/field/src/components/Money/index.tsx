@@ -123,7 +123,6 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         formatter={(value) => {
           if (value) {
             const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
-            console.log(value);
             return `${moneySymbol} ${value}`.replace(reg, ',');
           }
           return '';
