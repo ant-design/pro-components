@@ -19972,6 +19972,13 @@ swr@^0.5.6:
   dependencies:
     dequal "2.0.2"
 
+swr@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.nlark.com/swr/download/swr-1.0.0.tgz?cache=0&sync_timestamp=1630081938109&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fswr%2Fdownload%2Fswr-1.0.0.tgz#d047933714d8bd16ae35af67d81149f4ae700a4d"
+  integrity sha1-0EeTNxTYvRauNa9n2BFJ9K5wCk0=
+  dependencies:
+    dequal "2.0.2"
+
 symbol-observable@^1.1.0, symbol-observable@^1.2.0:
   version "1.2.0"
   resolved "https://registry.nlark.com/symbol-observable/download/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
