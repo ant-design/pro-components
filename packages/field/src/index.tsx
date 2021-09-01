@@ -15,6 +15,7 @@ import ConfigContext, { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
+import type { FieldMoneyProps } from './components/Money';
 import FieldMoney from './components/Money';
 import FieldDatePicker from './components/DatePicker';
 import FieldFromNow from './components/FromNow';
@@ -38,6 +39,8 @@ import FieldSecond from './components/Second';
 import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
 import FieldColorPicker from './components/ColorPicker';
+
+export type ProFieldMoneyProps = FieldMoneyProps;
 
 export type ProFieldEmptyText = string | false;
 

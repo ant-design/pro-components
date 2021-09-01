@@ -1,6 +1,11 @@
 import React from 'react';
 import { message } from 'antd';
-import ProForm, { ProFormText, ProFormDateRangePicker, ProFormSelect } from '@ant-design/pro-form';
+import ProForm, {
+  ProFormText,
+  ProFormDateRangePicker,
+  ProFormSelect,
+  ProFormMoney,
+} from '@ant-design/pro-form';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -45,6 +50,21 @@ export default () => {
       </ProForm.Group>
 
       <ProForm.Group>
+        <ProFormMoney
+          label="限制金额最小为0"
+          name="amount1"
+          locale="en-US"
+          initialValue={22.22}
+          min={0}
+        />
+        <ProFormMoney label="不限制金额大小" name="amount2" locale="en-GB" initialValue={22.22} />
+        <ProFormMoney label="货币符号跟随全局国际化" name="amount3" initialValue={22.22} />
+        <ProFormMoney
+          label="自定义货币符号"
+          name="amount4"
+          initialValue={22.22}
+          customSymbol="💰"
+        />
         <ProFormText
           name={['contract', 'name']}
           width="md"

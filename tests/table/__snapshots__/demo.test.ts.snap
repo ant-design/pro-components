@@ -26834,7 +26834,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="title"
@@ -39960,7 +39959,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="title"
@@ -50543,7 +50541,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
                         id="money"

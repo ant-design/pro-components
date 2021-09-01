@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { InputNumber } from 'antd';
-import { useIntl } from '@ant-design/pro-provider';
+import { useIntl, intlMap as allIntlMap } from '@ant-design/pro-provider';
 import type { ProFieldFC } from '../../index';
 
 export type FieldMoneyProps = {
@@ -8,6 +8,7 @@ export type FieldMoneyProps = {
   moneySymbol?: boolean;
   locale?: string;
   placeholder?: any;
+  customSymbol?: string;
 };
 
 const defaultMoneyIntl = new Intl.NumberFormat('zh-Hans-CN', {
@@ -83,20 +84,27 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     plain,
     valueEnum,
     placeholder,
+    customSymbol,
     ...rest
   },
   ref,
 ) => {
   const precision = fieldProps?.precision ?? DefaultPrecisionCont;
-  const intl = useIntl();
+  let intl = useIntl();
+  // 当手动传入locale时，应该以传入的locale为准，未传入时则根据全局的locale进行国际化
+  if (locale && allIntlMap[locale]) {
+    intl = allIntlMap[locale];
+  }
   const moneySymbol = useMemo(() => {
+    if (customSymbol) {
+      return customSymbol;
+    }
     const defaultText = intl.getMessage('moneySymbol', '￥');
     if (rest.moneySymbol === false || fieldProps.moneySymbol === false) {
       return undefined;
     }
     return defaultText;
-  }, [fieldProps.moneySymbol, intl, rest.moneySymbol]);
-
+  }, [fieldProps.moneySymbol, intl, rest.moneySymbol, customSymbol]);
   if (type === 'read') {
     const dom = (
       <span ref={ref}>{getTextByLocale(moneySymbol ? locale : false, text, precision)}</span>
@@ -111,12 +119,11 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     const dom = (
       <InputNumber
         ref={ref}
-        min={0}
         precision={precision}
         formatter={(value) => {
           if (value) {
             const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
-
+            console.log(value);
             return `${moneySymbol} ${value}`.replace(reg, ',');
           }
           return '';
