@@ -77,6 +77,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     style,
     cardProps,
     alertDom,
+    name,
     onSortChange,
     onFilterChange,
     options,
@@ -131,7 +132,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
    */
   const editableDataSource = (): T[] => {
     const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
-
     if (newLineOptions?.position === 'top') {
       return [row, ...action.dataSource];
     }
@@ -211,25 +211,16 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       )
     : baseTableDom;
 
+  useEffect(() => {
+    counter.setPrefixName(name);
+  }, [name]);
+
+  const tableDomFormDom = useMemo(() => {}, []);
   const tableContentDom = (
     <>
       {toolbarDom}
       {alertDom}
-      {props.editable ? (
-        <ProForm
-          {...props.editable?.formProps}
-          component={false}
-          form={props.editable?.form}
-          onValuesChange={editableUtils.onValuesChange}
-          key="table"
-          submitter={false}
-          omitNil={false}
-        >
-          {tableDom}
-        </ProForm>
-      ) : (
-        tableDom
-      )}
+      {tableDom}
     </>
   );
   /** Table 区域的 dom，为了方便 render */
@@ -328,6 +319,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     onColumnsStateChange,
     options,
     search,
+    name: isEditorTable,
     onLoadingChange,
     rowSelection: propsRowSelection = false,
     beforeSearchSubmit,
@@ -455,8 +447,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (typeof rowKey === 'function') {
       return rowKey;
     }
-    return (record: T, index?: number) => (record as any)?.[rowKey as string] ?? index;
-  }, [rowKey]);
+    return (record: T, index?: number) => {
+      if (props.name) return index;
+      return (record as any)?.[rowKey as string] ?? index;
+    };
+  }, [props.name, rowKey]);
 
   useMemo(() => {
     if (action.dataSource?.length) {
@@ -585,7 +580,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     propsColumns,
-    counter,
+    counter?.sortKeyColumns,
+    counter?.columnsMap,
     columnEmptyText,
     type,
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -691,6 +687,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   return (
     <TableRender
       {...props}
+      name={isEditorTable}
       rootRef={rootRef}
       size={counter.tableSize}
       onSizeChange={counter.setTableSize}

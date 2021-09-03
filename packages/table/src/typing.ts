@@ -23,6 +23,7 @@ import type { ColumnsState, useContainer } from './container';
 import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
+import { NamePath } from 'antd/lib/form/interface';
 
 export type PageInfo = {
   pageSize: number;
@@ -311,6 +312,8 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   debounceTime?: number;
   /** 默认的表格大小 */
   defaultSize?: SizeType;
+  /** @name, 可编辑表格的name,通过这个name 可以直接与 form通信，无需嵌套 */
+  name?: NamePath;
 } & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {

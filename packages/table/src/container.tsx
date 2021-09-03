@@ -25,6 +25,8 @@ export type UseContainerProps<T = any> = {
 
 function useContainer(props: UseContainerProps = {}) {
   const actionRef = useRef<ActionType>();
+  /** 父 form item 的 name */
+  const prefixNameRef = useRef<any>();
   const propsRef = useRef<ProTableProps<any, any, any>>();
 
   // 共享状态比较难，就放到这里了
@@ -78,6 +80,10 @@ function useContainer(props: UseContainerProps = {}) {
     setKeyWords: (k: string | undefined) => setKeyWords(k),
     setTableSize,
     tableSize,
+    prefixName: prefixNameRef.current,
+    setPrefixName: (name: any) => {
+      prefixNameRef.current = name;
+    },
     setColumnsMap,
     columns: props.columns,
   };

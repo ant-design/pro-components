@@ -45,6 +45,7 @@ import BetaSchemaForm from './components/SchemaForm';
 import './index.less';
 import { ProFormContext } from '@ant-design/pro-utils';
 import type { LightFilterFooterRender, ProFormFieldItemProps } from './interface';
+import { FormItemProvide } from './components/FormItem';
 
 export type {
   ProFormFieldProps,
@@ -84,6 +85,7 @@ export {
   ProFormField,
   ProFormList,
   ProFormSelect,
+  FormItemProvide,
   ProFormDigit,
   ProFormCheckbox,
   ProFormRadio,

@@ -4,10 +4,11 @@ import type { ButtonProps } from 'antd';
 import { Button, Form } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
-import { runFunction } from '@ant-design/pro-utils';
+import { ProFormContext, runFunction } from '@ant-design/pro-utils';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
 import type { GetRowKey } from 'antd/lib/table/interface';
+import ProForm from '@ant-design/pro-form';
 
 export type RecordCreatorProps<DataSourceType> = {
   record: DataSourceType | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
@@ -84,6 +85,8 @@ function EditableTable<
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
   const { onTableChange, maxLength, recordCreatorProps, rowKey, controlled, ...rest } = props;
   const actionRef = useRef<ActionType>();
+  const context = useContext(ProFormContext);
+
   const [form] = Form.useForm();
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current);
@@ -92,6 +95,10 @@ function EditableTable<
     value: props.value,
     onChange: props.onChange,
   });
+
+  useEffect(() => {
+    setValue(context.getFieldFormatValue?.(props.name) || []);
+  }, []);
 
   const getRowKey = React.useMemo<GetRowKey<DataType>>((): GetRowKey<DataType> => {
     if (typeof rowKey === 'function' && rowKey) {
