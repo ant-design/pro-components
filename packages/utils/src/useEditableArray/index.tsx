@@ -243,7 +243,7 @@ export function SaveEditableAction<T>({
         e.preventDefault();
         try {
           const isMapEditor = editorType === 'Map';
-          const namePath = [tableName, recordKey].flat(1) as string[];
+          const namePath = [tableName, recordKey].flat(1).filter(Boolean) as string[];
           setLoading(true);
           // @ts-expect-error
           await form.validateFields(namePath, {
@@ -350,7 +350,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         e.stopPropagation();
         e.preventDefault();
         const isMapEditor = editorType === 'Map';
-        const namePath = [tableName, recordKey].flat(1) as string[];
+        const namePath = [tableName, recordKey].flat(1).filter(Boolean) as string[];
         const fields = context.getFieldFormatValue?.(namePath) || form.getFieldValue(namePath);
         const record = isMapEditor ? set({}, namePath, fields) : fields;
         const res = await onCancel?.(recordKey, record, row, newLineConfig);
