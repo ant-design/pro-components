@@ -215,14 +215,37 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     counter.setPrefixName(name);
   }, [name]);
 
-  const tableDomFormDom = useMemo(() => {}, []);
-  const tableContentDom = (
-    <>
-      {toolbarDom}
-      {alertDom}
-      {tableDom}
-    </>
-  );
+  const tableContentDom = useMemo(() => {
+    if (props.editable) {
+      return (
+        <>
+          {toolbarDom}
+          {alertDom}
+          <ProForm
+            {...props.editable?.formProps}
+            component={false}
+            form={props.editable?.form}
+            onValuesChange={editableUtils.onValuesChange}
+            key="table"
+            submitter={false}
+            omitNil={false}
+          >
+            {tableDom}
+          </ProForm>
+        </>
+      );
+    }
+
+    return (
+      <>
+        {toolbarDom}
+        {alertDom}
+        {tableDom}
+      </>
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [alertDom, !!props.editable, tableDom, toolbarDom]);
+
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
     cardProps === false ? (
@@ -447,11 +470,8 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (typeof rowKey === 'function') {
       return rowKey;
     }
-    return (record: T, index?: number) => {
-      if (props.name) return index;
-      return (record as any)?.[rowKey as string] ?? index;
-    };
-  }, [props.name, rowKey]);
+    return (record: T, index?: number) => (record as any)?.[rowKey as string] ?? index;
+  }, [rowKey]);
 
   useMemo(() => {
     if (action.dataSource?.length) {
@@ -517,6 +537,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   /** 可编辑行的相关配置 */
   const editableUtils = useEditableArray<any>({
     ...props.editable,
+    tableName: props.name,
     getRowKey,
     childrenColumnName: props.expandable?.childrenColumnName,
     dataSource: action.dataSource || [],

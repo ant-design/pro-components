@@ -1,21 +1,9 @@
 ﻿import React, { useRef, useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
-import ProForm, {
-  ProFormRadio,
-  ProFormField,
-  ProFormInstance,
-  ProFormDependency,
-} from '@ant-design/pro-form';
+import type { ProFormInstance } from '@ant-design/pro-form';
+import ProForm, { ProFormRadio, ProFormField, ProFormDependency } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
-
-const waitTime = (time: number = 100) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(true);
-    }, time);
-  });
-};
 
 type DataSourceType = {
   id: React.Key;
@@ -48,9 +36,8 @@ const defaultData: DataSourceType[] = [
 
 export default () => {
   const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
-  const [dataSource, setDataSource] = useState<DataSourceType[]>(() => defaultData);
   const [position, setPosition] = useState<'top' | 'bottom' | 'hidden'>('bottom');
-  const formRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance<any>>();
   const columns: ProColumns<DataSourceType>[] = [
     {
       title: '活动名称',
@@ -121,7 +108,10 @@ export default () => {
         <a
           key="delete"
           onClick={() => {
-            setDataSource(dataSource.filter((item) => item.id !== record.id));
+            const tableDataSource = formRef.current?.getFieldValue('table') as DataSourceType[];
+            formRef.current?.setFieldsValue({
+              table: tableDataSource.filter((item) => item.id !== record.id),
+            });
           }}
         >
           删除
@@ -134,7 +124,10 @@ export default () => {
     <ProForm<{
       table: DataSourceType[];
     }>
-      initialValues={defaultData}
+      formRef={formRef}
+      initialValues={{
+        table: defaultData,
+      }}
     >
       <EditableProTable<DataSourceType>
         rowKey="id"
@@ -176,11 +169,6 @@ export default () => {
         editable={{
           type: 'multiple',
           editableKeys,
-          onSave: async (rowKey, data, row) => {
-            console.log(formRef.current);
-            console.log(rowKey, data, row);
-            await waitTime(2000);
-          },
           onChange: setEditableRowKeys,
         }}
       />

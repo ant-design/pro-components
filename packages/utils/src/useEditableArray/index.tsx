@@ -13,6 +13,7 @@ import set from 'rc-util/lib/utils/set';
 import useMountMergeState from '../useMountMergeState';
 import ProFormContext from '../components/ProFormContext';
 import { usePrevious } from '..';
+import { NamePath } from 'antd/lib/form/interface';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -95,6 +96,8 @@ export type RowEditableConfig<DataType> = {
   onlyOneLineEditorAlertMessage?: React.ReactNode;
   /** 同时只能新增一行的提示 */
   onlyAddOneLineAlertMessage?: React.ReactNode;
+  /** Table 上设置的name，用于拼接name来获取数据 */
+  tableName?: NamePath;
 };
 export type ActionTypeText<T> = {
   deleteText?: React.ReactNode;
@@ -116,6 +119,7 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
   deletePopconfirmMessage: RowEditableConfig<T>['deletePopconfirmMessage'];
   setEditableRowKeys: (value: React.Key[]) => void;
   newLineConfig?: LineConfig;
+  tableName?: NamePath;
 } & ActionTypeText<T>;
 
 /**
@@ -227,6 +231,7 @@ export function SaveEditableAction<T>({
   children,
   newLineConfig,
   editorType,
+  tableName,
 }: ActionRenderConfig<T> & { row: any; children: any }) {
   const context = useContext(ProFormContext);
   const [loading, setLoading] = useMountMergeState<boolean>(false);
@@ -238,7 +243,7 @@ export function SaveEditableAction<T>({
         e.preventDefault();
         try {
           const isMapEditor = editorType === 'Map';
-          const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
+          const namePath = [tableName, recordKey].flat(1) as string[];
           setLoading(true);
           // @ts-expect-error
           await form.validateFields(namePath, {
@@ -326,8 +331,17 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
 };
 
 const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (props) => {
-  const { recordKey, newLineConfig, form, editorType, onCancel, cancelEditable, row, cancelText } =
-    props;
+  const {
+    recordKey,
+    tableName,
+    newLineConfig,
+    form,
+    editorType,
+    onCancel,
+    cancelEditable,
+    row,
+    cancelText,
+  } = props;
   const context = useContext(ProFormContext);
   return (
     <a
@@ -336,7 +350,7 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         e.stopPropagation();
         e.preventDefault();
         const isMapEditor = editorType === 'Map';
-        const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
+        const namePath = [tableName, recordKey].flat(1) as string[];
         const fields = context.getFieldFormatValue?.(namePath) || form.getFieldValue(namePath);
         const record = isMapEditor ? set({}, namePath, fields) : fields;
         const res = await onCancel?.(recordKey, record, row, newLineConfig);
@@ -419,7 +433,6 @@ function useEditableArray<RecordType>(
   const isEditable = useCallback(
     (row: RecordType & { index: number }) => {
       const recordKey = props.getRowKey(row, row.index);
-      console.log(recordKey);
       const preIsEditable = editableKeysRef?.includes(recordKey);
       return {
         recordKey,
@@ -569,6 +582,7 @@ function useEditableArray<RecordType>(
       recordKey: key,
       cancelEditable,
       index: row.index,
+      tableName: props.tableName,
       newLineConfig: newLineRecord,
       onCancel: async (
         recordKey: RecordKey,

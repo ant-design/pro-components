@@ -5,10 +5,11 @@ import { Button, Form } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
 import { ProFormContext, runFunction } from '@ant-design/pro-utils';
+import { Field } from 'rc-field-form';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
 import type { GetRowKey } from 'antd/lib/table/interface';
-import ProForm from '@ant-design/pro-form';
+import { FormItemInputProps } from 'antd/lib/form/FormItemInput';
 
 export type RecordCreatorProps<DataSourceType> = {
   record: DataSourceType | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
@@ -46,6 +47,8 @@ export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> =
   onValuesChange?: (values: T[], record: T) => void;
   /** 是否受控，如果为 true，每次 value 更新都会重置表单 */
   controlled?: boolean;
+  /** FormItem 的设置 */
+  formItemProps?: FormItemInputProps;
 };
 
 const EditableTableActionContext = React.createContext<
@@ -83,7 +86,15 @@ function EditableTable<
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
-  const { onTableChange, maxLength, recordCreatorProps, rowKey, controlled, ...rest } = props;
+  const {
+    onTableChange,
+    maxLength,
+    formItemProps,
+    recordCreatorProps,
+    rowKey,
+    controlled,
+    ...rest
+  } = props;
   const actionRef = useRef<ActionType>();
   const context = useContext(ProFormContext);
 
@@ -219,22 +230,38 @@ function EditableTable<
   }
 
   return (
-    <EditableTableActionContext.Provider value={actionRef}>
-      <ProTable<DataType, Params, ValueType>
-        search={false}
-        options={false}
-        pagination={false}
-        rowKey={rowKey}
-        {...rest}
-        {...buttonRenderProps}
-        tableLayout="fixed"
-        actionRef={actionRef}
-        onChange={onTableChange}
-        dataSource={value}
-        editable={editableProps}
-        onDataSourceChange={setValue}
-      />
-    </EditableTableActionContext.Provider>
+    <Field
+      shouldUpdate={(prevValue, nextValue, { source }) => {
+        if (source === 'internal') {
+          return false;
+        }
+        return prevValue !== nextValue;
+      }}
+      name={props.name}
+      {...formItemProps}
+      isList
+    >
+      {(control) => {
+        return (
+          <EditableTableActionContext.Provider value={actionRef}>
+            <ProTable<DataType, Params, ValueType>
+              search={false}
+              options={false}
+              pagination={false}
+              rowKey={rowKey}
+              {...rest}
+              {...buttonRenderProps}
+              tableLayout="fixed"
+              actionRef={actionRef}
+              onChange={onTableChange}
+              dataSource={control?.value}
+              editable={editableProps}
+              onDataSourceChange={control.onChange}
+            />
+          </EditableTableActionContext.Provider>
+        );
+      }}
+    </Field>
   );
 }
 
