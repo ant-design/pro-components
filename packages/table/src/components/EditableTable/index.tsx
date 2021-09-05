@@ -250,17 +250,7 @@ function FieldEditableTable<
   const { name, formItemProps } = props;
   if (!name) return <EditableTable<DataType, Params, ValueType> {...props} />;
   return (
-    <Field
-      shouldUpdate={(prevValue, nextValue, { source }) => {
-        if (source === 'internal') {
-          return false;
-        }
-        return prevValue !== nextValue;
-      }}
-      name={props.name}
-      {...formItemProps}
-      isList
-    >
+    <Field shouldUpdate={true} name={props.name} {...formItemProps} isList>
       {(control) => {
         return (
           <EditableTable<DataType, Params, ValueType>
