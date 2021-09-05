@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.51.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.51.1...@ant-design/pro-table@2.51.2) (2021-08-30)
+
+### Bug Fixes
+
+- **utils:** add react-sortable-hoc ([0cbae03](https://github.com/ant-design/pro-components/commit/0cbae03bc246bd2390b86f1128345ea99035f3b6))
+
 ## [2.51.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.51.0...@ant-design/pro-table@2.51.1) (2021-08-30)
 
 ### Bug Fixes

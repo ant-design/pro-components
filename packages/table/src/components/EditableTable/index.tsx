@@ -1,10 +1,11 @@
 ﻿import React, { useContext, useEffect, useImperativeHandle, useMemo, useRef } from 'react';
 import type { ParamsType } from '@ant-design/pro-provider';
-import type { ButtonProps } from 'antd';
+import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
 import { runFunction } from '@ant-design/pro-utils';
+import { Field } from 'rc-field-form';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
 import type { GetRowKey } from 'antd/lib/table/interface';
@@ -23,8 +24,8 @@ export type RecordCreatorProps<DataSourceType> = {
   parentKey?: React.Key | ((index: number, dataSource: DataSourceType[]) => React.Key);
 };
 
-export type EditableProTableProps<T, U extends ParamsType> = Omit<
-  ProTableProps<T, U>,
+export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> = Omit<
+  ProTableProps<T, U, ValueType>,
   'onChange'
 > & {
   value?: T[];
@@ -45,6 +46,8 @@ export type EditableProTableProps<T, U extends ParamsType> = Omit<
   onValuesChange?: (values: T[], record: T) => void;
   /** 是否受控，如果为 true，每次 value 更新都会重置表单 */
   controlled?: boolean;
+  /** FormItem 的设置 */
+  formItemProps?: FormItemProps;
 };
 
 const EditableTableActionContext = React.createContext<
@@ -80,9 +83,19 @@ function RecordCreator<T = Record<string, any>>(
 function EditableTable<
   DataType extends Record<string, any>,
   Params extends ParamsType = ParamsType,
->(props: EditableProTableProps<DataType, Params>) {
-  const { onTableChange, maxLength, recordCreatorProps, rowKey, controlled, ...rest } = props;
+  ValueType = 'text',
+>(props: EditableProTableProps<DataType, Params, ValueType>) {
+  const {
+    onTableChange,
+    maxLength,
+    formItemProps,
+    recordCreatorProps,
+    rowKey,
+    controlled,
+    ...rest
+  } = props;
   const actionRef = useRef<ActionType>();
+
   const [form] = Form.useForm();
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current);
@@ -209,10 +222,9 @@ function EditableTable<
       }
     };
   }
-
   return (
     <EditableTableActionContext.Provider value={actionRef}>
-      <ProTable<DataType, Params>
+      <ProTable<DataType, Params, ValueType>
         search={false}
         options={false}
         pagination={false}
@@ -230,6 +242,28 @@ function EditableTable<
   );
 }
 
-EditableTable.RecordCreator = RecordCreator;
+function FieldEditableTable<
+  DataType extends Record<string, any>,
+  Params extends ParamsType = ParamsType,
+  ValueType = 'text',
+>(props: EditableProTableProps<DataType, Params, ValueType>) {
+  const { name, formItemProps } = props;
+  if (!name) return <EditableTable<DataType, Params, ValueType> {...props} />;
+  return (
+    <Field shouldUpdate={true} name={props.name} {...formItemProps} isList>
+      {(control) => {
+        return (
+          <EditableTable<DataType, Params, ValueType>
+            {...props}
+            value={control.value}
+            onChange={control.onChange}
+          />
+        );
+      }}
+    </Field>
+  );
+}
 
-export default EditableTable;
+FieldEditableTable.RecordCreator = RecordCreator;
+
+export default FieldEditableTable;

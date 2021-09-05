@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.24.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.0...@ant-design/pro-utils@1.24.1) (2021-08-30)
+
+### Bug Fixes
+
+- **utils:** add react-sortable-hoc ([4789cc9](https://github.com/ant-design/pro-components/commit/4789cc986a417cc2d72d026cda12f1d0b483c60d))
+
 # [1.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.23.0...@ant-design/pro-utils@1.24.0) (2021-08-30)
 
 ### Features

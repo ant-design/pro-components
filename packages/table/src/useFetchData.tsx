@@ -128,10 +128,10 @@ const useFetchData = <T extends RequestData<any>>(
       requesting.current = false;
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) {
-        throw new Error(e);
+        throw new Error(e as string);
       }
       if (list === undefined) setList([]);
-      onRequestError(e);
+      onRequestError(e as Error);
     } finally {
       requestAnimationFrame(() => {
         setLoading(false);

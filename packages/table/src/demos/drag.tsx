@@ -3,8 +3,8 @@ import { SortableContainer, SortableElement, SortableHandle } from 'react-sortab
 import { MenuOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
-import arrayMove from 'array-move';
 import './drag.less';
+import { arrayMoveImmutable } from '@ant-design/pro-utils';
 
 const DragHandle = SortableHandle(() => <MenuOutlined style={{ cursor: 'grab', color: '#999' }} />);
 
@@ -62,7 +62,7 @@ export default () => {
 
   const onSortEnd = ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
     if (oldIndex !== newIndex) {
-      const newData = arrayMove([...dataSource], oldIndex, newIndex).filter((el) => !!el);
+      const newData = arrayMoveImmutable([...dataSource], oldIndex, newIndex).filter((el) => !!el);
       setDataSource([...newData]);
     }
   };
