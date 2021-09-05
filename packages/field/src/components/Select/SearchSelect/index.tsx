@@ -149,7 +149,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         <Option
           {...item}
           value={value!}
-          key={value}
+          key={value || label?.toString()}
           disabled={itemDisable}
           data-item={item}
           className={`${prefixCls}-option ${itemClassName || ''}`}

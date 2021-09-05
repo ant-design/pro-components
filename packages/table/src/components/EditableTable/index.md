@@ -17,6 +17,10 @@ nav:
 
 <code src="./demos/basic.tsx" background="#f5f5f5" height="420px" title="可编辑表格" />
 
+### 与 FormItem 配合
+
+<code src="./demos/form-item.tsx" background="#f5f5f5" height="420px" title="可编辑表格" />
+
 ### 有子列的表格增加
 
 <code src="./demos/children.tsx" background="#f5f5f5" height="420px" title="可展开表格" />

@@ -11,6 +11,7 @@ jest.mock('react', () => ({
   useLayoutEffect: jest.requireActual('react').useEffect,
 }));
 
+const eventListener = {};
 /* eslint-disable global-require */
 if (typeof window !== 'undefined') {
   global.window.resizeTo = (width, height) => {
@@ -18,6 +19,10 @@ if (typeof window !== 'undefined') {
     global.window.innerHeight = height || global.window.innerHeight;
     global.window.dispatchEvent(new Event('resize'));
   };
+  document.addEventListener = (name, cb) => {
+    eventListener[name] = cb;
+  };
+  document.dispatchEvent = (event) => eventListener[event.type]?.(event);
   global.window.scrollTo = () => {};
   // ref: https://github.com/ant-design/ant-design/issues/18774
   if (!window.matchMedia) {

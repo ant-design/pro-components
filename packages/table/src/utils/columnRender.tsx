@@ -139,7 +139,7 @@ export function columnRender<T>({
   type,
   editableUtils,
 }: ColumnRenderInterface<T>): any {
-  const { action } = counter;
+  const { action, prefixName } = counter;
   const { isEditable, recordKey } = editableUtils.isEditable({ ...rowData, index });
   const { renderText = (val: any) => val } = columnProps;
 
@@ -163,6 +163,7 @@ export function columnRender<T>({
     type,
     recordKey,
     mode,
+    prefixName,
   });
 
   const dom: React.ReactNode =
@@ -195,34 +196,34 @@ export function columnRender<T>({
     return dom;
   }
 
-  if (columnProps.render) {
-    const renderDom = columnProps.render(
-      dom,
-      rowData,
-      index,
-      {
-        ...(action.current as ActionType),
-        ...editableUtils,
-      },
-      {
-        ...columnProps,
-        isEditable,
-        type: 'table',
-      },
-    );
-
-    // 如果是合并单元格的，直接返回对象
-    if (isMergeCell(renderDom)) {
-      return renderDom;
-    }
-
-    if (renderDom && columnProps.valueType === 'option' && Array.isArray(renderDom)) {
-      return <Space size={16}>{renderDom}</Space>;
-    }
-    return renderDom as React.ReactNode;
+  if (!columnProps.render) {
+    const isReactRenderNode =
+      React.isValidElement(dom) || ['string', 'number'].includes(typeof dom);
+    return !isNil(dom) && isReactRenderNode ? dom : null;
   }
 
-  const isReactRenderNode = React.isValidElement(dom) || ['string', 'number'].includes(typeof dom);
+  const renderDom = columnProps.render(
+    dom,
+    rowData,
+    index,
+    {
+      ...(action.current as ActionType),
+      ...editableUtils,
+    },
+    {
+      ...columnProps,
+      isEditable,
+      type: 'table',
+    },
+  );
 
-  return !isNil(dom) && isReactRenderNode ? dom : null;
+  // 如果是合并单元格的，直接返回对象
+  if (isMergeCell(renderDom)) {
+    return renderDom;
+  }
+
+  if (renderDom && columnProps.valueType === 'option' && Array.isArray(renderDom)) {
+    return <Space size={16}>{renderDom}</Space>;
+  }
+  return renderDom as React.ReactNode;
 }
