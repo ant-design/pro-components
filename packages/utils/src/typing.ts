@@ -145,9 +145,9 @@ export type ProSchemaComponentTypes =
 /** 操作类型 */
 export type ProCoreActionType<T = {}> = {
   /** @name 刷新 */
-  reload: (resetPageIndex?: boolean) => void;
+  reload: (resetPageIndex?: boolean) => Promise<void>;
   /** @name 刷新并清空，只清空页面，不包括表单 */
-  reloadAndRest?: () => void;
+  reloadAndRest?: () => Promise<void>;
   /** @name 重置任何输入项，包括表单 */
   reset?: () => void;
   /** @name 清空选择 */
