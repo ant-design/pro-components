@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.25.0
+
+`2021-08-30`
+
+- 💥 feat(layout): support layout error boundaries [#3551](https://github.com/ant-design/pro-components/pull/3551) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.24.1
 
 `2021-08-19`
