@@ -15,6 +15,7 @@ import ConfigContext, { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
+import type { FieldMoneyProps } from './components/Money';
 import FieldMoney from './components/Money';
 import FieldDatePicker from './components/DatePicker';
 import FieldFromNow from './components/FromNow';
@@ -41,6 +42,8 @@ import FieldColorPicker from './components/ColorPicker';
 import { noteOnce } from 'rc-util/lib/warning';
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
+
+export type ProFieldMoneyProps = FieldMoneyProps;
 
 export type ProFieldEmptyText = string | false;
 

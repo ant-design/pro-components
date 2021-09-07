@@ -551,7 +551,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="money"
