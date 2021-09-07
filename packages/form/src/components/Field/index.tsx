@@ -89,7 +89,7 @@ const ProFormField: React.FC<
     );
   };
 
-  if (restProps.dependencies && restProps.request && restProps?.mode !== 'read') {
+  if (restProps.dependencies && restProps.request) {
     return (
       <ProFormDependency name={restProps.dependencies}>
         {(values) => {
