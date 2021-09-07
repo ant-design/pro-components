@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.52.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.51.2...@ant-design/pro-table@2.52.0) (2021-09-07)
+
+### Bug Fixes
+
+- **form:** if valueType need request, note need request ([#3575](https://github.com/ant-design/pro-components/issues/3575)) ([41bb815](https://github.com/ant-design/pro-components/commit/41bb81540408659256da329fe0eb02e5c1583ea5))
+- **Form:** 当原先在 url 中存在的字段被删除时，应该讲 params 中的该字段设置为 undefined,以便触发 url 同步删除 ([#3558](https://github.com/ant-design/pro-components/issues/3558)) ([cbce2f8](https://github.com/ant-design/pro-components/commit/cbce2f8f6df5b1d19f29424368867c118941579a)), closes [Form#3547](https://github.com/Form/issues/3547) [#3547](https://github.com/ant-design/pro-components/issues/3547)
+- **utils:** remove array move ([#3571](https://github.com/ant-design/pro-components/issues/3571)) ([f77f6e2](https://github.com/ant-design/pro-components/commit/f77f6e2d7ac041a7804af1aaa3612068bc539c0d))
+- **utils:** use array-move latest version ([12ea1ff](https://github.com/ant-design/pro-components/commit/12ea1ffd6c421ad3ff2140cf9e7ff81a93b1174d))
+- EditableTable 的类型 ValueType 提示补充 ([#3559](https://github.com/ant-design/pro-components/issues/3559)) ([cc3a87e](https://github.com/ant-design/pro-components/commit/cc3a87edfa043064293a5ededc771741b2e4c414))
+
+### Features
+
+- **form,field:** 增加 ProFormMoney 组件 ([#3588](https://github.com/ant-design/pro-components/issues/3588)) ([2435ac3](https://github.com/ant-design/pro-components/commit/2435ac34b968ebbbeb018ab070f94f344822eddd)), closes [Form#3547](https://github.com/Form/issues/3547) [#3547](https://github.com/ant-design/pro-components/issues/3547)
+
 ## [2.51.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.51.1...@ant-design/pro-table@2.51.2) (2021-08-30)
 
 ### Bug Fixes

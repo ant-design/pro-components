@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.51.0
+
+`2021-08-30`
+
+- 🐛 fix(table): fix tooltip no render dom [#3543](https://github.com/ant-design/pro-components/pull/3543) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.50.0
 
 `2021-08-24`
