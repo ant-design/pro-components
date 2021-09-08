@@ -45,6 +45,7 @@ export default () => {
           label="签约客户名称"
           tooltip="最长为 24 位"
           placeholder="请输入名称"
+          rules={[{ required: true, message: '这是必填项' }]}
         />
         <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
       </ProForm.Group>

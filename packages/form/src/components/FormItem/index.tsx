@@ -93,6 +93,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
   ...props
 }) => {
   const formDom = useMemo(() => {
+    const { rules, ...rest } = props;
     if (!addonAfter && !addonBefore) return <Form.Item {...props}>{children}</Form.Item>;
     return (
       <Form.Item {...props}>
@@ -104,7 +105,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
         >
           {addonBefore ? <div style={{ marginRight: 8 }}>{addonBefore}</div> : null}
           <div style={{ flex: 1 }}>
-            <Form.Item {...props} noStyle>
+            <Form.Item {...rest} rules={rules?.map((item) => ({ ...item, message: '' }))} noStyle>
               {children}
             </Form.Item>
           </div>
