@@ -2,11 +2,8 @@
 import { Button, Result } from 'antd';
 
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
-import defaultProps from './_defaultProps';
 
-const ErrorPage = () => {
-  const [error, setError] = useState<boolean>(false);
-  if (error) throw new Error('渲染发生了错误');
+const CustomErrorPage = () => {
   return (
     <Result
       status="warning"
@@ -59,10 +56,10 @@ const ErrorPage = () => {
             danger
             type="primary"
             onClick={() => {
-              setError(true);
+              window.location.reload();
             }}
           >
-            触发错误
+            刷新页面
           </Button>
         </>
       }
@@ -70,7 +67,24 @@ const ErrorPage = () => {
   );
 };
 
+const ErrorTriggerTestPage = () => {
+  const [error, setError] = useState<boolean>(false);
+  if (error) throw new Error('渲染发生了错误');
+  return (
+    <Button
+      danger
+      type="primary"
+      onClick={() => {
+        setError(true);
+      }}
+    >
+      触发错误
+    </Button>
+  );
+};
+
 export default () => {
+  const [pathname, setPathname] = useState('/default');
   return (
     <div
       id="test-pro-layout"
@@ -79,13 +93,35 @@ export default () => {
       }}
     >
       <ProLayout
-        {...defaultProps}
-        location={{
-          pathname: '/welcome',
+        route={{
+          path: '/',
+          routes: [
+            {
+              path: '/default',
+              name: '默认错误',
+            },
+            {
+              path: '/custom',
+              name: '自定义错误',
+            },
+          ],
         }}
+        location={{
+          pathname,
+        }}
+        menuItemRender={(item, dom) => (
+          <a
+            onClick={() => {
+              setPathname(item.path || '/welcome');
+            }}
+          >
+            {dom}
+          </a>
+        )}
+        ErrorBoundary={pathname === '/custom' ? CustomErrorPage : undefined}
       >
         <PageContainer>
-          <ErrorPage />
+          <ErrorTriggerTestPage />
         </PageContainer>
       </ProLayout>
     </div>
