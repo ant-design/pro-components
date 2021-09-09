@@ -1412,7 +1412,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
   >
     <div
       class="ant-card"
-      style="height: 100%;"
     >
       <div
         class="ant-card-body"

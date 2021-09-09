@@ -253,14 +253,10 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     ) : (
       <Card
         bordered={isBordered('table', cardBordered)}
-        style={{
-          height: '100%',
-        }}
         bodyStyle={
           toolbarDom
             ? {
                 paddingTop: 0,
-                paddingBottom: 0,
               }
             : {
                 padding: 0,
