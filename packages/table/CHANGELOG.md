@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.53.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.52.0...@ant-design/pro-table@2.53.0) (2021-09-09)
+
+### Features
+
+- **table:** fix table empty style error ([#3552](https://github.com/ant-design/pro-components/issues/3552)) ([05ab05a](https://github.com/ant-design/pro-components/commit/05ab05a351624efdad0ac493ea4165e568539a48))
+
 # [2.52.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.51.2...@ant-design/pro-table@2.52.0) (2021-09-07)
 
 ### Bug Fixes

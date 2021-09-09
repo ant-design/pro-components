@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.39.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.39.0...@ant-design/pro-form@1.39.1) (2021-09-09)
+
+### Bug Fixes
+
+- **form:** auto close KeyPress submit ([#3625](https://github.com/ant-design/pro-components/issues/3625)) ([6dfe99e](https://github.com/ant-design/pro-components/commit/6dfe99e0a0d2d1735abc40b948ee57c60531eb3b))
+- **form:** dependencies awalay run funtion ([3075858](https://github.com/ant-design/pro-components/commit/307585851997ffc4cc5ecc9aeb015bee9dfa48e2))
+- **form:** 解决有 addonBefore 或 addBefore 的情况下出现双重表单校验提示的问题 ([#3611](https://github.com/ant-design/pro-components/issues/3611)) ([aceeb06](https://github.com/ant-design/pro-components/commit/aceeb06b912c5f9da9c8922c3ab24109a03e3624)), closes [Form#3547](https://github.com/Form/issues/3547) [#3547](https://github.com/ant-design/pro-components/issues/3547) [#3601](https://github.com/ant-design/pro-components/issues/3601)
+
 # [1.39.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.38.1...@ant-design/pro-form@1.39.0) (2021-09-07)
 
 ### Bug Fixes
