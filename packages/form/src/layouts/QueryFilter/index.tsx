@@ -363,6 +363,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
       }}
     >
       <BaseForm
+        isKeyPressSubmit
         preserve={preserve}
         {...rest}
         className={classNames(baseClassName, rest.className)}
