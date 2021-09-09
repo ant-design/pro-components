@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.24.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.1...@ant-design/pro-utils@1.24.2) (2021-09-07)
+
+### Bug Fixes
+
+- **form:** if valueType need request, note need request ([#3575](https://github.com/ant-design/pro-components/issues/3575)) ([41bb815](https://github.com/ant-design/pro-components/commit/41bb81540408659256da329fe0eb02e5c1583ea5))
+- **table:** fix save and cancel button click error ([#3565](https://github.com/ant-design/pro-components/issues/3565)) ([09e5d9b](https://github.com/ant-design/pro-components/commit/09e5d9b3d6579b8eed3032cad0ae00ba57dc9ad0))
+- **table:** 修改 Table reload、reloadAndRest 类型 ([#3574](https://github.com/ant-design/pro-components/issues/3574)) ([39a6284](https://github.com/ant-design/pro-components/commit/39a6284167c982116bad9dc953b2135d5cf4e553))
+- **utils:** remove array move ([#3571](https://github.com/ant-design/pro-components/issues/3571)) ([f77f6e2](https://github.com/ant-design/pro-components/commit/f77f6e2d7ac041a7804af1aaa3612068bc539c0d))
+
+## [1.24.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.0...@ant-design/pro-utils@1.24.1) (2021-08-30)
+
+### Bug Fixes
+
+- **utils:** add react-sortable-hoc ([4789cc9](https://github.com/ant-design/pro-components/commit/4789cc986a417cc2d72d026cda12f1d0b483c60d))
+
+# [1.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.23.0...@ant-design/pro-utils@1.24.0) (2021-08-30)
+
+### Features
+
+- **layout:** support layout error boundaries ([#3551](https://github.com/ant-design/pro-components/issues/3551)) ([5b5f76a](https://github.com/ant-design/pro-components/commit/5b5f76a86df14ce42f12ce0e1e916e4b3b2ea357))
+
 # [1.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.22.0...@ant-design/pro-utils@1.23.0) (2021-08-26)
 
 ### Bug Fixes

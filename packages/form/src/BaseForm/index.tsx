@@ -7,7 +7,6 @@ import React, {
   useCallback,
 } from 'react';
 import type { FormProps, FormItemProps, FormInstance } from 'antd';
-import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
@@ -25,6 +24,7 @@ import {
   ProFormContext,
   runFunction,
   useFetchData,
+  isDeepEqualReact,
 } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -362,6 +362,12 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                         [next]: finalValues[next] || undefined,
                       };
                     }, extraUrlParams);
+                    // fix #3547: 当原先在url中存在的字段被删除时，应该讲params中的该字段设置为undefined,以便触发url同步删除
+                    Object.keys(urlSearch).forEach((key) => {
+                      if (!params[key]) {
+                        params[key] = undefined;
+                      }
+                    });
                     /** 在同步到 url 上时对参数进行转化 */
                     setUrlSearch(genParams(syncToUrl, params, 'set'));
                   }

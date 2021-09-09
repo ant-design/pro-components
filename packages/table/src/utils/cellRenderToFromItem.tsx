@@ -3,9 +3,8 @@ import type { FormInstance, FormItemProps } from 'antd';
 import type { ProFormFieldProps } from '@ant-design/pro-form';
 import ProForm, { ProFormField } from '@ant-design/pro-form';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
-import { runFunction } from '@ant-design/pro-utils';
+import { runFunction, isDeepEqualReact } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
 
 import type { ProColumnType } from '../index';
@@ -19,8 +18,8 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
  * @param base 基本的 key
  * @param dataIndex 需要拼接的key
  */
-export const spellNamePath = (base: React.Key, dataIndex: React.Key | React.Key[]): React.Key[] => {
-  return [base, dataIndex].flat(1);
+export const spellNamePath = (...rest: any[]): React.Key[] => {
+  return rest.filter(Boolean).flat(1);
 };
 
 type RenderToFromItemProps<T> = {
@@ -36,6 +35,7 @@ type RenderToFromItemProps<T> = {
   // 行的唯一 key
   recordKey?: React.Key;
   mode: 'edit' | 'read';
+  prefixName?: string;
 };
 
 /**
@@ -45,7 +45,7 @@ type RenderToFromItemProps<T> = {
  * @param valueType
  */
 function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactNode {
-  const { text, valueType, rowData, columnProps } = config;
+  const { text, valueType, rowData, columnProps, prefixName } = config;
   // 如果 valueType === text ，没必要多走一次 render
   if (
     (!valueType || ['textarea', 'text'].includes(valueType.toString())) &&
@@ -116,10 +116,10 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
           return !isDeepEqualReact(get(pre, rowName), get(next, rowName));
         };
         const name = spellNamePath(
+          prefixName,
           config.recordKey || config.index,
           columnProps?.key || columnProps?.dataIndex || config.index,
         );
-
         /** 获取 formItemProps Props */
         const formItemProps = getFieldPropsOrFormItemProps(
           columnProps?.formItemProps,

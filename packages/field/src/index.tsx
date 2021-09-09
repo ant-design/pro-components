@@ -15,6 +15,7 @@ import ConfigContext, { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
+import type { FieldMoneyProps } from './components/Money';
 import FieldMoney from './components/Money';
 import FieldDatePicker from './components/DatePicker';
 import FieldFromNow from './components/FromNow';
@@ -38,6 +39,11 @@ import FieldSecond from './components/Second';
 import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
 import FieldColorPicker from './components/ColorPicker';
+import { noteOnce } from 'rc-util/lib/warning';
+
+const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
+
+export type ProFieldMoneyProps = FieldMoneyProps;
 
 export type ProFieldEmptyText = string | false;
 
@@ -171,6 +177,29 @@ const defaultRenderText = (
       );
     }
   }
+
+  const needValueEnum = REQUEST_VALUE_TYPE.includes(valueType as string);
+  const hasValueEnum = !!(
+    props.valueEnum ||
+    props.request ||
+    props.options ||
+    props.fieldProps?.options
+  );
+
+  noteOnce(
+    !needValueEnum || hasValueEnum,
+    `如果设置了 valueType 为 ${REQUEST_VALUE_TYPE.join(
+      ',',
+    )}中任意一个，则需要配置options，request, valueEnum 其中之一，否则无法生成选项。`,
+  );
+
+  noteOnce(
+    !needValueEnum || hasValueEnum,
+    `If you set valueType to any of ${REQUEST_VALUE_TYPE.join(
+      ',',
+    )}, you need to configure options, request or valueEnum.`,
+  );
+
   /** 如果是金额的值 */
   if (valueType === 'money') {
     return <FieldMoney {...props} text={text as number} />;

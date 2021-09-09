@@ -63,7 +63,7 @@ valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映
 | `second`        | 秒格式化                     |
 | `avatar`        | 头像                         |
 | `code`          | 代码框                       |
-| `switch`        | 单选多选                     |
+| `switch`        | 开关                         |
 | `fromNow`       | 相对于当前时间               |
 | `image`         | 图片                         |
 | `jsonCode`      | 代码框，但是带了 json 格式化 |

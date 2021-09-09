@@ -240,8 +240,6 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
           /** 公用的 类型 props */
           const formFieldProps: ProFormFieldProps = {
-            key,
-            name: item.dataIndex,
             label: item.title,
             ...omit(item, [
               'dataIndex',
@@ -251,6 +249,8 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
               'renderText',
               'title',
             ]),
+            key,
+            name: item.dataIndex,
             width: item.width as 'md',
             formItemProps: item.formItemProps,
             fieldProps: item.fieldProps,

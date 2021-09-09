@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.39.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.38.1...@ant-design/pro-form@1.39.0) (2021-09-07)
+
+### Bug Fixes
+
+- **form:** better FormGroup Space style ([#3562](https://github.com/ant-design/pro-components/issues/3562)) ([ddd89d9](https://github.com/ant-design/pro-components/commit/ddd89d9fbb51349deb8eb10e1a07e190b62c4c77))
+- **form:** if valueType need request, note need request ([#3575](https://github.com/ant-design/pro-components/issues/3575)) ([41bb815](https://github.com/ant-design/pro-components/commit/41bb81540408659256da329fe0eb02e5c1583ea5))
+- **Form:** 当原先在 url 中存在的字段被删除时，应该讲 params 中的该字段设置为 undefined,以便触发 url 同步删除 ([#3558](https://github.com/ant-design/pro-components/issues/3558)) ([cbce2f8](https://github.com/ant-design/pro-components/commit/cbce2f8f6df5b1d19f29424368867c118941579a)), closes [Form#3547](https://github.com/Form/issues/3547) [#3547](https://github.com/ant-design/pro-components/issues/3547)
+
+### Features
+
+- **form,field:** 增加 ProFormMoney 组件 ([#3588](https://github.com/ant-design/pro-components/issues/3588)) ([2435ac3](https://github.com/ant-design/pro-components/commit/2435ac34b968ebbbeb018ab070f94f344822eddd)), closes [Form#3547](https://github.com/Form/issues/3547) [#3547](https://github.com/ant-design/pro-components/issues/3547)
+
+## [1.38.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.38.0...@ant-design/pro-form@1.38.1) (2021-08-30)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+# [1.38.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.37.0...@ant-design/pro-form@1.38.0) (2021-08-30)
+
+### Bug Fixes
+
+- **form:** fix onGetCaptcha error will reset timimg ([#3544](https://github.com/ant-design/pro-components/issues/3544)) ([b75f843](https://github.com/ant-design/pro-components/commit/b75f8433e429e2dc8ec5531b0878a994da41117c))
+
+### Features
+
+- **form:** FormList support actionRef ([#3550](https://github.com/ant-design/pro-components/issues/3550)) ([8eea358](https://github.com/ant-design/pro-components/commit/8eea35894ec06aa738d761d3f8c9f2b0bf8a11f6))
+- **form:** LoginForm support logo ([#3545](https://github.com/ant-design/pro-components/issues/3545)) ([c10a960](https://github.com/ant-design/pro-components/commit/c10a960d9758523ba331e0a31888d99339569b14))
+- **layout:** support layout error boundaries ([#3551](https://github.com/ant-design/pro-components/issues/3551)) ([5b5f76a](https://github.com/ant-design/pro-components/commit/5b5f76a86df14ce42f12ce0e1e916e4b3b2ea357))
+
 # [1.37.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.36.0...@ant-design/pro-form@1.37.0) (2021-08-26)
 
 ### Bug Fixes

@@ -6,6 +6,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
+import ProForm from '@ant-design/pro-form';
 
 type DataSourceType = {
   id: number | string;
@@ -503,6 +504,69 @@ describe('EditorProTable', () => {
       state: 'processing',
       index: undefined,
     });
+  });
+
+  it('📝 EditableProTable support name', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          table: [
+            {
+              id: '624748504',
+              title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+              labels: [{ name: 'bug', color: 'error' }],
+              time: {
+                created_at: '2020-05-26T09:42:56Z',
+              },
+              state: 'processing',
+            },
+          ],
+        }}
+        onValuesChange={(_, { table }) => onChange(JSON.stringify(table))}
+      >
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          controlled
+          name="table"
+          recordCreatorProps={{
+            creatorButtonText: '测试添加数据',
+            record: { id: 9999 },
+          }}
+          editable={{
+            editableKeys: ['624748504'],
+          }}
+          columns={columns}
+        />
+      </ProForm>,
+    );
+
+    act(() => {
+      wrapper
+        .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
+        .at(1)
+        .simulate('change', {
+          target: {
+            value: '🐛 [BUG]yarn install命令',
+          },
+        });
+    });
+
+    waitForComponentToPaint(wrapper, 100);
+
+    expect(onChange).toBeCalled();
+    expect(onChange).toBeCalledWith(
+      JSON.stringify([
+        {
+          id: '624748504',
+          title: '🐛 [BUG]yarn install命令',
+          labels: [{ name: 'bug', color: 'error' }],
+          time: { created_at: '2020-05-26T09:42:56Z' },
+          state: 'processing',
+          index: undefined,
+        },
+      ]),
+    );
   });
 
   it('📝 EditableProTable support recordCreatorProps.position', async () => {

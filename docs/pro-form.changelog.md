@@ -9,6 +9,22 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.39.0
+
+`2021-09-07`
+
+- 🐛 fix(form): if valueType need request, note need request [#3575](https://github.com/ant-design/pro-components/pull/3575) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): better FormGroup Space style [#3562](https://github.com/ant-design/pro-components/pull/3562) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form,field): 增加 ProFormMoney 组件 [#3588](https://github.com/ant-design/pro-components/pull/3588) [@kiner-tang](https://github.com/kiner-tang)
+
+## @ant-design/pro-form@1.38.0
+
+`2021-08-30`
+
+- 🐛 fix(form): fix onGetCaptcha error will reset timimg [#3544](https://github.com/ant-design/pro-components/pull/3544) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): FormList support actionRef [#3550](https://github.com/ant-design/pro-components/pull/3550) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(form): LoginForm support logo [#3545](https://github.com/ant-design/pro-components/pull/3545) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.36.0
 
 `2021-08-24`

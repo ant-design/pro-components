@@ -13,6 +13,7 @@ import set from 'rc-util/lib/utils/set';
 import useMountMergeState from '../useMountMergeState';
 import ProFormContext from '../components/ProFormContext';
 import { usePrevious } from '..';
+import { NamePath } from 'antd/lib/form/interface';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -95,6 +96,8 @@ export type RowEditableConfig<DataType> = {
   onlyOneLineEditorAlertMessage?: React.ReactNode;
   /** 同时只能新增一行的提示 */
   onlyAddOneLineAlertMessage?: React.ReactNode;
+  /** Table 上设置的name，用于拼接name来获取数据 */
+  tableName?: NamePath;
 };
 export type ActionTypeText<T> = {
   deleteText?: React.ReactNode;
@@ -116,6 +119,7 @@ export type ActionRenderConfig<T, LineConfig = NewLineConfig<T>> = {
   deletePopconfirmMessage: RowEditableConfig<T>['deletePopconfirmMessage'];
   setEditableRowKeys: (value: React.Key[]) => void;
   newLineConfig?: LineConfig;
+  tableName?: NamePath;
 } & ActionTypeText<T>;
 
 /**
@@ -137,7 +141,6 @@ function editableRowByKey<RecordType>(
   const { getRowKey, row, data, childrenColumnName } = params;
   const key = recordKeyToString(params.key)?.toString();
   const kvMap = new Map<string, RecordType & { parentKey?: React.Key }>();
-
   /**
    * 打平这个数组
    *
@@ -228,16 +231,19 @@ export function SaveEditableAction<T>({
   children,
   newLineConfig,
   editorType,
+  tableName,
 }: ActionRenderConfig<T> & { row: any; children: any }) {
   const context = useContext(ProFormContext);
   const [loading, setLoading] = useMountMergeState<boolean>(false);
   return (
     <a
       key="save"
-      onClick={async () => {
+      onClick={async (e) => {
+        e.stopPropagation();
+        e.preventDefault();
         try {
           const isMapEditor = editorType === 'Map';
-          const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
+          const namePath = [tableName, recordKey].flat(1).filter(Boolean) as string[];
           setLoading(true);
           // @ts-expect-error
           await form.validateFields(namePath, {
@@ -258,9 +264,9 @@ export function SaveEditableAction<T>({
           );
           setLoading(false);
           return res;
-        } catch (e) {
+        } catch (error) {
           // eslint-disable-next-line no-console
-          console.log(e);
+          console.log(error);
           setLoading(false);
           return null;
         }
@@ -325,15 +331,26 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
 };
 
 const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (props) => {
-  const { recordKey, newLineConfig, form, editorType, onCancel, cancelEditable, row, cancelText } =
-    props;
+  const {
+    recordKey,
+    tableName,
+    newLineConfig,
+    form,
+    editorType,
+    onCancel,
+    cancelEditable,
+    row,
+    cancelText,
+  } = props;
   const context = useContext(ProFormContext);
   return (
     <a
       key="cancel"
-      onClick={async () => {
+      onClick={async (e) => {
+        e.stopPropagation();
+        e.preventDefault();
         const isMapEditor = editorType === 'Map';
-        const namePath = Array.isArray(recordKey) ? recordKey : [recordKey];
+        const namePath = [tableName, recordKey].flat(1).filter(Boolean) as string[];
         const fields = context.getFieldFormatValue?.(namePath) || form.getFieldValue(namePath);
         const record = isMapEditor ? set({}, namePath, fields) : fields;
         const res = await onCancel?.(recordKey, record, row, newLineConfig);
@@ -403,6 +420,7 @@ function useEditableArray<RecordType>(
         }
       : undefined,
   });
+
   /** 一个用来标志的set 提供了方便的 api 来去重什么的 */
   const editableKeysSet = useMemo(() => {
     const keys = editableType === 'single' ? editableKeys?.slice(0, 1) : editableKeys;
@@ -564,6 +582,7 @@ function useEditableArray<RecordType>(
       recordKey: key,
       cancelEditable,
       index: row.index,
+      tableName: props.tableName,
       newLineConfig: newLineRecord,
       onCancel: async (
         recordKey: RecordKey,

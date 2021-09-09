@@ -7,6 +7,12 @@ import type { SearchTransformKeyFn } from '@ant-design/pro-utils';
 import { isDropdownValueType, omitUndefined } from '@ant-design/pro-utils';
 import type { LightWrapperProps } from '../../BaseForm/LightWrapper';
 import LightWrapper from '../../BaseForm/LightWrapper';
+import type { NamePath } from 'antd/lib/form/interface';
+
+const FormItemProvide = React.createContext<{
+  name?: NamePath;
+  label?: React.ReactNode;
+}>({});
 
 /**
  * 把value扔给 fieldProps，方便给自定义用
@@ -75,7 +81,7 @@ type WarpFormItemProps = {
 };
 
 /**
- * 支持了一下前置 dom 和后置的 dom
+ * 支持了一下前置 dom 和后置的 dom 同时包一个provide
  *
  * @param WarpFormItemProps
  * @returns
@@ -86,24 +92,38 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
   addonBefore,
   ...props
 }) => {
-  if (!addonAfter && !addonBefore) return <Form.Item {...props}>{children}</Form.Item>;
-  return (
-    <Form.Item {...props}>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        {addonBefore ? <div style={{ marginRight: 8 }}>{addonBefore}</div> : null}
-        <div style={{ flex: 1 }}>
-          <Form.Item {...props} noStyle>
-            {children}
-          </Form.Item>
+  const formDom = useMemo(() => {
+    const { rules, ...rest } = props;
+    if (!addonAfter && !addonBefore) return <Form.Item {...props}>{children}</Form.Item>;
+    return (
+      <Form.Item {...props}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+          }}
+        >
+          {addonBefore ? <div style={{ marginRight: 8 }}>{addonBefore}</div> : null}
+          <div style={{ flex: 1 }}>
+            <Form.Item {...rest} rules={rules?.map((item) => ({ ...item, message: '' }))} noStyle>
+              {children}
+            </Form.Item>
+          </div>
+          {addonAfter ? <div style={{ marginLeft: 8 }}>{addonAfter}</div> : null}
         </div>
-        {addonAfter ? <div style={{ marginLeft: 8 }}>{addonAfter}</div> : null}
-      </div>
-    </Form.Item>
+      </Form.Item>
+    );
+  }, [addonAfter, addonBefore, children, props]);
+
+  return (
+    <FormItemProvide.Provider
+      value={{
+        name: props.name,
+        label: props.label,
+      }}
+    >
+      {formDom}
+    </FormItemProvide.Provider>
   );
 };
 
@@ -204,5 +224,5 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
 };
 
 export type { ProFormItemProps };
-
+export { FormItemProvide };
 export default ProFormItem;

@@ -66,6 +66,7 @@ export type GroupProps = {
   titleRender?: (title: React.ReactNode, props: GroupProps) => React.ReactNode;
   /** 子项的对齐方式 */
   align?: SpaceProps['align'];
+  spaceProps?: SpaceProps;
   /** 子项的排列方式 */
   direction?: SpaceProps['direction'];
   labelLayout?: 'inline' | 'twoLine';
