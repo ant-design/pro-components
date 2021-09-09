@@ -38,9 +38,37 @@ const transformKeySubmitValue = <T = any>(
     if (tempValues == null || tempValues === undefined) {
       return result;
     }
+
     Object.keys(tempValues).forEach((entityKey) => {
       const key = parentsKey ? [parentsKey, entityKey].flat(1) : [entityKey].flat(1);
       const itemValue = tempValues[entityKey];
+
+      const transform = () => {
+        const transformFunction = get(dataFormatMap, key);
+        const tempKey =
+          typeof transformFunction === 'function'
+            ? transformFunction?.(itemValue, entityKey, tempValues)
+            : entityKey;
+        // { [key:string]:any } 数组也能通过编译
+        if (Array.isArray(tempKey)) {
+          result = namePathSet(result, tempKey, itemValue);
+          return;
+        }
+        if (typeof tempKey === 'object') {
+          finalValues = {
+            ...finalValues,
+            ...tempKey,
+          };
+        } else if (tempKey) {
+          result = namePathSet(result, [tempKey], itemValue);
+        }
+      };
+
+      /** 如果存在转化器提前渲染一下 */
+      if (get(dataFormatMap, key)) {
+        transform();
+      }
+
       if (
         typeof itemValue === 'object' &&
         !Array.isArray(itemValue) &&
@@ -52,25 +80,6 @@ const transformKeySubmitValue = <T = any>(
           return;
         }
         result = namePathSet(result, [entityKey], genValues);
-        return;
-      }
-      const transformFunction = get(dataFormatMap, key);
-      const tempKey =
-        typeof transformFunction === 'function'
-          ? transformFunction?.(itemValue, entityKey, tempValues)
-          : entityKey;
-      // { [key:string]:any } 数组也能通过编译
-      if (Array.isArray(tempKey)) {
-        result = namePathSet(result, tempKey, itemValue);
-        return;
-      }
-      if (typeof tempKey === 'object') {
-        finalValues = {
-          ...finalValues,
-          ...tempKey,
-        };
-      } else if (tempKey) {
-        result = namePathSet(result, [tempKey], itemValue);
       }
     });
     // namePath、transform在omit为false时需正常返回 https://github.com/ant-design/pro-components/issues/2901#issue-908097115
