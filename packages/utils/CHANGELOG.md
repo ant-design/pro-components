@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.24.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.2...@ant-design/pro-utils@1.24.3) (2021-09-09)
+
+### Bug Fixes
+
+- **form:** fix transform no support lableInValue ([#3630](https://github.com/ant-design/pro-components/issues/3630)) ([de76c5f](https://github.com/ant-design/pro-components/commit/de76c5f15dfdf107f28939b407e871cc8b697906))
+
 ## [1.24.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.1...@ant-design/pro-utils@1.24.2) (2021-09-07)
 
 ### Bug Fixes
