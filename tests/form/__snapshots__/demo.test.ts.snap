@@ -32672,7 +32672,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
           >
             <div
               class="ant-card"
-              style="height: 100%;"
             >
               <div
                 class="ant-card-body"

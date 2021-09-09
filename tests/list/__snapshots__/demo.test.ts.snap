@@ -6,11 +6,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
 >
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -626,11 +625,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
 >
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -1598,11 +1596,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/editable.tsx correctl
 >
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -2064,11 +2061,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/expand.tsx correctly 
 >
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -2582,11 +2578,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
 >
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -3570,11 +3565,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/layout.tsx correctly 
 >
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -4356,11 +4350,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
 >
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -5558,11 +5551,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
   </div>
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -6360,11 +6352,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/selectedRow.tsx corre
 >
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -7120,11 +7111,10 @@ Array [
   >
     <div
       class="ant-card"
-      style="height: 100%;"
     >
       <div
         class="ant-card-body"
-        style="padding-top: 0px; padding-bottom: 0px;"
+        style="padding-top: 0px;"
       >
         <div
           class="ant-pro-table-list-toolbar"
@@ -7639,11 +7629,10 @@ exports[`list demos 📸 renders ./packages/list/src/demos/special.tsx correctly
 >
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"

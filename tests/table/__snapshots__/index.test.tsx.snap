@@ -909,11 +909,10 @@ exports[`BasicTable 🎏 base use 1`] = `
   </div>
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -7046,11 +7045,10 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
   </div>
   <div
     class="ant-card"
-    style="height:100%"
   >
     <div
       class="ant-card-body"
-      style="padding-top:0;padding-bottom:0"
+      style="padding-top:0"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -7572,11 +7570,10 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
   </div>
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-table-wrapper"
