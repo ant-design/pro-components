@@ -201,6 +201,7 @@ describe('ProForm', () => {
           },
           test: 'test2',
         }}
+        isKeyPressSubmit
         onFinish={async (params) => {
           fn(params);
         }}
@@ -229,6 +230,7 @@ describe('ProForm', () => {
     const wrapper = mount(
       <ProForm
         omitNil={false}
+        isKeyPressSubmit
         onFinish={async () => {
           fn();
         }}

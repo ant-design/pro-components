@@ -89,6 +89,9 @@ export type CommonFormProps<
   params?: U;
   /** 发起网络请求的参数,返回值会覆盖给 initialValues */
   request?: ProRequestData<T, U>;
+
+  /** 是否回车提交 */
+  isKeyPressSubmit?: boolean;
 };
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -101,6 +104,8 @@ export type BaseFormProps<T = Record<string, any>> = {
   onInit?: (values: T) => void;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
+  /** 是否回车提交 */
+  isKeyPressSubmit?: boolean;
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps<T>;
 
@@ -139,6 +144,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     syncToInitialValues = true,
     onReset,
     omitNil = true,
+    isKeyPressSubmit,
     ...rest
   } = props;
 
@@ -324,6 +330,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           <ConfigProvider.SizeContext.Provider value={rest.size}>
             <Form
               onKeyPress={(event) => {
+                if (!isKeyPressSubmit) return;
                 if (event.key === 'Enter') {
                   formRef.current?.submit();
                 }
