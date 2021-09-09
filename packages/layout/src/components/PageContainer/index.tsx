@@ -1,6 +1,6 @@
 import { PageHeader, Tabs, Affix, ConfigProvider, Breadcrumb } from 'antd';
 import type { ReactNode } from 'react';
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import type {
   TabsProps,
@@ -215,11 +215,16 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
   const { breadcrumb } = pageHeaderProps as {
     breadcrumb: BreadcrumbProps;
   };
+  const noHasBreadCrumb =
+    !breadcrumb ||
+    breadcrumbRender === false ||
+    (!breadcrumb?.itemRender && !breadcrumb?.routes?.length);
+
   if (
-    ['title', 'subTitle', 'breadcrumb', 'extra', 'tags', 'footer', 'avatar', 'backIcon'].every(
+    ['title', 'subTitle', 'extra', 'tags', 'footer', 'avatar', 'backIcon'].every(
       (item) => !pageHeaderProps[item],
     ) &&
-    (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.routes?.length)) &&
+    noHasBreadCrumb &&
     !content &&
     !extraContent
   ) {
@@ -267,20 +272,21 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     [`${prefixCls}-page-container-with-footer`]: footer,
   });
 
-  const content = children ? (
-    <div>
-      <div className={`${prefixedClassName}-children-content`}>{children}</div>
-      {value.hasFooterToolbar && (
-        <div
-          style={{
-            height: 48,
-            marginTop: 24,
-          }}
-        />
-      )}
-    </div>
-  ) : null;
-
+  const content = useMemo(() => {
+    return children ? (
+      <>
+        <div className={`${prefixedClassName}-children-content`}>{children}</div>
+        {value.hasFooterToolbar && (
+          <div
+            style={{
+              height: 48,
+              marginTop: 24,
+            }}
+          />
+        )}
+      </>
+    ) : null;
+  }, [children, prefixedClassName, value.hasFooterToolbar]);
   const pageHeaderDom = (
     <ProPageHeader
       {...restProps}
@@ -290,14 +296,15 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     />
   );
 
-  const renderContent = () => {
+  const renderContentDom = useMemo(() => {
     const spinProps = genLoading(loading);
     const dom = spinProps.spinning ? <PageLoading {...spinProps} /> : content;
     if (props.waterMarkProps || value.waterMarkProps) {
       return <WaterMark {...(props.waterMarkProps || value.waterMarkProps)}>{dom}</WaterMark>;
     }
     return dom;
-  };
+  }, [content, loading, props.waterMarkProps, value.waterMarkProps]);
+
   return (
     <div style={style} className={containerClassName}>
       {fixedHeader && pageHeaderDom ? (
@@ -311,7 +318,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
       ) : (
         pageHeaderDom
       )}
-      <GridContent>{renderContent()}</GridContent>
+      {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
       {footer && <FooterToolbar prefixCls={prefixCls}>{footer}</FooterToolbar>}
     </div>
   );

@@ -16,6 +16,15 @@ describe('PageContainer', () => {
     expect(html).toMatchSnapshot();
   });
 
+  it('💄 title,ghost,header,breadcrumbRender = false', async () => {
+    const html = mount(
+      <PageContainer title={false} ghost={false} header={undefined} breadcrumbRender={false}>
+        qixian
+      </PageContainer>,
+    );
+    expect(html.find('.ant-page-header').exists()).toBeFalsy();
+  });
+
   it('⚡️ support footer', async () => {
     const wrapper = mount(
       <PageContainer

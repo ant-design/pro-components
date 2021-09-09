@@ -26,13 +26,6 @@ exports[`PageContainer ⚡️ support fixHeader 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
 </div>
 `;
 
@@ -68,13 +61,6 @@ exports[`PageContainer ⚡️ support fixedHeader 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
 </div>
 `;
 
@@ -103,13 +89,6 @@ exports[`PageContainer ⚡️ support footer 1`] = `
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
   </div>
   <div
     class="ant-pro-footer-bar"
@@ -282,13 +261,6 @@ exports[`PageContainer 🐛 className prop should not be passed to its page head
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
   </div>
 </div>
 `;
@@ -496,32 +468,30 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
             <div
               class="ant-pro-grid-content-children"
             >
-              <div>
+              <div
+                class="ant-pro-page-container-children-content"
+              >
                 <div
-                  class="ant-pro-page-container-children-content"
+                  class="ant-pro-footer-bar"
+                  style="width: 100%;"
                 >
                   <div
-                    class="ant-pro-footer-bar"
-                    style="width: 100%;"
+                    class="ant-pro-footer-bar-left"
+                  />
+                  <div
+                    class="ant-pro-footer-bar-right"
                   >
-                    <div
-                      class="ant-pro-footer-bar-left"
-                    />
-                    <div
-                      class="ant-pro-footer-bar-right"
+                    <button
+                      type="button"
                     >
-                      <button
-                        type="button"
-                      >
-                        qixian
-                      </button>
-                    </div>
+                      qixian
+                    </button>
                   </div>
                 </div>
-                <div
-                  style="height: 48px; margin-top: 24px;"
-                />
               </div>
+              <div
+                style="height: 48px; margin-top: 24px;"
+              />
             </div>
           </div>
         </div>
@@ -564,13 +534,6 @@ exports[`PageContainer 🐲 content is text and title is null 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
 </div>
 `;
 
@@ -609,13 +572,6 @@ exports[`PageContainer 🐲 content is text and title is null 2`] = `
       </div>
     </div>
   </div>
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
 </div>
 `;
 
@@ -623,13 +579,6 @@ exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
 <div
   class="ant-pro-page-container ant-pro-page-container-with-footer"
 >
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
   <div
     class="ant-pro-footer-bar"
   >
@@ -652,15 +601,7 @@ exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
 exports[`PageContainer 🐲 footer is null, do not render footerToolbar  2`] = `
 <div
   class="ant-pro-page-container"
->
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
-</div>
+/>
 `;
 
 exports[`PageContainer 🐲 footer should know width 1`] = `
@@ -859,13 +800,6 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
                 </div>
               </div>
             </div>
-          </div>
-          <div
-            class="ant-pro-grid-content"
-          >
-            <div
-              class="ant-pro-grid-content-children"
-            />
           </div>
           <div
             class="ant-pro-footer-bar"
@@ -1211,13 +1145,6 @@ exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
               </div>
             </div>
           </div>
-          <div
-            class="ant-pro-grid-content"
-          >
-            <div
-              class="ant-pro-grid-content-children"
-            />
-          </div>
         </div>
       </main>
     </div>
@@ -1251,28 +1178,13 @@ exports[`PageContainer 💄 base use 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
 </div>
 `;
 
 exports[`PageContainer 💄 config is null 1`] = `
 <div
   class="ant-pro-page-container"
->
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
-  </div>
-</div>
+/>
 `;
 
 exports[`PageContainer 🔥 footer bar support extra 1`] = `
@@ -1350,13 +1262,6 @@ exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
         </div>
       </div>
     </div>
-  </div>
-  <div
-    class="ant-pro-grid-content"
-  >
-    <div
-      class="ant-pro-grid-content-children"
-    />
   </div>
   <div
     class="ant-pro-footer-bar"
