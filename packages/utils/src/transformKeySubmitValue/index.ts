@@ -42,9 +42,8 @@ const transformKeySubmitValue = <T = any>(
     Object.keys(tempValues).forEach((entityKey) => {
       const key = parentsKey ? [parentsKey, entityKey].flat(1) : [entityKey].flat(1);
       const itemValue = tempValues[entityKey];
-
+      const transformFunction = get(dataFormatMap, key);
       const transform = () => {
-        const transformFunction = get(dataFormatMap, key);
         const tempKey =
           typeof transformFunction === 'function'
             ? transformFunction?.(itemValue, entityKey, tempValues)
@@ -65,7 +64,7 @@ const transformKeySubmitValue = <T = any>(
       };
 
       /** 如果存在转化器提前渲染一下 */
-      if (get(dataFormatMap, key)) {
+      if (transformFunction && typeof transformFunction === 'function') {
         transform();
       }
 
@@ -80,7 +79,9 @@ const transformKeySubmitValue = <T = any>(
           return;
         }
         result = namePathSet(result, [entityKey], genValues);
+        return;
       }
+      transform();
     });
     // namePath、transform在omit为false时需正常返回 https://github.com/ant-design/pro-components/issues/2901#issue-908097115
     return omit ? result : tempValues;
