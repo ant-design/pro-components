@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.25.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.3...@ant-design/pro-layout@6.25.4) (2021-09-10)
+
+### Bug Fixes
+
+- **layout:** remove extra dom node ([#3631](https://github.com/ant-design/pro-components/issues/3631)) ([d89667e](https://github.com/ant-design/pro-components/commit/d89667e3408475acf3c76ccbf0968ef603790053))
+
 ## [6.25.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.2...@ant-design/pro-layout@6.25.3) (2021-09-09)
 
 **Note:** Version bump only for package @ant-design/pro-layout
