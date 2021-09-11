@@ -117,7 +117,7 @@ return (props) => (
   <ProLayout
     {...props}
     // 将面包屑显示在顶部
-    headerContentRender={) => {
+    headerContentRender={() => {
       return <ProBreadcrumb/>;
     }}
   />
