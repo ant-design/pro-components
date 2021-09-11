@@ -24,6 +24,7 @@ const DragHandle = handleCreator(
 
 function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
   const {
+    rowKey,
     dragSortKey,
     dragSortHandlerRender,
     onDragSortEnd,
@@ -44,6 +45,7 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
     dragSortKey,
     onDragSortEnd,
     components: props.components,
+    rowKey,
   });
 
   // 重写列配置的render,并在卸载时恢复原始render
@@ -72,6 +74,7 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
   return handleColumn ? (
     <ProTable
       {...otherProps}
+      rowKey={rowKey}
       dataSource={oriDs}
       components={components}
       columns={columns}
@@ -81,6 +84,7 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
     /* istanbul ignore next */
     <ProTable
       {...otherProps}
+      rowKey={rowKey}
       dataSource={oriDs}
       columns={columns}
       onDataSourceChange={onDataSourceChange}

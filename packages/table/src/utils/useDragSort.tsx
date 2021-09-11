@@ -9,6 +9,7 @@ export interface UseDragSortOptions<T> {
   onDragSortEnd?: (newDataSource: T[]) => Promise<void> | void;
   dragSortKey?: string;
   components?: TableComponents<T>;
+  rowKey: any;
 }
 export function useDragSort<T>(props: UseDragSortOptions<T>) {
   const { data = [], onDragSortEnd, dragSortKey } = props;
@@ -44,7 +45,10 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
   const DraggableBodyRow = (p: any) => {
     const { className: DraggableBodyRowClassName, style: DraggableBodyRowStyle, ...restProps } = p;
     // function findIndex base on Table rowKey props and should always be a right array index
-    const index = data.findIndex((x: any) => x.index === restProps['data-row-key']);
+    console.log(restProps);
+    const index = data.findIndex(
+      (x: any) => x[props.rowKey ?? 'index'] === restProps['data-row-key'],
+    );
     return <SortableItem index={index} {...restProps} />;
   };
 
