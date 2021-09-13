@@ -23306,7 +23306,7 @@ Array [
                         class="ant-table-tbody"
                       >
                         <tr
-                          data-row-key="0"
+                          data-row-key="key1"
                         >
                           <td
                             class="ant-table-cell"
@@ -23354,7 +23354,7 @@ Array [
                           </td>
                         </tr>
                         <tr
-                          data-row-key="1"
+                          data-row-key="key2"
                         >
                           <td
                             class="ant-table-cell"
@@ -23402,7 +23402,7 @@ Array [
                           </td>
                         </tr>
                         <tr
-                          data-row-key="2"
+                          data-row-key="key3"
                         >
                           <td
                             class="ant-table-cell"
