@@ -3,12 +3,14 @@ import zhLocal from './zh-CN';
 import zhTWLocal from './zh-TW';
 import enUSLocal from './en-US';
 import itITLocal from './it-IT';
+import koKRLocal from './ko-KR';
 
 const locales = {
   'zh-CN': zhLocal,
   'zh-TW': zhTWLocal,
   'en-US': enUSLocal,
   'it-IT': itITLocal,
+  'ko-KR': koKRLocal,
 };
 
 type GLocaleWindow = {
