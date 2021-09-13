@@ -4,7 +4,7 @@ import ProField from '../Field';
 import { dateArrayFormatter } from '@ant-design/pro-utils';
 import type { ProFormFieldItemProps } from '../../interface';
 
-const valueType = 'dateRange';
+const valueType = 'dateRange' as const;
 
 /**
  * 日期区间选择组件

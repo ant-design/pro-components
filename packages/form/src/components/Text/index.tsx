@@ -4,7 +4,7 @@ import type { PasswordProps } from 'antd/lib/input';
 import ProField from '../Field';
 import type { ProFormFieldItemProps } from '../../interface';
 
-const valueType = 'text';
+const valueType = 'text' as const;
 /**
  * 文本组件
  *
@@ -26,9 +26,11 @@ const ProFormText: React.FC<ProFormFieldItemProps<InputProps>> = ({
           (rest as any)?.onChange?.(...restParams);
         },
       }}
-      filedConfig={{
-        valueType,
-      }}
+      filedConfig={
+        {
+          valueType,
+        } as const
+      }
       proFieldProps={proFieldProps}
       {...rest}
     />
@@ -46,9 +48,11 @@ const Password: React.FC<ProFormFieldItemProps<PasswordProps>> = ({
       valueType="password"
       fieldProps={fieldProps}
       proFieldProps={proFieldProps}
-      filedConfig={{
-        valueType,
-      }}
+      filedConfig={
+        {
+          valueType,
+        } as const
+      }
       {...rest}
     />
   );

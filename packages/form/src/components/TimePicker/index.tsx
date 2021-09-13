@@ -4,7 +4,7 @@ import type { DatePickerProps } from 'antd';
 import type { ProFormFieldItemProps } from '../../interface';
 import { dateArrayFormatter } from '@ant-design/pro-utils';
 
-const valueType = 'time';
+const valueType = 'time' as const;
 
 /** 时间区间选择器 */
 const TimeRangePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = React.forwardRef(
@@ -15,10 +15,12 @@ const TimeRangePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = React.
       fieldProps={fieldProps}
       valueType="timeRange"
       proFieldProps={proFieldProps}
-      filedConfig={{
-        valueType: 'timeRange',
-        lightFilterLabelFormatter: (value) => dateArrayFormatter(value, 'HH:mm:SS'),
-      }}
+      filedConfig={
+        {
+          valueType: 'timeRange',
+          lightFilterLabelFormatter: (value) => dateArrayFormatter(value, 'HH:mm:SS'),
+        } as const
+      }
       {...rest}
     />
   ),
@@ -39,10 +41,12 @@ const ProFormTimePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
     fieldProps={fieldProps}
     valueType={valueType}
     proFieldProps={proFieldProps}
-    filedConfig={{
-      customLightMode: true,
-      valueType,
-    }}
+    filedConfig={
+      {
+        customLightMode: true,
+        valueType,
+      } as const
+    }
     {...rest}
   />
 );

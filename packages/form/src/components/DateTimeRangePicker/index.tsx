@@ -5,7 +5,7 @@ import type { RangePickerProps } from 'antd/lib/date-picker/generatePicker';
 import type { Moment } from 'moment';
 import type { ProFormFieldItemProps } from '../../interface';
 
-const valueType = 'dateTimeRange';
+const valueType = 'dateTimeRange' as const;
 
 /**
  * 日期时间区间选择组件
