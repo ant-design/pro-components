@@ -30,7 +30,7 @@ export default {
   'app.setting.hideheader': '스크롤 중 헤더 감추기',
   'app.setting.hideheader.hint': '\'헤더 감추기 옵션\'을 선택했을 때 동작함',
   'app.setting.othersettings': '다른 설정',
-  'app.setting.weakmode': 'Weak 모드',
+  'app.setting.weakmode': '고대비 모드',
   'app.setting.copy': '설정값 복사',
   'app.setting.loading': '테마 로딩 중',
   'app.setting.copyinfo': '복사 성공. src/models/settings.js에 있는 defaultSettings를 교체해 주세요.',
