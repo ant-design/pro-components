@@ -15,7 +15,7 @@ export default {
   'app.setting.themecolor.geekblue': 'Geek Blue',
   'app.setting.themecolor.purple': 'Golden Purple',
   'app.setting.navigationmode': '네비게이션 모드',
-  'app.setting.regionalsettings': '지역별 설정',
+  'app.setting.regionalsettings': '영역별 설정',
   'app.setting.regionalsettings.header': '헤더',
   'app.setting.regionalsettings.menu': '메뉴',
   'app.setting.regionalsettings.footer': '바닥글',
