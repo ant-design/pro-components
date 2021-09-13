@@ -95,9 +95,17 @@ RTL means right-to-left.
 
 <code src="./demos/drag.tsx" background="#f5f5f5" height="360px" title="拖拽排序" />
 
-### 内部集成拖拽排序的可编辑表格
+### 内部集成拖拽排序的可编辑表格`DragSortTable`
 
 <code src="./demos/drag-sort-table.tsx" background="#f5f5f5" height="360px" title="可编辑表格" />
+
+`DragSortTable`排序采用的[react-sortable-hoc](https://www.npmjs.com/package/react-sortable-hoc)，需要提供`rowKey`来确定数据的唯一值，否则不能正常工作。暂不支持`request`请求的数据进行排序，可将`request`请求的数据存起来通过`dataSource`传入。
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| dragSortKey | 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序 | `any` | - |
+| dragSortHandlerRender | 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标 | `(rowData: T, idx: number) => React.ReactNode` | `<MenuOutlined className="dragSortDefaultHandle" style={{ cursor: 'grab', color: '#999' }} />` |
+| onDragSortEnd | 拖动排序完成回调 | `(newDataSource: T[]) => Promise<void> \| void` | - |
 
 ### 搜索表单自定义
 
