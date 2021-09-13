@@ -131,9 +131,6 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         parser={(value) =>
           value ? value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '') : ''
         }
-        style={{
-          width: '100%',
-        }}
         placeholder={placeholder}
         {...fieldProps}
       />
