@@ -48,21 +48,21 @@ const columns2: ProColumns[] = [
 
 const data = [
   {
-    key: '1',
+    key: 'key1',
     name: 'John Brown',
     age: 32,
     address: 'New York No. 1 Lake Park',
     index: 0,
   },
   {
-    key: '2',
+    key: 'key2',
     name: 'Jim Green',
     age: 42,
     address: 'London No. 1 Lake Park',
     index: 1,
   },
   {
-    key: '3',
+    key: 'key3',
     name: 'Joe Black',
     age: 32,
     address: 'Sidney No. 1 Lake Park',
@@ -96,7 +96,7 @@ export default () => {
       <DragSortTable
         headerTitle="拖拽排序(默认把手)"
         columns={columns}
-        rowKey="index"
+        rowKey="key"
         pagination={false}
         dataSource={dataSource1}
         dragSortKey="sort"
