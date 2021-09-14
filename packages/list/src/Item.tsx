@@ -150,7 +150,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
 
   const className = classNames(
     {
-      [`${propsClassName}-selected`]: selected,
+      [`${propsClassName}-selected`]: !cardProps && selected,
       [`${propsClassName}-show-action-hover`]: showActions === 'hover',
       [`${propsClassName}-type-${type}`]: !!type,
       [`${propsClassName}-editable`]: isEditable,
@@ -253,16 +253,37 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       bordered
       loading={loading}
       {...cardProps}
-      title={
-        <>
-          <Avatar size={22} src={avatar} className={getPrefixCls('list-item-meta-avatar')} />
-          {title}
-        </>
-      }
+      {...(itemTitleRender
+        ? {}
+        : {
+            title: (
+              <>
+                <Avatar size={22} src={avatar} className={getPrefixCls('list-item-meta-avatar')} />
+                {title}
+              </>
+            ),
+          })}
       subTitle={subTitle}
       extra={actionsDom}
     >
-      {content}
+      <Skeleton avatar title={false} loading={loading} active>
+        <div className={`${className}-header`}>
+          <div className={`${className}-header-option`}>
+            {!!checkbox && <div className={`${className}-checkbox`}>{checkbox}</div>}
+            {Object.values(expandableConfig || {}).length > 0 &&
+              rowSupportExpand &&
+              renderExpandIcon({
+                prefixCls,
+                expandIcon,
+                onExpand,
+                expanded,
+                record,
+              })}
+          </div>
+          {itemTitleRender && itemTitleRender?.(record, index, titleDom)}
+          {content}
+        </div>
+      </Skeleton>
     </ProCard>
   );
   return (
