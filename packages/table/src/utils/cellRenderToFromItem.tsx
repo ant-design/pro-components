@@ -76,7 +76,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
     valueType: valueType as ProFieldValueType,
     proFieldProps: {
       emptyText: config.columnEmptyText,
-      proFieldKey: `table-field-${columnProps?.dataIndex?.toString() || columnProps?.key}`,
+      proFieldKey: `table-field-${columnProps?.key || columnProps?.dataIndex?.toString()}`,
     },
   };
 
