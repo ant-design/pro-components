@@ -264,18 +264,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     >
       <Skeleton avatar title={false} loading={loading} active>
         <div className={`${className}-header`}>
-          <div className={`${className}-header-option`}>
-            {!!checkbox && <div className={`${className}-checkbox`}>{checkbox}</div>}
-            {Object.values(expandableConfig || {}).length > 0 &&
-              rowSupportExpand &&
-              renderExpandIcon({
-                prefixCls,
-                expandIcon,
-                onExpand,
-                expanded,
-                record,
-              })}
-          </div>
+          {!!checkbox && <div className={`${className}-checkbox`}>{checkbox}</div>}
           {itemTitleRender && itemTitleRender?.(record, index, titleDom)}
           {content}
         </div>
