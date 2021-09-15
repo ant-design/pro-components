@@ -11034,6 +11034,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                       <col />
                       <col />
                       <col />
+                      <col />
                       <col
                         style="width: 120px;"
                       />
@@ -11045,7 +11046,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                         <th
                           class="ant-table-cell"
                         >
-                          应用名称
+                          名称
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          状态
                         </th>
                         <th
                           class="ant-table-cell ant-table-column-has-sorters"
@@ -11110,7 +11116,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                         <th
                           class="ant-table-cell"
                         >
-                          创建者
+                          创建人
                         </th>
                         <th
                           class="ant-table-cell"
@@ -11132,6 +11138,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                           <a>
                             AppName
                           </a>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          成功
                         </td>
                         <td
                           class="ant-table-cell"
@@ -11207,6 +11218,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                         </td>
                         <td
                           class="ant-table-cell"
+                        >
+                          成功
+                        </td>
+                        <td
+                          class="ant-table-cell"
                           style="text-align: right;"
                         >
                           16
@@ -11276,6 +11292,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                           <a>
                             AppName
                           </a>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          成功
                         </td>
                         <td
                           class="ant-table-cell"
@@ -11351,6 +11372,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                         </td>
                         <td
                           class="ant-table-cell"
+                        >
+                          成功
+                        </td>
+                        <td
+                          class="ant-table-cell"
                           style="text-align: right;"
                         >
                           16
@@ -11420,6 +11446,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                           <a>
                             AppName
                           </a>
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                        >
+                          成功
                         </td>
                         <td
                           class="ant-table-cell"
