@@ -41,6 +41,7 @@ export default () => {
         <ProFormText
           width="md"
           name="name"
+          required
           addonBefore={<a>客户名称应该怎么获得？</a>}
           addonAfter={<a>点击查看更多</a>}
           label="签约客户名称"
