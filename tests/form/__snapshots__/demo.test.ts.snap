@@ -2780,7 +2780,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-start"
             >
               <div
                 class="ant-space-item"
@@ -4731,7 +4731,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-space ant-space-horizontal ant-space-align-start"
           >
             <div
               class="ant-space-item"
@@ -5064,7 +5064,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/f
           class="ant-form-item-control-input-content"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
+            class="ant-space ant-space-horizontal ant-space-align-start"
           >
             <div
               class="ant-space-item"
@@ -9512,7 +9512,7 @@ Array [
                                   class="ant-form-item-control-input-content"
                                 >
                                   <div
-                                    class="ant-space ant-space-horizontal ant-space-align-center"
+                                    class="ant-space ant-space-horizontal ant-space-align-start"
                                   >
                                     <div
                                       class="ant-space-item"
@@ -19092,7 +19092,7 @@ Array [
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center"
+              class="ant-space ant-space-horizontal ant-space-align-start"
             >
               <div
                 class="ant-space-item"
@@ -20273,7 +20273,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                 class="ant-form-item-control-input-content"
               >
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
+                  class="ant-space ant-space-horizontal ant-space-align-start"
                 >
                   <div
                     class="ant-space-item"

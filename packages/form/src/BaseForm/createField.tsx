@@ -180,7 +180,10 @@ function createField<P extends ProFormFieldItemProps = any>(
       </ProFormItem>
     );
   };
-
+  // 标记是否是 proform 的组件
+  // @ts-ignore
+  // eslint-disable-next-line no-param-reassign
+  FieldWithContext.displayName = 'ProFormComponent';
   return FieldWithContext as ProFormComponent<P, ExtendsProps>;
 }
 

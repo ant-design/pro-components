@@ -59,10 +59,12 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
 
   if (!React.isValidElement(filedChildren)) return filedChildren as JSX.Element;
 
-  const finalChange = (...restParams: any[]) => {
-    if (!fieldProps) onChange?.(...restParams);
-    filedChildren?.props?.onChange?.(...restParams);
-  };
+  const finalChange = fieldProps
+    ? undefined
+    : (...restParams: any[]) => {
+        onChange?.(...restParams);
+        filedChildren?.props?.onChange?.(...restParams);
+      };
 
   return React.cloneElement(
     filedChildren,

@@ -19,13 +19,7 @@ const ProFormText: React.FC<ProFormFieldItemProps<InputProps>> = ({
     <ProField
       mode="edit"
       valueType={valueType}
-      fieldProps={{
-        ...fieldProps,
-        onChange: (...restParams: any) => {
-          (fieldProps?.onChange as any)?.(...restParams);
-          (rest as any)?.onChange?.(...restParams);
-        },
-      }}
+      fieldProps={fieldProps}
       filedConfig={
         {
           valueType,
@@ -63,5 +57,9 @@ const WrappedProFormText: typeof ProFormText & {
 } = ProFormText as any;
 
 WrappedProFormText.Password = Password;
+
+// @ts-ignore
+// eslint-disable-next-line no-param-reassign
+WrappedProFormText.displayName = 'ProFormComponent';
 
 export default WrappedProFormText;

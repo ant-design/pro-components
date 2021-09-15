@@ -17,13 +17,7 @@ const ProFormTextArea: React.ForwardRefRenderFunction<any, ProFormFieldItemProps
       ref={ref}
       mode="edit"
       valueType="textarea"
-      fieldProps={{
-        ...fieldProps,
-        onChange: (...restParams: any) => {
-          (fieldProps?.onChange as any)?.(...restParams);
-          (rest as any)?.onChange?.(...restParams);
-        },
-      }}
+      fieldProps={fieldProps}
       proFieldProps={proFieldProps}
       {...rest}
     />

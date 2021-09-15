@@ -67,4 +67,8 @@ WrappedProFormRadio.Group = RadioGroup;
 
 WrappedProFormRadio.Button = Radio.Button;
 
+// @ts-ignore
+// eslint-disable-next-line no-param-reassign
+WrappedProFormRadio.displayName = 'ProFormComponent';
+
 export default WrappedProFormRadio;

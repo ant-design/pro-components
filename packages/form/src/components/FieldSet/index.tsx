@@ -48,29 +48,34 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
     if (React.isValidElement(item)) {
       itemIndex += 1;
       const index = itemIndex;
-      // @ts-ignore
-      const isProFromItem = item?.type?.displayName !== 'ProFormComponent';
-      return React.cloneElement(item, {
-        key: index,
-        ignoreFormItem: true,
-        ...((item.props as any) || {}),
-        // 如果不是我们自定义的组件 fieldProps 无法识别
-        fieldProps: !isProFromItem
-          ? undefined
-          : {
+      const isProFromItem =
+        // @ts-ignore
+        item?.type?.displayName === 'ProFormComponent' || item?.props?.readonly;
+      const forkProps = isProFromItem
+        ? {
+            key: index,
+            ignoreFormItem: true,
+            ...((item.props as any) || {}),
+            // 如果不是我们自定义的组件 fieldProps 无法识别
+            fieldProps: {
               ...(item?.props as any)?.fieldProps,
               onChange: (...restParams: any) => {
                 fieldSetOnChange(restParams[0], index);
               },
             },
-        value: value[index],
-        onChange: isProFromItem
-          ? undefined
-          : (itemValue: any) => {
+            value: value[index],
+            onChange: undefined,
+          }
+        : {
+            key: index,
+            ...((item.props as any) || {}),
+            value: value[index],
+            onChange: (itemValue: any) => {
               fieldSetOnChange(itemValue, index);
               (item as any).props.onChange?.(itemValue);
             },
-      });
+          };
+      return React.cloneElement(item, forkProps);
     }
     return item;
   });
@@ -79,7 +84,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   /** Input.Group 需要配置 compact */
   const typeProps = { ...(type === 'group' ? { compact: true } : {}) };
   return (
-    <Components {...typeProps} {...(space as SpaceProps)}>
+    <Components {...typeProps} {...(space as SpaceProps)} align="start">
       {list}
     </Components>
   );
@@ -89,7 +94,14 @@ const ProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> = React.fo
   ({ children, space, valuePropName, ...rest }, ref) => {
     useImperativeHandle(ref, () => {}, []);
     return (
-      <FieldSet space={space} valuePropName={valuePropName} {...rest.fieldProps} {...rest}>
+      <FieldSet
+        space={space}
+        valuePropName={valuePropName}
+        {...rest.fieldProps}
+        // 把 fieldProps 里的重置掉
+        onChange={undefined}
+        {...rest}
+      >
         {children}
       </FieldSet>
     );
