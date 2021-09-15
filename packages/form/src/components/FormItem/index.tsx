@@ -26,6 +26,7 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
     value,
     onChange,
     onBlur,
+    ignoreFormItem,
     valuePropName = 'value',
     ...restProps
   } = formFieldProps;
@@ -58,16 +59,18 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
 
   if (!React.isValidElement(filedChildren)) return filedChildren as JSX.Element;
 
+  const finalChange = (...restParams: any[]) => {
+    if (!fieldProps) onChange?.(...restParams);
+    filedChildren?.props?.onChange?.(...restParams);
+  };
+
   return React.cloneElement(
     filedChildren,
     omitUndefined({
       ...restProps,
       value,
       ...filedChildren.props,
-      onChange: (...restParams: any[]) => {
-        onChange?.(...restParams);
-        filedChildren?.props?.onChange?.(...restParams);
-      },
+      onChange: finalChange,
       fieldProps,
     }),
   );
@@ -215,6 +218,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   if (ignoreFormItem) {
     return <>{lightDom}</>;
   }
+
   return (
     <WarpFormItem {...rest} name={name}>
       {lightDom}

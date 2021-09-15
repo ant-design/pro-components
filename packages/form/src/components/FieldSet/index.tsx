@@ -32,6 +32,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   value = [],
   valuePropName,
   onChange,
+  fieldProps,
   space,
   type = 'space',
 }) => {
@@ -39,6 +40,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
     const newValues = [...value];
     newValues[index] = defaultGetValueFromEvent(valuePropName || 'value', fileValue);
     onChange?.(newValues);
+    fieldProps?.onChange?.(newValues);
   };
 
   let itemIndex = -1;
@@ -46,23 +48,28 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
     if (React.isValidElement(item)) {
       itemIndex += 1;
       const index = itemIndex;
+      // @ts-ignore
+      const isProFromItem = item?.type?.displayName !== 'ProFormComponent';
       return React.cloneElement(item, {
         key: index,
         ignoreFormItem: true,
         ...((item.props as any) || {}),
-        fieldProps: {
-          ...(item?.props as any)?.fieldProps,
-          onChange: (...restParams: any) => {
-            (item.props as any)?.fieldProps?.onChange?.(...restParams);
-            (item.props as any)?.onChange?.(...restParams);
-            fieldSetOnChange(restParams[0], index);
-          },
-        },
+        // 如果不是我们自定义的组件 fieldProps 无法识别
+        fieldProps: !isProFromItem
+          ? undefined
+          : {
+              ...(item?.props as any)?.fieldProps,
+              onChange: (...restParams: any) => {
+                fieldSetOnChange(restParams[0], index);
+              },
+            },
         value: value[index],
-        onChange: (itemValue: any) => {
-          fieldSetOnChange(itemValue, index);
-          (item as any).props.onChange?.(itemValue);
-        },
+        onChange: isProFromItem
+          ? undefined
+          : (itemValue: any) => {
+              fieldSetOnChange(itemValue, index);
+              (item as any).props.onChange?.(itemValue);
+            },
       });
     }
     return item;
