@@ -45,7 +45,7 @@ describe('ProFormFieldSet', () => {
     });
     await waitForComponentToPaint(html);
     expect(valueFn).toBeCalledWith(['111']);
-
+    expect(valueFn).toBeCalledTimes(1);
     act(() => {
       html.find('textarea#filedSet3').simulate('change', {
         target: {
