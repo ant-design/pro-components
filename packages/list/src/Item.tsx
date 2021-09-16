@@ -256,7 +256,9 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       title={
         avatar || title ? (
           <>
-            <Avatar size={22} src={avatar} className={getPrefixCls('list-item-meta-avatar')} />
+            {avatar && (
+              <Avatar size={22} src={avatar} className={getPrefixCls('list-item-meta-avatar')} />
+            )}
             {title}
           </>
         ) : null
