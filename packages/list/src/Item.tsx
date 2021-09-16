@@ -254,10 +254,14 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       loading={loading}
       {...cardProps}
       title={
-        <>
-          <Avatar size={22} src={avatar} className={getPrefixCls('list-item-meta-avatar')} />
-          {title}
-        </>
+        (avatar || title) && (
+          <>
+            {avatar && (
+              <Avatar size={22} src={avatar} className={getPrefixCls('list-item-meta-avatar')} />
+            )}
+            {title}
+          </>
+        )
       }
       subTitle={subTitle}
       extra={actionsDom}
