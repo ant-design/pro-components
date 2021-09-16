@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.25.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.4...@ant-design/pro-layout@6.25.5) (2021-09-16)
+
+### Bug Fixes
+
+- [#3651](https://github.com/ant-design/pro-components/issues/3651) 修复金额输入组件设置 width 无效的问题 ([#3654](https://github.com/ant-design/pro-components/issues/3654)) ([ef72dba](https://github.com/ant-design/pro-components/commit/ef72dbae77a77a5831a6056d4194ac3524f7afe8))
+- **ProLayout:** headerContentRender example function. ([#3645](https://github.com/ant-design/pro-components/issues/3645)) ([5702344](https://github.com/ant-design/pro-components/commit/570234447da415dd582fb25c7257763812f9d1a5))
+
 ## [6.25.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.3...@ant-design/pro-layout@6.25.4) (2021-09-10)
 
 ### Bug Fixes

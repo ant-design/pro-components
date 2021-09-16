@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.53.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.53.1...@ant-design/pro-table@2.53.2) (2021-09-16)
+
+### Bug Fixes
+
+- **ProTable:** proFieldProps.proFieldKey custom key should priority over dataIndex ([#3665](https://github.com/ant-design/pro-components/issues/3665)) ([e074174](https://github.com/ant-design/pro-components/commit/e074174e84685266878ea0246c6a89db3082892c)), closes [#3658](https://github.com/ant-design/pro-components/issues/3658)
+
 ## [2.53.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.53.0...@ant-design/pro-table@2.53.1) (2021-09-10)
 
 **Note:** Version bump only for package @ant-design/pro-table

@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.40.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.40.0...@ant-design/pro-form@1.40.1) (2021-09-16)
+
+### Bug Fixes
+
+- **form:** fix the problem of multiple calls ([#3676](https://github.com/ant-design/pro-components/issues/3676)) ([cd43748](https://github.com/ant-design/pro-components/commit/cd43748c61c26b26386ffd7796cd802d5c41dc10))
+- **form:** fix the problem of repeated prompts ([#3671](https://github.com/ant-design/pro-components/issues/3671)) ([089226f](https://github.com/ant-design/pro-components/commit/089226f6af593d07caecef2d24c3d26ef3817810))
+- [#3651](https://github.com/ant-design/pro-components/issues/3651) 修复金额输入组件设置 width 无效的问题 ([#3654](https://github.com/ant-design/pro-components/issues/3654)) ([ef72dba](https://github.com/ant-design/pro-components/commit/ef72dbae77a77a5831a6056d4194ac3524f7afe8))
+
 # [1.40.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.39.1...@ant-design/pro-form@1.40.0) (2021-09-10)
 
 ### Features
