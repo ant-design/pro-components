@@ -164,9 +164,36 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
 
   params?: U;
 
+  /**
+   * 列状态配置，可以配置是否浮动和是否展示
+   *
+   * @deprecated 请使用 columnsState.value 代替
+   */
   columnsStateMap?: Record<string, ColumnsState>;
-
+  /**
+   * 列状态配置修改触发事件
+   *
+   * @deprecated 请使用 columnsState.onChange 代替
+   */
   onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
+
+  /** 列状态的配置，可以用来操作列功能 */
+  columnsState?: {
+    /**
+     * 持久化的类型，支持 localStorage 和 sessionStorage
+     *
+     * @param localStorage 设置在关闭浏览器后也是存在的
+     * @param sessionStorage 关闭浏览器后会丢失
+     */
+    persistenceType?: 'localStorage' | 'sessionStorage';
+    /** 持久化的key，用于存储到 storage 中 */
+    persistenceKey?: string;
+    /** ColumnsState 的值，columnsStateMap将会废弃 */
+    defaultValue?: Record<string, ColumnsState>;
+    /** ColumnsState 的值，columnsStateMap将会废弃 */
+    value?: Record<string, ColumnsState>;
+    onChange?: (map: Record<string, ColumnsState>) => void;
+  };
 
   onSizeChange?: (size: DensitySize) => void;
 

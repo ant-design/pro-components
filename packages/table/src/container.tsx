@@ -1,5 +1,5 @@
 import { createContainer } from 'unstated-next';
-import { useState, useRef, useMemo } from 'react';
+import { useState, useCallback, useRef, useMemo, useEffect } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { ProTableProps } from './index';
@@ -21,6 +21,7 @@ export type UseContainerProps<T = any> = {
   defaultSize?: DensitySize;
   onSizeChange?: (size: DensitySize) => void;
   columns?: TableColumnType<T>[];
+  columnsState?: ProTableProps<any, any, any>['columnsState'];
 };
 
 function useContainer(props: UseContainerProps = {}) {
@@ -58,12 +59,63 @@ function useContainer(props: UseContainerProps = {}) {
   }, [props.columns]);
 
   const [columnsMap, setColumnsMap] = useMergedState<Record<string, ColumnsState>>(
-    () => props.columnsStateMap || defaultColumnKeyMap,
+    () => {
+      const { persistenceType, persistenceKey } = props.columnsState || {};
+
+      if (persistenceKey && persistenceType && typeof window !== 'undefined') {
+        /** 从持久化中读取数据 */
+        const storage = window[persistenceType];
+        try {
+          const storageValue = storage?.getItem(persistenceKey);
+          if (storageValue) {
+            return JSON.parse(storageValue);
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      return (
+        props.columnsStateMap ||
+        props.columnsState?.value ||
+        props.columnsState?.defaultValue ||
+        defaultColumnKeyMap
+      );
+    },
     {
-      value: props.columnsStateMap,
-      onChange: props.onColumnsStateChange,
+      value: props.columnsState?.value || props.columnsStateMap,
+      onChange: props.columnsState?.onChange || props.onColumnsStateChange,
     },
   );
+
+  /** 清空一下当前的 key */
+  const clearPersistenceStorage = useCallback(() => {
+    const { persistenceType, persistenceKey } = props.columnsState || {};
+
+    if (!persistenceKey || !persistenceType || typeof window === 'undefined') return;
+    /** 给持久化中设置数据 */
+    const storage = window[persistenceType];
+    try {
+      storage?.removeItem(persistenceKey);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [props.columnsState]);
+
+  useEffect(() => {
+    if (!props.columnsState?.persistenceKey || !props.columnsState?.persistenceType) {
+      return;
+    }
+    if (typeof window === 'undefined') return;
+    /** 给持久化中设置数据 */
+    const { persistenceType, persistenceKey } = props.columnsState;
+    const storage = window[persistenceType];
+    try {
+      storage?.setItem(persistenceKey, JSON.stringify(columnsMap));
+    } catch (error) {
+      console.error(error);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.columnsState?.persistenceKey, columnsMap, props.columnsState?.persistenceType]);
 
   return {
     action: actionRef,
@@ -86,6 +138,7 @@ function useContainer(props: UseContainerProps = {}) {
     },
     setColumnsMap,
     columns: props.columns,
+    clearPersistenceStorage,
   };
 }
 

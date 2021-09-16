@@ -145,6 +145,107 @@ describe('Table ColumnSetting', () => {
     expect(callBack).toBeCalled();
   });
 
+  it('🎏 columnSetting columnsState.value props', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        columnsState={{
+          value: {
+            index: { fixed: 'left' },
+            Age: { show: false },
+            option: { fixed: 'right' },
+          },
+        }}
+        columns={columns}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
+      icon.simulate('click');
+    });
+    await waitForComponentToPaint(html);
+    let overlay = html.find(
+      '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
+    );
+    expect(overlay.length).toBe(3);
+
+    act(() => {
+      html.setProps({
+        columnsState: {
+          value: {
+            index: { fixed: 'left' },
+          },
+        },
+      });
+    });
+    await waitForComponentToPaint(html);
+    overlay = html.find(
+      '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
+    );
+    expect(overlay.length).toBe(2);
+  });
+
+  it('🎏 columnSetting columnsState.onChange', async () => {
+    const callBack = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columnsState={{
+          value: {
+            index: { fixed: 'left' },
+            Age: { show: false },
+            option: { fixed: 'right' },
+          },
+          onChange: callBack,
+        }}
+        columns={columns}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
+      icon.simulate('click');
+    });
+    await waitForComponentToPaint(html);
+
+    const reset = html.find('.ant-pro-table-column-setting-title a');
+    act(() => {
+      reset.simulate('click');
+    });
+    await waitForComponentToPaint(html);
+
+    expect(callBack).toBeCalled();
+  });
+
   it('🎏 columnSetting select all', async () => {
     const callBack = jest.fn();
     const html = mount(

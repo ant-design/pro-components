@@ -292,7 +292,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
       key?: any;
     }[] = props.columns;
 
-  const { columnsMap, setColumnsMap } = counter;
+  const { columnsMap, setColumnsMap, clearPersistenceStorage } = counter;
 
   useEffect(() => {
     if (columnsMap) {
@@ -357,6 +357,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           <a
             onClick={() => {
               setColumnsMap(columnRef.current);
+              clearPersistenceStorage?.();
             }}
           >
             {intl.getMessage('tableToolBar.reset', '重置')}

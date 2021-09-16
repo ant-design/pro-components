@@ -326,8 +326,6 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | dateFormatter | 转化 moment 格式数据为特定类型，false 不做转化 | `"string"` \| `"number"` \| `false` | `"string"` |
 | beforeSearchSubmit | 搜索之前进行一些修改 | `(params:T)=>T` | - |
 | onSizeChange | table 尺寸发生改变 | `(size: 'default' \| 'middle' \| 'small') => void` | - |
-| columnsStateMap | columns 的状态枚举 | `{key:{ show,fixed }}}` | - |
-| onColumnsStateChange | columns 状态发生改变 | `(props: {key:{ show,fixed }}}) => void` | - |
 | type | pro-table 类型 | `"form"` | - |
 | form | antd form 的配置 | [FormProps](https://ant.design/components/form-cn/#API) | - |
 | onSubmit | 提交表单时触发 | `(params: U) => void` | - |
