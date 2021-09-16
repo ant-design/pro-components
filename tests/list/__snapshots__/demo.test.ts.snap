@@ -728,35 +728,39 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
-                        style="flex: 1;"
+                        class="ant-pro-list-row-header"
                       >
                         <div
-                          style="width: 200px;"
+                          style="flex: 1;"
                         >
-                          <div>
-                            发布中
-                          </div>
                           <div
-                            class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            style="width: 200px;"
                           >
+                            <div>
+                              发布中
+                            </div>
                             <div
-                              class="ant-progress-outer"
+                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
                             >
                               <div
-                                class="ant-progress-inner"
+                                class="ant-progress-outer"
                               >
                                 <div
-                                  class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
-                                />
+                                  class="ant-progress-inner"
+                                >
+                                  <div
+                                    class="ant-progress-bg"
+                                    style="width: 80%; height: 8px;"
+                                  />
+                                </div>
                               </div>
+                              <span
+                                class="ant-progress-text"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -832,35 +836,39 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
-                        style="flex: 1;"
+                        class="ant-pro-list-row-header"
                       >
                         <div
-                          style="width: 200px;"
+                          style="flex: 1;"
                         >
-                          <div>
-                            发布中
-                          </div>
                           <div
-                            class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            style="width: 200px;"
                           >
+                            <div>
+                              发布中
+                            </div>
                             <div
-                              class="ant-progress-outer"
+                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
                             >
                               <div
-                                class="ant-progress-inner"
+                                class="ant-progress-outer"
                               >
                                 <div
-                                  class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
-                                />
+                                  class="ant-progress-inner"
+                                >
+                                  <div
+                                    class="ant-progress-bg"
+                                    style="width: 80%; height: 8px;"
+                                  />
+                                </div>
                               </div>
+                              <span
+                                class="ant-progress-text"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -936,35 +944,39 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
-                        style="flex: 1;"
+                        class="ant-pro-list-row-header"
                       >
                         <div
-                          style="width: 200px;"
+                          style="flex: 1;"
                         >
-                          <div>
-                            发布中
-                          </div>
                           <div
-                            class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            style="width: 200px;"
                           >
+                            <div>
+                              发布中
+                            </div>
                             <div
-                              class="ant-progress-outer"
+                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
                             >
                               <div
-                                class="ant-progress-inner"
+                                class="ant-progress-outer"
                               >
                                 <div
-                                  class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
-                                />
+                                  class="ant-progress-inner"
+                                >
+                                  <div
+                                    class="ant-progress-bg"
+                                    style="width: 80%; height: 8px;"
+                                  />
+                                </div>
                               </div>
+                              <span
+                                class="ant-progress-text"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -1040,35 +1052,39 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
-                        style="flex: 1;"
+                        class="ant-pro-list-row-header"
                       >
                         <div
-                          style="width: 200px;"
+                          style="flex: 1;"
                         >
-                          <div>
-                            发布中
-                          </div>
                           <div
-                            class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            style="width: 200px;"
                           >
+                            <div>
+                              发布中
+                            </div>
                             <div
-                              class="ant-progress-outer"
+                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
                             >
                               <div
-                                class="ant-progress-inner"
+                                class="ant-progress-outer"
                               >
                                 <div
-                                  class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
-                                />
+                                  class="ant-progress-inner"
+                                >
+                                  <div
+                                    class="ant-progress-bg"
+                                    style="width: 80%; height: 8px;"
+                                  />
+                                </div>
                               </div>
+                              <span
+                                class="ant-progress-text"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -1144,35 +1160,39 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
-                        style="flex: 1;"
+                        class="ant-pro-list-row-header"
                       >
                         <div
-                          style="width: 200px;"
+                          style="flex: 1;"
                         >
-                          <div>
-                            发布中
-                          </div>
                           <div
-                            class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            style="width: 200px;"
                           >
+                            <div>
+                              发布中
+                            </div>
                             <div
-                              class="ant-progress-outer"
+                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
                             >
                               <div
-                                class="ant-progress-inner"
+                                class="ant-progress-outer"
                               >
                                 <div
-                                  class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
-                                />
+                                  class="ant-progress-inner"
+                                >
+                                  <div
+                                    class="ant-progress-bg"
+                                    style="width: 80%; height: 8px;"
+                                  />
+                                </div>
                               </div>
+                              <span
+                                class="ant-progress-text"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -1248,35 +1268,39 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
-                        style="flex: 1;"
+                        class="ant-pro-list-row-header"
                       >
                         <div
-                          style="width: 200px;"
+                          style="flex: 1;"
                         >
-                          <div>
-                            发布中
-                          </div>
                           <div
-                            class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            style="width: 200px;"
                           >
+                            <div>
+                              发布中
+                            </div>
                             <div
-                              class="ant-progress-outer"
+                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
                             >
                               <div
-                                class="ant-progress-inner"
+                                class="ant-progress-outer"
                               >
                                 <div
-                                  class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
-                                />
+                                  class="ant-progress-inner"
+                                >
+                                  <div
+                                    class="ant-progress-bg"
+                                    style="width: 80%; height: 8px;"
+                                  />
+                                </div>
                               </div>
+                              <span
+                                class="ant-progress-text"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -1352,35 +1376,39 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
-                        style="flex: 1;"
+                        class="ant-pro-list-row-header"
                       >
                         <div
-                          style="width: 200px;"
+                          style="flex: 1;"
                         >
-                          <div>
-                            发布中
-                          </div>
                           <div
-                            class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            style="width: 200px;"
                           >
+                            <div>
+                              发布中
+                            </div>
                             <div
-                              class="ant-progress-outer"
+                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
                             >
                               <div
-                                class="ant-progress-inner"
+                                class="ant-progress-outer"
                               >
                                 <div
-                                  class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
-                                />
+                                  class="ant-progress-inner"
+                                >
+                                  <div
+                                    class="ant-progress-bg"
+                                    style="width: 80%; height: 8px;"
+                                  />
+                                </div>
                               </div>
+                              <span
+                                class="ant-progress-text"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
@@ -1456,35 +1484,39 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       style="margin-right: -8px; margin-left: -8px;"
                     >
                       <div
-                        style="flex: 1;"
+                        class="ant-pro-list-row-header"
                       >
                         <div
-                          style="width: 200px;"
+                          style="flex: 1;"
                         >
-                          <div>
-                            发布中
-                          </div>
                           <div
-                            class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
+                            style="width: 200px;"
                           >
+                            <div>
+                              发布中
+                            </div>
                             <div
-                              class="ant-progress-outer"
+                              class="ant-progress ant-progress-line ant-progress-status-normal ant-progress-show-info ant-progress-default"
                             >
                               <div
-                                class="ant-progress-inner"
+                                class="ant-progress-outer"
                               >
                                 <div
-                                  class="ant-progress-bg"
-                                  style="width: 80%; height: 8px;"
-                                />
+                                  class="ant-progress-inner"
+                                >
+                                  <div
+                                    class="ant-progress-bg"
+                                    style="width: 80%; height: 8px;"
+                                  />
+                                </div>
                               </div>
+                              <span
+                                class="ant-progress-text"
+                                title="80%"
+                              >
+                                80%
+                              </span>
                             </div>
-                            <span
-                              class="ant-progress-text"
-                              title="80%"
-                            >
-                              80%
-                            </span>
                           </div>
                         </div>
                       </div>
