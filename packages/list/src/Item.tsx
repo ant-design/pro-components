@@ -150,7 +150,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
 
   const className = classNames(
     {
-      [`${propsClassName}-selected`]: selected,
+      [`${propsClassName}-selected`]: !cardProps && selected,
       [`${propsClassName}-show-action-hover`]: showActions === 'hover',
       [`${propsClassName}-type-${type}`]: !!type,
       [`${propsClassName}-editable`]: isEditable,
@@ -262,7 +262,13 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       subTitle={subTitle}
       extra={actionsDom}
     >
-      {content}
+      <Skeleton avatar title={false} loading={loading} active>
+        <div className={`${className}-header`}>
+          {!!checkbox && <div className={`${className}-checkbox`}>{checkbox}</div>}
+          {itemTitleRender && itemTitleRender?.(record, index, titleDom)}
+          {content}
+        </div>
+      </Skeleton>
     </ProCard>
   );
   return (
