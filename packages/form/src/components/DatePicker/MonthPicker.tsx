@@ -3,7 +3,7 @@ import ProField from '../Field';
 import type { MonthPickerProps } from 'antd/lib/date-picker';
 import type { ProFormFieldItemProps } from '../../interface';
 
-const valueType = 'dateMonth';
+const valueType = 'dateMonth' as const;
 /**
  * 周选择组件
  *

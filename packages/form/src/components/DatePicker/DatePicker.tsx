@@ -3,7 +3,7 @@ import ProFormField from '../Field';
 import type { DatePickerProps } from 'antd';
 import type { ProFormFieldItemProps } from '../../interface';
 
-const valueType = 'date';
+const valueType = 'date' as const;
 /**
  * 日期选择组件
  *

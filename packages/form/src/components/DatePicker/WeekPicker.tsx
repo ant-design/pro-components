@@ -3,7 +3,7 @@ import ProField from '../Field';
 import type { WeekPickerProps } from 'antd/lib/date-picker';
 import type { ProFormFieldItemProps } from '../../interface';
 
-const valueType = 'dateWeek';
+const valueType = 'dateWeek' as const;
 /**
  * 周选择组件
  *

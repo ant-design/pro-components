@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.13.5...@ant-design/pro-list@1.14.0) (2021-09-16)
+
+### Bug Fixes
+
+- **list:** if title=null, no rendeer dom ([c5614a6](https://github.com/ant-design/pro-components/commit/c5614a629e8ba6a86dc04d1fd34472a3dc9a10f4))
+
+### Features
+
+- **list:** card list support selected ([#3666](https://github.com/ant-design/pro-components/issues/3666)) ([282640a](https://github.com/ant-design/pro-components/commit/282640aa488b054103659389497ddc56756e36e0))
+
 ## [1.13.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.13.4...@ant-design/pro-list@1.13.5) (2021-09-10)
 
 **Note:** Version bump only for package @ant-design/pro-list

@@ -2,7 +2,6 @@ import { ConfigProvider } from 'antd';
 import React, { useContext, useMemo } from 'react';
 import type { ProFormProps } from '../ProForm';
 import ProForm from '../ProForm';
-import merge from 'lodash.merge';
 
 import './index.less';
 
@@ -10,30 +9,27 @@ export type LoginFormProps<T> = {
   message: React.ReactNode | false;
   title: React.ReactNode | false;
   subTitle: React.ReactNode | false;
-  submitting: boolean;
   actions: React.ReactNode;
   logo?: React.ReactNode | string;
 } & ProFormProps<T>;
 
 function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
-  const { logo, message, title, subTitle, submitting, actions, children, ...proFormProps } = props;
-  const submitter = merge(
-    {},
-    {
-      searchConfig: {
-        submitText: '登录',
+  const { logo, message, title, subTitle, actions, children, ...proFormProps } = props;
+
+  const submitter = {
+    searchConfig: {
+      submitText: '登录',
+    },
+    render: (_, dom) => dom.pop(),
+    submitButtonProps: {
+      size: 'large',
+      style: {
+        width: '100%',
       },
-      render: (_, dom) => dom.pop(),
-      submitButtonProps: {
-        loading: submitting,
-        size: 'large',
-        style: {
-          width: '100%',
-        },
-      },
-    } as ProFormProps['submitter'],
-    proFormProps.submitter,
-  );
+    },
+    ...proFormProps.submitter,
+  } as ProFormProps['submitter'];
+
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls('pro-form-login');
   const getCls = (className: string) => `${baseClassName}-${className}`;

@@ -3,7 +3,6 @@
 exports[`Field 🐴 base use 1`] = `
 <div
   class="ant-input-number"
-  style="width:100%"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -339,7 +338,6 @@ exports[`Field 🐴 edit and no plain 1`] = `
               >
                 <div
                   class="ant-input-number"
-                  style="width:100%"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -1517,7 +1515,6 @@ exports[`Field 🐴 edit and plain 1`] = `
               >
                 <div
                   class="ant-input-number"
-                  style="width:100%"
                 >
                   <div
                     class="ant-input-number-handler-wrap"
@@ -2439,7 +2436,6 @@ exports[`Field 🐴 edit and plain 1`] = `
 exports[`Field 🐴 money valueType is Object 1`] = `
 <div
   class="ant-input-number"
-  style="width:100%"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -2529,7 +2525,6 @@ exports[`Field 🐴 money valueType is Object 3`] = `
 exports[`Field 🐴 money valueType is Object 4`] = `
 <div
   class="ant-input-number"
-  style="width:100%"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -2619,7 +2614,6 @@ exports[`Field 🐴 money valueType is Object 6`] = `
 exports[`Field 🐴 money valueType is Object 7`] = `
 <div
   class="ant-input-number"
-  style="width:100%"
 >
   <div
     class="ant-input-number-handler-wrap"
@@ -2709,7 +2703,6 @@ exports[`Field 🐴 money valueType is Object 9`] = `
 exports[`Field 🐴 money valueType is Object 10`] = `
 <div
   class="ant-input-number"
-  style="width:100%"
 >
   <div
     class="ant-input-number-handler-wrap"

@@ -26,6 +26,7 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
     value,
     onChange,
     onBlur,
+    ignoreFormItem,
     valuePropName = 'value',
     ...restProps
   } = formFieldProps;
@@ -58,16 +59,20 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
 
   if (!React.isValidElement(filedChildren)) return filedChildren as JSX.Element;
 
+  const finalChange = fieldProps
+    ? undefined
+    : (...restParams: any[]) => {
+        onChange?.(...restParams);
+        filedChildren?.props?.onChange?.(...restParams);
+      };
+
   return React.cloneElement(
     filedChildren,
     omitUndefined({
       ...restProps,
       value,
       ...filedChildren.props,
-      onChange: (...restParams: any[]) => {
-        onChange?.(...restParams);
-        filedChildren?.props?.onChange?.(...restParams);
-      },
+      onChange: finalChange,
       fieldProps,
     }),
   );
@@ -93,10 +98,9 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
   ...props
 }) => {
   const formDom = useMemo(() => {
-    const { rules, ...rest } = props;
     if (!addonAfter && !addonBefore) return <Form.Item {...props}>{children}</Form.Item>;
     return (
-      <Form.Item {...props}>
+      <Form.Item {...props} rules={undefined} name={undefined}>
         <div
           style={{
             display: 'flex',
@@ -105,7 +109,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
         >
           {addonBefore ? <div style={{ marginRight: 8 }}>{addonBefore}</div> : null}
           <div style={{ flex: 1 }}>
-            <Form.Item {...rest} rules={rules?.map((item) => ({ ...item, message: '' }))} noStyle>
+            <Form.Item {...props} noStyle>
               {children}
             </Form.Item>
           </div>
@@ -216,6 +220,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   if (ignoreFormItem) {
     return <>{lightDom}</>;
   }
+
   return (
     <WarpFormItem {...rest} name={name}>
       {lightDom}

@@ -5,6 +5,7 @@ import ProForm, {
   ProFormDateRangePicker,
   ProFormSelect,
   ProFormMoney,
+  ProFormDigit,
 } from '@ant-design/pro-form';
 
 const waitTime = (time: number = 100) => {
@@ -40,6 +41,7 @@ export default () => {
         <ProFormText
           width="md"
           name="name"
+          required
           addonBefore={<a>客户名称应该怎么获得？</a>}
           addonAfter={<a>点击查看更多</a>}
           label="签约客户名称"
@@ -49,7 +51,19 @@ export default () => {
         />
         <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
       </ProForm.Group>
-
+      <ProForm.Group>
+        <ProFormDigit name="count" label="人数" width="lg" />
+      </ProForm.Group>
+      <ProForm.Group>
+        <ProFormMoney
+          label="宽度"
+          name="amount0"
+          locale="en-US"
+          initialValue={22.22}
+          min={0}
+          width="lg"
+        />
+      </ProForm.Group>
       <ProForm.Group>
         <ProFormMoney
           label="限制金额最小为0"
