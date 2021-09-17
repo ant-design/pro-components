@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import type { SelectProps } from 'antd';
 import ProFormField from '../Field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import type { ProFormFieldItemProps } from '../../interface';
+import FieldContext from '../../FieldContext';
 
 export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
   SelectProps<T> & {
@@ -53,6 +54,8 @@ const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps<any>>(
     },
     ref,
   ) => {
+    const context = useContext(FieldContext);
+
     return (
       <ProFormField<any>
         mode="edit"
@@ -66,6 +69,7 @@ const ProFormSelectComponents = React.forwardRef<any, ProFormSelectProps<any>>(
             options,
             mode,
             showSearch,
+            getPopupContainer: context.getPopupContainer,
             ...fieldProps,
           } as SelectProps<any>
         }
@@ -97,6 +101,7 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
       filterOption: false,
       ...fieldProps,
     };
+    const context = useContext(FieldContext);
     return (
       <ProFormField<any>
         mode="edit"
@@ -105,7 +110,7 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
         params={params}
         valueType="select"
         filedConfig={{ customLightMode: true }}
-        fieldProps={props}
+        fieldProps={{ getPopupContainer: context.getPopupContainer, ...props }}
         ref={ref}
         proFieldProps={proFieldProps}
         {...rest}
