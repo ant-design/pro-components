@@ -106,6 +106,9 @@ export type BaseFormProps<T = Record<string, any>> = {
   groupProps?: GroupProps;
   /** 是否回车提交 */
   isKeyPressSubmit?: boolean;
+
+  /** Form 组件的类型，内部使用 */
+  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter';
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps<T>;
 
@@ -139,6 +142,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     form: userForm,
     formRef: propsFormRef,
     onInit,
+    formComponentType,
     extraUrlParams = {},
     syncToUrl,
     syncToInitialValues = true,
@@ -260,6 +264,14 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     return items;
   }, [contentRender, items, submitterNode]);
 
+  const getPopupContainer = useMemo(() => {
+    // 如果在 drawerForm 和  modalForm 里就渲染dom到父节点里
+    if (formComponentType && ['DrawerForm', 'ModalForm'].includes(formComponentType)) {
+      return (e: HTMLElement) => e.parentNode || document.body;
+    }
+    return undefined;
+  }, [formComponentType]);
+
   useEffect(() => {
     const finalValues = transformKey(formRef.current.getFieldsValue(true), omitNil);
     onInit?.(finalValues);
@@ -315,6 +327,8 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           fieldProps,
           formItemProps,
           groupProps,
+          formComponentType,
+          getPopupContainer,
           setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
             if (Array.isArray(name)) {
               transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);

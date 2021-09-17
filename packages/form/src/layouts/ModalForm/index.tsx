@@ -176,6 +176,7 @@ function ModalForm<T = Record<string, any>>({
       {createPortal(
         <div onClick={(e) => e.stopPropagation()}>
           <BaseForm
+            formComponentType="ModalForm"
             layout="vertical"
             {...omit(rest, ['visible'])}
             formRef={formRef}
