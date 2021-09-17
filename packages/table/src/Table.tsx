@@ -383,6 +383,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         selectedRowsRef.current = rows;
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [setSelectedRowKeys],
   );
 

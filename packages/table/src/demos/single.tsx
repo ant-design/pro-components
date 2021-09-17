@@ -156,6 +156,10 @@ export default () => {
       editable={{
         type: 'multiple',
       }}
+      columnsState={{
+        persistenceKey: 'pro-table-singe-demos',
+        persistenceType: 'localStorage',
+      }}
       rowKey="id"
       search={{
         labelWidth: 'auto',
