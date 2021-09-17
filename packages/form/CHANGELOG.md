@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.41.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.40.1...@ant-design/pro-form@1.41.0) (2021-09-17)
+
+### Features
+
+- **form:** support auto getPopupContainer ([#3685](https://github.com/ant-design/pro-components/issues/3685)) ([896c113](https://github.com/ant-design/pro-components/commit/896c11363f5a3d8043bf3e029bd75496d06ce83d))
+
 ## [1.40.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.40.0...@ant-design/pro-form@1.40.1) (2021-09-16)
 
 ### Bug Fixes

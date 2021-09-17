@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.14.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.14.0...@ant-design/pro-list@1.14.1) (2021-09-17)
+
+### Bug Fixes
+
+- **list:** title blank placeholder of card ([#3680](https://github.com/ant-design/pro-components/issues/3680)) ([e3e383f](https://github.com/ant-design/pro-components/commit/e3e383fed07565952fea7da9b3a5af5eebc14f47))
+
 # [1.14.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.13.5...@ant-design/pro-list@1.14.0) (2021-09-16)
 
 ### Bug Fixes
