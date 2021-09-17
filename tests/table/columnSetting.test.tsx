@@ -198,6 +198,12 @@ describe('Table ColumnSetting', () => {
       '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
     );
     expect(overlay.length).toBe(2);
+
+    // 触发重置
+    act(() => {
+      html.find('.ant-pro-table-column-setting-ation-rest-button').simulate('click');
+    });
+    await waitForComponentToPaint(html);
   });
 
   it('🎏 columnSetting columnsState.onChange', async () => {
