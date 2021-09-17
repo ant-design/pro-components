@@ -152,6 +152,7 @@ function DrawerForm<T = Record<string, any>>({
       {createPortal(
         <div onClick={(e) => e.stopPropagation()}>
           <BaseForm
+            formComponentType="DrawerForm"
             layout="vertical"
             {...omit(rest, ['visible'])}
             formRef={formRef}

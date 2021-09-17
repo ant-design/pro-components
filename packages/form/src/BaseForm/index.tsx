@@ -108,7 +108,7 @@ export type BaseFormProps<T = Record<string, any>> = {
   isKeyPressSubmit?: boolean;
 
   /** Form 组件的类型，内部使用 */
-  formComponentType?: string;
+  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter';
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps<T>;
 
@@ -266,7 +266,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const getPopupContainer = useMemo(() => {
     // 如果在 drawerForm 和  modalForm 里就渲染dom到父节点里
-    if (formComponentType && ['drawerForm', 'modalForm'].includes(formComponentType)) {
+    if (formComponentType && ['DrawerForm', 'ModalForm'].includes(formComponentType)) {
       return (e: HTMLElement) => e.parentNode || document.body;
     }
     return undefined;
