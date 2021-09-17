@@ -230,6 +230,16 @@ describe('Table ColumnSetting', () => {
       />,
     );
 
+    act(() => {
+      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
+      icon.simulate('click');
+    });
+    await waitForComponentToPaint(html);
+    const overlay = html.find(
+      '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
+    );
+    expect(overlay.length).toBe(3);
+
     await waitForComponentToPaint(html, 200);
     act(() => {
       const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
@@ -244,6 +254,70 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html);
 
     expect(callBack).toBeCalled();
+  });
+
+  it('🎏 columnSetting columnsState.persistenceKey', async () => {
+    const callBack = jest.fn();
+
+    window.localStorage.setItem(
+      'test-keys',
+      JSON.stringify({
+        index: { fixed: 'left' },
+        Age: { show: false },
+        option: { fixed: 'right' },
+      }),
+    );
+    const html = mount(
+      <ProTable
+        size="small"
+        columnsState={{
+          persistenceKey: 'test-keys',
+          persistenceType: 'localStorage',
+          onChange: callBack,
+        }}
+        columns={columns}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
+      icon.simulate('click');
+    });
+    await waitForComponentToPaint(html);
+    let overlay = html.find(
+      '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
+    );
+    expect(overlay.length).toBe(3);
+
+    act(() => {
+      html.setProps({
+        columnsState: {
+          value: {
+            index: { fixed: 'left' },
+          },
+        },
+      });
+    });
+    await waitForComponentToPaint(html);
+    overlay = html.find(
+      '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
+    );
+    expect(overlay.length).toBe(2);
   });
 
   it('🎏 columnSetting select all', async () => {
