@@ -71,7 +71,7 @@ function useContainer(props: UseContainerProps = {}) {
             return JSON.parse(storageValue);
           }
         } catch (error) {
-          console.error(error);
+          console.warn(error);
         }
       }
       return (
@@ -97,7 +97,7 @@ function useContainer(props: UseContainerProps = {}) {
     try {
       storage?.removeItem(persistenceKey);
     } catch (error) {
-      console.error(error);
+      console.warn(error);
     }
   }, [props.columnsState]);
 
