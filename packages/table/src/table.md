@@ -338,6 +338,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | editable | 可编辑表格的相关配置 | [TableRowEditable<T>](/components/editable-table#editable-编辑行配置) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | 防抖时间 | `number` | 10 |
+| ColumnState | Column Status Control, you can operate the display hide | `columnSstateType` | - |
 
 #### RecordCreator
 
@@ -346,6 +347,16 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | record | 需要新增的行数据，一般来说包含唯一 key | `T` | `{}` |
 | position | 行增加在哪里，开始或者末尾 | `top` \| `bottom` | `bottom` |
 | (...buttonProps) | antd 的 [ButtonProps](https://ant.design/components/button-cn/#API) | ButtonProps | — |
+
+#### ColumnsStateType
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- | --- |
+| defaultValue | 列状态的默认值，只有初次生效 | `Record<string, ColumnsState>;` | - |
+| value | 列状态的值，支持受控模式 | `Record<string, ColumnsState>;` | - |
+| onChange | 列状态的值发生改变之后触发 | `(value:Record<string, ColumnsState>)=>viod` | - |
+| persistenceKey | 持久化列的 key，用于判断是否是同一个 table | `string | number` | - |
+| persistenceType | 持久化列的类类型， localStorage 设置在关闭浏览器后也是存在的，sessionStorage 关闭浏览器后会丢失 | `localStorage | sessionStorage` | - |
 
 #### Search 搜索表单
 

@@ -7,6 +7,7 @@ import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ActionType } from './typing';
 import type { TableColumnType } from 'antd';
 import { genColumnKey } from './utils';
+import { noteOnce } from 'rc-util/lib/warning';
 
 export type ColumnsState = {
   show?: boolean;
@@ -85,6 +86,12 @@ function useContainer(props: UseContainerProps = {}) {
       value: props.columnsState?.value || props.columnsStateMap,
       onChange: props.columnsState?.onChange || props.onColumnsStateChange,
     },
+  );
+
+  noteOnce(!props.columnsStateMap, 'columnsStateMap已经废弃，请使用 columnsState.value 替换');
+  noteOnce(
+    !props.columnsStateMap,
+    'COLUMNSSTATEMAP has been discarded, please use columnSstate.value replacement',
   );
 
   /** 清空一下当前的 key */

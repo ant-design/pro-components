@@ -156,6 +156,23 @@ export type Bordered =
       table?: boolean;
     };
 
+export type ColumnsStateType = {
+  /**
+   * 持久化的类型，支持 localStorage 和 sessionStorage
+   *
+   * @param localStorage 设置在关闭浏览器后也是存在的
+   * @param sessionStorage 关闭浏览器后会丢失
+   */
+  persistenceType?: 'localStorage' | 'sessionStorage';
+  /** 持久化的key，用于存储到 storage 中 */
+  persistenceKey?: string;
+  /** ColumnsState 的值，columnsStateMap将会废弃 */
+  defaultValue?: Record<string, ColumnsState>;
+  /** ColumnsState 的值，columnsStateMap将会废弃 */
+  value?: Record<string, ColumnsState>;
+  onChange?: (map: Record<string, ColumnsState>) => void;
+};
+
 /** ProTable 的类型定义 继承自 antd 的 Table */
 export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   columns?: ProColumns<T, ValueType>[];
@@ -178,22 +195,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
 
   /** 列状态的配置，可以用来操作列功能 */
-  columnsState?: {
-    /**
-     * 持久化的类型，支持 localStorage 和 sessionStorage
-     *
-     * @param localStorage 设置在关闭浏览器后也是存在的
-     * @param sessionStorage 关闭浏览器后会丢失
-     */
-    persistenceType?: 'localStorage' | 'sessionStorage';
-    /** 持久化的key，用于存储到 storage 中 */
-    persistenceKey?: string;
-    /** ColumnsState 的值，columnsStateMap将会废弃 */
-    defaultValue?: Record<string, ColumnsState>;
-    /** ColumnsState 的值，columnsStateMap将会废弃 */
-    value?: Record<string, ColumnsState>;
-    onChange?: (map: Record<string, ColumnsState>) => void;
-  };
+  columnsState?: ColumnsStateType;
 
   onSizeChange?: (size: DensitySize) => void;
 
