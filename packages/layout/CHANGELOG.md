@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.25.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.6...@ant-design/pro-layout@6.25.7) (2021-09-18)
+
+### Bug Fixes
+
+- **utils:** use swr beta verison fix ie support ([#3697](https://github.com/ant-design/pro-components/issues/3697)) ([490bb96](https://github.com/ant-design/pro-components/commit/490bb9657285dda4b20d7c2252072baea59d7c51))
+
 ## [6.25.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.5...@ant-design/pro-layout@6.25.6) (2021-09-17)
 
 ### Bug Fixes
