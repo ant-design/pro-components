@@ -20007,6 +20007,11 @@ swr@^1.0.0:
   dependencies:
     dequal "2.0.2"
 
+swr@^1.1.0-beta.0:
+  version "1.1.0-beta.0"
+  resolved "https://registry.nlark.com/swr/download/swr-1.1.0-beta.0.tgz#fb729de8d18799dd638a276c8ae868aa4028e5c6"
+  integrity sha1-+3Kd6NGHmd1jiidsiuhoqkAo5cY=
+
 symbol-observable@^1.1.0, symbol-observable@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npm.taobao.org/symbol-observable/download/symbol-observable-1.2.0.tgz?cache=0&sync_timestamp=1618451954701&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsymbol-observable%2Fdownload%2Fsymbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
