@@ -2,8 +2,8 @@
 const parser = require('@babel/parser');
 const traverse = require('@babel/traverse');
 const t = require('babel-types');
-const { winPath } = require('umi-utils');
 const glob = require('glob');
+const slash = require('slash');
 const fs = require('fs');
 const ora = require('ora');
 const { join, posix } = require('path');
@@ -35,7 +35,7 @@ const checkDepsByAst = (ast, filePath) => {
           }
 
           if (importPath.startsWith('.')) {
-            const importFile = join(__dirname, '..', filePath, '..', importPath);
+            const importFile = slash(join(__dirname, '..', filePath, '..', importPath));
             if (importFile.split('.').length > 1) {
               if (fs.existsSync(`${importFile}`)) return;
               resolve({
@@ -59,29 +59,29 @@ const checkDepsByAst = (ast, filePath) => {
             }
           }
           if (!importPath.startsWith('.') && path.node.importKind !== 'type') {
-            const packagePath = winPath(filePath.split(posix.sep).splice(0, 2).join(posix.sep));
+            const packagePath = slash(filePath.split(posix.sep).splice(0, 2).join(posix.sep));
             try {
               // 检查包在不在
               require.resolve(importPath, {
-                paths: [join(__dirname, '..', packagePath)],
+                paths: [slash(join(__dirname, '..', packagePath))],
               });
               if (!importPath.startsWith('antd') && !importPath.startsWith('react')) {
                 const packageName = importPath.split(posix.sep)[0];
-                const packageJson = require(join(__dirname, '..', packagePath, 'package.json'));
+                const packageJson = require(slash(
+                  join(__dirname, '..', packagePath, 'package.json'),
+                ));
                 if (!JSON.stringify(packageJson.dependencies).includes(packageName)) {
                   resolve({
                     success: false,
-                    message: `${packagePath} 的 ${packageName} 依赖没有在 ${join(
-                      __dirname,
-                      '..',
-                      packagePath,
-                      'package.json',
+                    message: `${packagePath} 的 ${packageName} 依赖没有在 ${slash(
+                      join(__dirname, '..', packagePath, 'package.json'),
                     )} 中申明`,
                   });
                   return;
                 }
               }
             } catch (error) {
+              console.log(error);
               resolve({
                 success: false,
                 message: `${importPath} 依赖没有安装，请检查大小写或路径错误`,
@@ -131,17 +131,17 @@ const checkDeps = ({ cwd }) => {
   });
   spinner.succeed();
 
-  const getFileContent = (path) => fs.readFileSync(winPath(path), 'utf-8');
+  const getFileContent = (path) => fs.readFileSync(slash(path), 'utf-8');
 
-  spinner.start('🕵️  check deps');
+  spinner.start('🕵️ check deps');
 
   tsFiles.forEach(async (path) => {
-    const source = getFileContent(join(cwd, path));
+    const source = getFileContent(slash(join(cwd, path)));
     if (source.includes('import')) {
-      const result = await forEachFile(source, path);
+      const result = await forEachFile(source, path).catch(() => {});
       if (result.success === false) {
         console.log(`😂 ${path} 发现了错误：\n ${result.message}`);
-        process.exitCode(1);
+        process.exit(2);
       }
     }
   });
@@ -150,5 +150,5 @@ const checkDeps = ({ cwd }) => {
 
 /** 检查所有的根目录文件 */
 checkDeps({
-  cwd: join(__dirname, '..'),
+  cwd: slash(join(__dirname, '..')),
 });
