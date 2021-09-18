@@ -5355,11 +5355,6 @@ async-validator@^3.0.3:
   resolved "https://registry.nlark.com/async-validator/download/async-validator-3.5.2.tgz?cache=0&sync_timestamp=1630393256517&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fasync-validator%2Fdownload%2Fasync-validator-3.5.2.tgz#68e866a96824e8b2694ff7a831c1a25c44d5e500"
   integrity sha1-aOhmqWgk6LJpT/eoMcGiXETV5QA=
 
-async-validator@^4.0.2:
-  version "4.0.3"
-  resolved "https://registry.nlark.com/async-validator/download/async-validator-4.0.3.tgz?cache=0&sync_timestamp=1630393210134&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fasync-validator%2Fdownload%2Fasync-validator-4.0.3.tgz#c8ecd6b28fc8e18b14be4ec7c704641f999d377d"
-  integrity sha1-yOzWso/I4YsUvk7HxwRkH5mdN30=
-
 async@^2.6.1:
   version "2.6.3"
   resolved "https://registry.nlark.com/async/download/async-2.6.3.tgz#d72625e2344a3656e3a3ad4fa749fa83299d82ff"
@@ -17116,15 +17111,6 @@ rc-dropdown@^3.2.0, rc-dropdown@~3.2.0:
     classnames "^2.2.6"
     rc-trigger "^5.0.4"
 
-rc-field-form@^1.21.2:
-  version "1.21.2"
-  resolved "https://registry.nlark.com/rc-field-form/download/rc-field-form-1.21.2.tgz?cache=0&sync_timestamp=1629269966768&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frc-field-form%2Fdownload%2Frc-field-form-1.21.2.tgz#85bda1ee006ae9f1d146e1000337c69b4bb6d101"
-  integrity sha1-hb2h7gBq6fHRRuEAAzfGm0u20QE=
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    async-validator "^4.0.2"
-    rc-util "^5.8.0"
-
 rc-field-form@~1.20.0:
   version "1.20.1"
   resolved "https://registry.nlark.com/rc-field-form/download/rc-field-form-1.20.1.tgz#d1c51888107cf075b42704b7b575bef84c359291"
@@ -20006,6 +19992,11 @@ swr@^1.0.0:
   integrity sha1-0EeTNxTYvRauNa9n2BFJ9K5wCk0=
   dependencies:
     dequal "2.0.2"
+
+swr@^1.1.0-beta.0:
+  version "1.1.0-beta.0"
+  resolved "https://registry.nlark.com/swr/download/swr-1.1.0-beta.0.tgz#fb729de8d18799dd638a276c8ae868aa4028e5c6"
+  integrity sha1-+3Kd6NGHmd1jiidsiuhoqkAo5cY=
 
 symbol-observable@^1.1.0, symbol-observable@^1.2.0:
   version "1.2.0"
