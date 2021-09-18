@@ -1,4 +1,4 @@
-﻿name: Build CI
+﻿name: Lint CI
 
 on: [push, pull_request]
 
