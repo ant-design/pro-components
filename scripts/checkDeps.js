@@ -10,7 +10,7 @@ const { join, posix } = require('path');
 
 const spinner = ora();
 
-const peerDependencies = ['antd', 'react'];
+const peerDependencies = ['antd', 'react', 'rc-field-form'];
 
 /**
  * 替换文件中的 formatMessage
@@ -65,7 +65,7 @@ const checkDepsByAst = (ast, filePath) => {
               require.resolve(importPath, {
                 paths: [slash(join(__dirname, '..', packagePath))],
               });
-              if (!importPath.startsWith('antd') && !importPath.startsWith('react')) {
+              if (peerDependencies.every((item) => !importPath.startsWith(item))) {
                 const packageName = importPath.split(posix.sep)[0];
                 const packageJson = require(slash(
                   join(__dirname, '..', packagePath, 'package.json'),
