@@ -141,7 +141,7 @@ const checkDeps = ({ cwd }) => {
       const result = await forEachFile(source, path).catch(() => {});
       if (result.success === false) {
         console.log(`😂 ${path} 发现了错误：\n ${result.message}`);
-        throw new Error(`😂 ${path} 发现了错误：\n ${result.message}`);
+        process.exit(2);
       }
     }
   });
