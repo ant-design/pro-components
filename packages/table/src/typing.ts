@@ -23,7 +23,7 @@ import type { ColumnsState, useContainer } from './container';
 import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/lib/form/interface';
 
 export type PageInfo = {
   pageSize: number;
