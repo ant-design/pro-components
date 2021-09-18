@@ -1,9 +1,9 @@
 ﻿import React, { useState, useContext } from 'react';
 import { Form, Popover, Progress, Space, ConfigProvider } from 'antd';
 import classNames from 'classnames';
-import type { FormItemProps, PopoverProps, ProgressProps, FormInstance } from 'antd';
+import type { FormItemProps, PopoverProps, ProgressProps } from 'antd';
 import { CheckCircleFilled, CloseCircleFilled, LoadingOutlined } from '@ant-design/icons';
-import type { Rule, NamePath, RuleObject } from 'rc-field-form/lib/interface';
+import type { Rule, NamePath, RuleObject, FormInstance } from 'rc-field-form/lib/interface';
 import './index.less';
 
 const getStrokeColor = (percent: number) => {
@@ -49,10 +49,10 @@ const Content: React.FC<{
   value: any;
   isValidating: boolean;
   isTouched: boolean;
-  rules: Rule[];
+  rules: FormItemProps['rules'];
   progressProps?: ProgressProps | false;
   form: Omit<FormInstance, 'scrollToField' | '__INTERNAL__' | 'getFieldInstance'>;
-}> = ({ rules, isTouched, isValidating, value, fieldError, progressProps, form }) => {
+}> = ({ rules = [], isTouched, isValidating, value, fieldError, progressProps, form }) => {
   const percent = Math.max(
     0,
     Math.min(100, ((rules.length - fieldError.length) / rules.length) * 100),
@@ -111,7 +111,7 @@ interface InlineErrorFormItemProps extends FormItemProps {
 
 interface InternalProps extends InlineErrorFormItemProps {
   name: NamePath;
-  rules: Rule[];
+  rules: FormItemProps['rules'];
 }
 
 const FIX_INLINE_STYLE = {
@@ -193,7 +193,7 @@ const InlineErrorFormItem: React.FC<InternalProps> = (props) => {
   return (
     <Form.Item shouldUpdate={true} noStyle>
       {(form) => {
-        return <InternalFormItem {...props} form={form} />;
+        return <InternalFormItem {...props} form={form as FormInstance} />;
       }}
     </Form.Item>
   );
