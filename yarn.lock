@@ -17116,15 +17116,6 @@ rc-dropdown@^3.2.0, rc-dropdown@~3.2.0:
     classnames "^2.2.6"
     rc-trigger "^5.0.4"
 
-rc-field-form@^1.21.2:
-  version "1.21.2"
-  resolved "https://registry.nlark.com/rc-field-form/download/rc-field-form-1.21.2.tgz?cache=0&sync_timestamp=1629269966768&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frc-field-form%2Fdownload%2Frc-field-form-1.21.2.tgz#85bda1ee006ae9f1d146e1000337c69b4bb6d101"
-  integrity sha1-hb2h7gBq6fHRRuEAAzfGm0u20QE=
-  dependencies:
-    "@babel/runtime" "^7.8.4"
-    async-validator "^4.0.2"
-    rc-util "^5.8.0"
-
 rc-field-form@~1.20.0:
   version "1.20.1"
   resolved "https://registry.nlark.com/rc-field-form/download/rc-field-form-1.20.1.tgz#d1c51888107cf075b42704b7b575bef84c359291"
@@ -17132,6 +17123,15 @@ rc-field-form@~1.20.0:
   dependencies:
     "@babel/runtime" "^7.8.4"
     async-validator "^3.0.3"
+    rc-util "^5.8.0"
+
+rc-field-form@~1.21.2:
+  version "1.21.2"
+  resolved "https://registry.nlark.com/rc-field-form/download/rc-field-form-1.21.2.tgz?cache=0&sync_timestamp=1629269966768&other_urls=https%3A%2F%2Fregistry.nlark.com%2Frc-field-form%2Fdownload%2Frc-field-form-1.21.2.tgz#85bda1ee006ae9f1d146e1000337c69b4bb6d101"
+  integrity sha1-hb2h7gBq6fHRRuEAAzfGm0u20QE=
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    async-validator "^4.0.2"
     rc-util "^5.8.0"
 
 rc-gesture@~0.0.18, rc-gesture@~0.0.22:
