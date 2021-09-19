@@ -9,7 +9,6 @@ import ProForm, {
   ProFormField,
   ProFormSlider,
   ProFormUploadDragger,
-  ProFormDateTimePicker,
 } from '@ant-design/pro-form';
 import { Button, Input } from 'antd';
 
@@ -50,13 +49,6 @@ const Demo = () => {
         }}
       />
       <ProFormSlider name="range" label="范围" />
-      <ProFormDateTimePicker
-        name="kiner"
-        labelCol={{ span: 1 }}
-        fieldProps={{ style: { marginBottom: '24px' } }}
-        label="a"
-        addonAfter={<ProFormCheckbox name="enable">enable</ProFormCheckbox>}
-      />
       <ProFormField>test</ProFormField>
       <ProFormField>
         <Input />
