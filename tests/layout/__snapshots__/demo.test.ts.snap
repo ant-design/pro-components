@@ -1012,6 +1012,95 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
       </div>
     </div>
   </div>
+  <div
+    class="ant-pro-page-container ant-pro-page-container-ghost"
+  >
+    <div
+      class="ant-pro-page-container-warp"
+    >
+      <div
+        class="ant-page-header has-breadcrumb ant-page-header-ghost"
+      >
+        <div
+          class="ant-breadcrumb"
+        >
+          <span>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              <a
+                href="#/"
+              >
+                一级页面
+              </a>
+            </span>
+            <span
+              class="ant-breadcrumb-separator"
+            >
+              /
+            </span>
+          </span>
+          <span>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              <a
+                href="#/"
+              >
+                二级页面
+              </a>
+            </span>
+            <span
+              class="ant-breadcrumb-separator"
+            >
+              /
+            </span>
+          </span>
+          <span>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              <span>
+                当前页面
+              </span>
+            </span>
+            <span
+              class="ant-breadcrumb-separator"
+            >
+              /
+            </span>
+          </span>
+        </div>
+        <div
+          class="ant-page-header-heading"
+        >
+          <div
+            class="ant-page-header-heading-left"
+          >
+            <span
+              class="ant-page-header-heading-title"
+              title="自定义loading，3s后显示内容"
+            >
+              自定义loading，3s后显示内容
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-grid-content"
+    >
+      <div
+        class="ant-pro-grid-content-children"
+      >
+        <div
+          style="color: red; padding: 30px; text-align: center;"
+        >
+          自定义加载...
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 

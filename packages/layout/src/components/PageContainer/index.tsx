@@ -80,7 +80,7 @@ export type PageContainerProps = {
    *
    * @name 是否加载
    */
-  loading?: boolean | SpinProps;
+  loading?: boolean | SpinProps | [boolean, React.ReactNode];
 
   /** 自定义 breadcrumb,返回false不展示 */
   breadcrumbRender?: PageHeaderProps['breadcrumbRender'] | false;
@@ -297,8 +297,15 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   );
 
   const renderContentDom = useMemo(() => {
-    const spinProps = genLoading(loading);
-    const dom = spinProps.spinning ? <PageLoading {...spinProps} /> : content;
+    let dom;
+    if (Array.isArray(loading)) {
+      const [isLoading, CustomLoading] = loading;
+      const loadingDom = React.isValidElement(CustomLoading) ? CustomLoading : <PageLoading />;
+      dom = isLoading ? loadingDom : content;
+    } else {
+      const spinProps = genLoading(loading);
+      dom = spinProps.spinning ? <PageLoading {...spinProps} /> : content;
+    }
     if (props.waterMarkProps || value.waterMarkProps) {
       return <WaterMark {...(props.waterMarkProps || value.waterMarkProps)}>{dom}</WaterMark>;
     }

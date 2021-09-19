@@ -83,6 +83,10 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 
 <code src="./demos/base.tsx" height="548px" title="基本使用" />
 
+### 组件
+
+<code src="./demos/components-test.tsx" height="548px" title="组件" />
+
 ### 标签与表单项布局
 
 除了 `LightFilter` 和 `QueryFilter` 这样固定布局的表单样式，其他表单布局支持配置与 `antd` 一致的三种布局方式。

@@ -1,5 +1,5 @@
 import { render, mount } from 'enzyme';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import type { BasicLayoutProps } from '@ant-design/pro-layout';
 import BasicLayout, { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
 import { act } from 'react-dom/test-utils';
@@ -334,5 +334,73 @@ describe('PageContainer', () => {
     expect(wrapper?.find('.custom-className').hostNodes().length).toBe(1);
     const html = wrapper.render();
     expect(html).toMatchSnapshot();
+  });
+
+  it('🌛 PageContainer with custom loading', async (done) => {
+    const App = () => {
+      const [isLoading, setIsLoading] = useState(true);
+      useEffect(() => {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+      }, []);
+      return (
+        <PageContainer
+          loading={[
+            isLoading,
+            <div id="customLoading" style={{ color: 'red', padding: '30px', textAlign: 'center' }}>
+              自定义加载...
+            </div>,
+          ]}
+          className="custom-className"
+          header={{
+            title: '页面标题',
+          }}
+        />
+      );
+    };
+
+    const wrapper = mount(<App />);
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('#customLoading').length).toBe(1);
+    const html = wrapper.render();
+    expect(html).toMatchSnapshot();
+    act(() => {
+      setTimeout(() => {
+        expect(wrapper.find('#customLoading').length).toBe(0);
+      }, 1000);
+      done();
+    });
+  });
+  it('🌛 PageContainer with custom loading and illegal loadingDom', async (done) => {
+    const App = () => {
+      const [isLoading, setIsLoading] = useState(true);
+      useEffect(() => {
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+      }, []);
+      return (
+        <PageContainer
+          loading={[isLoading, false]}
+          className="custom-className"
+          header={{
+            title: '页面标题',
+          }}
+        />
+      );
+    };
+
+    const wrapper = mount(<App />);
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.find('.ant-spin-spinning').length).toBe(1);
+    const html = wrapper.render();
+    expect(html).toMatchSnapshot();
+    act(() => {
+      setTimeout(() => {
+        expect(wrapper.find('.ant-spin-spinning').length).toBe(0);
+      }, 1000);
+      done();
+    });
   });
 });
