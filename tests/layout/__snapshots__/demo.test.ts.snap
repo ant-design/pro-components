@@ -905,108 +905,334 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
   style="box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); height: 100vh; background: rgb(245, 247, 250);"
 >
   <div
-    class="ant-pro-page-container ant-pro-page-container-ghost"
+    class="ant-card ant-card-bordered"
   >
     <div
-      class="ant-pro-page-container-warp"
+      class="ant-card-body"
     >
       <div
-        class="ant-page-header has-breadcrumb ant-page-header-ghost"
+        class="ant-pro-page-container ant-pro-page-container-ghost"
       >
         <div
-          class="ant-breadcrumb"
-        >
-          <span>
-            <span
-              class="ant-breadcrumb-link"
-            >
-              <a
-                href="#/"
-              >
-                一级页面
-              </a>
-            </span>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
-          </span>
-          <span>
-            <span
-              class="ant-breadcrumb-link"
-            >
-              <a
-                href="#/"
-              >
-                二级页面
-              </a>
-            </span>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
-          </span>
-          <span>
-            <span
-              class="ant-breadcrumb-link"
-            >
-              <span>
-                当前页面
-              </span>
-            </span>
-            <span
-              class="ant-breadcrumb-separator"
-            >
-              /
-            </span>
-          </span>
-        </div>
-        <div
-          class="ant-page-header-heading"
+          class="ant-pro-page-container-warp"
         >
           <div
-            class="ant-page-header-heading-left"
+            class="ant-page-header has-breadcrumb ant-page-header-ghost"
           >
-            <span
-              class="ant-page-header-heading-title"
-              title="页面标题"
+            <div
+              class="ant-breadcrumb"
             >
-              页面标题
-            </span>
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <a
+                    href="#/"
+                  >
+                    一级页面
+                  </a>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <a
+                    href="#/"
+                  >
+                    二级页面
+                  </a>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <span>
+                    当前页面
+                  </span>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-page-header-heading"
+            >
+              <div
+                class="ant-page-header-heading-left"
+              >
+                <span
+                  class="ant-page-header-heading-title"
+                  title="默认loading"
+                >
+                  默认loading
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-pro-grid-content"
+        >
+          <div
+            class="ant-pro-grid-content-children"
+          >
+            <div
+              style="padding-top: 100px; text-align: center;"
+            >
+              <div
+                class="ant-spin ant-spin-lg ant-spin-spinning"
+              >
+                <span
+                  class="ant-spin-dot ant-spin-dot-spin"
+                >
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div
+    class="ant-card ant-card-bordered"
+  >
     <div
-      class="ant-pro-grid-content"
+      class="ant-card-body"
     >
       <div
-        class="ant-pro-grid-content-children"
+        class="ant-pro-page-container ant-pro-page-container-ghost"
       >
         <div
-          style="padding-top: 100px; text-align: center;"
+          class="ant-pro-page-container-warp"
         >
           <div
-            class="ant-spin ant-spin-lg ant-spin-spinning"
+            class="ant-page-header has-breadcrumb ant-page-header-ghost"
           >
-            <span
-              class="ant-spin-dot ant-spin-dot-spin"
+            <div
+              class="ant-breadcrumb"
             >
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-            </span>
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <a
+                    href="#/"
+                  >
+                    一级页面
+                  </a>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <a
+                    href="#/"
+                  >
+                    二级页面
+                  </a>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <span>
+                    当前页面
+                  </span>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-page-header-heading"
+            >
+              <div
+                class="ant-page-header-heading-left"
+              >
+                <span
+                  class="ant-page-header-heading-title"
+                  title="自定义loading属性"
+                >
+                  自定义loading属性
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-pro-grid-content"
+        >
+          <div
+            class="ant-pro-grid-content-children"
+          >
+            <div
+              style="padding-top: 100px; text-align: center;"
+            >
+              <div
+                class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text customClassName"
+              >
+                <span
+                  class="ant-spin-dot ant-spin-dot-spin"
+                >
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                  <i
+                    class="ant-spin-dot-item"
+                  />
+                </span>
+                <div
+                  class="ant-spin-text"
+                >
+                  拼命加载中...
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-card ant-card-bordered"
+  >
+    <div
+      class="ant-card-body"
+    >
+      <div
+        class="ant-pro-page-container ant-pro-page-container-ghost"
+      >
+        <div
+          class="ant-pro-page-container-warp"
+        >
+          <div
+            class="ant-page-header has-breadcrumb ant-page-header-ghost"
+          >
+            <div
+              class="ant-breadcrumb"
+            >
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <a
+                    href="#/"
+                  >
+                    一级页面
+                  </a>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <a
+                    href="#/"
+                  >
+                    二级页面
+                  </a>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+              <span>
+                <span
+                  class="ant-breadcrumb-link"
+                >
+                  <span>
+                    当前页面
+                  </span>
+                </span>
+                <span
+                  class="ant-breadcrumb-separator"
+                >
+                  /
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-page-header-heading"
+            >
+              <div
+                class="ant-page-header-heading-left"
+              >
+                <span
+                  class="ant-page-header-heading-title"
+                  title="自定义loading，3s后显示内容"
+                >
+                  自定义loading，3s后显示内容
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-pro-grid-content"
+        >
+          <div
+            class="ant-pro-grid-content-children"
+          >
+            <div
+              style="color: red; padding: 30px; text-align: center;"
+            >
+              自定义加载...
+            </div>
           </div>
         </div>
       </div>
