@@ -39,4 +39,9 @@ export default {
     densityMiddle: '中',
     densitySmall: '小',
   },
+  stepsForm: {
+    next: '次のステップ',
+    pre: '前へ',
+    submit: '送信',
+  }
 };
