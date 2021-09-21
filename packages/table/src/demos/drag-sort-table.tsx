@@ -4,48 +4,6 @@ import { DragSortTable } from '@ant-design/pro-table';
 import { MenuOutlined } from '@ant-design/icons';
 import { message } from 'antd';
 
-const columns: ProColumns[] = [
-  {
-    title: '排序',
-    dataIndex: 'sort',
-    render: (dom, rowData, index) => {
-      return <span className="customRender">{`自定义Render[${rowData.name}-${index}]`}</span>;
-    },
-  },
-  {
-    title: '姓名',
-    dataIndex: 'name',
-    className: 'drag-visible',
-  },
-  {
-    title: '年龄',
-    dataIndex: 'age',
-  },
-  {
-    title: '地址',
-    dataIndex: 'address',
-  },
-];
-const columns2: ProColumns[] = [
-  {
-    title: '排序',
-    dataIndex: 'sort',
-  },
-  {
-    title: '姓名',
-    dataIndex: 'name',
-    className: 'drag-visible',
-  },
-  {
-    title: '年龄',
-    dataIndex: 'age',
-  },
-  {
-    title: '地址',
-    dataIndex: 'address',
-  },
-];
-
 const data = [
   {
     key: 'key1',
@@ -71,6 +29,48 @@ const data = [
 ];
 
 export default () => {
+  const columns: ProColumns[] = [
+    {
+      title: '排序',
+      dataIndex: 'sort',
+      render: (dom, rowData, index) => {
+        return <span className="customRender">{`自定义Render[${rowData.name}-${index}]`}</span>;
+      },
+    },
+    {
+      title: '姓名',
+      dataIndex: 'name',
+      className: 'drag-visible',
+    },
+    {
+      title: '年龄',
+      dataIndex: 'age',
+    },
+    {
+      title: '地址',
+      dataIndex: 'address',
+    },
+  ];
+  const columns2: ProColumns[] = [
+    {
+      title: '排序',
+      dataIndex: 'sort',
+    },
+    {
+      title: '姓名',
+      dataIndex: 'name',
+      className: 'drag-visible',
+    },
+    {
+      title: '年龄',
+      dataIndex: 'age',
+    },
+    {
+      title: '地址',
+      dataIndex: 'address',
+    },
+  ];
+
   const [dataSource1, setDatasource1] = useState(data);
   const [dataSource2, setDatasource2] = useState(data);
   const handleDragSortEnd1 = (newDataSource: any) => {

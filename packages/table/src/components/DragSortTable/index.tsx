@@ -1,15 +1,16 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useMemo, useState, useCallback, useRef } from 'react';
 import { useDragSort } from '../../utils/useDragSort';
 import type { ParamsType } from '@ant-design/pro-provider';
 import ProTable from '../../Table';
 import { SortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
 import type { ProColumns, ProTableProps } from '../../typing';
+import { useDeepCompareEffect } from '@ant-design/pro-utils';
 
 export type DragTableProps<T, U extends ParamsType> = {
-  /** @name 拖动排序列key值 如配置此参数，则会在该key对应的行显示拖拽排序把手，允许拖拽排序 */
+  /** @name 拖动排序列key值 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序 */
   dragSortKey?: string;
-  /** @name 渲染自定义拖动排序把手的函数 如配置了dragSortKey但未配置此参数，则使用默认把手图标 */
+  /** @name 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标 */
   dragSortHandlerRender?: (rowData: T, idx: number) => React.ReactNode;
   /** @name 拖动排序完成回调 */
   onDragSortEnd?: (newDataSource: T[]) => Promise<void> | void;
@@ -29,14 +30,24 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
     dragSortHandlerRender,
     onDragSortEnd,
     onDataSourceChange,
-    columns,
+    columns: propsColumns,
     dataSource: oriDs,
     ...otherProps
   } = props;
-  // 根据dragSortKey查找目标列配置
-  const handleColumn = columns?.find(
-    (item) => item.key === dragSortKey || item.dataIndex === dragSortKey,
+
+  const [columns, setRefColumns] = useState<DragTableProps<T, U>['columns']>(propsColumns);
+
+  const isDragSortColumn = useCallback(
+    (item: ProColumns<T, any>) => {
+      return item.key === dragSortKey || item.dataIndex === dragSortKey;
+    },
+    [dragSortKey],
   );
+  // 根据 dragSortKey 查找目标列配置
+  const handleColumn = useMemo(() => {
+    return propsColumns?.find((item) => isDragSortColumn(item));
+  }, [propsColumns, isDragSortColumn]);
+
   // 记录原始列配置
   const originColumnRef = useRef<ProColumns<T, 'text'> | undefined>({ ...handleColumn });
   // 使用自定义hooks获取拖拽相关组件的components集合
@@ -48,28 +59,44 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
     rowKey,
   });
 
+  /** 重置表格的 render */
+  const destructor = useCallback(() => {
+    if (handleColumn) handleColumn.render = originColumnRef.current?.render;
+  }, [handleColumn]);
+
   // 重写列配置的render,并在卸载时恢复原始render
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     const originColumn = originColumnRef.current!;
-    if (handleColumn) {
-      handleColumn.render = (...args: any[]) => {
-        const [dom, rowData, index, action, schema] = args;
-        const RealHandle = dragSortHandlerRender
-          ? handleCreator(dragSortHandlerRender(rowData, index))
-          : DragHandle;
-        return (
-          <>
-            <RealHandle />
-            {originColumn.render?.(dom, rowData, index, action, schema)}
-          </>
-        );
-      };
-    }
+    if (!handleColumn) return () => {};
+    const dargRender = (...args: any[]) => {
+      const [dom, rowData, index, action, schema] = args;
+      const RealHandle = dragSortHandlerRender
+        ? handleCreator(dragSortHandlerRender(rowData, index))
+        : DragHandle;
+      return (
+        <>
+          <RealHandle />
+          {originColumn.render?.(dom, rowData, index, action, schema)}
+        </>
+      );
+    };
+    // 重新生成数据
+    setRefColumns(
+      columns?.map((item) => {
+        if (!isDragSortColumn(item)) {
+          return item;
+        }
+        return {
+          ...item,
+          render: dargRender,
+        };
+      }),
+    );
     /* istanbul ignore next */
     return () => {
-      if (handleColumn) handleColumn.render = originColumn?.render;
+      setRefColumns(props.columns);
     };
-  }, [dragSortHandlerRender, handleColumn]);
+  }, [destructor, dragSortHandlerRender, handleColumn]);
 
   return handleColumn ? (
     <ProTable
