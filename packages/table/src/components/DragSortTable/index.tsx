@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useCallback, useRef } from 'react';
+import React, { useMemo, useState, useCallback, useRef, useContext } from 'react';
 import { useDragSort } from '../../utils/useDragSort';
 import type { ParamsType } from '@ant-design/pro-provider';
 import ProTable from '../../Table';
@@ -6,6 +6,8 @@ import { SortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
 import type { ProColumns, ProTableProps } from '../../typing';
 import { useDeepCompareEffect } from '@ant-design/pro-utils';
+import { ConfigProvider } from 'antd';
+import './index.less';
 
 export type DragTableProps<T, U extends ParamsType> = {
   /** @name 拖动排序列key值 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序 */
@@ -18,10 +20,6 @@ export type DragTableProps<T, U extends ParamsType> = {
 
 // 用于创建可拖拽把手组件的工厂
 const handleCreator = (handle: React.ReactNode) => SortableHandle(() => <>{handle}</>);
-// 默认拖拽把手
-const DragHandle = handleCreator(
-  <MenuOutlined className="dragSortDefaultHandle" style={{ cursor: 'grab', color: '#999' }} />,
-);
 
 function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
   const {
@@ -34,6 +32,13 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
     dataSource: oriDs,
     ...otherProps
   } = props;
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
+  // 默认拖拽把手
+  const DragHandle = useMemo(
+    () => handleCreator(<MenuOutlined className={getPrefixCls('pro-table-drag-icon')} />),
+    [getPrefixCls],
+  );
 
   const [columns, setRefColumns] = useState<DragTableProps<T, U>['columns']>(propsColumns);
 
@@ -69,10 +74,10 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
         ? handleCreator(dragSortHandlerRender(rowData, index))
         : DragHandle;
       return (
-        <>
+        <div className={getPrefixCls('pro-table-drag-visible-cell')}>
           <RealHandle />
           {originColumn.render?.(dom, rowData, index, action, schema)}
-        </>
+        </div>
       );
     };
     // 重新生成数据
