@@ -43,5 +43,5 @@ export default {
     next: '次のステップ',
     pre: '前へ',
     submit: '送信',
-  }
+  },
 };

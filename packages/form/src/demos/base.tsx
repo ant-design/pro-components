@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { message } from 'antd';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
   ProFormText,
   ProFormDateRangePicker,
@@ -17,6 +18,13 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const formRef = useRef<
+    ProFormInstance<{
+      name: string;
+      company?: string;
+      useMode?: string;
+    }>
+  >();
   return (
     <ProForm<{
       name: string;
@@ -26,8 +34,13 @@ export default () => {
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
+        const val1 = await formRef.current?.validateFields();
+        console.log('validateFields:', val1);
+        const val2 = await formRef.current?.validateFieldsReturnFormatValue?.();
+        console.log('validateFieldsReturnFormatValue:', val2);
         message.success('提交成功');
       }}
+      formRef={formRef}
       params={{}}
       request={async () => {
         await waitTime(100);
