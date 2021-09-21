@@ -59,11 +59,6 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
     rowKey,
   });
 
-  /** 重置表格的 render */
-  const destructor = useCallback(() => {
-    if (handleColumn) handleColumn.render = originColumnRef.current?.render;
-  }, [handleColumn]);
-
   // 重写列配置的render,并在卸载时恢复原始render
   useDeepCompareEffect(() => {
     const originColumn = originColumnRef.current!;
@@ -96,7 +91,7 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
     return () => {
       setRefColumns(props.columns);
     };
-  }, [destructor, dragSortHandlerRender, handleColumn]);
+  }, [dragSortHandlerRender, handleColumn]);
 
   return handleColumn ? (
     <ProTable
