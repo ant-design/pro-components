@@ -128,6 +128,8 @@ type ProFormInstance<T = Record<string, any>> = FormInstance<T> & {
   getFieldsFormatValue?: (nameList?: NamePath[] | true) => Record<string, any>;
   /** 获取格式化之后的单个数据 */
   getFieldFormatValue?: (nameList?: NamePath) => Record<string, any>;
+  /** 校验字段后返回格式化之后的所有数据 */
+  validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
 };
 
 function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
@@ -198,6 +200,11 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       /** 获取格式化之后的单个数据 */
       getFieldFormatValue: (nameList?: NamePath) => {
         return transformKey(formRef.current.getFieldValue(nameList!), omitNil, nameList);
+      },
+      /** 校验字段后返回格式化之后的所有数据 */
+      validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
+        const values = await formRef.current.validateFields(nameList);
+        return transformKey(values, omitNil);
       },
     }),
     [omitNil, transformKey],

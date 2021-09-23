@@ -192,3 +192,47 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
   }}
 />
 ```
+
+### formRef
+
+该属性是 ProForm 在原有的 Antd 的 `FormInstance` 的基础上做的一个上层分装，增加了一些更加便捷的方法。使用方式如下：
+
+<code src="./demos/formRef.tsx" height="548px" title="formRef的使用" />
+
+```tsx | pure
+const App = () => {
+  // 绑定一个 ProFormInstance 实例
+  const formRef = useRef<
+    ProFormInstance<{
+      date: string;
+    }>
+  >();
+
+  return (
+    <ProForm
+      onValuesChange={async () => {
+        formRef.current?.validateFieldsReturnFormatValue?.().then((val) => {
+          // 以下为格式化之后的表单值
+          console.log(val.date);
+        });
+      }}
+      // 通过formRef进行绑定
+      formRef={formRef}
+    >
+      <ProFormDatePicker
+        name="date"
+        initialValue={moment('2021-08-09')}
+        fieldProps={{ open: true }}
+      />
+    </ProForm>
+  );
+};
+```
+
+`ProFormInstance`在原先`FormInstance`的基础上增加了如下方法：
+
+| 方法名 | 使用描述 | 备注 |
+| :-: | :-: | :-: |
+| `getFieldsFormatValue` | 使用方法与`FormInstance`的`getFieldsValue`方法相同，将返回格式化后的所有数据 |  |
+| `getFieldFormatValue` | 使用方法与`FormInstance`的`getFieldValue`方法相同，将返回格式化后的指定数据 |  |
+| `validateFieldsReturnFormatValue` | 使用方法与`FormInstance`的`validateFields`方法相同，验证通过后将返回格式化后的所有数据 |  |
