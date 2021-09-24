@@ -9,6 +9,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.14.1
+
+`2021-09-17`
+
+- 🐛 fix(list): title blank placeholder of card [#3680](https://github.com/ant-design/pro-components/pull/3680) [@liuxulian](https://github.com/liuxulian)
+
+## @ant-design/pro-list@1.14.0
+
+`2021-09-16`
+
+- 💥 feat(list): card list support selected [#3666](https://github.com/ant-design/pro-components/pull/3666) [@liuxulian](https://github.com/liuxulian)
+
 ## @ant-design/pro-list@1.11.0
 
 `2021-08-03`
