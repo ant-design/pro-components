@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.26.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.7...@ant-design/pro-layout@6.26.0) (2021-09-24)
+
+### Features
+
+- **layout:** PageContainer 的 loading 属性支持传输自定义元素方式自定义 loading ([#3702](https://github.com/ant-design/pro-components/issues/3702)) ([5395140](https://github.com/ant-design/pro-components/commit/5395140b9be18e360a0f84a226142c42f73ca086)), closes [#3620](https://github.com/ant-design/pro-components/issues/3620)
+
 ## [6.25.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.6...@ant-design/pro-layout@6.25.7) (2021-09-18)
 
 ### Bug Fixes

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.42.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.41.2...@ant-design/pro-form@1.42.0) (2021-09-24)
+
+### Bug Fixes
+
+- **form:** drawer/modal support getContainer=false ([#3727](https://github.com/ant-design/pro-components/issues/3727)) ([c2adde7](https://github.com/ant-design/pro-components/commit/c2adde7dd0bba55838022541987fdd674668a447))
+
+### Features
+
+- **form:** 增加验证并返回格式化后值的方法 validateFieldsReturnFormatValue ([fec07d9](https://github.com/ant-design/pro-components/commit/fec07d9f5fbc218f114ca73ee67d7629cf203362))
+
 ## [1.41.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.41.1...@ant-design/pro-form@1.41.2) (2021-09-18)
 
 **Note:** Version bump only for package @ant-design/pro-form
