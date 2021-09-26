@@ -58,7 +58,6 @@ function DrawerForm<T = Record<string, any>>({
   width,
   ...rest
 }: DrawerFormProps<T>) {
-  const domRef = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
     value: rest.visible,
     onChange: onVisibleChange,
@@ -151,83 +150,83 @@ function DrawerForm<T = Record<string, any>>({
   useImperativeHandle(rest.formRef, () => formRef.current);
 
   const formDom = (
-    <BaseForm
-      formComponentType="DrawerForm"
-      layout="vertical"
-      {...omit(rest, ['visible'])}
-      formRef={formRef}
-      submitter={
-        rest.submitter === false
-          ? false
-          : {
-              ...rest.submitter,
-              searchConfig: {
-                submitText: '确认',
-                resetText: '取消',
-                ...rest.submitter?.searchConfig,
-              },
-              resetButtonProps: {
-                preventDefault: true,
-                onClick: (e: any) => {
-                  setVisible(false);
-                  drawerProps?.onClose?.(e);
+    <div onClick={(e) => e.stopPropagation()}>
+      <BaseForm
+        formComponentType="DrawerForm"
+        layout="vertical"
+        {...omit(rest, ['visible'])}
+        formRef={formRef}
+        submitter={
+          rest.submitter === false
+            ? false
+            : {
+                ...rest.submitter,
+                searchConfig: {
+                  submitText: '确认',
+                  resetText: '取消',
+                  ...rest.submitter?.searchConfig,
                 },
-                ...rest.submitter?.resetButtonProps,
-              },
-            }
-      }
-      onFinish={async (values) => {
-        if (!onFinish) {
-          return;
+                resetButtonProps: {
+                  preventDefault: true,
+                  onClick: (e: any) => {
+                    setVisible(false);
+                    drawerProps?.onClose?.(e);
+                  },
+                  ...rest.submitter?.resetButtonProps,
+                },
+              }
         }
-        const success = await onFinish(values);
-        if (success) {
-          setVisible(false);
-          setTimeout(() => {
-            if (drawerProps?.destroyOnClose) formRef.current?.resetFields();
-          }, 300);
-        }
-      }}
-      contentRender={(item, submitter) => {
-        return (
-          <Drawer
-            title={title}
-            width={width || 800}
-            {...drawerProps}
-            getContainer={false}
-            visible={visible}
-            onClose={(e) => {
-              setVisible(false);
-              drawerProps?.onClose?.(e);
-            }}
-            footer={
-              !!submitter && (
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                  }}
-                >
-                  {submitter}
-                </div>
-              )
-            }
-          >
-            {shouldRenderFormItems ? item : null}
-          </Drawer>
-        );
-      }}
-    >
-      {children}
-    </BaseForm>
+        onFinish={async (values) => {
+          if (!onFinish) {
+            return;
+          }
+          const success = await onFinish(values);
+          if (success) {
+            setVisible(false);
+            setTimeout(() => {
+              if (drawerProps?.destroyOnClose) formRef.current?.resetFields();
+            }, 300);
+          }
+        }}
+        contentRender={(item, submitter) => {
+          return (
+            <Drawer
+              title={title}
+              width={width || 800}
+              {...drawerProps}
+              getContainer={false}
+              visible={visible}
+              onClose={(e) => {
+                setVisible(false);
+                drawerProps?.onClose?.(e);
+              }}
+              footer={
+                !!submitter && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'flex-end',
+                    }}
+                  >
+                    {submitter}
+                  </div>
+                )
+              }
+            >
+              {shouldRenderFormItems ? item : null}
+            </Drawer>
+          );
+        }}
+      >
+        {children}
+      </BaseForm>
+    </div>
   );
 
   /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
   return (
     <>
-      <div ref={domRef} onClick={(e) => e.stopPropagation()}>
-        {renderDom !== false ? createPortal(formDom, renderDom || document.body) : formDom}
-      </div>
+      {renderDom !== false ? createPortal(formDom, renderDom || document.body) : formDom}
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,
