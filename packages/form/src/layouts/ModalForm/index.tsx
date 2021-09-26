@@ -177,52 +177,52 @@ function ModalForm<T = Record<string, any>>({
         };
 
   const formDom = (
-    <BaseForm
-      formComponentType="ModalForm"
-      layout="vertical"
-      {...omit(rest, ['visible'])}
-      formRef={formRef}
-      onFinish={async (values) => {
-        if (!onFinish) {
-          return;
-        }
-        const success = await onFinish(values);
-        if (success) {
-          setVisible(false);
-          setTimeout(() => {
-            if (modalProps?.destroyOnClose) formRef.current?.resetFields();
-          }, 300);
-        }
-      }}
-      submitter={renderSubmitter}
-      contentRender={(item, submitter) => {
-        return (
-          <Modal
-            title={title}
-            width={width || 800}
-            {...modalProps}
-            getContainer={false}
-            visible={visible}
-            onCancel={(e) => {
-              setVisible(false);
-              modalProps?.onCancel?.(e);
-            }}
-            footer={submitter === undefined ? null : submitter}
-          >
-            {shouldRenderFormItems ? item : null}
-          </Modal>
-        );
-      }}
-    >
-      {children}
-    </BaseForm>
+    <div ref={domRef} onClick={(e) => e.stopPropagation()}>
+      <BaseForm
+        formComponentType="ModalForm"
+        layout="vertical"
+        {...omit(rest, ['visible'])}
+        formRef={formRef}
+        onFinish={async (values) => {
+          if (!onFinish) {
+            return;
+          }
+          const success = await onFinish(values);
+          if (success) {
+            setVisible(false);
+            setTimeout(() => {
+              if (modalProps?.destroyOnClose) formRef.current?.resetFields();
+            }, 300);
+          }
+        }}
+        submitter={renderSubmitter}
+        contentRender={(item, submitter) => {
+          return (
+            <Modal
+              title={title}
+              width={width || 800}
+              {...modalProps}
+              getContainer={false}
+              visible={visible}
+              onCancel={(e) => {
+                setVisible(false);
+                modalProps?.onCancel?.(e);
+              }}
+              footer={submitter === undefined ? null : submitter}
+            >
+              {shouldRenderFormItems ? item : null}
+            </Modal>
+          );
+        }}
+      >
+        {children}
+      </BaseForm>
+    </div>
   );
 
   return (
     <>
-      <div ref={domRef} onClick={(e) => e.stopPropagation()}>
-        {renderDom !== false ? createPortal(formDom, renderDom || document.body) : formDom}
-      </div>
+      {renderDom !== false ? createPortal(formDom, renderDom || document.body) : formDom}
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,
