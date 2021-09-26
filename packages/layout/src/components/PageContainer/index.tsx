@@ -256,7 +256,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     style,
     footer,
     affixProps,
-    ghost,
+    ghost = true,
     fixedHeader,
     ...restProps
   } = props;

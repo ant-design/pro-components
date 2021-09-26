@@ -96,10 +96,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     style,
     layout,
     menuExtraRender = false,
-    collapsedButtonRender = defaultRenderCollapsedButton,
     links,
     menuContentRender,
     prefixCls,
+    rightContentRender,
     onOpenChange,
     headerHeight,
     logoStyle,
@@ -191,37 +191,26 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         >
           {menuRenderDom}
         </div>
-        <div className={`${baseClassName}-links`}>
-          <Menu
-            theme={theme}
-            inlineIndent={16}
-            className={`${baseClassName}-link-menu`}
-            selectedKeys={[]}
-            openKeys={[]}
-            mode="inline"
-          >
-            {(links || []).map((node, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <Menu.Item className={`${baseClassName}-link`} key={index}>
-                {node}
-              </Menu.Item>
-            ))}
-            {collapsedButtonRender && !isMobile && (
-              <Menu.Item
-                className={`${baseClassName}-collapsed-button`}
-                title={false}
-                key="collapsed"
-                onClick={() => {
-                  if (onCollapse) {
-                    onCollapse(!collapsed);
-                  }
-                }}
-              >
-                {collapsedButtonRender(collapsed)}
-              </Menu.Item>
-            )}
-          </Menu>
-        </div>
+        {links ? (
+          <div className={`${baseClassName}-links`}>
+            <Menu
+              inlineIndent={16}
+              className={`${baseClassName}-link-menu`}
+              selectedKeys={[]}
+              openKeys={[]}
+              theme="light"
+              mode="inline"
+            >
+              {(links || []).map((node, index) => (
+                // eslint-disable-next-line react/no-array-index-key
+                <Menu.Item className={`${baseClassName}-link`} key={index}>
+                  {node}
+                </Menu.Item>
+              ))}
+            </Menu>
+          </div>
+        ) : null}
+        {rightContentRender?.(props)}
         {menuFooterRender && (
           <div
             className={classNames(`${baseClassName}-footer`, {

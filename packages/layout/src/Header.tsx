@@ -93,6 +93,8 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
 
     const right = needFixedHeader ? 0 : undefined;
 
+    if (layout === 'side') return null;
+
     return (
       <>
         {needFixedHeader && (

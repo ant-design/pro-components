@@ -7,8 +7,9 @@
 
 .@{pro-layout-sider-menu-prefix-cls} {
   position: relative;
-  background-color: @layout-sider-background;
+  background:transparent;
   border-right: 0;
+  border: 1px solid rgba(0, 0, 0, 0.06);
 
   // 这里关掉了动画，不然使用无法兼容
   .@{ant-prefix}-menu {
@@ -37,23 +38,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 32px;
+      min-height: 22px;
     }
 
     img {
       display: inline-block;
-      height: 32px;
+      height: 22px;
       vertical-align: middle;
     }
 
     h1 {
       display: inline-block;
-      height: 32px;
+      height: 22px;
       margin: 0 0 0 12px;
-      color: white;
+      color: @heading-color;
       font-weight: 600;
-      font-size: 18px;
-      line-height: 32px;
+      font-size: 16px;
+      line-height: 22px;
       vertical-align: middle;
       animation: pro-layout-title-hide 0.3s;
     }
