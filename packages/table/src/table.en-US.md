@@ -390,7 +390,7 @@ ref.current.cancelEditable(rowKey);
 > Requesting remote data is more complicated, please see [here](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) for details.
 
 | Property | Description | Type | Default Value |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | title | Basically the same as in antd, but supports passing in a method | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
 | tooltip | An icon will be displayed after the title, and some information will be prompted after hover | string | - |
 | ellipsis | Whether to abbreviate automatically | `boolean` | - |
