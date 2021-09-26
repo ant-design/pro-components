@@ -48,9 +48,9 @@ export default () => {
           title: '七妮妮',
         }}
         actionsRender={() => [
-          <InfoCircleOutlined />,
-          <QuestionCircleOutlined />,
-          <MergeCellsOutlined />,
+          <InfoCircleOutlined key="InfoCircleOutlined" />,
+          <QuestionCircleOutlined key="QuestionCircleOutlined" />,
+          <MergeCellsOutlined key="MergeCellsOutlined" />,
         ]}
         menuFooterRender={() => {
           return (
