@@ -7,9 +7,8 @@
 
 .@{pro-layout-sider-menu-prefix-cls} {
   position: relative;
-  background:transparent;
-  border-right: 0;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: transparent;
+  border-right: 1px solid rgba(0, 0, 0, 0.06);
 
   // 这里关掉了动画，不然使用无法兼容
   .@{ant-prefix}-menu {
@@ -25,20 +24,84 @@
       color: @primary-color;
     }
   }
+  &-apps {
+    &-icon {
+      display: inline-block;
+      padding: 5px;
+      color: @text-color-secondary;
+      font-size: 14px;
+      line-height: 14px;
+      &:hover {
+        color: #2155f4;
+        background-color: rgba(0, 87, 127, 0.06);
+      }
+    }
+    &-content {
+      &-list {
+        box-sizing: content-box;
+        width: 210px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
 
+      &-list-item {
+        position: relative;
+        display: inline-block;
+        width: 70px;
+        height: 70px;
+        padding: 0;
+        vertical-align: top;
+        list-style-type: none;
+        -webkit-transition: transform 0.2s cubic-bezier(0.333, 0, 0, 1);
+        transition: transform 0.2s cubic-bezier(0.333, 0, 0, 1);
+        a {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: space-between;
+          height: 100%;
+          padding: 10px;
+          color: @heading-color;
+          font-size: 12px;
+          text-align: center;
+          text-decoration: none;
+          &:hover {
+            background-color: #e8f0fe;
+            border-radius: 8px;
+          }
+          & > img {
+            width: 32px;
+            height: 32px;
+          }
+          & > span {
+            width: 100%;
+            height: 14px;
+            overflow: hidden;
+            line-height: 14px;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
   &-logo {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 16px 16px;
+    color: @heading-color;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     cursor: pointer;
     transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-
     > a {
       display: flex;
       align-items: center;
       justify-content: center;
       min-height: 22px;
+      font-size: 22px;
     }
 
     img {
@@ -72,7 +135,6 @@
     position: relative;
     z-index: 10;
     min-height: 100%;
-    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
   }
 
   .@{ant-prefix}-layout-sider-children {
@@ -118,7 +180,6 @@
     height: 100%;
     overflow: auto;
     overflow-x: hidden;
-    box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
     > .@{ant-prefix}-menu-root {
       :not(.@{pro-layout-sider-menu-prefix-cls}-link-menu) {
         height: ~'calc(100vh - @{nav-header-height})';
@@ -163,6 +224,23 @@
   &-icon {
     width: 14px;
     vertical-align: baseline;
+  }
+
+  &-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4px 0;
+    padding: 0 16px;
+
+    &-avatar {
+      font-size: 12px;
+    }
+
+    &-list > * {
+      color: @text-color-secondary;
+      cursor: pointer;
+    }
   }
 
   &-links {

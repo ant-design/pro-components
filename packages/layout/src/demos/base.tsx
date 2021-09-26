@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { Button, Descriptions, Result, Avatar, Space, Statistic } from 'antd';
-import { LikeOutlined, UserOutlined } from '@ant-design/icons';
+import { Button, Descriptions, Result, Space, Statistic } from 'antd';
+import {
+  InfoCircleOutlined,
+  LikeOutlined,
+  MergeCellsOutlined,
+  QuestionCircleOutlined,
+  UserOutlined,
+} from '@ant-design/icons';
 
 import type { ProSettings } from '@ant-design/pro-layout';
 import ProLayout, { PageContainer, SettingDrawer } from '@ant-design/pro-layout';
@@ -36,32 +42,27 @@ export default () => {
         waterMarkProps={{
           content: 'Pro Layout',
         }}
-        menuFooterRender={(props) => {
+        avatarProps={{
+          icon: <UserOutlined />,
+          size: 'small',
+          title: '七妮妮',
+        }}
+        actionsRender={() => [
+          <InfoCircleOutlined />,
+          <QuestionCircleOutlined />,
+          <MergeCellsOutlined />,
+        ]}
+        menuFooterRender={() => {
           return (
-            <a
+            <p
               style={{
-                lineHeight: '48rpx',
-                display: 'flex',
-                height: 48,
-                color: 'rgba(255, 255, 255, 0.65)',
-                alignItems: 'center',
+                textAlign: 'center',
+                color: 'rgba(0,0,0,0.6)',
+                paddingTop: 12,
               }}
-              href="https://preview.pro.ant.design/dashboard/analysis"
-              target="_blank"
-              rel="noreferrer"
             >
-              <img
-                alt="pro-logo"
-                src="https://procomponents.ant.design/favicon.ico"
-                style={{
-                  width: 16,
-                  height: 16,
-                  margin: '0 16px',
-                  marginRight: 10,
-                }}
-              />
-              {!props?.collapsed && 'Preview Pro'}
-            </a>
+              Power by Ant Design
+            </p>
           );
         }}
         onMenuHeaderClick={(e) => console.log(e)}
@@ -73,11 +74,6 @@ export default () => {
           >
             {dom}
           </a>
-        )}
-        rightContentRender={() => (
-          <div>
-            <Avatar shape="square" size="small" icon={<UserOutlined />} />
-          </div>
         )}
         {...settings}
       >

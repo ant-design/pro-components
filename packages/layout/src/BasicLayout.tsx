@@ -249,7 +249,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     defaultCollapsed,
     style,
     disableContentMargin,
-    siderWidth = 208,
+    siderWidth = 256,
     menu,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
@@ -567,7 +567,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
 };
 
 const Logo = () => (
-  <svg width="32px" height="32px" viewBox="0 0 200 200">
+  <svg width="1em" height="1em" viewBox="0 0 200 200">
     <defs>
       <linearGradient
         x1="62.1023273%"
