@@ -5,7 +5,8 @@
 
 @nav-header-height: @pro-layout-header-height;
 
-@menu-item-active-bg: rgba(0,0,0,0.04);
+@menu-item-active-bg: rgba(0, 0, 0, 0.04);
+@menu-highlight-color: #000;
 
 .@{pro-layout-sider-menu-prefix-cls} {
   position: relative;
@@ -15,6 +16,34 @@
   // 这里关掉了动画，不然使用无法兼容
   .@{ant-prefix}-menu {
     background: transparent;
+    &:not(.@{ant-prefix}-menu-horizontal) .@{ant-prefix}-menu-item-selected {
+      background-color: @menu-item-active-bg;
+      border-radius: 2px;
+    }
+
+    &-submenu {
+      &-selected {
+        color: #000;
+      }
+      &:hover > .@{ant-prefix}-menu-submenu-title > .@{ant-prefix}-menu-submenu-expand-icon,
+      &:hover > .@{ant-prefix}-menu-submenu-title > .@{ant-prefix}-menu-submenu-arrow {
+        color: @menu-highlight-color;
+      }
+    }
+
+    &-item:active,
+    &-submenu-title:active {
+      background: @menu-item-active-bg;
+    }
+
+    &-item-selected {
+      &::after {
+        display: none;
+      }
+      a {
+        color: @menu-highlight-color;
+      }
+    }
   }
 
   &.@{ant-prefix}-layout-sider-light {
@@ -26,6 +55,7 @@
       color: @primary-color;
     }
   }
+
   &-apps {
     &-icon {
       display: inline-block;
