@@ -401,7 +401,7 @@ ref.current.cancelEditable(rowKey);
 | fieldProps | The props of the query form will be transparently transmitted to the form item. If it is rendered as Input, all props of input are supported. Similarly, if it is select, all props of select are also supported. Also supports method input | `` (form,config)=>Record`\| `Record `` | - |
 | `formItemProps` | The configuration passed to Form.Item can be configured with rules, but the default query form rules does not take effect. Need to configure `ignoreRules` | `(form,config)=>formItemProps` \| `formItemProps` | - |
 | renderText | Render like table, but must return string. If you just want to convert enumeration, you can use [valueEnum](#valueEnum) | `(text: any,record: T,index: number,action: UseFetchDataAction<T> ) => string` | - |
-| render | Render similar to table, the first parameter becomes dom, and the fourth parameter action is added | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \  | ReactNode[]` | - |
+| render | Render similar to table, the first parameter becomes dom, and the fourth parameter action is added | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
 | renderFormItem | Render the input components of the query form | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
 | search | Configuration column search related, false is hidden | `false` \| `{ transform: (value: any) => any }` | true |
 | search.transform | The key of the conversion value, generally used for the conversion of the event interval | `(value: any) => any` | - |
