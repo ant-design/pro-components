@@ -21,7 +21,7 @@ const FieldTimePicker: ProFieldFC<{
   if (mode === 'read') {
     const dom = (
       <span ref={ref}>
-        {text ? moment(text).format(fieldProps?.format || format || 'HH:mm:ss') : '-'}
+        {text ? moment(text, fieldProps?.format || format || 'HH:mm:ss').format(fieldProps?.format || format || 'HH:mm:ss') : '-'}
       </span>
     );
     if (render) {
@@ -32,7 +32,7 @@ const FieldTimePicker: ProFieldFC<{
   if (mode === 'edit' || mode === 'update') {
     let dom;
     const { disabled, onChange, placeholder, allowClear, value } = fieldProps;
-    const momentValue = parseValueToMoment(value) as moment.Moment;
+    const momentValue = parseValueToMoment(value, fieldProps?.format || format || 'HH:mm:ss') as moment.Moment;
     if (light) {
       const valueStr: string =
         (momentValue && momentValue.format(fieldProps?.format || format || 'HH:mm:ss')) || '';
