@@ -708,19 +708,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card-extra"
                       >
-                        <div>
-                          <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
-                          >
-                            <div
-                              class="ant-space-item"
-                            >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </div>
                     <div
@@ -816,19 +806,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card-extra"
                       >
-                        <div>
-                          <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
-                          >
-                            <div
-                              class="ant-space-item"
-                            >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </div>
                     <div
@@ -924,19 +904,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card-extra"
                       >
-                        <div>
-                          <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
-                          >
-                            <div
-                              class="ant-space-item"
-                            >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </div>
                     <div
@@ -1032,19 +1002,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card-extra"
                       >
-                        <div>
-                          <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
-                          >
-                            <div
-                              class="ant-space-item"
-                            >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </div>
                     <div
@@ -1140,19 +1100,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card-extra"
                       >
-                        <div>
-                          <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
-                          >
-                            <div
-                              class="ant-space-item"
-                            >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </div>
                     <div
@@ -1248,19 +1198,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card-extra"
                       >
-                        <div>
-                          <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
-                          >
-                            <div
-                              class="ant-space-item"
-                            >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </div>
                     <div
@@ -1356,19 +1296,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card-extra"
                       >
-                        <div>
-                          <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
-                          >
-                            <div
-                              class="ant-space-item"
-                            >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </div>
                     <div
@@ -1464,19 +1394,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                       <div
                         class="ant-pro-card-extra"
                       >
-                        <div>
-                          <div
-                            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-field-option"
-                          >
-                            <div
-                              class="ant-space-item"
-                            >
-                              <a>
-                                邀请
-                              </a>
-                            </div>
-                          </div>
-                        </div>
+                        <a>
+                          邀请
+                        </a>
                       </div>
                     </div>
                     <div
