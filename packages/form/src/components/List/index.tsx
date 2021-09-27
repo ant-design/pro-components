@@ -1,5 +1,5 @@
 ﻿import type { ReactNode } from 'react';
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useRef, useMemo } from 'react';
 import type { ButtonProps, FormInstance } from 'antd';
 import omit from 'omit.js';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -304,6 +304,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   actionRef,
   ...rest
 }) => {
+  const actionRefs = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
@@ -333,8 +334,9 @@ const ProFormList: React.FC<ProFormListProps> = ({
                   return (children as ChildrenFunction)(fields, action, meta);
                 }
                 // 将 action 暴露给外部
+                actionRefs.current = action;
                 if (actionRef !== undefined) {
-                  actionRef.current = action;
+                  actionRef = actionRefs;
                 }
 
                 return (
