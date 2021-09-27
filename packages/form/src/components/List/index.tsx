@@ -301,9 +301,9 @@ const ProFormList: React.FC<ProFormListProps> = ({
     Icon: DeleteOutlined,
     tooltipText: '删除此行',
   },
+  actionRef,
   ...rest
 }) => {
-  const actionRef = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
@@ -333,7 +333,10 @@ const ProFormList: React.FC<ProFormListProps> = ({
                   return (children as ChildrenFunction)(fields, action, meta);
                 }
                 // 将 action 暴露给外部
-                actionRef.current = action;
+                if (actionRef !== undefined) {
+                  actionRef.current = action;
+                }
+
                 return (
                   <>
                     <ProFormListContainer
