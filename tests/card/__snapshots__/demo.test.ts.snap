@@ -1,5 +1,1732 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/avatar.tsx correctly 1`] = `
+<div
+  class="ant-pro-checkcard ant-pro-checkcard-bordered"
+>
+  <div
+    class="ant-pro-checkcard-content ant-pro-checkcard-avatar-header"
+  >
+    <div
+      class="ant-pro-checkcard-avatar"
+    >
+      <span
+        class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-icon"
+        style="background-color: rgb(114, 101, 230);"
+      >
+        <span
+          aria-label="user"
+          class="anticon anticon-user"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="user"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M858.5 763.6a374 374 0 00-80.6-119.5 375.63 375.63 0 00-119.5-80.6c-.4-.2-.8-.3-1.2-.5C719.5 518 760 444.7 760 362c0-137-111-248-248-248S264 225 264 362c0 82.7 40.5 156 102.8 201.1-.4.2-.8.3-1.2.5-44.8 18.9-85 46-119.5 80.6a375.63 375.63 0 00-80.6 119.5A371.7 371.7 0 00136 901.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8 2-77.2 33-149.5 87.8-204.3 56.7-56.7 132-87.9 212.2-87.9s155.5 31.2 212.2 87.9C779 752.7 810 825 812 902.2c.1 4.4 3.6 7.8 8 7.8h60a8 8 0 008-8.2c-1-47.8-10.9-94.3-29.5-138.2zM512 534c-45.9 0-89.1-17.9-121.6-50.4S340 407.9 340 362c0-45.9 17.9-89.1 50.4-121.6S466.1 190 512 190s89.1 17.9 121.6 50.4S684 316.1 684 362c0 45.9-17.9 89.1-50.4 121.6S557.9 534 512 534z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-pro-checkcard-detail"
+    >
+      <div
+        class="ant-pro-checkcard-header"
+      >
+        <div
+          class="ant-pro-checkcard-title"
+        >
+          示例标题
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/basic.tsx correctly 1`] = `
+<div
+  class="ant-pro-checkcard ant-pro-checkcard-bordered"
+>
+  <div
+    class="ant-pro-checkcard-content"
+  >
+    <div
+      class="ant-pro-checkcard-avatar"
+    >
+      <span
+        class="ant-avatar ant-avatar-square ant-avatar-image"
+        style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+      >
+        <img
+          src="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+        />
+      </span>
+    </div>
+    <div
+      class="ant-pro-checkcard-detail"
+    >
+      <div
+        class="ant-pro-checkcard-header"
+      >
+        <div
+          class="ant-pro-checkcard-title"
+        >
+          示例一
+        </div>
+      </div>
+      <div
+        class="ant-pro-checkcard-description"
+      >
+        选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/compose.tsx correctly 1`] = `
+Array [
+  <h3>
+    只有图片时
+  </h3>,
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-avatar"
+      >
+        <span
+          class="ant-avatar ant-avatar-square ant-avatar-image"
+          style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+        >
+          <img
+            src="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+          />
+        </span>
+      </div>
+      <div
+        class="ant-pro-checkcard-detail"
+      />
+    </div>
+  </div>,
+  <h3>
+    只有图片和描述时
+  </h3>,
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-avatar"
+      >
+        <span
+          class="ant-avatar ant-avatar-square ant-avatar-image"
+          style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+        >
+          <img
+            src="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+          />
+        </span>
+      </div>
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
+        </div>
+      </div>
+    </div>
+  </div>,
+  <h3>
+    只有标题和描述时
+  </h3>,
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            示例
+          </div>
+        </div>
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
+        </div>
+      </div>
+    </div>
+  </div>,
+  <h3>
+    只有标题和图片
+  </h3>,
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content ant-pro-checkcard-avatar-header"
+    >
+      <div
+        class="ant-pro-checkcard-avatar"
+      >
+        <span
+          class="ant-avatar ant-avatar-square ant-avatar-image"
+          style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+        >
+          <img
+            src="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+          />
+        </span>
+      </div>
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            示例
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <h3>
+    只有标题
+  </h3>,
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            示例
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <h3>
+    只有描述时
+  </h3>,
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/custom.tsx correctly 1`] = `
+<div
+  class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  style="width: 200px; height: 200px;"
+>
+  <div
+    class="ant-pro-checkcard-content"
+  >
+    <div
+      class="ant-pro-checkcard-detail"
+    >
+      <div
+        class="ant-pro-checkcard-header"
+      >
+        <div
+          class="ant-pro-checkcard-title"
+        >
+          Card title
+        </div>
+      </div>
+      <div
+        class="ant-pro-checkcard-description"
+      >
+        This is the description
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/defaultChecked.tsx correctly 1`] = `
+<div
+  class="ant-pro-checkcard ant-pro-checkcard-checked ant-pro-checkcard-bordered"
+>
+  <div
+    class="ant-pro-checkcard-content ant-pro-checkcard-avatar-header"
+  >
+    <div
+      class="ant-pro-checkcard-avatar"
+    >
+      <span
+        class="ant-avatar ant-avatar-square ant-avatar-image"
+        style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+      >
+        <img
+          src="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+        />
+      </span>
+    </div>
+    <div
+      class="ant-pro-checkcard-detail"
+    >
+      <div
+        class="ant-pro-checkcard-header"
+      >
+        <div
+          class="ant-pro-checkcard-title"
+        >
+          示例二
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/description.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-avatar"
+      >
+        <span
+          class="ant-avatar ant-avatar-square ant-avatar-image"
+          style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+        >
+          <img
+            src="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+          />
+        </span>
+      </div>
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            默认描述区域不会进行折行
+          </div>
+        </div>
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          <span>
+            选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
+            <a
+              href=""
+            >
+              查看详情
+            </a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-avatar"
+      >
+        <span
+          class="ant-avatar ant-avatar-square ant-avatar-image"
+          style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+        >
+          <img
+            src="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+          />
+        </span>
+      </div>
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            你可以通过排版组件进行省略
+          </div>
+        </div>
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          <div
+            class="ant-typography ant-typography-ellipsis ant-typography-ellipsis-multiple-line"
+          >
+            选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/disabled.tsx correctly 1`] = `
+Array [
+  <div>
+    <h3>
+      部分不可用
+    </h3>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-square ant-avatar-image"
+            style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+          >
+            <img
+              src="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              Card title
+            </div>
+          </div>
+          <div
+            class="ant-pro-checkcard-description"
+          >
+            This is the description
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-disabled ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-square ant-avatar-image"
+            style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+          >
+            <img
+              src="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              Card title
+            </div>
+          </div>
+          <div
+            class="ant-pro-checkcard-description"
+          >
+            This is the description
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-checked ant-pro-checkcard-disabled ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-square ant-avatar-image"
+            style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+          >
+            <img
+              src="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              Card title
+            </div>
+          </div>
+          <div
+            class="ant-pro-checkcard-description"
+          >
+            This is the description
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div>
+    <h3>
+      整体不可用
+    </h3>
+    <div
+      class="ant-pro-checkcard-group"
+    >
+      <div
+        class="ant-pro-checkcard ant-pro-checkcard-checked ant-pro-checkcard-disabled ant-pro-checkcard-bordered"
+      >
+        <div
+          class="ant-pro-checkcard-content"
+        >
+          <div
+            class="ant-pro-checkcard-detail"
+          >
+            <div
+              class="ant-pro-checkcard-header"
+            >
+              <div
+                class="ant-pro-checkcard-title"
+              >
+                Card A
+              </div>
+            </div>
+            <div
+              class="ant-pro-checkcard-description"
+            >
+              选项一
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-pro-checkcard ant-pro-checkcard-disabled ant-pro-checkcard-bordered"
+      >
+        <div
+          class="ant-pro-checkcard-content"
+        >
+          <div
+            class="ant-pro-checkcard-detail"
+          >
+            <div
+              class="ant-pro-checkcard-header"
+            >
+              <div
+                class="ant-pro-checkcard-title"
+              >
+                Card B
+              </div>
+            </div>
+            <div
+              class="ant-pro-checkcard-description"
+            >
+              选项二
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/extra.tsx correctly 1`] = `
+<div
+  class="ant-pro-checkcard ant-pro-checkcard-bordered"
+>
+  <div
+    class="ant-pro-checkcard-content"
+  >
+    <div
+      class="ant-pro-checkcard-avatar"
+    >
+      <span
+        class="ant-avatar ant-avatar-square ant-avatar-image"
+        style="width: 48px; height: 48px; line-height: 48px; font-size: 18px;"
+      >
+        <img
+          src="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+        />
+      </span>
+    </div>
+    <div
+      class="ant-pro-checkcard-detail"
+    >
+      <div
+        class="ant-pro-checkcard-header"
+      >
+        <div
+          class="ant-pro-checkcard-title"
+        >
+          示例一
+        </div>
+        <div
+          class="ant-pro-checkcard-extra"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis ant-dropdown-trigger"
+            role="img"
+            style="font-size: 22px; color: rgba(0, 0, 0, 0.5);"
+            tabindex="-1"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-pro-checkcard-description"
+      >
+        选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/form.tsx correctly 1`] = `
+<div>
+  <form
+    class="ant-form ant-form-vertical"
+  >
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="checkbox-group"
+          title="技术栈"
+        >
+          技术栈
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <div
+              class="ant-pro-checkcard-group"
+              id="checkbox-group"
+              style="width: 100%;"
+            >
+              <div
+                class="ant-pro-checkcard ant-pro-checkcard-bordered"
+              >
+                <div
+                  class="ant-pro-checkcard-content"
+                >
+                  <div
+                    class="ant-pro-checkcard-avatar"
+                  >
+                    <span
+                      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+                    >
+                      <img
+                        src="https://gw.alipayobjects.com/zos/bmw-prod/2dd637c7-5f50-4d89-a819-33b3d6da73b6.svg"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    class="ant-pro-checkcard-detail"
+                  >
+                    <div
+                      class="ant-pro-checkcard-header"
+                    >
+                      <div
+                        class="ant-pro-checkcard-title"
+                      >
+                        Spring Boot
+                      </div>
+                    </div>
+                    <div
+                      class="ant-pro-checkcard-description"
+                    >
+                      通过业界流行的技术栈来快速构建 Java 后端应用
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-pro-checkcard ant-pro-checkcard-bordered"
+              >
+                <div
+                  class="ant-pro-checkcard-content"
+                >
+                  <div
+                    class="ant-pro-checkcard-avatar"
+                  >
+                    <span
+                      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+                    >
+                      <img
+                        src="https://gw.alipayobjects.com/zos/bmw-prod/6935b98e-96f6-464f-9d4f-215b917c6548.svg"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    class="ant-pro-checkcard-detail"
+                  >
+                    <div
+                      class="ant-pro-checkcard-header"
+                    >
+                      <div
+                        class="ant-pro-checkcard-title"
+                      >
+                        SOFA Boot
+                      </div>
+                    </div>
+                    <div
+                      class="ant-pro-checkcard-description"
+                    >
+                      使用 SOFAStack 中间件来快速构建分布式后端应用
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-pro-checkcard ant-pro-checkcard-bordered"
+              >
+                <div
+                  class="ant-pro-checkcard-content"
+                >
+                  <div
+                    class="ant-pro-checkcard-avatar"
+                  >
+                    <span
+                      class="ant-avatar ant-avatar-lg ant-avatar-circle ant-avatar-image"
+                    >
+                      <img
+                        src="https://gw.alipayobjects.com/zos/bmw-prod/d12c3392-61fa-489e-a82c-71de0f888a8e.svg"
+                      />
+                    </span>
+                  </div>
+                  <div
+                    class="ant-pro-checkcard-detail"
+                  >
+                    <div
+                      class="ant-pro-checkcard-header"
+                    >
+                      <div
+                        class="ant-pro-checkcard-title"
+                      >
+                        Node JS
+                      </div>
+                    </div>
+                    <div
+                      class="ant-pro-checkcard-description"
+                    >
+                      使用前后端统一的语言方案快速构建后端应用
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              class="ant-btn ant-btn-primary"
+              type="submit"
+            >
+              <span>
+                Submit
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/grid.tsx correctly 1`] = `
+<div
+  class="ant-pro-checkcard-group"
+  style="width: 100%;"
+>
+  <div
+    class="ant-row"
+  >
+    <div
+      class="ant-col ant-col-8"
+    >
+      <div
+        class="ant-pro-checkcard ant-pro-checkcard-sm ant-pro-checkcard-bordered"
+      >
+        <div
+          class="ant-pro-checkcard-content"
+        >
+          <div
+            class="ant-pro-checkcard-detail"
+          >
+            <div
+              class="ant-pro-checkcard-header"
+            >
+              <div
+                class="ant-pro-checkcard-title"
+              >
+                Card A
+              </div>
+            </div>
+            <div
+              class="ant-pro-checkcard-description"
+            >
+              This is the description
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8"
+    >
+      <div
+        class="ant-pro-checkcard ant-pro-checkcard-sm ant-pro-checkcard-bordered"
+      >
+        <div
+          class="ant-pro-checkcard-content"
+        >
+          <div
+            class="ant-pro-checkcard-detail"
+          >
+            <div
+              class="ant-pro-checkcard-header"
+            >
+              <div
+                class="ant-pro-checkcard-title"
+              >
+                Card B
+              </div>
+            </div>
+            <div
+              class="ant-pro-checkcard-description"
+            >
+              This is the description
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8"
+    >
+      <div
+        class="ant-pro-checkcard ant-pro-checkcard-sm ant-pro-checkcard-bordered"
+      >
+        <div
+          class="ant-pro-checkcard-content"
+        >
+          <div
+            class="ant-pro-checkcard-detail"
+          >
+            <div
+              class="ant-pro-checkcard-header"
+            >
+              <div
+                class="ant-pro-checkcard-title"
+              >
+                Card C
+              </div>
+            </div>
+            <div
+              class="ant-pro-checkcard-description"
+            >
+              This is the description
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/group.tsx correctly 1`] = `
+<div
+  style="padding: 24px; background-color: rgb(240, 242, 245);"
+>
+  <div
+    class="ant-pro-checkcard-group"
+  >
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-sm ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              🍎 Apple
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-sm ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              🍐 Pear
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-sm ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              🍊 Orange
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/image.tsx correctly 1`] = `
+<div
+  class="ant-pro-checkcard ant-pro-checkcard-bordered"
+>
+  <div
+    class="ant-pro-checkcard-cover"
+  >
+    <img
+      alt="example"
+      src="https://gw.alipayobjects.com/mdn/rms_66ee3f/afts/img/A*FyH5TY53zSwAAAAAAAAAAABkARQnAQ"
+    />
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/list.tsx correctly 1`] = `
+<div
+  style="padding: 24px; background-color: rgb(240, 242, 245);"
+>
+  <div
+    class="ant-pro-checkcard-group"
+  >
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-square ant-avatar-image"
+            style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+          >
+            <img
+              src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              图像分类
+            </div>
+          </div>
+          <div
+            class="ant-pro-checkcard-description"
+          >
+            这是一段关于该算法的说明
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-square ant-avatar-image"
+            style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+          >
+            <img
+              src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              物体检测
+            </div>
+          </div>
+          <div
+            class="ant-pro-checkcard-description"
+          >
+            这是一段关于该算法的说明
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-square ant-avatar-image"
+            style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+          >
+            <img
+              src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              OCR自定义
+            </div>
+          </div>
+          <div
+            class="ant-pro-checkcard-description"
+          >
+            这是一段关于该算法的说明
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-square ant-avatar-image"
+            style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+          >
+            <img
+              src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              OCR
+            </div>
+          </div>
+          <div
+            class="ant-pro-checkcard-description"
+          >
+            这是一段关于该算法的说明
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-square ant-avatar-image"
+            style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+          >
+            <img
+              src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              视频分类
+            </div>
+          </div>
+          <div
+            class="ant-pro-checkcard-description"
+          >
+            这是一段关于该算法的说明
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-avatar"
+        >
+          <span
+            class="ant-avatar ant-avatar-square ant-avatar-image"
+            style="width: 32px; height: 32px; line-height: 32px; font-size: 18px;"
+          >
+            <img
+              src="https://gw.alipayobjects.com/zos/bmw-prod/ae0adacf-9456-4ed3-b1ab-51e4417d8d0c.svg"
+            />
+          </span>
+        </div>
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              关键点检测
+            </div>
+          </div>
+          <div
+            class="ant-pro-checkcard-description"
+          >
+            这是一段关于该算法的说明
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/loading.tsx correctly 1`] = `
+<div
+  class="ant-pro-checkcard ant-pro-checkcard-loading ant-pro-checkcard-bordered"
+>
+  <div
+    class="ant-pro-checkcard-loading-content"
+  >
+    <div
+      class="ant-row"
+      style="margin-left: -4px; margin-right: -4px;"
+    >
+      <div
+        class="ant-col ant-col-22"
+        style="padding-left: 4px; padding-right: 4px;"
+      >
+        <div
+          class="ant-pro-checkcard-loading-block"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-row"
+      style="margin-left: -4px; margin-right: -4px;"
+    >
+      <div
+        class="ant-col ant-col-8"
+        style="padding-left: 4px; padding-right: 4px;"
+      >
+        <div
+          class="ant-pro-checkcard-loading-block"
+        />
+      </div>
+      <div
+        class="ant-col ant-col-15"
+        style="padding-left: 4px; padding-right: 4px;"
+      >
+        <div
+          class="ant-pro-checkcard-loading-block"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-row"
+      style="margin-left: -4px; margin-right: -4px;"
+    >
+      <div
+        class="ant-col ant-col-6"
+        style="padding-left: 4px; padding-right: 4px;"
+      >
+        <div
+          class="ant-pro-checkcard-loading-block"
+        />
+      </div>
+      <div
+        class="ant-col ant-col-18"
+        style="padding-left: 4px; padding-right: 4px;"
+      >
+        <div
+          class="ant-pro-checkcard-loading-block"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-row"
+      style="margin-left: -4px; margin-right: -4px;"
+    >
+      <div
+        class="ant-col ant-col-13"
+        style="padding-left: 4px; padding-right: 4px;"
+      >
+        <div
+          class="ant-pro-checkcard-loading-block"
+        />
+      </div>
+      <div
+        class="ant-col ant-col-9"
+        style="padding-left: 4px; padding-right: 4px;"
+      >
+        <div
+          class="ant-pro-checkcard-loading-block"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-row"
+      style="margin-left: -4px; margin-right: -4px;"
+    >
+      <div
+        class="ant-col ant-col-4"
+        style="padding-left: 4px; padding-right: 4px;"
+      >
+        <div
+          class="ant-pro-checkcard-loading-block"
+        />
+      </div>
+      <div
+        class="ant-col ant-col-3"
+        style="padding-left: 4px; padding-right: 4px;"
+      >
+        <div
+          class="ant-pro-checkcard-loading-block"
+        />
+      </div>
+      <div
+        class="ant-col ant-col-16"
+        style="padding-left: 4px; padding-right: 4px;"
+      >
+        <div
+          class="ant-pro-checkcard-loading-block"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/multiple.tsx correctly 1`] = `
+<div
+  class="ant-pro-checkcard-group"
+>
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-checked ant-pro-checkcard-multiple ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            Card A
+          </div>
+        </div>
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-multiple ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            Card B
+          </div>
+        </div>
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/single.tsx correctly 1`] = `
+<div
+  class="ant-pro-checkcard-group"
+>
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-checked ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            Card A
+          </div>
+        </div>
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          选项一
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            Card B
+          </div>
+        </div>
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          选项二
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-disabled ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            Card C
+          </div>
+        </div>
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          选项三，这是一个不可选项
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/size.tsx correctly 1`] = `
+Array [
+  <div
+    style="margin-bottom: 16px;"
+  >
+    <div
+      class="ant-radio-group ant-radio-group-outline"
+    >
+      <label
+        class="ant-radio-button-wrapper"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            type="radio"
+            value="large"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span>
+          Large
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      >
+        <span
+          class="ant-radio-button ant-radio-button-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-button-input"
+            type="radio"
+            value="default"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span>
+          Default
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            type="radio"
+            value="small"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span>
+          Small
+        </span>
+      </label>
+    </div>
+  </div>,
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            Card title
+          </div>
+        </div>
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          This is the description
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
+exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/title.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            <div
+              style="display: flex; align-items: center;"
+            >
+              <span
+                aria-label="appstore"
+                class="anticon anticon-appstore"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="appstore"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M464 144H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H212V212h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V160c0-8.8-7.2-16-16-16zm-52 268H612V212h200v200zM464 544H160c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H212V612h200v200zm452-268H560c-8.8 0-16 7.2-16 16v304c0 8.8 7.2 16 16 16h304c8.8 0 16-7.2 16-16V560c0-8.8-7.2-16-16-16zm-52 268H612V612h200v200z"
+                  />
+                </svg>
+              </span>
+              <span
+                style="margin-right: 8px; margin-left: 8px;"
+              >
+                示例
+              </span>
+              <span
+                class="ant-tag ant-tag-blue"
+              >
+                blue
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+  >
+    <div
+      class="ant-pro-checkcard-content"
+    >
+      <div
+        class="ant-pro-checkcard-detail"
+      >
+        <div
+          class="ant-pro-checkcard-header"
+        >
+          <div
+            class="ant-pro-checkcard-title"
+          >
+            标题内容过长会自动进行省略，标题内容过长会自动进行省略
+          </div>
+        </div>
+        <div
+          class="ant-pro-checkcard-description"
+        >
+          选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念
+        </div>
+      </div>
+    </div>
+  </div>,
+]
+`;
+
 exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/demos/basic.tsx correctly 1`] = `
 <div
   class="ant-pro-card ant-pro-statistic-card"
