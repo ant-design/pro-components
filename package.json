@@ -61,6 +61,7 @@
     "@types/react-router-dom": "^5.1.0",
     "@types/warning": "^3.0.0",
     "@types/xhr-mock": "^2.0.0",
+    "@types/shallowequal": "^1.1.1",
     "@umijs/babel-preset-umi": "^3.0.14",
     "@umijs/fabric": "2.6.2",
     "@umijs/plugin-analytics": "^0.2.2",

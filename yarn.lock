@@ -3834,6 +3834,11 @@
   resolved "https://registry.nlark.com/@types/scheduler/download/@types/scheduler-0.16.2.tgz?cache=0&sync_timestamp=1629709259268&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fscheduler%2Fdownload%2F%40types%2Fscheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
   integrity sha1-GmL4lSVyPd4kuhsBsJK/XfitTTk=
 
+"@types/shallowequal@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.nlark.com/@types/shallowequal/download/@types/shallowequal-1.1.1.tgz?cache=0&sync_timestamp=1629709397076&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fshallowequal%2Fdownload%2F%40types%2Fshallowequal-1.1.1.tgz#aad262bb3f2b1257d94c71d545268d592575c9b1"
+  integrity sha1-qtJiuz8rElfZTHHVRSaNWSV1ybE=
+
 "@types/signale@^1.2.1":
   version "1.4.2"
   resolved "https://registry.nlark.com/@types/signale/download/@types/signale-1.4.2.tgz?cache=0&sync_timestamp=1629709399701&other_urls=https%3A%2F%2Fregistry.nlark.com%2F%40types%2Fsignale%2Fdownload%2F%40types%2Fsignale-1.4.2.tgz#6fc36d038297fa4c1d9aa2b5c2ec80195d4c5d2f"
