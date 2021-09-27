@@ -23,7 +23,7 @@ import type { ColumnsState, useContainer } from './container';
 import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
-import { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/lib/form/interface';
 
 export type PageInfo = {
   pageSize: number;
@@ -156,6 +156,23 @@ export type Bordered =
       table?: boolean;
     };
 
+export type ColumnsStateType = {
+  /**
+   * 持久化的类型，支持 localStorage 和 sessionStorage
+   *
+   * @param localStorage 设置在关闭浏览器后也是存在的
+   * @param sessionStorage 关闭浏览器后会丢失
+   */
+  persistenceType?: 'localStorage' | 'sessionStorage';
+  /** 持久化的key，用于存储到 storage 中 */
+  persistenceKey?: string;
+  /** ColumnsState 的值，columnsStateMap将会废弃 */
+  defaultValue?: Record<string, ColumnsState>;
+  /** ColumnsState 的值，columnsStateMap将会废弃 */
+  value?: Record<string, ColumnsState>;
+  onChange?: (map: Record<string, ColumnsState>) => void;
+};
+
 /** ProTable 的类型定义 继承自 antd 的 Table */
 export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   columns?: ProColumns<T, ValueType>[];
@@ -164,9 +181,21 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
 
   params?: U;
 
+  /**
+   * 列状态配置，可以配置是否浮动和是否展示
+   *
+   * @deprecated 请使用 columnsState.value 代替
+   */
   columnsStateMap?: Record<string, ColumnsState>;
-
+  /**
+   * 列状态配置修改触发事件
+   *
+   * @deprecated 请使用 columnsState.onChange 代替
+   */
   onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
+
+  /** 列状态的配置，可以用来操作列功能 */
+  columnsState?: ColumnsStateType;
 
   onSizeChange?: (size: DensitySize) => void;
 

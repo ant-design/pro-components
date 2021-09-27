@@ -66,6 +66,9 @@ function DrawerForm<T = Record<string, any>>({
   const context = useContext(ConfigProvider.ConfigContext);
 
   const renderDom = useMemo(() => {
+    if (drawerProps?.getContainer === false) {
+      return false;
+    }
     if (drawerProps?.getContainer) {
       if (typeof drawerProps?.getContainer === 'function') {
         return drawerProps?.getContainer?.();
@@ -146,82 +149,84 @@ function DrawerForm<T = Record<string, any>>({
 
   useImperativeHandle(rest.formRef, () => formRef.current);
 
+  const formDom = (
+    <div onClick={(e) => e.stopPropagation()}>
+      <BaseForm
+        formComponentType="DrawerForm"
+        layout="vertical"
+        {...omit(rest, ['visible'])}
+        formRef={formRef}
+        submitter={
+          rest.submitter === false
+            ? false
+            : {
+                ...rest.submitter,
+                searchConfig: {
+                  submitText: '确认',
+                  resetText: '取消',
+                  ...rest.submitter?.searchConfig,
+                },
+                resetButtonProps: {
+                  preventDefault: true,
+                  onClick: (e: any) => {
+                    setVisible(false);
+                    drawerProps?.onClose?.(e);
+                  },
+                  ...rest.submitter?.resetButtonProps,
+                },
+              }
+        }
+        onFinish={async (values) => {
+          if (!onFinish) {
+            return;
+          }
+          const success = await onFinish(values);
+          if (success) {
+            setVisible(false);
+            setTimeout(() => {
+              if (drawerProps?.destroyOnClose) formRef.current?.resetFields();
+            }, 300);
+          }
+        }}
+        contentRender={(item, submitter) => {
+          return (
+            <Drawer
+              title={title}
+              width={width || 800}
+              {...drawerProps}
+              getContainer={false}
+              visible={visible}
+              onClose={(e) => {
+                setVisible(false);
+                drawerProps?.onClose?.(e);
+              }}
+              footer={
+                !!submitter && (
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'flex-end',
+                    }}
+                  >
+                    {submitter}
+                  </div>
+                )
+              }
+            >
+              {shouldRenderFormItems ? item : null}
+            </Drawer>
+          );
+        }}
+      >
+        {children}
+      </BaseForm>
+    </div>
+  );
+
   /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
   return (
     <>
-      {createPortal(
-        <div onClick={(e) => e.stopPropagation()}>
-          <BaseForm
-            layout="vertical"
-            {...omit(rest, ['visible'])}
-            formRef={formRef}
-            submitter={
-              rest.submitter === false
-                ? false
-                : {
-                    ...rest.submitter,
-                    searchConfig: {
-                      submitText: '确认',
-                      resetText: '取消',
-                      ...rest.submitter?.searchConfig,
-                    },
-                    resetButtonProps: {
-                      preventDefault: true,
-                      onClick: (e: any) => {
-                        setVisible(false);
-                        drawerProps?.onClose?.(e);
-                      },
-                      ...rest.submitter?.resetButtonProps,
-                    },
-                  }
-            }
-            onFinish={async (values) => {
-              if (!onFinish) {
-                return;
-              }
-              const success = await onFinish(values);
-              if (success) {
-                setVisible(false);
-                setTimeout(() => {
-                  if (drawerProps?.destroyOnClose) formRef.current?.resetFields();
-                }, 300);
-              }
-            }}
-            contentRender={(item, submitter) => {
-              return (
-                <Drawer
-                  title={title}
-                  width={width || 800}
-                  {...drawerProps}
-                  getContainer={false}
-                  visible={visible}
-                  onClose={(e) => {
-                    setVisible(false);
-                    drawerProps?.onClose?.(e);
-                  }}
-                  footer={
-                    !!submitter && (
-                      <div
-                        style={{
-                          display: 'flex',
-                          justifyContent: 'flex-end',
-                        }}
-                      >
-                        {submitter}
-                      </div>
-                    )
-                  }
-                >
-                  {shouldRenderFormItems ? item : null}
-                </Drawer>
-              );
-            }}
-          >
-            {children}
-          </BaseForm>
-        </div>,
-        renderDom || document.body,
-      )}
+      {renderDom !== false ? createPortal(formDom, renderDom || document.body) : formDom}
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,

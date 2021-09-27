@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.54.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.54.3...@ant-design/pro-table@2.54.4) (2021-09-26)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.54.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.54.2...@ant-design/pro-table@2.54.3) (2021-09-24)
+
+### Bug Fixes
+
+- **table:** fix DragSortTable render problems with multiple renders ([#3705](https://github.com/ant-design/pro-components/issues/3705)) ([ec1a6c1](https://github.com/ant-design/pro-components/commit/ec1a6c150fe4cc4953c172cf7f9583eac1b54e23))
+- **table:** optimize style performance ([#3706](https://github.com/ant-design/pro-components/issues/3706)) ([df59f7e](https://github.com/ant-design/pro-components/commit/df59f7e893ba59a564d253bbd7330d4ed7da2900))
+
+## [2.54.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.54.1...@ant-design/pro-table@2.54.2) (2021-09-18)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.54.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.54.0...@ant-design/pro-table@2.54.1) (2021-09-18)
+
+### Bug Fixes
+
+- **utils:** use swr beta verison fix ie support ([#3697](https://github.com/ant-design/pro-components/issues/3697)) ([490bb96](https://github.com/ant-design/pro-components/commit/490bb9657285dda4b20d7c2252072baea59d7c51))
+
+# [2.54.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.53.2...@ant-design/pro-table@2.54.0) (2021-09-17)
+
+### Features
+
+- **table:** support persistence stateMap ([#3684](https://github.com/ant-design/pro-components/issues/3684)) ([fa7cf30](https://github.com/ant-design/pro-components/commit/fa7cf302762b19155329be22b1b05a6f7504fd67))
+
 ## [2.53.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.53.1...@ant-design/pro-table@2.53.2) (2021-09-16)
 
 ### Bug Fixes

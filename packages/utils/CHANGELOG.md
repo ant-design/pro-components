@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.24.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.5...@ant-design/pro-utils@1.24.6) (2021-09-24)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.24.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.4...@ant-design/pro-utils@1.24.5) (2021-09-18)
+
+### Bug Fixes
+
+- **table:** use new merge funtion ([#3696](https://github.com/ant-design/pro-components/issues/3696)) ([293c327](https://github.com/ant-design/pro-components/commit/293c327fa8db7ebd7ae9557c1ce8c426f8114cbc))
+- **utils:** use swr beta verison fix ie support ([#3697](https://github.com/ant-design/pro-components/issues/3697)) ([490bb96](https://github.com/ant-design/pro-components/commit/490bb9657285dda4b20d7c2252072baea59d7c51))
+
 ## [1.24.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.3...@ant-design/pro-utils@1.24.4) (2021-09-16)
 
 **Note:** Version bump only for package @ant-design/pro-utils

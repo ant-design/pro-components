@@ -13,7 +13,7 @@ import set from 'rc-util/lib/utils/set';
 import useMountMergeState from '../useMountMergeState';
 import ProFormContext from '../components/ProFormContext';
 import { usePrevious } from '..';
-import { NamePath } from 'antd/lib/form/interface';
+import type { NamePath } from 'antd/lib/form/interface';
 
 export type RowEditableType = 'single' | 'multiple';
 

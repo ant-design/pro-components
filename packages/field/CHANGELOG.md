@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.22.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.4...@ant-design/pro-field@1.22.5) (2021-09-24)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.3...@ant-design/pro-field@1.22.4) (2021-09-18)
+
+### Bug Fixes
+
+- **utils:** use swr beta verison fix ie support ([7046b1b](https://github.com/ant-design/pro-components/commit/7046b1b6f9cb1b793fd53a7fc8e6356c8830426a))
+
+## [1.22.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.2...@ant-design/pro-field@1.22.3) (2021-09-18)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.22.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.1...@ant-design/pro-field@1.22.2) (2021-09-16)
 
 ### Bug Fixes

@@ -236,6 +236,49 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
 </div>
 `;
 
+exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
+<div
+  class="ant-pro-page-container custom-className"
+>
+  <div
+    class="ant-pro-page-container-warp"
+  >
+    <div
+      class="ant-page-header"
+    >
+      <div
+        class="ant-page-header-heading"
+      >
+        <div
+          class="ant-page-header-heading-left"
+        >
+          <span
+            class="ant-page-header-heading-title"
+            title="页面标题"
+          >
+            页面标题
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-pro-grid-content"
+  >
+    <div
+      class="ant-pro-grid-content-children"
+    >
+      <div
+        id="customLoading"
+        style="color: red; padding: 30px; text-align: center;"
+      >
+        自定义加载...
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`PageContainer 🐛 className prop should not be passed to its page header, fix #3493 1`] = `
 <div
   class="ant-pro-page-container custom-className"

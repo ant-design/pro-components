@@ -19,6 +19,11 @@ export type FiledContextProps = {
     },
   ) => void;
   formRef?: React.MutableRefObject<ProFormInstance>;
+  /** Form 组件的类型 */
+  formComponentType?: string;
+
+  /** 表单的 getPopupContainer 控制 */
+  getPopupContainer?: (e: HTMLElement) => ParentNode;
 };
 
 const FieldContext = React.createContext<FiledContextProps>({});

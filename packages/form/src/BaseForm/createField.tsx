@@ -141,7 +141,7 @@ function createField<P extends ProFormFieldItemProps = any>(
           // @ts-ignore
           mode: readonly ? 'read' : rest?.mode,
           params: rest.params,
-          proFieldKey: `form-field-${otherProps?.name}`,
+          proFieldKey: otherProps?.name && `form-field-${otherProps.name}`,
           ...proFieldProps,
         })}
       />

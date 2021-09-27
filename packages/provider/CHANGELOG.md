@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.18...@ant-design/pro-provider@1.4.19) (2021-09-24)
+
+### Bug Fixes
+
+- **table:** optimize style performance ([#3706](https://github.com/ant-design/pro-components/issues/3706)) ([df59f7e](https://github.com/ant-design/pro-components/commit/df59f7e893ba59a564d253bbd7330d4ed7da2900))
+
 ## [1.4.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.17...@ant-design/pro-provider@1.4.18) (2021-09-16)
 
 **Note:** Version bump only for package @ant-design/pro-provider

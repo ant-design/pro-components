@@ -9,6 +9,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.26.0
+
+`2021-09-24`
+
+- feat: PageContainer 的 loading 属性支持传输自定义元素方式自定义 loading [#3702](https://github.com/ant-design/pro-components/pull/3702) [@kiner-tang](https://github.com/kiner-tang)
+
+## @ant-design/pro-layout@6.25.4
+
+`2021-09-10`
+
+- 🐛 fix(layout): remove extra dom node [#3631](https://github.com/ant-design/pro-components/pull/3631) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.25.0
 
 `2021-08-30`

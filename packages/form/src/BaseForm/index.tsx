@@ -106,6 +106,9 @@ export type BaseFormProps<T = Record<string, any>> = {
   groupProps?: GroupProps;
   /** 是否回车提交 */
   isKeyPressSubmit?: boolean;
+
+  /** Form 组件的类型，内部使用 */
+  formComponentType?: 'DrawerForm' | 'ModalForm' | 'QueryFilter';
 } & Omit<FormProps, 'onFinish'> &
   CommonFormProps<T>;
 
@@ -125,6 +128,8 @@ type ProFormInstance<T = Record<string, any>> = FormInstance<T> & {
   getFieldsFormatValue?: (nameList?: NamePath[] | true) => Record<string, any>;
   /** 获取格式化之后的单个数据 */
   getFieldFormatValue?: (nameList?: NamePath) => Record<string, any>;
+  /** 校验字段后返回格式化之后的所有数据 */
+  validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
 };
 
 function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
@@ -139,6 +144,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     form: userForm,
     formRef: propsFormRef,
     onInit,
+    formComponentType,
     extraUrlParams = {},
     syncToUrl,
     syncToInitialValues = true,
@@ -194,6 +200,11 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       /** 获取格式化之后的单个数据 */
       getFieldFormatValue: (nameList?: NamePath) => {
         return transformKey(formRef.current.getFieldValue(nameList!), omitNil, nameList);
+      },
+      /** 校验字段后返回格式化之后的所有数据 */
+      validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
+        const values = await formRef.current.validateFields(nameList);
+        return transformKey(values, omitNil);
       },
     }),
     [omitNil, transformKey],
@@ -260,6 +271,14 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     return items;
   }, [contentRender, items, submitterNode]);
 
+  const getPopupContainer = useMemo(() => {
+    // 如果在 drawerForm 和  modalForm 里就渲染dom到父节点里
+    if (formComponentType && ['DrawerForm', 'ModalForm'].includes(formComponentType)) {
+      return (e: HTMLElement) => e.parentNode || document.body;
+    }
+    return undefined;
+  }, [formComponentType]);
+
   useEffect(() => {
     const finalValues = transformKey(formRef.current.getFieldsValue(true), omitNil);
     onInit?.(finalValues);
@@ -315,6 +334,8 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           fieldProps,
           formItemProps,
           groupProps,
+          formComponentType,
+          getPopupContainer,
           setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
             if (Array.isArray(name)) {
               transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);

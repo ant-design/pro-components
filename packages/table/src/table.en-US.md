@@ -271,8 +271,6 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | defaultSize | Default size | SizeType | - |
 | beforeSearchSubmit | Make some changes before searching | `(params:T)=>T` | - |
 | onSizeChange | The table size has changed | `(size:'default' \|'middle' \|'small') => void` | - |
-| columnsStateMap | column state enumeration | `{key:{ show,fixed }}}` | - |
-| onColumnsStateChange | The status of columns has changed | `(props: {key:{ show,fixed }}}) => void` | - |
 | type | pro-table type | `"form"` | - |
 | form | antd form configuration | [FormProps](https://ant.design/components/form-cn/#API) | - |
 | onSubmit | Triggered when the form is submitted | `(params: U) => void` | - |
@@ -293,6 +291,16 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | record | The row data to be added, generally contains a unique key | `T` | `{}` |
 | position | Where does the line increase, start or end | `top` \| `bottom` | `bottom` |
 | (...buttonProps) | [ButtonProps](https://ant.design/components/button-cn/#API) of antd | ButtonProps | — |
+
+#### ColumnStateType
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| defaultValue | The default value of the column status, only for the first time | `record <string, columnState>;` |
+| Value | Column status, support controlled mode | `Record <string, columnState>;` |
+| ONCHANGE | Column status After changing | `(Value: Record <string, columnSstate>) => Viod` |
+| PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |
+| PersistenceType | The type of persistence column, localStorage is also existing after closing the browser, sessionStorage closes the browser will be lost | `localstorage \| sessionStorage` |
 
 #### Search Search form
 

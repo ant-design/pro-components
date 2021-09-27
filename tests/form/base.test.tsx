@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Button, Input } from 'antd';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
   ProFormText,
   ProFormCaptcha,
@@ -11,9 +12,9 @@ import ProForm, {
 } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { FontSizeOutlined } from '@ant-design/icons';
-
 import { mount } from 'enzyme';
 import { waitTime, waitForComponentToPaint } from '../util';
+import moment from 'moment';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -1564,6 +1565,26 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalledWith('open');
   });
 
+  it('📦 Select support multiple unnamed async options', async () => {
+    const wrapper = mount(
+      <>
+        <ProFormSelect id="select1" request={async () => [{ value: 1 }]} />
+        <ProFormSelect id="select2" request={async () => [{ value: 2 }]} />
+      </>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').at(0).simulate('mousedown');
+      wrapper.find('.ant-select-selector').at(1).simulate('mousedown');
+      wrapper.update();
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('#select1 .ant-select-item').at(0).text()).toBe('1');
+    expect(wrapper.find('#select2 .ant-select-item').at(0).text()).toBe('2');
+  });
+
   it('📦 ColorPicker support rgba', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
@@ -1599,5 +1620,53 @@ describe('ProForm', () => {
     });
     await waitForComponentToPaint(wrapper, 100);
     expect(onFinish).toBeCalledWith('rgba(91, 143, 249, 0.02)');
+  });
+
+  it('📦 validateFieldsReturnFormatValue', async () => {
+    const fn1 = jest.fn();
+    const fn2 = jest.fn();
+    const App = () => {
+      const formRef = useRef<
+        ProFormInstance<{
+          date: string;
+        }>
+      >();
+
+      useEffect(() => {
+        formRef.current?.validateFieldsReturnFormatValue?.().then((val) => {
+          fn1(val.date);
+        });
+      }, []);
+
+      return (
+        <ProForm
+          onValuesChange={async () => {
+            formRef.current?.validateFieldsReturnFormatValue?.().then((val) => {
+              fn2(val.date);
+            });
+          }}
+          formRef={formRef}
+        >
+          <ProFormDatePicker
+            name="date"
+            initialValue={moment('2021-08-09')}
+            fieldProps={{ open: true }}
+          />
+        </ProForm>
+      );
+    };
+
+    const wrapper = mount(<App />);
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn1).toHaveBeenCalledWith('2021-08-09');
+
+    act(() => {
+      wrapper.find('.ant-picker-cell').at(2).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 100);
+    expect(fn2).toHaveBeenCalledWith('2021-07-28');
+
+    expect(wrapper).toMatchSnapshot();
   });
 });
