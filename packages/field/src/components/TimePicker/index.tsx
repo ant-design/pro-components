@@ -18,10 +18,14 @@ const FieldTimePicker: ProFieldFC<{
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
 
+  const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
+
+  const isNumberOrMoment = moment.isMoment(text) || typeof text === 'number';
+
   if (mode === 'read') {
     const dom = (
       <span ref={ref}>
-        {text ? moment(text, fieldProps?.format || format || 'HH:mm:ss').format(fieldProps?.format || format || 'HH:mm:ss') : '-'}
+        {text ? moment(text, isNumberOrMoment ? undefined : finalFormat).format(finalFormat) : '-'}
       </span>
     );
     if (render) {
@@ -32,10 +36,9 @@ const FieldTimePicker: ProFieldFC<{
   if (mode === 'edit' || mode === 'update') {
     let dom;
     const { disabled, onChange, placeholder, allowClear, value } = fieldProps;
-    const momentValue = parseValueToMoment(value, fieldProps?.format || format || 'HH:mm:ss') as moment.Moment;
+    const momentValue = parseValueToMoment(value, finalFormat) as moment.Moment;
     if (light) {
-      const valueStr: string =
-        (momentValue && momentValue.format(fieldProps?.format || format || 'HH:mm:ss')) || '';
+      const valueStr: string = (momentValue && momentValue.format(finalFormat)) || '';
       dom = (
         <div
           className={`${prefixCls}-light`}

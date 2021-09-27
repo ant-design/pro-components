@@ -187,7 +187,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           if (
             item.valueType &&
             typeof item.valueType === 'string' &&
-            ['index', 'indexBorder', 'option'].includes(item.valueType)
+            ['index', 'indexBorder', 'option'].includes(item?.valueType)
           ) {
             return null;
           }
