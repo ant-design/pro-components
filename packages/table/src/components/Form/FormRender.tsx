@@ -152,9 +152,9 @@ const FormRender = <T, U = any>({
       .map((item) => {
         const finalValueType =
           !item.valueType ||
-          (['textarea', 'jsonCode', 'code'].includes(item.valueType) && type === 'table')
+          (['textarea', 'jsonCode', 'code'].includes(item?.valueType) && type === 'table')
             ? 'text'
-            : (item.valueType as 'text');
+            : (item?.valueType as 'text');
         return {
           ...item,
           width: undefined,
