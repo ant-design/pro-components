@@ -14,7 +14,7 @@ const data = [
 ].map((item) => ({
   title: item,
   subTitle: <Tag color="#5BD8A6">语雀专栏</Tag>,
-  actions: [<a>邀请</a>],
+  extra: <a>邀请</a>,
   avatar: 'https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg',
   content: (
     <div
@@ -48,7 +48,7 @@ export default () => {
         type: {},
         avatar: {},
         content: {},
-        actions: {},
+        extra: {},
       }}
       headerTitle="翻页"
       dataSource={data}

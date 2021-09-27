@@ -71,7 +71,7 @@ export type ItemProps<RecordType> = {
   avatar?: React.ReactNode;
   extra?: React.ReactNode;
   content?: React.ReactNode;
-  actions?: React.ReactNode[];
+  actions?: React.ReactNode[] | React.ReactNode;
   description?: React.ReactNode;
   loading?: boolean;
   style?: React.CSSProperties;
@@ -264,7 +264,8 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
         ) : null
       }
       subTitle={subTitle}
-      extra={actionsDom}
+      extra={extra}
+      actions={(actions as React.ReactElement)?.props.children}
     >
       <Skeleton avatar title={false} loading={loading} active>
         <div className={`${className}-header`}>
