@@ -1,5 +1,5 @@
 ﻿import type { ReactNode } from 'react';
-import React, { useContext, useRef, useMemo } from 'react';
+import React, { useContext, useImperativeHandle, useRef, useMemo } from 'react';
 import type { ButtonProps, FormInstance } from 'antd';
 import omit from 'omit.js';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -316,6 +316,9 @@ const ProFormList: React.FC<ProFormListProps> = ({
     return [listContext.name, rest.name].flat(1);
   }, [listContext.name, rest.name]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useImperativeHandle(actionRef, () => actionRefs.current, [actionRefs.current]);
+
   return (
     <Form.Item
       label={label}
@@ -335,9 +338,6 @@ const ProFormList: React.FC<ProFormListProps> = ({
                 }
                 // 将 action 暴露给外部
                 actionRefs.current = action;
-                if (actionRef !== undefined) {
-                  actionRef = actionRefs;
-                }
 
                 return (
                   <>
