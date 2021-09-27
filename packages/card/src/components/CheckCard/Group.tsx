@@ -282,7 +282,7 @@ class CheckCardGroup extends React.Component<CheckCardGroupProps, CheckCardGroup
 
     const { getPrefixCls } = this.context;
 
-    const prefixCls = getPrefixCls('pro-checkcard');
+    const prefixCls = getPrefixCls('pro-checkcard', customizePrefixCls);
 
     const groupPrefixCls = `${prefixCls}-group`;
 

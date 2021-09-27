@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useContext } from 'react';
 import classNames from 'classnames';
 import { Avatar, Row, Col, ConfigProvider } from 'antd';
 import * as PropTypes from 'prop-types';
@@ -276,11 +276,21 @@ class CheckCard extends Component<CheckCardProps, CheckCardState> {
   render() {
     const { checked: stateChecked } = this.state;
     const { props, context } = this;
-    const { className, avatar, title, description, cover, extra, style = {}, ...others } = props;
+    const {
+      prefixCls = '',
+      className,
+      avatar,
+      title,
+      description,
+      cover,
+      extra,
+      style = {},
+      ...others
+    } = props;
 
     const checkCardProps: CheckCardProps = { ...others };
 
-    const { checkCardGroup, getPrefixCls } = context;
+    const { checkCardGroup } = context;
 
     checkCardProps.checked = stateChecked;
 
@@ -313,10 +323,6 @@ class CheckCard extends Component<CheckCardProps, CheckCardState> {
     } = checkCardProps;
 
     const sizeCls = this.getSizeCls(size);
-
-    //     const { getPrefixCls } = this.context;
-
-    const prefixCls = getPrefixCls('pro-checkcard');
 
     const classString = classNames(prefixCls, className, {
       [`${prefixCls}-loading`]: cardLoading,
@@ -381,9 +387,18 @@ class CheckCard extends Component<CheckCardProps, CheckCardState> {
   }
 }
 
-CheckCard.contextType = ConfigProvider.ConfigContext;
-CheckCard.Group = CheckCardGroup;
+const CheckCardWrap: React.FC<CheckCardProps> & {
+  Group: typeof CheckCardGroup;
+} = (props) => {
+  const { prefixCls: customizePrefixCls, ...others } = props;
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const prefixCls = getPrefixCls('pro-checkcard', customizePrefixCls);
+
+  return <CheckCard prefixCls={prefixCls} {...others} />;
+};
+
+CheckCardWrap.Group = CheckCardGroup;
 
 export type { CheckCardGroupProps, CheckCardProps };
 
-export default CheckCard;
+export default CheckCardWrap;
