@@ -1,5 +1,5 @@
 ﻿import type { ReactNode } from 'react';
-import React, { useContext, useRef, useMemo } from 'react';
+import React, { useContext, useImperativeHandle, useRef, useMemo } from 'react';
 import type { ButtonProps, FormInstance } from 'antd';
 import omit from 'omit.js';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -301,9 +301,10 @@ const ProFormList: React.FC<ProFormListProps> = ({
     Icon: DeleteOutlined,
     tooltipText: '删除此行',
   },
+  actionRef,
   ...rest
 }) => {
-  const actionRef = useRef<FormListOperation>();
+  const actionRefs = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
@@ -314,6 +315,9 @@ const ProFormList: React.FC<ProFormListProps> = ({
     }
     return [listContext.name, rest.name].flat(1);
   }, [listContext.name, rest.name]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useImperativeHandle(actionRef, () => actionRefs.current, [actionRefs.current]);
 
   return (
     <Form.Item
@@ -333,7 +337,8 @@ const ProFormList: React.FC<ProFormListProps> = ({
                   return (children as ChildrenFunction)(fields, action, meta);
                 }
                 // 将 action 暴露给外部
-                actionRef.current = action;
+                actionRefs.current = action;
+
                 return (
                   <>
                     <ProFormListContainer
