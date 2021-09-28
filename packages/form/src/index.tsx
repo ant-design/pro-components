@@ -47,6 +47,7 @@ import './index.less';
 import { ProFormContext } from '@ant-design/pro-utils';
 import type { LightFilterFooterRender, ProFormFieldItemProps } from './interface';
 import { FormItemProvide } from './components/FormItem';
+import ProFormItem from './components/FormItem';
 
 export type {
   ProFormFieldProps,
@@ -102,6 +103,7 @@ export {
   ProFormDependency,
   ProFormGroup,
   BetaSchemaForm,
+  ProFormItem,
   // layouts
   QueryFilter,
   LightFilter,
