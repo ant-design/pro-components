@@ -109,13 +109,11 @@ describe('ProForm List', () => {
             },
           ]}
         >
-          {(fields) => {
-            return fields.map((filed) => (
-              <div key={filed.key}>
-                <ProFormText name={[filed.name, 'name']} />
-                <ProFormText name={[filed.name, 'nickName']} />
-              </div>
-            ));
+          {() => {
+            <div>
+              <ProFormText name="name" />
+              <ProFormText name="nickName" />
+            </div>;
           }}
         </ProFormList>
       </ProForm>,
