@@ -88,8 +88,12 @@ const listToArray = (children?: ReactNode | ReactNode[]) => {
   if (Array.isArray(children)) {
     return children;
   }
+  if (typeof children === 'function') {
+    return [children];
+  }
   return toArray(children);
 };
+
 type ProFormListItemProps = {
   creatorButtonProps: ProFormListProps['creatorButtonProps'];
 
@@ -333,12 +337,8 @@ const ProFormList: React.FC<ProFormListProps> = ({
           <div className={baseClassName}>
             <Form.List rules={rules} {...rest} name={name}>
               {(fields, action, meta) => {
-                if (typeof children === 'function') {
-                  return (children as ChildrenFunction)(fields, action, meta);
-                }
                 // 将 action 暴露给外部
                 actionRefs.current = action;
-
                 return (
                   <>
                     <ProFormListContainer
