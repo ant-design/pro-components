@@ -274,7 +274,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     >
       {creatorButtonProps !== false && creatorButtonProps?.position === 'top' && creatorButton}
       {fields.map((field, index) => (
-        <ProFormListItem key={field.name.toString()} {...props} field={field} index={index}>
+        <ProFormListItem key={field.key} {...props} field={field} index={index}>
           {children}
         </ProFormListItem>
       ))}
