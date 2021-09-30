@@ -55,6 +55,25 @@ describe('CheckCard', () => {
     wrapper.unmount();
   });
 
+  it('should be controlled by value', () => {
+    const wrapper = mount(
+      <CheckCard.Group
+        options={[
+          { title: '苹果', value: 'Apple' },
+          { title: '梨', value: 'Pear' },
+          { title: '橙子', value: 'Orange' },
+        ]}
+      />,
+    );
+
+    expect(wrapper.find('.ant-pro-checkcard-checked').length).toBe(0);
+    wrapper.setProps({ value: ['Apple'] });
+    wrapper.update();
+    expect(wrapper.find('.ant-pro-checkcard-checked').length).toBe(0);
+
+    wrapper.unmount();
+  });
+
   it('should invoke onChange function when group click option in multiple mode', () => {
     const onChange = jest.fn();
     const wrapper = mount(
