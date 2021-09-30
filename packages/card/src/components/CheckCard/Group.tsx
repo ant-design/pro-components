@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { ConfigProvider } from 'antd';
 import * as PropTypes from 'prop-types';
-import omit from 'lodash/omit';
+import omit from 'omit.js';
 import shallowEqual from 'shallowequal';
 import CheckCard from './index';
 import './index.less';
