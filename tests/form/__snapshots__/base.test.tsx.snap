@@ -179,6 +179,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
           "getFieldFormatValue": [Function],
           "getFieldInstance": [Function],
           "getFieldValue": [Function],
+          "getFieldWarning": [Function],
           "getFieldsError": [Function],
           "getFieldsFormatValue": [Function],
           "getFieldsValue": [Function],
@@ -213,6 +214,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
             "getFieldFormatValue": [Function],
             "getFieldInstance": [Function],
             "getFieldValue": [Function],
+            "getFieldWarning": [Function],
             "getFieldsError": [Function],
             "getFieldsFormatValue": [Function],
             "getFieldsValue": [Function],
@@ -254,6 +256,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
               "getFieldFormatValue": [Function],
               "getFieldInstance": [Function],
               "getFieldValue": [Function],
+              "getFieldWarning": [Function],
               "getFieldsError": [Function],
               "getFieldsFormatValue": [Function],
               "getFieldsValue": [Function],
@@ -489,9 +492,11 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                   "cancelSort": "取消排序",
                   "collapse": "关闭行",
                   "expand": "展开行",
+                  "filterCheckall": "全选",
                   "filterConfirm": "确定",
                   "filterEmptyText": "无筛选项",
                   "filterReset": "重置",
+                  "filterSearchPlaceholder": "在筛选项中搜索",
                   "filterTitle": "筛选",
                   "selectAll": "全选当页",
                   "selectInvert": "反选当页",
@@ -748,9 +753,11 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                       "cancelSort": "取消排序",
                       "collapse": "关闭行",
                       "expand": "展开行",
+                      "filterCheckall": "全选",
                       "filterConfirm": "确定",
                       "filterEmptyText": "无筛选项",
                       "filterReset": "重置",
+                      "filterSearchPlaceholder": "在筛选项中搜索",
                       "filterTitle": "筛选",
                       "selectAll": "全选当页",
                       "selectInvert": "反选当页",
@@ -1011,9 +1018,11 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                         "cancelSort": "取消排序",
                         "collapse": "关闭行",
                         "expand": "展开行",
+                        "filterCheckall": "全选",
                         "filterConfirm": "确定",
                         "filterEmptyText": "无筛选项",
                         "filterReset": "重置",
+                        "filterSearchPlaceholder": "在筛选项中搜索",
                         "filterTitle": "筛选",
                         "selectAll": "全选当页",
                         "selectInvert": "反选当页",
@@ -1123,6 +1132,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                           "getFieldError": [Function],
                           "getFieldInstance": [Function],
                           "getFieldValue": [Function],
+                          "getFieldWarning": [Function],
                           "getFieldsError": [Function],
                           "getFieldsValue": [Function],
                           "getInternalHooks": [Function],
@@ -1157,6 +1167,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                               "getFieldError": [Function],
                               "getFieldInstance": [Function],
                               "getFieldValue": [Function],
+                              "getFieldWarning": [Function],
                               "getFieldsError": [Function],
                               "getFieldsValue": [Function],
                               "getInternalHooks": [Function],
@@ -1200,7 +1211,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                               <WrapperField
                                 messageVariables={Object {}}
                                 noStyle={true}
-                                onReset={[Function]}
+                                onMetaChange={[Function]}
                                 shouldUpdate={true}
                                 trigger="onChange"
                                 validateTrigger="onChange"
@@ -1215,6 +1226,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                                       "getFieldError": [Function],
                                       "getFieldInstance": [Function],
                                       "getFieldValue": [Function],
+                                      "getFieldWarning": [Function],
                                       "getFieldsError": [Function],
                                       "getFieldsValue": [Function],
                                       "getInternalHooks": [Function],
@@ -1234,7 +1246,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                                   key="_"
                                   messageVariables={Object {}}
                                   noStyle={true}
-                                  onReset={[Function]}
+                                  onMetaChange={[Function]}
                                   shouldUpdate={true}
                                   trigger="onChange"
                                   validateTrigger="onChange"
@@ -1319,7 +1331,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                                           }
                                         }
                                         name="date"
-                                        onReset={[Function]}
+                                        onMetaChange={[Function]}
                                         trigger="onChange"
                                         validateTrigger="onChange"
                                         valuePropName="value"
@@ -1334,6 +1346,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                                               "getFieldError": [Function],
                                               "getFieldInstance": [Function],
                                               "getFieldValue": [Function],
+                                              "getFieldWarning": [Function],
                                               "getFieldsError": [Function],
                                               "getFieldsValue": [Function],
                                               "getInternalHooks": [Function],
@@ -1362,7 +1375,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                                               "date",
                                             ]
                                           }
-                                          onReset={[Function]}
+                                          onMetaChange={[Function]}
                                           trigger="onChange"
                                           validateTrigger="onChange"
                                           valuePropName="value"
@@ -1402,13 +1415,13 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                                                     "date",
                                                   ]
                                                 }
-                                                onDomErrorVisibleChange={[Function]}
                                                 prefixCls="ant-form"
                                                 status="success"
                                                 touched={true}
                                                 validateStatus="success"
                                                 validating={false}
                                                 valuePropName="value"
+                                                warnings={Array []}
                                               >
                                                 <Col
                                                   className="ant-form-item-control"
@@ -1424,7 +1437,29 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                                                         className="ant-form-item-control-input-content"
                                                       >
                                                         <Component
-                                                          update={1}
+                                                          update={
+                                                            <WithValueFomFiledProps
+                                                              valuePropName="value"
+                                                            >
+                                                              <ForwardRef
+                                                                fieldProps={
+                                                                  Object {
+                                                                    "open": true,
+                                                                  }
+                                                                }
+                                                                initialValue={"2021-08-09T00:00:00.000Z"}
+                                                                mode="edit"
+                                                                name="date"
+                                                                proFieldProps={
+                                                                  Object {
+                                                                    "mode": "edit",
+                                                                    "proFieldKey": "form-field-date",
+                                                                  }
+                                                                }
+                                                                valueType="date"
+                                                              />
+                                                            </WithValueFomFiledProps>
+                                                          }
                                                           value={"2021-07-28T00:00:00.000Z"}
                                                         >
                                                           <WithValueFomFiledProps
@@ -4802,13 +4837,25 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                                                       </div>
                                                     </div>
                                                     <ErrorList
+                                                      className="ant-form-item-explain-connected"
                                                       errors={Array []}
-                                                      onDomErrorVisibleChange={[Function]}
+                                                      helpStatus="success"
+                                                      warnings={Array []}
                                                     >
                                                       <CSSMotion
+                                                        motionAppear={false}
                                                         motionDeadline={500}
+                                                        motionEnter={false}
                                                         motionName="ant-show-help"
+                                                        onAppearActive={[Function]}
+                                                        onAppearEnd={[Function]}
+                                                        onAppearStart={[Function]}
+                                                        onEnterActive={[Function]}
+                                                        onEnterEnd={[Function]}
+                                                        onEnterStart={[Function]}
+                                                        onLeaveActive={[Function]}
                                                         onLeaveEnd={[Function]}
+                                                        onLeaveStart={[Function]}
                                                         visible={false}
                                                       >
                                                         <DomWrapper />
@@ -4836,6 +4883,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                                   "getFieldError": [Function],
                                   "getFieldInstance": [Function],
                                   "getFieldValue": [Function],
+                                  "getFieldWarning": [Function],
                                   "getFieldsError": [Function],
                                   "getFieldsValue": [Function],
                                   "getInternalHooks": [Function],
@@ -4887,7 +4935,9 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                                         onClick={[Function]}
                                         type="primary"
                                       >
-                                        <Wave>
+                                        <Wave
+                                          disabled={false}
+                                        >
                                           <button
                                             className="ant-btn ant-btn-primary"
                                             onClick={[Function]}
@@ -4938,7 +4988,9 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
                                         key="rest"
                                         onClick={[Function]}
                                       >
-                                        <Wave>
+                                        <Wave
+                                          disabled={false}
+                                        >
                                           <button
                                             className="ant-btn"
                                             onClick={[Function]}
