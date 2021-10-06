@@ -2,9 +2,7 @@ import React from 'react';
 
 import classNames from 'classnames';
 import { ConfigProvider } from 'antd';
-import * as PropTypes from 'prop-types';
 import omit from 'omit.js';
-import shallowEqual from 'shallowequal';
 import CheckCard from './index';
 import './index.less';
 
@@ -148,10 +146,6 @@ class CheckCardGroup extends React.Component<CheckCardGroupProps, CheckCardGroup
     bordered: true,
   };
 
-  static childContextTypes = {
-    checkCardGroup: PropTypes.any,
-  };
-
   static getDerivedStateFromProps(nextProps: CheckCardGroupProps) {
     if ('value' in nextProps) {
       return {
@@ -186,10 +180,6 @@ class CheckCardGroup extends React.Component<CheckCardGroupProps, CheckCardGroup
         cancelValue: this.cancelValue,
       },
     };
-  }
-
-  shouldComponentUpdate(nextProps: CheckCardGroupProps, nextState: CheckCardGroupState) {
-    return !shallowEqual(this.props, nextProps) || !shallowEqual(this.state, nextState);
   }
 
   registerValue = (value: string) => {
@@ -247,25 +237,22 @@ class CheckCardGroup extends React.Component<CheckCardGroupProps, CheckCardGroup
       this.setState({ value });
     }
     const { onChange } = this.props;
-    if (onChange) {
-      if (multiple) {
-        const options = this.getOptions();
-
-        onChange(
-          value && Array.isArray(value)
-            ? value
-                .filter((val) => registeredValues.indexOf(val) !== -1)
-                .sort((a, b) => {
-                  const indexA = options.findIndex((opt) => opt.value === a);
-                  const indexB = options.findIndex((opt) => opt.value === b);
-                  return indexA - indexB;
-                })
-            : [],
-        );
-      } else {
-        onChange(value);
-      }
+    if (onChange && multiple) {
+      const options = this.getOptions();
+      const newValue =
+        value && Array.isArray(value)
+          ? value
+              .filter((val) => registeredValues.indexOf(val) !== -1)
+              .sort((a, b) => {
+                const indexA = options.findIndex((opt) => opt.value === a);
+                const indexB = options.findIndex((opt) => opt.value === b);
+                return indexA - indexB;
+              })
+          : [];
+      onChange(newValue);
+      return;
     }
+    onChange?.(value);
   };
 
   render() {

@@ -1,10 +1,8 @@
 import React, { Component, useContext } from 'react';
 import classNames from 'classnames';
 import { Avatar, Row, Col, ConfigProvider } from 'antd';
-import * as PropTypes from 'prop-types';
-import shallowEqual from 'shallowequal';
 import CheckCardGroup from './Group';
-import type { CheckCardGroupContext, CheckCardGroupProps } from './Group';
+import type { CheckCardGroupProps } from './Group';
 
 import './index.less';
 
@@ -135,10 +133,6 @@ class CheckCard extends Component<CheckCardProps, CheckCardState> {
     };
   }
 
-  static contextTypes = {
-    checkCardGroup: PropTypes.any,
-  };
-
   componentDidMount() {
     const { value } = this.props;
     const { checkCardGroup = {} } = this.context || {};
@@ -164,18 +158,6 @@ class CheckCard extends Component<CheckCardProps, CheckCardState> {
     }
   }
 
-  shouldComponentUpdate(
-    nextProps: CheckCardProps,
-    nextState: {},
-    nextContext: CheckCardGroupContext,
-  ) {
-    return (
-      !shallowEqual(this.props, nextProps) ||
-      !shallowEqual(this.state, nextState) ||
-      !shallowEqual(this.context.checkCardGroup, nextContext.checkCardGroup)
-    );
-  }
-
   static getDerivedStateFromProps(nextProps: CheckCardProps) {
     if ('checked' in nextProps) {
       const { checked } = nextProps;
@@ -189,7 +171,7 @@ class CheckCard extends Component<CheckCardProps, CheckCardState> {
   handleClick = (e: any) => {
     const { props, context } = this;
     const { value, onChange, onClick } = props;
-    if (onClick) onClick(e);
+    onClick?.(e);
 
     const { checked } = this.state;
     const newChecked = !checked;
