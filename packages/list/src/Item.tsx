@@ -150,13 +150,13 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
 
   const className = classNames(
     {
-      [`${propsClassName}-selected`]: !cardProps && selected,
-      [`${propsClassName}-show-action-hover`]: showActions === 'hover',
-      [`${propsClassName}-type-${type}`]: !!type,
-      [`${propsClassName}-editable`]: isEditable,
-      [`${propsClassName}-show-extra-hover`]: showExtra === 'hover',
+      [`${defaultClassName}-selected`]: !cardProps && selected,
+      [`${defaultClassName}-show-action-hover`]: showActions === 'hover',
+      [`${defaultClassName}-type-${type}`]: !!type,
+      [`${defaultClassName}-editable`]: isEditable,
+      [`${defaultClassName}-show-extra-hover`]: showExtra === 'hover',
     },
-    propsClassName,
+    defaultClassName,
   );
 
   const extraClassName = classNames({
@@ -279,6 +279,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     <div
       className={classNames(className, {
         [`${className}-card`]: cardProps,
+        [propsClassName]: propsClassName !== defaultClassName,
       })}
       style={style}
     >
