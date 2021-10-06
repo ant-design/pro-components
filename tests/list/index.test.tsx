@@ -538,6 +538,33 @@ describe('List', () => {
     expect(onMouseEnter).toBeCalledWith('我是名称');
   });
 
+  it('🚏 ProList support rowClassName', async () => {
+    const customizedRowClassName = 'rowClassName';
+    const html = mount(
+      <ProList
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+        ]}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+          description: {
+            dataIndex: ['desc', 'text'],
+          },
+        }}
+        rowClassName={customizedRowClassName}
+      />,
+    );
+    expect(html.find('div.ant-pro-list-row').hasClass(customizedRowClassName)).toBe(true);
+    expect(html.render()).toMatchSnapshot();
+  });
+
   it('🚏 ProList support itemHeaderRender', async () => {
     const html = mount(
       <ProList<DataSourceType>
