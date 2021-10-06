@@ -10,20 +10,20 @@ export default () => (
       <CheckCard
         title="Card title"
         description="This is the description"
-        avatar="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+        avatar="https://gw.alipayobjects.com/os/antfincdn/fShLCJe7uZ/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.webarchive"
       />
       <CheckCard
         title="Card title"
         description="This is the description"
         disabled
-        avatar="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+        avatar="https://gw.alipayobjects.com/os/antfincdn/fShLCJe7uZ/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.webarchive"
       />
       <CheckCard
         title="Card title"
         description="This is the description"
         disabled
         defaultChecked
-        avatar="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+        avatar="https://gw.alipayobjects.com/os/antfincdn/fShLCJe7uZ/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.webarchive"
       />
     </div>
     <div>

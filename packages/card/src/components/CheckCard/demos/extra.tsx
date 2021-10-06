@@ -7,7 +7,7 @@ import { EllipsisOutlined } from '@ant-design/icons';
 
 export default () => (
   <CheckCard
-    avatar="https://gw-office.alipayobjects.com/basement_prod/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.svg"
+    avatar="https://gw.alipayobjects.com/os/antfincdn/fShLCJe7uZ/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.webarchive"
     title="示例一"
     description="选择一个由流程编排提供的典型用户案例，可以从中学习到流程编排很多设计理念。"
     extra={
