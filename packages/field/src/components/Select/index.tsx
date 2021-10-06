@@ -8,7 +8,7 @@ import React, {
   useCallback,
   useEffect,
 } from 'react';
-import type { SelectProps } from 'antd';
+import type { OptionsType } from 'rc-select/lib/interface';
 import { Space, Spin, ConfigProvider } from 'antd';
 import type {
   ProFieldRequestData,
@@ -29,6 +29,8 @@ import type { ProFieldFC } from '../../index';
 import './index.less';
 
 let testId = 0;
+
+type SelectOptionType = OptionsType;
 
 export type FieldSelectProps<FieldProps = any> = {
   text: string;
@@ -251,7 +253,7 @@ export const useFieldFetchData = (
   props: FieldSelectProps & {
     proFieldKey?: React.Key;
   },
-): [boolean, SelectProps<any>['options'], (keyWord?: string) => void, () => void] => {
+): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
   const [keyWords, setKeyWords] = useState<string | undefined>(undefined);
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
@@ -276,7 +278,7 @@ export const useFieldFetchData = (
     }));
   }, []);
 
-  const [options, setOptions] = useMountMergeState<SelectProps<any>['options']>(
+  const [options, setOptions] = useMountMergeState<SelectOptionType>(
     () => {
       if (props.valueEnum) {
         return getOptionsFormValueEnum(props.valueEnum);
@@ -325,7 +327,7 @@ export const useFieldFetchData = (
   return [
     loading,
     props.request
-      ? (data as SelectProps<any>['options'])
+      ? (data as SelectOptionType)
       : options
           ?.map((item) => {
             if (typeof item === 'string') {

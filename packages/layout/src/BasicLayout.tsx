@@ -305,7 +305,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     swrKey,
     async (_, params) => {
       setMenuLoading(true);
-      const msg = await menu?.request?.(params || {}, route?.routes || []);
+      const msg = await menu?.request?.((params as Record<string, any>) || {}, route?.routes || []);
       setMenuLoading(false);
       return msg;
     },

@@ -4,7 +4,9 @@ exports[`ProFormUpload 🏐 ProFormUploadButton support disable 1`] = `
 <Button
   disabled={true}
 >
-  <Wave>
+  <Wave
+    disabled={false}
+  >
     <button
       className="ant-btn"
       disabled={true}
@@ -118,7 +120,9 @@ exports[`ProFormUpload 🏐 ProFormUploadButton support disable 2`] = `
   disabled={true}
   type="dashed"
 >
-  <Wave>
+  <Wave
+    disabled={false}
+  >
     <button
       className="ant-btn ant-btn-dashed"
       disabled={true}
@@ -231,7 +235,9 @@ exports[`ProFormUpload 🏐 ProFormUploadButton support disable 3`] = `
 <Button
   disabled={true}
 >
-  <Wave>
+  <Wave
+    disabled={false}
+  >
     <button
       className="ant-btn"
       disabled={true}
