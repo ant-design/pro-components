@@ -1,10 +1,10 @@
-import React from 'react';
-
+import React, { createContext, useCallback, useMemo, useRef, useContext } from 'react';
 import classNames from 'classnames';
 import { ConfigProvider } from 'antd';
 import omit from 'omit.js';
 import CheckCard from './index';
 import './index.less';
+import { useMountMergeState } from '@ant-design/pro-utils';
 
 export type CheckCardValueType = string | number | boolean;
 
@@ -130,74 +130,38 @@ export interface CheckCardGroupState {
   registeredValues: CheckCardValueType[];
 }
 
-export interface CheckCardGroupContext {
-  checkCardGroup: {
-    toggleOption: (option: CheckCardOptionType) => void;
-    value: any;
-    disabled: boolean;
-  };
-}
+export type CheckCardGroupConnextType = {
+  toggleOption?: (option: CheckCardOptionType) => void;
+  value?: any;
+  disabled?: boolean;
+  size?: any;
+  name?: any;
+  loading?: any;
+  bordered?: any;
+  multiple?: any;
+  registerValue?: (value: any) => void;
+  cancelValue?: (value: any) => void;
+};
 
-class CheckCardGroup extends React.Component<CheckCardGroupProps, CheckCardGroupState> {
-  static defaultProps = {
-    options: [],
-    multiple: false,
-    loading: false,
-    bordered: true,
-  };
+export const CheckCardGroupConnext = createContext<CheckCardGroupConnextType>({});
 
-  static getDerivedStateFromProps(nextProps: CheckCardGroupProps) {
-    if ('value' in nextProps) {
-      return {
-        value: nextProps.value || [],
-      };
-    }
-    return null;
-  }
+const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
+  const {
+    prefixCls: customizePrefixCls,
+    className,
+    style,
+    options = [],
+    loading = false,
+    multiple = false,
+    bordered = true,
+    onChange,
+    ...restProps
+  } = props;
 
-  constructor(props: CheckCardGroupProps) {
-    super(props);
-    this.state = {
-      value: props.value || props.defaultValue || (props.multiple ? [] : undefined),
-      registeredValues: [],
-    };
-  }
+  const antdContext = useContext(ConfigProvider.ConfigContext);
 
-  getChildContext() {
-    return {
-      checkCardGroup: {
-        toggleOption: this.toggleOption,
-        value: this.state.value,
-        disabled: this.props.disabled,
-        size: this.props.size,
-        name: this.props.name,
-        loading: this.props.loading,
-        bordered: this.props.bordered,
-        multiple: this.props.multiple,
-
-        // https://github.com/ant-design/ant-design/issues/16376
-        registerValue: this.registerValue,
-        cancelValue: this.cancelValue,
-      },
-    };
-  }
-
-  registerValue = (value: string) => {
-    this.setState(({ registeredValues }) => ({
-      registeredValues: [...registeredValues, value],
-    }));
-  };
-
-  cancelValue = (value: string) => {
-    this.setState(({ registeredValues }) => ({
-      registeredValues: registeredValues.filter((val) => val !== value),
-    }));
-  };
-
-  getOptions() {
-    const { options } = this.props;
-    // https://github.com/Microsoft/TypeScript/issues/7960
-    return (options as CheckCardOptionType[]).map((option) => {
+  const getOptions = useCallback(() => {
+    return (options as CheckCardOptionType[])?.map((option) => {
       if (typeof option === 'string') {
         return {
           title: option,
@@ -206,97 +170,86 @@ class CheckCardGroup extends React.Component<CheckCardGroupProps, CheckCardGroup
       }
       return option;
     });
-  }
+  }, [options]);
 
-  toggleOption = (option: CheckCardOptionType) => {
-    const { registeredValues } = this.state;
-    const { multiple } = this.props;
-    let value;
+  const prefixCls = antdContext.getPrefixCls('pro-checkcard', customizePrefixCls);
 
-    // 多选模式时
-    if (multiple) {
-      const stateValues = this.state.value as CheckCardValueType[];
-      const optionIndex = stateValues.indexOf(option.value);
-      value = [...stateValues];
-      if (optionIndex === -1) {
-        value.push(option.value);
-      } else {
-        value.splice(optionIndex, 1);
-      }
-    } else {
-      value = this.state.value;
+  const groupPrefixCls = `${prefixCls}-group`;
+
+  const domProps = omit(restProps, ['children', 'defaultValue', 'value', 'disabled', 'size']);
+
+  const [stateValue, setStateValue] = useMountMergeState<
+    CheckCardValueType[] | CheckCardValueType | undefined
+  >(props.defaultValue, {
+    value: props.value,
+    onChange: props.onChange,
+  });
+
+  const registerValueMap = useRef<Map<CheckCardValueType, any>>(new Map());
+
+  const registerValue = (value: string) => {
+    registerValueMap.current?.set(value, true);
+  };
+
+  const cancelValue = (value: string) => {
+    registerValueMap.current?.delete(value);
+  };
+
+  const toggleOption = (option: CheckCardOptionType) => {
+    if (!multiple) {
+      let changeValue;
+
+      changeValue = stateValue;
       // 单选模式
-      if (value === option.value) {
-        value = undefined;
+      if (changeValue === option.value) {
+        changeValue = undefined;
       } else {
-        value = option.value;
+        changeValue = option.value;
       }
+      setStateValue?.(changeValue);
     }
 
-    if (!('value' in this.props)) {
-      this.setState({ value });
-    }
-    const { onChange } = this.props;
-    if (onChange && multiple) {
-      const options = this.getOptions();
+    if (multiple) {
+      let changeValue;
+      const stateValues = stateValue as CheckCardValueType[];
+      const hasOption = stateValues?.includes(option.value);
+      changeValue = [...(stateValues || [])];
+      if (!hasOption) {
+        changeValue.push(option.value);
+      }
+      if (hasOption) {
+        changeValue = changeValue.filter((itemValue) => itemValue !== option.value);
+      }
+      const newOptions = getOptions();
       const newValue =
-        value && Array.isArray(value)
-          ? value
-              .filter((val) => registeredValues.indexOf(val) !== -1)
+        changeValue && Array.isArray(changeValue)
+          ? changeValue
+              .filter((val) => registerValueMap.current.has(val))
               .sort((a, b) => {
-                const indexA = options.findIndex((opt) => opt.value === a);
-                const indexB = options.findIndex((opt) => opt.value === b);
+                const indexA = newOptions.findIndex((opt) => opt.value === a);
+                const indexB = newOptions.findIndex((opt) => opt.value === b);
                 return indexA - indexB;
               })
           : [];
-      onChange(newValue);
-      return;
+      setStateValue(newValue);
     }
-    onChange?.(value);
   };
 
-  render() {
-    const { props, state } = this;
-    const {
-      prefixCls: customizePrefixCls,
-      className,
-      style,
-      options,
-      loading,
-      multiple,
-      ...restProps
-    } = props;
+  const children = useMemo(() => {
+    if (loading) return <CheckCard loading />;
 
-    const { getPrefixCls } = this.context;
-
-    const prefixCls = getPrefixCls('pro-checkcard', customizePrefixCls);
-
-    const groupPrefixCls = `${prefixCls}-group`;
-
-    const domProps = omit(restProps, [
-      'children',
-      'defaultValue',
-      'value',
-      'onChange',
-      'disabled',
-      'bordered',
-      'size',
-    ]);
-
-    let { children } = props;
-
-    if (loading) {
-      children = <CheckCard loading />;
-    } else if (options && options.length > 0) {
-      const stateValue = state.value as CheckCardValueType[];
-      children = this.getOptions().map((option) => (
+    if (options && options.length > 0) {
+      const optionValue = stateValue as CheckCardValueType[] | CheckCardValueType;
+      return getOptions().map((option) => (
         <CheckCard
           key={option.value.toString()}
-          disabled={'disabled' in option ? option.disabled : props.disabled}
-          size={'size' in option ? option.size : props.size}
+          disabled={option.disabled}
+          size={option.size ?? props.size}
           value={option.value}
           checked={
-            multiple ? stateValue.indexOf(option.value) !== -1 : state.value === option.value
+            multiple
+              ? (optionValue as CheckCardValueType[])?.includes(option.value)
+              : (optionValue as CheckCardValueType) === option.value
           }
           onChange={option.onChange}
           title={option.title}
@@ -306,16 +259,32 @@ class CheckCardGroup extends React.Component<CheckCardGroupProps, CheckCardGroup
         />
       ));
     }
+    return props.children;
+  }, [getOptions, loading, multiple, options, props.children, props.size, stateValue]);
 
-    const classString = classNames(groupPrefixCls, className);
-    return (
+  const classString = classNames(groupPrefixCls, className);
+
+  return (
+    <CheckCardGroupConnext.Provider
+      value={{
+        toggleOption,
+        bordered,
+        value: stateValue,
+        disabled: props.disabled,
+        size: props.size,
+        name: props.name,
+        loading: props.loading,
+        multiple: props.multiple,
+        // https://github.com/ant-design/ant-design/issues/16376
+        registerValue,
+        cancelValue,
+      }}
+    >
       <div className={classString} style={style} {...domProps}>
         {children}
       </div>
-    );
-  }
-}
-
-CheckCardGroup.contextType = ConfigProvider.ConfigContext;
+    </CheckCardGroupConnext.Provider>
+  );
+};
 
 export default CheckCardGroup;

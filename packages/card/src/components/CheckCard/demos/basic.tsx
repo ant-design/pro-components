@@ -11,6 +11,7 @@ export default () => (
     onChange={(checked) => {
       console.log('checked', checked);
     }}
+    defaultChecked
     onClick={() => {
       console.log('clicked');
     }}

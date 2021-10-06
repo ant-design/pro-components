@@ -1,34 +1,42 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { CheckCard } from '@ant-design/pro-card';
+import { act } from 'react-dom/test-utils';
+import { waitForComponentToPaint } from '../util';
 
 describe('CheckCard', () => {
-  beforeEach(() => {
-    jest.useFakeTimers();
-  });
-
-  afterEach(() => {
-    jest.useRealTimers();
-  });
-
-  it('should invoke onChange and onClick function when click option', () => {
+  it('should invoke onChange and onClick function when click option', async () => {
     const onChange = jest.fn();
     const onClick = jest.fn();
-    const wrapper = mount(<CheckCard title="示例一" onChange={onChange} onClick={onClick} />);
+    const wrapper = mount(
+      <CheckCard
+        title="示例一"
+        onChange={(e) => {
+          onChange(e);
+        }}
+        onClick={onClick}
+      />,
+    );
 
-    wrapper.find('.ant-pro-checkcard').at(0).simulate('click');
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').simulate('click');
+    });
 
-    jest.runAllTimers();
-    expect(onChange).toHaveBeenLastCalledWith(true);
+    await waitForComponentToPaint(wrapper);
+
+    expect(onChange).toBeCalledWith(true);
     expect(onClick).toHaveBeenCalled();
-    wrapper.unmount();
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
-  it('should invoke onChange function when group click option', () => {
+  it('should invoke onChange function when group click option', async () => {
     const onChange = jest.fn();
     const wrapper = mount(
       <CheckCard.Group
-        onChange={onChange}
+        onChange={(e) => onChange(e)}
         options={[
           { title: '苹果', value: 'Apple' },
           { title: '梨', value: 'Pear' },
@@ -37,22 +45,27 @@ describe('CheckCard', () => {
         size="large"
       />,
     );
-
-    wrapper.find('.ant-pro-checkcard').at(0).simulate('click');
-
-    jest.runAllTimers();
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
     expect(onChange).toHaveBeenLastCalledWith('Apple');
 
-    wrapper.find('.ant-pro-checkcard').at(0).simulate('click');
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
 
-    jest.runAllTimers();
     expect(onChange).toHaveBeenLastCalledWith(undefined);
-
-    wrapper.find('.ant-pro-checkcard').at(1).simulate('click');
-
-    jest.runAllTimers();
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
     expect(onChange).toHaveBeenLastCalledWith('Pear');
-    wrapper.unmount();
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('should be controlled by value', () => {
@@ -74,48 +87,52 @@ describe('CheckCard', () => {
     wrapper.unmount();
   });
 
-  it('should invoke onChange function when group click option in multiple mode', () => {
+  it('should invoke onChange function when group click option in multiple mode', async () => {
     const onChange = jest.fn();
     const wrapper = mount(
       <CheckCard.Group
-        onChange={onChange}
+        onChange={(e) => onChange(e)}
         options={['Apple', 'Pear', 'Orange']}
         size="large"
         multiple
       />,
     );
-
-    wrapper.find('.ant-pro-checkcard').at(0).simulate('click');
-
-    jest.runAllTimers();
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
     expect(onChange).toHaveBeenLastCalledWith(['Apple']);
 
-    wrapper.find('.ant-pro-checkcard').at(1).simulate('click');
-
-    jest.runAllTimers();
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
     expect(onChange).toHaveBeenLastCalledWith(['Apple', 'Pear']);
-
-    wrapper.find('.ant-pro-checkcard').at(1).simulate('click');
-
-    jest.runAllTimers();
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
     expect(onChange).toHaveBeenLastCalledWith(['Apple']);
-
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
-  it('should disabled onChange when group disabled', () => {
+  it('should disabled onChange when group disabled', async () => {
     const onChange = jest.fn();
     const wrapper = mount(
-      <CheckCard.Group onChange={onChange} disabled defaultValue="A">
+      <CheckCard.Group onChange={(e) => onChange(e)} disabled defaultValue="A">
         <CheckCard title="Card A" description="选项一" value="A" />
         <CheckCard title="Card B" description="选项二" value="B" />
       </CheckCard.Group>,
     );
-
-    wrapper.find('.ant-pro-checkcard').at(0).simulate('click');
-
-    jest.runAllTimers();
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
     expect(onChange).not.toHaveBeenCalled();
-    wrapper.unmount();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 });

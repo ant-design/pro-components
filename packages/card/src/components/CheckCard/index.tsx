@@ -1,7 +1,8 @@
-import React, { Component, useContext } from 'react';
+import React, { useEffect, useMemo, useContext } from 'react';
 import classNames from 'classnames';
 import { Avatar, Row, Col, ConfigProvider } from 'antd';
-import CheckCardGroup from './Group';
+import { useMountMergeState } from '@ant-design/pro-utils';
+import CheckCardGroup, { CheckCardGroupConnext } from './Group';
 import type { CheckCardGroupProps } from './Group';
 
 import './index.less';
@@ -120,86 +121,36 @@ export interface CheckCardState {
   hovered: boolean;
 }
 
-class CheckCard extends Component<CheckCardProps, CheckCardState> {
-  static Group: typeof CheckCardGroup;
+const CheckCard: React.FC<CheckCardProps> = (props) => {
+  const [stateChecked, setStateChecked] = useMountMergeState<boolean>(
+    props.defaultChecked || false,
+    {
+      value: props.checked,
+      onChange: props.onChange,
+    },
+  );
+  const context = useContext(CheckCardGroupConnext);
 
-  constructor(props: CheckCardProps) {
-    super(props);
-    const checked = props.checked || props.defaultChecked || false;
-
-    this.state = {
-      checked,
-      hovered: false,
-    };
-  }
-
-  componentDidMount() {
-    const { value } = this.props;
-    const { checkCardGroup = {} } = this.context || {};
-    if (checkCardGroup.registerValue) {
-      checkCardGroup.registerValue(value);
-    }
-  }
-
-  componentDidUpdate({ value: prevValue }: CheckCardProps) {
-    const { value } = this.props;
-    const { checkCardGroup = {} } = this.context || {};
-    if (value !== prevValue && checkCardGroup.registerValue && checkCardGroup.cancelValue) {
-      checkCardGroup.cancelValue(prevValue);
-      checkCardGroup.registerValue(value);
-    }
-  }
-
-  componentWillUnmount() {
-    const { value } = this.props;
-    const { checkCardGroup = {} } = this.context || {};
-    if (checkCardGroup.cancelValue) {
-      checkCardGroup.cancelValue(value);
-    }
-  }
-
-  static getDerivedStateFromProps(nextProps: CheckCardProps) {
-    if ('checked' in nextProps) {
-      const { checked } = nextProps;
-      return {
-        checked,
-      };
-    }
-    return null;
-  }
-
-  handleClick = (e: any) => {
-    const { props, context } = this;
-    const { value, onChange, onClick } = props;
-    onClick?.(e);
-
-    const { checked } = this.state;
-    const newChecked = !checked;
-
-    if (!('checked' in props)) {
-      this.setState({
-        checked: newChecked,
-      });
-    }
-
-    const { checkCardGroup } = context;
-
-    if (checkCardGroup) {
-      checkCardGroup.toggleOption({ value });
-    }
-
-    if (onChange) onChange(newChecked);
+  const handleClick = (e: any) => {
+    props?.onClick?.(e);
+    const newChecked = !stateChecked;
+    context?.toggleOption?.({ value: props.value });
+    setStateChecked?.(newChecked);
   };
 
-  // large => lg
-  // small => sm
-  getSizeCls = (size: string | undefined) => {
+  // small => sm large => lg
+  const getSizeCls = (size: string | undefined) => {
     if (size === 'large') return 'lg';
     if (size === 'small') return 'sm';
     return '';
   };
-
-  renderLoading = (prefixCls: string) => {
+  /**
+   * 自定义 loading
+   *
+   * @param prefixCls
+   * @returns
+   */
+  const renderLoading = (prefixCls: string = '') => {
     const loadingBlockClass = `${prefixCls}-loading-block`;
     return (
       <div className={`${prefixCls}-loading-content`}>
@@ -247,7 +198,20 @@ class CheckCard extends Component<CheckCardProps, CheckCardState> {
     );
   };
 
-  renderCover = (prefixCls: string, cover: string | React.ReactNode) => {
+  useEffect(() => {
+    context?.registerValue?.(props.value);
+    return () => context?.cancelValue?.(props.value);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.value]);
+
+  /**
+   * 自动头像自定义
+   *
+   * @param prefixCls
+   * @param cover
+   * @returns
+   */
+  const renderCover = (prefixCls: string, cover: string | React.ReactNode) => {
     return (
       <div className={`${prefixCls}-cover`}>
         {typeof cover === 'string' ? <img src={cover} alt="checkcard" /> : cover}
@@ -255,119 +219,110 @@ class CheckCard extends Component<CheckCardProps, CheckCardState> {
     );
   };
 
-  render() {
-    const { checked: stateChecked } = this.state;
-    const { props, context } = this;
-    const {
-      prefixCls = '',
-      className,
-      avatar,
-      title,
-      description,
-      cover,
-      extra,
-      style = {},
-      ...others
-    } = props;
+  const {
+    prefixCls,
+    className,
+    avatar,
+    title,
+    description,
+    cover,
+    extra,
+    style = {},
+    ...others
+  } = props;
 
-    const checkCardProps: CheckCardProps = { ...others };
+  const checkCardProps: CheckCardProps = { ...others };
 
-    const { checkCardGroup } = context;
+  checkCardProps.checked = stateChecked;
 
-    checkCardProps.checked = stateChecked;
+  let multiple = false;
 
-    let multiple = false;
+  if (context) {
+    // 受组控制模式
+    checkCardProps.name = context.name;
+    checkCardProps.disabled = props.disabled || context.disabled;
+    checkCardProps.loading = props.loading || context.loading;
+    checkCardProps.bordered = props.bordered || context.bordered;
 
-    if (checkCardGroup) {
-      // 受组控制模式
-      checkCardProps.name = checkCardGroup.name;
-      checkCardProps.disabled = props.disabled || checkCardGroup.disabled;
-      checkCardProps.loading = props.loading || checkCardGroup.loading;
-      checkCardProps.bordered = props.bordered || checkCardGroup.bordered;
+    multiple = context.multiple;
 
-      multiple = checkCardGroup.multiple;
+    // loading时check为false
+    checkCardProps.checked =
+      !checkCardProps.loading &&
+      (context.multiple ? context.value?.includes(props.value) : context.value === props.value);
+    checkCardProps.size = props.size || context.size;
+  }
 
-      // loading时check为false
-      checkCardProps.checked =
-        !checkCardProps.loading &&
-        (checkCardGroup.multiple
-          ? checkCardGroup.value.indexOf(props.value) !== -1
-          : checkCardGroup.value === props.value);
-      checkCardProps.size = props.size || checkCardGroup.size;
+  const { disabled = false, size, loading: cardLoading, bordered = true } = checkCardProps;
+
+  const sizeCls = getSizeCls(size);
+
+  const classString = classNames(prefixCls, className, {
+    [`${prefixCls}-loading`]: cardLoading,
+    [`${prefixCls}-${sizeCls}`]: sizeCls,
+    [`${prefixCls}-checked`]: stateChecked,
+    [`${prefixCls}-multiple`]: multiple,
+    [`${prefixCls}-disabled`]: disabled,
+    [`${prefixCls}-bordered`]: bordered,
+  });
+
+  const metaDom = useMemo(() => {
+    if (cardLoading) {
+      return renderLoading(prefixCls);
     }
 
-    const {
-      disabled = false,
-      checked,
-      size,
-      loading: cardLoading,
-      bordered = true,
-    } = checkCardProps;
+    if (cover) {
+      return renderCover(prefixCls || '', cover);
+    }
 
-    const sizeCls = this.getSizeCls(size);
+    const avatarDom = avatar ? (
+      <div className={`${prefixCls}-avatar`}>
+        {typeof avatar === 'string' ? <Avatar size={48} shape="square" src={avatar} /> : avatar}
+      </div>
+    ) : null;
 
-    const classString = classNames(prefixCls, className, {
-      [`${prefixCls}-loading`]: cardLoading,
-      [`${prefixCls}-${sizeCls}`]: sizeCls,
-      [`${prefixCls}-checked`]: checked,
-      [`${prefixCls}-multiple`]: multiple,
-      [`${prefixCls}-disabled`]: disabled,
-      [`${prefixCls}-bordered`]: bordered,
+    const headerDom = (title || extra) && (
+      <div className={`${prefixCls}-header`}>
+        <div className={`${prefixCls}-title`}>{title}</div>
+        {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
+      </div>
+    );
+
+    const descriptionDom = description ? (
+      <div className={`${prefixCls}-description`}>{description}</div>
+    ) : null;
+
+    const metaClass = classNames(`${prefixCls}-content`, {
+      [`${prefixCls}-avatar-header`]: avatarDom && headerDom && !descriptionDom,
     });
 
-    let metaDom = null;
-
-    if (cardLoading) {
-      metaDom = this.renderLoading(prefixCls);
-    } else if (cover) {
-      metaDom = this.renderCover(prefixCls, cover);
-    } else {
-      const avatarDom = avatar ? (
-        <div className={`${prefixCls}-avatar`}>
-          {typeof avatar === 'string' ? <Avatar size={48} shape="square" src={avatar} /> : avatar}
-        </div>
-      ) : null;
-
-      const headerDom = (title || extra) && (
-        <div className={`${prefixCls}-header`}>
-          <div className={`${prefixCls}-title`}>{title}</div>
-          {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
-        </div>
-      );
-
-      const descriptionDom = description ? (
-        <div className={`${prefixCls}-description`}>{description}</div>
-      ) : null;
-
-      const metaClass = classNames(`${prefixCls}-content`, {
-        [`${prefixCls}-avatar-header`]: avatarDom && headerDom && !descriptionDom,
-      });
-      metaDom = (
-        <div className={metaClass}>
-          {avatarDom}
+    return (
+      <div className={metaClass}>
+        {avatarDom}
+        {headerDom || descriptionDom ? (
           <div className={`${prefixCls}-detail`}>
             {headerDom}
             {descriptionDom}
           </div>
-        </div>
-      );
-    }
-
-    return (
-      <div
-        className={classString}
-        style={style}
-        onClick={(e) => {
-          if (!cardLoading && !disabled) {
-            this.handleClick(e);
-          }
-        }}
-      >
-        {metaDom}
+        ) : null}
       </div>
     );
-  }
-}
+  }, [avatar, cardLoading, cover, description, extra, prefixCls, title]);
+
+  return (
+    <div
+      className={classString}
+      style={style}
+      onClick={(e) => {
+        if (!cardLoading && !disabled) {
+          handleClick(e);
+        }
+      }}
+    >
+      {metaDom}
+    </div>
+  );
+};
 
 const CheckCardWrap: React.FC<CheckCardProps> & {
   Group: typeof CheckCardGroup;
@@ -375,7 +330,6 @@ const CheckCardWrap: React.FC<CheckCardProps> & {
   const { prefixCls: customizePrefixCls, ...others } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-checkcard', customizePrefixCls);
-
   return <CheckCard prefixCls={prefixCls} {...others} />;
 };
 
