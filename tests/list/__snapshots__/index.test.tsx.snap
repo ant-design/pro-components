@@ -131,3 +131,102 @@ exports[`List 🚏 only has description 1`] = `
   </div>
 </div>
 `;
+
+exports[`List 🚏 show loading state 1`] = `
+<div
+  class="ant-pro-table ant-pro-list ant-pro-list ant-pro-list-no-split"
+>
+  <div
+    class="ant-card"
+  >
+    <div
+      class="ant-card-body"
+      style="padding-top: 0px;"
+    >
+      <div
+        class="ant-list ant-list-split ant-list-loading ant-pro-list-container"
+      >
+        <div
+          class="ant-spin-nested-loading"
+        >
+          <div>
+            <div
+              class="ant-spin ant-spin-spinning"
+            >
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
+              >
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-spin-container ant-spin-blur"
+          >
+            <ul
+              class="ant-list-items"
+            >
+              <div
+                class="ant-pro-list-row"
+              >
+                <li
+                  class="ant-list-item ant-pro-list-row"
+                >
+                  <div
+                    class="ant-pro-list-row-header"
+                  >
+                    <div
+                      class="ant-pro-list-row-header-option"
+                    />
+                    <div
+                      class="ant-list-item-meta"
+                    >
+                      <div
+                        class="ant-list-item-meta-content"
+                      >
+                        <h4
+                          class="ant-list-item-meta-title"
+                        >
+                          <div
+                            class="ant-pro-list-row-header-title"
+                          >
+                            <div
+                              class="ant-pro-list-row-title"
+                            >
+                              我是名称
+                            </div>
+                          </div>
+                        </h4>
+                        <div
+                          class="ant-list-item-meta-description"
+                        >
+                          <div
+                            class="ant-pro-list-row-description"
+                          >
+                            desc text
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
