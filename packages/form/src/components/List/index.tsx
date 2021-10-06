@@ -1,5 +1,5 @@
 ﻿import type { ReactNode } from 'react';
-import React, { useContext, useRef, useMemo } from 'react';
+import React, { useContext, useImperativeHandle, useRef, useMemo } from 'react';
 import type { ButtonProps, FormInstance } from 'antd';
 import omit from 'omit.js';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -88,8 +88,12 @@ const listToArray = (children?: ReactNode | ReactNode[]) => {
   if (Array.isArray(children)) {
     return children;
   }
+  if (typeof children === 'function') {
+    return [children];
+  }
   return toArray(children);
 };
+
 type ProFormListItemProps = {
   creatorButtonProps: ProFormListProps['creatorButtonProps'];
 
@@ -274,7 +278,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     >
       {creatorButtonProps !== false && creatorButtonProps?.position === 'top' && creatorButton}
       {fields.map((field, index) => (
-        <ProFormListItem key={field.name.toString()} {...props} field={field} index={index}>
+        <ProFormListItem key={field.key} {...props} field={field} index={index}>
           {children}
         </ProFormListItem>
       ))}
@@ -301,9 +305,10 @@ const ProFormList: React.FC<ProFormListProps> = ({
     Icon: DeleteOutlined,
     tooltipText: '删除此行',
   },
+  actionRef,
   ...rest
 }) => {
-  const actionRef = useRef<FormListOperation>();
+  const actionRefs = useRef<FormListOperation>();
   const context = useContext(ConfigProvider.ConfigContext);
   const listContext = useContext(FormListContext);
   const baseClassName = context.getPrefixCls('pro-form-list');
@@ -314,6 +319,9 @@ const ProFormList: React.FC<ProFormListProps> = ({
     }
     return [listContext.name, rest.name].flat(1);
   }, [listContext.name, rest.name]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useImperativeHandle(actionRef, () => actionRefs.current, [actionRefs.current]);
 
   return (
     <Form.Item
@@ -329,11 +337,8 @@ const ProFormList: React.FC<ProFormListProps> = ({
           <div className={baseClassName}>
             <Form.List rules={rules} {...rest} name={name}>
               {(fields, action, meta) => {
-                if (typeof children === 'function') {
-                  return (children as ChildrenFunction)(fields, action, meta);
-                }
                 // 将 action 暴露给外部
-                actionRef.current = action;
+                actionRefs.current = action;
                 return (
                   <>
                     <ProFormListContainer

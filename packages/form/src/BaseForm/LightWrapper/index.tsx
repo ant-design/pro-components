@@ -74,7 +74,6 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
     }
     return labelValue;
   }, [labelValue, valueType, labelFormatter]);
-
   return (
     <FilterDropdown
       disabled={disabled}
