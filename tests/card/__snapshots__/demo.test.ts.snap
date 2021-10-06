@@ -751,9 +751,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
     >
       核心指标
     </div>
-    <div
-      class="ant-pro-card-extra"
-    />
   </div>
   <div
     class="ant-pro-card-body"
@@ -2141,9 +2138,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
                 >
                   流量走势
                 </div>
-                <div
-                  class="ant-pro-card-extra"
-                />
               </div>
               <div
                 class="ant-pro-card-body"
@@ -2180,9 +2174,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
           >
             流量占用情况
           </div>
-          <div
-            class="ant-pro-card-extra"
-          />
         </div>
         <div
           class="ant-pro-card-body"
@@ -3680,9 +3671,6 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
           >
             财年业绩目标
           </div>
-          <div
-            class="ant-pro-card-extra"
-          />
         </div>
         <div
           class="ant-pro-card-body"
@@ -4544,9 +4532,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/actions.tsx correctly
     >
       Actions 操作项
     </div>
-    <div
-      class="ant-pro-card-extra"
-    />
   </div>
   <div
     class="ant-pro-card-body"
@@ -5005,9 +4990,6 @@ Array [
       >
         24栅格
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -5148,9 +5130,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/divider.tsx correctly
     >
       核心指标
     </div>
-    <div
-      class="ant-pro-card-extra"
-    />
   </div>
   <div
     class="ant-pro-card-body"
@@ -5352,9 +5331,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/group.tsx correctly 1
       </span>
       卡片组展开
     </div>
-    <div
-      class="ant-pro-card-extra"
-    />
   </div>
   <div
     class="ant-pro-card-body"
@@ -5430,9 +5406,6 @@ Array [
             >
               title
             </div>
-            <div
-              class="ant-pro-card-extra"
-            />
           </div>
           <div
             class="ant-pro-card-body"
@@ -5660,9 +5633,6 @@ Array [
       >
         横向内部卡片
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -5683,9 +5653,6 @@ Array [
             >
               内部卡片标题
             </div>
-            <div
-              class="ant-pro-card-extra"
-            />
           </div>
           <div
             class="ant-pro-card-body"
@@ -5709,9 +5676,6 @@ Array [
             >
               内部卡片标题
             </div>
-            <div
-              class="ant-pro-card-extra"
-            />
           </div>
           <div
             class="ant-pro-card-body"
@@ -5734,9 +5698,6 @@ Array [
       >
         竖向内部卡片
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body ant-pro-card-body-direction-column"
@@ -5757,9 +5718,6 @@ Array [
             >
               内部卡片标题
             </div>
-            <div
-              class="ant-pro-card-extra"
-            />
           </div>
           <div
             class="ant-pro-card-body"
@@ -5783,9 +5741,6 @@ Array [
             >
               内部卡片标题
             </div>
-            <div
-              class="ant-pro-card-extra"
-            />
           </div>
           <div
             class="ant-pro-card-body"
@@ -6111,9 +6066,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/multipleLine.tsx corr
     >
       换行
     </div>
-    <div
-      class="ant-pro-card-extra"
-    />
   </div>
   <div
     class="ant-pro-card-body ant-pro-card-body-wrap"
@@ -6193,9 +6145,6 @@ Array [
       >
         24栅格
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -6257,9 +6206,6 @@ Array [
       >
         指定宽度px
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -6307,9 +6253,6 @@ Array [
       >
         指定宽度百分比
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -6410,9 +6353,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                             >
                               昨日全部流量
                             </div>
-                            <div
-                              class="ant-pro-card-extra"
-                            />
                           </div>
                           <div
                             class="ant-pro-card-body"
@@ -6435,9 +6375,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                             >
                               本月累计流量
                             </div>
-                            <div
-                              class="ant-pro-card-extra"
-                            />
                           </div>
                           <div
                             class="ant-pro-card-body"
@@ -6460,9 +6397,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                             >
                               今年累计流量
                             </div>
-                            <div
-                              class="ant-pro-card-extra"
-                            />
                           </div>
                           <div
                             class="ant-pro-card-body"
@@ -6497,9 +6431,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                             >
                               运行中试验
                             </div>
-                            <div
-                              class="ant-pro-card-extra"
-                            />
                           </div>
                           <div
                             class="ant-pro-card-body"
@@ -6522,9 +6453,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                             >
                               历史试验总数
                             </div>
-                            <div
-                              class="ant-pro-card-extra"
-                            />
                           </div>
                           <div
                             class="ant-pro-card-body"
@@ -6553,9 +6481,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
                 >
                   流量趋势
                 </div>
-                <div
-                  class="ant-pro-card-extra"
-                />
               </div>
               <div
                 class="ant-pro-card-body"
@@ -6595,9 +6520,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split.tsx correctly 1
           >
             流量占用情况
           </div>
-          <div
-            class="ant-pro-card-extra"
-          />
         </div>
         <div
           class="ant-pro-card-body"
@@ -6646,9 +6568,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split2.tsx correctly 
           >
             左侧详情
           </div>
-          <div
-            class="ant-pro-card-extra"
-          />
         </div>
         <div
           class="ant-pro-card-body"
@@ -6675,9 +6594,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split2.tsx correctly 
           >
             流量占用情况
           </div>
-          <div
-            class="ant-pro-card-extra"
-          />
         </div>
         <div
           class="ant-pro-card-body"
@@ -6716,9 +6632,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split23.tsx correctly
           >
             左侧详情
           </div>
-          <div
-            class="ant-pro-card-extra"
-          />
         </div>
         <div
           class="ant-pro-card-body"
@@ -6741,9 +6654,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/split23.tsx correctly
           >
             左右分栏子卡片带标题
           </div>
-          <div
-            class="ant-pro-card-extra"
-          />
         </div>
         <div
           class="ant-pro-card-body"
@@ -6944,9 +6854,6 @@ exports[`card demos 📸 renders ./packages/card/src/demos/steps-v.tsx correctly
           >
             流量占用情况
           </div>
-          <div
-            class="ant-pro-card-extra"
-          />
         </div>
         <div
           class="ant-pro-card-body"
