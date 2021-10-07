@@ -260,7 +260,7 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     }
 
     if (multiple) {
-      let changeValue;
+      let changeValue = [];
       const stateValues = stateValue as CheckCardValueType[];
       const hasOption = stateValues?.includes(option.value);
       changeValue = [...(stateValues || [])];
@@ -271,16 +271,14 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
         changeValue = changeValue.filter((itemValue) => itemValue !== option.value);
       }
       const newOptions = getOptions();
-      const newValue =
-        changeValue && Array.isArray(changeValue)
-          ? changeValue
-              .filter((val) => registerValueMap.current.has(val))
-              .sort((a, b) => {
-                const indexA = newOptions.findIndex((opt) => opt.value === a);
-                const indexB = newOptions.findIndex((opt) => opt.value === b);
-                return indexA - indexB;
-              })
-          : [];
+      const newValue = changeValue
+        ?.filter((val) => registerValueMap.current.has(val))
+        ?.sort((a, b) => {
+          const indexA = newOptions.findIndex((opt) => opt.value === a);
+          const indexB = newOptions.findIndex((opt) => opt.value === b);
+          return indexA - indexB;
+        });
+
       setStateValue(newValue);
     }
   };
