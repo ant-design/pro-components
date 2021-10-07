@@ -1,6 +1,6 @@
 import React, { createContext, useCallback, useMemo, useRef, useContext } from 'react';
 import classNames from 'classnames';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, Row, Col } from 'antd';
 import omit from 'omit.js';
 import CheckCard from './index';
 import './index.less';
@@ -83,6 +83,56 @@ export interface AbstractCheckCardGroupProps {
    */
   children?: React.ReactNode;
 }
+
+export const CardLoading: React.FC<{
+  prefixCls: string;
+}> = ({ prefixCls }) => {
+  const loadingBlockClass = `${prefixCls}-loading-block`;
+  return (
+    <div className={`${prefixCls}-loading-content`}>
+      <Row gutter={8}>
+        <Col span={22}>
+          <div className={loadingBlockClass} />
+        </Col>
+      </Row>
+      <Row gutter={8}>
+        <Col span={8}>
+          <div className={loadingBlockClass} />
+        </Col>
+        <Col span={15}>
+          <div className={loadingBlockClass} />
+        </Col>
+      </Row>
+      <Row gutter={8}>
+        <Col span={6}>
+          <div className={loadingBlockClass} />
+        </Col>
+        <Col span={18}>
+          <div className={loadingBlockClass} />
+        </Col>
+      </Row>
+      <Row gutter={8}>
+        <Col span={13}>
+          <div className={loadingBlockClass} />
+        </Col>
+        <Col span={9}>
+          <div className={loadingBlockClass} />
+        </Col>
+      </Row>
+      <Row gutter={8}>
+        <Col span={4}>
+          <div className={loadingBlockClass} />
+        </Col>
+        <Col span={3}>
+          <div className={loadingBlockClass} />
+        </Col>
+        <Col span={16}>
+          <div className={loadingBlockClass} />
+        </Col>
+      </Row>
+    </div>
+  );
+};
 
 export interface CheckCardGroupProps extends AbstractCheckCardGroupProps {
   /**
@@ -235,8 +285,15 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
     }
   };
 
-  const children = useMemo(() => {
-    if (loading) return <CheckCard loading />;
+  const children = useMemo((): React.ReactNode => {
+    if (loading) {
+      return (
+        new Array(options.length || React.Children.toArray(props.children).length || 1)
+          .fill(0)
+          // eslint-disable-next-line react/no-array-index-key
+          .map((_, index) => <CheckCard key={index} loading />) as React.ReactNode[]
+      );
+    }
 
     if (options && options.length > 0) {
       const optionValue = stateValue as CheckCardValueType[] | CheckCardValueType;
@@ -257,9 +314,9 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
           description={option.description}
           cover={option.cover}
         />
-      ));
+      )) as React.ReactNode[];
     }
-    return props.children;
+    return props.children as React.ReactNode;
   }, [getOptions, loading, multiple, options, props.children, props.size, stateValue]);
 
   const classString = classNames(groupPrefixCls, className);

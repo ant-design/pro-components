@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useContext } from 'react';
 import classNames from 'classnames';
-import { Avatar, Row, Col, ConfigProvider } from 'antd';
+import { Avatar, ConfigProvider } from 'antd';
 import { useMountMergeState } from '@ant-design/pro-utils';
-import CheckCardGroup, { CheckCardGroupConnext } from './Group';
+import CheckCardGroup, { CardLoading, CheckCardGroupConnext } from './Group';
 import type { CheckCardGroupProps } from './Group';
 
 import './index.less';
@@ -144,59 +144,6 @@ const CheckCard: React.FC<CheckCardProps> = (props) => {
     if (size === 'small') return 'sm';
     return '';
   };
-  /**
-   * 自定义 loading
-   *
-   * @param prefixCls
-   * @returns
-   */
-  const renderLoading = (prefixCls: string = '') => {
-    const loadingBlockClass = `${prefixCls}-loading-block`;
-    return (
-      <div className={`${prefixCls}-loading-content`}>
-        <Row gutter={8}>
-          <Col span={22}>
-            <div className={loadingBlockClass} />
-          </Col>
-        </Row>
-        <Row gutter={8}>
-          <Col span={8}>
-            <div className={loadingBlockClass} />
-          </Col>
-          <Col span={15}>
-            <div className={loadingBlockClass} />
-          </Col>
-        </Row>
-        <Row gutter={8}>
-          <Col span={6}>
-            <div className={loadingBlockClass} />
-          </Col>
-          <Col span={18}>
-            <div className={loadingBlockClass} />
-          </Col>
-        </Row>
-        <Row gutter={8}>
-          <Col span={13}>
-            <div className={loadingBlockClass} />
-          </Col>
-          <Col span={9}>
-            <div className={loadingBlockClass} />
-          </Col>
-        </Row>
-        <Row gutter={8}>
-          <Col span={4}>
-            <div className={loadingBlockClass} />
-          </Col>
-          <Col span={3}>
-            <div className={loadingBlockClass} />
-          </Col>
-          <Col span={16}>
-            <div className={loadingBlockClass} />
-          </Col>
-        </Row>
-      </div>
-    );
-  };
 
   useEffect(() => {
     context?.registerValue?.(props.value);
@@ -205,7 +152,7 @@ const CheckCard: React.FC<CheckCardProps> = (props) => {
   }, [props.value]);
 
   /**
-   * 自动头像自定义
+   * 头像自定义
    *
    * @param prefixCls
    * @param cover
@@ -268,7 +215,7 @@ const CheckCard: React.FC<CheckCardProps> = (props) => {
 
   const metaDom = useMemo(() => {
     if (cardLoading) {
-      return renderLoading(prefixCls);
+      return <CardLoading prefixCls={prefixCls || ''} />;
     }
 
     if (cover) {

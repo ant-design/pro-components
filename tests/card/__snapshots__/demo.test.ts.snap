@@ -1021,6 +1021,763 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
       </div>
     </div>
   </div>
+  <br />
+  <div
+    class="ant-pro-checkcard-group"
+  >
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-loading ant-pro-checkcard-sm ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-loading-content"
+      >
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-22"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-8"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-15"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-6"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-18"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-13"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-9"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-4"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-3"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-16"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-loading ant-pro-checkcard-sm ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-loading-content"
+      >
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-22"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-8"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-15"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-6"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-18"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-13"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-9"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-4"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-3"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-16"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-loading ant-pro-checkcard-sm ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-loading-content"
+      >
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-22"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-8"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-15"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-6"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-18"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-13"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-9"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-4"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-3"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-16"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+   
+  <br />
+  <div
+    class="ant-pro-checkcard-group"
+  >
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              🍊 Orange
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              🍐 Pear
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-content"
+      >
+        <div
+          class="ant-pro-checkcard-detail"
+        >
+          <div
+            class="ant-pro-checkcard-header"
+          >
+            <div
+              class="ant-pro-checkcard-title"
+            >
+              🍎 Apple
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div
+    class="ant-pro-checkcard-group"
+  >
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-loading ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-loading-content"
+      >
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-22"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-8"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-15"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-6"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-18"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-13"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-9"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-4"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-3"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-16"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-loading ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-loading-content"
+      >
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-22"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-8"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-15"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-6"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-18"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-13"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-9"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-4"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-3"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-16"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-pro-checkcard ant-pro-checkcard-loading ant-pro-checkcard-bordered"
+    >
+      <div
+        class="ant-pro-checkcard-loading-content"
+      >
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-22"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-8"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-15"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-6"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-18"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-13"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-9"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+        <div
+          class="ant-row"
+          style="margin-left: -4px; margin-right: -4px;"
+        >
+          <div
+            class="ant-col ant-col-4"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-3"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+          <div
+            class="ant-col ant-col-16"
+            style="padding-left: 4px; padding-right: 4px;"
+          >
+            <div
+              class="ant-pro-checkcard-loading-block"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 `;
 
