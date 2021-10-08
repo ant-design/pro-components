@@ -98,6 +98,12 @@ export type RowEditableConfig<DataType> = {
   onlyAddOneLineAlertMessage?: React.ReactNode;
   /** Table 上设置的name，用于拼接name来获取数据 */
   tableName?: NamePath;
+  /** 保存一行的文字 */
+  saveText?: React.ReactNode;
+  /** 取消编辑一行的文字 */
+  cancelText?: React.ReactNode;
+  /** 删除一行的文字 */
+  deleteText?: React.ReactNode;
 };
 export type ActionTypeText<T> = {
   deleteText?: React.ReactNode;
@@ -568,9 +574,9 @@ function useEditableArray<RecordType>(
 
   // Internationalization
   const intl = useIntl();
-  const saveText = intl.getMessage('editableTable.action.save', '保存');
-  const deleteText = intl.getMessage('editableTable.action.delete', '删除');
-  const cancelText = intl.getMessage('editableTable.action.cancel', '取消');
+  const saveText = props?.saveText || intl.getMessage('editableTable.action.save', '保存');
+  const deleteText = props?.deleteText || intl.getMessage('editableTable.action.delete', '删除');
+  const cancelText = props?.cancelText || intl.getMessage('editableTable.action.cancel', '取消');
 
   const actionRender = (row: RecordType & { index: number }, form: FormInstance<any>) => {
     const key = props.getRowKey(row, row.index);
