@@ -35,6 +35,9 @@ export default () => {
       }}
     >
       <ProLayout
+        brandBgImg={{
+          url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
+        }}
         {...defaultProps}
         location={{
           pathname,

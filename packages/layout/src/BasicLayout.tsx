@@ -52,6 +52,11 @@ export type LayoutBreadcrumbProps = {
 export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
   HeaderViewProps & {
+    /** Layout 的品牌配置，表现为一张背景图片 */
+    brandBgImg?: {
+      url?: string;
+      size?: string;
+    };
     pure?: boolean;
     /** @name logo url */
     logo?: React.ReactNode | WithFalse<() => React.ReactNode>;

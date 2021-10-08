@@ -5,7 +5,6 @@
 .@{pro-layout-page-container}-children-content {
   margin: 24px 24px 0;
 }
-
 .@{pro-layout-page-container} {
   &-warp {
     background-color: @component-background;
@@ -16,6 +15,10 @@
   &-ghost {
     .@{pro-layout-page-container}-warp {
       background-color: transparent;
+
+      .@{ant-prefix}-page-header.has-footer {
+        padding-bottom: 24px;
+      }
     }
 
     .@{pro-layout-page-container}-children-content {
