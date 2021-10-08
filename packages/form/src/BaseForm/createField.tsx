@@ -146,6 +146,7 @@ function createField<P extends ProFormFieldItemProps = any>(
         })}
       />
     );
+
     return (
       <ProFormItem
         // 全局的提供一个 tip 功能，可以减少代码量
@@ -174,6 +175,8 @@ function createField<P extends ProFormFieldItemProps = any>(
           labelFormatter: lightFilterLabelFormatter,
           valuePropName,
           footerRender: field?.props?.footerRender,
+          // 使用用户的配置覆盖默认的配置
+          ...rest.lightProps,
         })}
       >
         {field}

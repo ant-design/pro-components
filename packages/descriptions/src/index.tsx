@@ -434,10 +434,10 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
     });
     return [...(columns || []), ...childrenColumns]
       .filter((item) => {
-        if (['index', 'indexBorder'].includes(item.valueType)) {
+        if (['index', 'indexBorder'].includes(item?.valueType)) {
           return false;
         }
-        return !item.hideInDescriptions;
+        return !item?.hideInDescriptions;
       })
       .sort((a, b) => {
         if (b.order || a.order) {

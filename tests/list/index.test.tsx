@@ -66,6 +66,31 @@ describe('List', () => {
     expect(html.find('.ant-card').exists()).toBeFalsy();
   });
 
+  it('🚏 show loading state', async () => {
+    const html = mount(
+      <ProList
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+        ]}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+          description: {
+            dataIndex: ['desc', 'text'],
+          },
+        }}
+        loading={true}
+      />,
+    );
+    expect(html.render()).toMatchSnapshot();
+  });
+
   it('🚏 only has content', async () => {
     const html = mount(
       <ProList
@@ -511,6 +536,33 @@ describe('List', () => {
 
     expect(onClick).toBeCalled();
     expect(onMouseEnter).toBeCalledWith('我是名称');
+  });
+
+  it('🚏 ProList support rowClassName', async () => {
+    const customizedRowClassName = 'rowClassName';
+    const html = mount(
+      <ProList
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+        ]}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+          description: {
+            dataIndex: ['desc', 'text'],
+          },
+        }}
+        rowClassName={customizedRowClassName}
+      />,
+    );
+    expect(html.find('div.ant-pro-list-row').hasClass(customizedRowClassName)).toBe(true);
+    expect(html.render()).toMatchSnapshot();
   });
 
   it('🚏 ProList support itemHeaderRender', async () => {

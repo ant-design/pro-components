@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.14.5...@ant-design/pro-list@1.15.0) (2021-10-08)
+
+### Features
+
+- **list:** prolist support rowClassName ([#3784](https://github.com/ant-design/pro-components/issues/3784)) ([c025ca8](https://github.com/ant-design/pro-components/commit/c025ca8b0835fd129cb36b77c3db79e9e9bdc367))
+
+## [1.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.14.4...@ant-design/pro-list@1.14.5) (2021-09-26)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
 ## [1.14.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.14.3...@ant-design/pro-list@1.14.4) (2021-09-24)
 
 **Note:** Version bump only for package @ant-design/pro-list

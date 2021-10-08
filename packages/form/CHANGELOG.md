@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.43.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.42.1...@ant-design/pro-form@1.43.0) (2021-10-08)
+
+### Bug Fixes
+
+- **field:** timePicker 组件用 moment 解析时间不填入 format 是会直接 Invalid date ([#3745](https://github.com/ant-design/pro-components/issues/3745)) ([31fc899](https://github.com/ant-design/pro-components/commit/31fc8993aa5486281c76691df41ddb80d827074a))
+- **form:** fix form list preserve problem ([#3766](https://github.com/ant-design/pro-components/issues/3766)) ([d7b0fac](https://github.com/ant-design/pro-components/commit/d7b0face8caaca73291ffc88776d5bf3917bbaf0))
+- **form:** fix modal form rewrite getPopupContainer error ([#3763](https://github.com/ant-design/pro-components/issues/3763)) ([be13a54](https://github.com/ant-design/pro-components/commit/be13a540329cf17f34b1b6f863d8082f0e3afaf9))
+- **form:** ProFormField lightProps no work error ([#3765](https://github.com/ant-design/pro-components/issues/3765)) ([3fea703](https://github.com/ant-design/pro-components/commit/3fea7034936bb7728d160c99886b0e5ab7abdfa7))
+
+### Features
+
+- **form:** form support use singer function ([#3764](https://github.com/ant-design/pro-components/issues/3764)) ([3ec5d3c](https://github.com/ant-design/pro-components/commit/3ec5d3c9779f63a0a3e701d9825754ca32cc8111))
+
+## [1.42.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.42.0...@ant-design/pro-form@1.42.1) (2021-09-26)
+
+### Bug Fixes
+
+- **form:** no use div ref render dom ([#3739](https://github.com/ant-design/pro-components/issues/3739)) ([a72dce8](https://github.com/ant-design/pro-components/commit/a72dce88912715b54308e54f2660c57ae227e4f5))
+
 # [1.42.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.41.2...@ant-design/pro-form@1.42.0) (2021-09-24)
 
 ### Bug Fixes

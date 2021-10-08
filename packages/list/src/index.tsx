@@ -54,6 +54,7 @@ export type ProListProps<RecordType, U extends ParamsType> = Omit<
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
     onRow?: GetComponentProps<RecordType>;
+    rowClassName?: string;
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
   };
@@ -84,6 +85,7 @@ function ProList<
     renderItem,
     grid,
     onRow,
+    rowClassName,
     locale,
     itemHeaderRender,
     itemTitleRender,
@@ -163,6 +165,7 @@ function ProList<
             loading={loading}
             itemHeaderRender={itemHeaderRender}
             onRow={onRow}
+            rowClassName={rowClassName}
             locale={locale}
           />
         );
