@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.15.0...@ant-design/pro-list@1.16.0) (2021-10-08)
+
+### Features
+
+- **list:** add cardlist operate ([#3746](https://github.com/ant-design/pro-components/issues/3746)) ([43de757](https://github.com/ant-design/pro-components/commit/43de7577ca46b5b26acdd544cc40ec1e559a3b93))
+
 # [1.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.14.5...@ant-design/pro-list@1.15.0) (2021-10-08)
 
 ### Features
