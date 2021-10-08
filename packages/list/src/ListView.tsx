@@ -172,9 +172,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
 
           /** 如果cardActionProps 需要直接使用源数组，因为 action 必须要源数组 */
           if (cardActionProps === 'actions' && listKey === 'actions') {
-            listItemProps[column.listKey] = rawData;
             listItemProps.cardActionProps = cardActionProps;
-            return;
           }
           // 调用protable的列配置渲染数据
           const data = column.render ? column.render(rawData, item, index) : rawData;

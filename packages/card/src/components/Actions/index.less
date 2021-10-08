@@ -13,7 +13,13 @@
     border-top: @border-width-base @border-style-base @border-color-split;
     .clearfix;
 
-    & > li {
+    .@{ant-prefix}-space {
+      width: 100%;
+    }
+
+    & > li,
+    .@{ant-prefix}-space-item {
+      flex: 1;
       float: left;
       margin: @card-actions-li-margin;
       color: @text-color-secondary;
