@@ -157,7 +157,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
-        const listItemProps: Partial<ItemProps<RecordType>> = {};
+        const listItemProps: Partial<ItemProps<RecordType>> = { className: rowClassName };
         (
           columns as (TableColumnType<RecordType> & { listKey: string; cardActionProps: string })[]
         )?.forEach((column) => {
