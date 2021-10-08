@@ -620,4 +620,64 @@ describe('List', () => {
 
     expect(html.find('.ant-pro-list-row-header').at(0).text()).toBe('qixian:我是名称desc text');
   });
+
+  it('🚏 list support actions render to extra props', async () => {
+    const html = mount(
+      <ProList
+        grid={{ gutter: 16, column: 2 }}
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+            actions: [<a key="edit">修复</a>],
+          },
+        ]}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+          description: {
+            dataIndex: ['desc', 'text'],
+          },
+          actions: {},
+        }}
+      />,
+    );
+    waitForComponentToPaint(html, 2000);
+    expect(html.find('.ant-pro-card-extra a').text()).toEqual('修复');
+    expect(html.find('.ant-pro-card-actions').exists()).toBeFalsy();
+  });
+
+  it('🚏 list support actions render to actions props', async () => {
+    const html = mount(
+      <ProList
+        grid={{ gutter: 16, column: 2 }}
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+            actions: [<a key="edit">修复</a>],
+          },
+        ]}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+          description: {
+            dataIndex: ['desc', 'text'],
+          },
+          actions: {
+            cardActionProps: 'actions',
+          },
+        }}
+      />,
+    );
+    waitForComponentToPaint(html, 2000);
+    expect(html.find('.ant-pro-card-actions a').text()).toEqual('修复');
+    expect(html.find('.ant-pro-card-extra').exists()).toBeFalsy();
+  });
 });

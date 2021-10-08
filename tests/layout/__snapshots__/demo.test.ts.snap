@@ -1261,9 +1261,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
       >
         水印自定义配置器
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -1329,9 +1326,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
             >
               配置面板
             </div>
-            <div
-              class="ant-pro-card-extra"
-            />
           </div>
           <div
             class="ant-pro-card-body"

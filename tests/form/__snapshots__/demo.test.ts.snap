@@ -6376,9 +6376,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
           >
             配置菜单
           </div>
-          <div
-            class="ant-pro-card-extra"
-          />
         </div>
         <div
           class="ant-pro-card-body"
@@ -22618,9 +22615,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
               </span>
               源和目标
             </div>
-            <div
-              class="ant-pro-card-extra"
-            />
           </div>
           <div
             class="ant-pro-card-body"
@@ -22919,9 +22913,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
               </span>
               顶部对齐
             </div>
-            <div
-              class="ant-pro-card-extra"
-            />
           </div>
           <div
             class="ant-pro-card-body"

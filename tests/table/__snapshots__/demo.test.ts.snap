@@ -384,9 +384,6 @@ Array [
         </span>
         表格数据
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -774,9 +771,6 @@ Array [
         </span>
         表格数据
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -1120,9 +1114,6 @@ Array [
         </span>
         表格数据
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -1555,9 +1546,6 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
         </span>
         表格数据
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -6606,9 +6594,6 @@ Array [
         </span>
         表格数据
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -46274,9 +46259,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
           >
             0.0.0.0
           </div>
-          <div
-            class="ant-pro-card-extra"
-          />
         </div>
         <div
           class="ant-pro-card-body"
