@@ -28,6 +28,7 @@ export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderI
     renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
     actionRef: React.MutableRefObject<ActionType | undefined>;
     onRow?: GetComponentProps<RecordType>;
+    rowClassName?: string;
     /** Render 除了 header 之后的代码 */
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
@@ -49,6 +50,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowSelection,
     pagination, // List 的 pagination 默认是 false
     onRow,
+    rowClassName,
     ...rest
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -155,7 +157,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
-        const listItemProps = {};
+        const listItemProps = { className: rowClassName };
         (columns as (TableColumnType<RecordType> & { listKey: string })[])?.forEach((column) => {
           PRO_LIST_KEYS.forEach((key) => {
             if (column.listKey === key) {
