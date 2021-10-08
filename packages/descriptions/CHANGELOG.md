@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.19...@ant-design/pro-descriptions@1.9.20) (2021-10-08)
+
+### Bug Fixes
+
+- **field:** timePicker 组件用 moment 解析时间不填入 format 是会直接 Invalid date ([#3745](https://github.com/ant-design/pro-components/issues/3745)) ([31fc899](https://github.com/ant-design/pro-components/commit/31fc8993aa5486281c76691df41ddb80d827074a))
+
 ## [1.9.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.18...@ant-design/pro-descriptions@1.9.19) (2021-09-26)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions
