@@ -66,7 +66,7 @@ export type ItemProps<RecordType> = {
     title: React.ReactNode;
     actions: React.ReactNode[];
   };
-  index?: number;
+  index: number;
   selected?: boolean;
   avatar?: React.ReactNode;
   content?: React.ReactNode;
@@ -116,7 +116,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     description,
     isEditable,
     checkbox,
-    index = 0,
+    index,
     selected,
     loading,
     expand: propsExpand,

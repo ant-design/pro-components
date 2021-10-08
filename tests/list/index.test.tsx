@@ -631,7 +631,11 @@ describe('List', () => {
             desc: {
               text: 'desc text',
             },
-            actions: [<a key="edit">修复</a>],
+            actions: [
+              <a key="edit" id="html_url">
+                修复
+              </a>,
+            ],
           },
         ]}
         metas={{
@@ -645,7 +649,7 @@ describe('List', () => {
         }}
       />,
     );
-    waitForComponentToPaint(html, 2000);
+    waitForComponentToPaint(html, 1000);
     expect(html.find('.ant-pro-card-extra a').text()).toEqual('修复');
     expect(html.find('.ant-pro-card-actions').exists()).toBeFalsy();
   });
@@ -660,7 +664,7 @@ describe('List', () => {
             desc: {
               text: 'desc text',
             },
-            actions: [<a key="edit">修复</a>],
+            actions: {},
           },
         ]}
         metas={{
@@ -672,12 +676,25 @@ describe('List', () => {
           },
           actions: {
             cardActionProps: 'actions',
+            render: () => [
+              <a key="edit" id="edit">
+                修复
+              </a>,
+            ],
           },
         }}
       />,
     );
-    waitForComponentToPaint(html, 2000);
+    waitForComponentToPaint(html, 1000);
     expect(html.find('.ant-pro-card-actions a').text()).toEqual('修复');
     expect(html.find('.ant-pro-card-extra').exists()).toBeFalsy();
+
+    act(() => {
+      html.find('#edit').simulate('click');
+    });
+
+    act(() => {
+      html.unmount();
+    });
   });
 });
