@@ -10,7 +10,7 @@ import {
   defaultRenderCollapsedButton,
 } from '../SiderMenu/SiderMenu';
 import type { PureSettings } from '../../defaultSettings';
-import TopNavHeader from '../TopNavHeader';
+import TopNavHeader, { RightContent } from '../TopNavHeader';
 import type { MenuDataItem } from '../../index';
 import type { WithFalse } from '../../typings';
 import { clearMenuItem } from '../../utils/utils';
@@ -30,6 +30,8 @@ export type GlobalHeaderProps = {
   menuHeaderRender?: SiderMenuProps['menuHeaderRender'];
   collapsedButtonRender?: SiderMenuProps['collapsedButtonRender'];
   splitMenus?: boolean;
+  /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
+  actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
 } & Partial<PureSettings>;
 
 const renderLogo = (
@@ -115,7 +117,9 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
         </>
       )}
       <div style={{ flex: 1 }}>{children}</div>
-      {rightContentRender && rightContentRender(props)}
+      {(rightContentRender || props.actionsRender) && (
+        <RightContent rightContentRender={rightContentRender} {...props} />
+      )}
     </div>
   );
 };

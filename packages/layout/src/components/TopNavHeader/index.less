@@ -7,15 +7,14 @@
   position: relative;
   width: 100%;
   height: 100%;
-  box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
-  transition: background 0.3s, width 0.2s;
 
   .@{ant-prefix}-menu {
     background: transparent;
   }
 
+
+
   &.light {
-    background-color: @component-background;
     .@{top-nav-header-prefix-cls}-logo {
       h1 {
         color: @heading-color;
@@ -33,6 +32,11 @@
     &-left {
       display: flex;
       min-width: 192px;
+      align-items: center;
+
+      .@{ant-prefix}-pro-basicLayout-apps-icon {
+        margin-right: 16px;
+      }
     }
   }
 
@@ -45,7 +49,10 @@
     min-width: 165px;
     height: 100%;
     overflow: hidden;
-
+  a {
+    min-height: 22px;
+    font-size: 22px;
+  }
     img {
       display: inline-block;
       height: 32px;

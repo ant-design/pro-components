@@ -13,8 +13,7 @@
   align-items: center;
   height: 100%;
   padding: 0 16px;
-  background: @pro-layout-header-bg;
-  box-shadow: @pro-layout-header-box-shadow;
+
   > * {
     height: 100%;
   }
@@ -26,20 +25,6 @@
     font-size: 20px;
   }
 
-  &-layout {
-    &-mix {
-      background-color: @layout-sider-background;
-      .@{pro-layout-global-header-prefix-cls}-logo {
-        h1 {
-          color: @btn-primary-color;
-        }
-      }
-      .anticon {
-        color: @btn-primary-color;
-      }
-    }
-  }
-
   &-logo {
     position: relative;
     overflow: hidden;
@@ -47,6 +32,8 @@
       display: flex;
       align-items: center;
       height: 100%;
+      min-height: 22px;
+      font-size: 22px;
       img {
         height: 28px;
       }

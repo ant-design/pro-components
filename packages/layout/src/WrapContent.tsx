@@ -11,28 +11,14 @@ const WrapContent: React.FC<{
   location?: any;
   contentHeight?: number | string;
   ErrorBoundary?: any;
-  brandBgImg?: any;
 }> = (props) => {
-  const { style, brandBgImg, className, children } = props;
+  const { style, className, children } = props;
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
-  const brandBgImgStyle: CSSProperties = brandBgImg
-    ? {
-        backgroundImage: `url("${brandBgImg?.url}")`,
-        backgroundSize: `${brandBgImg?.size || '306px'}`,
-        backgroundPosition: 'top 0px right 95px',
-        backgroundRepeat: 'no-repeat',
-      }
-    : {};
+
   return (
     <ConfigProviderWrap>
       <ErrorComponent>
-        <Layout.Content
-          className={className}
-          style={{
-            ...brandBgImgStyle,
-            ...style,
-          }}
-        >
+        <Layout.Content className={className} style={style}>
           {children}
         </Layout.Content>
       </ErrorComponent>

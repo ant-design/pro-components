@@ -117,7 +117,7 @@ export type SiderMenuProps = {
     }
   >;
   /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
-  actionsRender: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
   /**
    * Layout的操作功能列表,不同的 layout 会放到不同的位置
    *
@@ -144,6 +144,39 @@ export type PrivateSiderMenuProps = {
   matchMenuKeys: string[];
 };
 
+export const AppsLogoComponents: React.FC<{
+  appList?: SiderMenuProps['appList'];
+  prefixCls?: string;
+}> = (props: SiderMenuProps) => {
+  const { appList, prefixCls = 'ant-pro' } = props;
+  if (!props?.appList?.length) return null;
+  return (
+    <Popover
+      content={
+        <div className={`${prefixCls}-basicLayout-apps-content`}>
+          <ul className={`${prefixCls}-basicLayout-apps-content-list`}>
+            {appList?.map((app, index) => {
+              return (
+                // eslint-disable-next-line react/no-array-index-key
+                <li key={index} className={`${prefixCls}-basicLayout-apps-content-list-item`}>
+                  <a href={app.url} target="_blank">
+                    {defaultRenderLogo(app.icon)}
+                    <span>{app.title}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      }
+    >
+      <span className={`${prefixCls}-basicLayout-apps-icon`}>
+        <AppsLogo />
+      </span>
+    </Popover>
+  );
+};
+
 const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
     collapsed,
@@ -153,7 +186,6 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     theme,
     siderWidth,
     isMobile,
-    appList,
     onMenuHeaderClick,
     breakpoint = 'lg',
     style,
@@ -217,32 +249,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   );
 
   const appsDom = useMemo(() => {
-    return appList?.length ? (
-      <Popover
-        content={
-          <div className={`${props.className}-apps-content`}>
-            <ul className={`${props.className}-apps-content-list`}>
-              {appList?.map((app, index) => {
-                return (
-                  // eslint-disable-next-line react/no-array-index-key
-                  <li key={index} className={`${props.className}-apps-content-list-item`}>
-                    <a href={app.url} target="_blank">
-                      {defaultRenderLogo(app.icon)}
-                      <span>{app.title}</span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        }
-      >
-        <span className={`${props.className}-apps-icon`}>
-          <AppsLogo />
-        </span>
-      </Popover>
-    ) : null;
-  }, [appList, props.className]);
+    return <AppsLogoComponents appList={props.appList} prefixCls={props.prefixCls} />;
+  }, [props.appList, props.prefixCls]);
 
   return (
     <>
@@ -326,17 +334,22 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             </Menu>
           </div>
         ) : null}
-        {avatarDom || actionsDom ? (
-          <div className={classNames(`${baseClassName}-actions`)}>
-            {avatarDom}
-            {actionsDom}
-          </div>
-        ) : null}
-        {rightContentRender ? (
-          <div className={classNames(`${baseClassName}-actions`)}>
-            {rightContentRender?.(props)}
-          </div>
-        ) : null}
+        {layout !== 'mix' && (
+          <>
+            {avatarDom || actionsDom ? (
+              <div className={classNames(`${baseClassName}-actions`)}>
+                {avatarDom}
+                {actionsDom}
+              </div>
+            ) : null}
+            {rightContentRender ? (
+              <div className={classNames(`${baseClassName}-actions`)}>
+                {rightContentRender?.(props)}
+              </div>
+            ) : null}
+          </>
+        )}
+
         {menuFooterRender && (
           <div
             className={classNames(`${baseClassName}-footer`, {

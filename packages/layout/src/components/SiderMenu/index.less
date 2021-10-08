@@ -56,68 +56,7 @@
     }
   }
 
-  &-apps {
-    &-icon {
-      display: inline-block;
-      padding: 5px;
-      color: @text-color-secondary;
-      font-size: 14px;
-      line-height: 14px;
-      &:hover {
-        color: #2155f4;
-        background-color: rgba(0, 87, 127, 0.06);
-      }
-    }
-    &-content {
-      &-list {
-        box-sizing: content-box;
-        width: 210px;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-      }
-
-      &-list-item {
-        position: relative;
-        display: inline-block;
-        width: 70px;
-        height: 70px;
-        padding: 0;
-        vertical-align: top;
-        list-style-type: none;
-        -webkit-transition: transform 0.2s cubic-bezier(0.333, 0, 0, 1);
-        transition: transform 0.2s cubic-bezier(0.333, 0, 0, 1);
-        a {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: space-between;
-          height: 100%;
-          padding: 10px;
-          color: @heading-color;
-          font-size: 12px;
-          text-align: center;
-          text-decoration: none;
-          &:hover {
-            background-color: #e8f0fe;
-            border-radius: 8px;
-          }
-          & > img {
-            width: 32px;
-            height: 32px;
-          }
-          & > span {
-            width: 100%;
-            height: 14px;
-            overflow: hidden;
-            line-height: 14px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-          }
-        }
-      }
-    }
-  }
+ 
   &-logo {
     position: relative;
     display: flex;
@@ -194,6 +133,7 @@
   }
 
   &.@{ant-prefix}-layout-sider-collapsed {
+    flex-direction: column;
     .@{ant-prefix}-menu-inline-collapsed {
       width: 48px;
     }
@@ -217,39 +157,6 @@
         height: ~'calc(100vh - @{nav-header-height})';
         overflow-y: auto;
       }
-    }
-  }
-
-  &-light {
-    background-color: @component-background;
-    box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
-
-    .@{ant-prefix}-layout-sider-children {
-      ::-webkit-scrollbar-track {
-        background: rgba(0, 0, 0, 0.06);
-        border-radius: 3px;
-        -webkit-box-shadow: inset 0 0 5px rgba(0, 21, 41, 0.05);
-      }
-
-      /* 滚动条滑块 */
-      ::-webkit-scrollbar-thumb {
-        background: rgba(0, 0, 0, 0.12);
-        border-radius: 3px;
-        -webkit-box-shadow: inset 0 0 5px rgba(0, 21, 41, 0.05);
-      }
-    }
-
-    .@{pro-layout-sider-menu-prefix-cls}-logo {
-      h1 {
-        color: @primary-color;
-      }
-    }
-    .@{ant-prefix}-menu-light {
-      border-right-color: transparent;
-    }
-
-    .@{pro-layout-sider-menu-prefix-cls}-collapsed-button {
-      border-top: @border-width-base @border-style-base @border-color-split;
     }
   }
 

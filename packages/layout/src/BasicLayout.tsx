@@ -259,6 +259,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
     actionRef,
+    brandBgImg,
     formatMessage: propsFormatMessage,
     loading,
   } = props || {};
@@ -516,6 +517,14 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
 
   useDocumentTitle(pageTitleInfo, props.title || false);
+  const brandBgImgStyle: CSSProperties = brandBgImg
+    ? {
+        backgroundImage: `url("${brandBgImg?.url}")`,
+        backgroundSize: `${brandBgImg?.size || '306px'}`,
+        backgroundPosition: 'top 0px right 95px',
+        backgroundRepeat: 'no-repeat',
+      }
+    : {};
 
   return (
     <MenuCounter.Provider>
@@ -551,7 +560,10 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
               }}
             >
               {siderMenuDom}
-              <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
+              <div
+                style={{ ...brandBgImgStyle, ...genLayoutStyle }}
+                className={context.getPrefixCls('layout')}
+              >
                 {headerDom}
                 <WrapContent
                   isChildrenLayout={isChildrenLayout}

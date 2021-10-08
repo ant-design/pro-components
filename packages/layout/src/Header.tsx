@@ -65,7 +65,6 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       layout,
       className: propsClassName,
       style,
-      navTheme,
       collapsed,
       siderWidth,
       hasSiderMenu,
@@ -82,7 +81,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
       [`${prefixCls}-fixed-header`]: needFixedHeader,
       [`${prefixCls}-fixed-header-action`]: !collapsed,
       [`${prefixCls}-top-menu`]: isTop,
-      [`${prefixCls}-header-${navTheme}`]: navTheme && layout !== 'mix',
+      [`${prefixCls}-header`]: true,
     });
 
     /** 计算侧边栏的宽度，不然导致左边的样式会出问题 */
@@ -110,6 +109,7 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
           style={{
             padding: 0,
             height: headerHeight,
+            background: 'transparent',
             lineHeight: `${headerHeight}px`,
             width,
             zIndex: layout === 'mix' ? 100 : 19,
