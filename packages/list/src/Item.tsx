@@ -180,7 +180,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   }, [actions, cardActionProps]);
 
   const actionsDom = useMemo(() => {
-    if (!actions || cardActionProps === 'extra') {
+    if (!actions || !cardActionProps || cardActionProps === 'extra') {
       return undefined;
     }
 
