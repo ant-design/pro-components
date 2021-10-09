@@ -29130,51 +29130,6 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             style="display: none;"
           />
         </div>
-        <div
-          class="ant-pro-sider-links"
-        >
-          <ul
-            class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-link-menu ant-menu-inline-collapsed"
-            data-menu-list="true"
-            role="menu"
-            tabindex="0"
-          >
-            <li
-              class="ant-menu-item ant-menu-item-only-child ant-pro-sider-collapsed-button"
-              data-menu-id="rc-menu-uuid-test-collapsed"
-              role="menuitem"
-              tabindex="-1"
-            >
-              <span
-                class="ant-menu-title-content"
-              >
-                <span
-                  aria-label="menu-unfold"
-                  class="anticon anticon-menu-unfold"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="menu-unfold"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM142.4 642.1L298.7 519a8.84 8.84 0 000-13.9L142.4 381.9c-5.8-4.6-14.4-.5-14.4 6.9v246.3a8.9 8.9 0 0014.4 7z"
-                    />
-                  </svg>
-                </span>
-              </span>
-            </li>
-          </ul>
-          <div
-            aria-hidden="true"
-            style="display: none;"
-          />
-        </div>
       </div>
     </aside>
     <div
@@ -29186,8 +29141,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         style="height: 48px; line-height: 48px; background: transparent;"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header"
-        style="padding: 0px; height: 48px; line-height: 48px; width: 100%; z-index: 100; right: 0px;"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-header"
+        style="padding: 0px; height: 48px; background: transparent; line-height: 48px; width: 100%; z-index: 100; right: 0px;"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix"
@@ -29197,9 +29152,9 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           >
             <a>
               <svg
-                height="32px"
+                height="1em"
                 viewBox="0 0 200 200"
-                width="32px"
+                width="1em"
               >
                 <defs>
                   <linearGradient
@@ -29336,13 +29291,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
       >
         <div
-          class="ant-pro-page-container"
+          class="ant-pro-page-container ant-pro-page-container-ghost"
         >
           <div
             class="ant-pro-page-container-warp"
           >
             <div
-              class="ant-page-header has-breadcrumb"
+              class="ant-page-header has-breadcrumb ant-page-header-ghost"
             >
               <div
                 class="ant-breadcrumb"
