@@ -15,6 +15,7 @@
 
     .@{ant-prefix}-space {
       width: 100%;
+      gap: 0 !important;
     }
 
     & > li,
@@ -25,6 +26,14 @@
       color: @text-color-secondary;
       text-align: center;
 
+      > a {
+        color: @text-color-secondary;
+        transition: color 0.3s;
+        &:hover {
+          color: @primary-color;
+        }
+      }
+
       > span {
         position: relative;
         display: block;
@@ -32,6 +41,7 @@
         font-size: @font-size-base;
         line-height: @line-height-base;
         cursor: pointer;
+
 
         &:hover {
           color: @primary-color;

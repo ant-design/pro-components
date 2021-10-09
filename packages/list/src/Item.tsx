@@ -132,6 +132,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     onRow,
     itemHeaderRender,
     cardActionProps,
+    extra,
     ...rest
   } = props;
 
@@ -228,9 +229,9 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const defaultDom = !cardProps ? (
     <List.Item
       className={rowClassName}
-      actions={extraDom}
-      extra={!!actions && <div className={extraClassName}>{actions}</div>}
       {...rest}
+      actions={extraDom}
+      extra={!!extra && <div className={extraClassName}>{extra}</div>}
       {...onRow?.(record, index)}
       onClick={(e) => {
         onRow?.(record, index)?.onClick?.(e);
