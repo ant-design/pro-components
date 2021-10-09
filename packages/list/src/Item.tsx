@@ -71,6 +71,7 @@ export type ItemProps<RecordType> = {
   avatar?: React.ReactNode;
   content?: React.ReactNode;
   actions?: React.ReactNode[];
+  extra?: React.ReactNode;
   description?: React.ReactNode;
   loading?: boolean;
   style?: React.CSSProperties;
