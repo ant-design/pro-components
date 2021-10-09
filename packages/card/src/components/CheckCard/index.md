@@ -160,7 +160,6 @@ CheckCard 可以和表单组件一起使用，这里给出演示示例。
 | defaultValue | 默认选中的选项 | string \| string\[] | - |
 | disabled | 整组失效 | boolean | false |
 | loading | 当卡片组内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |
-| name | CheckCardGroup 下所有选项卡 的 `name` 属性 | string | - |
 | options | 指定可选项 | string\[] \| Array<{ title: ReactNode, value: string, description?: ReactNode, avatar?: link or ReactNode, cover?:ReactNode, disabled?: boolean }> | \[] |
 | value | 指定选中的选项 | string \| string\[] | - |
 | size | 选择框大小，可选 `large` `small` | string | `default` |  |

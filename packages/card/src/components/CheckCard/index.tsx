@@ -55,8 +55,6 @@ interface CheckCardProps {
    * @ignore
    */
   className?: string;
-  /** 选项卡名称，用于标识同一个选项卡组，类似checkbox的表单name */
-  name?: string;
   /**
    * 左侧头像展示，可以是一个链接也可以是是一个 ReactNode
    *
@@ -120,7 +118,9 @@ export interface CheckCardState {
   checked: boolean;
 }
 
-const CheckCard: React.FC<CheckCardProps> = (props) => {
+const CheckCard: React.FC<CheckCardProps> & {
+  Group: typeof CheckCardGroup;
+} = (props) => {
   const [stateChecked, setStateChecked] = useMountMergeState<boolean>(
     props.defaultChecked || false,
     {
@@ -128,12 +128,13 @@ const CheckCard: React.FC<CheckCardProps> = (props) => {
       onChange: props.onChange,
     },
   );
-  const context = useContext(CheckCardGroupConnext);
+  const checkcardGroup = useContext(CheckCardGroupConnext);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const handleClick = (e: any) => {
     props?.onClick?.(e);
     const newChecked = !stateChecked;
-    context?.toggleOption?.({ value: props.value });
+    checkcardGroup?.toggleOption?.({ value: props.value });
     setStateChecked?.(newChecked);
   };
 
@@ -145,8 +146,8 @@ const CheckCard: React.FC<CheckCardProps> = (props) => {
   };
 
   useEffect(() => {
-    context?.registerValue?.(props.value);
-    return () => context?.cancelValue?.(props.value);
+    checkcardGroup?.registerValue?.(props.value);
+    return () => checkcardGroup?.cancelValue?.(props.value);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.value]);
 
@@ -166,7 +167,7 @@ const CheckCard: React.FC<CheckCardProps> = (props) => {
   };
 
   const {
-    prefixCls,
+    prefixCls: customizePrefixCls,
     className,
     avatar,
     title,
@@ -178,27 +179,27 @@ const CheckCard: React.FC<CheckCardProps> = (props) => {
   } = props;
 
   const checkCardProps: CheckCardProps = { ...others };
+  const prefixCls = getPrefixCls('pro-checkcard', customizePrefixCls);
 
   checkCardProps.checked = stateChecked;
 
   let multiple = false;
 
-  if (context) {
+  if (checkcardGroup) {
     // 受组控制模式
-    checkCardProps.name = context.name;
-    checkCardProps.disabled = props.disabled || context.disabled;
-    checkCardProps.loading = props.loading || context.loading;
-    checkCardProps.bordered = props.bordered || context.bordered;
+    checkCardProps.disabled = props.disabled || checkcardGroup.disabled;
+    checkCardProps.loading = props.loading || checkcardGroup.loading;
+    checkCardProps.bordered = props.bordered || checkcardGroup.bordered;
 
-    multiple = context.multiple;
+    multiple = checkcardGroup.multiple;
 
-    const isChecked = context.multiple
-      ? context.value?.includes(props.value)
-      : context.value === props.value;
+    const isChecked = checkcardGroup.multiple
+      ? checkcardGroup.value?.includes(props.value)
+      : checkcardGroup.value === props.value;
 
     // loading时check为false
     checkCardProps.checked = checkCardProps.loading ? false : isChecked;
-    checkCardProps.size = props.size || context.size;
+    checkCardProps.size = props.size || checkcardGroup.size;
   }
 
   const { disabled = false, size, loading: cardLoading, bordered = true, checked } = checkCardProps;
@@ -271,17 +272,8 @@ const CheckCard: React.FC<CheckCardProps> = (props) => {
   );
 };
 
-const CheckCardWrap: React.FC<CheckCardProps> & {
-  Group: typeof CheckCardGroup;
-} = (props) => {
-  const { prefixCls: customizePrefixCls, ...others } = props;
-  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const prefixCls = getPrefixCls('pro-checkcard', customizePrefixCls);
-  return <CheckCard prefixCls={prefixCls} {...others} />;
-};
-
-CheckCardWrap.Group = CheckCardGroup;
+CheckCard.Group = CheckCardGroup;
 
 export type { CheckCardGroupProps, CheckCardProps };
 
-export default CheckCardWrap;
+export default CheckCard;

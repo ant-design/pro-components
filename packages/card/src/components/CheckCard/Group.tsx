@@ -136,12 +136,6 @@ export const CardLoading: React.FC<{
 
 export interface CheckCardGroupProps extends AbstractCheckCardGroupProps {
   /**
-   * CheckCardGroup 下所有选项卡 的 name 属性
-   *
-   * @title name 属性
-   */
-  name?: string;
-  /**
    * 是否多选
    *
    * @title 是否多选
@@ -185,7 +179,6 @@ export type CheckCardGroupConnextType = {
   value?: any;
   disabled?: boolean;
   size?: any;
-  name?: any;
   loading?: any;
   bordered?: any;
   multiple?: any;
@@ -327,7 +320,6 @@ const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
         value: stateValue,
         disabled: props.disabled,
         size: props.size,
-        name: props.name,
         loading: props.loading,
         multiple: props.multiple,
         // https://github.com/ant-design/ant-design/issues/16376
