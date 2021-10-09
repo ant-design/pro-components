@@ -9,7 +9,7 @@ const { Paragraph } = Typography;
 export default () => (
   <>
     <CheckCard
-      avatar="https://gw.alipayobjects.com/os/antfincdn/fShLCJe7uZ/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.webarchive"
+      avatar="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
       title="默认描述区域不会进行折行"
       description={
         <span>
@@ -26,7 +26,7 @@ export default () => (
       }
     />
     <CheckCard
-      avatar="https://gw.alipayobjects.com/os/antfincdn/fShLCJe7uZ/f31dc3f7-cdc0-42ac-a075-f173fe5d5043.webarchive"
+      avatar="https://gw.alipayobjects.com/zos/bmw-prod/f601048d-61c2-44d0-bf57-ca1afe7fd92e.svg"
       title="你可以通过排版组件进行省略"
       description={
         <Paragraph ellipsis={{ rows: 2 }}>

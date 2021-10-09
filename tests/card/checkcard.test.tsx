@@ -118,6 +118,28 @@ describe('CheckCard', () => {
     });
   });
 
+  it('should support defaultValue', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <CheckCard.Group onChange={(e) => onChange(e)} defaultValue="A">
+        <CheckCard title="Card A" description="选项一" value="A" />
+        <CheckCard title="Card B" description="选项二" value="B" />
+      </CheckCard.Group>,
+    );
+    expect(
+      wrapper.find('.ant-pro-checkcard').at(0).hasClass('ant-pro-checkcard-checked'),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onChange).toHaveBeenCalledWith(undefined);
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
   it('should disabled onChange when group disabled', async () => {
     const onChange = jest.fn();
     const wrapper = mount(
