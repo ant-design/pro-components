@@ -289,7 +289,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         {headerDom && (
           <div
             className={classNames(`${baseClassName}-logo`, {
-              [`${baseClassName}-collapsed`]: collapsed,
+              [`${baseClassName}-logo-collapsed`]: collapsed,
             })}
             onClick={layout !== 'mix' ? onMenuHeaderClick : undefined}
             id="logo"

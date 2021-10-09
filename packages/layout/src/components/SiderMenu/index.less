@@ -56,7 +56,6 @@
     }
   }
 
- 
   &-logo {
     position: relative;
     display: flex;
@@ -67,6 +66,14 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     cursor: pointer;
     transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+    &-collapsed {
+      flex-direction: column-reverse;
+      .@{ant-prefix}-pro-basicLayout-apps-icon {
+        margin-bottom: 8px;
+      }
+    }
+
     > a {
       display: flex;
       align-items: center;
