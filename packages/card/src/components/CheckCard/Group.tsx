@@ -193,7 +193,7 @@ export type CheckCardGroupConnextType = {
   cancelValue?: (value: any) => void;
 };
 
-export const CheckCardGroupConnext = createContext<CheckCardGroupConnextType>({});
+export const CheckCardGroupConnext = createContext<CheckCardGroupConnextType | null>(null);
 
 const CheckCardGroup: React.FC<CheckCardGroupProps> = (props) => {
   const {

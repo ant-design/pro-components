@@ -118,7 +118,6 @@ interface CheckCardProps {
 
 export interface CheckCardState {
   checked: boolean;
-  hovered: boolean;
 }
 
 const CheckCard: React.FC<CheckCardProps> = (props) => {
@@ -193,21 +192,22 @@ const CheckCard: React.FC<CheckCardProps> = (props) => {
 
     multiple = context.multiple;
 
+    const isChecked = context.multiple
+      ? context.value?.includes(props.value)
+      : context.value === props.value;
+
     // loading时check为false
-    checkCardProps.checked =
-      !checkCardProps.loading &&
-      (context.multiple ? context.value?.includes(props.value) : context.value === props.value);
+    checkCardProps.checked = checkCardProps.loading ? false : isChecked;
     checkCardProps.size = props.size || context.size;
   }
 
-  const { disabled = false, size, loading: cardLoading, bordered = true } = checkCardProps;
-
+  const { disabled = false, size, loading: cardLoading, bordered = true, checked } = checkCardProps;
   const sizeCls = getSizeCls(size);
 
   const classString = classNames(prefixCls, className, {
     [`${prefixCls}-loading`]: cardLoading,
     [`${prefixCls}-${sizeCls}`]: sizeCls,
-    [`${prefixCls}-checked`]: stateChecked,
+    [`${prefixCls}-checked`]: checked,
     [`${prefixCls}-multiple`]: multiple,
     [`${prefixCls}-disabled`]: disabled,
     [`${prefixCls}-bordered`]: bordered,
