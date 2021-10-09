@@ -71,6 +71,7 @@ export type ItemProps<RecordType> = {
   avatar?: React.ReactNode;
   content?: React.ReactNode;
   actions?: React.ReactNode[];
+  extra?: React.ReactNode;
   description?: React.ReactNode;
   loading?: boolean;
   style?: React.CSSProperties;
@@ -132,6 +133,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     onRow,
     itemHeaderRender,
     cardActionProps,
+    extra,
     ...rest
   } = props;
 
@@ -228,9 +230,9 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const defaultDom = !cardProps ? (
     <List.Item
       className={rowClassName}
-      actions={extraDom}
-      extra={!!actions && <div className={extraClassName}>{actions}</div>}
       {...rest}
+      actions={extraDom}
+      extra={!!extra && <div className={extraClassName}>{extra}</div>}
       {...onRow?.(record, index)}
       onClick={(e) => {
         onRow?.(record, index)?.onClick?.(e);
