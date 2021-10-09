@@ -135,6 +135,42 @@ describe('CheckCard', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(onChange).toHaveBeenCalledWith(undefined);
+
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onChange).toHaveBeenCalledWith('B');
+
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
+  it('should support defaultValue in multiple mode', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <CheckCard.Group onChange={(e) => onChange(e)} defaultValue={['A']} multiple>
+        <CheckCard title="Card A" description="选项一" value="A" />
+        <CheckCard title="Card B" description="选项二" value="B" />
+      </CheckCard.Group>,
+    );
+    expect(
+      wrapper.find('.ant-pro-checkcard').at(0).hasClass('ant-pro-checkcard-checked'),
+    ).toBeTruthy();
+
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onChange).toHaveBeenCalledWith([]);
+
+    act(() => {
+      wrapper.find('.ant-pro-checkcard').at(1).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onChange).toHaveBeenCalledWith(['B']);
+
     act(() => {
       wrapper.unmount();
     });
