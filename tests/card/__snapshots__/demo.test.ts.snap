@@ -549,7 +549,7 @@ Array [
       class="ant-pro-checkcard-group"
     >
       <div
-        class="ant-pro-checkcard ant-pro-checkcard-disabled ant-pro-checkcard-bordered"
+        class="ant-pro-checkcard ant-pro-checkcard-checked ant-pro-checkcard-disabled ant-pro-checkcard-bordered"
       >
         <div
           class="ant-pro-checkcard-content"
@@ -2156,7 +2156,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
   class="ant-pro-checkcard-group"
 >
   <div
-    class="ant-pro-checkcard ant-pro-checkcard-multiple ant-pro-checkcard-bordered"
+    class="ant-pro-checkcard ant-pro-checkcard-checked ant-pro-checkcard-multiple ant-pro-checkcard-bordered"
   >
     <div
       class="ant-pro-checkcard-content"
@@ -2215,7 +2215,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
   class="ant-pro-checkcard-group"
 >
   <div
-    class="ant-pro-checkcard ant-pro-checkcard-bordered"
+    class="ant-pro-checkcard ant-pro-checkcard-checked ant-pro-checkcard-bordered"
   >
     <div
       class="ant-pro-checkcard-content"
