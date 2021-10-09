@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.15.0...@ant-design/pro-card@1.15.1) (2021-10-09)
+
+### Bug Fixes
+
+- **list:** fix when cardActionProps=actions no run render funtions ([#3791](https://github.com/ant-design/pro-components/issues/3791)) ([32974d9](https://github.com/ant-design/pro-components/commit/32974d954abe05105bd5ef80b297609c65ffe234))
+
 # [1.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.14.22...@ant-design/pro-card@1.15.0) (2021-10-08)
 
 ### Features
