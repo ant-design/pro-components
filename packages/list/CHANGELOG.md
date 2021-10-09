@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.16.1...@ant-design/pro-list@1.16.2) (2021-10-09)
+
+### Bug Fixes
+
+- **list:** fix list rerender error ([#3800](https://github.com/ant-design/pro-components/issues/3800)) ([4c2ae86](https://github.com/ant-design/pro-components/commit/4c2ae862b8927ef40ce1231aa3a0d6bb7a48022b))
+
 ## [1.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.16.0...@ant-design/pro-list@1.16.1) (2021-10-09)
 
 ### Bug Fixes
