@@ -8,7 +8,7 @@ import './index.less';
 import BaseMenu from '../SiderMenu/BaseMenu';
 import type { GlobalHeaderProps } from '../GlobalHeader';
 
-export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps & {};
+export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 
 /**
  * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
