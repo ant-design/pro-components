@@ -28,7 +28,7 @@ export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderI
     renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
     actionRef: React.MutableRefObject<ActionType | undefined>;
     onRow?: GetComponentProps<RecordType>;
-    rowClassName?: string;
+    rowClassName?: string | ((item: RecordType, index: number) => string);
     /** Render 除了 header 之后的代码 */
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
@@ -157,7 +157,10 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
-        const listItemProps: Partial<ItemProps<RecordType>> = { className: rowClassName };
+        const listItemProps: Partial<ItemProps<RecordType>> = {
+          className: typeof rowClassName === 'function' ? rowClassName(item, index) : rowClassName,
+        };
+
         (
           columns as (TableColumnType<RecordType> & { listKey: string; cardActionProps: string })[]
         )?.forEach((column) => {
