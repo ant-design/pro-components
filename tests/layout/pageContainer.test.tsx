@@ -224,7 +224,7 @@ describe('PageContainer', () => {
     });
   });
 
-  it('🐲 prolayout support breadcrumbProps', async () => {
+  it('🐲 pro-layout support breadcrumbProps', async () => {
     const wrapper = render(
       <BasicLayout
         breadcrumbProps={{

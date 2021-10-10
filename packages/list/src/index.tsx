@@ -100,7 +100,7 @@ function ProList<
 
   const actionRef = useRef<ActionType>();
 
-  useImperativeHandle(rest.actionRef, () => actionRef.current, [actionRef.current]);
+  useImperativeHandle(rest.actionRef, () => actionRef.current);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 

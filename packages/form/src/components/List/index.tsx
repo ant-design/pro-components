@@ -149,6 +149,7 @@ const ProFormListItem: React.FC<
     .map((childrenItem, childIndex) => {
       if (React.isValidElement(childrenItem)) {
         return React.cloneElement(childrenItem, {
+          // eslint-disable-next-line react/no-array-index-key
           key: childIndex,
           ...childrenItem?.props,
         });
