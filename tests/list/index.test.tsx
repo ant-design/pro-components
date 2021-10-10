@@ -538,7 +538,7 @@ describe('List', () => {
     expect(onMouseEnter).toBeCalledWith('我是名称');
   });
 
-  it('🚏 ProList support rowClassName', async () => {
+  it('🚏 ProList support rowClassName as a string', async () => {
     const customizedRowClassName = 'rowClassName';
     const html = mount(
       <ProList
@@ -562,6 +562,41 @@ describe('List', () => {
       />,
     );
     expect(html.find('div.ant-pro-list-row').hasClass(customizedRowClassName)).toBe(true);
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🚏 ProList support rowClassName as a function', async () => {
+    const customizedRowClassName = (_: any, index: number): string =>
+      index % 2 === 0 ? 'even' : 'odd';
+    const html = mount(
+      <ProList
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+        ]}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+          description: {
+            dataIndex: ['desc', 'text'],
+          },
+        }}
+        rowClassName={customizedRowClassName}
+      />,
+    );
+    expect(html.find('div.ant-pro-list-row').at(0).hasClass('even')).toBe(true);
+    expect(html.find('div.ant-pro-list-row').at(1).hasClass('odd')).toBe(true);
     expect(html.render()).toMatchSnapshot();
   });
 

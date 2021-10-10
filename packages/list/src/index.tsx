@@ -60,7 +60,7 @@ export type ProListProps<RecordType = any, Params = Record<string, any>, ValueTy
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
     onRow?: GetComponentProps<RecordType>;
-    rowClassName?: string;
+    rowClassName?: string | ((item: RecordType, index: number) => string);
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
   };
