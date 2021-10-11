@@ -95,9 +95,17 @@ RTL means right-to-left.
 
 <code src="./demos/drag.tsx" background="#f5f5f5" height="360px" title="拖拽排序" />
 
-### 内部集成拖拽排序的可编辑表格
+### 内部集成拖拽排序的可编辑表格`DragSortTable`
 
 <code src="./demos/drag-sort-table.tsx" background="#f5f5f5" height="360px" title="可编辑表格" />
+
+`DragSortTable`排序采用的[react-sortable-hoc](https://www.npmjs.com/package/react-sortable-hoc)，需要提供`rowKey`来确定数据的唯一值，否则不能正常工作。暂不支持`request`请求的数据进行排序，可将`request`请求的数据存起来通过`dataSource`传入。
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| dragSortKey | 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序 | `any` | - |
+| dragSortHandlerRender | 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标 | `(rowData: T, idx: number) => React.ReactNode` | `<MenuOutlined className="dragSortDefaultHandle" style={{ cursor: 'grab', color: '#999' }} />` |
+| onDragSortEnd | 拖动排序完成回调 | `(newDataSource: T[]) => Promise<void> \| void` | - |
 
 ### 搜索表单自定义
 
@@ -318,8 +326,6 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | dateFormatter | 转化 moment 格式数据为特定类型，false 不做转化 | `"string"` \| `"number"` \| `false` | `"string"` |
 | beforeSearchSubmit | 搜索之前进行一些修改 | `(params:T)=>T` | - |
 | onSizeChange | table 尺寸发生改变 | `(size: 'default' \| 'middle' \| 'small') => void` | - |
-| columnsStateMap | columns 的状态枚举 | `{key:{ show,fixed }}}` | - |
-| onColumnsStateChange | columns 状态发生改变 | `(props: {key:{ show,fixed }}}) => void` | - |
 | type | pro-table 类型 | `"form"` | - |
 | form | antd form 的配置 | [FormProps](https://ant.design/components/form-cn/#API) | - |
 | onSubmit | 提交表单时触发 | `(params: U) => void` | - |
@@ -332,6 +338,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | editable | 可编辑表格的相关配置 | [TableRowEditable<T>](/components/editable-table#editable-编辑行配置) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | 防抖时间 | `number` | 10 |
+| ColumnState | Column Status Control, you can operate the display hide | `columnSstateType` | - |
 
 #### RecordCreator
 
@@ -340,6 +347,16 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | record | 需要新增的行数据，一般来说包含唯一 key | `T` | `{}` |
 | position | 行增加在哪里，开始或者末尾 | `top` \| `bottom` | `bottom` |
 | (...buttonProps) | antd 的 [ButtonProps](https://ant.design/components/button-cn/#API) | ButtonProps | — |
+
+#### ColumnsStateType
+
+| 属性 | 描述 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| defaultValue | 列状态的默认值，只有初次生效 | `Record<string, ColumnsState>;` | - |
+| value | 列状态的值，支持受控模式 | `Record<string, ColumnsState>;` | - |
+| onChange | 列状态的值发生改变之后触发 | `(value:Record<string, ColumnsState>)=>viod` | - |
+| persistenceKey | 持久化列的 key，用于判断是否是同一个 table | `string \| number` | - |
+| persistenceType | 持久化列的类类型， localStorage 设置在关闭浏览器后也是存在的，sessionStorage 关闭浏览器后会丢失 | `localStorage \| sessionStorage` | - |
 
 #### Search 搜索表单
 
@@ -443,7 +460,7 @@ ref.current.cancelEditable(rowKey);
 | render | 类似 table 的 render，第一个参数变成了 dom,增加了第四个参数 action | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
 | renderFormItem | 渲染查询表单的输入组件 | `(item,{ type, defaultRender, formItemProps, fieldProps, ...rest },form) => ReactNode` | - |
 | search | 配置列的搜索相关，false 为隐藏 | `false` \| `{ transform: (value: any) => any }` | true |
-| search.transform | 转化值的 key, 一般用于事件区间的转化 | `(value: any) => any` | - |
+| search.transform | 转化值的 key, 一般用于时间区间的转化 | `(value: any) => any` | - |
 | [editable](/components/editable-table) | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
 | colSize | 一个表单项占用的格子数量, `占比= colSize*span`，`colSize` 默认为 1 ，`span` 为 8，`span`是`form={{span:8}}` 全局设置的 | `number` | - |
 | hideInSearch | 在查询表单中不展示此项 | `boolean` | - |
@@ -465,7 +482,7 @@ ProTable 封装了一些常用的值类型来减少重复的 `render` 操作，�
 
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| alwayShowAlert | 总是展示 alert，默认无选择不展示（`rowSelection`内置属性） | `boolean` | - |
+| alwaysShowAlert | 总是展示 alert，默认无选择不展示（`rowSelection`内置属性） | `boolean` | - |
 | tableAlertRender | 自定义批量操作工具栏左侧信息区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\|`false` | - |
 | tableAlertOptionRender | 自定义批量操作工具栏右侧选项区域, false 时不显示 | `({ selectedRowKeys: Key[], selectedRows: T[], onCleanSelected: ()=>void }) => ReactNode)`\|`false` | - |
 

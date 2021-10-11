@@ -79,6 +79,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 | showActions | 何时展示 actions | `'hover'` \| `'always'` | `'always'` |
 | showExtra | 何时展示 extra | `'hover'` \| `'always'` | `'always'` |
 | onRow | 与 antd 相同的[配置](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) | `function(record, index)` | - |
+| rowClassName | 自定义列表行的类名 | `string`\| `(row, index) => string` | - |
 | itemHeaderRender | 自定义每一列的 header，与 itemRender 不同的时，它会保留多选和展开收起 | - | - |
 
 ### 批量操作

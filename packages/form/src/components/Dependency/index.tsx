@@ -75,7 +75,6 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
           }, {});
           return children?.({ ...values }, form as FormInstance<any>);
         }
-
         // 在 FormList 中时
         // ignoreFormListField === true 时取全局依赖值
         if (ignoreFormListField) {

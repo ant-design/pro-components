@@ -91,8 +91,9 @@ async function release() {
       : [];
 
     await exec(
-      lernaCli,
+      'node',
       [
+        [lernaCli],
         'version',
         '--exact',
         // '--no-commit-hooks',

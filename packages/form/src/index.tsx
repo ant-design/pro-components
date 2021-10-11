@@ -16,6 +16,7 @@ import type { ProFormFieldProps } from './components/Field';
 import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
+import ProFormMoney from './components/Money';
 import type { ProFormFieldSetProps } from './components/FieldSet';
 import ProFormFieldSet from './components/FieldSet';
 import type { ProFormCaptchaProps } from './components/Captcha';
@@ -87,6 +88,7 @@ export {
   ProFormSelect,
   FormItemProvide,
   ProFormDigit,
+  ProFormMoney,
   ProFormCheckbox,
   ProFormRadio,
   ProFormRate,

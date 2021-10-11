@@ -73,13 +73,7 @@ const ProFormField: React.FC<
         render={render as any}
         renderFormItem={renderFormItem as any}
         valueType={(valueType as 'text') || 'text'}
-        fieldProps={{
-          ...fieldProps,
-          onChange: (...restParams: any) => {
-            (fieldProps?.onChange as any)?.(...restParams);
-            onChange?.(...restParams);
-          },
-        }}
+        fieldProps={fieldProps}
         valueEnum={runFunction(valueEnum)}
         {...proFieldProps}
         {...restProps}
@@ -89,7 +83,7 @@ const ProFormField: React.FC<
     );
   };
 
-  if (restProps.dependencies && restProps.request && restProps?.mode !== 'read') {
+  if (restProps.dependencies && restProps.request) {
     return (
       <ProFormDependency name={restProps.dependencies}>
         {(values) => {

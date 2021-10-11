@@ -1,27 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ProField from '../Field';
 import type { DatePickerProps } from 'antd';
 import type { ProFormFieldItemProps } from '../../interface';
 import { dateArrayFormatter } from '@ant-design/pro-utils';
+import FieldContext from '../../FieldContext';
 
-const valueType = 'time';
+const valueType = 'time' as const;
 
 /** 时间区间选择器 */
 const TimeRangePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = React.forwardRef(
-  ({ fieldProps, proFieldProps, ...rest }, ref: any) => (
-    <ProField
-      ref={ref}
-      mode="edit"
-      fieldProps={fieldProps}
-      valueType="timeRange"
-      proFieldProps={proFieldProps}
-      filedConfig={{
-        valueType: 'timeRange',
-        lightFilterLabelFormatter: (value) => dateArrayFormatter(value, 'HH:mm:SS'),
-      }}
-      {...rest}
-    />
-  ),
+  ({ fieldProps, proFieldProps, ...rest }, ref: any) => {
+    const context = useContext(FieldContext);
+    return (
+      <ProField
+        ref={ref}
+        mode="edit"
+        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
+        valueType="timeRange"
+        proFieldProps={proFieldProps}
+        filedConfig={
+          {
+            valueType: 'timeRange',
+            lightFilterLabelFormatter: (value) => dateArrayFormatter(value, 'HH:mm:SS'),
+          } as const
+        }
+        {...rest}
+      />
+    );
+  },
 );
 
 /**
@@ -33,19 +39,24 @@ const ProFormTimePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = ({
   fieldProps,
   proFieldProps,
   ...rest
-}) => (
-  <ProField
-    mode="edit"
-    fieldProps={fieldProps}
-    valueType={valueType}
-    proFieldProps={proFieldProps}
-    filedConfig={{
-      customLightMode: true,
-      valueType,
-    }}
-    {...rest}
-  />
-);
+}) => {
+  const context = useContext(FieldContext);
+  return (
+    <ProField
+      mode="edit"
+      fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
+      valueType={valueType}
+      proFieldProps={proFieldProps}
+      filedConfig={
+        {
+          customLightMode: true,
+          valueType,
+        } as const
+      }
+      {...rest}
+    />
+  );
+};
 
 const WrappedProFormTimePicker: typeof ProFormTimePicker & {
   RangePicker: typeof TimeRangePicker;

@@ -230,7 +230,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             {collapsibleButton}
             <LabelIconTip label={title} tooltip={tooltip || tip} subTitle={subTitle} />
           </div>
-          <div className={`${prefixCls}-extra`}>{extra}</div>
+          {extra && <div className={`${prefixCls}-extra`}>{extra}</div>}
         </div>
       )}
       {tabs ? (

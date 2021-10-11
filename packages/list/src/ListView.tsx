@@ -10,7 +10,7 @@ import useSelection from 'antd/lib/table/hooks/useSelection';
 import usePagination from 'antd/lib/table/hooks/usePagination';
 import type { ItemProps } from './Item';
 import ProListItem from './Item';
-import { PRO_LIST_KEYS } from './constants';
+import { PRO_LIST_KEYS_MAP } from './constants';
 import classNames from 'classnames';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
@@ -28,6 +28,7 @@ export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderI
     renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
     actionRef: React.MutableRefObject<ActionType | undefined>;
     onRow?: GetComponentProps<RecordType>;
+    rowClassName?: string | ((item: RecordType, index: number) => string);
     /** Render 除了 header 之后的代码 */
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
@@ -49,6 +50,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowSelection,
     pagination, // List 的 pagination 默认是 false
     onRow,
+    rowClassName,
     ...rest
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -155,19 +157,29 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
-        const listItemProps = {};
-        (columns as (TableColumnType<RecordType> & { listKey: string })[])?.forEach((column) => {
-          PRO_LIST_KEYS.forEach((key) => {
-            if (column.listKey === key) {
-              const dataIndex = (column.dataIndex || key) as string;
-              const rawData = Array.isArray(dataIndex)
-                ? get(item, dataIndex as string[])
-                : item[dataIndex];
-              // 渲染数据
-              const data = column.render ? column.render(rawData, item, index) : rawData;
-              if (data !== '-') listItemProps[key] = data;
-            }
-          });
+        const listItemProps: Partial<ItemProps<RecordType>> = {
+          className: typeof rowClassName === 'function' ? rowClassName(item, index) : rowClassName,
+        };
+
+        (
+          columns as (TableColumnType<RecordType> & { listKey: string; cardActionProps: string })[]
+        )?.forEach((column) => {
+          const { listKey, cardActionProps } = column;
+          if (!PRO_LIST_KEYS_MAP.has(listKey)) {
+            return;
+          }
+          const dataIndex = (column.dataIndex || listKey || column.key) as string;
+          const rawData = Array.isArray(dataIndex)
+            ? get(item, dataIndex as string[])
+            : item[dataIndex];
+
+          /** 如果cardActionProps 需要直接使用源数组，因为 action 必须要源数组 */
+          if (cardActionProps === 'actions' && listKey === 'actions') {
+            listItemProps.cardActionProps = cardActionProps;
+          }
+          // 调用protable的列配置渲染数据
+          const data = column.render ? column.render(rawData, item, index) : rawData;
+          if (data !== '-') listItemProps[column.listKey] = data;
         });
         let checkboxDom;
         if (selectItemDom && selectItemDom.render) {

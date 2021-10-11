@@ -55,7 +55,7 @@ interface RequestData {
 
 ### Common configuration
 
-<code src="./demos/dynamic-descriptions.tsx" title="Common configuration" height="500px"/>
+<code src="./demos/dynamic-descriptions.tsx" title="Common configuration" height="500px" iframe/>
 
 ### Basic usage
 

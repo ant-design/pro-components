@@ -48,6 +48,7 @@ const ProFormText = (props) => {
 | [ProFormSwitch](https://ant.design/components/switch-cn/) | 用于输入互斥的两个选项，一般是 true 和 false |
 | [ProFormUploadButton](https://ant.design/components/upload-cn/) | 按钮样式的上传文件 |
 | [ProFormUploadDragger](https://ant.design/components/upload-cn/) | 区域的上传文件，一般用于突出上传文件的表单中 |
+| ProFormMoney | 通用金额输入组件 |
 
 ## 代码示例
 
@@ -404,4 +405,69 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ```tsx | pure
 <ProFormUploadButton label="upload" name="upload" action="upload.do" />
+```
+
+### ProFormMoney
+
+ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示货币符号，支持输入负数、支持自定义货币符号等
+
+```tsx | pure
+<ProFormMoney
+  label="限制金额最小为0"
+  name="amount1"
+  locale="en-US"
+  initialValue={22.22}
+  min={0}
+/>
+<ProFormMoney
+  label="不限制金额大小"
+  name="amount2"
+  locale="en-GB"
+  initialValue={22.22}
+/>
+<ProFormMoney
+  label="货币符号跟随全局国际化"
+  name="amount3"
+  initialValue={22.22}
+/>
+<ProFormMoney
+  label="自定义货币符号"
+  name="amount4"
+  initialValue={22.22}
+  customSymbol="💰"
+/>
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| locale | 单独设置的国际化地区值，根据不同的地区显示不同的货币符号，支持地区详见下面的地区目录 | `string` | `zh-Hans-CN` |
+| customSymbol | 自定义金额符号 | `string` | - |
+| min | 最小值 | `number` | - |
+| max | 最大值 | `number` | - |
+
+#### 以下为地区编码与货币符号对照表
+
+```json
+{
+"ar-EG": "$",
+"zh-CN": "¥",
+"en-US": "$",
+"en-GB": "£",
+"vi-VN": "₫",
+"it-IT": "€",
+"ja-JP": "¥",
+"es-ES": "€",
+"ru-RU": "₽",
+"sr-RS": "RSD",
+"ms-MY": "RM",
+"zh-TW": "$"
+"fr-FR": "€",
+"pt-BR": "R$",
+"ko-KR": "₩",
+"id-ID": "RP",
+"de-DE": "€",
+"fa-IR": "تومان",
+"tr-TR": "$",
+"pl-PL": "zł",
+}
 ```

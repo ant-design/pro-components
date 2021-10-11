@@ -62,7 +62,7 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 ### 页面加载中
 
-<code src="./demos/loading.tsx" iframe="500px" title="页面加载中" desc="通过 `loading` 属性配置页面加载。"/>
+<code src="./demos/loading.tsx" iframe="800px" title="页面加载中" desc="通过 `loading` 属性配置页面加载。"/>
 
 ## API
 
@@ -111,14 +111,14 @@ FooterToolbar api 比较简单，主要功能是实现了在 layout 中自动控
 配置与面包屑相同，只是增加了自动根据路由计算面包屑的功能。此功能必须要在 ProLayout 中使用。
 
 ```tsx | pure
-import { ProLayout,ProBreadcrumb } from '@ant-design/pro-layout';
+import { ProLayout, ProBreadcrumb } from '@ant-design/pro-layout';
 
 return (props) => (
   <ProLayout
     {...props}
     // 将面包屑显示在顶部
-    headerContentRender={) => {
-      return <ProBreadcrumb/>;
+    headerContentRender={() => {
+      return <ProBreadcrumb />;
     }}
   />
 );

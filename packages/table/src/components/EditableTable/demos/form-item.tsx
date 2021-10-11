@@ -74,7 +74,7 @@ export default () => {
       title: '描述',
       dataIndex: 'decs',
       fieldProps: (from, { rowKey, rowIndex }) => {
-        if (from.getFieldValue([rowKey || '', 'title']) === '不好玩') {
+        if (from.getFieldValue(['table', rowKey || '', 'title']) === '不好玩') {
           return {
             disabled: true,
           };

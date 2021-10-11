@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "1.38.1",
+  "version": "1.43.1",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
@@ -34,9 +34,9 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "1.21.2",
-    "@ant-design/pro-provider": "1.4.17",
-    "@ant-design/pro-utils": "1.24.1",
+    "@ant-design/pro-field": "1.22.7",
+    "@ant-design/pro-provider": "1.4.19",
+    "@ant-design/pro-utils": "1.24.7",
     "@umijs/use-params": "^1.0.2",
     "classnames": "^2.2.6",
     "lodash.merge": "^4.6.2",

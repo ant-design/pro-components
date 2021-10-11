@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { message } from 'antd';
-import ProForm, { ProFormText, ProFormDateRangePicker, ProFormSelect } from '@ant-design/pro-form';
+import type { ProFormInstance } from '@ant-design/pro-form';
+import ProForm, {
+  ProFormText,
+  ProFormDateRangePicker,
+  ProFormSelect,
+  ProFormMoney,
+  ProFormDigit,
+} from '@ant-design/pro-form';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -11,6 +18,13 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const formRef = useRef<
+    ProFormInstance<{
+      name: string;
+      company?: string;
+      useMode?: string;
+    }>
+  >();
   return (
     <ProForm<{
       name: string;
@@ -20,8 +34,13 @@ export default () => {
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
+        const val1 = await formRef.current?.validateFields();
+        console.log('validateFields:', val1);
+        const val2 = await formRef.current?.validateFieldsReturnFormatValue?.();
+        console.log('validateFieldsReturnFormatValue:', val2);
         message.success('提交成功');
       }}
+      formRef={formRef}
       params={{}}
       request={async () => {
         await waitTime(100);
@@ -35,16 +54,45 @@ export default () => {
         <ProFormText
           width="md"
           name="name"
+          required
           addonBefore={<a>客户名称应该怎么获得？</a>}
           addonAfter={<a>点击查看更多</a>}
           label="签约客户名称"
           tooltip="最长为 24 位"
           placeholder="请输入名称"
+          rules={[{ required: true, message: '这是必填项' }]}
         />
         <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
       </ProForm.Group>
-
       <ProForm.Group>
+        <ProFormDigit name="count" label="人数" width="lg" />
+      </ProForm.Group>
+      <ProForm.Group>
+        <ProFormMoney
+          label="宽度"
+          name="amount0"
+          locale="en-US"
+          initialValue={22.22}
+          min={0}
+          width="lg"
+        />
+      </ProForm.Group>
+      <ProForm.Group>
+        <ProFormMoney
+          label="限制金额最小为0"
+          name="amount1"
+          locale="en-US"
+          initialValue={22.22}
+          min={0}
+        />
+        <ProFormMoney label="不限制金额大小" name="amount2" locale="en-GB" initialValue={22.22} />
+        <ProFormMoney label="货币符号跟随全局国际化" name="amount3" initialValue={22.22} />
+        <ProFormMoney
+          label="自定义货币符号"
+          name="amount4"
+          initialValue={22.22}
+          customSymbol="💰"
+        />
         <ProFormText
           name={['contract', 'name']}
           width="md"

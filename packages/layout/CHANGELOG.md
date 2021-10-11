@@ -2,6 +2,55 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.26.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.1...@ant-design/pro-layout@6.26.2) (2021-10-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.26.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.0...@ant-design/pro-layout@6.26.1) (2021-10-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.26.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.7...@ant-design/pro-layout@6.26.0) (2021-09-24)
+
+### Features
+
+- **layout:** PageContainer 的 loading 属性支持传输自定义元素方式自定义 loading ([#3702](https://github.com/ant-design/pro-components/issues/3702)) ([5395140](https://github.com/ant-design/pro-components/commit/5395140b9be18e360a0f84a226142c42f73ca086)), closes [#3620](https://github.com/ant-design/pro-components/issues/3620)
+
+## [6.25.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.6...@ant-design/pro-layout@6.25.7) (2021-09-18)
+
+### Bug Fixes
+
+- **utils:** use swr beta verison fix ie support ([#3697](https://github.com/ant-design/pro-components/issues/3697)) ([490bb96](https://github.com/ant-design/pro-components/commit/490bb9657285dda4b20d7c2252072baea59d7c51))
+
+## [6.25.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.5...@ant-design/pro-layout@6.25.6) (2021-09-17)
+
+### Bug Fixes
+
+- **list:** title blank placeholder of card ([#3680](https://github.com/ant-design/pro-components/issues/3680)) ([e3e383f](https://github.com/ant-design/pro-components/commit/e3e383fed07565952fea7da9b3a5af5eebc14f47))
+
+## [6.25.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.4...@ant-design/pro-layout@6.25.5) (2021-09-16)
+
+### Bug Fixes
+
+- [#3651](https://github.com/ant-design/pro-components/issues/3651) 修复金额输入组件设置 width 无效的问题 ([#3654](https://github.com/ant-design/pro-components/issues/3654)) ([ef72dba](https://github.com/ant-design/pro-components/commit/ef72dbae77a77a5831a6056d4194ac3524f7afe8))
+- **ProLayout:** headerContentRender example function. ([#3645](https://github.com/ant-design/pro-components/issues/3645)) ([5702344](https://github.com/ant-design/pro-components/commit/570234447da415dd582fb25c7257763812f9d1a5))
+
+## [6.25.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.3...@ant-design/pro-layout@6.25.4) (2021-09-10)
+
+### Bug Fixes
+
+- **layout:** remove extra dom node ([#3631](https://github.com/ant-design/pro-components/issues/3631)) ([d89667e](https://github.com/ant-design/pro-components/commit/d89667e3408475acf3c76ccbf0968ef603790053))
+
+## [6.25.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.2...@ant-design/pro-layout@6.25.3) (2021-09-09)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.25.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.1...@ant-design/pro-layout@6.25.2) (2021-09-07)
+
+### Bug Fixes
+
+- **form:** if valueType need request, note need request ([#3575](https://github.com/ant-design/pro-components/issues/3575)) ([41bb815](https://github.com/ant-design/pro-components/commit/41bb81540408659256da329fe0eb02e5c1583ea5))
+
 ## [6.25.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.25.0...@ant-design/pro-layout@6.25.1) (2021-08-30)
 
 **Note:** Version bump only for package @ant-design/pro-layout

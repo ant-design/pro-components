@@ -101,7 +101,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             >
               <label
                 class=""
-                for="name"
+                for="textarea"
                 title="Textarea"
               >
                 Textarea
@@ -122,7 +122,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   >
                     <input
                       class="ant-input"
-                      id="name"
+                      id="textarea"
                       placeholder="请输入"
                       type="text"
                       value=""
@@ -551,7 +551,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="money"
@@ -752,7 +751,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <label
               class=""
-              for="status"
+              for="status2"
               title="状态"
             >
               状态
@@ -773,7 +772,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 >
                   <input
                     class="ant-input"
-                    id="status"
+                    id="status2"
                     placeholder="请输入"
                     type="text"
                     value=""
@@ -910,11 +909,10 @@ exports[`BasicTable 🎏 base use 1`] = `
   </div>
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -7047,11 +7045,10 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
   </div>
   <div
     class="ant-card"
-    style="height:100%"
   >
     <div
       class="ant-card-body"
-      style="padding-top:0;padding-bottom:0"
+      style="padding-top:0"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -7573,11 +7570,10 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
   </div>
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-table-wrapper"

@@ -297,6 +297,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const swrKey = useMemo(() => {
     if (!menu?.params) return [defaultId];
     return [defaultId, menu?.params];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [defaultId, stringify(menu?.params)]);
 
   const preData = useRef<MenuDataItem[] | undefined>(undefined);
@@ -305,7 +306,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     swrKey,
     async (_, params) => {
       setMenuLoading(true);
-      const msg = await menu?.request?.(params || {}, route?.routes || []);
+      const msg = await menu?.request?.((params as Record<string, any>) || {}, route?.routes || []);
       setMenuLoading(false);
       return msg;
     },

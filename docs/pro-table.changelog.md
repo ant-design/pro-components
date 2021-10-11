@@ -9,6 +9,37 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.54.3
+
+`2021-09-24`
+
+- 🐛 fix(table): optimize style performance [#3706](https://github.com/ant-design/pro-components/pull/3706) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(table): fix DragSortTable render problems with multiple renders [#3705](https://github.com/ant-design/pro-components/pull/3705) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.54.1
+
+`2021-09-18`
+
+- 🐛 fix(table): use new merge funtion [#3696](https://github.com/ant-design/pro-components/pull/3696) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.54.0
+
+`2021-09-17`
+
+- 💥 feat(table): support persistence stateMap [#3684](https://github.com/ant-design/pro-components/pull/3684) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-table@2.53.0
+
+`2021-09-09`
+
+- 💥 feat(table): fix table empty style error [#3552](https://github.com/ant-design/pro-components/pull/3552) [@super20155](https://github.com/super20155)
+
+## @ant-design/pro-table@2.51.0
+
+`2021-08-30`
+
+- 🐛 fix(table): fix tooltip no render dom [#3543](https://github.com/ant-design/pro-components/pull/3543) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-table@2.50.0
 
 `2021-08-24`

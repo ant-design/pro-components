@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.22.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.6...@ant-design/pro-field@1.22.7) (2021-10-08)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.5...@ant-design/pro-field@1.22.6) (2021-10-08)
+
+### Bug Fixes
+
+- **field:** timePicker 组件用 moment 解析时间不填入 format 是会直接 Invalid date ([#3745](https://github.com/ant-design/pro-components/issues/3745)) ([31fc899](https://github.com/ant-design/pro-components/commit/31fc8993aa5486281c76691df41ddb80d827074a))
+
+## [1.22.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.4...@ant-design/pro-field@1.22.5) (2021-09-24)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.3...@ant-design/pro-field@1.22.4) (2021-09-18)
+
+### Bug Fixes
+
+- **utils:** use swr beta verison fix ie support ([7046b1b](https://github.com/ant-design/pro-components/commit/7046b1b6f9cb1b793fd53a7fc8e6356c8830426a))
+
+## [1.22.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.2...@ant-design/pro-field@1.22.3) (2021-09-18)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.1...@ant-design/pro-field@1.22.2) (2021-09-16)
+
+### Bug Fixes
+
+- [#3651](https://github.com/ant-design/pro-components/issues/3651) 修复金额输入组件设置 width 无效的问题 ([#3654](https://github.com/ant-design/pro-components/issues/3654)) ([ef72dba](https://github.com/ant-design/pro-components/commit/ef72dbae77a77a5831a6056d4194ac3524f7afe8))
+
+## [1.22.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.0...@ant-design/pro-field@1.22.1) (2021-09-09)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.22.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.21.2...@ant-design/pro-field@1.22.0) (2021-09-07)
+
+### Bug Fixes
+
+- **form:** if valueType need request, note need request ([#3575](https://github.com/ant-design/pro-components/issues/3575)) ([41bb815](https://github.com/ant-design/pro-components/commit/41bb81540408659256da329fe0eb02e5c1583ea5))
+
+### Features
+
+- **form,field:** 增加 ProFormMoney 组件 ([#3588](https://github.com/ant-design/pro-components/issues/3588)) ([2435ac3](https://github.com/ant-design/pro-components/commit/2435ac34b968ebbbeb018ab070f94f344822eddd)), closes [Form#3547](https://github.com/Form/issues/3547) [#3547](https://github.com/ant-design/pro-components/issues/3547)
+
 ## [1.21.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.21.1...@ant-design/pro-field@1.21.2) (2021-08-30)
 
 **Note:** Version bump only for package @ant-design/pro-field

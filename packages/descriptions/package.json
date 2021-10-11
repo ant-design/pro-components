@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-descriptions",
-  "version": "1.9.10",
+  "version": "1.9.21",
   "description": "@ant-design/pro-descriptions",
   "keywords": [
     "antd",
@@ -33,10 +33,10 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@ant-design/pro-field": "1.21.2",
-    "@ant-design/pro-form": "1.38.1",
+    "@ant-design/pro-field": "1.22.7",
+    "@ant-design/pro-form": "1.43.1",
     "@ant-design/pro-skeleton": "1.0.1",
-    "@ant-design/pro-utils": "1.24.1",
+    "@ant-design/pro-utils": "1.24.7",
     "rc-util": "^5.0.6",
     "use-json-comparison": "^1.0.5"
   },

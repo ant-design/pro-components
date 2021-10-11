@@ -1545,7 +1545,6 @@ Array [
                 >
                   <div
                     class="ant-input-number"
-                    style="width: 100%;"
                   >
                     <div
                       class="ant-input-number-handler-wrap"
@@ -1609,7 +1608,6 @@ Array [
                       class="ant-input-number-input-wrap"
                     >
                       <input
-                        aria-valuemin="0"
                         autocomplete="off"
                         class="ant-input-number-input"
                         placeholder="请输入"

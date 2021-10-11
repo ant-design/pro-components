@@ -187,7 +187,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           if (
             item.valueType &&
             typeof item.valueType === 'string' &&
-            ['index', 'indexBorder', 'option'].includes(item.valueType)
+            ['index', 'indexBorder', 'option'].includes(item?.valueType)
           ) {
             return null;
           }
@@ -235,7 +235,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
           /** 分割线 */
           if (item.valueType === 'divider') {
-            return <Divider {...item.fieldProps} />;
+            return <Divider {...item.fieldProps} key={index} />;
           }
 
           /** 公用的 类型 props */

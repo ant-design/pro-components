@@ -46,6 +46,7 @@ type RenderToFromItemProps<T> = {
  */
 function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactNode {
   const { text, valueType, rowData, columnProps, prefixName } = config;
+
   // 如果 valueType === text ，没必要多走一次 render
   if (
     (!valueType || ['textarea', 'text'].includes(valueType.toString())) &&
@@ -76,7 +77,9 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
     valueType: valueType as ProFieldValueType,
     proFieldProps: {
       emptyText: config.columnEmptyText,
-      proFieldKey: `table-field-${columnProps?.dataIndex?.toString() || columnProps?.key}`,
+      proFieldKey: columnProps?.key
+        ? `table-field-${columnProps?.key || columnProps?.dataIndex?.toString()}`
+        : undefined,
     },
   };
 

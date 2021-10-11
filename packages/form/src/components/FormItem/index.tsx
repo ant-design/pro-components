@@ -26,6 +26,7 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
     value,
     onChange,
     onBlur,
+    ignoreFormItem,
     valuePropName = 'value',
     ...restProps
   } = formFieldProps;
@@ -58,16 +59,20 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
 
   if (!React.isValidElement(filedChildren)) return filedChildren as JSX.Element;
 
+  const finalChange = fieldProps
+    ? undefined
+    : (...restParams: any[]) => {
+        onChange?.(...restParams);
+        filedChildren?.props?.onChange?.(...restParams);
+      };
+
   return React.cloneElement(
     filedChildren,
     omitUndefined({
       ...restProps,
       value,
       ...filedChildren.props,
-      onChange: (...restParams: any[]) => {
-        onChange?.(...restParams);
-        filedChildren?.props?.onChange?.(...restParams);
-      },
+      onChange: finalChange,
       fieldProps,
     }),
   );
@@ -95,7 +100,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
   const formDom = useMemo(() => {
     if (!addonAfter && !addonBefore) return <Form.Item {...props}>{children}</Form.Item>;
     return (
-      <Form.Item {...props}>
+      <Form.Item {...props} rules={undefined} name={undefined}>
         <div
           style={{
             display: 'flex',
@@ -202,7 +207,6 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
       {props.children}
     </WithValueFomFiledProps>
   );
-
   const lightDom = noLightFormItem ? (
     children
   ) : (
@@ -215,6 +219,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   if (ignoreFormItem) {
     return <>{lightDom}</>;
   }
+
   return (
     <WarpFormItem {...rest} name={name}>
       {lightDom}

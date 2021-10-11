@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.24.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.6...@ant-design/pro-utils@1.24.7) (2021-10-08)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.24.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.5...@ant-design/pro-utils@1.24.6) (2021-09-24)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.24.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.4...@ant-design/pro-utils@1.24.5) (2021-09-18)
+
+### Bug Fixes
+
+- **table:** use new merge funtion ([#3696](https://github.com/ant-design/pro-components/issues/3696)) ([293c327](https://github.com/ant-design/pro-components/commit/293c327fa8db7ebd7ae9557c1ce8c426f8114cbc))
+- **utils:** use swr beta verison fix ie support ([#3697](https://github.com/ant-design/pro-components/issues/3697)) ([490bb96](https://github.com/ant-design/pro-components/commit/490bb9657285dda4b20d7c2252072baea59d7c51))
+
+## [1.24.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.3...@ant-design/pro-utils@1.24.4) (2021-09-16)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.24.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.2...@ant-design/pro-utils@1.24.3) (2021-09-09)
+
+### Bug Fixes
+
+- **form:** fix transform no support lableInValue ([#3630](https://github.com/ant-design/pro-components/issues/3630)) ([de76c5f](https://github.com/ant-design/pro-components/commit/de76c5f15dfdf107f28939b407e871cc8b697906))
+
+## [1.24.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.1...@ant-design/pro-utils@1.24.2) (2021-09-07)
+
+### Bug Fixes
+
+- **form:** if valueType need request, note need request ([#3575](https://github.com/ant-design/pro-components/issues/3575)) ([41bb815](https://github.com/ant-design/pro-components/commit/41bb81540408659256da329fe0eb02e5c1583ea5))
+- **table:** fix save and cancel button click error ([#3565](https://github.com/ant-design/pro-components/issues/3565)) ([09e5d9b](https://github.com/ant-design/pro-components/commit/09e5d9b3d6579b8eed3032cad0ae00ba57dc9ad0))
+- **table:** 修改 Table reload、reloadAndRest 类型 ([#3574](https://github.com/ant-design/pro-components/issues/3574)) ([39a6284](https://github.com/ant-design/pro-components/commit/39a6284167c982116bad9dc953b2135d5cf4e553))
+- **utils:** remove array move ([#3571](https://github.com/ant-design/pro-components/issues/3571)) ([f77f6e2](https://github.com/ant-design/pro-components/commit/f77f6e2d7ac041a7804af1aaa3612068bc539c0d))
+
 ## [1.24.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.0...@ant-design/pro-utils@1.24.1) (2021-08-30)
 
 ### Bug Fixes

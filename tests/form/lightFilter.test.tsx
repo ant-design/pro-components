@@ -1,4 +1,4 @@
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import React from 'react';
 import {
   LightFilter,
@@ -9,10 +9,12 @@ import {
   ProFormDateTimePicker,
   ProFormTimePicker,
   ProFormRadio,
+  ProFormSlider,
 } from '@ant-design/pro-form';
 import KeyCode from 'rc-util/lib/KeyCode';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
+import moment from 'moment';
 
 describe('LightFilter', () => {
   it(' 🪕 basic use', async () => {
@@ -663,5 +665,42 @@ describe('LightFilter', () => {
     act(() => {
       wrapper.unmount();
     });
+  });
+
+  it('ProFormField support lightProps', () => {
+    const html = render(
+      <LightFilter
+        initialValues={{
+          range: [1000000000, 1500000000],
+        }}
+      >
+        <ProFormSlider
+          name="range"
+          label="活跃时间"
+          range
+          fieldProps={{
+            min: 1000000000,
+            max: 2000000000,
+            tipFormatter: (v: number | undefined) => (
+              <div>{v ? moment.unix(v).format('YYYY-MM-DD HH:mm:ss') : 0}</div>
+            ),
+          }}
+          lightProps={{
+            allowClear: false,
+            labelFormatter: (values) => {
+              return values
+                ?.map((value: number) => {
+                  return moment.unix(value).format('YYYY-MM-DD HH:mm:ss');
+                })
+                .join('~');
+            },
+          }}
+        />
+      </LightFilter>,
+    );
+
+    expect(html.find('.ant-pro-core-field-label').text()).toBe(
+      '活跃时间: 2001-09-09 01:46:40~2017-07-14 0...2项',
+    );
   });
 });

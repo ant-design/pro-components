@@ -37,7 +37,7 @@ describe('ProForm.Item', () => {
     expect(onBlur).toBeCalledTimes(1);
   });
 
-  it('📦 ProForm.Item supprot onChange', async () => {
+  it('📦 ProForm.Item supports onChange', async () => {
     const onChange = jest.fn();
     const onValuesChange = jest.fn();
     const wrapper = mount<{ navTheme: string }>(

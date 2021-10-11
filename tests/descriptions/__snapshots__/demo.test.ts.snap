@@ -1083,6 +1083,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
       />
       <div
         class="ant-pro-card"
+        style="width: 500px;"
       >
         <div
           class="ant-pro-card-header"
@@ -1092,9 +1093,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
           >
             配置菜单
           </div>
-          <div
-            class="ant-pro-card-extra"
-          />
         </div>
         <div
           class="ant-pro-card-tabs"
