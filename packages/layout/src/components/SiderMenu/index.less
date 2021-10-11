@@ -9,9 +9,14 @@
 @menu-highlight-color: #000;
 
 .@{pro-layout-sider-menu-prefix-cls} {
+  contain: layout;
   position: relative;
   background: transparent;
   border-right: 1px solid rgba(0, 0, 0, 0.06);
+
+  > * {
+    contain: layout;
+  }
 
   // 这里关掉了动画，不然使用无法兼容
   .@{ant-prefix}-menu {
@@ -140,9 +145,14 @@
   &.@{ant-prefix}-layout-sider-collapsed {
     flex-direction: column;
     padding-bottom: 24px;
-    .@{ant-prefix}-menu-inline-collapsed {
-      padding: 6px;
+    .@{ant-prefix}-menu:not(.@{ant-prefix}-menu-horizontal) .@{ant-prefix}-menu-submenu-selected {
+      background-color: fade(@primary-color, 10%);
+      border-radius: 2px;
     }
+    .@{ant-prefix}-pro-menu-item-title {
+      display: none !important;
+    }
+
     .@{pro-layout-sider-menu-prefix-cls} {
       &-logo {
         padding: 16px 8px;
