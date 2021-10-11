@@ -21433,6 +21433,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     aria-label="question-circle"
                     class="anticon anticon-question-circle ant-form-item-tooltip"
                     role="img"
+                    title=""
                   >
                     <svg
                       aria-hidden="true"
@@ -22634,6 +22635,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     aria-label="question-circle"
                     class="anticon anticon-question-circle ant-form-item-tooltip"
                     role="img"
+                    title=""
                   >
                     <svg
                       aria-hidden="true"
@@ -22931,6 +22933,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     aria-label="question-circle"
                     class="anticon anticon-question-circle ant-form-item-tooltip"
                     role="img"
+                    title=""
                   >
                     <svg
                       aria-hidden="true"
@@ -24270,6 +24273,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/StepsForm/demos/
                     aria-label="question-circle"
                     class="anticon anticon-question-circle ant-form-item-tooltip"
                     role="img"
+                    title=""
                   >
                     <svg
                       aria-hidden="true"
@@ -25300,6 +25304,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
+                title=""
               >
                 <svg
                   aria-hidden="true"
@@ -27718,6 +27723,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
           aria-label="question-circle"
           class="anticon anticon-question-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -27802,6 +27808,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/dependency.tsx correc
           aria-label="question-circle"
           class="anticon anticon-question-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -28244,6 +28251,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout.tsx corre
             aria-label="question-circle"
             class="anticon anticon-question-circle ant-form-item-tooltip"
             role="img"
+            title=""
           >
             <svg
               aria-hidden="true"
@@ -28495,6 +28503,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/formRef.tsx correctly
           aria-label="question-circle"
           class="anticon anticon-question-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"
@@ -29428,6 +29437,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
+                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -30933,6 +30943,7 @@ Array [
                     aria-label="question-circle"
                     class="anticon anticon-question-circle ant-form-item-tooltip"
                     role="img"
+                    title=""
                   >
                     <svg
                       aria-hidden="true"
@@ -31751,6 +31762,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/linkage-customization
                     aria-label="question-circle"
                     class="anticon anticon-question-circle ant-form-item-tooltip"
                     role="img"
+                    title=""
                   >
                     <svg
                       aria-hidden="true"
@@ -33175,6 +33187,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-editableTabl
                 aria-label="question-circle"
                 class="anticon anticon-question-circle ant-form-item-tooltip"
                 role="img"
+                title=""
               >
                 <svg
                   aria-hidden="true"
@@ -34089,6 +34102,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/sync-to-url.tsx corre
           aria-label="question-circle"
           class="anticon anticon-question-circle ant-form-item-tooltip"
           role="img"
+          title=""
         >
           <svg
             aria-hidden="true"

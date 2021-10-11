@@ -1409,6 +1409,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
+                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -1596,6 +1597,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
+                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
