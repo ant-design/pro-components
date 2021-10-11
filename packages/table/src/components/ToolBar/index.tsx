@@ -30,6 +30,8 @@ export type OptionConfig = {
     | {
         draggable?: boolean;
         checkable?: boolean;
+        checkedReset?: boolean;
+        extra?: React.ReactNode;
       };
   search?: (OptionSearchProps & { name?: string }) | boolean;
 };
