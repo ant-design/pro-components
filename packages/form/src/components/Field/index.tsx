@@ -73,7 +73,13 @@ const ProFormField: React.FC<
         render={render as any}
         renderFormItem={renderFormItem as any}
         valueType={(valueType as 'text') || 'text'}
-        fieldProps={fieldProps}
+        fieldProps={{
+          ...fieldProps,
+          onChange: (...restParams: any) => {
+            (fieldProps?.onChange as any)?.(...restParams);
+            onChange?.(...restParams);
+          },
+        }}
         valueEnum={runFunction(valueEnum)}
         {...proFieldProps}
         {...restProps}
