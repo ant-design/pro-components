@@ -212,45 +212,70 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const headerDom = defaultRenderLogoAndTitle(props);
 
   const extraDom = menuExtraRender && menuExtraRender(props);
-  const menuDom = menuContentRender !== false && flatMenuKeys && (
-    <BaseMenu
-      {...props}
-      key="base-menu"
-      mode="inline"
-      handleOpenChange={onOpenChange}
-      style={{
-        width: '100%',
-      }}
-      className={`${baseClassName}-menu`}
-    />
+  const menuDom = useMemo(
+    () =>
+      menuContentRender !== false &&
+      flatMenuKeys && (
+        <BaseMenu
+          {...props}
+          key="base-menu"
+          mode="inline"
+          handleOpenChange={onOpenChange}
+          style={{
+            width: '100%',
+          }}
+          className={`${baseClassName}-menu`}
+        />
+      ),
+    [baseClassName, flatMenuKeys, menuContentRender, onOpenChange, props],
   );
 
-  const menuRenderDom = menuContentRender ? menuContentRender(props, menuDom) : menuDom;
+  const menuRenderDom = useMemo(() => {
+    return menuContentRender ? menuContentRender(props, menuDom) : menuDom;
+  }, [menuContentRender, menuDom, props]);
 
   const avatarDom = useMemo(
     () =>
       avatarProps && (
         <Space align="center" className={classNames(`${baseClassName}-actions-avatar`)}>
           <Avatar {...avatarProps} />
-          {avatarProps.title && <span> {avatarProps.title}</span>}
+          {avatarProps.title && !collapsed && <span>{avatarProps.title}</span>}
         </Space>
       ),
-    [avatarProps, baseClassName],
+    [avatarProps, baseClassName, collapsed],
   );
 
   const actionsDom = useMemo(
     () =>
       actionsRender && (
-        <Space align="center" className={classNames(`${baseClassName}-actions-list`)}>
+        <Space
+          align="center"
+          direction={collapsed ? 'vertical' : 'horizontal'}
+          className={classNames(`${baseClassName}-actions-list`)}
+        >
           {actionsRender?.(props)}
         </Space>
       ),
-    [actionsRender, baseClassName, props],
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [actionsRender, baseClassName, collapsed],
   );
 
   const appsDom = useMemo(() => {
     return <AppsLogoComponents appList={props.appList} prefixCls={props.prefixCls} />;
   }, [props.appList, props.prefixCls]);
+
+  const collapsedDom = useMemo(() => {
+    return (
+      <div className={`${baseClassName}-collapsed-button`}>
+        <img
+          src="https://gw.alipayobjects.com/zos/antfincdn/72SkTjhMet/bianzu%25252010.svg"
+          onClick={() => {
+            onCollapse?.(!collapsed);
+          }}
+        />
+      </div>
+    );
+  }, [baseClassName, collapsed, onCollapse]);
 
   return (
     <>
@@ -276,10 +301,10 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           if (isMobile) return;
           onCollapse?.(collapse);
         }}
-        collapsedWidth={48}
+        collapsedWidth={60}
         style={{
-          overflow: 'hidden',
           paddingTop: layout === 'mix' && !isMobile ? headerHeight : undefined,
+          backgroundColor: 'transparent',
           ...style,
         }}
         width={siderWidth}
@@ -337,13 +362,21 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         {layout !== 'mix' && (
           <>
             {avatarDom || actionsDom ? (
-              <div className={classNames(`${baseClassName}-actions`)}>
+              <div
+                className={classNames(`${baseClassName}-actions`, {
+                  [`${baseClassName}-actions-collapsed`]: collapsed,
+                })}
+              >
                 {avatarDom}
                 {actionsDom}
               </div>
             ) : null}
             {rightContentRender ? (
-              <div className={classNames(`${baseClassName}-actions`)}>
+              <div
+                className={classNames(`${baseClassName}-actions`, {
+                  [`${baseClassName}-actions-collapsed`]: collapsed,
+                })}
+              >
                 {rightContentRender?.(props)}
               </div>
             ) : null}
@@ -353,12 +386,13 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         {menuFooterRender && (
           <div
             className={classNames(`${baseClassName}-footer`, {
-              [`${baseClassName}-footer-collapsed`]: !collapsed,
+              [`${baseClassName}-footer-collapsed`]: collapsed,
             })}
           >
             {menuFooterRender(props)}
           </div>
         )}
+        {collapsedDom}
       </Sider>
     </>
   );

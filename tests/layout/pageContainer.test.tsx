@@ -148,7 +148,7 @@ describe('PageContainer', () => {
 
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 48px)');
+    expect(wrapper?.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 60px)');
     act(() => {
       wrapper.setProps({
         layout: 'top',
@@ -183,7 +183,7 @@ describe('PageContainer', () => {
 
     await waitForComponentToPaint(wrapper);
 
-    expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 48px)');
+    expect(wrapper.find('.ant-pro-footer-bar')?.props()?.style?.width).toBe('calc(100% - 60px)');
     act(() => {
       wrapper.setProps({
         layout: 'top',

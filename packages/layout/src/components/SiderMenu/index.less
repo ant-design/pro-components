@@ -15,33 +15,32 @@
 
   // 这里关掉了动画，不然使用无法兼容
   .@{ant-prefix}-menu {
+    padding: 6px;
     background: transparent;
+
+    // 关掉动画避免性能问题
+    * {
+      transition: none !important;
+    }
+
     &:not(.@{ant-prefix}-menu-horizontal) .@{ant-prefix}-menu-item-selected {
-      background-color: @menu-item-active-bg;
+      background-color: fade(@primary-color, 10%);
       border-radius: 2px;
     }
 
-    &-submenu {
-      &-selected {
-        color: #000;
-      }
-      &:hover > .@{ant-prefix}-menu-submenu-title > .@{ant-prefix}-menu-submenu-expand-icon,
-      &:hover > .@{ant-prefix}-menu-submenu-title > .@{ant-prefix}-menu-submenu-arrow {
-        color: @menu-highlight-color;
-      }
+    &-item {
+      transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
     }
 
     &-item:active,
     &-submenu-title:active {
-      background: @menu-item-active-bg;
+      background-color: fade(@primary-color, 10%);
     }
 
     &-item-selected {
+      // 隐藏选中之后的蓝色
       &::after {
         display: none;
-      }
-      a {
-        color: @menu-highlight-color;
       }
     }
   }
@@ -65,7 +64,6 @@
     color: @heading-color;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     cursor: pointer;
-    transition: padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 
     &-collapsed {
       flex-direction: column-reverse;
@@ -141,8 +139,9 @@
 
   &.@{ant-prefix}-layout-sider-collapsed {
     flex-direction: column;
+    padding-bottom: 24px;
     .@{ant-prefix}-menu-inline-collapsed {
-      width: 48px;
+      padding: 6px;
     }
     .@{pro-layout-sider-menu-prefix-cls} {
       &-logo {
@@ -157,8 +156,7 @@
     left: 0;
     z-index: 100;
     height: 100%;
-    overflow: auto;
-    overflow-x: hidden;
+
     > .@{ant-prefix}-menu-root {
       :not(.@{pro-layout-sider-menu-prefix-cls}-link-menu) {
         height: ~'calc(100vh - @{nav-header-height})';
@@ -179,13 +177,36 @@
     margin: 4px 0;
     padding: 0 16px;
 
+    &-collapsed {
+      flex-direction: column-reverse;
+      padding: 0 8px;
+      font-size: 16px;
+      transition: font-size 0.3s;
+
+      .@{pro-layout-sider-menu-prefix-cls}-actions-list {
+        margin-bottom: 8px;
+        animation: none;
+      }
+    }
+
     &-avatar {
       font-size: 12px;
     }
 
-    &-list > * {
-      color: @text-color-secondary;
-      cursor: pointer;
+    &-list {
+      animation: pro-layout-title-hide 0.3s;
+
+      & > * {
+        color: @text-color-secondary;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-footer {
+    animation: pro-layout-title-hide 0.3s;
+    &-collapsed {
+      display: none;
     }
   }
 
@@ -197,7 +218,14 @@
   }
 
   &-collapsed-button {
-    border-top: @border-width-base @border-style-base rgba(0, 0, 0, 0.25);
+    position: absolute;
+    top: calc(50% - 32px);
+    right: -12px;
+    z-index: 99;
+    width: 24px;
+    height: 64px;
+    background-color: #eee;
+    border-radius: 40px;
     .anticon {
       font-size: 16px;
     }
@@ -215,14 +243,23 @@
 @keyframes pro-layout-title-hide {
   0% {
     display: none;
+    width: 1px;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
     opacity: 0;
   }
   80% {
     display: none;
+    width: 1px;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
     opacity: 0;
   }
   100% {
     display: unset;
+    height: auto;
     opacity: 1;
   }
 }

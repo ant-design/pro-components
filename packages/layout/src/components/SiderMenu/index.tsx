@@ -49,7 +49,6 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
   if (hide) {
     return null;
   }
-
   return isMobile ? (
     <Drawer
       visible={!collapsed}
