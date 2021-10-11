@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'react';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import type { AvatarProps } from 'antd';
 import { Avatar, Layout, Menu, Popover, Space } from 'antd';
 import classNames from 'classnames';
@@ -26,11 +26,11 @@ const AppsLogo = () => (
   </svg>
 );
 
-const CollapsedIcon: React.FC<{}> = () => {
+const CollapsedMiniIcon: React.FC<{}> = () => {
   return (
     <svg width="1em" height="1em" viewBox="0 0 2 24" fill="currentColor" aria-hidden="true">
-      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd" fillOpacity="0.06">
-        <g transform="translate(-248.000000, -429.000000)" fill="#000000">
+      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+        <g transform="translate(-248.000000, -429.000000)" fill="currentColor">
           <g transform="translate(0.000000, 56.000000)">
             <g transform="translate(248.000000, 0.000000)">
               <rect x={0} y={373} width={2} height={24} rx={1} />
@@ -45,8 +45,8 @@ const CollapsedIcon: React.FC<{}> = () => {
 const CollapsedHoverIcon: React.FC<{}> = () => {
   return (
     <svg width="1em" height="1em" viewBox="0 0 8 16" fill="currentColor" aria-hidden="true">
-      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd" fillOpacity="0.25">
-        <g transform="translate(-913.000000, -8934.000000)" fill="#000000">
+      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
+        <g transform="translate(-913.000000, -8934.000000)" fill="currentColor">
           <g transform="translate(905.000000, 8505.000000)">
             <path
               d="M9,429 L9.49874625,429 C9.81420921,429 10.1111762,429.148856 10.2999476,429.401605 L15.1023977,435.831691 C15.634309,436.543876 15.6323433,437.521662 15.0975728,438.231703 L10.3000481,444.601611 C10.1111133,444.852469 9.81530724,445 9.50125922,445 L9,445 C8.72486786,445 8.50182918,444.776961 8.50182918,444.501829 C8.50182918,444.393541 8.53711392,444.288201 8.60234049,444.201761 L13.5482339,437.647318 C13.8159459,437.292538 13.8173723,436.803641 13.551735,436.447305 L8.59767256,429.80174 C8.43202986,429.579541 8.47787805,429.265133 8.70007736,429.09949 C8.78672907,429.034894 8.89192047,429 9,429 Z"
@@ -56,6 +56,31 @@ const CollapsedHoverIcon: React.FC<{}> = () => {
         </g>
       </g>
     </svg>
+  );
+};
+
+const CollapsedIcon: React.FC<any> = (props) => {
+  const [hover, setHover] = useState<boolean>(false);
+  return (
+    <div
+      {...props}
+      style={{
+        fontSize: hover ? 16 : 24,
+        transform: props?.collapsed ? 'rotate(180deg)' : 'rotate(0deg)',
+        transition: 'transform,right 0.3s',
+        color: '#000',
+        right: hover ? undefined : -8,
+        backgroundColor: hover ? '#ccc' : undefined,
+      }}
+      onClick={(e) => {
+        props?.onClick(e);
+        setHover(false);
+      }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      {hover ? <CollapsedHoverIcon /> : <CollapsedMiniIcon />}
+    </div>
   );
 };
 
@@ -299,15 +324,13 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const collapsedDom = useMemo(() => {
     return (
-      <div className={`${baseClassName}-collapsed-button`}>
-        {collapsed ? <CollapsedIcon /> : <CollapsedHoverIcon />}
-        <img
-          src="https://gw.alipayobjects.com/zos/antfincdn/72SkTjhMet/bianzu%25252010.svg"
-          onClick={() => {
-            onCollapse?.(!collapsed);
-          }}
-        />
-      </div>
+      <CollapsedIcon
+        collapsed={collapsed}
+        className={`${baseClassName}-collapsed-button`}
+        onClick={() => {
+          onCollapse?.(!collapsed);
+        }}
+      />
     );
   }, [baseClassName, collapsed, onCollapse]);
 
