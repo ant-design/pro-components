@@ -11,6 +11,7 @@ import {
 import type { ProSettings } from '@ant-design/pro-layout';
 import ProLayout, { PageContainer, SettingDrawer } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
+import ProCard from '@ant-design/pro-card';
 
 const content = (
   <Descriptions size="small" column={2}>
@@ -112,7 +113,7 @@ export default () => {
             </Button>,
           ]}
         >
-          <div
+          <ProCard
             style={{
               height: '120vh',
             }}
@@ -121,13 +122,12 @@ export default () => {
               status="404"
               style={{
                 height: '100%',
-                background: '#fff',
               }}
               title="Hello World"
               subTitle="Sorry, you are not authorized to access this page."
               extra={<Button type="primary">Back Home</Button>}
             />
-          </div>
+          </ProCard>
         </PageContainer>
       </ProLayout>
       <SettingDrawer
