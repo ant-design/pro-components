@@ -25451,7 +25451,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -25520,7 +25519,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -25638,7 +25636,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -25707,7 +25704,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -25776,7 +25772,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -25845,7 +25840,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -25913,7 +25907,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -26069,7 +26062,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -26159,7 +26151,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -26249,7 +26240,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -26318,7 +26308,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -26387,7 +26376,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -26456,7 +26444,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -26524,7 +26511,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     aria-label="question-circle"
                                     class="anticon anticon-question-circle ant-form-item-tooltip"
                                     role="img"
-                                    title=""
                                   >
                                     <svg
                                       aria-hidden="true"
@@ -35223,7 +35209,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                   aria-label="question-circle"
                   class="anticon anticon-question-circle ant-form-item-tooltip"
                   role="img"
-                  title=""
                 >
                   <svg
                     aria-hidden="true"
@@ -41275,7 +41260,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                   aria-label="question-circle"
                   class="anticon anticon-question-circle ant-form-item-tooltip"
                   role="img"
-                  title=""
                 >
                   <svg
                     aria-hidden="true"
@@ -44017,7 +44001,6 @@ Array [
                     aria-label="question-circle"
                     class="anticon anticon-question-circle ant-form-item-tooltip"
                     role="img"
-                    title=""
                   >
                     <svg
                       aria-hidden="true"
