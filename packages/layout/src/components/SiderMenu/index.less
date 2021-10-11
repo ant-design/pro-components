@@ -12,16 +12,21 @@
   position: relative;
   background: transparent;
   border-right: 1px solid rgba(0, 0, 0, 0.06);
-  contain: layout;
 
-  > * {
-    contain: layout;
+  &-children {
+    > * {
+      contain: layout;
+    }
   }
 
   // 这里关掉了动画，不然使用无法兼容
   .@{ant-prefix}-menu {
-    padding: 6px;
+  
     background: transparent;
+
+    &-root {
+      padding: 6px;
+    }
 
     // 关掉动画避免性能问题
     * {
@@ -231,7 +236,7 @@
     position: absolute;
     top: calc(50% - 32px);
     right: -12px;
-    z-index: 99;
+    z-index: 101;
     width: 24px;
     height: 64px;
     background-color: #eee;
