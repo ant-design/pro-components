@@ -198,7 +198,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     ) : null;
 
   const metaDom =
-    title || avatar || subTitle || description ? (
+    title || avatar || subTitle || description || itemTitleRender ? (
       <List.Item.Meta
         avatar={avatar}
         title={(itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom}
