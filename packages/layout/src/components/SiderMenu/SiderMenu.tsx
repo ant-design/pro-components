@@ -60,7 +60,7 @@ const CollapsedHoverIcon: React.FC<{}> = () => {
 };
 
 const CollapsedIcon: React.FC<any> = (props) => {
-  const [hover, setHover] = useState<boolean>(false);
+  const [hover, setHover] = useState<boolean>(props.isMobile || false);
   return (
     <div
       {...props}
@@ -68,13 +68,14 @@ const CollapsedIcon: React.FC<any> = (props) => {
         fontSize: hover ? 16 : 24,
         transform: props?.collapsed ? 'rotate(180deg)' : 'rotate(0deg)',
         transition: 'transform,right 0.3s',
-        color: '#000',
+        color: 'rgba(0,0,0,0.65)',
         right: hover ? undefined : -8,
         backgroundColor: hover ? '#ccc' : undefined,
       }}
       onClick={(e) => {
         props?.onClick(e);
-        setHover(false);
+        // 手机端下
+        if (!props.isMobile) setHover(false);
       }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
@@ -325,6 +326,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const collapsedDom = useMemo(() => {
     return (
       <CollapsedIcon
+        isMobile={isMobile}
         collapsed={collapsed}
         className={`${baseClassName}-collapsed-button`}
         onClick={() => {
@@ -332,7 +334,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         }}
       />
     );
-  }, [baseClassName, collapsed, onCollapse]);
+  }, [baseClassName, collapsed, isMobile, onCollapse]);
 
   return (
     <>
