@@ -182,6 +182,14 @@ export default () => {
       }}
       search={false}
       dateFormatter="string"
+      options={{
+        setting: {
+          draggable: true,
+          checkable: true,
+          checkedReset: false,
+          extra: [<a>确认</a>],
+        },
+      }}
     />
   );
 };
