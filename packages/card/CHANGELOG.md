@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.15.2...@ant-design/pro-card@1.15.3) (2021-10-12)
+
+### Bug Fixes
+
+- **card:** fix card ehen theme change no change color error ([#3804](https://github.com/ant-design/pro-components/issues/3804)) ([083ec08](https://github.com/ant-design/pro-components/commit/083ec08794ab555615d5eb2304c3ef2e4660e77f))
+
 ## [1.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.15.1...@ant-design/pro-card@1.15.2) (2021-10-09)
 
 ### Bug Fixes
