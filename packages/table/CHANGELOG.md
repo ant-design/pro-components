@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.56.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.55.0...@ant-design/pro-table@2.56.0) (2021-10-12)
+
+### Features
+
+- 工具栏-列设置-新增 slot ([#3808](https://github.com/ant-design/pro-components/issues/3808)) ([a08fff3](https://github.com/ant-design/pro-components/commit/a08fff317b516c466aab96027bda4614185ff91c))
+
 # [2.55.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.54.5...@ant-design/pro-table@2.55.0) (2021-10-08)
 
 ### Features

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.16.2...@ant-design/pro-list@1.17.0) (2021-10-12)
+
+### Bug Fixes
+
+- release the dependence of itemTitleRender to other metas ([#3821](https://github.com/ant-design/pro-components/issues/3821)) ([90083e9](https://github.com/ant-design/pro-components/commit/90083e9906d0fa9d970b08f7504b07c2ffc1ac66))
+- **card:** fix card ehen theme change no change color error ([#3804](https://github.com/ant-design/pro-components/issues/3804)) ([083ec08](https://github.com/ant-design/pro-components/commit/083ec08794ab555615d5eb2304c3ef2e4660e77f))
+
+### Features
+
+- prolist support row class name as function ([#3802](https://github.com/ant-design/pro-components/issues/3802)) ([8579566](https://github.com/ant-design/pro-components/commit/8579566bdac78e757ac9860ba2ff14b103ea1682))
+
 ## [1.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.16.1...@ant-design/pro-list@1.16.2) (2021-10-09)
 
 ### Bug Fixes
