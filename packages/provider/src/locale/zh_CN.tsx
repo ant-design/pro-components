@@ -59,4 +59,7 @@ export default {
     open: '打开',
     close: '关闭',
   },
+  loginForm: {
+    submitText: '登录',
+  },
 };

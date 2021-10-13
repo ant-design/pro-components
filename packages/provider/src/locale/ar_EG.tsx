@@ -52,4 +52,7 @@ export default {
     next: 'التالي',
     prev: 'السابق',
   },
+  loginForm: {
+    submitText: 'تسجيل الدخول',
+  },
 };

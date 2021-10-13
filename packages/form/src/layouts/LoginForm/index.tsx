@@ -2,6 +2,7 @@ import { ConfigProvider } from 'antd';
 import React, { useContext, useMemo } from 'react';
 import type { ProFormProps } from '../ProForm';
 import ProForm from '../ProForm';
+import { useIntl } from '@ant-design/pro-provider';
 
 import './index.less';
 
@@ -16,9 +17,11 @@ export type LoginFormProps<T> = {
 function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
   const { logo, message, title, subTitle, actions, children, ...proFormProps } = props;
 
+  const intl = useIntl();
+
   const submitter = {
     searchConfig: {
-      submitText: '登录',
+      submitText: intl.getMessage('loginForm.submitText', '登录'),
     },
     render: (_, dom) => dom.pop(),
     submitButtonProps: {
