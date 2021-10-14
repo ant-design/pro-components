@@ -1498,6 +1498,48 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalledWith('open');
   });
 
+  it('📦 Select support filterOption', async () => {
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect
+          fieldProps={{
+            filterOption: false,
+          }}
+          name="userQuery"
+          label="查询选择器"
+          valueEnum={{
+            all: { text: '全部', status: 'Default' },
+            open: {
+              text: '未解决',
+              status: 'Error',
+            },
+            closed: {
+              text: '已解决',
+              status: 'Success',
+            },
+            processing: {
+              text: '解决中',
+              status: 'Processing',
+            },
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: '全',
+        },
+      });
+    });
+
+    expect(wrapper.find('.ant-select-item').length).toBe(4);
+
+    await waitForComponentToPaint(wrapper);
+  });
+
   it('📦 Select support labelInValue single', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
@@ -1626,11 +1668,12 @@ describe('ProForm', () => {
     const fn1 = jest.fn();
     const fn2 = jest.fn();
     const App = () => {
-      const formRef = useRef<
-        ProFormInstance<{
-          date: string;
-        }>
-      >();
+      const formRef =
+        useRef<
+          ProFormInstance<{
+            date: string;
+          }>
+        >();
 
       useEffect(() => {
         formRef.current?.validateFieldsReturnFormatValue?.().then((val) => {
