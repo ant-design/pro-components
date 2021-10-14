@@ -112,13 +112,13 @@ return { type: 'percent', showSymbol: true | false, precision: 2 };
 
 ### valueType 查看
 
-<code src="./demos/valueType.tsx" height="154px" title="schema 表单" />
+<code src="./demos/valueType.tsx" height="154" title="schema 表单" />
 
 如果我们带的 valueType 不能满足需求，我们可以用自定义 valueType 来自定义业务组件。
 
 ### 自定义 valueType
 
-<code src="./demos/customization-value-type.tsx" height="154px" title="schema 表单" />
+<code src="./demos/customization-value-type.tsx" height="154" title="schema 表单" />
 
 ### valueEnum
 

@@ -100,7 +100,6 @@ const listToArray = (children?: ReactNode | ReactNode[]) => {
 
 type ProFormListItemProps = {
   creatorButtonProps: ProFormListProps['creatorButtonProps'];
-
   formInstance: FormInstance;
   copyIconProps: ProFormListProps['copyIconProps'];
   deleteIconProps: ProFormListProps['deleteIconProps'];
@@ -115,6 +114,7 @@ type ProFormListItemProps = {
     errors: ReactNode[];
   };
   name: ProFormListProps['name'];
+  originName: ProFormListProps['name'];
 };
 
 const ProFormListItem: React.FC<
@@ -232,13 +232,12 @@ const ProFormListItem: React.FC<
       {dom}
     </div>
   );
-
   return (
     <FormListContext.Provider
       key={field.name}
       value={{
         ...field,
-        listName: [listContext.listName, rest.name, field.name]
+        listName: [listContext.listName, rest.originName, field.name]
           .filter((item) => item !== undefined)
           .flat(1),
       }}
@@ -348,6 +347,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                   <>
                     <ProFormListContainer
                       name={name}
+                      originName={rest.name}
                       copyIconProps={copyIconProps}
                       deleteIconProps={deleteIconProps}
                       formInstance={formInstance as any}
