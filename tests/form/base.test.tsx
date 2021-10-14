@@ -1534,6 +1534,12 @@ describe('ProForm', () => {
         },
       });
     });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
 
     expect(wrapper.find('.ant-select-item').length).toBe(4);
 
@@ -1668,12 +1674,11 @@ describe('ProForm', () => {
     const fn1 = jest.fn();
     const fn2 = jest.fn();
     const App = () => {
-      const formRef =
-        useRef<
-          ProFormInstance<{
-            date: string;
-          }>
-        >();
+      const formRef = useRef<
+        ProFormInstance<{
+          date: string;
+        }>
+      >();
 
       useEffect(() => {
         formRef.current?.validateFieldsReturnFormatValue?.().then((val) => {
