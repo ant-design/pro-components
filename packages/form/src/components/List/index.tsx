@@ -25,15 +25,19 @@ const FormListContext = React.createContext<
   | Record<string, any>
 >({});
 
-type ChildrenFunction = (
-  fields: FormListFieldData[],
-  operation: FormListOperation,
-  meta: {
-    errors: React.ReactNode[];
-  },
-) => React.ReactNode;
+// type ChildrenFunction = (
+//   fields: FormListFieldData[],
+//   operation: FormListOperation,
+//   meta: {
+//     errors: React.ReactNode[];
+//   },
+// ) => React.ReactNode;
 
-type ChildrenItemFunction = (field: FormListFieldData, index: number) => React.ReactNode;
+type ChildrenItemFunction = (
+  field: FormListFieldData,
+  index: number,
+  operation: FormListOperation,
+) => React.ReactNode;
 
 export type ProFormListProps = Omit<FormListProps, 'children'> & {
   creatorButtonProps?:
@@ -50,7 +54,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
     action: FormListOperation,
     defaultActionDom: ReactNode[],
   ) => ReactNode[];
-  children: ReactNode | ChildrenFunction;
+  children: ReactNode | ChildrenItemFunction;
   itemContainerRender?: (
     doms: ReactNode,
     listMeta: {
@@ -142,7 +146,7 @@ const ProFormListItem: React.FC<
   const childrenArray = listToArray(children)
     .map((childrenItem) => {
       if (typeof childrenItem === 'function') {
-        return (childrenItem as ChildrenItemFunction)?.(field, index);
+        return (childrenItem as ChildrenItemFunction)?.(field, index, action);
       }
       return childrenItem;
     })
