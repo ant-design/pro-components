@@ -1532,7 +1532,7 @@ describe('ProForm', () => {
       wrapper.update();
     });
 
-    expect(wrapper.find('.ant-select-item').length).toBe(4);
+    expect(wrapper.find('.ant-select-item').length).toBe(3);
 
     await waitForComponentToPaint(wrapper);
   });
@@ -1544,7 +1544,6 @@ describe('ProForm', () => {
           name="userQuery"
           label="查询选择器"
           fieldProps={{
-            filterOption: false,
             showSearch: true,
             options: [
               { value: 1, label: 'Aa' },
