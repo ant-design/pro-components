@@ -1504,7 +1504,7 @@ describe('ProForm', () => {
       <ProForm>
         <ProFormSelect
           fieldProps={{
-            filterOption: true,
+            filterOption: false,
             onSearch: (e) => onSearch(e),
           }}
           options={[
