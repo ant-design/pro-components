@@ -1504,24 +1504,15 @@ describe('ProForm', () => {
         <ProFormSelect
           fieldProps={{
             filterOption: false,
+            showSearch: true,
+            options: [
+              { value: 1, label: 'Aa' },
+              { value: 2, label: 'Bb' },
+              { value: 3, label: 'Cc' },
+            ],
           }}
           name="userQuery"
           label="查询选择器"
-          valueEnum={{
-            all: { text: '全部', status: 'Default' },
-            open: {
-              text: '未解决',
-              status: 'Error',
-            },
-            closed: {
-              text: '已解决',
-              status: 'Success',
-            },
-            processing: {
-              text: '解决中',
-              status: 'Processing',
-            },
-          }}
         />
       </ProForm>,
     );
@@ -1530,7 +1521,7 @@ describe('ProForm', () => {
     act(() => {
       wrapper.find('.ant-select-selection-search-input').simulate('change', {
         target: {
-          value: '全',
+          value: 'A',
         },
       });
     });
@@ -1552,17 +1543,14 @@ describe('ProForm', () => {
         <ProFormSelect
           name="userQuery"
           label="查询选择器"
-          valueEnum={{
-            all: { text: 'Aa' },
-            open: {
-              text: 'Bb',
-            },
-            closed: {
-              text: 'Cc',
-            },
-            processing: {
-              text: 'Dd',
-            },
+          fieldProps={{
+            filterOption: false,
+            showSearch: true,
+            options: [
+              { value: 1, label: 'Aa' },
+              { value: 2, label: 'Bb' },
+              { value: 3, label: 'Cc' },
+            ],
           }}
         />
       </ProForm>,
@@ -1572,7 +1560,7 @@ describe('ProForm', () => {
     act(() => {
       wrapper.find('.ant-select-selection-search-input').simulate('change', {
         target: {
-          value: 'd',
+          value: 'b',
         },
       });
     });
@@ -1588,7 +1576,7 @@ describe('ProForm', () => {
     act(() => {
       wrapper.find('.ant-select-selection-search-input').simulate('change', {
         target: {
-          value: 'D',
+          value: 'B',
         },
       });
     });
