@@ -355,7 +355,7 @@ export const useFieldFetchData = (
     }
 
     return opt;
-  }, [options]);
+  }, [options, keyWords, props.fieldProps?.filterOption]);
 
   return [
     loading,
