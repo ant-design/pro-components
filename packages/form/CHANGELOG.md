@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.43.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.43.2...@ant-design/pro-form@1.43.3) (2021-10-15)
+
+### Bug Fixes
+
+- **form:** 修复 ProFormList 的 children 类型错误问题并添加 action 注入([#3835](https://github.com/ant-design/pro-components/issues/3835)) ([5593d4d](https://github.com/ant-design/pro-components/commit/5593d4d55197c685f4c4d92d2b010f3d8fbc9e94))
+- **form:** fix Abnormal operation of proformdependency in proform ([#3839](https://github.com/ant-design/pro-components/issues/3839)) ([d107ea9](https://github.com/ant-design/pro-components/commit/d107ea93c4bb8fe08c56cbe8eb52722ff327b9f6))
+- **form:** fix modal and drawer reset error ([#3838](https://github.com/ant-design/pro-components/issues/3838)) ([e76eee7](https://github.com/ant-design/pro-components/commit/e76eee762779a0b3718441b57bc037dc3a5bee89))
+
 ## [1.43.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.43.1...@ant-design/pro-form@1.43.2) (2021-10-12)
 
 ### Bug Fixes
