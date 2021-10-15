@@ -1546,6 +1546,64 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper);
   });
 
+  it('📦 Select filterOption support mixed case', async () => {
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect
+          name="userQuery"
+          label="查询选择器"
+          valueEnum={{
+            all: { text: 'Aa' },
+            open: {
+              text: 'Bb',
+            },
+            closed: {
+              text: 'Cc',
+            },
+            processing: {
+              text: 'Dd',
+            },
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: 'd',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    expect(wrapper.find('.ant-select-item').length).toBe(1);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: 'D',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    expect(wrapper.find('.ant-select-item').length).toBe(1);
+
+    await waitForComponentToPaint(wrapper);
+  });
+
   it('📦 Select support labelInValue single', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
