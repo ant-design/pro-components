@@ -1533,6 +1533,60 @@ describe('ProForm', () => {
       wrapper.update();
     });
 
+    expect(wrapper.find('.ant-select-item').length).toBe(3);
+
+    await waitForComponentToPaint(wrapper);
+  });
+
+  it('📦 Select filterOption support mixed case', async () => {
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect
+          name="userQuery"
+          label="查询选择器"
+          fieldProps={{
+            showSearch: true,
+            options: [
+              { value: 1, label: 'Aa' },
+              { value: 2, label: 'Bb' },
+              { value: 3, label: 'Cc' },
+            ],
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: 'b',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    expect(wrapper.find('.ant-select-item').length).toBe(1);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: 'B',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
     expect(wrapper.find('.ant-select-item').length).toBe(1);
 
     await waitForComponentToPaint(wrapper);
