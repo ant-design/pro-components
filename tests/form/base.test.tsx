@@ -1538,18 +1538,19 @@ describe('ProForm', () => {
   });
 
   it('📦 Select support filterOption is true', async () => {
+    const onSearch = jest.fn();
     const wrapper = mount(
       <ProForm>
-        <ProFormSelect
+        <ProFormSelect.SearchSelect
           fieldProps={{
             filterOption: true,
-            showSearch: true,
-            options: [
-              { value: 1, label: 'Aa' },
-              { value: 2, label: 'Bb' },
-              { value: 3, label: 'Cc' },
-            ],
+            onSearch: (e) => onSearch(e),
           }}
+          options={[
+            { value: 1, label: 'Aa' },
+            { value: 2, label: 'Bb' },
+            { value: 3, label: 'Cc' },
+          ]}
           name="userQuery"
           label="查询选择器"
         />
