@@ -1498,7 +1498,7 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalledWith('open');
   });
 
-  it('📦 Select support filterOption', async () => {
+  it('📦 Select support filterOption is false', async () => {
     const wrapper = mount(
       <ProForm>
         <ProFormSelect
@@ -1533,6 +1533,45 @@ describe('ProForm', () => {
     });
 
     expect(wrapper.find('.ant-select-item').length).toBe(3);
+
+    await waitForComponentToPaint(wrapper);
+  });
+
+  it('📦 Select support filterOption is true', async () => {
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect
+          fieldProps={{
+            filterOption: true,
+            showSearch: true,
+            options: [
+              { value: 1, label: 'Aa' },
+              { value: 2, label: 'Bb' },
+              { value: 3, label: 'Cc' },
+            ],
+          }}
+          name="userQuery"
+          label="查询选择器"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: 'A',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    expect(wrapper.find('.ant-select-item').length).toBe(1);
 
     await waitForComponentToPaint(wrapper);
   });
