@@ -43,10 +43,15 @@ import ProFormList from './components/List';
 import type { FormInstance, FormItemProps, FormProps, ProFormInstance } from './BaseForm';
 import type { ProFormLayoutType, ProFormColumnsType } from './components/SchemaForm';
 import BetaSchemaForm from './components/SchemaForm';
-import './index.less';
+
 import { ProFormContext } from '@ant-design/pro-utils';
 import type { LightFilterFooterRender, ProFormFieldItemProps } from './interface';
 import { FormItemProvide } from './components/FormItem';
+
+import type { ImageCaptcha, ProFormImageCaptchaProps } from './components/ImageCaptcha';
+import ProFormImageCaptcha from './components/ImageCaptcha';
+
+import './index.less';
 
 export type {
   ProFormFieldProps,
@@ -70,6 +75,8 @@ export type {
   ProFormColumnsType,
   LoginFormProps,
   ProFormInstance,
+  ImageCaptcha,
+  ProFormImageCaptchaProps,
 };
 
 const ProFormGroup = ProForm.Group;
@@ -102,6 +109,7 @@ export {
   ProFormDependency,
   ProFormGroup,
   BetaSchemaForm,
+  ProFormImageCaptcha,
   // layouts
   QueryFilter,
   LightFilter,

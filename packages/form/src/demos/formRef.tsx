@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { message, Button } from 'antd';
-import { ProFormDatePicker, ProFormInstance } from '@ant-design/pro-form';
+import type { ProFormInstance } from '@ant-design/pro-form';
+import { ProFormDatePicker } from '@ant-design/pro-form';
 import ProForm, { ProFormText } from '@ant-design/pro-form';
 import moment from 'moment';
 
