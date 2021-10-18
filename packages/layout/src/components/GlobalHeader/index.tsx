@@ -106,7 +106,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
             }
           }}
         >
-          {collapsedButtonRender(collapsed)}
+          {collapsedButtonRender(collapsed, null)}
         </span>
       )}
       {layout === 'mix' && !isMobile && (

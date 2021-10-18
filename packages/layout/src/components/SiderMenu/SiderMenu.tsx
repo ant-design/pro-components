@@ -162,7 +162,7 @@ export type SiderMenuProps = {
   menuExtraRender?: WithFalse<(props: SiderMenuProps) => React.ReactNode>;
   /** 自定义收起按钮的dom */
   collapsedButtonRender?: WithFalse<
-    (collapsed?: boolean, defaultDom: JSX.Element) => React.ReactNode
+    (collapsed?: boolean, defaultDom?: React.ReactNode) => React.ReactNode
   >;
   /** 菜单底部页脚的配置 */
   menuFooterRender?: WithFalse<(props?: SiderMenuProps) => React.ReactNode>;
