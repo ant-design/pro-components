@@ -23,6 +23,10 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 <code src="./demos/base.tsx" iframe="650px" title="基础使用"/>
 
+### 分组菜单样式
+
+<code src="./demos/menu-group.tsx" iframe="650px" title="基础使用"/>
+
 ### 从服务器加载 menu
 
 ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，导致需要一些特殊逻辑的用户感到不满。所以我们提供了很多的 API，期望可以满足绝大部分客户的方式。
@@ -65,7 +69,9 @@ menu 配置 `defaultOpenAll` 可以默认打开所有菜单
 
 <code src="./demos/DefaultOpenAllMenu.tsx" iframe="500px" title="默认打开所有菜单" />
 
-折叠按钮反复切换后`defaultOpenAll`将失效，menu 配置 `ignoreFlatMenu` 可以忽略手动折叠过的菜单，实现总是默认打开所有菜单
+### 总是打开所有菜单
+
+折叠按钮反复切换后 `defaultOpenAll` 将失效，menu 配置 `ignoreFlatMenu` 可以忽略手动折叠过的菜单，实现总是默认打开所有菜单
 
 <code src="./demos/AlwaysDefaultOpenAllMenu.tsx" iframe="500px" title="总是默认打开所有菜单" />
 
