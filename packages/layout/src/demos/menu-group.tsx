@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Result } from 'antd';
+import { CrownOutlined, TabletOutlined } from '@ant-design/icons';
 import {
   InfoCircleOutlined,
   MergeCellsOutlined,
@@ -8,7 +9,6 @@ import {
 } from '@ant-design/icons';
 
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
-import defaultProps from './_defaultProps';
 import ProCard from '@ant-design/pro-card';
 
 export default () => {
@@ -27,7 +27,59 @@ export default () => {
         menu={{
           type: 'group',
         }}
-        {...defaultProps}
+        fixSiderbar
+        route={{
+          path: '/',
+          routes: [
+            {
+              path: '/admin',
+              name: '管理页',
+              icon: <CrownOutlined />,
+              access: 'canAdmin',
+              component: './Admin',
+              routes: [
+                {
+                  path: '/admin/sub-page1',
+                  name: '一级页面',
+                  icon: <CrownOutlined />,
+                  component: './Welcome',
+                },
+                {
+                  path: '/admin/sub-page2',
+                  name: '二级页面',
+                  icon: <CrownOutlined />,
+                  component: './Welcome',
+                },
+                {
+                  path: '/admin/sub-page3',
+                  name: '三级页面',
+                  icon: <CrownOutlined />,
+                  component: './Welcome',
+                },
+              ],
+            },
+            {
+              name: '列表页',
+              icon: <TabletOutlined />,
+              path: '/list',
+              component: './ListTableList',
+              routes: [
+                {
+                  path: '/list/sub-page2',
+                  name: '二级列表页面',
+                  icon: <CrownOutlined />,
+                  component: './Welcome',
+                },
+                {
+                  path: '/list/sub-page3',
+                  name: '三级列表页面',
+                  icon: <CrownOutlined />,
+                  component: './Welcome',
+                },
+              ],
+            },
+          ],
+        }}
         location={{
           pathname,
         }}

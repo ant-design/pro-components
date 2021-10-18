@@ -1,6 +1,6 @@
 import './index.less';
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
-import { Menu, Skeleton } from 'antd';
+import { Menu, Skeleton, Divider } from 'antd';
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import classNames from 'classnames';
 import { isUrl, isImg, useMountMergeState } from '@ant-design/pro-utils';
@@ -101,7 +101,9 @@ class MenuUtil {
   getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
     if (Array.isArray(item.children) && item && item.children.length > 0) {
       const name = this.getIntlName(item);
-      const { subMenuItemRender, prefixCls, menu, iconPrefixes } = this.props;
+      const { subMenuItemRender, prefixCls, menu, iconPrefixes, layout } = this.props;
+      const isGroup = menu?.type === 'group' && layout !== 'top';
+
       //  get defaultTitle by menuItemRender
       const defaultTitle = item.icon ? (
         <span className={`${prefixCls}-menu-item`} title={name}>
@@ -114,15 +116,41 @@ class MenuUtil {
         </span>
       );
 
+      /** 如果是 Group 是不需要展示 icon 的 */
+      const subMenuTitle = isGroup ? (
+        <span className={`${prefixCls}-menu-item`} title={name}>
+          {name}
+        </span>
+      ) : (
+        defaultTitle
+      );
       // subMenu only title render
       const title = subMenuItemRender
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
-        : defaultTitle;
-      const MenuComponents: React.ElementType = menu?.type === 'group' ? ItemGroup : SubMenu;
+        : subMenuTitle;
+
+      const MenuComponents: React.ElementType = isGroup ? ItemGroup : SubMenu;
       return (
-        <MenuComponents title={title} key={item.key || item.path} onTitleClick={item.onTitleClick}>
-          {this.getNavMenuItems(item.children, true)}
-        </MenuComponents>
+        <React.Fragment key={item.key || item.path}>
+          <MenuComponents title={title} onTitleClick={item.onTitleClick}>
+            {this.getNavMenuItems(item.children, true)}
+          </MenuComponents>
+          {isGroup ? (
+            <div
+              className={`${prefixCls}-menu-item-divider`}
+              key={item.key || item.path}
+              style={{
+                padding: '16px 4px 4px 4px',
+              }}
+            >
+              <Divider
+                style={{
+                  margin: 0,
+                }}
+              />
+            </div>
+          ) : null}
+        </React.Fragment>
       );
     }
 
