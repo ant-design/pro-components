@@ -40,4 +40,7 @@ export default {
     densityMiddle: 'Tengah',
     densitySmall: 'Kecil',
   },
+  loginForm: {
+    submitText: 'Log Masuk',
+  },
 };

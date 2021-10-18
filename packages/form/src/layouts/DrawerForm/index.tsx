@@ -62,7 +62,7 @@ function DrawerForm<T = Record<string, any>>({
     value: rest.visible,
     onChange: onVisibleChange,
   });
-
+  const [key, setKey] = useMergedState<number>(0);
   const context = useContext(ConfigProvider.ConfigContext);
 
   const renderDom = useMemo(() => {
@@ -135,8 +135,8 @@ function DrawerForm<T = Record<string, any>>({
       isFirstRender.current = false;
     }
     // 再打开的时候重新刷新，会让 initialValues 生效
-    if (visible && drawerProps?.destroyOnClose) {
-      formRef.current?.resetFields();
+    if (!visible && drawerProps?.destroyOnClose) {
+      setKey(key + 1);
     }
   }, [drawerProps?.destroyOnClose, visible]);
 
@@ -144,6 +144,7 @@ function DrawerForm<T = Record<string, any>>({
     () => () => {
       scrollLocker?.unLock?.();
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
 
@@ -154,6 +155,7 @@ function DrawerForm<T = Record<string, any>>({
       <BaseForm
         formComponentType="DrawerForm"
         layout="vertical"
+        key={key}
         {...omit(rest, ['visible'])}
         formRef={formRef}
         submitter={

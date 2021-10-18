@@ -66,6 +66,8 @@ function ModalForm<T = Record<string, any>>({
     onChange: onVisibleChange,
   });
 
+  const [key, setKey] = useMergedState<number>(0);
+
   const context = useContext(ConfigProvider.ConfigContext);
 
   const renderDom = useMemo(() => {
@@ -117,6 +119,7 @@ function ModalForm<T = Record<string, any>>({
     () => () => {
       scrollLocker?.unLock?.();
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
 
@@ -144,9 +147,9 @@ function ModalForm<T = Record<string, any>>({
     if (visible) {
       isFirstRender.current = false;
     }
-    // 再打开的时候重新刷新，会让 initialValues 生效
-    if (visible && modalProps?.destroyOnClose) {
-      formRef.current?.resetFields();
+    // 关闭的时候重新刷新，会让 initialValues 生效
+    if (!visible && modalProps?.destroyOnClose) {
+      setKey(key + 1);
     }
   }, [modalProps?.destroyOnClose, visible]);
 
@@ -179,6 +182,7 @@ function ModalForm<T = Record<string, any>>({
   const formDom = (
     <div ref={domRef} onClick={(e) => e.stopPropagation()}>
       <BaseForm
+        key={key}
         formComponentType="ModalForm"
         layout="vertical"
         {...omit(rest, ['visible'])}

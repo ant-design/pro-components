@@ -53,6 +53,9 @@ export default {
     prev: 'قبلی',
     submit: 'اتمام',
   },
+  loginForm: {
+    submitText: 'ورود',
+  },
   editableTable: {
     action: {
       save: 'ذخیره',

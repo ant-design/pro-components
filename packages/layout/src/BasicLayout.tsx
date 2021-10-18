@@ -316,7 +316,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       revalidateOnReconnect: false,
     },
   );
-  preData.current = data;
+  preData.current = data as MenuDataItem[];
 
   // params 更新的时候重新请求
   useEffect(() => {
@@ -340,7 +340,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       return;
     }
     const menuDataMap = getMenuData(
-      data || route?.routes || [],
+      (data as MenuDataItem[]) || route?.routes || [],
       menu,
       formatMessage,
       menuDataRender,

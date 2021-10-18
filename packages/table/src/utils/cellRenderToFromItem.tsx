@@ -66,6 +66,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
     });
   }
 
+  const columnKey = columnProps?.key || columnProps?.dataIndex?.toString();
   /** 生成公用的 proField dom 配置 */
   const proFieldProps: ProFormFieldProps = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
@@ -77,9 +78,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
     valueType: valueType as ProFieldValueType,
     proFieldProps: {
       emptyText: config.columnEmptyText,
-      proFieldKey: columnProps?.key
-        ? `table-field-${columnProps?.key || columnProps?.dataIndex?.toString()}`
-        : undefined,
+      proFieldKey: columnKey ? `table-field-${columnKey}` : undefined,
     },
   };
 
