@@ -133,7 +133,7 @@ class MenuUtil {
       return (
         <React.Fragment key={item.key || item.path}>
           <MenuComponents title={title} onTitleClick={item.onTitleClick}>
-            {this.getNavMenuItems(item.children, true)}
+            {this.getNavMenuItems(item.children, !isGroup && true)}
           </MenuComponents>
           {isGroup ? (
             <div
