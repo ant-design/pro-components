@@ -43,7 +43,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
 
   const formatterText = (aValue: any) => {
     if (formatter) {
-      return String(formatter(aValue));
+      return formatter(aValue);
     }
     return Array.isArray(aValue) ? aValue.join(',') : String(aValue);
   };
@@ -89,7 +89,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
       return (
         <span title={str}>
           {prefix}
-          {str?.substr?.(0, 32)}
+          {str?.toString()?.substr?.(0, 32)}
           {tail}
         </span>
       );
