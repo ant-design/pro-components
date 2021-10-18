@@ -161,7 +161,9 @@ export type SiderMenuProps = {
   /** 导航助手区域的配置 */
   menuExtraRender?: WithFalse<(props: SiderMenuProps) => React.ReactNode>;
   /** 自定义收起按钮的dom */
-  collapsedButtonRender?: WithFalse<(collapsed?: boolean) => React.ReactNode>;
+  collapsedButtonRender?: WithFalse<
+    (collapsed?: boolean, defaultDom: JSX.Element) => React.ReactNode
+  >;
   /** 菜单底部页脚的配置 */
   menuFooterRender?: WithFalse<(props?: SiderMenuProps) => React.ReactNode>;
   /** 导航菜单的配置 */
@@ -252,6 +254,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     menuExtraRender = false,
     links,
     menuContentRender,
+    collapsedButtonRender,
     prefixCls,
     avatarProps,
     rightContentRender,
@@ -271,6 +274,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const headerDom = defaultRenderLogoAndTitle(props);
 
   const extraDom = menuExtraRender && menuExtraRender(props);
+
   const menuDom = useMemo(
     () =>
       menuContentRender !== false &&
@@ -324,7 +328,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   }, [props.appList, props.prefixCls]);
 
   const collapsedDom = useMemo(() => {
-    return (
+    if (collapsedButtonRender === false) return null;
+    const dom = (
       <CollapsedIcon
         isMobile={isMobile}
         collapsed={collapsed}
@@ -334,7 +339,11 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         }}
       />
     );
-  }, [baseClassName, collapsed, isMobile, onCollapse]);
+    if (collapsedButtonRender) {
+      return collapsedButtonRender(collapsed, dom);
+    }
+    return dom;
+  }, [baseClassName, collapsed, collapsedButtonRender, isMobile, onCollapse]);
 
   return (
     <>
