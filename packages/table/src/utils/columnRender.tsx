@@ -38,7 +38,7 @@ export const renderColumnsTitle = (item: ProColumns<any>) => {
   if (title && typeof title === 'function') {
     return title(item, 'table', <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />);
   }
-  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />;
+  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} ellipsis={item.ellipsis} />;
 };
 
 /** 判断可不可编辑 */

@@ -217,7 +217,11 @@ exports[`card demos 📸 renders ./packages/card/src/components/StatisticCard/de
       <div
         class="ant-pro-core-label-tip"
       >
-        大盘趋势
+        <div
+          class="ant-pro-core-label-tip-title"
+        >
+          大盘趋势
+        </div>
         <span
           class="ant-pro-core-label-tip-icon"
         >
@@ -4643,7 +4647,11 @@ Array [
         <div
           class="ant-pro-core-label-tip"
         >
-          默认尺寸
+          <div
+            class="ant-pro-core-label-tip-title"
+          >
+            默认尺寸
+          </div>
           <span
             class="ant-pro-core-label-tip-icon"
           >
@@ -4705,7 +4713,11 @@ Array [
         <div
           class="ant-pro-core-label-tip"
         >
-          小尺寸卡片
+          <div
+            class="ant-pro-core-label-tip-title"
+          >
+            小尺寸卡片
+          </div>
           <span
             class="ant-pro-core-label-tip-icon"
           >
@@ -4771,7 +4783,11 @@ exports[`card demos 📸 renders ./packages/card/src/demos/bordered.tsx correctl
       <div
         class="ant-pro-core-label-tip"
       >
-        标题
+        <div
+          class="ant-pro-core-label-tip-title"
+        >
+          标题
+        </div>
         <span
           class="ant-pro-core-label-tip-icon"
         >
@@ -5551,7 +5567,11 @@ exports[`card demos 📸 renders ./packages/card/src/demos/headerBordered.tsx co
       <div
         class="ant-pro-core-label-tip"
       >
-        标题
+        <div
+          class="ant-pro-core-label-tip-title"
+        >
+          标题
+        </div>
         <span
           class="ant-pro-core-label-tip-icon"
         >

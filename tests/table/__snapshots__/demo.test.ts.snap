@@ -6777,7 +6777,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
               <div
                 class="ant-pro-core-label-tip"
               >
-                这里是标题
+                <div
+                  class="ant-pro-core-label-tip-title"
+                >
+                  这里是标题
+                </div>
                 <div
                   class="ant-pro-core-label-tip-subtitle"
                 >
@@ -11957,7 +11961,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           </div>
                         </th>
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           备注
                         </th>
@@ -12144,7 +12148,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -12283,7 +12288,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -12422,7 +12428,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -12561,7 +12568,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -12700,7 +12708,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -14059,12 +14068,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           序号
                         </th>
                         <th
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
                         >
                           <div
                             class="qixian-pro-core-label-tip"
                           >
-                            标题
+                            <div
+                              class="qixian-pro-core-label-tip-title qixian-pro-core-label-tip-title-ellipsis"
+                            >
+                              标题
+                            </div>
                             <span
                               class="qixian-pro-core-label-tip-icon"
                             >
@@ -14165,7 +14178,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -14325,7 +14339,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🐛 [BUG]无法创建工程npm create umi"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -14488,7 +14503,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -14651,7 +14667,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="2.3.1版本如何在业务页面修改头部状态"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -14814,7 +14831,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="hideChildrenInMenu设置后，子路由找不到了"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -14977,7 +14995,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🐛 [BUG]Umi UI 添加多个空白页，就会出错把空白页都变成选中状态"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -15140,7 +15159,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🐛 [BUG]第一次载入页面，菜单仅图标时，图标没有居中"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -15303,7 +15323,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="build(deps-dev): bump eslint from 6.8.0 to 7.1.0"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -15466,7 +15487,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🧐 [问题] V4版本如何使用第三方的enhanceReduxMiddleware"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -15629,7 +15651,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🐛 [BUG] 官网预览页面，第一次点击二级菜单，其父级菜单会收起，之后再次点击二级菜单，父菜单正常"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -15792,7 +15815,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🧐 [问题] 从自建 block 仓库下载区块报错。"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -15955,7 +15979,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🧐 [问题] fetchCurrent接口报错，退出登录页，第一次点击登录，SecurityLayout不渲染，导致需要点击两次"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -16118,7 +16143,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🐛 [BUG] V5 左侧栏收缩时，点击图标无效。"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -16281,7 +16307,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🧐 [问题]不知道有没有大佬将这个模板迁移至Electron的例子"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -16444,7 +16471,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="npm run start 为什么不能打开浏览器"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -16607,7 +16635,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🧐 [问题]在重新npm install后运行npm start报出一些less找不到，但项目可以正常运行起来"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -16770,7 +16799,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🐛 [BUG]错误通知：http code 200"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -16933,7 +16963,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🐛 [BUG]线上预览项目好多布局错乱，不知道是antd的锅还是啥原因"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -17096,7 +17127,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🐛 [BUG] umi 偶尔出现没有导出成员"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -17259,7 +17291,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                         </td>
                         <td
-                          class="qixian-table-cell"
+                          class="qixian-table-cell qixian-table-cell-ellipsis"
+                          title="🐛 [BUG]请问大佬，为什么无论怎么选择，都无法切换成JS语言，怎么下都是TS,求解答"
                         >
                           <span
                             class="qixian-typography qixian-typography-ellipsis qixian-typography-single-line"
@@ -18380,7 +18413,7 @@ Array [
                             序号
                           </th>
                           <th
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
                           >
                             标题
                           </th>
@@ -18456,7 +18489,8 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -18594,7 +18628,8 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🐛 [BUG]无法创建工程npm create umi"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -18733,7 +18768,8 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -18872,7 +18908,8 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="2.3.1版本如何在业务页面修改头部状态"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -19011,7 +19048,8 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="hideChildrenInMenu设置后，子路由找不到了"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -20726,7 +20764,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
               <div
                 class="ant-pro-core-label-tip"
               >
-                高级表格
+                <div
+                  class="ant-pro-core-label-tip-title"
+                >
+                  高级表格
+                </div>
                 <span
                   class="ant-pro-core-label-tip-icon"
                 >
@@ -21144,7 +21186,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           </div>
                         </th>
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           备注
                         </th>
@@ -21207,7 +21249,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -21353,7 +21396,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -21499,7 +21543,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -21645,7 +21690,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -21791,7 +21837,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -24207,7 +24254,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                         <div
                           class="ant-pro-core-label-tip"
                         >
-                          高级表格
+                          <div
+                            class="ant-pro-core-label-tip-title"
+                          >
+                            高级表格
+                          </div>
                           <span
                             class="ant-pro-core-label-tip-icon"
                           >
@@ -25976,29 +26027,33 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                             <div
                               class="ant-pro-core-label-tip"
                             >
-                              <div>
-                                <span
-                                  aria-label="right"
-                                  class="anticon anticon-right"
-                                  role="img"
-                                  style="margin-right: 8px;"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="right"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    style="transform: rotate(90deg);"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                              <div
+                                class="ant-pro-core-label-tip-title"
+                              >
+                                <div>
+                                  <span
+                                    aria-label="right"
+                                    class="anticon anticon-right"
+                                    role="img"
+                                    style="margin-right: 8px;"
                                   >
-                                    <path
-                                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                                    />
-                                  </svg>
-                                </span>
-                                工具栏
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="right"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      style="transform: rotate(90deg);"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                                      />
+                                    </svg>
+                                  </span>
+                                  工具栏
+                                </div>
                               </div>
                               <span
                                 class="ant-pro-core-label-tip-icon"
@@ -32272,7 +32327,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           </div>
                         </th>
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           备注
                         </th>
@@ -32332,7 +32387,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -32475,7 +32531,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -32618,7 +32675,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -32761,7 +32819,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -32904,7 +32963,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -34293,7 +34353,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           </div>
                         </th>
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           备注
                         </th>
@@ -34353,7 +34413,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -34496,7 +34557,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -34639,7 +34701,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -34782,7 +34845,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -34925,7 +34989,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                           </span>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="简短备注文案"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -35657,12 +35722,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                     >
                       <tr>
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            标题
+                            <div
+                              class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
+                            >
+                              标题
+                            </div>
                             <span
                               class="ant-pro-core-label-tip-icon"
                             >
@@ -35749,7 +35818,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         data-row-key="624748504"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -35832,7 +35902,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         data-row-key="624691229"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]无法创建工程npm create umi"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -35915,7 +35986,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         data-row-key="624674790"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -35998,7 +36070,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         data-row-key="624620220"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="2.3.1版本如何在业务页面修改头部状态"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -36081,7 +36154,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         data-row-key="624592471"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="hideChildrenInMenu设置后，子路由找不到了"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -38973,12 +39047,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                           class="ant-table-cell"
                         />
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            العنوان
+                            <div
+                              class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
+                            >
+                              العنوان
+                            </div>
                             <span
                               class="ant-pro-core-label-tip-icon"
                             >
@@ -39079,7 +39157,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                         >
                           <span
                             class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
@@ -39229,7 +39308,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]无法创建工程npm create umi"
                         >
                           <span
                             class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
@@ -39381,7 +39461,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                         >
                           <span
                             class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
@@ -39533,7 +39614,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="2.3.1版本如何在业务页面修改头部状态"
                         >
                           <span
                             class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
@@ -39685,7 +39767,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="hideChildrenInMenu设置后，子路由找不到了"
                         >
                           <span
                             class="ant-typography ant-typography-rtl ant-typography-ellipsis ant-typography-single-line"
@@ -41881,12 +41964,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           class="ant-table-cell"
                         />
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            标题
+                            <div
+                              class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
+                            >
+                              标题
+                            </div>
                             <span
                               class="ant-pro-core-label-tip-icon"
                             >
@@ -42041,7 +42128,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -42187,7 +42275,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]无法创建工程npm create umi"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -42334,7 +42423,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -42481,7 +42571,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="2.3.1版本如何在业务页面修改头部状态"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -42628,7 +42719,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="hideChildrenInMenu设置后，子路由找不到了"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -44637,40 +44729,48 @@ Array [
                       >
                         <tr>
                           <th
-                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis"
                             style="position: sticky; left: 0px;"
                           >
-                            <div
-                              class="ant-pro-core-label-tip"
+                            <span
+                              class="ant-table-cell-content"
                             >
-                              标题
-                              <span
-                                class="ant-pro-core-label-tip-icon"
+                              <div
+                                class="ant-pro-core-label-tip"
                               >
-                                <span
-                                  aria-label="info-circle"
-                                  class="anticon anticon-info-circle"
-                                  role="img"
+                                <div
+                                  class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="info-circle"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  标题
+                                </div>
+                                <span
+                                  class="ant-pro-core-label-tip-icon"
+                                >
+                                  <span
+                                    aria-label="info-circle"
+                                    class="anticon anticon-info-circle"
+                                    role="img"
                                   >
-                                    <path
-                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                                    />
-                                    <path
-                                      d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                                    />
-                                  </svg>
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="info-circle"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                      />
+                                      <path
+                                        d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                      />
+                                    </svg>
+                                  </span>
                                 </span>
-                              </span>
-                            </div>
+                              </div>
+                            </span>
                           </th>
                           <th
                             class="ant-table-cell"
@@ -44713,42 +44813,46 @@ Array [
                           data-row-key="624748504"
                         >
                           <td
-                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis"
                             style="position: sticky; left: 0px;"
                           >
                             <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
+                              class="ant-table-cell-content"
                             >
-                              🐛 [BUG]yarn install命令 antd2.4.5会报错
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
+                              <span
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                style="width: 100%; margin: 0px; padding: 0px;"
+                                title=""
                               >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
+                                🐛 [BUG]yarn install命令 antd2.4.5会报错
+                                <div
+                                  aria-label="复制"
+                                  class="ant-typography-copy"
+                                  role="button"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  <span
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
+                                    role="img"
                                   >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="copy"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -44859,42 +44963,46 @@ Array [
                           data-row-key="624691229"
                         >
                           <td
-                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis"
                             style="position: sticky; left: 0px;"
                           >
                             <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
+                              class="ant-table-cell-content"
                             >
-                              🐛 [BUG]无法创建工程npm create umi
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
+                              <span
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                style="width: 100%; margin: 0px; padding: 0px;"
+                                title=""
                               >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
+                                🐛 [BUG]无法创建工程npm create umi
+                                <div
+                                  aria-label="复制"
+                                  class="ant-typography-copy"
+                                  role="button"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  <span
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
+                                    role="img"
                                   >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="copy"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -45006,42 +45114,46 @@ Array [
                           data-row-key="624674790"
                         >
                           <td
-                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis"
                             style="position: sticky; left: 0px;"
                           >
                             <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
+                              class="ant-table-cell-content"
                             >
-                              🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
+                              <span
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                style="width: 100%; margin: 0px; padding: 0px;"
+                                title=""
                               >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
+                                🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
+                                <div
+                                  aria-label="复制"
+                                  class="ant-typography-copy"
+                                  role="button"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  <span
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
+                                    role="img"
                                   >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="copy"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -45153,42 +45265,46 @@ Array [
                           data-row-key="624620220"
                         >
                           <td
-                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis"
                             style="position: sticky; left: 0px;"
                           >
                             <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
+                              class="ant-table-cell-content"
                             >
-                              2.3.1版本如何在业务页面修改头部状态
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
+                              <span
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                style="width: 100%; margin: 0px; padding: 0px;"
+                                title=""
                               >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
+                                2.3.1版本如何在业务页面修改头部状态
+                                <div
+                                  aria-label="复制"
+                                  class="ant-typography-copy"
+                                  role="button"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  <span
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
+                                    role="img"
                                   >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="copy"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                              </span>
                             </span>
                           </td>
                           <td
@@ -45300,42 +45416,46 @@ Array [
                           data-row-key="624592471"
                         >
                           <td
-                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                            class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last ant-table-cell-ellipsis"
                             style="position: sticky; left: 0px;"
                           >
                             <span
-                              class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                              style="width: 100%; margin: 0px; padding: 0px;"
-                              title=""
+                              class="ant-table-cell-content"
                             >
-                              hideChildrenInMenu设置后，子路由找不到了
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
+                              <span
+                                class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                                style="width: 100%; margin: 0px; padding: 0px;"
+                                title=""
                               >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
+                                hideChildrenInMenu设置后，子路由找不到了
+                                <div
+                                  aria-label="复制"
+                                  class="ant-typography-copy"
+                                  role="button"
+                                  style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                  tabindex="0"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
+                                  <span
+                                    aria-label="copy"
+                                    class="anticon anticon-copy"
+                                    role="img"
                                   >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="copy"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
+                                    >
+                                      <path
+                                        d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                      />
+                                    </svg>
+                                  </span>
+                                </div>
+                              </span>
                             </span>
                           </td>
                           <td

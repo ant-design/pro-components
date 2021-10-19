@@ -13,7 +13,11 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
       <div
         class="ant-pro-core-label-tip"
       >
-        高级定义列表
+        <div
+          class="ant-pro-core-label-tip-title"
+        >
+          高级定义列表
+        </div>
         <span
           class="ant-pro-core-label-tip-icon"
         >
@@ -99,7 +103,11 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
                 <div
                   class="ant-pro-core-label-tip"
                 >
-                  金额
+                  <div
+                    class="ant-pro-core-label-tip-title"
+                  >
+                    金额
+                  </div>
                   <span
                     class="ant-pro-core-label-tip-icon"
                   >
@@ -2518,7 +2526,11 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
       <div
         class="ant-pro-core-label-tip"
       >
-        高级定义列表
+        <div
+          class="ant-pro-core-label-tip-title"
+        >
+          高级定义列表
+        </div>
         <span
           class="ant-pro-core-label-tip-icon"
         >
