@@ -26,7 +26,11 @@ exports[`list demos 📸 renders ./packages/list/src/demos/base.tsx correctly 1`
               <div
                 class="ant-pro-core-label-tip"
               >
-                基础列表
+                <div
+                  class="ant-pro-core-label-tip-title"
+                >
+                  基础列表
+                </div>
                 <span
                   class="ant-pro-core-label-tip-icon"
                 >
@@ -749,20 +753,24 @@ Array [
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            <span
-                              class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
-                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            <div
+                              class="ant-pro-core-label-tip-title"
                             >
                               <span
-                                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
                                 style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                               >
-                                <img
-                                  src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                />
+                                <span
+                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                >
+                                  <img
+                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                  />
+                                </span>
                               </span>
-                            </span>
-                            语雀的天空
+                              语雀的天空
+                            </div>
                             <div
                               class="ant-pro-core-label-tip-subtitle"
                             >
@@ -865,20 +873,24 @@ Array [
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            <span
-                              class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
-                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            <div
+                              class="ant-pro-core-label-tip-title"
                             >
                               <span
-                                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
                                 style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                               >
-                                <img
-                                  src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                />
+                                <span
+                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                >
+                                  <img
+                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                  />
+                                </span>
                               </span>
-                            </span>
-                            Ant Design
+                              Ant Design
+                            </div>
                             <div
                               class="ant-pro-core-label-tip-subtitle"
                             >
@@ -981,20 +993,24 @@ Array [
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            <span
-                              class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
-                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            <div
+                              class="ant-pro-core-label-tip-title"
                             >
                               <span
-                                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
                                 style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                               >
-                                <img
-                                  src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                />
+                                <span
+                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                >
+                                  <img
+                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                  />
+                                </span>
                               </span>
-                            </span>
-                            蚂蚁金服体验科技
+                              蚂蚁金服体验科技
+                            </div>
                             <div
                               class="ant-pro-core-label-tip-subtitle"
                             >
@@ -1097,20 +1113,24 @@ Array [
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            <span
-                              class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
-                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            <div
+                              class="ant-pro-core-label-tip-title"
                             >
                               <span
-                                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
                                 style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                               >
-                                <img
-                                  src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                />
+                                <span
+                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                >
+                                  <img
+                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                  />
+                                </span>
                               </span>
-                            </span>
-                            TechUI
+                              TechUI
+                            </div>
                             <div
                               class="ant-pro-core-label-tip-subtitle"
                             >
@@ -1213,20 +1233,24 @@ Array [
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            <span
-                              class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
-                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            <div
+                              class="ant-pro-core-label-tip-title"
                             >
                               <span
-                                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
                                 style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                               >
-                                <img
-                                  src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                />
+                                <span
+                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                >
+                                  <img
+                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                  />
+                                </span>
                               </span>
-                            </span>
-                            TechUI 2.0
+                              TechUI 2.0
+                            </div>
                             <div
                               class="ant-pro-core-label-tip-subtitle"
                             >
@@ -1329,20 +1353,24 @@ Array [
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            <span
-                              class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
-                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            <div
+                              class="ant-pro-core-label-tip-title"
                             >
                               <span
-                                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
                                 style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                               >
-                                <img
-                                  src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                />
+                                <span
+                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                >
+                                  <img
+                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                  />
+                                </span>
                               </span>
-                            </span>
-                            Bigfish
+                              Bigfish
+                            </div>
                             <div
                               class="ant-pro-core-label-tip-subtitle"
                             >
@@ -1445,20 +1473,24 @@ Array [
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            <span
-                              class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
-                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            <div
+                              class="ant-pro-core-label-tip-title"
                             >
                               <span
-                                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
                                 style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                               >
-                                <img
-                                  src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                />
+                                <span
+                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                >
+                                  <img
+                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                  />
+                                </span>
                               </span>
-                            </span>
-                            Umi
+                              Umi
+                            </div>
                             <div
                               class="ant-pro-core-label-tip-subtitle"
                             >
@@ -1561,20 +1593,24 @@ Array [
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            <span
-                              class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
-                              style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                            <div
+                              class="ant-pro-core-label-tip-title"
                             >
                               <span
-                                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                class="ant-avatar ant-avatar-circle ant-avatar-image ant-list-item-meta-avatar"
                                 style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
                               >
-                                <img
-                                  src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
-                                />
+                                <span
+                                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                                  style="width: 22px; height: 22px; line-height: 22px; font-size: 18px;"
+                                >
+                                  <img
+                                    src="https://gw.alipayobjects.com/zos/antfincdn/UCSiy1j6jx/xingzhuang.svg"
+                                  />
+                                </span>
                               </span>
-                            </span>
-                            Ant Design Pro
+                              Ant Design Pro
+                            </div>
                             <div
                               class="ant-pro-core-label-tip-subtitle"
                             >

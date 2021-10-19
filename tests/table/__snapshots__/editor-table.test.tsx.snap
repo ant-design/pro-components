@@ -51,12 +51,16 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           class="ant-table-cell"
                         />
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            标题
+                            <div
+                              class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
+                            >
+                              标题
+                            </div>
                             <span
                               class="ant-pro-core-label-tip-icon"
                             >
@@ -161,7 +165,8 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -262,7 +267,8 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]无法创建工程npm create umi"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -363,7 +369,8 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -537,12 +544,16 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                           class="ant-table-cell"
                         />
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            标题
+                            <div
+                              class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
+                            >
+                              标题
+                            </div>
                             <span
                               class="ant-pro-core-label-tip-icon"
                             >
@@ -725,7 +736,8 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -826,7 +838,8 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]无法创建工程npm create umi"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -927,7 +940,8 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -1069,12 +1083,16 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           class="ant-table-cell"
                         />
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           <div
                             class="ant-pro-core-label-tip"
                           >
-                            标题
+                            <div
+                              class="ant-pro-core-label-tip-title ant-pro-core-label-tip-title-ellipsis"
+                            >
+                              标题
+                            </div>
                             <span
                               class="ant-pro-core-label-tip-icon"
                             >
@@ -1179,7 +1197,8 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]yarn install命令 antd2.4.5会报错"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -1280,7 +1299,8 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🐛 [BUG]无法创建工程npm create umi"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -1381,7 +1401,8 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"

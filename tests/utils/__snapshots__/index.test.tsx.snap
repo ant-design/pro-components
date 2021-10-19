@@ -4,7 +4,11 @@ exports[`utils LabelIconTip 1`] = `
 <div
   class="ant-pro-core-label-tip"
 >
-  xxx
+  <div
+    class="ant-pro-core-label-tip-title"
+  >
+    xxx
+  </div>
   <div
     class="ant-pro-core-label-tip-subtitle"
   >
