@@ -67,7 +67,6 @@ export function genProColumnToColumn<T>(props: {
               ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
         onFilter: genOnFilter(),
-        ellipsis: false,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: (columnProps as ProColumnGroupType<T, any>).children

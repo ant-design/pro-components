@@ -3,6 +3,7 @@ import { InfoCircleOutlined } from '@ant-design/icons';
 import { Tooltip, ConfigProvider } from 'antd';
 import './index.less';
 import type { LabelTooltipType, WrapperTooltipProps } from 'antd/lib/form/FormItemLabel';
+import classNames from 'classnames';
 
 /**
  * 在 form 的 label 后面增加一个 tips 来展示一些说明文案
@@ -13,8 +14,9 @@ const LabelIconTip: React.FC<{
   label: React.ReactNode;
   subTitle?: React.ReactNode;
   tooltip?: string | LabelTooltipType;
+  ellipsis?: boolean;
 }> = (props) => {
-  const { label, tooltip, subTitle } = props;
+  const { label, tooltip, ellipsis, subTitle } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   if (!tooltip && !subTitle) {
@@ -34,7 +36,13 @@ const LabelIconTip: React.FC<{
       onMouseLeave={(e) => e.stopPropagation()}
       onMouseMove={(e) => e.stopPropagation()}
     >
-      {label}
+      <div
+        className={classNames(`${className}-title`, {
+          [`${className}-title-ellipsis`]: ellipsis,
+        })}
+      >
+        {label}
+      </div>
       {subTitle && <div className={`${className}-subtitle`}>{subTitle}</div>}
       {tooltip && (
         <Tooltip {...tooltipProps}>
