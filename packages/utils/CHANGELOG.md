@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.24.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.8...@ant-design/pro-utils@1.24.9) (2021-10-19)
+
+### Bug Fixes
+
+- **table:** header support ellipsis ([#3855](https://github.com/ant-design/pro-components/issues/3855)) ([0f3501d](https://github.com/ant-design/pro-components/commit/0f3501da23f9f8a1cc596f913fef21e12a570efa))
+
 ## [1.24.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.7...@ant-design/pro-utils@1.24.8) (2021-10-15)
 
 **Note:** Version bump only for package @ant-design/pro-utils
