@@ -171,7 +171,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | subMenuItemRender | Customize the render method with submenu items | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
 | menuDataRender | The render method of menuData, used to customize menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | breadcrumbRender | customize the data for breadcrumbs | `(route)=>route` | - |
-| route | Used to generate menus and breadcrumbs. umi's Layout will automatically have | [route](#Route) | - |
+| route | Used to generate menus and breadcrumbs. umi's Layout will automatically have | [route](#route) | - |
 | disableMobile | disable automatic switching to mobile pages | `boolean` | false |
 | links | Show shortcut actions in the lower right corner of the menu | `ReactNode[]` | - |
 | menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu/) | `MenuProps` | undefined |
@@ -231,7 +231,7 @@ const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDa
 
 | parameters | description | type | default |
 | --- | --- | --- | --- |
-| routes | The configuration information for the route | [route[]](#Route) | - |
+| routes | The configuration information for the route | [route[]](#route) | - |
 | menu | The configuration entry for menu, default `{locale: true}` | `{ locale: boolean }` | - |
 | menuDataRender | The render method of menuData, used to customize menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | formatMessage | The formatMessage method of react-intl | `(data: { id: any; defaultMessage?: string }) => string;` | - |
