@@ -135,7 +135,6 @@ const InternalFormItem: React.FC<
 
   return (
     <Form.Item
-      style={FIX_INLINE_STYLE}
       preserve={false}
       name={name}
       validateFirst={false}
@@ -183,6 +182,10 @@ const InternalFormItem: React.FC<
         },
       }}
       {...rest}
+      style={{
+        ...FIX_INLINE_STYLE,
+        ...rest?.style,
+      }}
     >
       {children}
     </Form.Item>
