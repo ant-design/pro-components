@@ -72,4 +72,4 @@ const getMds = (allVersion = false) => {
   });
 };
 
-getMds();
+getMds(true);
