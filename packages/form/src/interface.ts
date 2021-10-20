@@ -90,7 +90,7 @@ export type LightFilterFooterRender =
   | ((
       onConfirm?: (e?: React.MouseEvent) => void,
       onClear?: (e?: React.MouseEvent) => void,
-    ) => JSX.Element | null)
+    ) => React.ReactNode)
   | false;
 
 export type ProFormFieldItemProps<T = Record<string, any>> = {
