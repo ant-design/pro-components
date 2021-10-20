@@ -11726,7 +11726,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle ant-table-layout-fixed ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+              class="ant-table ant-table-middle ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
             >
               <div
                 class="ant-table-container"
@@ -14032,7 +14032,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
             class="qixian-spin-container"
           >
             <div
-              class="qixian-table qixian-table-middle qixian-table-layout-fixed"
+              class="qixian-table qixian-table-middle"
             >
               <div
                 class="qixian-table-container"
@@ -18382,7 +18382,7 @@ Array [
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed"
+                class="ant-table ant-table-middle"
               >
                 <div
                   class="ant-table-container"
@@ -20987,7 +20987,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle ant-table-layout-fixed"
+              class="ant-table ant-table-middle"
             >
               <div
                 class="ant-table-container"
@@ -32135,7 +32135,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle ant-table-layout-fixed"
+              class="ant-table ant-table-middle"
             >
               <div
                 class="ant-table-container"
@@ -34161,7 +34161,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle ant-table-layout-fixed"
+              class="ant-table ant-table-middle"
             >
               <div
                 class="ant-table-container"
@@ -35701,7 +35701,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle ant-table-layout-fixed"
+              class="ant-table ant-table-middle"
             >
               <div
                 class="ant-table-container"
@@ -39020,7 +39020,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle ant-table-rtl ant-table-layout-fixed"
+              class="ant-table ant-table-middle ant-table-rtl"
             >
               <div
                 class="ant-table-container"
@@ -41940,7 +41940,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle ant-table-layout-fixed"
+              class="ant-table ant-table-middle"
             >
               <div
                 class="ant-table-container"
@@ -44692,7 +44692,7 @@ Array [
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed ant-table-has-fix-left ant-table-has-fix-right"
+                class="ant-table ant-table-middle ant-table-has-fix-left ant-table-has-fix-right"
               >
                 <div
                   class="ant-table-container"

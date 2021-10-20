@@ -1641,7 +1641,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed"
+                class="ant-table ant-table-middle"
               >
                 <div
                   class="ant-table-container"
