@@ -50,7 +50,7 @@ const DropdownButton: React.FC<DropdownProps> = ({
 
 const TableDropdown: React.FC<DropdownProps> & {
   Button: typeof DropdownButton;
-} = ({ className: propsClassName, style, onSelect, menus = [] }) => {
+} = ({ className: propsClassName, style, onSelect, menus = [], children }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-table-dropdown');
   const menu = (
@@ -64,9 +64,7 @@ const TableDropdown: React.FC<DropdownProps> & {
   );
   return (
     <Dropdown overlay={menu} className={classnames(className, propsClassName)}>
-      <a style={style}>
-        <EllipsisOutlined />
-      </a>
+      <a style={style}>{children || <EllipsisOutlined />}</a>
     </Dropdown>
   );
 };
