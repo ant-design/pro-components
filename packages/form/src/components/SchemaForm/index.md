@@ -19,8 +19,8 @@ SchemaForm 提供了与 [ProForm](/components/form#proform) 相同的 API，并�
 | 字段名称 | 类型 | 说明 |
 | --- | --- | --- |
 | `layoutType` | [`ProFormLayoutType`](/components/schema-form#proformlayouttype) | 使用的表单布局模式 |
-| `steps` | `StepFormProps[]` | `layoutType=steps`中的分布表单配置，需要配置 columns 为数组使用 |
-| `columns` | [`ProFormColumnsType` \| `ProFormColumnsType[]`](/components/schema-form#schema-定义) | 表单的定义，一般是 json 对象，如果是分布表单，需要使用 json 数组来生成多个表单 |
+| `steps` | `StepFormProps[]` | `layoutType=steps`中的分步表单配置，需要配置 columns 为数组使用 |
+| `columns` | [`ProFormColumnsType` \| `ProFormColumnsType[]`](/components/schema-form#schema-定义) | 表单的定义，一般是 json 对象，如果是分步表单，需要使用 json 数组来生成多个表单 |
 
 ## ProFormLayoutType
 
@@ -65,7 +65,7 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 
 <code src="./demos/schema.tsx" height="764px" title="schema 表单" />
 
-### JSON 来生成分布表单
+### JSON 来生成分步表单
 
 <code src="./demos/steps-form.tsx" height="464px" title="schema 表单" />
 
