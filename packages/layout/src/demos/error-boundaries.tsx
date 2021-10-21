@@ -22,7 +22,12 @@ class CustomBoundary extends React.Component<{}, { hasError: boolean; errorInfo:
       // You can render any custom fallback UI
       return (
         <Result
-          status="warning"
+          icon={
+            <img
+              width={256}
+              src="https://gw.alipayobjects.com/zos/antfincdn/zIgkN%26mpMZ/shibaizhuangtaizuo.png"
+            />
+          }
           style={{
             height: '100%',
             background: '#fff',

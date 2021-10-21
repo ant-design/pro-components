@@ -126,11 +126,11 @@ export default ({ children, ...props }: IRouteComponentProps) => {
     <HelmetProvider>
       <ConfigProvider locale={zhCN}>
         <Layout {...props}>
-          <>
-            <Helmet>
+          <div>
+            <Helmet key="title">
               <title>{title}</title>
             </Helmet>
-            {children}
+            <div key="children">{children}</div>
             <div
               style={{
                 position: 'fixed',
@@ -140,11 +140,12 @@ export default ({ children, ...props }: IRouteComponentProps) => {
                 display: 'flex',
                 alignItems: 'center',
               }}
+              key="procomponents_dark_theme_view"
               className="procomponents_dark_theme_view"
             >
               {isBrowser() ? <DarkButton /> : null}
             </div>
-          </>
+          </div>
         </Layout>
       </ConfigProvider>
     </HelmetProvider>
