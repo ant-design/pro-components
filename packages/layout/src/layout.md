@@ -13,6 +13,9 @@ nav:
 
 ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同时提供一键切换布局形态，自动生成菜单等功能。与 PageContainer 配合使用可以自动生成面包屑，页面标题，并且提供低成本方案接入页脚工具栏。
 
+![layout
+](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
+
 ## 何时使用
 
 页面中需要承载内容时，可以使用 ProLayout 来减少布局成本。
@@ -25,7 +28,7 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 ### 从服务器加载 menu
 
-ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，导致需要一些特殊逻辑的用户感到不满。所以我们提供了很多的 API，期望可以满足绝大部分客户的方式。
+ProLayout 提供了强大的菜单功能，但是这样必然会封装很多行为，导致需要一些特殊逻辑的用户感到不满。所以我们提供了很多的 API，期望可以满足绝大部分客户的方式。
 
 从服务器加载 menu 主要使用的 API 是 `menuDataRender` 和 `menuRender`,`menuDataRender`可以控制当前的菜单数据，`menuRender`可以控制菜单的 dom 节点。
 

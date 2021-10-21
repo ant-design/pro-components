@@ -13,6 +13,9 @@ nav:
 
 ProLayout provides a standard, yet flexible, middle and backend layout, with one-click layout switching and automatic menu generation. It can be used with PageContainer to automatically generate breadcrumbs, page headers, and provide a low-cost solution to access the footer toolbar.
 
+![layout
+](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
+
 ## When to use
 
 ProLayout can be used to reduce layout costs when content needs to be carried on a page.
