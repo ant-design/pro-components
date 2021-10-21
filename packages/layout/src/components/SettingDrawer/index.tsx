@@ -163,6 +163,19 @@ const updateTheme = (
 
 const getThemeList = (settings: Partial<ProSettings>) => {
   const formatMessage = getFormatMessage();
+
+  const getList = (): {
+    key: string;
+    fileName: string;
+    modifyVars: {
+      '@primary-color': string;
+    };
+    theme: 'dark' | 'light';
+  }[] => {
+    if (typeof window === 'undefined') return [];
+    return (window as any).umi_plugin_ant_themeVar || [];
+  };
+
   const list: {
     key: string;
     fileName: string;
@@ -170,7 +183,7 @@ const getThemeList = (settings: Partial<ProSettings>) => {
       '@primary-color': string;
     };
     theme: 'dark' | 'light';
-  }[] = (window as any).umi_plugin_ant_themeVar || [];
+  }[] = getList() || [];
   const themeList = [
     {
       key: 'light',
@@ -479,7 +492,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         >
           <BlockCheckbox
             prefixCls={baseClassName}
-            list={themeList.themeList}
+            list={themeList?.themeList}
             value={navTheme!}
             configType="theme"
             key="navTheme"

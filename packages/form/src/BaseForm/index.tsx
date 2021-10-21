@@ -272,6 +272,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   }, [contentRender, items, submitterNode]);
 
   const getPopupContainer = useMemo(() => {
+    if (typeof window === 'undefined') return undefined;
     // 如果在 drawerForm 和  modalForm 里就渲染dom到父节点里
     // modalForm 可能高度太小不适合
     if (formComponentType && ['DrawerForm'].includes(formComponentType)) {

@@ -87,12 +87,12 @@ function ModalForm<T = Record<string, any>>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context, modalProps, visible]);
 
-  const [scrollLocker] = useState(
-    () =>
-      new ScrollLocker({
-        container: renderDom || document.body,
-      }),
-  );
+  const [scrollLocker] = useState(() => {
+    if (typeof window === 'undefined') return undefined;
+    return new ScrollLocker({
+      container: renderDom || document.body,
+    });
+  });
 
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
@@ -224,9 +224,15 @@ function ModalForm<T = Record<string, any>>({
     </div>
   );
 
+  /** 这个是为了支持 ssr */
+  const portalRenderDom = useMemo(() => {
+    if (typeof window === 'undefined') return undefined;
+    return renderDom || document.body;
+  }, [renderDom]);
+
   return (
     <>
-      {renderDom !== false ? createPortal(formDom, renderDom || document.body) : formDom}
+      {renderDom !== false && portalRenderDom ? createPortal(formDom, portalRenderDom) : formDom}
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,

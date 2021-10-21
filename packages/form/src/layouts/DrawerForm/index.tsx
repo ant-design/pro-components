@@ -82,12 +82,12 @@ function DrawerForm<T = Record<string, any>>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context, drawerProps, visible]);
 
-  const [scrollLocker] = useState(
-    () =>
-      new ScrollLocker({
-        container: renderDom || document.body,
-      }),
-  );
+  const [scrollLocker] = useState(() => {
+    if (typeof window === 'undefined') return undefined;
+    return new ScrollLocker({
+      container: renderDom || document.body,
+    });
+  });
 
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
@@ -97,9 +97,9 @@ function DrawerForm<T = Record<string, any>>({
 
   useEffect(() => {
     if (visible) {
-      scrollLocker.lock();
+      scrollLocker?.lock();
     } else {
-      scrollLocker.unLock();
+      scrollLocker?.unLock();
     }
     if (visible && rest.visible) {
       onVisibleChange?.(true);
@@ -224,11 +224,15 @@ function DrawerForm<T = Record<string, any>>({
       </BaseForm>
     </div>
   );
-
+  /** 这个是为了支持 ssr */
+  const portalRenderDom = useMemo(() => {
+    if (typeof window === 'undefined') return undefined;
+    return renderDom || document.body;
+  }, [renderDom]);
   /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
   return (
     <>
-      {renderDom !== false ? createPortal(formDom, renderDom || document.body) : formDom}
+      {renderDom !== false && portalRenderDom ? createPortal(formDom, portalRenderDom) : formDom}
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,
