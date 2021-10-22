@@ -8,7 +8,7 @@ export type FooterRender =
   | ((
       onConfirm?: (e?: React.MouseEvent) => void,
       onClear?: (e?: React.MouseEvent) => void,
-    ) => React.ReactNode)
+    ) => JSX.Element | false)
   | false;
 
 export type DropdownProps = {
