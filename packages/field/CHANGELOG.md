@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.22.6-alpha.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.5...@ant-design/pro-field@1.22.6-alpha.0) (2021-10-22)
+
+### Bug Fixes
+
+- **field:** timePicker 组件用 moment 解析时间不填入 format 是会直接 Invalid date ([#3745](https://github.com/ant-design/pro-components/issues/3745)) ([31fc899](https://github.com/ant-design/pro-components/commit/31fc8993aa5486281c76691df41ddb80d827074a))
+
 ## [1.22.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.4...@ant-design/pro-field@1.22.5) (2021-09-24)
 
 **Note:** Version bump only for package @ant-design/pro-field
