@@ -110,7 +110,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 > 所有以 `Render` 后缀的方法都可以通过传入 `false` 来使其不渲染。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | title | layout 的左上角 的 title | `ReactNode` | `'Ant Design Pro'` |
 | logo | layout 的左上角 logo 的 url | `ReactNode` \| `()=> ReactNode` | - |
 | pure | 是否删除掉所有的自带界面 | `boolean` | - |
