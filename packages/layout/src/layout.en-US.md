@@ -129,7 +129,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 > All methods suffixed with `Render` can be made not to render by passing `false`.
 
 | Parameters | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | title | The title of the top-left corner of the layout | `ReactNode` | `'Ant Design Pro'` |
 | logo | url to the top-left corner of layout's logo | `ReactNode` \| `()=> ReactNode` | - |
 | pure | Whether to remove all self-contained interfaces | `boolean` | - |
