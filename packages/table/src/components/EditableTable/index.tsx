@@ -132,9 +132,9 @@ function EditableTable<
     return (
       recordCreatorProps !== false && (
         <RecordCreator
-          record={runFunction(record, value.length, value) || {}}
+          record={runFunction(record, value?.length, value) || {}}
           position={position}
-          parentKey={runFunction(parentKey, value.length, value)}
+          parentKey={runFunction(parentKey, value?.length, value)}
           newRecordType={newRecordType}
         >
           <Button
@@ -153,7 +153,7 @@ function EditableTable<
       )
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [recordCreatorProps, maxLength, value.length]);
+  }, [recordCreatorProps, maxLength, value?.length]);
 
   const buttonRenderProps = useMemo(() => {
     if (!creatorButtonDom) {
