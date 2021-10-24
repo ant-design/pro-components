@@ -11,7 +11,7 @@ import ProForm, {
   ProFormField,
 } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
-import { FontSizeOutlined, ProfileFilled } from '@ant-design/icons';
+import { FontSizeOutlined } from '@ant-design/icons';
 import { mount } from 'enzyme';
 import { waitTime, waitForComponentToPaint } from '../util';
 import moment from 'moment';
