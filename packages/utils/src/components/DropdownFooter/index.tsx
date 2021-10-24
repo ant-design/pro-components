@@ -8,7 +8,7 @@ type LightFilterFooterRender =
   | ((
       onConfirm?: (e?: React.MouseEvent) => void,
       onClear?: (e?: React.MouseEvent) => void,
-    ) => JSX.Element)
+    ) => JSX.Element | false)
   | false;
 
 type OnClick = (e?: React.MouseEvent) => void;
@@ -55,11 +55,11 @@ const DropdownFooter: React.FC<DropdownFooterProps> = (props) => {
     </Button>,
   ];
 
-  if (footerRender === false) {
+  if (footerRender === false || footerRender?.(onConfirm, onClear) === false) {
     return null;
   }
 
-  const renderDom = (footerRender && footerRender(onConfirm, onClear)) || defaultFooter;
+  const renderDom = footerRender?.(onConfirm, onClear) || defaultFooter;
 
   return (
     <div

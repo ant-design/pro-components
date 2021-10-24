@@ -166,7 +166,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | headerContentRender | Custom header content methods | `(props: BasicLayoutProps) => ReactNode` | - |
 | rightContentRender | Custom render method for the right part of the header | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | Custom method for collapsed button | `(collapsed: boolean) => ReactNode` | - |
-| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => ReactNode` | - |
+| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => JSX.Element | false` | - |
 | pageTitleRender | The render method for custom page titles | `(props: BasicLayoutProps) => ReactNode` | - |
 | menuRender | The render method for custom menus | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | View the menu data before displaying it, changes will not trigger a re-render | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
