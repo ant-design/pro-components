@@ -147,10 +147,6 @@ function ModalForm<T = Record<string, any>>({
     if (visible) {
       isFirstRender.current = false;
     }
-    // 关闭的时候重新刷新，会让 initialValues 生效
-    if (!visible && modalProps?.destroyOnClose) {
-      setKey(key + 1);
-    }
   }, [modalProps?.destroyOnClose, visible]);
 
   useImperativeHandle(rest.formRef, () => formRef.current);
@@ -206,6 +202,13 @@ function ModalForm<T = Record<string, any>>({
               title={title}
               width={width || 800}
               {...modalProps}
+              afterClose={() => {
+                // 关闭的时候重新刷新，会让 initialValues 生效
+                if (modalProps?.destroyOnClose) {
+                  setKey(key + 1);
+                }
+                modalProps?.afterClose?.();
+              }}
               getContainer={false}
               visible={visible}
               onCancel={(e) => {
