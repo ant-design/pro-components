@@ -134,10 +134,6 @@ function DrawerForm<T = Record<string, any>>({
     if (visible) {
       isFirstRender.current = false;
     }
-    // 再打开的时候重新刷新，会让 initialValues 生效
-    if (!visible && drawerProps?.destroyOnClose) {
-      setKey(key + 1);
-    }
   }, [drawerProps?.destroyOnClose, visible]);
 
   useEffect(
@@ -198,6 +194,13 @@ function DrawerForm<T = Record<string, any>>({
               {...drawerProps}
               getContainer={false}
               visible={visible}
+              afterVisibleChange={(closeVisible) => {
+                // 再打开的时候重新刷新，会让 initialValues 生效
+                if (!closeVisible && drawerProps?.destroyOnClose) {
+                  setKey(key + 1);
+                }
+                drawerProps?.afterVisibleChange?.(closeVisible);
+              }}
               onClose={(e) => {
                 setVisible(false);
                 drawerProps?.onClose?.(e);
