@@ -31,6 +31,7 @@ export default () => {
           新建表单
         </Button>
       }
+      autoFocusFirstInput
       drawerProps={{
         forceRender: true,
         destroyOnClose: true,

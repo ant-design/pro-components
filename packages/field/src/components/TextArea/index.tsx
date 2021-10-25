@@ -1,5 +1,5 @@
 import { Input } from 'antd';
-import React from 'react';
+import React, { useEffect, useImperativeHandle, useRef } from 'react';
 import { useIntl } from '@ant-design/pro-provider';
 
 import type { ProFieldFC } from '../../index';
@@ -13,6 +13,15 @@ const FieldTextArea: ProFieldFC<{
   text: string;
 }> = ({ text, mode, render, renderFormItem, fieldProps }, ref) => {
   const intl = useIntl();
+  const inputRef = useRef<HTMLInputElement>();
+
+  useImperativeHandle(ref, () => inputRef.current);
+
+  useEffect(() => {
+    if (!fieldProps.autoFocus) return;
+    inputRef?.current?.focus();
+  }, [fieldProps.autoFocus]);
+
   if (mode === 'read') {
     const dom = <span ref={ref}>{text ?? '-'}</span>;
     if (render) {
@@ -23,12 +32,12 @@ const FieldTextArea: ProFieldFC<{
   if (mode === 'edit' || mode === 'update') {
     const dom = (
       <Input.TextArea
+        ref={inputRef}
         rows={3}
         onKeyPress={(e) => {
           if (e.key === 'Enter') e.stopPropagation();
         }}
         placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        ref={ref}
         {...fieldProps}
       />
     );

@@ -24,6 +24,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     titleRender,
     spaceProps,
     extra,
+    autoFocus,
   } = {
     ...groupProps,
     ...props,
@@ -61,10 +62,16 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   );
   const titleDom = titleRender ? titleRender(label, props) : label;
   const hiddenChildren: React.ReactNode[] = [];
-  const renderChild = React.Children.toArray(children).map((element) => {
+  const renderChild = React.Children.toArray(children).map((element, index) => {
     if (React.isValidElement(element) && element?.props?.hidden) {
       hiddenChildren.push(element);
       return null;
+    }
+    if (index === 0 && React.isValidElement(element) && autoFocus) {
+      return React.cloneElement(element, {
+        ...(element.props as any),
+        autoFocus,
+      });
     }
     return element;
   });
