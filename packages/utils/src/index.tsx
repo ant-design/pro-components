@@ -66,6 +66,7 @@ import dateArrayFormatter from './dateArrayFormatter';
 import ProFormContext from './components/ProFormContext';
 import isDeepEqualReact from './isDeepEqualReact';
 import { arrayMoveImmutable } from './array-move';
+import { merge } from './merge';
 
 export type {
   RequestOptionsType,
@@ -115,6 +116,7 @@ export {
   isImg,
   omitBoolean,
   isNil,
+  merge,
   isDropdownValueType,
   omitUndefined,
   omitUndefinedAndEmptyArr,

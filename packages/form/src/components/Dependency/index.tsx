@@ -5,8 +5,7 @@ import get from 'rc-util/lib/utils/get';
 import { useContext, useMemo } from 'react';
 import set from 'rc-util/lib/utils/set';
 import { FormListContext } from '../List';
-import { ProFormContext } from '@ant-design/pro-utils';
-import merge from 'lodash.merge';
+import { ProFormContext, merge } from '@ant-design/pro-utils';
 
 declare type RenderChildren<Values = any> = (
   values: Record<string, any>,

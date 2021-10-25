@@ -41,7 +41,8 @@ export default () => {
         message.success('提交成功');
       }}
       formRef={formRef}
-      params={{}}
+      params={{ id: '100' }}
+      formKey="base-form-use-demo"
       request={async () => {
         await waitTime(100);
         return {

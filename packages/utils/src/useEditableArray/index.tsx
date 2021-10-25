@@ -8,12 +8,12 @@ import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import { message, Popconfirm } from 'antd';
 import ReactDOM from 'react-dom';
-import merge from 'lodash.merge';
 import set from 'rc-util/lib/utils/set';
 import useMountMergeState from '../useMountMergeState';
 import ProFormContext from '../components/ProFormContext';
-import { usePrevious } from '..';
+import { merge } from '../merge';
 import type { NamePath } from 'antd/lib/form/interface';
+import usePrevious from '../hooks/usePrevious';
 
 export type RowEditableType = 'single' | 'multiple';
 

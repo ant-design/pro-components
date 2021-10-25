@@ -27,6 +27,8 @@ return <Skeleton type="list" />;
 
 <code src="./demos/list.tsx" title="List" />
 
+<code src="./demos/list.static.tsx" title="List" debug />
+
 ### 结果页
 
 <code src="./demos/result.tsx" title="结果页" />

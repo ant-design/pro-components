@@ -6,14 +6,13 @@ import type { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
-import { useMountMergeState } from '@ant-design/pro-utils';
+import { useMountMergeState, merge } from '@ant-design/pro-utils';
 
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
 import './index.less';
 import type { ProFormProps } from '../ProForm';
 import type { SubmitterProps } from '../../components/Submitter';
-import merge from 'lodash.merge';
 
 type StepsFormProps<T = Record<string, any>> = {
   /**

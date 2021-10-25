@@ -2,8 +2,8 @@ import React from 'react';
 import type { SearchTransformKeyFn } from '../typing';
 import get from 'rc-util/lib/utils/get';
 import namePathSet from 'rc-util/lib/utils/set';
-import merge from 'lodash.merge';
 import isNil from '../isNil';
+import { merge } from '../merge';
 
 export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>;
 

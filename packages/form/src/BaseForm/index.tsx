@@ -11,10 +11,11 @@ import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import type {
+import {
   ProFieldValueType,
   SearchTransformKeyFn,
   ProRequestData,
+  useDeepCompareEffect,
 } from '@ant-design/pro-utils';
 import { usePrevious } from '@ant-design/pro-utils';
 import {
@@ -92,6 +93,9 @@ export type CommonFormProps<
 
   /** 是否回车提交 */
   isKeyPressSubmit?: boolean;
+
+  /** 用于控制form 是否相同的key，高阶用法 */
+  formKey?: string;
 };
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -101,6 +105,7 @@ export type BaseFormProps<T = Record<string, any>> = {
     form: FormInstance<any>,
   ) => React.ReactNode;
   fieldProps?: FieldProps;
+
   onInit?: (values: T) => void;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
@@ -123,7 +128,7 @@ const genParams = (
   return runFunction(syncUrl, params, type);
 };
 
-type ProFormInstance<T = Record<string, any>> = FormInstance<T> & {
+type ProFormInstance<T = any> = FormInstance<T> & {
   /** 获取格式化之后所有数据 */
   getFieldsFormatValue?: (nameList?: NamePath[] | true) => Record<string, any>;
   /** 获取格式化之后的单个数据 */
@@ -438,11 +443,17 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 }
 
 function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
-  const { request, params, initialValues, ...rest } = props;
-  const [initialData] = useFetchData({
+  const { request, params, initialValues, formKey, ...rest } = props;
+  const [initialData, reload] = useFetchData({
     request,
     params,
+    proFieldKey: formKey,
   });
+
+  /** 如果 params 发生修改重新刷新一下 params */
+  useDeepCompareEffect(() => {
+    reload();
+  }, [params]);
 
   if (!initialData && props.request) {
     return (

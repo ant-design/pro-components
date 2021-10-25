@@ -39,7 +39,6 @@
     "@ant-design/pro-utils": "1.24.9",
     "@umijs/use-params": "^1.0.2",
     "classnames": "^2.2.6",
-    "lodash.merge": "^4.6.2",
     "omit.js": "^2.0.2",
     "rc-resize-observer": "^0.2.3",
     "rc-util": "^5.0.6",

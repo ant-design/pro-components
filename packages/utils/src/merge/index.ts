@@ -8,7 +8,19 @@ const merge = <T>(...rest: any[]): T => {
     // eslint-disable-next-line no-restricted-syntax
     for (key in rest[i]) {
       if (rest[i].hasOwnProperty(key)) {
-        obj[key] = rest[i][key];
+        if (
+          typeof obj[key] === 'object' &&
+          typeof rest[i][key] === 'object' &&
+          !Array.isArray(obj[key]) &&
+          !Array.isArray(rest[i][key])
+        ) {
+          obj[key] = {
+            ...obj[key],
+            ...rest[i][key],
+          };
+        } else {
+          obj[key] = rest[i][key];
+        }
       }
     }
   }
