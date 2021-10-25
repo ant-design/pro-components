@@ -8,7 +8,7 @@ import type {
   StepFormProps,
   ModalFormProps,
 } from '../../index';
-import { ProFormFieldSet } from '../../index';
+import { ProFormFieldSet, ProFormDependency } from '../../index';
 import { ProFormGroup, ProFormField } from '../../index';
 import type {
   ProCoreActionType,
@@ -61,7 +61,7 @@ export type ProFormPropsType<T> = Omit<DrawerFormProps<T>, 'onFinish'> &
     layoutType?: ProFormLayoutType;
   };
 
-export type FormFieldType = 'group' | 'formList' | 'formSet' | 'divider';
+export type FormFieldType = 'group' | 'formList' | 'formSet' | 'divider' | 'dependency';
 
 export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
   T,
@@ -83,7 +83,9 @@ export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
     /** Form 的排序 */
     order?: number;
     /** 嵌套子项 */
-    columns?: ProFormColumnsType<T, ValueType | FormFieldType>[];
+    columns?:
+      | ProFormColumnsType<T, ValueType | FormFieldType>[]
+      | ((values: any) => ProFormColumnsType<T, ValueType | FormFieldType>[]);
   },
   ProSchemaComponentTypes,
   ValueType | FormFieldType
@@ -194,7 +196,8 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           const key = item.key || item.dataIndex?.toString() || index;
 
           if (item.valueType === 'group') {
-            if (!item.columns) return null;
+            if (!item.columns || !Array.isArray(item.columns)) return null;
+
             return (
               <ProFormGroup key={key} label={title} {...item.fieldProps}>
                 {genItems(item.columns)}
@@ -203,7 +206,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           }
 
           if (item.valueType === 'formList' && item.dataIndex) {
-            if (!item.columns) return null;
+            if (!item.columns || !Array.isArray(item.columns)) return null;
             return (
               <ProFormList
                 key={key}
@@ -218,7 +221,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           }
 
           if (item.valueType === 'formSet' && item.dataIndex) {
-            if (!item.columns) return null;
+            if (!item.columns || !Array.isArray(item.columns)) return null;
             return (
               <ProFormFieldSet
                 {...item.formItemProps}
@@ -236,6 +239,18 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           /** 分割线 */
           if (item.valueType === 'divider') {
             return <Divider {...item.fieldProps} key={index} />;
+          }
+
+          /** ProFormDependency */
+          if (item.valueType === 'dependency') {
+            return (
+              <ProFormDependency {...item.fieldProps} key={key}>
+                {(values: any) => {
+                  if (!item.columns || typeof item.columns !== 'function') return null;
+                  return genItems(item.columns(values));
+                }}
+              </ProFormDependency>
+            );
           }
 
           /** 公用的 类型 props */

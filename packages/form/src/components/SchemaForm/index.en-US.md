@@ -71,3 +71,7 @@ The most important thing about the SchemaForm form is the type definition of the
 ### Embed in ProForm
 
 <code src="./demos/embed.tsx" height="464px" title="schema form" />
+
+### Use ProFormDependency
+
+<code src="./demos/dependency.tsx" height="764px" title="schema 表单" />
