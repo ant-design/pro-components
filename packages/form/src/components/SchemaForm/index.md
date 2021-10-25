@@ -58,6 +58,7 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | `hideInForm` | `boolean` | 在 Form 中隐藏 |
 | `hideInTable` | `boolean` | 在 Table 中隐藏 |
 | `hideInSearch` | `boolean` | 在 Table 的查询表格中隐藏 |
+| `columns` | `ProFormColumnsType[] \| (values) => ProFormColumnsType[]` | 嵌套子项，valueType 为 dependency 时，请使用`(values) => ProFormColumnsType[]`其他情况使用 `ProFormColumnsType[]` |
 
 ## 代码示例
 
