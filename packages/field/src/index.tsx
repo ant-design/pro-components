@@ -421,4 +421,4 @@ export {
 
 export type { ProFieldValueType };
 
-export default React.forwardRef(ProField);
+export default React.forwardRef(ProField) as typeof ProField;
