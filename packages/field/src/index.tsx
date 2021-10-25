@@ -354,14 +354,10 @@ export type ProFieldPropsType = {
   valueType?: ProFieldValueType | ProFieldValueObjectType;
 } & RenderProps;
 
-const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = ({
-  text,
-  valueType = 'text',
-  onChange,
-  renderFormItem,
-  value,
-  ...rest
-}) => {
+const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
+  { text, valueType = 'text', onChange, renderFormItem, value, ...rest },
+  ref: any,
+) => {
   const intl = useIntl();
   const context = useContext(ConfigContext);
 
@@ -381,6 +377,7 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = ({
         text ?? fieldProps?.value ?? '',
         valueType || 'text',
         {
+          ref,
           ...rest,
           mode: rest.mode || 'read',
           renderFormItem: renderFormItem
@@ -424,4 +421,4 @@ export {
 
 export type { ProFieldValueType };
 
-export default ProField;
+export default React.forwardRef(ProField);
