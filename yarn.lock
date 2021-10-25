@@ -3573,13 +3573,6 @@
   dependencies:
     "@types/node" "*"
 
-"@types/lodash.merge@^4.6.6":
-  version "4.6.6"
-  resolved "https://registry.nlark.com/@types/lodash.merge/download/@types/lodash.merge-4.6.6.tgz#b84b403c1d31bc42d51772d1cd5557fa008cd3d6"
-  integrity sha1-uEtAPB0xvELVF3LRzVVX+gCM09Y=
-  dependencies:
-    "@types/lodash" "*"
-
 "@types/lodash.tonumber@^4.0.6":
   version "4.0.6"
   resolved "https://registry.nlark.com/@types/lodash.tonumber/download/@types/lodash.tonumber-4.0.6.tgz#9f0f4b851ac037ecfdfda8acad5cfbcca832bf96"
