@@ -51,9 +51,7 @@ const ProFormField: React.FC<
     ...restProps
   } = props;
 
-  useImperativeHandle(ref, () => {
-    return {};
-  });
+  useImperativeHandle(ref, () => ({}));
 
   // 防止 formItem 的值被吃掉
   if (children) {
