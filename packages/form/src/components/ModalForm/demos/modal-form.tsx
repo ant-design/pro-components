@@ -29,6 +29,7 @@ export default () => {
           新建表单
         </Button>
       }
+      autoFocusFirstInput
       modalProps={{
         onCancel: () => console.log('run'),
       }}

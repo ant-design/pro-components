@@ -11,13 +11,11 @@ import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import {
+import type {
   ProFieldValueType,
   SearchTransformKeyFn,
   ProRequestData,
-  useDeepCompareEffect,
 } from '@ant-design/pro-utils';
-import { usePrevious } from '@ant-design/pro-utils';
 import {
   conversionMomentValue,
   transformKeySubmitValue,
@@ -26,7 +24,10 @@ import {
   runFunction,
   useFetchData,
   isDeepEqualReact,
+  usePrevious,
+  useDeepCompareEffect,
 } from '@ant-design/pro-utils';
+
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { NamePath } from 'antd/lib/form/interface';
 
@@ -96,6 +97,9 @@ export type CommonFormProps<
 
   /** 用于控制form 是否相同的key，高阶用法 */
   formKey?: string;
+
+  /** 自动选中第一项 */
+  autoFocusFirstInput?: boolean;
 };
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -156,6 +160,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     onReset,
     omitNil = true,
     isKeyPressSubmit,
+    autoFocusFirstInput,
     ...rest
   } = props;
 
@@ -178,7 +183,16 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const [loading, setLoading] = useMountMergeState<boolean>(false);
 
-  const items = React.Children.toArray(children);
+  const items = React.Children.toArray(children).map((item, index) => {
+    if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
+      return React.cloneElement(item, {
+        ...item.props,
+        autoFocus: autoFocusFirstInput,
+      });
+    }
+    return item;
+  });
+
   /** 计算 props 的对象 */
   const submitterProps: SubmitterProps = useMemo(
     () => (typeof submitter === 'boolean' || !submitter ? {} : submitter),

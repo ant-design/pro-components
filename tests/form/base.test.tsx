@@ -1797,7 +1797,8 @@ describe('ProForm', () => {
     });
     await waitForComponentToPaint(wrapper, 100);
     expect(fn2).toHaveBeenCalledWith('2021-07-28');
-
-    expect(wrapper).toMatchSnapshot();
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
   });
 });
