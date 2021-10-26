@@ -11,13 +11,11 @@ import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
-import {
+import type {
   ProFieldValueType,
   SearchTransformKeyFn,
   ProRequestData,
-  useDeepCompareEffect,
 } from '@ant-design/pro-utils';
-import { usePrevious } from '@ant-design/pro-utils';
 import {
   conversionMomentValue,
   transformKeySubmitValue,
@@ -26,7 +24,10 @@ import {
   runFunction,
   useFetchData,
   isDeepEqualReact,
+  usePrevious,
+  useDeepCompareEffect,
 } from '@ant-design/pro-utils';
+
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { NamePath } from 'antd/lib/form/interface';
 
