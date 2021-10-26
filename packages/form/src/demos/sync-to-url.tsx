@@ -32,6 +32,7 @@ export default () => {
         name: '蚂蚁设计有限公司',
         useMode: 'chapter',
       }}
+      autoFocusFirstInput
     >
       <ProFormSelect
         options={[
