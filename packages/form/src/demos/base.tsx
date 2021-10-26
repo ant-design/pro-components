@@ -50,6 +50,7 @@ export default () => {
           useMode: 'chapter',
         };
       }}
+      autoFocusFirstInput
     >
       <ProForm.Group>
         <ProFormText
