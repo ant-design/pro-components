@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.9...@ant-design/pro-utils@1.25.0) (2021-10-26)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions item set style error ([#3860](https://github.com/ant-design/pro-components/issues/3860)) ([27659b3](https://github.com/ant-design/pro-components/commit/27659b3b81d3eba3e8241ca4e05c0caed8464e1a))
+
+### Features
+
+- support ssr server ([69773c9](https://github.com/ant-design/pro-components/commit/69773c9dbaccd342d86312032c7b09958cdaed7c))
+
 ## [1.24.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.8...@ant-design/pro-utils@1.24.9) (2021-10-19)
 
 ### Bug Fixes

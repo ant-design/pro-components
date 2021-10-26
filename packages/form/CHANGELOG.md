@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.44.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.43.5...@ant-design/pro-form@1.44.0) (2021-10-26)
+
+### Bug Fixes
+
+- **form:** fix modal and darwer no animation error ([#3884](https://github.com/ant-design/pro-components/issues/3884)) ([806d615](https://github.com/ant-design/pro-components/commit/806d615656038d7acda95f71bc8a57764982d157))
+- **schema-form:** fix typo in Chinese doc ([#3873](https://github.com/ant-design/pro-components/issues/3873)) ([7eb6951](https://github.com/ant-design/pro-components/commit/7eb695102cca389c66f9368c5f3e83fc2417e74f))
+
+### Features
+
+- **form:** support autoFocusFirstInput props ([#3894](https://github.com/ant-design/pro-components/issues/3894)) ([a860555](https://github.com/ant-design/pro-components/commit/a860555f6ab683b52bb0cfd58e6be60fe98a70fe))
+- support ssr server ([69773c9](https://github.com/ant-design/pro-components/commit/69773c9dbaccd342d86312032c7b09958cdaed7c))
+
 ## [1.43.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.43.4...@ant-design/pro-form@1.43.5) (2021-10-19)
 
 **Note:** Version bump only for package @ant-design/pro-form

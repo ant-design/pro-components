@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.6...@ant-design/pro-layout@6.27.0) (2021-10-26)
+
+### Features
+
+- support ssr server ([69773c9](https://github.com/ant-design/pro-components/commit/69773c9dbaccd342d86312032c7b09958cdaed7c))
+
 ## [6.26.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.5...@ant-design/pro-layout@6.26.6) (2021-10-19)
 
 **Note:** Version bump only for package @ant-design/pro-layout

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.15.5...@ant-design/pro-card@1.16.0) (2021-10-26)
+
+### Features
+
+- **card:** support check card ([#3752](https://github.com/ant-design/pro-components/issues/3752)) ([f66947b](https://github.com/ant-design/pro-components/commit/f66947b8e1a9964ff1eac2fc3f28f41bf0d3ca5b))
+
 ## [1.15.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.15.4...@ant-design/pro-card@1.15.5) (2021-10-19)
 
 **Note:** Version bump only for package @ant-design/pro-card

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.25...@ant-design/pro-descriptions@1.9.26) (2021-10-26)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions item set style error ([#3860](https://github.com/ant-design/pro-components/issues/3860)) ([27659b3](https://github.com/ant-design/pro-components/commit/27659b3b81d3eba3e8241ca4e05c0caed8464e1a))
+
 ## [1.9.25](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.24...@ant-design/pro-descriptions@1.9.25) (2021-10-19)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

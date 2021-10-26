@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.56.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.56.3...@ant-design/pro-table@2.56.4) (2021-10-26)
+
+### Bug Fixes
+
+- **table:** fix when dataSource=null, no work error ([#3877](https://github.com/ant-design/pro-components/issues/3877)) ([ffb9ccc](https://github.com/ant-design/pro-components/commit/ffb9ccc739acb6226f0c7f0bfb3a7efa24c28b8b))
+
 ## [2.56.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.56.2...@ant-design/pro-table@2.56.3) (2021-10-19)
 
 ### Bug Fixes
