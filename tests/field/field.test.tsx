@@ -123,7 +123,7 @@ describe('Field', () => {
     expect(html.text()).toBe('default');
   });
 
-  ['select', 'checkbox', 'radio', 'radioButton'].forEach((valueType) => {
+  ['select', 'checkbox', 'radio', 'radioButton', 'cascader'].forEach((valueType) => {
     it(`🐴 ${valueType} support render function`, async () => {
       const html = render(
         <Field
@@ -373,6 +373,7 @@ describe('Field', () => {
     'rate',
     'image',
     'color',
+    'cascader',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType support render ${valueType}`, async () => {
