@@ -41,8 +41,7 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.10",
-    "@types/lodash.tonumber": "^4.0.6",
-    "@types/react-color": "^3.0.4"
+    "@types/lodash.tonumber": "^4.0.6"
   },
   "peerDependencies": {
     "antd": "4.x",

@@ -3,7 +3,7 @@ import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import { FormListContext } from '../List';
 import FieldContext from '../../FieldContext';
-import type { SearchTransformKeyFn } from '@ant-design/pro-utils';
+import type { SearchTransformKeyFn, ProSchemaValueType } from '@ant-design/pro-utils';
 import { isDropdownValueType, omitUndefined } from '@ant-design/pro-utils';
 import type { LightWrapperProps } from '../../BaseForm/LightWrapper';
 import LightWrapper from '../../BaseForm/LightWrapper';
@@ -133,7 +133,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
 
 type ProFormItemProps = FormItemProps & {
   ignoreFormItem?: boolean;
-  valueType?: any;
+  valueType?: ProSchemaValueType<'text'>;
   /** @name 提交时转化值，一般用于数组类型 */
   transform?: SearchTransformKeyFn;
   dataFormat?: string;
