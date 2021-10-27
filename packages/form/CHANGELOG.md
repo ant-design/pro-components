@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.45.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.44.0...@ant-design/pro-form@1.45.0) (2021-10-27)
+
+### Features
+
+- **form:** support Cascader ([#3904](https://github.com/ant-design/pro-components/issues/3904)) ([be63c81](https://github.com/ant-design/pro-components/commit/be63c81be1102fd2f099e9182fb296a01a8b59f0))
+
 # [1.44.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.43.5...@ant-design/pro-form@1.44.0) (2021-10-26)
 
 ### Bug Fixes
