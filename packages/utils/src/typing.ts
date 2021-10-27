@@ -71,6 +71,7 @@ export type ProFieldValueType =
   | 'fromNow'
   | 'image'
   | 'jsonCode'
+  | 'cascader'
   | 'color';
 
 export type RequestOptionsType = {
@@ -160,14 +161,16 @@ export type ProCoreActionType<T = {}> = {
 > &
   T;
 
-type ProSchemaValueType<ValueType> = (ValueType | ProFieldValueType) | ProFieldValueObjectType;
+export type ProSchemaValueType<ValueType> =
+  | (ValueType | ProFieldValueType)
+  | ProFieldValueObjectType;
 
 /** 各个组件公共支持的 render */
 export type ProSchema<
   Entity = Record<string, any>,
   ExtraProps = unknown,
   ComponentsType = ProSchemaComponentTypes,
-  ValueType = 'text',
+  ValueType = string,
 > = {
   /** @name 确定这个列的唯一值,一般用于 dataIndex 重复的情况 */
   key?: React.Key;
@@ -190,7 +193,7 @@ export type ProSchema<
    */
   title?:
     | ((
-        schema: ProSchema<Entity, ExtraProps>,
+        schema: Omit<ProSchema<Entity, ExtraProps>, 'render' | 'renderFormItem'>,
         type: ComponentsType,
         dom: React.ReactNode,
       ) => React.ReactNode)

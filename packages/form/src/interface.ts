@@ -115,5 +115,5 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
 
   /** QueryFilter 上的footer */
   footerRender?: LightFilterFooterRender;
-} & ProFormItemProps &
+} & Omit<ProFormItemProps, 'valueType'> &
   ExtendsProps;

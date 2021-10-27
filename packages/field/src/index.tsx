@@ -38,6 +38,7 @@ import FieldDigit from './components/Digit';
 import FieldSecond from './components/Second';
 import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
+import FieldCascader from './components/Cascader';
 import FieldColorPicker from './components/ColorPicker';
 import { noteOnce } from 'rc-util/lib/warning';
 
@@ -338,7 +339,9 @@ const defaultRenderText = (
   if (valueType === 'image') {
     return <FieldImage text={text as string} {...props} />;
   }
-
+  if (valueType === 'cascader') {
+    return <FieldCascader text={text as string} {...props} />;
+  }
   if (valueType === 'color') {
     return <FieldColorPicker text={text as string} {...props} />;
   }

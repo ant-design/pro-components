@@ -51,6 +51,7 @@ import type {
   ProFieldTextType,
   RequestOptionsType,
   ProFieldProps,
+  ProSchemaValueType,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
@@ -71,6 +72,7 @@ import { merge } from './merge';
 export type {
   RequestOptionsType,
   ProSchema,
+  ProSchemaValueType,
   ProCoreActionType,
   ProSchemaComponentTypes,
   ProSchemaValueEnumMap,
