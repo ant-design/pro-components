@@ -140,7 +140,7 @@ API 与 ProTable 相同
 | tooltip | 内容的补充描述，hover 后显示 | string | - |
 | span | 包含列的数量 | number | 1 |
 | valueType | 格式化的类型 | `ValueType` | - |
-| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
 | request | 从网络请求枚举数据 | `()=>Promise<{[key:string`\|`number]:any}>` | - |
 | dataIndex | 返回数据的 key 与 ProDescriptions 的 request 配合使用，用于配置式的定义列表 | `React.Text` \| `React.Text[]` | - |
 | editable | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
