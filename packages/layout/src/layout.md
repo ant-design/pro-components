@@ -147,7 +147,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | headerContentRender | 自定义头内容的方法 | `(props: BasicLayoutProps) => ReactNode` | - |
 | rightContentRender | 自定义头右部的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | `(collapsed: boolean) => ReactNode` | - |
-| footerRender | 自定义页脚的 render 方法 | `(props: BasicLayoutProps) => JSX.Element | false` | - |
+| footerRender | 自定义页脚的 render 方法 | `(props: BasicLayoutProps) => JSX.Element \| false` | - |
 | pageTitleRender | 自定义页面标题的显示方法 | `(props: BasicLayoutProps) => string` | - |
 | menuRender | 自定义菜单的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | 在显示前对菜单数据进行查看，修改不会触发重新渲染 | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
