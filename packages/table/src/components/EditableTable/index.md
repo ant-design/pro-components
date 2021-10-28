@@ -21,6 +21,10 @@ nav:
 
 <code src="./demos/form-item.tsx" background="#f5f5f5" height="420px" title="可编辑表格" />
 
+### 与编辑表格外的内容联动
+
+<code src="./demos/form-linkage.tsx" background="#f5f5f5" height="420px" title="与编辑表格外的内容联动" />
+
 ### 有子列的表格增加
 
 <code src="./demos/children.tsx" background="#f5f5f5" height="420px" title="可展开表格" />

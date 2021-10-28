@@ -254,6 +254,7 @@ function FieldEditableTable<
       {(control) => {
         return (
           <EditableTable<DataType, Params, ValueType>
+            controlled
             {...props}
             value={control.value}
             onChange={control.onChange}

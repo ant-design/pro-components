@@ -17,6 +17,10 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 <code src="./demos/basic.tsx" background="#f5f5f5" height="420px" title="Editable Form" />
 
+### Link with content outside the edit form
+
+<code src="./demos/form-linkage.tsx" background="#f5f5f5" height="420px" title="Link with content outside the edit form" />
+
 ### Custom Editable Tables
 
 <code src="./demos/custom.tsx" background="#f5f5f5" height="420px" title="Custom Editable Form" />
