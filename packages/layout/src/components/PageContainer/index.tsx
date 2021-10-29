@@ -87,8 +87,11 @@ export type PageContainerProps = {
 
   /** @name 水印的配置 */
   waterMarkProps?: WaterMarkProps;
+
+  /** @name 配置面包屑 */
+  breadcrumb?: BreadcrumbProps;
 } & PageHeaderTabConfig &
-  Omit<PageHeaderProps, 'title' | 'footer' | 'breadcrumbRender'>;
+  Omit<PageHeaderProps, 'title' | 'footer' | 'breadcrumbRender' | 'breadcrumb'>;
 
 function genLoading(spinProps: boolean | SpinProps) {
   if (typeof spinProps === 'object') {
@@ -190,6 +193,13 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
     ...restProps
   } = props;
 
+  const getBreadcrumbRender = useMemo(() => {
+    if (!breadcrumbRender) {
+      return undefined;
+    }
+    return breadcrumbRender;
+  }, [breadcrumbRender]);
+
   if (pageHeaderRender === false) {
     return null;
   }
@@ -216,9 +226,7 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
     breadcrumb: BreadcrumbProps;
   };
   const noHasBreadCrumb =
-    !breadcrumb ||
-    breadcrumbRender === false ||
-    (!breadcrumb?.itemRender && !breadcrumb?.routes?.length);
+    (!breadcrumb || (!breadcrumb?.itemRender && !breadcrumb?.routes?.length)) && !breadcrumbRender;
 
   if (
     ['title', 'subTitle', 'extra', 'tags', 'footer', 'avatar', 'backIcon'].every(
@@ -240,6 +248,7 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
             ? undefined
             : { ...pageHeaderProps.breadcrumb, ...value.breadcrumbProps }
         }
+        breadcrumbRender={getBreadcrumbRender}
         prefixCls={prefixCls}
       >
         {header?.children || renderPageHeader(content, extraContent, prefixedClassName)}
