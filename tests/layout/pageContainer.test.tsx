@@ -25,6 +25,15 @@ describe('PageContainer', () => {
     expect(html.find('.ant-page-header').exists()).toBeFalsy();
   });
 
+  it('💄 pageContainer support breadcrumbRender = Element', async () => {
+    const html = mount(
+      <PageContainer title={false} breadcrumbRender={() => <div>这里是面包屑</div>}>
+        content
+      </PageContainer>,
+    );
+    expect(html.find('.ant-page-header').exists()).toBeDefined();
+  });
+
   it('⚡️ support footer', async () => {
     const wrapper = mount(
       <PageContainer
