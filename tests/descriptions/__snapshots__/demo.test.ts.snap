@@ -112,38 +112,447 @@ Array [
 
 exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.tsx correctly 1`] = `
 <div
-  class="App"
+  class="ant-descriptions ant-pro-descriptions"
 >
   <div
-    class="ant-pro-page-container"
+    class="ant-descriptions-header"
   >
     <div
-      class="ant-pro-page-container-warp"
+      class="ant-descriptions-title"
     >
       <div
-        class="ant-page-header has-breadcrumb"
+        class="ant-pro-core-label-tip"
       >
-        <div>
-          这里是面包屑 | 
-          <span>
-            nav
-          </span>
+        <div
+          class="ant-pro-core-label-tip-title"
+        >
+          高级定义列表
         </div>
+        <span
+          class="ant-pro-core-label-tip-icon"
+        >
+          <span
+            aria-label="info-circle"
+            class="anticon anticon-info-circle"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="info-circle"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+              />
+              <path
+                d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+              />
+            </svg>
+          </span>
+        </span>
       </div>
     </div>
     <div
-      class="ant-pro-grid-content"
+      class="ant-descriptions-extra"
     >
-      <div
-        class="ant-pro-grid-content-children"
+      <button
+        class="ant-btn ant-btn-primary"
+        type="button"
       >
-        <div
-          class="ant-pro-page-container-children-content"
-        >
-          content
-        </div>
-      </div>
+        <span>
+          提 交
+        </span>
+      </button>
     </div>
+  </div>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="2"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                文本
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                这是一段很长很长超级超级长的无意义说明文本并且重复了很多没有意义的词语，就是为了让它变得很长很长超级超级长
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                <div
+                  class="ant-pro-core-label-tip"
+                >
+                  <div
+                    class="ant-pro-core-label-tip-title"
+                  >
+                    金额
+                  </div>
+                  <span
+                    class="ant-pro-core-label-tip-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  ￥ 100
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                百分比
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  100.00%
+                </span>
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                选择框
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span
+                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                >
+                  <span
+                    class="ant-badge-status-dot ant-badge-status-error"
+                  />
+                  <span
+                    class="ant-badge-status-text"
+                  >
+                    未解决
+                  </span>
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                远程选择框
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                已解决
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                进度条
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <div
+                  class="ant-progress ant-progress-line ant-progress-status-active ant-progress-show-info ant-progress-small"
+                  style="min-width: 100px; max-width: 320px;"
+                >
+                  <div
+                    class="ant-progress-outer"
+                  >
+                    <div
+                      class="ant-progress-inner"
+                    >
+                      <div
+                        class="ant-progress-bg"
+                        style="width: 40%; height: 6px;"
+                      />
+                    </div>
+                  </div>
+                  <span
+                    class="ant-progress-text"
+                    title="40%"
+                  >
+                    40%
+                  </span>
+                </div>
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                日期时间
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  2016-11-22 00:00:00
+                </span>
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                日期
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  2016-11-22
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                日期区间
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <div>
+                  <div>
+                    2016-11-21 00:00:00
+                  </div>
+                  <div>
+                    2016-11-22 00:00:00
+                  </div>
+                </div>
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                时间
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <span>
+                  00:00:00
+                </span>
+              </span>
+            </div>
+          </td>
+          <td
+            class="ant-descriptions-item"
+            colspan="1"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                代码块
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <pre
+                  style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                >
+                  <code>
+                    
+yarn run v1.22.0
+$ eslint --format=pretty ./packages
+Done in 9.70s.
+          
+                  </code>
+                </pre>
+              </span>
+            </div>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <td
+            class="ant-descriptions-item"
+            colspan="2"
+          >
+            <div
+              class="ant-descriptions-item-container"
+            >
+              <span
+                class="ant-descriptions-item-label"
+              >
+                JSON 代码块
+              </span>
+              <span
+                class="ant-descriptions-item-content"
+              >
+                <pre
+                  style="padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: rgb(246, 248, 250); border-radius: 3px;"
+                >
+                  <code>
+                    {
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "**/src",
+    "**/docs",
+    "scripts",
+    "**/demo",
+    ".eslintrc.js"
+  ]
+}
+                  </code>
+                </pre>
+              </span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 `;
