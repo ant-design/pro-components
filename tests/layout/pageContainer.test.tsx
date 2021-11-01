@@ -32,6 +32,11 @@ describe('PageContainer', () => {
     expect(html.find('.has-breadcrumb').at(0).find('div div').text()).toBe('这里是面包屑');
   });
 
+  it('💄 pageContainer support tabBarExtraContent', async () => {
+    const html = mount(<PageContainer tabBarExtraContent="测试">content</PageContainer>);
+    expect(html.find('.ant-tabs-extra-content').at(0).find('div').text()).toBe('测试');
+  });
+
   it('⚡️ support footer', async () => {
     const wrapper = mount(
       <PageContainer
