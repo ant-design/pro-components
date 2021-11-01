@@ -76,4 +76,4 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 
 ### 使用 ProFormDependency
 
-<code src="./demos/dependency.tsx" height="764px" title="schema 表单" />
+<code src="./demos/dependency.tsx" height="300px" title="schema 表单" />

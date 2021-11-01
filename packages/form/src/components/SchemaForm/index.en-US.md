@@ -74,4 +74,4 @@ The most important thing about the SchemaForm form is the type definition of the
 
 ### Use ProFormDependency
 
-<code src="./demos/dependency.tsx" height="764px" title="schema 表单" />
+<code src="./demos/dependency.tsx" height="300px" title="schema 表单" />
