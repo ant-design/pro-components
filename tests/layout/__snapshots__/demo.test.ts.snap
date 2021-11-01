@@ -242,6 +242,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   </span>
                 </button>
               </div>
+              <div
+                class="ant-tabs-extra-content"
+              >
+                测试tabBarExtraContent
+              </div>
             </div>
             <div
               class="ant-tabs-content-holder"
