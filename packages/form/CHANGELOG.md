@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.46.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.45.0...@ant-design/pro-form@1.46.0) (2021-11-02)
+
+### Bug Fixes
+
+- **form:** 完善 StepsForm 的 useCallback 依赖，修复可能导致的打包丢失依赖问题 ([#3938](https://github.com/ant-design/pro-components/issues/3938)) ([f0a335e](https://github.com/ant-design/pro-components/commit/f0a335e139fe230df4cf415303eec991f02273f1))
+- **list:** fix list style error ([#3943](https://github.com/ant-design/pro-components/issues/3943)) ([68e0eed](https://github.com/ant-design/pro-components/commit/68e0eede7131932eb9e16734bb5bbb3c8fa0572e))
+
+### Features
+
+- **form:** SchemaForm support dependency ([#3895](https://github.com/ant-design/pro-components/issues/3895)) ([7a5a509](https://github.com/ant-design/pro-components/commit/7a5a509f7b03311837e5f598feffa92078e81888))
+
 # [1.45.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.44.0...@ant-design/pro-form@1.45.0) (2021-10-27)
 
 ### Features
