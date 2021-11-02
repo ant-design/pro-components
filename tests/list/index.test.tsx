@@ -561,7 +561,7 @@ describe('List', () => {
         rowClassName={customizedRowClassName}
       />,
     );
-    expect(html.find('div.ant-pro-list-row').hasClass(customizedRowClassName)).toBe(true);
+    expect(html.find('li.ant-pro-list-row').hasClass(customizedRowClassName)).toBe(true);
     expect(html.render()).toMatchSnapshot();
   });
 
@@ -595,8 +595,8 @@ describe('List', () => {
         rowClassName={customizedRowClassName}
       />,
     );
-    expect(html.find('div.ant-pro-list-row').at(0).hasClass('even')).toBe(true);
-    expect(html.find('div.ant-pro-list-row').at(1).hasClass('odd')).toBe(true);
+    expect(html.find('li.ant-pro-list-row').at(0).hasClass('even')).toBe(true);
+    expect(html.find('li.ant-pro-list-row').at(1).hasClass('odd')).toBe(true);
     expect(html.render()).toMatchSnapshot();
   });
 

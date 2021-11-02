@@ -222,15 +222,18 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
           {avatar && (
             <Avatar size={22} src={avatar} className={getPrefixCls('list-item-meta-avatar')} />
           )}
-          {title}
+          <span className={getPrefixCls('list-item-meta-title')}>{title}</span>
         </>
       );
     }
     return null;
   }, [avatar, getPrefixCls, title]);
+
   const defaultDom = !cardProps ? (
     <List.Item
-      className={rowClassName}
+      className={classNames(rowClassName, {
+        [propsClassName]: propsClassName !== defaultClassName,
+      })}
       {...rest}
       actions={extraDom}
       extra={!!extra && <div className={extraClassName}>{extra}</div>}
@@ -291,9 +294,12 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       </Skeleton>
     </ProCard>
   );
+  if (!cardProps) {
+    return defaultDom;
+  }
   return (
     <div
-      className={classNames(className, {
+      className={classNames({
         [`${className}-card`]: cardProps,
         [propsClassName]: propsClassName !== defaultClassName,
       })}

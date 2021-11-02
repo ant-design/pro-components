@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { message } from 'antd';
-import { ProFormCascader, ProFormInstance } from '@ant-design/pro-form';
+import type { ProFormInstance } from '@ant-design/pro-form';
+import { ProFormCascader } from '@ant-design/pro-form';
 import ProForm, {
   ProFormText,
   ProFormDateRangePicker,

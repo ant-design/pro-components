@@ -32,9 +32,9 @@ export default () => {
         actions={
           <Space>
             其他登录方式
-            <AlipayCircleOutlined style={iconStyles}></AlipayCircleOutlined>
-            <TaobaoCircleOutlined style={iconStyles}></TaobaoCircleOutlined>
-            <WeiboCircleOutlined style={iconStyles}></WeiboCircleOutlined>
+            <AlipayCircleOutlined style={iconStyles} />
+            <TaobaoCircleOutlined style={iconStyles} />
+            <WeiboCircleOutlined style={iconStyles} />
           </Space>
         }
       >
