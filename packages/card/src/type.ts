@@ -70,6 +70,10 @@ export type CardProps = {
   prefixCls?: string;
   /** ProCard 的 ref */
   ref?: React.Ref<HTMLDivElement | undefined>;
+  /** 是否展示选中样式 */
+  checked?: boolean;
+  /** 选中改变 */
+  onChecked?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 } & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
 
 export type ProCardTabPaneProps = {

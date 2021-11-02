@@ -71,7 +71,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     { responsive: true, ...pagination } as any,
     () => {},
   );
-  /** 根据分页来回去不同的数据，模拟 table */
+  /** 根据分页来返回不同的数据，模拟 table */
   const pageData = React.useMemo<RecordType[]>(() => {
     if (
       pagination === false ||
@@ -109,6 +109,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowExpandable,
   } = expandableConfig || {};
 
+  /** 展开收起功能区域 star */
   const [innerExpandedKeys, setInnerExpandedKeys] = React.useState<Key[]>(() => {
     if (defaultExpandedRowKeys) {
       return defaultExpandedRowKeys as Key[];
@@ -147,9 +148,10 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     [getRowKey, mergedExpandedKeys, dataSource, onExpand, onExpandedRowsChange],
   );
 
+  /** 展开收起功能区域 end */
+
   /** 这个是 选择框的 render 方法 为了兼容 antd 的 table,用了同样的渲染逻辑 所以看起来有点奇怪 */
   const selectItemDom = selectItemRender([])[0];
-
   return (
     <List<RecordType>
       {...rest}
@@ -183,13 +185,25 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
         });
         let checkboxDom;
         if (selectItemDom && selectItemDom.render) {
-          checkboxDom = selectItemDom.render(item, item, index);
+          checkboxDom = selectItemDom.render(item, item, index) || undefined;
         }
         const { isEditable, recordKey } = actionRef.current?.isEditable({ ...item, index }) || {};
+        const isChecked = selectedKeySet.has(recordKey || index);
+
         const defaultDom = (
           <ProListItem
             key={recordKey}
-            cardProps={rest.grid}
+            cardProps={
+              rest.grid
+                ? {
+                    ...rest.grid,
+                    checked: isChecked,
+                    onChecked: React.isValidElement(checkboxDom)
+                      ? (checkboxDom?.props as any)?.onChange
+                      : undefined,
+                  }
+                : undefined
+            }
             {...listItemProps}
             recordKey={recordKey}
             isEditable={isEditable || false}

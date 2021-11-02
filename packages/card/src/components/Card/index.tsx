@@ -42,6 +42,8 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     collapsible = false,
     defaultCollapsed = false,
     onCollapse,
+    checked,
+    onChecked,
     tabs,
     type,
     ...rest
@@ -171,6 +173,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
     [`${prefixCls}-size-${size}`]: size,
     [`${prefixCls}-type-${type}`]: type,
     [`${prefixCls}-collapse`]: collapsed,
+    [`${prefixCls}-checked`]: checked,
   });
 
   const bodyCls = classNames(`${prefixCls}-body`, {
@@ -213,7 +216,11 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
       className={cardCls}
       style={style}
       ref={ref}
-      {...omit(rest, ['id', 'prefixCls', 'colSpan'])}
+      onClick={(e) => {
+        onChecked?.(e);
+        rest?.onClick?.(e);
+      }}
+      {...omit(rest, ['prefixCls', 'colSpan'])}
     >
       {(title || extra || collapsibleButton) && (
         <div

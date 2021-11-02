@@ -279,6 +279,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     <ProCard
       bordered
       loading={loading}
+      hoverable
       {...cardProps}
       title={cardTitleDom}
       subTitle={subTitle}
@@ -287,7 +288,6 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     >
       <Skeleton avatar title={false} loading={loading} active>
         <div className={`${className}-header`}>
-          {!!checkbox && <div className={`${className}-checkbox`}>{checkbox}</div>}
           {itemTitleRender && itemTitleRender?.(record, index, titleDom)}
           {content}
         </div>
