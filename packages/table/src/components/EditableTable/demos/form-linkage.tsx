@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import type { ActionType, ProColumns } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
-import { ProFormDigit, ProFormInstance } from '@ant-design/pro-form';
+import type { ProFormInstance } from '@ant-design/pro-form';
+import { ProFormDigit } from '@ant-design/pro-form';
 import ProForm, { ProFormDependency } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
 

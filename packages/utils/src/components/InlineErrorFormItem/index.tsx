@@ -36,7 +36,7 @@ const getIcon = (
     return <LoadingOutlined className={`${prefixCls}-rule-content-icon-loading`} />;
   }
   if (!isTouched) {
-    return <CircleRender prefixCls={prefixCls}></CircleRender>;
+    return <CircleRender prefixCls={prefixCls} />;
   }
   if (!requiredChecked || fieldError.includes((rule as any).message)) {
     return <CloseCircleFilled className={`${prefixCls}-rule-content-icon-error`} />;
