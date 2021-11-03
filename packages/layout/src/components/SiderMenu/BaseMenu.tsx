@@ -94,11 +94,11 @@ class MenuUtil {
 
   props: BaseMenuProps;
 
-  getNavMenuItems = (menusData: MenuDataItem[] = [], isChildren: boolean): React.ReactNode[] =>
-    menusData.map((item) => this.getSubMenuOrItem(item, isChildren)).filter((item) => item);
+  getNavMenuItems = (menusData: MenuDataItem[] = [], level: number): React.ReactNode[] =>
+    menusData.map((item) => this.getSubMenuOrItem(item, level)).filter((item) => item);
 
   /** Get SubMenu or Item */
-  getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
+  getSubMenuOrItem = (item: MenuDataItem, level: number): React.ReactNode => {
     if (Array.isArray(item.children) && item && item.children.length > 0) {
       const name = this.getIntlName(item);
       const { subMenuItemRender, prefixCls, menu, iconPrefixes, layout } = this.props;
@@ -107,7 +107,7 @@ class MenuUtil {
       //  get defaultTitle by menuItemRender
       const defaultTitle = item.icon ? (
         <span className={`${prefixCls}-menu-item`} title={name}>
-          {!isChildren && getIcon(item.icon, iconPrefixes)}
+          {level === 0 && getIcon(item.icon, iconPrefixes)}
           <span className={`${prefixCls}-menu-item-title`}>{name}</span>
         </span>
       ) : (
@@ -128,7 +128,7 @@ class MenuUtil {
       const title = subMenuItemRender
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
         : subMenuTitle;
-      const MenuComponents: React.ElementType = isGroup && !isChildren ? ItemGroup : SubMenu;
+      const MenuComponents: React.ElementType = isGroup && level === 0 ? ItemGroup : SubMenu;
       return (
         <React.Fragment key={item.key || item.path}>
           <MenuComponents
@@ -136,9 +136,9 @@ class MenuUtil {
             title={title}
             onTitleClick={item.onTitleClick}
           >
-            {this.getNavMenuItems(item.children, true)}
+            {this.getNavMenuItems(item.children, level + 1)}
           </MenuComponents>
-          {isGroup && !isChildren ? (
+          {isGroup && level === 0 ? (
             <div
               className={`${prefixCls}-menu-item-divider`}
               key={item.key || item.path}
@@ -159,7 +159,7 @@ class MenuUtil {
 
     return (
       <Menu.Item disabled={item.disabled} key={item.key || item.path} onClick={item.onTitleClick}>
-        {this.getMenuItemPath(item, isChildren)}
+        {this.getMenuItemPath(item, level)}
       </Menu.Item>
     );
   };
@@ -181,7 +181,7 @@ class MenuUtil {
    *
    * @memberof SiderMenu
    */
-  getMenuItemPath = (item: MenuDataItem, isChildren: boolean) => {
+  getMenuItemPath = (item: MenuDataItem, level: number) => {
     const itemPath = this.conversionPath(item.path || '/');
     const {
       location = { pathname: '/' },
@@ -192,8 +192,11 @@ class MenuUtil {
     } = this.props;
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
-    const { prefixCls } = this.props;
-    const icon = isChildren ? null : getIcon(item.icon, iconPrefixes);
+    const { prefixCls, menu } = this.props;
+    const isGroup = menu?.type === 'group';
+    /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
+    const hasIcon = level === 0 || (isGroup && level === 1);
+    const icon = !hasIcon ? null : getIcon(item.icon, iconPrefixes);
     let defaultItem = (
       <span className={`${prefixCls}-menu-item`}>
         {icon}
@@ -415,7 +418,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       onOpenChange={setOpenKeys}
       {...props.menuProps}
     >
-      {menuUtils.getNavMenuItems(finallyData, false)}
+      {menuUtils.getNavMenuItems(finallyData, 0)}
     </Menu>
   );
 };
