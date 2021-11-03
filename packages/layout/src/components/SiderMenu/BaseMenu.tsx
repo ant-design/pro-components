@@ -132,7 +132,11 @@ class MenuUtil {
       const MenuComponents: React.ElementType = isGroup ? ItemGroup : SubMenu;
       return (
         <React.Fragment key={item.key || item.path}>
-          <MenuComponents title={title} onTitleClick={item.onTitleClick}>
+          <MenuComponents
+            key={item.key || item.path}
+            title={title}
+            onTitleClick={item.onTitleClick}
+          >
             {this.getNavMenuItems(item.children, !isGroup && true)}
           </MenuComponents>
           {isGroup ? (
