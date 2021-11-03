@@ -685,6 +685,10 @@ describe('List', () => {
       />,
     );
     waitForComponentToPaint(html, 1000);
+    // 触发click，执行一下 stopPropagation 的代码
+    act(() => {
+      html.find('.ant-pro-card-extra a').simulate('click');
+    });
     expect(html.find('.ant-pro-card-extra a').text()).toEqual('修复');
     expect(html.find('.ant-pro-card-actions').exists()).toBeFalsy();
   });

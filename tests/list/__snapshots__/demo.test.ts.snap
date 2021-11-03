@@ -700,7 +700,7 @@ Array [
               <div
                 class="ant-pro-table-list-toolbar-title"
               >
-                翻页
+                卡片列表展示
               </div>
             </div>
           </div>
@@ -725,7 +725,7 @@ Array [
                     class="ant-pro-list-row-card"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                       column="2"
                     >
                       <div
@@ -849,7 +849,7 @@ Array [
                     class="ant-pro-list-row-card"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                       column="2"
                     >
                       <div
@@ -973,7 +973,7 @@ Array [
                     class="ant-pro-list-row-card"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                       column="2"
                     >
                       <div
@@ -1097,7 +1097,7 @@ Array [
                     class="ant-pro-list-row-card"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                       column="2"
                     >
                       <div
@@ -1221,7 +1221,7 @@ Array [
                     class="ant-pro-list-row-card"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                       column="2"
                     >
                       <div
@@ -1345,7 +1345,7 @@ Array [
                     class="ant-pro-list-row-card"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                       column="2"
                     >
                       <div
@@ -1469,7 +1469,7 @@ Array [
                     class="ant-pro-list-row-card"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                       column="2"
                     >
                       <div
@@ -1593,7 +1593,7 @@ Array [
                     class="ant-pro-list-row-card"
                   >
                     <div
-                      class="ant-pro-card ant-pro-card-border"
+                      class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
                       column="2"
                     >
                       <div

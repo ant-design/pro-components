@@ -61,6 +61,7 @@ export default () => {
           defaultPageSize: 8,
           showSizeChanger: false,
         }}
+        rowSelection={{}}
         grid={{ gutter: 16, column: 2 }}
         metas={{
           title: {},
@@ -72,7 +73,7 @@ export default () => {
             cardActionProps,
           },
         }}
-        headerTitle="翻页"
+        headerTitle="卡片列表展示"
         dataSource={data}
       />
     </>
