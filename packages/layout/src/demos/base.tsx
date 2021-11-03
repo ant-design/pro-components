@@ -43,6 +43,9 @@ export default () => {
         location={{
           pathname,
         }}
+        menu={{
+          type: 'group',
+        }}
         waterMarkProps={{
           content: 'Pro Layout',
         }}

@@ -128,8 +128,7 @@ class MenuUtil {
       const title = subMenuItemRender
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
         : subMenuTitle;
-
-      const MenuComponents: React.ElementType = isGroup ? ItemGroup : SubMenu;
+      const MenuComponents: React.ElementType = isGroup && !isChildren ? ItemGroup : SubMenu;
       return (
         <React.Fragment key={item.key || item.path}>
           <MenuComponents
@@ -137,9 +136,9 @@ class MenuUtil {
             title={title}
             onTitleClick={item.onTitleClick}
           >
-            {this.getNavMenuItems(item.children, !isGroup && true)}
+            {this.getNavMenuItems(item.children, true)}
           </MenuComponents>
-          {isGroup ? (
+          {isGroup && !isChildren ? (
             <div
               className={`${prefixCls}-menu-item-divider`}
               key={item.key || item.path}
