@@ -68,9 +68,10 @@ const CollapsedIcon: React.FC<any> = (props) => {
         fontSize: hover ? 16 : 24,
         transform: props?.collapsed ? 'rotate(180deg)' : 'rotate(0deg)',
         transition: 'transform,right 0.3s',
-        color: 'rgba(0,0,0,0.65)',
+        color: hover ? 'rgba(0,0,0,0.45)' : 'rgba(5,30,55,0.08)',
         right: hover ? undefined : -8,
-        backgroundColor: hover ? '#ccc' : undefined,
+        backgroundColor: hover ? '#f0f0f0' : undefined,
+        cursor: 'pointer',
       }}
       onClick={(e) => {
         props?.onClick(e);

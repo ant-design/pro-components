@@ -8,10 +8,16 @@
 @menu-item-active-bg: rgba(0, 0, 0, 0.04);
 @menu-highlight-color: #000;
 
+@color-neutral-light-hover: rgba(30, 55, 105, 0.04);
+@color-neutral-light-active: rgba(5, 38, 72, 0.06);
+@color-neutral-light-icon: rgba(0, 0, 0, 0.65);
+@color-neutral-light-text: rgba(0, 0, 0, 0.65);
+@color-neutral-light-6-alpha: rgba(0, 0, 0, 0.45);
+
 .@{pro-layout-sider-menu-prefix-cls} {
   position: relative;
   background: transparent;
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  border-right: 1px solid rgba(5, 30, 55, 0.08);
 
   &-children {
     > * {
@@ -31,9 +37,8 @@
     * {
       transition: none !important;
     }
-
     &:not(.@{ant-prefix}-menu-horizontal) .@{ant-prefix}-menu-item-selected {
-      background-color: fade(@primary-color, 10%);
+      background-color: @color-neutral-light-active;
       border-radius: 2px;
     }
 
@@ -43,7 +48,7 @@
 
     &-item:active,
     &-submenu-title:active {
-      background-color: fade(@primary-color, 10%);
+      background-color: @color-neutral-light-hover;
     }
 
     &-item-selected {
@@ -65,13 +70,13 @@
     }
   }
 
-  &.@{ant-prefix}-layout-sider-light {
+  &.@{ant-prefix}-layout-sider {
     .@{ant-prefix}-menu-item a {
       color: @heading-color;
     }
     .@{ant-prefix}-menu-item-selected a,
     .@{ant-prefix}-menu-item a:hover {
-      color: @primary-color;
+      color: @color-neutral-light-text;
     }
   }
 
@@ -161,7 +166,7 @@
     flex-direction: column;
     padding-bottom: 24px;
     .@{ant-prefix}-menu:not(.@{ant-prefix}-menu-horizontal) .@{ant-prefix}-menu-submenu-selected {
-      background-color: fade(@primary-color, 10%);
+      background-color: @color-neutral-light-active;
       border-radius: 2px;
     }
     .@{ant-prefix}-pro-menu-item-title {

@@ -103,11 +103,12 @@ class MenuUtil {
       const name = this.getIntlName(item);
       const { subMenuItemRender, prefixCls, menu, iconPrefixes, layout } = this.props;
       const isGroup = menu?.type === 'group' && layout !== 'top';
-
+      /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
+      const hasIcon = level === 0 || (isGroup && level === 1);
       //  get defaultTitle by menuItemRender
       const defaultTitle = item.icon ? (
         <span className={`${prefixCls}-menu-item`} title={name}>
-          {level === 0 && getIcon(item.icon, iconPrefixes)}
+          {hasIcon && getIcon(item.icon, iconPrefixes)}
           <span className={`${prefixCls}-menu-item-title`}>{name}</span>
         </span>
       ) : (
@@ -117,13 +118,14 @@ class MenuUtil {
       );
 
       /** 如果是 Group 是不需要展示 icon 的 */
-      const subMenuTitle = isGroup ? (
-        <span className={`${prefixCls}-menu-item`} title={name}>
-          {name}
-        </span>
-      ) : (
-        defaultTitle
-      );
+      const subMenuTitle =
+        isGroup && level === 0 ? (
+          <span className={`${prefixCls}-menu-item`} title={name}>
+            {name}
+          </span>
+        ) : (
+          defaultTitle
+        );
       // subMenu only title render
       const title = subMenuItemRender
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
