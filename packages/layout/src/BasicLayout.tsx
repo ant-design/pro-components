@@ -234,7 +234,7 @@ const getPaddingLeft = (
   siderWidth: number,
 ): number | undefined => {
   if (hasLeftPadding) {
-    return collapsed ? 48 : siderWidth;
+    return collapsed ? 60 : siderWidth;
   }
   return 0;
 };
@@ -254,7 +254,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     defaultCollapsed,
     style,
     disableContentMargin,
-    siderWidth = 256,
+    siderWidth = 216,
     menu,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,

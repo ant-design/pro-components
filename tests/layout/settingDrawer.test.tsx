@@ -93,7 +93,7 @@ describe('settingDrawer.test', () => {
       contentWidth: 'Fluid',
       fixedHeader: true,
       fixSiderbar: false,
-      headerHeight: 48,
+      headerHeight: 56,
       title: 'Ant Design Pro',
       iconfontUrl: '',
       primaryColor: 'daybreak',

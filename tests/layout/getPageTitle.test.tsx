@@ -10,7 +10,7 @@ const pageProps = {
   fixedHeader: false,
   fixSiderbar: false,
   menu: { locale: true },
-  headerHeight: 48,
+  headerHeight: 56,
   title: 'Ant Design Pro',
   iconfontUrl: '',
   primaryColor: '#1890ff',

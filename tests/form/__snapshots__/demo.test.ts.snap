@@ -29342,7 +29342,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
     />
     <aside
       class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light"
-      style="overflow: hidden; padding-top: 48px; flex: 0 0 48px; max-width: 48px; min-width: 48px; width: 48px;"
+      style="padding-top: 56px; background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
     >
       <div
         class="ant-layout-sider-children"
@@ -29414,6 +29414,46 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             style="display: none;"
           />
         </div>
+        <div
+          class="ant-pro-sider-collapsed-button"
+          style="font-size: 24px; transform: rotate(180deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 2 24"
+            width="1em"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              stroke="none"
+              stroke-width="1"
+            >
+              <g
+                fill="currentColor"
+                transform="translate(-248.000000, -429.000000)"
+              >
+                <g
+                  transform="translate(0.000000, 56.000000)"
+                >
+                  <g
+                    transform="translate(248.000000, 0.000000)"
+                  >
+                    <rect
+                      height="24"
+                      rx="1"
+                      width="2"
+                      x="0"
+                      y="373"
+                    />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
       </div>
     </aside>
     <div
@@ -29422,11 +29462,11 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
     >
       <header
         class="ant-layout-header"
-        style="height: 48px; line-height: 48px; background: transparent;"
+        style="height: 56px; line-height: 56px; background: transparent;"
       />
       <header
         class="ant-layout-header ant-pro-fixed-header ant-pro-header"
-        style="padding: 0px; height: 48px; background: transparent; line-height: 48px; width: 100%; z-index: 100; right: 0px;"
+        style="padding: 0px; height: 56px; background: transparent; line-height: 56px; width: 100%; z-index: 100; right: 0px;"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix"

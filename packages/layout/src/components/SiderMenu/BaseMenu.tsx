@@ -64,6 +64,25 @@ let IconFont = createFromIconfontCN({
   scriptUrl: defaultSettings.iconfontUrl,
 });
 
+const MenuDivider: React.FC<{
+  index?: number | string;
+  prefixCls?: string;
+}> = ({ prefixCls, index }) => (
+  <div
+    key={index}
+    className={`${prefixCls}-menu-item-divider`}
+    style={{
+      padding: '16px 4px 4px 4px',
+    }}
+  >
+    <Divider
+      style={{
+        margin: 0,
+      }}
+    />
+  </div>
+);
+
 // Allow menu.js config icon as string or ReactNode
 //   icon: 'setting',
 //   icon: 'icon-geren' #For Iconfont ,
@@ -144,19 +163,7 @@ class MenuUtil {
           {this.getNavMenuItems(item.children, level + 1)}
         </MenuComponents>,
         isGroup && level === 0 ? (
-          <div
-            key={`_${item.key || item.path}`}
-            className={`${prefixCls}-menu-item-divider`}
-            style={{
-              padding: '16px 4px 4px 4px',
-            }}
-          >
-            <Divider
-              style={{
-                margin: 0,
-              }}
-            />
-          </div>
+          <MenuDivider prefixCls={prefixCls} index={item.key || item.path} />
         ) : (
           false
         ),

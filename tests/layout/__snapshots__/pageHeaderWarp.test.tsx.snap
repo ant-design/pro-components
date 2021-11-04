@@ -10,7 +10,7 @@ exports[`BasicLayout base use 1`] = `
   >
     <aside
       class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
-      style="overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+      style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
         class="ant-layout-sider-children"
@@ -193,6 +193,46 @@ exports[`BasicLayout base use 1`] = `
             aria-hidden="true"
             style="display:none"
           />
+        </div>
+        <div
+          class="ant-pro-sider-collapsed-button"
+          style="font-size:24px;transform:rotate(0deg);transition:transform,right 0.3s;color:rgba(5,30,55,0.08);right:-8px;cursor:pointer"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 2 24"
+            width="1em"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              stroke="none"
+              stroke-width="1"
+            >
+              <g
+                fill="currentColor"
+                transform="translate(-248.000000, -429.000000)"
+              >
+                <g
+                  transform="translate(0.000000, 56.000000)"
+                >
+                  <g
+                    transform="translate(248.000000, 0.000000)"
+                  >
+                    <rect
+                      height="24"
+                      rx="1"
+                      width="2"
+                      x="0"
+                      y="373"
+                    />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
         </div>
       </div>
     </aside>
@@ -245,7 +285,7 @@ exports[`BasicLayout content is text 1`] = `
   >
     <aside
       class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
-      style="overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+      style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
         class="ant-layout-sider-children"
@@ -428,6 +468,46 @@ exports[`BasicLayout content is text 1`] = `
             aria-hidden="true"
             style="display:none"
           />
+        </div>
+        <div
+          class="ant-pro-sider-collapsed-button"
+          style="font-size:24px;transform:rotate(0deg);transition:transform,right 0.3s;color:rgba(5,30,55,0.08);right:-8px;cursor:pointer"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            height="1em"
+            viewBox="0 0 2 24"
+            width="1em"
+          >
+            <g
+              fill="none"
+              fill-rule="evenodd"
+              stroke="none"
+              stroke-width="1"
+            >
+              <g
+                fill="currentColor"
+                transform="translate(-248.000000, -429.000000)"
+              >
+                <g
+                  transform="translate(0.000000, 56.000000)"
+                >
+                  <g
+                    transform="translate(248.000000, 0.000000)"
+                  >
+                    <rect
+                      height="24"
+                      rx="1"
+                      width="2"
+                      x="0"
+                      y="373"
+                    />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </svg>
         </div>
       </div>
     </aside>

@@ -71,7 +71,7 @@ const defaultSettings: ProSettings = {
   contentWidth: 'Fluid',
   fixedHeader: false,
   fixSiderbar: false,
-  headerHeight: 48,
+  headerHeight: 56,
   title: 'Ant Design Pro',
   iconfontUrl: '',
   primaryColor: 'daybreak',

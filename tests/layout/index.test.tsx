@@ -270,10 +270,10 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
     act(() => {
       wrapper
-        .find('li.ant-pro-sider-collapsed-button')
+        .find('div.ant-pro-sider-collapsed-button')
         .map((item) => item && item.simulate('click'));
     });
-    // expect(onCollapse).toHaveBeenCalled();
+    expect(onCollapse).toHaveBeenCalled();
 
     await waitForComponentToPaint(wrapper);
     act(() => {
@@ -284,7 +284,7 @@ describe('BasicLayout', () => {
   it('🥩 siderWidth default', async () => {
     const wrapper = mount(<BasicLayout />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-sider').get(1).props.width).toBe(356);
+    expect(wrapper.find('.ant-pro-sider').get(1).props.width).toBe(216);
 
     await waitForComponentToPaint(wrapper);
     act(() => {
@@ -306,7 +306,7 @@ describe('BasicLayout', () => {
   it('🥩 do not render collapsed button', async () => {
     const wrapper = mount(<BasicLayout collapsedButtonRender={false} />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-sider-collapsed-button').exists()).toBe(false);
+    expect(wrapper.find('div.ant-pro-sider-collapsed-button').exists()).toBe(false);
 
     await waitForComponentToPaint(wrapper);
     act(() => {
@@ -317,7 +317,7 @@ describe('BasicLayout', () => {
   it('🥩 when renderMenu=false, do not render collapsed button', async () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-sider-collapsed-button').exists()).toBe(false);
+    expect(wrapper.find('div.ant-pro-sider-collapsed-button').exists()).toBe(false);
 
     await waitForComponentToPaint(wrapper);
     act(() => {
@@ -527,61 +527,6 @@ describe('BasicLayout', () => {
     });
     expect(onMenuHeaderClick).toBeCalled();
   });
-
-  // it('🥩 fixSider and collapsed should have different style', async () => {
-  //   const wrapper = mount<BasicLayoutProps>(<BasicLayout collapsed />);
-  //   await waitForComponentToPaint(wrapper);
-
-  //   let dom = wrapper.find('.ant-pro-fixed-header');
-  //   expect(dom.exists()).toBeFalsy();
-  //   act(() => {
-  //     wrapper.setProps({
-  //       fixedHeader: true,
-  //     });
-  //   });
-  //   await waitForComponentToPaint(wrapper);
-  //   dom = wrapper.find('header.ant-pro-fixed-header');
-  //   expect(dom.exists()).toBeTruthy();
-  //   expect(dom.props()?.style?.width).toBe('calc(100% - 48px)');
-  //   act(() => {
-  //     wrapper.setProps({
-  //       fixedHeader: true,
-  //       collapsed: false,
-  //     });
-  //   });
-
-  //   dom = wrapper.find('header.ant-pro-fixed-header');
-  //   expect(dom.props()?.style?.width).toBe('calc(100% - 256px)');
-  //   act(() => {
-  //     wrapper.setProps({
-  //       fixedHeader: true,
-  //       collapsed: false,
-  //       siderWidth: 120,
-  //     });
-  //   });
-
-  //   dom = wrapper.find('header.ant-pro-fixed-header');
-  //   expect(dom.props()?.style?.width).toBe('calc(100% - 120px)');
-  //   act(() => {
-  //     wrapper.setProps({
-  //       fixedHeader: true,
-  //       collapsed: false,
-  //       menuRender: false,
-  //     });
-  //   });
-
-  //   dom = wrapper.find('header.ant-pro-fixed-header');
-  //   expect(dom.props()?.style?.width).toBe('100%');
-  //   act(() => {
-  //     wrapper.setProps({
-  //       fixedHeader: true,
-  //       layout: 'top',
-  //     });
-  //   });
-
-  //   dom = wrapper.find('header.ant-pro-fixed-header');
-  //   expect(dom.props()?.style?.width).toBe('100%');
-  // });
 
   it('🥩 renderPageTitle return value should is string', async () => {
     const renderPageTitle = jest.fn();
@@ -1312,13 +1257,13 @@ describe('BasicLayout', () => {
     expect(html.find('li.ant-menu-submenu-open').length).toBe(3);
 
     act(() => {
-      html.find('li.ant-pro-sider-collapsed-button').simulate('click');
+      html.find('div.ant-pro-sider-collapsed-button').simulate('click');
     });
     await waitForComponentToPaint(html, 100);
     expect(html.find('li.ant-menu-submenu-open').length).toBe(0);
 
     act(() => {
-      html.find('li.ant-pro-sider-collapsed-button').simulate('click');
+      html.find('div.ant-pro-sider-collapsed-button').simulate('click');
     });
     await waitForComponentToPaint(html, 100);
     expect(html.find('li.ant-menu-submenu-open').length).toBe(3);

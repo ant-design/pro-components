@@ -21,7 +21,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
         />
         <div
           class="ant-drawer-content-wrapper"
-          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:256px"
+          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:216px"
         >
           <div
             class="ant-drawer-content"
@@ -30,42 +30,12 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
-              >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
-                >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </div>
-              <div
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
                   class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
-                  style="overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+                  style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
@@ -248,6 +218,39 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                         aria-hidden="true"
                         style="display:none"
                       />
+                    </div>
+                    <div
+                      class="ant-pro-sider-collapsed-button"
+                      style="font-size:16px;transform:rotate(0deg);transition:transform,right 0.3s;color:rgba(0,0,0,0.45);background-color:#f0f0f0;cursor:pointer"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 8 16"
+                        width="1em"
+                      >
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          stroke="none"
+                          stroke-width="1"
+                        >
+                          <g
+                            fill="currentColor"
+                            transform="translate(-913.000000, -8934.000000)"
+                          >
+                            <g
+                              transform="translate(905.000000, 8505.000000)"
+                            >
+                              <path
+                                d="M9,429 L9.49874625,429 C9.81420921,429 10.1111762,429.148856 10.2999476,429.401605 L15.1023977,435.831691 C15.634309,436.543876 15.6323433,437.521662 15.0975728,438.231703 L10.3000481,444.601611 C10.1111133,444.852469 9.81530724,445 9.50125922,445 L9,445 C8.72486786,445 8.50182918,444.776961 8.50182918,444.501829 C8.50182918,444.393541 8.53711392,444.288201 8.60234049,444.201761 L13.5482339,437.647318 C13.8159459,437.292538 13.8173723,436.803641 13.551735,436.447305 L8.59767256,429.80174 C8.43202986,429.579541 8.47787805,429.265133 8.70007736,429.09949 C8.78672907,429.034894 8.89192047,429 9,429 Z"
+                                transform="translate(12.000000, 437.000000) scale(-1, 1) translate(-12.000000, -437.000000) "
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
                     </div>
                   </div>
                 </aside>
@@ -290,7 +293,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
         />
         <div
           class="ant-drawer-content-wrapper"
-          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:256px"
+          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:216px"
         >
           <div
             class="ant-drawer-content"
@@ -299,42 +302,12 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
-              >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
-                >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </div>
-              <div
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
                   class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
-                  style="overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+                  style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
@@ -518,6 +491,39 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                         style="display:none"
                       />
                     </div>
+                    <div
+                      class="ant-pro-sider-collapsed-button"
+                      style="font-size:16px;transform:rotate(0deg);transition:transform,right 0.3s;color:rgba(0,0,0,0.45);background-color:#f0f0f0;cursor:pointer"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 8 16"
+                        width="1em"
+                      >
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          stroke="none"
+                          stroke-width="1"
+                        >
+                          <g
+                            fill="currentColor"
+                            transform="translate(-913.000000, -8934.000000)"
+                          >
+                            <g
+                              transform="translate(905.000000, 8505.000000)"
+                            >
+                              <path
+                                d="M9,429 L9.49874625,429 C9.81420921,429 10.1111762,429.148856 10.2999476,429.401605 L15.1023977,435.831691 C15.634309,436.543876 15.6323433,437.521662 15.0975728,438.231703 L10.3000481,444.601611 C10.1111133,444.852469 9.81530724,445 9.50125922,445 L9,445 C8.72486786,445 8.50182918,444.776961 8.50182918,444.501829 C8.50182918,444.393541 8.53711392,444.288201 8.60234049,444.201761 L13.5482339,437.647318 C13.8159459,437.292538 13.8173723,436.803641 13.551735,436.447305 L8.59767256,429.80174 C8.43202986,429.579541 8.47787805,429.265133 8.70007736,429.09949 C8.78672907,429.034894 8.89192047,429 9,429 Z"
+                                transform="translate(12.000000, 437.000000) scale(-1, 1) translate(-12.000000, -437.000000) "
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
                   </div>
                 </aside>
               </div>
@@ -559,7 +565,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
         />
         <div
           class="ant-drawer-content-wrapper"
-          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:256px"
+          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:216px"
         >
           <div
             class="ant-drawer-content"
@@ -568,42 +574,12 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
-              >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
-                >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </div>
-              <div
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
                   class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
-                  style="overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+                  style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
@@ -657,6 +633,39 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                         style="display:none"
                       />
                     </div>
+                    <div
+                      class="ant-pro-sider-collapsed-button"
+                      style="font-size:16px;transform:rotate(0deg);transition:transform,right 0.3s;color:rgba(0,0,0,0.45);background-color:#f0f0f0;cursor:pointer"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 8 16"
+                        width="1em"
+                      >
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          stroke="none"
+                          stroke-width="1"
+                        >
+                          <g
+                            fill="currentColor"
+                            transform="translate(-913.000000, -8934.000000)"
+                          >
+                            <g
+                              transform="translate(905.000000, 8505.000000)"
+                            >
+                              <path
+                                d="M9,429 L9.49874625,429 C9.81420921,429 10.1111762,429.148856 10.2999476,429.401605 L15.1023977,435.831691 C15.634309,436.543876 15.6323433,437.521662 15.0975728,438.231703 L10.3000481,444.601611 C10.1111133,444.852469 9.81530724,445 9.50125922,445 L9,445 C8.72486786,445 8.50182918,444.776961 8.50182918,444.501829 C8.50182918,444.393541 8.53711392,444.288201 8.60234049,444.201761 L13.5482339,437.647318 C13.8159459,437.292538 13.8173723,436.803641 13.551735,436.447305 L8.59767256,429.80174 C8.43202986,429.579541 8.47787805,429.265133 8.70007736,429.09949 C8.78672907,429.034894 8.89192047,429 9,429 Z"
+                                transform="translate(12.000000, 437.000000) scale(-1, 1) translate(-12.000000, -437.000000) "
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
                   </div>
                 </aside>
               </div>
@@ -671,11 +680,11 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="height:48px;line-height:48px;background:transparent"
+        style="height:56px;line-height:56px;background:transparent"
       />
       <header
         class="ant-layout-header ant-pro-fixed-header ant-pro-header"
-        style="padding:0;height:48px;background:transparent;line-height:48px;width:100%;z-index:100;right:0"
+        style="padding:0;height:56px;background:transparent;line-height:56px;width:100%;z-index:100;right:0"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix"
@@ -738,7 +747,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
         />
         <div
           class="ant-drawer-content-wrapper"
-          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:256px"
+          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:216px"
         >
           <div
             class="ant-drawer-content"
@@ -747,42 +756,12 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
-              >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
-                >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </div>
-              <div
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
                   class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
-                  style="overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+                  style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
@@ -836,6 +815,39 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                         style="display:none"
                       />
                     </div>
+                    <div
+                      class="ant-pro-sider-collapsed-button"
+                      style="font-size:16px;transform:rotate(0deg);transition:transform,right 0.3s;color:rgba(0,0,0,0.45);background-color:#f0f0f0;cursor:pointer"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 8 16"
+                        width="1em"
+                      >
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          stroke="none"
+                          stroke-width="1"
+                        >
+                          <g
+                            fill="currentColor"
+                            transform="translate(-913.000000, -8934.000000)"
+                          >
+                            <g
+                              transform="translate(905.000000, 8505.000000)"
+                            >
+                              <path
+                                d="M9,429 L9.49874625,429 C9.81420921,429 10.1111762,429.148856 10.2999476,429.401605 L15.1023977,435.831691 C15.634309,436.543876 15.6323433,437.521662 15.0975728,438.231703 L10.3000481,444.601611 C10.1111133,444.852469 9.81530724,445 9.50125922,445 L9,445 C8.72486786,445 8.50182918,444.776961 8.50182918,444.501829 C8.50182918,444.393541 8.53711392,444.288201 8.60234049,444.201761 L13.5482339,437.647318 C13.8159459,437.292538 13.8173723,436.803641 13.551735,436.447305 L8.59767256,429.80174 C8.43202986,429.579541 8.47787805,429.265133 8.70007736,429.09949 C8.78672907,429.034894 8.89192047,429 9,429 Z"
+                                transform="translate(12.000000, 437.000000) scale(-1, 1) translate(-12.000000, -437.000000) "
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
                   </div>
                 </aside>
               </div>
@@ -850,11 +862,11 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
     >
       <header
         class="ant-layout-header"
-        style="height:48px;line-height:48px;background:transparent"
+        style="height:56px;line-height:56px;background:transparent"
       />
       <header
         class="ant-layout-header ant-pro-fixed-header ant-pro-header"
-        style="padding:0;height:48px;background:transparent;line-height:48px;width:100%;z-index:100;right:0"
+        style="padding:0;height:56px;background:transparent;line-height:56px;width:100%;z-index:100;right:0"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix"
@@ -917,7 +929,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
         />
         <div
           class="ant-drawer-content-wrapper"
-          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:256px"
+          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:216px"
         >
           <div
             class="ant-drawer-content"
@@ -926,42 +938,12 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
-              >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
-                >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </div>
-              <div
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
                   class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
-                  style="overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+                  style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
@@ -1009,6 +991,39 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                         style="display:none"
                       />
                     </div>
+                    <div
+                      class="ant-pro-sider-collapsed-button"
+                      style="font-size:16px;transform:rotate(0deg);transition:transform,right 0.3s;color:rgba(0,0,0,0.45);background-color:#f0f0f0;cursor:pointer"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 8 16"
+                        width="1em"
+                      >
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          stroke="none"
+                          stroke-width="1"
+                        >
+                          <g
+                            fill="currentColor"
+                            transform="translate(-913.000000, -8934.000000)"
+                          >
+                            <g
+                              transform="translate(905.000000, 8505.000000)"
+                            >
+                              <path
+                                d="M9,429 L9.49874625,429 C9.81420921,429 10.1111762,429.148856 10.2999476,429.401605 L15.1023977,435.831691 C15.634309,436.543876 15.6323433,437.521662 15.0975728,438.231703 L10.3000481,444.601611 C10.1111133,444.852469 9.81530724,445 9.50125922,445 L9,445 C8.72486786,445 8.50182918,444.776961 8.50182918,444.501829 C8.50182918,444.393541 8.53711392,444.288201 8.60234049,444.201761 L13.5482339,437.647318 C13.8159459,437.292538 13.8173723,436.803641 13.551735,436.447305 L8.59767256,429.80174 C8.43202986,429.579541 8.47787805,429.265133 8.70007736,429.09949 C8.78672907,429.034894 8.89192047,429 9,429 Z"
+                                transform="translate(12.000000, 437.000000) scale(-1, 1) translate(-12.000000, -437.000000) "
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
                   </div>
                 </aside>
               </div>
@@ -1023,11 +1038,11 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="height:48px;line-height:48px;background:transparent"
+        style="height:56px;line-height:56px;background:transparent"
       />
       <header
         class="ant-layout-header ant-pro-fixed-header ant-pro-header"
-        style="padding:0;height:48px;background:transparent;line-height:48px;width:100%;z-index:100;right:0"
+        style="padding:0;height:56px;background:transparent;line-height:56px;width:100%;z-index:100;right:0"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix"
@@ -1089,7 +1104,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
         />
         <div
           class="ant-drawer-content-wrapper"
-          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:256px"
+          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:216px"
         >
           <div
             class="ant-drawer-content"
@@ -1098,42 +1113,12 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
-              >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
-                >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </div>
-              <div
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
                   class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
-                  style="overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+                  style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
@@ -1181,6 +1166,39 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                         style="display:none"
                       />
                     </div>
+                    <div
+                      class="ant-pro-sider-collapsed-button"
+                      style="font-size:16px;transform:rotate(0deg);transition:transform,right 0.3s;color:rgba(0,0,0,0.45);background-color:#f0f0f0;cursor:pointer"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 8 16"
+                        width="1em"
+                      >
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          stroke="none"
+                          stroke-width="1"
+                        >
+                          <g
+                            fill="currentColor"
+                            transform="translate(-913.000000, -8934.000000)"
+                          >
+                            <g
+                              transform="translate(905.000000, 8505.000000)"
+                            >
+                              <path
+                                d="M9,429 L9.49874625,429 C9.81420921,429 10.1111762,429.148856 10.2999476,429.401605 L15.1023977,435.831691 C15.634309,436.543876 15.6323433,437.521662 15.0975728,438.231703 L10.3000481,444.601611 C10.1111133,444.852469 9.81530724,445 9.50125922,445 L9,445 C8.72486786,445 8.50182918,444.776961 8.50182918,444.501829 C8.50182918,444.393541 8.53711392,444.288201 8.60234049,444.201761 L13.5482339,437.647318 C13.8159459,437.292538 13.8173723,436.803641 13.551735,436.447305 L8.59767256,429.80174 C8.43202986,429.579541 8.47787805,429.265133 8.70007736,429.09949 C8.78672907,429.034894 8.89192047,429 9,429 Z"
+                                transform="translate(12.000000, 437.000000) scale(-1, 1) translate(-12.000000, -437.000000) "
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
                   </div>
                 </aside>
               </div>
@@ -1195,11 +1213,11 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="height:48px;line-height:48px;background:transparent"
+        style="height:56px;line-height:56px;background:transparent"
       />
       <header
         class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header"
-        style="padding:0;height:48px;background:transparent;line-height:48px;width:100%;z-index:100;right:0"
+        style="padding:0;height:56px;background:transparent;line-height:56px;width:100%;z-index:100;right:0"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix"
@@ -1393,7 +1411,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
         />
         <div
           class="ant-drawer-content-wrapper"
-          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:256px"
+          style="transform:translateX(-100%);-ms-transform:translateX(-100%);width:216px"
         >
           <div
             class="ant-drawer-content"
@@ -1402,42 +1420,12 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
-              >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
-                >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
-              </div>
-              <div
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
                   class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
-                  style="overflow:hidden;flex:0 0 256px;max-width:256px;min-width:256px;width:256px"
+                  style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
@@ -1485,6 +1473,39 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                         style="display:none"
                       />
                     </div>
+                    <div
+                      class="ant-pro-sider-collapsed-button"
+                      style="font-size:16px;transform:rotate(0deg);transition:transform,right 0.3s;color:rgba(0,0,0,0.45);background-color:#f0f0f0;cursor:pointer"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 8 16"
+                        width="1em"
+                      >
+                        <g
+                          fill="none"
+                          fill-rule="evenodd"
+                          stroke="none"
+                          stroke-width="1"
+                        >
+                          <g
+                            fill="currentColor"
+                            transform="translate(-913.000000, -8934.000000)"
+                          >
+                            <g
+                              transform="translate(905.000000, 8505.000000)"
+                            >
+                              <path
+                                d="M9,429 L9.49874625,429 C9.81420921,429 10.1111762,429.148856 10.2999476,429.401605 L15.1023977,435.831691 C15.634309,436.543876 15.6323433,437.521662 15.0975728,438.231703 L10.3000481,444.601611 C10.1111133,444.852469 9.81530724,445 9.50125922,445 L9,445 C8.72486786,445 8.50182918,444.776961 8.50182918,444.501829 C8.50182918,444.393541 8.53711392,444.288201 8.60234049,444.201761 L13.5482339,437.647318 C13.8159459,437.292538 13.8173723,436.803641 13.551735,436.447305 L8.59767256,429.80174 C8.43202986,429.579541 8.47787805,429.265133 8.70007736,429.09949 C8.78672907,429.034894 8.89192047,429 9,429 Z"
+                                transform="translate(12.000000, 437.000000) scale(-1, 1) translate(-12.000000, -437.000000) "
+                              />
+                            </g>
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
                   </div>
                 </aside>
               </div>
@@ -1499,11 +1520,11 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
     >
       <header
         class="ant-layout-header"
-        style="height:48px;line-height:48px;background:transparent"
+        style="height:56px;line-height:56px;background:transparent"
       />
       <header
         class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header"
-        style="padding:0;height:48px;background:transparent;line-height:48px;width:100%;z-index:100;right:0"
+        style="padding:0;height:56px;background:transparent;line-height:56px;width:100%;z-index:100;right:0"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix"
