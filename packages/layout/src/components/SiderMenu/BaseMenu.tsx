@@ -141,7 +141,7 @@ class MenuUtil {
                 onTitleClick: item.onTitleClick,
               })}
         >
-          {this.getNavMenuItems(item.children, true)}
+          {this.getNavMenuItems(item.children, level + 1)}
         </MenuComponents>,
         isGroup && level === 0 ? (
           <div
