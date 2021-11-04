@@ -44,32 +44,20 @@ const DarkButton = () => {
     return null;
   }
   return (
-    <div
-      style={{
-        position: 'fixed',
-        right: 8,
-        top: 0,
-        zIndex: 999,
-        display: 'flex',
-        alignItems: 'center',
+    <Switch
+      checkedChildren="🌜"
+      unCheckedChildren="🌞"
+      defaultChecked={defaultDarken === 'dark'}
+      checked={isDark}
+      onChange={(check) => {
+        toggle();
+        if (!check) {
+          localStorage.setItem('procomponents_dark_theme', 'light');
+        } else {
+          localStorage.setItem('procomponents_dark_theme', 'dark');
+        }
       }}
-      className="procomponents_dark_theme_view"
-    >
-      <Switch
-        checkedChildren="🌜"
-        unCheckedChildren="🌞"
-        defaultChecked={defaultDarken === 'dark'}
-        checked={isDark}
-        onChange={(check) => {
-          toggle();
-          if (!check) {
-            localStorage.setItem('procomponents_dark_theme', 'light');
-          } else {
-            localStorage.setItem('procomponents_dark_theme', 'dark');
-          }
-        }}
-      />
-    </div>
+    />
   );
 };
 
@@ -138,13 +126,26 @@ export default ({ children, ...props }: IRouteComponentProps) => {
     <HelmetProvider>
       <ConfigProvider locale={zhCN}>
         <Layout {...props}>
-          <>
-            <Helmet>
+          <div>
+            <Helmet key="title">
               <title>{title}</title>
             </Helmet>
-            {children}
-            {isBrowser() ? <DarkButton /> : null}
-          </>
+            <div key="children">{children}</div>
+            <div
+              style={{
+                position: 'fixed',
+                right: 8,
+                top: 0,
+                zIndex: 999,
+                display: 'flex',
+                alignItems: 'center',
+              }}
+              key="procomponents_dark_theme_view"
+              className="procomponents_dark_theme_view"
+            >
+              {isBrowser() ? <DarkButton /> : null}
+            </div>
+          </div>
         </Layout>
       </ConfigProvider>
     </HelmetProvider>

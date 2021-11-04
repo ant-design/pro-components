@@ -10,6 +10,7 @@ import ProFormRadio from './components/Radio';
 import ProFormSwitch from './components/Switch';
 import ProFormRate from './components/Rate';
 import ProFormSlider from './components/Slider';
+import ProFormCascader from './components/Cascader';
 import ProFormUploadDragger from './components/UploadDragger';
 import ProFormUploadButton from './components/UploadButton';
 import type { ProFormFieldProps } from './components/Field';
@@ -81,6 +82,7 @@ export {
   ProFormDateTimePicker,
   ProFormTimePicker,
   ProFormText,
+  ProFormCascader,
   ProFormTextArea,
   ProFormSwitch,
   ProFormField,

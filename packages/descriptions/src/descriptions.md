@@ -55,7 +55,7 @@ interface RequestData {
 
 ### 常见配置
 
-<code src="./demos/dynamic-descriptions.tsx" title="常见配置" height="500px" iframe/>
+<code src="./demos/dynamic-descriptions.tsx" title="常见配置" height="500" iframe/>
 
 ### 基本使用
 
@@ -122,8 +122,11 @@ API 与 ProTable 相同
 | editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
 | onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
 | onSave | 保存一行的时候触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| saveText | 保存一行的文字 | `React.ReactNode` | `保存` |
 | onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<any>` | - |
+| deleteText | 删除一行的文字 | `React.ReactNode` | `删除` |
 | onCancel | 取消编辑一行时触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| cancelText | 取消编辑一行的文字 | `React.ReactNode` | `取消` |
 | actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>,defaultDom) => ReactNode[]` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
@@ -137,7 +140,7 @@ API 与 ProTable 相同
 | tooltip | 内容的补充描述，hover 后显示 | string | - |
 | span | 包含列的数量 | number | 1 |
 | valueType | 格式化的类型 | `ValueType` | - |
-| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
 | request | 从网络请求枚举数据 | `()=>Promise<{[key:string`\|`number]:any}>` | - |
 | dataIndex | 返回数据的 key 与 ProDescriptions 的 request 配合使用，用于配置式的定义列表 | `React.Text` \| `React.Text[]` | - |
 | editable | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |

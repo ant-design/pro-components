@@ -322,37 +322,44 @@ export const useFieldFetchData = (
     revalidateOnReconnect: false,
   });
 
+  const resOptions = useMemo(() => {
+    const opt = options?.map((item) => {
+      if (typeof item === 'string') {
+        return {
+          label: item,
+          value: item,
+        };
+      }
+      if (item?.optionType === 'optGroup' && (item.children || item.options)) {
+        const childrenOptions = [...(item.children || []), ...(item.options || [])].filter(
+          (mapItem) => {
+            return filerByItem(mapItem, keyWords);
+          },
+        );
+        return {
+          ...item,
+          children: childrenOptions,
+          options: childrenOptions,
+        };
+      }
+      return item;
+    });
+
+    // filterOption 为 true 时 filter数据, filterOption 默认为true
+    if (props.fieldProps?.filterOption === true || props.fieldProps?.filterOption === undefined) {
+      return opt?.filter((item) => {
+        if (!item) return false;
+        if (!keyWords) return true;
+        return filerByItem(item as any, keyWords);
+      });
+    }
+
+    return opt;
+  }, [options, keyWords, props.fieldProps?.filterOption]);
+
   return [
     loading,
-    props.request
-      ? (data as SelectProps<any>['options'])
-      : options
-          ?.map((item) => {
-            if (typeof item === 'string') {
-              return {
-                label: item,
-                value: item,
-              };
-            }
-            if (item?.optionType === 'optGroup' && (item.children || item.options)) {
-              const childrenOptions = [...(item.children || []), ...(item.options || [])].filter(
-                (mapItem) => {
-                  return filerByItem(mapItem, keyWords);
-                },
-              );
-              return {
-                ...item,
-                children: childrenOptions,
-                options: childrenOptions,
-              };
-            }
-            return item;
-          })
-          ?.filter((item) => {
-            if (!item) return false;
-            if (!keyWords) return true;
-            return filerByItem(item as any, keyWords);
-          }),
+    props.request ? (data as SelectProps<any>['options']) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
       mutate(key);

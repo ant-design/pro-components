@@ -21,6 +21,10 @@ nav:
 
 <code src="./demos/form-item.tsx" background="#f5f5f5" height="420px" title="可编辑表格" />
 
+### 与编辑表格外的内容联动
+
+<code src="./demos/form-linkage.tsx" background="#f5f5f5" height="420px" title="与编辑表格外的内容联动" />
+
 ### 有子列的表格增加
 
 <code src="./demos/children.tsx" background="#f5f5f5" height="420px" title="可展开表格" />
@@ -56,8 +60,11 @@ nav:
 | editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
 | onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
 | onSave | 保存一行的时候触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| saveText | 保存一行的文字 | `React.ReactNode` | `保存` |
 | onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<any>` | - |
+| deleteText | 删除一行的文字 | `React.ReactNode` | `删除` |
 | onCancel | 取消编辑一行时触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| cancelText | 取消编辑一行的文字 | `React.ReactNode` | `取消` |
 | actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |

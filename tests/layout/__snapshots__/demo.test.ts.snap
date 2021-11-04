@@ -242,6 +242,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                   </span>
                 </button>
               </div>
+              <div
+                class="ant-tabs-extra-content"
+              >
+                测试tabBarExtraContent
+              </div>
             </div>
             <div
               class="ant-tabs-content-holder"
@@ -1261,9 +1266,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
       >
         水印自定义配置器
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -1329,9 +1331,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
             >
               配置面板
             </div>
-            <div
-              class="ant-pro-card-extra"
-            />
           </div>
           <div
             class="ant-pro-card-body"
@@ -1647,7 +1646,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
               class="ant-spin-container"
             >
               <div
-                class="ant-table ant-table-middle ant-table-layout-fixed"
+                class="ant-table ant-table-middle"
               >
                 <div
                   class="ant-table-container"
@@ -1839,7 +1838,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </div>
                           </th>
                           <th
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
                           >
                             备注
                           </th>
@@ -1899,7 +1898,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </span>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="简短备注文案"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -2042,7 +2042,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </span>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -2185,7 +2186,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </span>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="简短备注文案"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -2328,7 +2330,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </span>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -2471,7 +2474,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </span>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="简短备注文案"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -2614,7 +2618,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </span>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -2757,7 +2762,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </span>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="简短备注文案"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -2900,7 +2906,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </span>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -3043,7 +3050,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </span>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="简短备注文案"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -3186,7 +3194,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                             </span>
                           </td>
                           <td
-                            class="ant-table-cell"
+                            class="ant-table-cell ant-table-cell-ellipsis"
+                            title="很长很长很长很长很长很长很长的文字要展示但是要留下尾巴"
                           >
                             <span
                               class="ant-typography ant-typography-ellipsis ant-typography-single-line"

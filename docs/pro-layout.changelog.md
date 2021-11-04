@@ -9,6 +9,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.26.5
+
+`2021-10-18`
+
+- Revert "fix(layout): 优化 PageContainer 头部和内容之间的间距" [#3848](https://github.com/ant-design/pro-components/pull/3848) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.26.3
+
+`2021-10-12`
+
+- 🐛 fix(layout): 优化 PageContainer 头部和内容之间的间距 [#3812](https://github.com/ant-design/pro-components/pull/3812) [@chj-damon](https://github.com/chj-damon)
+
 ## @ant-design/pro-layout@6.26.0
 
 `2021-09-24`

@@ -142,6 +142,7 @@ export default {
           'card',
           'WaterMark/index',
           'StatisticCard/index',
+          'CheckCard/index',
         ],
       },
       {

@@ -13,6 +13,9 @@ nav:
 
 ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同时提供一键切换布局形态，自动生成菜单等功能。与 PageContainer 配合使用可以自动生成面包屑，页面标题，并且提供低成本方案接入页脚工具栏。
 
+![layout
+](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
+
 ## 何时使用
 
 页面中需要承载内容时，可以使用 ProLayout 来减少布局成本。
@@ -29,7 +32,7 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 ### 从服务器加载 menu
 
-ProLayout 提供了强大的 menu，但是这样必然会封装很多行为，导致需要一些特殊逻辑的用户感到不满。所以我们提供了很多的 API，期望可以满足绝大部分客户的方式。
+ProLayout 提供了强大的菜单功能，但是这样必然会封装很多行为，导致需要一些特殊逻辑的用户感到不满。所以我们提供了很多的 API，期望可以满足绝大部分客户的方式。
 
 从服务器加载 menu 主要使用的 API 是 `menuDataRender` 和 `menuRender`,`menuDataRender`可以控制当前的菜单数据，`menuRender`可以控制菜单的 dom 节点。
 
@@ -150,7 +153,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | headerContentRender | 自定义头内容的方法 | `(props: BasicLayoutProps) => ReactNode` | - |
 | rightContentRender | 自定义头右部的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | `(collapsed: boolean) => ReactNode` | - |
-| footerRender | 自定义页脚的 render 方法 | `(props: BasicLayoutProps) => ReactNode` | - |
+| footerRender | 自定义页脚的 render 方法 | `(props: BasicLayoutProps) => JSX.Element \| false` | - |
 | pageTitleRender | 自定义页面标题的显示方法 | `(props: BasicLayoutProps) => string` | - |
 | menuRender | 自定义菜单的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | 在显示前对菜单数据进行查看，修改不会触发重新渲染 | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
@@ -158,7 +161,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
 | menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | breadcrumbRender | 自定义面包屑的数据 | `(route)=>route` | - |
-| route | 用于生成菜单和面包屑。umi 的 Layout 会自动带有 | [route](#Route) | - |
+| route | 用于生成菜单和面包屑。umi 的 Layout 会自动带有 | [route](#route) | - |
 | disableMobile | 禁止自动切换到移动页面 | `boolean` | false |
 | links | 显示在菜单右下角的快捷操作 | `ReactNode[]` | - |
 | menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
@@ -234,7 +237,7 @@ const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDa
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| routes | 路由的配置信息 | [route[]](#Route) | - |
+| routes | 路由的配置信息 | [route[]](#route) | - |
 | menu | menu 的配置项，默认 `{locale: true}` | `{ locale: boolean }` | - |
 | menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | formatMessage | react-intl 的 formatMessage 方法 | `(data: { id: any; defaultMessage?: string }) => string;` | - |

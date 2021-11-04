@@ -25,6 +25,18 @@ describe('PageContainer', () => {
     expect(html.find('.ant-page-header').exists()).toBeFalsy();
   });
 
+  it('💄 pageContainer support breadcrumbRender', async () => {
+    const html = mount(
+      <PageContainer breadcrumbRender={() => <div>这里是面包屑</div>}>content</PageContainer>,
+    );
+    expect(html.find('.has-breadcrumb').at(0).find('div div').text()).toBe('这里是面包屑');
+  });
+
+  it('💄 pageContainer support tabBarExtraContent', async () => {
+    const html = mount(<PageContainer tabBarExtraContent="测试">content</PageContainer>);
+    expect(html.find('.ant-tabs-extra-content').at(0).find('div').text()).toBe('测试');
+  });
+
   it('⚡️ support footer', async () => {
     const wrapper = mount(
       <PageContainer
@@ -224,7 +236,7 @@ describe('PageContainer', () => {
     });
   });
 
-  it('🐲 prolayout support breadcrumbProps', async () => {
+  it('🐲 pro-layout support breadcrumbProps', async () => {
     const wrapper = render(
       <BasicLayout
         breadcrumbProps={{

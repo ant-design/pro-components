@@ -2,6 +2,61 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.46.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.45.0...@ant-design/pro-form@1.46.0) (2021-11-02)
+
+### Bug Fixes
+
+- **form:** 完善 StepsForm 的 useCallback 依赖，修复可能导致的打包丢失依赖问题 ([#3938](https://github.com/ant-design/pro-components/issues/3938)) ([f0a335e](https://github.com/ant-design/pro-components/commit/f0a335e139fe230df4cf415303eec991f02273f1))
+- **list:** fix list style error ([#3943](https://github.com/ant-design/pro-components/issues/3943)) ([68e0eed](https://github.com/ant-design/pro-components/commit/68e0eede7131932eb9e16734bb5bbb3c8fa0572e))
+
+### Features
+
+- **form:** SchemaForm support dependency ([#3895](https://github.com/ant-design/pro-components/issues/3895)) ([7a5a509](https://github.com/ant-design/pro-components/commit/7a5a509f7b03311837e5f598feffa92078e81888))
+
+# [1.45.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.44.0...@ant-design/pro-form@1.45.0) (2021-10-27)
+
+### Features
+
+- **form:** support Cascader ([#3904](https://github.com/ant-design/pro-components/issues/3904)) ([be63c81](https://github.com/ant-design/pro-components/commit/be63c81be1102fd2f099e9182fb296a01a8b59f0))
+
+# [1.44.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.43.5...@ant-design/pro-form@1.44.0) (2021-10-26)
+
+### Bug Fixes
+
+- **form:** fix modal and darwer no animation error ([#3884](https://github.com/ant-design/pro-components/issues/3884)) ([806d615](https://github.com/ant-design/pro-components/commit/806d615656038d7acda95f71bc8a57764982d157))
+- **schema-form:** fix typo in Chinese doc ([#3873](https://github.com/ant-design/pro-components/issues/3873)) ([7eb6951](https://github.com/ant-design/pro-components/commit/7eb695102cca389c66f9368c5f3e83fc2417e74f))
+
+### Features
+
+- **form:** support autoFocusFirstInput props ([#3894](https://github.com/ant-design/pro-components/issues/3894)) ([a860555](https://github.com/ant-design/pro-components/commit/a860555f6ab683b52bb0cfd58e6be60fe98a70fe))
+- support ssr server ([69773c9](https://github.com/ant-design/pro-components/commit/69773c9dbaccd342d86312032c7b09958cdaed7c))
+
+## [1.43.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.43.4...@ant-design/pro-form@1.43.5) (2021-10-19)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.43.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.43.3...@ant-design/pro-form@1.43.4) (2021-10-18)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.43.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.43.2...@ant-design/pro-form@1.43.3) (2021-10-15)
+
+### Bug Fixes
+
+- **form:** 修复 ProFormList 的 children 类型错误问题并添加 action 注入([#3835](https://github.com/ant-design/pro-components/issues/3835)) ([5593d4d](https://github.com/ant-design/pro-components/commit/5593d4d55197c685f4c4d92d2b010f3d8fbc9e94))
+- **form:** fix Abnormal operation of proformdependency in proform ([#3839](https://github.com/ant-design/pro-components/issues/3839)) ([d107ea9](https://github.com/ant-design/pro-components/commit/d107ea93c4bb8fe08c56cbe8eb52722ff327b9f6))
+- **form:** fix modal and drawer reset error ([#3838](https://github.com/ant-design/pro-components/issues/3838)) ([e76eee7](https://github.com/ant-design/pro-components/commit/e76eee762779a0b3718441b57bc037dc3a5bee89))
+
+## [1.43.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.43.1...@ant-design/pro-form@1.43.2) (2021-10-12)
+
+### Bug Fixes
+
+- **card:** fix card ehen theme change no change color error ([#3804](https://github.com/ant-design/pro-components/issues/3804)) ([083ec08](https://github.com/ant-design/pro-components/commit/083ec08794ab555615d5eb2304c3ef2e4660e77f))
+
+## [1.43.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.43.0...@ant-design/pro-form@1.43.1) (2021-10-08)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
 # [1.43.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.42.1...@ant-design/pro-form@1.43.0) (2021-10-08)
 
 ### Bug Fixes

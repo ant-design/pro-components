@@ -6,14 +6,13 @@ import type { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
-import { useMountMergeState } from '@ant-design/pro-utils';
+import { useMountMergeState, merge } from '@ant-design/pro-utils';
 
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
 import './index.less';
 import type { ProFormProps } from '../ProForm';
 import type { SubmitterProps } from '../../components/Submitter';
-import merge from 'lodash.merge';
 
 type StepsFormProps<T = Record<string, any>> = {
   /**
@@ -142,13 +141,13 @@ function StepsForm<T = Record<string, any>>(
       formDataRef.current.set(name, formData);
       // 如果是最后一步
       if (step === formMapRef.current.size - 1 || formMapRef.current.size === 0) {
-        if (!props.onFinish) {
+        if (!onFinish) {
           return;
         }
         setLoading(true);
         const values: any = merge({}, ...Array.from(formDataRef.current.values()));
         try {
-          const success = await props.onFinish(values);
+          const success = await onFinish(values);
           if (success) {
             setStep(0);
             formArrayRef.current.forEach((form) => form.current?.resetFields());
@@ -162,7 +161,7 @@ function StepsForm<T = Record<string, any>>(
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [props, step],
+    [step, formMapRef, onFinish],
   );
 
   const stepsDom = (

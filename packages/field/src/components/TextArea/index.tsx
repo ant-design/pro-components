@@ -13,6 +13,7 @@ const FieldTextArea: ProFieldFC<{
   text: string;
 }> = ({ text, mode, render, renderFormItem, fieldProps }, ref) => {
   const intl = useIntl();
+
   if (mode === 'read') {
     const dom = <span ref={ref}>{text ?? '-'}</span>;
     if (render) {
@@ -23,12 +24,12 @@ const FieldTextArea: ProFieldFC<{
   if (mode === 'edit' || mode === 'update') {
     const dom = (
       <Input.TextArea
+        ref={ref}
         rows={3}
         onKeyPress={(e) => {
           if (e.key === 'Enter') e.stopPropagation();
         }}
         placeholder={intl.getMessage('tableForm.inputPlaceholder', '请输入')}
-        ref={ref}
         {...fieldProps}
       />
     );

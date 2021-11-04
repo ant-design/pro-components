@@ -247,4 +247,82 @@ describe('SchemaForm', () => {
     expect(html.find('#title').exists()).toBeTruthy();
     expect(html.find('#category').exists()).toBeFalsy();
   });
+
+  it('😊 SchemaForm support ProFormDependency', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <BetaSchemaForm
+        onFinish={onFinish}
+        initialValues={{
+          name: '蚂蚁设计有限公司',
+          name2: '蚂蚁设计集团',
+          useMode: 'chapter',
+        }}
+        columns={[
+          {
+            dataIndex: 'name',
+            title: '签约客户名称',
+            tooltip: '最长为 24 位',
+            fieldProps: {
+              placeholder: '请输入名称',
+            },
+            width: 'md',
+          },
+          {
+            dataIndex: ['name2', 'text'],
+            title: '签约客户名称',
+            tooltip: '最长为 24 位',
+            fieldProps: {
+              placeholder: '请输入名称',
+            },
+            width: 'md',
+          },
+          {
+            valueType: 'dependency',
+            fieldProps: {
+              name: ['name', ['name2', 'text']],
+            },
+            columns: (values) => [
+              {
+                valueType: 'select',
+
+                width: 'md',
+                valueEnum: {
+                  chapter: {
+                    text: '盖章后生效',
+                  },
+                },
+                title: () => {
+                  return (
+                    <span id="label_text">{`与《${values?.name || ''}》 与 《${
+                      values?.name2?.text || ''
+                    }》合同约定生效方式`}</span>
+                  );
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('input#name').simulate('change', {
+        target: {
+          value: 'test',
+        },
+      });
+    });
+
+    act(() => {
+      wrapper.find('input#name2_text').simulate('change', {
+        target: {
+          value: 'test2',
+        },
+      });
+    });
+
+    expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
+  });
 });

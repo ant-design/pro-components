@@ -192,13 +192,8 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     },
   });
 
-  /** 如果有 ellipsis ，设置 tableLayout 为 fixed */
-  const tableLayout =
-    // 优先以用户设置为准
-    props.tableLayout ?? props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
-
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
-  const baseTableDom = <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />;
+  const baseTableDom = <Table<T> {...getTableProps()} rowKey={rowKey} />;
 
   /** 自定义的 render */
   const tableDom = props.tableViewRender

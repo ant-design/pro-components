@@ -9,6 +9,18 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.22.6
+
+`2021-10-08`
+
+- 🐛 fix(field): timePicker 组件用 moment 解析时间不填入 format 是会直接 Invalid date [#3745](https://github.com/ant-design/pro-components/pull/3745) [@rojer95](https://github.com/rojer95)
+
+## @ant-design/pro-field@1.22.0
+
+`2021-09-07`
+
+- 💥 feat(form,field): 增加 ProFormMoney 组件 [#3588](https://github.com/ant-design/pro-components/pull/3588) [@kiner-tang](https://github.com/kiner-tang)
+
 ## @ant-design/pro-field@1.20.0
 
 `2021-08-24`

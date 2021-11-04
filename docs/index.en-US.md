@@ -6,7 +6,7 @@ hero:
   title: ProComponents
   desc: 🏆 Make middle and backstage development easier
   actions:
-    - text: 🥳 quick-start →
+    - text: 👨‍💻👩‍💻 quick-start →
       link: /en-US/docs/getting-started
 
 features:

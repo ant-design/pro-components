@@ -868,7 +868,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
 </div>
 `;
 
-exports[`PageContainer 🐲 prolayout support breadcrumbProps 1`] = `
+exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side"
 >

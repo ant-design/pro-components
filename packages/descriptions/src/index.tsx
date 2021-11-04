@@ -214,11 +214,12 @@ export const FieldRender: React.FC<
           return (
             <Space>
               <InlineErrorFormItem
-                style={{
-                  margin: 0,
-                }}
                 name={dataIndex}
                 {...formItemProps}
+                style={{
+                  margin: 0,
+                  ...(formItemProps?.style || {}),
+                }}
                 initialValue={text || formItemProps?.initialValue}
               >
                 {dom || (

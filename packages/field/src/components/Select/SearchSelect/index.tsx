@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
-import React from 'react';
+import React, { useContext, useImperativeHandle, useEffect, useRef, useState } from 'react';
 import type { SelectProps } from 'antd';
 import { Select, ConfigProvider } from 'antd';
 import classNames from 'classnames';
@@ -99,6 +98,16 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   } = props;
   const [searchValue, setSearchValue] = useState(propsSearchValue);
 
+  const selectRef = useRef<any>();
+
+  useImperativeHandle(ref, () => selectRef.current);
+
+  useEffect(() => {
+    if (restProps.autoFocus) {
+      selectRef?.current?.focus();
+    }
+  }, [restProps.autoFocus]);
+
   useEffect(() => {
     setSearchValue(propsSearchValue);
   }, [propsSearchValue]);
@@ -162,7 +171,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   };
   return (
     <Select<any>
-      ref={ref}
+      ref={selectRef}
       className={classString}
       allowClear
       disabled={disabled}

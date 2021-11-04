@@ -538,7 +538,7 @@ describe('List', () => {
     expect(onMouseEnter).toBeCalledWith('我是名称');
   });
 
-  it('🚏 ProList support rowClassName', async () => {
+  it('🚏 ProList support rowClassName as a string', async () => {
     const customizedRowClassName = 'rowClassName';
     const html = mount(
       <ProList
@@ -561,7 +561,42 @@ describe('List', () => {
         rowClassName={customizedRowClassName}
       />,
     );
-    expect(html.find('div.ant-pro-list-row').hasClass(customizedRowClassName)).toBe(true);
+    expect(html.find('li.ant-pro-list-row').hasClass(customizedRowClassName)).toBe(true);
+    expect(html.render()).toMatchSnapshot();
+  });
+
+  it('🚏 ProList support rowClassName as a function', async () => {
+    const customizedRowClassName = (_: any, index: number): string =>
+      index % 2 === 0 ? 'even' : 'odd';
+    const html = mount(
+      <ProList
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+          },
+        ]}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+          description: {
+            dataIndex: ['desc', 'text'],
+          },
+        }}
+        rowClassName={customizedRowClassName}
+      />,
+    );
+    expect(html.find('li.ant-pro-list-row').at(0).hasClass('even')).toBe(true);
+    expect(html.find('li.ant-pro-list-row').at(1).hasClass('odd')).toBe(true);
     expect(html.render()).toMatchSnapshot();
   });
 
@@ -619,5 +654,86 @@ describe('List', () => {
     waitForComponentToPaint(html);
 
     expect(html.find('.ant-pro-list-row-header').at(0).text()).toBe('qixian:我是名称desc text');
+  });
+
+  it('🚏 list support actions render to extra props', async () => {
+    const html = mount(
+      <ProList
+        grid={{ gutter: 16, column: 2 }}
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+            actions: [
+              <a key="edit" id="html_url">
+                修复
+              </a>,
+            ],
+          },
+        ]}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+          description: {
+            dataIndex: ['desc', 'text'],
+          },
+          actions: {},
+        }}
+      />,
+    );
+    waitForComponentToPaint(html, 1000);
+    // 触发click，执行一下 stopPropagation 的代码
+    act(() => {
+      html.find('.ant-pro-card-extra a').simulate('click');
+    });
+    expect(html.find('.ant-pro-card-extra a').text()).toEqual('修复');
+    expect(html.find('.ant-pro-card-actions').exists()).toBeFalsy();
+  });
+
+  it('🚏 list support actions render to actions props', async () => {
+    const html = mount(
+      <ProList
+        grid={{ gutter: 16, column: 2 }}
+        dataSource={[
+          {
+            name: '我是名称',
+            desc: {
+              text: 'desc text',
+            },
+            actions: {},
+          },
+        ]}
+        metas={{
+          title: {
+            dataIndex: 'name',
+          },
+          description: {
+            dataIndex: ['desc', 'text'],
+          },
+          actions: {
+            cardActionProps: 'actions',
+            render: () => [
+              <a key="edit" id="edit">
+                修复
+              </a>,
+            ],
+          },
+        }}
+      />,
+    );
+    waitForComponentToPaint(html, 1000);
+    expect(html.find('.ant-pro-card-actions a').text()).toEqual('修复');
+    expect(html.find('.ant-pro-card-extra').exists()).toBeFalsy();
+
+    act(() => {
+      html.find('#edit').simulate('click');
+    });
+
+    act(() => {
+      html.unmount();
+    });
   });
 });

@@ -33,14 +33,14 @@ function useFetchData<T, U extends Record<string, any> = Record<string, any>>(pr
     return [proFieldKeyRef.current, JSON.stringify(props.params)];
   }, [props.params]);
 
-  const { data, error } = useSWR(key, fetchData, {
+  const { data, error } = useSWR<T | undefined>(key, fetchData, {
     revalidateOnFocus: false,
     shouldRetryOnError: false,
     revalidateOnReconnect: false,
   });
 
   return [
-    (data as T) || error,
+    data || error,
     () => {
       mutate(key);
     },
