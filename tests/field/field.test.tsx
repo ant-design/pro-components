@@ -39,6 +39,22 @@ describe('Field', () => {
     expect(html.find('input').props().value).toBe('￥ 100');
   });
 
+  it('🐴 should trigger onChange function provided when change', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <Field text="100" valueType="money" mode="edit" fieldProps={{ onChange: fn }} />,
+    );
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+
+    expect(fn).toBeCalled();
+  });
+
   it('🐴 percent=0', async () => {
     const html = render(
       <Field
@@ -107,7 +123,7 @@ describe('Field', () => {
     expect(html.text()).toBe('default');
   });
 
-  ['select', 'checkbox', 'radio', 'radioButton'].forEach((valueType) => {
+  ['select', 'checkbox', 'radio', 'radioButton', 'cascader'].forEach((valueType) => {
     it(`🐴 ${valueType} support render function`, async () => {
       const html = render(
         <Field
@@ -357,6 +373,7 @@ describe('Field', () => {
     'rate',
     'image',
     'color',
+    'cascader',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType support render ${valueType}`, async () => {

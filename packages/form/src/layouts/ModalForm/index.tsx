@@ -66,6 +66,8 @@ function ModalForm<T = Record<string, any>>({
     onChange: onVisibleChange,
   });
 
+  const [key, setKey] = useMergedState<number>(0);
+
   const context = useContext(ConfigProvider.ConfigContext);
 
   const renderDom = useMemo(() => {
@@ -85,12 +87,12 @@ function ModalForm<T = Record<string, any>>({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [context, modalProps, visible]);
 
-  const [scrollLocker] = useState(
-    () =>
-      new ScrollLocker({
-        container: renderDom || document.body,
-      }),
-  );
+  const [scrollLocker] = useState(() => {
+    if (typeof window === 'undefined') return undefined;
+    return new ScrollLocker({
+      container: renderDom || document.body,
+    });
+  });
 
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
@@ -117,6 +119,7 @@ function ModalForm<T = Record<string, any>>({
     () => () => {
       scrollLocker?.unLock?.();
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
 
@@ -143,10 +146,6 @@ function ModalForm<T = Record<string, any>>({
   useEffect(() => {
     if (visible) {
       isFirstRender.current = false;
-    }
-    // 再打开的时候重新刷新，会让 initialValues 生效
-    if (visible && modalProps?.destroyOnClose) {
-      formRef.current?.resetFields();
     }
   }, [modalProps?.destroyOnClose, visible]);
 
@@ -179,6 +178,7 @@ function ModalForm<T = Record<string, any>>({
   const formDom = (
     <div ref={domRef} onClick={(e) => e.stopPropagation()}>
       <BaseForm
+        key={key}
         formComponentType="ModalForm"
         layout="vertical"
         {...omit(rest, ['visible'])}
@@ -202,6 +202,13 @@ function ModalForm<T = Record<string, any>>({
               title={title}
               width={width || 800}
               {...modalProps}
+              afterClose={() => {
+                // 关闭的时候重新刷新，会让 initialValues 生效
+                if (modalProps?.destroyOnClose) {
+                  setKey(key + 1);
+                }
+                modalProps?.afterClose?.();
+              }}
               getContainer={false}
               visible={visible}
               onCancel={(e) => {
@@ -220,9 +227,15 @@ function ModalForm<T = Record<string, any>>({
     </div>
   );
 
+  /** 这个是为了支持 ssr */
+  const portalRenderDom = useMemo(() => {
+    if (typeof window === 'undefined') return undefined;
+    return renderDom || document.body;
+  }, [renderDom]);
+
   return (
     <>
-      {renderDom !== false ? createPortal(formDom, renderDom || document.body) : formDom}
+      {renderDom !== false && portalRenderDom ? createPortal(formDom, portalRenderDom) : formDom}
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,

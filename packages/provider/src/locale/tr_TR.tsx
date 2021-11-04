@@ -53,6 +53,9 @@ export default {
     prev: 'Önceki',
     submit: 'Gönder',
   },
+  loginForm: {
+    submitText: 'Giriş Yap',
+  },
   editableTable: {
     action: {
       save: 'Kaydet',

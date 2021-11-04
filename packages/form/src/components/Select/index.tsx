@@ -98,7 +98,6 @@ const SearchSelect = React.forwardRef<any, ProFormSelectProps<any>>(
       showArrow: false,
       autoClearSearchValue: true,
       optionLabelProp: 'label',
-      filterOption: false,
       ...fieldProps,
     };
     const context = useContext(FieldContext);

@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.56.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.56.6...@ant-design/pro-table@2.56.7) (2021-11-02)
+
+### Bug Fixes
+
+- **list:** fix list style error ([#3943](https://github.com/ant-design/pro-components/issues/3943)) ([68e0eed](https://github.com/ant-design/pro-components/commit/68e0eede7131932eb9e16734bb5bbb3c8fa0572e))
+
+## [2.56.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.56.5...@ant-design/pro-table@2.56.6) (2021-10-28)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.56.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.56.4...@ant-design/pro-table@2.56.5) (2021-10-27)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.56.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.56.3...@ant-design/pro-table@2.56.4) (2021-10-26)
+
+### Bug Fixes
+
+- **table:** fix when dataSource=null, no work error ([#3877](https://github.com/ant-design/pro-components/issues/3877)) ([ffb9ccc](https://github.com/ant-design/pro-components/commit/ffb9ccc739acb6226f0c7f0bfb3a7efa24c28b8b))
+
+## [2.56.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.56.2...@ant-design/pro-table@2.56.3) (2021-10-19)
+
+### Bug Fixes
+
+- **table:** header support ellipsis ([#3855](https://github.com/ant-design/pro-components/issues/3855)) ([0f3501d](https://github.com/ant-design/pro-components/commit/0f3501da23f9f8a1cc596f913fef21e12a570efa))
+
+## [2.56.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.56.1...@ant-design/pro-table@2.56.2) (2021-10-18)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.56.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.56.0...@ant-design/pro-table@2.56.1) (2021-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.56.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.55.0...@ant-design/pro-table@2.56.0) (2021-10-12)
+
+### Features
+
+- 工具栏-列设置-新增 slot ([#3808](https://github.com/ant-design/pro-components/issues/3808)) ([a08fff3](https://github.com/ant-design/pro-components/commit/a08fff317b516c466aab96027bda4614185ff91c))
+
+# [2.55.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.54.5...@ant-design/pro-table@2.55.0) (2021-10-08)
+
+### Features
+
+- **list:** add cardlist operate ([#3746](https://github.com/ant-design/pro-components/issues/3746)) ([43de757](https://github.com/ant-design/pro-components/commit/43de7577ca46b5b26acdd544cc40ec1e559a3b93))
+
 ## [2.54.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.54.4...@ant-design/pro-table@2.54.5) (2021-10-08)
 
 ### Bug Fixes

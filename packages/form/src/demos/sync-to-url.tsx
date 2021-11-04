@@ -1,7 +1,6 @@
 import React from 'react';
 import { message } from 'antd';
 import ProForm, {
-  ProFormText,
   ProFormDateRangePicker,
   ProFormSelect,
   ProFormDatePicker,
@@ -33,13 +32,18 @@ export default () => {
         name: '蚂蚁设计有限公司',
         useMode: 'chapter',
       }}
+      autoFocusFirstInput
     >
-      <ProFormText
-        width="md"
-        name="name"
-        label="签约客户名称"
-        tooltip="最长为 24 位"
-        placeholder="请输入名称"
+      <ProFormSelect
+        options={[
+          {
+            value: 'chapter',
+            label: '盖章后生效',
+          },
+        ]}
+        width="sm"
+        name="useMode"
+        label="合同约定生效方式"
       />
       <ProFormDateRangePicker
         transform={(values) => {
@@ -52,19 +56,7 @@ export default () => {
         name="createTimeRanger"
         label="合同生效时间"
       />
-
       <ProFormDatePicker width="md" name="expirationTime" label="合同失效时间" />
-      <ProFormSelect
-        options={[
-          {
-            value: 'chapter',
-            label: '盖章后生效',
-          },
-        ]}
-        width="sm"
-        name="useMode"
-        label="合同约定生效方式"
-      />
     </ProForm>
   );
 };

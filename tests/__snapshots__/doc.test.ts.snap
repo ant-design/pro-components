@@ -14,9 +14,6 @@ Array [
       >
         SchemaForm
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -282,9 +279,6 @@ Array [
       >
         ProTable
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"
@@ -565,9 +559,6 @@ Array [
       >
         ProDescriptions
       </div>
-      <div
-        class="ant-pro-card-extra"
-      />
     </div>
     <div
       class="ant-pro-card-body"

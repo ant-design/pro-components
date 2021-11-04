@@ -78,6 +78,8 @@ export type GroupProps = {
   defaultCollapsed?: boolean;
   /** 折叠修改的事件 */
   onCollapse?: (collapsed: boolean) => void;
+  /** 自定选中一个input，只能有一个生效 */
+  autoFocus?: boolean;
 };
 
 export type FieldProps = {
@@ -90,7 +92,7 @@ export type LightFilterFooterRender =
   | ((
       onConfirm?: (e?: React.MouseEvent) => void,
       onClear?: (e?: React.MouseEvent) => void,
-    ) => JSX.Element)
+    ) => JSX.Element | false)
   | false;
 
 export type ProFormFieldItemProps<T = Record<string, any>> = {
@@ -113,5 +115,5 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
 
   /** QueryFilter 上的footer */
   footerRender?: LightFilterFooterRender;
-} & ProFormItemProps &
+} & Omit<ProFormItemProps, 'valueType'> &
   ExtendsProps;

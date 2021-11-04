@@ -16,8 +16,8 @@ const Demo = () => {
           return <ProForm.Group>{doms}</ProForm.Group>;
         }}
       >
-        {(f, index) => {
-          console.log(f, index);
+        {(f, index, action) => {
+          console.log(f, index, action);
           return (
             <>
               <ProFormText initialValue={index} name="rowKey" label={`第 ${index} 配置`} />

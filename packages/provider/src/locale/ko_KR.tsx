@@ -53,6 +53,9 @@ export default {
     prev: '이전',
     submit: '종료',
   },
+  loginForm: {
+    submitText: '로그인',
+  },
   editableTable: {
     action: {
       save: '저장',

@@ -36,6 +36,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
       return '100%';
     }
     return isMobile ? '100%' : `calc(100% - ${siderWidth}px)`;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value.collapsed, value.hasSiderMenu, value.isMobile, value.siderWidth]);
 
   const dom = (
@@ -54,6 +55,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
     return () => {
       value?.setHasFooterToolbar?.(false);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

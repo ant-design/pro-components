@@ -66,18 +66,19 @@ export type ItemProps<RecordType> = {
     title: React.ReactNode;
     actions: React.ReactNode[];
   };
-  index?: number;
+  index: number;
   selected?: boolean;
   avatar?: React.ReactNode;
-  extra?: React.ReactNode;
   content?: React.ReactNode;
   actions?: React.ReactNode[];
+  extra?: React.ReactNode;
   description?: React.ReactNode;
   loading?: boolean;
   style?: React.CSSProperties;
   grid?: ListGridType;
   expand?: boolean;
   rowSupportExpand?: boolean;
+  cardActionProps?: 'actions' | 'extra';
   onExpand?: (expand: boolean) => void;
   expandable?: ExpandableConfig<any>;
   showActions?: 'hover' | 'always';
@@ -116,7 +117,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     description,
     isEditable,
     checkbox,
-    index = 0,
+    index,
     selected,
     loading,
     expand: propsExpand,
@@ -129,9 +130,10 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     style,
     className: propsClassName = defaultClassName,
     record,
-    extra,
     onRow,
     itemHeaderRender,
+    cardActionProps,
+    extra,
     ...rest
   } = props;
 
@@ -167,16 +169,25 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
   const expandedRowDom =
     expandedRowRender && expandedRowRender(record, index, indentSize, expanded);
 
-  const actionsDom = useMemo(() => {
-    if (actions) {
-      return [
-        <div key="action" onClick={(e) => e.stopPropagation()}>
-          {actions}
-        </div>,
-      ];
+  const extraDom = useMemo(() => {
+    if (!actions || cardActionProps === 'actions') {
+      return undefined;
     }
-    return undefined;
-  }, [actions]);
+
+    return [
+      <div key="action" onClick={(e) => e.stopPropagation()}>
+        {actions}
+      </div>,
+    ];
+  }, [actions, cardActionProps]);
+
+  const actionsDom = useMemo(() => {
+    if (!actions || !cardActionProps || cardActionProps === 'extra') {
+      return undefined;
+    }
+
+    return actions;
+  }, [actions, cardActionProps]);
 
   const titleDom =
     title || subTitle ? (
@@ -186,11 +197,12 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       </div>
     ) : null;
 
+  const metaTitle = (itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom;
   const metaDom =
-    title || avatar || subTitle || description ? (
+    metaTitle || avatar || subTitle || description ? (
       <List.Item.Meta
         avatar={avatar}
-        title={(itemTitleRender && itemTitleRender?.(record, index, titleDom)) ?? titleDom}
+        title={metaTitle}
         description={
           description &&
           needExpanded && <div className={`${className}-description`}>{description}</div>
@@ -203,13 +215,28 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     [`${className}-item-has-avatar`]: avatar,
     [className]: className,
   });
+  const cardTitleDom = useMemo(() => {
+    if (avatar || title) {
+      return (
+        <>
+          {avatar && (
+            <Avatar size={22} src={avatar} className={getPrefixCls('list-item-meta-avatar')} />
+          )}
+          <span className={getPrefixCls('list-item-meta-title')}>{title}</span>
+        </>
+      );
+    }
+    return null;
+  }, [avatar, getPrefixCls, title]);
 
   const defaultDom = !cardProps ? (
     <List.Item
-      className={rowClassName}
-      actions={actionsDom}
-      extra={!!extra && <div className={extraClassName}>{extra}</div>}
+      className={classNames(rowClassName, {
+        [propsClassName]: propsClassName !== defaultClassName,
+      })}
       {...rest}
+      actions={extraDom}
+      extra={!!extra && <div className={extraClassName}>{extra}</div>}
       {...onRow?.(record, index)}
       onClick={(e) => {
         onRow?.(record, index)?.onClick?.(e);
@@ -252,32 +279,27 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     <ProCard
       bordered
       loading={loading}
+      hoverable
       {...cardProps}
-      title={
-        avatar || title ? (
-          <>
-            {avatar && (
-              <Avatar size={22} src={avatar} className={getPrefixCls('list-item-meta-avatar')} />
-            )}
-            {title}
-          </>
-        ) : null
-      }
+      title={cardTitleDom}
       subTitle={subTitle}
-      extra={actionsDom}
+      extra={extraDom}
+      actions={actionsDom}
     >
       <Skeleton avatar title={false} loading={loading} active>
         <div className={`${className}-header`}>
-          {!!checkbox && <div className={`${className}-checkbox`}>{checkbox}</div>}
           {itemTitleRender && itemTitleRender?.(record, index, titleDom)}
           {content}
         </div>
       </Skeleton>
     </ProCard>
   );
+  if (!cardProps) {
+    return defaultDom;
+  }
   return (
     <div
-      className={classNames(className, {
+      className={classNames({
         [`${className}-card`]: cardProps,
         [propsClassName]: propsClassName !== defaultClassName,
       })}

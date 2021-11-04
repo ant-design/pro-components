@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.24.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.24.0...@ant-design/pro-field@1.24.1) (2021-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.23.0...@ant-design/pro-field@1.24.0) (2021-10-27)
+
+### Features
+
+- **form:** support Cascader ([#3904](https://github.com/ant-design/pro-components/issues/3904)) ([be63c81](https://github.com/ant-design/pro-components/commit/be63c81be1102fd2f099e9182fb296a01a8b59f0))
+
+# [1.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.10...@ant-design/pro-field@1.23.0) (2021-10-26)
+
+### Features
+
+- **form:** support autoFocusFirstInput props ([#3894](https://github.com/ant-design/pro-components/issues/3894)) ([a860555](https://github.com/ant-design/pro-components/commit/a860555f6ab683b52bb0cfd58e6be60fe98a70fe))
+
+## [1.22.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.9...@ant-design/pro-field@1.22.10) (2021-10-19)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.8...@ant-design/pro-field@1.22.9) (2021-10-18)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.7...@ant-design/pro-field@1.22.8) (2021-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.6...@ant-design/pro-field@1.22.7) (2021-10-08)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.22.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.5...@ant-design/pro-field@1.22.6) (2021-10-08)
 
 ### Bug Fixes

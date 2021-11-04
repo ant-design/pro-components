@@ -34,6 +34,9 @@
     "> 1%",
     "ie >= 11"
   ],
+  "resolutions": {
+    "prettier":"2.x"
+  },
   "devDependencies": {
     "@ant-design/icons": "^4.6.2",
     "@babel/core": "^7.8.3",
@@ -49,7 +52,6 @@
     "@types/enzyme": "^3.10.3",
     "@types/history": "^4.7.7",
     "@types/jest": "^26.0.0",
-    "@types/lodash.merge": "^4.6.6",
     "@types/memoize-one": "^5.1.2",
     "@types/mockjs": "^1.0.3",
     "@types/node": "^14.0.26",
@@ -61,8 +63,9 @@
     "@types/react-router-dom": "^5.1.0",
     "@types/warning": "^3.0.0",
     "@types/xhr-mock": "^2.0.0",
+    "@types/shallowequal": "^1.1.1",
     "@umijs/babel-preset-umi": "^3.0.14",
-    "@umijs/fabric": "2.6.2",
+    "@umijs/fabric": "^2.6.2",
     "@umijs/plugin-analytics": "^0.2.2",
     "@umijs/plugin-antd": "^0.9.0",
     "@umijs/plugin-esbuild": "^1.1.0",
@@ -78,7 +81,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^5.0.2",
     "css-minimizer-webpack-plugin": "^1.2.0",
-    "dumi": "^1.1.18",
+    "dumi": "^1.1.31",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.4.3",
     "eslint": "^7.2.0",
@@ -106,7 +109,6 @@
     "pify": "^5.0.0",
     "prettier": "^2.2.1",
     "prettier-plugin-jsdoc": "^0.2.13",
-    "prettier-plugin-style-order": "^0.2.2",
     "pretty-quick": "^3.0.1",
     "pro-changelog": "^1.0.0",
     "progress-bar-webpack-plugin": "^2.1.0",

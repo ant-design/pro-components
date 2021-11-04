@@ -303,6 +303,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const swrKey = useMemo(() => {
     if (!menu?.params) return [defaultId];
     return [defaultId, menu?.params];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [defaultId, stringify(menu?.params)]);
 
   const preData = useRef<MenuDataItem[] | undefined>(undefined);

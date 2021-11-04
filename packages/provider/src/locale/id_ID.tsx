@@ -53,4 +53,7 @@ export default {
     prev: 'Sebelumnya',
     submit: 'Selesai',
   },
+  loginForm: {
+    submitText: 'Login',
+  },
 };

@@ -44,4 +44,7 @@ export default {
     pre: '前へ',
     submit: '送信',
   },
+  loginForm: {
+    submitText: 'ログイン',
+  },
 };

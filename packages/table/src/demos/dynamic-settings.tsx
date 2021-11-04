@@ -1,5 +1,5 @@
 import { DownOutlined } from '@ant-design/icons';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ProForm, {
   ProFormDigit,
   ProFormRadio,
@@ -16,6 +16,7 @@ import ProTable from '@ant-design/pro-table';
 import { useDebounceFn } from '@ant-design/pro-utils';
 import ProCard from '@ant-design/pro-card';
 import { Button } from 'antd';
+import type { ProFormInstance } from '@ant-design/pro-form';
 
 const valueTypeArray = [
   'password',
@@ -156,6 +157,8 @@ const initData = {
 };
 
 const DynamicSettings = () => {
+  const ref = useRef<ProFormInstance>();
+
   const [config, setConfig] = useState<any>(initData);
 
   /** 去抖配置 */
@@ -186,6 +189,7 @@ const DynamicSettings = () => {
       >
         <ProTable
           {...config}
+          formRef={ref}
           pagination={
             config.pagination?.show
               ? config.pagination
@@ -666,6 +670,11 @@ const DynamicSettings = () => {
                   width="xs"
                   label="值类型"
                   name="valueType"
+                  fieldProps={{
+                    onChange: () => {
+                      ref.current?.resetFields();
+                    },
+                  }}
                   options={valueTypeArray.map((value) => ({
                     label: value,
                     value,

@@ -45,4 +45,7 @@ export default {
     prev: 'Anterior',
     submit: 'Finalizar',
   },
+  loginForm: {
+    submitText: 'Entrar',
+  },
 };

@@ -1123,7 +1123,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-small ant-table-layout-fixed"
+              class="ant-table ant-table-small"
             >
               <div
                 class="ant-table-container"
@@ -1161,7 +1161,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           边框序号
                         </th>
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           Name
                         </th>
@@ -1219,7 +1219,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           Age
                         </th>
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           Address
                         </th>
@@ -1281,10 +1281,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 0"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -1383,7 +1384,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           10
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 0"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -1553,10 +1555,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 1"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -1655,7 +1658,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           11
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 1"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -1825,10 +1829,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 2"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -1927,7 +1932,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           12
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 2"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -2097,10 +2103,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 3"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -2199,7 +2206,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           13
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 3"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -2369,10 +2377,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 4"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -2471,7 +2480,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           14
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 4"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -2641,10 +2651,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 5"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -2743,7 +2754,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           15
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 5"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -2913,10 +2925,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 6"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -3015,7 +3028,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           16
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 6"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -3185,10 +3199,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 7"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -3287,7 +3302,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           17
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 7"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -3457,10 +3473,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 8"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -3559,7 +3576,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           18
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 8"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -3729,10 +3747,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 9"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -3831,7 +3850,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           19
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 9"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -4001,10 +4021,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 10"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -4103,7 +4124,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           20
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 10"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -4273,10 +4295,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 11"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -4375,7 +4398,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           21
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 11"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -4545,10 +4569,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 12"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -4647,7 +4672,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           22
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 12"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -4817,10 +4843,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 13"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -4919,7 +4946,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           23
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 13"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -5089,10 +5117,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 14"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -5191,7 +5220,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           24
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 14"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -5361,10 +5391,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 15"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -5463,7 +5494,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           25
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 15"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -5633,10 +5665,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 16"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -5735,7 +5768,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           26
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 16"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -5905,10 +5939,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 17"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -6007,7 +6042,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           27
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 17"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -6177,10 +6213,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 18"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -6279,7 +6316,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           28
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 18"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
@@ -6449,10 +6487,11 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 19"
                         >
                           <span
-                            class="ant-typography"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -6551,7 +6590,8 @@ exports[`BasicTable 🎏 base use 1`] = `
                           29
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 19"
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"

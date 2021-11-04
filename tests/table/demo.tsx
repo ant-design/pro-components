@@ -59,6 +59,7 @@ export const columns: ProColumns[] = [
     key: 'name',
     dataIndex: 'name',
     copyable: true,
+    ellipsis: true,
   },
   {
     title: 'Textarea',

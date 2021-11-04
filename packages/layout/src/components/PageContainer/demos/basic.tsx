@@ -53,6 +53,7 @@ export default () => (
           </Dropdown>,
         ],
       }}
+      tabBarExtraContent="测试tabBarExtraContent"
       tabList={[
         {
           tab: '基本信息',

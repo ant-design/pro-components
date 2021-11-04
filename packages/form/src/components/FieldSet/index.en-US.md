@@ -305,7 +305,7 @@ Same as [select](https://ant.design/components/select/). Both request and valueE
 
 | parameters | description | type | default |
 | --- | --- | --- | --- |
-| valueEnum | Enumeration of current values [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
+| valueEnum | Enumeration of current values [valueEnum](/components/table#valueenum) | `Record` | - |
 | request | Enumerate data from network requests | `()=>Promise<{[key:string`\|`number]:any}>` | - |
 
 ```tsx | pure

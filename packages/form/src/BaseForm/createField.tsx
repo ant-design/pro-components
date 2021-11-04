@@ -113,7 +113,6 @@ function createField<P extends ProFormFieldItemProps = any>(
     if (realFieldPropsStyle.width !== undefined && (rest as any).valueType === 'switch') {
       delete realFieldPropsStyle.width;
     }
-
     const field = (
       <Field
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，

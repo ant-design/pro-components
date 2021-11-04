@@ -2,6 +2,47 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.27.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.27.1...@ant-design/pro-layout@6.27.2) (2021-11-02)
+
+### Bug Fixes
+
+- **list:** fix list style error ([#3943](https://github.com/ant-design/pro-components/issues/3943)) ([68e0eed](https://github.com/ant-design/pro-components/commit/68e0eede7131932eb9e16734bb5bbb3c8fa0572e))
+
+## [6.27.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.27.0...@ant-design/pro-layout@6.27.1) (2021-10-27)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.6...@ant-design/pro-layout@6.27.0) (2021-10-26)
+
+### Features
+
+- support ssr server ([69773c9](https://github.com/ant-design/pro-components/commit/69773c9dbaccd342d86312032c7b09958cdaed7c))
+
+## [6.26.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.5...@ant-design/pro-layout@6.26.6) (2021-10-19)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.26.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.4...@ant-design/pro-layout@6.26.5) (2021-10-18)
+
+### Reverts
+
+- Revert "fix(layout): 优化 PageContainer 头部和内容之间的间距 (#3812)" (#3848) ([f6d8767](https://github.com/ant-design/pro-components/commit/f6d87676d8bab6573147d83a04a3c6e23bfd9ddb)), closes [#3812](https://github.com/ant-design/pro-components/issues/3812) [#3848](https://github.com/ant-design/pro-components/issues/3848)
+
+## [6.26.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.3...@ant-design/pro-layout@6.26.4) (2021-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.26.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.2...@ant-design/pro-layout@6.26.3) (2021-10-12)
+
+### Bug Fixes
+
+- **card:** fix card ehen theme change no change color error ([#3804](https://github.com/ant-design/pro-components/issues/3804)) ([083ec08](https://github.com/ant-design/pro-components/commit/083ec08794ab555615d5eb2304c3ef2e4660e77f))
+- **layout:** 优化 PageContainer 头部和内容之间的间距 ([#3812](https://github.com/ant-design/pro-components/issues/3812)) ([9b080b1](https://github.com/ant-design/pro-components/commit/9b080b16e46fe1d96041c54a4fa0be4f6c73f94a))
+
+## [6.26.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.1...@ant-design/pro-layout@6.26.2) (2021-10-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
 ## [6.26.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.0...@ant-design/pro-layout@6.26.1) (2021-10-08)
 
 **Note:** Version bump only for package @ant-design/pro-layout
