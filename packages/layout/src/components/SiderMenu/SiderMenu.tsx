@@ -60,10 +60,11 @@ const CollapsedHoverIcon: React.FC<{}> = () => {
 };
 
 const CollapsedIcon: React.FC<any> = (props) => {
-  const [hover, setHover] = useState<boolean>(props.isMobile || false);
+  const { isMobile, collapsed, ...rest } = props;
+  const [hover, setHover] = useState<boolean>(isMobile || false);
   return (
     <div
-      {...props}
+      {...rest}
       style={{
         fontSize: hover ? 16 : 24,
         transform: props?.collapsed ? 'rotate(180deg)' : 'rotate(0deg)',

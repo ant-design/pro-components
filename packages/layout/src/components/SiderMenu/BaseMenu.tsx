@@ -103,7 +103,6 @@ class MenuUtil {
       const name = this.getIntlName(item);
       const { subMenuItemRender, prefixCls, menu, iconPrefixes, layout } = this.props;
       const isGroup = menu?.type === 'group' && layout !== 'top';
-
       //  get defaultTitle by menuItemRender
       const defaultTitle = item.icon ? (
         <span className={`${prefixCls}-menu-item`} title={name}>
@@ -129,32 +128,34 @@ class MenuUtil {
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
         : subMenuTitle;
       const MenuComponents: React.ElementType = isGroup && !isChildren ? ItemGroup : SubMenu;
-      return (
-        <React.Fragment key={item.key || item.path}>
-          <MenuComponents
-            key={item.key || item.path}
-            title={title}
-            onTitleClick={item.onTitleClick}
+      return [
+        <MenuComponents
+          key={item.key || item.path}
+          title={title}
+          {...(isGroup
+            ? {}
+            : {
+                onTitleClick: item.onTitleClick,
+              })}
+        >
+          {this.getNavMenuItems(item.children, true)}
+        </MenuComponents>,
+        isGroup && !isChildren && (
+          <div
+            key={`_${item.key || item.path}`}
+            className={`${prefixCls}-menu-item-divider`}
+            style={{
+              padding: '16px 4px 4px 4px',
+            }}
           >
-            {this.getNavMenuItems(item.children, true)}
-          </MenuComponents>
-          {isGroup && !isChildren ? (
-            <div
-              className={`${prefixCls}-menu-item-divider`}
-              key={item.key || item.path}
+            <Divider
               style={{
-                padding: '16px 4px 4px 4px',
+                margin: 0,
               }}
-            >
-              <Divider
-                style={{
-                  margin: 0,
-                }}
-              />
-            </div>
-          ) : null}
-        </React.Fragment>
-      );
+            />
+          </div>
+        ),
+      ];
     }
 
     return (
@@ -217,7 +218,6 @@ class MenuUtil {
         </span>
       );
     }
-
     if (menuItemRender) {
       const renderItemProps = {
         ...item,
@@ -401,6 +401,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   if (finallyData && finallyData?.length < 1) {
     return null;
   }
+
   return (
     <Menu
       {...openKeysProps}
