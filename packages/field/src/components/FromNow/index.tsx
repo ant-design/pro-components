@@ -32,7 +32,7 @@ const FieldFromNow: ProFieldFC<{
     const placeholder = intl.getMessage('tableForm.selectPlaceholder', '请选择');
     const momentValue = parseValueToMoment(fieldProps.value) as moment.Moment;
     const dom = (
-      <DatePicker placeholder={placeholder} showTime {...fieldProps} value={momentValue} />
+      <DatePicker showTime placeholder={placeholder} {...fieldProps} value={momentValue} />
     );
     if (renderFormItem) {
       return renderFormItem(text, { mode, ...fieldProps }, dom);
