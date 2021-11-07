@@ -28,6 +28,7 @@ import type { ProFieldFCMode } from '@ant-design/pro-utils';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
 import './index.less';
+import { genCopyable } from '@ant-design/pro-table/src/utils/columnRender';
 
 // todo remove it
 export interface DescriptionsItemProps {
@@ -270,13 +271,15 @@ const schemaToDescriptionsItem = (
         ...restItem
       } = item as ProDescriptionsItemProps;
 
+      const defaultData = getDataFromConfig(item, entity) ?? restItem.children;
+      const text = renderText ? renderText(defaultData, entity, index, action) : defaultData;
+
       const title =
         typeof restItem.title === 'function'
           ? restItem.title(item, 'descriptions', restItem.title)
           : restItem.title;
 
-      const defaultData = getDataFromConfig(item, entity) ?? restItem.children;
-      const text = renderText ? renderText(defaultData, entity, index, action) : defaultData;
+      const titleDom: React.ReactNode = genCopyable(title, item, text);
 
       //  dataIndex 无所谓是否存在
       // 有些时候不需要 dataIndex 可以直接 render
@@ -301,10 +304,11 @@ const schemaToDescriptionsItem = (
           {...restItem}
           key={restItem.label?.toString() || index}
           label={
-            (title || restItem.label || restItem.tooltip || restItem.tip) && (
+            (titleDom || restItem.label || restItem.tooltip || restItem.tip) && (
               <LabelIconTip
-                label={title || restItem.label}
+                label={titleDom || restItem.label}
                 tooltip={restItem.tooltip || restItem.tip}
+                ellipsis={item.ellipsis}
               />
             )
           }

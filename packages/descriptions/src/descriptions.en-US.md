@@ -101,6 +101,8 @@ API is the same as ProTable
 | --- | --- | --- | --- |
 | title | The title of the description list, displayed at the top | `ReactNode` | - |
 | tooltip | Supplementary description of the content, displayed after hover | `string` | - |
+| ellipsis | Whether to abbreviate automatically | `boolean` | - |
+| copyable | Whether to support copying | `boolean` | - |
 | loading | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one | `boolean` | - |
 | extra | Describe the operation area of ​​the list, displayed on the upper right | `string` \| `ReactNode` | - |
 | bordered | Whether to display the border | boolean | false |
