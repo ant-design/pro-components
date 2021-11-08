@@ -28,7 +28,7 @@ import type { ProFieldFCMode } from '@ant-design/pro-utils';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
 import './index.less';
-import { genCopyable } from '@ant-design/pro-table/src/utils/columnRender';
+import { genCopyable } from '@ant-design/pro-table';
 
 // todo remove it
 export interface DescriptionsItemProps {
