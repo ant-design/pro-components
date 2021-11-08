@@ -18,6 +18,8 @@ export default () => {
           title: '文本',
           key: 'text',
           dataIndex: 'id',
+          ellipsis: true,
+          copyable: true,
         },
         {
           title: '状态',
