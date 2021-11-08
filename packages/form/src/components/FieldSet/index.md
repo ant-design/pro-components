@@ -240,6 +240,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | --- | --- | --- | --- |
 | valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
 | request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| debounceTime | 防抖动时间，与 request 配合使用 | `number` | - |
 | params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
 | fieldProps | antd 组件的 props | `` (form,config)=>SelectProps`\| `SelectProps `` | - |
 

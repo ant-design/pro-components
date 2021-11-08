@@ -17,7 +17,8 @@ import type {
   ProSchemaValueEnumObj,
 } from '@ant-design/pro-utils';
 
-import { useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
+import { useDebounceFn, useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
+import type { Middleware } from 'swr';
 import useSWR, { mutate } from 'swr';
 import { useIntl } from '@ant-design/pro-provider';
 
@@ -34,7 +35,8 @@ export type FieldSelectProps<FieldProps = any> = {
   text: string;
   /** 值的枚举，如果存在枚举，Search 中会生成 select */
   valueEnum?: ProFieldValueEnumType;
-
+  /** 防抖动时间 默认10 单位ms */
+  debounceTime?: number;
   /** 从服务器读取选项 */
   request?: ProFieldRequestData;
   /** 重新触发的时机 */
@@ -252,6 +254,8 @@ export const useFieldFetchData = (
     proFieldKey?: React.Key;
   },
 ): [boolean, SelectProps<any>['options'], (keyWord?: string) => void, () => void] => {
+  const [data, setData] = useState<SelectProps<any>['options']>();
+
   const [keyWords, setKeyWords] = useState<string | undefined>(undefined);
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
@@ -296,15 +300,20 @@ export const useFieldFetchData = (
 
   const [loading, setLoading] = useMountMergeState(false);
 
-  const fetchData = async () => {
-    if (!props.request) {
-      return [];
-    }
-    setLoading(true);
-    const loadData = await props.request({ ...props.params, keyWords }, props);
-    setLoading(false);
-    return loadData;
-  };
+  const { run: fetchData } = useDebounceFn(
+    async () => {
+      if (!props.request) {
+        return [];
+      }
+      setLoading(true);
+      const loadData = await props.request({ ...props.params, keyWords }, props);
+      setData(loadData as SelectProps<any>['options']);
+      setLoading(false);
+      return loadData;
+    },
+    [],
+    props.debounceTime ?? 10,
+  );
 
   const key = useMemo(() => {
     if (!props.request) {
@@ -316,7 +325,7 @@ export const useFieldFetchData = (
     return [proFieldKeyRef.current, JSON.stringify({ ...props.params, keyWords })];
   }, [keyWords, props.params, props.request]);
 
-  const { data, mutate: setLocaleData } = useSWR(key, fetchData, {
+  const { mutate: setLocaleData } = useSWR(key, fetchData, {
     revalidateOnFocus: false,
     shouldRetryOnError: false,
     revalidateOnReconnect: false,
@@ -367,6 +376,7 @@ export const useFieldFetchData = (
     () => {
       setKeyWords(undefined);
       setLocaleData(async () => [], false);
+      setData([]);
     },
   ];
 };

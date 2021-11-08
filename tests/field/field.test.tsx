@@ -234,6 +234,27 @@ describe('Field', () => {
       expect(html.text()).toBe('default');
     });
 
+    it('🐴 select request debounceTime', async () => {
+      const html = render(
+        <Field
+          text="default"
+          debounceTime={1000}
+          valueType={valueType as 'radio'}
+          mode="read"
+          request={async () => {
+            await waitTime(10000);
+            return [
+              { label: '全部', value: 'all' },
+              { label: '未解决', value: 'open' },
+              { label: '已解决', value: 'closed' },
+              { label: '解决中', value: 'processing' },
+            ];
+          }}
+        />,
+      );
+      expect(html.text()).toBe('default');
+    });
+
     it('🐴 select request loading', async () => {
       const html = render(
         <Field text="default" valueType={valueType as 'radio'} mode="read" options={[]} />,
