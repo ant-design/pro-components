@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.28...@ant-design/pro-descriptions@1.9.29) (2021-11-08)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
 ## [1.9.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.27...@ant-design/pro-descriptions@1.9.28) (2021-11-02)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

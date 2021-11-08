@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.16.2...@ant-design/pro-card@1.17.0) (2021-11-08)
+
+### Features
+
+- **list:** card list support rowSelection ([#3949](https://github.com/ant-design/pro-components/issues/3949)) ([2cabc43](https://github.com/ant-design/pro-components/commit/2cabc431021ccba48c53ec86421b6ce0ee267dbe))
+
 ## [1.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.16.1...@ant-design/pro-card@1.16.2) (2021-11-02)
 
 **Note:** Version bump only for package @ant-design/pro-card
