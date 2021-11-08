@@ -143,6 +143,7 @@ export default () => {
           </ProFormDependency>
           <EditableProTable<DataSourceType>
             rowKey="id"
+            controlled
             actionRef={actionRef}
             headerTitle="可编辑表格"
             maxLength={5}
