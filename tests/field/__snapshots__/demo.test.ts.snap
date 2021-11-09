@@ -3275,7 +3275,7 @@ Array [
                             autocomplete="off"
                             placeholder="请选择"
                             readonly=""
-                            size="12"
+                            size="21"
                             title=""
                             value=""
                           />
@@ -3318,7 +3318,7 @@ Array [
                             autocomplete="off"
                             placeholder="请选择"
                             readonly=""
-                            size="12"
+                            size="21"
                             title=""
                             value=""
                           />

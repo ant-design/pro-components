@@ -51818,7 +51818,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                       id="since4"
                       placeholder="请选择"
                       readonly=""
-                      size="12"
+                      size="21"
                       title=""
                       value=""
                     />
