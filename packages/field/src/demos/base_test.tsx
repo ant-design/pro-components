@@ -191,6 +191,9 @@ export default () => {
           <Field
             text="open"
             mode={state}
+            params={{
+              name: 'test',
+            }}
             valueType="select"
             request={async () => {
               return [

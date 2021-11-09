@@ -297,18 +297,18 @@ export const useFieldFetchData = (
 
   const [loading, setLoading] = useMountMergeState(false);
 
-  const { run: fetchData } = useDebounceFn<[], SelectProps<any>['options']>(
-    async () => {
+  const { run: fetchData } = useDebounceFn<[Record<string, any>], SelectProps<any>['options']>(
+    async (params: Record<string, any>) => {
       if (!props.request) {
         return [];
       }
       setLoading(true);
-      const loadData = await props.request({ ...props.params, keyWords }, props);
+      const loadData = await props.request(params, props);
       setLoading(false);
       return loadData;
     },
     [],
-    props.debounceTime ?? 16,
+    props.debounceTime ?? 10,
   );
 
   const key = useMemo(() => {
@@ -321,11 +321,20 @@ export const useFieldFetchData = (
     return [proFieldKeyRef.current, JSON.stringify({ ...props.params, keyWords })];
   }, [keyWords, props.params, props.request]);
 
-  const { data, mutate: setLocaleData } = useSWR<any>(key, fetchData, {
-    revalidateOnFocus: false,
-    shouldRetryOnError: false,
-    revalidateOnReconnect: false,
-  });
+  const { data, mutate: setLocaleData } = useSWR<any>(
+    [key, props.params, keyWords],
+    (_, params, keyWord) => {
+      return fetchData({
+        ...(params as Record<string, any>),
+        keyWord,
+      });
+    },
+    {
+      revalidateOnFocus: false,
+      shouldRetryOnError: false,
+      revalidateOnReconnect: false,
+    },
+  );
 
   const resOptions = useMemo(() => {
     const opt = options?.map((item) => {
