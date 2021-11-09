@@ -1,4 +1,11 @@
-﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
+﻿import React, {
+  useCallback,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+  useEffect,
+  useState,
+} from 'react';
 import type { FormInstance, FormProps } from 'antd';
 import { Divider } from 'antd';
 import type {
@@ -115,18 +122,35 @@ const FormComments = {
   StepsForm,
   ModalForm,
 };
-
+const noop: any = () => {};
 /**
  * 此组件可以根据 Json Schema 来生成相应的表单,大部分配置与 antd 的 table 列配置相同
  *
  * @see 此组件仍为 beta 版本，api 可能发生变化
  */
 function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
-  const { columns, layoutType = 'ProForm', steps = [], type = 'form', action, ...rest } = props;
+  const {
+    columns,
+    layoutType = 'ProForm',
+    steps = [],
+    type = 'form',
+    action,
+    formRef: propsFormRef,
+    ...rest
+  } = props;
   const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
-  const [form] = ProForm.useForm();
-  const formRef = useRef<FormInstance>(form);
+  const formRef = useRef<FormInstance | undefined>(
+    props.form ||
+      ({
+        getFieldValue: noop,
+        getFieldsValue: noop,
+        resetFields: noop,
+        setFieldsValue: noop,
+      } as any),
+  );
   const [updateTime, updateFormRender] = useState(0);
+
+  useImperativeHandle(propsFormRef, () => formRef.current);
 
   /**
    * 生成子项，方便被 table 接入
@@ -293,7 +317,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
                 defaultRender,
                 type,
               },
-              formRef.current,
+              formRef.current!,
             );
             if (formDom === false || formDom === undefined || formDom === null) {
               return null;
@@ -320,7 +344,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
                           defaultRender,
                           type,
                         },
-                        formRef.current,
+                        formRef.current!,
                       );
                     }
                   : undefined
@@ -342,13 +366,13 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     );
   }, [columns, layoutType]);
 
-  const domList = useMemo(() => {
+  const getDomList = () => {
     return genItems(columns, updateTime);
-  }, [columns, genItems, updateTime]);
+  };
 
   if (layoutType === 'StepsForm') {
     return (
-      <StepsForm formRef={formRef} form={form} {...rest}>
+      <StepsForm formRef={formRef} {...rest}>
         {steps?.map((item, index) => (
           <BetaSchemaForm<T, ValueType>
             {...(item as FormSchema<T, ValueType>)}
@@ -362,12 +386,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   }
 
   /** 如果是行内模式 */
-  if (layoutType === 'Embed') return <>{domList}</>;
+  if (layoutType === 'Embed') return <>{getDomList()}</>;
 
   return (
     <Form
       formRef={formRef}
-      form={form}
       {...rest}
       onInit={(...restValue) => {
         if (needRealUpdate) {
@@ -382,7 +405,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
         rest?.onValuesChange?.(...restValue);
       }}
     >
-      {domList}
+      {getDomList()}
     </Form>
   );
 }
