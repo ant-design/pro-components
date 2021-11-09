@@ -18,7 +18,6 @@ import type {
 } from '@ant-design/pro-utils';
 
 import { useDebounceFn, useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
-import type { Middleware } from 'swr';
 import useSWR, { mutate } from 'swr';
 import { useIntl } from '@ant-design/pro-provider';
 
@@ -254,8 +253,6 @@ export const useFieldFetchData = (
     proFieldKey?: React.Key;
   },
 ): [boolean, SelectProps<any>['options'], (keyWord?: string) => void, () => void] => {
-  const [data, setData] = useState<SelectProps<any>['options']>();
-
   const [keyWords, setKeyWords] = useState<string | undefined>(undefined);
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
@@ -300,19 +297,18 @@ export const useFieldFetchData = (
 
   const [loading, setLoading] = useMountMergeState(false);
 
-  const { run: fetchData } = useDebounceFn(
+  const { run: fetchData } = useDebounceFn<[], SelectProps<any>['options']>(
     async () => {
       if (!props.request) {
         return [];
       }
       setLoading(true);
       const loadData = await props.request({ ...props.params, keyWords }, props);
-      setData(loadData as SelectProps<any>['options']);
       setLoading(false);
       return loadData;
     },
     [],
-    props.debounceTime ?? 10,
+    props.debounceTime ?? 16,
   );
 
   const key = useMemo(() => {
@@ -325,7 +321,7 @@ export const useFieldFetchData = (
     return [proFieldKeyRef.current, JSON.stringify({ ...props.params, keyWords })];
   }, [keyWords, props.params, props.request]);
 
-  const { mutate: setLocaleData } = useSWR(key, fetchData, {
+  const { data, mutate: setLocaleData } = useSWR<any>(key, fetchData, {
     revalidateOnFocus: false,
     shouldRetryOnError: false,
     revalidateOnReconnect: false,
@@ -375,8 +371,7 @@ export const useFieldFetchData = (
     },
     () => {
       setKeyWords(undefined);
-      setLocaleData(async () => [], false);
-      setData([]);
+      setLocaleData([], false);
     },
   ];
 };

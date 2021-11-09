@@ -1,8 +1,8 @@
 import type { DependencyList } from 'react';
 import { useEffect, useRef, useCallback } from 'react';
 
-export type ReturnValue<T extends any[]> = {
-  run: (...args: T) => void;
+export type ReturnValue<T extends any[], U = any> = {
+  run: (...args: T) => Promise<U>;
   cancel: () => void;
 };
 const useUpdateEffect: typeof useEffect = (effect, deps) => {
@@ -18,11 +18,11 @@ const useUpdateEffect: typeof useEffect = (effect, deps) => {
   }, deps);
 };
 
-function useDebounceFn<T extends any[]>(
+function useDebounceFn<T extends any[], U = any>(
   fn: (...args: T) => Promise<any>,
   deps: DependencyList | number,
   wait?: number,
-): ReturnValue<T> {
+): ReturnValue<T, U> {
   // eslint-disable-next-line no-underscore-dangle
   const hooksDeps: DependencyList = (Array.isArray(deps) ? deps : []) as DependencyList;
   // eslint-disable-next-line no-underscore-dangle
@@ -39,12 +39,12 @@ function useDebounceFn<T extends any[]>(
   }, []);
 
   const run = useCallback(
-    async (...args: any): Promise<void> => {
-      return new Promise((resolve) => {
+    async (...args: any): Promise<U> => {
+      return new Promise<U>((resolve) => {
         cancel();
         timer.current = setTimeout(async () => {
-          await fnRef.current(...args);
-          resolve();
+          const data = await fnRef.current(...args);
+          resolve(data);
         }, hookWait);
       });
     },
