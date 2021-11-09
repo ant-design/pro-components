@@ -803,4 +803,36 @@ describe('Field', () => {
     );
     expect(html.text()).toBe('-');
   });
+
+  it('🐴 select request debounceTime', async () => {
+    const requestFn = jest.fn();
+    const html = mount(
+      <Field
+        text="default"
+        debounceTime={200}
+        valueType="select"
+        mode="edit"
+        request={async (params) => {
+          requestFn(params?.test);
+          await waitTime(10);
+          return [
+            { label: '全部', value: 'all' },
+            { label: '未解决', value: 'open' },
+            { label: '已解决', value: 'closed' },
+            { label: '解决中', value: 'processing' },
+          ];
+        }}
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+    expect(requestFn).toBeCalledTimes(1);
+    act(() => {
+      html.setProps({
+        params: { name: 'test' },
+      });
+    });
+    expect(requestFn).toBeCalledTimes(1);
+    await waitForComponentToPaint(html, 200);
+    expect(requestFn).toBeCalledTimes(2);
+  });
 });
