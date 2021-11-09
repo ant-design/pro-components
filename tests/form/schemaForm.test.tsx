@@ -64,7 +64,7 @@ describe('SchemaForm', () => {
   });
 
   it('😊 SchemaForm support dependencies', async () => {
-    const onChange = jest.fn();
+    const requestFn = jest.fn();
     const html = mount(
       <BetaSchemaForm
         columns={[
@@ -83,7 +83,7 @@ describe('SchemaForm', () => {
             valueType: 'select',
             dependencies: ['title'],
             request: async ({ title }) => {
-              onChange(title);
+              requestFn(title);
               return [
                 {
                   label: title,
@@ -95,7 +95,8 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    expect(onChange).toBeCalledWith('name');
+    await waitForComponentToPaint(html);
+    expect(requestFn).toBeCalledWith('name');
     act(() => {
       html.find('input#title').simulate('change', {
         target: {
@@ -104,7 +105,7 @@ describe('SchemaForm', () => {
       });
     });
     await waitForComponentToPaint(html);
-    expect(onChange).toBeCalledWith('qixian');
+    expect(requestFn).toBeCalledWith('qixian');
   });
 
   it('🐲 SchemaForm support StepsForm', async () => {

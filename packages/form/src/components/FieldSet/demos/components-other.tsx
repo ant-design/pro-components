@@ -65,6 +65,7 @@ const Demo = () => (
           name="select2"
           label="支持搜索查询的 Select"
           showSearch
+          debounceTime={300}
           request={async ({ keyWords }) => {
             await waitTime(1000);
             return Mock.mock({

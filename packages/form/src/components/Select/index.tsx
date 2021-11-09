@@ -27,6 +27,8 @@ export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
   valueEnum?: ProSchema['valueEnum'];
   params?: ProSchema['params'];
   request?: ProSchema['request'];
+  /** 防抖动时间 默认10 单位ms */
+  debounceTime?: number;
   options?: SelectProps<any>['options'] | string[];
   mode?: SelectProps<any>['mode'] | 'single';
   showSearch?: SelectProps<any>['showSearch'];
