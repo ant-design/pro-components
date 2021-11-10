@@ -47,7 +47,7 @@ export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> =
   /** 是否受控，如果为 true，每次 value 更新都会重置表单 */
   controlled?: boolean;
   /** FormItem 的设置 */
-  formItemProps?: FormItemProps;
+  formItemProps?: Omit<FormItemProps, 'children' | 'name'>;
 };
 
 const EditableTableActionContext = React.createContext<
@@ -250,17 +250,27 @@ function FieldEditableTable<
   const { name, formItemProps } = props;
   if (!name) return <EditableTable<DataType, Params, ValueType> {...props} />;
   return (
-    <Field shouldUpdate={true} name={props.name} {...formItemProps} isList>
-      {(control) => {
-        return (
-          <EditableTable<DataType, Params, ValueType>
-            {...props}
-            value={control.value}
-            onChange={control.onChange}
-          />
-        );
+    <Form.Item
+      style={{
+        maxWidth: '100%',
       }}
-    </Field>
+      {...formItemProps}
+      name={props.name}
+    >
+      <>
+        <Field shouldUpdate={true} name={props.name} isList>
+          {(control) => {
+            return (
+              <EditableTable<DataType, Params, ValueType>
+                {...props}
+                value={control.value}
+                onChange={control.onChange}
+              />
+            );
+          }}
+        </Field>
+      </>
+    </Form.Item>
   );
 }
 

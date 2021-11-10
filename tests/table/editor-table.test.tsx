@@ -268,7 +268,7 @@ describe('EditorProTable', () => {
   });
 
   it('📝 EditableProTable add support children column', async () => {
-    const fn = jest.fn();
+    const onchange = jest.fn();
     const wrapper = mount(
       <EditableProTable<DataSourceType>
         rowKey="id"
@@ -277,7 +277,7 @@ describe('EditorProTable', () => {
           current: 2,
         }}
         editable={{}}
-        onChange={(data) => fn(data[0].children?.length)}
+        onChange={(data) => onchange(data[0].children?.length)}
         recordCreatorProps={{
           position: 'bottom',
           newRecordType: 'dataSource',
@@ -320,7 +320,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 1000);
 
-    expect(fn).toBeCalledWith(2);
+    expect(onchange).toBeCalledWith(2);
 
     wrapper.unmount();
   });

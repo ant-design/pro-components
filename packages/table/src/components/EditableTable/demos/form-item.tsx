@@ -172,25 +172,27 @@ export default () => {
           onChange: setEditableRowKeys,
         }}
       />
-      <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
-        <ProFormDependency name={['table']}>
-          {({ table }) => {
-            return (
-              <ProFormField
-                ignoreFormItem
-                fieldProps={{
-                  style: {
-                    width: '100%',
-                  },
-                }}
-                mode="read"
-                valueType="jsonCode"
-                text={JSON.stringify(table)}
-              />
-            );
-          }}
-        </ProFormDependency>
-      </ProCard>
+      <ProForm.Item>
+        <ProCard title="表格数据" headerBordered collapsible defaultCollapsed>
+          <ProFormDependency name={['table']}>
+            {({ table }) => {
+              return (
+                <ProFormField
+                  ignoreFormItem
+                  fieldProps={{
+                    style: {
+                      width: '100%',
+                    },
+                  }}
+                  mode="read"
+                  valueType="jsonCode"
+                  text={JSON.stringify(table)}
+                />
+              );
+            }}
+          </ProFormDependency>
+        </ProCard>
+      </ProForm.Item>
     </ProForm>
   );
 };
