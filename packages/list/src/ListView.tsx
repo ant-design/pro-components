@@ -188,6 +188,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
           checkboxDom = selectItemDom.render(item, item, index) || undefined;
         }
         const { isEditable, recordKey } = actionRef.current?.isEditable({ ...item, index }) || {};
+
         const isChecked = selectedKeySet.has(recordKey || index);
 
         const defaultDom = (

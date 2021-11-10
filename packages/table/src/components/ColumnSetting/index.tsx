@@ -142,7 +142,7 @@ const CheckboxList: React.FC<{
 
   const move = (id: React.Key, targetId: React.Key, dropPosition: number) => {
     const newMap = { ...columnsMap };
-    const newColumns = [...sortKeyColumns.current];
+    const newColumns = [...sortKeyColumns];
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
     const targetIndex = newColumns.findIndex((columnKey) => columnKey === targetId);
     const isDownWord = dropPosition > findIndex;

@@ -268,7 +268,7 @@ describe('EditorProTable', () => {
   });
 
   it('📝 EditableProTable add support children column', async () => {
-    const fn = jest.fn();
+    const onchange = jest.fn();
     const wrapper = mount(
       <EditableProTable<DataSourceType>
         rowKey="id"
@@ -277,7 +277,7 @@ describe('EditorProTable', () => {
           current: 2,
         }}
         editable={{}}
-        onChange={(data) => fn(data[0].children?.length)}
+        onChange={(data) => onchange(data[0].children?.length)}
         recordCreatorProps={{
           position: 'bottom',
           newRecordType: 'dataSource',
@@ -320,7 +320,7 @@ describe('EditorProTable', () => {
 
     await waitForComponentToPaint(wrapper, 1000);
 
-    expect(fn).toBeCalledWith(2);
+    expect(onchange).toBeCalledWith(2);
 
     wrapper.unmount();
   });
@@ -712,6 +712,134 @@ describe('EditorProTable', () => {
     });
     await waitForComponentToPaint(wrapper, 1000);
     expect(fn).toBeCalledWith(4);
+    wrapper.unmount();
+  });
+
+  it('📝 support onValueChange when newRecordType = cache', async () => {
+    const fn = jest.fn();
+    const onValueChangeFn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          record: {
+            id: '1223',
+          },
+          position: 'top',
+        }}
+        pagination={{
+          pageSize: 2,
+        }}
+        editable={{
+          onValuesChange: (record) => {
+            onValueChangeFn(record.id);
+          },
+        }}
+        columns={columns}
+        value={defaultData}
+        onChange={(list) => {
+          fn(list.length);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 500);
+
+    act(() => {
+      wrapper.find('button.ant-btn-dashed').at(0).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(fn).not.toBeCalled();
+
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(0)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+    expect(onValueChangeFn).toBeCalledWith('1223');
+    wrapper.unmount();
+  });
+
+  it('📝 support onValueChange when has name', async () => {
+    const onValueChangeFn = jest.fn();
+    const actionRef = React.createRef<ActionType | undefined>();
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          table: defaultData,
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          actionRef={actionRef as any}
+          name="table"
+          pagination={{
+            pageSize: 2,
+          }}
+          editable={{
+            onValuesChange: (record) => {
+              onValueChangeFn(record.id);
+            },
+          }}
+          toolBarRender={(action) => [
+            <a
+              key="edit"
+              id="start"
+              onClick={() => {
+                action?.startEditable('624748504');
+              }}
+            >
+              开始编辑
+            </a>,
+            <a
+              key="end"
+              id="end"
+              onClick={() => {
+                action?.cancelEditable('624748504');
+              }}
+            >
+              结束编辑
+            </a>,
+          ]}
+          columns={columns}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper, 1200);
+
+    act(() => {
+      wrapper.find('#start').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(0)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+
+    expect(onValueChangeFn).toBeCalledWith(624748504);
+    act(() => {
+      actionRef.current?.cancelEditable('624748504');
+    });
+
     wrapper.unmount();
   });
 
