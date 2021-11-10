@@ -15,6 +15,9 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 依托于 ProForm 的能力，ProForm 拥有多种形态，可以切换查询表单类型，设置变形成为一个简单的 Form 表单，执行新建等功能。
 
+![layout
+](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
+
 ## 何时使用
 
 当你的表格需要与服务端进行交互或者需要多种单元格样式时，ProTable 是不二选择。

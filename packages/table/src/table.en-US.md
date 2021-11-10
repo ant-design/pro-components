@@ -15,6 +15,9 @@ ProTable was created to solve the problem of having to write a lot of sample cod
 
 Thanks to ProForm's capabilities, ProForm can take many forms, switch between query form types, set up deformations to become a simple Form form, perform new creation, etc.
 
+![layout
+](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
+
 ## When to Use
 
 When your forms need to interact with the server or need multiple cell styles, ProTable is the right choice.
