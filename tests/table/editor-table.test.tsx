@@ -836,9 +836,14 @@ describe('EditorProTable', () => {
     });
 
     expect(onValueChangeFn).toBeCalledWith(624748504);
+
     act(() => {
-      actionRef.current?.cancelEditable('624748504');
+      actionRef.current?.cancelEditable(0);
     });
+    await waitForComponentToPaint(wrapper, 1000);
+    expect(
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find(`td .ant-input`).exists(),
+    ).toBe(false);
 
     wrapper.unmount();
   });
@@ -1000,14 +1005,7 @@ describe('EditorProTable', () => {
   });
 
   it('📝 support cancel click', async () => {
-    const fn = jest.fn();
-    const wrapper = mount(
-      <EditorProTableDemo
-        onEditorChange={(keys) => {
-          fn(keys);
-        }}
-      />,
-    );
+    const wrapper = mount(<EditorProTableDemo />);
     await waitForComponentToPaint(wrapper, 1000);
     act(() => {
       wrapper.find('#editor').at(0).simulate('click');

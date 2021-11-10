@@ -497,11 +497,15 @@ function useEditableArray<RecordType>(
    *
    * @param recordKey
    */
-  const cancelEditable = (recordKey: RecordKey) => {
-    const key = dataSourceKeyIndexMapRef.current.get(recordKeyToString(recordKey));
+  const cancelEditable = (recordKey: RecordKey, needReTry?: boolean) => {
+    const relayKey = recordKeyToString(recordKey).toString();
+
+    const key = dataSourceKeyIndexMapRef.current.get(relayKey);
+
     /** 如果没找到key，转化一下再去找 */
-    if (!editableKeysSet.has(recordKeyToString(recordKey)) && key) {
-      cancelEditable(key);
+    if (!editableKeysSet.has(relayKey) && key && (needReTry ?? true) && props.tableName) {
+      cancelEditable(key, false);
+      return;
     }
     // 防止多次渲染
     ReactDOM.unstable_batchedUpdates(() => {
@@ -509,6 +513,7 @@ function useEditableArray<RecordType>(
       if (newLineRecordCache && newLineRecordCache.options.recordKey === recordKey) {
         setNewLineRecordCache(undefined);
       }
+      editableKeysSet.delete(relayKey);
       editableKeysSet.delete(recordKeyToString(recordKey));
       setEditableRowKeys(Array.from(editableKeysSet));
     });
@@ -586,10 +591,10 @@ function useEditableArray<RecordType>(
       ? dataSource.find((item, index) => {
           const key = props.getRowKey(item, index)?.toString();
           return key === recordKey;
-        }) || newLineRecordData
+        })
       : newLineRecordData;
 
-    props.onValuesChange(editRow, dataSource);
+    props.onValuesChange(editRow || newLineRecordData, dataSource);
   };
 
   /**
