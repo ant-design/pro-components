@@ -144,11 +144,12 @@ function editableRowByKey<RecordType>(
     key: RecordKey;
     row: RecordType;
   },
-  action: 'update' | 'delete',
+  action: 'update' | 'top' | 'delete',
 ) {
   const { getRowKey, row, data, childrenColumnName } = params;
   const key = recordKeyToString(params.key)?.toString();
   const kvMap = new Map<string, RecordType & { parentKey?: React.Key }>();
+
   /**
    * 打平这个数组
    *
@@ -177,6 +178,13 @@ function editableRowByKey<RecordType>(
     });
   }
 
+  if (action === 'top') {
+    kvMap.set(key, {
+      ...kvMap.get(key),
+      ...row,
+    });
+  }
+
   dig(data);
 
   if (action === 'update') {
@@ -185,6 +193,7 @@ function editableRowByKey<RecordType>(
       ...row,
     });
   }
+
   if (action === 'delete') {
     kvMap.delete(key);
   }
@@ -636,7 +645,9 @@ function useEditableArray<RecordType>(
           key: recordKey,
           childrenColumnName: props.childrenColumnName || 'children',
         };
-        props.setDataSource(editableRowByKey(actionProps, 'update'));
+        props.setDataSource(
+          editableRowByKey(actionProps, options?.position === 'top' ? 'top' : 'update'),
+        );
       } else {
         setNewLineRecordCache({
           defaultValue: row,

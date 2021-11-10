@@ -714,7 +714,7 @@ describe('EditorProTable', () => {
     act(() => {
       wrapper
         .find('.ant-table-tbody tr.ant-table-row')
-        .at(3)
+        .at(0)
         .find(`td .ant-input`)
         .at(0)
         .simulate('change', {
