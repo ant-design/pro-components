@@ -28,6 +28,7 @@ export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> =
   ProTableProps<T, U, ValueType>,
   'onChange'
 > & {
+  defaultValue?: T[];
   value?: T[];
   onChange?: (value: T[]) => void;
   /** @name 原先的 table OnChange */
@@ -92,6 +93,7 @@ function EditableTable<
     recordCreatorProps,
     rowKey,
     controlled,
+    defaultValue,
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
@@ -100,7 +102,7 @@ function EditableTable<
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current);
 
-  const [value, setValue] = useMergedState<DataType[]>(() => props.value || [], {
+  const [value, setValue] = useMergedState<DataType[]>(() => props.value || defaultValue || [], {
     value: props.value,
     onChange: props.onChange,
   });
@@ -222,6 +224,7 @@ function EditableTable<
       }
     };
   }
+
   return (
     <EditableTableActionContext.Provider value={actionRef}>
       <ProTable<DataType, Params, ValueType>
@@ -236,7 +239,9 @@ function EditableTable<
         onChange={onTableChange}
         dataSource={value}
         editable={editableProps}
-        onDataSourceChange={setValue}
+        onDataSourceChange={(dataSource: DataType[]) => {
+          setValue(dataSource);
+        }}
       />
     </EditableTableActionContext.Provider>
   );

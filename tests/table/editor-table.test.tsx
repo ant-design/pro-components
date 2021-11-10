@@ -691,27 +691,39 @@ describe('EditorProTable', () => {
       <EditableProTable<DataSourceType>
         rowKey="id"
         recordCreatorProps={{
+          position: 'top',
           newRecordType: 'dataSource',
-          record: {
-            id: Date.now(),
-          },
-        }}
-        pagination={{
-          pageSize: 2,
+          record: () => ({
+            id: Date.now().toString(),
+          }),
+          id: 'add_new',
         }}
         columns={columns}
-        value={defaultData}
-        onChange={(list) => {
-          fn(list.length);
-        }}
+        defaultValue={defaultData}
+        onChange={(list) => fn(list.length)}
       />,
     );
     await waitForComponentToPaint(wrapper, 1000);
     act(() => {
-      wrapper.find('button.ant-btn-dashed').simulate('click');
+      wrapper.find('button#add_new').at(0).simulate('click');
     });
-    await waitForComponentToPaint(wrapper, 1000);
+    await waitForComponentToPaint(wrapper, 2000);
+
     expect(fn).toBeCalledWith(4);
+
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(3)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'qixian',
+          },
+        });
+    });
+
     wrapper.unmount();
   });
 

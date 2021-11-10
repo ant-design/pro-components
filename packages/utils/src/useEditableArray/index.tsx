@@ -467,6 +467,7 @@ function useEditableArray<RecordType>(
         !!keyStringRef?.includes(recordKey) || !!keyStringRef?.includes(recordKeyOrIndex);
 
       const keyString = editableKeys?.join(',') || '';
+
       return {
         recordKey,
         isEditable: keyString?.includes(recordKey) || keyString?.includes(recordKeyOrIndex),
@@ -566,6 +567,7 @@ function useEditableArray<RecordType>(
 
     const relayValue = props.tableName ? get(value, [props.tableName || ''].flat(1)) : value;
     const recordKey = Object.keys(relayValue).pop()?.toString() as string;
+
     // 如果是dataSource 新增模式的话，取消再开始编辑，
     // 这样就可以把新增到 dataSource的数据进入编辑模式了
     // [a,b,cache] => [a,b,c]
