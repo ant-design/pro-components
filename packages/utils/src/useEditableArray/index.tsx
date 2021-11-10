@@ -361,7 +361,9 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         const record = isMapEditor ? set({}, namePath, fields) : fields;
         const res = await onCancel?.(recordKey, record, row, newLineConfig);
         cancelEditable(recordKey);
-        form.setFieldsValue(row);
+        form.setFieldsValue({
+          [recordKey as React.Key]: row,
+        });
         return res;
       }}
     >
