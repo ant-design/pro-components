@@ -17,7 +17,7 @@ describe('Field', () => {
   });
 
   it('🐴 money onchange values', async () => {
-    const html = mount(<Field text="100" valueType="money" mode="edit" />);
+    const html = mount(<Field text="100" numberPopoverRender valueType="money" mode="edit" />);
     act(() => {
       html.find('input').simulate('change', {
         target: {

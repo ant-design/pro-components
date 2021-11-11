@@ -99,8 +99,11 @@ const InputNumberPopover = React.forwardRef<
   any,
   InputNumberProps & {
     content?: (props: InputNumberProps) => React.ReactNode;
+  } & {
+    numberFormatOptions?: any;
+    numberPopoverRender?: any;
   }
->(({ content, ...rest }, ref) => {
+>(({ content, numberFormatOptions, numberPopoverRender, ...rest }, ref) => {
   const [value, onChange] = useMergedState<any>(() => rest.defaultValue, {
     value: rest.value,
     onChange: rest.onChange,
@@ -110,7 +113,7 @@ const InputNumberPopover = React.forwardRef<
     value,
   });
   return (
-    <Popover placement="topLeft" visible={!!dom} content={dom}>
+    <Popover placement="topLeft" visible={!!dom ? undefined : false} trigger="focus" content={dom}>
       <InputNumber ref={ref} {...rest} value={value} onChange={onChange} />
     </Popover>
   );
@@ -136,8 +139,8 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     valueEnum,
     placeholder,
     customSymbol,
-    numberFormatOptions,
-    numberPopoverRender = false,
+    numberFormatOptions = fieldProps?.numberFormatOptions,
+    numberPopoverRender = fieldProps?.numberPopoverRender || false,
     ...rest
   },
   ref,
@@ -158,6 +161,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     }
     return defaultText;
   }, [fieldProps.moneySymbol, intl, rest.moneySymbol, customSymbol]);
+
   if (type === 'read') {
     const dom = (
       <span ref={ref}>

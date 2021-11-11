@@ -80,7 +80,7 @@ export default () => {
           width="lg"
         />
       </ProForm.Group>
-      <ProForm.Group>
+      <ProForm.Group title="金额系统">
         <ProFormMoney
           label="限制金额最小为0"
           name="amount1"
@@ -96,6 +96,8 @@ export default () => {
           initialValue={22.22}
           customSymbol="💰"
         />
+      </ProForm.Group>
+      <ProForm.Group>
         <ProFormText
           name={['contract', 'name']}
           width="md"
@@ -127,6 +129,14 @@ export default () => {
           ]}
           name="unusedMode"
           label="合同约定失效方式"
+        />
+        <ProFormMoney
+          width="md"
+          name="money"
+          label="合同约定金额"
+          fieldProps={{
+            numberPopoverRender: true,
+          }}
         />
       </ProForm.Group>
       <ProFormText width="sm" name="id" label="主合同编号" />
