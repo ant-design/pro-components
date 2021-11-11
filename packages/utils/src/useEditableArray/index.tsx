@@ -535,11 +535,6 @@ function useEditableArray<RecordType>(
       return;
     }
 
-    // 是否是dataSource 模式，如果是直接把新数据插入到 dataSource
-    // [a,b,cache] => [a,b,c]
-    // 如果不是 [a,b,cache] => [a,b,cache]，只有保存的时候才插入
-    const isDataSourceChange = newLineRecordCache?.options.newRecordType === 'dataSource';
-
     let { dataSource } = props;
 
     // 这里是把正在编辑中的所有表单数据都修改掉
