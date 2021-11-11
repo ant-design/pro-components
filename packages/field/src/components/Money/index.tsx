@@ -53,13 +53,10 @@ const getTextByLocale = (localeStr: string | false, paramsText: number, precisio
   if (typeof moneyText === 'string') {
     moneyText = Number(moneyText);
   }
-  if (!localeStr) {
-    return new Intl.NumberFormat().format(moneyText);
-  }
 
-  return new Intl.NumberFormat(localeStr, {
+  return new Intl.NumberFormat(localeStr || 'zh-Hans-CN', {
     ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
-    minimumFractionDigits: precision,
+    maximumFractionDigits: precision,
   }).format(moneyText);
 };
 
