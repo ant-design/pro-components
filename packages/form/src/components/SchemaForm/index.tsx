@@ -1,4 +1,5 @@
-﻿import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
+﻿/* eslint-disable react/no-array-index-key */
+import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import type { FormInstance, FormProps } from 'antd';
 import { Divider } from 'antd';
 import type {
@@ -354,6 +355,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           );
         });
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [action, layoutType, type],
   );
 

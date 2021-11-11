@@ -25,6 +25,7 @@ const themeConfig = {
   '#722ED1': 'purple',
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 const invertKeyValues = (obj: Object) =>
   Object.keys(obj).reduce((acc, key) => {
     acc[obj[key]] = key;

@@ -141,6 +141,7 @@ type ProFormItemProps = FormItemProps & {
 } & WarpFormItemProps;
 
 const ProFormItem: React.FC<ProFormItemProps> = (props) => {
+  /** 从 context 中拿到的值 */
   const size = useContext(ConfigProvider.SizeContext);
   const { valueType, transform, dataFormat, ignoreFormItem, lightProps = {}, ...rest } = props;
   const formListField = useContext(FormListContext);
@@ -155,7 +156,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   }, [formListField.name, props.name]);
 
   /** 从 context 中拿到的值 */
-  const { setFieldValueType } = React.useContext(FieldContext);
+  const { setFieldValueType, formItemProps } = React.useContext(FieldContext);
 
   useEffect(() => {
     // 如果 setFieldValueType 和 props.name 不存在不存入
@@ -221,7 +222,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   }
 
   return (
-    <WarpFormItem {...rest} name={name}>
+    <WarpFormItem {...formItemProps} {...rest} name={name}>
       {lightDom}
     </WarpFormItem>
   );

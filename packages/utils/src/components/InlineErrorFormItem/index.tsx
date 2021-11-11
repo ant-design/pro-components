@@ -82,6 +82,7 @@ const Content: React.FC<{
           {rules?.map((item, idx) => {
             const rule = typeof item === 'function' ? item(form) : item;
             return (
+              // eslint-disable-next-line react/no-array-index-key
               <li key={idx} className={`${prefixCls}-rule-content`}>
                 <Space>
                   {getIcon(

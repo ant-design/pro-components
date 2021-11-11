@@ -15,7 +15,6 @@ const valueType = 'dateRange' as const;
 const ProFormDateRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps>> = React.forwardRef(
   ({ fieldProps, proFieldProps, ...rest }, ref) => {
     const context = useContext(FieldContext);
-
     return (
       <ProField
         ref={ref}

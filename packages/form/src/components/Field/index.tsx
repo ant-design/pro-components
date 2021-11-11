@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import React, { useImperativeHandle } from 'react';
 import ProField from '@ant-design/pro-field';
 import type { InputProps, SelectProps } from 'antd';
