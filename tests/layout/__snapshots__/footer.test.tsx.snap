@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DefaultFooter test copyright support false 1`] = `
+exports[`DefaultFooter test 🦶 copyright support false 1`] = `
 <footer
   class="ant-layout-footer"
   style="padding:0"

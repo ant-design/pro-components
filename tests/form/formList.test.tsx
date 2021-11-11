@@ -14,7 +14,7 @@ import _ from 'lodash';
 import type { NamePath } from 'antd/es/form/interface';
 
 describe('ProForm List', () => {
-  it('♨️  ProForm.List', async () => {
+  it('⛲  ProForm.List', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -47,7 +47,7 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith(['name', 'nickName']);
   });
 
-  it('♨️  ProForm.List add button', async () => {
+  it('⛲  ProForm.List add button', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -90,7 +90,7 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith([]);
   });
 
-  it('♨️  ProForm.List render children', async () => {
+  it('⛲  ProForm.List render children', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -133,7 +133,7 @@ describe('ProForm List', () => {
     });
   });
 
-  it('♨️  ProForm.List close button', async () => {
+  it('⛲  ProForm.List close button', async () => {
     const html = mount(
       <ProForm>
         <ProFormText name="name" label="姓名" />
@@ -149,7 +149,7 @@ describe('ProForm List', () => {
     expect(html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').exists()).toBeFalsy();
   });
 
-  it('♨️  ProForm.List add button when creatorRecord', async () => {
+  it('⛲  ProForm.List add button when creatorRecord', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -196,7 +196,7 @@ describe('ProForm List', () => {
     });
   });
 
-  it('♨️  ProForm.List add button on top', async () => {
+  it('⛲  ProForm.List add button on top', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -243,7 +243,7 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith([]);
   });
 
-  it('♨️  ProForm.List copy to newline', async () => {
+  it('⛲  ProForm.List copy to newline', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -284,7 +284,7 @@ describe('ProForm List', () => {
     });
   });
 
-  it('♨️  ProForm.List delete icon', async () => {
+  it('⛲  ProForm.List delete icon', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -334,7 +334,7 @@ describe('ProForm List', () => {
     });
   });
 
-  it('♨️  ProForm.List itemRender', async () => {
+  it('⛲  ProForm.List itemRender', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -376,7 +376,7 @@ describe('ProForm List', () => {
     expect(html.find('#test').exists()).toBe(true);
   });
 
-  it('♨️  ProForm.List in ProForm.List', async () => {
+  it('⛲  ProForm.List in ProForm.List', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm
@@ -456,7 +456,7 @@ describe('ProForm List', () => {
     ]);
   });
 
-  it('♨️  ProForm.List support ProFormDependency', async () => {
+  it('⛲  ProForm.List support ProFormDependency', async () => {
     const fn = jest.fn();
     const html = mount(
       <ProForm>
@@ -506,7 +506,7 @@ describe('ProForm List', () => {
     expect(fn).toBeCalledWith('222');
   });
 
-  it('♨️  ProForm.List support ProFormDependency2', async () => {
+  it('⛲  ProForm.List support ProFormDependency2', async () => {
     const initialValues = {
       a: 1,
       b: 2,
@@ -615,7 +615,7 @@ describe('ProForm List', () => {
     );
   });
 
-  it('♨️  ProForm.List support copyIconProps and deleteIconProps', async () => {
+  it('⛲  ProForm.List support copyIconProps and deleteIconProps', async () => {
     const html = mount(
       <ProForm>
         <ProFormList
@@ -640,7 +640,7 @@ describe('ProForm List', () => {
     expect(html.find('.ant-pro-form-list-action').exists()).toBeFalsy();
   });
 
-  it('♨️  ProForm.List support copyIconProps.icon and deleteIconProps.icon', async () => {
+  it('⛲  ProForm.List support copyIconProps.icon and deleteIconProps.icon', async () => {
     const html = mount(
       <ProForm>
         <ProFormList

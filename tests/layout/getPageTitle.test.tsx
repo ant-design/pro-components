@@ -98,17 +98,17 @@ const pageProps = {
 };
 
 describe('getPageTitle', () => {
-  it('base', () => {
+  it('🗒️ base', () => {
     const title = getPageTitle(pageProps);
     expect(title).toBe('one - Ant Design Pro');
   });
 
-  it('base ignoreTitle', () => {
+  it('🗒️ base ignoreTitle', () => {
     const title = getPageTitle(pageProps, true);
     expect(title).toBe('one');
   });
 
-  it('title=false', () => {
+  it('🗒️ title=false', () => {
     const title = getPageTitle({
       ...pageProps,
       title: false,
@@ -116,22 +116,22 @@ describe('getPageTitle', () => {
     expect(title).toBe('one');
   });
 
-  it('base ignoreTitle', () => {
+  it('🗒️ base ignoreTitle', () => {
     const title = getPageTitle({ ...pageProps, pathname: undefined }, true);
     expect(title).toBe('welcome');
   });
 
-  it('base title=Ant', () => {
+  it('🗒️ base title=Ant', () => {
     const title = getPageTitle({ ...pageProps, title: 'Ant' });
     expect(title).toBe('one - Ant');
   });
 
-  it('base menu=undefined', () => {
+  it('🗒️ base menu=undefined', () => {
     const title = getPageTitle({ ...pageProps, menu: undefined, title: 'Ant' });
     expect(title).toBe('one - Ant');
   });
 
-  it('title is null ', () => {
+  it('🗒️ title is null ', () => {
     const title = getPageTitle({
       ...pageProps,
       title: undefined,
@@ -139,7 +139,7 @@ describe('getPageTitle', () => {
     expect(title).toBe('one - Ant Design Pro');
   });
 
-  it('breadcrumb is null ', () => {
+  it('🗒️ breadcrumb is null ', () => {
     const title = getPageTitle({
       ...pageProps,
       breadcrumb: {},
