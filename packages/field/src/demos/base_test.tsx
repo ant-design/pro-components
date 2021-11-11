@@ -48,8 +48,12 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="金额">
           <Field
+            numberPopoverRender
             fieldProps={{
-              precision: 4,
+              precision: 2,
+              style: {
+                width: 200,
+              },
             }}
             text="10000"
             valueType="money"

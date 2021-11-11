@@ -422,6 +422,6 @@ export {
   proFieldParsingValueEnumToArray,
 };
 
-export type { ProFieldValueType };
+export type { ProFieldValueType, FieldMoneyProps };
 
 export default React.forwardRef(ProField) as typeof ProField;
