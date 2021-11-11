@@ -94,7 +94,6 @@ describe('settingDrawer.test', () => {
       fixedHeader: true,
       fixSiderbar: false,
       headerHeight: 48,
-      title: 'Ant Design Pro',
       iconfontUrl: '',
       primaryColor: 'daybreak',
       splitMenus: false,
