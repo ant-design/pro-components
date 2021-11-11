@@ -33,6 +33,7 @@
     "ie >= 11"
   ],
   "dependencies": {
+    "@babel/runtime": "^7.16.3",
     "@ant-design/pro-field": "1.24.1",
     "@ant-design/pro-form": "1.46.0",
     "@ant-design/pro-skeleton": "1.0.2",

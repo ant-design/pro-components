@@ -3774,16 +3774,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16 || 17":
-  version "17.0.34"
-  resolved "https://registry.npmmirror.com/@types/react/download/@types/react-17.0.34.tgz#797b66d359b692e3f19991b6b07e4b0c706c0102"
-  integrity sha1-eXtm01m2kuPxmZG2sH5LDHBsAQI=
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
-"@types/react@^16", "@types/react@^16.8.25", "@types/react@^16.9.17", "@types/react@^16.9.43":
+"@types/react@*", "@types/react@16 || 17", "@types/react@^16", "@types/react@^16.8.25", "@types/react@^16.9.17", "@types/react@^16.9.43":
   version "16.14.20"
   resolved "https://registry.npmmirror.com/@types/react/download/@types/react-16.14.20.tgz#ff6e932ad71d92c27590e4a8667c7a53a7d0baad"
   integrity sha1-/26TKtcdksJ1kOSoZnx6U6fQuq0=
@@ -20189,14 +20180,9 @@ typedarray@^0.0.6:
   resolved "https://registry.nlark.com/typedarray/download/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^3.7.2:
-  version "3.9.10"
-  resolved "https://registry.npmmirror.com/typescript/download/typescript-3.9.10.tgz#70f3910ac7a51ed6bef79da7800690b19bf778b8"
-  integrity sha1-cPORCselHta+952ngAaQsZv3eLg=
-
-typescript@^4.0.5, typescript@^4.1.2, typescript@^4.3.5:
+typescript@4.x, typescript@^3.7.2, typescript@^4.0.5, typescript@^4.1.2, typescript@^4.3.5:
   version "4.4.4"
-  resolved "https://registry.npmmirror.com/typescript/download/typescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
+  resolved "https://registry.npmmirror.com/typescript/download/typescript-4.4.4.tgz?cache=0&sync_timestamp=1636528966673&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Ftypescript%2Fdownload%2Ftypescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
   integrity sha1-LNAaGh8WBwTTEB/VpY/w+fy4Aww=
 
 ua-parser-js@^0.7.30:

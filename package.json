@@ -35,7 +35,10 @@
     "ie >= 11"
   ],
   "resolutions": {
-    "prettier":"2.x"
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.1",
+    "prettier": "2.x",
+    "typescript": "4.x"
   },
   "devDependencies": {
     "@ant-design/icons": "^4.6.2",
@@ -61,9 +64,9 @@
     "@types/react-intl": "^3.0.0",
     "@types/react-responsive": "^8.0.1",
     "@types/react-router-dom": "^5.1.0",
+    "@types/shallowequal": "^1.1.1",
     "@types/warning": "^3.0.0",
     "@types/xhr-mock": "^2.0.0",
-    "@types/shallowequal": "^1.1.1",
     "@umijs/babel-preset-umi": "^3.0.14",
     "@umijs/fabric": "^2.6.2",
     "@umijs/plugin-analytics": "^0.2.2",
