@@ -434,6 +434,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       }
     }
     preStateRef.current = nextState;
+    delete nextState.title;
     setSettingState(nextState);
   };
 
