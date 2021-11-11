@@ -19,7 +19,7 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
  * @param dataIndex 需要拼接的key
  */
 export const spellNamePath = (...rest: any[]): React.Key[] => {
-  return rest.filter(Boolean).flat(1);
+  return rest.filter((index) => index !== undefined).flat(1);
 };
 
 type RenderToFromItemProps<T> = {
@@ -119,9 +119,10 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
         };
         const name = spellNamePath(
           prefixName,
-          config.recordKey || config.index,
-          columnProps?.key || columnProps?.dataIndex || config.index,
+          prefixName ? config.index : config.recordKey ?? config.index,
+          columnProps?.key ?? columnProps?.dataIndex ?? config.index,
         );
+
         /** 获取 formItemProps Props */
         const formItemProps = getFieldPropsOrFormItemProps(
           columnProps?.formItemProps,

@@ -132,18 +132,26 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     ...rest
   } = props;
   const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
-  const formRef = useRef<FormInstance | undefined>(
-    props.form ||
-      ({
-        getFieldValue: noop,
-        getFieldsValue: noop,
-        resetFields: noop,
-        setFieldsValue: noop,
-      } as any),
-  );
+  const formRef = useRef<FormInstance | undefined>(props.form);
+
+  const refMap = useMemo(() => {
+    const obj = { form: formRef.current };
+    Object.defineProperty(obj, 'form', {
+      get: () =>
+        formRef.current ||
+        ({
+          getFieldValue: noop,
+          getFieldsValue: noop,
+          resetFields: noop,
+          setFieldsValue: noop,
+        } as any),
+    });
+    return obj;
+  }, []);
+
   const [updateTime, updateFormRender] = useState(0);
 
-  useImperativeHandle(propsFormRef, () => formRef.current);
+  useImperativeHandle(propsFormRef, () => refMap.form);
 
   /**
    * 生成子项，方便被 table 接入
@@ -181,11 +189,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             valueType: runFunction(originItem.valueType, {}),
             key: originItem.key,
             columns: originItem.columns,
-            fieldProps: runFunction(originItem.fieldProps, formRef.current, originItem),
+            fieldProps: runFunction(originItem.fieldProps, refMap.form, originItem),
             valueEnum: originItem.valueEnum,
             dataIndex: originItem.key || originItem.dataIndex,
             initialValue: originItem.initialValue,
-            formItemProps: runFunction(originItem.formItemProps, formRef.current, originItem),
+            formItemProps: runFunction(originItem.formItemProps, refMap.form, originItem),
             width: originItem.width,
             render: originItem.render,
             renderFormItem: originItem.renderFormItem,
@@ -310,7 +318,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
                 defaultRender,
                 type,
               },
-              formRef.current!,
+              refMap.form!,
             );
             if (formDom === false || formDom === undefined || formDom === null) {
               return null;
@@ -337,7 +345,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
                           defaultRender,
                           type,
                         },
-                        formRef.current!,
+                        refMap.form!,
                       );
                     }
                   : undefined

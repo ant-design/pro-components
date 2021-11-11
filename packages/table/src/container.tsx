@@ -123,13 +123,12 @@ function useContainer(props: UseContainerProps = {}) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.columnsState?.persistenceKey, columnsMap, props.columnsState?.persistenceType]);
-
-  return {
-    action: actionRef,
+  const renderValue = {
+    action: actionRef.current,
     setAction: (newAction?: ActionType) => {
       actionRef.current = newAction;
     },
-    sortKeyColumns,
+    sortKeyColumns: sortKeyColumns.current,
     setSortKeyColumns: (keys: string[]) => {
       sortKeyColumns.current = keys;
     },
@@ -147,6 +146,20 @@ function useContainer(props: UseContainerProps = {}) {
     columns: props.columns,
     clearPersistenceStorage,
   };
+
+  Object.defineProperty(renderValue, 'prefixName', {
+    get: (): string => prefixNameRef.current,
+  });
+
+  Object.defineProperty(renderValue, 'sortKeyColumns', {
+    get: (): string[] => sortKeyColumns.current,
+  });
+
+  Object.defineProperty(renderValue, 'action', {
+    get: () => actionRef.current,
+  });
+
+  return renderValue;
 }
 
 const Container = createContainer<ReturnType<typeof useContainer>, UseContainerProps>(useContainer);

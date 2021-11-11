@@ -17,14 +17,14 @@ import { defaultOnFilter, renderColumnsTitle, columnRender } from './columnRende
  * @param map
  * @param columnEmptyText
  */
-export function genProColumnToColumn<T>(props: {
+export function genProColumnToColumn<T>(params: {
   columns: ProColumns<T, any>[];
   counter: ReturnType<typeof useContainer>;
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
 }): (TableColumnType<T> & { index?: number })[] {
-  const { columns, counter, columnEmptyText, type, editableUtils } = props;
+  const { columns, counter, columnEmptyText, type, editableUtils } = params;
   return columns
     .map((columnProps, columnsIndex) => {
       const {
@@ -71,7 +71,7 @@ export function genProColumnToColumn<T>(props: {
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: (columnProps as ProColumnGroupType<T, any>).children
           ? genProColumnToColumn({
-              ...props,
+              ...params,
               columns: (columnProps as ProColumnGroupType<T, any>)?.children,
             })
           : undefined,
