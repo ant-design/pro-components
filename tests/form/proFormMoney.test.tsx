@@ -7,8 +7,8 @@ import { waitForComponentToPaint } from '../util';
 import { ConfigProvider } from 'antd';
 import enGBIntl from 'antd/lib/locale/en_GB';
 
-describe('$ ProFormMoney', () => {
-  it('$ ProFormMoney value expect number', async () => {
+describe('💵 ProFormMoney', () => {
+  it('💵 ProFormMoney value expect number', async () => {
     const fn = jest.fn();
     const wrapper = mount<{ amount: string }>(
       <ProForm
@@ -28,7 +28,7 @@ describe('$ ProFormMoney', () => {
     expect(fn).toHaveBeenCalledWith(44.33);
     expect(wrapper.render()).toMatchSnapshot();
   });
-  it('$ moneySymbol with global locale', async () => {
+  it('💵 moneySymbol with global locale', async () => {
     const fn = jest.fn();
     const wrapper = mount<{ amount: string }>(
       <ConfigProvider locale={enGBIntl}>
@@ -51,7 +51,7 @@ describe('$ ProFormMoney', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
-  it('$ moneySymbol with custom locale', async () => {
+  it('💵 moneySymbol with custom locale', async () => {
     const fn = jest.fn();
     const wrapper = mount<{ amount: string }>(
       <ProForm
@@ -71,7 +71,7 @@ describe('$ ProFormMoney', () => {
     expect(fn).toHaveBeenCalledWith(44.33);
     expect(wrapper.render()).toMatchSnapshot();
   });
-  it('$ moneySymbol with custom symbol', async () => {
+  it('💵 moneySymbol with custom symbol', async () => {
     const fn = jest.fn();
     const wrapper = mount<{ amount: string }>(
       <ProForm
@@ -91,7 +91,7 @@ describe('$ ProFormMoney', () => {
     expect(fn).toHaveBeenCalledWith(44.33);
     expect(wrapper.render()).toMatchSnapshot();
   });
-  it('$ can not input negative', async () => {
+  it('💵 can not input negative', async () => {
     const fn = jest.fn();
     const wrapper = mount<{ amount: string }>(
       <ProForm
@@ -119,7 +119,7 @@ describe('$ ProFormMoney', () => {
     expect(fn).toHaveBeenCalledWith(undefined);
     expect(wrapper.render()).toMatchSnapshot();
   });
-  it('$ can input negative', async () => {
+  it('💵 can input negative', async () => {
     const fn = jest.fn();
     const wrapper = mount<{ amount: string }>(
       <ProForm

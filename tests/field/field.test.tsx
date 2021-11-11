@@ -17,7 +17,32 @@ describe('Field', () => {
   });
 
   it('🐴 money onchange values', async () => {
-    const html = mount(<Field text="100" valueType="money" mode="edit" />);
+    const html = mount(<Field text="100" numberPopoverRender valueType="money" mode="edit" />);
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 1000');
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: '￥ 100',
+        },
+      });
+    });
+
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 100');
+  });
+
+  it('🐴 money numberPopoverRender onchange values', async () => {
+    const html = mount(
+      <Field text="100" numberPopoverRender={() => 123} valueType="money" mode="edit" />,
+    );
     act(() => {
       html.find('input').simulate('change', {
         target: {
