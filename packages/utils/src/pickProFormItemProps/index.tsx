@@ -31,7 +31,8 @@ const antdFormItemPropsList = [
   'addonAfter',
 ];
 
-export default function pickProFormItemProps(props: object) {
+// eslint-disable-next-line @typescript-eslint/ban-types
+export default function pickProFormItemProps(props: {}) {
   const attrs = {};
   antdFormItemPropsList.forEach((key) => {
     if (props[key] !== undefined) {

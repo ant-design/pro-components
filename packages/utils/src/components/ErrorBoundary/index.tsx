@@ -2,6 +2,7 @@ import type { ErrorInfo } from 'react';
 import React from 'react';
 import { Result } from 'antd';
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 class ErrorBoundary extends React.Component<{}, { hasError: boolean; errorInfo: string }> {
   state = { hasError: false, errorInfo: '' };
 

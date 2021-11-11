@@ -335,6 +335,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       isEqual,
       `The initialValues only take effect when the form is initialized, if you need to load asynchronously recommended request, or the initialValues ? <Form/> : null `,
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.initialValues]);
 
   useEffect(() => {

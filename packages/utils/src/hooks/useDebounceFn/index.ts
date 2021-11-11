@@ -15,6 +15,7 @@ const useUpdateEffect: typeof useEffect = (effect, deps) => {
       return effect();
     }
     return () => undefined;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 };
 
@@ -56,6 +57,7 @@ function useDebounceFn<T extends any[], U = any>(
     return cancel;
   }, [...hooksDeps, run]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => cancel, []);
 
   return {

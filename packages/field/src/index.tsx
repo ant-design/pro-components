@@ -49,7 +49,8 @@ export type ProFieldMoneyProps = FieldMoneyProps;
 export type ProFieldEmptyText = string | false;
 
 /** 默认的 Field 需要实现的功能 */
-export type ProFieldFC<T> = React.ForwardRefRenderFunction<
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type ProFieldFC<T = {}> = React.ForwardRefRenderFunction<
   any,
   BaseProFieldFC & ProRenderFieldPropsType & T
 >;

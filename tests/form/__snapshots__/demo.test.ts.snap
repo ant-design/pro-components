@@ -13856,6 +13856,45 @@ Array [
             style="flex: 0 0 80px;"
           >
             <label
+              class=""
+              for="name"
+              title="test"
+            >
+              test
+            </label>
+          </div>
+          <div
+            class="ant-col ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <input
+                  class="ant-input"
+                  id="name"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-6"
+        style="padding-left: 12px; padding-right: 12px;"
+      >
+        <div
+          class="ant-row ant-form-item"
+        >
+          <div
+            class="ant-col ant-form-item-label"
+            style="flex: 0 0 80px;"
+          >
+            <label
               class="ant-form-item-required"
               for="name"
               title="应用名称"
@@ -13983,7 +14022,7 @@ Array [
         </div>
       </div>
       <div
-        class="ant-col ant-col-6 ant-col-offset-6"
+        class="ant-col ant-col-6"
         style="padding-left: 12px; padding-right: 12px; text-align: right;"
       >
         <div

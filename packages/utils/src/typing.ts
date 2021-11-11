@@ -144,6 +144,7 @@ export type ProSchemaComponentTypes =
   | undefined;
 
 /** 操作类型 */
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type ProCoreActionType<T = {}> = {
   /** @name 刷新 */
   reload: (resetPageIndex?: boolean) => Promise<void>;
