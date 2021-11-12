@@ -3959,20 +3959,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                 class="ant-page-header"
               >
                 <div
-                  class="ant-page-header-heading"
-                >
-                  <div
-                    class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="Ant Design Pro"
-                    >
-                      Ant Design Pro
-                    </span>
-                  </div>
-                </div>
-                <div
                   class="ant-page-header-content"
                 >
                   <div
@@ -5059,20 +5045,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                 class="ant-page-header"
               >
                 <div
-                  class="ant-page-header-heading"
-                >
-                  <div
-                    class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="Ant Design Pro"
-                    >
-                      Ant Design Pro
-                    </span>
-                  </div>
-                </div>
-                <div
                   class="ant-page-header-content"
                 >
                   <div
@@ -5478,20 +5450,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               <div
                 class="ant-page-header"
               >
-                <div
-                  class="ant-page-header-heading"
-                >
-                  <div
-                    class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="Ant Design Pro"
-                    >
-                      Ant Design Pro
-                    </span>
-                  </div>
-                </div>
                 <div
                   class="ant-page-header-content"
                 >
@@ -6042,20 +6000,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               <div
                 class="ant-page-header"
               >
-                <div
-                  class="ant-page-header-heading"
-                >
-                  <div
-                    class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="Ant Design Pro"
-                    >
-                      Ant Design Pro
-                    </span>
-                  </div>
-                </div>
                 <div
                   class="ant-page-header-content"
                 >
@@ -6639,20 +6583,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       /
                     </span>
                   </span>
-                </div>
-                <div
-                  class="ant-page-header-heading"
-                >
-                  <div
-                    class="ant-page-header-heading-left"
-                  >
-                    <span
-                      class="ant-page-header-heading-title"
-                      title="Ant Design Pro"
-                    >
-                      Ant Design Pro
-                    </span>
-                  </div>
                 </div>
                 <div
                   class="ant-page-header-content"
@@ -13586,20 +13516,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
             <div
               class="ant-page-header"
             >
-              <div
-                class="ant-page-header-heading"
-              >
-                <div
-                  class="ant-page-header-heading-left"
-                >
-                  <span
-                    class="ant-page-header-heading-title"
-                    title="Ant Design Pro"
-                  >
-                    Ant Design Pro
-                  </span>
-                </div>
-              </div>
               <div
                 class="ant-page-header-content"
               >

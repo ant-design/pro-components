@@ -63,7 +63,7 @@ const getPageTitleInfo = (
     breadcrumb,
     breadcrumbMap,
     formatMessage,
-    title = 'Ant Design Pro',
+    title,
     menu = {
       locale: false,
     },

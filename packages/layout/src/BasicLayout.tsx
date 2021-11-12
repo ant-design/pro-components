@@ -510,7 +510,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   }, [location.pathname, location.pathname?.search]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
-
   useDocumentTitle(pageTitleInfo, props.title || false);
 
   return (

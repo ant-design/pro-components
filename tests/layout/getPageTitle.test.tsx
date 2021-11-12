@@ -136,7 +136,7 @@ describe('getPageTitle', () => {
       ...pageProps,
       title: undefined,
     });
-    expect(title).toBe('one - Ant Design Pro');
+    expect(title).toBe('one');
   });
 
   it('🗒️ breadcrumb is null ', () => {

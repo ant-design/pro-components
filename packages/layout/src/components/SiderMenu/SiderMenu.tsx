@@ -33,7 +33,7 @@ export const defaultRenderLogoAndTitle = (
     return null;
   }
   const logoDom = defaultRenderLogo(logo);
-  const titleDom = <h1>{title}</h1>;
+  const titleDom = <h1>{title ?? 'Ant Design Pro'}</h1>;
 
   if (renderFunction) {
     // when collapsed, no render title
