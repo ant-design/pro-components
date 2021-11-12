@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.9.30](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.29...@ant-design/pro-descriptions@1.9.30) (2021-11-12)
+
+### Bug Fixes
+
+- **form:** fix proform.item no support QueryFilter error ([#4011](https://github.com/ant-design/pro-components/issues/4011)) ([5eff600](https://github.com/ant-design/pro-components/commit/5eff600f580d99452f9e1a84b7c36c315e55804f))
+
 ## [1.9.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.28...@ant-design/pro-descriptions@1.9.29) (2021-11-08)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

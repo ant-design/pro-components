@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.17.0...@ant-design/pro-card@1.17.1) (2021-11-12)
+
+### Bug Fixes
+
+- **form:** fix proform.item no support QueryFilter error ([#4011](https://github.com/ant-design/pro-components/issues/4011)) ([5eff600](https://github.com/ant-design/pro-components/commit/5eff600f580d99452f9e1a84b7c36c315e55804f))
+
 # [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.16.2...@ant-design/pro-card@1.17.0) (2021-11-08)
 
 ### Features

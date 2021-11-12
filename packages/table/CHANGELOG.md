@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.56.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.56.8...@ant-design/pro-table@2.56.9) (2021-11-12)
+
+### Bug Fixes
+
+- **form:** fix proform.item no support QueryFilter error ([#4011](https://github.com/ant-design/pro-components/issues/4011)) ([5eff600](https://github.com/ant-design/pro-components/commit/5eff600f580d99452f9e1a84b7c36c315e55804f))
+- **table:** fix editor table rowkey error ([#4000](https://github.com/ant-design/pro-components/issues/4000)) ([8760aad](https://github.com/ant-design/pro-components/commit/8760aad6d95b514ab57ef857adf74219fe006e99))
+
 ## [2.56.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.56.7...@ant-design/pro-table@2.56.8) (2021-11-08)
 
 **Note:** Version bump only for package @ant-design/pro-table

@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.27.2...@ant-design/pro-layout@6.28.0) (2021-11-12)
+
+### Bug Fixes
+
+- **form:** fix onchange rechange error ([#4022](https://github.com/ant-design/pro-components/issues/4022)) ([69b4335](https://github.com/ant-design/pro-components/commit/69b433533db8a6df71dec2de05a4a8c4e6a480fc))
+- **form:** fix proform.item no support QueryFilter error ([#4011](https://github.com/ant-design/pro-components/issues/4011)) ([5eff600](https://github.com/ant-design/pro-components/commit/5eff600f580d99452f9e1a84b7c36c315e55804f))
+- **layout:** Improve performance ([#4020](https://github.com/ant-design/pro-components/issues/4020)) ([f1f2502](https://github.com/ant-design/pro-components/commit/f1f25024589e86c3d6e0fc1efc9b1e9dd8cea534))
+
+### Features
+
+- **layout:** support remove default title ([#4013](https://github.com/ant-design/pro-components/issues/4013)) ([e0ffad0](https://github.com/ant-design/pro-components/commit/e0ffad0561a144113caab2d40cae10b7ba78bbed))
+
 ## [6.27.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.27.1...@ant-design/pro-layout@6.27.2) (2021-11-02)
 
 ### Bug Fixes

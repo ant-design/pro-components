@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.26.1...@ant-design/pro-utils@1.27.0) (2021-11-12)
+
+### Bug Fixes
+
+- **form:** fix proform.item no support QueryFilter error ([#4011](https://github.com/ant-design/pro-components/issues/4011)) ([5eff600](https://github.com/ant-design/pro-components/commit/5eff600f580d99452f9e1a84b7c36c315e55804f))
+- **table:** 取消编辑行后表单未能全部重置 ([#3997](https://github.com/ant-design/pro-components/issues/3997)) ([042e80e](https://github.com/ant-design/pro-components/commit/042e80e782725c9825869e5dcefb90ed46969ffc))
+- **table:** fix editor table rowkey error ([#4000](https://github.com/ant-design/pro-components/issues/4000)) ([8760aad](https://github.com/ant-design/pro-components/commit/8760aad6d95b514ab57ef857adf74219fe006e99))
+
+### Features
+
+- **field:** select request 添加防抖动属性 ([#3987](https://github.com/ant-design/pro-components/issues/3987)) ([887e654](https://github.com/ant-design/pro-components/commit/887e6541dae8e614789e651c74b32abc875e83e7))
+
 ## [1.26.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.26.0...@ant-design/pro-utils@1.26.1) (2021-11-02)
 
 ### Bug Fixes

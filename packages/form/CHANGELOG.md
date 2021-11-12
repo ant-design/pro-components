@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.47.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.46.0...@ant-design/pro-form@1.47.0) (2021-11-12)
+
+### Bug Fixes
+
+- **form:** change modal/drawer form reset time ([#4024](https://github.com/ant-design/pro-components/issues/4024)) ([8f76d43](https://github.com/ant-design/pro-components/commit/8f76d435e908d1bfe011e697224d1956ce0a0e75))
+- **form:** fix form item width overflow problew ([#4023](https://github.com/ant-design/pro-components/issues/4023)) ([84e2d55](https://github.com/ant-design/pro-components/commit/84e2d554f8b55fef50be08bc34e14d36577ea6dc))
+- **form:** fix onchange rechange error ([#4022](https://github.com/ant-design/pro-components/issues/4022)) ([69b4335](https://github.com/ant-design/pro-components/commit/69b433533db8a6df71dec2de05a4a8c4e6a480fc))
+- **form:** fix proform.item no support QueryFilter error ([#4011](https://github.com/ant-design/pro-components/issues/4011)) ([5eff600](https://github.com/ant-design/pro-components/commit/5eff600f580d99452f9e1a84b7c36c315e55804f))
+- **form:** less render sum ([7b025e5](https://github.com/ant-design/pro-components/commit/7b025e5311646d64e7bc972c5cf17ddadde5f54e))
+- **layout:** Improve performance ([#4020](https://github.com/ant-design/pro-components/issues/4020)) ([f1f2502](https://github.com/ant-design/pro-components/commit/f1f25024589e86c3d6e0fc1efc9b1e9dd8cea534))
+- **table:** fix editor table rowkey error ([#4000](https://github.com/ant-design/pro-components/issues/4000)) ([8760aad](https://github.com/ant-design/pro-components/commit/8760aad6d95b514ab57ef857adf74219fe006e99))
+
+### Features
+
+- **field:** select request 添加防抖动属性 ([#3987](https://github.com/ant-design/pro-components/issues/3987)) ([887e654](https://github.com/ant-design/pro-components/commit/887e6541dae8e614789e651c74b32abc875e83e7))
+- **form:** money support numberPopover ([#4008](https://github.com/ant-design/pro-components/issues/4008)) ([0d720f1](https://github.com/ant-design/pro-components/commit/0d720f19bf196f31bf16f4f730b039dd1a87ba3d))
+
 # [1.46.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.45.0...@ant-design/pro-form@1.46.0) (2021-11-02)
 
 ### Bug Fixes
