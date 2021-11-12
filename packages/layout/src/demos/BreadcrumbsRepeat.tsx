@@ -27,7 +27,7 @@ export default () => (
         {
           path: '/admin',
           name: '管理',
-          children: [
+          routes: [
             {
               name: '申请单列表',
               path: '/admin/process',

@@ -103,6 +103,8 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 
 <code src="./demos/error-boundaries.tsx" iframe="500px" title="沉浸式导航" />
 
+<code src="./demos/splitMenus.tsx" iframe="500px" title="沉浸式导航" />
+
 ## API
 
 ### ProLayout
@@ -294,7 +296,7 @@ export interface Settings {
 
 export interface MenuDataItem {
   authority?: string[] | string;
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;
@@ -319,7 +321,7 @@ export interface Route {
     name: string;
     path: string;
     // 可选二级菜单
-    children?: Route['routes'];
+    routes?: Route['routes'];
   }>;
 }
 ```
@@ -407,7 +409,7 @@ ProLayout 扩展了 umi 的 router 配置，新增了 name，icon，locale,hideI
 ```ts | pure
 export interface MenuDataItem {
   /** @name 子菜单 */
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   /** @name 在菜单中隐藏子节点 */
   hideChildrenInMenu?: boolean;
   /** @name 在菜单中隐藏自己和子节点 */
@@ -468,7 +470,7 @@ ProLayout 会自动生成菜单，同时根据 pathname 进行自动选中。配
 // 可以通过 import { MenuDataItem } from '@ant-design/pro-layout'
 // 来获取这个类型
 export interface MenuDataItem {
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;
