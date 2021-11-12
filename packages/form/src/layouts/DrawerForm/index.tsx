@@ -104,6 +104,9 @@ function DrawerForm<T = Record<string, any>>({
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
+    if (visible && drawerProps?.destroyOnClose) {
+      setKey(key + 1);
+    }
     return () => {
       if (!visible) scrollLocker?.unLock?.();
     };
@@ -196,9 +199,6 @@ function DrawerForm<T = Record<string, any>>({
               visible={visible}
               onClose={(e) => {
                 setVisible(false);
-                if (drawerProps?.destroyOnClose) {
-                  setKey(key + 1);
-                }
                 drawerProps?.onClose?.(e);
               }}
               footer={
