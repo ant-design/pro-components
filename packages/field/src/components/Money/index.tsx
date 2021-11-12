@@ -82,13 +82,10 @@ const getTextByLocale = (
   if (typeof moneyText === 'string') {
     moneyText = Number(moneyText);
   }
-  if (!localeStr) {
-    return new Intl.NumberFormat().format(moneyText);
-  }
 
-  return new Intl.NumberFormat(localeStr, {
+  return new Intl.NumberFormat(localeStr || 'zh-Hans-CN', {
     ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
-    minimumFractionDigits: precision,
+    maximumFractionDigits: precision,
     ...config,
   }).format(moneyText);
 };
@@ -113,7 +110,7 @@ const InputNumberPopover = React.forwardRef<
     value,
   });
   return (
-    <Popover placement="topLeft" visible={!!dom ? undefined : false} trigger="focus" content={dom}>
+    <Popover placement="topLeft" visible={dom ? undefined : false} trigger="focus" content={dom}>
       <InputNumber ref={ref} {...rest} value={value} onChange={onChange} />
     </Popover>
   );
