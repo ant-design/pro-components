@@ -6,7 +6,7 @@ import { Alert, Space } from 'antd';
 
 describe('LoginForm', () => {
   it('📦 LoginForm should show login message correctly', async () => {
-    const loginMessage = <Alert type="error" message="登录失败"></Alert>;
+    const loginMessage = <Alert type="error" message="登录失败" />;
 
     const wrapper = mount(
       <LoginForm message={loginMessage}>
@@ -27,9 +27,9 @@ describe('LoginForm', () => {
         actions={
           <Space>
             其他登录方式
-            <AlipayCircleOutlined></AlipayCircleOutlined>
-            <TaobaoCircleOutlined></TaobaoCircleOutlined>
-            <WeiboCircleOutlined></WeiboCircleOutlined>
+            <AlipayCircleOutlined />
+            <TaobaoCircleOutlined />
+            <WeiboCircleOutlined />
           </Space>
         }
       >

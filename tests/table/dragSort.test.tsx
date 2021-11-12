@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import { DragSortTable, ProColumns, ProColumnType } from '@ant-design/pro-table';
+import { DragSortTable } from '@ant-design/pro-table';
 import { waitForComponentToPaint } from '../util';
 import { MenuOutlined } from '@ant-design/icons';
 import { sortData } from '../../packages/table/src/utils';

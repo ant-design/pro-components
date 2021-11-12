@@ -19,7 +19,7 @@ describe('ProForm List', () => {
     const html = mount(
       <ProForm
         onFinish={async (values) => {
-          fn(Object.keys(values['users'][0]));
+          fn(Object.keys(values.users[0]));
         }}
       >
         <ProFormText name="name" label="姓名" />
@@ -52,7 +52,7 @@ describe('ProForm List', () => {
     const html = mount(
       <ProForm
         onFinish={async (values) => {
-          fn(Object.keys(values['users'][1]));
+          fn(Object.keys(values.users[1]));
         }}
       >
         <ProFormText name="name" label="姓名" />
@@ -95,7 +95,7 @@ describe('ProForm List', () => {
     const html = mount(
       <ProForm
         onFinish={async (values) => {
-          fn(values['users'][0]);
+          fn(values.users[0]);
         }}
       >
         <ProFormText name="name" label="姓名" />
@@ -154,7 +154,7 @@ describe('ProForm List', () => {
     const html = mount(
       <ProForm
         onFinish={async (values) => {
-          fn(values['users'][1]);
+          fn(values.users[1]);
         }}
       >
         <ProFormText name="name" label="姓名" />
@@ -201,7 +201,7 @@ describe('ProForm List', () => {
     const html = mount(
       <ProForm
         onFinish={async (values) => {
-          fn(Object.keys(values['users'][0] || {}));
+          fn(Object.keys(values.users[0] || {}));
         }}
       >
         <ProFormText name="name" label="姓名" />
@@ -248,7 +248,7 @@ describe('ProForm List', () => {
     const html = mount(
       <ProForm
         onFinish={async (values) => {
-          fn(values['users'][1]);
+          fn(values.users[1]);
         }}
       >
         <ProFormText name="name" label="姓名" />
@@ -289,7 +289,7 @@ describe('ProForm List', () => {
     const html = mount(
       <ProForm
         onFinish={async (values) => {
-          fn(values['users'][0]);
+          fn(values.users[0]);
         }}
       >
         <ProFormText name="name" label="姓名" />
@@ -339,7 +339,7 @@ describe('ProForm List', () => {
     const html = mount(
       <ProForm
         onFinish={async (values) => {
-          fn(values['users'][0]);
+          fn(values.users[0]);
         }}
       >
         <ProFormText name="name" label="姓名" />
@@ -381,7 +381,7 @@ describe('ProForm List', () => {
     const html = mount(
       <ProForm
         onFinish={async (values) => {
-          fn(values['users'][0]['tag']);
+          fn(values.users[0].tag);
         }}
       >
         <ProFormText name="name" label="姓名" />

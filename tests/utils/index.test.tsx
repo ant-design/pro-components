@@ -33,6 +33,7 @@ describe('utils', () => {
       useEffect(() => {
         fetchData.run();
         return fetchData.cancel();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       return (
         <div
