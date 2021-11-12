@@ -5453,6 +5453,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -5468,6 +5469,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -5522,6 +5524,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -5537,6 +5540,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"

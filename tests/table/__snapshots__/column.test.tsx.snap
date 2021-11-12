@@ -27,6 +27,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
         >
           <div
             class="qixian-row qixian-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="qixian-col qixian-form-item-label"
@@ -42,6 +43,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
             </div>
             <div
               class="qixian-col qixian-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="qixian-form-item-control-input"
