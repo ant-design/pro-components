@@ -109,6 +109,9 @@ function ModalForm<T = Record<string, any>>({
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
+    if (visible && modalProps?.destroyOnClose) {
+      setKey(key + 1);
+    }
     return () => {
       if (!visible) scrollLocker?.unLock?.();
     };
