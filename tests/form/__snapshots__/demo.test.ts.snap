@@ -12807,6 +12807,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     >
       <div
         class="ant-row ant-form-item"
+        style="flex-wrap: nowrap;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -12822,6 +12823,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-form-item-control"
+          style="max-width: calc(100% - 80px);"
         >
           <div
             class="ant-form-item-control-input"
@@ -12876,6 +12878,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     >
       <div
         class="ant-row ant-form-item"
+        style="flex-wrap: nowrap;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -12891,6 +12894,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-form-item-control"
+          style="max-width: calc(100% - 80px);"
         >
           <div
             class="ant-form-item-control-input"
@@ -12941,6 +12945,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      style="flex-wrap: nowrap;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -12956,6 +12961,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
       <div
         class="ant-col ant-form-item-control"
+        style="max-width: calc(100% - 80px);"
       >
         <div
           class="ant-form-item-control-input"
@@ -13026,6 +13032,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      style="flex-wrap: nowrap;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -13041,6 +13048,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
       <div
         class="ant-col ant-form-item-control"
+        style="max-width: calc(100% - 80px);"
       >
         <div
           class="ant-form-item-control-input"
@@ -13090,6 +13098,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      style="flex-wrap: nowrap;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -13105,6 +13114,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
       <div
         class="ant-col ant-form-item-control"
+        style="max-width: calc(100% - 80px);"
       >
         <div
           class="ant-form-item-control-input"
@@ -13159,6 +13169,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      style="flex-wrap: nowrap;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -13174,6 +13185,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
       <div
         class="ant-col ant-form-item-control"
+        style="max-width: calc(100% - 80px);"
       >
         <div
           class="ant-form-item-control-input"
@@ -13389,6 +13401,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     >
       <div
         class="ant-row ant-form-item"
+        style="flex-wrap: nowrap;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -13404,6 +13417,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-form-item-control"
+          style="max-width: calc(100% - 80px);"
         >
           <div
             class="ant-form-item-control-input"
@@ -13458,6 +13472,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     >
       <div
         class="ant-row ant-form-item"
+        style="flex-wrap: nowrap;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -13473,6 +13488,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-form-item-control"
+          style="max-width: calc(100% - 80px);"
         >
           <div
             class="ant-form-item-control-input"
@@ -13528,6 +13544,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      style="flex-wrap: nowrap;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -13543,6 +13560,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
       <div
         class="ant-col ant-form-item-control"
+        style="max-width: calc(100% - 80px);"
       >
         <div
           class="ant-form-item-control-input"
@@ -13592,6 +13610,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      style="flex-wrap: nowrap;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -13607,6 +13626,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
       <div
         class="ant-col ant-form-item-control"
+        style="max-width: calc(100% - 80px);"
       >
         <div
           class="ant-form-item-control-input"
@@ -13661,6 +13681,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      style="flex-wrap: nowrap;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -13676,6 +13697,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
       <div
         class="ant-col ant-form-item-control"
+        style="max-width: calc(100% - 80px);"
       >
         <div
           class="ant-form-item-control-input"
@@ -13850,6 +13872,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -13865,6 +13888,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -13889,6 +13913,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -13904,6 +13929,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -13958,6 +13984,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -13973,6 +14000,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -14109,6 +14137,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -14124,6 +14153,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -14178,6 +14208,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -14193,6 +14224,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -14247,6 +14279,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -14262,6 +14295,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -14398,6 +14432,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -14413,6 +14448,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -14467,6 +14503,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -14482,6 +14519,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -14536,6 +14574,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -14551,6 +14590,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -14605,6 +14645,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -14620,6 +14661,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -14674,6 +14716,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -14689,6 +14732,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -14743,6 +14787,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -14758,6 +14803,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -14924,6 +14970,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -14939,6 +14986,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -14993,6 +15041,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15008,6 +15057,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -15062,6 +15112,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15077,6 +15128,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -15131,6 +15183,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15146,6 +15199,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -15200,6 +15254,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15215,6 +15270,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -15269,6 +15325,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15284,6 +15341,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -15450,6 +15508,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15465,6 +15524,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -15519,6 +15579,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15534,6 +15595,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -15588,6 +15650,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15603,6 +15666,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -15657,6 +15721,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15672,6 +15737,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -15726,6 +15792,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15741,6 +15808,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -15795,6 +15863,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15810,6 +15879,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -15976,6 +16046,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -15991,6 +16062,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -16045,6 +16117,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -16060,6 +16133,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -16114,6 +16188,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -16129,6 +16204,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -16183,6 +16259,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -16198,6 +16275,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -16252,6 +16330,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -16267,6 +16346,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -16321,6 +16401,7 @@ Array [
       >
         <div
           class="ant-row ant-form-item"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -16336,6 +16417,7 @@ Array [
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -16506,6 +16588,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     >
       <div
         class="ant-row ant-form-item"
+        style="flex-wrap: nowrap;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -16520,6 +16603,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-form-item-control"
+          style="max-width: calc(100% - 80px);"
         >
           <div
             class="ant-form-item-control-input"
@@ -16574,6 +16658,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     >
       <div
         class="ant-row ant-form-item"
+        style="flex-wrap: nowrap;"
       >
         <div
           class="ant-col ant-form-item-label"
@@ -16588,6 +16673,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         </div>
         <div
           class="ant-col ant-form-item-control"
+          style="max-width: calc(100% - 80px);"
         >
           <div
             class="ant-form-item-control-input"
@@ -16643,6 +16729,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      style="flex-wrap: nowrap;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -16657,6 +16744,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
       <div
         class="ant-col ant-form-item-control"
+        style="max-width: calc(100% - 80px);"
       >
         <div
           class="ant-form-item-control-input"
@@ -16706,6 +16794,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      style="flex-wrap: nowrap;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -16720,6 +16809,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
       <div
         class="ant-col ant-form-item-control"
+        style="max-width: calc(100% - 80px);"
       >
         <div
           class="ant-form-item-control-input"
@@ -16815,6 +16905,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
     </div>
     <div
       class="ant-row ant-form-item ant-form-item-hidden"
+      style="flex-wrap: nowrap;"
     >
       <div
         class="ant-col ant-form-item-label"
@@ -16829,6 +16920,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
       </div>
       <div
         class="ant-col ant-form-item-control"
+        style="max-width: calc(100% - 80px);"
       >
         <div
           class="ant-form-item-control-input"
@@ -17250,9 +17342,11 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               >
                 <div
                   class="ant-row ant-form-item"
+                  style="flex-wrap: nowrap;"
                 >
                   <div
                     class="ant-col ant-form-item-control"
+                    style="max-width: calc(100% - autopx);"
                   >
                     <div
                       class="ant-form-item-control-input"
@@ -17327,6 +17421,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               >
                 <div
                   class="ant-row ant-form-item"
+                  style="flex-wrap: nowrap;"
                 >
                   <div
                     class="ant-col ant-form-item-label"
@@ -17341,6 +17436,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   </div>
                   <div
                     class="ant-col ant-form-item-control"
+                    style="max-width: calc(100% - autopx);"
                   >
                     <div
                       class="ant-form-item-control-input"
@@ -17394,6 +17490,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               >
                 <div
                   class="ant-row ant-form-item"
+                  style="flex-wrap: nowrap;"
                 >
                   <div
                     class="ant-col ant-form-item-label"
@@ -17408,6 +17505,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                   </div>
                   <div
                     class="ant-col ant-form-item-control"
+                    style="max-width: calc(100% - autopx);"
                   >
                     <div
                       class="ant-form-item-control-input"

@@ -25,6 +25,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -40,6 +41,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -94,6 +96,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -109,6 +112,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -159,6 +163,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -174,6 +179,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -247,6 +253,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -262,6 +269,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -335,6 +343,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -350,6 +359,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -399,6 +409,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -414,6 +425,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -463,6 +475,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -478,6 +491,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -567,6 +581,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -582,6 +597,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -603,6 +619,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -618,6 +635,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -672,6 +690,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -687,6 +706,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -744,6 +764,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -759,6 +780,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -7368,6 +7390,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -7383,6 +7406,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -7461,9 +7485,11 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
