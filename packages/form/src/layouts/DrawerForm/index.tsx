@@ -199,9 +199,6 @@ function DrawerForm<T = Record<string, any>>({
               visible={visible}
               onClose={(e) => {
                 setVisible(false);
-                if (drawerProps?.destroyOnClose) {
-                  setKey(key + 1);
-                }
                 drawerProps?.onClose?.(e);
               }}
               footer={

@@ -206,10 +206,6 @@ function ModalForm<T = Record<string, any>>({
               width={width || 800}
               {...modalProps}
               afterClose={() => {
-                // 关闭的时候重新刷新，会让 initialValues 生效
-                if (modalProps?.destroyOnClose) {
-                  setKey(key + 1);
-                }
                 modalProps?.afterClose?.();
               }}
               getContainer={false}
