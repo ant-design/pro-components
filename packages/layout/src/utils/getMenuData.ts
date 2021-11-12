@@ -20,7 +20,6 @@ const getMenuData = (
   breadcrumbMap: Map<string, MenuDataItem>;
   menuData: MenuDataItem[];
 } => {
-  console.log(routes);
   const { menuData, breadcrumb } = transformRoute(
     routes as Route[],
     menu?.locale || false,
