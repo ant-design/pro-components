@@ -3,7 +3,7 @@ export default [
     path: '/home',
     name: '首页',
     locale: 'menu.home',
-    children: [
+    routes: [
       {
         path: '/home/overview',
         name: '概述',
@@ -22,12 +22,12 @@ export default [
     path: '/data_hui',
     name: '汇总数据',
     locale: 'menu.data_hui',
-    children: [
+    routes: [
       {
         collapsed: true,
         menuName: '域买家维度交易',
         name: '域买家维度交易',
-        children: [
+        routes: [
           {
             id: 2,
             name: '月表',
@@ -42,7 +42,7 @@ export default [
       {
         name: '维度交易',
         path: '/',
-        children: [
+        routes: [
           {
             name: '月表',
             path: '/data_hui4',
@@ -60,7 +60,7 @@ export default [
     path: '/data_ming',
     name: '明细数据',
     locale: 'menu.data_ming',
-    children: [
+    routes: [
       {
         path: '/other/outLoadMenu',
         name: '菜单导出',
@@ -78,7 +78,7 @@ export default [
     path: '/other',
     name: '其他',
     locale: 'menu.other',
-    children: [
+    routes: [
       {
         path: '/other/upLoad',
         name: 'odps同步导入',

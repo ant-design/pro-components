@@ -4285,10 +4285,10 @@
     "@umijs/runtime" "3.5.20"
     react-router-config "5.1.1"
 
-"@umijs/route-utils@^1.0.35":
-  version "1.0.37"
-  resolved "https://registry.npm.taobao.org/@umijs/route-utils/download/@umijs/route-utils-1.0.37.tgz#1ceb516980d4754ce2d5959878fe72259091a990"
-  integrity sha1-HOtRaYDUdUzi1ZWYeP5yJZCRqZA=
+"@umijs/route-utils@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@umijs/route-utils/-/route-utils-2.0.1.tgz#141e1863a37acb878275bdb9655eca5c32e94546"
+  integrity sha512-PUBakvQuuRAh1GlAPbN3sab6xCw2811WG0JXufUe303OgDNu21ABkqMPgScAZb2N8AvxRjk5k7SHr7kIczaEuQ==
   dependencies:
     "@qixian.cs/path-to-regexp" "^6.1.0"
     fast-deep-equal "^3.1.3"

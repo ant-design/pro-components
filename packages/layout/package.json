@@ -36,7 +36,7 @@
     "@ant-design/icons": "^4.0.0",
     "@ant-design/pro-provider": "1.4.20",
     "@ant-design/pro-utils": "1.26.1",
-    "@umijs/route-utils": "^1.0.35",
+    "@umijs/route-utils": "^2.0.1",
     "@umijs/use-params": "^1.0.2",
     "classnames": "^2.2.6",
     "lodash.merge": "^4.6.2",

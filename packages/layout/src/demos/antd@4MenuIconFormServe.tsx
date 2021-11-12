@@ -14,12 +14,12 @@ const defaultMenus = [
     path: '/',
     name: 'welcome',
     icon: 'smile',
-    children: [
+    routes: [
       {
         path: '/welcome',
         name: 'one',
         icon: 'smile',
-        children: [
+        routes: [
           {
             path: '/welcome/welcome',
             name: 'two',
@@ -38,10 +38,10 @@ const defaultMenus = [
 ];
 
 const loopMenuItem = (menus: MenuDataItem[]): MenuDataItem[] =>
-  menus.map(({ icon, children, ...item }) => ({
+  menus.map(({ icon, routes, ...item }) => ({
     ...item,
     icon: icon && IconMap[icon as string],
-    children: children && loopMenuItem(children),
+    routes: routes && loopMenuItem(routes),
   }));
 
 export default () => (
