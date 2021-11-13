@@ -195,6 +195,7 @@ class MenuUtil {
         isMobile,
         replace: itemPath === location.pathname,
         onClick: () => onCollapse && onCollapse(true),
+        children: undefined,
       };
       return menuItemRender(renderItemProps, defaultItem, this.props);
     }
