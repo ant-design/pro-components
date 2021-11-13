@@ -19,7 +19,7 @@ The Pro Series components are placed here to support heavy-duty components.
 
 Any type of contribution is welcome, here are some examples of how you may contribute to this project 😃 ：
 
-- Use Ant Design Pro，umi, and ProComponents in your daily work.
+- Use Ant Design Pro, umi, and ProComponents in your daily work.
 - Submit [issues](https://github.com/ant-design/pro-components/issues) to report bugs or ask questions.
 - Propose [pull requests](https://github.com/ant-design/pro-components/pulls) to improve our code.
 
