@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.28.0...@ant-design/pro-layout@6.28.1) (2021-11-13)
+
+### Bug Fixes
+
+- **layout:** fix splitMenus no work error ([a5e5856](https://github.com/ant-design/pro-components/commit/a5e585649a9ee9bcdd9184a73027374520d03346))
+
 # [6.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.27.2...@ant-design/pro-layout@6.28.0) (2021-11-12)
 
 ### Bug Fixes
