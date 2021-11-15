@@ -177,7 +177,7 @@ class MenuUtil {
         <span
           title={name}
           onClick={() => {
-            window.open(itemPath);
+            window?.open?.(itemPath);
           }}
           className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
         >

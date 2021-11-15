@@ -905,7 +905,7 @@ describe('EditorProTable', () => {
   });
 
   it('📝 renderFormItem run defaultRender', async () => {
-    const wrapper = render(
+    const wrapper = mount(
       <EditableProTable<DataSourceType>
         rowKey="id"
         editable={{
@@ -924,7 +924,9 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
   });
 
   it('📝 columns support editable test', async () => {
@@ -966,7 +968,7 @@ describe('EditorProTable', () => {
         columns={[
           {
             // dataIndex 存在有数据，不显示 initialValue
-            dataIndex: 'index',
+            dataIndex: 'title',
             valueType: 'text',
             width: 48,
             initialValue: '123',
@@ -990,7 +992,17 @@ describe('EditorProTable', () => {
             },
           },
         ]}
-        value={defaultData}
+        value={[
+          {
+            id: 624748504,
+            title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ]}
       />,
     );
 

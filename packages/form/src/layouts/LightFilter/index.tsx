@@ -190,6 +190,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
     initialValues,
     onValuesChange,
     form: userForm,
+    formRef: userFormRef,
     bordered,
     ignoreRules,
     footerRender,
@@ -202,7 +203,8 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   });
   const formRef = useRef<ProFormInstance>();
 
-  useImperativeHandle(props.formRef, () => formRef.current);
+  useImperativeHandle(userFormRef, () => formRef.current);
+
   return (
     <BaseForm
       size={size}

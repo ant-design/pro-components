@@ -163,9 +163,10 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     autoFocusFirstInput,
     ...rest
   } = props;
+  const [inlineForm] = Form.useForm(form);
   /** 同步 url 上的参数 */
   const [urlSearch, setUrlSearch] = useUrlSearchParams({});
-  const formRef = useRef<ProFormInstance<any>>(form! || ({} as any));
+  const formRef = useRef<ProFormInstance<any>>(inlineForm! || ({} as any));
 
   const fieldsValueType = useRef<
     Record<
@@ -250,7 +251,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   );
 
   // 初始化给一个默认的 form
-  useImperativeHandle(propsFormRef, () => formRef.current);
+  useImperativeHandle(propsFormRef, () => responseForm);
 
   /** 渲染提交按钮与重置按钮 */
   const submitterNode = useMemo(() => {
@@ -332,9 +333,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   useEffect(() => {
     if (syncToInitialValues) return;
-    window.requestAnimationFrame(() => {
-      setUrlParamsMergeInitialValues({});
-    });
+    setUrlParamsMergeInitialValues({});
   }, [syncToInitialValues]);
 
   const preInitialValues = usePrevious(props.initialValues);
@@ -375,13 +374,14 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           formComponentType,
           getPopupContainer,
           setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
-            if (Array.isArray(name)) {
-              transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
-              fieldsValueType.current = namePathSet(fieldsValueType.current, name, {
-                valueType,
-                dateFormat,
-              });
+            if (!Array.isArray(name)) {
+              return;
             }
+            transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
+            fieldsValueType.current = namePathSet(fieldsValueType.current, name, {
+              valueType,
+              dateFormat,
+            });
           },
         }}
       >
@@ -394,7 +394,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                   formRef.current?.submit();
                 }
               }}
-              form={form}
+              form={inlineForm}
               {...rest}
               // 组合 urlSearch 和 initialValues
               initialValues={{

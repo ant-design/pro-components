@@ -94,7 +94,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
     );
   }
 
-  const { editableForm } = counter;
+  if (!counter.editableForm) return null;
 
   const name = spellNamePath(
     prefixName,
@@ -105,7 +105,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
   /** 获取 formItemProps Props */
   const formItemProps = getFieldPropsOrFormItemProps(
     columnProps?.formItemProps,
-    editableForm as FormInstance,
+    counter.editableForm as FormInstance,
     {
       rowKey: config.recordKey || config.index,
       rowIndex: config.index,
@@ -119,7 +119,6 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
     type: (columnProps?.valueType as string) || '文本',
     ...formItemProps?.messageVariables,
   };
-
   const inputDom = (
     <ProFormField
       key={config.recordKey || config.index}
@@ -127,7 +126,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
       ignoreFormItem
       fieldProps={getFieldPropsOrFormItemProps(
         columnProps?.fieldProps,
-        editableForm as FormInstance,
+        counter?.editableForm as FormInstance,
         {
           ...columnProps,
           rowKey: config.recordKey || config.index,
@@ -148,7 +147,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
         name={name}
         {...formItemProps}
         messageVariables={messageVariables}
-        initialValue={text ?? formItemProps?.initialValue}
+        initialValue={text ?? formItemProps?.initialValue ?? columnProps?.initialValue}
       >
         {inputDom}
       </InlineErrorFormItem>
@@ -163,24 +162,26 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
       type: 'table',
     },
     {
-      defaultRender: () => (
-        <InlineErrorFormItem
-          key={config.recordKey || config.index}
-          errorType="popover"
-          name={name}
-          {...formItemProps}
-          messageVariables={messageVariables}
-          initialValue={text ?? formItemProps?.initialValue}
-        >
-          {inputDom}
-        </InlineErrorFormItem>
-      ),
+      defaultRender: () => {
+        return (
+          <InlineErrorFormItem
+            key={config.recordKey || config.index}
+            errorType="popover"
+            name={name}
+            {...formItemProps}
+            messageVariables={messageVariables}
+            initialValue={text ?? formItemProps?.initialValue ?? columnProps?.initialValue}
+          >
+            {inputDom}
+          </InlineErrorFormItem>
+        );
+      },
       type: 'form',
       recordKey: config.recordKey,
-      record: editableForm?.getFieldValue([config.recordKey || config.index]),
+      record: counter?.editableForm?.getFieldValue([config.recordKey || config.index]),
       isEditable: true,
     },
-    editableForm as any,
+    counter?.editableForm as any,
   );
   return (
     <InlineErrorFormItem
@@ -191,7 +192,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
         columnProps?.key || columnProps?.dataIndex || config.index,
       )}
       {...formItemProps}
-      initialValue={text ?? formItemProps?.initialValue}
+      initialValue={text ?? formItemProps?.initialValue ?? columnProps?.initialValue}
       messageVariables={messageVariables}
     >
       {renderDom}
