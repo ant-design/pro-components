@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.27.0...@ant-design/pro-utils@1.28.0) (2021-11-15)
+
+### Features
+
+- **form:** support antd next ([#4038](https://github.com/ant-design/pro-components/issues/4038)) ([96a64c3](https://github.com/ant-design/pro-components/commit/96a64c35d0fc6a359a4ff3d36b96f510f4580c63)), closes [#3770](https://github.com/ant-design/pro-components/issues/3770) [#3863](https://github.com/ant-design/pro-components/issues/3863)
+
 # [1.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.26.1...@ant-design/pro-utils@1.27.0) (2021-11-12)
 
 ### Bug Fixes
