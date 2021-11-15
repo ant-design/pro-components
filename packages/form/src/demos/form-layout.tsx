@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { message, Row, Col } from 'antd';
+import { message, Row, Col, Space } from 'antd';
 import ProForm, { ProFormText, ProFormRadio } from '@ant-design/pro-form';
 
 type LayoutType = Parameters<typeof ProForm>[0]['layout'];
@@ -37,7 +37,7 @@ export default () => {
           return formLayoutType === LAYOUT_TYPE_HORIZONTAL ? (
             <Row>
               <Col span={14} offset={4}>
-                {doms}
+                <Space>{doms}</Space>
               </Col>
             </Row>
           ) : (
