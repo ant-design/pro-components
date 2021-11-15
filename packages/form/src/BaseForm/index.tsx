@@ -374,9 +374,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           formComponentType,
           getPopupContainer,
           setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
-            if (!Array.isArray(name)) {
-              return;
-            }
+            if (!Array.isArray(name)) return;
             transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
             fieldsValueType.current = namePathSet(fieldsValueType.current, name, {
               valueType,
