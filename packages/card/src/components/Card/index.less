@@ -158,7 +158,13 @@
   }
 
   &-title {
+    color: @card-head-color;
+    font-weight: 500;
     font-size: @card-head-font-size;
+  }
+
+  &-extra {
+    color: @card-head-extra-color;
   }
 
   &-type-inner {
@@ -174,10 +180,6 @@
     & svg {
       transition: transform @animation-duration-base;
     }
-  }
-
-  &-title {
-    font-weight: 500;
   }
 
   &-body {
