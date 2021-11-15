@@ -186,6 +186,12 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
 
 <code src="./demos/renderTable.tsx" background="#f5f5f5" height="500px" title="表格主体自定义" />
 
+### 卡片表格
+
+有些业务有自己的定制逻辑，可以不完全遵循 ProTable 的设计规则，但可以利用 ProTable 的 API 实现。如通过 `cardProps` 配置卡片属性，通过 `headTitle` 配置行动点在左侧。
+
+<code src="./demos/card-title.tsx" background="#f0f2f5" title="卡片表格" desc="使用卡片标题，行动点在左侧。" />
+
 ### 国际化相关的配置
 
 ProTable 内置了国际化的支持，作为一个文本量比较少的组件，我们可以自行实现国际化，成本也很低。
