@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card } from 'antd';
+import { Button } from 'antd';
 import { EllipsisOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
