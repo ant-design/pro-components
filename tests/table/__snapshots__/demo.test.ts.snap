@@ -8353,6 +8353,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -8365,7 +8366,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -9348,6 +9351,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -9360,7 +9364,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -10331,6 +10337,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -10343,7 +10350,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -11284,6 +11293,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -11296,7 +11306,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -12306,6 +12318,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -12318,7 +12331,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/tabs.ts
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -13567,6 +13582,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -13579,7 +13595,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -14117,6 +14135,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -14129,7 +14148,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -18251,6 +18272,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                 class="qixian-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="qixian-select qixian-select-sm qixian-pagination-options-size-changer qixian-select-single qixian-select-show-arrow"
                 >
                   <div
@@ -18263,7 +18285,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="qixian-select-selection-search-input"
@@ -20025,6 +20049,7 @@ Array [
                   class="ant-pagination-options"
                 >
                   <div
+                    aria-label="页码"
                     class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                   >
                     <div
@@ -20037,7 +20062,9 @@ Array [
                           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="页码"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -20839,6 +20866,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -20851,7 +20879,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -22767,6 +22797,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -22779,7 +22810,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -25990,6 +26023,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                           class="ant-pagination-options"
                         >
                           <div
+                            aria-label="页码"
                             class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                           >
                             <div
@@ -26002,7 +26036,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                   aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                                   aria-autocomplete="list"
                                   aria-controls="rc_select_TEST_OR_SSR_list"
+                                  aria-expanded="false"
                                   aria-haspopup="listbox"
+                                  aria-label="页码"
                                   aria-owns="rc_select_TEST_OR_SSR_list"
                                   autocomplete="off"
                                   class="ant-select-selection-search-input"
@@ -27880,6 +27916,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -27892,7 +27929,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -28793,6 +28832,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -28805,7 +28845,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -30037,6 +30079,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -30049,7 +30092,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -30856,6 +30901,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -30868,7 +30914,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -32103,6 +32151,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -32115,7 +32164,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -33943,6 +33994,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -33955,7 +34007,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -34676,6 +34730,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -34688,7 +34743,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-title.tsx correc
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -35969,6 +36026,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -35981,7 +36039,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -37152,6 +37212,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -37164,7 +37225,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -38210,6 +38273,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -38222,7 +38286,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -39200,6 +39266,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                     class="ant-pagination-options"
                   >
                     <div
+                      aria-label="页码"
                       class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                     >
                       <div
@@ -39212,7 +39279,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                             aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-expanded="false"
                             aria-haspopup="listbox"
+                            aria-label="页码"
                             aria-owns="rc_select_TEST_OR_SSR_list"
                             autocomplete="off"
                             class="ant-select-selection-search-input"
@@ -40843,6 +40912,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="مقاس الصفحه"
                   class="ant-select ant-select-sm ant-select-rtl ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -40855,7 +40925,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="مقاس الصفحه"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -41258,6 +41330,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -41270,7 +41343,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -42067,6 +42142,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -42079,7 +42155,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -43802,6 +43880,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -43814,7 +43893,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -44710,6 +44791,7 @@ Array [
                   class="ant-pagination-options"
                 >
                   <div
+                    aria-label="页码"
                     class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                   >
                     <div
@@ -44722,7 +44804,9 @@ Array [
                           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="页码"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -46527,6 +46611,7 @@ Array [
                   class="ant-pagination-options"
                 >
                   <div
+                    aria-label="页码"
                     class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                   >
                     <div
@@ -46539,7 +46624,9 @@ Array [
                           aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                           aria-autocomplete="list"
                           aria-controls="rc_select_TEST_OR_SSR_list"
+                          aria-expanded="false"
                           aria-haspopup="listbox"
+                          aria-label="页码"
                           aria-owns="rc_select_TEST_OR_SSR_list"
                           autocomplete="off"
                           class="ant-select-selection-search-input"
@@ -48489,6 +48576,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -48501,7 +48589,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -49497,6 +49587,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -49509,7 +49600,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -50632,6 +50725,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -50644,7 +50738,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -51875,6 +51971,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -51887,7 +51984,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -53148,6 +53247,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -53160,7 +53260,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"

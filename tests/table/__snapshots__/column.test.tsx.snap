@@ -704,6 +704,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                 class="qixian-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="qixian-select qixian-select-sm qixian-pagination-options-size-changer qixian-select-single qixian-select-show-arrow"
                 >
                   <div
@@ -716,7 +717,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="qixian-select-selection-search-input"
