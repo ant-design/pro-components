@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { message } from 'antd';
+import { message, Row, Col } from 'antd';
 import ProForm, { ProFormText, ProFormRadio } from '@ant-design/pro-form';
 
 type LayoutType = Parameters<typeof ProForm>[0]['layout'];
+const LAYOUT_TYPE_HORIZONTAL = 'horizontal';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -13,10 +14,10 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const [formLayout, setFormLayout] = useState<LayoutType>('horizontal');
+  const [formLayoutType, setFormLayoutType] = useState<LayoutType>(LAYOUT_TYPE_HORIZONTAL);
 
   const formItemLayout =
-    formLayout === 'horizontal'
+    formLayoutType === LAYOUT_TYPE_HORIZONTAL
       ? {
           labelCol: { span: 4 },
           wrapperCol: { span: 14 },
@@ -30,7 +31,20 @@ export default () => {
       useMode?: string;
     }>
       {...formItemLayout}
-      layout={formLayout}
+      layout={formLayoutType}
+      submitter={{
+        render: (props, doms) => {
+          return formLayoutType === LAYOUT_TYPE_HORIZONTAL ? (
+            <Row>
+              <Col span={14} offset={4}>
+                {doms}
+              </Col>
+            </Row>
+          ) : (
+            doms
+          );
+        },
+      }}
       onFinish={async (values) => {
         await waitTime(2000);
         console.log(values);
@@ -52,27 +66,25 @@ export default () => {
         label="标签布局"
         radioType="button"
         fieldProps={{
-          value: formLayout,
-          onChange: (e) => setFormLayout(e.target.value),
+          value: formLayoutType,
+          onChange: (e) => setFormLayoutType(e.target.value),
         }}
         options={['horizontal', 'vertical', 'inline']}
       />
-      <div>
-        <ProFormText
-          width="md"
-          name="name"
-          label="签约客户名称"
-          tooltip="最长为 24 位"
-          placeholder="请输入名称"
-        />
-        <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
-        <ProFormText
-          name={['contract', 'name']}
-          width="md"
-          label="合同名称"
-          placeholder="请输入名称"
-        />
-      </div>
+      <ProFormText
+        width="md"
+        name="name"
+        label="签约客户名称"
+        tooltip="最长为 24 位"
+        placeholder="请输入名称"
+      />
+      <ProFormText width="md" name="company" label="我方公司名称" placeholder="请输入名称" />
+      <ProFormText
+        name={['contract', 'name']}
+        width="md"
+        label="合同名称"
+        placeholder="请输入名称"
+      />
     </ProForm>
   );
 };
