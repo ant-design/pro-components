@@ -1,14 +1,21 @@
-import React, { useState, useContext, useEffect, useMemo } from 'react';
+import React, {
+  useState,
+  useImperativeHandle,
+  useRef,
+  useContext,
+  useEffect,
+  useMemo,
+} from 'react';
 import type { FormProps } from 'antd';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import classNames from 'classnames';
-import { Form, ConfigProvider } from 'antd';
+import { ConfigProvider } from 'antd';
 import { FilterDropdown, FieldLabel } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
 import { FilterOutlined } from '@ant-design/icons';
 import omit from 'omit.js';
 
-import type { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps, ProFormInstance } from '../../BaseForm';
 import BaseForm from '../../BaseForm';
 import './index.less';
 import type { LightFilterFooterRender } from '../../interface';
@@ -190,16 +197,17 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-form');
-  const [form] = Form.useForm();
-  const realForm = userForm || form;
   const [values, setValues] = useState<Record<string, any>>(() => {
     return { ...initialValues };
   });
+  const formRef = useRef<ProFormInstance>();
+
+  useImperativeHandle(props.formRef, () => formRef.current);
   return (
     <BaseForm
       size={size}
       initialValues={initialValues}
-      form={realForm}
+      form={userForm}
       contentRender={(items) => {
         return (
           <LightFilterContainer
@@ -222,8 +230,8 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
                 ...newValues,
               };
               setValues(newAllValues);
-              realForm.setFieldsValue(newAllValues);
-              realForm.submit();
+              formRef.current?.setFieldsValue(newAllValues);
+              formRef.current?.submit();
               if (onValuesChange) {
                 onValuesChange(newValues, newAllValues);
               }
@@ -231,6 +239,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
           />
         );
       }}
+      formRef={formRef}
       formItemProps={{
         colon: false,
         labelAlign: 'left',
@@ -246,7 +255,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
         if (onValuesChange) {
           onValuesChange(_, allValues);
         }
-        realForm.submit();
+        formRef.current?.submit();
       }}
     />
   );

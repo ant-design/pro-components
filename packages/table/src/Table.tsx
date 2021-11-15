@@ -213,6 +213,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
           {toolbarDom}
           {alertDom}
           <ProForm
+            onInit={(_, form) => {
+              counter.setEditorTableForm(form);
+            }}
             {...props.editable?.formProps}
             component={false}
             form={props.editable?.form}

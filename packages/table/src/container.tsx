@@ -8,6 +8,7 @@ import type { ActionType } from './typing';
 import type { TableColumnType } from 'antd';
 import { genColumnKey } from './utils';
 import { noteOnce } from 'rc-util/lib/warning';
+import type { ProFormInstance } from '@ant-design/pro-form';
 
 export type ColumnsState = {
   show?: boolean;
@@ -29,7 +30,12 @@ function useContainer(props: UseContainerProps = {}) {
   const actionRef = useRef<ActionType>();
   /** 父 form item 的 name */
   const prefixNameRef = useRef<any>();
+
+  /** 自己 props 的引用 */
   const propsRef = useRef<ProTableProps<any, any, any>>();
+
+  /** 可编辑表格的formRef */
+  const editableFormRef = useRef<ProFormInstance<any>>();
 
   // 共享状态比较难，就放到这里了
   const [keyWords, setKeyWords] = useState<string | undefined>('');
@@ -142,6 +148,10 @@ function useContainer(props: UseContainerProps = {}) {
     setPrefixName: (name: any) => {
       prefixNameRef.current = name;
     },
+    setEditorTableForm: (form: ProFormInstance<any>) => {
+      editableFormRef.current = form;
+    },
+    editableForm: editableFormRef.current,
     setColumnsMap,
     columns: props.columns,
     clearPersistenceStorage,
@@ -157,6 +167,10 @@ function useContainer(props: UseContainerProps = {}) {
 
   Object.defineProperty(renderValue, 'action', {
     get: () => actionRef.current,
+  });
+
+  Object.defineProperty(renderValue, 'editableForm', {
+    get: () => editableFormRef.current,
   });
 
   return renderValue;

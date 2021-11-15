@@ -2,7 +2,7 @@
 import React, { useCallback, useContext, useMemo, useRef, useState } from 'react';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import type { FormInstance, FormProps } from 'antd';
+import type { FormInstance } from 'antd';
 import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
@@ -16,6 +16,7 @@ import type { NamePath } from 'antd/lib/form/interface';
 import usePrevious from '../hooks/usePrevious';
 import get from 'rc-util/lib/utils/get';
 import useDeepCompareEffect from '../hooks/useDeepCompareEffect';
+import type { ProFormProps } from '@ant-design/pro-form';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -51,7 +52,7 @@ export type ActionRenderFunction<T> = (
 
 export type RowEditableConfig<DataType> = {
   /** @name 控制可编辑表格的 From的设置 */
-  formProps?: Omit<FormProps<DataType>, 'onFinish'>;
+  formProps?: Omit<ProFormProps<DataType>, 'onFinish'>;
   /** @name 控制可编辑表格的 form */
   form?: FormInstance;
   /**

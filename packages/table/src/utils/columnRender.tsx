@@ -159,6 +159,7 @@ export function columnRender<T>({
       entry: rowData,
       entity: rowData,
     },
+    counter,
     columnEmptyText,
     type,
     recordKey,
