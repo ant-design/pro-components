@@ -49,7 +49,7 @@ const InlineErrorFormItem: React.FC<{
         setVisible(visibleParams);
       }}
       content={
-        <div>
+        <div className="ant-form-item-with-help">
           {inputProps.validateStatus === 'validating' ? <LoadingOutlined /> : null}
           {errorList}
         </div>

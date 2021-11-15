@@ -301,7 +301,7 @@ describe('utils', () => {
     await waitForComponentToPaint(html, 1000);
     expect(html.find('div.ant-popover').exists()).toBeTruthy();
     const li = html.find(
-      'div.ant-popover .ant-popover-inner-content div.ant-form-item-explain-error div',
+      'div.ant-popover .ant-popover-inner-content div.ant-form-item-explain-error',
     );
     expect(li.exists()).toBeTruthy();
     expect(li.at(0).text()).toBe(ruleMessage.min);

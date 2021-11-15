@@ -14369,6 +14369,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -14381,7 +14382,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/card-title.tsx corr
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
