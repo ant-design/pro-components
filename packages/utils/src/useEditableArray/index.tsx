@@ -571,7 +571,9 @@ function useEditableArray<RecordType>(
     });
 
     const relayValue = props.tableName ? get(value, [props.tableName || ''].flat(1)) : value;
-    const recordKey = Object.keys(relayValue).pop()?.toString() as string;
+    const recordKey = Object.keys(relayValue || {})
+      .pop()
+      ?.toString() as string;
 
     //从form 和 cache 中取得数据
     const newLineRecordData = {
@@ -589,7 +591,6 @@ function useEditableArray<RecordType>(
           return key === recordKey;
         })
       : newLineRecordData;
-
     props.onValuesChange(editRow || newLineRecordData, dataSource);
   };
 
