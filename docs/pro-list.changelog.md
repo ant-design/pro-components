@@ -9,6 +9,31 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.16.2
+
+`2021-10-09`
+
+- 🐛 fix(list): fix list rerender error [#3800](https://github.com/ant-design/pro-components/pull/3800) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-list@1.16.1
+
+`2021-10-09`
+
+- 🐛 fix(list): fix when cardActionProps=actions no run render funtions [#3791](https://github.com/ant-design/pro-components/pull/3791) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-list@1.16.0
+
+`2021-10-08`
+
+- 💥 feat(list): add cardlist operate [#3746](https://github.com/ant-design/pro-components/pull/3746) [@liuxulian](https://github.com/liuxulian)
+
+## @ant-design/pro-list@1.15.0
+
+`2021-10-08`
+
+- 🐛 fix(form): fix form list preserve problem [#3766](https://github.com/ant-design/pro-components/pull/3766) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(list): prolist support rowClassName [#3784](https://github.com/ant-design/pro-components/pull/3784) [@xiaohanxu-nick](https://github.com/xiaohanxu-nick)
+
 ## @ant-design/pro-list@1.14.1
 
 `2021-09-17`

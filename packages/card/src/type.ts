@@ -5,6 +5,7 @@ import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type ProCardTabsProps = {} & TabsProps;
 
 export type ColSpanType = number | string;
@@ -70,6 +71,10 @@ export type CardProps = {
   prefixCls?: string;
   /** ProCard 的 ref */
   ref?: React.Ref<HTMLDivElement | undefined>;
+  /** 是否展示选中样式 */
+  checked?: boolean;
+  /** 选中改变 */
+  onChecked?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 } & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
 
 export type ProCardTabPaneProps = {

@@ -9,7 +9,7 @@ function useFetchData<T, U extends Record<string, any> = Record<string, any>>(pr
   proFieldKey?: React.Key;
   params?: U;
   request?: ProRequestData<T, U>;
-}): [T, () => void] {
+}): [Readonly<T | undefined>, () => void] {
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
     if (props.proFieldKey) {
@@ -33,14 +33,14 @@ function useFetchData<T, U extends Record<string, any> = Record<string, any>>(pr
     return [proFieldKeyRef.current, JSON.stringify(props.params)];
   }, [props.params]);
 
-  const { data, error } = useSWR(key, fetchData, {
+  const { data, error } = useSWR<T | undefined>(key, fetchData, {
     revalidateOnFocus: false,
     shouldRetryOnError: false,
     revalidateOnReconnect: false,
   });
 
   return [
-    (data as T) || error,
+    data || error,
     () => {
       mutate(key);
     },

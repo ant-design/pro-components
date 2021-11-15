@@ -238,8 +238,11 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
-| request | 从网络请求枚举数据 | `()=>Promise<{[key:string`\|`number]:any}>` | - |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| debounceTime | 防抖动时间，与 request 配合使用 | `number` | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `` (form,config)=>SelectProps`\| `SelectProps `` | - |
 
 > 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
 
@@ -303,6 +306,9 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | --- | --- | --- | --- |
 | options | 与 select 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
 | layout | 配置 checkbox 的样子，支持垂直`vertical` 和 `horizontal` | `horizontal` \| `vertical` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `(form,config)=>CheckboxProps \| CheckboxProps` | - |
 
 ```tsx | pure
 <ProFormCheckbox.Group
@@ -322,7 +328,10 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | options | 与 select 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
 | radioType | 设置是按钮模式还是 radio 模式 | `button`\|`radio` | `radio` |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `(form,config)=>RadioProps \|RadioProps` | - |
 
 ```tsx | pure
 <ProFormRadio.Group
@@ -345,9 +354,51 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 />
 ```
 
+### ProFormCascader
+
+与 [cascader](https://ant.design/components/cascader-cn/) 相同，通过 filedProps 配置 cascader 的数据。
+
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
+
+```tsx | pure
+<ProFormSwitch
+  name="area"
+  label="区域"
+  options={[
+    {
+      value: 'zhejiang',
+      label: 'Zhejiang',
+      children: [
+        {
+          value: 'hangzhou',
+          label: 'Hangzhou',
+          children: [
+            {
+              value: 'xihu',
+              label: 'West Lake',
+            },
+          ],
+        },
+      ],
+    },
+  ]}
+/>
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| options | 与 cascader 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `(form,config)=>CascaderProps \| CascaderProps` | - |
+
 ### ProFormSwitch
 
-与 [switch](https://ant.design/components/switch-cn/) 相同。
+与 [switch](https://ant.design/components/switch-cn/) 相同，通过 filedProps 配置 switch 的数据。
+
+| 参数       | 说明              | 类型                                        | 默认值 |
+| ---------- | ----------------- | ------------------------------------------- | ------ |
+| fieldProps | antd 组件的 props | `(form,config)=>SwitchProps \| SwitchProps` | -      |
 
 ```tsx | pure
 <ProFormSwitch name="switch" label="Switch" />
@@ -355,7 +406,11 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormRate
 
-与 [rate](https://ant.design/components/rate-cn/) 相同。
+| 参数       | 说明              | 类型                                    | 默认值 |
+| ---------- | ----------------- | --------------------------------------- | ------ |
+| fieldProps | antd 组件的 props | `(form,config)=>RateProps \| RateProps` | -      |
+
+与 [rate](https://ant.design/components/rate-cn/) 相同，通过 filedProps 配置 rate 的数据。
 
 ```tsx | pure
 <ProFormRate name="rate" label="Rate" />
@@ -363,7 +418,11 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormSlider
 
-与 [slider](https://ant.design/components/slider-cn/) 相同。
+与 [slider](https://ant.design/components/slider-cn/) 相同，通过 filedProps 配置 slider 的数据。
+
+| 参数       | 说明              | 类型                                        | 默认值 |
+| ---------- | ----------------- | ------------------------------------------- | ------ |
+| fieldProps | antd 组件的 props | `(form,config)=>SliderProps \| SliderProps` | -      |
 
 ```tsx | pure
 <ProFormSlider
@@ -442,6 +501,8 @@ ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示�
 | --- | --- | --- | --- |
 | locale | 单独设置的国际化地区值，根据不同的地区显示不同的货币符号，支持地区详见下面的地区目录 | `string` | `zh-Hans-CN` |
 | customSymbol | 自定义金额符号 | `string` | - |
+| numberPopoverRender | 自定义 Popover 的值，false 可以关闭他 | `((props: InputNumberProps, defaultText: string) => React.ReactNode)`\| `boolean` | false |
+| numberFormatOptions | NumberFormat 的配置，文档可以查看 [mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) | NumberFormatOptions | - |
 | min | 最小值 | `number` | - |
 | max | 最大值 | `number` | - |
 

@@ -40,6 +40,22 @@ export default () => {
         name="list"
         label="组件列表- Input.Group"
         type="group"
+        rules={[
+          {
+            validator: (_, value) => {
+              const [name, name1, name2] = value || [];
+              if (!name) {
+                throw new Error('第一个值不能为空');
+              }
+              if (!name1) {
+                throw new Error('第二个值不能为空');
+              }
+              if (!name2) {
+                throw new Error('第三个值不能为空');
+              }
+            },
+          },
+        ]}
         transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
       >
         <ProFormText width="md" />

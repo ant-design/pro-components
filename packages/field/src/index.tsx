@@ -38,6 +38,7 @@ import FieldDigit from './components/Digit';
 import FieldSecond from './components/Second';
 import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
+import FieldCascader from './components/Cascader';
 import FieldColorPicker from './components/ColorPicker';
 import { noteOnce } from 'rc-util/lib/warning';
 
@@ -48,7 +49,8 @@ export type ProFieldMoneyProps = FieldMoneyProps;
 export type ProFieldEmptyText = string | false;
 
 /** 默认的 Field 需要实现的功能 */
-export type ProFieldFC<T> = React.ForwardRefRenderFunction<
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type ProFieldFC<T = {}> = React.ForwardRefRenderFunction<
   any,
   BaseProFieldFC & ProRenderFieldPropsType & T
 >;
@@ -338,7 +340,9 @@ const defaultRenderText = (
   if (valueType === 'image') {
     return <FieldImage text={text as string} {...props} />;
   }
-
+  if (valueType === 'cascader') {
+    return <FieldCascader text={text as string} {...props} />;
+  }
   if (valueType === 'color') {
     return <FieldColorPicker text={text as string} {...props} />;
   }
@@ -356,7 +360,7 @@ export type ProFieldPropsType = {
 
 const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
   { text, valueType = 'text', onChange, renderFormItem, value, ...rest },
-  ref,
+  ref: any,
 ) => {
   const intl = useIntl();
   const context = useContext(ConfigContext);
@@ -366,8 +370,8 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
     onChange: (...restParams: any[]) => {
-      onChange?.(...restParams);
       rest?.fieldProps?.onChange?.(...restParams);
+      onChange?.(...restParams);
     },
   };
 
@@ -377,9 +381,9 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
         text ?? fieldProps?.value ?? '',
         valueType || 'text',
         {
+          ref,
           ...rest,
           mode: rest.mode || 'read',
-          ref,
           renderFormItem: renderFormItem
             ? (...restProps) => {
                 const newDom = renderFormItem(...restProps);
@@ -419,6 +423,6 @@ export {
   proFieldParsingValueEnumToArray,
 };
 
-export type { ProFieldValueType };
+export type { ProFieldValueType, FieldMoneyProps };
 
 export default React.forwardRef(ProField) as typeof ProField;

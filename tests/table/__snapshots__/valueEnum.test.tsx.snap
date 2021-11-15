@@ -25,6 +25,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -40,6 +41,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -598,6 +600,7 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
               aria-selected="false"
               class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option  ant-select-item-option-active"
               data-item="[object Object]"
+              label="关闭"
               title="关闭"
             >
               <div
@@ -616,6 +619,7 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
               aria-selected="false"
               class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option  ant-select-item-option-disabled"
               data-item="[object Object]"
+              label="运行中"
               title="运行中"
             >
               <div
@@ -634,6 +638,7 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
               aria-selected="false"
               class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option "
               data-item="[object Object]"
+              label="已上线"
               title="已上线"
             >
               <div
@@ -652,6 +657,7 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
               aria-selected="false"
               class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option "
               data-item="[object Object]"
+              label="异常"
               title="异常"
             >
               <div

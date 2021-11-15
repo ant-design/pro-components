@@ -5,13 +5,12 @@ import {
   NotificationOutlined,
   SettingOutlined,
 } from '@ant-design/icons';
-import { isBrowser } from '@ant-design/pro-utils';
+import { isBrowser, merge } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
 
 import { Button, Divider, Drawer, List, Switch, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import merge from 'lodash.merge';
 import omit from 'omit.js';
 import type { ProSettings } from '../../defaultSettings';
 import defaultSettings from '../../defaultSettings';
@@ -163,6 +162,19 @@ const updateTheme = (
 
 const getThemeList = (settings: Partial<ProSettings>) => {
   const formatMessage = getFormatMessage();
+
+  const getList = (): {
+    key: string;
+    fileName: string;
+    modifyVars: {
+      '@primary-color': string;
+    };
+    theme: 'dark' | 'light';
+  }[] => {
+    if (typeof window === 'undefined') return [];
+    return (window as any).umi_plugin_ant_themeVar || [];
+  };
+
   const list: {
     key: string;
     fileName: string;
@@ -170,7 +182,7 @@ const getThemeList = (settings: Partial<ProSettings>) => {
       '@primary-color': string;
     };
     theme: 'dark' | 'light';
-  }[] = (window as any).umi_plugin_ant_themeVar || [];
+  }[] = getList() || [];
   const themeList = [
     {
       key: 'light',
@@ -371,6 +383,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     });
 
     return () => window.document.removeEventListener('languagechange', onLanguageChange);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   /**
    * 修改设置
@@ -421,6 +434,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       }
     }
     preStateRef.current = nextState;
+    delete nextState.title;
     setSettingState(nextState);
   };
 
@@ -479,7 +493,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         >
           <BlockCheckbox
             prefixCls={baseClassName}
-            list={themeList.themeList}
+            list={themeList?.themeList}
             value={navTheme!}
             configType="theme"
             key="navTheme"

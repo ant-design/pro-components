@@ -28,6 +28,7 @@ export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> =
   ProTableProps<T, U, ValueType>,
   'onChange'
 > & {
+  defaultValue?: T[];
   value?: T[];
   onChange?: (value: T[]) => void;
   /** @name 原先的 table OnChange */
@@ -47,7 +48,7 @@ export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> =
   /** 是否受控，如果为 true，每次 value 更新都会重置表单 */
   controlled?: boolean;
   /** FormItem 的设置 */
-  formItemProps?: FormItemProps;
+  formItemProps?: Omit<FormItemProps, 'children' | 'name'>;
 };
 
 const EditableTableActionContext = React.createContext<
@@ -92,6 +93,7 @@ function EditableTable<
     recordCreatorProps,
     rowKey,
     controlled,
+    defaultValue,
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
@@ -100,7 +102,7 @@ function EditableTable<
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current);
 
-  const [value, setValue] = useMergedState<DataType[]>(() => props.value || [], {
+  const [value, setValue] = useMergedState<DataType[]>(() => props.value || defaultValue || [], {
     value: props.value,
     onChange: props.onChange,
   });
@@ -132,9 +134,9 @@ function EditableTable<
     return (
       recordCreatorProps !== false && (
         <RecordCreator
-          record={runFunction(record, value.length, value) || {}}
+          record={runFunction(record, value?.length, value) || {}}
           position={position}
-          parentKey={runFunction(parentKey, value.length, value)}
+          parentKey={runFunction(parentKey, value?.length, value)}
           newRecordType={newRecordType}
         >
           <Button
@@ -153,7 +155,7 @@ function EditableTable<
       )
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [recordCreatorProps, maxLength, value.length]);
+  }, [recordCreatorProps, maxLength, value?.length]);
 
   const buttonRenderProps = useMemo(() => {
     if (!creatorButtonDom) {
@@ -222,6 +224,7 @@ function EditableTable<
       }
     };
   }
+
   return (
     <EditableTableActionContext.Provider value={actionRef}>
       <ProTable<DataType, Params, ValueType>
@@ -236,7 +239,9 @@ function EditableTable<
         onChange={onTableChange}
         dataSource={value}
         editable={editableProps}
-        onDataSourceChange={setValue}
+        onDataSourceChange={(dataSource: DataType[]) => {
+          setValue(dataSource);
+        }}
       />
     </EditableTableActionContext.Provider>
   );
@@ -250,17 +255,27 @@ function FieldEditableTable<
   const { name, formItemProps } = props;
   if (!name) return <EditableTable<DataType, Params, ValueType> {...props} />;
   return (
-    <Field shouldUpdate={true} name={props.name} {...formItemProps} isList>
-      {(control) => {
-        return (
-          <EditableTable<DataType, Params, ValueType>
-            {...props}
-            value={control.value}
-            onChange={control.onChange}
-          />
-        );
+    <Form.Item
+      style={{
+        maxWidth: '100%',
       }}
-    </Field>
+      {...formItemProps}
+      name={props.name}
+    >
+      <>
+        <Field shouldUpdate={true} name={props.name} isList>
+          {(control) => {
+            return (
+              <EditableTable<DataType, Params, ValueType>
+                {...props}
+                value={control.value}
+                onChange={control.onChange}
+              />
+            );
+          }}
+        </Field>
+      </>
+    </Form.Item>
   );
 }
 

@@ -10,7 +10,7 @@ import useSelection from 'antd/lib/table/hooks/useSelection';
 import usePagination from 'antd/lib/table/hooks/usePagination';
 import type { ItemProps } from './Item';
 import ProListItem from './Item';
-import { PRO_LIST_KEYS } from './constants';
+import { PRO_LIST_KEYS_MAP } from './constants';
 import classNames from 'classnames';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
@@ -28,6 +28,7 @@ export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderI
     renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
     actionRef: React.MutableRefObject<ActionType | undefined>;
     onRow?: GetComponentProps<RecordType>;
+    rowClassName?: string | ((item: RecordType, index: number) => string);
     /** Render 除了 header 之后的代码 */
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
@@ -49,6 +50,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowSelection,
     pagination, // List 的 pagination 默认是 false
     onRow,
+    rowClassName,
     ...rest
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -69,7 +71,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     { responsive: true, ...pagination } as any,
     () => {},
   );
-  /** 根据分页来回去不同的数据，模拟 table */
+  /** 根据分页来返回不同的数据，模拟 table */
   const pageData = React.useMemo<RecordType[]>(() => {
     if (
       pagination === false ||
@@ -107,6 +109,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowExpandable,
   } = expandableConfig || {};
 
+  /** 展开收起功能区域 star */
   const [innerExpandedKeys, setInnerExpandedKeys] = React.useState<Key[]>(() => {
     if (defaultExpandedRowKeys) {
       return defaultExpandedRowKeys as Key[];
@@ -145,9 +148,10 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     [getRowKey, mergedExpandedKeys, dataSource, onExpand, onExpandedRowsChange],
   );
 
+  /** 展开收起功能区域 end */
+
   /** 这个是 选择框的 render 方法 为了兼容 antd 的 table,用了同样的渲染逻辑 所以看起来有点奇怪 */
   const selectItemDom = selectItemRender([])[0];
-
   return (
     <List<RecordType>
       {...rest}
@@ -155,29 +159,52 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
       dataSource={pageData}
       pagination={pagination && (mergedPagination as ListViewProps<RecordType>['pagination'])}
       renderItem={(item, index) => {
-        const listItemProps = {};
-        (columns as (TableColumnType<RecordType> & { listKey: string })[])?.forEach((column) => {
-          PRO_LIST_KEYS.forEach((key) => {
-            if (column.listKey === key) {
-              const dataIndex = (column.dataIndex || key) as string;
-              const rawData = Array.isArray(dataIndex)
-                ? get(item, dataIndex as string[])
-                : item[dataIndex];
-              // 渲染数据
-              const data = column.render ? column.render(rawData, item, index) : rawData;
-              if (data !== '-') listItemProps[key] = data;
-            }
-          });
+        const listItemProps: Partial<ItemProps<RecordType>> = {
+          className: typeof rowClassName === 'function' ? rowClassName(item, index) : rowClassName,
+        };
+
+        (
+          columns as (TableColumnType<RecordType> & { listKey: string; cardActionProps: string })[]
+        )?.forEach((column) => {
+          const { listKey, cardActionProps } = column;
+          if (!PRO_LIST_KEYS_MAP.has(listKey)) {
+            return;
+          }
+          const dataIndex = (column.dataIndex || listKey || column.key) as string;
+          const rawData = Array.isArray(dataIndex)
+            ? get(item, dataIndex as string[])
+            : item[dataIndex];
+
+          /** 如果cardActionProps 需要直接使用源数组，因为 action 必须要源数组 */
+          if (cardActionProps === 'actions' && listKey === 'actions') {
+            listItemProps.cardActionProps = cardActionProps;
+          }
+          // 调用protable的列配置渲染数据
+          const data = column.render ? column.render(rawData, item, index) : rawData;
+          if (data !== '-') listItemProps[column.listKey] = data;
         });
         let checkboxDom;
         if (selectItemDom && selectItemDom.render) {
-          checkboxDom = selectItemDom.render(item, item, index);
+          checkboxDom = selectItemDom.render(item, item, index) || undefined;
         }
         const { isEditable, recordKey } = actionRef.current?.isEditable({ ...item, index }) || {};
+
+        const isChecked = selectedKeySet.has(recordKey || index);
+
         const defaultDom = (
           <ProListItem
             key={recordKey}
-            cardProps={rest.grid}
+            cardProps={
+              rest.grid
+                ? {
+                    ...rest.grid,
+                    checked: isChecked,
+                    onChecked: React.isValidElement(checkboxDom)
+                      ? (checkboxDom?.props as any)?.onChange
+                      : undefined,
+                  }
+                : undefined
+            }
             {...listItemProps}
             recordKey={recordKey}
             isEditable={isEditable || false}

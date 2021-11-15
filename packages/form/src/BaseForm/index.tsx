@@ -16,7 +16,6 @@ import type {
   SearchTransformKeyFn,
   ProRequestData,
 } from '@ant-design/pro-utils';
-import { usePrevious } from '@ant-design/pro-utils';
 import {
   conversionMomentValue,
   transformKeySubmitValue,
@@ -25,7 +24,10 @@ import {
   runFunction,
   useFetchData,
   isDeepEqualReact,
+  usePrevious,
+  useDeepCompareEffect,
 } from '@ant-design/pro-utils';
+
 import { useUrlSearchParams } from '@umijs/use-params';
 import type { NamePath } from 'antd/lib/form/interface';
 
@@ -92,6 +94,12 @@ export type CommonFormProps<
 
   /** 是否回车提交 */
   isKeyPressSubmit?: boolean;
+
+  /** 用于控制form 是否相同的key，高阶用法 */
+  formKey?: string;
+
+  /** 自动选中第一项 */
+  autoFocusFirstInput?: boolean;
 };
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -101,6 +109,7 @@ export type BaseFormProps<T = Record<string, any>> = {
     form: FormInstance<any>,
   ) => React.ReactNode;
   fieldProps?: FieldProps;
+
   onInit?: (values: T) => void;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
@@ -123,7 +132,7 @@ const genParams = (
   return runFunction(syncUrl, params, type);
 };
 
-type ProFormInstance<T = Record<string, any>> = FormInstance<T> & {
+type ProFormInstance<T = any> = FormInstance<T> & {
   /** 获取格式化之后所有数据 */
   getFieldsFormatValue?: (nameList?: NamePath[] | true) => Record<string, any>;
   /** 获取格式化之后的单个数据 */
@@ -151,6 +160,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     onReset,
     omitNil = true,
     isKeyPressSubmit,
+    autoFocusFirstInput,
     ...rest
   } = props;
 
@@ -173,7 +183,16 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   const [loading, setLoading] = useMountMergeState<boolean>(false);
 
-  const items = React.Children.toArray(children);
+  const items = React.Children.toArray(children).map((item, index) => {
+    if (index === 0 && React.isValidElement(item) && autoFocusFirstInput) {
+      return React.cloneElement(item, {
+        ...item.props,
+        autoFocus: autoFocusFirstInput,
+      });
+    }
+    return item;
+  });
+
   /** 计算 props 的对象 */
   const submitterProps: SubmitterProps = useMemo(
     () => (typeof submitter === 'boolean' || !submitter ? {} : submitter),
@@ -272,6 +291,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   }, [contentRender, items, submitterNode]);
 
   const getPopupContainer = useMemo(() => {
+    if (typeof window === 'undefined') return undefined;
     // 如果在 drawerForm 和  modalForm 里就渲染dom到父节点里
     // modalForm 可能高度太小不适合
     if (formComponentType && ['DrawerForm'].includes(formComponentType)) {
@@ -315,6 +335,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       isEqual,
       `The initialValues only take effect when the form is initialized, if you need to load asynchronously recommended request, or the initialValues ? <Form/> : null `,
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.initialValues]);
 
   useEffect(() => {
@@ -437,11 +458,17 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 }
 
 function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
-  const { request, params, initialValues, ...rest } = props;
-  const [initialData] = useFetchData({
+  const { request, params, initialValues, formKey, ...rest } = props;
+  const [initialData, reload] = useFetchData({
     request,
     params,
+    proFieldKey: formKey,
   });
+
+  /** 如果 params 发生修改重新刷新一下 params */
+  useDeepCompareEffect(() => {
+    reload();
+  }, [params]);
 
   if (!initialData && props.request) {
     return (

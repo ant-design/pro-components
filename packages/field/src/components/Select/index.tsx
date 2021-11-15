@@ -17,7 +17,7 @@ import type {
   ProSchemaValueEnumObj,
 } from '@ant-design/pro-utils';
 
-import { useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
+import { useDebounceFn, useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
 import useSWR, { mutate } from 'swr';
 import { useIntl } from '@ant-design/pro-provider';
 
@@ -36,7 +36,8 @@ export type FieldSelectProps<FieldProps = any> = {
   text: string;
   /** 值的枚举，如果存在枚举，Search 中会生成 select */
   valueEnum?: ProFieldValueEnumType;
-
+  /** 防抖动时间 默认10 单位ms */
+  debounceTime?: number;
   /** 从服务器读取选项 */
   request?: ProFieldRequestData;
   /** 重新触发的时机 */
@@ -298,15 +299,19 @@ export const useFieldFetchData = (
 
   const [loading, setLoading] = useMountMergeState(false);
 
-  const fetchData = async () => {
-    if (!props.request) {
-      return [];
-    }
-    setLoading(true);
-    const loadData = await props.request({ ...props.params, keyWords }, props);
-    setLoading(false);
-    return loadData;
-  };
+  const { run: fetchData } = useDebounceFn<[Record<string, any>], SelectProps<any>['options']>(
+    async (params: Record<string, any>) => {
+      if (!props.request) {
+        return [];
+      }
+      setLoading(true);
+      const loadData = await props.request(params, props);
+      setLoading(false);
+      return loadData;
+    },
+    [],
+    props.debounceTime ?? 10,
+  );
 
   const key = useMemo(() => {
     if (!props.request) {
@@ -318,50 +323,65 @@ export const useFieldFetchData = (
     return [proFieldKeyRef.current, JSON.stringify({ ...props.params, keyWords })];
   }, [keyWords, props.params, props.request]);
 
-  const { data, mutate: setLocaleData } = useSWR(key, fetchData, {
-    revalidateOnFocus: false,
-    shouldRetryOnError: false,
-    revalidateOnReconnect: false,
-  });
+  const { data, mutate: setLocaleData } = useSWR<any>(
+    [key, props.params, keyWords],
+    (_, params, keyWord) => {
+      return fetchData({
+        ...(params as Record<string, any>),
+        keyWord,
+      });
+    },
+    {
+      revalidateOnFocus: false,
+      shouldRetryOnError: false,
+      revalidateOnReconnect: false,
+    },
+  );
 
+  const resOptions = useMemo(() => {
+    const opt = options?.map((item) => {
+      if (typeof item === 'string') {
+        return {
+          label: item,
+          value: item,
+        };
+      }
+      if (item?.optionType === 'optGroup' && (item.children || item.options)) {
+        const childrenOptions = [...(item.children || []), ...(item.options || [])].filter(
+          (mapItem) => {
+            return filerByItem(mapItem, keyWords);
+          },
+        );
+        return {
+          ...item,
+          children: childrenOptions,
+          options: childrenOptions,
+        };
+      }
+      return item;
+    });
+
+    // filterOption 为 true 时 filter数据, filterOption 默认为true
+    if (props.fieldProps?.filterOption === true || props.fieldProps?.filterOption === undefined) {
+      return opt?.filter((item) => {
+        if (!item) return false;
+        if (!keyWords) return true;
+        return filerByItem(item as any, keyWords);
+      });
+    }
+
+    return opt;
+  }, [options, keyWords, props.fieldProps?.filterOption]);
   return [
     loading,
-    props.request
-      ? (data as SelectOptionType)
-      : options
-          ?.map((item) => {
-            if (typeof item === 'string') {
-              return {
-                label: item,
-                value: item,
-              };
-            }
-            if (item?.optionType === 'optGroup' && (item.children || item.options)) {
-              const childrenOptions = [...(item.children || []), ...(item.options || [])].filter(
-                (mapItem) => {
-                  return filerByItem(mapItem, keyWords);
-                },
-              );
-              return {
-                ...item,
-                children: childrenOptions,
-                options: childrenOptions,
-              };
-            }
-            return item;
-          })
-          ?.filter((item) => {
-            if (!item) return false;
-            if (!keyWords) return true;
-            return filerByItem(item as any, keyWords);
-          }),
+    props.request ? (data as SelectProps<any>['options']) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
       mutate(key);
     },
     () => {
       setKeyWords(undefined);
-      setLocaleData(async () => [], false);
+      setLocaleData([], false);
     },
   ];
 };

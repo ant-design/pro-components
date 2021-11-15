@@ -12,6 +12,7 @@ export default () => {
             minWidth: 140,
           },
         }}
+        debounceTime={300}
         request={async ({ keyWords = '' }) => {
           return [
             { label: '全部', value: 'all' },

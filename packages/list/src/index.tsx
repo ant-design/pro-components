@@ -3,7 +3,6 @@ import type { ListProps, PaginationProps } from 'antd';
 import classNames from 'classnames';
 import type { ProTableProps, ProColumnType, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
-import type { ParamsType } from '@ant-design/pro-provider';
 import { ConfigProvider } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
@@ -12,9 +11,9 @@ import ListView from './ListView';
 import './index.less';
 import type { ItemProps } from './Item';
 
-type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
+export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
-type ProListMeta<T> = Pick<
+export type ProListMeta<T> = Pick<
   ProColumnType<T>,
   | 'dataIndex'
   | 'valueType'
@@ -27,16 +26,23 @@ type ProListMeta<T> = Pick<
   | 'formItemProps'
 >;
 
-export type ProListMetas<T> = {
+export type ProListMetas<T = any> = {
+  [key: string]: any;
   type?: ProListMeta<T>;
   title?: ProListMeta<T>;
   subTitle?: ProListMeta<T>;
   description?: ProListMeta<T>;
   avatar?: ProListMeta<T>;
-  extra?: ProListMeta<T>;
   content?: ProListMeta<T>;
-  actions?: ProListMeta<T>;
-  [key: string]: ProListMeta<T> | undefined;
+  actions?: ProListMeta<T> & {
+    /**
+     * @example
+     *   `cardActionProps = 'actions';`;
+     *
+     * @name 选择映射到 card 上的 props，默认为extra
+     */
+    cardActionProps?: 'extra' | 'actions';
+  };
 };
 
 export type GetComponentProps<RecordType> = (
@@ -44,8 +50,8 @@ export type GetComponentProps<RecordType> = (
   index: number,
 ) => React.HTMLAttributes<HTMLElement>;
 
-export type ProListProps<RecordType, U extends ParamsType> = Omit<
-  ProTableProps<RecordType, U>,
+export type ProListProps<RecordType = any, Params = Record<string, any>, ValueType = 'text'> = Omit<
+  ProTableProps<RecordType, Params, ValueType>,
   'size' | 'footer'
 > &
   AntdListProps<RecordType> & {
@@ -54,6 +60,7 @@ export type ProListProps<RecordType, U extends ParamsType> = Omit<
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
     onRow?: GetComponentProps<RecordType>;
+    rowClassName?: string | ((item: RecordType, index: number) => string);
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
   };
@@ -84,6 +91,7 @@ function ProList<
     renderItem,
     grid,
     onRow,
+    rowClassName,
     locale,
     itemHeaderRender,
     itemTitleRender,
@@ -92,7 +100,7 @@ function ProList<
 
   const actionRef = useRef<ActionType>();
 
-  useImperativeHandle(rest.actionRef, () => actionRef.current, [actionRef.current]);
+  useImperativeHandle(rest.actionRef, () => actionRef.current);
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
@@ -102,7 +110,7 @@ function ProList<
       const meta = metals![key] || {};
       let { valueType } = meta;
       if (!valueType) {
-        // 给默认的 valueType
+        // 根据 key 给不同的 valueType
         if (key === 'avatar') {
           valueType = 'avatar';
         }
@@ -163,6 +171,7 @@ function ProList<
             loading={loading}
             itemHeaderRender={itemHeaderRender}
             onRow={onRow}
+            rowClassName={rowClassName}
             locale={locale}
           />
         );

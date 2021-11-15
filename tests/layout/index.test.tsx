@@ -58,7 +58,7 @@ describe('BasicLayout', () => {
               path: '/home',
               name: '首页',
               locale: 'menu.home',
-              children: [
+              routes: [
                 {
                   path: '/home/overview',
                   name: '概述',
@@ -79,59 +79,59 @@ describe('BasicLayout', () => {
               path: '/data_hui',
               name: '汇总数据',
               locale: 'menu.data_hui',
-              children: [
+              routes: [
                 {
                   collapsed: true,
                   menuName: '域买家维度交易',
                   name: '域买家维度交易',
-                  children: [
+                  routes: [
                     {
                       id: 2,
                       isNavHome: '2',
                       itemId: '191020104',
                       itemName: '_交易_买家_月表',
                       tab: 'adm_rk_cr_tb_trd_byr_ms',
-                      tabProj: 'alifin_odps_birisk',
+                      tabProj: 'alining_odps_biisk',
                       name: '_交易_买家_月表',
-                      path: '/data_hui1?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui1?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alibis_odps_biisk',
                     },
                     {
                       id: 3,
                       isNavHome: '3',
                       name: '_航旅交易_买家_日表',
-                      path: '/data_hui2?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui2?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
                     },
                   ],
                 },
                 {
                   collapsed: true,
                   name: '域买家维度交易2',
-                  children: [
+                  routes: [
                     {
                       id: 5,
                       name: '_交易_买家_月表',
-                      path: '/data_hui3?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui3?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=box-shadow',
                     },
                     {
                       id: 6,
                       name: '_航旅交易_买家_日表',
-                      path: '/data_hui4?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui4?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
                     },
                   ],
                 },
                 {
                   collapsed: true,
                   name: '域买家维度交易3',
-                  children: [
+                  routes: [
                     {
                       id: 7,
                       name: '_交易_买家_月表2',
-                      path: '/data_hui5?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui5?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=box-shadow',
                     },
                     {
                       id: 8,
                       name: '_航旅交易_买家_日表3',
-                      path: '/data_hui6?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui6?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
                     },
                   ],
                 },
@@ -147,7 +147,7 @@ describe('BasicLayout', () => {
               name: '其他',
 
               locale: 'menu.other',
-              children: [
+              routes: [
                 {
                   path: '/other/upLoad',
                   name: 'odps同步导入',
@@ -199,7 +199,7 @@ describe('BasicLayout', () => {
           {
             path: '/home',
             name: '首页',
-            children: [
+            routes: [
               {
                 path: '/home/overview',
                 name: '概述',
@@ -1159,7 +1159,7 @@ describe('BasicLayout', () => {
               path: '/home',
               name: '首页',
               locale: 'menu.home',
-              children: [
+              routes: [
                 {
                   path: '/home/overview',
                   name: '概述',
@@ -1178,12 +1178,12 @@ describe('BasicLayout', () => {
               path: '/data_hui',
               name: '汇总数据',
               locale: 'menu.data_hui',
-              children: [
+              routes: [
                 {
                   collapsed: true,
                   menuName: '域买家维度交易',
                   name: '域买家维度交易',
-                  children: [
+                  routes: [
                     {
                       id: 2,
                       name: '月表',
@@ -1191,21 +1191,21 @@ describe('BasicLayout', () => {
                     },
                     {
                       name: '日表',
-                      path: '/data_hui3?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui3?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
                     },
                   ],
                 },
                 {
                   name: '维度交易',
                   path: '/',
-                  children: [
+                  routes: [
                     {
                       name: '月表',
                       path: '/data_hui4',
                     },
                     {
                       name: '日表',
-                      key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
                       path: '/data_hui5',
                     },
                   ],
@@ -1248,7 +1248,7 @@ describe('BasicLayout', () => {
               path: '/home',
               name: '首页',
               locale: 'menu.home',
-              children: [
+              routes: [
                 {
                   path: '/home/overview',
                   name: '概述',
@@ -1267,12 +1267,12 @@ describe('BasicLayout', () => {
               path: '/data_hui',
               name: '汇总数据',
               locale: 'menu.data_hui',
-              children: [
+              routes: [
                 {
                   collapsed: true,
                   menuName: '域买家维度交易',
                   name: '域买家维度交易',
-                  children: [
+                  routes: [
                     {
                       id: 2,
                       name: '月表',
@@ -1280,21 +1280,21 @@ describe('BasicLayout', () => {
                     },
                     {
                       name: '日表',
-                      path: '/data_hui3?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui3?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
                     },
                   ],
                 },
                 {
                   name: '维度交易',
                   path: '/',
-                  children: [
+                  routes: [
                     {
                       name: '月表',
                       path: '/data_hui4',
                     },
                     {
                       name: '日表',
-                      key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
                       path: '/data_hui5',
                     },
                   ],

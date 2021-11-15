@@ -35,6 +35,7 @@ function StepForm<T = Record<string, any>>({
         context?.unRegForm(restProps.name);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (context && context?.formArrayRef) {

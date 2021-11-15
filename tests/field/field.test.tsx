@@ -17,7 +17,7 @@ describe('Field', () => {
   });
 
   it('🐴 money onchange values', async () => {
-    const html = mount(<Field text="100" valueType="money" mode="edit" />);
+    const html = mount(<Field text="100" numberPopoverRender valueType="money" mode="edit" />);
     act(() => {
       html.find('input').simulate('change', {
         target: {
@@ -37,6 +37,47 @@ describe('Field', () => {
 
     html.update();
     expect(html.find('input').props().value).toBe('￥ 100');
+  });
+
+  it('🐴 money numberPopoverRender onchange values', async () => {
+    const html = mount(
+      <Field text="100" numberPopoverRender={() => 123} valueType="money" mode="edit" />,
+    );
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 1000');
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: '￥ 100',
+        },
+      });
+    });
+
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 100');
+  });
+
+  it('🐴 should trigger onChange function provided when change', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <Field text="100" valueType="money" mode="edit" fieldProps={{ onChange: fn }} />,
+    );
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+
+    expect(fn).toBeCalled();
   });
 
   it('🐴 percent=0', async () => {
@@ -107,7 +148,7 @@ describe('Field', () => {
     expect(html.text()).toBe('default');
   });
 
-  ['select', 'checkbox', 'radio', 'radioButton'].forEach((valueType) => {
+  ['select', 'checkbox', 'radio', 'radioButton', 'cascader'].forEach((valueType) => {
     it(`🐴 ${valueType} support render function`, async () => {
       const html = render(
         <Field
@@ -357,6 +398,7 @@ describe('Field', () => {
     'rate',
     'image',
     'color',
+    'cascader',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType support render ${valueType}`, async () => {
@@ -785,5 +827,37 @@ describe('Field', () => {
       />,
     );
     expect(html.text()).toBe('-');
+  });
+
+  it('🐴 select request debounceTime', async () => {
+    const requestFn = jest.fn();
+    const html = mount(
+      <Field
+        text="default"
+        debounceTime={200}
+        valueType="select"
+        mode="edit"
+        request={async (params) => {
+          requestFn(params?.test);
+          await waitTime(10);
+          return [
+            { label: '全部', value: 'all' },
+            { label: '未解决', value: 'open' },
+            { label: '已解决', value: 'closed' },
+            { label: '解决中', value: 'processing' },
+          ];
+        }}
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+    expect(requestFn).toBeCalledTimes(1);
+    act(() => {
+      html.setProps({
+        params: { name: 'test' },
+      });
+    });
+    expect(requestFn).toBeCalledTimes(1);
+    await waitForComponentToPaint(html, 200);
+    expect(requestFn).toBeCalledTimes(2);
   });
 });

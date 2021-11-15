@@ -53,6 +53,9 @@ export default {
     prev: 'Précédente',
     submit: 'Finaliser',
   },
+  loginForm: {
+    submitText: 'Se connecter',
+  },
   editableTable: {
     action: {
       save: 'Sauvegarder',

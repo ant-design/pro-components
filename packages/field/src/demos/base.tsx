@@ -200,7 +200,47 @@ export default () => {
             ]}
           />
         </Descriptions.Item>
-
+        <Descriptions.Item label="级联选择框">
+          <Field
+            text={['zhejiang', 'hangzhou', 'xihu']}
+            mode={state}
+            valueType="cascader"
+            request={async () => [
+              {
+                value: 'zhejiang',
+                label: 'Zhejiang',
+                children: [
+                  {
+                    value: 'hangzhou',
+                    label: 'Hangzhou',
+                    children: [
+                      {
+                        value: 'xihu',
+                        label: 'West Lake',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: 'jiangsu',
+                label: 'Jiangsu',
+                children: [
+                  {
+                    value: 'nanjing',
+                    label: 'Nanjing',
+                    children: [
+                      {
+                        value: 'zhonghuamen',
+                        label: 'Zhong Hua Men',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ]}
+          />
+        </Descriptions.Item>
         <Descriptions.Item label="进度条">
           <Field text="40" valueType="progress" mode={state} plain={plain} />
         </Descriptions.Item>

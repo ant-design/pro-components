@@ -26,7 +26,7 @@ ProLayout extends umi's router configuration, adding name, icon, locale, hideInM
 ```ts | pure
 export interface MenuDataItem {
   /** @name submenu */
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   /** @name Hide child nodes in the menu */
   hideChildrenInMenu?: boolean;
   /** @name hideSelf and children in menu */
@@ -129,7 +129,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 > All methods suffixed with `Render` can be made not to render by passing `false`.
 
 | Parameters | Description | Type | Default |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | title | The title of the top-left corner of the layout | `ReactNode` | `'Ant Design Pro'` |
 | logo | url to the top-left corner of layout's logo | `ReactNode` \| `()=> ReactNode` | - |
 | pure | Whether to remove all self-contained interfaces | `boolean` | - |
@@ -163,7 +163,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | headerContentRender | Custom header content methods | `(props: BasicLayoutProps) => ReactNode` | - |
 | rightContentRender | Custom render method for the right part of the header | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | Custom method for collapsed button | `(collapsed: boolean) => ReactNode` | - |
-| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => ReactNode` | - |
+| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => JSX.Element | false` | - |
 | pageTitleRender | The render method for custom page titles | `(props: BasicLayoutProps) => ReactNode` | - |
 | menuRender | The render method for custom menus | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | View the menu data before displaying it, changes will not trigger a re-render | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
@@ -171,7 +171,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | subMenuItemRender | Customize the render method with submenu items | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
 | menuDataRender | The render method of menuData, used to customize menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | breadcrumbRender | customize the data for breadcrumbs | `(route)=>route` | - |
-| route | Used to generate menus and breadcrumbs. umi's Layout will automatically have | [route](#Route) | - |
+| route | Used to generate menus and breadcrumbs. umi's Layout will automatically have | [route](#route) | - |
 | disableMobile | disable automatic switching to mobile pages | `boolean` | false |
 | links | Show shortcut actions in the lower right corner of the menu | `ReactNode[]` | - |
 | menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu/) | `MenuProps` | undefined |
@@ -231,7 +231,7 @@ const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDa
 
 | parameters | description | type | default |
 | --- | --- | --- | --- |
-| routes | The configuration information for the route | [route[]](#Route) | - |
+| routes | The configuration information for the route | [route[]](#route) | - |
 | menu | The configuration entry for menu, default `{locale: true}` | `{ locale: boolean }` | - |
 | menuDataRender | The render method of menuData, used to customize menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | formatMessage | The formatMessage method of react-intl | `(data: { id: any; defaultMessage?: string }) => string;` | - |
@@ -297,7 +297,7 @@ export interface Settings {
 
 export interface MenuDataItem {
   authority?: string[] | string;
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;
@@ -321,7 +321,7 @@ export interface Route {
     name: string;
     path: string;
     // Optional secondary menu
-    children?: Route['routes'];
+    routes?: Route['routes'];
   }>;
 }
 ```
@@ -426,7 +426,7 @@ In order to provide more functionality, we extended the routers configuration by
 // You can get this type by importing { MenuDataItem } from '@ant-design/pro-layout'
 // to get this type
 export interface MenuDataItem {
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;

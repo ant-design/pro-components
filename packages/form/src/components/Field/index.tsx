@@ -1,4 +1,5 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/ban-types */
+import React, { useImperativeHandle } from 'react';
 import ProField from '@ant-design/pro-field';
 import type { InputProps, SelectProps } from 'antd';
 import type { ProSchema } from '@ant-design/pro-utils';
@@ -28,6 +29,7 @@ export type ProFormFieldProps<T = any, FiledProps = InputProps & SelectProps<str
 const ProFormField: React.FC<
   ProFormFieldProps<any> & {
     onChange?: Function;
+    autoFocus?: boolean;
   }
 > = React.forwardRef((props, ref) => {
   const {
@@ -35,6 +37,7 @@ const ProFormField: React.FC<
     children,
     labelCol,
     label,
+    autoFocus,
     isDefaultDom,
     render,
     proFieldProps,
@@ -48,13 +51,19 @@ const ProFormField: React.FC<
     valuePropName = 'value',
     ...restProps
   } = props;
+
+  useImperativeHandle(ref, () => ({}));
+
   // 防止 formItem 的值被吃掉
   if (children) {
     if (React.isValidElement(children)) {
       return React.cloneElement(children, {
         ...restProps,
         onChange: (...restParams: any) => {
-          (fieldProps?.onChange as any)?.(...restParams);
+          if (fieldProps?.onChange) {
+            (fieldProps?.onChange as any)?.(...restParams);
+            return;
+          }
           onChange?.(...restParams);
         },
         ...children.props,
@@ -67,13 +76,22 @@ const ProFormField: React.FC<
     const propsParams = values ? { ...params, ...(values || {}) } : params;
     return (
       <ProField
-        ref={ref}
         valuePropName={valuePropName}
         text={fieldProps?.[valuePropName]}
         render={render as any}
         renderFormItem={renderFormItem as any}
         valueType={(valueType as 'text') || 'text'}
-        fieldProps={fieldProps}
+        fieldProps={{
+          autoFocus,
+          ...fieldProps,
+          onChange: (...restParams: any) => {
+            if (fieldProps?.onChange) {
+              (fieldProps?.onChange as any)?.(...restParams);
+              return;
+            }
+            onChange?.(...restParams);
+          },
+        }}
         valueEnum={runFunction(valueEnum)}
         {...proFieldProps}
         {...restProps}

@@ -9,6 +9,43 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.43.5
+
+`2021-10-19`
+
+- 🐛 fix(form): ProFormSlider support number [#3849](https://github.com/ant-design/pro-components/pull/3849) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-form@1.43.4
+
+`2021-10-18`
+
+- 🐛 fix(form): ProSelect filter support filterOption [#3822](https://github.com/ant-design/pro-components/pull/3822) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-form@1.43.3
+
+`2021-10-15`
+
+- 🐛 fix(form): fix Abnormal operation of proformdependency in proform [#3839](https://github.com/ant-design/pro-components/pull/3839) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix modal and drawer reset error [#3838](https://github.com/ant-design/pro-components/pull/3838) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): 修复 ProFormList 的 children 类型错误问题并添加 action 注入 [#3835](https://github.com/ant-design/pro-components/pull/3835) [@0x219](https://github.com/0x219)
+
+## @ant-design/pro-form@1.43.0
+
+`2021-10-08`
+
+- 🐛 fix(form): fix form list preserve problem [#3766](https://github.com/ant-design/pro-components/pull/3766) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): ProFormField lightProps no work error [#3765](https://github.com/ant-design/pro-components/pull/3765) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): fix modal form rewrite getPopupContainer error [#3763](https://github.com/ant-design/pro-components/pull/3763) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(form): 修复了 formList 组件无法向外抛出 actionRef [#3744](https://github.com/ant-design/pro-components/pull/3744) [@yoke0104x](https://github.com/yoke0104x)
+- 🐛 fix(field): timePicker 组件用 moment 解析时间不填入 format 是会直接 Invalid date [#3745](https://github.com/ant-design/pro-components/pull/3745) [@rojer95](https://github.com/rojer95)
+- 💥 feat(form): form support use singer function [#3764](https://github.com/ant-design/pro-components/pull/3764) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-form@1.42.1
+
+`2021-09-26`
+
+- 🐛 fix(form): no use div ref render dom [#3739](https://github.com/ant-design/pro-components/pull/3739) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-form@1.42.0
 
 `2021-09-24`

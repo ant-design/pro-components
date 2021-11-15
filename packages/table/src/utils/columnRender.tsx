@@ -38,7 +38,7 @@ export const renderColumnsTitle = (item: ProColumns<any>) => {
   if (title && typeof title === 'function') {
     return title(item, 'table', <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />);
   }
-  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />;
+  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} ellipsis={item.ellipsis} />;
 };
 
 /** 判断可不可编辑 */
@@ -143,7 +143,7 @@ export function columnRender<T>({
   const { isEditable, recordKey } = editableUtils.isEditable({ ...rowData, index });
   const { renderText = (val: any) => val } = columnProps;
 
-  const renderTextStr = renderText(text, rowData, index, action.current as ActionType);
+  const renderTextStr = renderText(text, rowData, index, action as ActionType);
   const mode =
     isEditable && !isEditableCell(text, rowData, index, columnProps?.editable) ? 'edit' : 'read';
 
@@ -207,7 +207,7 @@ export function columnRender<T>({
     rowData,
     index,
     {
-      ...(action.current as ActionType),
+      ...(action as ActionType),
       ...editableUtils,
     },
     {

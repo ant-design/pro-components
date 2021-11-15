@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { message } from 'antd';
 import type { ProFormInstance } from '@ant-design/pro-form';
+import { ProFormCascader } from '@ant-design/pro-form';
 import ProForm, {
   ProFormText,
   ProFormDateRangePicker,
@@ -41,7 +42,8 @@ export default () => {
         message.success('提交成功');
       }}
       formRef={formRef}
-      params={{}}
+      params={{ id: '100' }}
+      formKey="base-form-use-demo"
       request={async () => {
         await waitTime(100);
         return {
@@ -49,6 +51,7 @@ export default () => {
           useMode: 'chapter',
         };
       }}
+      autoFocusFirstInput
     >
       <ProForm.Group>
         <ProFormText
@@ -77,7 +80,7 @@ export default () => {
           width="lg"
         />
       </ProForm.Group>
-      <ProForm.Group>
+      <ProForm.Group title="金额系统">
         <ProFormMoney
           label="限制金额最小为0"
           name="amount1"
@@ -93,6 +96,8 @@ export default () => {
           initialValue={22.22}
           customSymbol="💰"
         />
+      </ProForm.Group>
+      <ProForm.Group>
         <ProFormText
           name={['contract', 'name']}
           width="md"
@@ -125,10 +130,58 @@ export default () => {
           name="unusedMode"
           label="合同约定失效方式"
         />
+        <ProFormMoney
+          width="md"
+          name="money"
+          label="合同约定金额"
+          fieldProps={{
+            numberPopoverRender: true,
+          }}
+        />
       </ProForm.Group>
       <ProFormText width="sm" name="id" label="主合同编号" />
       <ProFormText name="project" width="md" disabled label="项目名称" initialValue="xxxx项目" />
       <ProFormText width="xs" name="mangerName" disabled label="商务经理" initialValue="启途" />
+      <ProFormCascader
+        width="md"
+        request={async () => [
+          {
+            value: 'zhejiang',
+            label: 'Zhejiang',
+            children: [
+              {
+                value: 'hangzhou',
+                label: 'Hangzhou',
+                children: [
+                  {
+                    value: 'xihu',
+                    label: 'West Lake',
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            value: 'jiangsu',
+            label: 'Jiangsu',
+            children: [
+              {
+                value: 'nanjing',
+                label: 'Nanjing',
+                children: [
+                  {
+                    value: 'zhonghuamen',
+                    label: 'Zhong Hua Men',
+                  },
+                ],
+              },
+            ],
+          },
+        ]}
+        name="area"
+        label="区域"
+        initialValue={['zhejiang', 'hangzhou', 'xihu']}
+      />
     </ProForm>
   );
 };

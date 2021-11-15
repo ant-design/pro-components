@@ -2,7 +2,66 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [6.26.1-alpha.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.0...@ant-design/pro-layout@6.26.1-alpha.0) (2021-10-22)
+## [6.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.28.0...@ant-design/pro-layout@6.28.1) (2021-11-13)
+
+### Bug Fixes
+
+- **layout:** fix splitMenus no work error ([a5e5856](https://github.com/ant-design/pro-components/commit/a5e585649a9ee9bcdd9184a73027374520d03346))
+
+# [6.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.27.2...@ant-design/pro-layout@6.28.0) (2021-11-12)
+
+### Bug Fixes
+
+- **form:** fix onchange rechange error ([#4022](https://github.com/ant-design/pro-components/issues/4022)) ([69b4335](https://github.com/ant-design/pro-components/commit/69b433533db8a6df71dec2de05a4a8c4e6a480fc))
+- **form:** fix proform.item no support QueryFilter error ([#4011](https://github.com/ant-design/pro-components/issues/4011)) ([5eff600](https://github.com/ant-design/pro-components/commit/5eff600f580d99452f9e1a84b7c36c315e55804f))
+- **layout:** Improve performance ([#4020](https://github.com/ant-design/pro-components/issues/4020)) ([f1f2502](https://github.com/ant-design/pro-components/commit/f1f25024589e86c3d6e0fc1efc9b1e9dd8cea534))
+
+### Features
+
+- **layout:** support remove default title ([#4013](https://github.com/ant-design/pro-components/issues/4013)) ([e0ffad0](https://github.com/ant-design/pro-components/commit/e0ffad0561a144113caab2d40cae10b7ba78bbed))
+
+## [6.27.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.27.1...@ant-design/pro-layout@6.27.2) (2021-11-02)
+
+### Bug Fixes
+
+- **list:** fix list style error ([#3943](https://github.com/ant-design/pro-components/issues/3943)) ([68e0eed](https://github.com/ant-design/pro-components/commit/68e0eede7131932eb9e16734bb5bbb3c8fa0572e))
+
+## [6.27.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.27.0...@ant-design/pro-layout@6.27.1) (2021-10-27)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.6...@ant-design/pro-layout@6.27.0) (2021-10-26)
+
+### Features
+
+- support ssr server ([69773c9](https://github.com/ant-design/pro-components/commit/69773c9dbaccd342d86312032c7b09958cdaed7c))
+
+## [6.26.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.5...@ant-design/pro-layout@6.26.6) (2021-10-19)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.26.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.4...@ant-design/pro-layout@6.26.5) (2021-10-18)
+
+### Reverts
+
+- Revert "fix(layout): 优化 PageContainer 头部和内容之间的间距 (#3812)" (#3848) ([f6d8767](https://github.com/ant-design/pro-components/commit/f6d87676d8bab6573147d83a04a3c6e23bfd9ddb)), closes [#3812](https://github.com/ant-design/pro-components/issues/3812) [#3848](https://github.com/ant-design/pro-components/issues/3848)
+
+## [6.26.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.3...@ant-design/pro-layout@6.26.4) (2021-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.26.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.2...@ant-design/pro-layout@6.26.3) (2021-10-12)
+
+### Bug Fixes
+
+- **card:** fix card ehen theme change no change color error ([#3804](https://github.com/ant-design/pro-components/issues/3804)) ([083ec08](https://github.com/ant-design/pro-components/commit/083ec08794ab555615d5eb2304c3ef2e4660e77f))
+- **layout:** 优化 PageContainer 头部和内容之间的间距 ([#3812](https://github.com/ant-design/pro-components/issues/3812)) ([9b080b1](https://github.com/ant-design/pro-components/commit/9b080b16e46fe1d96041c54a4fa0be4f6c73f94a))
+
+## [6.26.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.1...@ant-design/pro-layout@6.26.2) (2021-10-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.26.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.26.0...@ant-design/pro-layout@6.26.1) (2021-10-08)
 
 **Note:** Version bump only for package @ant-design/pro-layout
 

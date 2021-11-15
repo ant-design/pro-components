@@ -71,6 +71,7 @@ export type ProFieldValueType =
   | 'fromNow'
   | 'image'
   | 'jsonCode'
+  | 'cascader'
   | 'color';
 
 export type RequestOptionsType = {
@@ -143,6 +144,7 @@ export type ProSchemaComponentTypes =
   | undefined;
 
 /** 操作类型 */
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type ProCoreActionType<T = {}> = {
   /** @name 刷新 */
   reload: (resetPageIndex?: boolean) => Promise<void>;
@@ -160,7 +162,9 @@ export type ProCoreActionType<T = {}> = {
 > &
   T;
 
-type ProSchemaValueType<ValueType> = (ValueType | ProFieldValueType) | ProFieldValueObjectType;
+export type ProSchemaValueType<ValueType> =
+  | (ValueType | ProFieldValueType)
+  | ProFieldValueObjectType;
 
 /** 各个组件公共支持的 render */
 export type ProSchema<
@@ -190,7 +194,7 @@ export type ProSchema<
    */
   title?:
     | ((
-        schema: ProSchema<Entity, ExtraProps>,
+        schema: Omit<ProSchema<Entity, ExtraProps>, 'render' | 'renderFormItem'>,
         type: ComponentsType,
         dom: React.ReactNode,
       ) => React.ReactNode)
@@ -299,6 +303,8 @@ export type ProSchema<
 
   /** @name 从服务器请求枚举 */
   request?: ProFieldRequestData;
+  /** @name request防抖动时间 默认10 单位ms */
+  debounceTime?: number;
   /** @name 从服务器请求的参数，改变了会触发 reload */
   params?: Record<string, any>;
   /** @name 依赖字段的name，暂时只在拥有 request 的项目中生效，会自动注入到 params 中 */

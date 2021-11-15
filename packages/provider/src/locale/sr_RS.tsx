@@ -53,6 +53,9 @@ export default {
     prev: 'Nazad',
     submit: 'Gotovo',
   },
+  loginForm: {
+    submitText: 'Prijavi se',
+  },
   editableTable: {
     action: {
       save: 'Sačuvaj',

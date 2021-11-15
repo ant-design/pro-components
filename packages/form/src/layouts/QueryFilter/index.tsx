@@ -379,6 +379,14 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
           labelCol: {
             flex: labelFlexStyle,
           },
+          wrapperCol: {
+            style: {
+              maxWidth: `calc(100% - ${labelWidth}px)`,
+            },
+          },
+          style: {
+            flexWrap: 'nowrap',
+          },
         }}
         groupProps={{
           titleStyle: {

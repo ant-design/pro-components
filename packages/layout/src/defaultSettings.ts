@@ -45,7 +45,7 @@ export type PureSettings = {
    *
    * @name Layout 的 title，也会显示在浏览器标签上
    */
-  title: string | false;
+  title?: string | false;
   /**
    * Your custom iconfont Symbol script Url eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js
    * 注意：如果需要图标多色，Iconfont 图标项目里要进行批量去色处理 Usage: https://github.com/ant-design/ant-design-pro/pull/3517
@@ -72,7 +72,6 @@ const defaultSettings: ProSettings = {
   fixedHeader: false,
   fixSiderbar: false,
   headerHeight: 48,
-  title: 'Ant Design Pro',
   iconfontUrl: '',
   primaryColor: 'daybreak',
   splitMenus: false,

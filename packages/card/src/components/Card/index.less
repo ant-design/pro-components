@@ -4,7 +4,14 @@
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 @card-hoverable-hover-border: transparent;
 
+// == when focus or actived
+.pro-card-active() {
+  background-color: @item-active-bg;
+  border-color: @outline-color;
+}
+
 .@{pro-card-prefix-cls} {
+  position: relative;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -30,6 +37,30 @@
       border-color: @card-hoverable-hover-border;
       box-shadow: @card-shadow;
     }
+
+    &.@{pro-card-prefix-cls}-checked:hover {
+      border-color: @outline-color;
+    }
+  }
+
+  &-checked {
+    .pro-card-active();
+    &::after {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      width: 0;
+      height: 0;
+      border: 6px solid @primary-color;
+      border-bottom: 6px solid transparent;
+      border-left: 6px solid transparent;
+      border-top-right-radius: 2px;
+      content: '';
+    }
+  }
+
+  &:focus {
+    .pro-card-active();
   }
 
   &-size-small {

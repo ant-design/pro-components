@@ -2,9 +2,82 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.14.6-alpha.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.14.5...@ant-design/pro-list@1.14.6-alpha.0) (2021-10-22)
+## [1.18.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.18.0...@ant-design/pro-list@1.18.1) (2021-11-12)
+
+### Bug Fixes
+
+- **table:** fix editor table rowkey error ([#4000](https://github.com/ant-design/pro-components/issues/4000)) ([8760aad](https://github.com/ant-design/pro-components/commit/8760aad6d95b514ab57ef857adf74219fe006e99))
+
+# [1.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.17.7...@ant-design/pro-list@1.18.0) (2021-11-08)
+
+### Features
+
+- **list:** card list support rowSelection ([#3949](https://github.com/ant-design/pro-components/issues/3949)) ([2cabc43](https://github.com/ant-design/pro-components/commit/2cabc431021ccba48c53ec86421b6ce0ee267dbe))
+
+## [1.17.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.17.6...@ant-design/pro-list@1.17.7) (2021-11-02)
+
+### Bug Fixes
+
+- **list:** fix list style error ([#3943](https://github.com/ant-design/pro-components/issues/3943)) ([68e0eed](https://github.com/ant-design/pro-components/commit/68e0eede7131932eb9e16734bb5bbb3c8fa0572e))
+
+## [1.17.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.17.5...@ant-design/pro-list@1.17.6) (2021-10-28)
 
 **Note:** Version bump only for package @ant-design/pro-list
+
+## [1.17.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.17.4...@ant-design/pro-list@1.17.5) (2021-10-27)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.17.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.17.3...@ant-design/pro-list@1.17.4) (2021-10-26)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.17.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.17.2...@ant-design/pro-list@1.17.3) (2021-10-19)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.17.1...@ant-design/pro-list@1.17.2) (2021-10-18)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.17.0...@ant-design/pro-list@1.17.1) (2021-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+# [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.16.2...@ant-design/pro-list@1.17.0) (2021-10-12)
+
+### Bug Fixes
+
+- release the dependence of itemTitleRender to other metas ([#3821](https://github.com/ant-design/pro-components/issues/3821)) ([90083e9](https://github.com/ant-design/pro-components/commit/90083e9906d0fa9d970b08f7504b07c2ffc1ac66))
+- **card:** fix card ehen theme change no change color error ([#3804](https://github.com/ant-design/pro-components/issues/3804)) ([083ec08](https://github.com/ant-design/pro-components/commit/083ec08794ab555615d5eb2304c3ef2e4660e77f))
+
+### Features
+
+- prolist support row class name as function ([#3802](https://github.com/ant-design/pro-components/issues/3802)) ([8579566](https://github.com/ant-design/pro-components/commit/8579566bdac78e757ac9860ba2ff14b103ea1682))
+
+## [1.16.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.16.1...@ant-design/pro-list@1.16.2) (2021-10-09)
+
+### Bug Fixes
+
+- **list:** fix list rerender error ([#3800](https://github.com/ant-design/pro-components/issues/3800)) ([4c2ae86](https://github.com/ant-design/pro-components/commit/4c2ae862b8927ef40ce1231aa3a0d6bb7a48022b))
+
+## [1.16.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.16.0...@ant-design/pro-list@1.16.1) (2021-10-09)
+
+### Bug Fixes
+
+- **list:** fix when cardActionProps=actions no run render funtions ([#3791](https://github.com/ant-design/pro-components/issues/3791)) ([32974d9](https://github.com/ant-design/pro-components/commit/32974d954abe05105bd5ef80b297609c65ffe234))
+
+# [1.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.15.0...@ant-design/pro-list@1.16.0) (2021-10-08)
+
+### Features
+
+- **list:** add cardlist operate ([#3746](https://github.com/ant-design/pro-components/issues/3746)) ([43de757](https://github.com/ant-design/pro-components/commit/43de7577ca46b5b26acdd544cc40ec1e559a3b93))
+
+# [1.15.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.14.5...@ant-design/pro-list@1.15.0) (2021-10-08)
+
+### Features
+
+- **list:** prolist support rowClassName ([#3784](https://github.com/ant-design/pro-components/issues/3784)) ([c025ca8](https://github.com/ant-design/pro-components/commit/c025ca8b0835fd129cb36b77c3db79e9e9bdc367))
 
 ## [1.14.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.14.4...@ant-design/pro-list@1.14.5) (2021-09-26)
 

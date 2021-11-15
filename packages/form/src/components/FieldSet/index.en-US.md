@@ -305,7 +305,7 @@ Same as [select](https://ant.design/components/select/). Both request and valueE
 
 | parameters | description | type | default |
 | --- | --- | --- | --- |
-| valueEnum | Enumeration of current values [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
+| valueEnum | Enumeration of current values [valueEnum](/components/table#valueenum) | `Record` | - |
 | request | Enumerate data from network requests | `()=>Promise<{[key:string`\|`number]:any}>` | - |
 
 ```tsx | pure
@@ -376,4 +376,71 @@ If you want to change the number of decimal places.
   max={10}
   fieldProps={{ precision: 0 }}
 />
+```
+
+### ProFormMoney
+
+ProFormMoney's input box for entering amounts supports the display of currency symbols based on global internationalization, negative input, custom currency symbols, and more.
+
+```tsx | pure
+<ProFormMoney
+  label="The minimum limit is 0"
+  name="amount1"
+  locale="en-US"
+  initialValue={22.22}
+  min={0}
+/>
+<ProFormMoney
+  label="There is no limit to the amount size"
+  name="amount2"
+  locale="en-GB"
+  initialValue={22.22}
+/>
+<ProFormMoney
+  label="Currency symbols follow global internationalization"
+  name="amount3"
+  initialValue={22.22}
+/>
+<ProFormMoney
+  label="Custom currency symbols"
+  name="amount4"
+  initialValue={22.22}
+  customSymbol="💰"
+/>
+```
+
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| locale | The internationalized region values set separately show different currency symbols depending on the region, as detailed in the region directory below | `string` | `zh-Hans-CN` |
+| customSymbol | Custom amount symbol | `string` | - |
+| numberPopoverRender | Custom Popover's value, false, can close his | `((props: InputNumberProps, defaultText: string) => React.ReactNode)` \| `boolean` | false |
+| numberFormatOptions | The configuration of NumberFormat, where the documentation can view the of the [mdn](https://developer.mozilla.org/zh-CN/docs/web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)) | NumberFormatOptions | - |
+| min | The minimum value is | `number` | - |
+| max | The maximum value is | `number` | - |
+
+#### Below is a table of regional codes and currency symbols
+
+```json
+{
+"ar-EG": "$",
+"zh-CN": "¥",
+"en-US": "$",
+"en-GB": "£",
+"vi-VN": "₫",
+"it-IT": "€",
+"ja-JP": "¥",
+"es-ES": "€",
+"ru-RU": "₽",
+"sr-RS": "RSD",
+"ms-MY": "RM",
+"zh-TW": "$"
+"fr-FR": "€",
+"pt-BR": "R$",
+"ko-KR": "₩",
+"id-ID": "RP",
+"de-DE": "€",
+"fa-IR": "تومان",
+"tr-TR": "$",
+"pl-PL": "zł",
+}
 ```

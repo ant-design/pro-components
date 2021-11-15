@@ -101,6 +101,8 @@ API is the same as ProTable
 | --- | --- | --- | --- |
 | title | The title of the description list, displayed at the top | `ReactNode` | - |
 | tooltip | Supplementary description of the content, displayed after hover | `string` | - |
+| ellipsis | Whether to abbreviate automatically | `boolean` | - |
+| copyable | Whether to support copying | `boolean` | - |
 | loading | Display a loaded skeleton screen, the skeleton screen and dom will not correspond one-to-one | `boolean` | - |
 | extra | Describe the operation area of ​​the list, displayed on the upper right | `string` \| `ReactNode` | - |
 | bordered | Whether to display the border | boolean | false |
@@ -137,7 +139,7 @@ API is the same as ProTable
 | tooltip | Supplementary description of the content, displayed after hover | string | - |
 | span | number of columns included | number | 1 |
 | valueType | Formatted type | `ValueType` | - |
-| valueEnum | Enumeration of current column values ​​[valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
+| valueEnum | Enumeration of current column values ​​[valueEnum](/components/table#valueenum) | `Record` | - |
 | request | Request enumerated data from the network | `()=>Promise<{[key:string`\|`number]:any}>` | - |
 | dataIndex | The key of the returned data is used in conjunction with the request of ProDescriptions for the definition list of the profile | `React.Text` \| `React.Text[]` | - |
 | editable | Whether it is editable in the edit table, the parameters of the function are the same as the render of the table | `false` \| `(text: any, record: T,index: number) => boolean` | true |

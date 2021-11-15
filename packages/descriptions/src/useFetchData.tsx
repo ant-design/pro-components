@@ -69,6 +69,7 @@ const useFetchData = <T extends RequestData>(
       return;
     }
     fetchList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...(effects || []), manual]);
 
   return {

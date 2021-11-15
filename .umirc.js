@@ -19,7 +19,7 @@ const alias = pkgList.reduce((pre, pkg) => {
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 
 const tailPkgList = pkgList
-  .map((path) => [join('packages', path, 'src'), join('packages', path, 'src', 'components')])
+  .map((path) => [join('packages', path, 'src')])
   .reduce((acc, val) => acc.concat(val), []);
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -138,27 +138,28 @@ export default {
         title: '布局',
         children: [
           'layout',
-          'PageContainer/index',
+          'components/PageContainer/index',
           'card',
-          'WaterMark/index',
-          'StatisticCard/index',
+          'components/WaterMark/index',
+          'components/StatisticCard/index',
+          'components/CheckCard/index',
         ],
       },
       {
         title: '数据录入',
         children: [
           'form',
-          'FieldSet/index',
-          'Group/index',
-          'SchemaForm/index',
-          'QueryFilter/index',
-          'StepsForm/index',
-          'ModalForm/index',
+          'components/FieldSet/index',
+          'components/Group/index',
+          'components/SchemaForm/index',
+          'components/QueryFilter/index',
+          'components/StepsForm/index',
+          'components/ModalForm/index',
         ],
       },
       {
         title: '数据展示',
-        children: ['table', 'EditableTable/index', 'list', 'description'],
+        children: ['table', 'components/EditableTable/index', 'list', 'description'],
       },
       {
         title: '通用',
@@ -172,23 +173,23 @@ export default {
       },
       {
         title: 'Layout',
-        children: ['layout', 'PageContainer/index', 'card'],
+        children: ['layout', 'components/PageContainer/index', 'card'],
       },
       {
         title: 'Data entry',
         children: [
           'form',
-          'FieldSet/index',
-          'Group/index',
-          'SchemaForm/index',
-          'QueryFilter/index',
-          'StepsForm/index',
-          'ModalForm/index',
+          'components/FieldSet/index',
+          'components/Group/index',
+          'components/SchemaForm/index',
+          'components/QueryFilter/index',
+          'components/StepsForm/index',
+          'components/ModalForm/index',
         ],
       },
       {
         title: 'Data Display',
-        children: ['table', 'EditableTable/index', 'list', 'description'],
+        children: ['table', 'components/EditableTable/index', 'list', 'description'],
       },
       {
         title: 'General',

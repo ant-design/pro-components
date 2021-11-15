@@ -22,7 +22,7 @@ const pageProps = {
       name: 'two',
       locale: 'menu.welcome.one.two',
       key: '/welcome/welcome',
-      routes: null,
+
       exact: true,
       pro_layout_parentKeys: [
         '/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925',
@@ -34,14 +34,13 @@ const pageProps = {
       name: 'one',
       locale: 'menu.welcome.one',
       key: '/welcome',
-      routes: null,
-      children: [
+      routes: [
         {
           path: '/welcome/welcome',
           name: 'two',
           locale: 'menu.welcome.one.two',
           key: '/welcome/welcome',
-          routes: null,
+
           exact: true,
           pro_layout_parentKeys: [
             '/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925',
@@ -54,20 +53,18 @@ const pageProps = {
     '/': {
       path: '/',
       name: 'welcome',
-      children: [
+      routes: [
         {
           path: '/welcome',
           name: 'one',
           locale: 'menu.welcome.one',
           key: '/welcome',
-          routes: null,
-          children: [
+          routes: [
             {
               path: '/welcome/welcome',
               name: 'two',
               locale: 'menu.welcome.one.two',
               key: '/welcome/welcome',
-              routes: null,
               exact: true,
               pro_layout_parentKeys: [
                 '/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925',
@@ -82,7 +79,6 @@ const pageProps = {
       ],
       locale: 'menu.welcome',
       key: '/564f79ec010d02670f2cd38274f84017d6ddf17759857629a1399aed6bb20925',
-      routes: null,
       pro_layout_parentKeys: [],
     },
     '/demo': {
@@ -90,7 +86,6 @@ const pageProps = {
       name: 'demo',
       locale: 'menu.demo',
       key: '/demo',
-      routes: null,
       pro_layout_parentKeys: [],
     },
   },
@@ -98,17 +93,17 @@ const pageProps = {
 };
 
 describe('getPageTitle', () => {
-  it('base', () => {
+  it('🗒️ base', () => {
     const title = getPageTitle(pageProps);
     expect(title).toBe('one - Ant Design Pro');
   });
 
-  it('base ignoreTitle', () => {
+  it('🗒️ base ignoreTitle', () => {
     const title = getPageTitle(pageProps, true);
     expect(title).toBe('one');
   });
 
-  it('title=false', () => {
+  it('🗒️ title=false', () => {
     const title = getPageTitle({
       ...pageProps,
       title: false,
@@ -116,30 +111,30 @@ describe('getPageTitle', () => {
     expect(title).toBe('one');
   });
 
-  it('base ignoreTitle', () => {
+  it('🗒️ base ignoreTitle', () => {
     const title = getPageTitle({ ...pageProps, pathname: undefined }, true);
     expect(title).toBe('welcome');
   });
 
-  it('base title=Ant', () => {
+  it('🗒️ base title=Ant', () => {
     const title = getPageTitle({ ...pageProps, title: 'Ant' });
     expect(title).toBe('one - Ant');
   });
 
-  it('base menu=undefined', () => {
+  it('🗒️ base menu=undefined', () => {
     const title = getPageTitle({ ...pageProps, menu: undefined, title: 'Ant' });
     expect(title).toBe('one - Ant');
   });
 
-  it('title is null ', () => {
+  it('🗒️ title is null ', () => {
     const title = getPageTitle({
       ...pageProps,
       title: undefined,
     });
-    expect(title).toBe('one - Ant Design Pro');
+    expect(title).toBe('one');
   });
 
-  it('breadcrumb is null ', () => {
+  it('🗒️ breadcrumb is null ', () => {
     const title = getPageTitle({
       ...pageProps,
       breadcrumb: {},

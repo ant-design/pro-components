@@ -1,4 +1,5 @@
-﻿import React, { useCallback, useMemo, useRef, useState } from 'react';
+﻿/* eslint-disable react/no-array-index-key */
+import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import type { FormInstance, FormProps } from 'antd';
 import { Divider } from 'antd';
 import type {
@@ -8,7 +9,7 @@ import type {
   StepFormProps,
   ModalFormProps,
 } from '../../index';
-import { ProFormFieldSet } from '../../index';
+import { ProFormFieldSet, ProFormDependency } from '../../index';
 import { ProFormGroup, ProFormField } from '../../index';
 import type {
   ProCoreActionType,
@@ -61,7 +62,7 @@ export type ProFormPropsType<T> = Omit<DrawerFormProps<T>, 'onFinish'> &
     layoutType?: ProFormLayoutType;
   };
 
-export type FormFieldType = 'group' | 'formList' | 'formSet' | 'divider';
+export type FormFieldType = 'group' | 'formList' | 'formSet' | 'divider' | 'dependency';
 
 export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
   T,
@@ -83,7 +84,9 @@ export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
     /** Form 的排序 */
     order?: number;
     /** 嵌套子项 */
-    columns?: ProFormColumnsType<T, ValueType | FormFieldType>[];
+    columns?:
+      | ProFormColumnsType<T, ValueType | FormFieldType>[]
+      | ((values: any) => ProFormColumnsType<T, ValueType | FormFieldType>[]);
   },
   ProSchemaComponentTypes,
   ValueType | FormFieldType
@@ -113,18 +116,43 @@ const FormComments = {
   StepsForm,
   ModalForm,
 };
-
+const noop: any = () => {};
 /**
  * 此组件可以根据 Json Schema 来生成相应的表单,大部分配置与 antd 的 table 列配置相同
  *
  * @see 此组件仍为 beta 版本，api 可能发生变化
  */
 function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
-  const { columns, layoutType = 'ProForm', steps = [], type = 'form', action, ...rest } = props;
+  const {
+    columns,
+    layoutType = 'ProForm',
+    steps = [],
+    type = 'form',
+    action,
+    formRef: propsFormRef,
+    ...rest
+  } = props;
   const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
-  const [form] = ProForm.useForm();
-  const formRef = useRef<FormInstance>(form);
+  const formRef = useRef<FormInstance | undefined>(props.form);
+
+  const refMap = useMemo(() => {
+    const obj = { form: formRef.current };
+    Object.defineProperty(obj, 'form', {
+      get: () =>
+        formRef.current ||
+        ({
+          getFieldValue: noop,
+          getFieldsValue: noop,
+          resetFields: noop,
+          setFieldsValue: noop,
+        } as any),
+    });
+    return obj;
+  }, []);
+
   const [updateTime, updateFormRender] = useState(0);
+
+  useImperativeHandle(propsFormRef, () => refMap.form);
 
   /**
    * 生成子项，方便被 table 接入
@@ -162,11 +190,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             valueType: runFunction(originItem.valueType, {}),
             key: originItem.key,
             columns: originItem.columns,
-            fieldProps: runFunction(originItem.fieldProps, formRef.current, originItem),
+            fieldProps: runFunction(originItem.fieldProps, refMap.form, originItem),
             valueEnum: originItem.valueEnum,
             dataIndex: originItem.key || originItem.dataIndex,
             initialValue: originItem.initialValue,
-            formItemProps: runFunction(originItem.formItemProps, formRef.current, originItem),
+            formItemProps: runFunction(originItem.formItemProps, refMap.form, originItem),
             width: originItem.width,
             render: originItem.render,
             renderFormItem: originItem.renderFormItem,
@@ -194,7 +222,8 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           const key = item.key || item.dataIndex?.toString() || index;
 
           if (item.valueType === 'group') {
-            if (!item.columns) return null;
+            if (!item.columns || !Array.isArray(item.columns)) return null;
+
             return (
               <ProFormGroup key={key} label={title} {...item.fieldProps}>
                 {genItems(item.columns)}
@@ -203,7 +232,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           }
 
           if (item.valueType === 'formList' && item.dataIndex) {
-            if (!item.columns) return null;
+            if (!item.columns || !Array.isArray(item.columns)) return null;
             return (
               <ProFormList
                 key={key}
@@ -218,7 +247,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           }
 
           if (item.valueType === 'formSet' && item.dataIndex) {
-            if (!item.columns) return null;
+            if (!item.columns || !Array.isArray(item.columns)) return null;
             return (
               <ProFormFieldSet
                 {...item.formItemProps}
@@ -236,6 +265,18 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           /** 分割线 */
           if (item.valueType === 'divider') {
             return <Divider {...item.fieldProps} key={index} />;
+          }
+
+          /** ProFormDependency */
+          if (item.valueType === 'dependency') {
+            return (
+              <ProFormDependency {...item.fieldProps} key={key}>
+                {(values: any) => {
+                  if (!item.columns || typeof item.columns !== 'function') return null;
+                  return genItems(item.columns(values));
+                }}
+              </ProFormDependency>
+            );
           }
 
           /** 公用的 类型 props */
@@ -278,7 +319,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
                 defaultRender,
                 type,
               },
-              formRef.current,
+              refMap.form!,
             );
             if (formDom === false || formDom === undefined || formDom === null) {
               return null;
@@ -305,7 +346,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
                           defaultRender,
                           type,
                         },
-                        formRef.current,
+                        refMap.form!,
                       );
                     }
                   : undefined
@@ -314,6 +355,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           );
         });
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [action, layoutType, type],
   );
 
@@ -327,13 +369,13 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     );
   }, [columns, layoutType]);
 
-  const domList = useMemo(() => {
+  const getDomList = () => {
     return genItems(columns, updateTime);
-  }, [columns, genItems, updateTime]);
+  };
 
   if (layoutType === 'StepsForm') {
     return (
-      <StepsForm formRef={formRef} form={form} {...rest}>
+      <StepsForm formRef={formRef} {...rest}>
         {steps?.map((item, index) => (
           <BetaSchemaForm<T, ValueType>
             {...(item as FormSchema<T, ValueType>)}
@@ -347,12 +389,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   }
 
   /** 如果是行内模式 */
-  if (layoutType === 'Embed') return <>{domList}</>;
+  if (layoutType === 'Embed') return <>{getDomList()}</>;
 
   return (
     <Form
       formRef={formRef}
-      form={form}
       {...rest}
       onInit={(...restValue) => {
         if (needRealUpdate) {
@@ -367,7 +408,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
         rest?.onValuesChange?.(...restValue);
       }}
     >
-      {domList}
+      {getDomList()}
     </Form>
   );
 }

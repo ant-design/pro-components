@@ -6,6 +6,10 @@ labels: '👑Feature Request'
 assignees: ''
 ---
 
+提问前先看看：
+
+https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md
+
 ### 🥰 需求描述
 
 <!--

@@ -48,8 +48,12 @@ export default () => {
         </Descriptions.Item>
         <Descriptions.Item label="金额">
           <Field
+            numberPopoverRender
             fieldProps={{
-              precision: 4,
+              precision: 2,
+              style: {
+                width: 200,
+              },
             }}
             text="10000"
             valueType="money"
@@ -191,6 +195,9 @@ export default () => {
           <Field
             text="open"
             mode={state}
+            params={{
+              name: 'test',
+            }}
             valueType="select"
             request={async () => {
               return [

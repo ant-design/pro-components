@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import { BetaSchemaForm } from '@ant-design/pro-form';
 import type { ProFormColumnsType } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
@@ -58,13 +58,16 @@ const columns: ProFormColumnsType<any>[] = [
 ];
 
 describe('SchemaForm', () => {
-  it('😊 SchemaForm support columns', () => {
-    const html = render(<BetaSchemaForm columns={columns} />);
-    expect(html).toMatchSnapshot();
+  it('😊 SchemaForm support columns', async () => {
+    const html = mount(<BetaSchemaForm columns={columns} />);
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      expect(html.render()).toMatchSnapshot();
+    });
   });
 
   it('😊 SchemaForm support dependencies', async () => {
-    const onChange = jest.fn();
+    const requestFn = jest.fn();
     const html = mount(
       <BetaSchemaForm
         columns={[
@@ -83,7 +86,7 @@ describe('SchemaForm', () => {
             valueType: 'select',
             dependencies: ['title'],
             request: async ({ title }) => {
-              onChange(title);
+              requestFn(title);
               return [
                 {
                   label: title,
@@ -95,7 +98,8 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    expect(onChange).toBeCalledWith('name');
+    await waitForComponentToPaint(html);
+    expect(requestFn).toBeCalledWith('name');
     act(() => {
       html.find('input#title').simulate('change', {
         target: {
@@ -104,7 +108,7 @@ describe('SchemaForm', () => {
       });
     });
     await waitForComponentToPaint(html);
-    expect(onChange).toBeCalledWith('qixian');
+    expect(requestFn).toBeCalledWith('qixian');
   });
 
   it('🐲 SchemaForm support StepsForm', async () => {
@@ -246,5 +250,83 @@ describe('SchemaForm', () => {
     await waitForComponentToPaint(html);
     expect(html.find('#title').exists()).toBeTruthy();
     expect(html.find('#category').exists()).toBeFalsy();
+  });
+
+  it('😊 SchemaForm support ProFormDependency', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <BetaSchemaForm
+        onFinish={onFinish}
+        initialValues={{
+          name: '蚂蚁设计有限公司',
+          name2: '蚂蚁设计集团',
+          useMode: 'chapter',
+        }}
+        columns={[
+          {
+            dataIndex: 'name',
+            title: '签约客户名称',
+            tooltip: '最长为 24 位',
+            fieldProps: {
+              placeholder: '请输入名称',
+            },
+            width: 'md',
+          },
+          {
+            dataIndex: ['name2', 'text'],
+            title: '签约客户名称',
+            tooltip: '最长为 24 位',
+            fieldProps: {
+              placeholder: '请输入名称',
+            },
+            width: 'md',
+          },
+          {
+            valueType: 'dependency',
+            fieldProps: {
+              name: ['name', ['name2', 'text']],
+            },
+            columns: (values) => [
+              {
+                valueType: 'select',
+
+                width: 'md',
+                valueEnum: {
+                  chapter: {
+                    text: '盖章后生效',
+                  },
+                },
+                title: () => {
+                  return (
+                    <span id="label_text">{`与《${values?.name || ''}》 与 《${
+                      values?.name2?.text || ''
+                    }》合同约定生效方式`}</span>
+                  );
+                },
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('input#name').simulate('change', {
+        target: {
+          value: 'test',
+        },
+      });
+    });
+
+    act(() => {
+      wrapper.find('input#name2_text').simulate('change', {
+        target: {
+          value: 'test2',
+        },
+      });
+    });
+
+    expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
   });
 });

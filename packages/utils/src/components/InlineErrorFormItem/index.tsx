@@ -36,7 +36,7 @@ const getIcon = (
     return <LoadingOutlined className={`${prefixCls}-rule-content-icon-loading`} />;
   }
   if (!isTouched) {
-    return <CircleRender prefixCls={prefixCls}></CircleRender>;
+    return <CircleRender prefixCls={prefixCls} />;
   }
   if (!requiredChecked || fieldError.includes((rule as any).message)) {
     return <CloseCircleFilled className={`${prefixCls}-rule-content-icon-error`} />;
@@ -82,6 +82,7 @@ const Content: React.FC<{
           {rules?.map((item, idx) => {
             const rule = typeof item === 'function' ? item(form) : item;
             return (
+              // eslint-disable-next-line react/no-array-index-key
               <li key={idx} className={`${prefixCls}-rule-content`}>
                 <Space>
                   {getIcon(
@@ -135,7 +136,6 @@ const InternalFormItem: React.FC<
 
   return (
     <Form.Item
-      style={FIX_INLINE_STYLE}
       preserve={false}
       name={name}
       validateFirst={false}
@@ -183,6 +183,10 @@ const InternalFormItem: React.FC<
         },
       }}
       {...rest}
+      style={{
+        ...FIX_INLINE_STYLE,
+        ...rest?.style,
+      }}
     >
       {children}
     </Form.Item>

@@ -19,7 +19,7 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
  * @param dataIndex 需要拼接的key
  */
 export const spellNamePath = (...rest: any[]): React.Key[] => {
-  return rest.filter(Boolean).flat(1);
+  return rest.filter((index) => index !== undefined).flat(1);
 };
 
 type RenderToFromItemProps<T> = {
@@ -46,6 +46,7 @@ type RenderToFromItemProps<T> = {
  */
 function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactNode {
   const { text, valueType, rowData, columnProps, prefixName } = config;
+
   // 如果 valueType === text ，没必要多走一次 render
   if (
     (!valueType || ['textarea', 'text'].includes(valueType.toString())) &&
@@ -65,6 +66,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
     });
   }
 
+  const columnKey = columnProps?.key || columnProps?.dataIndex?.toString();
   /** 生成公用的 proField dom 配置 */
   const proFieldProps: ProFormFieldProps = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
@@ -76,7 +78,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
     valueType: valueType as ProFieldValueType,
     proFieldProps: {
       emptyText: config.columnEmptyText,
-      proFieldKey: `table-field-${columnProps?.key || columnProps?.dataIndex?.toString()}`,
+      proFieldKey: columnKey ? `table-field-${columnKey}` : undefined,
     },
   };
 
@@ -117,9 +119,10 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
         };
         const name = spellNamePath(
           prefixName,
-          config.recordKey || config.index,
-          columnProps?.key || columnProps?.dataIndex || config.index,
+          prefixName ? config.index : config.recordKey ?? config.index,
+          columnProps?.key ?? columnProps?.dataIndex ?? config.index,
         );
+
         /** 获取 formItemProps Props */
         const formItemProps = getFieldPropsOrFormItemProps(
           columnProps?.formItemProps,

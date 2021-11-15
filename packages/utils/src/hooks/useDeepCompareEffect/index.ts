@@ -16,6 +16,7 @@ function useDeepCompareMemoize(value: any) {
 }
 
 function useDeepCompareEffect(effect: React.EffectCallback, dependencies: DependencyList = []) {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(effect, useDeepCompareMemoize(dependencies));
 }
 

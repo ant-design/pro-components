@@ -3,7 +3,7 @@ import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import { FormListContext } from '../List';
 import FieldContext from '../../FieldContext';
-import type { SearchTransformKeyFn } from '@ant-design/pro-utils';
+import type { SearchTransformKeyFn, ProSchemaValueType } from '@ant-design/pro-utils';
 import { isDropdownValueType, omitUndefined } from '@ant-design/pro-utils';
 import type { LightWrapperProps } from '../../BaseForm/LightWrapper';
 import LightWrapper from '../../BaseForm/LightWrapper';
@@ -133,7 +133,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
 
 type ProFormItemProps = FormItemProps & {
   ignoreFormItem?: boolean;
-  valueType?: any;
+  valueType?: ProSchemaValueType<'text'>;
   /** @name 提交时转化值，一般用于数组类型 */
   transform?: SearchTransformKeyFn;
   dataFormat?: string;
@@ -141,6 +141,7 @@ type ProFormItemProps = FormItemProps & {
 } & WarpFormItemProps;
 
 const ProFormItem: React.FC<ProFormItemProps> = (props) => {
+  /** 从 context 中拿到的值 */
   const size = useContext(ConfigProvider.SizeContext);
   const { valueType, transform, dataFormat, ignoreFormItem, lightProps = {}, ...rest } = props;
   const formListField = useContext(FormListContext);
@@ -155,7 +156,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   }, [formListField.name, props.name]);
 
   /** 从 context 中拿到的值 */
-  const { setFieldValueType } = React.useContext(FieldContext);
+  const { setFieldValueType, formItemProps } = React.useContext(FieldContext);
 
   useEffect(() => {
     // 如果 setFieldValueType 和 props.name 不存在不存入
@@ -221,7 +222,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   }
 
   return (
-    <WarpFormItem {...rest} name={name}>
+    <WarpFormItem {...formItemProps} {...rest} name={name}>
       {lightDom}
     </WarpFormItem>
   );

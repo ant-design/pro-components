@@ -56,12 +56,12 @@ describe('ProForm', () => {
     expect(fn).toHaveBeenCalledWith('realDark');
   });
 
-  it('📦 ProForm support sync form url', async () => {
-    const fn = jest.fn();
+  it('📦 ProForm support sync form url and rest', async () => {
+    const onFinish = jest.fn();
     const wrapper = mount<{ navTheme: string }>(
       <ProForm
         onFinish={async (values) => {
-          fn(values.navTheme);
+          onFinish(values.navTheme);
         }}
         syncToUrl
         syncToInitialValues={false}
@@ -75,8 +75,9 @@ describe('ProForm', () => {
       wrapper.find('button.ant-btn-primary').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(fn).toHaveBeenCalledWith('realDark');
+    expect(onFinish).toHaveBeenCalledWith('realDark');
 
+    // rest
     act(() => {
       wrapper.find('button.ant-btn').at(1).simulate('click');
     });
@@ -85,7 +86,7 @@ describe('ProForm', () => {
       wrapper.find('button.ant-btn-primary').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(fn).toHaveBeenCalledWith(undefined);
+    expect(onFinish).toHaveBeenCalledWith(undefined);
   });
 
   it('📦 ProForm initialValues update will warning', async () => {
@@ -166,6 +167,42 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(wrapper.find('.ant-btn-loading').exists()).toBe(false);
+  });
+
+  it('📦 onFinish support params and request', async () => {
+    const wrapper = mount(
+      <ProForm
+        request={async (params) => {
+          await waitTime(100);
+          return params;
+        }}
+        params={{
+          name: 'test',
+        }}
+      >
+        <ProFormText
+          name="name"
+          fieldProps={{
+            id: 'test',
+          }}
+        />
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(wrapper.find('Input#test').props().value).toEqual('test');
+
+    act(() => {
+      wrapper.setProps({
+        params: {
+          name: '1234',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper, 500);
+
+    expect(wrapper.find('Input#test').props().value).toEqual('1234');
   });
 
   it('📦 submit props actionsRender=()=>false', async () => {
@@ -1498,6 +1535,100 @@ describe('ProForm', () => {
     expect(onFinish).toBeCalledWith('open');
   });
 
+  it('📦 ProFormSelect support filterOption', async () => {
+    const onSearch = jest.fn();
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect
+          fieldProps={{
+            filterOption: false,
+            onSearch: (e) => onSearch(e),
+          }}
+          options={[
+            { value: 1, label: 'Aa' },
+            { value: 2, label: 'Bb' },
+            { value: 3, label: 'Cc' },
+          ]}
+          name="userQuery"
+          label="查询选择器"
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: 'A',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    expect(wrapper.find('.ant-select-item').length).toBe(3);
+
+    await waitForComponentToPaint(wrapper);
+  });
+
+  it('📦 Select filterOption support mixed case', async () => {
+    const wrapper = mount(
+      <ProForm>
+        <ProFormSelect
+          name="userQuery"
+          label="查询选择器"
+          fieldProps={{
+            showSearch: true,
+            options: [
+              { value: 1, label: 'Aa' },
+              { value: 2, label: 'Bb' },
+              { value: 3, label: 'Cc' },
+            ],
+          }}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: 'b',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    expect(wrapper.find('.ant-select-item').length).toBe(1);
+
+    act(() => {
+      wrapper.find('.ant-select-selection-search-input').simulate('change', {
+        target: {
+          value: 'B',
+        },
+      });
+    });
+    await waitForComponentToPaint(wrapper);
+
+    act(() => {
+      wrapper.find('.ant-select-selector').simulate('mousedown');
+      wrapper.update();
+    });
+
+    expect(wrapper.find('.ant-select-item').length).toBe(1);
+
+    await waitForComponentToPaint(wrapper);
+  });
+
   it('📦 Select support labelInValue single', async () => {
     const onFinish = jest.fn();
     const wrapper = mount(
@@ -1666,7 +1797,8 @@ describe('ProForm', () => {
     });
     await waitForComponentToPaint(wrapper, 100);
     expect(fn2).toHaveBeenCalledWith('2021-07-28');
-
-    expect(wrapper).toMatchSnapshot();
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
   });
 });

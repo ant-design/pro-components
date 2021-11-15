@@ -2,7 +2,51 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [1.24.7-alpha.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.6...@ant-design/pro-utils@1.24.7-alpha.0) (2021-10-22)
+# [1.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.26.1...@ant-design/pro-utils@1.27.0) (2021-11-12)
+
+### Bug Fixes
+
+- **form:** fix proform.item no support QueryFilter error ([#4011](https://github.com/ant-design/pro-components/issues/4011)) ([5eff600](https://github.com/ant-design/pro-components/commit/5eff600f580d99452f9e1a84b7c36c315e55804f))
+- **table:** 取消编辑行后表单未能全部重置 ([#3997](https://github.com/ant-design/pro-components/issues/3997)) ([042e80e](https://github.com/ant-design/pro-components/commit/042e80e782725c9825869e5dcefb90ed46969ffc))
+- **table:** fix editor table rowkey error ([#4000](https://github.com/ant-design/pro-components/issues/4000)) ([8760aad](https://github.com/ant-design/pro-components/commit/8760aad6d95b514ab57ef857adf74219fe006e99))
+
+### Features
+
+- **field:** select request 添加防抖动属性 ([#3987](https://github.com/ant-design/pro-components/issues/3987)) ([887e654](https://github.com/ant-design/pro-components/commit/887e6541dae8e614789e651c74b32abc875e83e7))
+
+## [1.26.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.26.0...@ant-design/pro-utils@1.26.1) (2021-11-02)
+
+### Bug Fixes
+
+- **list:** fix list style error ([#3943](https://github.com/ant-design/pro-components/issues/3943)) ([68e0eed](https://github.com/ant-design/pro-components/commit/68e0eede7131932eb9e16734bb5bbb3c8fa0572e))
+
+# [1.26.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.25.0...@ant-design/pro-utils@1.26.0) (2021-10-27)
+
+### Features
+
+- **form:** support Cascader ([#3904](https://github.com/ant-design/pro-components/issues/3904)) ([be63c81](https://github.com/ant-design/pro-components/commit/be63c81be1102fd2f099e9182fb296a01a8b59f0))
+
+# [1.25.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.9...@ant-design/pro-utils@1.25.0) (2021-10-26)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions item set style error ([#3860](https://github.com/ant-design/pro-components/issues/3860)) ([27659b3](https://github.com/ant-design/pro-components/commit/27659b3b81d3eba3e8241ca4e05c0caed8464e1a))
+
+### Features
+
+- support ssr server ([69773c9](https://github.com/ant-design/pro-components/commit/69773c9dbaccd342d86312032c7b09958cdaed7c))
+
+## [1.24.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.8...@ant-design/pro-utils@1.24.9) (2021-10-19)
+
+### Bug Fixes
+
+- **table:** header support ellipsis ([#3855](https://github.com/ant-design/pro-components/issues/3855)) ([0f3501d](https://github.com/ant-design/pro-components/commit/0f3501da23f9f8a1cc596f913fef21e12a570efa))
+
+## [1.24.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.7...@ant-design/pro-utils@1.24.8) (2021-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.24.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.24.6...@ant-design/pro-utils@1.24.7) (2021-10-08)
 
 **Note:** Version bump only for package @ant-design/pro-utils
 

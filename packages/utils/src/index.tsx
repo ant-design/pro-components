@@ -51,6 +51,7 @@ import type {
   ProFieldTextType,
   RequestOptionsType,
   ProFieldProps,
+  ProSchemaValueType,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
@@ -66,10 +67,12 @@ import dateArrayFormatter from './dateArrayFormatter';
 import ProFormContext from './components/ProFormContext';
 import isDeepEqualReact from './isDeepEqualReact';
 import { arrayMoveImmutable } from './array-move';
+import { merge } from './merge';
 
 export type {
   RequestOptionsType,
   ProSchema,
+  ProSchemaValueType,
   ProCoreActionType,
   ProSchemaComponentTypes,
   ProSchemaValueEnumMap,
@@ -115,6 +118,7 @@ export {
   isImg,
   omitBoolean,
   isNil,
+  merge,
   isDropdownValueType,
   omitUndefined,
   omitUndefinedAndEmptyArr,

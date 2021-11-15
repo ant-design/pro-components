@@ -129,6 +129,7 @@ export default () => {
         <ProDescriptions
           title="高级定义列表"
           {...values}
+          columns={values?.columns?.filter(Boolean) || []}
           request={async () => {
             return Promise.resolve({
               success: true,

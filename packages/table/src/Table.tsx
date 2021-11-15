@@ -192,13 +192,8 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     },
   });
 
-  /** 如果有 ellipsis ，设置 tableLayout 为 fixed */
-  const tableLayout =
-    // 优先以用户设置为准
-    props.tableLayout ?? props.columns?.some((item) => item.ellipsis) ? 'fixed' : 'auto';
-
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
-  const baseTableDom = <Table<T> {...getTableProps()} rowKey={rowKey} tableLayout={tableLayout} />;
+  const baseTableDom = <Table<T> {...getTableProps()} rowKey={rowKey} />;
 
   /** 自定义的 render */
   const tableDom = props.tableViewRender
@@ -210,10 +205,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         baseTableDom,
       )
     : baseTableDom;
-
-  useEffect(() => {
-    counter.setPrefixName(name);
-  }, [name]);
 
   const tableContentDom = useMemo(() => {
     if (props.editable) {
@@ -248,7 +239,8 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
-    cardProps === false ? (
+    // cardProps 或者 有了name 就不需要这个padding了，不然会导致不好对其
+    cardProps === false || !!props.name ? (
       tableContentDom
     ) : (
       <Card
@@ -467,8 +459,17 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     if (typeof rowKey === 'function') {
       return rowKey;
     }
-    return (record: T, index?: number) => (record as any)?.[rowKey as string] ?? index;
-  }, [rowKey]);
+    return (record: T, index?: number) => {
+      if (index === -1) {
+        return (record as any)?.[rowKey as string];
+      }
+      // 如果 props 中有name 的话，用index 来做行好，这样方便转化为 index
+      if (props.name) {
+        return index?.toString();
+      }
+      return (record as any)?.[rowKey as string] ?? index?.toString();
+    };
+  }, [props.name, rowKey]);
 
   useMemo(() => {
     if (action.dataSource?.length) {
@@ -519,6 +520,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   }, [propsPagination, action, intl]);
 
   const counter = Container.useContainer();
+
+  // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set
+  counter.setPrefixName(props.name);
 
   /** 清空所有的选中项 */
   const onCleanSelected = useCallback(() => {
