@@ -299,7 +299,7 @@ export const useFieldFetchData = (
 
   const [loading, setLoading] = useMountMergeState(false);
 
-  const { run: fetchData } = useDebounceFn<[Record<string, any>], SelectProps<any>['options']>(
+  const { run: fetchData } = useDebounceFn<[Record<string, any>], OptionsType>(
     async (params: Record<string, any>) => {
       if (!props.request) {
         return [];
@@ -374,7 +374,7 @@ export const useFieldFetchData = (
   }, [options, keyWords, props.fieldProps?.filterOption]);
   return [
     loading,
-    props.request ? (data as SelectProps<any>['options']) : resOptions,
+    props.request ? (data as OptionsType) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
       mutate(key);
