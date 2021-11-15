@@ -64,9 +64,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
 
   const reset = () => {
     form.resetFields();
-    requestAnimationFrame(() => {
-      onReset?.();
-    });
+    onReset?.();
   };
 
   const {

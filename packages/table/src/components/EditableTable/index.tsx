@@ -9,6 +9,7 @@ import { Field } from 'rc-field-form';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
 import type { GetRowKey } from 'antd/lib/table/interface';
+import type { ProFormInstance } from '@ant-design/pro-form';
 
 export type RecordCreatorProps<DataSourceType> = {
   record: DataSourceType | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
@@ -97,8 +98,8 @@ function EditableTable<
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
+  const formRef = useRef<ProFormInstance>();
 
-  const [form] = Form.useForm();
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current);
 
@@ -117,7 +118,7 @@ function EditableTable<
   useEffect(() => {
     if (!props.controlled) return;
     value.forEach((current, index) => {
-      form.setFieldsValue({
+      formRef.current?.setFieldsValue({
         [getRowKey(current, index)]: current,
       });
     }, {});
@@ -205,10 +206,7 @@ function EditableTable<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTop, creatorButtonDom]);
 
-  const editableProps = {
-    form,
-    ...props.editable,
-  };
+  const editableProps = { ...props.editable };
 
   if (
     props?.onValuesChange ||
@@ -238,7 +236,12 @@ function EditableTable<
         actionRef={actionRef}
         onChange={onTableChange}
         dataSource={value}
-        editable={editableProps}
+        editable={{
+          ...editableProps,
+          formProps: {
+            formRef,
+          },
+        }}
         onDataSourceChange={(dataSource: DataType[]) => {
           setValue(dataSource);
         }}

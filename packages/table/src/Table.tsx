@@ -213,6 +213,13 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
           {toolbarDom}
           {alertDom}
           <ProForm
+            onInit={(_, form) => {
+              counter.setEditorTableForm(form);
+            }}
+            // @ts-ignore
+            formRef={(form) => {
+              counter.setEditorTableForm(form);
+            }}
             {...props.editable?.formProps}
             component={false}
             form={props.editable?.form}
@@ -506,12 +513,9 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
         // 通过request的时候清空数据，然后刷新不然可能会导致 pageSize 没有数据多
         if (request) action.setDataSource([]);
-
-        requestAnimationFrame(() => {
-          action.setPageInfo({
-            pageSize,
-            current: 1,
-          });
+        action.setPageInfo({
+          pageSize,
+          current: 1,
         });
       },
     };

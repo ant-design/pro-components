@@ -51,7 +51,13 @@ export type ActionRenderFunction<T> = (
 
 export type RowEditableConfig<DataType> = {
   /** @name 控制可编辑表格的 From的设置 */
-  formProps?: Omit<FormProps<DataType>, 'onFinish'>;
+  formProps?: Omit<
+    FormProps<DataType> & {
+      formRef?: React.Ref<FormInstance | undefined>;
+      onInit?: (values: DataType, form: FormInstance) => void;
+    },
+    'onFinish'
+  >;
   /** @name 控制可编辑表格的 form */
   form?: FormInstance;
   /**
@@ -570,7 +576,9 @@ function useEditableArray<RecordType>(
     });
 
     const relayValue = props.tableName ? get(value, [props.tableName || ''].flat(1)) : value;
-    const recordKey = Object.keys(relayValue).pop()?.toString() as string;
+    const recordKey = Object.keys(relayValue || {})
+      .pop()
+      ?.toString() as string;
 
     //从form 和 cache 中取得数据
     const newLineRecordData = {
@@ -588,7 +596,6 @@ function useEditableArray<RecordType>(
           return key === recordKey;
         })
       : newLineRecordData;
-
     props.onValuesChange(editRow || newLineRecordData, dataSource);
   };
 
