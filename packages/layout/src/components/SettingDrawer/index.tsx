@@ -7,8 +7,9 @@ import {
 } from '@ant-design/icons';
 import { isBrowser, merge } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
+import { disable as darkreaderDisable, enable as darkreaderEnable } from 'darkreader';
 
-import { Button, Divider, Drawer, List, Switch, message, Alert } from 'antd';
+import { Button, Divider, Drawer, List, Switch, ConfigProvider, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
@@ -18,9 +19,10 @@ import defaultSettings from '../../defaultSettings';
 import BlockCheckbox from './BlockCheckbox';
 import ThemeColor from './ThemeColor';
 import getLocales, { getLanguage } from '../../locales';
-import { genStringToTheme } from '../../utils/utils';
 import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
 import RegionalSetting from './RegionalChange';
+import { noteOnce } from 'rc-util/lib/warning';
+import { genStringToTheme } from '../../utils/utils';
 
 type BodyProps = {
   title: string;
@@ -47,6 +49,7 @@ export type SettingItemProps = {
 };
 
 export type SettingDrawerProps = {
+  defaultSettings?: MergerSettingsType<ProSettings>;
   settings?: MergerSettingsType<ProSettings>;
   collapse?: boolean;
   getContainer?: any;
@@ -54,6 +57,8 @@ export type SettingDrawerProps = {
   hideLoading?: boolean;
   hideColors?: boolean;
   hideHintAlert?: boolean;
+  /** 使用实验性质的黑色主题 */
+  realdark?: boolean;
   prefixCls?: string;
   hideCopyButton?: boolean;
   onCollapseChange?: (collapse: boolean) => void;
@@ -91,172 +96,39 @@ export const getFormatMessage = (): ((data: { id: string; defaultMessage?: strin
   return formatMessage;
 };
 
-const updateTheme = (
-  dark: boolean,
-  color?: string,
-  publicPath = '/theme',
-  hideMessageLoading?: boolean,
-) => {
-  // ssr
-  if (typeof window === 'undefined' || !(window as any).umi_plugin_ant_themeVar) {
-    return;
-  }
-  const formatMessage = getFormatMessage();
-  let hide: any = () => null;
-  if (!hideMessageLoading) {
-    hide = message.loading(
-      formatMessage({
-        id: 'app.setting.loading',
-        defaultMessage: '正在加载主题',
-      }),
-    );
-  }
-
-  const href = dark ? `${publicPath}/dark` : `${publicPath}/`;
-  // 如果是 dark，并且是 color=daybreak，无需进行拼接
-  let colorFileName =
-    dark && color ? `-${encodeURIComponent(color)}` : encodeURIComponent(color || '');
-  if (color === 'daybreak' && dark) {
-    colorFileName = '';
-  }
-
-  const dom = document.getElementById('theme-style') as HTMLLinkElement;
-
-  // 如果这两个都是空
-  if (!href && !colorFileName) {
-    if (dom) {
-      dom.remove();
-      localStorage.removeItem('site-theme');
-    }
+const updateTheme = (dark: boolean, color?: string) => {
+  if (!ConfigProvider.config) {
+    noteOnce(ConfigProvider.config, '请升级antd 到 4.17.0+ 版本使用这个功能。');
     return;
   }
 
-  const url = `${href}${colorFileName || ''}.css`;
-  if (dom) {
-    dom.onload = () => {
-      window.setTimeout(() => {
-        hide();
-      });
-    };
-    dom.href = url;
-  } else {
-    const style = document.createElement('link');
-    style.type = 'text/css';
-    style.rel = 'stylesheet';
-    style.id = 'theme-style';
-    style.onload = () => {
-      window.setTimeout(() => {
-        hide();
-      });
-    };
-    style.href = url;
-    if (document.body.append) {
-      document.body.append(style);
-    } else {
-      document.body.appendChild(style);
-    }
-  }
-
-  localStorage.setItem('site-theme', dark ? 'dark' : 'light');
-};
-
-const getThemeList = (settings: Partial<ProSettings>) => {
-  const formatMessage = getFormatMessage();
-
-  const getList = (): {
-    key: string;
-    fileName: string;
-    modifyVars: {
-      '@primary-color': string;
-    };
-    theme: 'dark' | 'light';
-  }[] => {
-    if (typeof window === 'undefined') return [];
-    return (window as any).umi_plugin_ant_themeVar || [];
-  };
-
-  const list: {
-    key: string;
-    fileName: string;
-    modifyVars: {
-      '@primary-color': string;
-    };
-    theme: 'dark' | 'light';
-  }[] = getList() || [];
-  const themeList = [
-    {
-      key: 'light',
-      title: formatMessage({ id: 'app.setting.pagestyle.light' }),
+  ConfigProvider.config({
+    theme: {
+      primaryColor: genStringToTheme(color) || '#1890ff',
     },
-  ];
-
-  const darkColorList: {
-    key: string;
-    color: string;
-    theme: 'dark' | 'light';
-  }[] = [
-    {
-      key: 'daybreak',
-      color: '#1890ff',
-      theme: 'dark',
-    },
-  ];
-
-  const lightColorList: {
-    key: string;
-    color: string;
-    theme: 'dark' | 'light';
-  }[] = [
-    {
-      key: 'daybreak',
-      color: '#1890ff',
-      theme: 'dark',
-    },
-  ];
-  if (settings.layout !== 'mix') {
-    themeList.push({
-      key: 'dark',
-      title: formatMessage({
-        id: 'app.setting.pagestyle.dark',
-        defaultMessage: '',
-      }),
-    });
-  }
-
-  if (list.find((item) => item.theme === 'dark')) {
-    themeList.push({
-      key: 'realDark',
-      title: formatMessage({
-        id: 'app.setting.pagestyle.dark',
-        defaultMessage: '',
-      }),
-    });
-  }
-
-  // insert  theme color List
-  list.forEach((item) => {
-    const color = (item.modifyVars || {})['@primary-color'];
-    if (item.theme === 'dark' && color) {
-      darkColorList.push({
-        color,
-        ...item,
-      });
-    }
-    if (!item.theme || item.theme === 'light') {
-      lightColorList.push({
-        color,
-        ...item,
-      });
-    }
   });
 
-  return {
-    colorList: {
-      dark: darkColorList,
-      light: lightColorList,
-    },
-    themeList,
-  };
+  if (!window.MutationObserver) return;
+
+  if (dark) {
+    const defaultTheme = {
+      brightness: 100,
+      contrast: 90,
+      sepia: 10,
+    };
+
+    const defaultFixes = {
+      invert: [],
+      css: '',
+      ignoreInlineStyle: ['.react-switch-handle'],
+      ignoreImageAnalysis: [],
+    };
+    darkreaderEnable(defaultTheme, defaultFixes);
+  } else {
+    darkreaderDisable();
+  }
+
+  return;
 };
 
 /**
@@ -268,7 +140,6 @@ const initState = (
   urlParams: Record<string, any>,
   settings: Partial<ProSettings>,
   onSettingChange: SettingDrawerProps['onSettingChange'],
-  publicPath?: string,
 ) => {
   if (!isBrowser()) return;
 
@@ -285,7 +156,7 @@ const initState = (
 
   // 如果 url 中设置主题，进行一次加载。
   if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor, publicPath, true);
+    updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor);
     loadedStyle = true;
   }
   if (loadedStyle) {
@@ -294,7 +165,7 @@ const initState = (
 
   // 如果 url 中没有设置主题，并且 url 中的没有加载，进行一次加载。
   if (defaultSettings.navTheme !== settings.navTheme && settings.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', settings.primaryColor, publicPath, true);
+    updateTheme(settings.navTheme === 'realDark', settings.primaryColor);
   }
 };
 
@@ -316,7 +187,7 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
     omit(
       {
         ...settingState,
-        primaryColor: genStringToTheme(settingState.primaryColor),
+        primaryColor: settingState.primaryColor,
       },
       ['colorWeak'],
     ),
@@ -331,13 +202,14 @@ const genCopySettingJson = (settingState: MergerSettingsType<ProSettings>) =>
  */
 const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const {
+    defaultSettings: propsDefaultSettings = undefined,
     settings: propsSettings = undefined,
-    hideLoading = false,
     hideColors,
     hideHintAlert,
     hideCopyButton,
     getContainer,
     onSettingChange,
+    realdark,
     prefixCls = 'ant-pro',
     pathname = window.location.pathname,
     disableUrlParams = false,
@@ -348,17 +220,16 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     value: props.collapse,
     onChange: props.onCollapseChange,
   });
+
   const [language, setLanguage] = useState<string>(getLanguage());
   const [urlParams, setUrlParams] = useUrlSearchParams({});
   const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
-    () => getParamsFromUrl(urlParams, propsSettings),
+    () => getParamsFromUrl(urlParams, propsSettings || propsDefaultSettings),
     {
       value: propsSettings,
       onChange: onSettingChange,
     },
   );
-
-  const preStateRef = useRef(settingState);
 
   const { navTheme, primaryColor, layout, colorWeak } = settingState || {};
 
@@ -372,12 +243,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
 
     /** 如果不是浏览器 都没有必要做了 */
     if (!isBrowser()) return () => null;
-    initState(
-      getParamsFromUrl(urlParams, propsSettings),
-      settingState,
-      setSettingState,
-      props.publicPath,
-    );
+    initState(getParamsFromUrl(urlParams, propsSettings), settingState, setSettingState);
     window.document.addEventListener('languagechange', onLanguageChange, {
       passive: true,
     });
@@ -385,30 +251,19 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     return () => window.document.removeEventListener('languagechange', onLanguageChange);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    updateTheme(settingState.navTheme === 'realDark', settingState.primaryColor);
+  }, [settingState.primaryColor, settingState.navTheme]);
   /**
    * 修改设置
    *
    * @param key
    * @param value
-   * @param hideMessageLoading
    */
-  const changeSetting = (key: string, value: string | boolean, hideMessageLoading?: boolean) => {
-    const nextState = { ...preStateRef.current };
+  const changeSetting = (key: string, value: string | boolean) => {
+    const nextState = {} as any;
     nextState[key] = value;
-
-    if (key === 'navTheme') {
-      updateTheme(value === 'realDark', undefined, props.publicPath, !!hideMessageLoading);
-      nextState.primaryColor = 'daybreak';
-    }
-
-    if (key === 'primaryColor') {
-      updateTheme(
-        nextState.navTheme === 'realDark',
-        value === 'daybreak' ? '' : (value as string),
-        props.publicPath,
-        !!hideMessageLoading,
-      );
-    }
 
     if (key === 'layout') {
       nextState.contentWidth = value === 'top' ? 'Fixed' : 'Fluid';
@@ -433,13 +288,11 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         delete dom.dataset.prosettingdrawer;
       }
     }
-    preStateRef.current = nextState;
     delete nextState.title;
-    setSettingState(nextState);
+    setSettingState({ ...settingState, ...nextState });
   };
 
   const formatMessage = getFormatMessage();
-  const themeList = getThemeList(settingState);
 
   useEffect(() => {
     /** 如果不是浏览器 都没有必要做了 */
@@ -453,10 +306,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     setUrlParams(diffParams);
   }, [setUrlParams, settingState, urlParams, pathname, disableUrlParams]);
   const baseClassName = `${prefixCls}-setting`;
+
   return (
     <Drawer
       visible={show}
       width={300}
+      closable={false}
       onClose={() => setShow(false)}
       placement="right"
       getContainer={getContainer}
@@ -493,29 +348,54 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         >
           <BlockCheckbox
             prefixCls={baseClassName}
-            list={themeList?.themeList}
+            list={[
+              {
+                key: 'light',
+                title: formatMessage({
+                  id: 'app.setting.pagestyle.light',
+                  defaultMessage: '亮色菜单风格',
+                }),
+              },
+              {
+                key: 'dark',
+                title: formatMessage({
+                  id: 'app.setting.pagestyle.dark',
+                  defaultMessage: '暗色菜单风格',
+                }),
+              },
+              {
+                key: 'realDark',
+                title: formatMessage({
+                  id: 'app.setting.pagestyle.realdark',
+                  defaultMessage: '暗色菜单风格',
+                }),
+              },
+            ].filter((item) => {
+              if (item.key === 'dark' && settingState.layout === 'mix') return false;
+              if (item.key === 'realDark' && !realdark) return false;
+              return true;
+            })}
             value={navTheme!}
             configType="theme"
             key="navTheme"
-            onChange={(value) => changeSetting('navTheme', value, hideLoading)}
+            onChange={(value) => changeSetting('navTheme', value)}
           />
         </Body>
-        <Body
-          title={formatMessage({
-            id: 'app.setting.themecolor',
-            defaultMessage: 'Theme color',
-          })}
-          prefixCls={baseClassName}
-        >
-          <ThemeColor
-            value={primaryColor!}
-            colors={
-              hideColors ? [] : themeList.colorList[navTheme === 'realDark' ? 'dark' : 'light']
-            }
-            formatMessage={formatMessage}
-            onChange={(color) => changeSetting('primaryColor', color, hideLoading)}
-          />
-        </Body>
+        {!hideColors && (
+          <Body
+            title={formatMessage({
+              id: 'app.setting.themecolor',
+              defaultMessage: 'Theme color',
+            })}
+            prefixCls={baseClassName}
+          >
+            <ThemeColor
+              value={genStringToTheme(primaryColor)!}
+              formatMessage={formatMessage}
+              onChange={(color) => changeSetting('primaryColor', color)}
+            />
+          </Body>
+        )}
 
         <Divider />
 
@@ -539,7 +419,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 title: formatMessage({ id: 'app.setting.mixmenu' }),
               },
             ]}
-            onChange={(value) => changeSetting('layout', value, hideLoading)}
+            onChange={(value) => changeSetting('layout', value)}
           />
         </Body>
         <LayoutSetting settings={settingState} changeSetting={changeSetting} />

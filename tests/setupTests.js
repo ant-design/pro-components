@@ -65,6 +65,14 @@ Object.defineProperty(window, 'open', {
   value: jest.fn,
 });
 
+const crypto = require('crypto');
+
+Object.defineProperty(global.self, 'crypto', {
+  value: {
+    getRandomValues: (arr) => crypto.randomBytes(arr.length),
+  },
+});
+
 global.requestAnimationFrame =
   global.requestAnimationFrame ||
   function requestAnimationFrame(cb) {

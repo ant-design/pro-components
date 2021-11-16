@@ -413,7 +413,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       menuData,
       onCollapse,
       isMobile,
-      theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
+      theme: navTheme === 'dark' ? 'dark' : 'light',
       collapsed,
     },
     matchMenuKeys,
@@ -428,7 +428,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       isMobile,
       collapsed,
       onCollapse,
-      theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
+      theme: navTheme === 'dark' ? 'dark' : 'light',
     },
     matchMenuKeys,
   );

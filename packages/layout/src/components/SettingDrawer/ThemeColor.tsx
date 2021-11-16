@@ -5,7 +5,6 @@ import { CheckOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
 
 import React from 'react';
-import { genThemeToString } from '../../utils/utils';
 
 export type TagProps = {
   color: string;
@@ -34,7 +33,16 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
   { colors, value, onChange, formatMessage },
   ref,
 ) => {
-  const colorList = colors || [];
+  const colorList = colors || [
+    { key: 'daybreak', color: '#1890ff' },
+    { key: 'dust', color: '#F5222D' },
+    { key: 'volcano', color: '#FA541C' },
+    { key: 'sunset', color: '#FAAD14' },
+    { key: 'cyan', color: '#13C2C2' },
+    { key: 'green', color: '#52C41A' },
+    { key: 'geekblue', color: '#2F54EB' },
+    { key: 'purple', color: '#722ED1' },
+  ];
   if (colorList.length < 1) {
     return null;
   }
@@ -42,14 +50,13 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
     <div className="theme-color" ref={ref}>
       <div className="theme-color-content">
         {colorList.map(({ key, color }) => {
-          const themeKey = genThemeToString(color);
           return (
             <Tooltip
               key={color}
               title={
-                themeKey
+                key
                   ? formatMessage({
-                      id: `app.setting.themecolor.${themeKey}`,
+                      id: `app.setting.themecolor.${key}`,
                     })
                   : key
               }
@@ -57,8 +64,8 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
               <Tag
                 className="theme-color-block"
                 color={color}
-                check={value === key || genThemeToString(value) === key}
-                onClick={() => onChange && onChange(key)}
+                check={value === color}
+                onClick={() => onChange && onChange(color)}
               />
             </Tooltip>
           );

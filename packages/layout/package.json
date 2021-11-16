@@ -39,6 +39,7 @@
     "@umijs/route-utils": "^2.0.1",
     "@umijs/use-params": "^1.0.2",
     "classnames": "^2.2.6",
+    "darkreader": "^4.9.40",
     "lodash.merge": "^4.6.2",
     "omit.js": "^2.0.2",
     "path-to-regexp": "2.4.0",
