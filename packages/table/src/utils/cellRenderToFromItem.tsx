@@ -1,4 +1,5 @@
 import React from 'react';
+import { Form } from 'antd';
 import type { FormInstance, FormItemProps } from 'antd';
 import type { useContainer } from '../container';
 import type { ProFormFieldProps } from '@ant-design/pro-form';
@@ -96,108 +97,124 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
 
   if (!counter.editableForm) return null;
 
-  const name = spellNamePath(
-    prefixName,
-    prefixName ? config.index : config.recordKey ?? config.index,
-    columnProps?.key ?? columnProps?.dataIndex ?? config.index,
-  );
+  const generateFormItem = () => {
+    const name = spellNamePath(
+      prefixName,
+      prefixName ? config.index : config.recordKey ?? config.index,
+      columnProps?.key ?? columnProps?.dataIndex ?? config.index,
+    );
 
-  /** 获取 formItemProps Props */
-  const formItemProps = getFieldPropsOrFormItemProps(
-    columnProps?.formItemProps,
-    counter.editableForm as FormInstance,
-    {
-      rowKey: config.recordKey || config.index,
-      rowIndex: config.index,
-      ...columnProps,
-      isEditable: true,
-    },
-  ) as FormItemProps;
+    /** 获取 formItemProps Props */
+    const formItemProps = getFieldPropsOrFormItemProps(
+      columnProps?.formItemProps,
+      counter.editableForm as FormInstance,
+      {
+        rowKey: config.recordKey || config.index,
+        rowIndex: config.index,
+        ...columnProps,
+        isEditable: true,
+      },
+    ) as FormItemProps;
 
-  const messageVariables = {
-    label: (columnProps?.title as string) || '此项',
-    type: (columnProps?.valueType as string) || '文本',
-    ...formItemProps?.messageVariables,
-  };
-  const inputDom = (
-    <ProFormField
-      key={config.recordKey || config.index}
-      name={name}
-      ignoreFormItem
-      fieldProps={getFieldPropsOrFormItemProps(
-        columnProps?.fieldProps,
-        counter?.editableForm as FormInstance,
-        {
-          ...columnProps,
-          rowKey: config.recordKey || config.index,
-          rowIndex: config.index,
-          isEditable: true,
+    const messageVariables = {
+      label: (columnProps?.title as string) || '此项',
+      type: (columnProps?.valueType as string) || '文本',
+      ...formItemProps?.messageVariables,
+    };
+    const inputDom = (
+      <ProFormField
+        key={config.recordKey || config.index}
+        name={name}
+        ignoreFormItem
+        fieldProps={getFieldPropsOrFormItemProps(
+          columnProps?.fieldProps,
+          counter?.editableForm as FormInstance,
+          {
+            ...columnProps,
+            rowKey: config.recordKey || config.index,
+            rowIndex: config.index,
+            isEditable: true,
+          },
+        )}
+        {...proFieldProps}
+      />
+    );
+
+    /** 如果没有自定义直接返回 */
+    if (!columnProps?.renderFormItem) {
+      const dom = (
+        <InlineErrorFormItem
+          key={config.recordKey || config.index}
+          errorType="popover"
+          name={name}
+          {...formItemProps}
+          messageVariables={messageVariables}
+          initialValue={text ?? formItemProps?.initialValue ?? columnProps?.initialValue}
+        >
+          {inputDom}
+        </InlineErrorFormItem>
+      );
+      return dom;
+    }
+    /** RenderFormItem 需要被自定义的时候执行，defaultRender 比较麻烦所以这里多包一点 */
+    const renderDom = columnProps.renderFormItem?.(
+      {
+        ...columnProps,
+        index: config.index,
+        isEditable: true,
+        type: 'table',
+      },
+      {
+        defaultRender: () => {
+          return (
+            <InlineErrorFormItem
+              key={config.recordKey || config.index}
+              errorType="popover"
+              name={name}
+              {...formItemProps}
+              messageVariables={messageVariables}
+              initialValue={text ?? formItemProps?.initialValue ?? columnProps?.initialValue}
+            >
+              {inputDom}
+            </InlineErrorFormItem>
+          );
         },
-      )}
-      {...proFieldProps}
-    />
-  );
-
-  /** 如果没有自定义直接返回 */
-  if (!columnProps?.renderFormItem) {
+        type: 'form',
+        recordKey: config.recordKey,
+        record: counter?.editableForm?.getFieldValue([config.recordKey || config.index]),
+        isEditable: true,
+      },
+      counter?.editableForm as any,
+    );
     return (
       <InlineErrorFormItem
-        key={config.recordKey || config.index}
         errorType="popover"
-        name={name}
+        key={config.recordKey || config.index}
+        name={spellNamePath(
+          config.recordKey || config.index,
+          columnProps?.key || columnProps?.dataIndex || config.index,
+        )}
         {...formItemProps}
-        messageVariables={messageVariables}
         initialValue={text ?? formItemProps?.initialValue ?? columnProps?.initialValue}
+        messageVariables={messageVariables}
       >
-        {inputDom}
+        {renderDom}
       </InlineErrorFormItem>
     );
+  };
+
+  if (
+    typeof columnProps?.renderFormItem === 'function' ||
+    typeof columnProps?.fieldProps === 'function' ||
+    typeof columnProps?.formItemProps === 'function'
+  ) {
+    return (
+      <Form.Item shouldUpdate noStyle>
+        {() => generateFormItem()}
+      </Form.Item>
+    );
   }
-  /** RenderFormItem 需要被自定义的时候执行，defaultRender 比较麻烦所以这里多包一点 */
-  const renderDom = columnProps.renderFormItem?.(
-    {
-      ...columnProps,
-      index: config.index,
-      isEditable: true,
-      type: 'table',
-    },
-    {
-      defaultRender: () => {
-        return (
-          <InlineErrorFormItem
-            key={config.recordKey || config.index}
-            errorType="popover"
-            name={name}
-            {...formItemProps}
-            messageVariables={messageVariables}
-            initialValue={text ?? formItemProps?.initialValue ?? columnProps?.initialValue}
-          >
-            {inputDom}
-          </InlineErrorFormItem>
-        );
-      },
-      type: 'form',
-      recordKey: config.recordKey,
-      record: counter?.editableForm?.getFieldValue([config.recordKey || config.index]),
-      isEditable: true,
-    },
-    counter?.editableForm as any,
-  );
-  return (
-    <InlineErrorFormItem
-      errorType="popover"
-      key={config.recordKey || config.index}
-      name={spellNamePath(
-        config.recordKey || config.index,
-        columnProps?.key || columnProps?.dataIndex || config.index,
-      )}
-      {...formItemProps}
-      initialValue={text ?? formItemProps?.initialValue ?? columnProps?.initialValue}
-      messageVariables={messageVariables}
-    >
-      {renderDom}
-    </InlineErrorFormItem>
-  );
+  return generateFormItem();
 }
 
 export default cellRenderToFromItem;

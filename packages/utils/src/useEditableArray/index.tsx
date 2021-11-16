@@ -597,6 +597,7 @@ function useEditableArray<RecordType>(
           return key === recordKey;
         })
       : newLineRecordData;
+
     props.onValuesChange(editRow || newLineRecordData, dataSource);
   };
 
