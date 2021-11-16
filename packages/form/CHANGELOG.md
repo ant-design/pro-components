@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.48.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.48.0...@ant-design/pro-form@1.48.1) (2021-11-16)
+
+### Bug Fixes
+
+- **form:** support onVisibleChange form set ([#4044](https://github.com/ant-design/pro-components/issues/4044)) ([004d78f](https://github.com/ant-design/pro-components/commit/004d78ff276eaa762f8f363404d4ec8fadeea70e))
+
 # [1.48.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.47.0...@ant-design/pro-form@1.48.0) (2021-11-15)
 
 ### Features

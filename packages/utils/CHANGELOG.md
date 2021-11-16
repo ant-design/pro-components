@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.0...@ant-design/pro-utils@1.28.1) (2021-11-16)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions cancel values no work error ([#4043](https://github.com/ant-design/pro-components/issues/4043)) ([c4fa372](https://github.com/ant-design/pro-components/commit/c4fa372f3f6b5da3f6604e8b9e0d665ff46f6404))
+
 # [1.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.27.0...@ant-design/pro-utils@1.28.0) (2021-11-15)
 
 ### Features
