@@ -379,8 +379,9 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         const record = isMapEditor ? set({}, namePath, fields) : fields;
         const res = await onCancel?.(recordKey, record, row, newLineConfig);
         cancelEditable(recordKey);
+        /** 充值为默认值，不然编辑的行会丢掉 */
         form.setFieldsValue({
-          [recordKey as React.Key]: row,
+          [recordKey as React.Key]: isMapEditor ? get(row, namePath) : row,
         });
         return res;
       }}
