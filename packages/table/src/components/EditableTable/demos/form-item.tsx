@@ -42,14 +42,10 @@ export default () => {
     {
       title: '活动名称',
       dataIndex: 'title',
-      formItemProps: (form, { rowIndex }) => {
+      formItemProps: () => {
         return {
-          rules: rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
+          rules: [{ required: true, message: '此项为必填项' }],
         };
-      },
-      // 第二行不允许编辑
-      editable: (text, record, index) => {
-        return index !== 0;
       },
       width: '30%',
     },
@@ -73,19 +69,6 @@ export default () => {
     {
       title: '描述',
       dataIndex: 'decs',
-      fieldProps: (from, { rowKey, rowIndex }) => {
-        if (from.getFieldValue(['table', rowKey || '', 'title']) === '不好玩') {
-          return {
-            disabled: true,
-          };
-        }
-        if (rowIndex > 9) {
-          return {
-            disabled: true,
-          };
-        }
-        return {};
-      },
     },
     {
       title: '活动时间',

@@ -19,7 +19,15 @@ const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
  * @param dataIndex 需要拼接的key
  */
 export const spellNamePath = (...rest: any[]): React.Key[] => {
-  return rest.filter((index) => index !== undefined).flat(1);
+  return rest
+    .filter((index) => index !== undefined)
+    .map((item) => {
+      if (typeof item === 'number') {
+        return item.toString();
+      }
+      return item;
+    })
+    .flat(1);
 };
 
 type RenderToFromItemProps<T> = {
@@ -209,7 +217,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
     typeof columnProps?.formItemProps === 'function'
   ) {
     return (
-      <Form.Item shouldUpdate noStyle>
+      <Form.Item shouldUpdate={(pre, next) => pre !== next} noStyle>
         {() => generateFormItem()}
       </Form.Item>
     );
