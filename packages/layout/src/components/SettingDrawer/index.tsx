@@ -126,8 +126,6 @@ const updateTheme = (dark: boolean, color?: string) => {
   } else {
     if (!window.MutationObserver) darkreaderDisable();
   }
-
-  return;
 };
 
 /**
