@@ -469,7 +469,7 @@ describe('ProForm List', () => {
               name: '1111',
             },
           ]}
-          showItemLabel="always"
+          alwaysShowItemLabel
         >
           <ProFormText name="name" label="姓名" />
           <ProFormText name="nickName" label="昵称" />

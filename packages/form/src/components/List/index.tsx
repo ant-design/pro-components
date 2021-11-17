@@ -47,7 +47,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
       });
   creatorRecord?: Record<string, any> | (() => Record<string, any>);
   label?: ReactNode;
-  showItemLabel?: 'first' | 'always' | 'hidden';
+  alwaysShowItemLabel?: boolean;
   tooltip?: LabelTooltipType;
   actionRender?: (
     field: FormListFieldData,
@@ -115,7 +115,7 @@ type ProFormListItemProps = {
   };
   name: ProFormListProps['name'];
   originName: ProFormListProps['name'];
-  showItemLabel: ProFormListProps['showItemLabel'];
+  alwaysShowItemLabel: ProFormListProps['alwaysShowItemLabel'];
 };
 
 const ProFormListItem: React.FC<
@@ -140,7 +140,7 @@ const ProFormListItem: React.FC<
     field,
     index,
     formInstance,
-    showItemLabel = 'first',
+    alwaysShowItemLabel,
     ...rest
   } = props;
   const listContext = useContext(FormListContext);
@@ -224,9 +224,7 @@ const ProFormListItem: React.FC<
     options,
   ) || (
     <div
-      className={`${prefixCls}-item${
-        showItemLabel === 'always' ? ` ${prefixCls}-item-show-label` : ''
-      }${showItemLabel === 'first' ? ` ${prefixCls}-item-first-label` : ''}`}
+      className={`${prefixCls}-item${alwaysShowItemLabel ? ` ${prefixCls}-item-show-label` : ''}`}
       style={{
         display: 'flex',
         alignItems: 'flex-end',
@@ -299,7 +297,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   actionRender,
   creatorButtonProps,
   label,
-  showItemLabel,
+  alwaysShowItemLabel,
   tooltip,
   creatorRecord,
   itemRender,
@@ -365,7 +363,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                       creatorRecord={creatorRecord}
                       actionRender={actionRender}
                       action={action}
-                      showItemLabel={showItemLabel}
+                      alwaysShowItemLabel={alwaysShowItemLabel}
                     >
                       {children}
                     </ProFormListContainer>
