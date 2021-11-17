@@ -267,7 +267,10 @@ export function SaveEditableAction<T>({
         e.preventDefault();
         try {
           const isMapEditor = editorType === 'Map';
-          const namePath = [tableName, recordKey].flat(1).filter(Boolean) as string[];
+          const namePath = [tableName, recordKey]
+            .map((key) => key?.toString())
+            .flat(1)
+            .filter(Boolean) as string[];
           setLoading(true);
           // @ts-expect-error
           await form.validateFields(namePath, {
@@ -477,16 +480,19 @@ function useEditableArray<RecordType>(
       // 这里是不设置 index 的地方
       const recordKey = props.getRowKey(row, -1)?.toString?.();
 
-      const keyStringRef = editableKeysRef?.join(',') || '';
+      // 都转化为了字符串，不然 number 和 string
+      const stringEditableKeys = editableKeys.map((key) => key.toString());
+      const stringEditableKeysRef = editableKeysRef?.map((key) => key.toString()) || [];
 
       const preIsEditable =
-        !!keyStringRef?.includes(recordKey) || !!keyStringRef?.includes(recordKeyOrIndex);
-
-      const keyString = editableKeys?.join(',') || '';
+        (props.tableName && !!stringEditableKeysRef?.includes(recordKey)) ||
+        !!stringEditableKeysRef?.includes(recordKeyOrIndex);
 
       return {
         recordKey,
-        isEditable: keyString?.includes(recordKey) || keyString?.includes(recordKeyOrIndex),
+        isEditable:
+          (props.tableName && stringEditableKeys?.includes(recordKey)) ||
+          stringEditableKeys?.includes(recordKeyOrIndex),
         preIsEditable,
       };
     },
