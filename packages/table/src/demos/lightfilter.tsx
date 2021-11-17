@@ -35,11 +35,6 @@ const columns: ProColumns<TableListItem>[] = [
     dataIndex: 'startTime',
     valueType: 'dateRange',
     hideInTable: true,
-    formItemProps: {
-      lightProps: {
-        labelFormatter: (value: any) => 'XXX',
-      },
-    },
     initialValue: [moment(), moment().add(1, 'day')],
   },
   {
