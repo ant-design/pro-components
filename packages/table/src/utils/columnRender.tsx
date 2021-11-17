@@ -73,6 +73,8 @@ const isNeedTranText = (item: ProColumns<any>): boolean => {
  */
 export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: string) => {
   if (item.copyable || item.ellipsis) {
+    let domText = dom;
+
     const copyable =
       item.copyable && text
         ? {
@@ -83,6 +85,12 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
 
     /** 有些 valueType 需要设置copy的为string */
     const needTranText = isNeedTranText(item);
+
+    /** 剔除警告 https://github.com/ant-design/ant-design/blob/master/components/typography/Base.tsx#L329 */
+    if (React.isValidElement(dom)) {
+      domText = dom.props?.text || dom;
+    }
+
     const ellipsis =
       item.ellipsis && text
         ? {
@@ -100,7 +108,7 @@ export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: s
         copyable={copyable}
         ellipsis={ellipsis}
       >
-        {dom}
+        {domText}
       </Typography.Text>
     );
   }
