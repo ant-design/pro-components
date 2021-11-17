@@ -9,13 +9,18 @@
     .@{ant-prefix}-form-item-label {
       display: none;
     }
+    &&-show-label {
+      .@{ant-prefix}-form-item-label {
+        display: inline-block;
+      }
+    }
   }
 
   &-container {
     margin-right: 8px;
   }
 
-  &-item {
+  &-item&-item-first-label {
     &:first-of-type {
       div:first-of-type {
         .@{ant-prefix}-form-item {
