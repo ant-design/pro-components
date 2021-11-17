@@ -60,6 +60,7 @@ export type SettingDrawerProps = {
   /** 使用实验性质的黑色主题 */
   realdark?: boolean;
   prefixCls?: string;
+  colorList?: { key: string; color: string }[];
   hideCopyButton?: boolean;
   onCollapseChange?: (collapse: boolean) => void;
   onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
@@ -148,11 +149,19 @@ const initState = (
   const replaceSetting = {};
   Object.keys(urlParams).forEach((key) => {
     if (defaultSettings[key] || defaultSettings[key] === undefined) {
+      if (key === 'primaryColor') {
+        replaceSetting[key] = genStringToTheme(urlParams[key]);
+        return;
+      }
       replaceSetting[key] = urlParams[key];
     }
   });
+  const newSettings: MergerSettingsType<ProSettings> = merge({}, settings, replaceSetting);
+  delete newSettings.menu;
+  delete newSettings.title;
+  delete newSettings.iconfontUrl;
   // 同步数据到外部
-  onSettingChange?.(merge({}, settings, replaceSetting));
+  onSettingChange?.(newSettings);
 
   // 如果 url 中设置主题，进行一次加载。
   if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
@@ -207,6 +216,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     hideColors,
     hideHintAlert,
     hideCopyButton,
+    colorList,
     getContainer,
     onSettingChange,
     realdark,
@@ -288,7 +298,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         delete dom.dataset.prosettingdrawer;
       }
     }
+    delete nextState.menu;
     delete nextState.title;
+    delete nextState.iconfontUrl;
     setSettingState({ ...settingState, ...nextState });
   };
 
@@ -390,6 +402,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             prefixCls={baseClassName}
           >
             <ThemeColor
+              colorList={colorList}
               value={genStringToTheme(primaryColor)!}
               formatMessage={formatMessage}
               onChange={(color) => changeSetting('primaryColor', color)}

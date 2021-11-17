@@ -20,7 +20,7 @@ const Tag: React.FC<TagProps> = React.forwardRef(({ color, check, ...rest }, ref
 ));
 
 export type ThemeColorProps = {
-  colors?: {
+  colorList?: {
     key: string;
     color: string;
   }[];
@@ -30,19 +30,23 @@ export type ThemeColorProps = {
 };
 
 const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps> = (
-  { colors, value, onChange, formatMessage },
+  {
+    value,
+    colorList = [
+      { key: 'daybreak', color: '#1890ff' },
+      { key: 'dust', color: '#F5222D' },
+      { key: 'volcano', color: '#FA541C' },
+      { key: 'sunset', color: '#FAAD14' },
+      { key: 'cyan', color: '#13C2C2' },
+      { key: 'green', color: '#52C41A' },
+      { key: 'geekblue', color: '#2F54EB' },
+      { key: 'purple', color: '#722ED1' },
+    ],
+    onChange,
+    formatMessage,
+  },
   ref,
 ) => {
-  const colorList = colors || [
-    { key: 'daybreak', color: '#1890ff' },
-    { key: 'dust', color: '#F5222D' },
-    { key: 'volcano', color: '#FA541C' },
-    { key: 'sunset', color: '#FAAD14' },
-    { key: 'cyan', color: '#13C2C2' },
-    { key: 'green', color: '#52C41A' },
-    { key: 'geekblue', color: '#2F54EB' },
-    { key: 'purple', color: '#722ED1' },
-  ];
   if (colorList.length < 1) {
     return null;
   }

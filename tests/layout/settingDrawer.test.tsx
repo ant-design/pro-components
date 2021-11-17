@@ -25,27 +25,85 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 base user', () => {
-    const html = render(<SettingDrawer settings={defaultSettings} getContainer={false} collapse />);
+    const html = render(
+      <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
+    );
     expect(html).toMatchSnapshot();
   });
 
   it('🌺 settings = undefined', () => {
     const html = render(
-      <SettingDrawer settings={undefined as any} getContainer={false} collapse />,
+      <SettingDrawer disableUrlParams settings={undefined as any} getContainer={false} collapse />,
     );
     expect(html).toMatchSnapshot();
   });
 
   it('🌺 hideColors = true', () => {
     const html = render(
-      <SettingDrawer settings={defaultSettings} hideColors getContainer={false} collapse />,
+      <SettingDrawer
+        disableUrlParams
+        settings={defaultSettings}
+        hideColors
+        getContainer={false}
+        collapse
+      />,
     );
     expect(html).toMatchSnapshot();
   });
 
+  it('🌺  theme color Change', async () => {
+    const onSettingChange = jest.fn();
+    const colorList = [
+      { key: 'dust', color: '#F5222D' },
+      { key: 'volcano', color: '#FA541C' },
+      { key: 'sunset', color: '#FAAD14' },
+      { key: 'cyan', color: '#13C2C2' },
+      { key: 'green', color: '#52C41A' },
+      { key: 'geekblue', color: '#2F54EB' },
+      { key: 'purple', color: '#722ED1' },
+      { key: 'qixian', color: '#F52225' },
+      { key: 'test', color: '#722ED2' },
+    ];
+    const wrapper = mount(
+      <SettingDrawer
+        disableUrlParams
+        colorList={colorList}
+        settings={defaultSettings}
+        collapse
+        getContainer={false}
+        onSettingChange={(setting) => onSettingChange(setting.primaryColor)}
+      />,
+    );
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      const button = wrapper.find('div.theme-color-content div.theme-color-block').at(0);
+      button.simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith('#1890ff');
+
+    act(() => {
+      const button = wrapper.find('div.theme-color-content div.theme-color-block').at(1);
+      button.simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(onSettingChange).toBeCalledWith('#F5222D');
+    expect(wrapper.find('div.theme-color-content div.theme-color-block').length).toBe(9);
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
   it('🌺 hideHintAlert = true', () => {
     const html = render(
-      <SettingDrawer settings={defaultSettings} hideHintAlert getContainer={false} collapse />,
+      <SettingDrawer
+        disableUrlParams
+        settings={defaultSettings}
+        hideHintAlert
+        getContainer={false}
+        collapse
+      />,
     );
     expect(html).toMatchSnapshot();
   });
@@ -53,7 +111,13 @@ describe('settingDrawer.test', () => {
   it('🌺 hideLoading = true', () => {
     window.localStorage.removeItem('umi_locale');
     const html = render(
-      <SettingDrawer settings={defaultSettings} hideLoading getContainer={false} collapse />,
+      <SettingDrawer
+        disableUrlParams
+        settings={defaultSettings}
+        hideLoading
+        getContainer={false}
+        collapse
+      />,
     );
     expect(html).toMatchSnapshot();
     window.localStorage.setItem('umi_locale', 'zh-CN');
@@ -94,8 +158,7 @@ describe('settingDrawer.test', () => {
       fixedHeader: true,
       fixSiderbar: false,
       headerHeight: 48,
-      iconfontUrl: '',
-      primaryColor: 'daybreak',
+      primaryColor: '#1890ff',
       splitMenus: false,
     });
     act(() => {
@@ -105,7 +168,13 @@ describe('settingDrawer.test', () => {
 
   it('🌺 hideCopyButton = true', () => {
     const html = render(
-      <SettingDrawer settings={defaultSettings} hideCopyButton getContainer={false} collapse />,
+      <SettingDrawer
+        disableUrlParams
+        settings={defaultSettings}
+        hideCopyButton
+        getContainer={false}
+        collapse
+      />,
     );
     expect(html).toMatchSnapshot();
   });
@@ -125,6 +194,7 @@ describe('settingDrawer.test', () => {
     const fn = jest.fn();
     const html = mount(
       <SettingDrawer
+        disableUrlParams
         getContainer={false}
         collapse
         onSettingChange={() => {
@@ -148,6 +218,7 @@ describe('settingDrawer.test', () => {
     const onCollapseChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         settings={{
           ...defaultSettings,
           // @ts-ignore
@@ -171,6 +242,7 @@ describe('settingDrawer.test', () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         settings={defaultSettings}
         collapse
         getContainer={false}
@@ -198,6 +270,7 @@ describe('settingDrawer.test', () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         collapse
         getContainer={false}
         onSettingChange={(setting) => {
@@ -223,6 +296,7 @@ describe('settingDrawer.test', () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         collapse
         settings={{
           layout: 'top',
@@ -253,6 +327,7 @@ describe('settingDrawer.test', () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         collapse
         settings={{
           layout: 'mix',
@@ -276,6 +351,7 @@ describe('settingDrawer.test', () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         collapse
         getContainer={false}
         onSettingChange={(setting) => {
@@ -303,6 +379,7 @@ describe('settingDrawer.test', () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         settings={defaultSettings}
         collapse
         getContainer={false}
@@ -331,6 +408,7 @@ describe('settingDrawer.test', () => {
     document.body.appendChild(document.createElement('div'));
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         settings={defaultSettings}
         collapse
         getContainer={false}
@@ -366,6 +444,7 @@ describe('settingDrawer.test', () => {
       const fn = jest.fn();
       const html = mount(
         <SettingDrawer
+          disableUrlParams
           onSettingChange={(s) => {
             if (s[`${key}Render`] === false) {
               fn(key);
@@ -391,7 +470,9 @@ describe('settingDrawer.test', () => {
   });
 
   it('🌺 onLanguageChange support', async () => {
-    const html = mount(<SettingDrawer settings={defaultSettings} getContainer={false} collapse />);
+    const html = mount(
+      <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
+    );
     await waitForComponentToPaint(html, 200);
     act(() => {
       expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toBe('整体风格设置');
