@@ -138,7 +138,7 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
   ProSchemaComponentTypes,
   ValueType,
   {
-    lightProps: LightWrapperProps;
+    lightProps?: LightWrapperProps;
   }
 >;
 
