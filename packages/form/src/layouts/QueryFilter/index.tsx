@@ -2,6 +2,7 @@
 import type { ReactElement } from 'react';
 import { useContext } from 'react';
 import React, { useMemo } from 'react';
+import type { FormItemProps } from 'antd';
 import { Row, Col, Form, Divider, ConfigProvider } from 'antd';
 import type { FormInstance, FormProps } from 'antd/lib/form/Form';
 import RcResizeObserver from 'rc-resize-observer';
@@ -346,9 +347,22 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
     return Math.max(1, 24 / spanSize.span);
   }, [defaultColsNumber, spanSize.span]);
 
-  const labelFlexStyle = useMemo(() => {
+  /** 计算最大宽度防止溢出换行 */
+  const formItemFixStyle: FormItemProps<any> | undefined = useMemo(() => {
     if (labelWidth && spanSize.layout !== 'vertical' && labelWidth !== 'auto') {
-      return `0 0 ${labelWidth}px`;
+      return {
+        labelCol: {
+          flex: `0 0 ${labelWidth}px`,
+        },
+        wrapperCol: {
+          style: {
+            maxWidth: `calc(100% - ${labelWidth}px)`,
+          },
+        },
+        style: {
+          flexWrap: 'nowrap',
+        },
+      };
     }
     return undefined;
   }, [spanSize.layout, labelWidth]);
@@ -375,19 +389,7 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
             width: '100%',
           },
         }}
-        formItemProps={{
-          labelCol: {
-            flex: labelFlexStyle,
-          },
-          wrapperCol: {
-            style: {
-              maxWidth: `calc(100% - ${labelWidth}px)`,
-            },
-          },
-          style: {
-            flexWrap: 'nowrap',
-          },
-        }}
+        formItemProps={formItemFixStyle}
         groupProps={{
           titleStyle: {
             display: 'inline-block',
