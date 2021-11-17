@@ -222,9 +222,7 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            <span>
-                              2020-05-26
-                            </span>
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -283,9 +281,7 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            <span>
-                              2020-05-26
-                            </span>
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -554,9 +550,7 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            <span>
-                              2020-05-26
-                            </span>
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -616,9 +610,7 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            <span>
-                              2020-05-26
-                            </span>
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -678,9 +670,7 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            <span>
-                              2020-05-26
-                            </span>
+                            2020-05-26
                           </td>
                           <td
                             class="ant-table-cell"
@@ -1390,9 +1380,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               <td
                                 class="ant-table-cell"
                               >
-                                <span>
-                                  2020-05-26
-                                </span>
+                                2020-05-26
                               </td>
                               <td
                                 class="ant-table-cell"
@@ -1451,9 +1439,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               <td
                                 class="ant-table-cell"
                               >
-                                <span>
-                                  2020-05-26
-                                </span>
+                                2020-05-26
                               </td>
                               <td
                                 class="ant-table-cell"
@@ -12869,9 +12855,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -13009,9 +12993,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -13149,9 +13131,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -13289,9 +13269,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -13429,9 +13407,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -14736,16 +14712,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21 23:59:58
-                          </span>
+                          2016-11-21 23:59:58
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -14794,16 +14766,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21 23:59:58
-                          </span>
+                          2016-11-21 23:59:58
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -15777,9 +15745,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-26 09:42:56
-                          </span>
+                          2020-05-26 09:42:56
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -15938,9 +15904,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-26 08:19:22
-                          </span>
+                          2020-05-26 08:19:22
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -16102,9 +16066,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-26 07:54:25
-                          </span>
+                          2020-05-26 07:54:25
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -16266,9 +16228,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-26 05:58:24
-                          </span>
+                          2020-05-26 05:58:24
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -16430,9 +16390,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-26 04:25:59
-                          </span>
+                          2020-05-26 04:25:59
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -16594,9 +16552,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-26 02:13:47
-                          </span>
+                          2020-05-26 02:13:47
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -16758,9 +16714,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-25 17:34:21
-                          </span>
+                          2020-05-25 17:34:21
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -16922,9 +16876,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-25 13:27:09
-                          </span>
+                          2020-05-25 13:27:09
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -17086,9 +17038,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-25 08:20:31
-                          </span>
+                          2020-05-25 08:20:31
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -17250,9 +17200,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-23 15:00:49
-                          </span>
+                          2020-05-23 15:00:49
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -17414,9 +17362,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-23 02:46:12
-                          </span>
+                          2020-05-23 02:46:12
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -17578,9 +17524,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-22 02:20:27
-                          </span>
+                          2020-05-22 02:20:27
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -17742,9 +17686,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-21 08:45:13
-                          </span>
+                          2020-05-21 08:45:13
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -17906,9 +17848,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-21 08:04:36
-                          </span>
+                          2020-05-21 08:04:36
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -18070,9 +18010,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-21 06:51:22
-                          </span>
+                          2020-05-21 06:51:22
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -18234,9 +18172,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-21 05:56:36
-                          </span>
+                          2020-05-21 05:56:36
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -18398,9 +18334,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-21 02:47:35
-                          </span>
+                          2020-05-21 02:47:35
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -18562,9 +18496,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-20 02:02:33
-                          </span>
+                          2020-05-20 02:02:33
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -18726,9 +18658,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-20 01:20:55
-                          </span>
+                          2020-05-20 01:20:55
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -18890,9 +18820,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         <td
                           class="qixian-table-cell"
                         >
-                          <span>
-                            2020-05-19 09:22:47
-                          </span>
+                          2020-05-19 09:22:47
                         </td>
                         <td
                           class="qixian-table-cell"
@@ -20099,9 +20027,7 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            <span>
-                              2020-05-26 09:42:56
-                            </span>
+                            2020-05-26 09:42:56
                           </td>
                           <td
                             class="ant-table-cell"
@@ -20238,9 +20164,7 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            <span>
-                              2020-05-26 08:19:22
-                            </span>
+                            2020-05-26 08:19:22
                           </td>
                           <td
                             class="ant-table-cell"
@@ -20378,9 +20302,7 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            <span>
-                              2020-05-26 07:54:25
-                            </span>
+                            2020-05-26 07:54:25
                           </td>
                           <td
                             class="ant-table-cell"
@@ -20518,9 +20440,7 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            <span>
-                              2020-05-26 05:58:24
-                            </span>
+                            2020-05-26 05:58:24
                           </td>
                           <td
                             class="ant-table-cell"
@@ -20658,9 +20578,7 @@ Array [
                           <td
                             class="ant-table-cell"
                           >
-                            <span>
-                              2020-05-26 04:25:59
-                            </span>
+                            2020-05-26 04:25:59
                           </td>
                           <td
                             class="ant-table-cell"
@@ -22800,9 +22718,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -22947,9 +22863,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -23094,9 +23008,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -23241,9 +23153,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -23388,9 +23298,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -26221,9 +26129,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    <span>
-                                      2016-11-22
-                                    </span>
+                                    2016-11-22
                                   </td>
                                   <td
                                     class="ant-table-cell"
@@ -26307,9 +26213,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    <span>
-                                      2016-11-22
-                                    </span>
+                                    2016-11-22
                                   </td>
                                   <td
                                     class="ant-table-cell"
@@ -26393,9 +26297,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    <span>
-                                      2016-11-22
-                                    </span>
+                                    2016-11-22
                                   </td>
                                   <td
                                     class="ant-table-cell"
@@ -26479,9 +26381,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    <span>
-                                      2016-11-22
-                                    </span>
+                                    2016-11-22
                                   </td>
                                   <td
                                     class="ant-table-cell"
@@ -26565,9 +26465,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    <span>
-                                      2016-11-22
-                                    </span>
+                                    2016-11-22
                                   </td>
                                   <td
                                     class="ant-table-cell"
@@ -28605,9 +28503,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-10-13 07:09:54
-                          </span>
+                          2020-10-13 07:09:54
                         </td>
                       </tr>
                     </tbody>
@@ -29521,9 +29417,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-10-13 07:09:54
-                          </span>
+                          2020-10-13 07:09:54
                         </td>
                       </tr>
                     </tbody>
@@ -30377,9 +30271,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -30460,9 +30352,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -30543,9 +30433,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -30626,9 +30514,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -30709,9 +30595,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -32541,9 +32425,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -32610,9 +32492,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -32679,9 +32559,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -32748,9 +32626,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -32817,9 +32693,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/listToolBar.tsx cor
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -34009,9 +33883,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -34153,9 +34025,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -34297,9 +34167,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -34441,9 +34309,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -34585,9 +34451,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -36041,9 +35905,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -36185,9 +36047,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -36329,9 +36189,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -36473,9 +36331,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -36617,9 +36473,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell ant-table-cell-ellipsis"
@@ -37532,9 +37386,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26
-                          </span>
+                          2020-05-26
                         </td>
                       </tr>
                       <tr
@@ -37616,9 +37468,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26
-                          </span>
+                          2020-05-26
                         </td>
                       </tr>
                       <tr
@@ -37700,9 +37550,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26
-                          </span>
+                          2020-05-26
                         </td>
                       </tr>
                       <tr
@@ -37784,9 +37632,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26
-                          </span>
+                          2020-05-26
                         </td>
                       </tr>
                       <tr
@@ -37868,9 +37714,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26
-                          </span>
+                          2020-05-26
                         </td>
                       </tr>
                     </tbody>
@@ -38884,16 +38728,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11
-                          </span>
+                          2016-11
                         </td>
                       </tr>
                       <tr
@@ -38955,16 +38795,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11
-                          </span>
+                          2016-11
                         </td>
                       </tr>
                     </tbody>
@@ -39880,9 +39716,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                             <td
                               class="ant-table-cell"
                             >
-                              <span>
-                                2016-11-21
-                              </span>
+                              2016-11-21
                             </td>
                             <td
                               class="ant-table-cell"
@@ -39928,9 +39762,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                             <td
                               class="ant-table-cell"
                             >
-                              <span>
-                                2016-11-21
-                              </span>
+                              2016-11-21
                             </td>
                             <td
                               class="ant-table-cell"
@@ -40899,9 +40731,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26
-                          </span>
+                          2020-05-26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -41050,9 +40880,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26
-                          </span>
+                          2020-05-26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -41203,9 +41031,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26
-                          </span>
+                          2020-05-26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -41356,9 +41182,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26
-                          </span>
+                          2020-05-26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -41509,9 +41333,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26
-                          </span>
+                          2020-05-26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -42019,9 +41841,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-10-13 07:09:54
-                          </span>
+                          2020-10-13 07:09:54
                         </td>
                       </tr>
                     </tbody>
@@ -42831,9 +42651,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-10-13 07:09:54
-                          </span>
+                          2020-10-13 07:09:54
                         </td>
                       </tr>
                     </tbody>
@@ -43890,9 +43708,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26 09:42:56
-                          </span>
+                          2020-05-26 09:42:56
                         </td>
                         <td
                           class="ant-table-cell"
@@ -44037,9 +43853,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26 08:19:22
-                          </span>
+                          2020-05-26 08:19:22
                         </td>
                         <td
                           class="ant-table-cell"
@@ -44185,9 +43999,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26 07:54:25
-                          </span>
+                          2020-05-26 07:54:25
                         </td>
                         <td
                           class="ant-table-cell"
@@ -44333,9 +44145,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26 05:58:24
-                          </span>
+                          2020-05-26 05:58:24
                         </td>
                         <td
                           class="ant-table-cell"
@@ -44481,9 +44291,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2020-05-26 04:25:59
-                          </span>
+                          2020-05-26 04:25:59
                         </td>
                         <td
                           class="ant-table-cell"
@@ -46611,9 +46419,7 @@ Array [
                             class="ant-table-cell"
                             colspan="2"
                           >
-                            <span>
-                              2020-05-26 09:42:56
-                            </span>
+                            2020-05-26 09:42:56
                           </td>
                           <td
                             class="ant-table-cell"
@@ -46761,9 +46567,7 @@ Array [
                             class="ant-table-cell"
                             colspan="2"
                           >
-                            <span>
-                              2020-05-26 08:19:22
-                            </span>
+                            2020-05-26 08:19:22
                           </td>
                           <td
                             class="ant-table-cell"
@@ -46912,9 +46716,7 @@ Array [
                             class="ant-table-cell"
                             colspan="2"
                           >
-                            <span>
-                              2020-05-26 07:54:25
-                            </span>
+                            2020-05-26 07:54:25
                           </td>
                           <td
                             class="ant-table-cell"
@@ -47063,9 +46865,7 @@ Array [
                             class="ant-table-cell"
                             colspan="2"
                           >
-                            <span>
-                              2020-05-26 05:58:24
-                            </span>
+                            2020-05-26 05:58:24
                           </td>
                           <td
                             class="ant-table-cell"
@@ -47214,9 +47014,7 @@ Array [
                             class="ant-table-cell"
                             colspan="2"
                           >
-                            <span>
-                              2020-05-26 04:25:59
-                            </span>
+                            2020-05-26 04:25:59
                           </td>
                           <td
                             class="ant-table-cell"
@@ -48167,9 +47965,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    <span>
-                                      2016-11-21 23:59:51
-                                    </span>
+                                    2016-11-21 23:59:51
                                   </td>
                                   <td
                                     class="ant-table-cell"
@@ -48208,9 +48004,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    <span>
-                                      2016-11-21 23:59:51
-                                    </span>
+                                    2016-11-21 23:59:51
                                   </td>
                                   <td
                                     class="ant-table-cell"
@@ -48249,9 +48043,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                   <td
                                     class="ant-table-cell"
                                   >
-                                    <span>
-                                      2016-11-21 23:59:51
-                                    </span>
+                                    2016-11-21 23:59:51
                                   </td>
                                   <td
                                     class="ant-table-cell"
@@ -48788,9 +48580,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -48893,9 +48683,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -48998,9 +48786,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -49103,9 +48889,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -49208,9 +48992,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -52435,9 +52217,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21 23:59:58
-                          </span>
+                          2016-11-21 23:59:58
                         </td>
                         <td
                           class="ant-table-cell"
@@ -52466,9 +52246,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"
@@ -52507,9 +52285,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21 23:59:58
-                          </span>
+                          2016-11-21 23:59:58
                         </td>
                         <td
                           class="ant-table-cell"
@@ -52538,9 +52314,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2016-11-21
-                          </span>
+                          2016-11-21
                         </td>
                         <td
                           class="ant-table-cell"

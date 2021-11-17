@@ -389,9 +389,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  2016-11-22 00:00:00
-                </span>
+                2016-11-22 00:00:00
               </span>
             </div>
           </td>
@@ -414,9 +412,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/base.
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  2016-11-22
-                </span>
+                2016-11-22
               </span>
             </div>
           </td>
@@ -705,9 +701,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  2020-08-09
-                </span>
+                2020-08-09
               </span>
             </div>
           </td>
@@ -726,9 +720,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/colum
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  09.08.2020
-                </span>
+                09.08.2020
               </span>
             </div>
           </td>
@@ -1135,9 +1127,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
                         <span
                           class="ant-descriptions-item-content"
                         >
-                          <span>
-                            2020-08-09
-                          </span>
+                          2020-08-09
                         </span>
                       </div>
                     </td>
@@ -2125,9 +2115,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
                     class="ant-space-item"
                     style="margin-right: 8px;"
                   >
-                    <span>
-                      2020-08-09
-                    </span>
+                    2020-08-09
                   </div>
                   <div
                     class="ant-space-item"
@@ -2693,9 +2681,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  2016.11.22
-                </span>
+                2016.11.22
               </span>
             </div>
           </td>
@@ -2765,9 +2751,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/forma
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  2016.11.22 00:00:00
-                </span>
+                2016.11.22 00:00:00
               </span>
             </div>
           </td>
@@ -2907,9 +2891,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  2020-07-30
-                </span>
+                2020-07-30
               </span>
             </div>
           </td>
@@ -3122,9 +3104,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  2020-08-09
-                </span>
+                2020-08-09
               </span>
             </div>
           </td>
