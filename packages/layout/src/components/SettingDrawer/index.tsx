@@ -109,8 +109,6 @@ const updateTheme = (dark: boolean, color?: string) => {
     },
   });
 
-  if (!window.MutationObserver) return;
-
   if (dark) {
     const defaultTheme = {
       brightness: 100,
@@ -124,9 +122,9 @@ const updateTheme = (dark: boolean, color?: string) => {
       ignoreInlineStyle: ['.react-switch-handle'],
       ignoreImageAnalysis: [],
     };
-    darkreaderEnable(defaultTheme, defaultFixes);
+    if (!window.MutationObserver) darkreaderEnable(defaultTheme, defaultFixes);
   } else {
-    darkreaderDisable();
+    if (!window.MutationObserver) darkreaderDisable();
   }
 
   return;
