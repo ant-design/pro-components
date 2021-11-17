@@ -136,8 +136,6 @@ const initState = (
 ) => {
   if (!isBrowser()) return;
 
-  let loadedStyle = false;
-
   const replaceSetting = {};
   Object.keys(urlParams).forEach((key) => {
     if (defaultSettings[key] || defaultSettings[key] === undefined) {
@@ -158,15 +156,6 @@ const initState = (
   // 如果 url 中设置主题，进行一次加载。
   if (defaultSettings.navTheme !== urlParams.navTheme && urlParams.navTheme) {
     updateTheme(settings.navTheme === 'realDark', urlParams.primaryColor);
-    loadedStyle = true;
-  }
-  if (loadedStyle) {
-    return;
-  }
-
-  // 如果 url 中没有设置主题，并且 url 中的没有加载，进行一次加载。
-  if (defaultSettings.navTheme !== settings.navTheme && settings.navTheme) {
-    updateTheme(settings.navTheme === 'realDark', settings.primaryColor);
   }
 };
 
