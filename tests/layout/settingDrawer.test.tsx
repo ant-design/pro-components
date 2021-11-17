@@ -410,7 +410,7 @@ describe('settingDrawer.test', () => {
       <SettingDrawer
         disableUrlParams
         colorList={[]}
-        settings={{ ...defaultSettings, navTheme: 'realDark' }}
+        settings={{ ...defaultSettings, navTheme: 'realDark', menuRender: false }}
         collapse
         getContainer={false}
         onSettingChange={(setting) => {

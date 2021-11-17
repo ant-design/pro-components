@@ -54,16 +54,13 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
     <div className="theme-color" ref={ref}>
       <div className="theme-color-content">
         {colorList.map(({ key, color }) => {
+          if (!key) return;
           return (
             <Tooltip
               key={color}
-              title={
-                key
-                  ? formatMessage({
-                      id: `app.setting.themecolor.${key}`,
-                    })
-                  : key
-              }
+              title={formatMessage({
+                id: `app.setting.themecolor.${key}`,
+              })}
             >
               <Tag
                 className="theme-color-block"
