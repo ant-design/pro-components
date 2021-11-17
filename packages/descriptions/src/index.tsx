@@ -15,6 +15,7 @@ import type {
 import {
   InlineErrorFormItem,
   LabelIconTip,
+  genCopyable,
   useEditableMap,
   ErrorBoundary,
   getFieldPropsOrFormItemProps,
@@ -28,7 +29,6 @@ import type { ProFieldFCMode } from '@ant-design/pro-utils';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
 import './index.less';
-import { genCopyable } from '@ant-design/pro-table';
 
 // todo remove it
 export interface DescriptionsItemProps {
