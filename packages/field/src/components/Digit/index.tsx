@@ -20,7 +20,7 @@ const FieldDigit: ProFieldFC<FieldDigitProps> = (
 ) => {
   if (type === 'read') {
     const digit = new Intl.NumberFormat(undefined, {
-      minimumSignificantDigits: 0,
+      minimumSignificantDigits: 2,
       ...(fieldProps?.intlProps || {}),
     }).format(Number(text) as number);
     const dom = <span ref={ref}>{fieldProps?.formatter?.(digit) || digit}</span>;

@@ -184,7 +184,7 @@ export const FieldRender: React.FC<
         marginRight: 0,
       }}
     >
-      <Form.Item noStyle shouldUpdate>
+      <Form.Item noStyle shouldUpdate={(pre, next) => pre !== next}>
         {(form: FormInstance<any>) => {
           const formItemProps = getFieldPropsOrFormItemProps(props.formItemProps, form, {
             ...props,
