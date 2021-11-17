@@ -1,5 +1,5 @@
 ﻿import type { ProFieldEmptyText } from '@ant-design/pro-field';
-import type { ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
+import type { LightWrapperProps, ProFormProps, QueryFilterProps } from '@ant-design/pro-form';
 import type { ParamsType } from '@ant-design/pro-provider';
 import type {
   ProCoreActionType,
@@ -136,7 +136,10 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
     listKey?: string;
   },
   ProSchemaComponentTypes,
-  ValueType
+  ValueType,
+  {
+    lightProps: LightWrapperProps;
+  }
 >;
 
 export type ProColumnGroupType<RecordType, ValueType> = {

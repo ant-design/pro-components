@@ -1,4 +1,3 @@
-import { LightWrapperProps } from '@ant-design/pro-form';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -173,6 +172,7 @@ export type ProSchema<
   ExtraProps = unknown,
   ComponentsType = ProSchemaComponentTypes,
   ValueType = 'text',
+  ExtraFormItemProps = unknown,
 > = {
   /** @name 确定这个列的唯一值,一般用于 dataIndex 重复的情况 */
   key?: React.Key;
@@ -238,9 +238,7 @@ export type ProSchema<
 
   /** @name 自定义的 formItemProps */
   formItemProps?:
-    | (FormItemProps & {
-        lightProps?: LightWrapperProps;
-      })
+    | (FormItemProps & ExtraFormItemProps)
     | ((
         form: FormInstance<any>,
         config: ProSchema<Entity, ExtraProps> & {
@@ -250,9 +248,7 @@ export type ProSchema<
           rowIndex: number;
           entity: Entity;
         },
-      ) => FormItemProps & {
-        lightProps?: LightWrapperProps;
-      });
+      ) => FormItemProps & ExtraFormItemProps);
 
   /**
    * 修改的数据是会被 valueType 消费
