@@ -1,3 +1,4 @@
+import { LightWrapperProps } from '@ant-design/pro-form';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -237,7 +238,9 @@ export type ProSchema<
 
   /** @name 自定义的 formItemProps */
   formItemProps?:
-    | FormItemProps
+    | (FormItemProps & {
+        lightProps?: LightWrapperProps;
+      })
     | ((
         form: FormInstance<any>,
         config: ProSchema<Entity, ExtraProps> & {
@@ -247,7 +250,9 @@ export type ProSchema<
           rowIndex: number;
           entity: Entity;
         },
-      ) => FormItemProps);
+      ) => FormItemProps & {
+        lightProps?: LightWrapperProps;
+      });
 
   /**
    * 修改的数据是会被 valueType 消费
