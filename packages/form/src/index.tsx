@@ -48,8 +48,10 @@ import './index.less';
 import { ProFormContext } from '@ant-design/pro-utils';
 import type { LightFilterFooterRender, ProFormFieldItemProps } from './interface';
 import { FormItemProvide } from './components/FormItem';
+import type { LightWrapperProps } from './BaseForm/LightWrapper';
 
 export type {
+  LightWrapperProps,
   ProFormFieldProps,
   ProFormCaptchaProps,
   BaseQueryFilterProps,
