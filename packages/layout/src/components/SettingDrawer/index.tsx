@@ -21,7 +21,6 @@ import ThemeColor from './ThemeColor';
 import getLocales, { getLanguage } from '../../locales';
 import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
 import RegionalSetting from './RegionalChange';
-import { noteOnce } from 'rc-util/lib/warning';
 import { genStringToTheme } from '../../utils/utils';
 
 type BodyProps = {
