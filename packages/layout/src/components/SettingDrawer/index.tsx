@@ -98,11 +98,7 @@ export const getFormatMessage = (): ((data: { id: string; defaultMessage?: strin
 };
 
 const updateTheme = (dark: boolean, color?: string) => {
-  if (!ConfigProvider.config) {
-    noteOnce(ConfigProvider.config, '请升级antd 到 4.17.0+ 版本使用这个功能。');
-    return;
-  }
-
+  if (!ConfigProvider.config) return;
   ConfigProvider.config({
     theme: {
       primaryColor: genStringToTheme(color) || '#1890ff',
