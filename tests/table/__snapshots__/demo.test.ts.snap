@@ -21750,7 +21750,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -21765,7 +21764,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -21820,7 +21818,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -21835,7 +21832,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -21914,7 +21910,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -21929,7 +21924,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -22035,7 +22029,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -22073,7 +22066,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -22133,7 +22125,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -22148,7 +22139,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -28800,7 +28790,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -28815,7 +28804,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -28870,7 +28858,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -28885,7 +28872,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -28976,7 +28962,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -28991,7 +28976,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
           </div>
           <div
             class="ant-col ant-form-item-control"
-            style="max-width: calc(100% - autopx);"
           >
             <div
               class="ant-form-item-control-input"
@@ -36910,7 +36894,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -36948,7 +36931,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -37003,7 +36985,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -37018,7 +36999,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -40152,7 +40132,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
         >
           <div
             class="ant-row ant-row-rtl ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label ant-col-rtl"
@@ -40167,7 +40146,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
             </div>
             <div
               class="ant-col ant-form-item-control ant-col-rtl"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -40273,7 +40251,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
         >
           <div
             class="ant-row ant-row-rtl ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label ant-col-rtl"
@@ -40288,7 +40265,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
             </div>
             <div
               class="ant-col ant-form-item-control ant-col-rtl"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -40339,7 +40315,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
         </div>
         <div
           class="ant-row ant-row-rtl ant-form-item ant-form-item-hidden"
-          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label ant-col-rtl"
@@ -40354,7 +40329,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
           </div>
           <div
             class="ant-col ant-form-item-control ant-col-rtl"
-            style="max-width: calc(100% - autopx);"
           >
             <div
               class="ant-form-item-control-input"
@@ -42214,7 +42188,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -42229,7 +42202,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -42284,7 +42256,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -42299,7 +42270,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -42394,7 +42364,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -42409,7 +42378,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -43026,7 +42994,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -43064,7 +43031,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -43119,7 +43085,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -43134,7 +43099,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -43209,7 +43173,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
-          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -43224,7 +43187,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
           </div>
           <div
             class="ant-col ant-form-item-control"
-            style="max-width: calc(100% - autopx);"
           >
             <div
               class="ant-form-item-control-input"
@@ -50471,7 +50433,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -50486,7 +50447,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -50592,7 +50552,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -50607,7 +50566,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -50709,7 +50667,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -50724,7 +50681,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -50826,7 +50782,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
         >
           <div
             class="ant-row ant-form-item"
-            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -50841,7 +50796,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
             </div>
             <div
               class="ant-col ant-form-item-control"
-              style="max-width: calc(100% - autopx);"
             >
               <div
                 class="ant-form-item-control-input"
