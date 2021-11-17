@@ -409,6 +409,7 @@ describe('settingDrawer.test', () => {
     const wrapper = mount(
       <SettingDrawer
         disableUrlParams
+        colorList={[]}
         settings={{ ...defaultSettings, navTheme: 'realDark' }}
         collapse
         getContainer={false}
