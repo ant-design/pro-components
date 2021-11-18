@@ -1,6 +1,6 @@
 import type { DatePickerProps } from 'antd';
 import { DatePicker, ConfigProvider } from 'antd';
-import React, { useState, useContext, useImperativeHandle, useRef } from 'react';
+import React, { useState, useContext } from 'react';
 import moment from 'moment';
 import { useIntl } from '@ant-design/pro-provider';
 import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
@@ -37,11 +37,10 @@ const FieldDatePicker: ProFieldFC<{
 ) => {
   const intl = useIntl();
   const size = useContext(ConfigProvider.SizeContext);
-  const datePickerRef = useRef<HTMLInputElement>();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = getPrefixCls('pro-field-date-picker');
   const [open, setOpen] = useState<boolean>(false);
-  useImperativeHandle(ref, () => datePickerRef.current);
+
   if (mode === 'read') {
     const dom = text ? moment(text).format(fieldProps.format || format || 'YYYY-MM-DD') : '-';
     if (render) {
@@ -74,7 +73,7 @@ const FieldDatePicker: ProFieldFC<{
             picker={picker}
             showTime={showTime}
             format={format}
-            ref={datePickerRef}
+            ref={ref}
             {...fieldProps}
             value={momentValue}
             onChange={(v) => {
