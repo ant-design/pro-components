@@ -109,9 +109,11 @@ function ModalForm<T = Record<string, any>>({
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
-    if (visible && modalProps?.destroyOnClose) {
+    // 如果打开了窗口，并且是用户设置的 visible，就触发一下重新更新
+    if (visible && rest.visible && modalProps?.destroyOnClose) {
       setKey(key + 1);
     }
+
     return () => {
       if (!visible) scrollLocker?.unLock?.();
     };
@@ -238,7 +240,11 @@ function ModalForm<T = Record<string, any>>({
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,
-          onClick: (e: any) => {
+          onClick: async (e: any) => {
+            /** 如果打开了destroyOnClose，重制一下 form */
+            if (!visible && modalProps?.destroyOnClose) {
+              await setKey(key + 1);
+            }
             setVisible(!visible);
             trigger.props?.onClick?.(e);
           },

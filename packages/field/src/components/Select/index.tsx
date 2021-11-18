@@ -325,10 +325,10 @@ export const useFieldFetchData = (
 
   const { data, mutate: setLocaleData } = useSWR<any>(
     [key, props.params, keyWords],
-    (_, params, keyWord) => {
+    (_, params, kw) => {
       return fetchData({
         ...(params as Record<string, any>),
-        keyWord,
+        keyWords: kw,
       });
     },
     {

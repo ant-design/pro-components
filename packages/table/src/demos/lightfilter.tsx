@@ -29,6 +29,11 @@ const columns: ProColumns<TableListItem>[] = [
     title: '应用名称',
     dataIndex: 'name',
     render: (_) => <a>{_}</a>,
+    formItemProps: {
+      lightProps: {
+        labelFormatter: (value) => `app-${value}`,
+      },
+    },
   },
   {
     title: '日期范围',

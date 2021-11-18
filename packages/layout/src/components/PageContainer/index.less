@@ -3,11 +3,17 @@
 
 @pro-layout-page-container: ~'@{ant-prefix}-pro-page-container';
 
+@pro-layout-page-container-content-margin: '24px 24px 0';
+@pro-layout-page-container-content-padding: inherit;
+@pro-layout-page-container-bg-color: inherit;
+
 .@{pro-layout-page-container}-children-content {
-  margin: 24px 24px 0;
+  margin: @pro-layout-page-container-content-margin;
+  padding: @pro-layout-page-container-content-padding;
 }
 
 .@{pro-layout-page-container} {
+  background-color: @pro-layout-page-container-bg-color;
   &-warp {
     background-color: @component-background;
     .@{ant-prefix}-tabs-nav {

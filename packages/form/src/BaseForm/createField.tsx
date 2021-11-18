@@ -176,6 +176,7 @@ function createField<P extends ProFormFieldItemProps = any>(
           footerRender: field?.props?.footerRender,
           // 使用用户的配置覆盖默认的配置
           ...rest.lightProps,
+          ...otherProps.lightProps,
         })}
       >
         {field}

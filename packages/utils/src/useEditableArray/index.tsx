@@ -267,7 +267,10 @@ export function SaveEditableAction<T>({
         e.preventDefault();
         try {
           const isMapEditor = editorType === 'Map';
-          const namePath = [tableName, recordKey].flat(1).filter(Boolean) as string[];
+          const namePath = [tableName, recordKey]
+            .map((key) => key?.toString())
+            .flat(1)
+            .filter(Boolean) as string[];
           setLoading(true);
           // @ts-expect-error
           await form.validateFields(namePath, {
@@ -379,8 +382,9 @@ const CancelEditableAction: React.FC<ActionRenderConfig<any> & { row: any }> = (
         const record = isMapEditor ? set({}, namePath, fields) : fields;
         const res = await onCancel?.(recordKey, record, row, newLineConfig);
         cancelEditable(recordKey);
+        /** 充值为默认值，不然编辑的行会丢掉 */
         form.setFieldsValue({
-          [recordKey as React.Key]: row,
+          [recordKey as React.Key]: isMapEditor ? get(row, namePath) : row,
         });
         return res;
       }}
@@ -476,16 +480,19 @@ function useEditableArray<RecordType>(
       // 这里是不设置 index 的地方
       const recordKey = props.getRowKey(row, -1)?.toString?.();
 
-      const keyStringRef = editableKeysRef?.join(',') || '';
+      // 都转化为了字符串，不然 number 和 string
+      const stringEditableKeys = editableKeys.map((key) => key.toString());
+      const stringEditableKeysRef = editableKeysRef?.map((key) => key.toString()) || [];
 
       const preIsEditable =
-        !!keyStringRef?.includes(recordKey) || !!keyStringRef?.includes(recordKeyOrIndex);
-
-      const keyString = editableKeys?.join(',') || '';
+        (props.tableName && !!stringEditableKeysRef?.includes(recordKey)) ||
+        !!stringEditableKeysRef?.includes(recordKeyOrIndex);
 
       return {
         recordKey,
-        isEditable: keyString?.includes(recordKey) || keyString?.includes(recordKeyOrIndex),
+        isEditable:
+          (props.tableName && stringEditableKeys?.includes(recordKey)) ||
+          stringEditableKeys?.includes(recordKeyOrIndex),
         preIsEditable,
       };
     },
@@ -596,6 +603,7 @@ function useEditableArray<RecordType>(
           return key === recordKey;
         })
       : newLineRecordData;
+
     props.onValuesChange(editRow || newLineRecordData, dataSource);
   };
 

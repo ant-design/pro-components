@@ -68,6 +68,7 @@ import ProFormContext from './components/ProFormContext';
 import isDeepEqualReact from './isDeepEqualReact';
 import { arrayMoveImmutable } from './array-move';
 import { merge } from './merge';
+import { genCopyable } from './genCopyable';
 
 export type {
   RequestOptionsType,
@@ -114,6 +115,7 @@ export {
   conversionMomentValue as conversionSubmitValue,
   conversionMomentValue,
   parseValueToMoment,
+  genCopyable,
   useDocumentTitle,
   isImg,
   omitBoolean,

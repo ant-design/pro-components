@@ -1,12 +1,12 @@
 ﻿import React from 'react';
-import { Space, Form, Typography } from 'antd';
+import { Space, Form } from 'antd';
 import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
-import { isNil, isDeepEqualReact } from '@ant-design/pro-utils';
+import { isNil, genCopyable, isDeepEqualReact } from '@ant-design/pro-utils';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import cellRenderToFromItem from './cellRenderToFromItem';
 import { LabelIconTip } from '@ant-design/pro-utils';
