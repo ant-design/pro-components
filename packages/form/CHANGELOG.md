@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.49.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.48.1...@ant-design/pro-form@1.49.0) (2021-11-18)
+
+### Bug Fixes
+
+- **form:** fix layout="vertical" style error ([#4054](https://github.com/ant-design/pro-components/issues/4054)) ([55392ad](https://github.com/ant-design/pro-components/commit/55392ad6dc4501fd66b40c702a23683c08e1561b))
+- **table:** pro table support lightProps ([#4068](https://github.com/ant-design/pro-components/issues/4068)) ([ce15148](https://github.com/ant-design/pro-components/commit/ce151487c7dbd17917a0be0aec09d4e01237ff6a))
+
+### Features
+
+- **form:** ProFormList support showItemLabel ([#4055](https://github.com/ant-design/pro-components/issues/4055)) ([1f8317a](https://github.com/ant-design/pro-components/commit/1f8317a14cb5d2a2f87c5a4fc747009398035694))
+
 ## [1.48.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.48.0...@ant-design/pro-form@1.48.1) (2021-11-16)
 
 ### Bug Fixes

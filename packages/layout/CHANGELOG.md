@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.29.1...@ant-design/pro-layout@6.30.0) (2021-11-18)
+
+### Bug Fixes
+
+- **layout:** support more token ([#4066](https://github.com/ant-design/pro-components/issues/4066)) ([a064cae](https://github.com/ant-design/pro-components/commit/a064caeae9e0d2d99ec5574a235f5d1e2b92149c))
+
+### Features
+
+- **list:** support list.itemCardProps ([#4061](https://github.com/ant-design/pro-components/issues/4061)) ([71c0138](https://github.com/ant-design/pro-components/commit/71c013877e318129d004ea299bbc6da8c349ea35))
+
 ## [6.29.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.29.0...@ant-design/pro-layout@6.29.1) (2021-11-16)
 
 **Note:** Version bump only for package @ant-design/pro-layout

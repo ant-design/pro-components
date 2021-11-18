@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.26.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.26.1...@ant-design/pro-field@1.26.2) (2021-11-18)
+
+### Bug Fixes
+
+- **form:** support higher accuracy ([#4051](https://github.com/ant-design/pro-components/issues/4051)) ([f81e801](https://github.com/ant-design/pro-components/commit/f81e801ad49491100402ad9b817f479baa41f941))
+- **table:** fix table validateFields no work error ([#4058](https://github.com/ant-design/pro-components/issues/4058)) ([0291e08](https://github.com/ant-design/pro-components/commit/0291e085a17d57d654b698695e9a2c31915a07e0))
+
 ## [1.26.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.26.0...@ant-design/pro-field@1.26.1) (2021-11-16)
 
 **Note:** Version bump only for package @ant-design/pro-field
