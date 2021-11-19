@@ -472,21 +472,11 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
 function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const { request, params, initialValues, formKey, ...rest } = props;
-  const [firstLoad, setFirstLoad] = useState(true);
-  const [initialData, reload] = useFetchData({
+  const [initialData] = useFetchData({
     request,
     params,
     proFieldKey: formKey,
   });
-
-  /** 如果 params 发生修改重新刷新一下 params */
-  useDeepCompareEffect(() => {
-    if (firstLoad) {
-      setFirstLoad(false);
-    } else {
-      reload();
-    }
-  }, [params]);
 
   if (!initialData && props.request) {
     return (
