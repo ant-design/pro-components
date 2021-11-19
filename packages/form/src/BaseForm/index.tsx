@@ -25,7 +25,6 @@ import {
   useFetchData,
   isDeepEqualReact,
   usePrevious,
-  useDeepCompareEffect,
 } from '@ant-design/pro-utils';
 
 import { useUrlSearchParams } from '@umijs/use-params';
