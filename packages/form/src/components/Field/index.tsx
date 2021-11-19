@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import React, { useImperativeHandle } from 'react';
 import ProField from '@ant-design/pro-field';
 import type { InputProps, SelectProps } from 'antd';
@@ -59,7 +60,10 @@ const ProFormField: React.FC<
       return React.cloneElement(children, {
         ...restProps,
         onChange: (...restParams: any) => {
-          (fieldProps?.onChange as any)?.(...restParams);
+          if (fieldProps?.onChange) {
+            (fieldProps?.onChange as any)?.(...restParams);
+            return;
+          }
           onChange?.(...restParams);
         },
         ...children.props,
@@ -81,7 +85,10 @@ const ProFormField: React.FC<
           autoFocus,
           ...fieldProps,
           onChange: (...restParams: any) => {
-            (fieldProps?.onChange as any)?.(...restParams);
+            if (fieldProps?.onChange) {
+              (fieldProps?.onChange as any)?.(...restParams);
+              return;
+            }
             onChange?.(...restParams);
           },
         }}

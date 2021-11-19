@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.19.1...@ant-design/pro-list@1.20.0) (2021-11-18)
+
+### Features
+
+- **list:** support list.itemCardProps ([#4061](https://github.com/ant-design/pro-components/issues/4061)) ([71c0138](https://github.com/ant-design/pro-components/commit/71c013877e318129d004ea299bbc6da8c349ea35))
+
+## [1.19.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.19.0...@ant-design/pro-list@1.19.1) (2021-11-16)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+# [1.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.18.1...@ant-design/pro-list@1.19.0) (2021-11-15)
+
+### Features
+
+- **form:** support antd next ([#4038](https://github.com/ant-design/pro-components/issues/4038)) ([96a64c3](https://github.com/ant-design/pro-components/commit/96a64c35d0fc6a359a4ff3d36b96f510f4580c63)), closes [#3770](https://github.com/ant-design/pro-components/issues/3770) [#3863](https://github.com/ant-design/pro-components/issues/3863)
+
+## [1.18.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.18.0...@ant-design/pro-list@1.18.1) (2021-11-12)
+
+### Bug Fixes
+
+- **table:** fix editor table rowkey error ([#4000](https://github.com/ant-design/pro-components/issues/4000)) ([8760aad](https://github.com/ant-design/pro-components/commit/8760aad6d95b514ab57ef857adf74219fe006e99))
+
+# [1.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.17.7...@ant-design/pro-list@1.18.0) (2021-11-08)
+
+### Features
+
+- **list:** card list support rowSelection ([#3949](https://github.com/ant-design/pro-components/issues/3949)) ([2cabc43](https://github.com/ant-design/pro-components/commit/2cabc431021ccba48c53ec86421b6ce0ee267dbe))
+
 ## [1.17.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.17.6...@ant-design/pro-list@1.17.7) (2021-11-02)
 
 ### Bug Fixes

@@ -20,7 +20,7 @@ const addArrayKeys = (doms: React.ReactNode[]) =>
  *
  * @param
  */
-const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) => {
+const FieldOptions: ProFieldFC = ({ text, mode: type, render, fieldProps }) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-field-option');
 

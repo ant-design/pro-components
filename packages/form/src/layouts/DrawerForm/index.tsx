@@ -104,6 +104,12 @@ function DrawerForm<T = Record<string, any>>({
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
+
+    // 如果打开了窗口，并且是用户设置的 visible，就触发一下重新更新
+    if (visible && rest.visible && drawerProps?.destroyOnClose) {
+      setKey(key + 1);
+    }
+
     return () => {
       if (!visible) scrollLocker?.unLock?.();
     };
@@ -196,9 +202,6 @@ function DrawerForm<T = Record<string, any>>({
               visible={visible}
               onClose={(e) => {
                 setVisible(false);
-                if (drawerProps?.destroyOnClose) {
-                  setKey(key + 1);
-                }
                 drawerProps?.onClose?.(e);
               }}
               footer={
@@ -235,7 +238,11 @@ function DrawerForm<T = Record<string, any>>({
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,
-          onClick: (e: any) => {
+          onClick: async (e: any) => {
+            /** 如果打开了destroyOnClose，重制一下 form */
+            if (!visible && drawerProps?.destroyOnClose) {
+              await setKey(key + 1);
+            }
             setVisible(!visible);
             trigger.props?.onClick?.(e);
           },

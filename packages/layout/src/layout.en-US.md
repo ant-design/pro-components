@@ -13,9 +13,6 @@ nav:
 
 ProLayout provides a standard, yet flexible, middle and backend layout, with one-click layout switching and automatic menu generation. It can be used with PageContainer to automatically generate breadcrumbs, page headers, and provide a low-cost solution to access the footer toolbar.
 
-![layout
-](https://gw.alipayobjects.com/zos/antfincdn/Hw%26ryTueTW/bianzu%2525204.png)
-
 ## When to use
 
 ProLayout can be used to reduce layout costs when content needs to be carried on a page.
@@ -29,7 +26,7 @@ ProLayout extends umi's router configuration, adding name, icon, locale, hideInM
 ```ts | pure
 export interface MenuDataItem {
   /** @name submenu */
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   /** @name Hide child nodes in the menu */
   hideChildrenInMenu?: boolean;
   /** @name hideSelf and children in menu */
@@ -300,7 +297,7 @@ export interface Settings {
 
 export interface MenuDataItem {
   authority?: string[] | string;
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;
@@ -324,7 +321,7 @@ export interface Route {
     name: string;
     path: string;
     // Optional secondary menu
-    children?: Route['routes'];
+    routes?: Route['routes'];
   }>;
 }
 ```
@@ -429,7 +426,7 @@ In order to provide more functionality, we extended the routers configuration by
 // You can get this type by importing { MenuDataItem } from '@ant-design/pro-layout'
 // to get this type
 export interface MenuDataItem {
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;

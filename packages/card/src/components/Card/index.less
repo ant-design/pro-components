@@ -1,4 +1,5 @@
-@import (reference) '~antd/es/style/themes/default';
+@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index';
 
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 @card-hoverable-hover-border: transparent;
@@ -158,7 +159,13 @@
   }
 
   &-title {
+    color: @card-head-color;
+    font-weight: 500;
     font-size: @card-head-font-size;
+  }
+
+  &-extra {
+    color: @card-head-extra-color;
   }
 
   &-type-inner {
@@ -174,10 +181,6 @@
     & svg {
       transition: transform @animation-duration-base;
     }
-  }
-
-  &-title {
-    font-weight: 500;
   }
 
   &-body {

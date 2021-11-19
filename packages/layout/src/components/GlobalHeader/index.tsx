@@ -75,6 +75,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     const noChildrenMenuData = (menuData || []).map((item) => ({
       ...item,
       children: undefined,
+      routes: undefined,
     }));
     const clearMenuData = clearMenuItem(noChildrenMenuData);
     return (

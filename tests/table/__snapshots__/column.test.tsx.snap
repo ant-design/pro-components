@@ -1,169 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Table ColumnSetting 🎏 change text by renderText 1`] = `
-Array [
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 02144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 12144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 22144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 32144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 42144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 52144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 62144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 72144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 82144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 92144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 102144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 112144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 122144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 132144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 142144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 152144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 162144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 172144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 182144
-  </td>,
-  <td
-    className="ant-table-cell"
-    colSpan={null}
-    rowSpan={null}
-    style={Object {}}
-  >
-    Edward King 192144
-  </td>,
-]
-`;
+exports[`Table ColumnSetting 🎏 change text by renderText 1`] = `"Edward King2144"`;
 
 exports[`Table ColumnSetting 🎏 config provide render 1`] = `
 <div
@@ -190,6 +27,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
         >
           <div
             class="qixian-row qixian-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="qixian-col qixian-form-item-label"
@@ -205,6 +43,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
             </div>
             <div
               class="qixian-col qixian-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="qixian-form-item-control-input"
@@ -865,6 +704,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                 class="qixian-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="qixian-select qixian-select-sm qixian-pagination-options-size-changer qixian-select-single qixian-select-show-arrow"
                 >
                   <div
@@ -877,7 +717,9 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="qixian-select-selection-search-input"

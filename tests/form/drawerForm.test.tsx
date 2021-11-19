@@ -311,7 +311,7 @@ describe('DrawerForm', () => {
     const ref = React.createRef<HTMLDivElement>();
     const wrapper = mount(
       <div>
-        <div id="render-form" ref={ref}></div>
+        <div id="render-form" ref={ref} />
         <DrawerForm
           drawerProps={{
             getContainer: () => ref.current!,
@@ -341,7 +341,7 @@ describe('DrawerForm', () => {
     document.getElementById = () => ref.current;
     const wrapper = mount(
       <div>
-        <div id="render-form" ref={ref}></div>
+        <div id="render-form" ref={ref} />
         <DrawerForm
           drawerProps={{
             getContainer: 'render-form',
@@ -370,7 +370,7 @@ describe('DrawerForm', () => {
     const ref = React.createRef<HTMLDivElement>();
     const Demo = () => (
       <div>
-        <div id="render-form" ref={ref}></div>
+        <div id="render-form" ref={ref} />
         <DrawerForm
           drawerProps={{
             getContainer: ref.current!,
@@ -408,7 +408,7 @@ describe('DrawerForm', () => {
     const ref = React.createRef<HTMLDivElement>();
     const wrapper = mount(
       <div>
-        <div id="render-form" ref={ref}></div>
+        <div id="render-form" ref={ref} />
         <ModalForm
           modalProps={{
             getContainer: () => ref.current!,
@@ -443,7 +443,7 @@ describe('DrawerForm', () => {
     document.getElementById = () => ref.current;
     const wrapper = mount(
       <div>
-        <div id="render-form" ref={ref}></div>
+        <div id="render-form" ref={ref} />
         <ModalForm
           modalProps={{
             getContainer: 'render-form',
@@ -510,7 +510,7 @@ describe('DrawerForm', () => {
     const ref = React.createRef<HTMLDivElement>();
     const Demo = () => (
       <div>
-        <div id="render-form" ref={ref}></div>
+        <div id="render-form" ref={ref} />
         <ModalForm
           modalProps={{
             getContainer: ref.current || undefined,

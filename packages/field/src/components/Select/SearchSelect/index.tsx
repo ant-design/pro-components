@@ -18,6 +18,8 @@ export type DataValuesType<T> = DataValueType<T> | DataValueType<T>[];
 
 export interface SearchSelectProps<T = Record<string, any>>
   extends Omit<SelectProps<KeyLabel | KeyLabel[]>, 'options'> {
+  /** 防抖动时间 默认10 单位ms */
+  debounceTime?: number;
   /** 自定义搜索方法, 返回搜索结果的 Promise */
   request?: (params: { query: string }) => Promise<DataValueType<T>[]>;
   /** 自定义选项渲染 */

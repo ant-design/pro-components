@@ -8,12 +8,7 @@ import classNames from 'classnames';
 import warning from 'warning';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import useAntdMediaQuery from 'use-media-antd-query';
-import {
-  useDeepCompareEffect,
-  useDocumentTitle,
-  isBrowser,
-  useMountMergeState,
-} from '@ant-design/pro-utils';
+import { useDocumentTitle, isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import Omit from 'omit.js';
 import useSWR, { mutate } from 'swr';
 import { getMatchMenu } from '@umijs/route-utils';
@@ -155,7 +150,7 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
   if (splitMenus && (openKeys !== false || layout === 'mix') && !isMobile) {
     const [key] = matchMenuKeys;
     if (key) {
-      menuData = props.menuData?.find((item) => item.key === key)?.children || [];
+      menuData = props.menuData?.find((item) => item.key === key)?.routes || [];
     } else {
       menuData = [];
     }
@@ -292,14 +287,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     [propsFormatMessage],
   );
 
-  const [menuInfoData, setMenuInfoData] = useMergedState<{
-    breadcrumb?: Record<string, MenuDataItem>;
-    breadcrumbMap?: Map<string, MenuDataItem>;
-    menuData?: MenuDataItem[];
-  }>(() => getMenuData(route?.routes || [], menu, formatMessage, menuDataRender));
-
-  const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData || {};
-
   const swrKey = useMemo(() => {
     if (!menu?.params) return [defaultId];
     return [defaultId, menu?.params];
@@ -333,6 +320,17 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [swrKey]);
 
+  const menuInfoData = useMemo<{
+    breadcrumb?: Record<string, MenuDataItem>;
+    breadcrumbMap?: Map<string, MenuDataItem>;
+    menuData?: MenuDataItem[];
+  }>(
+    () => getMenuData(data || route?.routes || [], menu, formatMessage, menuDataRender),
+    [formatMessage, menu, menuDataRender, data, route?.routes],
+  );
+
+  const { breadcrumb = {}, breadcrumbMap, menuData = [] } = menuInfoData || {};
+
   if (actionRef && menu?.request) {
     actionRef.current = {
       reload: () => {
@@ -340,20 +338,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       },
     };
   }
-
-  useDeepCompareEffect(() => {
-    if (!menu?.request || !data?.length) {
-      return;
-    }
-    const menuDataMap = getMenuData(
-      (data as MenuDataItem[]) || route?.routes || [],
-      menu,
-      formatMessage,
-      menuDataRender,
-    );
-    setMenuInfoData(menuDataMap);
-  }, [data, menu?.request, menu?.loading, route?.routes]);
-
   const matchMenus = useMemo(() => {
     return getMatchMenu(location.pathname || '/', menuData || [], true);
   }, [location.pathname, menuData]);
@@ -383,19 +367,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const colSize = useAntdMediaQuery();
 
   const isMobile = (colSize === 'sm' || colSize === 'xs') && !props.disableMobile;
-
-  /** 如果 menuRender 不存在，可以做一下性能优化 只要 routers 没有更新就不需要重新计算 */
-  useDeepCompareEffect(() => {
-    if (menu?.loading || menu?.request) {
-      return () => null;
-    }
-    const infoData = getMenuData(route?.routes || [], menu, formatMessage, menuDataRender);
-    // 稍微慢一点 render，不然会造成性能问题，看起来像是菜单的卡顿
-    const animationFrameId = requestAnimationFrame(() => {
-      setMenuInfoData(infoData);
-    });
-    return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
-  }, [menu?.loading, menu?.request, route?.routes, location?.pathname, menuDataRender]);
 
   // If it is a fix menu, calculate padding
   // don't need padding in phone mode
@@ -516,7 +487,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   }, [location.pathname, location.pathname?.search]);
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
-
   useDocumentTitle(pageTitleInfo, props.title || false);
   const brandBgImgStyle: CSSProperties = brandBgImg
     ? {

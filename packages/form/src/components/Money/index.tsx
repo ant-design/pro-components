@@ -5,7 +5,7 @@ import type { ProFormFieldItemProps } from '../../interface';
 import type { InputNumberProps } from 'antd';
 
 export type ProFormMoneyProps = ProFormFieldItemProps<
-  Omit<ProFieldMoneyProps, 'valueType'> & InputNumberProps
+  Omit<ProFieldMoneyProps, 'valueType' | 'text'> & InputNumberProps
 > & {
   customSymbol?: string; // 自定义货币符号
   locale?: string; // 单独设置国际化，设置之后优先级高于全局国际化

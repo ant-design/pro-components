@@ -76,6 +76,7 @@ ProFormList is basically the same as the [Form.List](https://ant.design/componen
 | creatorButtonProps | Configuration of a new line of buttons | `buttonProps & {creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"Create a new line"}` |
 | label | Same as From.Item | `ReactNode` | - |
 | name | The value of list in the form, required | `NamePath` | - |
+| alwaysShowItemLabel | always show label in Item | `boolean` | - |
 
 ## ProFormFieldSet
 

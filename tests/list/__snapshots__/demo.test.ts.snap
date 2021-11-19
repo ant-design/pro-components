@@ -3658,6 +3658,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
               class="ant-pagination-options"
             >
               <div
+                aria-label="页码"
                 class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
               >
                 <div
@@ -3670,7 +3671,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/filter.tsx correctly 
                       aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="页码"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -5360,6 +5363,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
               class="ant-pagination-options"
             >
               <div
+                aria-label="页码"
                 class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
               >
                 <div
@@ -5372,7 +5376,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/pagination.tsx correc
                       aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="页码"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"
@@ -5453,6 +5459,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -5468,6 +5475,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -5522,6 +5530,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -5537,6 +5546,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -6389,6 +6399,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
               class="ant-pagination-options"
             >
               <div
+                aria-label="页码"
                 class="ant-select ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
               >
                 <div
@@ -6401,7 +6412,9 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
                       aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                       aria-autocomplete="list"
                       aria-controls="rc_select_TEST_OR_SSR_list"
+                      aria-expanded="false"
                       aria-haspopup="listbox"
+                      aria-label="页码"
                       aria-owns="rc_select_TEST_OR_SSR_list"
                       autocomplete="off"
                       class="ant-select-selection-search-input"

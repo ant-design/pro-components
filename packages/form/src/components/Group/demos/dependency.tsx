@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import ProForm, { ProFormList, ProFormText, ProFormDependency } from '@ant-design/pro-form';
+import ProForm, { ProFormDependency, ProFormList, ProFormText } from '@ant-design/pro-form';
 
 const Demo = () => {
   return (
@@ -13,6 +13,7 @@ const Demo = () => {
             name: '1111',
           },
         ]}
+        alwaysShowItemLabel
       >
         <ProFormText name="name" label="姓名" />
         <ProFormText name="nickName" label="昵称" />

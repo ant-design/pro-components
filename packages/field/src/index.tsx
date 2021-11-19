@@ -49,7 +49,8 @@ export type ProFieldMoneyProps = FieldMoneyProps;
 export type ProFieldEmptyText = string | false;
 
 /** 默认的 Field 需要实现的功能 */
-export type ProFieldFC<T> = React.ForwardRefRenderFunction<
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type ProFieldFC<T = {}> = React.ForwardRefRenderFunction<
   any,
   BaseProFieldFC & ProRenderFieldPropsType & T
 >;
@@ -369,8 +370,8 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
     onChange: (...restParams: any[]) => {
-      onChange?.(...restParams);
       rest?.fieldProps?.onChange?.(...restParams);
+      onChange?.(...restParams);
     },
   };
 
@@ -422,6 +423,6 @@ export {
   proFieldParsingValueEnumToArray,
 };
 
-export type { ProFieldValueType };
+export type { ProFieldValueType, FieldMoneyProps };
 
 export default React.forwardRef(ProField) as typeof ProField;

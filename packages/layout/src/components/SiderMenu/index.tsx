@@ -26,14 +26,11 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
 
   useEffect(() => {
     if (!menuData || menuData.length < 1) {
-      return () => null;
+      return;
     }
     // 当 menu data 改变的时候重新计算这两个参数
     const newFlatMenus = getFlatMenus(menuData);
-    const animationFrameId = requestAnimationFrame(() => {
-      setFlatMenuKeys(Object.keys(newFlatMenus));
-    });
-    return () => window.cancelAnimationFrame && window.cancelAnimationFrame(animationFrameId);
+    setFlatMenuKeys(Object.keys(newFlatMenus));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchMenuKeys.join('-')]);
 

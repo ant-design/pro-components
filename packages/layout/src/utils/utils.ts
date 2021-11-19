@@ -5,8 +5,8 @@ export const getOpenKeysFromMenuData = (menuData?: MenuDataItem[]) => {
     if (item.key) {
       pre.push(item.key);
     }
-    if (item.children) {
-      const newArray: string[] = pre.concat(getOpenKeysFromMenuData(item.children) || []);
+    if (item.routes) {
+      const newArray: string[] = pre.concat(getOpenKeysFromMenuData(item.routes) || []);
       return newArray;
     }
     return pre;
@@ -25,6 +25,7 @@ const themeConfig = {
   '#722ED1': 'purple',
 };
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 const invertKeyValues = (obj: Object) =>
   Object.keys(obj).reduce((acc, key) => {
     acc[obj[key]] = key;
@@ -58,18 +59,18 @@ export function clearMenuItem(menusData: MenuDataItem[]): MenuDataItem[] {
         return null;
       }
 
-      if (finalItem && finalItem?.children) {
+      if (finalItem && finalItem?.routes) {
         if (
           !finalItem.hideChildrenInMenu &&
-          finalItem.children.some((child) => child && child.name && !child.hideInMenu)
+          finalItem.routes.some((child) => child && child.name && !child.hideInMenu)
         ) {
           return {
             ...item,
-            children: clearMenuItem(finalItem.children),
+            routes: clearMenuItem(finalItem.routes),
           };
         }
         // children 为空就直接删掉
-        delete finalItem.children;
+        delete finalItem.routes;
       }
       return finalItem;
     })

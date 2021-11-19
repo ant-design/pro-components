@@ -58,7 +58,7 @@ describe('BasicLayout', () => {
               path: '/home',
               name: '首页',
               locale: 'menu.home',
-              children: [
+              routes: [
                 {
                   path: '/home/overview',
                   name: '概述',
@@ -79,12 +79,12 @@ describe('BasicLayout', () => {
               path: '/data_hui',
               name: '汇总数据',
               locale: 'menu.data_hui',
-              children: [
+              routes: [
                 {
                   collapsed: true,
                   menuName: '域买家维度交易',
                   name: '域买家维度交易',
-                  children: [
+                  routes: [
                     {
                       id: 2,
                       isNavHome: '2',
@@ -106,7 +106,7 @@ describe('BasicLayout', () => {
                 {
                   collapsed: true,
                   name: '域买家维度交易2',
-                  children: [
+                  routes: [
                     {
                       id: 5,
                       name: '_交易_买家_月表',
@@ -122,7 +122,7 @@ describe('BasicLayout', () => {
                 {
                   collapsed: true,
                   name: '域买家维度交易3',
-                  children: [
+                  routes: [
                     {
                       id: 7,
                       name: '_交易_买家_月表2',
@@ -147,7 +147,7 @@ describe('BasicLayout', () => {
               name: '其他',
 
               locale: 'menu.other',
-              children: [
+              routes: [
                 {
                   path: '/other/upLoad',
                   name: 'odps同步导入',
@@ -199,7 +199,7 @@ describe('BasicLayout', () => {
           {
             path: '/home',
             name: '首页',
-            children: [
+            routes: [
               {
                 path: '/home/overview',
                 name: '概述',
@@ -1104,7 +1104,7 @@ describe('BasicLayout', () => {
               path: '/home',
               name: '首页',
               locale: 'menu.home',
-              children: [
+              routes: [
                 {
                   path: '/home/overview',
                   name: '概述',
@@ -1123,12 +1123,12 @@ describe('BasicLayout', () => {
               path: '/data_hui',
               name: '汇总数据',
               locale: 'menu.data_hui',
-              children: [
+              routes: [
                 {
                   collapsed: true,
                   menuName: '域买家维度交易',
                   name: '域买家维度交易',
-                  children: [
+                  routes: [
                     {
                       id: 2,
                       name: '月表',
@@ -1143,7 +1143,7 @@ describe('BasicLayout', () => {
                 {
                   name: '维度交易',
                   path: '/',
-                  children: [
+                  routes: [
                     {
                       name: '月表',
                       path: '/data_hui4',
@@ -1193,7 +1193,7 @@ describe('BasicLayout', () => {
               path: '/home',
               name: '首页',
               locale: 'menu.home',
-              children: [
+              routes: [
                 {
                   path: '/home/overview',
                   name: '概述',
@@ -1212,12 +1212,12 @@ describe('BasicLayout', () => {
               path: '/data_hui',
               name: '汇总数据',
               locale: 'menu.data_hui',
-              children: [
+              routes: [
                 {
                   collapsed: true,
                   menuName: '域买家维度交易',
                   name: '域买家维度交易',
-                  children: [
+                  routes: [
                     {
                       id: 2,
                       name: '月表',
@@ -1232,7 +1232,7 @@ describe('BasicLayout', () => {
                 {
                   name: '维度交易',
                   path: '/',
-                  children: [
+                  routes: [
                     {
                       name: '月表',
                       path: '/data_hui4',

@@ -18,13 +18,11 @@ import getPageTitle from './getPageTitle';
 import PageLoading from './components/PageLoading';
 import FooterToolbar from './components/FooterToolbar';
 import WaterMark from './components/WaterMark';
-import PageContainer, { ProPageHeader, ProBreadcrumb } from './components/PageContainer';
+import { PageContainer, ProPageHeader, ProBreadcrumb } from './components/PageContainer';
 
 export type { ProSettings as Settings, ProSettings } from './defaultSettings';
 
 export type { MenuDataItem } from './typings';
-
-const PageHeaderWrapper = PageContainer;
 
 export {
   BasicLayout,
@@ -36,7 +34,6 @@ export {
   DefaultFooter,
   SettingDrawer,
   getPageTitle,
-  PageHeaderWrapper,
   getMenuData,
   PageContainer,
   FooterToolbar,

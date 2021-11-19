@@ -5,7 +5,6 @@ import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
 import { waitForComponentToPaint } from '../util';
 import moment from 'moment';
-import { MenuOutlined } from '@ant-design/icons';
 
 describe('Table ColumnSetting', () => {
   it('🎏 render', async () => {
@@ -131,11 +130,19 @@ describe('Table ColumnSetting', () => {
           },
         ]}
         search={false}
-        request={request}
+        dataSource={[
+          {
+            key: '1',
+            name: 'Edward King',
+            age: 10,
+            status: 1,
+            sex: 'man',
+          },
+        ]}
         rowKey="key"
       />,
     );
     await waitForComponentToPaint(html, 1200);
-    expect(html.find('td.ant-table-cell')).toMatchSnapshot();
+    expect(html.find('td.ant-table-cell').text()).toMatchSnapshot();
   });
 });

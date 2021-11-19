@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import { BetaSchemaForm } from '@ant-design/pro-form';
 import type { ProFormColumnsType } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
@@ -58,13 +58,16 @@ const columns: ProFormColumnsType<any>[] = [
 ];
 
 describe('SchemaForm', () => {
-  it('😊 SchemaForm support columns', () => {
-    const html = render(<BetaSchemaForm columns={columns} />);
-    expect(html).toMatchSnapshot();
+  it('😊 SchemaForm support columns', async () => {
+    const html = mount(<BetaSchemaForm columns={columns} />);
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      expect(html.render()).toMatchSnapshot();
+    });
   });
 
   it('😊 SchemaForm support dependencies', async () => {
-    const onChange = jest.fn();
+    const requestFn = jest.fn();
     const html = mount(
       <BetaSchemaForm
         columns={[
@@ -83,7 +86,7 @@ describe('SchemaForm', () => {
             valueType: 'select',
             dependencies: ['title'],
             request: async ({ title }) => {
-              onChange(title);
+              requestFn(title);
               return [
                 {
                   label: title,
@@ -95,7 +98,8 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    expect(onChange).toBeCalledWith('name');
+    await waitForComponentToPaint(html);
+    expect(requestFn).toBeCalledWith('name');
     act(() => {
       html.find('input#title').simulate('change', {
         target: {
@@ -104,7 +108,7 @@ describe('SchemaForm', () => {
       });
     });
     await waitForComponentToPaint(html);
-    expect(onChange).toBeCalledWith('qixian');
+    expect(requestFn).toBeCalledWith('qixian');
   });
 
   it('🐲 SchemaForm support StepsForm', async () => {

@@ -1,4 +1,5 @@
-﻿@import (reference) '~antd/es/style/themes/default';
+﻿@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index';
 
 @pro-table-prefix-cls: ~'@{ant-prefix}-pro-form';
 
@@ -7,6 +8,11 @@
   &-item {
     .@{ant-prefix}-form-item-label {
       display: none;
+    }
+    &&-show-label {
+      .@{ant-prefix}-form-item-label {
+        display: inline-block;
+      }
     }
   }
 

@@ -144,6 +144,7 @@ export type ProSchemaComponentTypes =
   | undefined;
 
 /** 操作类型 */
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type ProCoreActionType<T = {}> = {
   /** @name 刷新 */
   reload: (resetPageIndex?: boolean) => Promise<void>;
@@ -171,6 +172,7 @@ export type ProSchema<
   ExtraProps = unknown,
   ComponentsType = ProSchemaComponentTypes,
   ValueType = 'text',
+  ExtraFormItemProps = unknown,
 > = {
   /** @name 确定这个列的唯一值,一般用于 dataIndex 重复的情况 */
   key?: React.Key;
@@ -236,7 +238,7 @@ export type ProSchema<
 
   /** @name 自定义的 formItemProps */
   formItemProps?:
-    | FormItemProps
+    | (FormItemProps & ExtraFormItemProps)
     | ((
         form: FormInstance<any>,
         config: ProSchema<Entity, ExtraProps> & {
@@ -246,7 +248,7 @@ export type ProSchema<
           rowIndex: number;
           entity: Entity;
         },
-      ) => FormItemProps);
+      ) => FormItemProps & ExtraFormItemProps);
 
   /**
    * 修改的数据是会被 valueType 消费
@@ -302,6 +304,8 @@ export type ProSchema<
 
   /** @name 从服务器请求枚举 */
   request?: ProFieldRequestData;
+  /** @name request防抖动时间 默认10 单位ms */
+  debounceTime?: number;
   /** @name 从服务器请求的参数，改变了会触发 reload */
   params?: Record<string, any>;
   /** @name 依赖字段的name，暂时只在拥有 request 的项目中生效，会自动注入到 params 中 */
