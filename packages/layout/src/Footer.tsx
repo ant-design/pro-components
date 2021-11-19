@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import type { CSSProperties } from 'react';
 import React, { Fragment } from 'react';
 
-import GlobalFooter from './components/GlobalFooter';
+import { GlobalFooter } from './components/GlobalFooter';
 import type { WithFalse } from './typings';
 
 const { Footer } = Layout;
@@ -46,7 +46,7 @@ export type FooterProps = {
   prefixCls?: string;
 };
 
-const FooterView: React.FC<FooterProps> = ({
+const DefaultFooter: React.FC<FooterProps> = ({
   links,
   copyright,
   style,
@@ -68,4 +68,4 @@ const FooterView: React.FC<FooterProps> = ({
   </Footer>
 );
 
-export default FooterView;
+export { DefaultFooter };

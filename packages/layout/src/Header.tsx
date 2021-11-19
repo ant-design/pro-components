@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import { Layout } from 'antd';
 import type { GlobalHeaderProps } from './components/GlobalHeader';
-import GlobalHeader from './components/GlobalHeader';
-import TopNavHeader from './components/TopNavHeader';
+import { GlobalHeader } from './components/GlobalHeader';
+import { TopNavHeader } from './components/TopNavHeader';
 import type { WithFalse } from './typings';
 import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { clearMenuItem } from './utils/utils';
@@ -31,7 +31,7 @@ type HeaderViewState = {
   visible: boolean;
 };
 
-class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, HeaderViewState> {
+class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, HeaderViewState> {
   renderContent = () => {
     const { isMobile, onCollapse, navTheme, layout, headerRender, headerContentRender } =
       this.props;
@@ -125,4 +125,4 @@ class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, Head
   }
 }
 
-export default HeaderView;
+export { DefaultHeader };

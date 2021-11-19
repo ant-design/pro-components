@@ -10,7 +10,7 @@ import {
   defaultRenderCollapsedButton,
 } from '../SiderMenu/SiderMenu';
 import type { PureSettings } from '../../defaultSettings';
-import TopNavHeader, { RightContent } from '../TopNavHeader';
+import { TopNavHeader, RightContent } from '../TopNavHeader';
 import type { MenuDataItem } from '../../index';
 import type { WithFalse } from '../../typings';
 import { clearMenuItem } from '../../utils/utils';
@@ -125,4 +125,4 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
   );
 };
 
-export default GlobalHeader;
+export { GlobalHeader };

@@ -15,4 +15,4 @@ const PageLoading: React.FC<SpinProps & any> = ({
   </div>
 );
 
-export default PageLoading;
+export { PageLoading };

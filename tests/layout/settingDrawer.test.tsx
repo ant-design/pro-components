@@ -2,7 +2,7 @@ import { mount, render } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { SettingDrawer } from '@ant-design/pro-layout';
-import defaultSettings from './defaultSettings';
+import { defaultSettings } from './defaultSettings';
 
 import { waitForComponentToPaint } from '../util';
 

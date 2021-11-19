@@ -30,42 +30,41 @@ export type ThemeColorProps = {
   formatMessage: (data: { id: any; defaultMessage?: string }) => string;
 };
 
-const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps> = (
-  { colors, value, onChange, formatMessage },
-  ref,
-) => {
-  const colorList = colors || [];
-  if (colorList.length < 1) {
-    return null;
-  }
-  return (
-    <div className="theme-color" ref={ref}>
-      <div className="theme-color-content">
-        {colorList.map(({ key, color }) => {
-          const themeKey = genThemeToString(color);
-          return (
-            <Tooltip
-              key={color}
-              title={
-                themeKey
-                  ? formatMessage({
-                      id: `app.setting.themecolor.${themeKey}`,
-                    })
-                  : key
-              }
-            >
-              <Tag
-                className="theme-color-block"
-                color={color}
-                check={value === key || genThemeToString(value) === key}
-                onClick={() => onChange && onChange(key)}
-              />
-            </Tooltip>
-          );
-        })}
+const ThemeColor: React.FC<ThemeColorProps> = React.forwardRef(
+  ({ colors, value, onChange, formatMessage }, ref) => {
+    const colorList = colors || [];
+    if (colorList.length < 1) {
+      return null;
+    }
+    return (
+      <div className="theme-color" ref={ref as any}>
+        <div className="theme-color-content">
+          {colorList.map(({ key, color }) => {
+            const themeKey = genThemeToString(color);
+            return (
+              <Tooltip
+                key={color}
+                title={
+                  themeKey
+                    ? formatMessage({
+                        id: `app.setting.themecolor.${themeKey}`,
+                      })
+                    : key
+                }
+              >
+                <Tag
+                  className="theme-color-block"
+                  color={color}
+                  check={value === key || genThemeToString(value) === key}
+                  onClick={() => onChange && onChange(key)}
+                />
+              </Tooltip>
+            );
+          })}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  },
+);
 
-export default React.forwardRef(ThemeColor);
+export { ThemeColor };

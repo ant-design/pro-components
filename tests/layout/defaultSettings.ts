@@ -60,4 +60,4 @@ const defaultSettings: ProSettings = {
   primaryColor: '#1890ff',
 };
 
-export default defaultSettings;
+export { defaultSettings };

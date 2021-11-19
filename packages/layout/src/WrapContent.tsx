@@ -26,4 +26,4 @@ const WrapContent: React.FC<{
   );
 };
 
-export default WrapContent;
+export { WrapContent };

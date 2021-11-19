@@ -183,4 +183,4 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
   );
 };
 
-export default WaterMark;
+export { WaterMark };

@@ -11,14 +11,14 @@ import type {
   BreadcrumbProps,
 } from 'antd';
 
-import RouteContext from '../../RouteContext';
-import GridContent from '../GridContent';
-import FooterToolbar from '../FooterToolbar';
+import { RouteContext } from '../../RouteContext';
+import { GridContent } from '../GridContent';
+import { FooterToolbar } from '../FooterToolbar';
 import './index.less';
-import PageLoading from '../PageLoading';
+import { PageLoading } from '../PageLoading';
 import type { WithFalse } from '../../typings';
 import type { WaterMarkProps } from '../WaterMark';
-import WaterMark from '../WaterMark';
+import { WaterMark } from '../WaterMark';
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */

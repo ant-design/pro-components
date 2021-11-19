@@ -20,7 +20,7 @@ export type GlobalFooterProps = {
   className?: string;
 };
 
-export default ({ className, prefixCls, links, copyright, style }: GlobalFooterProps) => {
+const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalFooterProps) => {
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = context.getPrefixCls(prefixCls || 'pro-global-footer');
 
@@ -52,3 +52,5 @@ export default ({ className, prefixCls, links, copyright, style }: GlobalFooterP
     </div>
   );
 };
+
+export { GlobalFooter };

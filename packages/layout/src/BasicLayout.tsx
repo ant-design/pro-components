@@ -14,26 +14,25 @@ import useSWR, { mutate } from 'swr';
 import { getMatchMenu } from '@umijs/route-utils';
 
 import type { HeaderViewProps } from './Header';
-import Header from './Header';
+import { DefaultHeader as Header } from './Header';
 import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from './typings';
 import type { GetPageTitleProps } from './getPageTitle';
 import { getPageTitleInfo } from './getPageTitle';
 import type { ProSettings } from './defaultSettings';
-import defaultSettings from './defaultSettings';
+import { defaultSettings } from './defaultSettings';
 import type { LocaleType } from './locales';
 import getLocales from './locales';
 import type { BaseMenuProps } from './components/SiderMenu/BaseMenu';
-import Footer from './Footer';
-import RouteContext from './RouteContext';
-import SiderMenu from './components/SiderMenu';
+import { DefaultFooter as Footer } from './Footer';
+import { RouteContext } from './RouteContext';
+import { SiderMenu } from './components/SiderMenu';
 import type { SiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { getBreadcrumbProps } from './utils/getBreadcrumbProps';
-import getMenuData from './utils/getMenuData';
-import PageLoading from './components/PageLoading';
-import MenuCounter from './components/SiderMenu/Counter';
-import WrapContent from './WrapContent';
-import compatibleLayout from './utils/compatibleLayout';
-import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
+import { getMenuData } from './utils/getMenuData';
+import { PageLoading } from './components/PageLoading';
+import { MenuCounter } from './components/SiderMenu/Counter';
+import { WrapContent } from './WrapContent';
+import { useCurrentMenuLayoutProps } from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
 import type { WaterMarkProps } from './components/WaterMark';
 import { stringify } from 'use-json-comparison';
@@ -355,14 +354,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const {
     fixSiderbar,
     navTheme,
-    layout: defaultPropsLayout,
+    layout: propsLayout,
     ...rest
   } = {
     ...props,
     ...currentMenuLayoutProps,
   };
-
-  const propsLayout = compatibleLayout(defaultPropsLayout);
 
   const colSize = useAntdMediaQuery();
 
@@ -641,4 +638,4 @@ BasicLayout.defaultProps = {
   location: isBrowser() ? window.location : undefined,
 };
 
-export default BasicLayout;
+export { BasicLayout };

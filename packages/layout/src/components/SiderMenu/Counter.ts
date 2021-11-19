@@ -10,4 +10,5 @@ function useMenuCounter() {
 }
 
 const MenuCounter = createContainer(useMenuCounter);
-export default MenuCounter;
+
+export { MenuCounter };

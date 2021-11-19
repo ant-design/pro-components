@@ -5,7 +5,7 @@ import React, { useContext } from 'react';
 import classNames from 'classnames';
 import { ConfigProvider } from 'antd';
 
-import RouteContext from '../../RouteContext';
+import { RouteContext } from '../../RouteContext';
 import type { PureSettings } from '../../defaultSettings';
 
 type GridContentProps = {
@@ -43,4 +43,4 @@ const GridContent: React.FC<GridContentProps> = (props) => {
   );
 };
 
-export default GridContent;
+export { GridContent };

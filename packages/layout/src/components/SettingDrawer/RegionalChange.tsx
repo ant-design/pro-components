@@ -33,4 +33,4 @@ const RegionalSetting: React.FC<{
   );
 };
 
-export default RegionalSetting;
+export { RegionalSetting };

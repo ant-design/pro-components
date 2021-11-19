@@ -5,8 +5,8 @@ import Omit from 'omit.js';
 import { getFlatMenus } from '@umijs/route-utils';
 
 import type { PrivateSiderMenuProps, SiderMenuProps } from './SiderMenu';
-import SiderMenu from './SiderMenu';
-import MenuCounter from './Counter';
+import { SiderMenu } from './SiderMenu';
+import { MenuCounter } from './Counter';
 
 const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
@@ -79,4 +79,4 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
   );
 };
 
-export default SiderMenuWrapper;
+export { SiderMenuWrapper as SiderMenu };

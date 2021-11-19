@@ -13,14 +13,14 @@ import React, { useState, useEffect, useRef } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
 import type { ProSettings } from '../../defaultSettings';
-import defaultSettings from '../../defaultSettings';
+import { defaultSettings } from '../../defaultSettings';
 
-import BlockCheckbox from './BlockCheckbox';
-import ThemeColor from './ThemeColor';
+import { BlockCheckbox } from './BlockCheckbox';
+import { ThemeColor } from './ThemeColor';
 import getLocales, { getLanguage } from '../../locales';
 import { genStringToTheme } from '../../utils/utils';
-import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
-import RegionalSetting from './RegionalChange';
+import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
+import { RegionalSetting } from './RegionalChange';
 
 type BodyProps = {
   title: string;
@@ -611,4 +611,4 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   );
 };
 
-export default SettingDrawer;
+export { SettingDrawer };

@@ -76,4 +76,4 @@ const defaultSettings: ProSettings = {
   primaryColor: 'daybreak',
   splitMenus: false,
 };
-export default defaultSettings;
+export { defaultSettings };

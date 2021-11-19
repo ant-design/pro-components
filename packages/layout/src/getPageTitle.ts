@@ -113,4 +113,4 @@ const getPageTitle = (props: GetPageTitleProps, ignoreTitle?: boolean) => {
   return getPageTitleInfo(props, ignoreTitle).title;
 };
 
-export default getPageTitle;
+export { getPageTitle };

@@ -5,7 +5,7 @@ import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMe
 import { defaultRenderLogoAndTitle, AppsLogoComponents } from '../SiderMenu/SiderMenu';
 import './index.less';
 
-import BaseMenu from '../SiderMenu/BaseMenu';
+import { BaseMenu } from '../SiderMenu/BaseMenu';
 import type { GlobalHeaderProps } from '../GlobalHeader';
 import { Avatar } from 'antd';
 
@@ -141,4 +141,4 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
   );
 };
 
-export default TopNavHeader;
+export { TopNavHeader };

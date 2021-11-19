@@ -7,11 +7,11 @@ import { isUrl, isImg, useMountMergeState } from '@ant-design/pro-utils';
 
 import type { MenuTheme, MenuProps } from 'antd';
 import type { PureSettings } from '../../defaultSettings';
-import defaultSettings from '../../defaultSettings';
+import { defaultSettings } from '../../defaultSettings';
 import { getOpenKeysFromMenuData } from '../../utils/utils';
 
 import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
-import MenuCounter from './Counter';
+import { MenuCounter } from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 
 // todo
@@ -441,4 +441,4 @@ BaseMenu.defaultProps = {
   postMenuData: (data) => data || [],
 };
 
-export default BaseMenu;
+export { BaseMenu };

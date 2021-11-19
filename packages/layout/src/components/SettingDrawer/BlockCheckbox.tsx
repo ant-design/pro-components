@@ -58,4 +58,4 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
   );
 };
 
-export default BlockCheckbox;
+export { BlockCheckbox };

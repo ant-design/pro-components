@@ -78,4 +78,4 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
   );
 };
 
-export default FooterToolbar;
+export { FooterToolbar };

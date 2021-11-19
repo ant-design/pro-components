@@ -33,4 +33,4 @@ export type RouteContextType = {
 
 const routeContext: React.Context<RouteContextType> = createContext({});
 
-export default routeContext;
+export { routeContext as RouteContext };
