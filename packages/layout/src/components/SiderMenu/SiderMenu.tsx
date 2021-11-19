@@ -1,10 +1,12 @@
-import type { CSSProperties } from 'react';
+import { CSSProperties, useContext } from 'react';
 import React, { useMemo, useState } from 'react';
 import type { AvatarProps } from 'antd';
-import { Avatar, Layout, Menu, Popover, Space } from 'antd';
+import { Avatar, Layout, Menu, Popover, ConfigProvider, Space } from 'antd';
 import classNames from 'classnames';
 import type { SiderProps } from 'antd/lib/layout/Sider';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+
+import { cx, css } from '@emotion/css';
 
 import './index.less';
 import type { WithFalse } from '../../typings';
@@ -59,21 +61,45 @@ const CollapsedHoverIcon: React.FC<{}> = () => {
   );
 };
 
+const defaultIconCss = css`
+  position: absolute;
+  top: calc(50% - 32px);
+  right: -12px;
+  z-index: 101;
+  width: 24px;
+  height: 64px;
+  font-size: 24px;
+  line-height: 64px;
+  text-align: center;
+  border-radius: 40px;
+  transition: transform, right 0.3s;
+  font-size: 16px;
+  cursor: pointer;
+  .anticon {
+    font-size: 16px;
+  }
+`;
+
 const CollapsedIcon: React.FC<any> = (props) => {
   const { isMobile, collapsed, ...rest } = props;
   const [hover, setHover] = useState<boolean>(isMobile || false);
   return (
     <div
       {...rest}
-      style={{
-        fontSize: hover ? 16 : 24,
-        transform: props?.collapsed ? 'rotate(180deg)' : 'rotate(0deg)',
-        transition: 'transform,right 0.3s',
-        color: hover ? 'rgba(0,0,0,0.45)' : 'rgba(5,30,55,0.08)',
-        right: hover ? undefined : -8,
-        backgroundColor: hover ? '#f0f0f0' : undefined,
-        cursor: 'pointer',
-      }}
+      className={cx(
+        props.className,
+        defaultIconCss,
+        css({
+          transform: props?.collapsed ? 'rotate(180deg)' : 'rotate(0deg)',
+          color: 'rgba(5,30,55,0.08)',
+          right: -8,
+          '&:hover': {
+            color: 'rgba(0,0,0,0.45)',
+            right: undefined,
+            backgroundColor: '#f0f0f0',
+          },
+        }),
+      )}
       onClick={(e) => {
         props?.onClick(e);
         // 手机端下
@@ -265,6 +291,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     headerHeight,
     logoStyle,
   } = props;
+  const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls}-sider`;
   const { flatMenuKeys } = MenuCounter.useContainer();
   const siderClassName = classNames(`${baseClassName}`, {
@@ -351,7 +378,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     <>
       {fixSiderbar && (
         <div
-          style={{
+          className={css({
             width: collapsed ? 48 : siderWidth,
             overflow: 'hidden',
             flex: `0 0 ${collapsed ? 48 : siderWidth}px`,
@@ -359,7 +386,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             minWidth: collapsed ? 48 : siderWidth,
             transition: `background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)`,
             ...style,
-          }}
+          })}
         />
       )}
       <Sider
@@ -411,7 +438,17 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           {menuRenderDom}
         </div>
         {links ? (
-          <div className={`${baseClassName}-links`}>
+          <div
+            className={cx(
+              `${baseClassName}-links`,
+              css`
+                width: 100%;
+                ul.${context.getPrefixCls()}-menu-root {
+                  height: auto;
+                }
+              `,
+            )}
+          >
             <Menu
               inlineIndent={16}
               className={`${baseClassName}-link-menu`}

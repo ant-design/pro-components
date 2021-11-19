@@ -31,6 +31,4 @@ export type RouteContextType = {
   waterMarkProps?: WaterMarkProps;
 } & Partial<PureSettings>;
 
-const routeContext: React.Context<RouteContextType> = createContext({});
-
-export { routeContext as RouteContext };
+export const RouteContext: React.Context<RouteContextType> = createContext({});

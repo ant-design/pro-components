@@ -12,6 +12,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
     "skipLibCheck": true,
+    "jsxImportSource": "@emotion/react",
     "paths": {
       "@ant-design/pro-layout": ["./packages/layout/src/index.tsx"],
       "@ant-design/pro-form": ["./packages/form/src/index.tsx"],

@@ -35,8 +35,9 @@
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
     "@ant-design/pro-provider": "1.4.20",
-    "@emotion/react": "^11.6.0",
     "@ant-design/pro-utils": "1.28.2",
+    "@emotion/css": "^11.5.0",
+    "@emotion/react": "^11.6.0",
     "@umijs/route-utils": "^2.0.1",
     "@umijs/use-params": "^1.0.2",
     "classnames": "^2.2.6",

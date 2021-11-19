@@ -1,8 +1,7 @@
 import './index.less';
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
-import { Menu, Skeleton, Divider } from 'antd';
-import React, { useEffect, useState, useRef, useMemo } from 'react';
-import classNames from 'classnames';
+import { Menu, Skeleton, Divider, ConfigProvider } from 'antd';
+import React, { useEffect, useState, useRef, useMemo, useContext } from 'react';
 import { isUrl, isImg, useMountMergeState } from '@ant-design/pro-utils';
 
 import type { MenuTheme, MenuProps } from 'antd';
@@ -13,6 +12,7 @@ import { getOpenKeysFromMenuData } from '../../utils/utils';
 import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
 import { MenuCounter } from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
+import { css, cx } from '@emotion/css';
 
 // todo
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
@@ -292,6 +292,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     openKeys: propsOpenKeys,
   } = props;
 
+  const context = useContext(ConfigProvider.ConfigContext);
+
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
 
@@ -398,9 +400,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       </div>
     );
   }
-  const cls = classNames(className, {
-    'top-nav-menu': mode === 'horizontal',
-  });
 
   // sync props
   menuUtils.props = props;
@@ -428,7 +427,16 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       theme="light"
       selectedKeys={selectedKeys}
       style={style}
-      className={cls}
+      className={cx(
+        className,
+        mode === 'horizontal' &&
+          css`
+            li.${context.getPrefixCls()}-menu-item {
+              height: 100%;
+              line-height: 1;
+            }
+          `,
+      )}
       onOpenChange={setOpenKeys}
       {...props.menuProps}
     >
