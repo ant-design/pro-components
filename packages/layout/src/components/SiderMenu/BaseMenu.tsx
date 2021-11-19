@@ -160,7 +160,7 @@ class MenuUtil {
                 onTitleClick: item.onTitleClick,
               })}
         >
-          {this.getNavMenuItems(item.children, level + 1)}
+          {this.getNavMenuItems(item.routes, level + 1)}
         </MenuComponents>,
         isGroup && level === 0 ? (
           <MenuDivider prefixCls={prefixCls} index={item.key || item.path} />
