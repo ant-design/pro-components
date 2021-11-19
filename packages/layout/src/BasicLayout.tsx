@@ -43,7 +43,7 @@ export type LayoutBreadcrumbProps = {
   minLength?: number;
 };
 
-export type BasicLayoutProps = Partial<RouterTypes<Route>> &
+export type ProLayoutProps = Partial<RouterTypes<Route>> &
   SiderMenuProps &
   HeaderViewProps & {
     /** Layout 的品牌配置，表现为一张背景图片 */
@@ -117,7 +117,7 @@ export type BasicLayoutProps = Partial<RouterTypes<Route>> &
   };
 
 const headerRender = (
-  props: BasicLayoutProps & {
+  props: ProLayoutProps & {
     hasSiderMenu: boolean;
   },
   matchMenuKeys: string[],
@@ -128,7 +128,7 @@ const headerRender = (
   return <Header matchMenuKeys={matchMenuKeys} {...props} />;
 };
 
-const footerRender = (props: BasicLayoutProps): React.ReactNode => {
+const footerRender = (props: ProLayoutProps): React.ReactNode => {
   if (props.footerRender === false || props.pure) {
     return null;
   }
@@ -138,7 +138,7 @@ const footerRender = (props: BasicLayoutProps): React.ReactNode => {
   return null;
 };
 
-const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): React.ReactNode => {
+const renderSiderMenu = (props: ProLayoutProps, matchMenuKeys: string[]): React.ReactNode => {
   const { layout, isMobile, openKeys, splitMenus, menuRender } = props;
   if (props.menuRender === false || props.pure) {
     return null;
@@ -187,7 +187,7 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
 
 const defaultPageTitleRender = (
   pageProps: GetPageTitleProps,
-  props: BasicLayoutProps,
+  props: ProLayoutProps,
 ): {
   title: string;
   id: string;
@@ -218,7 +218,7 @@ const defaultPageTitleRender = (
   return pageTitleInfo;
 };
 
-export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
+export type BasicLayoutContext = { [K in 'location']: ProLayoutProps[K] } & {
   breadcrumb: Record<string, MenuDataItem>;
 };
 
@@ -238,7 +238,7 @@ const getPaddingLeft = (
  *
  * @param props
  */
-const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
+const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const {
     children,
     onCollapse: propsOnCollapse,
@@ -632,10 +632,10 @@ const Logo = () => (
   </svg>
 );
 
-BasicLayout.defaultProps = {
+ProLayout.defaultProps = {
   logo: <Logo />,
   ...defaultSettings,
   location: isBrowser() ? window.location : undefined,
 };
 
-export { BasicLayout };
+export { ProLayout };

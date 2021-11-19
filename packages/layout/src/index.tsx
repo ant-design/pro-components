@@ -1,5 +1,5 @@
-import type { BasicLayoutProps } from './BasicLayout';
-import { BasicLayout } from './BasicLayout';
+import type { ProLayoutProps } from './BasicLayout';
+import { ProLayout } from './BasicLayout';
 import type { HeaderViewProps as HeaderProps } from './Header';
 import { DefaultHeader } from './Header';
 import type { TopNavHeaderProps } from './components/TopNavHeader';
@@ -25,7 +25,7 @@ export type { ProSettings as Settings, ProSettings } from './defaultSettings';
 export type { MenuDataItem } from './typings';
 
 export {
-  BasicLayout,
+  ProLayout,
   RouteContext,
   PageLoading,
   GridContent,
@@ -46,11 +46,11 @@ export type {
   FooterProps,
   PageContainerProps,
   TopNavHeaderProps,
-  BasicLayoutProps,
+  ProLayoutProps as BasicLayoutProps,
   RouteContextType,
   HeaderProps,
   SettingDrawerProps,
   SettingDrawerState,
 };
 
-export default BasicLayout;
+export default ProLayout;

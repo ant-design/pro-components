@@ -8,13 +8,13 @@ import ProForm, {
   ProFormDigit,
   ProFormTextArea,
 } from '@ant-design/pro-form';
-import { BasicLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layout';
+import { ProLayout, FooterToolbar, PageContainer } from '@ant-design/pro-layout';
 import { Card } from 'antd';
 import { SmileOutlined } from '@ant-design/icons';
 
 export default () => {
   return (
-    <BasicLayout
+    <ProLayout
       fixSiderbar
       navTheme="light"
       breakpoint={false}
@@ -144,6 +144,6 @@ export default () => {
           </ProForm>
         </Card>
       </PageContainer>
-    </BasicLayout>
+    </ProLayout>
   );
 };
