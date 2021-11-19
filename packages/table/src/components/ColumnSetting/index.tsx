@@ -328,11 +328,11 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     setColumnsMap(columnKeyMap);
   };
 
-  // 选中的 key 列表
-  const selectedKeys = Object.values(columnsMap).filter((value) => !value || value.show === false);
+  // 未选中的 key 列表
+  const unCheckedKeys = Object.values(columnsMap).filter((value) => !value || value.show === false);
 
   // 是否已经选中
-  const indeterminate = selectedKeys.length > 0 && selectedKeys.length !== localColumns.length;
+  const indeterminate = unCheckedKeys.length > 0 && unCheckedKeys.length !== localColumns.length;
 
   const intl = useIntl();
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
@@ -344,7 +344,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
         <div className={`${className}-title`}>
           <Checkbox
             indeterminate={indeterminate}
-            checked={selectedKeys.length === 0 && selectedKeys.length !== localColumns.length}
+            checked={unCheckedKeys.length === 0 && unCheckedKeys.length !== localColumns.length}
             onChange={(e) => {
               if (e.target.checked) {
                 setAllSelectAction();
