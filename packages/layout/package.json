@@ -36,6 +36,7 @@
     "@ant-design/icons": "^4.0.0",
     "@ant-design/pro-provider": "1.4.20",
     "@ant-design/pro-utils": "1.26.1",
+    "@emotion/react": "^11.6.0",
     "@umijs/route-utils": "^1.0.35",
     "@umijs/use-params": "^1.0.2",
     "classnames": "^2.2.6",
