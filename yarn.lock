@@ -16515,17 +16515,7 @@ prettier-plugin-two-style-order@^1.0.0:
     postcss-less "^4.0.0"
     postcss-sorting "6.0.0"
 
-prettier@1.15.3:
-  version "1.15.3"
-  resolved "https://registry.nlark.com/prettier/download/prettier-1.15.3.tgz?cache=0&sync_timestamp=1631777167012&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fprettier%2Fdownload%2Fprettier-1.15.3.tgz#1feaac5bdd181237b54dbe65d874e02a1472786a"
-  integrity sha1-H+qsW90YEje1Tb5l2HTgKhRyeGo=
-
-prettier@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.nlark.com/prettier/download/prettier-2.2.1.tgz?cache=0&sync_timestamp=1631777167012&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fprettier%2Fdownload%2Fprettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
-  integrity sha1-eVoaeN1S8HPaDNQrIfnJE4GSP/U=
-
-prettier@^2.2.1, prettier@^2.3.2:
+prettier@1.15.3, prettier@2.2.1, prettier@2.x, prettier@^2.2.1, prettier@^2.3.2:
   version "2.4.1"
   resolved "https://registry.nlark.com/prettier/download/prettier-2.4.1.tgz?cache=0&sync_timestamp=1631777167012&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fprettier%2Fdownload%2Fprettier-2.4.1.tgz#671e11c89c14a4cfc876ce564106c4a6726c9f5c"
   integrity sha1-Zx4RyJwUpM/Ids5WQQbEpnJsn1w=
