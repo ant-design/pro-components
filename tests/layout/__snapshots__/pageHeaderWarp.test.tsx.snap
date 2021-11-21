@@ -2,7 +2,7 @@
 
 exports[`BasicLayout base use 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout"
@@ -195,8 +195,7 @@ exports[`BasicLayout base use 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button"
-          style="font-size:24px;transform:rotate(0deg);transition:transform,right 0.3s;color:rgba(5,30,55,0.08);right:-8px;cursor:pointer"
+          class="ant-pro-sider-collapsed-button css-1e1x11c"
         >
           <svg
             aria-hidden="true"
@@ -241,7 +240,7 @@ exports[`BasicLayout base use 1`] = `
       style="position:relative"
     >
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
       >
         <div
           class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -277,7 +276,7 @@ exports[`BasicLayout base use 1`] = `
 
 exports[`BasicLayout content is text 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout"
@@ -470,8 +469,7 @@ exports[`BasicLayout content is text 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button"
-          style="font-size:24px;transform:rotate(0deg);transition:transform,right 0.3s;color:rgba(5,30,55,0.08);right:-8px;cursor:pointer"
+          class="ant-pro-sider-collapsed-button css-1e1x11c"
         >
           <svg
             aria-hidden="true"
@@ -516,7 +514,7 @@ exports[`BasicLayout content is text 1`] = `
       style="position:relative"
     >
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
       >
         <div
           class="ant-pro-page-container ant-pro-page-container-ghost"

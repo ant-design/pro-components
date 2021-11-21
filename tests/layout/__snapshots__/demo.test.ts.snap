@@ -3510,7 +3510,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -3886,8 +3886,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -3932,7 +3931,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -3994,7 +3993,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -4237,8 +4236,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -4283,7 +4281,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -4427,7 +4425,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -4936,8 +4934,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -4982,7 +4979,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -5044,7 +5041,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -5324,8 +5321,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -5370,7 +5366,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -5432,7 +5428,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -5855,8 +5851,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -5901,7 +5896,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -5963,7 +5958,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -6385,8 +6380,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -6431,7 +6425,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -6529,7 +6523,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-1surmoh"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -6809,10 +6803,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-content-disable-margin"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-content-disable-margin css-1asytq3"
         >
           <div
-            class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-side"
+            class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-side css-qi6myi"
           >
             <section
               class="ant-layout ant-layout-has-sider"
@@ -6979,8 +6973,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                     </div>
                   </div>
                   <div
-                    class="ant-pro-sider-collapsed-button"
-                    style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+                    class="ant-pro-sider-collapsed-button css-1e1x11c"
                   >
                     <svg
                       aria-hidden="true"
@@ -7025,7 +7018,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                 style="position: relative; min-height: 0;"
               >
                 <main
-                  class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+                  class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
                 >
                   <div
                     class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -7141,7 +7134,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
   style="height: 100vh; overflow: auto;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top css-1surmoh"
   >
     <section
       class="ant-layout"
@@ -7152,8 +7145,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
         style="position: relative;"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header"
-          style="padding: 0px; height: 56px; background: transparent; line-height: 56px; width: 100%; z-index: 19;"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header css-qa17u9"
         >
           <div
             class="ant-pro-top-nav-header light"
@@ -7306,7 +7298,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light top-nav-menu"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1mn8ahk"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -7465,10 +7457,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
           </div>
         </header>
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-pro-basicLayout-content-disable-margin"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-pro-basicLayout-content-disable-margin css-1asytq3"
         >
           <div
-            class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-side"
+            class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-side css-qi6myi"
           >
             <section
               class="ant-layout ant-layout-has-sider"
@@ -7606,8 +7598,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     />
                   </div>
                   <div
-                    class="ant-pro-sider-collapsed-button"
-                    style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+                    class="ant-pro-sider-collapsed-button css-1e1x11c"
                   >
                     <svg
                       aria-hidden="true"
@@ -7652,7 +7643,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                 style="position: relative; min-height: 0;"
               >
                 <main
-                  class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+                  class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
                 >
                   <div
                     class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -7765,14 +7756,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFormServe.tsx correctly 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout ant-layout-has-sider"
     style="min-height: 100%; height: 500px;"
   >
     <div
-      style="width: 216px; overflow: hidden; flex: 0 0 216px; max-width: 216px; min-width: 216px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
+      class="css-1bredbg"
     />
     <aside
       class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side"
@@ -8092,8 +8083,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button"
-          style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+          class="ant-pro-sider-collapsed-button css-1e1x11c"
         >
           <svg
             aria-hidden="true"
@@ -8138,7 +8128,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
       style="position: relative;"
     >
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
       >
         <div
           class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -8386,7 +8376,7 @@ Array [
   <br />,
   <br />,
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -8532,7 +8522,7 @@ Array [
               </svg>
             </a>
             <span
-              class="ant-pro-basicLayout-apps-icon"
+              class="ant-pro-basicLayout-apps-icon css-17bb8pl"
             >
               <svg
                 aria-hidden="true"
@@ -8758,8 +8748,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(180deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-ucmpxj"
           >
             <svg
               aria-hidden="true"
@@ -8804,7 +8793,7 @@ Array [
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -8955,14 +8944,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%;"
     >
       <div
-        style="width: 216px; overflow: hidden; flex: 0 0 216px; max-width: 216px; min-width: 216px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
+        class="css-1bredbg"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side"
@@ -9107,7 +9096,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               </h1>
             </a>
             <span
-              class="ant-pro-basicLayout-apps-icon"
+              class="ant-pro-basicLayout-apps-icon css-17bb8pl"
             >
               <svg
                 aria-hidden="true"
@@ -9698,8 +9687,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             </p>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -9744,7 +9732,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
         style="background-image: url(https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png); background-size: 306px; background-repeat: no-repeat; position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
@@ -10543,7 +10531,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
 exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-design-pro qixian-pro-basicLayout screen-md qixian-pro-basicLayout-side"
+    class="ant-design-pro qixian-pro-basicLayout screen-md qixian-pro-basicLayout-side css-1xkro3g"
   >
     <section
       class="qixian-layout qixian-layout-has-sider"
@@ -10692,7 +10680,7 @@ Array [
               </h1>
             </a>
             <span
-              class="qixian-pro-basicLayout-apps-icon"
+              class="qixian-pro-basicLayout-apps-icon css-17bb8pl"
             >
               <svg
                 aria-hidden="true"
@@ -10959,8 +10947,7 @@ Array [
             </a>
           </div>
           <div
-            class="qixian-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="qixian-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -11005,7 +10992,7 @@ Array [
         style="position: relative;"
       >
         <main
-          class="qixian-layout-content qixian-pro-basicLayout-content qixian-pro-basicLayout-has-header"
+          class="qixian-layout-content qixian-pro-basicLayout-content qixian-pro-basicLayout-has-header css-3gtq5v"
         >
           <div
             class="qixian-pro-page-container qixian-pro-page-container-ghost qixian-pro-page-container-with-footer"
@@ -12511,14 +12498,14 @@ Array [
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collapsed.tsx correctly 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout ant-layout-has-sider"
     style="min-height: 100%;"
   >
     <div
-      style="width: 216px; overflow: hidden; flex: 0 0 216px; max-width: 216px; min-width: 216px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
+      class="css-1bredbg"
     />
     <aside
       class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -12663,7 +12650,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             </h1>
           </a>
           <span
-            class="ant-pro-basicLayout-apps-icon"
+            class="ant-pro-basicLayout-apps-icon css-17bb8pl"
           >
             <svg
               aria-hidden="true"
@@ -12890,7 +12877,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
       style="position: relative;"
     >
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
       >
         <div
           class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -13014,7 +13001,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -13043,7 +13030,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               </h1>
             </div>
             <span
-              class="ant-pro-basicLayout-apps-icon"
+              class="ant-pro-basicLayout-apps-icon css-17bb8pl"
             >
               <svg
                 aria-hidden="true"
@@ -13272,8 +13259,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -13318,7 +13304,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -13389,7 +13375,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx correctly 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -13567,8 +13553,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
           </div>
         </div>
         <div
-          class="ant-pro-sider-collapsed-button"
-          style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+          class="ant-pro-sider-collapsed-button css-1e1x11c"
         >
           <svg
             aria-hidden="true"
@@ -13613,7 +13598,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
       style="position: relative;"
     >
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
       >
         <div
           class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -13682,7 +13667,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -13894,8 +13879,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -13984,7 +13968,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correctly 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -14130,7 +14114,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             </svg>
           </a>
           <span
-            class="ant-pro-basicLayout-apps-icon"
+            class="ant-pro-basicLayout-apps-icon css-17bb8pl"
           >
             <svg
               aria-hidden="true"
@@ -14343,8 +14327,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button"
-          style="font-size: 24px; transform: rotate(180deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+          class="ant-pro-sider-collapsed-button css-ucmpxj"
         >
           <svg
             aria-hidden="true"
@@ -14389,7 +14372,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
       style="position: relative;"
     >
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
       >
         <div
           class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -14513,7 +14496,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -14662,7 +14645,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               </h1>
             </a>
             <span
-              class="ant-pro-basicLayout-apps-icon"
+              class="ant-pro-basicLayout-apps-icon css-17bb8pl"
             >
               <svg
                 aria-hidden="true"
@@ -14879,8 +14862,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -14925,7 +14907,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -15176,7 +15158,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx correctly 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -15328,7 +15310,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               </h1>
             </a>
             <span
-              class="ant-pro-basicLayout-apps-icon"
+              class="ant-pro-basicLayout-apps-icon css-17bb8pl"
             >
               <svg
                 aria-hidden="true"
@@ -15545,8 +15527,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -15592,7 +15573,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
       style="position: relative;"
     >
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
       >
         <div
           class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -15662,14 +15643,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigation.tsx correctly 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout ant-layout-has-sider"
     style="min-height: 100%;"
   >
     <div
-      style="width: 216px; overflow: hidden; flex: 0 0 216px; max-width: 216px; min-width: 216px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
+      class="css-1bredbg"
     />
     <aside
       class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -15917,8 +15898,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           </div>
         </div>
         <div
-          class="ant-pro-sider-collapsed-button"
-          style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+          class="ant-pro-sider-collapsed-button css-1e1x11c"
         >
           <svg
             aria-hidden="true"
@@ -15963,7 +15943,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
       style="position: relative;"
     >
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
       >
         <div
           style="height: 120vh;"
@@ -16306,14 +16286,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
 
 exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigation-top.tsx correctly 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout ant-layout-has-sider"
     style="min-height: 100%;"
   >
     <div
-      style="width: 216px; overflow: hidden; flex: 0 0 216px; max-width: 216px; min-width: 216px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
+      class="css-1bredbg"
     />
     <aside
       class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light"
@@ -16630,8 +16610,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           </div>
         </div>
         <div
-          class="ant-pro-sider-collapsed-button"
-          style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+          class="ant-pro-sider-collapsed-button css-1e1x11c"
         >
           <svg
             aria-hidden="true"
@@ -16676,7 +16655,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
       style="position: relative;"
     >
       <main
-        class="ant-layout-content ant-pro-basicLayout-content"
+        class="ant-layout-content ant-pro-basicLayout-content css-1asytq3"
       >
         <div
           class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -17165,14 +17144,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%;"
     >
       <div
-        style="width: 216px; overflow: hidden; flex: 0 0 216px; max-width: 216px; min-width: 216px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
+        class="css-1bredbg"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side"
@@ -17756,8 +17735,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
             </p>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -17802,7 +17780,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
         style="background-image: url(https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png); background-size: 306px; background-repeat: no-repeat; position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -18186,7 +18164,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -18505,8 +18483,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -18551,7 +18528,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"
@@ -18662,7 +18639,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
 Array [
   "children",
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix css-qi6myi"
   >
     <section
       class="ant-layout"
@@ -18677,8 +18654,7 @@ Array [
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header"
-          style="padding: 0px; height: 56px; background: transparent; line-height: 56px; width: 100%; z-index: 100; right: 0px;"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-81w2xc"
         >
           <div
             class="ant-pro-top-nav-header light"
@@ -18690,7 +18666,7 @@ Array [
                 class="ant-pro-top-nav-header-main-left"
               >
                 <span
-                  class="ant-pro-basicLayout-apps-icon"
+                  class="ant-pro-basicLayout-apps-icon css-17bb8pl"
                 >
                   <svg
                     aria-hidden="true"
@@ -18846,7 +18822,7 @@ Array [
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light top-nav-menu"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1mn8ahk"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -19058,7 +19034,7 @@ Array [
           </div>
         </header>
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           children
         </main>
@@ -19066,7 +19042,7 @@ Array [
     </section>
   </div>,
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix css-qi6myi"
   >
     <section
       class="ant-layout"
@@ -19077,13 +19053,13 @@ Array [
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content"
+          class="ant-layout-content ant-pro-basicLayout-content css-1asytq3"
         />
       </div>
     </section>
   </div>,
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix css-qi6myi"
   >
     <section
       class="ant-layout"
@@ -19098,8 +19074,7 @@ Array [
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header"
-          style="padding: 0px; height: 56px; background: transparent; line-height: 56px; width: 100%; z-index: 100; right: 0px;"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-81w2xc"
         >
           <div
             class="ant-pro-top-nav-header light"
@@ -19111,7 +19086,7 @@ Array [
                 class="ant-pro-top-nav-header-main-left"
               >
                 <span
-                  class="ant-pro-basicLayout-apps-icon"
+                  class="ant-pro-basicLayout-apps-icon css-17bb8pl"
                 >
                   <svg
                     aria-hidden="true"
@@ -19267,7 +19242,7 @@ Array [
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light top-nav-menu"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1mn8ahk"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -19479,13 +19454,13 @@ Array [
           </div>
         </header>
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         />
       </div>
     </section>
   </div>,
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
   >
     <section
       class="ant-layout"
@@ -19500,8 +19475,7 @@ Array [
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header"
-          style="padding: 0px; height: 56px; background: transparent; line-height: 56px; width: 100%; z-index: 100; right: 0px;"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-81w2xc"
         >
           <div
             class="ant-pro-top-nav-header light"
@@ -19513,7 +19487,7 @@ Array [
                 class="ant-pro-top-nav-header-main-left"
               >
                 <span
-                  class="ant-pro-basicLayout-apps-icon"
+                  class="ant-pro-basicLayout-apps-icon css-17bb8pl"
                 >
                   <svg
                     aria-hidden="true"
@@ -19669,7 +19643,7 @@ Array [
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light top-nav-menu"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1mn8ahk"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -19881,7 +19855,7 @@ Array [
           </div>
         </header>
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         />
       </div>
     </section>
@@ -20616,7 +20590,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
   style="height: 100vh;"
 >
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -20859,8 +20833,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button"
-            style="font-size: 24px; transform: rotate(0deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+            class="ant-pro-sider-collapsed-button css-1e1x11c"
           >
             <svg
               aria-hidden="true"
@@ -20905,7 +20878,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
         style="position: relative;"
       >
         <main
-          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
         >
           <div
             class="ant-pro-page-container ant-pro-page-container-ghost"

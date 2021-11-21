@@ -29616,14 +29616,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/label-col.tsx correct
 
 exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx correctly 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
 >
   <section
     class="ant-layout ant-layout-has-sider"
     style="min-height: 100%;"
   >
     <div
-      style="width: 48px; overflow: hidden; flex: 0 0 48px; max-width: 48px; min-width: 48px; transition: background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);"
+      class="css-1owsomx"
     />
     <aside
       class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light"
@@ -29700,8 +29700,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button"
-          style="font-size: 24px; transform: rotate(180deg); transition: transform,right 0.3s; color: rgba(5, 30, 55, 0.08); right: -8px; cursor: pointer;"
+          class="ant-pro-sider-collapsed-button css-ucmpxj"
         >
           <svg
             aria-hidden="true"
@@ -29750,8 +29749,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         style="height: 56px; line-height: 56px; background: transparent;"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header ant-pro-header"
-        style="padding: 0px; height: 56px; background: transparent; line-height: 56px; width: 100%; z-index: 100; right: 0px;"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-header css-81w2xc"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix"
@@ -29897,7 +29895,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         </div>
       </header>
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
       >
         <div
           class="ant-pro-page-container ant-pro-page-container-ghost"
