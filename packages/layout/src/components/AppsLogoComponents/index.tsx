@@ -112,8 +112,8 @@ export const AppsLogoComponents: React.FC<{
           <ul className={cx(`${prefixCls}-basicLayout-apps-content-list`, appContentListCss)}>
             {appList?.map((app, index) => {
               return (
-                // eslint-disable-next-line react/no-array-index-key
                 <li
+                  // eslint-disable-next-line react/no-array-index-key
                   key={index}
                   className={cx(
                     `${prefixCls}-basicLayout-apps-content-list-item`,

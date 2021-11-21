@@ -36,7 +36,7 @@ const CollapsedMiniIcon: React.FC = () => {
   );
 };
 
-const CollapsedHoverIcon: React.FC<{}> = () => {
+const CollapsedHoverIcon: React.FC = () => {
   return (
     <svg width="1em" height="1em" viewBox="0 0 8 16" fill="currentColor" aria-hidden="true">
       <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
