@@ -683,11 +683,11 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
         class="ant-layout-header ant-pro-fixed-header ant-pro-header css-81w2xc"
       >
         <div
-          class="ant-pro-global-header ant-pro-global-header-layout-mix"
+          class="ant-pro-global-header ant-pro-global-header-layout-mix css-902b2d"
         >
           title
           <span
-            class="ant-pro-global-header-collapsed-button"
+            class="ant-pro-global-header-collapsed-button css-1v1t0hf"
           >
             <span
               aria-label="menu-unfold"
@@ -863,11 +863,11 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
         class="ant-layout-header ant-pro-fixed-header ant-pro-header css-81w2xc"
       >
         <div
-          class="ant-pro-global-header ant-pro-global-header-layout-mix"
+          class="ant-pro-global-header ant-pro-global-header-layout-mix css-902b2d"
         >
           title
           <span
-            class="ant-pro-global-header-collapsed-button"
+            class="ant-pro-global-header-collapsed-button css-1v1t0hf"
           >
             <span
               aria-label="menu-unfold"
@@ -1037,10 +1037,10 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
         class="ant-layout-header ant-pro-fixed-header ant-pro-header css-81w2xc"
       >
         <div
-          class="ant-pro-global-header ant-pro-global-header-layout-mix"
+          class="ant-pro-global-header ant-pro-global-header-layout-mix css-902b2d"
         >
           <span
-            class="ant-pro-global-header-collapsed-button"
+            class="ant-pro-global-header-collapsed-button css-1v1t0hf"
           >
             <span
               aria-label="menu-unfold"
@@ -1210,10 +1210,10 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
         class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-81w2xc"
       >
         <div
-          class="ant-pro-global-header ant-pro-global-header-layout-mix"
+          class="ant-pro-global-header ant-pro-global-header-layout-mix css-902b2d"
         >
           <span
-            class="ant-pro-global-header-logo"
+            class="ant-pro-global-header-logo css-1r4sdbr"
           >
             <a>
               <svg
@@ -1345,7 +1345,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
             </a>
           </span>
           <span
-            class="ant-pro-global-header-collapsed-button"
+            class="ant-pro-global-header-collapsed-button css-1v1t0hf"
           >
             <span
               aria-label="menu-fold"
@@ -1515,10 +1515,10 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
         class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-81w2xc"
       >
         <div
-          class="ant-pro-global-header ant-pro-global-header-layout-mix"
+          class="ant-pro-global-header ant-pro-global-header-layout-mix css-902b2d"
         >
           <span
-            class="ant-pro-global-header-logo"
+            class="ant-pro-global-header-logo css-1r4sdbr"
           >
             <a>
               <svg
@@ -1650,7 +1650,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
             </a>
           </span>
           <span
-            class="ant-pro-global-header-collapsed-button"
+            class="ant-pro-global-header-collapsed-button css-1v1t0hf"
           >
             <span
               aria-label="menu-fold"

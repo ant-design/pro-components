@@ -91,13 +91,13 @@ exports[`PageContainer ⚡️ support footer 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro-footer-bar"
+    class="ant-pro-footer-bar css-1knbvf3"
   >
     <div
-      class="ant-pro-footer-bar-left"
+      class="ant-pro-footer-bar-left css-8fxooz"
     />
     <div
-      class="ant-pro-footer-bar-right"
+      class="ant-pro-footer-bar-right css-f3rqu0"
     >
       <button
         type="button"
@@ -136,7 +136,7 @@ exports[`PageContainer ⚡️ support loading 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro-grid-content"
+    class="ant-pro-grid-content css-fl9ciq"
   >
     <div
       class="ant-pro-grid-content-children"
@@ -197,7 +197,7 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro-grid-content"
+    class="ant-pro-grid-content css-fl9ciq"
   >
     <div
       class="ant-pro-grid-content-children"
@@ -263,7 +263,7 @@ exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro-grid-content"
+    class="ant-pro-grid-content css-fl9ciq"
   >
     <div
       class="ant-pro-grid-content-children"
@@ -324,16 +324,16 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
         class="ant-layout-header ant-pro-top-menu ant-pro-header css-qa17u9"
       >
         <div
-          class="ant-pro-top-nav-header light"
+          class="ant-pro-top-nav-header light css-epdxuq"
         >
           <div
-            class="ant-pro-top-nav-header-main "
+            class="ant-pro-top-nav-header-main css-17ldh9g"
           >
             <div
-              class="ant-pro-top-nav-header-main-left"
+              class="ant-pro-top-nav-header-main-left css-12ycn0f"
             >
               <div
-                class="ant-pro-top-nav-header-logo"
+                class="ant-pro-top-nav-header-logo css-50sq74"
                 id="logo"
               >
                 <a>
@@ -470,7 +470,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
               </div>
             </div>
             <div
-              class="ant-pro-top-nav-header-menu"
+              class="ant-pro-top-nav-header-menu css-fjparg"
               style="flex: 1;"
             />
           </div>
@@ -490,7 +490,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
             />
           </div>
           <div
-            class="ant-pro-grid-content"
+            class="ant-pro-grid-content css-fl9ciq"
           >
             <div
               class="ant-pro-grid-content-children"
@@ -499,14 +499,14 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
                 class="ant-pro-page-container-children-content"
               >
                 <div
-                  class="ant-pro-footer-bar"
+                  class="ant-pro-footer-bar css-1knbvf3"
                   style="width: 100%;"
                 >
                   <div
-                    class="ant-pro-footer-bar-left"
+                    class="ant-pro-footer-bar-left css-8fxooz"
                   />
                   <div
-                    class="ant-pro-footer-bar-right"
+                    class="ant-pro-footer-bar-right css-f3rqu0"
                   >
                     <button
                       type="button"
@@ -607,13 +607,13 @@ exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
   class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
 >
   <div
-    class="ant-pro-footer-bar"
+    class="ant-pro-footer-bar css-1knbvf3"
   >
     <div
-      class="ant-pro-footer-bar-left"
+      class="ant-pro-footer-bar-left css-8fxooz"
     />
     <div
-      class="ant-pro-footer-bar-right"
+      class="ant-pro-footer-bar-right css-f3rqu0"
     >
       <button
         type="button"
@@ -647,16 +647,16 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
         class="ant-layout-header ant-pro-top-menu ant-pro-header css-qa17u9"
       >
         <div
-          class="ant-pro-top-nav-header light"
+          class="ant-pro-top-nav-header light css-epdxuq"
         >
           <div
-            class="ant-pro-top-nav-header-main "
+            class="ant-pro-top-nav-header-main css-17ldh9g"
           >
             <div
-              class="ant-pro-top-nav-header-main-left"
+              class="ant-pro-top-nav-header-main-left css-12ycn0f"
             >
               <div
-                class="ant-pro-top-nav-header-logo"
+                class="ant-pro-top-nav-header-logo css-50sq74"
                 id="logo"
               >
                 <a>
@@ -793,7 +793,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
               </div>
             </div>
             <div
-              class="ant-pro-top-nav-header-menu"
+              class="ant-pro-top-nav-header-menu css-fjparg"
               style="flex: 1;"
             />
           </div>
@@ -828,14 +828,14 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
             </div>
           </div>
           <div
-            class="ant-pro-footer-bar"
+            class="ant-pro-footer-bar css-1knbvf3"
             style="width: 100%;"
           >
             <div
-              class="ant-pro-footer-bar-left"
+              class="ant-pro-footer-bar-left css-8fxooz"
             />
             <div
-              class="ant-pro-footer-bar-right"
+              class="ant-pro-footer-bar-right css-f3rqu0"
             >
               <button
                 type="button"
@@ -1183,10 +1183,10 @@ exports[`PageContainer 💄 config is null 1`] = `
 
 exports[`PageContainer 🔥 footer bar support extra 1`] = `
 <div
-  class="qixian_footer ant-pro-footer-bar"
+  class="qixian_footer ant-pro-footer-bar css-1knbvf3"
 >
   <div
-    class="ant-pro-footer-bar-left"
+    class="ant-pro-footer-bar-left css-8fxooz"
   >
     <img
       alt="logo"
@@ -1194,7 +1194,7 @@ exports[`PageContainer 🔥 footer bar support extra 1`] = `
     />
   </div>
   <div
-    class="ant-pro-footer-bar-right"
+    class="ant-pro-footer-bar-right css-f3rqu0"
   >
     <button
       type="button"
@@ -1207,7 +1207,7 @@ exports[`PageContainer 🔥 footer bar support extra 1`] = `
 
 exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
 <div
-  class="qixian_footer ant-pro-footer-bar"
+  class="qixian_footer ant-pro-footer-bar css-1knbvf3"
 >
   home_toolbar
 </div>
@@ -1258,13 +1258,13 @@ exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro-footer-bar"
+    class="ant-pro-footer-bar css-1knbvf3"
   >
     <div
-      class="ant-pro-footer-bar-left"
+      class="ant-pro-footer-bar-left css-8fxooz"
     />
     <div
-      class="ant-pro-footer-bar-right"
+      class="ant-pro-footer-bar-right css-f3rqu0"
     >
       <button
         type="button"

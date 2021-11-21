@@ -1,12 +1,10 @@
-import './GridContent.less';
-
 import type { CSSProperties } from 'react';
 import React, { useContext } from 'react';
-import classNames from 'classnames';
 import { ConfigProvider } from 'antd';
 
 import { RouteContext } from '../../RouteContext';
 import type { PureSettings } from '../../defaultSettings';
+import { css, cx } from '@emotion/css';
 
 type GridContentProps = {
   contentWidth?: PureSettings['contentWidth'];
@@ -30,12 +28,30 @@ const GridContent: React.FC<GridContentProps> = (props) => {
   const prefixCls = props.prefixCls || getPrefixCls('pro');
   const contentWidth = propsContentWidth || value.contentWidth;
   const className = `${prefixCls}-grid-content`;
-
+  const isWide = contentWidth === 'Fixed';
   return (
     <div
-      className={classNames(className, propsClassName, {
-        wide: contentWidth === 'Fixed',
-      })}
+      className={cx(
+        className,
+        propsClassName,
+        {
+          wide: isWide,
+        },
+        css`
+          width: 100%;
+          contain: layout;
+          .${prefixCls}-card {
+            border-radius: 2px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(25, 15, 15, 0.07),
+              0 0 1px 0 rgba(0, 0, 0, 0.08);
+          }
+        `,
+        isWide &&
+          css`
+            max-width: 1152px;
+            margin: 0 auto;
+          `,
+      )}
       style={style}
     >
       <div className={`${prefixCls}-grid-content-children`}>{children}</div>

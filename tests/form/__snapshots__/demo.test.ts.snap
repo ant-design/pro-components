@@ -29752,10 +29752,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         class="ant-layout-header ant-pro-fixed-header ant-pro-header css-81w2xc"
       >
         <div
-          class="ant-pro-global-header ant-pro-global-header-layout-mix"
+          class="ant-pro-global-header ant-pro-global-header-layout-mix css-902b2d"
         >
           <div
-            class="ant-pro-global-header-logo"
+            class="ant-pro-global-header-logo css-jthwfs"
           >
             <a>
               <svg
@@ -29959,7 +29959,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             </div>
           </div>
           <div
-            class="ant-pro-grid-content"
+            class="ant-pro-grid-content css-fl9ciq"
           >
             <div
               class="ant-pro-grid-content-children"
@@ -31276,13 +31276,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                         </div>
                       </div>
                       <div
-                        class="ant-pro-footer-bar"
+                        class="ant-pro-footer-bar css-1knbvf3"
                       >
                         <div
-                          class="ant-pro-footer-bar-left"
+                          class="ant-pro-footer-bar-left css-8fxooz"
                         />
                         <div
-                          class="ant-pro-footer-bar-right"
+                          class="ant-pro-footer-bar-right css-f3rqu0"
                         >
                           <button
                             class="ant-btn"

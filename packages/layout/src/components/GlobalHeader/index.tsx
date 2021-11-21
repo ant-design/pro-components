@@ -1,4 +1,3 @@
-import './index.less';
 import React from 'react';
 import classNames from 'classnames';
 
@@ -11,6 +10,7 @@ import type { MenuDataItem } from '../../index';
 import type { WithFalse } from '../../typings';
 import { clearMenuItem } from '../../utils/utils';
 import { defaultRenderLogo } from '../AppsLogoComponents';
+import { css, cx } from '@emotion/css';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;
@@ -87,17 +87,69 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
   }
 
   const logoDom = (
-    <span className={`${baseClassName}-logo`} key="logo">
+    <span
+      className={cx(
+        `${baseClassName}-logo`,
+        css`
+          position: relative;
+          overflow: hidden;
+          a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            min-height: 22px;
+            font-size: 22px;
+            img {
+              height: 28px;
+            }
+            h1 {
+              height: 32px;
+              margin: 0 0 0 8px;
+              margin: 0 0 0 12px;
+              color: var(--ant-primary-color);
+              font-weight: 600;
+              font-size: 18px;
+              line-height: 32px;
+            }
+          }
+        `,
+      )}
+      key="logo"
+    >
       <a>{defaultRenderLogo(logo)}</a>
     </span>
   );
 
   return (
-    <div className={className} style={{ ...style }}>
+    <div
+      className={cx(
+        className,
+        css`
+          position: relative;
+          display: flex;
+          align-items: center;
+          height: 100%;
+          padding: 0 16px;
+
+          > * {
+            height: 100%;
+          }
+        `,
+      )}
+      style={{ ...style }}
+    >
       {isMobile && renderLogo(menuHeaderRender, logoDom)}
       {isMobile && collapsedButtonRender && (
         <span
-          className={`${baseClassName}-collapsed-button`}
+          className={cx(
+            `${baseClassName}-collapsed-button`,
+            css`
+              display: flex;
+              align-items: center;
+              margin-left: 16px;
+              font-size: 20px;
+            `,
+          )}
           onClick={() => {
             if (onCollapse) {
               onCollapse(!collapsed);
@@ -109,7 +161,35 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
       )}
       {layout === 'mix' && !isMobile && (
         <>
-          <div className={`${baseClassName}-logo`} onClick={onMenuHeaderClick}>
+          <div
+            className={cx(
+              `${baseClassName}-logo`,
+              css`
+                position: relative;
+                overflow: hidden;
+                a {
+                  display: flex;
+                  align-items: center;
+                  height: 100%;
+                  min-height: 22px;
+                  font-size: 22px;
+                  img {
+                    height: 28px;
+                  }
+                  h1 {
+                    height: 32px;
+                    margin: 0 0 0 8px;
+                    margin: 0 0 0 12px;
+                    color: var(--ant-primary-color);
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 32px;
+                  }
+                }
+              `,
+            )}
+            onClick={onMenuHeaderClick}
+          >
             {defaultRenderLogoAndTitle({ ...props, collapsed: false }, 'headerTitleRender')}
           </div>
         </>

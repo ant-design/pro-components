@@ -1,9 +1,9 @@
 import './index.less';
 
 import React, { useContext } from 'react';
-import classNames from 'classnames';
 import type { WithFalse } from '../../typings';
 import { ConfigProvider } from 'antd';
+import { css, cx } from '@emotion/css';
 
 export type GlobalFooterProps = {
   links?: WithFalse<
@@ -31,11 +31,35 @@ const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalF
     return null;
   }
 
-  const clsString = classNames(baseClassName, className);
   return (
-    <div className={clsString} style={style}>
+    <div
+      className={cx(
+        baseClassName,
+        className,
+        css`
+          margin: 48px 0 24px 0;
+          padding: 0 16px;
+          text-align: center;
+        `,
+      )}
+      style={style}
+    >
       {links && (
-        <div className={`${baseClassName}-links`}>
+        <div
+          className={cx(
+            `${baseClassName}-links`,
+            css`
+              margin-bottom: 8px;
+              a {
+                transition: all 0.3s;
+
+                &:not(:last-child) {
+                  margin-right: 40px;
+                }
+              }
+            `,
+          )}
+        >
           {links.map((link) => (
             <a
               key={link.key}

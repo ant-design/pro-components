@@ -6,10 +6,10 @@ exports[`DefaultFooter test 🦶 copyright support false 1`] = `
   style="padding:0"
 >
   <div
-    class="ant-pro-global-footer"
+    class="ant-pro-global-footer css-i69sqo"
   >
     <div
-      class="ant-pro-global-footer-links"
+      class="ant-pro-global-footer-links css-1xk1ml5"
     >
       <a
         href="https://pro.ant.design"

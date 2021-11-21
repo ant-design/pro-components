@@ -246,16 +246,16 @@ Array [
           class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header css-qa17u9"
         >
           <div
-            class="ant-pro-top-nav-header light"
+            class="ant-pro-top-nav-header light css-epdxuq"
           >
             <div
-              class="ant-pro-top-nav-header-main "
+              class="ant-pro-top-nav-header-main css-17ldh9g"
             >
               <div
-                class="ant-pro-top-nav-header-main-left"
+                class="ant-pro-top-nav-header-main-left css-12ycn0f"
               >
                 <div
-                  class="ant-pro-top-nav-header-logo"
+                  class="ant-pro-top-nav-header-logo css-50sq74"
                   id="logo"
                 >
                   <a>
@@ -392,7 +392,7 @@ Array [
                 </div>
               </div>
               <div
-                class="ant-pro-top-nav-header-menu"
+                class="ant-pro-top-nav-header-menu css-fjparg"
                 style="flex:1"
               >
                 <div
@@ -519,10 +519,10 @@ Array [
           class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-81w2xc"
         >
           <div
-            class="ant-pro-global-header ant-pro-global-header-layout-mix"
+            class="ant-pro-global-header ant-pro-global-header-layout-mix css-902b2d"
           >
             <div
-              class="ant-pro-global-header-logo"
+              class="ant-pro-global-header-logo css-jthwfs"
             >
               <a>
                 <svg

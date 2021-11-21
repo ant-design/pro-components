@@ -1,14 +1,13 @@
-import React, { useRef, useState, useMemo } from 'react';
-import classNames from 'classnames';
+import React, { useRef, useState, useMemo, useContext } from 'react';
 import ResizeObserver from 'rc-resize-observer';
 import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
 import { defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
-import './index.less';
 
 import { BaseMenu } from '../SiderMenu/BaseMenu';
 import type { GlobalHeaderProps } from '../GlobalHeader';
-import { Avatar } from 'antd';
+import { Avatar, ConfigProvider } from 'antd';
 import { AppsLogoComponents } from '../AppsLogoComponents';
+import { css, cx } from '@emotion/css';
 
 export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 
@@ -110,28 +109,116 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     layout,
     actionsRender,
   } = props;
-  const prefixCls = `${props.prefixCls || 'ant-pro'}-top-nav-header`;
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const antdPreFix = getPrefixCls();
+
+  const prefixCls = `${props.prefixCls || getPrefixCls('pro')}-top-nav-header`;
+
   const headerDom = defaultRenderLogoAndTitle(
     { ...props, collapsed: false },
     layout === 'mix' ? 'headerTitleRender' : undefined,
   );
 
-  const className = classNames(prefixCls, propsClassName, {
-    light: true,
-  });
-
   return (
-    <div className={className} style={style}>
-      <div ref={ref} className={`${prefixCls}-main ${contentWidth === 'Fixed' ? 'wide' : ''}`}>
+    <div
+      className={cx(
+        prefixCls,
+        propsClassName,
+        {
+          light: true,
+        },
+        css`
+          position: relative;
+          width: 100%;
+          height: 100%;
+          .${antdPreFix}-menu {
+            background: transparent;
+          }
+          .anticon {
+            color: inherit;
+          }
+        `,
+      )}
+      style={style}
+    >
+      <div
+        ref={ref}
+        className={cx(
+          `${prefixCls}-main`,
+          `${contentWidth === 'Fixed' ? 'wide' : ''}`,
+          css`
+            display: flex;
+            height: 100%;
+            padding-left: 16px;
+          `,
+        )}
+      >
         {headerDom && (
-          <div className={`${prefixCls}-main-left`} onClick={onMenuHeaderClick}>
+          <div
+            className={cx(
+              `${prefixCls}-main-left`,
+              css`
+                display: flex;
+                align-items: center;
+                min-width: 192px;
+                .${antdPreFix}-pro-basicLayout-apps-icon {
+                  margin-right: 16px;
+                }
+              `,
+            )}
+            onClick={onMenuHeaderClick}
+          >
             <AppsLogoComponents {...props} />
-            <div className={`${prefixCls}-logo`} key="logo" id="logo">
+            <div
+              className={cx(
+                `${prefixCls}-logo`,
+                css`
+                  position: relative;
+                  min-width: 165px;
+                  height: 100%;
+                  overflow: hidden;
+                  a {
+                    display: flex;
+                    align-items: center;
+                    min-height: 22px;
+                    font-size: 22px;
+                  }
+                  img {
+                    display: inline-block;
+                    height: 32px;
+                    vertical-align: middle;
+                  }
+
+                  h1 {
+                    display: inline-block;
+                    margin: 0 0 0 12px;
+                    color: var(--ant-primary-color);
+                    font-weight: 400;
+                    font-size: 16px;
+                    vertical-align: top;
+                  }
+                `,
+              )}
+              key="logo"
+              id="logo"
+            >
               {headerDom}
             </div>
           </div>
         )}
-        <div style={{ flex: 1 }} className={`${prefixCls}-menu`}>
+        <div
+          style={{ flex: 1 }}
+          className={cx(
+            `${prefixCls}-menu`,
+            css`
+              min-width: 0;
+              .${antdPreFix}-menu.${antdPreFix}-menu-horizontal {
+                height: 100%;
+                border: none;
+              }
+            `,
+          )}
+        >
           <BaseMenu theme="light" {...props} {...props.menuProps} />
         </div>
         {(rightContentRender || actionsRender) && (
