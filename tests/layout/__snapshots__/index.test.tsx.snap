@@ -10,14 +10,14 @@ Array [
       style="min-height:100%"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
         style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
       >
         <div
           class="ant-layout-sider-children"
         >
           <div
-            class="ant-pro-sider-logo"
+            class="ant-pro-sider-logo css-1akpwz9"
             id="logo"
           >
             <a>
@@ -432,7 +432,7 @@ Array [
       style="min-height:100%"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix css-8zt05c"
         style="padding-top:56px;background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
       >
         <div
@@ -679,14 +679,14 @@ exports[`BasicLayout 🥩 base use 1`] = `
     style="min-height:100%"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo"
+          class="ant-pro-sider-logo css-1akpwz9"
           id="logo"
         >
           <a>
@@ -886,14 +886,14 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
     style="min-height:100%"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo"
+          class="ant-pro-sider-logo css-1akpwz9"
           id="logo"
         >
           <a>
@@ -1094,14 +1094,14 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo"
+          class="ant-pro-sider-logo css-1akpwz9"
           id="logo"
         >
           <a>
@@ -1364,14 +1364,14 @@ exports[`BasicLayout 🥩 support loading 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo"
+          class="ant-pro-sider-logo css-1akpwz9"
           id="logo"
         >
           <a>
@@ -1596,14 +1596,14 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo"
+          class="ant-pro-sider-logo css-1akpwz9"
           id="logo"
         >
           <a>

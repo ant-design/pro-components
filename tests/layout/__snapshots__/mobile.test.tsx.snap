@@ -34,14 +34,14 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
+                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-8zt05c"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-pro-sider-logo"
+                      class="ant-pro-sider-logo css-1akpwz9"
                       id="logo"
                     >
                       <a>
@@ -305,14 +305,14 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
+                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-8zt05c"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-pro-sider-logo"
+                      class="ant-pro-sider-logo css-1akpwz9"
                       id="logo"
                     >
                       <a>
@@ -576,14 +576,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
+                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-8zt05c"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-pro-sider-logo"
+                      class="ant-pro-sider-logo css-1akpwz9"
                       id="logo"
                     >
                       title
@@ -756,14 +756,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
+                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-8zt05c"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-pro-sider-logo"
+                      class="ant-pro-sider-logo css-1akpwz9"
                       id="logo"
                     >
                       title
@@ -936,7 +936,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
+                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-8zt05c"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
@@ -1109,7 +1109,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
+                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-8zt05c"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
@@ -1414,7 +1414,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider"
+                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-8zt05c"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div

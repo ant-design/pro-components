@@ -29626,7 +29626,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
       class="css-1owsomx"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light"
+      class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-8zt05c"
       style="padding-top: 56px; background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
     >
       <div

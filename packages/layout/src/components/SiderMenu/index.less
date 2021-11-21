@@ -16,12 +16,6 @@
 @color-neutral-light-6-alpha: rgba(0, 0, 0, 0.45);
 
 .@{pro-layout-sider-menu-prefix-cls} {
-  position: relative;
-  background: transparent;
-  border-right: 1px solid rgba(5, 30, 55, 0.08);
-
-  --ant-primary-color: @color-neutral-light-text;
-
   &-children {
     > * {
       contain: layout;
@@ -105,54 +99,7 @@
   }
 
   &-logo {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 16px;
     color: @heading-color;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    cursor: pointer;
-
-    &-collapsed {
-      flex-direction: column-reverse;
-      .@{ant-prefix}-pro-basicLayout-apps-icon {
-        margin-bottom: 8px;
-      }
-    }
-
-    > a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 22px;
-      font-size: 22px;
-    }
-
-    img {
-      display: inline-block;
-      height: 22px;
-      vertical-align: middle;
-    }
-
-    h1 {
-      display: inline-block;
-      height: 22px;
-      margin: 0 0 0 12px;
-      font-weight: 600;
-      font-size: 16px;
-      line-height: 22px;
-      vertical-align: middle;
-      animation: pro-layout-title-hide 0.3s;
-    }
-  }
-
-  &-extra {
-    margin-bottom: 16px;
-    padding: 0 16px;
-    &-no-logo {
-      margin-top: 16px;
-    }
   }
 
   &-menu {
@@ -215,76 +162,7 @@
     }
   }
 
-  &-icon {
-    width: 14px;
-    vertical-align: baseline;
-  }
-
-  &-actions {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 4px 0;
-    padding: 0 16px;
-
-    &-collapsed {
-      flex-direction: column-reverse;
-      padding: 0 8px;
-      font-size: 16px;
-      transition: font-size 0.3s;
-
-      .@{pro-layout-sider-menu-prefix-cls}-actions-list {
-        margin-bottom: 8px;
-        animation: none;
-      }
-    }
-
-    &-avatar {
-      font-size: 12px;
-    }
-
-    &-list {
-      animation: pro-layout-title-hide 0.3s;
-
-      & > * {
-        color: @text-color-secondary;
-        cursor: pointer;
-      }
-    }
-  }
-
-  &-footer {
-    animation: pro-layout-title-hide 0.3s;
-    &-collapsed {
-      display: none;
-    }
-  }
-
-  .drawer .drawer-content {
-    background: @layout-sider-background;
-  }
-}
-
-@keyframes pro-layout-title-hide {
-  0% {
-    display: none;
-    width: 1px;
-    margin: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    opacity: 0;
-  }
-  80% {
-    display: none;
-    width: 1px;
-    margin: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    opacity: 0;
-  }
-  100% {
-    display: unset;
-    height: auto;
-    opacity: 1;
+  &-actions-list {
+    color: @text-color-secondary;
   }
 }

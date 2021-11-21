@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import type { SiderProps } from 'antd/lib/layout/Sider';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 
-import { cx, css } from '@emotion/css';
+import { cx, css, keyframes } from '@emotion/css';
 
 import './index.less';
 import type { WithFalse } from '../../typings';
@@ -20,7 +20,7 @@ import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 
 const { Sider } = Layout;
 
-const CollapsedMiniIcon: React.FC<{}> = () => {
+const CollapsedMiniIcon: React.FC = () => {
   return (
     <svg width="1em" height="1em" viewBox="0 0 2 24" fill="currentColor" aria-hidden="true">
       <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
@@ -205,6 +205,71 @@ export type PrivateSiderMenuProps = {
   matchMenuKeys: string[];
 };
 
+const proLayoutTitleHide = keyframes`
+0% {
+  display: none;
+  width: 1px;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+}
+80% {
+  display: none;
+  width: 1px;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+}
+100% {
+  display: unset;
+  height: auto;
+  opacity: 1;
+}`;
+
+const siderCss = css`
+  position: relative;
+  background: transparent;
+  border-right: 1px solid rgba(5, 30, 55, 0.08);
+  --ant-primary-color: @color-neutral-light-text;
+`;
+
+const siderTitleViewCss = css`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+
+  > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 22px;
+    font-size: 22px;
+  }
+
+  img {
+    display: inline-block;
+    height: 22px;
+    vertical-align: middle;
+  }
+
+  h1 {
+    display: inline-block;
+    height: 22px;
+    margin: 0 0 0 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    vertical-align: middle;
+    animation: ${proLayoutTitleHide} 0.3s;
+  }
+`;
+
 const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
     collapsed,
@@ -268,7 +333,15 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const avatarDom = useMemo(
     () =>
       avatarProps && (
-        <Space align="center" className={classNames(`${baseClassName}-actions-avatar`)}>
+        <Space
+          align="center"
+          className={cx(
+            `${baseClassName}-actions-avatar`,
+            css`
+              font-size: 12px;
+            `,
+          )}
+        >
           <Avatar {...avatarProps} />
           {avatarProps.title && !collapsed && <span>{avatarProps.title}</span>}
         </Space>
@@ -282,7 +355,20 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         <Space
           align="center"
           direction={collapsed ? 'vertical' : 'horizontal'}
-          className={classNames(`${baseClassName}-actions-list`)}
+          className={cx([
+            `${baseClassName}-actions-list`,
+            css`
+              animation: ${proLayoutTitleHide} 0.3s;
+              & > * {
+                cursor: pointer;
+              }
+            `,
+            collapsed &&
+              css`
+                margin-bottom: 8px;
+                animation: none;
+              `,
+          ])}
         >
           {actionsRender?.(props)}
         </Space>
@@ -312,6 +398,16 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     }
     return dom;
   }, [baseClassName, collapsed, collapsedButtonRender, isMobile, onCollapse]);
+
+  const siderTitleViewCollapsedCss = useMemo(
+    () => css`
+      flex-direction: column-reverse;
+      .${prefixCls}-basicLayout-apps-icon {
+        margin-bottom: 8px;
+      }
+    `,
+    [prefixCls],
+  );
 
   return (
     <>
@@ -345,13 +441,17 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         }}
         width={siderWidth}
         theme={theme}
-        className={siderClassName}
+        className={cx(siderClassName, siderCss)}
       >
         {headerDom && (
           <div
-            className={classNames(`${baseClassName}-logo`, {
-              [`${baseClassName}-logo-collapsed`]: collapsed,
-            })}
+            className={cx([
+              classNames(`${baseClassName}-logo`, {
+                [`${baseClassName}-logo-collapsed`]: collapsed,
+              }),
+              siderTitleViewCss,
+              collapsed && siderTitleViewCollapsedCss,
+            ])}
             onClick={layout !== 'mix' ? onMenuHeaderClick : undefined}
             id="logo"
             style={logoStyle}
@@ -362,7 +462,19 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         )}
         {extraDom && (
           <div
-            className={`${baseClassName}-extra ${!headerDom && `${baseClassName}-extra-no-logo`}`}
+            className={cx([
+              `${baseClassName}-extra`,
+              !headerDom && `${baseClassName}-extra-no-logo`,
+              css`
+                margin-bottom: 16px;
+                padding: 0 16px;
+              `,
+              // no-logo
+              !headerDom &&
+                css`
+                  margin-top: 16px;
+                `,
+            ])}
           >
             {extraDom}
           </div>
@@ -409,9 +521,24 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           <>
             {avatarDom || actionsDom ? (
               <div
-                className={classNames(`${baseClassName}-actions`, {
-                  [`${baseClassName}-actions-collapsed`]: collapsed,
-                })}
+                className={cx(
+                  `${baseClassName}-actions`,
+                  collapsed && `${baseClassName}-actions-collapsed`,
+                  css`
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin: 4px 0;
+                    padding: 0 16px;
+                  `,
+                  collapsed &&
+                    css`
+                      flex-direction: column-reverse;
+                      padding: 0 8px;
+                      font-size: 16px;
+                      transition: font-size 0.3s;
+                    `,
+                )}
               >
                 {avatarDom}
                 {actionsDom}
@@ -431,9 +558,17 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
         {menuFooterRender && (
           <div
-            className={classNames(`${baseClassName}-footer`, {
-              [`${baseClassName}-footer-collapsed`]: collapsed,
-            })}
+            className={cx([
+              `${baseClassName}-footer`,
+              collapsed && `${baseClassName}-footer-collapsed`,
+              css`
+                animation: ${proLayoutTitleHide} 0.3s;
+              `,
+              collapsed &&
+                css`
+                  display: none;
+                `,
+            ])}
           >
             {menuFooterRender(props)}
           </div>
