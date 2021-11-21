@@ -9,8 +9,16 @@ import { TopNavHeader } from './components/TopNavHeader';
 import type { WithFalse } from './typings';
 import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { clearMenuItem } from './utils/utils';
+import { css, cx } from '@emotion/css';
 
 const { Header } = Layout;
+
+const ProLayoutFixedHeaderCss = css`
+  position: fixed;
+  top: 0;
+  padding: 0;
+  background: transparent;
+`;
 
 export type HeaderViewProps = GlobalHeaderProps & {
   isMobile?: boolean;
@@ -106,17 +114,18 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
           />
         )}
         <Header
-          style={{
-            padding: 0,
-            height: headerHeight,
-            background: 'transparent',
-            lineHeight: `${headerHeight}px`,
-            width,
-            zIndex: layout === 'mix' ? 100 : 19,
-            right,
-            ...style,
-          }}
-          className={className}
+          className={cx(
+            className,
+            ProLayoutFixedHeaderCss,
+            css({
+              height: headerHeight,
+              lineHeight: `${headerHeight}px`,
+              width,
+              zIndex: layout === 'mix' ? 100 : 19,
+              right,
+              ...style,
+            }),
+          )}
         >
           {this.renderContent()}
         </Header>

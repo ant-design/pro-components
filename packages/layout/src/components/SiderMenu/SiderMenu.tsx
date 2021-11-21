@@ -1,7 +1,8 @@
-import { CSSProperties, useContext } from 'react';
+import type { CSSProperties } from 'react';
+import { useContext } from 'react';
 import React, { useMemo, useState } from 'react';
 import type { AvatarProps } from 'antd';
-import { Avatar, Layout, Menu, Popover, ConfigProvider, Space } from 'antd';
+import { Avatar, Layout, Menu, ConfigProvider, Space } from 'antd';
 import classNames from 'classnames';
 import type { SiderProps } from 'antd/lib/layout/Sider';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
@@ -14,19 +15,10 @@ import type { BaseMenuProps } from './BaseMenu';
 import { BaseMenu } from './BaseMenu';
 import { MenuCounter } from './Counter';
 import type { HeaderViewProps } from '../../Header';
+import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
+import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 
 const { Sider } = Layout;
-
-/**
- * 默认的应用列表的图标
- *
- * @returns
- */
-const AppsLogo = () => (
-  <svg width="1em" height="1em" viewBox="0 0 12 12" fill="currentColor" aria-hidden="true">
-    <path d="M0 0h3v3H0V0zm4.5 0h3v3h-3V0zM9 0h3v3H9V0zM0 4.5h3v3H0v-3zm4.503 0h3v3h-3v-3zM9 4.5h3v3H9v-3zM0 9h3v3H0V9zm4.503 0h3v3h-3V9zM9 9h3v3H9V9z" />
-  </svg>
-);
 
 const CollapsedMiniIcon: React.FC<{}> = () => {
   return (
@@ -114,22 +106,6 @@ const CollapsedIcon: React.FC<any> = (props) => {
 };
 
 /**
- * 默认渲染logo的方式，如果是个string，用img。否则直接返回
- *
- * @param logo
- * @returns
- */
-export const defaultRenderLogo = (logo: React.ReactNode): React.ReactNode => {
-  if (typeof logo === 'string') {
-    return <img src={logo} alt="logo" />;
-  }
-  if (typeof logo === 'function') {
-    return logo();
-  }
-  return logo;
-};
-
-/**
  * 渲染 title 和 logo
  *
  * @param props
@@ -170,12 +146,8 @@ export const defaultRenderLogoAndTitle = (
 export type SiderMenuProps = {
   /** 品牌logo的标识 */
   logo?: React.ReactNode;
-  /** 统计的业务劣币啊 */
-  appList?: {
-    title: React.ReactNode;
-    icon: React.ReactNode;
-    url: string;
-  }[];
+  /** 相关品牌的列表 */
+  appList?: AppsLogoComponentsAppList;
   /** 菜单的宽度 */
   siderWidth?: number;
   /** 品牌标识区的配置 */
@@ -231,39 +203,6 @@ export const defaultRenderCollapsedButton = (collapsed?: boolean) =>
 
 export type PrivateSiderMenuProps = {
   matchMenuKeys: string[];
-};
-
-export const AppsLogoComponents: React.FC<{
-  appList?: SiderMenuProps['appList'];
-  prefixCls?: string;
-}> = (props: SiderMenuProps) => {
-  const { appList, prefixCls = 'ant-pro' } = props;
-  if (!props?.appList?.length) return null;
-  return (
-    <Popover
-      content={
-        <div className={`${prefixCls}-basicLayout-apps-content`}>
-          <ul className={`${prefixCls}-basicLayout-apps-content-list`}>
-            {appList?.map((app, index) => {
-              return (
-                // eslint-disable-next-line react/no-array-index-key
-                <li key={index} className={`${prefixCls}-basicLayout-apps-content-list-item`}>
-                  <a href={app.url} target="_blank">
-                    {defaultRenderLogo(app.icon)}
-                    <span>{app.title}</span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      }
-    >
-      <span className={`${prefixCls}-basicLayout-apps-icon`}>
-        <AppsLogo />
-      </span>
-    </Popover>
-  );
 };
 
 const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {

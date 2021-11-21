@@ -2,12 +2,13 @@ import React, { useRef, useState, useMemo } from 'react';
 import classNames from 'classnames';
 import ResizeObserver from 'rc-resize-observer';
 import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
-import { defaultRenderLogoAndTitle, AppsLogoComponents } from '../SiderMenu/SiderMenu';
+import { defaultRenderLogoAndTitle } from '../SiderMenu/SiderMenu';
 import './index.less';
 
 import { BaseMenu } from '../SiderMenu/BaseMenu';
 import type { GlobalHeaderProps } from '../GlobalHeader';
 import { Avatar } from 'antd';
+import { AppsLogoComponents } from '../AppsLogoComponents';
 
 export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 
@@ -124,7 +125,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
       <div ref={ref} className={`${prefixCls}-main ${contentWidth === 'Fixed' ? 'wide' : ''}`}>
         {headerDom && (
           <div className={`${prefixCls}-main-left`} onClick={onMenuHeaderClick}>
-            {<AppsLogoComponents {...props} />}
+            <AppsLogoComponents {...props} />
             <div className={`${prefixCls}-logo`} key="logo" id="logo">
               {headerDom}
             </div>

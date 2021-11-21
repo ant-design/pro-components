@@ -120,6 +120,7 @@ export default {
   },
   theme: {
     '@s-site-menu-width': '258px',
+    '@root-entry-name': 'variable',
   },
   ignoreMomentLocale: true,
   headScripts: ['https://gw.alipayobjects.com/os/antfincdn/fdj3WlJd5c/darkreader.js'],

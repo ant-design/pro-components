@@ -4,16 +4,13 @@ import classNames from 'classnames';
 
 import type { HeaderViewProps } from '../../Header';
 import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
-import {
-  defaultRenderLogo,
-  defaultRenderLogoAndTitle,
-  defaultRenderCollapsedButton,
-} from '../SiderMenu/SiderMenu';
+import { defaultRenderLogoAndTitle, defaultRenderCollapsedButton } from '../SiderMenu/SiderMenu';
 import type { PureSettings } from '../../defaultSettings';
 import { TopNavHeader, RightContent } from '../TopNavHeader';
 import type { MenuDataItem } from '../../index';
 import type { WithFalse } from '../../typings';
 import { clearMenuItem } from '../../utils/utils';
+import { defaultRenderLogo } from '../AppsLogoComponents';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;

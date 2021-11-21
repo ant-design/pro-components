@@ -37,6 +37,16 @@ import { clearMenuItem } from './utils/utils';
 import type { WaterMarkProps } from './components/WaterMark';
 import { stringify } from 'use-json-comparison';
 
+import { cx, css } from '@emotion/css';
+
+const ProLayoutCss = css`
+  // BFC
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+`;
+
 let layoutIndex = 0;
 
 export type LayoutBreadcrumbProps = {
@@ -494,6 +504,19 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
       }
     : {};
 
+  const antdPrefixCls = context.getPrefixCls();
+
+  /** Disable之后样式 */
+  const ProLayoutDisableContentMargin = useMemo(() => {
+    if (disableContentMargin) return ``;
+    return css`
+      margin: 0;
+      .${antdPrefixCls}-pro-page-container {
+        margin: 0;
+      }
+    `;
+  }, [antdPrefixCls, disableContentMargin]);
+
   return (
     <MenuCounter.Provider>
       <RouteContext.Provider
@@ -520,7 +543,7 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
         {props.pure ? (
           children
         ) : (
-          <div className={className}>
+          <div className={cx(className, ProLayoutCss, ProLayoutDisableContentMargin)}>
             <Layout
               style={{
                 minHeight: '100%',
