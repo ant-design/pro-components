@@ -1,4 +1,5 @@
 ﻿import { Typography } from 'antd';
+import React from 'react';
 
 const isNeedTranText = (item: any): boolean => {
   if (item?.valueType?.toString().startsWith('date')) {
@@ -18,6 +19,8 @@ const isNeedTranText = (item: any): boolean => {
  * @param text
  */
 export const genCopyable = (dom: React.ReactNode, item: any, text: string) => {
+  let domText = dom;
+
   if (item.copyable || item.ellipsis) {
     const copyable =
       item.copyable && text
@@ -29,6 +32,12 @@ export const genCopyable = (dom: React.ReactNode, item: any, text: string) => {
 
     /** 有些 valueType 需要设置copy的为string */
     const needTranText = isNeedTranText(item);
+
+    /** 剔除警告 https://github.com/ant-design/ant-design/blob/master/components/typography/Base.tsx#L329 */
+    if (React.isValidElement(dom)) {
+      domText = dom.props?.text || dom;
+    }
+
     const ellipsis =
       item.ellipsis && text
         ? {
@@ -46,7 +55,7 @@ export const genCopyable = (dom: React.ReactNode, item: any, text: string) => {
         copyable={copyable}
         ellipsis={ellipsis}
       >
-        {dom}
+        {domText}
       </Typography.Text>
     );
   }
