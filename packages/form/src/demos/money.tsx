@@ -1,14 +1,7 @@
 import React, { useRef } from 'react';
 import { message } from 'antd';
 import type { ProFormInstance } from '@ant-design/pro-form';
-import { ProFormCascader } from '@ant-design/pro-form';
-import ProForm, {
-  ProFormText,
-  ProFormDateRangePicker,
-  ProFormSelect,
-  ProFormMoney,
-  ProFormDigit,
-} from '@ant-design/pro-form';
+import ProForm, { ProFormMoney } from '@ant-design/pro-form';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
