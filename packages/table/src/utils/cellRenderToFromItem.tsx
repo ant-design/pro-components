@@ -85,6 +85,8 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
     mode: config.mode,
     renderFormItem: undefined,
     valueType: valueType as ProFieldValueType,
+    // @ts-ignore
+    record: rowData,
     proFieldProps: {
       emptyText: config.columnEmptyText,
       proFieldKey: columnKey ? `table-field-${columnKey}` : undefined,
