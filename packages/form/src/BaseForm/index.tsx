@@ -25,7 +25,6 @@ import {
   useFetchData,
   isDeepEqualReact,
   usePrevious,
-  useDeepCompareEffect,
 } from '@ant-design/pro-utils';
 
 import { useUrlSearchParams } from '@umijs/use-params';
@@ -472,16 +471,11 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
 function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const { request, params, initialValues, formKey, ...rest } = props;
-  const [initialData, reload] = useFetchData({
+  const [initialData] = useFetchData({
     request,
     params,
     proFieldKey: formKey,
   });
-
-  /** 如果 params 发生修改重新刷新一下 params */
-  useDeepCompareEffect(() => {
-    reload();
-  }, [params]);
 
   if (!initialData && props.request) {
     return (

@@ -1,5 +1,5 @@
 ﻿import { useState, useRef, useMemo } from 'react';
-import useSWR, { mutate } from 'swr';
+import useSWR from 'swr';
 
 let testId = 0;
 
@@ -9,7 +9,7 @@ function useFetchData<T, U extends Record<string, any> = Record<string, any>>(pr
   proFieldKey?: React.Key;
   params?: U;
   request?: ProRequestData<T, U>;
-}): [Readonly<T | undefined>, () => void] {
+}): [Readonly<T | undefined>] {
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
     if (props.proFieldKey) {
@@ -39,12 +39,7 @@ function useFetchData<T, U extends Record<string, any> = Record<string, any>>(pr
     revalidateOnReconnect: false,
   });
 
-  return [
-    data || error,
-    () => {
-      mutate(key);
-    },
-  ];
+  return [data || error];
 }
 
 export default useFetchData;

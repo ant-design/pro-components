@@ -196,15 +196,24 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         precision={precision}
         // 删除默认min={0}，允许输入一个负数的金额，用户可自行配置min来限制是否允许小于0的金额
         formatter={(value) => {
-          if (value) {
+          if (value && moneySymbol) {
             const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
             return `${moneySymbol} ${value}`.replace(reg, ',');
           }
+          if (value) {
+            return value;
+          }
           return '';
         }}
-        parser={(value) =>
-          value ? value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '') : ''
-        }
+        parser={(value) => {
+          if (moneySymbol && value) {
+            return value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
+          }
+          if (value) {
+            return value;
+          }
+          return '';
+        }}
         placeholder={placeholder}
         {...fieldProps}
       />
