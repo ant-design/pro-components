@@ -164,7 +164,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   } = props;
   const [inlineForm] = Form.useForm(form);
   /** 同步 url 上的参数 */
-  const [urlSearch, setUrlSearch] = useUrlSearchParams({});
+  const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
   const formRef = useRef<ProFormInstance<any>>(inlineForm! || ({} as any));
 
   const fieldsValueType = useRef<

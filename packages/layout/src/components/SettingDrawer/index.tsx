@@ -349,7 +349,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onChange: props.onCollapseChange,
   });
   const [language, setLanguage] = useState<string>(getLanguage());
-  const [urlParams, setUrlParams] = useUrlSearchParams({});
+  const [urlParams, setUrlParams] = useUrlSearchParams(
+    {},
+    {
+      disabled: disableUrlParams,
+    },
+  );
   const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
     () => getParamsFromUrl(urlParams, propsSettings),
     {
