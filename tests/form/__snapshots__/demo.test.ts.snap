@@ -4369,9 +4369,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
               <div
                 class="ant-form-item-control-input-content"
               >
-                <span>
-                  2016-11-22
-                </span>
+                2016-11-22
               </div>
             </div>
           </div>
@@ -4404,9 +4402,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
               <div
                 class="ant-form-item-control-input-content"
               >
-                <span>
-                  2016-48th
-                </span>
+                2016-48th
               </div>
             </div>
           </div>
@@ -4439,9 +4435,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
               <div
                 class="ant-form-item-control-input-content"
               >
-                <span>
-                  2016-11
-                </span>
+                2016-11
               </div>
             </div>
           </div>
@@ -4474,9 +4468,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
               <div
                 class="ant-form-item-control-input-content"
               >
-                <span>
-                  2016-Q4
-                </span>
+                2016-Q4
               </div>
             </div>
           </div>
@@ -4509,9 +4501,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
               <div
                 class="ant-form-item-control-input-content"
               >
-                <span>
-                  2016
-                </span>
+                2016
               </div>
             </div>
           </div>
@@ -4544,9 +4534,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
               <div
                 class="ant-form-item-control-input-content"
               >
-                <span>
-                  2016-11-22 00:00:00
-                </span>
+                2016-11-22 00:00:00
               </div>
             </div>
           </div>
