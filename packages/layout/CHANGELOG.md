@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.30.1...@ant-design/pro-layout@6.31.0) (2021-11-22)
+
+### Features
+
+- pro-layout 已支持传入 props 到 breadcrumbProps，但文档中没有体现 ([#4075](https://github.com/ant-design/pro-components/issues/4075)) ([3a60dec](https://github.com/ant-design/pro-components/commit/3a60dec2cc106a37b2d42395642e06add5ab8b55))
+
 ## [6.30.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.30.0...@ant-design/pro-layout@6.30.1) (2021-11-18)
 
 ### Bug Fixes
