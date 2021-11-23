@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.31.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.0...@ant-design/pro-layout@6.31.1) (2021-11-23)
+
+### Bug Fixes
+
+- **card:** add more var ([3caad81](https://github.com/ant-design/pro-components/commit/3caad8138bcf65c2163e72e7788c2d8fa0e3f70a))
+- **form:** default close render params to url ([cd4f0ab](https://github.com/ant-design/pro-components/commit/cd4f0abab77cc212a53f549ea16faafa70d00a15))
+- **layout:** no set topmenu font weight ([#4097](https://github.com/ant-design/pro-components/issues/4097)) ([234037f](https://github.com/ant-design/pro-components/commit/234037f80c41d28635796874953871e49dcdf61e))
+
 # [6.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.30.1...@ant-design/pro-layout@6.31.0) (2021-11-22)
 
 ### Features
