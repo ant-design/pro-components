@@ -135,7 +135,7 @@ const footerRender = (props: BasicLayoutProps): React.ReactNode => {
 };
 
 const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): React.ReactNode => {
-  const { layout, isMobile, openKeys, splitMenus, menuRender } = props;
+  const { layout, navTheme, isMobile, openKeys, splitMenus, menuRender } = props;
   if (props.menuRender === false || props.pure) {
     return null;
   }
@@ -158,27 +158,27 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
   if (layout === 'top' && !isMobile) {
     return <SiderMenu matchMenuKeys={matchMenuKeys} {...props} hide />;
   }
-  if (menuRender) {
-    const defaultDom = (
-      <SiderMenu
-        matchMenuKeys={matchMenuKeys}
-        {...props}
-        // 这里走了可以少一次循环
-        menuData={clearMenuData}
-      />
-    );
 
-    return menuRender(props, defaultDom);
-  }
-
-  return (
+  const defaultDom = (
     <SiderMenu
       matchMenuKeys={matchMenuKeys}
       {...props}
+      style={
+        navTheme === 'realDark'
+          ? {
+              boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 65%)',
+            }
+          : {}
+      }
       // 这里走了可以少一次循环
       menuData={clearMenuData}
     />
   );
+  if (menuRender) {
+    return menuRender(props, defaultDom);
+  }
+
+  return defaultDom;
 };
 
 const defaultPageTitleRender = (
