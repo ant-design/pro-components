@@ -233,7 +233,7 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
  * @param param0
  */
 const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => {
-  const { locale } = useContext(AntdConfigProvider.ConfigContext);
+  const { locale, ...rest } = useContext(AntdConfigProvider.ConfigContext);
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
   return (
@@ -252,9 +252,10 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
         const configProvider =
           locale === undefined
             ? {
+                ...rest,
                 locale: zh_CN,
               }
-            : {};
+            : rest;
 
         return (
           <Provider {...configProvider}>
