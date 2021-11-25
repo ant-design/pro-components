@@ -317,11 +317,8 @@ export const useFieldFetchData = (
     if (!props.request) {
       return 'no-fetch';
     }
-    if (!props.params && !keyWords) {
-      return proFieldKeyRef.current;
-    }
-    return [proFieldKeyRef.current, JSON.stringify({ ...props.params, keyWords })];
-  }, [keyWords, props.params, props.request]);
+    return proFieldKeyRef.current;
+  }, [props.request]);
 
   const { data, mutate: setLocaleData } = useSWR<any>(
     [key, props.params, keyWords],
