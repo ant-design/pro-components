@@ -421,12 +421,12 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                     ).reduce((pre, next) => {
                       return {
                         ...pre,
-                        [next]: finalValues[next] || undefined,
+                        [next]: finalValues[next] ?? undefined,
                       };
                     }, extraUrlParams);
-                    // fix #3547: 当原先在url中存在的字段被删除时，应该讲params中的该字段设置为undefined,以便触发url同步删除
+                    // fix #3547: 当原先在url中存在的字段被删除时，应该将 params 中的该字段设置为 undefined,以便触发url同步删除
                     Object.keys(urlSearch).forEach((key) => {
-                      if (!params[key]) {
+                      if (!params[key] || params[key] !== 0) {
                         params[key] = undefined;
                       }
                     });
