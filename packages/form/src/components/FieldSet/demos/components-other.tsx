@@ -9,6 +9,7 @@ import ProForm, {
   ProFormDigit,
   ProFormSlider,
   ProFormGroup,
+  ProFormDigitRange,
 } from '@ant-design/pro-form';
 import Mock from 'mockjs';
 
@@ -35,6 +36,7 @@ const Demo = () => (
         name: 'qixian',
         radio: 'a',
         'radio-button': 'a',
+        'input-number-range': [2, 4],
       }}
       onValuesChange={(_, values) => {
         console.log(values);
@@ -177,7 +179,38 @@ const Demo = () => (
         />
       </ProFormGroup>
       <ProFormGroup label="数字类">
-        <ProFormDigit label="InputNumber" name="input-number" width="sm" min={1} max={10} />
+        <ProFormDigitRange
+          label="InputNumberRange"
+          name="input-number-range"
+          separator="-"
+          separatorWidth={60}
+          max={10}
+          rules={[
+            () => ({
+              validator(_, value?: (number | undefined)[]) {
+                const [value1, value2] = value || [];
+                if (value1 === undefined && value2 === undefined) {
+                  return Promise.reject(new Error('请填写区间值!'));
+                }
+                if (value1 === undefined || value2 === undefined) {
+                  return Promise.resolve();
+                }
+                if (value1 > value2) {
+                  return Promise.reject(new Error('值1不可大于值2!'));
+                }
+                return Promise.resolve();
+              },
+            }),
+          ]}
+        />
+        <ProFormDigit
+          label="InputNumber"
+          name="input-number"
+          width="sm"
+          min={1}
+          max={10}
+          placeholder="aaaa"
+        />
         <ProFormSwitch name="switch" label="Switch" />
         <ProFormSlider
           name="slider"

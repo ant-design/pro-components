@@ -40,6 +40,7 @@ import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
 import FieldCascader from './components/Cascader';
 import FieldColorPicker from './components/ColorPicker';
+import FieldDigitRange from './components/DigitRange';
 import { noteOnce } from 'rc-util/lib/warning';
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
@@ -300,6 +301,10 @@ const defaultRenderText = (
 
   if (valueType === 'digit') {
     return <FieldDigit text={text as number} {...props} />;
+  }
+
+  if (valueType === 'digitRange') {
+    return <FieldDigitRange text={text as number[]} {...props} />;
   }
 
   if (valueType === 'second') {
