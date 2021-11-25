@@ -129,7 +129,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 > All methods suffixed with `Render` can be made not to render by passing `false`.
 
 | Parameters | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | title | The title of the top-left corner of the layout | `ReactNode` | `'Ant Design Pro'` |
 | logo | url to the top-left corner of layout's logo | `ReactNode` \| `()=> ReactNode` | - |
 | pure | Whether to remove all self-contained interfaces | `boolean` | - |
@@ -223,7 +223,7 @@ GridContent encapsulates the [equal-width](https://preview.pro.ant.design/dashbo
 
 Generate menuData and breadcrumb based on router information.
 
-``js | pure import { getMenuData } from '@ant-design/pro-layout';
+```js | pure import { getMenuData } from '@ant-design/pro-layout';
 
 const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDataRender);
 
@@ -240,7 +240,7 @@ const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDa
 
 getPageTitle encapsulates the logic of the title generated on the menuData.
 
-``` js | pure
+```js | pure
 import { getPageTitle } from '@ant-design/pro-layout';
 
 const title = getPageTitle({
@@ -390,7 +390,7 @@ const Page = () => (
 
 ProLayout provides some api to remove areas that are not needed by the user. Some configurations are also provided in SettingDrawer to set them.
 
-! [setting-drawer-render](https://gw.alipayobjects.com/zos/antfincdn/mCXDkK2pJ0/60298863-F5A5-4af2-923A-13EF912DB0E1.png)
+![setting-drawer-render](https://gw.alipayobjects.com/zos/antfincdn/mCXDkK2pJ0/60298863-F5A5-4af2-923A-13EF912DB0E1.png)
 
 - `headerRender` can customize the top bar
 - `footerRender` can customize the footer
@@ -414,7 +414,7 @@ The width of the menu is not customizable because it involves animation and huge
 
 Auto-cut menu is an exclusive ability of `mix` mode to place the first level of the menu into the top bar. We can set `splitMenus=true` to turn it on, and for a good experience it's best to set a redirect for each level of the menu, which will prevent switching to a white screen page.
 
-! [cutMenu](https://gw.alipayobjects.com/zos/antfincdn/H9hDMcrUh1/5438EB45-27F8-4B4F-8740-54F7BE55075C.png)
+![cutMenu](https://gw.alipayobjects.com/zos/antfincdn/H9hDMcrUh1/5438EB45-27F8-4B4F-8740-54F7BE55075C.png)
 
 ### Customizing menus
 
