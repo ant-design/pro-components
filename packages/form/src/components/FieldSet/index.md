@@ -361,7 +361,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 > 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
 
 ```tsx | pure
-<ProFormSwitch
+<ProFormCascader
   name="area"
   label="区域"
   options={[
