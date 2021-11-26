@@ -1,31 +1,18 @@
 import React from 'react';
 import { InputNumber, Input } from 'antd';
-import type { InputNumberProps } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { ProFieldFC } from '../../index';
 
-type Value = string | number | undefined;
+export type Value = string | number | undefined;
 
-type ValuePair = Value[];
-
-export type RangeInputNumberProps = Omit<
-  InputNumberProps,
-  'value' | 'defaultValue' | 'onChange' | 'placeholder'
-> & {
-  value?: ValuePair;
-  defaultValue?: ValuePair | undefined;
-  onChange?: (value?: ValuePair) => void;
-};
-
-export type ExtraProps = {
-  separator?: string;
-  separatorWidth?: number;
-};
+export type ValuePair = Value[];
 
 export type FieldDigitRangeProps = {
   text: ValuePair;
   placeholder?: any;
-} & ExtraProps;
+  separator?: string;
+  separatorWidth?: number;
+};
 
 /**
  * 数字范围组件
@@ -45,7 +32,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
   },
   ref,
 ) => {
-  const { value, defaultValue, onChange, id } = fieldProps as RangeInputNumberProps;
+  const { value, defaultValue, onChange, id } = fieldProps;
 
   const [valuePair, setValuePair] = useMergedState(() => defaultValue, {
     value: value,

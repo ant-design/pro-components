@@ -2,23 +2,31 @@ import React from 'react';
 import type { InputNumberProps } from 'antd';
 import ProFormField from '../Field';
 import type { ProFormFieldItemProps } from '../../interface';
-import type {
-  RangeInputNumberProps,
-  ExtraProps,
-} from '../../../../field/src/components/DigitRange';
 
-export type ProFormDigitRangeProps = ProFormFieldItemProps<RangeInputNumberProps> &
-  ExtraProps & {
-    min?: InputNumberProps['min'];
-    max?: InputNumberProps['max'];
-  };
+export type Value = string | number | undefined;
+
+export type ValuePair = Value[];
+
+export type RangeInputNumberProps = Omit<
+  InputNumberProps,
+  'value' | 'defaultValue' | 'onChange' | 'placeholder'
+> & {
+  value?: ValuePair;
+  defaultValue?: ValuePair | undefined;
+  onChange?: (value?: ValuePair) => void;
+};
+
+export type ProFormDigitRangeProps = ProFormFieldItemProps<RangeInputNumberProps> & {
+  separator?: string;
+  separatorWidth?: number;
+};
 /**
  * 数字范围选择组件
  *
  * @param
  */
 const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitRangeProps> = (
-  { fieldProps, proFieldProps, min, max, ...rest },
+  { fieldProps, proFieldProps, ...rest },
   ref,
 ) => {
   return (
@@ -26,8 +34,6 @@ const ProFormDigit: React.ForwardRefRenderFunction<any, ProFormDigitRangeProps> 
       mode="edit"
       valueType="digitRange"
       fieldProps={{
-        min,
-        max,
         ...fieldProps,
       }}
       ref={ref}
