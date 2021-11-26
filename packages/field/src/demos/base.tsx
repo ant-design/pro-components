@@ -51,6 +51,9 @@ export default () => {
         <Descriptions.Item label="数字">
           <Field text="19897979797979" valueType="digit" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="数字范围">
+          <Field text={[123, 456]} valueType="digitRange" mode={state} plain={plain} />
+        </Descriptions.Item>
         <Descriptions.Item label="秒格式化">
           <Field text={2000000} valueType="second" mode={state} plain={plain} />
         </Descriptions.Item>

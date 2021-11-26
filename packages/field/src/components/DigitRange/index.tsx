@@ -77,15 +77,18 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
       if (Array.isArray(valuePair)) {
         //   仅在两个值均为数字时才做比较并转换
         const [value0, value1] = valuePair;
+        console.log(value0, value1);
         if (typeof value0 === 'number' && typeof value1 === 'number' && value0 > value1) {
           setValuePair([value1, value0]);
+        } else if (value0 === undefined && value1 === undefined) {
+          // 当两个值均为undefined时将值变为undefined，方便required处理
+          setValuePair(undefined);
         }
       }
     };
 
     const handleChange = (index: number, changedValue: Value) => {
       const newValuePair = [...(valuePair || [])];
-      //   onChange方法参数不支持null但是在删除值时会变为null，此处转为undefined
       newValuePair[index] = changedValue === null ? undefined : changedValue;
       setValuePair(newValuePair);
     };
@@ -95,7 +98,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
         <InputNumber
           placeholder={placeholder}
           {...fieldProps}
-          id={`${id}-0`}
+          id={id ?? `${id}-0`}
           style={{ width: `calc((100% - ${separatorWidth}px) / 2)` }}
           value={valuePair?.[0]}
           defaultValue={defaultValue?.[0]}
@@ -116,7 +119,7 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
         <InputNumber
           placeholder={placeholder}
           {...fieldProps}
-          id={`${id}-1`}
+          id={id ?? `${id}-1`}
           style={{ width: `calc((100% - ${separatorWidth}px) / 2)`, borderLeft: 0 }}
           value={valuePair?.[1]}
           defaultValue={defaultValue?.[1]}
