@@ -36,5 +36,6 @@
     "**/fixtures",
     "./tests/no-duplicated.ts",
     "packages/descriptions/src/demos/.tsx"
-  ]
+  ],
+  "plugins": [{ "transform": "typescript-transform-paths", "afterDeclarations": true }]
 }

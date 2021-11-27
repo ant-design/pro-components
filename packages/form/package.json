@@ -56,8 +56,5 @@
   "authors": [
     "chenshuai2144 <qixian.cs@outlook.com> (https://github.com/chenshuai2144)",
     "yutingzhao1991 <yutingzhao1991@sina.com> (https://github.com/yutingzhao1991)"
-  ],
-  "devDependencies": {
-    "@babel/runtime": "^7.16.3"
-  }
+  ]
 }
