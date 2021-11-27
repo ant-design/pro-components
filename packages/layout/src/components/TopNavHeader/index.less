@@ -1,4 +1,5 @@
-@import '~antd/es/style/themes/default.less';
+@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index.less';
 @import '../../BasicLayout.less';
 
 @top-nav-header-prefix-cls: ~'@{ant-prefix}-pro-top-nav-header';
@@ -46,7 +47,8 @@
     height: 100%;
     overflow: hidden;
 
-    img {
+    img,
+    a > svg {
       display: inline-block;
       height: 32px;
       vertical-align: middle;
@@ -56,7 +58,6 @@
       display: inline-block;
       margin: 0 0 0 12px;
       color: @btn-primary-color;
-      font-weight: 400;
       font-size: 16px;
       vertical-align: top;
     }

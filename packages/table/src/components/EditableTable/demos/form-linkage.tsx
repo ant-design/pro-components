@@ -46,9 +46,7 @@ const defaultData: DataSourceType[] = [
 ];
 
 export default () => {
-  const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() =>
-    defaultData.map(({ id }) => id),
-  );
+  const [editableKeys, setEditableRowKeys] = useState<React.Key[]>(() => []);
   const formRef = useRef<ProFormInstance<any>>();
   const actionRef = useRef<ActionType>();
   const columns: ProColumns<DataSourceType>[] = [
@@ -63,7 +61,6 @@ export default () => {
       key: 'type',
       dataIndex: 'type',
       valueType: 'select',
-      editable: false,
       valueEnum: {
         multiple: { text: '多选题', status: 'Default' },
         radio: { text: '单选题', status: 'Warning' },
@@ -90,6 +87,27 @@ export default () => {
     {
       title: '操作',
       valueType: 'option',
+      render: (_, row) => [
+        <a
+          key="delete"
+          onClick={() => {
+            const tableDataSource = formRef.current?.getFieldValue('table') as DataSourceType[];
+            formRef.current?.setFieldsValue({
+              table: tableDataSource.filter((item) => item.id !== row?.id),
+            });
+          }}
+        >
+          移除
+        </a>,
+        <a
+          key="edit"
+          onClick={() => {
+            actionRef.current?.startEditable(row.id);
+          }}
+        >
+          编辑
+        </a>,
+      ],
     },
   ];
 
@@ -125,8 +143,9 @@ export default () => {
                 <div
                   style={{
                     display: 'flex',
-                    alignItems: 'start',
+                    alignItems: 'center',
                     gap: 16,
+                    paddingBottom: 16,
                   }}
                 >
                   <div style={{ flex: 1 }}>总分：{info.totalScore}</div>
@@ -145,30 +164,36 @@ export default () => {
             rowKey="id"
             controlled
             actionRef={actionRef}
-            headerTitle="可编辑表格"
-            maxLength={5}
+            formItemProps={{
+              label: '题库编辑',
+              rules: [
+                {
+                  validator: async (_, value) => {
+                    if (value.length < 1) {
+                      throw new Error('请至少添加一个题库');
+                    }
+
+                    if (value.length > 5) {
+                      throw new Error('最多可以设置五个题库');
+                    }
+                  },
+                },
+              ],
+            }}
+            maxLength={10}
             name="table"
             columns={columns}
+            recordCreatorProps={{
+              record: (index) => {
+                return { id: index + 1 };
+              },
+            }}
             editable={{
               type: 'multiple',
               editableKeys,
               onChange: setEditableRowKeys,
-              actionRender: (row) => {
-                return [
-                  <a
-                    key="delete"
-                    onClick={() => {
-                      const tableDataSource = formRef.current?.getFieldValue(
-                        'table',
-                      ) as DataSourceType[];
-                      formRef.current?.setFieldsValue({
-                        table: tableDataSource.filter((item) => item.id !== row.id),
-                      });
-                    }}
-                  >
-                    移除
-                  </a>,
-                ];
+              actionRender: (row, config, defaultDom) => {
+                return [defaultDom.save, defaultDom.delete || defaultDom.cancel];
               },
             }}
           />

@@ -99,7 +99,7 @@ class MenuUtil {
 
   /** Get SubMenu or Item */
   getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
-    if (Array.isArray(item.children) && item && item.children.length > 0) {
+    if (Array.isArray(item.routes) && item && item.routes.length > 0) {
       const name = this.getIntlName(item);
       const { subMenuItemRender, prefixCls, menu, iconPrefixes } = this.props;
       //  get defaultTitle by menuItemRender
@@ -121,7 +121,7 @@ class MenuUtil {
       const MenuComponents: React.ElementType = menu?.type === 'group' ? ItemGroup : SubMenu;
       return (
         <MenuComponents title={title} key={item.key || item.path} onTitleClick={item.onTitleClick}>
-          {this.getNavMenuItems(item.children, true)}
+          {this.getNavMenuItems(item.routes, true)}
         </MenuComponents>
       );
     }
@@ -177,7 +177,7 @@ class MenuUtil {
         <span
           title={name}
           onClick={() => {
-            window.open(itemPath);
+            window?.open?.(itemPath);
           }}
           className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
         >
@@ -195,6 +195,7 @@ class MenuUtil {
         isMobile,
         replace: itemPath === location.pathname,
         onClick: () => onCollapse && onCollapse(true),
+        children: undefined,
       };
       return menuItemRender(renderItemProps, defaultItem, this.props);
     }

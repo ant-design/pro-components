@@ -4,7 +4,10 @@ import { Button, Result } from 'antd';
 
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
 
-class CustomBoundary extends React.Component<{}, { hasError: boolean; errorInfo: string }> {
+class CustomBoundary extends React.Component<
+  Record<string, any>,
+  { hasError: boolean; errorInfo: string }
+> {
   state = { hasError: false, errorInfo: '' };
 
   static getDerivedStateFromError(error: Error) {

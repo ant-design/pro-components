@@ -32,7 +32,6 @@ import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData 
 import EditableProTable from './components/EditableTable';
 import type { DragTableProps } from './components/DragSortTable';
 import DragSortTable from './components/DragSortTable';
-import { genCopyable } from './utils/columnRender';
 
 type ProColumnsValueType = ProFieldValueType;
 type TableRowEditable<T> = RowEditableConfig<T>;
@@ -52,7 +51,6 @@ export type {
 };
 
 export {
-  genCopyable,
   ConfigProviderWrap,
   TableDropdown,
   ListToolBar,

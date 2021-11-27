@@ -2,11 +2,11 @@ export default [
   {
     path: '/',
     name: 'welcome',
-    children: [
+    routes: [
       {
         path: '/welcome',
         name: 'one',
-        children: [
+        routes: [
           {
             path: '/welcome/welcome',
             name: 'two',

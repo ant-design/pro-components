@@ -26,7 +26,7 @@ ProLayout extends umi's router configuration, adding name, icon, locale, hideInM
 ```ts | pure
 export interface MenuDataItem {
   /** @name submenu */
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   /** @name Hide child nodes in the menu */
   hideChildrenInMenu?: boolean;
   /** @name hideSelf and children in menu */
@@ -297,7 +297,7 @@ export interface Settings {
 
 export interface MenuDataItem {
   authority?: string[] | string;
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;
@@ -321,7 +321,7 @@ export interface Route {
     name: string;
     path: string;
     // Optional secondary menu
-    children?: Route['routes'];
+    routes?: Route['routes'];
   }>;
 }
 ```
@@ -426,7 +426,7 @@ In order to provide more functionality, we extended the routers configuration by
 // You can get this type by importing { MenuDataItem } from '@ant-design/pro-layout'
 // to get this type
 export interface MenuDataItem {
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;

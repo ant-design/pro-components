@@ -8,7 +8,7 @@ import React, {
   useCallback,
   useEffect,
 } from 'react';
-import type { SelectProps } from 'antd';
+import type { OptionsType } from 'rc-select/lib/interface';
 import { Space, Spin, ConfigProvider } from 'antd';
 import type {
   ProFieldRequestData,
@@ -29,6 +29,8 @@ import type { ProFieldFC } from '../../index';
 import './index.less';
 
 let testId = 0;
+
+type SelectOptionType = OptionsType;
 
 export type FieldSelectProps<FieldProps = any> = {
   text: string;
@@ -252,7 +254,7 @@ export const useFieldFetchData = (
   props: FieldSelectProps & {
     proFieldKey?: React.Key;
   },
-): [boolean, SelectProps<any>['options'], (keyWord?: string) => void, () => void] => {
+): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
   const [keyWords, setKeyWords] = useState<string | undefined>(undefined);
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
@@ -277,7 +279,7 @@ export const useFieldFetchData = (
     }));
   }, []);
 
-  const [options, setOptions] = useMountMergeState<SelectProps<any>['options']>(
+  const [options, setOptions] = useMountMergeState<SelectOptionType>(
     () => {
       if (props.valueEnum) {
         return getOptionsFormValueEnum(props.valueEnum);
@@ -297,7 +299,7 @@ export const useFieldFetchData = (
 
   const [loading, setLoading] = useMountMergeState(false);
 
-  const { run: fetchData } = useDebounceFn<[Record<string, any>], SelectProps<any>['options']>(
+  const { run: fetchData } = useDebounceFn<[Record<string, any>], OptionsType>(
     async (params: Record<string, any>) => {
       if (!props.request) {
         return [];
@@ -315,18 +317,15 @@ export const useFieldFetchData = (
     if (!props.request) {
       return 'no-fetch';
     }
-    if (!props.params && !keyWords) {
-      return proFieldKeyRef.current;
-    }
-    return [proFieldKeyRef.current, JSON.stringify({ ...props.params, keyWords })];
-  }, [keyWords, props.params, props.request]);
+    return proFieldKeyRef.current;
+  }, [props.request]);
 
   const { data, mutate: setLocaleData } = useSWR<any>(
     [key, props.params, keyWords],
-    (_, params, keyWord) => {
+    (_, params, kw) => {
       return fetchData({
         ...(params as Record<string, any>),
-        keyWord,
+        keyWords: kw,
       });
     },
     {
@@ -372,7 +371,7 @@ export const useFieldFetchData = (
   }, [options, keyWords, props.fieldProps?.filterOption]);
   return [
     loading,
-    props.request ? (data as SelectProps<any>['options']) : resOptions,
+    props.request ? (data as OptionsType) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
       mutate(key);

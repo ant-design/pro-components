@@ -103,6 +103,8 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 
 <code src="./demos/error-boundaries.tsx" iframe="500px" title="沉浸式导航" />
 
+<code src="./demos/splitMenus.tsx" iframe="500px" title="沉浸式导航" />
+
 ## API
 
 ### ProLayout
@@ -152,6 +154,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | subMenuItemRender | 自定义拥有子菜单菜单项的 render 方法 | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
 | menuDataRender | menuData 的 render 方法，用来自定义 menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | breadcrumbRender | 自定义面包屑的数据 | `(route)=>route` | - |
+| breadcrumbProps | 传递到 antd Breadcrumb 组件的 props, 参考 (https://ant.design/components/breadcrumb-cn/) | `breadcrumbProps` | undefined |
 | route | 用于生成菜单和面包屑。umi 的 Layout 会自动带有 | [route](#route) | - |
 | disableMobile | 禁止自动切换到移动页面 | `boolean` | false |
 | links | 显示在菜单右下角的快捷操作 | `ReactNode[]` | - |
@@ -294,7 +297,7 @@ export interface Settings {
 
 export interface MenuDataItem {
   authority?: string[] | string;
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;
@@ -319,7 +322,7 @@ export interface Route {
     name: string;
     path: string;
     // 可选二级菜单
-    children?: Route['routes'];
+    routes?: Route['routes'];
   }>;
 }
 ```
@@ -407,7 +410,7 @@ ProLayout 扩展了 umi 的 router 配置，新增了 name，icon，locale,hideI
 ```ts | pure
 export interface MenuDataItem {
   /** @name 子菜单 */
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   /** @name 在菜单中隐藏子节点 */
   hideChildrenInMenu?: boolean;
   /** @name 在菜单中隐藏自己和子节点 */
@@ -468,7 +471,7 @@ ProLayout 会自动生成菜单，同时根据 pathname 进行自动选中。配
 // 可以通过 import { MenuDataItem } from '@ant-design/pro-layout'
 // 来获取这个类型
 export interface MenuDataItem {
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;

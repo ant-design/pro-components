@@ -1,7 +1,9 @@
-@import (reference) '~antd/es/style/themes/default';
+@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index';
 
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 @card-hoverable-hover-border: transparent;
+@pro-card-default-border: @border-width-base @border-style-base @border-color-split;
 
 // == when focus or actived
 .pro-card-active() {
@@ -25,7 +27,7 @@
   }
 
   &-border {
-    border: @border-width-base @border-style-base @border-color-split;
+    border: @pro-card-default-border;
   }
 
   &-hoverable {
@@ -158,7 +160,13 @@
   }
 
   &-title {
+    color: @card-head-color;
+    font-weight: 500;
     font-size: @card-head-font-size;
+  }
+
+  &-extra {
+    color: @card-head-extra-color;
   }
 
   &-type-inner {
@@ -174,10 +182,6 @@
     & svg {
       transition: transform @animation-duration-base;
     }
-  }
-
-  &-title {
-    font-weight: 500;
   }
 
   &-body {

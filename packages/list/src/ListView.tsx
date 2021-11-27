@@ -12,6 +12,7 @@ import type { ItemProps } from './Item';
 import ProListItem from './Item';
 import { PRO_LIST_KEYS_MAP } from './constants';
 import classNames from 'classnames';
+import type { ProCardProps } from '@ant-design/pro-card';
 
 type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 type Key = React.Key;
@@ -32,6 +33,7 @@ export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderI
     /** Render 除了 header 之后的代码 */
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
+    itemCardProps?: ProCardProps;
   };
 
 function ListView<RecordType>(props: ListViewProps<RecordType>) {
@@ -45,6 +47,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     actionRef,
     itemTitleRender,
     renderItem,
+    itemCardProps,
     itemHeaderRender,
     expandable: expandableConfig,
     rowSelection,
@@ -53,6 +56,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowClassName,
     ...rest
   } = props;
+
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {
@@ -188,6 +192,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
           checkboxDom = selectItemDom.render(item, item, index) || undefined;
         }
         const { isEditable, recordKey } = actionRef.current?.isEditable({ ...item, index }) || {};
+
         const isChecked = selectedKeySet.has(recordKey || index);
 
         const defaultDom = (
@@ -196,6 +201,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             cardProps={
               rest.grid
                 ? {
+                    ...itemCardProps,
                     ...rest.grid,
                     checked: isChecked,
                     onChecked: React.isValidElement(checkboxDom)

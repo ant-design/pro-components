@@ -12,7 +12,7 @@ export type SearchConfig = {
   submitText?: React.ReactNode;
 };
 
-export type SubmitterProps<T = {}> = {
+export type SubmitterProps<T = Record<string, any>> = {
   /** @name 提交方法 */
   onSubmit?: (value?: T) => void;
   /** @name 重置方法 */
@@ -64,9 +64,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
 
   const reset = () => {
     form.resetFields();
-    requestAnimationFrame(() => {
-      onReset?.();
-    });
+    onReset?.();
   };
 
   const {

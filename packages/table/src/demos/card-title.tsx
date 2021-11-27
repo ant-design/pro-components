@@ -1,15 +1,14 @@
 import React from 'react';
-import { Button, Tooltip } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
+import { EllipsisOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-table';
-import ProTable, { TableDropdown } from '@ant-design/pro-table';
-import moment from 'moment';
+import ProTable from '@ant-design/pro-table';
 
 export type TableListItem = {
   key: number;
   name: string;
+  containers: number;
   creator: string;
-  createdAt: number;
 };
 const tableListDataSource: TableListItem[] = [];
 
@@ -19,8 +18,8 @@ for (let i = 0; i < 5; i += 1) {
   tableListDataSource.push({
     key: i,
     name: 'AppName',
+    containers: Math.floor(Math.random() * 20),
     creator: creators[Math.floor(Math.random() * creators.length)],
-    createdAt: Date.now() - Math.floor(Math.random() * 100000),
   });
 }
 
@@ -29,18 +28,12 @@ const columns: ProColumns<TableListItem>[] = [
     title: '应用名称',
     dataIndex: 'name',
     render: (_) => <a>{_}</a>,
-    formItemProps: {
-      lightProps: {
-        labelFormatter: (value) => `app-${value}`,
-      },
-    },
   },
   {
-    title: '日期范围',
-    dataIndex: 'startTime',
-    valueType: 'dateRange',
-    hideInTable: true,
-    initialValue: [moment(), moment().add(1, 'day')],
+    title: '容器数量',
+    dataIndex: 'containers',
+    align: 'right',
+    sorter: (a, b) => a.containers - b.containers,
   },
   {
     title: '创建者',
@@ -56,35 +49,16 @@ const columns: ProColumns<TableListItem>[] = [
     },
   },
   {
-    title: (
-      <>
-        创建时间
-        <Tooltip placement="top" title="这是一段描述">
-          <QuestionCircleOutlined style={{ marginLeft: 4 }} />
-        </Tooltip>
-      </>
-    ),
-    key: 'since',
-    dataIndex: 'createdAt',
-    valueType: 'date',
-    sorter: (a, b) => a.createdAt - b.createdAt,
-  },
-  {
     title: '操作',
-    width: '164px',
     key: 'option',
+    width: 120,
     valueType: 'option',
     render: () => [
       <a key="link">链路</a>,
-      <a key="link2">报警</a>,
-      <a key="link3">监控</a>,
-      <TableDropdown
-        key="actionGroup"
-        menus={[
-          { key: 'copy', name: '复制' },
-          { key: 'delete', name: '删除' },
-        ]}
-      />,
+      <a key="warn">报警</a>,
+      <a key="more">
+        <EllipsisOutlined />
+      </a>,
     ],
   },
 ];
@@ -101,21 +75,20 @@ export default () => {
           success: true,
         });
       }}
+      cardProps={{ title: '业务定制', bordered: true }}
+      headerTitle={
+        <Button
+          key="primary"
+          type="primary"
+          onClick={() => {
+            alert('add');
+          }}
+        >
+          添加
+        </Button>
+      }
       rowKey="key"
-      pagination={{
-        showQuickJumper: true,
-      }}
-      search={{
-        filterType: 'light',
-      }}
-      dateFormatter="string"
-      headerTitle="表格标题"
-      toolBarRender={() => [
-        <Button key="show">查看日志</Button>,
-        <Button type="primary" key="primary">
-          创建应用
-        </Button>,
-      ]}
+      search={false}
     />
   );
 };

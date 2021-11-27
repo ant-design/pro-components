@@ -61,6 +61,10 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
 
 enableFetchMocks();
 
+Object.defineProperty(window, 'open', {
+  value: jest.fn,
+});
+
 global.requestAnimationFrame =
   global.requestAnimationFrame ||
   function requestAnimationFrame(cb) {

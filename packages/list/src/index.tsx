@@ -10,6 +10,7 @@ import ListView from './ListView';
 
 import './index.less';
 import type { ItemProps } from './Item';
+import type { ProCardProps } from '@ant-design/pro-card';
 
 export type AntdListProps<RecordType> = Omit<ListProps<RecordType>, 'rowKey'>;
 
@@ -60,6 +61,7 @@ export type ProListProps<RecordType = any, Params = Record<string, any>, ValueTy
     showActions?: 'hover' | 'always';
     showExtra?: 'hover' | 'always';
     onRow?: GetComponentProps<RecordType>;
+    itemCardProps?: ProCardProps;
     rowClassName?: string | ((item: RecordType, index: number) => string);
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
     itemTitleRender?: ItemProps<RecordType>['itemTitleRender'];
@@ -90,6 +92,7 @@ function ProList<
     itemLayout,
     renderItem,
     grid,
+    itemCardProps,
     onRow,
     rowClassName,
     locale,
@@ -152,6 +155,7 @@ function ProList<
         return (
           <ListView
             grid={grid}
+            itemCardProps={itemCardProps}
             itemTitleRender={itemTitleRender}
             prefixCls={prefixCls}
             columns={columns}

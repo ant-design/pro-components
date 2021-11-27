@@ -25,7 +25,6 @@ import {
   useFetchData,
   isDeepEqualReact,
   usePrevious,
-  useDeepCompareEffect,
 } from '@ant-design/pro-utils';
 
 import { useUrlSearchParams } from '@umijs/use-params';
@@ -85,7 +84,7 @@ export type CommonFormProps<
    */
   dateFormatter?: 'number' | 'string' | false;
   /** 表单初始化成功，比如布局，label等计算完成 */
-  onInit?: (values: T) => void;
+  onInit?: (values: T, form: ProFormInstance<any>) => void;
 
   /** 发起网络请求的参数 */
   params?: U;
@@ -109,8 +108,8 @@ export type BaseFormProps<T = Record<string, any>> = {
     form: FormInstance<any>,
   ) => React.ReactNode;
   fieldProps?: FieldProps;
-
-  onInit?: (values: T) => void;
+  /** 表单初始化完成，form已经存在，可以进行赋值的操作了 */
+  onInit?: (values: T, form: ProFormInstance<any>) => void;
   formItemProps?: FormItemProps;
   groupProps?: GroupProps;
   /** 是否回车提交 */
@@ -150,9 +149,9 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     formItemProps,
     groupProps,
     dateFormatter = 'string',
-    form: userForm,
     formRef: propsFormRef,
     onInit,
+    form,
     formComponentType,
     extraUrlParams = {},
     syncToUrl,
@@ -163,11 +162,10 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     autoFocusFirstInput,
     ...rest
   } = props;
-
-  const [form] = Form.useForm();
+  const [inlineForm] = Form.useForm(form);
   /** 同步 url 上的参数 */
-  const [urlSearch, setUrlSearch] = useUrlSearchParams({});
-  const formRef = useRef<FormInstance>(userForm || form);
+  const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
+  const formRef = useRef<ProFormInstance<any>>(inlineForm! || ({} as any));
 
   const fieldsValueType = useRef<
     Record<
@@ -178,8 +176,60 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       }
     >
   >({});
+
   /** 保存 transformKeyRef，用于对表单key transform */
   const transformKeyRef = useRef<Record<string, SearchTransformKeyFn | undefined>>({});
+
+  /** 使用 callback 的类型 */
+  const transformKey = useCallback(
+    (values: any, omit: boolean, parentKey?: NamePath) =>
+      transformKeySubmitValue(
+        conversionMomentValue(values, dateFormatter, fieldsValueType.current, omit, parentKey),
+        transformKeyRef.current,
+        omit,
+      ),
+    [dateFormatter],
+  );
+
+  const formatValues = useMemo(
+    () => ({
+      /** 获取格式化之后所有数据 */
+      getFieldsFormatValue: (nameList?: NamePath[] | true) => {
+        return transformKey(formRef.current?.getFieldsValue(nameList!), omitNil);
+      },
+      /** 获取格式化之后的单个数据 */
+      getFieldFormatValue: (nameList?: NamePath) => {
+        return transformKey(formRef.current?.getFieldValue(nameList!), omitNil, nameList);
+      },
+      /** 校验字段后返回格式化之后的所有数据 */
+      validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
+        const values = await formRef.current?.validateFields(nameList);
+        return transformKey(values, omitNil);
+      },
+    }),
+    [omitNil, transformKey],
+  );
+  /** 利用反射把值传的到处都是，并且总是新的 */
+  const responseForm = useMemo(() => {
+    const response: ProFormInstance<any> = { ...formRef.current };
+    Object.keys(formRef.current || {}).forEach((key) => {
+      Object.defineProperty(response, key, {
+        get: () => {
+          return formRef.current[key];
+        },
+      });
+    });
+
+    Object.keys(formatValues).forEach((key) => {
+      Object.defineProperty(response, key, {
+        get: () => {
+          return formatValues[key];
+        },
+      });
+    });
+    return response;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const [loading, setLoading] = useMountMergeState<boolean>(false);
 
@@ -199,41 +249,8 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     [submitter],
   );
 
-  /** 使用 callback 的类型 */
-  const transformKey = useCallback(
-    (values: any, omit: boolean, parentKey?: NamePath) =>
-      transformKeySubmitValue(
-        conversionMomentValue(values, dateFormatter, fieldsValueType.current, omit, parentKey),
-        transformKeyRef.current,
-        omit,
-      ),
-    [dateFormatter],
-  );
-
-  const formatValues = useMemo(
-    () => ({
-      /** 获取格式化之后所有数据 */
-      getFieldsFormatValue: (nameList?: NamePath[] | true) => {
-        return transformKey(formRef.current.getFieldsValue(nameList!), omitNil);
-      },
-      /** 获取格式化之后的单个数据 */
-      getFieldFormatValue: (nameList?: NamePath) => {
-        return transformKey(formRef.current.getFieldValue(nameList!), omitNil, nameList);
-      },
-      /** 校验字段后返回格式化之后的所有数据 */
-      validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {
-        const values = await formRef.current.validateFields(nameList);
-        return transformKey(values, omitNil);
-      },
-    }),
-    [omitNil, transformKey],
-  );
-
   // 初始化给一个默认的 form
-  useImperativeHandle(propsFormRef, () => ({
-    ...formRef.current,
-    ...formatValues,
-  }));
+  useImperativeHandle(propsFormRef, () => responseForm);
 
   /** 渲染提交按钮与重置按钮 */
   const submitterNode = useMemo(() => {
@@ -243,14 +260,14 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
         key="submitter"
         {...submitterProps}
         onReset={() => {
-          const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
+          const finalValues = transformKey(formRef.current?.getFieldsValue(), omitNil);
           submitterProps?.onReset?.(finalValues);
           onReset?.(finalValues);
           // 如果 syncToUrl，清空一下数据
           if (syncToUrl) {
             // 把没有的值设置为未定义可以删掉 url 的参数
             const params = Object.keys(
-              transformKey(formRef.current.getFieldsValue(), false),
+              transformKey(formRef.current?.getFieldsValue(), false),
             ).reduce((pre, next) => {
               return {
                 ...pre,
@@ -262,7 +279,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
             setUrlSearch(genParams(syncToUrl, params, 'set'));
           }
         }}
-        form={userForm || form}
+        form={responseForm as FormInstance<any>}
         submitButtonProps={{
           loading,
           ...submitterProps.submitButtonProps,
@@ -270,17 +287,16 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       />
     );
   }, [
-    extraUrlParams,
-    form,
-    loading,
-    omitNil,
-    onReset,
-    setUrlSearch,
     submitter,
     submitterProps,
-    syncToUrl,
+    responseForm,
+    loading,
     transformKey,
-    userForm,
+    omitNil,
+    onReset,
+    syncToUrl,
+    extraUrlParams,
+    setUrlSearch,
   ]);
 
   const content = useMemo(() => {
@@ -301,8 +317,8 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   }, [formComponentType]);
 
   useEffect(() => {
-    const finalValues = transformKey(formRef.current.getFieldsValue(true), omitNil);
-    onInit?.(finalValues);
+    const finalValues = transformKey(formRef.current?.getFieldsValue(true), omitNil);
+    onInit?.(finalValues, responseForm);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -316,9 +332,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   useEffect(() => {
     if (syncToInitialValues) return;
-    window.requestAnimationFrame(() => {
-      setUrlParamsMergeInitialValues({});
-    });
+    setUrlParamsMergeInitialValues({});
   }, [syncToInitialValues]);
 
   const preInitialValues = usePrevious(props.initialValues);
@@ -335,6 +349,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
       isEqual,
       `The initialValues only take effect when the form is initialized, if you need to load asynchronously recommended request, or the initialValues ? <Form/> : null `,
     );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.initialValues]);
 
   useEffect(() => {
@@ -358,13 +373,12 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
           formComponentType,
           getPopupContainer,
           setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
-            if (Array.isArray(name)) {
-              transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
-              fieldsValueType.current = namePathSet(fieldsValueType.current, name, {
-                valueType,
-                dateFormat,
-              });
-            }
+            if (!Array.isArray(name)) return;
+            transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
+            fieldsValueType.current = namePathSet(fieldsValueType.current, name, {
+              valueType,
+              dateFormat,
+            });
           },
         }}
       >
@@ -377,7 +391,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                   formRef.current?.submit();
                 }
               }}
-              form={userForm || form}
+              form={inlineForm}
               {...rest}
               // 组合 urlSearch 和 initialValues
               initialValues={{
@@ -395,25 +409,24 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                 if (!rest.onFinish) return;
                 // 防止重复提交
                 if (loading) return;
-
                 setLoading(true);
                 try {
-                  const finalValues = transformKey(formRef.current.getFieldsValue(), omitNil);
+                  const finalValues = transformKey(formRef.current?.getFieldsValue(), omitNil);
                   await rest.onFinish(finalValues);
 
                   if (syncToUrl) {
                     // 把没有的值设置为未定义可以删掉 url 的参数
                     const params = Object.keys(
-                      transformKey(formRef.current.getFieldsValue(), false),
+                      transformKey(formRef.current?.getFieldsValue(), false),
                     ).reduce((pre, next) => {
                       return {
                         ...pre,
-                        [next]: finalValues[next] || undefined,
+                        [next]: finalValues[next] ?? undefined,
                       };
                     }, extraUrlParams);
-                    // fix #3547: 当原先在url中存在的字段被删除时，应该讲params中的该字段设置为undefined,以便触发url同步删除
+                    // fix #3547: 当原先在url中存在的字段被删除时，应该将 params 中的该字段设置为 undefined,以便触发url同步删除
                     Object.keys(urlSearch).forEach((key) => {
-                      if (!params[key]) {
+                      if (!params[key] || params[key] !== 0) {
                         params[key] = undefined;
                       }
                     });
@@ -458,16 +471,11 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
 function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const { request, params, initialValues, formKey, ...rest } = props;
-  const [initialData, reload] = useFetchData({
+  const [initialData] = useFetchData({
     request,
     params,
     proFieldKey: formKey,
   });
-
-  /** 如果 params 发生修改重新刷新一下 params */
-  useDeepCompareEffect(() => {
-    reload();
-  }, [params]);
 
   if (!initialData && props.request) {
     return (

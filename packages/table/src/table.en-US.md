@@ -286,6 +286,8 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | editable | Related configuration of editable table | [TableRowEditable<T>](/components/editable-table#editable-Editable row configuration) | - |
 | cardBordered | Border of Card components around Table and Search | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | Debounce time | `number` | 10 |
+| revalidateOnFocus ｜ Automatically re-request when the window is focused ｜ `boolean` | `true` |
+| ColumnState | Column Status Control, you can operate the display hide | `columnStateType` | - |
 
 #### RecordCreator
 
@@ -300,8 +302,8 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | defaultValue | The default value of the column status, only for the first time | `record <string, columnState>;` |
-| Value | Column status, support controlled mode | `Record <string, columnState>;` |
-| ONCHANGE | Column status After changing | `(Value: Record <string, columnSstate>) => Viod` |
+| value | Column status, support controlled mode | `Record <string, columnState>;` |
+| onChange | Column status After changing | `(Value: Record <string, columnSstate>) => Viod` |
 | PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |
 | PersistenceType | The type of persistence column, localStorage is also existing after closing the browser, sessionStorage closes the browser will be lost | `localstorage \| sessionStorage` |
 

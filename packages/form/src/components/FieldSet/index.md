@@ -361,7 +361,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 > 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
 
 ```tsx | pure
-<ProFormSwitch
+<ProFormCascader
   name="area"
   label="区域"
   options={[
@@ -501,6 +501,8 @@ ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示�
 | --- | --- | --- | --- |
 | locale | 单独设置的国际化地区值，根据不同的地区显示不同的货币符号，支持地区详见下面的地区目录 | `string` | `zh-Hans-CN` |
 | customSymbol | 自定义金额符号 | `string` | - |
+| numberPopoverRender | 自定义 Popover 的值，false 可以关闭他 | `((props: InputNumberProps, defaultText: string) => React.ReactNode)`\| `boolean` | false |
+| numberFormatOptions | NumberFormat 的配置，文档可以查看 [mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) | NumberFormatOptions | - |
 | min | 最小值 | `number` | - |
 | max | 最大值 | `number` | - |
 

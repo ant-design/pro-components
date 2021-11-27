@@ -349,7 +349,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     onChange: props.onCollapseChange,
   });
   const [language, setLanguage] = useState<string>(getLanguage());
-  const [urlParams, setUrlParams] = useUrlSearchParams({});
+  const [urlParams, setUrlParams] = useUrlSearchParams(
+    {},
+    {
+      disabled: disableUrlParams,
+    },
+  );
   const [settingState, setSettingState] = useMergedState<Partial<ProSettings>>(
     () => getParamsFromUrl(urlParams, propsSettings),
     {
@@ -383,6 +388,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     });
 
     return () => window.document.removeEventListener('languagechange', onLanguageChange);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   /**
    * 修改设置
@@ -433,6 +439,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       }
     }
     preStateRef.current = nextState;
+    delete nextState.title;
     setSettingState(nextState);
   };
 

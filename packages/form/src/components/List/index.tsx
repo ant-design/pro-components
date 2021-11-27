@@ -1,17 +1,16 @@
-﻿import type { ReactNode } from 'react';
-import React, { useContext, useImperativeHandle, useRef, useMemo } from 'react';
+﻿import { CopyOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
+import { runFunction } from '@ant-design/pro-utils';
 import type { ButtonProps, FormInstance } from 'antd';
+import { Button, ConfigProvider, Form, Tooltip } from 'antd';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
+import type { NamePath } from 'antd/lib/form/interface';
 import omit from 'omit.js';
 import toArray from 'rc-util/lib/Children/toArray';
-import { Button, Form, Tooltip, ConfigProvider } from 'antd';
-import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
-import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
-import type { NamePath } from 'antd/lib/form/interface';
-import { DeleteOutlined, PlusOutlined, CopyOutlined } from '@ant-design/icons';
-
-import './index.less';
 import get from 'rc-util/lib/utils/get';
-import { runFunction } from '@ant-design/pro-utils';
+import type { ReactNode } from 'react';
+import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
+import './index.less';
 
 type IconConfig = {
   Icon?: React.FC<any>;
@@ -48,6 +47,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
       });
   creatorRecord?: Record<string, any> | (() => Record<string, any>);
   label?: ReactNode;
+  alwaysShowItemLabel?: boolean;
   tooltip?: LabelTooltipType;
   actionRender?: (
     field: FormListFieldData,
@@ -115,6 +115,7 @@ type ProFormListItemProps = {
   };
   name: ProFormListProps['name'];
   originName: ProFormListProps['name'];
+  alwaysShowItemLabel: ProFormListProps['alwaysShowItemLabel'];
 };
 
 const ProFormListItem: React.FC<
@@ -139,6 +140,7 @@ const ProFormListItem: React.FC<
     field,
     index,
     formInstance,
+    alwaysShowItemLabel,
     ...rest
   } = props;
   const listContext = useContext(FormListContext);
@@ -222,7 +224,7 @@ const ProFormListItem: React.FC<
     options,
   ) || (
     <div
-      className={`${prefixCls}-item`}
+      className={`${prefixCls}-item${alwaysShowItemLabel ? ` ${prefixCls}-item-show-label` : ''}`}
       style={{
         display: 'flex',
         alignItems: 'flex-end',
@@ -295,6 +297,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   actionRender,
   creatorButtonProps,
   label,
+  alwaysShowItemLabel,
   tooltip,
   creatorRecord,
   itemRender,
@@ -360,6 +363,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                       creatorRecord={creatorRecord}
                       actionRender={actionRender}
                       action={action}
+                      alwaysShowItemLabel={alwaysShowItemLabel}
                     >
                       {children}
                     </ProFormListContainer>

@@ -262,7 +262,7 @@ describe('BasicTable Search', () => {
   it('🎏 order multiple test', async () => {
     const fn = jest.fn();
     const html = mount(
-      <ProTable<{ money: number }, {}>
+      <ProTable<{ money: number }>
         size="small"
         columns={[
           {
@@ -328,7 +328,7 @@ describe('BasicTable Search', () => {
   it('🎏 order test', async () => {
     const fn = jest.fn();
     const html = mount(
-      <ProTable<{ money: number }, {}>
+      <ProTable<{ money: number }>
         size="small"
         columns={[
           {

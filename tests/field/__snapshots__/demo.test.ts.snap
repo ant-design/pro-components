@@ -1028,9 +1028,7 @@ Array [
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <span>
-                    2019-11-16 12:50:26
-                  </span>
+                  2019-11-16 12:50:26
                 </span>
               </div>
             </td>
@@ -1090,9 +1088,7 @@ Array [
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <span>
-                    2019-11-16
-                  </span>
+                  2019-11-16
                 </span>
               </div>
             </td>
@@ -1588,6 +1584,7 @@ Array [
                 >
                   <div
                     class="ant-input-number"
+                    style="width: 200px;"
                   >
                     <div
                       class="ant-input-number-handler-wrap"

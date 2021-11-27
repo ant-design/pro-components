@@ -9,6 +9,7 @@ import { Field } from 'rc-field-form';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
 import type { GetRowKey } from 'antd/lib/table/interface';
+import type { ProFormInstance } from '@ant-design/pro-form';
 
 export type RecordCreatorProps<DataSourceType> = {
   record: DataSourceType | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
@@ -28,6 +29,7 @@ export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> =
   ProTableProps<T, U, ValueType>,
   'onChange'
 > & {
+  defaultValue?: T[];
   value?: T[];
   onChange?: (value: T[]) => void;
   /** @name 原先的 table OnChange */
@@ -47,7 +49,7 @@ export type EditableProTableProps<T, U extends ParamsType, ValueType = 'text'> =
   /** 是否受控，如果为 true，每次 value 更新都会重置表单 */
   controlled?: boolean;
   /** FormItem 的设置 */
-  formItemProps?: FormItemProps;
+  formItemProps?: Omit<FormItemProps, 'children' | 'name'>;
 };
 
 const EditableTableActionContext = React.createContext<
@@ -92,15 +94,16 @@ function EditableTable<
     recordCreatorProps,
     rowKey,
     controlled,
+    defaultValue,
     ...rest
   } = props;
   const actionRef = useRef<ActionType>();
+  const formRef = useRef<ProFormInstance>();
 
-  const [form] = Form.useForm();
   // 设置 ref
   useImperativeHandle(rest.actionRef, () => actionRef.current);
 
-  const [value, setValue] = useMergedState<DataType[]>(() => props.value || [], {
+  const [value, setValue] = useMergedState<DataType[]>(() => props.value || defaultValue || [], {
     value: props.value,
     onChange: props.onChange,
   });
@@ -115,7 +118,7 @@ function EditableTable<
   useEffect(() => {
     if (!props.controlled) return;
     value.forEach((current, index) => {
-      form.setFieldsValue({
+      formRef.current?.setFieldsValue({
         [getRowKey(current, index)]: current,
       });
     }, {});
@@ -203,10 +206,7 @@ function EditableTable<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isTop, creatorButtonDom]);
 
-  const editableProps = {
-    form,
-    ...props.editable,
-  };
+  const editableProps = { ...props.editable };
 
   if (
     props?.onValuesChange ||
@@ -222,6 +222,7 @@ function EditableTable<
       }
     };
   }
+
   return (
     <EditableTableActionContext.Provider value={actionRef}>
       <ProTable<DataType, Params, ValueType>
@@ -229,14 +230,22 @@ function EditableTable<
         options={false}
         pagination={false}
         rowKey={rowKey}
+        revalidateOnFocus={false}
         {...rest}
         {...buttonRenderProps}
         tableLayout="fixed"
         actionRef={actionRef}
         onChange={onTableChange}
         dataSource={value}
-        editable={editableProps}
-        onDataSourceChange={setValue}
+        editable={{
+          ...editableProps,
+          formProps: {
+            formRef,
+          },
+        }}
+        onDataSourceChange={(dataSource: DataType[]) => {
+          setValue(dataSource);
+        }}
       />
     </EditableTableActionContext.Provider>
   );
@@ -250,17 +259,27 @@ function FieldEditableTable<
   const { name, formItemProps } = props;
   if (!name) return <EditableTable<DataType, Params, ValueType> {...props} />;
   return (
-    <Field shouldUpdate={true} name={props.name} {...formItemProps} isList>
-      {(control) => {
-        return (
-          <EditableTable<DataType, Params, ValueType>
-            {...props}
-            value={control.value}
-            onChange={control.onChange}
-          />
-        );
+    <Form.Item
+      style={{
+        maxWidth: '100%',
       }}
-    </Field>
+      {...formItemProps}
+      name={props.name}
+    >
+      <>
+        <Field shouldUpdate={true} name={props.name} isList>
+          {(control) => {
+            return (
+              <EditableTable<DataType, Params, ValueType>
+                {...props}
+                value={control.value}
+                onChange={control.onChange}
+              />
+            );
+          }}
+        </Field>
+      </>
+    </Form.Item>
   );
 }
 
