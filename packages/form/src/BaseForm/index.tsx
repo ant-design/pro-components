@@ -426,7 +426,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                     }, extraUrlParams);
                     // fix #3547: 当原先在url中存在的字段被删除时，应该将 params 中的该字段设置为 undefined,以便触发url同步删除
                     Object.keys(urlSearch).forEach((key) => {
-                      if (!params[key] || params[key] !== 0) {
+                      if (params[key] !== false || params[key] !== 0 || !params[key]) {
                         params[key] = undefined;
                       }
                     });
