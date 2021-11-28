@@ -28,6 +28,7 @@ if (type === 'lib') {
   config = {
     cjs: { type: 'babel', lazy: true },
     esm: false,
+    runtimeHelpers: true,
     pkgs: [...headPkgs, ...tailPkgs],
   };
 }
@@ -38,6 +39,7 @@ if (type === 'es') {
     esm: {
       type: 'babel',
     },
+    runtimeHelpers: true,
     pkgs: [...headPkgs, ...tailPkgs],
     extraBabelPlugins: [
       ['babel-plugin-import', { libraryName: 'antd', libraryDirectory: 'es', style: true }, 'antd'],

@@ -32,6 +32,7 @@
     "ie >= 11"
   ],
   "dependencies": {
+    "@babel/runtime": "^7.16.3",
     "@ant-design/icons": "^4.0.0",
     "@ant-design/pro-card": "1.18.5",
     "@ant-design/pro-field": "1.27.1",

@@ -8,9 +8,6 @@
     "ant-design",
     "ant-design-pro"
   ],
-  "sideEffects": [
-    "*.less"
-  ],
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/skeleton#readme",
   "bugs": "http://github.com/umijs/plugins/issues",
   "repository": {
@@ -18,6 +15,9 @@
     "url": "https://github.com/ant-design/pro-components"
   },
   "license": "MIT",
+  "sideEffects": [
+    "*.less"
+  ],
   "main": "lib/index.js",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
@@ -33,6 +33,7 @@
     "ie >= 11"
   ],
   "dependencies": {
+    "@babel/runtime": "^7.16.3",
     "use-media-antd-query": "^1.0.6"
   },
   "peerDependencies": {
