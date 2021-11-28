@@ -100,21 +100,45 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
   const formDom = useMemo(() => {
     if (!addonAfter && !addonBefore) return <Form.Item {...props}>{children}</Form.Item>;
     return (
-      <Form.Item {...props} rules={undefined} name={undefined}>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-          }}
-        >
-          {addonBefore ? <div style={{ marginRight: 8 }}>{addonBefore}</div> : null}
-          <div style={{ flex: 1 }}>
-            <Form.Item {...props} noStyle>
-              {children}
-            </Form.Item>
-          </div>
-          {addonAfter ? <div style={{ marginLeft: 8 }}>{addonAfter}</div> : null}
-        </div>
+      <Form.Item
+        // @ts-ignore
+        _internalItemRender={{
+          mark: 'pro_table_render',
+          render: (
+            inputProps: FormItemProps & {
+              errors: any[];
+            },
+            doms: {
+              input: JSX.Element;
+              errorList: JSX.Element;
+              extra: JSX.Element;
+            },
+          ) => (
+            <>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
+                {addonBefore ? <div style={{ marginRight: 8 }}>{addonBefore}</div> : null}
+                <div
+                  style={{
+                    flex: 1,
+                  }}
+                >
+                  {doms.input}
+                </div>
+                {addonAfter ? <div style={{ marginLeft: 8 }}>{addonAfter}</div> : null}
+              </div>
+              {doms.extra}
+              {doms.errorList}
+            </>
+          ),
+        }}
+        {...props}
+      >
+        {children}
       </Form.Item>
     );
   }, [addonAfter, addonBefore, children, props]);
