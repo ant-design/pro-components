@@ -7,7 +7,6 @@ import useLazyKVMap from 'antd/lib/table/hooks/useLazyKVMap';
 import { LoadingOutlined } from '@ant-design/icons';
 import { useIntl } from '@ant-design/pro-provider';
 import { message, Popconfirm } from 'antd';
-import ReactDOM from 'react-dom';
 import set from 'rc-util/lib/utils/set';
 import useMountMergeState from '../useMountMergeState';
 import ProFormContext from '../components/ProFormContext';
@@ -530,16 +529,13 @@ function useEditableArray<RecordType>(
       cancelEditable(key, false);
       return;
     }
-    // 防止多次渲染
-    ReactDOM.unstable_batchedUpdates(() => {
-      /** 如果这个是 new Line 直接删除 */
-      if (newLineRecordCache && newLineRecordCache.options.recordKey === recordKey) {
-        setNewLineRecordCache(undefined);
-      }
-      editableKeysSet.delete(relayKey);
-      editableKeysSet.delete(recordKeyToString(recordKey));
-      setEditableRowKeys(Array.from(editableKeysSet));
-    });
+    /** 如果这个是 new Line 直接删除 */
+    if (newLineRecordCache && newLineRecordCache.options.recordKey === recordKey) {
+      setNewLineRecordCache(undefined);
+    }
+    editableKeysSet.delete(relayKey);
+    editableKeysSet.delete(recordKeyToString(recordKey));
+    setEditableRowKeys(Array.from(editableKeysSet));
     return true;
   };
 
@@ -627,40 +623,38 @@ function useEditableArray<RecordType>(
     }
 
     // 防止多次渲染
-    ReactDOM.unstable_batchedUpdates(() => {
-      const recordKey = props.getRowKey(row, props.dataSource.length);
-      editableKeysSet.add(recordKey);
-      setEditableRowKeys(Array.from(editableKeysSet));
+    const recordKey = props.getRowKey(row, props.dataSource.length);
+    editableKeysSet.add(recordKey);
+    setEditableRowKeys(Array.from(editableKeysSet));
 
-      // 如果是dataSource 新增模式的话，取消再开始编辑，
-      // 这样就可以把新增到 dataSource的数据进入编辑模式了
-      // [a,b,cache] => [a,b,c]
-      if (options?.newRecordType === 'dataSource') {
-        const actionProps = {
-          data: props.dataSource,
-          getRowKey: props.getRowKey,
-          row: {
-            ...row,
-            map_row_parentKey: options?.parentKey
-              ? recordKeyToString(options?.parentKey)?.toString()
-              : undefined,
-          },
-          key: recordKey,
-          childrenColumnName: props.childrenColumnName || 'children',
-        };
-        props.setDataSource(
-          editableRowByKey(actionProps, options?.position === 'top' ? 'top' : 'update'),
-        );
-      } else {
-        setNewLineRecordCache({
-          defaultValue: row,
-          options: {
-            ...options,
-            recordKey,
-          },
-        });
-      }
-    });
+    // 如果是dataSource 新增模式的话，取消再开始编辑，
+    // 这样就可以把新增到 dataSource的数据进入编辑模式了
+    // [a,b,cache] => [a,b,c]
+    if (options?.newRecordType === 'dataSource') {
+      const actionProps = {
+        data: props.dataSource,
+        getRowKey: props.getRowKey,
+        row: {
+          ...row,
+          map_row_parentKey: options?.parentKey
+            ? recordKeyToString(options?.parentKey)?.toString()
+            : undefined,
+        },
+        key: recordKey,
+        childrenColumnName: props.childrenColumnName || 'children',
+      };
+      props.setDataSource(
+        editableRowByKey(actionProps, options?.position === 'top' ? 'top' : 'update'),
+      );
+    } else {
+      setNewLineRecordCache({
+        defaultValue: row,
+        options: {
+          ...options,
+          recordKey,
+        },
+      });
+    }
     return true;
   };
 
