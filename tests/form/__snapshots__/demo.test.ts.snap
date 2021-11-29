@@ -6040,7 +6040,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
   >
     <div
       class="ant-pro-card-col ant-pro-card-split-vertical"
-      style="flex-shrink: 0;"
+      style="width: calc(100% - 400px); flex-shrink: 0;"
     >
       <div
         class="ant-pro-card"
@@ -30706,6 +30706,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                       </div>
                       <div
                         class="ant-pro-footer-bar"
+                        style="width: calc(100% - 48px);"
                       >
                         <div
                           class="ant-pro-footer-bar-left"

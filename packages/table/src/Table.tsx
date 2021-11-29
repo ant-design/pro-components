@@ -310,6 +310,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   );
 }
 
+const emptyObj = {};
 const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
     defaultClassName: string;
@@ -319,7 +320,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     cardBordered,
     request,
     className: propsClassName,
-    params = {},
+    params = emptyObj,
     defaultData,
     headerTitle,
     postData,
@@ -458,13 +459,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     },
   });
   // ============================ END ============================
-
-  /** Params变化时，触发分页的变化 */
-  useEffect(() => {
-    action.setPageInfo({
-      current: 1,
-    });
-  }, [params]);
 
   /** SelectedRowKeys受控处理selectRows */
   const preserveRecordsRef = React.useRef(new Map<any, T>());

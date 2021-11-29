@@ -13,7 +13,7 @@ describe('polling', () => {
         size="small"
         cardBordered
         columns={columns}
-        polling={2000}
+        polling={1500}
         request={async () => {
           fn();
           return Promise.resolve({
@@ -27,15 +27,14 @@ describe('polling', () => {
     );
     await waitForComponentToPaint(html, 1000);
     expect(fn).toBeCalledTimes(1);
-
-    await waitForComponentToPaint(html, 2000);
+    await waitForComponentToPaint(html, 1500);
 
     expect(fn).toBeCalledTimes(2);
 
     act(() => {
       html.unmount();
     });
-    await waitForComponentToPaint(html, 2000);
+    await waitForComponentToPaint(html, 1500);
 
     expect(fn).toBeCalledTimes(2);
   });

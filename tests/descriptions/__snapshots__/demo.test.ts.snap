@@ -972,7 +972,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/dynam
   >
     <div
       class="ant-pro-card-col ant-pro-card-split-vertical"
-      style="flex-shrink: 0;"
+      style="width: calc(100% - 500px); flex-shrink: 0;"
     >
       <div
         class="ant-pro-card"
