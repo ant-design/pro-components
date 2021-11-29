@@ -25616,6 +25616,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
           >
             <label
               class="ant-form-item-required"
+              for="name"
               title="签约客户名称"
             >
               签约客户名称
@@ -25648,23 +25649,23 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
             class="ant-col ant-form-item-control"
           >
             <div
-              class="ant-form-item-control-input"
+              style="display: flex; align-items: center;"
             >
               <div
-                class="ant-form-item-control-input-content"
+                style="margin-right: 8px;"
+              >
+                <a>
+                  客户名称应该怎么获得？
+                </a>
+              </div>
+              <div
+                style="flex: 1;"
               >
                 <div
-                  style="display: flex; align-items: center;"
+                  class="ant-form-item-control-input"
                 >
                   <div
-                    style="margin-right: 8px;"
-                  >
-                    <a>
-                      客户名称应该怎么获得？
-                    </a>
-                  </div>
-                  <div
-                    style="flex: 1;"
+                    class="ant-form-item-control-input-content"
                   >
                     <span
                       class="ant-input-affix-wrapper pro-field pro-field-md"
@@ -25702,14 +25703,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                       </span>
                     </span>
                   </div>
-                  <div
-                    style="margin-left: 8px;"
-                  >
-                    <a>
-                      点击查看更多
-                    </a>
-                  </div>
                 </div>
+              </div>
+              <div
+                style="margin-left: 8px;"
+              >
+                <a>
+                  点击查看更多
+                </a>
               </div>
             </div>
           </div>
