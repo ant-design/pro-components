@@ -163,7 +163,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | headerContentRender | Custom header content methods | `(props: BasicLayoutProps) => ReactNode` | - |
 | rightContentRender | Custom render method for the right part of the header | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | Custom method for collapsed button | `(collapsed: boolean) => ReactNode` | - |
-| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => JSX.Element | false` | - |
+| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => JSX.Element \| false` | - |
 | pageTitleRender | The render method for custom page titles | `(props: BasicLayoutProps) => ReactNode` | - |
 | menuRender | The render method for custom menus | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | View the menu data before displaying it, changes will not trigger a re-render | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
@@ -224,10 +224,8 @@ GridContent encapsulates the [equal-width](https://preview.pro.ant.design/dashbo
 Generate menuData and breadcrumb based on router information.
 
 ```js | pure import { getMenuData } from '@ant-design/pro-layout';
-
 const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDataRender);
-
-````
+```
 
 | parameters | description | type | default |
 | --- | --- | --- | --- |
@@ -250,7 +248,7 @@ const title = getPageTitle({
   title,
   formatMessage,
 });
-````
+```
 
 | parameters | description | type | default |
 | --- | --- | --- | --- |
