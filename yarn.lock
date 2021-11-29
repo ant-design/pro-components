@@ -100,8 +100,8 @@
 
 "@babel/core@>=7.9.0", "@babel/core@^7.1.0", "@babel/core@^7.12.10", "@babel/core@^7.12.16", "@babel/core@^7.12.3", "@babel/core@^7.16.0", "@babel/core@^7.7.2", "@babel/core@^7.7.5":
   version "7.16.0"
-  resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.16.0.tgz#c4ff44046f5fe310525cc9eb4ef5147f0c5374d4"
-  integrity sha512-mYZEvshBRHGsIAiyH5PzCFTCfbWfoYbO/jcSdXQSUQu1/pW0xDZAUP7KEc32heqWTAfAHhV9j1vH8Sav7l+JNQ==
+  resolved "https://registry.npmmirror.com/@babel/core/download/@babel/core-7.16.0.tgz#c4ff44046f5fe310525cc9eb4ef5147f0c5374d4"
+  integrity sha1-xP9EBG9f4xBSXMnrTvUUfwxTdNQ=
   dependencies:
     "@babel/code-frame" "^7.16.0"
     "@babel/generator" "^7.16.0"
@@ -1112,7 +1112,7 @@
 
 "@babel/preset-env@^7.12.1", "@babel/preset-env@^7.12.11", "@babel/preset-env@^7.16.4":
   version "7.16.4"
-  resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.16.4.tgz#4f6ec33b2a3fe72d6bfdcdf3859500232563a2e3"
+  resolved "https://registry.npmmirror.com/@babel/preset-env/download/@babel/preset-env-7.16.4.tgz?cache=0&sync_timestamp=1637103615805&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40babel%2Fpreset-env%2Fdownload%2F%40babel%2Fpreset-env-7.16.4.tgz#4f6ec33b2a3fe72d6bfdcdf3859500232563a2e3"
   integrity sha512-v0QtNd81v/xKj4gNKeuAerQ/azeNn/G1B1qMLeXOcV8+4TWlD2j3NV1u8q29SDFBXx/NBq5kyEAO+0mpRgacjA==
   dependencies:
     "@babel/compat-data" "^7.16.4"
@@ -3428,7 +3428,7 @@
 
 "@types/jest@^27.0.3":
   version "27.0.3"
-  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-27.0.3.tgz#0cf9dfe9009e467f70a342f0f94ead19842a783a"
+  resolved "https://registry.npmmirror.com/@types/jest/download/@types/jest-27.0.3.tgz?cache=0&sync_timestamp=1637262460069&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Fjest%2Fdownload%2F%40types%2Fjest-27.0.3.tgz#0cf9dfe9009e467f70a342f0f94ead19842a783a"
   integrity sha512-cmmwv9t7gBYt7hNKH5Spu7Kuu/DotGa+Ff+JGRKZ4db5eh8PnKS4LuebJ3YLUoyOyIHraTGyULn23YtEAm0VSg==
   dependencies:
     jest-diff "^27.0.0"
@@ -5222,8 +5222,8 @@ babel-jest@^26.6.3:
 
 babel-jest@^27.3.1:
   version "27.3.1"
-  resolved "https://registry.yarnpkg.com/babel-jest/-/babel-jest-27.3.1.tgz#0636a3404c68e07001e434ac4956d82da8a80022"
-  integrity sha512-SjIF8hh/ir0peae2D6S6ZKRhUy7q/DnpH7k/V6fT4Bgs/LXXUztOpX4G2tCgq8mLo5HA9mN6NmlFMeYtKmIsTQ==
+  resolved "https://registry.npmmirror.com/babel-jest/download/babel-jest-27.3.1.tgz?cache=0&sync_timestamp=1634626745680&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fbabel-jest%2Fdownload%2Fbabel-jest-27.3.1.tgz#0636a3404c68e07001e434ac4956d82da8a80022"
+  integrity sha1-BjajQExo4HAB5DSsSVbYLaioACI=
   dependencies:
     "@jest/transform" "^27.3.1"
     "@jest/types" "^27.2.5"
