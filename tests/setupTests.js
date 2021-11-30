@@ -131,16 +131,6 @@ fetch.mockResponse(async () => {
   return { body: JSON.stringify(tableData) };
 });
 
-Object.assign(Enzyme.ReactWrapper.prototype, {
-  findObserver() {
-    return this.find('ResizeObserver');
-  },
-  triggerResize() {
-    const ob = this.findObserver();
-    ob?.instance()?.onResize?.([{ target: ob.getDOMNode() }]);
-  },
-});
-
 // @ts-ignore-next-line
 global.Worker = class {
   constructor(stringUrl) {
