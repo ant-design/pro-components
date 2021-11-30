@@ -137,7 +137,7 @@ Object.assign(Enzyme.ReactWrapper.prototype, {
   },
   triggerResize() {
     const ob = this.findObserver();
-    ob.instance().onResize([{ target: ob.getDOMNode() }]);
+    ob?.instance()?.onResize?.([{ target: ob.getDOMNode() }]);
   },
 });
 
