@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.20...@ant-design/pro-provider@1.5.0) (2021-11-30)
+
+### Features
+
+- **table:** support revalidateOnFocus ([#4120](https://github.com/ant-design/pro-components/issues/4120)) ([1046109](https://github.com/ant-design/pro-components/commit/104610914eedfecd88ceb2e38d86c47ff8b2fc89))
+
 ## [1.4.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.19...@ant-design/pro-provider@1.4.20) (2021-10-15)
 
 **Note:** Version bump only for package @ant-design/pro-provider

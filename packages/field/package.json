@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-field",
-  "version": "1.27.1",
+  "version": "1.28.0",
   "description": "原子信息组件，统一 ProForm、ProTable、ProList、Filter 等组件里面的字段定义。",
   "homepage": "https://github.com/ant-design/pro-components/tree/master/packages/plugin-layout#readme",
   "bugs": "https://github.com/ant-design/pro-components/issues",
@@ -28,10 +28,10 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "@babel/runtime": "^7.16.3",
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-provider": "1.4.20",
-    "@ant-design/pro-utils": "1.28.4",
+    "@ant-design/pro-provider": "1.5.0",
+    "@ant-design/pro-utils": "1.28.5",
+    "@babel/runtime": "^7.16.3",
     "classnames": "^2.2.6",
     "lodash.tonumber": "^4.0.3",
     "moment": "^2.27.0",

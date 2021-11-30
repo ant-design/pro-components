@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.59.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.58.1...@ant-design/pro-table@2.59.0) (2021-11-30)
+
+### Bug Fixes
+
+- **table:** ProTable 中 配置了 params， 通过改变 params 来重新请求数据时，页码没有从第一页开始 ([#4142](https://github.com/ant-design/pro-components/issues/4142)) ([57ed4fc](https://github.com/ant-design/pro-components/commit/57ed4fcb9c6d93bb50ff8a750c2cd8db4a4a407b))
+
+### Features
+
+- **table:** support revalidateOnFocus ([#4120](https://github.com/ant-design/pro-components/issues/4120)) ([1046109](https://github.com/ant-design/pro-components/commit/104610914eedfecd88ceb2e38d86c47ff8b2fc89))
+
 ## [2.58.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.58.0...@ant-design/pro-table@2.58.1) (2021-11-23)
 
 **Note:** Version bump only for package @ant-design/pro-table
