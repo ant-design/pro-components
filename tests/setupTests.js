@@ -1,15 +1,24 @@
 import MockDate from 'mockdate';
 import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import 'jest-canvas-mock';
 import moment from 'moment-timezone';
 
 import { enableFetchMocks } from 'jest-fetch-mock';
 import tableData from './table/mock.data.json';
 
+import React from 'react';
+
+global.React = React;
+
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useLayoutEffect: jest.requireActual('react').useEffect,
 }));
+
+jest.setTimeout(60000);
+
+Enzyme.configure({ adapter: new Adapter() });
 
 const eventListener = {};
 /* eslint-disable global-require */

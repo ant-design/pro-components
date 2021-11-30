@@ -2972,7 +2972,7 @@ exports[`skeleton 🥩 list api use 1`] = `
           </div>
         </div>
         <div
-          style="padding-left: 42px; flex: 1; margin-right: 0px;"
+          style="border-left: 1px solid rgba(0,0,0,0.06); padding-left: 42px; flex: 1; margin-right: 0px;"
         >
           <div
             class="ant-skeleton ant-skeleton-active"

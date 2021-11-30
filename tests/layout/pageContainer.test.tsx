@@ -348,7 +348,7 @@ describe('PageContainer', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🌛 PageContainer with custom loading', async (done) => {
+  it('🌛 PageContainer with custom loading', async () => {
     const App = () => {
       const loadingDom = useMemo(
         () => (
@@ -380,11 +380,8 @@ describe('PageContainer', () => {
     expect(wrapper.find('#customLoading').length).toBe(1);
     const html = wrapper.render();
     expect(html).toMatchSnapshot();
-    act(() => {
-      setTimeout(() => {
-        expect(wrapper.find('#customLoading').length).toBe(0);
-      }, 1000);
-      done();
-    });
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(wrapper.find('#customLoading').length).toBe(0);
   });
 });
