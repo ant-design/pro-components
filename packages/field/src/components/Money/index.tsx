@@ -110,7 +110,15 @@ const InputNumberPopover = React.forwardRef<
     value,
   });
   return (
-    <Popover placement="topLeft" visible={dom ? undefined : false} trigger="focus" content={dom}>
+    <Popover
+      placement="topLeft"
+      visible={dom ? undefined : false}
+      trigger="focus"
+      content={dom}
+      getPopupContainer={(triggerNode) => {
+        return triggerNode?.parentElement || document.body;
+      }}
+    >
       <InputNumber ref={ref} {...rest} value={value} onChange={onChange} />
     </Popover>
   );
