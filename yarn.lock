@@ -3557,7 +3557,7 @@
     "@types/react" "*"
     "@types/reactcss" "*"
 
-"@types/react-dom@^16.9.1", "@types/react-dom@^16.9.8":
+"@types/react-dom@^16.9.8":
   version "16.9.14"
   resolved "https://registry.npmmirror.com/@types/react-dom/download/@types/react-dom-16.9.14.tgz?cache=0&sync_timestamp=1637269988464&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2F%40types%2Freact-dom%2Fdownload%2F%40types%2Freact-dom-16.9.14.tgz#674b8f116645fe5266b40b525777fc6bb8eb3bcd"
   integrity sha1-Z0uPEWZF/lJmtAtSV3f8a7jrO80=
@@ -3644,7 +3644,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16 || 17", "@types/react@^16", "@types/react@^16.9.17", "@types/react@^16.9.43":
+"@types/react@*", "@types/react@16 || 17", "@types/react@^16", "@types/react@^16.9.43":
   version "16.14.21"
   resolved "https://registry.npmmirror.com/@types/react/download/@types/react-16.14.21.tgz#35199b21a278355ec7a3c40003bd6a334bd4ae4a"
   integrity sha512-rY4DzPKK/4aohyWiDRHS2fotN5rhBSK6/rz1X37KzNna9HJyqtaGAbq9fVttrEPWF5ywpfIP1ITL8Xi2QZn6Eg==
@@ -16154,7 +16154,12 @@ prettier-plugin-two-style-order@^1.0.0:
     postcss-less "^4.0.0"
     postcss-sorting "6.0.0"
 
-prettier@2.2.1, prettier@2.x, prettier@^2.2.1, prettier@^2.3.2:
+prettier@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.npmmirror.com/prettier/download/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
+  integrity sha1-eVoaeN1S8HPaDNQrIfnJE4GSP/U=
+
+prettier@^2.2.1, prettier@^2.3.2:
   version "2.5.0"
   resolved "https://registry.npmmirror.com/prettier/download/prettier-2.5.0.tgz#a6370e2d4594e093270419d9cc47f7670488f893"
   integrity sha512-FM/zAKgWTxj40rH03VxzIPdXmj39SwSjwG0heUcNFwI+EMZJnY93yAiKXM3dObIKAM5TA88werc8T/EwhB45eg==
@@ -16666,6 +16671,15 @@ rc-dropdown@^3.2.0, rc-dropdown@~3.2.0:
     "@babel/runtime" "^7.10.1"
     classnames "^2.2.6"
     rc-trigger "^5.0.4"
+
+rc-field-form@^1.22.0:
+  version "1.22.0"
+  resolved "https://registry.npmmirror.com/rc-field-form/download/rc-field-form-1.22.0.tgz?cache=0&sync_timestamp=1636523064276&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Frc-field-form%2Fdownload%2Frc-field-form-1.22.0.tgz#4a4950d7beaef2859245c82059feae4883c89395"
+  integrity sha512-IQBNeF4i64lBNLz8HbfXqUpAnrpBtfu2xU6q/wXMfdQm1AfKjiHyMNOxmiA5ZKMOOQPi+YOSzDbictfQP94hUA==
+  dependencies:
+    "@babel/runtime" "^7.8.4"
+    async-validator "^4.0.2"
+    rc-util "^5.8.0"
 
 rc-field-form@~1.21.0:
   version "1.21.2"
@@ -19990,7 +20004,7 @@ typescript-transform-paths@^3.3.1:
   dependencies:
     minimatch "^3.0.4"
 
-typescript@4.x, typescript@^4.0.5, typescript@^4.1.2, typescript@^4.3.5:
+typescript@^4.0.5, typescript@^4.1.2, typescript@^4.3.5:
   version "4.5.2"
   resolved "https://registry.npmmirror.com/typescript/download/typescript-4.5.2.tgz#8ac1fba9f52256fdb06fb89e4122fa6a346c2998"
   integrity sha512-5BlMof9H1yGt0P8/WF+wPNw6GfctgGjXp5hkblpyT+8rkASSmkUKMXrxR0Xg8ThVCi/JnHQiKXeBaEwCeQwMFw==
