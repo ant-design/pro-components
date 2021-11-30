@@ -61,7 +61,7 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | onCollapse | 切换表单折叠状态时的回调 | `(collapsed)=>void` | - |
 | hideRequiredMark | 隐藏所有表单项的必选标记，**默认隐藏** | `boolean` | true |
 | defaultColsNumber | 自定义折叠状态下默认显示的表单控件数量，没有设置或小于 0，则显示一行控件; 数量大于等于控件数量则隐藏展开按钮 | `number` | - |
-| labelWidth | label 宽度 | `number` \| `'auto'` | `98` |
+| labelWidth | label 宽度 | `number` \| `'auto'` | `80` |
 | span | 表单项宽度 | `number[0 - 24]` | - |
 | split | 每一行是否有分割线 | `boolean` | - |
 | preserve | 是否能够查询收起的数据，如果设置为 true，收起后的表单数据将会丢失 | `boolean` | true |
@@ -94,7 +94,7 @@ QueryFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 
 | 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | collapse | 是否默认折叠全部字段 | `boolean` | `false` |
 | collapseLabel | 折叠区域的标签 | `ReactNode` | `更多筛选 <DownOutlined/>` |
 | footerRender | 底部内容，当不需要默认底部按钮时，可以设为 footer={false} | `(onClear?: () => void, onConfirm: () => void) => JSX.Element | false)`\|`false` | - |
