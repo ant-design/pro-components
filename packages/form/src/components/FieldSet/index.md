@@ -364,24 +364,26 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 <ProFormCascader
   name="area"
   label="区域"
-  options={[
-    {
-      value: 'zhejiang',
-      label: 'Zhejiang',
-      children: [
-        {
-          value: 'hangzhou',
-          label: 'Hangzhou',
-          children: [
-            {
-              value: 'xihu',
-              label: 'West Lake',
-            },
-          ],
-        },
-      ],
-    },
-  ]}
+  fieldProps={{
+    options: [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: [
+              {
+                value: 'xihu',
+                label: 'West Lake',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  }}
 />
 ```
 
