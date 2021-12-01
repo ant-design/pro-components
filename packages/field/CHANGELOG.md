@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.28.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.1...@ant-design/pro-field@1.28.2) (2021-12-01)
+
+### Bug Fixes
+
+- **form:** fix RangePicker format is string,will error ([#4169](https://github.com/ant-design/pro-components/issues/4169)) ([996b806](https://github.com/ant-design/pro-components/commit/996b80680c12c27c87ecb9b14faaac9ed5685898))
+
 ## [1.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.0...@ant-design/pro-field@1.28.1) (2021-12-01)
 
 ### Bug Fixes
