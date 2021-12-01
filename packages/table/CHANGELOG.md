@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.59.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.59.0...@ant-design/pro-table@2.59.1) (2021-12-01)
+
+### Bug Fixes
+
+- **table:** if form.ignoreRules disable auto reload ([#4158](https://github.com/ant-design/pro-components/issues/4158)) ([8378a19](https://github.com/ant-design/pro-components/commit/8378a199022ba7562d233f9e31ae6f6cdbc3cfa2))
+
 # [2.59.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.58.1...@ant-design/pro-table@2.59.0) (2021-11-30)
 
 ### Bug Fixes

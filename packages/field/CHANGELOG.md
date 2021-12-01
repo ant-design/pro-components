@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.0...@ant-design/pro-field@1.28.1) (2021-12-01)
+
+### Bug Fixes
+
+- **form:** change numberPopoverRender render dom ([#4161](https://github.com/ant-design/pro-components/issues/4161)) ([8280d6c](https://github.com/ant-design/pro-components/commit/8280d6c962759c05a2e58d39c915df6e54c83f07))
+
 # [1.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.27.1...@ant-design/pro-field@1.28.0) (2021-11-30)
 
 ### Features
