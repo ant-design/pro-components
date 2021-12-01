@@ -98,7 +98,7 @@ export default () => {
       }}
       polling={polling || undefined}
       request={async () => {
-        await timeAwait(2000);
+        await timeAwait(1000);
         setTime(Date.now());
         return {
           data: tableListDataSource,
