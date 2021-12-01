@@ -2,6 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import Field from '@ant-design/pro-field';
+import { render } from '@testing-library/react';
 import moment from 'moment';
 import { waitForComponentToPaint } from '../util';
 
@@ -34,5 +35,25 @@ describe('Field', () => {
       await waitForComponentToPaint(html, 100);
       expect(fn).toBeCalled();
     });
+  });
+
+  it(`📅  RangePicker support format is function`, async () => {
+    const fn = jest.fn();
+    const html = render(
+      <Field
+        mode="read"
+        fieldProps={{
+          format: () => 'YYYY-MM-DD HH:mm:ss',
+        }}
+        onChange={fn}
+        text={[moment(), moment().add(1, 'd')]}
+        light
+        valueType="dateRange"
+      />,
+    );
+
+    expect(html.baseElement.innerHTML).toBe(
+      '<div><div><div>2016-11-22 07:22:44</div><div>2016-11-23 07:22:44</div></div></div>',
+    );
   });
 });

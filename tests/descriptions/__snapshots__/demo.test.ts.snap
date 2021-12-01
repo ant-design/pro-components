@@ -2624,40 +2624,176 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/edita
 exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/format.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-result ant-result-error"
+    class="ant-descriptions ant-pro-descriptions"
   >
     <div
-      class="ant-result-icon"
+      class="ant-descriptions-header"
     >
-      <span
-        aria-label="close-circle"
-        class="anticon anticon-close-circle"
-        role="img"
+      <div
+        class="ant-descriptions-title"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="close-circle"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <div
+          class="ant-pro-core-label-tip"
         >
-          <path
-            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
-          />
-        </svg>
-      </span>
+          <div
+            class="ant-pro-core-label-tip-title"
+          >
+            高级定义列表
+          </div>
+          <span
+            class="ant-pro-core-label-tip-icon"
+          >
+            <span
+              aria-label="info-circle"
+              class="anticon anticon-info-circle"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="info-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                />
+                <path
+                  d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                />
+              </svg>
+            </span>
+          </span>
+        </div>
+      </div>
     </div>
     <div
-      class="ant-result-title"
+      class="ant-descriptions-view"
     >
-      Something went wrong.
-    </div>
-    <div
-      class="ant-result-extra"
-    >
-      _fieldProps$format.call is not a function
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  日期
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  2016.11.22
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  日期区间
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div>
+                    <div>
+                      2016.11.21 00:00:00
+                    </div>
+                    <div>
+                      2016.11.22 00:00:00
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  时间
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
+                    2016.11.22
+                  </span>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  时间日期
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  2016.11.22 00:00:00
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="2"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  更新时间
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
+                    a month ago
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </DocumentFragment>

@@ -1,5 +1,5 @@
 import { DatePicker } from 'antd';
-import React from 'react';
+import React, { useCallback } from 'react';
 import moment from 'moment';
 import { parseValueToMoment } from '@ant-design/pro-utils';
 import { useIntl } from '@ant-design/pro-provider';
@@ -17,16 +17,21 @@ const FieldRangePicker: ProFieldFC<{
 }> = ({ text, mode, format, render, renderFormItem, plain, showTime, fieldProps }, ref) => {
   const intl = useIntl();
   const [startText, endText] = Array.isArray(text) ? text : [];
+  const genFormatText = useCallback(
+    (formatValue: moment.Moment) => {
+      if (typeof fieldProps?.format === 'function') {
+        return fieldProps?.format?.(formatValue);
+      }
+      return fieldProps?.format || format || 'YYYY-MM-DD';
+    },
+    [fieldProps, format],
+  );
   // activePickerIndex for https://github.com/ant-design/ant-design/issues/22158
   const parsedStartText: string = startText
-    ? moment(startText).format(
-        fieldProps?.format?.(moment(startText)) || fieldProps?.format || format || 'YYYY-MM-DD',
-      )
+    ? moment(startText).format(genFormatText(moment(startText)))
     : '';
   const parsedEndText: string = endText
-    ? moment(endText).format(
-        fieldProps?.format?.(moment(endText)) || fieldProps?.format || format || 'YYYY-MM-DD',
-      )
+    ? moment(endText).format(genFormatText(moment(endText)))
     : '';
 
   if (mode === 'read') {
