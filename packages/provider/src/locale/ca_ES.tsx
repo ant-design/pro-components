@@ -22,10 +22,10 @@ export default {
     },
   },
   tableToolBar: {
-    leftPin: 'Pin a l''esquerra',
+    leftPin: 'Pin a l\'esquerra',
     rightPin: 'Pin a la dreta',
     noPin: 'Sense Pin',
-    leftFixedTitle: 'Fixat a l''esquerra',
+    leftFixedTitle: 'Fixat a l\'esquerra',
     rightFixedTitle: 'Fixat a la dreta',
     noFixedTitle: 'Sense fixar',
     reset: 'Reiniciar',
