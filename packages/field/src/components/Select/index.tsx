@@ -320,14 +320,13 @@ export const useFieldFetchData = (
     return proFieldKeyRef.current;
   }, [props.request]);
 
-  const { data, mutate: setLocaleData } = useSWR<any>(
+  const { data, mutate: setLocaleData } = useSWR(
     [key, props.params, keyWords],
-    (_, params, kw) => {
-      return fetchData({
-        ...(params as Record<string, any>),
+    (_, params, kw) =>
+      fetchData({
+        ...params,
         keyWords: kw,
-      });
-    },
+      }),
     {
       revalidateOnFocus: false,
       shouldRetryOnError: false,
