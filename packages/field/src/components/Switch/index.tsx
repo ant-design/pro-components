@@ -36,6 +36,8 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
       <Switch
         ref={ref}
         {...Omit(fieldProps, ['value'])}
+        // 忽略宽度 Switch 不允许给宽度
+        style={{ ...Omit(fieldProps?.style, ['width']) }}
         checked={fieldProps?.checked || fieldProps?.value}
       />
     );

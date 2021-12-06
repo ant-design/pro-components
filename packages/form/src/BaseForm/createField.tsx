@@ -107,12 +107,6 @@ function createField<P extends ProFormFieldItemProps = any>(
     );
     const ignoreWidthValueType = ['switch', 'radioButton', 'radio', 'rate'];
 
-    const realFieldPropsStyle = {
-      ...realFieldProps?.style,
-    };
-    if (realFieldPropsStyle.width !== undefined && (rest as any).valueType === 'switch') {
-      delete realFieldPropsStyle.width;
-    }
     const field = (
       <Field
         // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
@@ -123,7 +117,7 @@ function createField<P extends ProFormFieldItemProps = any>(
           ...realFieldProps,
           style: omitUndefined({
             width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
-            ...realFieldPropsStyle,
+            ...realFieldProps?.style,
           }),
           className:
             classnames(realFieldProps?.className, {
