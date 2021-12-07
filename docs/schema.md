@@ -68,6 +68,7 @@ valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映
 | `image`         | 图片                         |
 | `jsonCode`      | 代码框，但是带了 json 格式化 |
 | `color`         | 颜色选择器                   |
+| `cascader`      | 级联选择器                   |
 
 这里 demo 可以来了解一下各个 valueType 的展示效果。
 
