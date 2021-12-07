@@ -18,7 +18,7 @@ import type {
 } from '@ant-design/pro-utils';
 
 import { useDebounceFn, useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
-import useSWR, { mutate } from 'swr';
+import useSWR from 'swr';
 import { useIntl } from '@ant-design/pro-provider';
 
 import LightSelect from './LightSelect';
@@ -313,21 +313,18 @@ export const useFieldFetchData = (
     props.debounceTime ?? 10,
   );
 
-  const key = useMemo(() => {
-    if (!props.request) {
-      return 'no-fetch';
-    }
-    return proFieldKeyRef.current;
-  }, [props.request]);
-
-  const { data, mutate: setLocaleData } = useSWR<any>(
-    [key, props.params, keyWords],
-    (_, params, kw) => {
-      return fetchData({
-        ...(params as Record<string, any>),
-        keyWords: kw,
-      });
+  const { data, mutate: setLocaleData } = useSWR(
+    () => {
+      if (!props.request) {
+        return null;
+      }
+      return [proFieldKeyRef.current, props.params, keyWords];
     },
+    (_, params, kw) =>
+      fetchData({
+        ...params,
+        keyWords: kw,
+      }),
     {
       revalidateOnFocus: false,
       shouldRetryOnError: false,
@@ -374,7 +371,7 @@ export const useFieldFetchData = (
     props.request ? (data as OptionsType) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
-      mutate(key);
+      setLocaleData();
     },
     () => {
       setKeyWords(undefined);
