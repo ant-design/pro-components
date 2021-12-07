@@ -310,6 +310,7 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
         actionRef: next.actionRef,
         toolBarRender: next.toolBarRender,
       },
+      ['render', 'renderFormItem'],
     );
   };
   shouldComponentUpdate = (next: ToolbarRenderProps<T>) => {

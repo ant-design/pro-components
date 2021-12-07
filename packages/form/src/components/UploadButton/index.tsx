@@ -49,7 +49,6 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
     (max === undefined || !value || value?.length < max) && proFieldProps?.mode !== 'read';
 
   const isPictureCard = (listType ?? fieldProps?.listType) === 'picture-card';
-
   return (
     <Upload
       action={action}
@@ -62,9 +61,7 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
       {...fieldProps}
       onChange={(info) => {
         onChange?.(info);
-        if (fieldProps?.onChange) {
-          fieldProps?.onChange(info);
-        }
+        fieldProps?.onChange?.(info);
       }}
     >
       {showUploadButton &&
