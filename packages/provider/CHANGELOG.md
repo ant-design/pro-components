@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.0...@ant-design/pro-provider@1.5.1) (2021-12-07)
+
+### Bug Fixes
+
+- simplify swr usage ([#4181](https://github.com/ant-design/pro-components/issues/4181)) ([ed66732](https://github.com/ant-design/pro-components/commit/ed6673272882af09287eb87457df2a8ca9daf7f1))
+
 # [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.20...@ant-design/pro-provider@1.5.0) (2021-11-30)
 
 ### Features
