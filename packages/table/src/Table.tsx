@@ -716,7 +716,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         tableColumn={tableColumn}
         tooltip={tooltip}
         toolbar={toolbar}
-        onFormSearchSubmit={setFormSearch}
+        onFormSearchSubmit={(newValues) => {
+          setFormSearch({
+            ...formSearch,
+            ...newValues,
+          });
+        }}
         searchNode={isLightFilter ? searchNode : null}
         options={options}
         actionRef={actionRef}

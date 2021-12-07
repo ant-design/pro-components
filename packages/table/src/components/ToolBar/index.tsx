@@ -265,7 +265,6 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
 
     onFormSearchSubmit(
       omitUndefined({
-        // ...formSearch,
         _timestamp: Date.now(),
         [name]: keyword,
       }),
