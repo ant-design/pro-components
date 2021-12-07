@@ -19,16 +19,16 @@ function useDeepCompareMemoize(value: any, ignoreKeys?: string[]) {
 
 function useDeepCompareEffect(
   effect: React.EffectCallback,
-  dependencies: DependencyList = [],
+  dependencies: DependencyList,
   ignoreKeys?: string[],
 ) {
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(effect, useDeepCompareMemoize(dependencies, ignoreKeys));
+  useEffect(effect, useDeepCompareMemoize(dependencies || [], ignoreKeys));
 }
 
 function useDeepCompareEffectDebounce(
   effect: React.EffectCallback,
-  dependencies: DependencyList = [],
+  dependencies: DependencyList,
   ignoreKeys?: string[],
   waitTime?: number,
 ) {
@@ -42,7 +42,7 @@ function useDeepCompareEffectDebounce(
   useEffect(() => {
     effectDn.run();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, useDeepCompareMemoize(dependencies, ignoreKeys));
+  }, useDeepCompareMemoize(dependencies || [], ignoreKeys));
 }
 export { useDeepCompareEffectDebounce };
 export default useDeepCompareEffect;
