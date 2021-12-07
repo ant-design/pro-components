@@ -494,7 +494,7 @@ describe('EditorProTable', () => {
         });
     });
 
-    waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 100);
 
     expect(onChange).toBeCalled();
     expect(onChange).toBeCalledWith({
@@ -571,7 +571,7 @@ describe('EditorProTable', () => {
         });
     });
 
-    waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 100);
 
     expect(onChange).toBeCalled();
     expect(onChange).toBeCalledWith({
@@ -648,7 +648,7 @@ describe('EditorProTable', () => {
         });
     });
 
-    waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 100);
 
     expect(onChange).toBeCalled();
     expect(onChange).toBeCalledWith({
@@ -684,10 +684,6 @@ describe('EditorProTable', () => {
           rowKey="id"
           controlled
           name="table"
-          recordCreatorProps={{
-            creatorButtonText: '测试添加数据',
-            record: { id: 9999 },
-          }}
           editable={{
             editableKeys: ['624748504'],
           }}
@@ -695,7 +691,7 @@ describe('EditorProTable', () => {
         />
       </ProForm>,
     );
-
+    await waitForComponentToPaint(wrapper, 100);
     act(() => {
       wrapper
         .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
@@ -707,7 +703,7 @@ describe('EditorProTable', () => {
         });
     });
 
-    waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 100);
 
     expect(onChange).toBeCalled();
     expect(onChange).toBeCalledWith(
@@ -789,7 +785,7 @@ describe('EditorProTable', () => {
           },
         });
     });
-
+    await waitForComponentToPaint(wrapper, 100);
     expect(fn).toBeCalledWith(624748504);
 
     wrapper.unmount();
@@ -835,7 +831,7 @@ describe('EditorProTable', () => {
           },
         });
     });
-
+    await waitForComponentToPaint(wrapper, 100);
     expect(fn).toBeCalledWith('02');
     wrapper.unmount();
   });
@@ -932,6 +928,7 @@ describe('EditorProTable', () => {
           },
         });
     });
+    await waitForComponentToPaint(wrapper, 100);
     expect(onValueChangeFn).toBeCalledWith('1223');
     wrapper.unmount();
   });
@@ -1001,7 +998,7 @@ describe('EditorProTable', () => {
           },
         });
     });
-
+    await waitForComponentToPaint(wrapper, 100);
     expect(onValueChangeFn).toBeCalledWith(624748504);
 
     act(() => {
@@ -1054,7 +1051,7 @@ describe('EditorProTable', () => {
           },
         });
     });
-
+    await waitForComponentToPaint(wrapper, 200);
     expect(fn).toBeCalledWith(newLineId);
     wrapper.unmount();
   });
