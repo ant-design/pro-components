@@ -64,11 +64,12 @@ nav:
 
 ### ProList API
 
-ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API 设计上更像 Table，使得可以通过配置化的方式快速定义数据项的展现形式。也使得 Table 和 List 的切换变得更加容易。另外 ProList 基于 ProTable 实现，除了 Table 相关的 API 以外 ProList 支持大部分 ProTable 的 API。
+ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API 设计上更像 Table，使得可以通过配置化的方式快速定义数据项的展现形式。也使得 Table 和 List 的切换变得更加容易。**另外 ProList 基于 ProTable 实现，除了 Table 相关的 API 以外 ProList 支持大部分 ProTable 的 API**。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | :-- | :-- | :-- | :-- |
 | dataSource | 与 antd 相同的[配置](https://ant.design/components/list-cn/#API) | `any[]` | `false` |
+| actionRef | Table action 的引用，便于自定义触发 | `MutableRefObject<ActionType>` | - |
 | metas | 列表项配置，类似 Table 中的 columns | `Metas` | - |
 | rowKey | 行的 key，一般是行 id | `string` \| `(row,index)=>string` | `'id'` |
 | headerTitle | 列表头部主标题 | `React.ReactNode` | - |
