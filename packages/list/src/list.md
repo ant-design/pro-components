@@ -82,6 +82,7 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 | onRow | 与 antd 相同的[配置](https://ant.design/components/table-cn/#onRow-%E7%94%A8%E6%B3%95) | `function(record, index)` | - |
 | rowClassName | 自定义列表行的类名 | `string`\| `(row, index) => string` | - |
 | itemHeaderRender | 自定义每一列的 header，与 itemRender 不同的时，它会保留多选和展开收起 | - | - |
+| itemCardProps | 自定义卡片列表的 proCard props，只在卡片列表下生效 | - | - |
 
 ### 批量操作
 
@@ -129,9 +130,10 @@ ProList 与 antd 的 [List](https://ant.design/components/list-cn/) 相比，API
 
 ### Metas.actions
 
-| 参数      | 说明 | 类型 | 默认值      |
-| :-------- | :--- | :--- | :---------- |
-| dataIndex | -    | -    | `'actions'` |
+| 参数 | 说明 | 类型 | 默认值 |
+| :-- | :-- | :-- | :-- |
+| dataIndex | - | - | `'actions'` |
+| cardActionProps | 设置卡片列表把 action 渲染到哪里｜`extra`｜`'actions' \| 'extra'` |
 
 ### Metas.content
 
