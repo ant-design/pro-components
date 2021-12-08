@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useContext, useMemo, useRef, useState } from 'react';
+import React, { useContext, useMemo, useRef, useState } from 'react';
 import type { GetRowKey } from 'antd/lib/table/interface';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FormInstance, FormProps } from 'antd';
@@ -15,7 +15,7 @@ import type { NamePath } from 'antd/lib/form/interface';
 import usePrevious from '../hooks/usePrevious';
 import get from 'rc-util/lib/utils/get';
 import { useDeepCompareEffectDebounce } from '../hooks/useDeepCompareEffect';
-import { useDebounceFn } from '..';
+import { useDebounceFn, useRefFunction } from '..';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -473,38 +473,35 @@ function useEditableArray<RecordType>(
   const editableKeysRef = usePrevious(editableKeys);
 
   /** 这行是不是编辑状态 */
-  const isEditable = useCallback(
-    (row: RecordType & { index: number }) => {
-      // 为了兼容一下name 模式的 indexKey，所以需要判断两次，一次是index，一次是没有 index 的
-      const recordKeyOrIndex = props.getRowKey(row, row.index)?.toString?.();
-      // 这里是不设置 index 的地方
-      const recordKey = props.getRowKey(row, -1)?.toString?.();
+  const isEditable = useRefFunction((row: RecordType & { index: number }) => {
+    // 为了兼容一下name 模式的 indexKey，所以需要判断两次，一次是index，一次是没有 index 的
+    const recordKeyOrIndex = props.getRowKey(row, row.index)?.toString?.();
+    // 这里是不设置 index 的地方
+    const recordKey = props.getRowKey(row, -1)?.toString?.();
 
-      // 都转化为了字符串，不然 number 和 string
-      const stringEditableKeys = editableKeys.map((key) => key.toString());
-      const stringEditableKeysRef = editableKeysRef?.map((key) => key.toString()) || [];
+    // 都转化为了字符串，不然 number 和 string
+    const stringEditableKeys = editableKeys.map((key) => key.toString());
+    const stringEditableKeysRef = editableKeysRef?.map((key) => key.toString()) || [];
 
-      const preIsEditable =
-        (props.tableName && !!stringEditableKeysRef?.includes(recordKey)) ||
-        !!stringEditableKeysRef?.includes(recordKeyOrIndex);
+    const preIsEditable =
+      (props.tableName && !!stringEditableKeysRef?.includes(recordKey)) ||
+      !!stringEditableKeysRef?.includes(recordKeyOrIndex);
 
-      return {
-        recordKey,
-        isEditable:
-          (props.tableName && stringEditableKeys?.includes(recordKey)) ||
-          stringEditableKeys?.includes(recordKeyOrIndex),
-        preIsEditable,
-      };
-    },
-    [(editableKeys || []).join(',')],
-  );
+    return {
+      recordKey,
+      isEditable:
+        (props.tableName && stringEditableKeys?.includes(recordKey)) ||
+        stringEditableKeys?.includes(recordKeyOrIndex),
+      preIsEditable,
+    };
+  });
 
   /**
    * 进入编辑状态
    *
    * @param recordKey
    */
-  const startEditable = (recordKey: React.Key) => {
+  const startEditable = useRefFunction((recordKey: React.Key) => {
     // 如果是单行的话，不允许多行编辑
     if (editableKeysSet.size > 0 && editableType === 'single') {
       message.warn(props.onlyOneLineEditorAlertMessage || '只能同时编辑一行');
@@ -513,14 +510,14 @@ function useEditableArray<RecordType>(
     editableKeysSet.add(recordKey);
     setEditableRowKeys(Array.from(editableKeysSet));
     return true;
-  };
+  });
 
   /**
    * 退出编辑状态
    *
    * @param recordKey
    */
-  const cancelEditable = (recordKey: RecordKey, needReTry?: boolean) => {
+  const cancelEditable = useRefFunction((recordKey: RecordKey, needReTry?: boolean) => {
     const relayKey = recordKeyToString(recordKey).toString();
 
     const key = dataSourceKeyIndexMapRef.current.get(relayKey);
@@ -538,7 +535,7 @@ function useEditableArray<RecordType>(
     editableKeysSet.delete(recordKeyToString(recordKey));
     setEditableRowKeys(Array.from(editableKeysSet));
     return true;
-  };
+  });
 
   const propsOnValuesChange = useDebounceFn(
     async (...rest: any[]) => {
@@ -549,7 +546,7 @@ function useEditableArray<RecordType>(
     64,
   );
 
-  const onValuesChange = (value: RecordType, values: RecordType) => {
+  const onValuesChange = useRefFunction((value: RecordType, values: RecordType) => {
     if (!props.onValuesChange) {
       return;
     }
@@ -609,7 +606,7 @@ function useEditableArray<RecordType>(
         })
       : newLineRecordData;
     propsOnValuesChange.run(editRow || newLineRecordData, dataSource);
-  };
+  });
 
   /**
    * 同时只能支持一行,取消之后数据消息，不会触发 dataSource
@@ -618,7 +615,7 @@ function useEditableArray<RecordType>(
    * @param options
    * @name 增加新的行
    */
-  const addEditRecord = (row: RecordType, options?: AddLineOptions) => {
+  const addEditRecord = useRefFunction((row: RecordType, options?: AddLineOptions) => {
     // 暂时不支持多行新增
     if (newLineRecordRef.current) {
       message.warn(props.onlyAddOneLineAlertMessage || '只能新增一行');
@@ -664,7 +661,7 @@ function useEditableArray<RecordType>(
       });
     }
     return true;
-  };
+  });
 
   // Internationalization
   const intl = useIntl();
