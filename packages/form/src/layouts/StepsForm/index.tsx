@@ -129,11 +129,15 @@ function StepsForm<T = Record<string, any>>(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [Array.from(formMapRef.current.keys()).join(',')]);
 
-  const currentFormRef = formArrayRef.current[step || 0]?.current;
-
   useImperativeHandle(propsFormMapRef, () => formArrayRef.current);
 
-  useImperativeHandle(formRef, () => currentFormRef);
+  useImperativeHandle(
+    formRef,
+    () => {
+      return formArrayRef.current[step || 0]?.current;
+    },
+    [step],
+  );
 
   /** ProForm处理了一下 from 的数据，在其中做了一些操作 如果使用 Provider 自带的，自带的数据处理就无法生效了 */
   const onFormFinish = useCallback(

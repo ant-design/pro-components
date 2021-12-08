@@ -24,6 +24,7 @@ import ProForm, { DrawerForm, ModalForm, QueryFilter, LightFilter, StepsForm } f
 import type { ProFormFieldProps } from '../Field';
 import ProFormList from '../List';
 import type { NamePath } from 'antd/lib/form/interface';
+import type { StepsFormProps } from 'tests/no-duplicated';
 
 export type ExtraProColumnType = {
   tooltip?: React.ReactNode;
@@ -133,6 +134,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     ...rest
   } = props;
   const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
+  const [stepCurrent, setStepCurrent] = useState((rest as StepsFormProps).current);
   const formRef = useRef<FormInstance | undefined>(props.form);
 
   const refMap = useMemo(() => {
@@ -152,7 +154,13 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
   const [updateTime, updateFormRender] = useState(0);
 
-  useImperativeHandle(propsFormRef, () => refMap.form);
+  useImperativeHandle(
+    propsFormRef,
+    () => refMap.form,
+    // fix StepsForm formRef not change
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [stepCurrent],
+  );
 
   /**
    * 生成子项，方便被 table 接入
@@ -369,13 +377,18 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     );
   }, [columns, layoutType]);
 
+  const onCurrentChange: StepsFormProps['onCurrentChange'] = (current) => {
+    (rest as StepsFormProps).onCurrentChange?.(current);
+    setStepCurrent(current);
+  };
+
   const getDomList = () => {
     return genItems(columns, updateTime);
   };
 
   if (layoutType === 'StepsForm') {
     return (
-      <StepsForm formRef={formRef} {...rest}>
+      <StepsForm formRef={formRef} onCurrentChange={onCurrentChange} {...rest}>
         {steps?.map((item, index) => (
           <BetaSchemaForm<T, ValueType>
             {...(item as FormSchema<T, ValueType>)}
