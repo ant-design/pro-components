@@ -150,6 +150,8 @@ describe('Table ColumnSetting', () => {
       <ProTable
         size="small"
         columnsState={{
+          persistenceType: 'localStorage',
+          persistenceKey: 'columnsState',
           value: {
             index: { fixed: 'left' },
             Age: { show: false },
@@ -201,7 +203,7 @@ describe('Table ColumnSetting', () => {
 
     // 触发重置
     act(() => {
-      html.find('.ant-pro-table-column-setting-ation-rest-button').simulate('click');
+      html.find('.ant-pro-table-column-setting-action-rest-button').simulate('click');
     });
     await waitForComponentToPaint(html);
   });

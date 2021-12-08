@@ -361,7 +361,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
                 setColumnsMap(columnRef.current);
                 clearPersistenceStorage?.();
               }}
-              className={`${className}-ation-rest-button`}
+              className={`${className}-action-rest-button`}
             >
               {intl.getMessage('tableToolBar.reset', '重置')}
             </a>
