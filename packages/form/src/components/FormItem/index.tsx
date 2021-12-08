@@ -1,4 +1,4 @@
-﻿import React, { useContext, useEffect, useMemo } from 'react';
+﻿import React, { useCallback, useContext, useEffect, useMemo } from 'react';
 import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import { FormListContext } from '../List';
@@ -31,6 +31,29 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
     ...restProps
   } = formFieldProps;
 
+  const onChangeMemo = useCallback(
+    function (...restParams: any[]): void {
+      onChange?.(...restParams);
+      // @ts-ignore
+      if (filedChildren?.type?.displayName !== 'ProFormComponent') return;
+      if (!React.isValidElement(filedChildren)) return undefined;
+      filedChildren?.props?.onChange?.(...restParams);
+      filedChildren?.props?.fieldProps?.onChange?.(...restParams);
+    },
+    [filedChildren],
+  );
+  const onBlurMemo = useCallback(
+    function (...restParams: any[]): void {
+      // @ts-ignore
+      if (filedChildren?.type?.displayName !== 'ProFormComponent') return;
+      if (!React.isValidElement(filedChildren)) return;
+      onBlur?.(...restParams);
+      filedChildren?.props?.onBlur?.(...restParams);
+      filedChildren?.props?.fieldProps?.onBlur?.(...restParams);
+    },
+    [filedChildren],
+  );
+
   const fieldProps = useMemo(() => {
     // @ts-ignore
     if (filedChildren?.type?.displayName !== 'ProFormComponent') return undefined;
@@ -42,29 +65,23 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
       // 比如 LightFilter 中可能需要通过 fieldProps 覆盖 Form.Item 默认的 onChange
       [valuePropName]: formFieldProps[valuePropName],
       ...(filedChildren?.props?.fieldProps || {}),
-      onBlur: (...restParams: any[]) => {
-        onBlur?.(...restParams);
-        filedChildren?.props?.onBlur?.(...restParams);
-        filedChildren?.props?.fieldProps?.onBlur?.(...restParams);
-      },
+      onBlur: onBlurMemo,
       // 这个 onChange 是 Form.Item 添加上的，
       // 要通过 fieldProps 透传给 ProField 调用
-      onChange: (...restParams: any[]) => {
-        onChange?.(...restParams);
-        filedChildren?.props?.onChange?.(...restParams);
-        filedChildren?.props?.fieldProps?.onChange?.(...restParams);
-      },
+      onChange: onChangeMemo,
     });
-  }, [filedChildren, formFieldProps, onBlur, onChange, restProps.id, valuePropName]);
+  }, [filedChildren, formFieldProps, onBlurMemo, onChangeMemo, restProps.id, valuePropName]);
+
+  const finalChange = useMemo(() => {
+    if (fieldProps) return undefined;
+    if (!React.isValidElement(filedChildren)) return undefined;
+    return (...restParams: any[]) => {
+      onChange?.(...restParams);
+      filedChildren?.props?.onChange?.(...restParams);
+    };
+  }, [fieldProps, filedChildren, onChange]);
 
   if (!React.isValidElement(filedChildren)) return filedChildren as JSX.Element;
-
-  const finalChange = fieldProps
-    ? undefined
-    : (...restParams: any[]) => {
-        onChange?.(...restParams);
-        filedChildren?.props?.onChange?.(...restParams);
-      };
 
   return React.cloneElement(
     filedChildren,
@@ -232,6 +249,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
       {props.children}
     </WithValueFomFiledProps>
   );
+
   const lightDom = noLightFormItem ? (
     children
   ) : (

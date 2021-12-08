@@ -97,4 +97,4 @@ LightFilter 除了继承 ProForm 的 API 以外还支持下面的属性。
 | --- | --- | --- | --- |
 | collapse | 是否默认折叠全部字段 | `boolean` | `false` |
 | collapseLabel | 折叠区域的标签 | `ReactNode` | `更多筛选 <DownOutlined/>` |
-| footerRender | 底部内容，当不需要默认底部按钮时，可以设为 footer={false} | `(onClear?: () => void, onConfirm: () => void) => JSX.Element | false)`\|`false` | - |
+| footerRender | 底部内容，当不需要默认底部按钮时，可以设为 footer={false} | `(onClear?: () => void, onConfirm: () => void) => JSX.Element \| false)`\|`false` | - |

@@ -30,7 +30,7 @@ import usePrevious from './hooks/usePrevious';
 import conversionMomentValue, { dateFormatterMap } from './conversionMomentValue';
 import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
-import useDeepCompareEffect from './hooks/useDeepCompareEffect';
+import useDeepCompareEffect, { useDeepCompareEffectDebounce } from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
 import type { ProRequestData } from './hooks/useFetchData';
 import useFetchData from './hooks/useFetchData';
@@ -139,4 +139,5 @@ export {
   useDebounceFn,
   useMountMergeState,
   useFetchData,
+  useDeepCompareEffectDebounce,
 };

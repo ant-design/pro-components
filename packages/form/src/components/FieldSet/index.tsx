@@ -1,4 +1,4 @@
-﻿import React, { useImperativeHandle } from 'react';
+﻿import React, { useImperativeHandle, useRef } from 'react';
 import { Space, Input } from 'antd';
 import type { FormItemProps, SpaceProps } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -36,9 +36,18 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   space,
   type = 'space',
 }) => {
-  const fieldSetOnChange = (fileValue: any, index: number) => {
+  const fieldSetOnChangeRef = useRef<any>();
+
+  /**
+   * 使用方法的饮用防止闭包
+   *
+   * @param fileValue
+   * @param index
+   */
+  fieldSetOnChangeRef.current = (fileValue: any, index: number) => {
     const newValues = [...value];
     newValues[index] = defaultGetValueFromEvent(valuePropName || 'value', fileValue);
+
     onChange?.(newValues);
     fieldProps?.onChange?.(newValues);
   };
@@ -60,7 +69,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
             fieldProps: {
               ...(item?.props as any)?.fieldProps,
               onChange: (...restParams: any) => {
-                fieldSetOnChange(restParams[0], index);
+                fieldSetOnChangeRef.current?.(restParams[0], index);
               },
             },
             value: value[index],
@@ -71,7 +80,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
             ...((item.props as any) || {}),
             value: value[index],
             onChange: (itemValue: any) => {
-              fieldSetOnChange(itemValue, index);
+              fieldSetOnChangeRef.current?.(itemValue, index);
               (item as any).props.onChange?.(itemValue);
             },
           };

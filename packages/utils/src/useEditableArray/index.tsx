@@ -14,7 +14,8 @@ import { merge } from '../merge';
 import type { NamePath } from 'antd/lib/form/interface';
 import usePrevious from '../hooks/usePrevious';
 import get from 'rc-util/lib/utils/get';
-import useDeepCompareEffect from '../hooks/useDeepCompareEffect';
+import { useDeepCompareEffectDebounce } from '../hooks/useDeepCompareEffect';
+import { useDebounceFn } from '..';
 
 export type RowEditableType = 'single' | 'multiple';
 
@@ -323,7 +324,7 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
   deletePopconfirmMessage,
   cancelEditable,
 }) => {
-  const [loading, setLoading] = useMountMergeState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(() => false);
   const onConfirm = async () => {
     try {
       setLoading(true);
@@ -434,7 +435,7 @@ function useEditableArray<RecordType>(
   );
   const newLineRecordRef = useRef<NewLineConfig<RecordType> | undefined>(undefined);
 
-  useDeepCompareEffect(() => {
+  useDeepCompareEffectDebounce(() => {
     const map = new Map<React.Key, React.Key>();
     props.dataSource?.forEach((record, index) => {
       map.set(index.toString(), recordKeyToString(props.getRowKey(record, -1)));
@@ -539,11 +540,19 @@ function useEditableArray<RecordType>(
     return true;
   };
 
+  const propsOnValuesChange = useDebounceFn(
+    async (...rest: any[]) => {
+      //@ts-ignore
+      props.onValuesChange?.(...rest);
+    },
+    [],
+    64,
+  );
+
   const onValuesChange = (value: RecordType, values: RecordType) => {
     if (!props.onValuesChange) {
       return;
     }
-
     let { dataSource } = props;
 
     // 这里是把正在编辑中的所有表单数据都修改掉
@@ -599,8 +608,7 @@ function useEditableArray<RecordType>(
           return key === recordKey;
         })
       : newLineRecordData;
-
-    props.onValuesChange(editRow || newLineRecordData, dataSource);
+    propsOnValuesChange.run(editRow || newLineRecordData, dataSource);
   };
 
   /**

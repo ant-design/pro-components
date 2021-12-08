@@ -19,6 +19,7 @@ import {
   useMountMergeState,
   useEditableArray,
   ErrorBoundary,
+  useDeepCompareEffectDebounce,
 } from '@ant-design/pro-utils';
 
 import useFetchData from './useFetchData';
@@ -635,13 +636,18 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
   ]);
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
-  useDeepCompareEffect(() => {
-    if (tableColumn && tableColumn.length > 0) {
-      // 重新生成key的字符串用于排序
-      const columnKeys = tableColumn.map((item) => genColumnKey(item.key, item.index));
-      counter.setSortKeyColumns(columnKeys);
-    }
-  }, [tableColumn]);
+  useDeepCompareEffectDebounce(
+    () => {
+      if (tableColumn && tableColumn.length > 0) {
+        // 重新生成key的字符串用于排序
+        const columnKeys = tableColumn.map((item) => genColumnKey(item.key, item.index));
+        counter.setSortKeyColumns(columnKeys);
+      }
+    },
+    [tableColumn],
+    ['render', 'renderFormItem'],
+    100,
+  );
 
   /** 同步 Pagination，支持受控的 页码 和 pageSize */
   useDeepCompareEffect(() => {
@@ -710,7 +716,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         tableColumn={tableColumn}
         tooltip={tooltip}
         toolbar={toolbar}
-        onFormSearchSubmit={setFormSearch}
+        onFormSearchSubmit={(newValues) => {
+          setFormSearch({
+            ...formSearch,
+            ...newValues,
+          });
+        }}
         searchNode={isLightFilter ? searchNode : null}
         options={options}
         actionRef={actionRef}
