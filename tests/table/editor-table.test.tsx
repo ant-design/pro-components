@@ -1311,7 +1311,15 @@ describe('EditorProTable', () => {
 
   it('📝 support onSave', async () => {
     const fn = jest.fn();
-    const wrapper = mount(<EditorProTableDemo hideRules onSave={(key) => fn(key)} />);
+    const wrapper = mount(
+      <EditorProTableDemo
+        hideRules
+        onSave={async (key) => {
+          await waitTime(1000);
+          fn(key);
+        }}
+      />,
+    );
     await waitForComponentToPaint(wrapper, 1000);
     act(() => {
       wrapper.find('#editor').at(1).simulate('click');
@@ -1325,8 +1333,9 @@ describe('EditorProTable', () => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
     });
 
+    await waitForComponentToPaint(wrapper, 200);
+    expect(fn).not.toBeCalled();
     await waitForComponentToPaint(wrapper, 1000);
-
     expect(fn).toBeCalledWith(624691229);
     wrapper.unmount();
   });
