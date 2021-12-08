@@ -105,6 +105,7 @@ function useContainer(props: UseContainerProps = {}) {
     const { persistenceType, persistenceKey } = props.columnsState || {};
 
     if (!persistenceKey || !persistenceType || typeof window === 'undefined') return;
+
     /** 给持久化中设置数据 */
     const storage = window[persistenceType];
     try {

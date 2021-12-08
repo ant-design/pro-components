@@ -85,8 +85,9 @@ global.cancelAnimationFrame =
   function cancelAnimationFrame() {
     return null;
   };
+
 // browserMocks.js
-const localStorageMock = (() => {
+export const localStorageMock = (() => {
   let store = {
     umi_locale: 'zh-CN',
   };
@@ -106,9 +107,9 @@ const localStorageMock = (() => {
     },
   };
 })();
-
 Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,
+  writable: true,
 });
 
 Object.defineProperty(window, 'cancelAnimationFrame', {
