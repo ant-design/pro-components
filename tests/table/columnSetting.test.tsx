@@ -6,6 +6,9 @@ import { columns } from './demo';
 import { waitForComponentToPaint } from '../util';
 
 describe('Table ColumnSetting', () => {
+  beforeEach(() => {
+    console.warn = jest.fn();
+  });
   it('🎏 columnSetting', async () => {
     const html = mount(
       <ProTable
@@ -211,7 +214,7 @@ describe('Table ColumnSetting', () => {
   });
 
   it('🎏 columnSetting columnsState.value props throw error', async () => {
-    const consoleSpy = jest.spyOn(console, 'error');
+    console.error = jest.fn();
     const localStorage = { ...window.localStorage };
 
     // 为了测试报错的情况
@@ -294,8 +297,7 @@ describe('Table ColumnSetting', () => {
     });
     await waitForComponentToPaint(html);
     window.localStorage = localStorage;
-    consoleSpy.mockReset();
-    expect(consoleSpy).toBeCalled();
+    expect(console.error).toBeCalled();
   });
 
   it('🎏 columnSetting columnsState.onChange', async () => {
