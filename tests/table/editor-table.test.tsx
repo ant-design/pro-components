@@ -1331,7 +1331,7 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
-  fit('📝 support onDelete', async () => {
+  it('📝 support onDelete', async () => {
     const fn = jest.fn();
     const wrapper = mount(
       <EditorProTableDemo
