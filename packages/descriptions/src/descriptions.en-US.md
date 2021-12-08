@@ -53,10 +53,6 @@ interface RequestData {
 
 ### Basic definition list
 
-### Common configuration
-
-<code src="./demos/dynamic-descriptions.tsx" title="Common configuration" height="500px" iframe/>
-
 ### Basic usage
 
 <code src="./demos/base.tsx" title="Basic definition list" />

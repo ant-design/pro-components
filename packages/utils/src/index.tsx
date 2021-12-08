@@ -69,6 +69,7 @@ import isDeepEqualReact from './isDeepEqualReact';
 import { arrayMoveImmutable } from './array-move';
 import { merge } from './merge';
 import { genCopyable } from './genCopyable';
+import { useRefFunction } from './hooks/useRefFunction';
 
 export type {
   RequestOptionsType,
@@ -134,6 +135,7 @@ export {
   // hooks
   useEditableArray,
   useEditableMap,
+  useRefFunction,
   useDeepCompareEffect,
   usePrevious,
   useDebounceFn,

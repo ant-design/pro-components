@@ -214,6 +214,7 @@ const EditorProTableDemo = (
         editableKeys,
         onSave: props.onSave,
         onChange: setEditorRowKeys,
+        onDelete: props.onDelete,
       }}
     />
   );
@@ -1200,6 +1201,7 @@ describe('EditorProTable', () => {
     expect(
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
     ).toBeFalsy();
+
     wrapper.unmount();
   });
 
@@ -1310,7 +1312,15 @@ describe('EditorProTable', () => {
 
   it('📝 support onSave', async () => {
     const fn = jest.fn();
-    const wrapper = mount(<EditorProTableDemo hideRules onSave={(key) => fn(key)} />);
+    const wrapper = mount(
+      <EditorProTableDemo
+        hideRules
+        onSave={async (key) => {
+          await waitTime(1000);
+          fn(key);
+        }}
+      />,
+    );
     await waitForComponentToPaint(wrapper, 1000);
     act(() => {
       wrapper.find('#editor').at(1).simulate('click');
@@ -1324,7 +1334,45 @@ describe('EditorProTable', () => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
     });
 
+    await waitForComponentToPaint(wrapper, 200);
+    expect(fn).not.toBeCalled();
     await waitForComponentToPaint(wrapper, 1000);
+    expect(fn).toBeCalledWith(624691229);
+    wrapper.unmount();
+  });
+
+  it('📝 support onDelete', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        hideRules
+        onDelete={async (key) => {
+          await waitTime(1000);
+          fn(key);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    act(() => {
+      wrapper.find('.ant-popover-buttons .ant-btn-primary').simulate('click');
+    });
+
+    expect(fn).not.toBeCalled();
+
+    await waitForComponentToPaint(wrapper, 1200);
 
     expect(fn).toBeCalledWith(624691229);
     wrapper.unmount();
@@ -1362,6 +1410,74 @@ describe('EditorProTable', () => {
     expect(onSave).toBeCalledWith(624691229);
     expect(onDataSourceChange).toBeCalledWith(3);
 
+    wrapper.unmount();
+  });
+
+  it('📝 support newLine and cancel', async () => {
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          id: 'editor',
+          record: () => ({
+            id: Date.now().toString(),
+          }),
+        }}
+        columns={[
+          {
+            dataIndex: 'index',
+            valueType: 'indexBorder',
+            width: 48,
+            editable: false,
+          },
+          {
+            title: '操作',
+            valueType: 'option',
+            render: (text, row, _, action) => [
+              <a
+                key="editor"
+                id="editor"
+                onClick={() => {
+                  action?.startEditable?.(row.id);
+                }}
+              >
+                编辑
+              </a>,
+            ],
+          },
+        ]}
+        value={[
+          {
+            id: '624748504',
+            title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(wrapper.find('.ant-table-tbody').find('tr.ant-table-row').length).toBe(1);
+    act(() => {
+      wrapper.find('Button#editor').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
+    expect(wrapper.find('.ant-table-tbody').find('tr.ant-table-row').length).toBe(2);
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(2).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(wrapper.find('.ant-table-row.ant-table-row-level-0').length).toBe(1);
     wrapper.unmount();
   });
 
