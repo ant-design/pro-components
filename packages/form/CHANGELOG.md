@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.49.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.7...@ant-design/pro-form@1.49.8) (2021-12-08)
+
+### Bug Fixes
+
+- **form:** 🐛 SchemaForm and StepsForm formRef error ([#4220](https://github.com/ant-design/pro-components/issues/4220)) ([d1f8e95](https://github.com/ant-design/pro-components/commit/d1f8e95dee00942d4470e3ba1c60e86f18c7b3bd))
+
 ## [1.49.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.6...@ant-design/pro-form@1.49.7) (2021-12-07)
 
 **Note:** Version bump only for package @ant-design/pro-form

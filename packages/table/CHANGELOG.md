@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.59.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.59.3...@ant-design/pro-table@2.59.4) (2021-12-08)
+
+### Bug Fixes
+
+- **table:** fix keywords reset formSearch error ([#4214](https://github.com/ant-design/pro-components/issues/4214)) ([146f1da](https://github.com/ant-design/pro-components/commit/146f1da84d10df0cbb350bd350b17473778bced9))
+
 ## [2.59.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.59.2...@ant-design/pro-table@2.59.3) (2021-12-07)
 
 **Note:** Version bump only for package @ant-design/pro-table

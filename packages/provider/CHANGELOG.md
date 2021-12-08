@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.1...@ant-design/pro-provider@1.5.2) (2021-12-08)
+
+### Bug Fixes
+
+- **table:** fix keywords reset formSearch error ([#4214](https://github.com/ant-design/pro-components/issues/4214)) ([146f1da](https://github.com/ant-design/pro-components/commit/146f1da84d10df0cbb350bd350b17473778bced9))
+
 ## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.0...@ant-design/pro-provider@1.5.1) (2021-12-07)
 
 ### Bug Fixes
