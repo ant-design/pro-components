@@ -32,31 +32,31 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     fetchData: () => fetchData(),
   }));
 
-  const optionsValueEnum = useMemo(() => {
+  const optionsValueEnum = useMemo<Record<string, any>>(() => {
     /**
      * Support cascader fieldNames
      *
      * @see https://ant.design/components/cascader-cn/#header
      */
-    const fieldNames = options.fieldProps?.fieldNames || {
+    const fieldNames = rest.fieldProps?.fieldNames || {
       label: 'label',
       value: 'value',
       children: 'children',
     };
 
-    const traverseOptions = (_options: any) => {
+    const traverseOptions = (_options: typeof options): Record<string, any> => {
       return _options?.length
-        ? _options?.reduce((pre: any, cur: any) => {
+        ? _options?.reduce((pre, cur: any) => {
             return {
               ...pre,
               [cur[fieldNames.value]]: cur[fieldNames.label],
               ...traverseOptions(cur[fieldNames.children]),
             };
           }, {})
-        : undefined;
+        : {};
     };
     return traverseOptions(options);
-  }, [options]);
+  }, [options, rest.fieldProps?.fieldNames]);
 
   if (mode === 'read') {
     const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
