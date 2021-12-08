@@ -8,6 +8,7 @@ import type {
   ProFormProps,
   StepFormProps,
   ModalFormProps,
+  StepsFormProps,
 } from '../../index';
 import { ProFormFieldSet, ProFormDependency } from '../../index';
 import { ProFormGroup, ProFormField } from '../../index';
@@ -24,7 +25,6 @@ import ProForm, { DrawerForm, ModalForm, QueryFilter, LightFilter, StepsForm } f
 import type { ProFormFieldProps } from '../Field';
 import ProFormList from '../List';
 import type { NamePath } from 'antd/lib/form/interface';
-import type { StepsFormProps } from 'tests/no-duplicated';
 
 export type ExtraProColumnType = {
   tooltip?: React.ReactNode;
@@ -377,7 +377,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     );
   }, [columns, layoutType]);
 
-  const onCurrentChange: StepsFormProps['onCurrentChange'] = (current) => {
+  const onCurrentChange: StepsFormProps['onCurrentChange'] = (current: number) => {
     (rest as StepsFormProps).onCurrentChange?.(current);
     setStepCurrent(current);
   };
