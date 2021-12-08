@@ -152,7 +152,7 @@ describe('Field', () => {
     expect(html.text()).toBe('default');
   });
 
-  ['select', 'checkbox', 'radio', 'radioButton', 'cascader'].forEach((valueType) => {
+  ['select', 'checkbox', 'radio', 'radioButton', 'cascader', 'treeSelect'].forEach((valueType) => {
     it(`🐴 ${valueType} support render function`, async () => {
       const html = render(
         <Field

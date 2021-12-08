@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { message } from 'antd';
+import { message, TreeSelect } from 'antd';
 import type { ProFormInstance } from '@ant-design/pro-form';
 import { ProFormCascader } from '@ant-design/pro-form';
 import ProForm, {
@@ -8,6 +8,7 @@ import ProForm, {
   ProFormSelect,
   ProFormMoney,
   ProFormDigit,
+  ProFormTreeSelect,
 } from '@ant-design/pro-form';
 
 const waitTime = (time: number = 100) => {
@@ -17,6 +18,43 @@ const waitTime = (time: number = 100) => {
     }, time);
   });
 };
+
+const treeData = [
+  {
+    title: 'Node1',
+    value: '0-0',
+    key: '0-0',
+    children: [
+      {
+        title: 'Child Node1',
+        value: '0-0-0',
+        key: '0-0-0',
+      },
+    ],
+  },
+  {
+    title: 'Node2',
+    value: '0-1',
+    key: '0-1',
+    children: [
+      {
+        title: 'Child Node3',
+        value: '0-1-0',
+        key: '0-1-0',
+      },
+      {
+        title: 'Child Node4',
+        value: '0-1-1',
+        key: '0-1-1',
+      },
+      {
+        title: 'Child Node5',
+        value: '0-1-2',
+        key: '0-1-2',
+      },
+    ],
+  },
+];
 
 export default () => {
   const formRef = useRef<
@@ -154,6 +192,16 @@ export default () => {
         name="area"
         label="区域"
         initialValue={['zhejiang', 'hangzhou', 'xihu']}
+      />
+      <ProFormTreeSelect
+        initialValue={['0-0-0']}
+        label="树形下拉选择器"
+        request={async () => treeData}
+        fieldProps={{
+          treeCheckable: true,
+          showCheckedStrategy: TreeSelect.SHOW_PARENT,
+          placeholder: 'Please select',
+        }}
       />
     </ProForm>
   );
