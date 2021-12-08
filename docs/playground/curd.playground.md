@@ -1,5 +1,5 @@
 ﻿---
-title: CRUD 展示
+title: CRUD
 nav:
   title: Playground
   path: /playground/
@@ -7,7 +7,7 @@ group:
   path: /
 ---
 
-## CRUD
+# CRUD
 
 ProTable，ProDescriptions，ProForm 都是基于 ProField 来进行封装。ProTable 和 ProDescriptions 根据 valueType 来渲染不同的 ProField，Form 则是通过不同的 FormField 来实现封装。
 
