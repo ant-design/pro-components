@@ -214,6 +214,7 @@ const EditorProTableDemo = (
         editableKeys,
         onSave: props.onSave,
         onChange: setEditorRowKeys,
+        onDelete: props.onDelete,
       }}
     />
   );
@@ -1325,6 +1326,43 @@ describe('EditorProTable', () => {
     });
 
     await waitForComponentToPaint(wrapper, 1000);
+
+    expect(fn).toBeCalledWith(624691229);
+    wrapper.unmount();
+  });
+
+  fit('📝 support onDelete', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        hideRules
+        onDelete={async (key) => {
+          await waitTime(1000);
+          fn(key);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    act(() => {
+      wrapper.find('.ant-popover-buttons .ant-btn-primary').simulate('click');
+    });
+
+    expect(fn).not.toBeCalled();
+
+    await waitForComponentToPaint(wrapper, 1200);
 
     expect(fn).toBeCalledWith(624691229);
     wrapper.unmount();
