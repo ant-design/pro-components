@@ -183,7 +183,7 @@ export default () => {
       ]}
       formRef={formRef}
       onFinish={async (values) => {
-        return new Promise((resolve, reject) => {
+        return new Promise((resolve) => {
           console.log(values);
           message.success('提交成功');
           setTimeout(() => {
