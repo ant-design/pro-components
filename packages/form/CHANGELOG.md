@@ -2,6 +2,63 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.49.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.7...@ant-design/pro-form@1.49.8) (2021-12-08)
+
+### Bug Fixes
+
+- **form:** 🐛 SchemaForm and StepsForm formRef error ([#4220](https://github.com/ant-design/pro-components/issues/4220)) ([d1f8e95](https://github.com/ant-design/pro-components/commit/d1f8e95dee00942d4470e3ba1c60e86f18c7b3bd))
+
+## [1.49.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.6...@ant-design/pro-form@1.49.7) (2021-12-07)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.5...@ant-design/pro-form@1.49.6) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.4...@ant-design/pro-form@1.49.5) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.3...@ant-design/pro-form@1.49.4) (2021-11-30)
+
+### Bug Fixes
+
+- **form:** fix the problem that addonBefore Required does not work when formitem is set ([#4141](https://github.com/ant-design/pro-components/issues/4141)) ([a994430](https://github.com/ant-design/pro-components/commit/a994430828ab03fe5dc75723aec029f929ba20c5))
+
+## [1.49.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.2...@ant-design/pro-form@1.49.3) (2021-11-23)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.1...@ant-design/pro-form@1.49.2) (2021-11-23)
+
+### Bug Fixes
+
+- **form:** default close render params to url ([cd4f0ab](https://github.com/ant-design/pro-components/commit/cd4f0abab77cc212a53f549ea16faafa70d00a15))
+
+## [1.49.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.0...@ant-design/pro-form@1.49.1) (2021-11-22)
+
+### Bug Fixes
+
+- **ProForm:** 修复 ProForm 请求两次问题 ([#4074](https://github.com/ant-design/pro-components/issues/4074)) ([fe9d08c](https://github.com/ant-design/pro-components/commit/fe9d08c950497bb2447ca088471b9dc8b86acb67))
+
+# [1.49.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.48.1...@ant-design/pro-form@1.49.0) (2021-11-18)
+
+### Bug Fixes
+
+- **form:** fix layout="vertical" style error ([#4054](https://github.com/ant-design/pro-components/issues/4054)) ([55392ad](https://github.com/ant-design/pro-components/commit/55392ad6dc4501fd66b40c702a23683c08e1561b))
+- **table:** pro table support lightProps ([#4068](https://github.com/ant-design/pro-components/issues/4068)) ([ce15148](https://github.com/ant-design/pro-components/commit/ce151487c7dbd17917a0be0aec09d4e01237ff6a))
+
+### Features
+
+- **form:** ProFormList support showItemLabel ([#4055](https://github.com/ant-design/pro-components/issues/4055)) ([1f8317a](https://github.com/ant-design/pro-components/commit/1f8317a14cb5d2a2f87c5a4fc747009398035694))
+
+## [1.48.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.48.0...@ant-design/pro-form@1.48.1) (2021-11-16)
+
+### Bug Fixes
+
+- **form:** support onVisibleChange form set ([#4044](https://github.com/ant-design/pro-components/issues/4044)) ([004d78f](https://github.com/ant-design/pro-components/commit/004d78ff276eaa762f8f363404d4ec8fadeea70e))
+
 # [1.48.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.47.0...@ant-design/pro-form@1.48.0) (2021-11-15)
 
 ### Features

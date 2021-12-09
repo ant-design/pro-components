@@ -92,6 +92,10 @@ ProForm is the best choice when you want to implement a form quickly but don't w
 
 <code src="./demos/layout-base.tsx" iframe="764px" />
 
+### Money
+
+<code src="./demos/money.tsx" height="248px" title="Money" />
+
 ### Form linkage
 
 <code src="./demos/linkage-customization.tsx" heigh="1774px" />

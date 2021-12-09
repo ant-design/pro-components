@@ -25,7 +25,6 @@ import {
   useFetchData,
   isDeepEqualReact,
   usePrevious,
-  useDeepCompareEffect,
 } from '@ant-design/pro-utils';
 
 import { useUrlSearchParams } from '@umijs/use-params';
@@ -165,7 +164,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   } = props;
   const [inlineForm] = Form.useForm(form);
   /** 同步 url 上的参数 */
-  const [urlSearch, setUrlSearch] = useUrlSearchParams({});
+  const [urlSearch, setUrlSearch] = useUrlSearchParams({}, { disabled: !syncToUrl });
   const formRef = useRef<ProFormInstance<any>>(inlineForm! || ({} as any));
 
   const fieldsValueType = useRef<
@@ -422,12 +421,12 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
                     ).reduce((pre, next) => {
                       return {
                         ...pre,
-                        [next]: finalValues[next] || undefined,
+                        [next]: finalValues[next] ?? undefined,
                       };
                     }, extraUrlParams);
-                    // fix #3547: 当原先在url中存在的字段被删除时，应该讲params中的该字段设置为undefined,以便触发url同步删除
+                    // fix #3547: 当原先在url中存在的字段被删除时，应该将 params 中的该字段设置为 undefined,以便触发url同步删除
                     Object.keys(urlSearch).forEach((key) => {
-                      if (!params[key]) {
+                      if (params[key] !== false || params[key] !== 0 || !params[key]) {
                         params[key] = undefined;
                       }
                     });
@@ -472,16 +471,11 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
 function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const { request, params, initialValues, formKey, ...rest } = props;
-  const [initialData, reload] = useFetchData({
+  const [initialData] = useFetchData({
     request,
     params,
     proFieldKey: formKey,
   });
-
-  /** 如果 params 发生修改重新刷新一下 params */
-  useDeepCompareEffect(() => {
-    reload();
-  }, [params]);
 
   if (!initialData && props.request) {
     return (

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import React, { useImperativeHandle } from 'react';
+import React from 'react';
 import ProField from '@ant-design/pro-field';
 import type { InputProps, SelectProps } from 'antd';
 import type { ProSchema } from '@ant-design/pro-utils';
-import { runFunction } from '@ant-design/pro-utils';
+import { runFunction, isDeepEqualReact } from '@ant-design/pro-utils';
 import createField from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
 import ProFormDependency from '../Dependency';
@@ -21,58 +21,34 @@ export type ProFormFieldProps<T = any, FiledProps = InputProps & SelectProps<str
   any,
   any
 >;
-/**
- * 最普通的 Text 组件
- *
- * @param
- */
-const ProFormField: React.FC<
-  ProFormFieldProps<any> & {
+
+class ProFormField extends React.Component<
+  ProFormFieldProps & {
     onChange?: Function;
     autoFocus?: boolean;
   }
-> = React.forwardRef((props, ref) => {
-  const {
-    fieldProps,
-    children,
-    labelCol,
-    label,
-    autoFocus,
-    isDefaultDom,
-    render,
-    proFieldProps,
-    renderFormItem,
-    valueType,
-    initialValue,
-    onChange,
-    valueEnum,
-    params,
-    name,
-    valuePropName = 'value',
-    ...restProps
-  } = props;
-
-  useImperativeHandle(ref, () => ({}));
-
-  // 防止 formItem 的值被吃掉
-  if (children) {
-    if (React.isValidElement(children)) {
-      return React.cloneElement(children, {
-        ...restProps,
-        onChange: (...restParams: any) => {
-          if (fieldProps?.onChange) {
-            (fieldProps?.onChange as any)?.(...restParams);
-            return;
-          }
-          onChange?.(...restParams);
-        },
-        ...children.props,
-      });
-    }
-    return children as JSX.Element;
-  }
-
-  const renderDom = (values?: Record<string, any>) => {
+> {
+  filedRef = React.createRef<any>();
+  renderDom(values?: Record<string, any>) {
+    const {
+      fieldProps,
+      children,
+      labelCol,
+      label,
+      autoFocus,
+      isDefaultDom,
+      render,
+      proFieldProps,
+      renderFormItem,
+      valueType,
+      initialValue,
+      onChange,
+      valueEnum,
+      params,
+      name,
+      valuePropName = 'value',
+      ...restProps
+    } = this.props;
     const propsParams = values ? { ...params, ...(values || {}) } : params;
     return (
       <ProField
@@ -97,22 +73,69 @@ const ProFormField: React.FC<
         {...restProps}
         mode={proFieldProps?.mode || 'edit'}
         params={propsParams}
+        ref={this.filedRef}
       />
     );
-  };
-
-  if (restProps.dependencies && restProps.request) {
-    return (
-      <ProFormDependency name={restProps.dependencies}>
-        {(values) => {
-          return renderDom(values);
-        }}
-      </ProFormDependency>
-    );
   }
+  shouldComponentUpdate(
+    nextProps: ProFormFieldProps & {
+      onChange?: Function;
+      autoFocus?: boolean;
+    },
+  ) {
+    return !isDeepEqualReact(nextProps, this.props, ['onChange', 'onBlur']);
+  }
+  render() {
+    const {
+      fieldProps,
+      children,
+      labelCol,
+      label,
+      autoFocus,
+      isDefaultDom,
+      render,
+      proFieldProps,
+      renderFormItem,
+      valueType,
+      initialValue,
+      onChange,
+      valueEnum,
+      params,
+      name,
+      ...restProps
+    } = this.props;
 
-  return renderDom();
-});
+    // 防止 formItem 的值被吃掉
+    if (children) {
+      if (React.isValidElement(children)) {
+        return React.cloneElement(children, {
+          ...restProps,
+          onChange: (...restParams: any) => {
+            if (fieldProps?.onChange) {
+              (fieldProps?.onChange as any)?.(...restParams);
+              return;
+            }
+            onChange?.(...restParams);
+          },
+          ...children.props,
+        });
+      }
+      return children as JSX.Element;
+    }
+
+    if (restProps.dependencies && restProps.request) {
+      return (
+        <ProFormDependency name={restProps.dependencies}>
+          {(values) => {
+            return this.renderDom(values);
+          }}
+        </ProFormDependency>
+      );
+    }
+
+    return this.renderDom();
+  }
+}
 
 export default createField<ProFormFieldProps>(ProFormField) as <FiledProps, DataType = {}>(
   props: ProFormFieldProps<DataType, FiledProps>,

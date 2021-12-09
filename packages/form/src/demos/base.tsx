@@ -71,33 +71,6 @@ export default () => {
         <ProFormDigit name="count" label="人数" width="lg" />
       </ProForm.Group>
       <ProForm.Group>
-        <ProFormMoney
-          label="宽度"
-          name="amount0"
-          locale="en-US"
-          initialValue={22.22}
-          min={0}
-          width="lg"
-        />
-      </ProForm.Group>
-      <ProForm.Group title="金额系统">
-        <ProFormMoney
-          label="限制金额最小为0"
-          name="amount1"
-          locale="en-US"
-          initialValue={22.22}
-          min={0}
-        />
-        <ProFormMoney label="不限制金额大小" name="amount2" locale="en-GB" initialValue={22.22} />
-        <ProFormMoney label="货币符号跟随全局国际化" name="amount3" initialValue={22.22} />
-        <ProFormMoney
-          label="自定义货币符号"
-          name="amount4"
-          initialValue={22.22}
-          customSymbol="💰"
-        />
-      </ProForm.Group>
-      <ProForm.Group>
         <ProFormText
           name={['contract', 'name']}
           width="md"

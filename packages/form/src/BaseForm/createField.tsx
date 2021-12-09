@@ -1,7 +1,13 @@
-﻿import React from 'react';
-import { pickProFormItemProps, omitUndefined } from '@ant-design/pro-utils';
+﻿import React, { useMemo } from 'react';
+import {
+  pickProFormItemProps,
+  omitUndefined,
+  usePrevious,
+  isDeepEqualReact,
+} from '@ant-design/pro-utils';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
+import { stringify } from 'use-json-comparison';
 import FieldContext from '../FieldContext';
 import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../interface';
 import ProFormItem from '../components/FormItem';
@@ -76,21 +82,34 @@ function createField<P extends ProFormFieldItemProps = any>(
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
 
-    const formNeedProps = {
-      value: (rest as any).value,
-    };
-    const realFieldProps = {
-      ...(ignoreFormItem ? formNeedProps : {}),
-      disabled: props.disabled,
-      placeholder,
-      ...(fieldProps || {}),
-      ...(rest.fieldProps || {}),
-      style: {
-        // 有些组件是不需要自带的 width
-        ...rest.fieldProps?.style,
-        ...fieldProps?.style,
-      },
-    } as any;
+    const formNeedProps = useMemo(() => {
+      return omitUndefined({
+        value: (rest as any).value,
+      });
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [(rest as any).value]);
+
+    const realFormItem = useMemo(() => {
+      if (!ignoreFormItem) {
+        return {};
+      }
+      return omitUndefined(formNeedProps);
+    }, [formNeedProps, ignoreFormItem]);
+
+    const realFieldProps = useMemo(() => {
+      return omitUndefined({
+        ...realFormItem,
+        disabled: props.disabled,
+        placeholder,
+        ...(fieldProps || {}),
+        ...(rest.fieldProps || {}),
+        style: omitUndefined({
+          // 有些组件是不需要自带的 width
+          ...rest.fieldProps?.style,
+          ...fieldProps?.style,
+        }),
+      }) as any;
+    }, [fieldProps, placeholder, props.disabled, realFormItem, rest.fieldProps]);
 
     const otherProps = {
       messageVariables,
@@ -105,46 +124,81 @@ function createField<P extends ProFormFieldItemProps = any>(
       !rest['defaultValue'],
       '请不要在 Form 中使用 defaultXXX。如果需要默认值请使用 initialValues 和 initialValue。',
     );
-    const ignoreWidthValueType = ['switch', 'radioButton', 'radio', 'rate'];
 
-    const realFieldPropsStyle = {
-      ...realFieldProps?.style,
-    };
+    const ignoreWidthValueType = useMemo(() => ['switch', 'radioButton', 'radio', 'rate'], []);
+
+    const proFieldKey = useMemo(() => {
+      return otherProps?.name && `form-field-${otherProps.name}`;
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [stringify(otherProps?.name)]);
+
+    const realFieldPropsStyle = useMemo(
+      () => ({
+        ...realFieldProps?.style,
+      }),
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      [stringify(realFieldProps?.style)],
+    );
+
     if (realFieldPropsStyle.width !== undefined && (rest as any).valueType === 'switch') {
       delete realFieldPropsStyle.width;
     }
-    const field = (
-      <Field
-        // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
-        // 比如 ProFormSelect 的 request
-        {...(rest as P)}
-        fieldProps={omitUndefined({
-          allowClear,
-          ...realFieldProps,
-          style: omitUndefined({
-            width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
-            ...realFieldPropsStyle,
-          }),
-          className:
-            classnames(realFieldProps?.className, {
-              'pro-field': width && WIDTH_SIZE_ENUM[width],
-              [`pro-field-${width}`]:
-                width &&
-                // 有些 valueType 不需要宽度
-                !ignoreWidthValueType.includes((props as any)?.valueType as 'text') &&
-                !ignoreWidth &&
-                WIDTH_SIZE_ENUM[width],
-            }) || undefined,
-        })}
-        proFieldProps={omitUndefined({
-          // @ts-ignore
-          mode: readonly ? 'read' : rest?.mode,
-          params: rest.params,
-          proFieldKey: otherProps?.name && `form-field-${otherProps.name}`,
-          ...proFieldProps,
-        })}
-      />
-    );
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const propsValueType = useMemo(() => (rest as any).valueType, [(rest as any).valueType]);
+    const prefRest = usePrevious(rest);
+
+    const field = useMemo(() => {
+      return (
+        <Field
+          // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
+          // 比如 ProFormSelect 的 request
+          {...(rest as P)}
+          fieldProps={omitUndefined({
+            allowClear,
+            ...realFieldProps,
+            style: omitUndefined({
+              width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
+              ...realFieldPropsStyle,
+            }),
+            className:
+              classnames(realFieldProps?.className, {
+                'pro-field': width && WIDTH_SIZE_ENUM[width],
+                [`pro-field-${width}`]:
+                  width &&
+                  // 有些 valueType 不需要宽度
+                  !ignoreWidthValueType.includes(propsValueType as 'text') &&
+                  !ignoreWidth &&
+                  WIDTH_SIZE_ENUM[width],
+              }) || undefined,
+          })}
+          proFieldProps={omitUndefined({
+            // @ts-ignore
+            mode: readonly ? 'read' : rest?.mode,
+            params: rest.params,
+            proFieldKey: proFieldKey,
+            ...proFieldProps,
+          })}
+        />
+      );
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [
+      allowClear,
+      ignoreWidth,
+      ignoreWidthValueType,
+      proFieldKey,
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      stringify(proFieldProps),
+      propsValueType,
+      readonly,
+      realFieldProps,
+      realFieldPropsStyle,
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      isDeepEqualReact(prefRest, rest, ['onChange', 'onBlur', 'onFocus', 'record'])
+        ? undefined
+        : {},
+      width,
+    ]);
 
     return (
       <ProFormItem
@@ -176,6 +230,7 @@ function createField<P extends ProFormFieldItemProps = any>(
           footerRender: field?.props?.footerRender,
           // 使用用户的配置覆盖默认的配置
           ...rest.lightProps,
+          ...otherProps.lightProps,
         })}
       >
         {field}

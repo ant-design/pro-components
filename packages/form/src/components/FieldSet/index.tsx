@@ -4,6 +4,7 @@ import type { FormItemProps, SpaceProps } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import type { GroupProps } from 'antd/lib/input';
 import createField from '../../BaseForm/createField';
+import { useRefFunction } from '@ant-design/pro-utils';
 
 export type ProFormFieldSetProps<T = any> = {
   value?: T[];
@@ -36,12 +37,19 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   space,
   type = 'space',
 }) => {
-  const fieldSetOnChange = (fileValue: any, index: number) => {
+  /**
+   * 使用方法的饮用防止闭包
+   *
+   * @param fileValue
+   * @param index
+   */
+  const fieldSetOnChange = useRefFunction((fileValue: any, index: number) => {
     const newValues = [...value];
     newValues[index] = defaultGetValueFromEvent(valuePropName || 'value', fileValue);
+
     onChange?.(newValues);
     fieldProps?.onChange?.(newValues);
-  };
+  });
 
   let itemIndex = -1;
   const list = toArray(children).map((item: any) => {

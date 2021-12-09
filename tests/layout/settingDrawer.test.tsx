@@ -24,6 +24,11 @@ describe('settingDrawer.test', () => {
     });
   });
 
+  beforeEach(() => {
+    // @ts-expect-error
+    window.MutationObserver = null;
+  });
+
   it('🌺 base user', () => {
     const html = render(
       <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,

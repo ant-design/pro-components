@@ -2,6 +2,61 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.28.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.3...@ant-design/pro-field@1.28.4) (2021-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.28.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.2...@ant-design/pro-field@1.28.3) (2021-12-07)
+
+### Bug Fixes
+
+- simplify swr usage ([#4181](https://github.com/ant-design/pro-components/issues/4181)) ([ed66732](https://github.com/ant-design/pro-components/commit/ed6673272882af09287eb87457df2a8ca9daf7f1))
+
+## [1.28.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.1...@ant-design/pro-field@1.28.2) (2021-12-01)
+
+### Bug Fixes
+
+- **form:** fix RangePicker format is string,will error ([#4169](https://github.com/ant-design/pro-components/issues/4169)) ([996b806](https://github.com/ant-design/pro-components/commit/996b80680c12c27c87ecb9b14faaac9ed5685898))
+
+## [1.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.0...@ant-design/pro-field@1.28.1) (2021-12-01)
+
+### Bug Fixes
+
+- **form:** change numberPopoverRender render dom ([#4161](https://github.com/ant-design/pro-components/issues/4161)) ([8280d6c](https://github.com/ant-design/pro-components/commit/8280d6c962759c05a2e58d39c915df6e54c83f07))
+
+# [1.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.27.1...@ant-design/pro-field@1.28.0) (2021-11-30)
+
+### Features
+
+- **table:** support revalidateOnFocus ([#4120](https://github.com/ant-design/pro-components/issues/4120)) ([1046109](https://github.com/ant-design/pro-components/commit/104610914eedfecd88ceb2e38d86c47ff8b2fc89))
+
+## [1.27.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.27.0...@ant-design/pro-field@1.27.1) (2021-11-23)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.26.3...@ant-design/pro-field@1.27.0) (2021-11-23)
+
+### Features
+
+- **table:** request add record props ([5ec71f8](https://github.com/ant-design/pro-components/commit/5ec71f823619ccbe798391c446427aa1371208bb))
+
+## [1.26.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.26.2...@ant-design/pro-field@1.26.3) (2021-11-22)
+
+### Bug Fixes
+
+- **ProForm:** 修复 ProForm 请求两次问题 ([#4074](https://github.com/ant-design/pro-components/issues/4074)) ([fe9d08c](https://github.com/ant-design/pro-components/commit/fe9d08c950497bb2447ca088471b9dc8b86acb67))
+
+## [1.26.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.26.1...@ant-design/pro-field@1.26.2) (2021-11-18)
+
+### Bug Fixes
+
+- **form:** support higher accuracy ([#4051](https://github.com/ant-design/pro-components/issues/4051)) ([f81e801](https://github.com/ant-design/pro-components/commit/f81e801ad49491100402ad9b817f479baa41f941))
+- **table:** fix table validateFields no work error ([#4058](https://github.com/ant-design/pro-components/issues/4058)) ([0291e08](https://github.com/ant-design/pro-components/commit/0291e085a17d57d654b698695e9a2c31915a07e0))
+
+## [1.26.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.26.0...@ant-design/pro-field@1.26.1) (2021-11-16)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 # [1.26.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.25.0...@ant-design/pro-field@1.26.0) (2021-11-15)
 
 ### Features

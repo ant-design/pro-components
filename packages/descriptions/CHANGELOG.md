@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.9...@ant-design/pro-descriptions@1.10.10) (2021-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.8...@ant-design/pro-descriptions@1.10.9) (2021-12-07)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.7...@ant-design/pro-descriptions@1.10.8) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.6...@ant-design/pro-descriptions@1.10.7) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.5...@ant-design/pro-descriptions@1.10.6) (2021-11-30)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.4...@ant-design/pro-descriptions@1.10.5) (2021-11-23)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.3...@ant-design/pro-descriptions@1.10.4) (2021-11-23)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.2...@ant-design/pro-descriptions@1.10.3) (2021-11-22)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.1...@ant-design/pro-descriptions@1.10.2) (2021-11-18)
+
+### Bug Fixes
+
+- **descriptions:** unuse protable ([#4062](https://github.com/ant-design/pro-components/issues/4062)) ([04d6a6c](https://github.com/ant-design/pro-components/commit/04d6a6c94aaf1597ec5bbdb9135fdacbdca9640a))
+- **table:** fix table validateFields no work error ([#4058](https://github.com/ant-design/pro-components/issues/4058)) ([0291e08](https://github.com/ant-design/pro-components/commit/0291e085a17d57d654b698695e9a2c31915a07e0))
+
+## [1.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.0...@ant-design/pro-descriptions@1.10.1) (2021-11-16)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
 # [1.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.30...@ant-design/pro-descriptions@1.10.0) (2021-11-15)
 
 ### Features

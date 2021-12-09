@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-layout",
-  "version": "6.29.0",
+  "version": "6.31.5",
   "description": "@ant-design/pro-layout",
   "keywords": [
     "antd",
@@ -34,10 +34,11 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
-    "@ant-design/pro-provider": "1.4.20",
-    "@ant-design/pro-utils": "1.28.0",
+    "@ant-design/pro-provider": "1.5.2",
+    "@ant-design/pro-utils": "1.28.7",
+    "@babel/runtime": "^7.16.3",
     "@umijs/route-utils": "^2.0.1",
-    "@umijs/use-params": "^1.0.2",
+    "@umijs/use-params": "^1.0.9",
     "classnames": "^2.2.6",
     "darkreader": "^4.9.40",
     "lodash.merge": "^4.6.2",
@@ -45,7 +46,7 @@
     "path-to-regexp": "2.4.0",
     "rc-resize-observer": "^0.2.1",
     "rc-util": "^5.0.6",
-    "swr": "1.1.0-beta.6",
+    "swr": "1.1.0",
     "unstated-next": "^1.1.0",
     "use-json-comparison": "^1.0.3",
     "use-media-antd-query": "^1.0.6",

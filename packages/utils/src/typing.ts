@@ -172,6 +172,7 @@ export type ProSchema<
   ExtraProps = unknown,
   ComponentsType = ProSchemaComponentTypes,
   ValueType = 'text',
+  ExtraFormItemProps = unknown,
 > = {
   /** @name 确定这个列的唯一值,一般用于 dataIndex 重复的情况 */
   key?: React.Key;
@@ -237,7 +238,7 @@ export type ProSchema<
 
   /** @name 自定义的 formItemProps */
   formItemProps?:
-    | FormItemProps
+    | (FormItemProps & ExtraFormItemProps)
     | ((
         form: FormInstance<any>,
         config: ProSchema<Entity, ExtraProps> & {
@@ -247,7 +248,7 @@ export type ProSchema<
           rowIndex: number;
           entity: Entity;
         },
-      ) => FormItemProps);
+      ) => FormItemProps & ExtraFormItemProps);
 
   /**
    * 修改的数据是会被 valueType 消费

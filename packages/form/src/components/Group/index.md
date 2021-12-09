@@ -63,6 +63,7 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 | creatorButtonProps | 新建一行按钮的配置 | `buttonProps & { creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"新建一行"}` |
 | label | 与 From.Item 相同 | `ReactNode` | - |
 | name | list 在 form 中的值，必填项 | `NamePath` | - |
+| alwaysShowItemLabel | Item 中总是展示 label | `boolean` | - |
 
 ## ProFormFieldSet
 
@@ -114,10 +115,6 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 ### 基本使用
 
 <code src="./demos/base-use" heigh="174px" title="ProForm.List" />
-
-### 自定义 List
-
-<code src="./demos/customize.tsx" heigh="174px" title="ProForm.List" />
 
 ### 基本使用
 

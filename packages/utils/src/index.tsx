@@ -30,7 +30,7 @@ import usePrevious from './hooks/usePrevious';
 import conversionMomentValue, { dateFormatterMap } from './conversionMomentValue';
 import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
-import useDeepCompareEffect from './hooks/useDeepCompareEffect';
+import useDeepCompareEffect, { useDeepCompareEffectDebounce } from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
 import type { ProRequestData } from './hooks/useFetchData';
 import useFetchData from './hooks/useFetchData';
@@ -68,6 +68,8 @@ import ProFormContext from './components/ProFormContext';
 import isDeepEqualReact from './isDeepEqualReact';
 import { arrayMoveImmutable } from './array-move';
 import { merge } from './merge';
+import { genCopyable } from './genCopyable';
+import { useRefFunction } from './hooks/useRefFunction';
 
 export type {
   RequestOptionsType,
@@ -114,6 +116,7 @@ export {
   conversionMomentValue as conversionSubmitValue,
   conversionMomentValue,
   parseValueToMoment,
+  genCopyable,
   useDocumentTitle,
   isImg,
   omitBoolean,
@@ -132,9 +135,11 @@ export {
   // hooks
   useEditableArray,
   useEditableMap,
+  useRefFunction,
   useDeepCompareEffect,
   usePrevious,
   useDebounceFn,
   useMountMergeState,
   useFetchData,
+  useDeepCompareEffectDebounce,
 };

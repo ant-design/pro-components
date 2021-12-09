@@ -374,7 +374,6 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
       onChange?.(...restParams);
     },
   };
-
   return (
     <React.Fragment>
       {defaultRenderText(

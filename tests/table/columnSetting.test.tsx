@@ -6,6 +6,9 @@ import { columns } from './demo';
 import { waitForComponentToPaint } from '../util';
 
 describe('Table ColumnSetting', () => {
+  beforeEach(() => {
+    console.warn = jest.fn();
+  });
   it('🎏 columnSetting', async () => {
     const html = mount(
       <ProTable
@@ -150,6 +153,8 @@ describe('Table ColumnSetting', () => {
       <ProTable
         size="small"
         columnsState={{
+          persistenceType: 'localStorage',
+          persistenceKey: 'columnsState',
           value: {
             index: { fixed: 'left' },
             Age: { show: false },
@@ -187,6 +192,8 @@ describe('Table ColumnSetting', () => {
     act(() => {
       html.setProps({
         columnsState: {
+          persistenceType: 'localStorage',
+          persistenceKey: 'columnsState',
           value: {
             index: { fixed: 'left' },
           },
@@ -201,9 +208,96 @@ describe('Table ColumnSetting', () => {
 
     // 触发重置
     act(() => {
-      html.find('.ant-pro-table-column-setting-ation-rest-button').simulate('click');
+      html.find('.ant-pro-table-column-setting-action-rest-button').simulate('click');
     });
     await waitForComponentToPaint(html);
+  });
+
+  it('🎏 columnSetting columnsState.value props throw error', async () => {
+    console.error = jest.fn();
+    const localStorage = { ...window.localStorage };
+
+    // 为了测试报错的情况
+    //@ts-expect-error
+    window.localStorage = {
+      getItem() {
+        throw new Error('getItem error');
+      },
+      setItem() {
+        throw new Error('setItem error');
+      },
+      removeItem() {
+        throw new Error('removeItem error');
+      },
+      clear() {
+        throw new Error('clear error');
+      },
+    };
+    const html = mount(
+      <ProTable
+        size="small"
+        columnsState={{
+          persistenceType: 'localStorage',
+          persistenceKey: 'columnsState',
+          value: {
+            index: { fixed: 'left' },
+            Age: { show: false },
+            option: { fixed: 'right' },
+          },
+        }}
+        columns={columns}
+        request={async () => {
+          return {
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      const icon = html.find('.ant-pro-table-list-toolbar-setting-item .anticon-setting');
+      icon.simulate('click');
+    });
+    await waitForComponentToPaint(html);
+    let overlay = html.find(
+      '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
+    );
+    expect(overlay.length).toBe(3);
+
+    act(() => {
+      html.setProps({
+        columnsState: {
+          persistenceType: 'localStorage',
+          persistenceKey: 'columnsState',
+          value: {
+            index: { fixed: 'left' },
+          },
+        },
+      });
+    });
+
+    await waitForComponentToPaint(html);
+    overlay = html.find(
+      '.ant-pro-table-column-setting-overlay .ant-pro-table-column-setting-list-title',
+    );
+    expect(overlay.length).toBe(2);
+
+    // 触发重置
+    act(() => {
+      html.find('.ant-pro-table-column-setting-action-rest-button').simulate('click');
+    });
+    await waitForComponentToPaint(html);
+    window.localStorage = localStorage;
+    expect(console.error).toBeCalled();
   });
 
   it('🎏 columnSetting columnsState.onChange', async () => {

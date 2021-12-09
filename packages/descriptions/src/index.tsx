@@ -15,6 +15,7 @@ import type {
 import {
   InlineErrorFormItem,
   LabelIconTip,
+  genCopyable,
   useEditableMap,
   ErrorBoundary,
   getFieldPropsOrFormItemProps,
@@ -28,7 +29,6 @@ import type { ProFieldFCMode } from '@ant-design/pro-utils';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
 import './index.less';
-import { genCopyable } from '@ant-design/pro-table';
 
 // todo remove it
 export interface DescriptionsItemProps {
@@ -184,7 +184,7 @@ export const FieldRender: React.FC<
         marginRight: 0,
       }}
     >
-      <Form.Item noStyle shouldUpdate>
+      <Form.Item noStyle shouldUpdate={(pre, next) => pre !== next}>
         {(form: FormInstance<any>) => {
           const formItemProps = getFieldPropsOrFormItemProps(props.formItemProps, form, {
             ...props,

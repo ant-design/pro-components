@@ -3,6 +3,7 @@
 
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 @card-hoverable-hover-border: transparent;
+@pro-card-default-border: @border-width-base @border-style-base @border-color-split;
 
 // == when focus or actived
 .pro-card-active() {
@@ -26,7 +27,7 @@
   }
 
   &-border {
-    border: @border-width-base @border-style-base @border-color-split;
+    border: @pro-card-default-border;
   }
 
   &-hoverable {
