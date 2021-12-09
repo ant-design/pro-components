@@ -906,12 +906,12 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                       class="ant-space-item"
                       style="margin-right: 8px;"
                     >
-                      hangzhou
+                      Hangzhou
                     </div>
                     <div
                       class="ant-space-item"
                     >
-                      xihu
+                      West Lake
                     </div>
                   </div>
                 </span>
