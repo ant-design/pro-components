@@ -48,7 +48,7 @@ describe('settingDrawer.test', () => {
       <SettingDrawer
         disableUrlParams
         settings={defaultSettings}
-        hideColors
+        colorList={false}
         getContainer={false}
         collapse
       />,
@@ -111,21 +111,6 @@ describe('settingDrawer.test', () => {
       />,
     );
     expect(html).toMatchSnapshot();
-  });
-
-  it('🌺 hideLoading = true', () => {
-    window.localStorage.removeItem('umi_locale');
-    const html = render(
-      <SettingDrawer
-        disableUrlParams
-        settings={defaultSettings}
-        hideLoading
-        getContainer={false}
-        collapse
-      />,
-    );
-    expect(html).toMatchSnapshot();
-    window.localStorage.setItem('umi_locale', 'zh-CN');
   });
 
   it('🌺 initState form query', async () => {
