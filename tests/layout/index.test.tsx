@@ -1,6 +1,7 @@
-import { mount, render } from 'enzyme';
+import { mount, render as enzymeRender } from 'enzyme';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
+import { render } from '@testing-library/react';
 import type { BasicLayoutProps } from '@ant-design/pro-layout';
 import BasicLayout from '@ant-design/pro-layout';
 
@@ -12,7 +13,7 @@ describe('BasicLayout', () => {
     process.env.USE_MEDIA = 'md';
   });
   it('🥩 base use', async () => {
-    const html = render(<BasicLayout />);
+    const html = enzymeRender(<BasicLayout />);
     expect(html).toMatchSnapshot();
   });
 
@@ -384,7 +385,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 contentStyle should change dom', async () => {
-    const wrapper = render(
+    const wrapper = enzymeRender(
       <BasicLayout
         contentStyle={{
           padding: 56,
@@ -729,7 +730,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 BasicLayout menu support menu.true', async () => {
-    const wrapper = render(
+    const wrapper = enzymeRender(
       <>
         <BasicLayout
           menu={{
@@ -1322,5 +1323,12 @@ describe('BasicLayout', () => {
     });
     await waitForComponentToPaint(html, 100);
     expect(html.find('li.ant-menu-submenu-open').length).toBe(3);
+  });
+
+  it('🥩  navTheme=realDark', () => {
+    const html = render(<BasicLayout navTheme="realDark" />);
+    expect(html.baseElement.querySelector('aside.ant-layout-sider')?.getAttribute('style')).toBe(
+      'overflow: hidden; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 65%); flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;',
+    );
   });
 });
