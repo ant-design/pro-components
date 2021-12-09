@@ -2,7 +2,7 @@
 title: ProDescriptions
 nav:
   title: Playground
-  path: /playground/
+  path: /playground
 group:
   path: /
 ---

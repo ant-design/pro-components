@@ -2,7 +2,7 @@
 title: ProLayout
 nav:
   title: Playground
-  path: /playground/
+  path: /playground
 group:
   path: /
 ---

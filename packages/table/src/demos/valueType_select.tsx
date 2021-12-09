@@ -2,6 +2,37 @@ import React from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 
+const cascaderOptions = [
+  {
+    label: 'front end',
+    value: 'fe',
+    children: [
+      {
+        label: 'Javascript',
+        value: 'js',
+      },
+      {
+        label: 'Typescript',
+        value: 'ts',
+      },
+    ],
+  },
+  {
+    label: 'back end',
+    value: 'be',
+    children: [
+      {
+        label: 'Java',
+        value: 'java',
+      },
+      {
+        label: 'Go',
+        value: 'go',
+      },
+    ],
+  },
+];
+
 const valueEnumMap = {
   0: 'running',
   1: 'online',
@@ -11,6 +42,7 @@ const valueEnumMap = {
 export type TableListItem = {
   key: number;
   status: string | number;
+  cascader: string[];
 };
 const tableListDataSource: TableListItem[] = [];
 
@@ -18,6 +50,7 @@ for (let i = 0; i < 2; i += 1) {
   tableListDataSource.push({
     key: i,
     status: valueEnumMap[Math.floor(Math.random() * 10) % 3],
+    cascader: ['fe', 'js'],
   });
 }
 
@@ -64,6 +97,16 @@ const columns: ProColumns<TableListItem>[] = [
     width: 100,
     valueType: 'checkbox',
     valueEnum,
+  },
+  {
+    title: '级联选择器',
+    key: 'cascader',
+    dataIndex: 'cascader',
+    width: 100,
+    fieldProps: {
+      options: cascaderOptions,
+    },
+    valueType: 'cascader',
   },
   {
     title: '操作',
