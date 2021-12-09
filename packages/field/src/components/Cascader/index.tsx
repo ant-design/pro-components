@@ -45,7 +45,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     } = rest.fieldProps?.fieldNames || {};
 
     const traverseOptions = (_options: typeof options): Record<string, any> => {
-      return _options?.length
+      return _options?.length > 0
         ? _options?.reduce((pre, cur) => {
             const label = cur[labelPropsName],
               value = cur[valuePropsName],
