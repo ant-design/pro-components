@@ -83,7 +83,7 @@ const getTextByLocale = (
     moneyText = Number(moneyText);
   }
 
-  if (!moneyText) return '';
+  if (!moneyText && moneyText !== 0) return '';
 
   return new Intl.NumberFormat(localeStr || 'zh-Hans-CN', {
     ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
