@@ -1,11 +1,12 @@
-import React, { useContext, useMemo, useImperativeHandle, useRef } from 'react';
-import type { RadioGroupProps } from 'antd';
+import React, { useContext, useMemo, useImperativeHandle, useRef, useState } from 'react';
+import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import classNames from 'classnames';
 import type { ProFieldFC } from '../../index';
 import './index.less';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import type { DataNode } from 'antd/lib/tree';
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
@@ -25,7 +26,19 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-tree-select');
   const [loading, options, fetchData] = useFieldFetchData(rest);
-  const treeSelectRef = useRef();
+  const treeSelectRef = useRef(null);
+
+  const {
+    onSearch,
+    onClear,
+    onChange,
+    loadData,
+    showSearch,
+    autoClearSearchValue,
+    searchValue: propsSearchValue,
+    ...fieldProps
+  } = (rest.fieldProps as TreeSelectProps<any>) || {};
+  const [searchValue, setSearchValue] = useState(propsSearchValue);
 
   useImperativeHandle(ref, () => ({
     ...(treeSelectRef.current || {}),
@@ -34,7 +47,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
 
   const optionsValueEnum = useMemo<Record<string, any>>(() => {
     /**
-     * Support cascader fieldNames
+     * Support TreeSelect fieldNames
      *
      * @see https://ant.design/components/tree-select-cn
      */
@@ -42,7 +55,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
       value: valuePropsName = 'value',
       label: labelPropsName = 'label',
       children: childrenPropsName = 'children',
-    } = rest.fieldProps?.fieldNames || {};
+    } = fieldProps?.fieldNames || {};
 
     const traverseOptions = (_options: typeof options): Record<string, any> => {
       return _options?.length > 0
@@ -59,13 +72,13 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
         : {};
     };
     return traverseOptions(options);
-  }, [options, rest.fieldProps?.fieldNames]);
+  }, [options, fieldProps?.fieldNames]);
 
   if (mode === 'read') {
     const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
 
     if (render) {
-      return render(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return render(rest.text, { mode, ...(fieldProps as any) }, dom) || null;
     }
     return dom;
   }
@@ -75,14 +88,49 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
       <Spin spinning={loading}>
         <TreeSelect
           ref={treeSelectRef}
-          treeData={options}
-          {...rest.fieldProps}
-          className={classNames(rest.fieldProps?.className, layoutClassName)}
+          treeData={options as DataNode[]}
+          {...fieldProps}
+          showSearch={showSearch}
+          searchValue={searchValue}
+          onClear={() => {
+            onClear?.();
+            fetchData('');
+            if (showSearch) {
+              setSearchValue('');
+            }
+          }}
+          loadData={(node) => {
+            fetchData();
+            return loadData?.(node) || Promise.resolve();
+          }}
+          onChange={(value, optionList, extra) => {
+            // 将搜索框置空 和 antd 行为保持一致
+            if (showSearch && autoClearSearchValue) {
+              fetchData('');
+              onSearch?.('');
+              setSearchValue('');
+            }
+
+            const valueIsArray = Array.isArray(value);
+
+            /** 抹平value 不使用labelInValue做判断原因： labelInValue会被其他字段强制设为true */
+            const flatValue = valueIsArray
+              ? value.map((item) => item.value ?? item)
+              : value?.value ?? value;
+
+            onChange?.(flatValue, optionList, extra);
+          }}
+          onSearch={(value) => {
+            fetchData(value);
+            onSearch?.(value);
+            setSearchValue(value);
+          }}
+          className={classNames(fieldProps?.className, layoutClassName)}
         />
       </Spin>
     );
     if (renderFormItem) {
-      return renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;
+      return renderFormItem(rest.text, { mode, ...(fieldProps as any) }, dom) || null;
     }
     return dom;
   }
