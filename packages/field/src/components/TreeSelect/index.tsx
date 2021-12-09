@@ -34,23 +34,26 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
 
   const optionsValueEnum = useMemo<Record<string, any>>(() => {
     /**
-     * Support tree-select fieldNames
+     * Support cascader fieldNames
      *
-     * @see https://ant.design/components/tree-select-cn/
+     * @see https://ant.design/components/tree-select-cn
      */
-    const fieldNames = rest.fieldProps?.fieldNames || {
-      label: 'label',
-      value: 'value',
-      children: 'children',
-    };
+    const {
+      value: valuePropsName = 'value',
+      label: labelPropsName = 'label',
+      children: childrenPropsName = 'children',
+    } = rest.fieldProps?.fieldNames || {};
 
     const traverseOptions = (_options: typeof options): Record<string, any> => {
-      return _options?.length
-        ? _options?.reduce((pre, cur: any) => {
+      return _options?.length > 0
+        ? _options?.reduce((pre, cur) => {
+            const label = cur[labelPropsName],
+              value = cur[valuePropsName],
+              children = cur[childrenPropsName];
             return {
               ...pre,
-              [cur[fieldNames.value]]: cur[fieldNames.label],
-              ...traverseOptions(cur[fieldNames.children]),
+              [value]: label,
+              ...traverseOptions(children),
             };
           }, {})
         : {};

@@ -361,6 +361,71 @@ describe('Field', () => {
     expect(html.text()).toBe('all');
   });
 
+  ['cascader', 'treeSelect'].forEach((valueType) => {
+    it(`🐴 ${valueType} options fieldNames`, async () => {
+      const html = mount(
+        <Field
+          text={['0-0', '0-0-0']}
+          fieldProps={{
+            fieldNames: {
+              label: 'title',
+            },
+            options: [
+              {
+                title: 'Node1',
+                value: '0-0',
+                key: '0-0',
+                children: [
+                  {
+                    title: 'Child Node1',
+                    value: '0-0-0',
+                    key: '0-0-0',
+                  },
+                ],
+              },
+              {
+                title: 'Node2',
+                value: '0-1',
+                key: '0-1',
+                children: [
+                  {
+                    title: 'Child Node3',
+                    value: '0-1-0',
+                    key: '0-1-0',
+                  },
+                  {
+                    title: 'Child Node4',
+                    value: '0-1-1',
+                    key: '0-1-1',
+                  },
+                  {
+                    title: 'Child Node5',
+                    value: '0-1-2',
+                    key: '0-1-2',
+                  },
+                ],
+              },
+            ],
+          }}
+          valueType={valueType as 'cascader'}
+          mode="read"
+        />,
+      );
+      await waitForComponentToPaint(html, 100);
+      expect(html.text()).toBe('Node1Child Node1');
+
+      act(() => {
+        html.setProps({
+          fieldProps: { options: [] },
+        });
+      });
+
+      await waitForComponentToPaint(html, 100);
+
+      expect(html.text()).toBe('0-00-0-0');
+    });
+  });
+
   it('🐴 edit and no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html).toMatchSnapshot();
@@ -404,6 +469,7 @@ describe('Field', () => {
     'image',
     'color',
     'cascader',
+    'treeSelect',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType support render ${valueType}`, async () => {

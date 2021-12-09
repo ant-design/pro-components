@@ -198,6 +198,9 @@ export default () => {
         label="树形下拉选择器"
         request={async () => treeData}
         fieldProps={{
+          fieldNames: {
+            label: 'title',
+          },
           treeCheckable: true,
           showCheckedStrategy: TreeSelect.SHOW_PARENT,
           placeholder: 'Please select',
