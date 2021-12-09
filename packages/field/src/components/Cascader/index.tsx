@@ -38,18 +38,22 @@ const FieldCascader: ProFieldFC<GroupProps> = (
      *
      * @see https://ant.design/components/cascader-cn/#header
      */
-    const { vk = 'value', lk = 'label', ck = 'children' } = rest.fieldProps?.fieldNames || {};
+    const {
+      value = 'value',
+      label = 'label',
+      children = 'children',
+    } = rest.fieldProps?.fieldNames || {};
 
     const traverseOptions = (_options: typeof options): Record<string, any> => {
       return _options?.length
         ? _options?.reduce((pre, cur: any) => {
-            const label = cur[lk],
-              value = cur[vk],
-              children = cur[ck];
+            const _label = cur[label],
+              _value = cur[value],
+              _children = cur[children];
             return {
               ...pre,
-              [value]: label,
-              ...traverseOptions(children),
+              [_value]: _label,
+              ...traverseOptions(_children),
             };
           }, {})
         : {};
