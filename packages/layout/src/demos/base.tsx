@@ -133,7 +133,7 @@ export default () => {
       </ProLayout>
       <SettingDrawer
         pathname={pathname}
-        realdark
+        enableDarkTheme
         getContainer={() => document.getElementById('test-pro-layout')}
         settings={settings}
         onSettingChange={(changeSetting) => {
