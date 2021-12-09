@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.28.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.4...@ant-design/pro-field@1.28.5) (2021-12-09)
+
+### Bug Fixes
+
+- **form:** cascader mode=text error ([#4213](https://github.com/ant-design/pro-components/issues/4213)) ([fdbd1d6](https://github.com/ant-design/pro-components/commit/fdbd1d62757bd9a3ad167290830a8fd050f66fc9))
+- **form:** fix InputNumberPopover null error ([#4238](https://github.com/ant-design/pro-components/issues/4238)) ([2f12d30](https://github.com/ant-design/pro-components/commit/2f12d306f440dc94ed2603ea9d45cd2e0731e8f7))
+
 ## [1.28.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.3...@ant-design/pro-field@1.28.4) (2021-12-08)
 
 **Note:** Version bump only for package @ant-design/pro-field
