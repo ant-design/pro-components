@@ -30,30 +30,16 @@ export type ThemeColorProps = {
 };
 
 const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps> = (
-  {
-    value,
-    colorList = [
-      { key: 'daybreak', color: '#1890ff' },
-      { key: 'dust', color: '#F5222D' },
-      { key: 'volcano', color: '#FA541C' },
-      { key: 'sunset', color: '#FAAD14' },
-      { key: 'cyan', color: '#13C2C2' },
-      { key: 'green', color: '#52C41A' },
-      { key: 'geekblue', color: '#2F54EB' },
-      { key: 'purple', color: '#722ED1' },
-    ],
-    onChange,
-    formatMessage,
-  },
+  { value, colorList, onChange, formatMessage },
   ref,
 ) => {
-  if (colorList.length < 1) {
+  if (!colorList || colorList?.length < 1) {
     return null;
   }
   return (
     <div className="theme-color" ref={ref}>
       <div className="theme-color-content">
-        {colorList.map(({ key, color }) => {
+        {colorList?.map(({ key, color }) => {
           if (!key) return;
           return (
             <Tooltip

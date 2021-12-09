@@ -179,13 +179,30 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 
 ### SettingDrawer
 
-> SettingDrawer provides a graphical interface to set the layout's configuration. It is not recommended for use in a formal environment.
-
-| Parameters | Description | Type | Default |
+| Parameters | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| settings | settings for layout | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
-| onSettingChange | [`Settings`](#Settings) change event occurs | `(settings: [`Settings`](#Settings) ) => void` | - |
-| hideHintAlert | Remove the following alert message | `boolean` | - |
+| settings | layout settings | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
+| onSettingChange | [`Settings`](#Settings) A change event occurred | `(settings: [`Settings`](#Settings)) => void` | - |
+| hideHintAlert | Delete the prompt message below | `boolean` | - |
+| hideCopyButton | Do not show copy function | `boolean` | - |
+| disableUrlParams | Disable synchronization settings to query parameters | `boolean` | `false` |
+| enableDarkTheme | Turn on black theme switching function ｜ `boolean` | `false` |
+| colorList | Built-in color switching system ｜ `{key,color}[]` | `ColorList` |
+
+Built-in color list
+
+```tsx
+const colorList = [
+  { key: 'daybreak', color: '#1890ff' },
+  { key: 'dust', color: '#F5222D' },
+  { key: 'volcano', color: '#FA541C' },
+  { key: 'sunset', color: '#FAAD14' },
+  { key: 'cyan', color: '#13C2C2' },
+  { key: 'green', color: '#52C41A' },
+  { key: 'geekblue', color: '#2F54EB' },
+  { key: 'purple', color: '#722ED1' },
+];
+```
 
 ### PageLoading
 

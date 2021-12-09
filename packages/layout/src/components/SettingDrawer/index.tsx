@@ -51,17 +51,14 @@ export type SettingDrawerProps = {
   defaultSettings?: MergerSettingsType<ProSettings>;
   settings?: MergerSettingsType<ProSettings>;
   collapse?: boolean;
-  getContainer?: any;
-  publicPath?: string;
-  hideLoading?: boolean;
-  hideColors?: boolean;
-  hideHintAlert?: boolean;
-  /** 使用实验性质的黑色主题 */
-  realdark?: boolean;
-  prefixCls?: string;
-  colorList?: { key: string; color: string }[];
-  hideCopyButton?: boolean;
   onCollapseChange?: (collapse: boolean) => void;
+  getContainer?: any;
+  hideHintAlert?: boolean;
+  hideCopyButton?: boolean;
+  /** 使用实验性质的黑色主题 */
+  enableDarkTheme?: boolean;
+  prefixCls?: string;
+  colorList?: false | { key: string; color: string }[];
   onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
   pathname?: string;
   disableUrlParams?: boolean;
@@ -193,13 +190,12 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
   const {
     defaultSettings: propsDefaultSettings = undefined,
     settings: propsSettings = undefined,
-    hideColors,
     hideHintAlert,
     hideCopyButton,
-    colorList,
+    colorList = [],
     getContainer,
     onSettingChange,
-    realdark,
+    enableDarkTheme,
     prefixCls = 'ant-pro',
     pathname = window.location.pathname,
     disableUrlParams = false,
@@ -369,7 +365,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
               },
             ].filter((item) => {
               if (item.key === 'dark' && settingState.layout === 'mix') return false;
-              if (item.key === 'realDark' && !realdark) return false;
+              if (item.key === 'realDark' && !enableDarkTheme) return false;
               return true;
             })}
             value={navTheme!}
@@ -378,7 +374,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             onChange={(value) => changeSetting('navTheme', value)}
           />
         </Body>
-        {!hideColors && (
+        {colorList !== false && (
           <Body
             title={formatMessage({
               id: 'app.setting.themecolor',
