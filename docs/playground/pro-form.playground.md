@@ -2,7 +2,7 @@
 title: ProForm
 nav:
   title: Playground
-  path: /playground/
+  path: /playground
 group:
   path: /
 ---
