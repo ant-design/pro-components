@@ -34,7 +34,7 @@ const FooterView: React.FC<FooterProps> = ({
 }: FooterProps) => (
   <Footer className={className} style={{ padding: 0, ...style }}>
     <GlobalFooter
-      links={links !== undefined ? links : false}
+      links={links}
       prefixCls={prefixCls}
       copyright={
         copyright === false ? null : (
