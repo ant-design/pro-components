@@ -18,7 +18,7 @@ import { genColumnKey } from '../../utils/index';
 import type { ProColumns } from '../../typing';
 
 import './index.less';
-import { useRefFunction } from '@ant-design/pro-utils';
+import { omitUndefined, useRefFunction } from '@ant-design/pro-utils';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 
 type ColumnSettingProps<T = any> = {
@@ -176,10 +176,10 @@ const CheckboxList: React.FC<{
     }
     const columnKeyMap = {
       ...columnsMap,
-      [columnKey]: newSetting as ColumnsState,
+      [columnKey]: omitUndefined(newSetting) as ColumnsState,
     };
     // 如果没有值了，直接干掉他
-    if (Object.keys(newSetting).length === 0) {
+    if (!omitUndefined(newSetting)) {
       delete columnKeyMap[columnKey];
     }
     setColumnsMap(columnKeyMap);
