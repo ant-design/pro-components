@@ -8,27 +8,6 @@ import type { WithFalse } from './typings';
 
 const { Footer } = Layout;
 
-const defaultLinks = [
-  {
-    key: 'Ant Design Pro',
-    title: 'Ant Design Pro',
-    href: 'https://pro.ant.design',
-    blankTarget: true,
-  },
-  {
-    key: 'github',
-    title: <GithubOutlined />,
-    href: 'https://github.com/ant-design/ant-design-pro',
-    blankTarget: true,
-  },
-  {
-    key: 'Ant Design',
-    title: 'Ant Design',
-    href: 'https://ant.design',
-    blankTarget: true,
-  },
-];
-
 const defaultCopyright = '2019 蚂蚁金服体验技术部出品';
 
 export type FooterProps = {
@@ -55,7 +34,7 @@ const FooterView: React.FC<FooterProps> = ({
 }: FooterProps) => (
   <Footer className={className} style={{ padding: 0, ...style }}>
     <GlobalFooter
-      links={links !== undefined ? links : defaultLinks}
+      links={links !== undefined ? links : false}
       prefixCls={prefixCls}
       copyright={
         copyright === false ? null : (
