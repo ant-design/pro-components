@@ -230,6 +230,7 @@ function EditableTable<
         options={false}
         pagination={false}
         rowKey={rowKey}
+        revalidateOnFocus={false}
         {...rest}
         {...buttonRenderProps}
         tableLayout="fixed"

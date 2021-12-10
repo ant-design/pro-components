@@ -696,9 +696,9 @@ describe('BasicTable Search', () => {
     });
 
     await waitTime(500);
-
-    expect(html.render()).toMatchSnapshot();
-
+    act(() => {
+      expect(html.render()).toMatchSnapshot();
+    });
     act(() => {
       html.unmount();
     });

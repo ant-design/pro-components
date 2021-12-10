@@ -19,14 +19,6 @@ ProComponents was developed to reduce the cost of implementing CRUD in the middl
 - [ProDescriptions](/components/descriptions) provides the ability to use the same configuration as a table
 - [ProSkeleton](/components/skeleton) Page level skeleton screen
 
-## CRUD
-
-ProTable, ProDescriptions, and ProForm are all wrapped based on ProFields; ProTable and ProDescriptions render different ProFields based on valueType, and Form is wrapped by a different Form is wrapped by a different FormField.
-
-ProForm can easily implement read-only mode, ProTable can quickly implement query forms and editable forms, ProDescriptions can implement node editing, and here is an example You can switch between three components.
-
-<code src="../packages/table/src/demos/crud.tsx">
-
 ## Form layout toggle
 
 The main feature of ProForm is that it has a lot of pre-defined layouts, so if you need to switch you just need to change the Layout of the outer wrapper, here is a demo.

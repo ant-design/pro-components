@@ -64,7 +64,6 @@ const FieldDigitRange: ProFieldFC<FieldDigitRangeProps> = (
       if (Array.isArray(valuePair)) {
         //   仅在两个值均为数字时才做比较并转换
         const [value0, value1] = valuePair;
-        console.log(value0, value1);
         if (typeof value0 === 'number' && typeof value1 === 'number' && value0 > value1) {
           setValuePair([value1, value0]);
         } else if (value0 === undefined && value1 === undefined) {

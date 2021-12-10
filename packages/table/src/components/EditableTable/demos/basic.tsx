@@ -55,7 +55,7 @@ export default () => {
           rules: rowIndex > 2 ? [{ required: true, message: '此项为必填项' }] : [],
         };
       },
-      // 第二行不允许编辑
+      // 第一行不允许编辑
       editable: (text, record, index) => {
         return index !== 0;
       },

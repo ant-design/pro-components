@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
+import { useSWRConfig, SWRConfig } from 'swr';
 import zh_CN from 'antd/lib/locale/zh_CN';
 
 import arEG from './locale/ar_EG';
@@ -236,40 +237,50 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
+  const { cache } = useSWRConfig();
+
+  useEffect(() => {
+    return () => {
+      // is a map
+      // @ts-ignore
+      cache.clear();
+    };
+  }, [cache]);
   return (
-    <ConfigConsumer>
-      {(value) => {
-        const localeName = locale?.locale;
+    <SWRConfig value={{ provider: () => new Map() }}>
+      <ConfigConsumer>
+        {(value) => {
+          const localeName = locale?.locale;
+          const key = findIntlKeyByAntdLocaleKey(localeName);
+          // antd 的 key 存在的时候以 antd 的为主
+          const intl =
+            localeName && value.intl?.locale === 'default'
+              ? intlMap[key!]
+              : value.intl || intlMap[key!];
 
-        const key = findIntlKeyByAntdLocaleKey(localeName);
-        // antd 的 key 存在的时候以 antd 的为主
-        const intl =
-          localeName && value.intl?.locale === 'default'
-            ? intlMap[key!]
-            : value.intl || intlMap[key!];
+          // 自动注入 antd 的配置
+          const configProvider =
+            locale === undefined
+              ? {
+                  locale: zh_CN,
+                }
+              : {};
 
-        // 自动注入 antd 的配置
-        const configProvider =
-          locale === undefined
-            ? {
-                locale: zh_CN,
-              }
-            : {};
-
-        return (
-          <Provider {...configProvider}>
-            <ConfigProvider
-              value={{
-                ...value,
-                intl: intl || zhCNIntl,
-              }}
-            >
-              {children}
-            </ConfigProvider>
-          </Provider>
-        );
-      }}
-    </ConfigConsumer>
+          return (
+            <Provider {...configProvider}>
+              <ConfigProvider
+                value={{
+                  ...value,
+                  intl: intl || zhCNIntl,
+                }}
+              >
+                {children}
+              </ConfigProvider>
+            </Provider>
+          );
+        }}
+      </ConfigConsumer>
+    </SWRConfig>
   );
 };
 

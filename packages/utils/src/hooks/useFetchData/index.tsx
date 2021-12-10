@@ -1,4 +1,4 @@
-﻿import { useState, useRef, useMemo } from 'react';
+﻿import { useState, useRef } from 'react';
 import useSWR from 'swr';
 
 let testId = 0;
@@ -9,7 +9,7 @@ function useFetchData<T, U extends Record<string, any> = Record<string, any>>(pr
   proFieldKey?: React.Key;
   params?: U;
   request?: ProRequestData<T, U>;
-}): [Readonly<T | undefined>] {
+}): [T | undefined] {
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
     if (props.proFieldKey) {
@@ -26,14 +26,7 @@ function useFetchData<T, U extends Record<string, any> = Record<string, any>>(pr
     return loadData;
   };
 
-  const key = useMemo(() => {
-    if (!props.params) {
-      return proFieldKeyRef.current;
-    }
-    return [proFieldKeyRef.current, JSON.stringify(props.params)];
-  }, [props.params]);
-
-  const { data, error } = useSWR<T | undefined>(key, fetchData, {
+  const { data, error } = useSWR<T | undefined>([proFieldKeyRef.current, props.params], fetchData, {
     revalidateOnFocus: false,
     shouldRetryOnError: false,
     revalidateOnReconnect: false,

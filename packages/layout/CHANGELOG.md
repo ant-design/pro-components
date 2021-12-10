@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.31.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.4...@ant-design/pro-layout@6.31.5) (2021-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.31.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.3...@ant-design/pro-layout@6.31.4) (2021-12-07)
+
+### Bug Fixes
+
+- simplify swr usage ([#4181](https://github.com/ant-design/pro-components/issues/4181)) ([ed66732](https://github.com/ant-design/pro-components/commit/ed6673272882af09287eb87457df2a8ca9daf7f1))
+
+## [6.31.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.2...@ant-design/pro-layout@6.31.3) (2021-11-30)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
 ## [6.31.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.1...@ant-design/pro-layout@6.31.2) (2021-11-23)
 
 **Note:** Version bump only for package @ant-design/pro-layout

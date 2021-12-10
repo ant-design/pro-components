@@ -56,7 +56,7 @@ describe('ProFormUpload', () => {
         },
       });
     });
-    await waitTime(200);
+    await waitTime(1000);
     expect(fn).toBeCalled();
   });
 
@@ -116,7 +116,7 @@ describe('ProFormUpload', () => {
       });
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Upload Button')).toMatchSnapshot();
+    expect(wrapper.find('Upload Button').find('.ant-btn-dashed').exists()).toBeTruthy();
     act(() => {
       wrapper.setProps({
         disabled: false,
@@ -127,7 +127,7 @@ describe('ProFormUpload', () => {
       });
     });
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Upload Button')).toMatchSnapshot();
+    expect(wrapper.find('Upload Button').find('.ant-btn-dashed').exists()).toBeFalsy();
   });
 
   it('🏐 ProFormUploadDragger support onChange', async () => {

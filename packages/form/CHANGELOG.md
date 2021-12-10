@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.49.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.8...@ant-design/pro-form@1.49.9) (2021-12-09)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.7...@ant-design/pro-form@1.49.8) (2021-12-08)
+
+### Bug Fixes
+
+- **form:** 🐛 SchemaForm and StepsForm formRef error ([#4220](https://github.com/ant-design/pro-components/issues/4220)) ([d1f8e95](https://github.com/ant-design/pro-components/commit/d1f8e95dee00942d4470e3ba1c60e86f18c7b3bd))
+
+## [1.49.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.6...@ant-design/pro-form@1.49.7) (2021-12-07)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.5...@ant-design/pro-form@1.49.6) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.4...@ant-design/pro-form@1.49.5) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.3...@ant-design/pro-form@1.49.4) (2021-11-30)
+
+### Bug Fixes
+
+- **form:** fix the problem that addonBefore Required does not work when formitem is set ([#4141](https://github.com/ant-design/pro-components/issues/4141)) ([a994430](https://github.com/ant-design/pro-components/commit/a994430828ab03fe5dc75723aec029f929ba20c5))
+
 ## [1.49.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.2...@ant-design/pro-form@1.49.3) (2021-11-23)
 
 **Note:** Version bump only for package @ant-design/pro-form
