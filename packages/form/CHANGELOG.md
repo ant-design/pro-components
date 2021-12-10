@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.49.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.9...@ant-design/pro-form@1.49.10) (2021-12-10)
+
+### Bug Fixes
+
+- **provide:** close auto clean cache ([#4243](https://github.com/ant-design/pro-components/issues/4243)) ([e638cb5](https://github.com/ant-design/pro-components/commit/e638cb5ff7830793020c94328ef2833c20f352f7))
+
 ## [1.49.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.8...@ant-design/pro-form@1.49.9) (2021-12-09)
 
 **Note:** Version bump only for package @ant-design/pro-form
