@@ -15,7 +15,7 @@ const WrapContent: React.FC<{
   const { style, className, children } = props;
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
   return (
-    <ConfigProviderWrap>
+    <ConfigProviderWrap autoClearCache>
       <ErrorComponent>
         <Layout.Content className={className} style={style}>
           {children}

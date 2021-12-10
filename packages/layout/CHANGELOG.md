@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.31.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.6...@ant-design/pro-layout@6.31.7) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.31.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.5...@ant-design/pro-layout@6.31.6) (2021-12-10)
+
+### Bug Fixes
+
+- **provide:** close auto clean cache ([#4243](https://github.com/ant-design/pro-components/issues/4243)) ([e638cb5](https://github.com/ant-design/pro-components/commit/e638cb5ff7830793020c94328ef2833c20f352f7))
+
 ## [6.31.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.4...@ant-design/pro-layout@6.31.5) (2021-12-08)
 
 **Note:** Version bump only for package @ant-design/pro-layout

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.3...@ant-design/pro-provider@1.5.4) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.2...@ant-design/pro-provider@1.5.3) (2021-12-10)
+
+### Bug Fixes
+
+- **provide:** close auto clean cache ([#4243](https://github.com/ant-design/pro-components/issues/4243)) ([e638cb5](https://github.com/ant-design/pro-components/commit/e638cb5ff7830793020c94328ef2833c20f352f7))
+
 ## [1.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.1...@ant-design/pro-provider@1.5.2) (2021-12-08)
 
 ### Bug Fixes
