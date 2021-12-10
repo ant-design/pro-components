@@ -206,15 +206,11 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
             const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
             return `${moneySymbol} ${value}`.replace(reg, ',');
           }
-          if (value) return value;
-          return '';
+          return value;
         }}
         parser={(value) => {
-          if (moneySymbol && value) {
-            return value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
-          }
-          if (value) return value;
-          return '';
+          if (moneySymbol && value) value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
+          return value;
         }}
         placeholder={placeholder}
         {...fieldProps}
