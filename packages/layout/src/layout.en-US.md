@@ -154,7 +154,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | locale | Language settings for the current layout | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | settings for layout | [`Settings`](#Settings) | - |
 | siderWidth | width of the side menu | `number` | 208 |
-| defaultCollapsed | The default collapsed and expanded menus | `boolean` | - |
+| defaultCollapsed | The default collapsed and expanded menus, will be affected by `breakpoint`, `breakpoint=false` work | `boolean` | - |
 | collapsed | Controls the collapse and expansion of the menu | `boolean` | - |
 | onCollapse | The collapsed event of the menu | `(collapsed: boolean) => void` | - |
 | onPageChange | Triggered on page switch | `(location: Location) => void` | - |
