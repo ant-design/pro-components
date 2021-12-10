@@ -30,7 +30,7 @@ function useMountMergeState<S>(
       if (mountRef.current) {
         setState(prevState);
       }
-    }, 0);
+    }, 16);
   };
   return [state, mountSetState];
 }

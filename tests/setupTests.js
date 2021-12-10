@@ -58,16 +58,6 @@ if (typeof window !== 'undefined') {
   }
 }
 
-Object.assign(Enzyme.ReactWrapper.prototype, {
-  findObserver() {
-    return this.find('ResizeObserver');
-  },
-  triggerResize() {
-    const ob = this.findObserver();
-    ob?.instance()?.onResize([{ target: ob.getDOMNode() }]);
-  },
-});
-
 enableFetchMocks();
 
 Object.defineProperty(window, 'open', {
@@ -120,8 +110,17 @@ Object.defineProperty(window, 'localStorage', {
   writable: true,
 });
 
-Object.defineProperty(window, 'MutationObserver', {
-  value: window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver,
+Object.defineProperty(window, 'ResizeObserver', {
+  value: class ResizeObserver {
+    listener = () => {};
+    constructor(ls) {
+      this.listener = ls;
+      window.resizeObserverListener = ls;
+    }
+    observe = jest.fn();
+    unobserve = jest.fn();
+    disconnect = jest.fn();
+  },
   writable: true,
 });
 

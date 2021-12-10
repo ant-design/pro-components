@@ -100,11 +100,6 @@ describe('BasicTable Search', () => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
 
-    act(() => {
-      mockOffsetWidth = 500;
-      // @ts-ignore
-      html.triggerResize();
-    });
     await waitForComponentToPaint(html, 500);
 
     expect(fn).toBeCalledTimes(1);

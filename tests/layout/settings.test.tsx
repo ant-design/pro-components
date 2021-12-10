@@ -1,21 +1,94 @@
 import React from 'react';
-import { mount } from 'enzyme';
 import BasicLayout from '@ant-design/pro-layout';
-import { waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
+import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 
 describe('settings.test', () => {
   it('set title', async () => {
-    const wrapper = mount(<BasicLayout title="test-title" />);
-    await waitForComponentToPaint(wrapper);
-    let title = wrapper.find('#logo').at(0).text();
-    expect(title).toEqual('test-title');
+    const wrapper = render(<BasicLayout title="test-title" />);
+    await waitForComponentToPaint(wrapper, 160);
+    expect(wrapper.getAllByText('test-title')).toBeTruthy();
+
+    wrapper.rerender(<BasicLayout title="test-title-2" />);
+    expect(wrapper.getAllByText('test-title-2')).toBeTruthy();
+
+    wrapper.unmount();
+  });
+
+  it('RightContent resize', async () => {
+    const dom = document.createElement('div');
+    // @ts-ignore
+    dom.getBoundingClientRect = () => {
+      return {
+        x: 0,
+        y: 0,
+        bottom: 0,
+        height: 0,
+        left: 0,
+        right: 0,
+        top: 0,
+        width: 200,
+      };
+    };
+    const html = render(
+      <BasicLayout
+        layout="top"
+        rightContentRender={(props) => (
+          <div
+            id="resize"
+            style={{
+              width: 160,
+            }}
+          >
+            {
+              //@ts-ignore
+              props.rightContentSize
+            }
+          </div>
+        )}
+      >
+        123456
+      </BasicLayout>,
+    );
+    await waitTime(100);
     act(() => {
-      wrapper.setProps({
-        title: 'Ant Design Pro',
-      });
+      // @ts-ignore
+      window.resizeObserverListener([
+        {
+          target: dom,
+        },
+      ]);
     });
-    title = wrapper.find('#logo').text();
-    expect(title).toEqual('Ant Design Pro');
+
+    await waitTime(200);
+
+    expect(html.getByText('200')).toBeTruthy();
+
+    // @ts-ignore
+    dom.getBoundingClientRect = () => {
+      return {
+        x: 0,
+        y: 0,
+        bottom: 0,
+        height: 0,
+        left: 0,
+        right: 0,
+        top: 0,
+        width: 100,
+      };
+    };
+
+    act(() => {
+      // @ts-ignore
+      window.resizeObserverListener([
+        {
+          target: dom,
+        },
+      ]);
+    });
+
+    await waitTime(200);
+    expect(html.getByText('100')).toBeTruthy();
   });
 });
