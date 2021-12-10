@@ -16,7 +16,7 @@ describe('Field', () => {
     expect(html).toMatchSnapshot();
   });
 
-  it('🐴 money onchange values', async () => {
+  fit('🐴 money onchange values', async () => {
     const html = mount(<Field text="100" numberPopoverRender valueType="money" mode="edit" />);
     act(() => {
       html.find('input').simulate('change', {
@@ -24,6 +24,10 @@ describe('Field', () => {
           value: 1000,
         },
       });
+    });
+
+    act(() => {
+      html.find('InputNumber').simulate('mousedown');
     });
     html.update();
     expect(html.find('input').props().value).toBe('￥ 1000');
