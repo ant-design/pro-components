@@ -18,7 +18,7 @@ import defaultSettings from '../../defaultSettings';
 
 import BlockCheckbox from './BlockCheckbox';
 import ThemeColor from './ThemeColor';
-import getLocales, { getLanguage } from '../../locales';
+import { gLocaleObject, getLanguage } from '../../locales';
 import LayoutSetting, { renderLayoutSettingItem } from './LayoutChange';
 import RegionalSetting from './RegionalChange';
 import { genStringToTheme } from '../../utils/utils';
@@ -85,7 +85,7 @@ const getDifferentSetting = (state: Partial<ProSettings>): Record<string, any> =
 
 export const getFormatMessage = (): ((data: { id: string; defaultMessage?: string }) => string) => {
   const formatMessage = ({ id }: { id: string; defaultMessage?: string }): string => {
-    const locales = getLocales();
+    const locales = gLocaleObject();
     return locales[id];
   };
   return formatMessage;
