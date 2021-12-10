@@ -77,9 +77,7 @@ const getDifferentSetting = (state: Partial<ProSettings>): Record<string, any> =
     } else {
       stateObj[key] = undefined;
     }
-    if (key.includes('Render')) {
-      stateObj[key] = state[key] === false ? false : undefined;
-    }
+    if (key.includes('Render')) stateObj[key] = state[key] === false ? false : undefined;
   });
   stateObj.menu = undefined;
   return stateObj;
