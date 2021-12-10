@@ -21,7 +21,7 @@ import { getPageTitleInfo } from './getPageTitle';
 import type { ProSettings } from './defaultSettings';
 import defaultSettings from './defaultSettings';
 import type { LocaleType } from './locales';
-import getLocales from './locales';
+import { gLocaleObject } from './locales';
 import type { BaseMenuProps } from './components/SiderMenu/BaseMenu';
 import Footer from './Footer';
 import RouteContext from './RouteContext';
@@ -274,7 +274,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
           ...restParams,
         });
       }
-      const locales = getLocales();
+      const locales = gLocaleObject();
       return locales[id] ? locales[id] : (defaultMessage as string);
     },
     [propsFormatMessage],
