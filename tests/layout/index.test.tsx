@@ -1331,4 +1331,37 @@ describe('BasicLayout', () => {
       'overflow: hidden; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 65%); flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;',
     );
   });
+
+  it('🥩 formatMessage support', () => {
+    const html = render(
+      <BasicLayout
+        menu={{
+          locale: true,
+        }}
+        route={{
+          routes: [
+            {
+              name: 'home',
+              locale: 'menu.home',
+              path: '/home',
+            },
+          ],
+        }}
+        formatMessage={({
+          id,
+          defaultMessage,
+        }: {
+          id: string;
+          defaultMessage?: string;
+        }): string => {
+          const locales = {
+            'menu.home': '主页',
+          };
+          return locales[id] ? locales[id] : (defaultMessage as string);
+        }}
+      />,
+    );
+
+    expect(html.getByText('主页')).toBeTruthy();
+  });
 });
