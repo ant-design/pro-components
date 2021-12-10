@@ -363,120 +363,123 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   return (
     // 增加国际化的能力，与 table 组件可以统一
-    <ConfigProviderWrap>
-      <FieldContext.Provider
-        value={{
-          formRef,
-          fieldProps,
-          formItemProps,
-          groupProps,
-          formComponentType,
-          getPopupContainer,
-          setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
-            if (!Array.isArray(name)) return;
-            transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
-            fieldsValueType.current = namePathSet(fieldsValueType.current, name, {
-              valueType,
-              dateFormat,
-            });
-          },
-        }}
-      >
-        <ProFormContext.Provider value={formatValues}>
-          <ConfigProvider.SizeContext.Provider value={rest.size}>
-            <Form
-              onKeyPress={(event) => {
-                if (!isKeyPressSubmit) return;
-                if (event.key === 'Enter') {
-                  formRef.current?.submit();
-                }
-              }}
-              form={inlineForm}
-              {...rest}
-              // 组合 urlSearch 和 initialValues
-              initialValues={{
-                ...urlParamsMergeInitialValues,
-                ...rest.initialValues,
-              }}
-              onValuesChange={(changedValues, values) => {
-                rest?.onValuesChange?.(
-                  transformKey(changedValues, omitNil),
-                  transformKey(values, omitNil),
-                );
-              }}
-              onFinish={async () => {
-                // 没设置 onFinish 就不执行
-                if (!rest.onFinish) return;
-                // 防止重复提交
-                if (loading) return;
-                setLoading(true);
-                try {
-                  const finalValues = transformKey(formRef.current?.getFieldsValue(), omitNil);
-                  await rest.onFinish(finalValues);
+    <FieldContext.Provider
+      value={{
+        formRef,
+        fieldProps,
+        formItemProps,
+        groupProps,
+        formComponentType,
+        getPopupContainer,
+        setFieldValueType: (name, { valueType = 'text', dateFormat, transform }) => {
+          if (!Array.isArray(name)) return;
+          transformKeyRef.current = namePathSet(transformKeyRef.current, name, transform);
+          fieldsValueType.current = namePathSet(fieldsValueType.current, name, {
+            valueType,
+            dateFormat,
+          });
+        },
+      }}
+    >
+      <ProFormContext.Provider value={formatValues}>
+        <ConfigProvider.SizeContext.Provider value={rest.size}>
+          <Form
+            onKeyPress={(event) => {
+              if (!isKeyPressSubmit) return;
+              if (event.key === 'Enter') {
+                formRef.current?.submit();
+              }
+            }}
+            form={inlineForm}
+            {...rest}
+            // 组合 urlSearch 和 initialValues
+            initialValues={{
+              ...urlParamsMergeInitialValues,
+              ...rest.initialValues,
+            }}
+            onValuesChange={(changedValues, values) => {
+              rest?.onValuesChange?.(
+                transformKey(changedValues, omitNil),
+                transformKey(values, omitNil),
+              );
+            }}
+            onFinish={async () => {
+              // 没设置 onFinish 就不执行
+              if (!rest.onFinish) return;
+              // 防止重复提交
+              if (loading) return;
+              setLoading(true);
+              try {
+                const finalValues = transformKey(formRef.current?.getFieldsValue(), omitNil);
+                await rest.onFinish(finalValues);
 
-                  if (syncToUrl) {
-                    // 把没有的值设置为未定义可以删掉 url 的参数
-                    const params = Object.keys(
-                      transformKey(formRef.current?.getFieldsValue(), false),
-                    ).reduce((pre, next) => {
-                      return {
-                        ...pre,
-                        [next]: finalValues[next] ?? undefined,
-                      };
-                    }, extraUrlParams);
-                    // fix #3547: 当原先在url中存在的字段被删除时，应该将 params 中的该字段设置为 undefined,以便触发url同步删除
-                    Object.keys(urlSearch).forEach((key) => {
-                      if (params[key] !== false || params[key] !== 0 || !params[key]) {
-                        params[key] = undefined;
-                      }
-                    });
-                    /** 在同步到 url 上时对参数进行转化 */
-                    setUrlSearch(genParams(syncToUrl, params, 'set'));
-                  }
-
-                  setLoading(false);
-                } catch (error) {
-                  // console.log(error);
-                  setLoading(false);
-                }
-              }}
-            >
-              {rest.component !== false && (
-                <input
-                  type="text"
-                  style={{
-                    display: 'none',
-                  }}
-                />
-              )}
-              <Form.Item noStyle shouldUpdate>
-                {(formInstance) => {
-                  if (propsFormRef)
-                    propsFormRef.current = {
-                      ...(formInstance as FormInstance),
-                      ...formatValues,
+                if (syncToUrl) {
+                  // 把没有的值设置为未定义可以删掉 url 的参数
+                  const params = Object.keys(
+                    transformKey(formRef.current?.getFieldsValue(), false),
+                  ).reduce((pre, next) => {
+                    return {
+                      ...pre,
+                      [next]: finalValues[next] ?? undefined,
                     };
-                  formRef.current = formInstance as FormInstance;
-                  return null;
+                  }, extraUrlParams);
+                  // fix #3547: 当原先在url中存在的字段被删除时，应该将 params 中的该字段设置为 undefined,以便触发url同步删除
+                  Object.keys(urlSearch).forEach((key) => {
+                    if (params[key] !== false || params[key] !== 0 || !params[key]) {
+                      params[key] = undefined;
+                    }
+                  });
+                  /** 在同步到 url 上时对参数进行转化 */
+                  setUrlSearch(genParams(syncToUrl, params, 'set'));
+                }
+
+                setLoading(false);
+              } catch (error) {
+                // console.log(error);
+                setLoading(false);
+              }
+            }}
+          >
+            {rest.component !== false && (
+              <input
+                type="text"
+                style={{
+                  display: 'none',
                 }}
-              </Form.Item>
-              {content}
-            </Form>
-          </ConfigProvider.SizeContext.Provider>
-        </ProFormContext.Provider>
-      </FieldContext.Provider>
-    </ConfigProviderWrap>
+              />
+            )}
+            <Form.Item noStyle shouldUpdate>
+              {(formInstance) => {
+                if (propsFormRef)
+                  propsFormRef.current = {
+                    ...(formInstance as FormInstance),
+                    ...formatValues,
+                  };
+                formRef.current = formInstance as FormInstance;
+                return null;
+              }}
+            </Form.Item>
+            {content}
+          </Form>
+        </ConfigProvider.SizeContext.Provider>
+      </ProFormContext.Provider>
+    </FieldContext.Provider>
   );
 }
 
+/** 自动的formKey 防止重复 */
+let requestFormCacheId = 0;
+
 function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
-  const { request, params, initialValues, formKey, ...rest } = props;
+  const { request, params, initialValues, formKey = requestFormCacheId, ...rest } = props;
+  useEffect(() => {
+    requestFormCacheId += 0;
+  }, []);
   const [initialData] = useFetchData({
     request,
     params,
     proFieldKey: formKey,
   });
-
   if (!initialData && props.request) {
     return (
       <div style={{ paddingTop: 50, paddingBottom: 50, textAlign: 'center' }}>
@@ -486,14 +489,16 @@ function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   }
 
   return (
-    <BaseForm
-      autoComplete="off"
-      {...rest}
-      initialValues={{
-        ...initialValues,
-        ...initialData,
-      }}
-    />
+    <ConfigProviderWrap>
+      <BaseForm
+        autoComplete="off"
+        {...rest}
+        initialValues={{
+          ...initialValues,
+          ...initialData,
+        }}
+      />
+    </ConfigProviderWrap>
   );
 }
 
