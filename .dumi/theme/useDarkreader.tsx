@@ -35,6 +35,7 @@ export default function useDarkreader(defaultDarken: boolean = false): [
     css: '',
     ignoreInlineStyle: ['.react-switch-handle'],
     ignoreImageAnalysis: [],
+    disableStyleSheetsProxy: true,
   };
 
   useEffect(() => {
