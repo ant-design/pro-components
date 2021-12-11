@@ -111,6 +111,7 @@ const updateTheme = (dark: boolean, color?: string) => {
       css: '',
       ignoreInlineStyle: ['.react-switch-handle'],
       ignoreImageAnalysis: [],
+      disableStyleSheetsProxy: true,
     };
     if (window.MutationObserver) darkreaderEnable(defaultTheme, defaultFixes);
   } else {
