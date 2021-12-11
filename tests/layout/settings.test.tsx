@@ -61,9 +61,9 @@ describe('settings.test', () => {
       ]);
     });
 
-    await waitTime(200);
+    await waitTime(1000);
 
-    expect(html.getByText('200')).toBeTruthy();
+    expect(html.container.querySelector('.ant-pro-right-content-resize')?.textContent).toBe('200');
 
     // @ts-ignore
     dom.getBoundingClientRect = () => {
@@ -88,7 +88,7 @@ describe('settings.test', () => {
       ]);
     });
 
-    await waitTime(200);
-    expect(html.getByText('100')).toBeTruthy();
+    await waitTime(1000);
+    expect(html.container.querySelector('.ant-pro-right-content-resize')?.textContent).toBe('100');
   });
 });
