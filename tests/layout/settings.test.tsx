@@ -51,6 +51,9 @@ describe('settings.test', () => {
         123456
       </BasicLayout>,
     );
+    // @ts-ignore
+    console.log(window.resizeObserverListener.toString());
+
     await waitTime(100);
     act(() => {
       // @ts-ignore
