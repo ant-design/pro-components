@@ -51,17 +51,17 @@ describe('settings.test', () => {
         123456
       </BasicLayout>,
     );
-    // @ts-ignore
-    console.log(window.resizeObserverListener.toString());
 
     await waitTime(100);
     act(() => {
       // @ts-ignore
-      window.resizeObserverListener([
-        {
-          target: dom,
-        },
-      ]);
+      window.resizeObserverListener.map((item) => {
+        item([
+          {
+            target: dom,
+          },
+        ]);
+      });
     });
 
     await waitTime(1000);
@@ -84,11 +84,13 @@ describe('settings.test', () => {
 
     act(() => {
       // @ts-ignore
-      window.resizeObserverListener([
-        {
-          target: dom,
-        },
-      ]);
+      window.resizeObserverListener.map((item) => {
+        item([
+          {
+            target: dom,
+          },
+        ]);
+      });
     });
 
     await waitTime(1000);

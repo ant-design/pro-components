@@ -110,12 +110,14 @@ Object.defineProperty(window, 'localStorage', {
   writable: true,
 });
 
+window.resizeObserverListener = [];
+
 Object.defineProperty(window, 'ResizeObserver', {
   value: class ResizeObserver {
     listener = () => {};
     constructor(ls) {
       this.listener = ls;
-      window.resizeObserverListener = ls;
+      window.resizeObserverListener.push(ls);
     }
     observe = jest.fn();
     unobserve = jest.fn();
