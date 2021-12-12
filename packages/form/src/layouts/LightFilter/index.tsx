@@ -215,9 +215,8 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
           <LightFilterContainer
             prefixCls={prefixCls}
             items={items.flatMap((item: any) => {
-              if (item?.type.displayName === 'ProForm-Group') {
-                return item.props.children;
-              }
+              /** 如果是 ProFormGroup，直接拼接dom */
+              if (item?.type.displayName === 'ProForm-Group') return item.props.children;
               return item;
             })}
             size={size}
