@@ -254,9 +254,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
       {...omit(reset, ['labelWidth'] as any[])}
       onValuesChange={(_, allValues) => {
         setValues(allValues);
-        if (onValuesChange) {
-          onValuesChange(_, allValues);
-        }
+        onValuesChange?.(_, allValues);
         formRef.current?.submit();
       }}
     />
