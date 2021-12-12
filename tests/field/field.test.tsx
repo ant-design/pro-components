@@ -186,6 +186,7 @@ describe('Field', () => {
           mode="read"
           request={async () => {
             fn();
+            await waitTime(1000);
             return [
               { label: '全部', value: 'all' },
               { label: '未解决', value: 'open' },
@@ -196,7 +197,7 @@ describe('Field', () => {
         />,
       );
 
-      await waitForComponentToPaint(html, 100);
+      await waitForComponentToPaint(html, 1200);
       act(() => {
         ref.current?.fetchData();
       });
