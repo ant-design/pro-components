@@ -56,6 +56,11 @@ describe('settings.test', () => {
     );
 
     await waitTime(1000);
+
+    //@ts-ignore
+    window.resizeObserverListener.map((item) => {
+      console.log(item.toString());
+    });
     act(() => {
       // @ts-ignore
       window.resizeObserverListener.map((item) => {
