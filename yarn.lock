@@ -16552,9 +16552,9 @@ rc-animate@2.x, rc-animate@^2.4.4:
     react-lifecycles-compat "^3.0.4"
 
 rc-cascader@~2.3.0:
-  version "2.3.1"
-  resolved "https://registry.npmmirror.com/rc-cascader/download/rc-cascader-2.3.1.tgz#2c72f76fc948ed58874d1beac66d2904d95f9123"
-  integrity sha512-TY3c4ous8Y5zOrcMPq4jwXUITkmQrNyoGCfda1MRiEOFnfR0e4JSYRyZUylb9CohVPmktZ3Ptz82KmQ7qHNK6Q==
+  version "2.3.2"
+  resolved "https://registry.npmmirror.com/rc-cascader/download/rc-cascader-2.3.2.tgz#17899efa1bb4334fb604250f201d85fafca718eb"
+  integrity sha512-6Zw9u5Shg6JT823SDsR9aanx1V2EuzN8oTyrDBTQGHNjlm4eD++3OFguj+FApFyINtVdQh7faa0XNky0dSmWgw==
   dependencies:
     "@babel/runtime" "^7.12.5"
     array-tree-filter "^2.1.0"
@@ -16759,7 +16759,7 @@ rc-rate@~2.9.0:
     classnames "^2.2.5"
     rc-util "^5.0.1"
 
-rc-resize-observer@^0.2.1, rc-resize-observer@^0.2.3:
+rc-resize-observer@^0.2.3:
   version "0.2.6"
   resolved "https://registry.npmmirror.com/rc-resize-observer/download/rc-resize-observer-0.2.6.tgz#c1b642f6d1293e34c4e3715f47f69443a167b825"
   integrity sha1-wbZC9tEpPjTE43FfR/aUQ6FnuCU=
