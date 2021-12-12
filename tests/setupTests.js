@@ -111,22 +111,6 @@ Object.defineProperty(window, 'localStorage', {
   writable: true,
 });
 
-window.resizeObserverListener = [];
-
-Object.defineProperty(window, 'ResizeObserver', {
-  value: class ResizeObserver {
-    listener = () => {};
-    constructor(ls) {
-      this.listener = ls;
-      window.resizeObserverListener.push(ls);
-    }
-    observe = jest.fn();
-    unobserve = jest.fn();
-    disconnect = jest.fn();
-  },
-  writable: true,
-});
-
 Object.defineProperty(window, 'cancelAnimationFrame', {
   value: () => null,
 });
