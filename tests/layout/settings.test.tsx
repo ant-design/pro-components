@@ -3,6 +3,7 @@ import BasicLayout from '@ant-design/pro-layout';
 import { waitForComponentToPaint, waitTime } from '../util';
 import { render } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
+import { RightContent } from '../../packages/layout/src/components/TopNavHeader';
 
 describe('settings.test', () => {
   it('set title', async () => {
@@ -31,32 +32,30 @@ describe('settings.test', () => {
         width: 200,
       };
     };
+    const props: any = {};
     const html = render(
-      <BasicLayout
-        layout="top"
-        rightContentRender={(props) => (
-          <div
-            id="resize"
-            style={{
-              width: 160,
-            }}
-          >
-            {
-              //@ts-ignore
-              props.rightContentSize
-            }
-          </div>
-        )}
-      >
-        123456
-      </BasicLayout>,
+      <RightContent
+        prefixCls="ant-pro"
+        rightContentRender={(renProps) => {
+          return (
+            <div
+              id="resize"
+              style={{
+                width: 160,
+              }}
+            >
+              {
+                //@ts-ignore
+                renProps.rightContentSize
+              }
+            </div>
+          );
+        }}
+        {...props}
+      />,
     );
-    console.log(
-      window.resizeObserverListener.map((item) => {
-        return item.toString();
-      }),
-    );
-    await waitTime(100);
+
+    await waitTime(1000);
     act(() => {
       // @ts-ignore
       window.resizeObserverListener.map((item) => {
@@ -70,7 +69,7 @@ describe('settings.test', () => {
 
     await waitTime(1000);
 
-    // expect(html.container.querySelector('.ant-pro-right-content-resize')?.textContent).toBe('200');
+    expect(html.container.querySelector('.ant-pro-right-content-resize')?.textContent).toBe('200');
 
     // // @ts-ignore
     // dom.getBoundingClientRect = () => {
