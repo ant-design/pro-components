@@ -38,7 +38,7 @@ const LightFilterContainer: React.FC<{
   items: React.ReactNode[];
   prefixCls: string;
   size?: SizeType;
-  values?: Record<string, any>;
+  values: Record<string, any>;
   onValuesChange: (values: Record<string, any>) => void;
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
