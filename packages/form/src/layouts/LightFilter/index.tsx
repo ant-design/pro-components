@@ -53,7 +53,7 @@ const LightFilterContainer: React.FC<{
     collapseLabel,
     onValuesChange,
     bordered,
-    values = {},
+    values,
     footerRender,
   } = props;
   const intl = useIntl();
@@ -224,7 +224,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
             bordered={bordered}
             collapse={collapse}
             collapseLabel={collapseLabel}
-            values={values}
+            values={values || {}}
             footerRender={footerRender}
             onValuesChange={(newValues: any) => {
               const newAllValues = {
