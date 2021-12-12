@@ -24,42 +24,96 @@ describe('settingDrawer.test', () => {
     });
   });
 
-  it('🌺  base user', () => {
-    const html = render(<SettingDrawer settings={defaultSettings} getContainer={false} collapse />);
-    expect(html).toMatchSnapshot();
+  beforeEach(() => {
+    // @ts-expect-error
+    window.MutationObserver = null;
   });
 
-  it('🌺  settings = undefined', () => {
+  it('🌺 base user', () => {
     const html = render(
-      <SettingDrawer settings={undefined as any} getContainer={false} collapse />,
+      <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
     );
     expect(html).toMatchSnapshot();
   });
 
-  it('🌺  hideColors = true', () => {
+  it('🌺 settings = undefined', () => {
     const html = render(
-      <SettingDrawer settings={defaultSettings} hideColors getContainer={false} collapse />,
+      <SettingDrawer disableUrlParams settings={undefined as any} getContainer={false} collapse />,
     );
     expect(html).toMatchSnapshot();
   });
 
-  it('🌺  hideHintAlert = true', () => {
+  it('🌺 hideColors = true', () => {
     const html = render(
-      <SettingDrawer settings={defaultSettings} hideHintAlert getContainer={false} collapse />,
+      <SettingDrawer
+        disableUrlParams
+        settings={defaultSettings}
+        colorList={false}
+        getContainer={false}
+        collapse
+      />,
     );
     expect(html).toMatchSnapshot();
   });
 
-  it('🌺  hideLoading = true', () => {
-    window.localStorage.removeItem('umi_locale');
-    const html = render(
-      <SettingDrawer settings={defaultSettings} hideLoading getContainer={false} collapse />,
+  it('🌺  theme color Change', async () => {
+    const onSettingChange = jest.fn();
+    const colorList = [
+      { key: 'dust', color: '#F5222D' },
+      { key: 'volcano', color: '#FA541C' },
+      { key: 'sunset', color: '#FAAD14' },
+      { key: 'cyan', color: '#13C2C2' },
+      { key: 'green', color: '#52C41A' },
+      { key: 'geekblue', color: '#2F54EB' },
+      { key: 'purple', color: '#722ED1' },
+      { key: 'qixian', color: '#F52225' },
+      { key: 'test', color: '#722ED2' },
+    ];
+    const wrapper = mount(
+      <SettingDrawer
+        disableUrlParams
+        colorList={colorList}
+        settings={defaultSettings}
+        collapse
+        getContainer={false}
+        onSettingChange={(setting) => onSettingChange(setting.primaryColor)}
+      />,
     );
-    expect(html).toMatchSnapshot();
-    window.localStorage.setItem('umi_locale', 'zh-CN');
+    await waitForComponentToPaint(wrapper);
+    act(() => {
+      const button = wrapper.find('div.theme-color-content div.theme-color-block').at(0);
+      button.simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(onSettingChange).toBeCalledWith('#1890ff');
+
+    act(() => {
+      const button = wrapper.find('div.theme-color-content div.theme-color-block').at(1);
+      button.simulate('click');
+    });
+    await waitForComponentToPaint(wrapper);
+
+    expect(onSettingChange).toBeCalledWith('#F5222D');
+    expect(wrapper.find('div.theme-color-content div.theme-color-block').length).toBe(9);
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
-  it('🌺  initState form query', async () => {
+  it('🌺 hideHintAlert = true', () => {
+    const html = render(
+      <SettingDrawer
+        disableUrlParams
+        settings={defaultSettings}
+        hideHintAlert
+        getContainer={false}
+        collapse
+      />,
+    );
+    expect(html).toMatchSnapshot();
+  });
+
+  it('🌺 initState form query', async () => {
     const fn = jest.fn();
     const html = mount(
       <div>
@@ -94,8 +148,7 @@ describe('settingDrawer.test', () => {
       fixedHeader: true,
       fixSiderbar: false,
       headerHeight: 48,
-      iconfontUrl: '',
-      primaryColor: 'daybreak',
+      primaryColor: '#1890ff',
       splitMenus: false,
     });
     act(() => {
@@ -103,14 +156,20 @@ describe('settingDrawer.test', () => {
     });
   });
 
-  it('🌺  hideCopyButton = true', () => {
+  it('🌺 hideCopyButton = true', () => {
     const html = render(
-      <SettingDrawer settings={defaultSettings} hideCopyButton getContainer={false} collapse />,
+      <SettingDrawer
+        disableUrlParams
+        settings={defaultSettings}
+        hideCopyButton
+        getContainer={false}
+        collapse
+      />,
     );
     expect(html).toMatchSnapshot();
   });
 
-  it('🌺  clipboard throw error', async () => {
+  it('🌺 clipboard throw error', async () => {
     Object.defineProperty(window, 'navigator', {
       value: {
         userAgent:
@@ -125,6 +184,7 @@ describe('settingDrawer.test', () => {
     const fn = jest.fn();
     const html = mount(
       <SettingDrawer
+        disableUrlParams
         getContainer={false}
         collapse
         onSettingChange={() => {
@@ -144,10 +204,11 @@ describe('settingDrawer.test', () => {
     });
   });
 
-  it('🌺  onCollapseChange', async () => {
+  it('🌺 onCollapseChange', async () => {
     const onCollapseChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         settings={{
           ...defaultSettings,
           // @ts-ignore
@@ -167,10 +228,11 @@ describe('settingDrawer.test', () => {
     expect(onCollapseChange).toHaveBeenCalled();
   });
 
-  it('🌺  onLayout Change', async () => {
+  it('🌺 onLayout Change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         settings={defaultSettings}
         collapse
         getContainer={false}
@@ -194,10 +256,11 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith('top');
   });
 
-  it('🌺  fix-siderbar Change', async () => {
+  it('🌺 fix-siderbar Change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         collapse
         getContainer={false}
         onSettingChange={(setting) => {
@@ -219,10 +282,11 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith(false);
   });
 
-  it('🌺  content-width change', async () => {
+  it('🌺 content-width change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         collapse
         settings={{
           layout: 'top',
@@ -249,10 +313,11 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith('Fluid');
   });
 
-  it('🌺  splitMenu change', async () => {
+  it('🌺 splitMenu change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         collapse
         settings={{
           layout: 'mix',
@@ -272,10 +337,11 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith(true);
   });
 
-  it('🌺  fixed-header Change', async () => {
+  it('🌺 fixed-header Change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         collapse
         getContainer={false}
         onSettingChange={(setting) => {
@@ -299,10 +365,11 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith(false);
   });
 
-  it('🌺  theme Change', async () => {
+  it('🌺 theme Change', async () => {
     const onSettingChange = jest.fn();
     const wrapper = mount(
       <SettingDrawer
+        disableUrlParams
         settings={defaultSettings}
         collapse
         getContainer={false}
@@ -326,12 +393,14 @@ describe('settingDrawer.test', () => {
     expect(onSettingChange).toBeCalledWith('dark');
   });
 
-  it('🌺  colorWeak Change', async () => {
+  it('🌺 colorWeak Change', async () => {
     const onSettingChange = jest.fn();
     document.body.appendChild(document.createElement('div'));
     const wrapper = mount(
       <SettingDrawer
-        settings={defaultSettings}
+        disableUrlParams
+        colorList={[]}
+        settings={{ ...defaultSettings, navTheme: 'realDark', menuRender: false }}
         collapse
         getContainer={false}
         onSettingChange={(setting) => {
@@ -361,139 +430,40 @@ describe('settingDrawer.test', () => {
     await waitForComponentToPaint(wrapper);
     expect(onSettingChange).toBeCalledWith(false);
   });
-
-  it('🌺  regional config change', async () => {
-    const fn = jest.fn();
-    const html = mount(
-      <SettingDrawer
-        onSettingChange={(s) => {
-          const renderKeys = ['header', 'footer', 'menu', 'menuHeader'].filter((key) => {
+  ['header', 'footer', 'menu', 'menuHeader'].map((key) => {
+    it(`🌺 ${key} regional config change`, async () => {
+      const fn = jest.fn();
+      const html = mount(
+        <SettingDrawer
+          disableUrlParams
+          onSettingChange={(s) => {
             if (s[`${key}Render`] === false) {
-              return true;
+              fn(key);
             }
-            return false;
-          });
-          fn(renderKeys);
-        }}
-        settings={defaultSettings}
-        getContainer={false}
-        collapse
-      />,
-    );
-    await waitForComponentToPaint(html, 200);
+          }}
+          getContainer={false}
+          collapse
+        />,
+      );
+      await waitForComponentToPaint(html, 200);
 
-    act(() => {
-      ['header', 'footer', 'menu', 'menuHeader'].forEach((key) => {
+      act(() => {
         if (html.find(`.regional-${key}`).exists()) {
           html.find(`button.regional-${key}`).simulate('click');
         }
       });
+      expect(fn).toBeCalledWith(key);
+
+      act(() => {
+        html.unmount();
+      });
     });
-    expect(fn).toBeCalledWith(['header', 'footer', 'menu', 'menuHeader']);
   });
 
-  it('🌺  theme color Change', async () => {
-    const onSettingChange = jest.fn();
-    (window as any).umi_plugin_ant_themeVar = [
-      { key: 'dark', fileName: 'dark.css', theme: 'dark' },
-      { key: 'dust', fileName: 'dust.css', modifyVars: { '@primary-color': '#F5222D' } },
-      {
-        key: 'qixian',
-        fileName: 'dark-qixian.css',
-        modifyVars: { '@primary-color': '#F52225' },
-      },
-      { key: 'volcano', fileName: 'volcano.css', modifyVars: { '@primary-color': '#FA541C' } },
-      { key: 'sunset', fileName: 'sunset.css', modifyVars: { '@primary-color': '#FAAD14' } },
-      { key: 'cyan', fileName: 'cyan.css', modifyVars: { '@primary-color': '#13C2C2' } },
-      { key: 'green', fileName: 'green.css', modifyVars: { '@primary-color': '#52C41A' } },
-      { key: 'geekblue', fileName: 'geekblue.css', modifyVars: { '@primary-color': '#2F54EB' } },
-      { key: 'purple', fileName: 'purple.css', modifyVars: { '@primary-color': '#722ED1' } },
-      {
-        key: 'qixian',
-        theme: 'dark',
-        fileName: 'dark-qixian.css',
-        modifyVars: { '@primary-color': '#F52225' },
-      },
-      {
-        key: 'dust',
-        theme: 'dark',
-        fileName: 'dark-dust.css',
-        modifyVars: { '@primary-color': '#F5222D' },
-      },
-      {
-        key: 'volcano',
-        theme: 'dark',
-        fileName: 'dark-volcano.css',
-        modifyVars: { '@primary-color': '#FA541C' },
-      },
-      {
-        key: 'sunset',
-        theme: 'dark',
-        fileName: 'dark-sunset.css',
-        modifyVars: { '@primary-color': '#FAAD14' },
-      },
-      {
-        key: 'cyan',
-        theme: 'dark',
-        fileName: 'dark-cyan.css',
-        modifyVars: { '@primary-color': '#13C2C2' },
-      },
-      {
-        key: 'green',
-        theme: 'dark',
-        fileName: 'dark-green.css',
-        modifyVars: { '@primary-color': '#52C41A' },
-      },
-      {
-        key: 'geekblue',
-        theme: 'dark',
-        fileName: 'dark-geekblue.css',
-        modifyVars: { '@primary-color': '#2F54EB' },
-      },
-      {
-        key: 'purple',
-        theme: 'dark',
-        fileName: 'dark-purple.css',
-        modifyVars: { '@primary-color': '#722ED1' },
-      },
-      {
-        key: 'test',
-        theme: 'dark',
-        fileName: 'dark-test.css',
-        modifyVars: { '@primary-color': '#722ED1' },
-      },
-    ];
-    const wrapper = mount(
-      <SettingDrawer
-        settings={defaultSettings}
-        collapse
-        getContainer={false}
-        onSettingChange={(setting) => onSettingChange(setting.primaryColor)}
-      />,
+  it('🌺 onLanguageChange support', async () => {
+    const html = mount(
+      <SettingDrawer disableUrlParams settings={defaultSettings} getContainer={false} collapse />,
     );
-    await waitForComponentToPaint(wrapper);
-    act(() => {
-      const button = wrapper.find('div.theme-color-content div.theme-color-block').at(0);
-      button.simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-    expect(onSettingChange).toBeCalledWith('daybreak');
-
-    act(() => {
-      const button = wrapper.find('div.theme-color-content div.theme-color-block').at(1);
-      button.simulate('click');
-    });
-    await waitForComponentToPaint(wrapper);
-
-    expect(onSettingChange).toBeCalledWith('dust');
-    expect(wrapper.find('div.theme-color-content div.theme-color-block').length).toBe(9);
-    act(() => {
-      wrapper.unmount();
-    });
-  });
-
-  it('🌺  onLanguageChange support', async () => {
-    const html = mount(<SettingDrawer settings={defaultSettings} getContainer={false} collapse />);
     await waitForComponentToPaint(html, 200);
     act(() => {
       expect(html.find('.ant-pro-setting-drawer-title').at(0).text()).toBe('整体风格设置');

@@ -12577,6 +12577,547 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
 </DocumentFragment>
 `;
 
+exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/light-filter-test.tsx correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <div
+      class="ant-radio-group ant-radio-group-outline"
+    >
+      <label
+        class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+      >
+        <span
+          class="ant-radio-button ant-radio-button-checked"
+        >
+          <input
+            checked=""
+            class="ant-radio-button-input"
+            type="radio"
+            value="middle"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span>
+          Middle
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper"
+      >
+        <span
+          class="ant-radio-button"
+        >
+          <input
+            class="ant-radio-button-input"
+            type="radio"
+            value="small"
+          />
+          <span
+            class="ant-radio-button-inner"
+          />
+        </span>
+        <span>
+          Small
+        </span>
+      </label>
+    </div>
+    <br />
+    <br />
+    <form
+      autocomplete="off"
+      class="ant-form ant-form-horizontal ant-form-middle"
+    >
+      <input
+        style="display: none;"
+        type="text"
+      />
+      <div
+        class="ant-pro-form-light-filter ant-pro-form-light-filter-middle ant-pro-form-light-filter-effective"
+      >
+        <div
+          class="ant-pro-form-light-filter-container"
+        >
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <div
+                      class="ant-pro-field-select-light-select ant-pro-field-select-light-select-searchable"
+                    >
+                      <div
+                        class="ant-select ant-select-single ant-select-show-arrow ant-select-show-search"
+                      >
+                        <div
+                          class="ant-select-selector"
+                        >
+                          <span
+                            class="ant-select-selection-search"
+                          >
+                            <input
+                              aria-activedescendant="sex_list_0"
+                              aria-autocomplete="list"
+                              aria-controls="sex_list"
+                              aria-expanded="false"
+                              aria-haspopup="listbox"
+                              aria-owns="sex_list"
+                              autocomplete="off"
+                              class="ant-select-selection-search-input"
+                              id="sex"
+                              role="combobox"
+                              type="search"
+                              value=""
+                            />
+                          </span>
+                          <span
+                            class="ant-select-selection-item"
+                            title="打开"
+                          >
+                            打开
+                          </span>
+                        </div>
+                        <span
+                          aria-hidden="true"
+                          class="ant-select-arrow"
+                          style="user-select: none;"
+                          unselectable="on"
+                        >
+                          <span
+                            aria-label="down"
+                            class="anticon anticon-down ant-select-suffix"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="down"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active"
+                      >
+                        <span
+                          title="打开,关闭"
+                        >
+                          性别: 打开,关闭
+                        </span>
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <div
+                      class="ant-pro-field-select-light-select"
+                    >
+                      <div
+                        class="ant-select ant-select-multiple ant-select-allow-clear ant-select-show-search"
+                      >
+                        <div
+                          class="ant-select-selector"
+                        >
+                          <div
+                            class="ant-select-selection-overflow"
+                          >
+                            <div
+                              class="ant-select-selection-overflow-item ant-select-selection-overflow-item-suffix"
+                              style="opacity: 1;"
+                            >
+                              <div
+                                class="ant-select-selection-search"
+                                style="width: 0px;"
+                              >
+                                <input
+                                  aria-activedescendant="area_list_0"
+                                  aria-autocomplete="list"
+                                  aria-controls="area_list"
+                                  aria-expanded="false"
+                                  aria-haspopup="listbox"
+                                  aria-owns="area_list"
+                                  autocomplete="off"
+                                  class="ant-select-selection-search-input"
+                                  id="area"
+                                  readonly=""
+                                  role="combobox"
+                                  style="opacity: 0;"
+                                  type="search"
+                                  unselectable="on"
+                                  value=""
+                                />
+                                <span
+                                  aria-hidden="true"
+                                  class="ant-select-selection-search-mirror"
+                                >
+                                   
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <span
+                            class="ant-select-selection-placeholder"
+                          >
+                            请选择
+                          </span>
+                        </div>
+                      </div>
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                      >
+                        地区
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
+                    >
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-allow-clear"
+                      >
+                        数量
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
+                    >
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
+                      >
+                        <span
+                          title="20~80"
+                        >
+                          范围: 20~80
+                        </span>
+                        <span
+                          aria-label="close"
+                          class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
+                          role="img"
+                          tabindex="-1"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="close"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
+                    >
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
+                      >
+                        <span
+                          title="20"
+                        >
+                          范围: 20
+                        </span>
+                        <span
+                          aria-label="close"
+                          class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
+                          role="img"
+                          tabindex="-1"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="close"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-pro-form-light-filter-item"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <span
+                      class="ant-dropdown-trigger ant-pro-core-field-dropdown-label"
+                    >
+                      <span
+                        class="ant-pro-core-field-label ant-pro-core-field-label-middle ant-pro-core-field-label-active ant-pro-core-field-label-allow-clear"
+                      >
+                        <span
+                          title="yutingzhao1991"
+                        >
+                          名称: yutingzhao1991
+                        </span>
+                        <span
+                          aria-label="close"
+                          class="anticon anticon-close ant-pro-core-field-label-icon ant-pro-core-field-label-close"
+                          role="img"
+                          tabindex="-1"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="close"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                            />
+                          </svg>
+                        </span>
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-pro-core-field-label-icon ant-pro-core-field-label-arrow"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demos/query-filter.tsx correctly 1`] = `
 <DocumentFragment>
   <form
@@ -13481,7 +14022,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
         >
           <label
             class=""
-            for="enddate"
+            for="startDate"
             title="创建时间"
           >
             创建时间
@@ -13506,7 +14047,78 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 >
                   <input
                     autocomplete="off"
-                    id="enddate"
+                    id="startDate"
+                    placeholder="请选择"
+                    readonly=""
+                    size="12"
+                    title=""
+                    value=""
+                  />
+                  <span
+                    class="ant-picker-suffix"
+                  >
+                    <span
+                      aria-label="calendar"
+                      class="anticon anticon-calendar"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="calendar"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M880 184H712v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H384v-64c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v64H144c-17.7 0-32 14.3-32 32v664c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V216c0-17.7-14.3-32-32-32zm-40 656H184V460h656v380zM184 392V256h128v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h256v48c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-48h128v136H184z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-row ant-form-item ant-form-item-hidden"
+        style="flex-wrap: nowrap;"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+          style="flex: 0 0 80px;"
+        >
+          <label
+            class=""
+            for="endDate"
+            title="结束时间"
+          >
+            结束时间
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+          style="max-width: calc(100% - 80px);"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <div
+                class="ant-picker"
+                style="width: 100%;"
+              >
+                <div
+                  class="ant-picker-input"
+                >
+                  <input
+                    autocomplete="off"
+                    id="endDate"
                     placeholder="请选择"
                     readonly=""
                     size="12"
@@ -17181,6 +17793,16 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
                 </div>
               </div>
             </div>
+          </div>
+          <div
+            class="ant-col ant-col-24"
+            style="padding-left: 12px; padding-right: 12px;"
+          >
+            <div
+              class="ant-divider ant-divider-horizontal ant-divider-dashed"
+              role="separator"
+              style="margin-top: -8px; margin-bottom: 16px;"
+            />
           </div>
           <div
             class="ant-col ant-col-24"

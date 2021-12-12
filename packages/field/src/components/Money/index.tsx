@@ -117,9 +117,7 @@ const InputNumberPopover = React.forwardRef<
       visible={dom ? undefined : false}
       trigger="focus"
       content={dom}
-      getPopupContainer={(triggerNode) => {
-        return triggerNode?.parentElement || document.body;
-      }}
+      getPopupContainer={(triggerNode) => triggerNode?.parentElement || document.body}
     >
       <InputNumber ref={ref} {...rest} value={value} onChange={onChange} />
     </Popover>
@@ -210,19 +208,11 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
             const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
             return `${moneySymbol} ${value}`.replace(reg, ',');
           }
-          if (value) {
-            return value;
-          }
-          return '';
+          return value;
         }}
         parser={(value) => {
-          if (moneySymbol && value) {
-            return value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
-          }
-          if (value) {
-            return value;
-          }
-          return '';
+          if (moneySymbol && value) value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
+          return value;
         }}
         placeholder={placeholder}
         {...fieldProps}

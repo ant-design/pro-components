@@ -1,4 +1,5 @@
 ﻿import { useState, useEffect, useMemo } from 'react';
+import * as DarkReader from 'darkreader';
 
 export type Action = {
   toggle: () => void;
@@ -34,6 +35,7 @@ export default function useDarkreader(defaultDarken: boolean = false): [
     css: '',
     ignoreInlineStyle: ['.react-switch-handle'],
     ignoreImageAnalysis: [],
+    disableStyleSheetsProxy: true,
   };
 
   useEffect(() => {

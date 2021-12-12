@@ -18,6 +18,8 @@ import { genColumnKey } from '../../utils/index';
 import type { ProColumns } from '../../typing';
 
 import './index.less';
+import { omitUndefined, useRefFunction } from '@ant-design/pro-utils';
+import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 
 type ColumnSettingProps<T = any> = {
   columns: TableColumnType<T>[];
@@ -136,11 +138,8 @@ const CheckboxList: React.FC<{
     return { list: loopData(list), keys: checkedKeys };
   }, [columnsMap, list, show]);
 
-  if (!show) {
-    return null;
-  }
-
-  const move = (id: React.Key, targetId: React.Key, dropPosition: number) => {
+  /** 移动到指定的位置 */
+  const move = useRefFunction((id: React.Key, targetId: React.Key, dropPosition: number) => {
     const newMap = { ...columnsMap };
     const newColumns = [...sortKeyColumns];
     const findIndex = newColumns.findIndex((columnKey) => columnKey === id);
@@ -163,7 +162,32 @@ const CheckboxList: React.FC<{
     // 更新数组
     setColumnsMap(newMap);
     setSortKeyColumns(newColumns);
-  };
+  });
+
+  /** 选中反选功能 */
+  const onCheckTree = useRefFunction((e) => {
+    const columnKey = e.node.key;
+    const tempConfig = columnsMap[columnKey] || {};
+    const newSetting = { ...tempConfig };
+    if (e.checked) {
+      delete newSetting.show;
+    } else {
+      newSetting.show = false;
+    }
+    const columnKeyMap = {
+      ...columnsMap,
+      [columnKey]: omitUndefined(newSetting) as ColumnsState,
+    };
+    // 如果没有值了，直接干掉他
+    if (!omitUndefined(newSetting)) {
+      delete columnKeyMap[columnKey];
+    }
+    setColumnsMap(columnKeyMap);
+  });
+
+  if (!show) {
+    return null;
+  }
 
   const listDom = (
     <Tree
@@ -178,25 +202,7 @@ const CheckboxList: React.FC<{
         move(dragKey, dropKey, position);
       }}
       blockNode
-      onCheck={(_, e) => {
-        const columnKey = e.node.key;
-        const tempConfig = columnsMap[columnKey] || {};
-        const newSetting = { ...tempConfig };
-        if (e.checked) {
-          delete newSetting.show;
-        } else {
-          newSetting.show = false;
-        }
-        const columnKeyMap = {
-          ...columnsMap,
-          [columnKey]: newSetting as ColumnsState,
-        };
-        // 如果没有值了，直接干掉他
-        if (Object.keys(newSetting).length === 0) {
-          delete columnKeyMap[columnKey];
-        }
-        setColumnsMap(columnKeyMap);
-      }}
+      onCheck={(_, e) => onCheckTree(e)}
       checkedKeys={treeDataConfig.keys}
       showLine={false}
       titleRender={(node) => {
@@ -308,7 +314,7 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
    *
    * @param show
    */
-  const setAllSelectAction = (show: boolean = true) => {
+  const setAllSelectAction = useRefFunction((show: boolean = true) => {
     const columnKeyMap = {};
     const loopColumns = (columns: any) => {
       columns.forEach(({ key, fixed, index, children }: any) => {
@@ -326,7 +332,22 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
     };
     loopColumns(localColumns);
     setColumnsMap(columnKeyMap);
-  };
+  });
+
+  /** 全选和反选 */
+  const checkedAll = useRefFunction((e: CheckboxChangeEvent) => {
+    if (e.target.checked) {
+      setAllSelectAction();
+    } else {
+      setAllSelectAction(false);
+    }
+  });
+
+  /** 重置项目 */
+  const clearClick = useRefFunction(() => {
+    setColumnsMap(columnRef.current);
+    clearPersistenceStorage?.();
+  });
 
   // 未选中的 key 列表
   const unCheckedKeys = Object.values(columnsMap).filter((value) => !value || value.show === false);
@@ -345,24 +366,12 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
           <Checkbox
             indeterminate={indeterminate}
             checked={unCheckedKeys.length === 0 && unCheckedKeys.length !== localColumns.length}
-            onChange={(e) => {
-              if (e.target.checked) {
-                setAllSelectAction();
-              } else {
-                setAllSelectAction(false);
-              }
-            }}
+            onChange={(e) => checkedAll(e)}
           >
             {intl.getMessage('tableToolBar.columnDisplay', '列展示')}
           </Checkbox>
           {checkedReset ? (
-            <a
-              onClick={() => {
-                setColumnsMap(columnRef.current);
-                clearPersistenceStorage?.();
-              }}
-              className={`${className}-action-rest-button`}
-            >
+            <a onClick={clearClick} className={`${className}-action-rest-button`}>
               {intl.getMessage('tableToolBar.reset', '重置')}
             </a>
           ) : null}

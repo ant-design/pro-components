@@ -301,9 +301,7 @@ export const useFieldFetchData = (
 
   const { run: fetchData } = useDebounceFn<[Record<string, any>], OptionsType>(
     async (params: Record<string, any>) => {
-      if (!props.request) {
-        return [];
-      }
+      if (!props.request) return [];
       setLoading(true);
       const loadData = await props.request(params, props);
       setLoading(false);

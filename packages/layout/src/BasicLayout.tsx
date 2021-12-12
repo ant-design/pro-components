@@ -21,7 +21,7 @@ import { getPageTitleInfo } from './getPageTitle';
 import type { ProSettings } from './defaultSettings';
 import defaultSettings from './defaultSettings';
 import type { LocaleType } from './locales';
-import getLocales from './locales';
+import { gLocaleObject } from './locales';
 import type { BaseMenuProps } from './components/SiderMenu/BaseMenu';
 import Footer from './Footer';
 import RouteContext from './RouteContext';
@@ -134,7 +134,7 @@ const footerRender = (props: BasicLayoutProps): React.ReactNode => {
 };
 
 const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): React.ReactNode => {
-  const { layout, isMobile, openKeys, splitMenus, menuRender } = props;
+  const { layout, navTheme, isMobile, openKeys, splitMenus, menuRender } = props;
   if (props.menuRender === false || props.pure) {
     return null;
   }
@@ -157,27 +157,27 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
   if (layout === 'top' && !isMobile) {
     return <SiderMenu matchMenuKeys={matchMenuKeys} {...props} hide />;
   }
-  if (menuRender) {
-    const defaultDom = (
-      <SiderMenu
-        matchMenuKeys={matchMenuKeys}
-        {...props}
-        // 这里走了可以少一次循环
-        menuData={clearMenuData}
-      />
-    );
 
-    return menuRender(props, defaultDom);
-  }
-
-  return (
+  const defaultDom = (
     <SiderMenu
       matchMenuKeys={matchMenuKeys}
       {...props}
+      style={
+        navTheme === 'realDark'
+          ? {
+              boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 65%)',
+            }
+          : {}
+      }
       // 这里走了可以少一次循环
       menuData={clearMenuData}
     />
   );
+  if (menuRender) {
+    return menuRender(props, defaultDom);
+  }
+
+  return defaultDom;
 };
 
 const defaultPageTitleRender = (
@@ -274,7 +274,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
           ...restParams,
         });
       }
-      const locales = getLocales();
+      const locales = gLocaleObject();
       return locales[id] ? locales[id] : (defaultMessage as string);
     },
     [propsFormatMessage],
@@ -397,7 +397,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       menuData,
       onCollapse,
       isMobile,
-      theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
+      theme: navTheme === 'dark' ? 'dark' : 'light',
       collapsed,
     },
     matchMenuKeys,
@@ -412,7 +412,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       isMobile,
       collapsed,
       onCollapse,
-      theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
+      theme: navTheme === 'dark' ? 'dark' : 'light',
     },
     matchMenuKeys,
   );

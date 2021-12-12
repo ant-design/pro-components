@@ -583,7 +583,6 @@ describe('Table ColumnSetting', () => {
             title: 'Name',
             key: 'name',
             dataIndex: 'name',
-            copyable: true,
           },
         ]}
         request={async () => {
@@ -617,6 +616,16 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html, 200);
 
     expect(html.find('span.ant-checkbox.ant-checkbox-checked').length).toBe(0);
+
+    act(() => {
+      html.find('.ant-pro-table-column-setting-list .ant-tree-checkbox').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      html.find('.ant-pro-table-column-setting-list .ant-tree-checkbox').simulate('click');
+    });
 
     act(() => {
       html.find('.ant-pro-table-column-setting-list .ant-tree-checkbox').simulate('click');
