@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.32.0-beta.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.7...@ant-design/pro-layout@6.32.0-beta.1) (2021-12-13)
+
+### Bug Fixes
+
+- **layout:** remove defaultLinks ([#4228](https://github.com/ant-design/pro-components/issues/4228)) ([a48c616](https://github.com/ant-design/pro-components/commit/a48c6168e99d3f1c30fc71c1f547b0db1393d6a0))
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
 ## [6.31.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.6...@ant-design/pro-layout@6.31.7) (2021-12-10)
 
 **Note:** Version bump only for package @ant-design/pro-layout

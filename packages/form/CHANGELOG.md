@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.50.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.11...@ant-design/pro-form@1.50.0) (2021-12-13)
+
+### Bug Fixes
+
+- **form:** relay no render DrawerForm and ModalForm ([#4254](https://github.com/ant-design/pro-components/issues/4254)) ([f986ecb](https://github.com/ant-design/pro-components/commit/f986ecb9d89d4e3edef18d50eee4c37e730227d9))
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
 ## [1.49.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.10...@ant-design/pro-form@1.49.11) (2021-12-10)
 
 **Note:** Version bump only for package @ant-design/pro-form
