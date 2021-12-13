@@ -23,6 +23,7 @@ function useDebounceFn<T extends any[], U = any>(
   fn: (...args: T) => Promise<any>,
   deps: DependencyList | number,
   wait?: number,
+  disableAutoCancel?: boolean,
 ): ReturnValue<T, U> {
   // eslint-disable-next-line no-underscore-dangle
   const hooksDeps: DependencyList = (Array.isArray(deps) ? deps : []) as DependencyList;
@@ -34,6 +35,7 @@ function useDebounceFn<T extends any[], U = any>(
   fnRef.current = fn;
 
   const cancel = useCallback(() => {
+    if (disableAutoCancel) return;
     if (timer.current) {
       clearTimeout(timer.current);
     }
@@ -41,6 +43,9 @@ function useDebounceFn<T extends any[], U = any>(
 
   const run = useCallback(
     async (...args: any): Promise<U> => {
+      if (wait === 0) {
+        return fnRef.current(...args);
+      }
       return new Promise<U>((resolve) => {
         cancel();
         timer.current = setTimeout(async () => {
@@ -49,7 +54,7 @@ function useDebounceFn<T extends any[], U = any>(
         }, hookWait);
       });
     },
-    [hookWait, cancel],
+    [wait, cancel, hookWait],
   );
 
   useUpdateEffect(() => {
@@ -58,7 +63,9 @@ function useDebounceFn<T extends any[], U = any>(
   }, [...hooksDeps, run]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => cancel, []);
+  useEffect(() => {
+    return cancel();
+  }, []);
 
   return {
     run,

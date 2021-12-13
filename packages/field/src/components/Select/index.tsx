@@ -308,7 +308,9 @@ export const useFieldFetchData = (
       return loadData;
     },
     [],
-    props.debounceTime ?? 10,
+    props.debounceTime ?? 0,
+    // 因为使用了swc，自动清理请求可能导致缓存错误的数据
+    true,
   );
 
   const { data, mutate: setLocaleData } = useSWR(
