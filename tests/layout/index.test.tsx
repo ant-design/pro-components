@@ -6,6 +6,9 @@ import type { BasicLayoutProps } from '@ant-design/pro-layout';
 import BasicLayout from '@ant-design/pro-layout';
 
 import { waitForComponentToPaint } from '../util';
+import { LoginForm, ProFormText } from '@ant-design/pro-form';
+import { ConfigProvider } from 'antd';
+import en_US from 'antd/lib/locale/en_US';
 
 describe('BasicLayout', () => {
   beforeAll(() => {
@@ -1363,5 +1366,48 @@ describe('BasicLayout', () => {
     );
 
     expect(html.getByText('主页')).toBeTruthy();
+  });
+
+  it('🥩 pure should has provide', () => {
+    let html = render(
+      <ConfigProvider locale={en_US}>
+        <BasicLayout>
+          <LoginForm>
+            <ProFormText />
+          </LoginForm>
+        </BasicLayout>
+      </ConfigProvider>,
+    );
+    expect(html.container.querySelector('.ant-btn.ant-btn-primary.ant-btn-lg')?.textContent).toBe(
+      'Login',
+    );
+
+    expect(html.getByText('Login')).toBeTruthy();
+
+    html.rerender(
+      <ConfigProvider locale={en_US}>
+        <BasicLayout pure>
+          <LoginForm>
+            <ProFormText />
+          </LoginForm>
+        </BasicLayout>
+      </ConfigProvider>,
+    );
+
+    expect(html.container.querySelector('.ant-btn.ant-btn-primary.ant-btn-lg')?.textContent).toBe(
+      'Login',
+    );
+
+    html = render(
+      <ConfigProvider locale={en_US}>
+        <LoginForm>
+          <ProFormText />
+        </LoginForm>
+      </ConfigProvider>,
+    );
+
+    expect(html.container.querySelector('.ant-btn.ant-btn-primary.ant-btn-lg')?.textContent).toBe(
+      '登 录',
+    );
   });
 });
