@@ -36,6 +36,7 @@ import compatibleLayout from './utils/compatibleLayout';
 import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
 import type { WaterMarkProps } from './components/WaterMark';
+import { ConfigProviderWrap } from '@ant-design/pro-provider';
 
 let layoutIndex = 0;
 
@@ -491,7 +492,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         }}
       >
         {props.pure ? (
-          children
+          <ConfigProviderWrap autoClearCache>{children}</ConfigProviderWrap>
         ) : (
           <div className={className}>
             <Layout
