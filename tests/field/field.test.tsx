@@ -424,10 +424,11 @@ describe('Field', () => {
     const ref = React.createRef<{
       fetchData: () => void;
     }>();
-    const requestFn = jest.fn();
-    const onSearchFn = jest.fn();
-    const onBlurFn = jest.fn();
-    const loadDataFn = jest.fn();
+    const requestFn = jest.fn(),
+      onSearchFn = jest.fn(),
+      onBlurFn = jest.fn(),
+      onClearFn = jest.fn(),
+      loadDataFn = jest.fn();
     const html = mount(
       <Field
         ref={ref}
@@ -435,15 +436,17 @@ describe('Field', () => {
           fieldNames: {
             label: 'title',
           },
+          allowClear: true,
           showSearch: true,
           labelInValue: true,
-          autoClearSearchValue: true,
+          autoClearSearchValue: false,
           multiple: true,
           treeNodeFilterProp: 'title',
           filterTreeNode: true,
           onSearch: onSearchFn,
           loadData: loadDataFn,
           onBlur: onBlurFn,
+          onClear: onClearFn,
           open: true,
         }}
         mode="edit"
@@ -525,6 +528,13 @@ describe('Field', () => {
     });
 
     expect(html.text()).toContain('Child Node5');
+
+    html.find('span.ant-select-clear').simulate('mousedown');
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(html.find('input.ant-select-selection-search-input').prop('value')).toBe('');
+    expect(onClearFn).toBeCalled();
 
     act(() => {
       searchInput.simulate('blur');
