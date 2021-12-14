@@ -374,34 +374,28 @@ describe('Field', () => {
               {
                 title: 'Node1',
                 value: '0-0',
-                key: '0-0',
                 children: [
                   {
                     title: 'Child Node1',
                     value: '0-0-0',
-                    key: '0-0-0',
                   },
                 ],
               },
               {
                 title: 'Node2',
                 value: '0-1',
-                key: '0-1',
                 children: [
                   {
                     title: 'Child Node3',
                     value: '0-1-0',
-                    key: '0-1-0',
                   },
                   {
                     title: 'Child Node4',
                     value: '0-1-1',
-                    key: '0-1-1',
                   },
                   {
                     title: 'Child Node5',
                     value: '0-1-2',
-                    key: '0-1-2',
                   },
                 ],
               },
@@ -423,6 +417,123 @@ describe('Field', () => {
       await waitForComponentToPaint(html, 100);
 
       expect(html.text()).toBe('0-00-0-0');
+    });
+  });
+
+  it(`🐴 treeSelect support request function and search, asynchronously loadData`, async () => {
+    const ref = React.createRef<{
+      fetchData: () => void;
+    }>();
+    const requestFn = jest.fn();
+    const onSearchFn = jest.fn();
+    const onBlurFn = jest.fn();
+    const loadDataFn = jest.fn();
+    const html = mount(
+      <Field
+        ref={ref}
+        fieldProps={{
+          fieldNames: {
+            label: 'title',
+          },
+          showSearch: true,
+          labelInValue: true,
+          autoClearSearchValue: true,
+          multiple: true,
+          treeNodeFilterProp: 'title',
+          filterTreeNode: true,
+          onSearch: onSearchFn,
+          loadData: loadDataFn,
+          onBlur: onBlurFn,
+          open: true,
+        }}
+        mode="edit"
+        valueType="treeSelect"
+        request={async () => {
+          requestFn();
+          await waitTime(100);
+          return [
+            {
+              title: 'Node1',
+              value: '0-0',
+              children: [
+                {
+                  title: 'Child Node1',
+                  value: '0-0-0',
+                },
+              ],
+            },
+            {
+              title: 'Node2',
+              value: '0-1',
+              children: [
+                {
+                  title: 'Child Node3',
+                  value: '0-1-0',
+                },
+                {
+                  title: 'Child Node4',
+                  value: '0-1-1',
+                },
+                {
+                  title: 'Child Node5',
+                  value: '0-1-2',
+                },
+              ],
+            },
+          ];
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(requestFn).toBeCalledTimes(1);
+
+    const searchInput = html.find('input.ant-select-selection-search-input');
+
+    expect(searchInput.exists()).toBeTruthy();
+
+    act(() => {
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(loadDataFn).toBeCalledTimes(1);
+
+    act(() => {
+      searchInput.simulate('change', {
+        target: {
+          value: 'Node5',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(onSearchFn).toBeCalled();
+
+    const selectTreeTitle = html.find('span.ant-select-tree-title');
+    expect(selectTreeTitle.exists()).toBeTruthy();
+    expect(selectTreeTitle.length).toBe(2);
+
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      selectTreeTitle.last().simulate('click');
+    });
+
+    expect(html.text()).toContain('Child Node5');
+
+    act(() => {
+      searchInput.simulate('blur');
+    });
+
+    expect(onBlurFn).toBeCalledTimes(1);
+
+    act(() => {
+      html.unmount();
     });
   });
 

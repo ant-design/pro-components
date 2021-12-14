@@ -32,6 +32,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     onSearch,
     onClear,
     onChange,
+    onBlur,
     loadData,
     showSearch,
     autoClearSearchValue,
@@ -88,10 +89,11 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
       <Spin spinning={loading}>
         <TreeSelect
           ref={treeSelectRef}
-          treeData={options as DataNode[]}
           {...fieldProps}
+          treeData={options as DataNode[]}
           showSearch={showSearch}
           searchValue={searchValue}
+          autoClearSearchValue={autoClearSearchValue}
           onClear={() => {
             onClear?.();
             fetchData('');
@@ -99,10 +101,14 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
               setSearchValue('');
             }
           }}
-          loadData={(node) => {
-            fetchData();
-            return loadData?.(node) || Promise.resolve();
-          }}
+          loadData={
+            loadData
+              ? (node) => {
+                  fetchData(node.value?.toString());
+                  return loadData?.(node) || Promise.resolve();
+                }
+              : undefined
+          }
           onChange={(value, optionList, extra) => {
             // 将搜索框置空 和 antd 行为保持一致
             if (showSearch && autoClearSearchValue) {
@@ -124,6 +130,11 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
             fetchData(value);
             onSearch?.(value);
             setSearchValue(value);
+          }}
+          onBlur={(event) => {
+            setSearchValue('');
+            fetchData('');
+            onBlur?.(event);
           }}
           className={classNames(fieldProps?.className, layoutClassName)}
         />
