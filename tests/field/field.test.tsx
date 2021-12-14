@@ -439,7 +439,7 @@ describe('Field', () => {
           allowClear: true,
           showSearch: true,
           labelInValue: true,
-          autoClearSearchValue: false,
+          autoClearSearchValue: true,
           multiple: true,
           treeNodeFilterProp: 'title',
           filterTreeNode: true,
@@ -529,12 +529,13 @@ describe('Field', () => {
 
     expect(html.text()).toContain('Child Node5');
 
-    html.find('span.ant-select-clear').simulate('mousedown');
-
     await waitForComponentToPaint(html, 200);
 
     expect(html.find('input.ant-select-selection-search-input').prop('value')).toBe('');
+
+    html.find('span.ant-select-clear').simulate('mousedown');
     expect(onClearFn).toBeCalled();
+    expect(html.text()).toContain('');
 
     act(() => {
       searchInput.simulate('blur');
