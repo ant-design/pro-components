@@ -32,22 +32,26 @@ function useDebounceFn<T extends any[], U = any>(
   const timer = useRef<any>();
 
   const fnRef = useRef<any>(fn);
+  /** 如果这个方法被清理里，应该报错，这样就可以减少错误信息了 */
+  const rejectRef = useRef<any>(() => {});
   fnRef.current = fn;
 
   const cancel = useCallback(() => {
+    if (wait !== 0) rejectRef.current?.();
     if (disableAutoCancel) return;
     if (timer.current) {
       clearTimeout(timer.current);
     }
-  }, []);
+  }, [disableAutoCancel]);
 
   const run = useCallback(
     async (...args: any): Promise<U> => {
       if (wait === 0) {
         return fnRef.current(...args);
       }
-      return new Promise<U>((resolve) => {
+      return new Promise<U>((resolve, reject) => {
         cancel();
+        rejectRef.current = reject;
         timer.current = setTimeout(async () => {
           const data = await fnRef.current(...args);
           resolve(data);
@@ -64,7 +68,7 @@ function useDebounceFn<T extends any[], U = any>(
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    return cancel();
+    return () => cancel();
   }, []);
 
   return {
