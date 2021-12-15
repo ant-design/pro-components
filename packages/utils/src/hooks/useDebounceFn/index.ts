@@ -37,7 +37,6 @@ function useDebounceFn<T extends any[], U = any>(
   fnRef.current = fn;
 
   const cancel = useCallback(() => {
-    if (wait !== 0) rejectRef.current?.();
     if (disableAutoCancel) return;
     if (timer.current) {
       clearTimeout(timer.current);
@@ -68,7 +67,10 @@ function useDebounceFn<T extends any[], U = any>(
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    return () => cancel();
+    return () => {
+      if (wait !== 0) rejectRef.current?.();
+      cancel();
+    };
   }, []);
 
   return {

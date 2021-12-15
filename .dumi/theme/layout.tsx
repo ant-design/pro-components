@@ -1,4 +1,4 @@
-﻿import React, { useContext, useEffect, useMemo, useState } from 'react';
+﻿import React, { useContext, useEffect, useMemo } from 'react';
 import Layout from 'dumi-theme-default/src/layout';
 import dumiContext from '@umijs/preset-dumi/lib/theme/context';
 import { ConfigProvider, Switch } from 'antd';
@@ -6,7 +6,7 @@ import { IRouteComponentProps, isBrowser } from 'umi';
 import zhCN from 'antd/es/locale/zh_CN';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import moment from 'moment';
-import useDarkreader from './useDarkreader';
+import { useDarkreader } from './useDarkreader';
 import 'moment/locale/zh-cn';
 import './layout.less';
 moment.locale('zh-cn');
@@ -72,7 +72,7 @@ function loadJS(url, callback) {
   document.getElementsByTagName('head')[0].appendChild(script);
 }
 
-export default ({ children, ...props }: IRouteComponentProps) => {
+const LayoutPage = ({ children, ...props }: IRouteComponentProps) => {
   const context = useContext(dumiContext);
   useEffect(() => {
     if (!isBrowser()) {
@@ -151,3 +151,5 @@ export default ({ children, ...props }: IRouteComponentProps) => {
     </HelmetProvider>
   );
 };
+
+export default LayoutPage;

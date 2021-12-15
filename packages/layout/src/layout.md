@@ -103,7 +103,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 
 <code src="./demos/error-boundaries.tsx" iframe="500px" title="沉浸式导航" />
 
-<code src="./demos/splitMenus.tsx" iframe="500px" title="沉浸式导航" />
+<code src="./demos/splitMenus.tsx" iframe="500px" title="沉浸式导航" debug />
 
 ## API
 

@@ -109,7 +109,6 @@ export default {
       }
     : false,
   hash: true,
-  ssr: isDeploy ? {} : undefined,
   exportStatic: {},
   targets: {
     chrome: 80,
@@ -123,10 +122,8 @@ export default {
     '@root-entry-name': 'variable',
   },
   ignoreMomentLocale: true,
-  links:
-    process.env.NODE_ENV === 'development'
-      ? ['https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd.css']
-      : [],
+  headScripts: ['https://gw.alipayobjects.com/os/antfincdn/fdj3WlJd5c/darkreader.js'],
+  externals: { darkreader: 'window.DarkReader' },
   menus: {
     '/components': [
       {
@@ -197,6 +194,6 @@ export default {
     ],
   },
   webpack5: {},
-  mfsu: !isDeploy ? {} : undefined,
+  // mfsu: !isDeploy ? {} : undefined,
   fastRefresh: {},
 };
