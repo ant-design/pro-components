@@ -30,7 +30,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
   const {
     onSearch,
     onClear,
-    onChange,
+    onChange: propsOnChange,
     onBlur,
     loadData,
     showSearch,
@@ -74,6 +74,28 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     return traverseOptions(options);
   }, [options, fieldProps?.fieldNames]);
 
+  const onChange: TreeSelectProps<any>['onChange'] = (value, optionList, extra) => {
+    // 将搜索框置空 和 antd 行为保持一致
+    if (showSearch && autoClearSearchValue) {
+      fetchData('');
+      onSearch?.('');
+      setSearchValue('');
+    }
+
+    // multiple 模式下，value 为数组
+    const valueIsArray = Array.isArray(value);
+
+    let result: any;
+    /** 抹平value 不使用labelInValue做判断原因： labelInValue会被其他字段强制设为true */
+    if (valueIsArray) {
+      result = value.map((item) => item.value ?? item);
+    } else {
+      result = value?.value ?? value;
+    }
+
+    propsOnChange?.(result, optionList, extra);
+  };
+
   if (mode === 'read') {
     const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
 
@@ -108,23 +130,7 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
                 }
               : undefined
           }
-          onChange={(value, optionList, extra) => {
-            // 将搜索框置空 和 antd 行为保持一致
-            if (showSearch && autoClearSearchValue) {
-              fetchData('');
-              onSearch?.('');
-              setSearchValue('');
-            }
-
-            const valueIsArray = Array.isArray(value);
-
-            /** 抹平value 不使用labelInValue做判断原因： labelInValue会被其他字段强制设为true */
-            const flatValue = valueIsArray
-              ? value.map((item) => item.value ?? item)
-              : value?.value ?? value;
-
-            onChange?.(flatValue, optionList, extra);
-          }}
+          onChange={onChange}
           onSearch={(value) => {
             fetchData(value);
             onSearch?.(value);
