@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
-import { Button, InputNumber } from 'antd';
+import { Button, Input, InputNumber } from 'antd';
 import type { TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-table';
 import { EditableProTable } from '@ant-design/pro-table';
+import { ProFormText } from '@ant-design/pro-form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { mount, render } from 'enzyme';
 import { act } from 'react-dom/test-utils';
@@ -213,6 +214,7 @@ const EditorProTableDemo = (
         editableKeys,
         onSave: props.onSave,
         onChange: setEditorRowKeys,
+        onDelete: props.onDelete,
       }}
     />
   );
@@ -451,7 +453,7 @@ describe('EditorProTable', () => {
     ).toBe('🐛 [BUG]无法创建工程npm create umi');
   });
 
-  it('📝 EditableProTable controlled will trigger onchange ', async () => {
+  it('📝 EditableProTable controlled will trigger onchange', async () => {
     const onChange = jest.fn();
     const wrapper = mount(
       <EditableProTable<DataSourceType>
@@ -493,12 +495,166 @@ describe('EditorProTable', () => {
         });
     });
 
-    waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 100);
 
     expect(onChange).toBeCalled();
     expect(onChange).toBeCalledWith({
       id: '624748504',
       title: '🐛 [BUG]yarn install命令',
+      labels: [{ name: 'bug', color: 'error' }],
+      time: { created_at: '2020-05-26T09:42:56Z' },
+      state: 'processing',
+      index: undefined,
+    });
+  });
+
+  it('📝 EditableProTable render input controlled will trigger onchange ', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        controlled
+        recordCreatorProps={{
+          creatorButtonText: '测试添加数据',
+          record: { id: 9999 },
+        }}
+        editable={{
+          editableKeys: ['624748504'],
+        }}
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            copyable: true,
+            fieldProps: {
+              onChange: () => null,
+            },
+            renderFormItem: () => <Input />,
+            ellipsis: true,
+            tip: '标题过长会自动收缩',
+            formItemProps: {
+              rules: [
+                {
+                  required: true,
+                  message: '此项为必填项',
+                },
+              ],
+            },
+            width: '30%',
+            search: false,
+          },
+        ]}
+        value={[
+          {
+            id: '624748504',
+            title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ]}
+        onChange={(data) => {
+          onChange(data[0]);
+        }}
+      />,
+    );
+
+    act(() => {
+      wrapper
+        .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: '🐛 [BUG]yarn install命令',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(onChange).toBeCalled();
+    expect(onChange).toBeCalledWith({
+      id: '624748504',
+      title: '🐛 [BUG]yarn install命令',
+      labels: [{ name: 'bug', color: 'error' }],
+      time: { created_at: '2020-05-26T09:42:56Z' },
+      state: 'processing',
+      index: undefined,
+    });
+  });
+
+  it('📝 EditableProTable render ProFromText controlled will trigger onchange ', async () => {
+    const onChange = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        controlled
+        recordCreatorProps={{
+          creatorButtonText: '测试添加数据',
+          record: { id: 9999 },
+        }}
+        editable={{
+          editableKeys: ['624748504'],
+        }}
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            copyable: true,
+            fieldProps: {
+              onChange: () => null,
+            },
+            renderFormItem: () => <ProFormText />,
+            ellipsis: true,
+            tip: '标题过长会自动收缩',
+            formItemProps: {
+              rules: [
+                {
+                  required: true,
+                  message: '此项为必填项',
+                },
+              ],
+            },
+            width: '30%',
+            search: false,
+          },
+        ]}
+        value={[
+          {
+            id: '624748504',
+            title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ]}
+        onChange={(data) => {
+          onChange(data[0]);
+        }}
+      />,
+    );
+
+    act(() => {
+      wrapper
+        .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'yarn install命令',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(onChange).toBeCalled();
+    expect(onChange).toBeCalledWith({
+      id: '624748504',
+      title: 'yarn install命令',
       labels: [{ name: 'bug', color: 'error' }],
       time: { created_at: '2020-05-26T09:42:56Z' },
       state: 'processing',
@@ -529,10 +685,6 @@ describe('EditorProTable', () => {
           rowKey="id"
           controlled
           name="table"
-          recordCreatorProps={{
-            creatorButtonText: '测试添加数据',
-            record: { id: 9999 },
-          }}
           editable={{
             editableKeys: ['624748504'],
           }}
@@ -540,7 +692,7 @@ describe('EditorProTable', () => {
         />
       </ProForm>,
     );
-
+    await waitForComponentToPaint(wrapper, 100);
     act(() => {
       wrapper
         .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
@@ -552,7 +704,7 @@ describe('EditorProTable', () => {
         });
     });
 
-    waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 100);
 
     expect(onChange).toBeCalled();
     expect(onChange).toBeCalledWith(
@@ -634,7 +786,7 @@ describe('EditorProTable', () => {
           },
         });
     });
-
+    await waitForComponentToPaint(wrapper, 100);
     expect(fn).toBeCalledWith(624748504);
 
     wrapper.unmount();
@@ -680,7 +832,7 @@ describe('EditorProTable', () => {
           },
         });
     });
-
+    await waitForComponentToPaint(wrapper, 100);
     expect(fn).toBeCalledWith('02');
     wrapper.unmount();
   });
@@ -777,6 +929,7 @@ describe('EditorProTable', () => {
           },
         });
     });
+    await waitForComponentToPaint(wrapper, 100);
     expect(onValueChangeFn).toBeCalledWith('1223');
     wrapper.unmount();
   });
@@ -846,7 +999,7 @@ describe('EditorProTable', () => {
           },
         });
     });
-
+    await waitForComponentToPaint(wrapper, 100);
     expect(onValueChangeFn).toBeCalledWith(624748504);
 
     act(() => {
@@ -899,7 +1052,7 @@ describe('EditorProTable', () => {
           },
         });
     });
-
+    await waitForComponentToPaint(wrapper, 200);
     expect(fn).toBeCalledWith(newLineId);
     wrapper.unmount();
   });
@@ -1048,6 +1201,7 @@ describe('EditorProTable', () => {
     expect(
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(0).find('input').exists(),
     ).toBeFalsy();
+
     wrapper.unmount();
   });
 
@@ -1158,7 +1312,15 @@ describe('EditorProTable', () => {
 
   it('📝 support onSave', async () => {
     const fn = jest.fn();
-    const wrapper = mount(<EditorProTableDemo hideRules onSave={(key) => fn(key)} />);
+    const wrapper = mount(
+      <EditorProTableDemo
+        hideRules
+        onSave={async (key) => {
+          await waitTime(1000);
+          fn(key);
+        }}
+      />,
+    );
     await waitForComponentToPaint(wrapper, 1000);
     act(() => {
       wrapper.find('#editor').at(1).simulate('click');
@@ -1172,7 +1334,45 @@ describe('EditorProTable', () => {
       wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(0).simulate('click');
     });
 
+    await waitForComponentToPaint(wrapper, 200);
+    expect(fn).not.toBeCalled();
     await waitForComponentToPaint(wrapper, 1000);
+    expect(fn).toBeCalledWith(624691229);
+    wrapper.unmount();
+  });
+
+  it('📝 support onDelete', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditorProTableDemo
+        hideRules
+        onDelete={async (key) => {
+          await waitTime(1000);
+          fn(key);
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('#editor').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 200);
+
+    act(() => {
+      wrapper.find('.ant-popover-buttons .ant-btn-primary').simulate('click');
+    });
+
+    expect(fn).not.toBeCalled();
+
+    await waitForComponentToPaint(wrapper, 1200);
 
     expect(fn).toBeCalledWith(624691229);
     wrapper.unmount();
@@ -1210,6 +1410,74 @@ describe('EditorProTable', () => {
     expect(onSave).toBeCalledWith(624691229);
     expect(onDataSourceChange).toBeCalledWith(3);
 
+    wrapper.unmount();
+  });
+
+  it('📝 support newLine and cancel', async () => {
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          id: 'editor',
+          record: () => ({
+            id: Date.now().toString(),
+          }),
+        }}
+        columns={[
+          {
+            dataIndex: 'index',
+            valueType: 'indexBorder',
+            width: 48,
+            editable: false,
+          },
+          {
+            title: '操作',
+            valueType: 'option',
+            render: (text, row, _, action) => [
+              <a
+                key="editor"
+                id="editor"
+                onClick={() => {
+                  action?.startEditable?.(row.id);
+                }}
+              >
+                编辑
+              </a>,
+            ],
+          },
+        ]}
+        value={[
+          {
+            id: '624748504',
+            title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            labels: [{ name: 'bug', color: 'error' }],
+            time: {
+              created_at: '2020-05-26T09:42:56Z',
+            },
+            state: 'processing',
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(wrapper.find('.ant-table-tbody').find('tr.ant-table-row').length).toBe(1);
+    act(() => {
+      wrapper.find('Button#editor').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect.any(wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find('input').exists());
+    expect(wrapper.find('.ant-table-tbody').find('tr.ant-table-row').length).toBe(2);
+
+    act(() => {
+      wrapper.find('.ant-table-tbody tr.ant-table-row').at(1).find(`td a`).at(2).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 1000);
+
+    expect(wrapper.find('.ant-table-row.ant-table-row-level-0').length).toBe(1);
     wrapper.unmount();
   });
 

@@ -28,10 +28,9 @@ const getLanguage = (): string => {
 
 export { getLanguage };
 
-export default (): Record<string, string> => {
+const gLocaleObject = (): Record<string, string> => {
   const gLocale = getLanguage();
-  if (locales[gLocale]) {
-    return locales[gLocale];
-  }
-  return locales['zh-CN'];
+  return locales[gLocale] || locales['zh-CN'];
 };
+
+export { gLocaleObject };

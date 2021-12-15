@@ -1251,11 +1251,11 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               role="none"
             >
               <div
-                aria-controls="rc-menu-uuid-84044-9-/admin-popup"
+                aria-controls="rc-menu-uuid-84044-6-/admin-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                data-menu-id="rc-menu-uuid-84044-9-/admin"
+                data-menu-id="rc-menu-uuid-84044-6-/admin"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -1277,7 +1277,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-9-/list"
+              data-menu-id="rc-menu-uuid-84044-6-/list"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -1750,7 +1750,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-2-/home"
+              data-menu-id="rc-menu-uuid-84044-1-/home"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -1774,11 +1774,11 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               role="none"
             >
               <div
-                aria-controls="rc-menu-uuid-84044-2-/data_hui-popup"
+                aria-controls="rc-menu-uuid-84044-1-/data_hui-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                data-menu-id="rc-menu-uuid-84044-2-/data_hui"
+                data-menu-id="rc-menu-uuid-84044-1-/data_hui"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -1800,7 +1800,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-2-/data_ming"
+              data-menu-id="rc-menu-uuid-84044-1-/data_ming"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
@@ -1821,7 +1821,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             </li>
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="rc-menu-uuid-84044-2-/other"
+              data-menu-id="rc-menu-uuid-84044-1-/other"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"

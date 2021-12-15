@@ -104,6 +104,7 @@ const InternalFormItem: React.FC<InternalProps> = ({
 
 export default (props: InlineErrorFormItemProps) => {
   const { errorType, rules, name, popoverProps, children, ...rest } = props;
+
   if (name && rules?.length && errorType === 'popover') {
     return (
       <InternalFormItem name={name} rules={rules!} popoverProps={popoverProps} {...rest}>

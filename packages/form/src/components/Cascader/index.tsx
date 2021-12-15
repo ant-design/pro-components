@@ -1,8 +1,8 @@
 ﻿import React from 'react';
 import ProField from '../Field';
-import type { CascaderProps } from 'antd';
 import type { ProFormFieldItemProps } from '../../interface';
 import type { ProSchema } from '@ant-design/pro-utils';
+import type { CascaderProps } from 'antd';
 /**
  * 级联选择框
  *
@@ -10,7 +10,7 @@ import type { ProSchema } from '@ant-design/pro-utils';
  */
 const ProFormCascader: React.ForwardRefRenderFunction<
   any,
-  ProFormFieldItemProps<CascaderProps> & {
+  ProFormFieldItemProps<CascaderProps<any>> & {
     valueEnum?: ProSchema['valueEnum'];
     params?: ProSchema['params'];
     request?: ProSchema['request'];

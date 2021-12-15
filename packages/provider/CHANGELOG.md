@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.3...@ant-design/pro-provider@1.5.4) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.2...@ant-design/pro-provider@1.5.3) (2021-12-10)
+
+### Bug Fixes
+
+- **provide:** close auto clean cache ([#4243](https://github.com/ant-design/pro-components/issues/4243)) ([e638cb5](https://github.com/ant-design/pro-components/commit/e638cb5ff7830793020c94328ef2833c20f352f7))
+
+## [1.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.1...@ant-design/pro-provider@1.5.2) (2021-12-08)
+
+### Bug Fixes
+
+- **table:** fix keywords reset formSearch error ([#4214](https://github.com/ant-design/pro-components/issues/4214)) ([146f1da](https://github.com/ant-design/pro-components/commit/146f1da84d10df0cbb350bd350b17473778bced9))
+
+## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.0...@ant-design/pro-provider@1.5.1) (2021-12-07)
+
+### Bug Fixes
+
+- simplify swr usage ([#4181](https://github.com/ant-design/pro-components/issues/4181)) ([ed66732](https://github.com/ant-design/pro-components/commit/ed6673272882af09287eb87457df2a8ca9daf7f1))
+
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.20...@ant-design/pro-provider@1.5.0) (2021-11-30)
+
+### Features
+
+- **table:** support revalidateOnFocus ([#4120](https://github.com/ant-design/pro-components/issues/4120)) ([1046109](https://github.com/ant-design/pro-components/commit/104610914eedfecd88ceb2e38d86c47ff8b2fc89))
+
 ## [1.4.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.19...@ant-design/pro-provider@1.4.20) (2021-10-15)
 
 **Note:** Version bump only for package @ant-design/pro-provider

@@ -340,8 +340,15 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   onDataSourceChange?: (dataSource: T[]) => void;
   /** @name 查询表单和 Table 的卡片 border 配置 */
   cardBordered?: Bordered;
-  /** Debounce time */
+  /** @name 去抖时间 */
   debounceTime?: number;
+  /**
+   * 只在request 存在的时候生效，可编辑表格也不会生效
+   *
+   * @default true
+   * @name 窗口聚焦时自动重新请求
+   */
+  revalidateOnFocus?: boolean;
   /** 默认的表格大小 */
   defaultSize?: SizeType;
   /** @name, 可编辑表格的name,通过这个name 可以直接与 form通信，无需嵌套 */
@@ -374,4 +381,5 @@ export type UseFetchProps = {
   manual: boolean;
   debounceTime?: number;
   polling?: number | ((dataSource: any[]) => number);
+  revalidateOnFocus?: boolean;
 };

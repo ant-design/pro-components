@@ -9,7 +9,7 @@ import {
 } from '@ant-design/icons';
 
 import type { ProSettings } from '@ant-design/pro-layout';
-import ProLayout, { PageContainer, SettingDrawer } from '@ant-design/pro-layout';
+import { ProLayout, PageContainer, SettingDrawer } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
 import ProCard from '@ant-design/pro-card';
 
@@ -135,6 +135,7 @@ export default () => {
       </ProLayout>
       <SettingDrawer
         pathname={pathname}
+        enableDarkTheme
         getContainer={() => document.getElementById('test-pro-layout')}
         settings={settings}
         onSettingChange={(changeSetting) => {

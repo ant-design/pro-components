@@ -1,15 +1,24 @@
 import MockDate from 'mockdate';
 import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import 'jest-canvas-mock';
 import moment from 'moment-timezone';
 
 import { enableFetchMocks } from 'jest-fetch-mock';
 import tableData from './table/mock.data.json';
 
+import React from 'react';
+
+global.React = React;
+
 jest.mock('react', () => ({
   ...jest.requireActual('react'),
   useLayoutEffect: jest.requireActual('react').useEffect,
 }));
+
+jest.setTimeout(60000);
+
+Enzyme.configure({ adapter: new Adapter() });
 
 const eventListener = {};
 /* eslint-disable global-require */
@@ -49,20 +58,18 @@ if (typeof window !== 'undefined') {
   }
 }
 
-Object.assign(Enzyme.ReactWrapper.prototype, {
-  findObserver() {
-    return this.find('ResizeObserver');
-  },
-  triggerResize() {
-    const ob = this.findObserver();
-    ob.instance().onResize([{ target: ob.getDOMNode() }]);
-  },
-});
-
 enableFetchMocks();
 
 Object.defineProperty(window, 'open', {
   value: jest.fn,
+});
+
+const crypto = require('crypto');
+
+Object.defineProperty(global.self, 'crypto', {
+  value: {
+    getRandomValues: (arr) => crypto.randomBytes(arr.length),
+  },
 });
 
 global.requestAnimationFrame =
@@ -76,8 +83,9 @@ global.cancelAnimationFrame =
   function cancelAnimationFrame() {
     return null;
   };
+
 // browserMocks.js
-const localStorageMock = (() => {
+export const localStorageMock = (() => {
   let store = {
     umi_locale: 'zh-CN',
   };
@@ -100,6 +108,7 @@ const localStorageMock = (() => {
 
 Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,
+  writable: true,
 });
 
 Object.defineProperty(window, 'cancelAnimationFrame', {
@@ -120,16 +129,6 @@ Math.random = () => 0.8404419276253765;
 
 fetch.mockResponse(async () => {
   return { body: JSON.stringify(tableData) };
-});
-
-Object.assign(Enzyme.ReactWrapper.prototype, {
-  findObserver() {
-    return this.find('ResizeObserver');
-  },
-  triggerResize() {
-    const ob = this.findObserver();
-    ob.instance().onResize([{ target: ob.getDOMNode() }]);
-  },
 });
 
 // @ts-ignore-next-line

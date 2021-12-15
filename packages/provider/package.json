@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-provider",
-  "version": "1.4.20",
+  "version": "1.5.4",
   "description": "@ant-design/pro-provider",
   "keywords": [
     "antd",
@@ -30,7 +30,9 @@
     "ie >= 11"
   ],
   "dependencies": {
-    "rc-util": "^5.0.1"
+    "@babel/runtime": "^7.16.3",
+    "rc-util": "^5.0.1",
+    "swr": "1.1.0"
   },
   "peerDependencies": {
     "antd": "4.x",

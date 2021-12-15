@@ -1,4 +1,5 @@
 ﻿import { Typography } from 'antd';
+import React from 'react';
 
 const isNeedTranText = (item: any): boolean => {
   if (item?.valueType?.toString().startsWith('date')) {
@@ -29,6 +30,7 @@ export const genCopyable = (dom: React.ReactNode, item: any, text: string) => {
 
     /** 有些 valueType 需要设置copy的为string */
     const needTranText = isNeedTranText(item);
+
     const ellipsis =
       item.ellipsis && text
         ? {

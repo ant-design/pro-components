@@ -74,6 +74,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     initialValue: 'all',
     onFilter: true,
     order: 2,
+    ellipsis: true,
     fieldProps: {
       noStyle: true,
     },
@@ -132,6 +133,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'created_at',
     valueType: 'dateTime',
     width: '20%',
+    ellipsis: true,
     render: (value) => {
       return {
         children: value,

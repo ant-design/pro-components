@@ -73,7 +73,7 @@ const defaultSettings: ProSettings = {
   fixSiderbar: false,
   headerHeight: 56,
   iconfontUrl: '',
-  primaryColor: 'daybreak',
+  primaryColor: '#1890ff',
   splitMenus: false,
 };
 export { defaultSettings };

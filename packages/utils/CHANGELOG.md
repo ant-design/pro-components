@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.9...@ant-design/pro-utils@1.29.0) (2021-12-13)
+
+### Bug Fixes
+
+- **form:** relay no render DrawerForm and ModalForm ([#4254](https://github.com/ant-design/pro-components/issues/4254)) ([f986ecb](https://github.com/ant-design/pro-components/commit/f986ecb9d89d4e3edef18d50eee4c37e730227d9))
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
+## [1.28.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.8...@ant-design/pro-utils@1.28.9) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.28.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.7...@ant-design/pro-utils@1.28.8) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.28.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.6...@ant-design/pro-utils@1.28.7) (2021-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.28.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.5...@ant-design/pro-utils@1.28.6) (2021-12-07)
+
+### Bug Fixes
+
+- simplify swr usage ([#4181](https://github.com/ant-design/pro-components/issues/4181)) ([ed66732](https://github.com/ant-design/pro-components/commit/ed6673272882af09287eb87457df2a8ca9daf7f1))
+
+## [1.28.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.4...@ant-design/pro-utils@1.28.5) (2021-11-30)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.28.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.3...@ant-design/pro-utils@1.28.4) (2021-11-23)
+
+### Bug Fixes
+
+- **table:** fix valueEnum error ([15d5835](https://github.com/ant-design/pro-components/commit/15d5835a87a289acb11e661ccacd01179378a5f7))
+
+## [1.28.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.2...@ant-design/pro-utils@1.28.3) (2021-11-22)
+
+### Bug Fixes
+
+- **ProForm:** 修复 ProForm 请求两次问题 ([#4074](https://github.com/ant-design/pro-components/issues/4074)) ([fe9d08c](https://github.com/ant-design/pro-components/commit/fe9d08c950497bb2447ca088471b9dc8b86acb67))
+
 ## [1.28.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.1...@ant-design/pro-utils@1.28.2) (2021-11-18)
 
 ### Bug Fixes

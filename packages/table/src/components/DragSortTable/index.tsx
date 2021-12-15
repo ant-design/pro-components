@@ -5,7 +5,7 @@ import ProTable from '../../Table';
 import { SortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
 import type { ProColumns, ProTableProps } from '../../typing';
-import { useDeepCompareEffect } from '@ant-design/pro-utils';
+import { useDeepCompareEffectDebounce } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
 import './index.less';
 
@@ -65,38 +65,42 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
   });
 
   // 重写列配置的render,并在卸载时恢复原始render
-  useDeepCompareEffect(() => {
-    const originColumn = originColumnRef.current!;
-    if (!handleColumn) return () => {};
-    const dargRender = (...args: any[]) => {
-      const [dom, rowData, index, action, schema] = args;
-      const RealHandle = dragSortHandlerRender
-        ? handleCreator(dragSortHandlerRender(rowData, index))
-        : DragHandle;
-      return (
-        <div className={getPrefixCls('pro-table-drag-visible-cell')}>
-          <RealHandle />
-          {originColumn.render?.(dom, rowData, index, action, schema)}
-        </div>
+  useDeepCompareEffectDebounce(
+    () => {
+      const originColumn = originColumnRef.current!;
+      if (!handleColumn) return () => {};
+      const dargRender = (...args: any[]) => {
+        const [dom, rowData, index, action, schema] = args;
+        const RealHandle = dragSortHandlerRender
+          ? handleCreator(dragSortHandlerRender(rowData, index))
+          : DragHandle;
+        return (
+          <div className={getPrefixCls('pro-table-drag-visible-cell')}>
+            <RealHandle />
+            {originColumn.render?.(dom, rowData, index, action, schema)}
+          </div>
+        );
+      };
+      // 重新生成数据
+      setRefColumns(
+        columns?.map((item) => {
+          if (!isDragSortColumn(item)) {
+            return item;
+          }
+          return {
+            ...item,
+            render: dargRender,
+          };
+        }),
       );
-    };
-    // 重新生成数据
-    setRefColumns(
-      columns?.map((item) => {
-        if (!isDragSortColumn(item)) {
-          return item;
-        }
-        return {
-          ...item,
-          render: dargRender,
-        };
-      }),
-    );
-    /* istanbul ignore next */
-    return () => {
-      setRefColumns(props.columns);
-    };
-  }, [dragSortHandlerRender, handleColumn]);
+      /* istanbul ignore next */
+      return () => {
+        setRefColumns(props.columns);
+      };
+    },
+    [dragSortHandlerRender, handleColumn],
+    ['render', 'renderFormItem'],
+  );
 
   return handleColumn ? (
     <ProTable

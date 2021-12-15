@@ -109,6 +109,10 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 
 <code src="./demos/sync-to-url.tsx" height="376px" title="同步提交结果到 url" />
 
+### 金额
+
+<code src="./demos/money.tsx" height="248px" title="金额" />
+
 ### 固定页脚
 
 <code src="./demos/layout-base.tsx" iframe="764px" title="固定页脚" />

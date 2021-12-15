@@ -18,7 +18,7 @@ import type {
 } from '@ant-design/pro-utils';
 
 import { useDebounceFn, useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
-import useSWR, { mutate } from 'swr';
+import useSWR from 'swr';
 import { useIntl } from '@ant-design/pro-provider';
 
 import LightSelect from './LightSelect';
@@ -301,36 +301,30 @@ export const useFieldFetchData = (
 
   const { run: fetchData } = useDebounceFn<[Record<string, any>], OptionsType>(
     async (params: Record<string, any>) => {
-      if (!props.request) {
-        return [];
-      }
+      if (!props.request) return [];
       setLoading(true);
       const loadData = await props.request(params, props);
       setLoading(false);
       return loadData;
     },
     [],
-    props.debounceTime ?? 10,
+    props.debounceTime ?? 0,
+    // 因为使用了swc，自动清理请求可能导致缓存错误的数据
+    true,
   );
 
-  const key = useMemo(() => {
-    if (!props.request) {
-      return 'no-fetch';
-    }
-    if (!props.params && !keyWords) {
-      return proFieldKeyRef.current;
-    }
-    return [proFieldKeyRef.current, JSON.stringify({ ...props.params, keyWords })];
-  }, [keyWords, props.params, props.request]);
-
-  const { data, mutate: setLocaleData } = useSWR<any>(
-    [key, props.params, keyWords],
-    (_, params, kw) => {
-      return fetchData({
-        ...(params as Record<string, any>),
-        keyWords: kw,
-      });
+  const { data, mutate: setLocaleData } = useSWR(
+    () => {
+      if (!props.request) {
+        return null;
+      }
+      return [proFieldKeyRef.current, props.params, keyWords];
     },
+    (_, params, kw) =>
+      fetchData({
+        ...params,
+        keyWords: kw,
+      }),
     {
       revalidateOnFocus: false,
       shouldRetryOnError: false,
@@ -377,7 +371,7 @@ export const useFieldFetchData = (
     props.request ? (data as OptionsType) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
-      mutate(key);
+      setLocaleData();
     },
     () => {
       setKeyWords(undefined);

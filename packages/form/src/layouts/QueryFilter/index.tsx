@@ -212,8 +212,8 @@ const QueryFilterContent: React.FC<{
 
   // for split compute
   let currentSpan = 0;
-  const doms = flatMapItems(items, props.ignoreRules).map(
-    (item: React.ReactNode, index: number) => {
+  const doms = flatMapItems(items, props.ignoreRules)
+    .map((item, index): { itemDom: React.ReactNode; hidden: boolean; colSpan: number } => {
       // 如果 formItem 自己配置了 hidden，默认使用它自己的
       const colSize = React.isValidElement<any>(item) ? item?.props?.colSize : 1;
       const colSpan = Math.min(spanSize.span * (colSize || 1), 24);
@@ -230,18 +230,41 @@ const QueryFilterContent: React.FC<{
 
       itemLength += 1;
 
-      // 每一列的key, 一般是存在的
       const itemKey = (React.isValidElement(item) && (item.key || `${item.props?.name}`)) || index;
 
       if (React.isValidElement(item) && hidden) {
         if (!props.preserve) {
-          return null;
+          return {
+            itemDom: null,
+            colSpan,
+            hidden: true,
+          };
         }
-        return React.cloneElement(item, {
+        return {
+          itemDom: React.cloneElement(item, {
+            hidden: true,
+            key: itemKey || index,
+          }),
           hidden: true,
-          key: itemKey || index,
-        });
+          colSpan,
+        };
       }
+
+      return {
+        itemDom: item,
+        colSpan,
+        hidden: false,
+      };
+    })
+    .map((itemProps, index: number) => {
+      const { itemDom, colSpan } = itemProps;
+      const hidden: boolean = (itemDom as ReactElement<{ hidden: boolean }>)?.props?.hidden;
+
+      if (hidden) return itemDom;
+
+      // 每一列的key, 一般是存在的
+      const itemKey =
+        (React.isValidElement(itemDom) && (itemDom.key || `${itemDom.props?.name}`)) || index;
 
       if (24 - (currentSpan % 24) < colSpan) {
         // 如果当前行空余位置放不下，那么折行
@@ -253,9 +276,10 @@ const QueryFilterContent: React.FC<{
 
       const colItem = (
         <Col key={itemKey} span={colSpan}>
-          {item}
+          {itemDom}
         </Col>
       );
+
       if (split && currentSpan % 24 === 0 && index < itemLength - 1) {
         return [
           colItem,
@@ -265,8 +289,7 @@ const QueryFilterContent: React.FC<{
         ];
       }
       return colItem;
-    },
-  );
+    });
 
   /** 是否需要展示 collapseRender */
   const needCollapseRender = useMemo(() => {

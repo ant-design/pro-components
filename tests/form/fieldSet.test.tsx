@@ -17,7 +17,9 @@ describe('ProFormFieldSet', () => {
     const html = mount(
       <ProForm
         onFinish={(values) => fn(values.list)}
-        onValuesChange={(value) => valueFn(value.list)}
+        onValuesChange={(value) => {
+          valueFn(value.list);
+        }}
       >
         <ProFormFieldSet name="list">
           <ProFormText
@@ -71,7 +73,10 @@ describe('ProFormFieldSet', () => {
     await waitForComponentToPaint(html, 200);
 
     expect(fn).toBeCalledWith(['111', 2, '333']);
-    html.unmount();
+
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('😊 ProFormFieldSet support Input onChange', async () => {

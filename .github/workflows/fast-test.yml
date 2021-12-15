@@ -16,17 +16,17 @@ jobs:
         id: cache-yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/package.json') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/package.json') }}
       - name: Cache node_modules
         id: cache-node-modules
         uses: actions/cache@v2
         with:
           path: node_modules
-          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/package.json') }}
           restore-keys: |
-            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-
+            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**/package.json') }}
       - run: yarn --ignore-engines
         if: |
           steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
@@ -73,6 +73,6 @@ jobs:
           steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
           steps.cache-node-modules.outputs.cache-hit != 'true'
       - name: jest
-        run: echo $CHUNKS | jq '.[${{ matrix.chunk }}] | .[] | @text' | xargs npx umi-test
+        run: echo $CHUNKS | jq '.[${{ matrix.chunk }}] | .[] | @text' | xargs yarn jest
         env:
           CHUNKS: ${{ needs.setup.outputs['test-chunks'] }}

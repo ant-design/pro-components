@@ -8,6 +8,7 @@ import type { GlobalHeaderProps } from '../GlobalHeader';
 import { Avatar, ConfigProvider } from 'antd';
 import { AppsLogoComponents } from '../AppsLogoComponents';
 import { css, cx } from '@emotion/css';
+import { useDebounceFn } from '@ant-design/pro-utils';
 
 export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 
@@ -18,9 +19,9 @@ export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSide
  */
 export const RightContent: React.FC<TopNavHeaderProps> = ({
   rightContentRender,
-  actionsRender,
-  avatarProps,
   prefixCls,
+  avatarProps,
+  actionsRender,
   ...props
 }) => {
   const [rightSize, setRightSize] = useState<number | string>('auto');
@@ -64,8 +65,18 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
       </div>
     );
   };
+  /** 减少一下渲染的次数 */
+  const setRightSizeDebounceFn = useDebounceFn(
+    async (width: number) => {
+      setRightSize(width);
+    },
+    [],
+    160,
+  );
+
   return (
     <div
+      className={`${prefixCls}-right-content`}
       style={{
         minWidth: rightSize,
       }}
@@ -77,7 +88,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
       >
         <ResizeObserver
           onResize={({ width }: { width: number }) => {
-            setRightSize(width);
+            setRightSizeDebounceFn.run(width);
           }}
         >
           {(rightContentRender || rightActionsRender) && (
@@ -89,6 +100,9 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
             >
               {(rightContentRender || rightActionsRender)({
                 ...props,
+                // 测试专用
+                //@ts-ignore
+                rightContentSize: rightSize,
               })}
             </div>
           )}

@@ -109,7 +109,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 
 <code src="./demos/error-boundaries.tsx" iframe="500px" title="沉浸式导航" />
 
-<code src="./demos/splitMenus.tsx" iframe="500px" title="沉浸式导航" />
+<code src="./demos/splitMenus.tsx" iframe="500px" title="沉浸式导航" debug />
 
 ## API
 
@@ -143,7 +143,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | locale | 当前 layout 的语言设置 | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | layout 的设置 | [`Settings`](#Settings) | - |
 | siderWidth | 侧边菜单宽度 | `number` | 208 |
-| defaultCollapsed | 默认的菜单的收起和展开 | `boolean` | - |
+| defaultCollapsed | 默认的菜单的收起和展开，会受到 `breakpoint` 的影响，`breakpoint=false` 生效 | `boolean` | - |
 | collapsed | 控制菜单的收起和展开 | `boolean` | - |
 | onCollapse | 菜单的折叠收起事件 | `(collapsed: boolean) => void` | - |
 | onPageChange | 页面切换时触发 | `(location: Location) => void` | - |
@@ -184,14 +184,30 @@ menu 中支持了部分常用的 menu 配置， 可以帮助我们更好的管�
 
 ### SettingDrawer
 
-> SettingDrawer 提供了一个图形界面来设置 layout 的配置。不建议在正式环境中使用。
-
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | settings | layout 的设置 | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
 | onSettingChange | [`Settings`](#Settings) 发生更改事件 | `(settings: [`Settings`](#Settings) ) => void` | - |
 | hideHintAlert | 删除下方的提示信息 | `boolean` | - |
+| hideCopyButton | 不展示 copy 功能 | `boolean` | - |
 | disableUrlParams | 禁止同步设置到查询参数 | `boolean` | `false` |
+| enableDarkTheme | 打开黑色主题切换功能 ｜ `boolean` | `false` |
+| colorList | 自带的颜色切换系统 ｜ `{key,color}[]` | `ColorList` |
+
+自带的颜色列表
+
+```tsx
+const colorList = [
+  { key: 'daybreak', color: '#1890ff' },
+  { key: 'dust', color: '#F5222D' },
+  { key: 'volcano', color: '#FA541C' },
+  { key: 'sunset', color: '#FAAD14' },
+  { key: 'cyan', color: '#13C2C2' },
+  { key: 'green', color: '#52C41A' },
+  { key: 'geekblue', color: '#2F54EB' },
+  { key: 'purple', color: '#722ED1' },
+];
+```
 
 ### PageLoading
 

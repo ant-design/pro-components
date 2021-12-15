@@ -6,7 +6,6 @@ import {
   useMountMergeState,
   runFunction,
 } from '@ant-design/pro-utils';
-import { unstable_batchedUpdates } from 'react-dom';
 import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
 import { postDataPipeline } from './utils/index';
 
@@ -64,15 +63,14 @@ const useFetchData = <T extends RequestData<any>>(
 
   // Batching update  https://github.com/facebook/react/issues/14259
   const setDataAndLoading = (newData: T[], dataTotal: number) => {
-    unstable_batchedUpdates(() => {
-      setList(newData);
-      if (pageInfo?.total !== dataTotal) {
-        setPageInfo({
-          ...pageInfo,
-          total: dataTotal || newData.length,
-        });
-      }
-    });
+    setList(newData);
+
+    if (pageInfo?.total !== dataTotal) {
+      setPageInfo({
+        ...pageInfo,
+        total: dataTotal || newData.length,
+      });
+    }
   };
 
   // pre state
@@ -113,7 +111,6 @@ const useFetchData = <T extends RequestData<any>>(
 
       const { data = [], success, total = 0, ...rest } = (await getData(pageParams)) || {};
       requesting.current = false;
-
       // 如果失败了，直接返回，不走剩下的逻辑了
       if (success === false) return [];
 

@@ -129,7 +129,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 > All methods suffixed with `Render` can be made not to render by passing `false`.
 
 | Parameters | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | title | The title of the top-left corner of the layout | `ReactNode` | `'Ant Design Pro'` |
 | logo | url to the top-left corner of layout's logo | `ReactNode` \| `()=> ReactNode` | - |
 | pure | Whether to remove all self-contained interfaces | `boolean` | - |
@@ -154,7 +154,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | locale | Language settings for the current layout | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | settings for layout | [`Settings`](#Settings) | - |
 | siderWidth | width of the side menu | `number` | 208 |
-| defaultCollapsed | The default collapsed and expanded menus | `boolean` | - |
+| defaultCollapsed | The default collapsed and expanded menus, will be affected by `breakpoint`, `breakpoint=false` work | `boolean` | - |
 | collapsed | Controls the collapse and expansion of the menu | `boolean` | - |
 | onCollapse | The collapsed event of the menu | `(collapsed: boolean) => void` | - |
 | onPageChange | Triggered on page switch | `(location: Location) => void` | - |
@@ -163,7 +163,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | headerContentRender | Custom header content methods | `(props: BasicLayoutProps) => ReactNode` | - |
 | rightContentRender | Custom render method for the right part of the header | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | Custom method for collapsed button | `(collapsed: boolean) => ReactNode` | - |
-| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => JSX.Element | false` | - |
+| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => JSX.Element \| false` | - |
 | pageTitleRender | The render method for custom page titles | `(props: BasicLayoutProps) => ReactNode` | - |
 | menuRender | The render method for custom menus | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | View the menu data before displaying it, changes will not trigger a re-render | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
@@ -179,13 +179,30 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 
 ### SettingDrawer
 
-> SettingDrawer provides a graphical interface to set the layout's configuration. It is not recommended for use in a formal environment.
-
-| Parameters | Description | Type | Default |
+| Parameters | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| settings | settings for layout | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
-| onSettingChange | [`Settings`](#Settings) change event occurs | `(settings: [`Settings`](#Settings) ) => void` | - |
-| hideHintAlert | Remove the following alert message | `boolean` | - |
+| settings | layout settings | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
+| onSettingChange | [`Settings`](#Settings) A change event occurred | `(settings: [`Settings`](#Settings)) => void` | - |
+| hideHintAlert | Delete the prompt message below | `boolean` | - |
+| hideCopyButton | Do not show copy function | `boolean` | - |
+| disableUrlParams | Disable synchronization settings to query parameters | `boolean` | `false` |
+| enableDarkTheme | Turn on black theme switching function ｜ `boolean` | `false` |
+| colorList | Built-in color switching system ｜ `{key,color}[]` | `ColorList` |
+
+Built-in color list
+
+```tsx
+const colorList = [
+  { key: 'daybreak', color: '#1890ff' },
+  { key: 'dust', color: '#F5222D' },
+  { key: 'volcano', color: '#FA541C' },
+  { key: 'sunset', color: '#FAAD14' },
+  { key: 'cyan', color: '#13C2C2' },
+  { key: 'green', color: '#52C41A' },
+  { key: 'geekblue', color: '#2F54EB' },
+  { key: 'purple', color: '#722ED1' },
+];
+```
 
 ### PageLoading
 
@@ -223,11 +240,9 @@ GridContent encapsulates the [equal-width](https://preview.pro.ant.design/dashbo
 
 Generate menuData and breadcrumb based on router information.
 
-``js | pure import { getMenuData } from '@ant-design/pro-layout';
-
+```js | pure import { getMenuData } from '@ant-design/pro-layout';
 const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDataRender);
-
-````
+```
 
 | parameters | description | type | default |
 | --- | --- | --- | --- |
@@ -240,7 +255,7 @@ const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDa
 
 getPageTitle encapsulates the logic of the title generated on the menuData.
 
-``` js | pure
+```js | pure
 import { getPageTitle } from '@ant-design/pro-layout';
 
 const title = getPageTitle({
@@ -250,7 +265,7 @@ const title = getPageTitle({
   title,
   formatMessage,
 });
-````
+```
 
 | parameters | description | type | default |
 | --- | --- | --- | --- |
@@ -390,7 +405,7 @@ const Page = () => (
 
 ProLayout provides some api to remove areas that are not needed by the user. Some configurations are also provided in SettingDrawer to set them.
 
-! [setting-drawer-render](https://gw.alipayobjects.com/zos/antfincdn/mCXDkK2pJ0/60298863-F5A5-4af2-923A-13EF912DB0E1.png)
+![setting-drawer-render](https://gw.alipayobjects.com/zos/antfincdn/mCXDkK2pJ0/60298863-F5A5-4af2-923A-13EF912DB0E1.png)
 
 - `headerRender` can customize the top bar
 - `footerRender` can customize the footer
@@ -414,7 +429,7 @@ The width of the menu is not customizable because it involves animation and huge
 
 Auto-cut menu is an exclusive ability of `mix` mode to place the first level of the menu into the top bar. We can set `splitMenus=true` to turn it on, and for a good experience it's best to set a redirect for each level of the menu, which will prevent switching to a white screen page.
 
-! [cutMenu](https://gw.alipayobjects.com/zos/antfincdn/H9hDMcrUh1/5438EB45-27F8-4B4F-8740-54F7BE55075C.png)
+![cutMenu](https://gw.alipayobjects.com/zos/antfincdn/H9hDMcrUh1/5438EB45-27F8-4B4F-8740-54F7BE55075C.png)
 
 ### Customizing menus
 

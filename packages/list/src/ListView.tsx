@@ -56,6 +56,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowClassName,
     ...rest
   } = props;
+
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   const getRowKey = React.useMemo<GetRowKey<RecordType>>((): GetRowKey<RecordType> => {

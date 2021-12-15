@@ -1,4 +1,5 @@
-import { CSSProperties, useMemo, useContext } from 'react';
+import type { CSSProperties } from 'react';
+import { useMemo, useContext } from 'react';
 import React from 'react';
 import { ConfigProvider, Layout } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
@@ -32,7 +33,7 @@ const WrapContent: React.FC<{
   }, [prefixCls]);
 
   return (
-    <ConfigProviderWrap>
+    <ConfigProviderWrap autoClearCache>
       <ErrorComponent>
         <Layout.Content className={cx(className, ProLayoutCssContent)} style={style}>
           {children}

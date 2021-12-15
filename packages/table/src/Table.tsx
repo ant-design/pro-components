@@ -19,6 +19,7 @@ import {
   useMountMergeState,
   useEditableArray,
   ErrorBoundary,
+  useDeepCompareEffectDebounce,
 } from '@ant-design/pro-utils';
 
 import useFetchData from './useFetchData';
@@ -310,6 +311,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   );
 }
 
+const emptyObj = {};
 const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType>(
   props: ProTableProps<T, U, ValueType> & {
     defaultClassName: string;
@@ -319,7 +321,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     cardBordered,
     request,
     className: propsClassName,
-    params = {},
+    params = emptyObj,
     defaultData,
     headerTitle,
     postData,
@@ -443,6 +445,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     onLoadingChange,
     onRequestError,
     postData,
+    revalidateOnFocus: props.revalidateOnFocus ?? true,
     manual: formSearch === undefined,
     polling,
     effects: [stringify(params), stringify(formSearch), stringify(proFilter), stringify(proSort)],
@@ -457,6 +460,25 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     },
   });
   // ============================ END ============================
+
+  /** 默认聚焦的时候重新请求数据，这样可以保证数据都是最新的。 */
+  useEffect(() => {
+    // 手动模式和 request 为空都不生效
+    if (
+      !props.manualRequest ||
+      !props.request ||
+      props.revalidateOnFocus === false ||
+      !props.form?.ignoreRules
+    )
+      return;
+    // 聚焦时重新请求事件
+    const visibilitychange = () => {
+      if (document.visibilityState === 'visible') action.reload();
+    };
+    document.addEventListener('visibilitychange', visibilitychange);
+    return () => document.removeEventListener('visibilitychange', visibilitychange);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   /** SelectedRowKeys受控处理selectRows */
   const preserveRecordsRef = React.useRef(new Map<any, T>());
@@ -614,13 +636,18 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
   ]);
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
-  useDeepCompareEffect(() => {
-    if (tableColumn && tableColumn.length > 0) {
-      // 重新生成key的字符串用于排序
-      const columnKeys = tableColumn.map((item) => genColumnKey(item.key, item.index));
-      counter.setSortKeyColumns(columnKeys);
-    }
-  }, [tableColumn]);
+  useDeepCompareEffectDebounce(
+    () => {
+      if (tableColumn && tableColumn.length > 0) {
+        // 重新生成key的字符串用于排序
+        const columnKeys = tableColumn.map((item) => genColumnKey(item.key, item.index));
+        counter.setSortKeyColumns(columnKeys);
+      }
+    },
+    [tableColumn],
+    ['render', 'renderFormItem'],
+    100,
+  );
 
   /** 同步 Pagination，支持受控的 页码 和 pageSize */
   useDeepCompareEffect(() => {
@@ -689,7 +716,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         tableColumn={tableColumn}
         tooltip={tooltip}
         toolbar={toolbar}
-        onFormSearchSubmit={setFormSearch}
+        onFormSearchSubmit={(newValues) => {
+          setFormSearch({
+            ...formSearch,
+            ...newValues,
+          });
+        }}
         searchNode={isLightFilter ? searchNode : null}
         options={options}
         actionRef={actionRef}
