@@ -75,11 +75,13 @@ export default {
       content: '#1890ff',
     },
   ],
-  alias: process.env === 'development' ? alias : {},
+  alias,
   // 用于切换 antd 暗黑模式
   // antd: {
   //   dark: true,
   // },
+  headScripts: ['https://gw.alipayobjects.com/os/antfincdn/fdj3WlJd5c/darkreader.js'],
+  externals: { darkreader: 'window.DarkReader' },
   resolve: {
     includes: [...tailPkgList, 'docs'],
   },
@@ -123,10 +125,6 @@ export default {
     '@root-entry-name': 'variable',
   },
   ignoreMomentLocale: true,
-  links:
-    process.env.NODE_ENV === 'development'
-      ? ['https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd.css']
-      : [],
   menus: {
     '/components': [
       {
