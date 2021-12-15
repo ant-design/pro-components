@@ -5,7 +5,7 @@ import { FieldLabel, parseValueToMoment } from '@ant-design/pro-utils';
 import type { ProFieldFC } from '../../index';
 
 /**
- * 日期选择组件
+ * 时间选择组件
  *
  * @param
  */
@@ -103,12 +103,16 @@ const FieldTimeRangePicker: ProFieldFC<{
   text: React.ReactText[];
   format: string;
 }> = ({ text, mode, format, render, renderFormItem, plain, fieldProps }) => {
+  const finalFormat = fieldProps?.format || format || 'HH:mm:ss';
   const [startText, endText] = Array.isArray(text) ? text : [];
+  const startTextIsNumberOrMoment = moment.isMoment(startText) || typeof startText === 'number';
+  const endTextIsNumberOrMoment = moment.isMoment(endText) || typeof endText === 'number';
+
   const parsedStartText: string = startText
-    ? moment(startText).format(fieldProps?.format || format || 'YYYY-MM-DD')
+    ? moment(startText, startTextIsNumberOrMoment ? undefined : finalFormat).format(finalFormat)
     : '';
   const parsedEndText: string = endText
-    ? moment(endText).format(fieldProps?.format || format || 'YYYY-MM-DD')
+    ? moment(endText, endTextIsNumberOrMoment ? undefined : finalFormat).format(finalFormat)
     : '';
 
   if (mode === 'read') {
@@ -125,7 +129,7 @@ const FieldTimeRangePicker: ProFieldFC<{
   }
   if (mode === 'edit' || mode === 'update') {
     const { value } = fieldProps;
-    const momentValue = parseValueToMoment(value) as moment.Moment[];
+    const momentValue = parseValueToMoment(value, finalFormat) as moment.Moment[];
 
     const dom = (
       <TimePicker.RangePicker
