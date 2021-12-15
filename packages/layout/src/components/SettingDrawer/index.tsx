@@ -7,10 +7,11 @@ import {
 } from '@ant-design/icons';
 import { isBrowser, merge } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
-import { disable as darkreaderDisable, enable as darkreaderEnable } from 'darkreader';
 
 import { Button, Divider, Drawer, List, Switch, ConfigProvider, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
+import { disable as darkreaderDisable, enable as darkreaderEnable } from '@umijs/ssr-darkreader';
+
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
 import type { ProSettings } from '../../defaultSettings';
@@ -91,7 +92,10 @@ export const getFormatMessage = (): ((data: { id: string; defaultMessage?: strin
   return formatMessage;
 };
 
-const updateTheme = (dark: boolean, color?: string) => {
+const updateTheme = async (dark: boolean, color?: string) => {
+  if (typeof window === 'undefined') return;
+  if (typeof window.MutationObserver === 'undefined') return;
+
   if (!ConfigProvider.config) return;
   ConfigProvider.config({
     theme: {

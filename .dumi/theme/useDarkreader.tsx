@@ -1,4 +1,5 @@
 ﻿import { useState, useEffect, useMemo } from 'react';
+import * as DarkReader from '@umijs/ssr-darkreader';
 
 export type Action = {
   toggle: () => void;
@@ -19,7 +20,6 @@ export function useDarkreader(defaultDarken: boolean = false): [
     disable: disableDarkMode,
     exportGeneratedCSS: collectCSS,
     setFetchMethod,
-    //@ts-ignore
   } = DarkReader || {};
 
   const [isDark, setIsDark] = useState(defaultDarken);
@@ -40,7 +40,7 @@ export function useDarkreader(defaultDarken: boolean = false): [
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    //@ts-ignore
+    if (typeof window.matchMedia === 'undefined') return;
     if (!DarkReader) {
       return () => null;
     }
