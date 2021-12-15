@@ -2,7 +2,7 @@ import type { DependencyList } from 'react';
 import { useEffect, useRef, useCallback } from 'react';
 
 export type ReturnValue<T extends any[], U = any> = {
-  run: (...args: T) => Promise<U>;
+  run: (...args: T) => Promise<U | undefined>;
   cancel: () => void;
 };
 const useUpdateEffect: typeof useEffect = (effect, deps) => {
@@ -44,18 +44,26 @@ function useDebounceFn<T extends any[], U = any>(
   }, [disableAutoCancel]);
 
   const run = useCallback(
-    async (...args: any): Promise<U> => {
+    async (...args: any): Promise<U | undefined> => {
       if (wait === 0) {
         return fnRef.current(...args);
       }
-      return new Promise<U>((resolve, reject) => {
-        cancel();
-        rejectRef.current = reject;
-        timer.current = setTimeout(async () => {
-          const data = await fnRef.current(...args);
-          resolve(data);
-        }, hookWait);
-      });
+      try {
+        const runFn = new Promise<U>((resolve, reject) => {
+          cancel();
+          rejectRef.current = reject;
+          timer.current = setTimeout(async () => {
+            const data = await fnRef.current(...args);
+            resolve(data);
+          }, hookWait);
+        });
+        const data = await runFn;
+        return data;
+      } catch (error) {
+        // @ts-ignore
+        console.warn(error.message);
+      }
+      return undefined;
     },
     [wait, cancel, hookWait],
   );
@@ -68,7 +76,7 @@ function useDebounceFn<T extends any[], U = any>(
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     return () => {
-      if (wait !== 0) rejectRef.current?.();
+      if (wait !== 0) rejectRef.current?.(new Error('useDebounceFn is unmount'));
       cancel();
     };
   }, []);
