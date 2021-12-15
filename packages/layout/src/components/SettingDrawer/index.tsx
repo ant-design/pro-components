@@ -10,7 +10,7 @@ import { useUrlSearchParams } from '@umijs/use-params';
 
 import { Button, Divider, Drawer, List, Switch, ConfigProvider, message, Alert } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
-import { disable as darkreaderDisable, enable as darkreaderEnable } from 'darkreader';
+import { disable as darkreaderDisable, enable as darkreaderEnable } from '@umijs/ssr-darkreader';
 
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import omit from 'omit.js';
