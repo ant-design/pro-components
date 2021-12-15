@@ -1,5 +1,7 @@
 ﻿import { useState, useEffect, useMemo } from 'react';
 
+import * as DarkReader from '@umijs/ssr-darkreader';
+
 export type Action = {
   toggle: () => void;
   collectCSS: () => Promise<string>;
