@@ -111,7 +111,6 @@ export default {
       }
     : false,
   hash: true,
-  ssr: isDeploy ? {} : undefined,
   exportStatic: {},
   targets: {
     chrome: 80,
