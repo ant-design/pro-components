@@ -3,7 +3,6 @@ import type { RadioGroupProps, TreeSelectProps } from 'antd';
 import { ConfigProvider, Spin, TreeSelect } from 'antd';
 import classNames from 'classnames';
 import type { ProFieldFC } from '../../index';
-import './index.less';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 import type { DataNode } from 'antd/lib/tree';

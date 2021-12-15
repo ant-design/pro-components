@@ -418,37 +418,38 @@ describe('Field', () => {
 
       expect(html.text()).toBe('0-00-0-0');
     });
-
-    it(`🐴 ${valueType} options single value`, async () => {
-      const html = mount(
-        <Field
-          text={'0-1-2'}
-          fieldProps={{
-            fieldNames: {
-              label: 'title',
-            },
-            options: [
-              {
-                title: 'Node2',
-                value: '0-1',
-                children: [
-                  {
-                    title: 'Child Node5',
-                    value: '0-1-2',
-                  },
-                ],
-              },
-            ],
-          }}
-          valueType={valueType as 'cascader'}
-          mode="read"
-        />,
-      );
-      await waitForComponentToPaint(html, 100);
-      expect(html.text()).toBe('Child Node5');
-    });
   });
 
+  it(`🐴 treeSelect options single value`, async () => {
+    const html = mount(
+      <Field
+        text={'0-1-2'}
+        fieldProps={{
+          fieldNames: {
+            label: 'title',
+          },
+          value: ['0-1-2'],
+          multiple: false,
+          options: [
+            {
+              title: 'Node2',
+              value: '0-1',
+              children: [
+                {
+                  title: 'Child Node5',
+                  value: '0-1-2',
+                },
+              ],
+            },
+          ],
+        }}
+        valueType="treeSelect"
+        mode="edit"
+      />,
+    );
+    await waitForComponentToPaint(html, 100);
+    expect(html.text()).toBe('Child Node5');
+  });
   it(`🐴 treeSelect support request function and search, asynchronously loadData`, async () => {
     const ref = React.createRef<{
       fetchData: () => void;
