@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 import { useSWRConfig, SWRConfig } from 'swr';
 import zh_CN from 'antd/lib/locale/zh_CN';
+import en_US from 'antd/lib/locale/en_US';
 
 import arEG from './locale/ar_EG';
 import zhCN from './locale/zh_CN';
@@ -23,6 +24,7 @@ import deDE from './locale/de_DE';
 import faIR from './locale/fa_IR';
 import trTR from './locale/tr_TR';
 import plPL from './locale/pl_PL';
+import mnMN from './locale/mn_MN';
 
 export type ProSchemaValueEnumType = {
   /** @name 演示的文案 */
@@ -144,6 +146,7 @@ const deDEIntl = createIntl('de_DE', deDE);
 const faIRIntl = createIntl('fa_IR', faIR);
 const trTRIntl = createIntl('tr_TR', trTR);
 const plPLIntl = createIntl('pl_PL', plPL);
+const mnMNIntl = createIntl('mn_MN', mnMN);
 
 const intlMap = {
   'ar-EG': arEGIntl,
@@ -166,6 +169,7 @@ const intlMap = {
   'fa-IR': faIRIntl,
   'tr-TR': trTRIntl,
   'pl-PL': plPLIntl,
+  'mn-MN': mnMNIntl,
 };
 
 const intlMapKeys = Object.keys(intlMap);
@@ -193,6 +197,7 @@ export {
   faIRIntl,
   trTRIntl,
   plPLIntl,
+  mnMNIntl,
   intlMap,
   intlMapKeys,
 };
@@ -204,7 +209,7 @@ export type ConfigContextPropsType = {
 
 const ConfigContext = React.createContext<ConfigContextPropsType>({
   intl: {
-    ...zhCNIntl,
+    ...enUSIntl,
     locale: 'default',
   },
   valueTypeMap: {},
@@ -275,7 +280,7 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
         const configProvider =
           locale === undefined
             ? {
-                locale: zh_CN,
+                locale: en_US,
               }
             : {};
 
@@ -284,7 +289,7 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
             <ConfigProvider
               value={{
                 ...value,
-                intl: intl || zhCNIntl,
+                intl: intl || enUSIntl,
               }}
             >
               {autoClearCache && <CacheClean />}
@@ -304,7 +309,7 @@ export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };
 
 export function useIntl(): IntlType {
   const context = useContext(ConfigContext);
-  return context.intl || zhCNIntl;
+  return context.intl || enUSIntl;
 }
 
 export default ConfigContext;
