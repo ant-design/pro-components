@@ -16,11 +16,17 @@ const WrapContent: React.FC<{
   const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
   return (
     <ConfigProviderWrap autoClearCache>
-      <ErrorComponent>
+      {props.ErrorBoundary === false ? (
         <Layout.Content className={className} style={style}>
           {children}
         </Layout.Content>
-      </ErrorComponent>
+      ) : (
+        <ErrorComponent>
+          <Layout.Content className={className} style={style}>
+            {children}
+          </Layout.Content>
+        </ErrorComponent>
+      )}
     </ConfigProviderWrap>
   );
 };

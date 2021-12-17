@@ -157,6 +157,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | breadcrumbProps | 传递到 antd Breadcrumb 组件的 props, 参考 (https://ant.design/components/breadcrumb-cn/) | `breadcrumbProps` | undefined |
 | route | 用于生成菜单和面包屑。umi 的 Layout 会自动带有 | [route](#route) | - |
 | disableMobile | 禁止自动切换到移动页面 | `boolean` | false |
+| ErrorBoundary | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界 | `ReactNode` | 内置 ErrorBoundary |
 | links | 显示在菜单右下角的快捷操作 | `ReactNode[]` | - |
 | menuProps | 传递到 antd menu 组件的 props, 参考 (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
 | waterMarkProps | 配置水印，水印是 PageContainer 的功能，layout 只是透传给 PageContainer | [WaterMarkProps](/components/water-mark) | - |
