@@ -112,7 +112,7 @@ const renderFooter: React.FC<
     'title'
   >
 > = ({ tabList, tabActiveKey, onTabChange, tabBarExtraContent, tabProps, prefixedClassName }) => {
-  if ((Array.isArray(tabList)) || tabBarExtraContent) {
+  if (Array.isArray(tabList) || tabBarExtraContent) {
     return (
       <Tabs
         className={`${prefixedClassName}-tabs`}
@@ -125,7 +125,7 @@ const renderFooter: React.FC<
         tabBarExtraContent={tabBarExtraContent}
         {...tabProps}
       >
-        {tabList.map((item, index) => (
+        {tabList?.map((item, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <Tabs.TabPane {...item} tab={item.tab} key={item.key || index} />
         ))}
