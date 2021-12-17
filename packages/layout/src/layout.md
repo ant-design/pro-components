@@ -190,7 +190,7 @@ menu 中支持了部分常用的 menu 配置， 可以帮助我们更好的管�
 
 自带的颜色列表
 
-```tsx
+```tsx | pure
 const colorList = [
   { key: 'daybreak', color: '#1890ff' },
   { key: 'dust', color: '#F5222D' },
