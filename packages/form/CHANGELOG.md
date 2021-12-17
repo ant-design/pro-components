@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.50.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.50.0...@ant-design/pro-form@1.50.1) (2021-12-17)
+
+### Bug Fixes
+
+- **form:** syncToUrl params error ([#4296](https://github.com/ant-design/pro-components/issues/4296)) ([95ab695](https://github.com/ant-design/pro-components/commit/95ab69560dbb88fcbd24570aa9b34815867789ca))
+
 # [1.50.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.11...@ant-design/pro-form@1.50.0) (2021-12-13)
 
 ### Bug Fixes

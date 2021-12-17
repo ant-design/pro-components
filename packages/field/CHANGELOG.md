@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.29.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.29.0...@ant-design/pro-field@1.29.1) (2021-12-17)
+
+### Bug Fixes
+
+- **field:** timeRange 解析时间不填入 format 是会直接 Invalid date ([#4278](https://github.com/ant-design/pro-components/issues/4278)) ([5179f2b](https://github.com/ant-design/pro-components/commit/5179f2b91b8dbf3442f2ac58dec8b7f7ff5ea511))
+
 # [1.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.7...@ant-design/pro-field@1.29.0) (2021-12-13)
 
 ### Bug Fixes
