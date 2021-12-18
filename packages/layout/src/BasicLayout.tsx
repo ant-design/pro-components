@@ -1,6 +1,6 @@
 import './BasicLayout.less';
 import type { CSSProperties } from 'react';
-import { useCallback, useRef } from 'react';
+import { useCallback } from 'react';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd/lib/breadcrumb';
 import { Layout, ConfigProvider } from 'antd';
@@ -10,7 +10,7 @@ import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import useAntdMediaQuery from 'use-media-antd-query';
 import { useDocumentTitle, isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import Omit from 'omit.js';
-import useSWR, { mutate } from 'swr';
+import useSWR from 'swr';
 import { getMatchMenu } from '@umijs/route-utils';
 
 import type { HeaderViewProps } from './Header';
@@ -21,7 +21,7 @@ import { getPageTitleInfo } from './getPageTitle';
 import type { ProSettings } from './defaultSettings';
 import defaultSettings from './defaultSettings';
 import type { LocaleType } from './locales';
-import getLocales from './locales';
+import { gLocaleObject } from './locales';
 import type { BaseMenuProps } from './components/SiderMenu/BaseMenu';
 import Footer from './Footer';
 import RouteContext from './RouteContext';
@@ -36,7 +36,7 @@ import compatibleLayout from './utils/compatibleLayout';
 import useCurrentMenuLayoutProps from './utils/useCurrentMenuLayoutProps';
 import { clearMenuItem } from './utils/utils';
 import type { WaterMarkProps } from './components/WaterMark';
-import { stringify } from 'use-json-comparison';
+import { ConfigProviderWrap } from '@ant-design/pro-provider';
 
 let layoutIndex = 0;
 
@@ -135,7 +135,7 @@ const footerRender = (props: BasicLayoutProps): React.ReactNode => {
 };
 
 const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): React.ReactNode => {
-  const { layout, isMobile, openKeys, splitMenus, menuRender } = props;
+  const { layout, navTheme, isMobile, openKeys, splitMenus, menuRender } = props;
   if (props.menuRender === false || props.pure) {
     return null;
   }
@@ -158,27 +158,27 @@ const renderSiderMenu = (props: BasicLayoutProps, matchMenuKeys: string[]): Reac
   if (layout === 'top' && !isMobile) {
     return <SiderMenu matchMenuKeys={matchMenuKeys} {...props} hide />;
   }
-  if (menuRender) {
-    const defaultDom = (
-      <SiderMenu
-        matchMenuKeys={matchMenuKeys}
-        {...props}
-        // 这里走了可以少一次循环
-        menuData={clearMenuData}
-      />
-    );
 
-    return menuRender(props, defaultDom);
-  }
-
-  return (
+  const defaultDom = (
     <SiderMenu
       matchMenuKeys={matchMenuKeys}
       {...props}
+      style={
+        navTheme === 'realDark'
+          ? {
+              boxShadow: '0 2px 8px 0 rgba(0, 0, 0, 65%)',
+            }
+          : {}
+      }
       // 这里走了可以少一次循环
       menuData={clearMenuData}
     />
   );
+  if (menuRender) {
+    return menuRender(props, defaultDom);
+  }
+
+  return defaultDom;
 };
 
 const defaultPageTitleRender = (
@@ -275,25 +275,20 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
           ...restParams,
         });
       }
-      const locales = getLocales();
+      const locales = gLocaleObject();
       return locales[id] ? locales[id] : (defaultMessage as string);
     },
     [propsFormatMessage],
   );
 
-  const swrKey = useMemo(() => {
-    if (!menu?.params) return [defaultId];
-    return [defaultId, menu?.params];
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [defaultId, stringify(menu?.params)]);
-
-  const preData = useRef<MenuDataItem[] | undefined>(undefined);
-
-  const { data } = useSWR(
-    swrKey,
+  const { data, mutate } = useSWR(
+    () => {
+      if (!menu?.params) return [defaultId, {}];
+      return [defaultId, menu?.params];
+    },
     async (_, params) => {
       setMenuLoading(true);
-      const msg = await menu?.request?.((params as Record<string, any>) || {}, route?.routes || []);
+      const msg = await menu?.request?.(params, route?.routes || []);
       setMenuLoading(false);
       return msg;
     },
@@ -303,16 +298,6 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       revalidateOnReconnect: false,
     },
   );
-  preData.current = data as MenuDataItem[];
-
-  // params 更新的时候重新请求
-  useEffect(() => {
-    if (!preData.current) {
-      return;
-    }
-    mutate(swrKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [swrKey]);
 
   const menuInfoData = useMemo<{
     breadcrumb?: Record<string, MenuDataItem>;
@@ -328,7 +313,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   if (actionRef && menu?.request) {
     actionRef.current = {
       reload: () => {
-        mutate(swrKey);
+        mutate();
       },
     };
   }
@@ -413,7 +398,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       menuData,
       onCollapse,
       isMobile,
-      theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
+      theme: navTheme === 'dark' ? 'dark' : 'light',
       collapsed,
     },
     matchMenuKeys,
@@ -428,7 +413,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       isMobile,
       collapsed,
       onCollapse,
-      theme: (navTheme || 'dark').toLocaleLowerCase().includes('dark') ? 'dark' : 'light',
+      theme: navTheme === 'dark' ? 'dark' : 'light',
     },
     matchMenuKeys,
   );
@@ -507,7 +492,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         }}
       >
         {props.pure ? (
-          children
+          <ConfigProviderWrap autoClearCache>{children}</ConfigProviderWrap>
         ) : (
           <div className={className}>
             <Layout

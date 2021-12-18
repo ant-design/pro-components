@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo } from 'react';
 import { Tooltip } from 'antd';
 import { CheckOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
@@ -22,8 +22,7 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
   prefixCls,
 }) => {
   const baseClassName = `${prefixCls}-drawer-block-checkbox`;
-  const [dom, setDom] = useState<JSX.Element[]>([]);
-  useEffect(() => {
+  const dom = useMemo(() => {
     const domList = (list || []).map((item) => (
       <Tooltip title={item.title} key={item.key}>
         <div
@@ -43,9 +42,9 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
         </div>
       </Tooltip>
     ));
-    setDom(domList);
+    return domList;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [value, list?.length]);
+  }, [value, list?.length, onChange]);
   return (
     <div
       className={baseClassName}

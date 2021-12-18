@@ -231,22 +231,27 @@ function DrawerForm<T = Record<string, any>>({
     if (typeof window === 'undefined') return undefined;
     return renderDom || document.body;
   }, [renderDom]);
-  /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
-  return (
-    <>
-      {renderDom !== false && portalRenderDom ? createPortal(formDom, portalRenderDom) : formDom}
+
+  const triggerDom = (
+    <React.Fragment key="trigger">
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,
           onClick: async (e: any) => {
-            /** 如果打开了destroyOnClose，重制一下 form */
-            if (!visible && drawerProps?.destroyOnClose) {
-              await setKey(key + 1);
-            }
             setVisible(!visible);
             trigger.props?.onClick?.(e);
           },
         })}
+    </React.Fragment>
+  );
+  /** 如果destroyOnClose，关闭的时候解除渲染Form */
+  if (drawerProps?.destroyOnClose && !visible) return triggerDom;
+
+  /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
+  return (
+    <>
+      {renderDom !== false && portalRenderDom ? createPortal(formDom, portalRenderDom) : formDom}
+      {triggerDom}
     </>
   );
 }

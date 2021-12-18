@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-utils",
-  "version": "1.28.2",
+  "version": "1.30.0",
   "description": "@ant-design/pro-utils",
   "keywords": [
     "antd",
@@ -34,12 +34,13 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.3.0",
-    "@ant-design/pro-provider": "1.4.20",
+    "@ant-design/pro-provider": "1.5.4",
+    "@babel/runtime": "^7.16.3",
     "classnames": "^2.2.6",
     "moment": "^2.27.0",
     "rc-util": "^5.0.6",
     "react-sortable-hoc": "^2.0.0",
-    "swr": "1.1.0-beta.6"
+    "swr": "1.1.0"
   },
   "peerDependencies": {
     "antd": "4.x",

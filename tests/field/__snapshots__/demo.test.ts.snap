@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -76,9 +76,9 @@ Array [
         />
       </button>
     </div>
-  </div>,
-  <br />,
-  <br />,
+  </div>
+  <br />
+  <br />
   <div
     class="ant-descriptions"
   >
@@ -906,12 +906,12 @@ Array [
                       class="ant-space-item"
                       style="margin-right: 8px;"
                     >
-                      hangzhou
+                      Hangzhou
                     </div>
                     <div
                       class="ant-space-item"
                     >
-                      xihu
+                      West Lake
                     </div>
                   </div>
                 </span>
@@ -1028,9 +1028,7 @@ Array [
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <span>
-                    2019-11-16 12:50:26
-                  </span>
+                  2019-11-16 12:50:26
                 </span>
               </div>
             </td>
@@ -1090,9 +1088,7 @@ Array [
                 <span
                   class="ant-descriptions-item-content"
                 >
-                  <span>
-                    2019-11-16
-                  </span>
+                  2019-11-16
                 </span>
               </div>
             </td>
@@ -1348,12 +1344,12 @@ Done in 9.70s.
         </tbody>
       </table>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx correctly 1`] = `
-Array [
+<DocumentFragment>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
   >
@@ -1428,9 +1424,9 @@ Array [
         />
       </button>
     </div>
-  </div>,
-  <br />,
-  <br />,
+  </div>
+  <br />
+  <br />
   <div
     class="ant-descriptions"
   >
@@ -3889,81 +3885,83 @@ Array [
         </tbody>
       </table>
     </div>
-  </div>,
-]
+  </div>
+</DocumentFragment>
 `;
 
 exports[`field demos 📸 renders ./packages/field/src/demos/search-value.tsx correctly 1`] = `
-<div>
-  <div
-    class="ant-row ant-form-item"
-  >
+<DocumentFragment>
+  <div>
     <div
-      class="ant-col ant-form-item-control"
+      class="ant-row ant-form-item"
     >
       <div
-        class="ant-form-item-control-input"
+        class="ant-col ant-form-item-control"
       >
         <div
-          class="ant-form-item-control-input-content"
+          class="ant-form-item-control-input"
         >
           <div
-            class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
-            style="width: 330px;"
+            class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-select-selector"
+              class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-search"
+              style="width: 330px;"
             >
-              <span
-                class="ant-select-selection-search"
+              <div
+                class="ant-select-selector"
               >
-                <input
-                  aria-activedescendant="name_list_0"
-                  aria-autocomplete="list"
-                  aria-controls="name_list"
-                  aria-expanded="false"
-                  aria-haspopup="listbox"
-                  aria-owns="name_list"
-                  autocomplete="off"
-                  class="ant-select-selection-search-input"
-                  id="name"
-                  role="combobox"
-                  type="search"
-                  value=""
-                />
-              </span>
-              <span
-                class="ant-select-selection-placeholder"
-              >
-                请输入搜索关键字
-              </span>
+                <span
+                  class="ant-select-selection-search"
+                >
+                  <input
+                    aria-activedescendant="name_list_0"
+                    aria-autocomplete="list"
+                    aria-controls="name_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="name_list"
+                    autocomplete="off"
+                    class="ant-select-selection-search-input"
+                    id="name"
+                    role="combobox"
+                    type="search"
+                    value=""
+                  />
+                </span>
+                <span
+                  class="ant-select-selection-placeholder"
+                >
+                  请输入搜索关键字
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <div
+      class="keys"
+    >
+      <b>
+        常用关键字：
+      </b>
+      <span
+        style="margin-left: 8px; cursor: pointer;"
+      >
+        l
+      </span>
+      <span
+        style="margin-left: 8px; cursor: pointer;"
+      >
+        c
+      </span>
+      <span
+        style="margin-left: 8px; cursor: pointer;"
+      >
+        a
+      </span>
+    </div>
   </div>
-  <div
-    class="keys"
-  >
-    <b>
-      常用关键字：
-    </b>
-    <span
-      style="margin-left: 8px; cursor: pointer;"
-    >
-      l
-    </span>
-    <span
-      style="margin-left: 8px; cursor: pointer;"
-    >
-      c
-    </span>
-    <span
-      style="margin-left: 8px; cursor: pointer;"
-    >
-      a
-    </span>
-  </div>
-</div>
+</DocumentFragment>
 `;

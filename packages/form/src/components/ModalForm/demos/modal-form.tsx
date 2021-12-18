@@ -31,6 +31,7 @@ export default () => {
       }
       autoFocusFirstInput
       modalProps={{
+        destroyOnClose: true,
         onCancel: () => console.log('run'),
       }}
       onFinish={async (values) => {
@@ -57,7 +58,7 @@ export default () => {
       </ProForm.Group>
       <ProForm.Group>
         <ProFormSelect
-          options={[
+          request={async () => [
             {
               value: 'chapter',
               label: '盖章后生效',

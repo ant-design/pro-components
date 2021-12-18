@@ -53,10 +53,6 @@ interface RequestData {
 
 ### 基础定义列表
 
-### 常见配置
-
-<code src="./demos/dynamic-descriptions.tsx" title="常见配置" height="500" iframe/>
-
 ### 基本使用
 
 <code src="./demos/base.tsx" title="基础定义列表" />

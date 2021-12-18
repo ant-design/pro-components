@@ -13,24 +13,24 @@ function useMountMergeState<S>(
   },
 ): [S, Dispatch<S>] {
   const mountRef = useRef<boolean>(false);
-  const frame = useRef<number>(0);
+  const frame = useRef<number | undefined>(undefined);
 
   useEffect(() => {
     mountRef.current = true;
     return () => {
+      clearTimeout(frame.current);
       mountRef.current = false;
     };
-  });
+  }, []);
 
   const [state, setState] = useMergedState<S>(initialState, option);
   const mountSetState: Dispatch<S> = (prevState: S) => {
-    cancelAnimationFrame(frame.current);
-
-    frame.current = requestAnimationFrame(() => {
+    clearTimeout(frame.current);
+    frame.current = window.setTimeout(() => {
       if (mountRef.current) {
         setState(prevState);
       }
-    });
+    }, 16);
   };
   return [state, mountSetState];
 }

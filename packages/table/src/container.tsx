@@ -97,7 +97,7 @@ function useContainer(props: UseContainerProps = {}) {
   noteOnce(!props.columnsStateMap, 'columnsStateMap已经废弃，请使用 columnsState.value 替换');
   noteOnce(
     !props.columnsStateMap,
-    'COLUMNSSTATEMAP has been discarded, please use columnSstate.value replacement',
+    'columnsStateMap has been discarded, please use columnSstate.value replacement',
   );
 
   /** 清空一下当前的 key */
@@ -105,12 +105,13 @@ function useContainer(props: UseContainerProps = {}) {
     const { persistenceType, persistenceKey } = props.columnsState || {};
 
     if (!persistenceKey || !persistenceType || typeof window === 'undefined') return;
+
     /** 给持久化中设置数据 */
     const storage = window[persistenceType];
     try {
       storage?.removeItem(persistenceKey);
     } catch (error) {
-      console.warn(error);
+      console.error(error);
     }
   }, [props.columnsState]);
 

@@ -2,6 +2,7 @@
 import { ProFormText, DrawerForm, ModalForm } from '@ant-design/pro-form';
 import { Button } from 'antd';
 import { act } from 'react-dom/test-utils';
+import { render } from '@testing-library/react';
 import { mount } from 'enzyme';
 import { waitForComponentToPaint } from '../util';
 
@@ -22,10 +23,12 @@ describe('DrawerForm', () => {
     act(() => {
       wrapper.find('button#new').simulate('click');
     });
+
+    expect(fn).toBeCalledWith(true);
+
     act(() => {
       wrapper.unmount();
     });
-    expect(fn).toBeCalledWith(true);
   });
 
   it('📦 DrawerForm first no render items', async () => {
@@ -53,6 +56,9 @@ describe('DrawerForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('input#test').exists()).toBeTruthy();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 DrawerForm first render items', async () => {
@@ -76,6 +82,9 @@ describe('DrawerForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('input#test').exists()).toBeTruthy();
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 DrawerForm support submitter is false', async () => {
@@ -93,6 +102,9 @@ describe('DrawerForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('.ant-drawer-footer').length).toBe(0);
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 DrawerForm destroyOnClose', async () => {
@@ -132,6 +144,10 @@ describe('DrawerForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('input#test').exists()).toBeFalsy();
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 drawer close button will simulate onVisibleChange', async () => {
@@ -152,6 +168,10 @@ describe('DrawerForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 drawer close button will simulate onVisibleChange', async () => {
@@ -165,6 +185,7 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
+
     await waitForComponentToPaint(wrapper);
 
     act(() => {
@@ -172,6 +193,10 @@ describe('DrawerForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 reset button will simulate onVisibleChange', async () => {
@@ -192,6 +217,10 @@ describe('DrawerForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 drawer close button will simulate drawerProps.onClose', async () => {
@@ -215,6 +244,10 @@ describe('DrawerForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 drawer reset button will simulate drawerProps.onClose', async () => {
@@ -238,6 +271,10 @@ describe('DrawerForm', () => {
     });
 
     expect(fn).toBeCalledWith(false);
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 drawer reset button will simulate drawerProps.onCancel', async () => {
@@ -261,6 +298,10 @@ describe('DrawerForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 form onFinish return true should close drawer', async () => {
@@ -284,6 +325,10 @@ describe('DrawerForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(fn).toBeCalledWith(false);
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 form onFinish is null, no close drawer', async () => {
@@ -305,6 +350,10 @@ describe('DrawerForm', () => {
 
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledTimes(1);
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 getContainer is function', async () => {
@@ -334,6 +383,9 @@ describe('DrawerForm', () => {
 
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 getContainer is string', async () => {
@@ -364,6 +416,9 @@ describe('DrawerForm', () => {
 
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 getContainer is element', async () => {
@@ -402,6 +457,9 @@ describe('DrawerForm', () => {
 
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 ModalForm getContainer is function', async () => {
@@ -466,6 +524,9 @@ describe('DrawerForm', () => {
 
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 submitter config no reset default config', async () => {
@@ -504,6 +565,9 @@ describe('DrawerForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 ModalForm getContainer is element', async () => {
@@ -541,6 +605,9 @@ describe('DrawerForm', () => {
 
     await waitForComponentToPaint(wrapper);
     expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 DrawerForm close no rerender from', async () => {
@@ -590,6 +657,10 @@ describe('DrawerForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('Input#test').props().value).toEqual('test');
+
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('📦 DrawerForm destroyOnClose close will rerender from', async () => {
@@ -644,5 +715,48 @@ describe('DrawerForm', () => {
     await waitForComponentToPaint(wrapper);
 
     expect(wrapper.find('Input#test').props().value).toEqual('1234');
+
+    act(() => {
+      wrapper.unmount();
+    });
+  });
+
+  it('📦 model no render Form when destroyOnClose', () => {
+    const html = render(
+      <ModalForm
+        modalProps={{
+          destroyOnClose: true,
+        }}
+        trigger={
+          <Button id="new" type="primary">
+            新建
+          </Button>
+        }
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+
+    expect(html.baseElement.querySelector('form')).toBeFalsy();
+    html.unmount();
+  });
+  it('📦 drawer no render Form when destroyOnClose', () => {
+    const html = render(
+      <DrawerForm
+        drawerProps={{
+          destroyOnClose: true,
+        }}
+        trigger={
+          <Button id="new" type="primary">
+            新建
+          </Button>
+        }
+      >
+        <ProFormText name="name" />
+      </DrawerForm>,
+    );
+
+    expect(html.baseElement.querySelector('form')).toBeFalsy();
+    html.unmount();
   });
 });

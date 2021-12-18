@@ -74,7 +74,7 @@ const intlMap = {
 
 const getTextByLocale = (
   localeStr: string | false,
-  paramsText: number | string,
+  paramsText: number | string | undefined,
   precision: number,
   config?: any,
 ) => {
@@ -82,6 +82,8 @@ const getTextByLocale = (
   if (typeof moneyText === 'string') {
     moneyText = Number(moneyText);
   }
+
+  if (!moneyText && moneyText !== 0) return '';
 
   return new Intl.NumberFormat(localeStr || 'zh-Hans-CN', {
     ...(intlMap[localeStr || 'zh-Hans-CN'] || intlMap['zh-Hans-CN']),
@@ -110,7 +112,13 @@ const InputNumberPopover = React.forwardRef<
     value,
   });
   return (
-    <Popover placement="topLeft" visible={dom ? undefined : false} trigger="focus" content={dom}>
+    <Popover
+      placement="topLeft"
+      visible={dom ? undefined : false}
+      trigger="focus"
+      content={dom}
+      getPopupContainer={(triggerNode) => triggerNode?.parentElement || document.body}
+    >
       <InputNumber ref={ref} {...rest} value={value} onChange={onChange} />
     </Popover>
   );
@@ -180,7 +188,7 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
           const localeText = getTextByLocale(
             moneySymbol ? locale : false,
-            props.value.toString().replace(reg, ','),
+            props.value?.toString()?.replace(reg, ','),
             precision,
             {
               ...numberFormatOptions,
@@ -196,15 +204,16 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
         precision={precision}
         // 删除默认min={0}，允许输入一个负数的金额，用户可自行配置min来限制是否允许小于0的金额
         formatter={(value) => {
-          if (value) {
+          if (value && moneySymbol) {
             const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
             return `${moneySymbol} ${value}`.replace(reg, ',');
           }
-          return '';
+          return value;
         }}
-        parser={(value) =>
-          value ? value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '') : ''
-        }
+        parser={(value) => {
+          if (moneySymbol && value) value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
+          return value;
+        }}
         placeholder={placeholder}
         {...fieldProps}
       />

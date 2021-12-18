@@ -2,6 +2,76 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.50.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.50.0...@ant-design/pro-form@1.50.1) (2021-12-17)
+
+### Bug Fixes
+
+- **form:** syncToUrl params error ([#4296](https://github.com/ant-design/pro-components/issues/4296)) ([95ab695](https://github.com/ant-design/pro-components/commit/95ab69560dbb88fcbd24570aa9b34815867789ca))
+
+# [1.50.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.11...@ant-design/pro-form@1.50.0) (2021-12-13)
+
+### Bug Fixes
+
+- **form:** relay no render DrawerForm and ModalForm ([#4254](https://github.com/ant-design/pro-components/issues/4254)) ([f986ecb](https://github.com/ant-design/pro-components/commit/f986ecb9d89d4e3edef18d50eee4c37e730227d9))
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
+## [1.49.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.10...@ant-design/pro-form@1.49.11) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.9...@ant-design/pro-form@1.49.10) (2021-12-10)
+
+### Bug Fixes
+
+- **provide:** close auto clean cache ([#4243](https://github.com/ant-design/pro-components/issues/4243)) ([e638cb5](https://github.com/ant-design/pro-components/commit/e638cb5ff7830793020c94328ef2833c20f352f7))
+
+## [1.49.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.8...@ant-design/pro-form@1.49.9) (2021-12-09)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.7...@ant-design/pro-form@1.49.8) (2021-12-08)
+
+### Bug Fixes
+
+- **form:** 🐛 SchemaForm and StepsForm formRef error ([#4220](https://github.com/ant-design/pro-components/issues/4220)) ([d1f8e95](https://github.com/ant-design/pro-components/commit/d1f8e95dee00942d4470e3ba1c60e86f18c7b3bd))
+
+## [1.49.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.6...@ant-design/pro-form@1.49.7) (2021-12-07)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.5...@ant-design/pro-form@1.49.6) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.4...@ant-design/pro-form@1.49.5) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.3...@ant-design/pro-form@1.49.4) (2021-11-30)
+
+### Bug Fixes
+
+- **form:** fix the problem that addonBefore Required does not work when formitem is set ([#4141](https://github.com/ant-design/pro-components/issues/4141)) ([a994430](https://github.com/ant-design/pro-components/commit/a994430828ab03fe5dc75723aec029f929ba20c5))
+
+## [1.49.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.2...@ant-design/pro-form@1.49.3) (2021-11-23)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.1...@ant-design/pro-form@1.49.2) (2021-11-23)
+
+### Bug Fixes
+
+- **form:** default close render params to url ([cd4f0ab](https://github.com/ant-design/pro-components/commit/cd4f0abab77cc212a53f549ea16faafa70d00a15))
+
+## [1.49.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.0...@ant-design/pro-form@1.49.1) (2021-11-22)
+
+### Bug Fixes
+
+- **ProForm:** 修复 ProForm 请求两次问题 ([#4074](https://github.com/ant-design/pro-components/issues/4074)) ([fe9d08c](https://github.com/ant-design/pro-components/commit/fe9d08c950497bb2447ca088471b9dc8b86acb67))
+
 # [1.49.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.48.1...@ant-design/pro-form@1.49.0) (2021-11-18)
 
 ### Bug Fixes

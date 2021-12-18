@@ -1,5 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
+import { useSWRConfig, SWRConfig } from 'swr';
 import zh_CN from 'antd/lib/locale/zh_CN';
 
 import arEG from './locale/ar_EG';
@@ -228,19 +229,41 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
 };
 
 /**
+ * 组件解除挂载后清空一下 cache
+ *
+ * @returns
+ */
+const CacheClean = () => {
+  const { cache } = useSWRConfig();
+
+  useEffect(() => {
+    return () => {
+      // is a map
+      // @ts-ignore
+      cache.clear();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return null;
+};
+
+/**
  * 如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
  *
  * @param param0
  */
-const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => {
+const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
+  children,
+  autoClearCache = false,
+}) => {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
-  return (
+
+  const configProviderDom = (
     <ConfigConsumer>
       {(value) => {
         const localeName = locale?.locale;
-
         const key = findIntlKeyByAntdLocaleKey(localeName);
         // antd 的 key 存在的时候以 antd 的为主
         const intl =
@@ -264,6 +287,7 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
                 intl: intl || zhCNIntl,
               }}
             >
+              {autoClearCache && <CacheClean />}
               {children}
             </ConfigProvider>
           </Provider>
@@ -271,6 +295,9 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
       }}
     </ConfigConsumer>
   );
+  if (!autoClearCache) return configProviderDom;
+
+  return <SWRConfig value={{ provider: () => new Map() }}>{configProviderDom}</SWRConfig>;
 };
 
 export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };

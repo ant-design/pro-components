@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.11...@ant-design/pro-card@1.18.12) (2021-12-17)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.18.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.10...@ant-design/pro-card@1.18.11) (2021-12-13)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.18.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.9...@ant-design/pro-card@1.18.10) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.18.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.8...@ant-design/pro-card@1.18.9) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.18.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.7...@ant-design/pro-card@1.18.8) (2021-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.18.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.6...@ant-design/pro-card@1.18.7) (2021-12-07)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.18.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.5...@ant-design/pro-card@1.18.6) (2021-11-30)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.18.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.4...@ant-design/pro-card@1.18.5) (2021-11-23)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
+## [1.18.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.3...@ant-design/pro-card@1.18.4) (2021-11-23)
+
+### Bug Fixes
+
+- **card:** add more var ([3ea6376](https://github.com/ant-design/pro-components/commit/3ea6376f6df30c54cb99defede244891bba7df85))
+- **card:** add more var ([898a090](https://github.com/ant-design/pro-components/commit/898a090676b73ecc32c3a8802ddf693069fd7e37))
+- **card:** add more var ([3caad81](https://github.com/ant-design/pro-components/commit/3caad8138bcf65c2163e72e7788c2d8fa0e3f70a))
+
+## [1.18.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.2...@ant-design/pro-card@1.18.3) (2021-11-22)
+
+**Note:** Version bump only for package @ant-design/pro-card
+
 ## [1.18.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.1...@ant-design/pro-card@1.18.2) (2021-11-18)
 
 **Note:** Version bump only for package @ant-design/pro-card

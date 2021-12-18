@@ -24,17 +24,9 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 ## 代码演示
 
-### 属性展示
-
-<code src="./demos/dynamic-settings.tsx"  background="#f5f5f5" iframe="500px" title="属性展示" />
-
 ### 查询表格
 
 <code src="./demos/single.tsx" background="#f5f5f5" height="500px" title="查询表格" />
-
-### 查询表格
-
-<code src="./demos/single-test.tsx" debug background="#f5f5f5" height="500px" title="查询表格" />
 
 ### 查询（无按钮）表格
 
@@ -235,11 +227,16 @@ const enLocale = {
 
 // 生成 intl 对象
 const enUSIntl = createIntl('en_US', enUS);
+import { ConfigProvider } from '@ant-design/pro-provide';
 
 // 使用
-<IntlProvider value={enUSIntl}>
+<ConfigProvider
+  value={{
+    intl: enUSIntl,
+  }}
+>
   <ProTable />
-</IntlProvider>;
+</ConfigProvider>;
 ```
 
 <code src="./demos/intl.tsx" background="#f5f5f5" height="320px" title="国际化相关的配置" />
@@ -347,7 +344,8 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | editable | 可编辑表格的相关配置 | [TableRowEditable<T>](/components/editable-table#editable-编辑行配置) | - |
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | 防抖时间 | `number` | 10 |
-| ColumnState | Column Status Control, you can operate the display hide | `columnSstateType` | - |
+| revalidateOnFocus | 窗口聚焦时自动重新请求 | `boolean` | `true` |
+| ColumnState | 受控的列状态，可以操作显示隐藏 | `columnStateType` | - |
 
 #### RecordCreator
 

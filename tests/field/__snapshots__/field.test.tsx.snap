@@ -3341,9 +3341,7 @@ exports[`Field 🐴 read and plain 1`] = `
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  2019-11-16 12:50:26
-                </span>
+                2019-11-16 12:50:26
               </span>
             </div>
           </td>
@@ -3362,9 +3360,7 @@ exports[`Field 🐴 read and plain 1`] = `
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  2019-11-16
-                </span>
+                2019-11-16
               </span>
             </div>
           </td>
@@ -3890,9 +3886,7 @@ exports[`Field 🐴 read ant no plain 1`] = `
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  2019-11-16 12:50:26
-                </span>
+                2019-11-16 12:50:26
               </span>
             </div>
           </td>
@@ -3911,9 +3905,7 @@ exports[`Field 🐴 read ant no plain 1`] = `
               <span
                 class="ant-descriptions-item-content"
               >
-                <span>
-                  2019-11-16
-                </span>
+                2019-11-16
               </span>
             </div>
           </td>

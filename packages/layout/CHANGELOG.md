@@ -2,6 +2,69 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.32.0-beta.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.0-beta.1...@ant-design/pro-layout@6.32.0-beta.2) (2021-12-17)
+
+### Bug Fixes
+
+- **layout:** alway has a Provide ([#4261](https://github.com/ant-design/pro-components/issues/4261)) ([5c0ad5c](https://github.com/ant-design/pro-components/commit/5c0ad5cffd2983e1b963a249a0208ba3175c4433))
+- **utils:** useDebounceFn will auto reject promise ([#4270](https://github.com/ant-design/pro-components/issues/4270)) ([8de01a4](https://github.com/ant-design/pro-components/commit/8de01a4915bb8354923a0a6485f250cc6c242247))
+
+### Features
+
+- disable default error boundary ([#4276](https://github.com/ant-design/pro-components/issues/4276)) ([094942f](https://github.com/ant-design/pro-components/commit/094942fb96f4465e6e883c9ffb629ed7b228e9ce))
+
+# [6.32.0-beta.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.7...@ant-design/pro-layout@6.32.0-beta.1) (2021-12-13)
+
+### Bug Fixes
+
+- **layout:** remove defaultLinks ([#4228](https://github.com/ant-design/pro-components/issues/4228)) ([a48c616](https://github.com/ant-design/pro-components/commit/a48c6168e99d3f1c30fc71c1f547b0db1393d6a0))
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
+## [6.31.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.6...@ant-design/pro-layout@6.31.7) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.31.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.5...@ant-design/pro-layout@6.31.6) (2021-12-10)
+
+### Bug Fixes
+
+- **provide:** close auto clean cache ([#4243](https://github.com/ant-design/pro-components/issues/4243)) ([e638cb5](https://github.com/ant-design/pro-components/commit/e638cb5ff7830793020c94328ef2833c20f352f7))
+
+## [6.31.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.4...@ant-design/pro-layout@6.31.5) (2021-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.31.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.3...@ant-design/pro-layout@6.31.4) (2021-12-07)
+
+### Bug Fixes
+
+- simplify swr usage ([#4181](https://github.com/ant-design/pro-components/issues/4181)) ([ed66732](https://github.com/ant-design/pro-components/commit/ed6673272882af09287eb87457df2a8ca9daf7f1))
+
+## [6.31.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.2...@ant-design/pro-layout@6.31.3) (2021-11-30)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.31.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.1...@ant-design/pro-layout@6.31.2) (2021-11-23)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.31.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.0...@ant-design/pro-layout@6.31.1) (2021-11-23)
+
+### Bug Fixes
+
+- **card:** add more var ([3caad81](https://github.com/ant-design/pro-components/commit/3caad8138bcf65c2163e72e7788c2d8fa0e3f70a))
+- **form:** default close render params to url ([cd4f0ab](https://github.com/ant-design/pro-components/commit/cd4f0abab77cc212a53f549ea16faafa70d00a15))
+- **layout:** no set topmenu font weight ([#4097](https://github.com/ant-design/pro-components/issues/4097)) ([234037f](https://github.com/ant-design/pro-components/commit/234037f80c41d28635796874953871e49dcdf61e))
+
+# [6.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.30.1...@ant-design/pro-layout@6.31.0) (2021-11-22)
+
+### Features
+
+- pro-layout 已支持传入 props 到 breadcrumbProps，但文档中没有体现 ([#4075](https://github.com/ant-design/pro-components/issues/4075)) ([3a60dec](https://github.com/ant-design/pro-components/commit/3a60dec2cc106a37b2d42395642e06add5ab8b55))
+
 ## [6.30.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.30.0...@ant-design/pro-layout@6.30.1) (2021-11-18)
 
 ### Bug Fixes

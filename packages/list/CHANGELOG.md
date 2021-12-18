@@ -2,6 +2,62 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.0...@ant-design/pro-list@1.21.1) (2021-12-17)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+# [1.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.11...@ant-design/pro-list@1.21.0) (2021-12-13)
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
+## [1.20.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.10...@ant-design/pro-list@1.20.11) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.20.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.9...@ant-design/pro-list@1.20.10) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.20.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.8...@ant-design/pro-list@1.20.9) (2021-12-09)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.20.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.7...@ant-design/pro-list@1.20.8) (2021-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.20.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.6...@ant-design/pro-list@1.20.7) (2021-12-07)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.20.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.5...@ant-design/pro-list@1.20.6) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.20.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.4...@ant-design/pro-list@1.20.5) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.20.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.3...@ant-design/pro-list@1.20.4) (2021-11-30)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.20.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.2...@ant-design/pro-list@1.20.3) (2021-11-23)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.20.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.1...@ant-design/pro-list@1.20.2) (2021-11-23)
+
+### Bug Fixes
+
+- **layout:** no set topmenu font weight ([#4097](https://github.com/ant-design/pro-components/issues/4097)) ([234037f](https://github.com/ant-design/pro-components/commit/234037f80c41d28635796874953871e49dcdf61e))
+
+## [1.20.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.20.0...@ant-design/pro-list@1.20.1) (2021-11-22)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
 # [1.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.19.1...@ant-design/pro-list@1.20.0) (2021-11-18)
 
 ### Features

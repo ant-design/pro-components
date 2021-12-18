@@ -205,18 +205,23 @@ export default () => {
             text={['zhejiang', 'hangzhou', 'xihu']}
             mode={state}
             valueType="cascader"
+            fieldProps={{
+              fieldNames: {
+                label: 'name',
+              },
+            }}
             request={async () => [
               {
                 value: 'zhejiang',
-                label: 'Zhejiang',
+                name: 'Zhejiang',
                 children: [
                   {
                     value: 'hangzhou',
-                    label: 'Hangzhou',
+                    name: 'Hangzhou',
                     children: [
                       {
                         value: 'xihu',
-                        label: 'West Lake',
+                        name: 'West Lake',
                       },
                     ],
                   },
@@ -224,15 +229,15 @@ export default () => {
               },
               {
                 value: 'jiangsu',
-                label: 'Jiangsu',
+                name: 'Jiangsu',
                 children: [
                   {
                     value: 'nanjing',
-                    label: 'Nanjing',
+                    name: 'Nanjing',
                     children: [
                       {
                         value: 'zhonghuamen',
-                        label: 'Zhong Hua Men',
+                        name: 'Zhong Hua Men',
                       },
                     ],
                   },

@@ -1,5 +1,5 @@
 ﻿import React from 'react';
-import { Space, Form } from 'antd';
+import { Space } from 'antd';
 import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
@@ -71,6 +71,22 @@ export const defaultOnFilter = (value: string, record: any, dataIndex: string | 
   return String(itemValue) === String(value);
 };
 
+class OptionsCell extends React.Component<
+  {
+    children: () => React.ReactNode;
+    record: any;
+  },
+  {}
+> {
+  shouldComponentUpdate(nextProps: any) {
+    const { children, ...restProps } = this.props;
+    const { children: nextChildren, ...restNextProps } = nextProps;
+    return !isDeepEqualReact(restProps, restNextProps);
+  }
+  render() {
+    return <Space>{this.props.children()}</Space>;
+  }
+}
 /**
  * 这个组件负责单元格的具体渲染
  *
@@ -86,7 +102,7 @@ export function columnRender<T>({
   type,
   editableUtils,
 }: ColumnRenderInterface<T>): any {
-  const { action, prefixName } = counter;
+  const { action, prefixName, editableForm } = counter;
   const { isEditable, recordKey } = editableUtils.isEditable({ ...rowData, index });
   const { renderText = (val: any) => val } = columnProps;
 
@@ -121,24 +137,17 @@ export function columnRender<T>({
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
-        <Form.Item
-          shouldUpdate={(prevValues, nextValues) => {
-            return !isDeepEqualReact(get(prevValues, [recordKey]), get(nextValues, [recordKey]));
-          }}
-          noStyle
-        >
-          {(form: any) => (
-            <Space size={16}>
-              {editableUtils.actionRender(
-                {
-                  ...rowData,
-                  index: columnProps.index || index,
-                },
-                form,
-              )}
-            </Space>
-          )}
-        </Form.Item>
+        <OptionsCell record={rowData}>
+          {() =>
+            editableUtils.actionRender(
+              {
+                ...rowData,
+                index: columnProps.index || index,
+              },
+              editableForm!,
+            )
+          }
+        </OptionsCell>
       );
     }
     return dom;

@@ -145,6 +145,7 @@ export default () => {
     <>
       <EditableProTable<DataSourceType>
         expandable={{
+          // 使用 request 请求数据时无效
           defaultExpandAllRows: true,
         }}
         rowKey="id"
