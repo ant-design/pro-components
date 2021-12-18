@@ -82,18 +82,8 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
       setSearchValue('');
     }
 
-    // multiple 模式下，value 为数组
-    const valueIsArray = Array.isArray(value);
-
-    let result: any;
-    /** 抹平value 不使用labelInValue做判断原因： labelInValue会被其他字段强制设为true */
-    if (valueIsArray) {
-      result = value.map((item) => item.value ?? item);
-    } else {
-      result = value?.value ?? value;
-    }
-
-    propsOnChange?.(result, optionList, extra);
+    /** Fix: TreeSelect warningProps 和TreeSelect结果保持一致 */
+    propsOnChange?.(value, optionList, extra);
   };
 
   if (mode === 'read') {
