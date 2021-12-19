@@ -7,6 +7,29 @@ import { merge } from '../merge';
 
 export type DataFormatMapType = Record<string, SearchTransformKeyFn | undefined>;
 
+/**
+ * 暂时还不支持 Set和 Map 结构 判断是不是一个能遍历的对象
+ *
+ * @param itemValue
+ * @returns Boolean
+ */
+export function isPlainObj(itemValue: any) {
+  if (typeof itemValue !== 'object') return false;
+
+  /** Null 也要处理，不然omit空会失效 */
+  if (itemValue === null) return true;
+
+  if (React.isValidElement(itemValue)) return false;
+  if (itemValue.constructor === RegExp) return false;
+  if (itemValue instanceof Map) return false;
+  if (itemValue instanceof Set) return false;
+  if (itemValue instanceof HTMLElement) return false;
+  if (itemValue instanceof Blob) return false;
+  if (itemValue instanceof File) return false;
+  if (Array.isArray(itemValue)) return false;
+  return true;
+}
+
 const transformKeySubmitValue = <T = any>(
   values: T,
   dataFormatMapRaw: Record<string, SearchTransformKeyFn | undefined | DataFormatMapType>,
@@ -71,13 +94,7 @@ const transformKeySubmitValue = <T = any>(
       }
 
       if (typeof window === 'undefined') return;
-
-      if (
-        typeof itemValue === 'object' &&
-        !Array.isArray(itemValue) &&
-        !React.isValidElement(itemValue) && // ignore walk throungh React Element
-        !(itemValue instanceof Blob) // ignore walk throungh Blob
-      ) {
+      if (isPlainObj(itemValue)) {
         const genValues = gen(itemValue, key);
         if (Object.keys(genValues).length < 1) {
           return;
