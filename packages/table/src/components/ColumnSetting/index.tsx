@@ -192,7 +192,7 @@ const CheckboxList: React.FC<{
   const listDom = (
     <Tree
       itemHeight={24}
-      draggable={draggable}
+      draggable={draggable && !!treeDataConfig.list?.length && treeDataConfig.list?.length > 1}
       checkable={checkable}
       onDrop={(info) => {
         const dropKey = info.node.key;
