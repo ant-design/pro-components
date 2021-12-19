@@ -3,7 +3,6 @@ import type { RadioGroupProps } from 'antd';
 import { ConfigProvider, Spin, Cascader } from 'antd';
 import classNames from 'classnames';
 import type { ProFieldFC } from '../../index';
-import './index.less';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
 

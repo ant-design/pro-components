@@ -72,6 +72,7 @@ export type ProFieldValueType =
   | 'image'
   | 'jsonCode'
   | 'cascader'
+  | 'treeSelect'
   | 'color';
 
 export type RequestOptionsType = {

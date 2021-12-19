@@ -50938,6 +50938,202 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
           </div>
           <div
             class="ant-col ant-col-12"
+            style="padding-left: 12px; padding-right: 12px;"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-label"
+              >
+                <label
+                  class=""
+                  for="cascader"
+                  title="级联选择器"
+                >
+                  级联选择器
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <div
+                      class="ant-spin-nested-loading"
+                    >
+                      <div
+                        class="ant-spin-container"
+                      >
+                        <div
+                          class="ant-select ant-cascader ant-pro-field-cascader ant-select-single ant-select-allow-clear ant-select-show-arrow"
+                          style="width: 100%;"
+                        >
+                          <div
+                            class="ant-select-selector"
+                          >
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-activedescendant="cascader_list_0"
+                                aria-autocomplete="list"
+                                aria-controls="cascader_list"
+                                aria-haspopup="listbox"
+                                aria-owns="cascader_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="cascader"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-placeholder"
+                            />
+                          </div>
+                          <span
+                            aria-hidden="true"
+                            class="ant-select-arrow"
+                            style="user-select: none;"
+                            unselectable="on"
+                          >
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down ant-select-suffix"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-col ant-col-12"
+            style="padding-left: 12px; padding-right: 12px;"
+          >
+            <div
+              class="ant-row ant-form-item"
+            >
+              <div
+                class="ant-col ant-form-item-label"
+              >
+                <label
+                  class=""
+                  for="treeSelect"
+                  title="树形下拉框"
+                >
+                  树形下拉框
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <div
+                      class="ant-spin-nested-loading"
+                    >
+                      <div
+                        class="ant-spin-container"
+                      >
+                        <div
+                          class="ant-select ant-tree-select ant-pro-field-tree-select ant-select-single ant-select-show-arrow"
+                          style="width: 100%;"
+                        >
+                          <div
+                            class="ant-select-selector"
+                          >
+                            <span
+                              class="ant-select-selection-search"
+                            >
+                              <input
+                                aria-activedescendant="treeSelect_list_0"
+                                aria-autocomplete="list"
+                                aria-controls="treeSelect_list"
+                                aria-haspopup="listbox"
+                                aria-owns="treeSelect_list"
+                                autocomplete="off"
+                                class="ant-select-selection-search-input"
+                                id="treeSelect"
+                                readonly=""
+                                role="combobox"
+                                style="opacity: 0;"
+                                type="search"
+                                unselectable="on"
+                                value=""
+                              />
+                            </span>
+                            <span
+                              class="ant-select-selection-placeholder"
+                            />
+                          </div>
+                          <span
+                            aria-hidden="true"
+                            class="ant-select-arrow"
+                            style="user-select: none;"
+                            unselectable="on"
+                          >
+                            <span
+                              aria-label="down"
+                              class="anticon anticon-down ant-select-suffix"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-col ant-col-12"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
             <div
@@ -51200,6 +51396,12 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           style="width: 100px;"
                         />
                         <col
+                          style="width: 100px;"
+                        />
+                        <col
+                          style="width: 100px;"
+                        />
+                        <col
                           style="width: 120px;"
                         />
                       </colgroup>
@@ -51231,6 +51433,16 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             class="ant-table-cell"
                           >
                             级联选择器
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            级联选择器
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            树形下拉框
                           </th>
                           <th
                             class="ant-table-cell"
@@ -51315,6 +51527,44 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                                     异常
                                   </span>
                                 </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-right: 8px;"
+                              >
+                                fe
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                js
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-right: 8px;"
+                              >
+                                front end
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                Javascript
                               </div>
                             </div>
                           </td>
@@ -51426,6 +51676,44 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                                     异常
                                   </span>
                                 </span>
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-right: 8px;"
+                              >
+                                fe
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                js
+                              </div>
+                            </div>
+                          </td>
+                          <td
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-space ant-space-horizontal ant-space-align-center"
+                            >
+                              <div
+                                class="ant-space-item"
+                                style="margin-right: 8px;"
+                              >
+                                front end
+                              </div>
+                              <div
+                                class="ant-space-item"
+                              >
+                                Javascript
                               </div>
                             </div>
                           </td>
