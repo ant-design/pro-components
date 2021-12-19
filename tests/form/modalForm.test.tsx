@@ -148,7 +148,7 @@ describe('ModalForm', () => {
         visible: false,
       });
     });
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 2000);
 
     expect(wrapper.find('input#test').exists()).toBeFalsy();
   });

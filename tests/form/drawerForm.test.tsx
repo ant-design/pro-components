@@ -684,6 +684,7 @@ describe('DrawerForm', () => {
       </DrawerForm>,
     );
     await waitForComponentToPaint(wrapper);
+
     act(() => {
       wrapper.find('button#new').simulate('click');
     });
@@ -706,13 +707,17 @@ describe('DrawerForm', () => {
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-drawer-close').simulate('click');
+      wrapper.setProps({ visible: false });
     });
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 300);
+    act(() => {
+      wrapper.setProps({ visible: undefined });
+    });
     act(() => {
       wrapper.find('button#new').simulate('click');
     });
-    await waitForComponentToPaint(wrapper);
+
+    await waitForComponentToPaint(wrapper, 300);
 
     expect(wrapper.find('Input#test').props().value).toEqual('1234');
 
