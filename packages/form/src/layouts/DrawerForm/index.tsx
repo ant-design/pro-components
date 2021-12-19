@@ -65,6 +65,14 @@ function DrawerForm<T = Record<string, any>>({
   const [key, setKey] = useMergedState<number>(0);
   const context = useContext(ConfigProvider.ConfigContext);
 
+  /** Modal dom 解除渲染之后 */
+  const [isDestroy, setIsDestroy] = useMergedState<boolean>(!!rest.visible);
+
+  useEffect(() => {
+    setIsDestroy(!!rest.visible);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rest.visible]);
+
   const renderDom = useMemo(() => {
     if (drawerProps?.getContainer === false) {
       return false;
@@ -204,6 +212,11 @@ function DrawerForm<T = Record<string, any>>({
                 setVisible(false);
                 drawerProps?.onClose?.(e);
               }}
+              /** 完全关闭后删除 dom */
+              afterVisibleChange={(afterVisible) => {
+                setIsDestroy(true);
+                drawerProps?.afterVisibleChange?.(afterVisible);
+              }}
               footer={
                 !!submitter && (
                   <div
@@ -239,13 +252,14 @@ function DrawerForm<T = Record<string, any>>({
           ...trigger.props,
           onClick: async (e: any) => {
             setVisible(!visible);
+            setIsDestroy(!visible);
             trigger.props?.onClick?.(e);
           },
         })}
     </React.Fragment>
   );
   /** 如果destroyOnClose，关闭的时候解除渲染Form */
-  if (drawerProps?.destroyOnClose && !visible) return triggerDom;
+  if (drawerProps?.destroyOnClose && !isDestroy) return triggerDom;
 
   /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
   return (
