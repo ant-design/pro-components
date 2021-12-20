@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.51.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.51.0...@ant-design/pro-form@1.51.1) (2021-12-20)
+
+### Bug Fixes
+
+- **form:** fix drawer no trigger open error ([#4320](https://github.com/ant-design/pro-components/issues/4320)) ([17106af](https://github.com/ant-design/pro-components/commit/17106afaf32b9f06429cffbf666ad260b3269099))
+
 # [1.51.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.50.1...@ant-design/pro-form@1.51.0) (2021-12-20)
 
 ### Bug Fixes

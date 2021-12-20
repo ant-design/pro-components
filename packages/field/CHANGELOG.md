@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.30.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.30.0...@ant-design/pro-field@1.30.1) (2021-12-20)
+
+### Bug Fixes
+
+- **field:** Cascader support loading icon ([#4319](https://github.com/ant-design/pro-components/issues/4319)) ([57a3f92](https://github.com/ant-design/pro-components/commit/57a3f92bd869a2b733c2f538a0166d0ad3fd8f19))
+
 # [1.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.29.1...@ant-design/pro-field@1.30.0) (2021-12-20)
 
 ### Bug Fixes
