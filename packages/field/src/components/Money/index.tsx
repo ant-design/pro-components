@@ -211,7 +211,8 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
           return value;
         }}
         parser={(value) => {
-          if (moneySymbol && value) value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
+          if (moneySymbol && value)
+            return value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
           return value;
         }}
         placeholder={placeholder}
