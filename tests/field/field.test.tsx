@@ -44,6 +44,33 @@ describe('Field', () => {
     expect(html.find('input').props().value).toBe('￥ 100');
   });
 
+  it('🐴 money onchange values, when no moneySymbol', async () => {
+    const html = mount(<Field text="100" moneySymbol={false} valueType="money" mode="edit" />);
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+
+    act(() => {
+      html.find('InputNumber').simulate('mousedown');
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('1000');
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: '100',
+        },
+      });
+    });
+
+    html.update();
+    expect(html.find('input').props().value).toBe('100');
+  });
+
   it('🐴 money numberPopoverRender onchange values', async () => {
     const html = mount(
       <Field text="100" numberPopoverRender={() => 123} valueType="money" mode="edit" />,
