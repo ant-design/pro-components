@@ -176,8 +176,8 @@ export default () => {
               const info = (table as DataSourceType[]).reduce(
                 (pre, item) => {
                   return {
-                    totalScore: pre.totalScore + (item?.fraction || 0),
-                    questions: pre.questions + (item?.questionsNum || 0),
+                    totalScore: pre.totalScore + parseInt(item?.fraction || 0),
+                    questions: pre.questions + parseInt(item?.questionsNum || 0),
                   };
                 },
                 { totalScore: 0, questions: 0 },
