@@ -214,7 +214,7 @@ function DrawerForm<T = Record<string, any>>({
               }}
               /** 完全关闭后删除 dom */
               afterVisibleChange={(afterVisible) => {
-                setIsDestroy(false);
+                if (!afterVisible) setIsDestroy(false);
                 drawerProps?.afterVisibleChange?.(afterVisible);
               }}
               footer={
