@@ -85,6 +85,8 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
   copyIconProps?: IconConfig | false;
   deleteIconProps?: IconConfig | false;
   actionRef?: React.MutableRefObject<FormListOperation | undefined>;
+  /** 放在div上面的属性 */
+  style?: React.CSSProperties;
 };
 
 /** Antd 自带的toArray 不这次方法，所以需要自己搞一个 */
@@ -313,6 +315,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
     tooltipText: '删除此行',
   },
   actionRef,
+  style,
   ...rest
 }) => {
   const actionRefs = useRef<FormListOperation>();
@@ -341,7 +344,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
     >
       {(formInstance) => {
         return (
-          <div className={baseClassName}>
+          <div className={baseClassName} style={style}>
             <Form.List rules={rules} {...rest} name={name}>
               {(fields, action, meta) => {
                 // 将 action 暴露给外部
