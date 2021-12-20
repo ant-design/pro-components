@@ -4088,10 +4088,10 @@
     "@umijs/deps" "3.5.20"
     "@umijs/utils" "3.5.20"
 
-"@umijs/ssr-darkreader@^4.9.43":
-  version "4.9.43"
-  resolved "https://registry.npmjs.org/@umijs/ssr-darkreader/-/ssr-darkreader-4.9.43.tgz#4d53f33616fa9c6fe97e78fb84ed78bafb47aa41"
-  integrity sha512-NLE51JEjWPmnlI7xB7ngrCeNNI8np/Q2vREqRoFlfYAt3ERECBEaDVMgCSSDyAi+gV/1Vwj8YJhuXzYMKyTkwA==
+"@umijs/ssr-darkreader@^4.9.44":
+  version "4.9.44"
+  resolved "https://registry.yarnpkg.com/@umijs/ssr-darkreader/-/ssr-darkreader-4.9.44.tgz#addee781c991af31dde0b464b077198538bd7990"
+  integrity sha512-HppwdNiHI4hA/WP29HGLr1c1Hn2+g+EDzcHrXXaad1ftfxQc52/yljDB4cX8yna8l3WcGw7CgVer7/uHRyYNMg==
 
 "@umijs/test-utils@^3.2.10":
   version "3.5.20"
@@ -5935,9 +5935,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000971, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001280:
-  version "1.0.30001286"
-  resolved "https://registry.npmmirror.com/caniuse-lite/download/caniuse-lite-1.0.30001286.tgz#3e9debad420419618cfdf52dc9b6572b28a8fff6"
-  integrity sha512-zaEMRH6xg8ESMi2eQ3R4eZ5qw/hJiVsO/HlLwniIwErij0JDr9P+8V4dtx1l+kLq6j3yy8l8W4fst1lBnat5wQ==
+  version "1.0.30001291"
+  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001291.tgz"
+  integrity sha512-roMV5V0HNGgJ88s42eE70sstqGW/gwFndosYrikHthw98N5tLnOTxFqMLQjZVRxTWFlJ4rn+MsgXrR7MDPY4jA==
 
 capture-exit@^2.0.0:
   version "2.0.0"
