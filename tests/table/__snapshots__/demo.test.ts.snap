@@ -1637,7 +1637,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-pro-card-body"
     >
       <div
-        style="max-width: 780px; margin: auto;"
+        style="max-width: 800px; margin: auto;"
       >
         <form
           autocomplete="off"
@@ -1921,7 +1921,15 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                 <table
                                   style="table-layout: fixed;"
                                 >
-                                  <colgroup />
+                                  <colgroup>
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col />
+                                    <col
+                                      style="width: 150px;"
+                                    />
+                                  </colgroup>
                                   <thead
                                     class="ant-table-thead"
                                   >
@@ -1940,6 +1948,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         class="ant-table-cell"
                                       >
                                         题数
+                                      </th>
+                                      <th
+                                        class="ant-table-cell"
+                                      >
+                                        计分方式
                                       </th>
                                       <th
                                         class="ant-table-cell"
@@ -1994,6 +2007,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         <span>
                                           ￥ 10
                                         </span>
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
+                                      >
+                                        连续型
                                       </td>
                                       <td
                                         class="ant-table-cell"
@@ -2068,6 +2086,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                       <td
                                         class="ant-table-cell"
                                       >
+                                        连续型
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
+                                      >
                                         <span>
                                           ￥ 20
                                         </span>
@@ -2138,6 +2161,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                       <td
                                         class="ant-table-cell"
                                       >
+                                        连续型
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
+                                      >
                                         <span>
                                           ￥ 20
                                         </span>
@@ -2204,6 +2232,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                                         <span>
                                           ￥ 10
                                         </span>
+                                      </td>
+                                      <td
+                                        class="ant-table-cell"
+                                      >
+                                        连续型
                                       </td>
                                       <td
                                         class="ant-table-cell"

@@ -167,6 +167,8 @@ export type ProSchemaValueType<ValueType> =
   | (ValueType | ProFieldValueType)
   | ProFieldValueObjectType;
 
+export type ProSchemaFieldProps = Record<string, any>;
+
 /** 各个组件公共支持的 render */
 export type ProSchema<
   Entity = Record<string, any>,
@@ -229,13 +231,8 @@ export type ProSchema<
           rowIndex: number;
           entity: Entity;
         },
-      ) => Record<string, any>)
-    | Record<string, any>
-    | {
-        placeholder?: string;
-        maxLength?: number;
-        [key: string]: any;
-      };
+      ) => ProSchemaFieldProps)
+    | ProSchemaFieldProps;
 
   /** @name 自定义的 formItemProps */
   formItemProps?:
