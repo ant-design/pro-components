@@ -358,6 +358,75 @@ Customize options：
 />
 ```
 
+### ProFormTreeSelect
+
+Same as [tree-select](https://ant.design/components/tree-select/). Both request and valueEnum are supported to generate options.
+
+> Requesting remote data is more complicated, see [here](/components/field#remote data) for details.
+
+> Why support valueEnum when you have options? valueEnum can be used with tables, descriptions, and has engineering advantages.
+
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| valueEnum | Enumeration of current values [valueEnum](/components/table#valueenum) | `Record` | - |
+| request | Enumerate data from network requests | `()=>Promise<{[key:string`\|`number]:any}>` | - |
+
+```tsx | pure
+<ProFormTreeSelect
+  name="name"
+  placeholder="Please select"
+  allowClear
+  width={330}
+  secondary
+  request={async () => {
+    return [
+      {
+        title: 'Node1',
+        value: '0-0',
+        children: [
+          {
+            title: 'Child Node1',
+            value: '0-0-0',
+          },
+        ],
+      },
+      {
+        title: 'Node2',
+        value: '0-1',
+        children: [
+          {
+            title: 'Child Node3',
+            value: '0-1-0',
+          },
+          {
+            title: 'Child Node4',
+            value: '0-1-1',
+          },
+          {
+            title: 'Child Node5',
+            value: '0-1-2',
+          },
+        ],
+      },
+    ];
+  }}
+  // tree-select args
+  fieldProps={{
+    showArrow: false,
+    filterTreeNode: true,
+    showSearch: true,
+    dropdownMatchSelectWidth: false,
+    labelInValue: true,
+    autoClearSearchValue: true,
+    multiple: true,
+    treeNodeFilterProp: 'title',
+    fieldNames: {
+      label: 'title',
+    },
+  }}
+/>
+```
+
 ### ProFormDigit
 
 Same as [inputNumber](https://ant.design/components/input-number/). It comes with a formatting (retains 2 decimal places, minimum value is 0), you can turn it off if needed.
