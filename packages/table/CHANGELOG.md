@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.61.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.60.1...@ant-design/pro-table@2.61.0) (2021-12-20)
+
+### Bug Fixes
+
+- **table:** if one node, no draggable ([#4310](https://github.com/ant-design/pro-components/issues/4310)) ([819046b](https://github.com/ant-design/pro-components/commit/819046b61469a7707b3a4f3358208c7a277b6f08))
+
+### Features
+
+- **form:** Support ProFormTreeSelect and valueType=treeSelect ([#4237](https://github.com/ant-design/pro-components/issues/4237)) ([31fab85](https://github.com/ant-design/pro-components/commit/31fab85ecc2c3ef873e88b050f26d1c3de4b8f98))
+
 ## [2.60.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.60.0...@ant-design/pro-table@2.60.1) (2021-12-17)
 
 **Note:** Version bump only for package @ant-design/pro-table

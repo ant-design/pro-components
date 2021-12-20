@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.30.0...@ant-design/pro-utils@1.31.0) (2021-12-20)
+
+### Bug Fixes
+
+- **utils:** Stronger judgment ([#4309](https://github.com/ant-design/pro-components/issues/4309)) ([50dafcf](https://github.com/ant-design/pro-components/commit/50dafcfd596e0a3814a7bc7fa4981790b61516cc))
+
+### Features
+
+- **form:** Support ProFormTreeSelect and valueType=treeSelect ([#4237](https://github.com/ant-design/pro-components/issues/4237)) ([31fab85](https://github.com/ant-design/pro-components/commit/31fab85ecc2c3ef873e88b050f26d1c3de4b8f98))
+
 # [1.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.29.0...@ant-design/pro-utils@1.30.0) (2021-12-17)
 
 ### Bug Fixes
