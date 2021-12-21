@@ -1080,7 +1080,9 @@ describe('Field', () => {
           },
         });
     });
-    html.update();
+
+    await waitForComponentToPaint(html);
+
     expect(html.find('.ant-input-number-input').at(0).props().value).toBe('12.34');
     expect(html.find('.ant-input-number-input').at(1).props().value).toBe('56.78');
   });
@@ -1097,6 +1099,11 @@ describe('Field', () => {
             value: '56.78',
           },
         });
+    });
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
       html
         .find('.ant-input-number-input')
         .at(1)
@@ -1106,9 +1113,17 @@ describe('Field', () => {
           },
         });
     });
-    html.update();
-    expect(html.find('.ant-input-number-input').at(0).props().value).toBe('56.78');
-    expect(html.find('.ant-input-number-input').at(1).props().value).toBe('12.34');
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('.ant-input-number-input').at(1).simulate('blur');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('.ant-input-number-input').at(0).props().value).toBe('12.34');
+    expect(html.find('.ant-input-number-input').at(1).props().value).toBe('56.78');
   });
 
   it(`🐴 text render null`, async () => {
