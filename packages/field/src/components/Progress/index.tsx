@@ -5,9 +5,6 @@ import React, { useMemo } from 'react';
 import type { ProFieldFC } from '../../index';
 
 export function getProgressStatus(text: number): 'success' | 'exception' | 'normal' | 'active' {
-  if (typeof text !== 'number') {
-    return 'exception';
-  }
   if (text === 100) {
     return 'success';
   }

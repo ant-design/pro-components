@@ -1,4 +1,4 @@
-﻿import { useState, useRef } from 'react';
+﻿import { useState, useRef, useEffect } from 'react';
 import useSWR from 'swr';
 
 let testId = 0;
@@ -25,6 +25,12 @@ function useFetchData<T, U extends Record<string, any> = Record<string, any>>(pr
     const loadData = await props.request?.(props.params as U, props);
     return loadData;
   };
+
+  useEffect(() => {
+    return () => {
+      testId += 1;
+    };
+  }, []);
 
   const { data, error } = useSWR<T | undefined>([proFieldKeyRef.current, props.params], fetchData, {
     revalidateOnFocus: false,

@@ -2,6 +2,52 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.51.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.51.1...@ant-design/pro-form@1.51.2) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.51.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.51.0...@ant-design/pro-form@1.51.1) (2021-12-20)
+
+### Bug Fixes
+
+- **form:** fix drawer no trigger open error ([#4320](https://github.com/ant-design/pro-components/issues/4320)) ([17106af](https://github.com/ant-design/pro-components/commit/17106afaf32b9f06429cffbf666ad260b3269099))
+
+# [1.51.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.50.1...@ant-design/pro-form@1.51.0) (2021-12-20)
+
+### Bug Fixes
+
+- **form:** fix the problem that the animation of the floating layer form is lost ([#4308](https://github.com/ant-design/pro-components/issues/4308)) ([d7888c6](https://github.com/ant-design/pro-components/commit/d7888c6e469dddc0a3c62877ecc1aaaea5528948))
+
+### Features
+
+- **form:** Support ProFormTreeSelect and valueType=treeSelect ([#4237](https://github.com/ant-design/pro-components/issues/4237)) ([31fab85](https://github.com/ant-design/pro-components/commit/31fab85ecc2c3ef873e88b050f26d1c3de4b8f98))
+
+## [1.50.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.50.0...@ant-design/pro-form@1.50.1) (2021-12-17)
+
+### Bug Fixes
+
+- **form:** syncToUrl params error ([#4296](https://github.com/ant-design/pro-components/issues/4296)) ([95ab695](https://github.com/ant-design/pro-components/commit/95ab69560dbb88fcbd24570aa9b34815867789ca))
+
+# [1.50.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.11...@ant-design/pro-form@1.50.0) (2021-12-13)
+
+### Bug Fixes
+
+- **form:** relay no render DrawerForm and ModalForm ([#4254](https://github.com/ant-design/pro-components/issues/4254)) ([f986ecb](https://github.com/ant-design/pro-components/commit/f986ecb9d89d4e3edef18d50eee4c37e730227d9))
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
+## [1.49.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.10...@ant-design/pro-form@1.49.11) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.49.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.9...@ant-design/pro-form@1.49.10) (2021-12-10)
+
+### Bug Fixes
+
+- **provide:** close auto clean cache ([#4243](https://github.com/ant-design/pro-components/issues/4243)) ([e638cb5](https://github.com/ant-design/pro-components/commit/e638cb5ff7830793020c94328ef2833c20f352f7))
+
 ## [1.49.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.49.8...@ant-design/pro-form@1.49.9) (2021-12-09)
 
 **Note:** Version bump only for package @ant-design/pro-form

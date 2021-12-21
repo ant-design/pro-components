@@ -80,13 +80,3 @@ export function spyElementPrototypes(
     },
   };
 }
-
-export function spyElementPrototype(
-  Element: { prototype: Record<string, any> },
-  propName: any,
-  property: any,
-) {
-  return spyElementPrototypes(Element, {
-    [propName]: property,
-  });
-}

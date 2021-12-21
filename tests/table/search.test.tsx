@@ -5,37 +5,12 @@ import { act } from 'react-dom/test-utils';
 import { Input } from 'antd';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
-import { waitForComponentToPaint, spyElementPrototypes, waitTime } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 
 describe('BasicTable Search', () => {
-  let domSpy: any;
-  let mockWidth: number;
-  let mockHeight: number;
-  let mockOffsetWidth: number;
-  let mockOffsetHeight: number;
-
-  beforeAll(() => {
-    domSpy = spyElementPrototypes(HTMLElement, {
-      getBoundingClientRect: () => ({
-        width: mockWidth,
-        height: mockHeight,
-      }),
-      offsetWidth: {
-        get: () => mockOffsetWidth,
-      },
-      offsetHeight: {
-        get: () => mockOffsetHeight,
-      },
-    });
-  });
   process.env.NODE_ENV = 'TEST';
   const LINE_STR_COUNT = 20;
-  // Mock offsetHeight
-  // @ts-expect-error
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(
-    HTMLElement.prototype,
-    'offsetHeight',
-  ).get;
+
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
       let html = this.innerHTML;
@@ -53,20 +28,7 @@ describe('BasicTable Search', () => {
     return style;
   };
 
-  afterAll(() => {
-    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
-      get: originOffsetHeight,
-    });
-    window.getComputedStyle = originGetComputedStyle;
-    domSpy.mockRestore();
-  });
-
   it('🎏 submit test', async () => {
-    mockHeight = 0;
-    mockWidth = 0;
-    mockOffsetHeight = 0;
-    mockOffsetWidth = 0;
-
     const fn = jest.fn();
     const paramsFn = jest.fn();
     const html = mount(
@@ -100,11 +62,6 @@ describe('BasicTable Search', () => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
 
-    act(() => {
-      mockOffsetWidth = 500;
-      // @ts-ignore
-      html.triggerResize();
-    });
     await waitForComponentToPaint(html, 500);
 
     expect(fn).toBeCalledTimes(1);

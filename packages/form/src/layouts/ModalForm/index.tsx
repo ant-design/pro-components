@@ -66,7 +66,12 @@ function ModalForm<T = Record<string, any>>({
     onChange: onVisibleChange,
   });
 
-  const [key, setKey] = useMergedState<number>(0);
+  /** Modal dom 解除渲染之后 */
+  const [isDestroy, setIsDestroy] = useState<boolean>(!!rest.visible);
+
+  useEffect(() => {
+    setIsDestroy(!!rest.visible);
+  }, [rest.visible]);
 
   const context = useContext(ConfigProvider.ConfigContext);
 
@@ -108,10 +113,6 @@ function ModalForm<T = Record<string, any>>({
     }
     if (visible && rest.visible) {
       onVisibleChange?.(true);
-    }
-    // 如果打开了窗口，并且是用户设置的 visible，就触发一下重新更新
-    if (visible && rest.visible && modalProps?.destroyOnClose) {
-      setKey(key + 1);
     }
 
     return () => {
@@ -183,7 +184,6 @@ function ModalForm<T = Record<string, any>>({
   const formDom = (
     <div ref={domRef} onClick={(e) => e.stopPropagation()}>
       <BaseForm
-        key={key}
         formComponentType="ModalForm"
         layout="vertical"
         {...omit(rest, ['visible'])}
@@ -208,6 +208,7 @@ function ModalForm<T = Record<string, any>>({
               width={width || 800}
               {...modalProps}
               afterClose={() => {
+                setIsDestroy(false);
                 modalProps?.afterClose?.();
               }}
               getContainer={false}
@@ -234,21 +235,27 @@ function ModalForm<T = Record<string, any>>({
     return renderDom || document.body;
   }, [renderDom]);
 
-  return (
-    <>
-      {renderDom !== false && portalRenderDom ? createPortal(formDom, portalRenderDom) : formDom}
+  const triggerDom = (
+    <React.Fragment key="trigger">
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,
           onClick: async (e: any) => {
-            /** 如果打开了destroyOnClose，重制一下 form */
-            if (!visible && modalProps?.destroyOnClose) {
-              await setKey(key + 1);
-            }
             setVisible(!visible);
+            setIsDestroy(!isDestroy);
             trigger.props?.onClick?.(e);
           },
         })}
+    </React.Fragment>
+  );
+
+  /** 如果destroyOnClose，关闭的时候接触渲染Form */
+  if (modalProps?.destroyOnClose && !isDestroy) return triggerDom;
+
+  return (
+    <>
+      {renderDom !== false && portalRenderDom ? createPortal(formDom, portalRenderDom) : formDom}
+      {triggerDom}
     </>
   );
 }

@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.31.0...@ant-design/pro-utils@1.31.1) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+# [1.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.30.0...@ant-design/pro-utils@1.31.0) (2021-12-20)
+
+### Bug Fixes
+
+- **utils:** Stronger judgment ([#4309](https://github.com/ant-design/pro-components/issues/4309)) ([50dafcf](https://github.com/ant-design/pro-components/commit/50dafcfd596e0a3814a7bc7fa4981790b61516cc))
+
+### Features
+
+- **form:** Support ProFormTreeSelect and valueType=treeSelect ([#4237](https://github.com/ant-design/pro-components/issues/4237)) ([31fab85](https://github.com/ant-design/pro-components/commit/31fab85ecc2c3ef873e88b050f26d1c3de4b8f98))
+
+# [1.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.29.0...@ant-design/pro-utils@1.30.0) (2021-12-17)
+
+### Bug Fixes
+
+- **utils:** useDebounceFn will auto reject promise ([#4270](https://github.com/ant-design/pro-components/issues/4270)) ([8de01a4](https://github.com/ant-design/pro-components/commit/8de01a4915bb8354923a0a6485f250cc6c242247))
+
+### Features
+
+- disable default error boundary ([#4276](https://github.com/ant-design/pro-components/issues/4276)) ([094942f](https://github.com/ant-design/pro-components/commit/094942fb96f4465e6e883c9ffb629ed7b228e9ce))
+
+# [1.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.9...@ant-design/pro-utils@1.29.0) (2021-12-13)
+
+### Bug Fixes
+
+- **form:** relay no render DrawerForm and ModalForm ([#4254](https://github.com/ant-design/pro-components/issues/4254)) ([f986ecb](https://github.com/ant-design/pro-components/commit/f986ecb9d89d4e3edef18d50eee4c37e730227d9))
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
+## [1.28.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.8...@ant-design/pro-utils@1.28.9) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.28.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.7...@ant-design/pro-utils@1.28.8) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
 ## [1.28.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.6...@ant-design/pro-utils@1.28.7) (2021-12-08)
 
 **Note:** Version bump only for package @ant-design/pro-utils

@@ -7,6 +7,7 @@ import Field from '@ant-design/pro-field';
 
 import Demo from './fixtures/demo';
 import { waitForComponentToPaint, waitTime } from '../util';
+import TreeSelectDemo from './fixtures/treeSelectDemo';
 
 const domRef = React.createRef();
 
@@ -25,6 +26,10 @@ describe('Field', () => {
         },
       });
     });
+
+    act(() => {
+      html.find('InputNumber').simulate('mousedown');
+    });
     html.update();
     expect(html.find('input').props().value).toBe('￥ 1000');
     act(() => {
@@ -37,6 +42,33 @@ describe('Field', () => {
 
     html.update();
     expect(html.find('input').props().value).toBe('￥ 100');
+  });
+
+  it('🐴 money onchange values, when no moneySymbol', async () => {
+    const html = mount(<Field text="100" moneySymbol={false} valueType="money" mode="edit" />);
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+
+    act(() => {
+      html.find('InputNumber').simulate('mousedown');
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('1000');
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: '100',
+        },
+      });
+    });
+
+    html.update();
+    expect(html.find('input').props().value).toBe('100');
   });
 
   it('🐴 money numberPopoverRender onchange values', async () => {
@@ -148,7 +180,7 @@ describe('Field', () => {
     expect(html.text()).toBe('default');
   });
 
-  ['select', 'checkbox', 'radio', 'radioButton', 'cascader'].forEach((valueType) => {
+  ['select', 'checkbox', 'radio', 'radioButton', 'cascader', 'treeSelect'].forEach((valueType) => {
     it(`🐴 ${valueType} support render function`, async () => {
       const html = render(
         <Field
@@ -182,6 +214,7 @@ describe('Field', () => {
           mode="read"
           request={async () => {
             fn();
+            await waitTime(1000);
             return [
               { label: '全部', value: 'all' },
               { label: '未解决', value: 'open' },
@@ -192,7 +225,7 @@ describe('Field', () => {
         />,
       );
 
-      await waitForComponentToPaint(html, 100);
+      await waitForComponentToPaint(html, 1200);
       act(() => {
         ref.current?.fetchData();
       });
@@ -356,6 +389,209 @@ describe('Field', () => {
     expect(html.text()).toBe('all');
   });
 
+  ['cascader', 'treeSelect'].forEach((valueType) => {
+    it(`🐴 ${valueType} options fieldNames`, async () => {
+      const html = mount(
+        <Field
+          text={['0-0', '0-0-0']}
+          fieldProps={{
+            fieldNames: {
+              label: 'title',
+            },
+            options: [
+              {
+                title: 'Node1',
+                value: '0-0',
+                children: [
+                  {
+                    title: 'Child Node1',
+                    value: '0-0-0',
+                  },
+                ],
+              },
+              {
+                title: 'Node2',
+                value: '0-1',
+                children: [
+                  {
+                    title: 'Child Node3',
+                    value: '0-1-0',
+                  },
+                  {
+                    title: 'Child Node4',
+                    value: '0-1-1',
+                  },
+                  {
+                    title: 'Child Node5',
+                    value: '0-1-2',
+                  },
+                ],
+              },
+            ],
+          }}
+          valueType={valueType as 'cascader'}
+          mode="read"
+        />,
+      );
+      await waitForComponentToPaint(html, 100);
+      expect(html.text()).toBe('Node1Child Node1');
+
+      act(() => {
+        html.setProps({
+          fieldProps: { options: [] },
+        });
+      });
+
+      await waitForComponentToPaint(html, 100);
+
+      expect(html.text()).toBe('0-00-0-0');
+    });
+  });
+
+  it(`🐴 treeSelect options single value`, async () => {
+    const html = mount(
+      <TreeSelectDemo
+        multiple={false}
+        labelInValue={false}
+        onChange={(res) => {
+          expect(Array.isArray(res)).toBeFalsy();
+          html.setProps({ value: res });
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 200);
+
+    const searchInput = html.find('input.ant-select-selection-search-input');
+
+    expect(searchInput.exists()).toBeTruthy();
+
+    act(() => {
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      searchInput.simulate('change', {
+        target: {
+          value: 'Node5',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    const selectTreeTitle = html.find('span.ant-select-tree-title');
+
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      selectTreeTitle.first().simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      selectTreeTitle.last().simulate('click');
+    });
+    await waitForComponentToPaint(html, 200);
+
+    expect(html.text()).toContain('Child Node5');
+
+    act(() => {
+      html.unmount();
+    });
+  });
+  it(`🐴 treeSelect support request function and search, asynchronously loadData`, async () => {
+    const ref = React.createRef<{
+      fetchData: () => void;
+    }>();
+
+    const requestFn = jest.fn(),
+      onSearchFn = jest.fn(),
+      onBlurFn = jest.fn(),
+      onClearFn = jest.fn(),
+      loadDataFn = jest.fn();
+
+    const html = mount(
+      <TreeSelectDemo
+        ref={ref}
+        onSearch={onSearchFn}
+        onBlur={onBlurFn}
+        onClear={onClearFn}
+        loadData={loadDataFn}
+        onChange={(res) => {
+          html.setProps({ value: res });
+        }}
+        request={requestFn}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(requestFn).toBeCalledTimes(1);
+
+    const searchInput = html.find('input.ant-select-selection-search-input');
+
+    expect(searchInput.exists()).toBeTruthy();
+
+    act(() => {
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(loadDataFn).toBeCalledTimes(1);
+
+    act(() => {
+      searchInput.simulate('change', {
+        target: {
+          value: 'Node5',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(onSearchFn).toBeCalled();
+
+    const selectTreeTitle = html.find('span.ant-select-tree-title');
+    expect(selectTreeTitle.exists()).toBeTruthy();
+    expect(selectTreeTitle.length).toBe(2);
+
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      selectTreeTitle.first().simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      selectTreeTitle.last().simulate('click');
+    });
+    await waitForComponentToPaint(html, 200);
+
+    expect(html.text()).toContain('Node2Child Node5');
+
+    expect(html.find('input.ant-select-selection-search-input').prop('value')).toBe('');
+
+    html.find('span.ant-select-clear').simulate('mousedown');
+    expect(onClearFn).toBeCalled();
+    expect(html.text()).toContain('');
+
+    act(() => {
+      searchInput.simulate('blur');
+    });
+
+    expect(onBlurFn).toBeCalledTimes(1);
+
+    act(() => {
+      html.unmount();
+    });
+  });
+
   it('🐴 edit and no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html).toMatchSnapshot();
@@ -400,6 +636,7 @@ describe('Field', () => {
     'image',
     'color',
     'cascader',
+    'treeSelect',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType support render ${valueType}`, async () => {

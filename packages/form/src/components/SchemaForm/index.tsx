@@ -388,7 +388,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
   if (layoutType === 'StepsForm') {
     return (
-      <StepsForm formRef={formRef} onCurrentChange={onCurrentChange} {...rest}>
+      <StepsForm formRef={formRef} {...rest} onCurrentChange={onCurrentChange}>
         {steps?.map((item, index) => (
           <BetaSchemaForm<T, ValueType>
             {...(item as FormSchema<T, ValueType>)}

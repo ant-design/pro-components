@@ -429,6 +429,11 @@ describe('utils', () => {
   it('📅 transformKeySubmitValue return nest object', async () => {
     const html = transformKeySubmitValue(
       {
+        d: new Map(),
+        e: new Set(),
+        f: document.createElement('div'),
+        c: new RegExp('/'),
+        g: React.createElement('a', {}),
         a: {
           b: {
             name: 'test',

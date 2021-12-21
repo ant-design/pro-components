@@ -42,6 +42,7 @@ const ProFormText = (props) => {
 | [ProFormDateRangePicker](https://ant.design/components/date-picker-cn/) | 日期区间选择器用于输入一个日期区间 |
 | [ProFormDateTimeRangePicker](https://ant.design/components/date-picker-cn/) | 日期+时间区间选择器，用于输入一个日期+时间的区间 |
 | [ProFormSelect](https://ant.design/components/select-cn/) | 支持 `request` 和 `valueEnum` 两种方式来生成子项，用于从两项以上中选择一项 |
+| [ProFormTreeSelect](https://ant.design/components/tree-select-cn/) | 支持 `request` 和 `valueEnum` 两种方式来生成子项，用于从两项以上中选择一项 |
 | [ProFormCheckbox](https://ant.design/components/checkbox-cn/) | 在 Checkbox 基础上支持了 layout，也支持 `request` 和 `valueEnum` 两种方式来生成子项 |
 | [ProFormRadio.Group](https://ant.design/components/radio-cn/) | 在 Radio 基础上也支持 `request` 和 `valueEnum` 两种方式来生成子项，用于单选某项，但是可以展示出来所有选项。 |
 | [ProFormSlider](https://ant.design/components/slider-cn/) | 当用户需要在数值区间/自定义区间内进行选择时，可为连续或离散值。 |
@@ -293,6 +294,78 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
   }}
   placeholder="Please select a country"
   rules={[{ required: true, message: 'Please select your country!' }]}
+/>
+```
+
+### ProFormTreeSelect
+
+与 [tree-select](https://ant.design/components/tree-select-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
+
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| debounceTime | 防抖动时间，与 request 配合使用 | `number` | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `` (form,config)=>TreeSelectProps`\| `TreeSelectProps `` | - |
+
+> 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
+
+```tsx | pure
+<ProFormTreeSelect
+  name="name"
+  placeholder="Please select"
+  allowClear
+  width={330}
+  secondary
+  request={async () => {
+    return [
+      {
+        title: 'Node1',
+        value: '0-0',
+        children: [
+          {
+            title: 'Child Node1',
+            value: '0-0-0',
+          },
+        ],
+      },
+      {
+        title: 'Node2',
+        value: '0-1',
+        children: [
+          {
+            title: 'Child Node3',
+            value: '0-1-0',
+          },
+          {
+            title: 'Child Node4',
+            value: '0-1-1',
+          },
+          {
+            title: 'Child Node5',
+            value: '0-1-2',
+          },
+        ],
+      },
+    ];
+  }}
+  // tree-select args
+  fieldProps={{
+    showArrow: false,
+    filterTreeNode: true,
+    showSearch: true,
+    dropdownMatchSelectWidth: false,
+    labelInValue: true,
+    autoClearSearchValue: true,
+    multiple: true,
+    treeNodeFilterProp: 'title',
+    fieldNames: {
+      label: 'title',
+    },
+  }}
 />
 ```
 

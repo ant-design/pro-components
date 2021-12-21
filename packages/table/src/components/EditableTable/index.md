@@ -45,7 +45,7 @@ nav:
 | `onChange` | dataSource 修改时触发，删除和修改都会触发,如果设置了 value，Table 会成为一个受控组件。 | `(value:T[])=>void` | `undefined` |
 | `recordCreatorProps` | 新建一行数据的相关配置 | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/#API) | - |
 | `maxLength` | 最大的行数，到达最大行数新建按钮会自动消失 | number | - |
-| `editable` | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| `editable` | 可编辑表格的相关配置 | [TableRowEditable<T>](#editable-编辑行配置) | - |
 | `controlled` | 是否受控, 如果受控每次编辑都会触发 onChange，并且会修改 dataSource | `boolean` | false |
 
 > 别的 API 与 ProTable 相同。

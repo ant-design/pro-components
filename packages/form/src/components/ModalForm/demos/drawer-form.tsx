@@ -1,11 +1,11 @@
 ﻿import React, { useRef } from 'react';
 import { Button, message } from 'antd';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
   DrawerForm,
   ProFormText,
   ProFormDateRangePicker,
   ProFormSelect,
-  ProFormInstance,
 } from '@ant-design/pro-form';
 import { PlusOutlined } from '@ant-design/icons';
 

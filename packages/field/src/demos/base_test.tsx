@@ -221,6 +221,51 @@ export default () => {
             }}
           />
         </Descriptions.Item>
+        <Descriptions.Item label="远程级联框">
+          <Field
+            mode={state}
+            params={{
+              name: 'test',
+            }}
+            valueType="cascader"
+            request={async () => {
+              return [
+                {
+                  value: 'zhejiang',
+                  label: 'Zhejiang',
+                  children: [
+                    {
+                      value: 'hangzhou',
+                      label: 'Hangzhou',
+                      children: [
+                        {
+                          value: 'xihu',
+                          label: 'West Lake',
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  value: 'jiangsu',
+                  label: 'Jiangsu',
+                  children: [
+                    {
+                      value: 'nanjing',
+                      label: 'Nanjing',
+                      children: [
+                        {
+                          value: 'zhonghuamen',
+                          label: 'Zhong Hua Men',
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ];
+            }}
+          />
+        </Descriptions.Item>
         <Descriptions.Item label="进度条">
           <Field text="40" valueType="progress" mode={state} plain={plain} />
         </Descriptions.Item>

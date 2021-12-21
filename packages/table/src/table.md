@@ -28,10 +28,6 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/single.tsx" background="#f5f5f5" height="500px" title="查询表格" />
 
-### 查询表格
-
-<code src="./demos/single-test.tsx" debug background="#f5f5f5" height="500px" title="查询表格" />
-
 ### 查询（无按钮）表格
 
 <code src="./demos/no-option.tsx" background="#f5f5f5" height="400px" title="查询（无按钮）表格" />
@@ -231,11 +227,16 @@ const enLocale = {
 
 // 生成 intl 对象
 const enUSIntl = createIntl('en_US', enUS);
+import { ConfigProvider } from '@ant-design/pro-provide';
 
 // 使用
-<IntlProvider value={enUSIntl}>
+<ConfigProvider
+  value={{
+    intl: enUSIntl,
+  }}
+>
   <ProTable />
-</IntlProvider>;
+</ConfigProvider>;
 ```
 
 <code src="./demos/intl.tsx" background="#f5f5f5" height="320px" title="国际化相关的配置" />

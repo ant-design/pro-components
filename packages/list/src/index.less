@@ -1,6 +1,6 @@
 @root-entry-name: 'default';
 @import (reference) '~antd/es/style/themes/index.less';
-@import '~antd/es/list/style/index.less';
+@import (reference) '~antd/es/list/style/index.less';
 
 @pro-list-prefix-cls: ~'@{ant-prefix}-pro-list';
 
@@ -116,7 +116,7 @@
       justify-content: space-between;
       height: 44px;
       padding: 0 24px;
-      color: rgba(0, 0, 0, 0.45);
+      color: @text-color-secondary;
       line-height: 44px;
       background: rgba(0, 0, 0, 0.02);
 
@@ -157,7 +157,7 @@
     &-expand-icon {
       margin-right: 8;
       margin-right: 8px;
-      color: rgba(0, 0, 0, 0.45);
+      color: @text-color-secondary;
       > .anticon > svg {
         transition: 0.3s;
       }
@@ -174,7 +174,7 @@
       word-break: break-all;
       cursor: pointer;
       &:hover {
-        color: @primary-color;
+        color: @primary-color-hover;
       }
     }
 

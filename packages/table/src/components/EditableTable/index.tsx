@@ -4,7 +4,7 @@ import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
-import { runFunction } from '@ant-design/pro-utils';
+import { runFunction, useRefFunction } from '@ant-design/pro-utils';
 import { Field } from 'rc-field-form';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
@@ -208,19 +208,26 @@ function EditableTable<
 
   const editableProps = { ...props.editable };
 
+  /**
+   * 防止闭包的onchange
+   *
+   * >>>>>>为了性能好辛苦
+   */
+  const newOnValueChange = useRefFunction((r: DataType, dataSource: DataType[]) => {
+    props.editable?.onValuesChange?.(r, dataSource);
+    props.onValuesChange?.(dataSource, r);
+    if (props.controlled) {
+      props?.onChange?.(dataSource);
+    }
+  });
+
   if (
     props?.onValuesChange ||
     props.editable?.onValuesChange ||
     // 受控模式需要触发 onchange
     (props.controlled && props?.onChange)
   ) {
-    editableProps.onValuesChange = (r: DataType, dataSource: DataType[]) => {
-      props.editable?.onValuesChange?.(r, dataSource);
-      props.onValuesChange?.(dataSource, r);
-      if (props.controlled) {
-        props?.onChange?.(dataSource);
-      }
-    };
+    editableProps.onValuesChange = newOnValueChange;
   }
 
   return (

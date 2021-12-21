@@ -5,6 +5,7 @@ import type { ProFormInstance } from '@ant-design/pro-form';
 import { ProFormDigit } from '@ant-design/pro-form';
 import ProForm, { ProFormDependency } from '@ant-design/pro-form';
 import ProCard from '@ant-design/pro-card';
+import set from 'rc-util/lib/utils/set';
 
 type DataSourceType = {
   id: React.Key;
@@ -12,6 +13,7 @@ type DataSourceType = {
   questionsNum?: number;
   type?: string;
   fraction?: number;
+  scoringMethod?: string;
 };
 
 const defaultData: DataSourceType[] = [
@@ -20,12 +22,14 @@ const defaultData: DataSourceType[] = [
     associate: '题库名称一',
     questionsNum: 10,
     type: 'multiple',
+    scoringMethod: 'continuous',
     fraction: 20,
   },
   {
     id: 624691229,
     associate: '题库名称二',
     questionsNum: 10,
+    scoringMethod: 'continuous',
     type: 'radio',
     fraction: 20,
   },
@@ -34,12 +38,14 @@ const defaultData: DataSourceType[] = [
     associate: '题库名称三',
     questionsNum: 10,
     type: 'judge',
+    scoringMethod: 'continuous',
     fraction: 20,
   },
   {
     id: 624691220,
     associate: '题库名称四',
     questionsNum: 10,
+    scoringMethod: 'continuous',
     type: 'vacant',
     fraction: 20,
   },
@@ -80,9 +86,46 @@ export default () => {
       valueType: 'digit',
     },
     {
+      title: '计分方式',
+      dataIndex: 'scoringMethod',
+      valueType: 'select',
+      request: async () => [
+        {
+          value: 'discrete',
+          label: '离散型',
+        },
+        {
+          value: 'continuous',
+          label: '连续型',
+        },
+      ],
+      fieldProps: (form, { rowKey }) => {
+        return {
+          onSelect: () => {
+            // 每次选中重置参数
+            const newValue = set({}, [rowKey || [], 'fraction'].flat(1), []);
+            form.setFieldsValue(newValue);
+          },
+        };
+      },
+    },
+    {
       title: '分值',
+      width: 150,
       dataIndex: 'fraction',
-      valueType: 'digit',
+      valueType: (record) => {
+        const scoringMethod = record?.scoringMethod;
+        if (scoringMethod === 'discrete') return 'select';
+        return 'digit';
+      },
+      fieldProps: {
+        mode: 'multiple',
+      },
+      request: async () =>
+        ['A', 'B', 'D', 'E', 'F'].map((item, index) => ({
+          label: item,
+          value: index,
+        })),
     },
     {
       title: '操作',
@@ -115,7 +158,7 @@ export default () => {
     <ProCard>
       <div
         style={{
-          maxWidth: 780,
+          maxWidth: 800,
           margin: 'auto',
         }}
       >
@@ -133,8 +176,8 @@ export default () => {
               const info = (table as DataSourceType[]).reduce(
                 (pre, item) => {
                   return {
-                    totalScore: pre.totalScore + (item?.fraction || 0),
-                    questions: pre.questions + (item?.questionsNum || 0),
+                    totalScore: pre.totalScore + parseInt((item?.fraction || 0).toString(), 10),
+                    questions: pre.questions + parseInt((item?.questionsNum || 0).toString(), 10),
                   };
                 },
                 { totalScore: 0, questions: 0 },

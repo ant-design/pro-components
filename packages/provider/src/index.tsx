@@ -229,14 +229,11 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
 };
 
 /**
- * 如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
+ * 组件解除挂载后清空一下 cache
  *
- * @param param0
+ * @returns
  */
-const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => {
-  const { locale } = useContext(AntdConfigProvider.ConfigContext);
-  // 如果 locale 不存在自动注入的 AntdConfigProvider
-  const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
+const CacheClean = () => {
   const { cache } = useSWRConfig();
 
   useEffect(() => {
@@ -245,43 +242,62 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
       // @ts-ignore
       cache.clear();
     };
-  }, [cache]);
-  return (
-    <SWRConfig value={{ provider: () => new Map() }}>
-      <ConfigConsumer>
-        {(value) => {
-          const localeName = locale?.locale;
-          const key = findIntlKeyByAntdLocaleKey(localeName);
-          // antd 的 key 存在的时候以 antd 的为主
-          const intl =
-            localeName && value.intl?.locale === 'default'
-              ? intlMap[key!]
-              : value.intl || intlMap[key!];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return null;
+};
 
-          // 自动注入 antd 的配置
-          const configProvider =
-            locale === undefined
-              ? {
-                  locale: zh_CN,
-                }
-              : {};
+/**
+ * 如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
+ *
+ * @param param0
+ */
+const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
+  children,
+  autoClearCache = false,
+}) => {
+  const { locale } = useContext(AntdConfigProvider.ConfigContext);
+  // 如果 locale 不存在自动注入的 AntdConfigProvider
+  const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
 
-          return (
-            <Provider {...configProvider}>
-              <ConfigProvider
-                value={{
-                  ...value,
-                  intl: intl || zhCNIntl,
-                }}
-              >
-                {children}
-              </ConfigProvider>
-            </Provider>
-          );
-        }}
-      </ConfigConsumer>
-    </SWRConfig>
+  const configProviderDom = (
+    <ConfigConsumer>
+      {(value) => {
+        const localeName = locale?.locale;
+        const key = findIntlKeyByAntdLocaleKey(localeName);
+        // antd 的 key 存在的时候以 antd 的为主
+        const intl =
+          localeName && value.intl?.locale === 'default'
+            ? intlMap[key!]
+            : value.intl || intlMap[key!];
+
+        // 自动注入 antd 的配置
+        const configProvider =
+          locale === undefined
+            ? {
+                locale: zh_CN,
+              }
+            : {};
+
+        return (
+          <Provider {...configProvider}>
+            <ConfigProvider
+              value={{
+                ...value,
+                intl: intl || zhCNIntl,
+              }}
+            >
+              {autoClearCache && <CacheClean />}
+              {children}
+            </ConfigProvider>
+          </Provider>
+        );
+      }}
+    </ConfigConsumer>
   );
+  if (!autoClearCache) return configProviderDom;
+
+  return <SWRConfig value={{ provider: () => new Map() }}>{configProviderDom}</SWRConfig>;
 };
 
 export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };

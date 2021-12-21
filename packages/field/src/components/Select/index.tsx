@@ -301,16 +301,16 @@ export const useFieldFetchData = (
 
   const { run: fetchData } = useDebounceFn<[Record<string, any>], OptionsType>(
     async (params: Record<string, any>) => {
-      if (!props.request) {
-        return [];
-      }
+      if (!props.request) return [];
       setLoading(true);
       const loadData = await props.request(params, props);
       setLoading(false);
       return loadData;
     },
     [],
-    props.debounceTime ?? 10,
+    props.debounceTime ?? 0,
+    // 因为使用了swc，自动清理请求可能导致缓存错误的数据
+    true,
   );
 
   const { data, mutate: setLocaleData } = useSWR(

@@ -1,4 +1,5 @@
 ﻿import { useState, useEffect, useMemo } from 'react';
+import * as DarkReader from '@umijs/ssr-darkreader';
 
 export type Action = {
   toggle: () => void;
@@ -7,7 +8,7 @@ export type Action = {
 
 export type Result = [boolean, Action];
 
-export default function useDarkreader(defaultDarken: boolean = false): [
+export function useDarkreader(defaultDarken: boolean = false): [
   boolean,
   {
     toggle: () => void;
@@ -34,9 +35,12 @@ export default function useDarkreader(defaultDarken: boolean = false): [
     css: '',
     ignoreInlineStyle: ['.react-switch-handle'],
     ignoreImageAnalysis: [],
+    disableStyleSheetsProxy: true,
   };
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (typeof window.matchMedia === 'undefined') return;
     if (!DarkReader) {
       return () => null;
     }

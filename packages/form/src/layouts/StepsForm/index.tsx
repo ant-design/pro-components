@@ -6,7 +6,7 @@ import type { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
-import { useMountMergeState, merge } from '@ant-design/pro-utils';
+import { useMountMergeState, merge, useRefFunction } from '@ant-design/pro-utils';
 
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
@@ -188,6 +188,12 @@ function StepsForm<T = Record<string, any>>(
     const from = formArrayRef.current[step];
     from.current?.submit();
   };
+
+  const prePage = useRefFunction(() => {
+    if (step < 1) return;
+    setStep(step - 1);
+  });
+
   const next = submitter !== false && (
     <Button
       key="next"
@@ -208,8 +214,7 @@ function StepsForm<T = Record<string, any>>(
       key="pre"
       {...submitter?.resetButtonProps}
       onClick={() => {
-        // 没有判断是因为 step<1 这个按钮不显示
-        setStep(step - 1);
+        prePage();
         submitter?.onReset?.();
       }}
     >
@@ -232,7 +237,7 @@ function StepsForm<T = Record<string, any>>(
     </Button>
   );
 
-  const getActionButton = () => {
+  const getActionButton = useRefFunction(() => {
     const index = step || 0;
     if (index < 1) {
       return [next] as JSX.Element[];
@@ -241,7 +246,12 @@ function StepsForm<T = Record<string, any>>(
       return [pre, submit] as JSX.Element[];
     }
     return [pre, next] as JSX.Element[];
-  };
+  });
+
+  const nextPage = useRefFunction(() => {
+    if (step > formArray.length - 2) return;
+    setStep(step + 1);
+  });
 
   const renderSubmitter = () => {
     const submitterDom = getActionButton();
@@ -250,12 +260,7 @@ function StepsForm<T = Record<string, any>>(
         form: formArrayRef.current[step]?.current,
         onSubmit,
         step,
-        onPre: () => {
-          if (step < 1) {
-            return;
-          }
-          setStep(step - 1);
-        },
+        onPre: prePage,
       };
       return submitter.render(submitterProps, submitterDom) as React.ReactNode;
     }
@@ -296,6 +301,7 @@ function StepsForm<T = Record<string, any>>(
       </div>
     );
   });
+
   const finalStepsDom = props.stepsRender
     ? props.stepsRender(
         formArray.map((item) => ({
@@ -316,12 +322,7 @@ function StepsForm<T = Record<string, any>>(
             loading,
             setLoading,
             keyArray: formArray,
-            next: () => {
-              if (step > formArray.length - 2) {
-                return;
-              }
-              setStep(step + 1);
-            },
+            next: nextPage,
             formArrayRef,
             formMapRef,
             unRegForm,

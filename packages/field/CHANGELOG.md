@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.30.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.30.1...@ant-design/pro-field@1.30.2) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.30.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.30.0...@ant-design/pro-field@1.30.1) (2021-12-20)
+
+### Bug Fixes
+
+- **field:** Cascader support loading icon ([#4319](https://github.com/ant-design/pro-components/issues/4319)) ([57a3f92](https://github.com/ant-design/pro-components/commit/57a3f92bd869a2b733c2f538a0166d0ad3fd8f19))
+
+# [1.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.29.1...@ant-design/pro-field@1.30.0) (2021-12-20)
+
+### Bug Fixes
+
+- **field:** fix money no work error ([#4311](https://github.com/ant-design/pro-components/issues/4311)) ([e1c0712](https://github.com/ant-design/pro-components/commit/e1c071212d4d0c0556e0eda280c69ba999ec6019))
+
+### Features
+
+- **form:** Support ProFormTreeSelect and valueType=treeSelect ([#4237](https://github.com/ant-design/pro-components/issues/4237)) ([31fab85](https://github.com/ant-design/pro-components/commit/31fab85ecc2c3ef873e88b050f26d1c3de4b8f98))
+
+## [1.29.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.29.0...@ant-design/pro-field@1.29.1) (2021-12-17)
+
+### Bug Fixes
+
+- **field:** timeRange 解析时间不填入 format 是会直接 Invalid date ([#4278](https://github.com/ant-design/pro-components/issues/4278)) ([5179f2b](https://github.com/ant-design/pro-components/commit/5179f2b91b8dbf3442f2ac58dec8b7f7ff5ea511))
+
+# [1.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.7...@ant-design/pro-field@1.29.0) (2021-12-13)
+
+### Bug Fixes
+
+- **form:** relay no render DrawerForm and ModalForm ([#4254](https://github.com/ant-design/pro-components/issues/4254)) ([f986ecb](https://github.com/ant-design/pro-components/commit/f986ecb9d89d4e3edef18d50eee4c37e730227d9))
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
+## [1.28.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.6...@ant-design/pro-field@1.28.7) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.28.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.5...@ant-design/pro-field@1.28.6) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.28.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.4...@ant-design/pro-field@1.28.5) (2021-12-09)
 
 ### Bug Fixes

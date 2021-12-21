@@ -39,6 +39,7 @@ import FieldSecond from './components/Second';
 import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
 import FieldCascader from './components/Cascader';
+import FieldTreeSelect from './components/TreeSelect';
 import FieldColorPicker from './components/ColorPicker';
 import FieldDigitRange from './components/DigitRange';
 // import type {RangeInputNumberProps,ExtraProps as } from './components/DigitRange'
@@ -349,6 +350,11 @@ const defaultRenderText = (
   if (valueType === 'cascader') {
     return <FieldCascader text={text as string} {...props} />;
   }
+
+  if (valueType === 'treeSelect') {
+    return <FieldTreeSelect text={text as string} {...props} />;
+  }
+
   if (valueType === 'color') {
     return <FieldColorPicker text={text as string} {...props} />;
   }

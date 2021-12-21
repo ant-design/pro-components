@@ -1,11 +1,12 @@
 ﻿import React, { useContext, useMemo, useImperativeHandle, useRef } from 'react';
 import type { RadioGroupProps } from 'antd';
-import { ConfigProvider, Spin, Cascader } from 'antd';
+import { ConfigProvider, Cascader } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
 import type { ProFieldFC } from '../../index';
-import './index.less';
 import type { FieldSelectProps } from '../Select';
 import { ObjToMap, proFieldParsingText, useFieldFetchData } from '../Select';
+import { useIntl } from '@ant-design/pro-provider';
 
 export type GroupProps = {
   options?: RadioGroupProps['options'];
@@ -25,6 +26,7 @@ const FieldCascader: ProFieldFC<GroupProps> = (
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-cascader');
   const [loading, options, fetchData] = useFieldFetchData(rest);
+  const intl = useIntl();
   const cascaderRef = useRef();
 
   useImperativeHandle(ref, () => ({
@@ -72,14 +74,14 @@ const FieldCascader: ProFieldFC<GroupProps> = (
 
   if (mode === 'edit') {
     const dom = (
-      <Spin spinning={loading}>
-        <Cascader
-          ref={cascaderRef}
-          {...rest.fieldProps}
-          className={classNames(rest.fieldProps?.className, layoutClassName)}
-          options={options}
-        />
-      </Spin>
+      <Cascader
+        ref={cascaderRef}
+        suffixIcon={loading ? <LoadingOutlined /> : undefined}
+        placeholder={intl.getMessage('tableForm.selectPlaceholder', '请选择')}
+        {...rest.fieldProps}
+        className={classNames(rest.fieldProps?.className, layoutClassName)}
+        options={options}
+      />
     );
     if (renderFormItem) {
       return renderFormItem(rest.text, { mode, ...rest.fieldProps }, dom) || null;

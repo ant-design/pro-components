@@ -7,6 +7,7 @@ import './index.less';
 
 import BaseMenu from '../SiderMenu/BaseMenu';
 import type { GlobalHeaderProps } from '../GlobalHeader';
+import { useDebounceFn } from '@ant-design/pro-utils';
 
 export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 
@@ -15,11 +16,25 @@ export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSide
  *
  * @param param0
  */
-const RightContent: React.FC<TopNavHeaderProps> = ({ rightContentRender, ...props }) => {
+export const RightContent: React.FC<TopNavHeaderProps> = ({
+  rightContentRender,
+  prefixCls,
+  ...props
+}) => {
   const [rightSize, setRightSize] = useState<number | string>('auto');
+
+  /** 减少一下渲染的次数 */
+  const setRightSizeDebounceFn = useDebounceFn(
+    async (width: number) => {
+      setRightSize(width);
+    },
+    [],
+    160,
+  );
 
   return (
     <div
+      className={`${prefixCls}-right-content`}
       style={{
         minWidth: rightSize,
       }}
@@ -31,13 +46,16 @@ const RightContent: React.FC<TopNavHeaderProps> = ({ rightContentRender, ...prop
       >
         <ResizeObserver
           onResize={({ width }: { width: number }) => {
-            setRightSize(width);
+            setRightSizeDebounceFn.run(width);
           }}
         >
           {rightContentRender && (
-            <div>
+            <div className={`${prefixCls}-right-content-resize`}>
               {rightContentRender({
                 ...props,
+                // 测试专用
+                //@ts-ignore
+                rightContentSize: rightSize,
               })}
             </div>
           )}
@@ -81,7 +99,9 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
         <div style={{ flex: 1 }} className={`${prefixCls}-menu`}>
           <BaseMenu {...props} {...props.menuProps} />
         </div>
-        {rightContentRender && <RightContent rightContentRender={rightContentRender} {...props} />}
+        {rightContentRender && (
+          <RightContent rightContentRender={rightContentRender} prefixCls={prefixCls} {...props} />
+        )}
       </div>
     </div>
   );

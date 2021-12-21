@@ -109,7 +109,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const siderClassName = classNames(`${baseClassName}`, {
     [`${baseClassName}-fixed`]: fixSiderbar,
     [`${baseClassName}-layout-${layout}`]: layout && !isMobile,
-    [`${baseClassName}-light`]: theme === 'light',
+    [`${baseClassName}-light`]: theme !== 'dark',
   });
 
   const headerDom = defaultRenderLogoAndTitle(props);

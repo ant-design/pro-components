@@ -58,20 +58,18 @@ if (typeof window !== 'undefined') {
   }
 }
 
-Object.assign(Enzyme.ReactWrapper.prototype, {
-  findObserver() {
-    return this.find('ResizeObserver');
-  },
-  triggerResize() {
-    const ob = this.findObserver();
-    ob?.instance()?.onResize([{ target: ob.getDOMNode() }]);
-  },
-});
-
 enableFetchMocks();
 
 Object.defineProperty(window, 'open', {
   value: jest.fn,
+});
+
+const crypto = require('crypto');
+
+Object.defineProperty(global.self, 'crypto', {
+  value: {
+    getRandomValues: (arr) => crypto.randomBytes(arr.length),
+  },
 });
 
 global.requestAnimationFrame =
@@ -107,6 +105,7 @@ export const localStorageMock = (() => {
     },
   };
 })();
+
 Object.defineProperty(window, 'localStorage', {
   value: localStorageMock,
   writable: true,

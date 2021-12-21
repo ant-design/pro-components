@@ -2,6 +2,42 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.61.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.1...@ant-design/pro-table@2.61.2) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.61.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.0...@ant-design/pro-table@2.61.1) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.61.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.60.1...@ant-design/pro-table@2.61.0) (2021-12-20)
+
+### Bug Fixes
+
+- **table:** if one node, no draggable ([#4310](https://github.com/ant-design/pro-components/issues/4310)) ([819046b](https://github.com/ant-design/pro-components/commit/819046b61469a7707b3a4f3358208c7a277b6f08))
+
+### Features
+
+- **form:** Support ProFormTreeSelect and valueType=treeSelect ([#4237](https://github.com/ant-design/pro-components/issues/4237)) ([31fab85](https://github.com/ant-design/pro-components/commit/31fab85ecc2c3ef873e88b050f26d1c3de4b8f98))
+
+## [2.60.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.60.0...@ant-design/pro-table@2.60.1) (2021-12-17)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.60.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.59.7...@ant-design/pro-table@2.60.0) (2021-12-13)
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
+## [2.59.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.59.6...@ant-design/pro-table@2.59.7) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.59.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.59.5...@ant-design/pro-table@2.59.6) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
 ## [2.59.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.59.4...@ant-design/pro-table@2.59.5) (2021-12-09)
 
 ### Bug Fixes

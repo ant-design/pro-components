@@ -154,7 +154,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | locale | Language settings for the current layout | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | settings for layout | [`Settings`](#Settings) | - |
 | siderWidth | width of the side menu | `number` | 208 |
-| defaultCollapsed | The default collapsed and expanded menus | `boolean` | - |
+| defaultCollapsed | The default collapsed and expanded menus, will be affected by `breakpoint`, `breakpoint=false` work | `boolean` | - |
 | collapsed | Controls the collapse and expansion of the menu | `boolean` | - |
 | onCollapse | The collapsed event of the menu | `(collapsed: boolean) => void` | - |
 | onPageChange | Triggered on page switch | `(location: Location) => void` | - |
@@ -173,19 +173,37 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | breadcrumbRender | customize the data for breadcrumbs | `(route)=>route` | - |
 | route | Used to generate menus and breadcrumbs. umi's Layout will automatically have | [route](#route) | - |
 | disableMobile | disable automatic switching to mobile pages | `boolean` | false |
+| ErrorBoundary | Comes with error handling function to prevent blank screen. `ErrorBoundary=false` turn off default ErrorBoundary | `ReactNode` | default ErrorBoundary |
 | links | Show shortcut actions in the lower right corner of the menu | `ReactNode[]` | - |
 | menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu/) | `MenuProps` | undefined |
 | waterMarkProps | Configure watermark, watermark is a function of PageContainer, layout is only transparently transmitted to PageContainer | [WaterMarkProps](/components/water-mark) | - |
 
 ### SettingDrawer
 
-> SettingDrawer provides a graphical interface to set the layout's configuration. It is not recommended for use in a formal environment.
-
-| Parameters | Description | Type | Default |
+| Parameters | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| settings | settings for layout | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
-| onSettingChange | [`Settings`](#Settings) change event occurs | `(settings: [`Settings`](#Settings) ) => void` | - |
-| hideHintAlert | Remove the following alert message | `boolean` | - |
+| settings | layout settings | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
+| onSettingChange | [`Settings`](#Settings) A change event occurred | `(settings: [`Settings`](#Settings)) => void` | - |
+| hideHintAlert | Delete the prompt message below | `boolean` | - |
+| hideCopyButton | Do not show copy function | `boolean` | - |
+| disableUrlParams | Disable synchronization settings to query parameters | `boolean` | `false` |
+| enableDarkTheme | Turn on black theme switching function ｜ `boolean` | `false` |
+| colorList | Built-in color switching system ｜ `{key,color}[]` | `ColorList` |
+
+Built-in color list
+
+```tsx
+const colorList = [
+  { key: 'daybreak', color: '#1890ff' },
+  { key: 'dust', color: '#F5222D' },
+  { key: 'volcano', color: '#FA541C' },
+  { key: 'sunset', color: '#FAAD14' },
+  { key: 'cyan', color: '#13C2C2' },
+  { key: 'green', color: '#52C41A' },
+  { key: 'geekblue', color: '#2F54EB' },
+  { key: 'purple', color: '#722ED1' },
+];
+```
 
 ### PageLoading
 

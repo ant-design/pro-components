@@ -11,6 +11,7 @@ import ProFormSwitch from './components/Switch';
 import ProFormRate from './components/Rate';
 import ProFormSlider from './components/Slider';
 import ProFormCascader from './components/Cascader';
+import ProFormTreeSelect from './components/TreeSelect';
 import ProFormUploadDragger from './components/UploadDragger';
 import ProFormUploadButton from './components/UploadButton';
 import type { ProFormFieldProps } from './components/Field';
@@ -88,6 +89,7 @@ export {
   ProFormTimePicker,
   ProFormText,
   ProFormCascader,
+  ProFormTreeSelect,
   ProFormTextArea,
   ProFormSwitch,
   ProFormField,

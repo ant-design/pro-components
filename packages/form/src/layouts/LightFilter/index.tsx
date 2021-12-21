@@ -38,7 +38,7 @@ const LightFilterContainer: React.FC<{
   items: React.ReactNode[];
   prefixCls: string;
   size?: SizeType;
-  values?: Record<string, any>;
+  values: Record<string, any>;
   onValuesChange: (values: Record<string, any>) => void;
   collapse?: boolean;
   collapseLabel?: React.ReactNode;
@@ -53,7 +53,7 @@ const LightFilterContainer: React.FC<{
     collapseLabel,
     onValuesChange,
     bordered,
-    values = {},
+    values,
     footerRender,
   } = props;
   const intl = useIntl();
@@ -215,16 +215,15 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
           <LightFilterContainer
             prefixCls={prefixCls}
             items={items.flatMap((item: any) => {
-              if (item?.type.displayName === 'ProForm-Group') {
-                return item.props.children;
-              }
+              /** 如果是 ProFormGroup，直接拼接dom */
+              if (item?.type.displayName === 'ProForm-Group') return item.props.children;
               return item;
             })}
             size={size}
             bordered={bordered}
             collapse={collapse}
             collapseLabel={collapseLabel}
-            values={values}
+            values={values || {}}
             footerRender={footerRender}
             onValuesChange={(newValues: any) => {
               const newAllValues = {
@@ -254,9 +253,7 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
       {...omit(reset, ['labelWidth'] as any[])}
       onValuesChange={(_, allValues) => {
         setValues(allValues);
-        if (onValuesChange) {
-          onValuesChange(_, allValues);
-        }
+        onValuesChange?.(_, allValues);
         formRef.current?.submit();
       }}
     />
