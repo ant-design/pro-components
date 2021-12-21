@@ -63,6 +63,7 @@ export type SettingDrawerProps = {
   onSettingChange?: (settings: MergerSettingsType<ProSettings>) => void;
   pathname?: string;
   disableUrlParams?: boolean;
+  themeOnly?: boolean;
 };
 
 export type SettingDrawerState = {
@@ -211,6 +212,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     prefixCls = 'ant-pro',
     pathname = window.location.pathname,
     disableUrlParams = false,
+    themeOnly,
   } = props;
   const firstRender = useRef<boolean>(true);
 
@@ -402,95 +404,103 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
             />
           </Body>
         )}
+        {!themeOnly && (
+          <>
+            <Divider />
+            <Body
+              prefixCls={baseClassName}
+              title={formatMessage({ id: 'app.setting.navigationmode' })}
+            >
+              <BlockCheckbox
+                prefixCls={baseClassName}
+                value={layout!}
+                key="layout"
+                configType="layout"
+                list={[
+                  {
+                    key: 'side',
+                    title: formatMessage({ id: 'app.setting.sidemenu' }),
+                  },
+                  {
+                    key: 'top',
+                    title: formatMessage({ id: 'app.setting.topmenu' }),
+                  },
+                  {
+                    key: 'mix',
+                    title: formatMessage({ id: 'app.setting.mixmenu' }),
+                  },
+                ]}
+                onChange={(value) => changeSetting('layout', value)}
+              />
+            </Body>
+            <LayoutSetting settings={settingState} changeSetting={changeSetting} />
+            <Divider />
 
-        <Divider />
+            <Body
+              prefixCls={baseClassName}
+              title={formatMessage({ id: 'app.setting.regionalsettings' })}
+            >
+              <RegionalSetting settings={settingState} changeSetting={changeSetting} />
+            </Body>
 
-        <Body prefixCls={baseClassName} title={formatMessage({ id: 'app.setting.navigationmode' })}>
-          <BlockCheckbox
-            prefixCls={baseClassName}
-            value={layout!}
-            key="layout"
-            configType="layout"
-            list={[
-              {
-                key: 'side',
-                title: formatMessage({ id: 'app.setting.sidemenu' }),
-              },
-              {
-                key: 'top',
-                title: formatMessage({ id: 'app.setting.topmenu' }),
-              },
-              {
-                key: 'mix',
-                title: formatMessage({ id: 'app.setting.mixmenu' }),
-              },
-            ]}
-            onChange={(value) => changeSetting('layout', value)}
-          />
-        </Body>
-        <LayoutSetting settings={settingState} changeSetting={changeSetting} />
-        <Divider />
+            <Divider />
 
-        <Body
-          prefixCls={baseClassName}
-          title={formatMessage({ id: 'app.setting.regionalsettings' })}
-        >
-          <RegionalSetting settings={settingState} changeSetting={changeSetting} />
-        </Body>
+            <Body
+              prefixCls={baseClassName}
+              title={formatMessage({ id: 'app.setting.othersettings' })}
+            >
+              <List
+                split={false}
+                renderItem={renderLayoutSettingItem}
+                dataSource={[
+                  {
+                    title: formatMessage({ id: 'app.setting.weakmode' }),
+                    action: (
+                      <Switch
+                        size="small"
+                        className="color-weak"
+                        checked={!!colorWeak}
+                        onChange={(checked) => {
+                          changeSetting('colorWeak', checked);
+                        }}
+                      />
+                    ),
+                  },
+                ]}
+              />
+            </Body>
+            {hideHintAlert && hideCopyButton ? null : <Divider />}
 
-        <Divider />
+            {hideHintAlert ? null : (
+              <Alert
+                type="warning"
+                message={formatMessage({
+                  id: 'app.setting.production.hint',
+                })}
+                icon={<NotificationOutlined />}
+                showIcon
+                style={{ marginBottom: 16 }}
+              />
+            )}
 
-        <Body prefixCls={baseClassName} title={formatMessage({ id: 'app.setting.othersettings' })}>
-          <List
-            split={false}
-            renderItem={renderLayoutSettingItem}
-            dataSource={[
-              {
-                title: formatMessage({ id: 'app.setting.weakmode' }),
-                action: (
-                  <Switch
-                    size="small"
-                    className="color-weak"
-                    checked={!!colorWeak}
-                    onChange={(checked) => {
-                      changeSetting('colorWeak', checked);
-                    }}
-                  />
-                ),
-              },
-            ]}
-          />
-        </Body>
-        {hideHintAlert && hideCopyButton ? null : <Divider />}
-
-        {hideHintAlert ? null : (
-          <Alert
-            type="warning"
-            message={formatMessage({
-              id: 'app.setting.production.hint',
-            })}
-            icon={<NotificationOutlined />}
-            showIcon
-            style={{ marginBottom: 16 }}
-          />
-        )}
-
-        {hideCopyButton ? null : (
-          <Button
-            block
-            icon={<CopyOutlined />}
-            style={{ marginBottom: 24 }}
-            onClick={async () => {
-              try {
-                await navigator.clipboard.writeText(genCopySettingJson(settingState));
-                message.success(formatMessage({ id: 'app.setting.copyinfo' }));
-              } catch (error) {
-                // console.log(error);
-              }
-            }}
-          >
-            {formatMessage({ id: 'app.setting.copy' })}
-          </Button>
+            {hideCopyButton ? null : (
+              <Button
+                block
+                icon={<CopyOutlined />}
+                style={{ marginBottom: 24 }}
+                onClick={async () => {
+                  try {
+                    await navigator.clipboard.writeText(genCopySettingJson(settingState));
+                    message.success(formatMessage({ id: 'app.setting.copyinfo' }));
+                  } catch (error) {
+                    // console.log(error);
+                  }
+                }}
+              >
+                {formatMessage({ id: 'app.setting.copy' })}
+              </Button>
+            )}
+          </>
         )}
       </div>
     </Drawer>
