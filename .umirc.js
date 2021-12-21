@@ -111,7 +111,6 @@ export default {
       }
     : false,
   hash: true,
-  exportStatic: {},
   targets: {
     chrome: 80,
     firefox: false,
@@ -195,6 +194,7 @@ export default {
   },
   ssr: isDeploy ? {} : undefined,
   webpack5: {},
-  mfsu: !isDeploy ? {} : undefined,
+  exportStatic: {},
+  // mfsu: !isDeploy ? {} : undefined,
   fastRefresh: {},
 };
