@@ -117,9 +117,6 @@ tailPkgs.forEach((pkg) => {
               options: {
                 lessOptions: {
                   javascriptEnabled: true,
-                  modifyVars: {
-                    '@root-entry-name': 'default',
-                  },
                 },
               },
             },
