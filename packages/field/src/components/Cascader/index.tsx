@@ -14,7 +14,7 @@ export type GroupProps = {
 } & FieldSelectProps;
 
 /**
- * 单选组件
+ * 级联选择组件
  *
  * @param param0
  * @param ref
