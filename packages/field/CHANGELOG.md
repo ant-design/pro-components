@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.30.3...@ant-design/pro-field@1.31.0) (2021-12-22)
+
+### Features
+
+- **field:** add DigitRange component ([#4133](https://github.com/ant-design/pro-components/issues/4133)) ([227a42d](https://github.com/ant-design/pro-components/commit/227a42def19035dc70e52f56142b33f55dd65f4b))
+
 ## [1.30.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.30.2...@ant-design/pro-field@1.30.3) (2021-12-22)
 
 **Note:** Version bump only for package @ant-design/pro-field
