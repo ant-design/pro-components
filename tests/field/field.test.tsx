@@ -628,6 +628,7 @@ describe('Field', () => {
     'progress',
     'percent',
     'digit',
+    'digitRange',
     'second',
     'code',
     'jsonCode',
@@ -1051,6 +1052,78 @@ describe('Field', () => {
       />,
     );
     expect(html.text()).toBe('$￥ 10000');
+  });
+
+  it(`🐴 valueType digitRange base use`, async () => {
+    const html = render(<Field text={[12.34, 56.78]} mode="read" valueType="digitRange" />);
+    expect(html.text()).toBe('￥ 12.34 ~ ￥ 56.78');
+  });
+
+  it(`🐴 valueType digitRange normal input simulate`, async () => {
+    const html = mount(<Field mode="edit" valueType="digitRange" />);
+    await waitForComponentToPaint(html);
+    act(() => {
+      html
+        .find('.ant-input-number-input')
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: '12.34',
+          },
+        });
+      html
+        .find('.ant-input-number-input')
+        .at(1)
+        .simulate('change', {
+          target: {
+            value: '56.78',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('.ant-input-number-input').at(0).props().value).toBe('12.34');
+    expect(html.find('.ant-input-number-input').at(1).props().value).toBe('56.78');
+  });
+
+  it(`🐴 valueType digitRange will exchange when value1 > valu2`, async () => {
+    const html = mount(<Field mode="edit" valueType="digitRange" />);
+    await waitForComponentToPaint(html);
+    act(() => {
+      html
+        .find('.ant-input-number-input')
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: '56.78',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html
+        .find('.ant-input-number-input')
+        .at(1)
+        .simulate('change', {
+          target: {
+            value: '12.34',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('.ant-input-number-input').at(1).simulate('blur');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('.ant-input-number-input').at(0).props().value).toBe('12.34');
+    expect(html.find('.ant-input-number-input').at(1).props().value).toBe('56.78');
   });
 
   it(`🐴 text render null`, async () => {

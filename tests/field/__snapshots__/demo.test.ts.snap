@@ -299,6 +299,31 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 <span
                   class="ant-descriptions-item-label"
                 >
+                  数字范围
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span>
+                    ￥ 123 ~ ￥ 456
+                  </span>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
                   秒格式化
                 </span>
                 <span
@@ -310,10 +335,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -335,6 +356,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -649,10 +674,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -683,6 +704,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -746,10 +771,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -791,6 +812,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -821,10 +846,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -855,6 +876,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -874,10 +899,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -917,6 +938,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -958,10 +983,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1013,6 +1034,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1032,10 +1057,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1073,6 +1094,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1092,10 +1117,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1122,6 +1143,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1148,10 +1173,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1173,6 +1194,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1199,10 +1224,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1261,6 +1282,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base.tsx correctly 
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1290,13 +1315,9 @@ Done in 9.70s.
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
-              colspan="2"
+              colspan="1"
             >
               <div
                 class="ant-descriptions-item-container"
@@ -1767,6 +1788,187 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 <span
                   class="ant-descriptions-item-label"
                 >
+                  数字范围
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <span
+                    class="ant-input-group ant-input-group-compact"
+                  >
+                    <div
+                      class="ant-input-number"
+                    >
+                      <div
+                        class="ant-input-number-handler-wrap"
+                      >
+                        <span
+                          aria-disabled="false"
+                          aria-label="Increase Value"
+                          class="ant-input-number-handler ant-input-number-handler-up"
+                          role="button"
+                          unselectable="on"
+                        >
+                          <span
+                            aria-label="up"
+                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="up"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <span
+                          aria-disabled="false"
+                          aria-label="Decrease Value"
+                          class="ant-input-number-handler ant-input-number-handler-down"
+                          role="button"
+                          unselectable="on"
+                        >
+                          <span
+                            aria-label="down"
+                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="down"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                      <div
+                        class="ant-input-number-input-wrap"
+                      >
+                        <input
+                          autocomplete="off"
+                          class="ant-input-number-input"
+                          id="undefined-0"
+                          placeholder="请输入"
+                          role="spinbutton"
+                          step="1"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                    <input
+                      class="ant-input ant-input-disabled"
+                      disabled=""
+                      placeholder="~"
+                      style="width: 30px; text-align: center; border-left: 0; border-right: 0; pointer-events: none; background-color: rgb(255, 255, 255);"
+                      type="text"
+                      value=""
+                    />
+                    <div
+                      class="ant-input-number"
+                      style="border-left: 0;"
+                    >
+                      <div
+                        class="ant-input-number-handler-wrap"
+                      >
+                        <span
+                          aria-disabled="false"
+                          aria-label="Increase Value"
+                          class="ant-input-number-handler ant-input-number-handler-up"
+                          role="button"
+                          unselectable="on"
+                        >
+                          <span
+                            aria-label="up"
+                            class="anticon anticon-up ant-input-number-handler-up-inner"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="up"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                        <span
+                          aria-disabled="false"
+                          aria-label="Decrease Value"
+                          class="ant-input-number-handler ant-input-number-handler-down"
+                          role="button"
+                          unselectable="on"
+                        >
+                          <span
+                            aria-label="down"
+                            class="anticon anticon-down ant-input-number-handler-down-inner"
+                            role="img"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="down"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                              />
+                            </svg>
+                          </span>
+                        </span>
+                      </div>
+                      <div
+                        class="ant-input-number-input-wrap"
+                      >
+                        <input
+                          autocomplete="off"
+                          class="ant-input-number-input"
+                          id="undefined-1"
+                          placeholder="请输入"
+                          role="spinbutton"
+                          step="1"
+                          value=""
+                        />
+                      </div>
+                    </div>
+                  </span>
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
                   秒格式化
                 </span>
                 <span
@@ -1851,6 +2053,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -1943,10 +2149,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2261,6 +2463,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2339,10 +2545,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2442,6 +2644,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2541,10 +2747,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2644,6 +2846,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2743,10 +2949,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2825,6 +3027,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -2902,102 +3108,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
-            <td
-              class="ant-descriptions-item"
-              colspan="1"
-            >
-              <div
-                class="ant-descriptions-item-container"
-              >
-                <span
-                  class="ant-descriptions-item-label"
-                >
-                  进度条
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  <div
-                    class="ant-input-number"
-                  >
-                    <div
-                      class="ant-input-number-handler-wrap"
-                    >
-                      <span
-                        aria-disabled="false"
-                        aria-label="Increase Value"
-                        class="ant-input-number-handler ant-input-number-handler-up"
-                        role="button"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="up"
-                          class="anticon anticon-up ant-input-number-handler-up-inner"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="up"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                      <span
-                        aria-disabled="false"
-                        aria-label="Decrease Value"
-                        class="ant-input-number-handler ant-input-number-handler-down"
-                        role="button"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-input-number-handler-down-inner"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                    <div
-                      class="ant-input-number-input-wrap"
-                    >
-                      <input
-                        autocomplete="off"
-                        class="ant-input-number-input"
-                        placeholder="请输入"
-                        role="spinbutton"
-                        step="1"
-                        value=""
-                      />
-                    </div>
-                  </div>
-                </span>
-              </div>
-            </td>
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3186,6 +3296,102 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  进度条
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  <div
+                    class="ant-input-number"
+                  >
+                    <div
+                      class="ant-input-number-handler-wrap"
+                    >
+                      <span
+                        aria-disabled="false"
+                        aria-label="Increase Value"
+                        class="ant-input-number-handler ant-input-number-handler-up"
+                        role="button"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="up"
+                          class="anticon anticon-up ant-input-number-handler-up-inner"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="up"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                      <span
+                        aria-disabled="false"
+                        aria-label="Decrease Value"
+                        class="ant-input-number-handler ant-input-number-handler-down"
+                        role="button"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-input-number-handler-down-inner"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                    <div
+                      class="ant-input-number-input-wrap"
+                    >
+                      <input
+                        autocomplete="off"
+                        class="ant-input-number-input"
+                        placeholder="请输入"
+                        role="spinbutton"
+                        step="1"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3205,10 +3411,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3260,6 +3462,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3317,10 +3523,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3430,6 +3632,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3487,10 +3693,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3590,6 +3792,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3689,10 +3895,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3753,6 +3955,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3855,10 +4061,6 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3914,6 +4116,10 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
             <td
               class="ant-descriptions-item"
               colspan="1"
@@ -3936,13 +4142,9 @@ exports[`field demos 📸 renders ./packages/field/src/demos/base_test.tsx corre
                 </span>
               </div>
             </td>
-          </tr>
-          <tr
-            class="ant-descriptions-row"
-          >
             <td
               class="ant-descriptions-item"
-              colspan="2"
+              colspan="1"
             >
               <div
                 class="ant-descriptions-item-container"

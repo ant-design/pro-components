@@ -64,6 +64,7 @@ export type ProFieldValueType =
   | 'progress'
   | 'percent'
   | 'digit'
+  | 'digitRange'
   | 'second'
   | 'avatar'
   | 'code'

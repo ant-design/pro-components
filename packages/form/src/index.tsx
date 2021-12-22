@@ -18,6 +18,8 @@ import type { ProFormFieldProps } from './components/Field';
 import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
+import ProFormDigitRange from './components/DigitRange';
+import type { ProFormDigitRangeProps } from './components/DigitRange';
 import ProFormMoney from './components/Money';
 import type { ProFormFieldSetProps } from './components/FieldSet';
 import ProFormFieldSet from './components/FieldSet';
@@ -74,6 +76,7 @@ export type {
   ProFormColumnsType,
   LoginFormProps,
   ProFormInstance,
+  ProFormDigitRangeProps,
 };
 
 const ProFormGroup = ProForm.Group;
@@ -94,6 +97,7 @@ export {
   ProFormSelect,
   FormItemProvide,
   ProFormDigit,
+  ProFormDigitRange,
   ProFormMoney,
   ProFormCheckbox,
   ProFormRadio,

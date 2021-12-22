@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Button, Input } from 'antd';
 import type { ProFormInstance } from '@ant-design/pro-form';
+import { ProFormDigitRange } from '@ant-design/pro-form';
 import ProForm, {
   ProFormText,
   ProFormCaptcha,
@@ -1800,5 +1801,95 @@ describe('ProForm', () => {
     act(() => {
       expect(wrapper.render()).toMatchSnapshot();
     });
+  });
+
+  it('📦 DigitRange Will return undefined when both value equal to undefined', async () => {
+    const onFinish = jest.fn();
+    const wrapper = mount(
+      <ProForm
+        onFinish={async (values) => {
+          onFinish(values?.digitRange);
+        }}
+      >
+        <ProFormDigitRange name="digitRange" />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    // 测试基本功能
+    act(() => {
+      wrapper
+        .find('.ant-input-number-input')
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: '1',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    act(() => {
+      wrapper
+        .find('.ant-input-number-input')
+        .at(1)
+        .simulate('change', {
+          target: {
+            value: '2',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(onFinish).toBeCalledWith([1, 2]);
+
+    // 测试清空两个值
+    act(() => {
+      wrapper
+        .find('.ant-input-number-input')
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: '',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    act(() => {
+      wrapper
+        .find('.ant-input-number-input')
+        .at(1)
+        .simulate('change', {
+          target: {
+            value: '',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    act(() => {
+      wrapper.find('.ant-input-number-input').at(1).simulate('blur');
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    act(() => {
+      wrapper.find('button.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(onFinish).toBeCalledWith(undefined);
   });
 });
