@@ -1,3 +1,4 @@
+import type { InputProps } from 'antd';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -168,7 +169,7 @@ export type ProSchemaValueType<ValueType> =
   | (ValueType | ProFieldValueType)
   | ProFieldValueObjectType;
 
-export type ProSchemaFieldProps = Record<string, any>;
+export type ProSchemaFieldProps<T> = Record<string, any> & T & Partial<InputProps>;
 
 /** 各个组件公共支持的 render */
 export type ProSchema<
@@ -232,8 +233,8 @@ export type ProSchema<
           rowIndex: number;
           entity: Entity;
         },
-      ) => ProSchemaFieldProps)
-    | ProSchemaFieldProps;
+      ) => ProSchemaFieldProps<ValueType>)
+    | ProSchemaFieldProps<ValueType>;
 
   /** @name 自定义的 formItemProps */
   formItemProps?:
