@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.32.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.1...@ant-design/pro-utils@1.32.2) (2021-12-24)
+
+### Bug Fixes
+
+- **utils:** remove inputProps typing ([ea33916](https://github.com/ant-design/pro-components/commit/ea3391646b8a2bbb5bceea26b32720cd812df430))
+
 ## [1.32.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.0...@ant-design/pro-utils@1.32.1) (2021-12-23)
 
 **Note:** Version bump only for package @ant-design/pro-utils
