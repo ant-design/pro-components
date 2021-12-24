@@ -234,7 +234,7 @@ export type ProSchema<
           entity: Entity;
         },
       ) => ProSchemaFieldProps<ValueType>)
-    | ProSchemaFieldProps<ValueType>;
+    | ProSchemaFieldProps<ValueType> | Record<string, any>;
 
   /** @name 自定义的 formItemProps */
   formItemProps?:
