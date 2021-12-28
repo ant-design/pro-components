@@ -443,9 +443,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           * {
             transition: none !important;
           }
-          > * {
-            padding: 8px;
-          }
+
           .${antPrefixClassName}-menu-root {
             padding: 6px;
           }
@@ -487,7 +485,14 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
               align-items: flex-start;
               transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
               cursor: pointer;
+              padding: 8px;
             `,
+            // 收起的样式
+            collapsed &&
+              css`
+                justify-content: center;
+                font-size: 14px;
+              `,
           ),
         });
       }}
@@ -495,24 +500,49 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         return React.cloneElement(dom, {
           ...dom.props,
           ...menuItemProps,
-          className: css`
-            border-radius: 2px;
-            min-height: 40px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-            cursor: pointer;
-            a {
-              color: rgba(0, 0, 0, 0.65);
-              font-size: 14px;
-              line-height: 22px;
-            }
-            &:hover {
-              background-color: rgba(0, 0, 0, 0.05);
-              border-radius: 4px;
-            }
-          `,
+          className: cx(
+            // 展开的样式
+
+            css`
+              border-radius: 2px;
+              min-height: 40px;
+              ${mode !== 'horizontal' ? 'width: 100%;' : ''}
+              display: flex;
+              align-items: center;
+              transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+              cursor: pointer;
+              padding: 8px;
+              a {
+                color: rgba(0, 0, 0, 0.65);
+                font-size: 14px;
+                line-height: 22px;
+                transition: font-size 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+              }
+            `,
+            // 收起的样式
+            collapsed &&
+              css`
+                justify-content: center;
+                a {
+                  font-size: 16px;
+                }
+              `,
+            // 顶部菜单和水平菜单需要不同的 css
+            mode !== 'horizontal'
+              ? css`
+                  &:hover {
+                    background-color: rgba(0, 0, 0, 0.05);
+                    border-radius: 4px;
+                  }
+                `
+              : css`
+                  &:hover {
+                    a {
+                      color: #000;
+                    }
+                  }
+                `,
+          ),
         });
       }}
       onOpenChange={setOpenKeys}
