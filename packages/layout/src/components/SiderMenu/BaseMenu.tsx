@@ -471,10 +471,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             }
           `,
       )}
-      _internalRenderSubMenuItem={(dom, menuItemProps) => {
+      _internalRenderSubMenuItem={(dom) => {
         return React.cloneElement(dom, {
           ...dom.props,
-          ...menuItemProps,
           className: cx(
             css`
               border-radius: 2px;
@@ -496,13 +495,11 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           ),
         });
       }}
-      _internalRenderMenuItem={(dom, menuItemProps) => {
+      _internalRenderMenuItem={(dom) => {
         return React.cloneElement(dom, {
           ...dom.props,
-          ...menuItemProps,
           className: cx(
             // 展开的样式
-
             css`
               border-radius: 2px;
               min-height: 40px;
@@ -516,7 +513,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
                 color: rgba(0, 0, 0, 0.65);
                 font-size: 14px;
                 line-height: 22px;
-                transition: font-size 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+                transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
               }
             `,
             // 收起的样式

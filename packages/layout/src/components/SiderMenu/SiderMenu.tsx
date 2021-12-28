@@ -1,11 +1,11 @@
 import type { CSSProperties } from 'react';
 import { useContext } from 'react';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo } from 'react';
 import type { AvatarProps } from 'antd';
 import { Avatar, Layout, Menu, ConfigProvider, Space } from 'antd';
 import classNames from 'classnames';
 import type { SiderProps } from 'antd/lib/layout/Sider';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
+import { MenuUnfoldOutlined, MenuFoldOutlined, RightOutlined } from '@ant-design/icons';
 
 import { cx, css, keyframes } from '@emotion/css';
 
@@ -20,61 +20,33 @@ import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 
 const { Sider } = Layout;
 
-const CollapsedMiniIcon: React.FC = () => {
-  return (
-    <svg width="1em" height="1em" viewBox="0 0 2 24" fill="currentColor" aria-hidden="true">
-      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
-        <g transform="translate(-248.000000, -429.000000)" fill="currentColor">
-          <g transform="translate(0.000000, 56.000000)">
-            <g transform="translate(248.000000, 0.000000)">
-              <rect x={0} y={373} width={2} height={24} rx={1} />
-            </g>
-          </g>
-        </g>
-      </g>
-    </svg>
-  );
-};
-
-const CollapsedHoverIcon: React.FC = () => {
-  return (
-    <svg width="1em" height="1em" viewBox="0 0 8 16" fill="currentColor" aria-hidden="true">
-      <g stroke="none" strokeWidth={1} fill="none" fillRule="evenodd">
-        <g transform="translate(-913.000000, -8934.000000)" fill="currentColor">
-          <g transform="translate(905.000000, 8505.000000)">
-            <path
-              d="M9,429 L9.49874625,429 C9.81420921,429 10.1111762,429.148856 10.2999476,429.401605 L15.1023977,435.831691 C15.634309,436.543876 15.6323433,437.521662 15.0975728,438.231703 L10.3000481,444.601611 C10.1111133,444.852469 9.81530724,445 9.50125922,445 L9,445 C8.72486786,445 8.50182918,444.776961 8.50182918,444.501829 C8.50182918,444.393541 8.53711392,444.288201 8.60234049,444.201761 L13.5482339,437.647318 C13.8159459,437.292538 13.8173723,436.803641 13.551735,436.447305 L8.59767256,429.80174 C8.43202986,429.579541 8.47787805,429.265133 8.70007736,429.09949 C8.78672907,429.034894 8.89192047,429 9,429 Z"
-              transform="translate(12.000000, 437.000000) scale(-1, 1) translate(-12.000000, -437.000000) "
-            />
-          </g>
-        </g>
-      </g>
-    </svg>
-  );
-};
-
 const defaultIconCss = css`
   position: absolute;
-  top: calc(50% - 32px);
+  top: 18px;
   right: -12px;
   z-index: 101;
   width: 24px;
-  height: 64px;
-  font-size: 24px;
-  line-height: 64px;
+  height: 24px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
   text-align: center;
   border-radius: 40px;
-  transition: transform, right 0.3s;
+  right: -8px;
+  background-color: #fff;
+  transition: 'transform 0.3s';
+  transition: transform right 0.3s;
   font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   .anticon {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 
 const CollapsedIcon: React.FC<any> = (props) => {
   const { isMobile, collapsed, ...rest } = props;
-  const [hover, setHover] = useState<boolean>(isMobile || false);
   return (
     <div
       {...rest}
@@ -82,25 +54,13 @@ const CollapsedIcon: React.FC<any> = (props) => {
         props.className,
         defaultIconCss,
         css({
-          transform: props?.collapsed ? 'rotate(180deg)' : 'rotate(0deg)',
-          color: 'rgba(5,30,55,0.08)',
-          right: -8,
-          '&:hover': {
-            color: 'rgba(0,0,0,0.45)',
-            right: undefined,
-            backgroundColor: '#f0f0f0',
-          },
+          transform: !props?.collapsed ? 'rotate(-180deg)' : 'rotate(0deg)',
+          boxShadow:
+            '0 4px 16px -4px rgba(0,0,0,0.05), 0 2px 8px -2px rgba(25,15,15,0.07), 0 1px 2px 0 rgba(0,0,0,0.08)',
         }),
       )}
-      onClick={(e) => {
-        props?.onClick(e);
-        // 手机端下
-        if (!props.isMobile) setHover(false);
-      }}
-      onMouseEnter={() => setHover(true)}
-      onMouseLeave={() => setHover(false)}
     >
-      {hover ? <CollapsedHoverIcon /> : <CollapsedMiniIcon />}
+      <RightOutlined />
     </div>
   );
 };
@@ -231,7 +191,6 @@ const proLayoutTitleHide = keyframes`
 const siderCss = css`
   position: relative;
   background: transparent;
-  border-right: 1px solid rgba(5, 30, 55, 0.08);
   --ant-primary-color: @color-neutral-light-text;
 `;
 
