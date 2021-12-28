@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.61.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.8...@ant-design/pro-table@2.61.9) (2021-12-28)
+
+### Bug Fixes
+
+- **table:** fix table no rerender error ([5af32fb](https://github.com/ant-design/pro-components/commit/5af32fbf4bf68d93a7851cb3d10da339e6e26d19))
+
 ## [2.61.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.7...@ant-design/pro-table@2.61.8) (2021-12-28)
 
 ### Bug Fixes

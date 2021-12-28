@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.4...@ant-design/pro-field@1.31.5) (2021-12-28)
+
+### Bug Fixes
+
+- **form:** fix react warning ([883eb37](https://github.com/ant-design/pro-components/commit/883eb3723a069a9b1a06a8dacc396e6991b0f139))
+- **form:** fix ts error ([dc2fa95](https://github.com/ant-design/pro-components/commit/dc2fa9564a2c34e07f1421545e131d725c27a1c0))
+
 ## [1.31.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.3...@ant-design/pro-field@1.31.4) (2021-12-28)
 
 **Note:** Version bump only for package @ant-design/pro-field
