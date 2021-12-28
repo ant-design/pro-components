@@ -4,7 +4,7 @@ import type { TableRowEditable, ProColumns, ActionType } from '@ant-design/pro-t
 import { EditableProTable } from '@ant-design/pro-table';
 import { ProFormText } from '@ant-design/pro-form';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { mount, render } from 'enzyme';
+import { mount } from 'enzyme';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint, waitTime } from '../util';
 import ProForm from '@ant-design/pro-form';

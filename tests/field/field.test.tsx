@@ -7,7 +7,7 @@ import Field from '@ant-design/pro-field';
 
 import Demo from './fixtures/demo';
 import { waitForComponentToPaint, waitTime } from '../util';
-import TreeSelectDemo from './fixtures/treeSelectDemo';
+// import TreeSelectDemo from './fixtures/treeSelectDemo';
 
 const domRef = React.createRef();
 

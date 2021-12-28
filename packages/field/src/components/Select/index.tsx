@@ -8,7 +8,6 @@ import React, {
   useCallback,
   useEffect,
 } from 'react';
-import type { OptionsType } from 'rc-select/lib/interface';
 import { Space, Spin, ConfigProvider } from 'antd';
 import type {
   ProFieldRequestData,
@@ -16,6 +15,7 @@ import type {
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
 } from '@ant-design/pro-utils';
+import type { DefaultOptionType } from 'antd/lib/select';
 
 import { useDebounceFn, useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
 import useSWR from 'swr';
@@ -30,7 +30,7 @@ import './index.less';
 
 let testId = 0;
 
-type SelectOptionType = OptionsType;
+type SelectOptionType = Partial<DefaultOptionType>[];
 
 export type FieldSelectProps<FieldProps = any> = {
   text: string;
@@ -212,16 +212,14 @@ function filerByItem(
  */
 export const proFieldParsingValueEnumToArray = (
   valueEnumParams: ProFieldValueEnumType,
-): {
-  value: string | number;
-  text: string;
-}[] => {
-  const enumArray: {
-    value: string | number;
-    text: string;
-    /** 是否禁用 */
-    disabled?: boolean;
-  }[] = [];
+): SelectOptionType => {
+  const enumArray: Partial<
+    DefaultOptionType & {
+      text: string;
+      /** 是否禁用 */
+      disabled?: boolean;
+    }
+  >[] = [];
   const valueEnum = ObjToMap(valueEnumParams);
 
   valueEnum.forEach((_, key) => {
@@ -238,6 +236,7 @@ export const proFieldParsingValueEnumToArray = (
       enumArray.push({
         text: value?.text as unknown as string,
         value: key,
+        label: value?.text as unknown as string,
         disabled: value.disabled,
       });
       return;
@@ -299,7 +298,7 @@ export const useFieldFetchData = (
 
   const [loading, setLoading] = useMountMergeState(false);
 
-  const { run: fetchData } = useDebounceFn<[Record<string, any>], OptionsType>(
+  const { run: fetchData } = useDebounceFn<[Record<string, any>], SelectOptionType>(
     async (params: Record<string, any>) => {
       if (!props.request) return [];
       setLoading(true);
@@ -368,7 +367,7 @@ export const useFieldFetchData = (
   }, [options, keyWords, props.fieldProps?.filterOption]);
   return [
     loading,
-    props.request ? (data as OptionsType) : resOptions,
+    props.request ? (data as SelectOptionType) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
       setLocaleData();
@@ -426,7 +425,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   if (mode === 'read') {
     const optionsValueEnum: ProSchemaValueEnumObj = options?.length
       ? options?.reduce((pre: any, cur) => {
-          return { ...pre, [cur.value]: cur.label };
+          return { ...pre, [cur.value || '']: cur.label };
         }, {})
       : undefined;
     // 如果有 label 直接就用 label
