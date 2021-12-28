@@ -100,7 +100,6 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     expandType: 'row',
     childrenColumnName: 'children',
     locale: {},
-    expandIconColumnIndex: 0,
   });
 
   // 提供和 Table 一样的 expand 支持
