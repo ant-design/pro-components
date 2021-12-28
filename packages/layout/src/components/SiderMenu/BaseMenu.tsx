@@ -437,7 +437,17 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             }
           `,
       )}
+      _internalRenderMenuItem={(dom, menuItemProps) => {
+        return React.cloneElement(dom, {
+          ...dom.props,
+          ...menuItemProps,
+          className: css`
+            border-radius: 2px;
+          `,
+        });
+      }}
       onOpenChange={setOpenKeys}
+      _internalDisableMenuItemTitleTooltip={true}
       {...props.menuProps}
     >
       {menuUtils.getNavMenuItems(finallyData, 0)}

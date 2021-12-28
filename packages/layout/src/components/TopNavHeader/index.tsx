@@ -145,6 +145,13 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
           position: relative;
           width: 100%;
           height: 100%;
+          background: #fff;
+          @supports (backdrop-filter: blur(20px) saturate(150%)) {
+            background-color: rgba(240, 242, 245, 0.4);
+            border-bottom: 1px solid #d8d8d8;
+            backdrop-filter: blur(20px) saturate(150%);
+          }
+
           .${antdPreFix}-menu {
             background: transparent;
           }
