@@ -34,11 +34,17 @@ const WrapContent: React.FC<{
 
   return (
     <ConfigProviderWrap autoClearCache>
-      <ErrorComponent>
+      {props.ErrorBoundary === false ? (
         <Layout.Content className={cx(className, ProLayoutCssContent)} style={style}>
           {children}
         </Layout.Content>
-      </ErrorComponent>
+      ) : (
+        <ErrorComponent>
+          <Layout.Content className={cx(className, ProLayoutCssContent)} style={style}>
+            {children}
+          </Layout.Content>
+        </ErrorComponent>
+      )}
     </ConfigProviderWrap>
   );
 };

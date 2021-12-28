@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.32.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.1...@ant-design/pro-utils@1.32.2) (2021-12-24)
+
+### Bug Fixes
+
+- **utils:** remove inputProps typing ([ea33916](https://github.com/ant-design/pro-components/commit/ea3391646b8a2bbb5bceea26b32720cd812df430))
+
+## [1.32.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.0...@ant-design/pro-utils@1.32.1) (2021-12-23)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+# [1.32.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.31.2...@ant-design/pro-utils@1.32.0) (2021-12-22)
+
+### Features
+
+- **field:** add DigitRange component ([#4133](https://github.com/ant-design/pro-components/issues/4133)) ([227a42d](https://github.com/ant-design/pro-components/commit/227a42def19035dc70e52f56142b33f55dd65f4b))
+
+## [1.31.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.31.1...@ant-design/pro-utils@1.31.2) (2021-12-22)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+## [1.31.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.31.0...@ant-design/pro-utils@1.31.1) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-utils
+
+# [1.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.30.0...@ant-design/pro-utils@1.31.0) (2021-12-20)
+
+### Bug Fixes
+
+- **utils:** Stronger judgment ([#4309](https://github.com/ant-design/pro-components/issues/4309)) ([50dafcf](https://github.com/ant-design/pro-components/commit/50dafcfd596e0a3814a7bc7fa4981790b61516cc))
+
+### Features
+
+- **form:** Support ProFormTreeSelect and valueType=treeSelect ([#4237](https://github.com/ant-design/pro-components/issues/4237)) ([31fab85](https://github.com/ant-design/pro-components/commit/31fab85ecc2c3ef873e88b050f26d1c3de4b8f98))
+
+# [1.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.29.0...@ant-design/pro-utils@1.30.0) (2021-12-17)
+
+### Bug Fixes
+
+- **utils:** useDebounceFn will auto reject promise ([#4270](https://github.com/ant-design/pro-components/issues/4270)) ([8de01a4](https://github.com/ant-design/pro-components/commit/8de01a4915bb8354923a0a6485f250cc6c242247))
+
+### Features
+
+- disable default error boundary ([#4276](https://github.com/ant-design/pro-components/issues/4276)) ([094942f](https://github.com/ant-design/pro-components/commit/094942fb96f4465e6e883c9ffb629ed7b228e9ce))
+
 # [1.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.28.9...@ant-design/pro-utils@1.29.0) (2021-12-13)
 
 ### Bug Fixes

@@ -1,6 +1,6 @@
 @root-entry-name: 'default';
 @import (reference) '~antd/es/style/themes/index.less';
-@import '~antd/es/list/style/index.less';
+@import (reference) '~antd/es/list/style/index.less';
 
 @pro-list-prefix-cls: ~'@{ant-prefix}-pro-list';
 
@@ -174,7 +174,7 @@
       word-break: break-all;
       cursor: pointer;
       &:hover {
-        color: @primary-color;
+        color: @primary-color-hover;
       }
     }
 

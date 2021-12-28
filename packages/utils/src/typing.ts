@@ -1,3 +1,4 @@
+import type { InputProps } from 'antd';
 import type { FormInstance, FormItemProps } from 'antd/lib/form';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
@@ -64,6 +65,7 @@ export type ProFieldValueType =
   | 'progress'
   | 'percent'
   | 'digit'
+  | 'digitRange'
   | 'second'
   | 'avatar'
   | 'code'
@@ -72,6 +74,7 @@ export type ProFieldValueType =
   | 'image'
   | 'jsonCode'
   | 'cascader'
+  | 'treeSelect'
   | 'color';
 
 export type RequestOptionsType = {
@@ -166,6 +169,8 @@ export type ProSchemaValueType<ValueType> =
   | (ValueType | ProFieldValueType)
   | ProFieldValueObjectType;
 
+export type ProSchemaFieldProps<T> = Record<string, any> & T;
+
 /** 各个组件公共支持的 render */
 export type ProSchema<
   Entity = Record<string, any>,
@@ -228,13 +233,8 @@ export type ProSchema<
           rowIndex: number;
           entity: Entity;
         },
-      ) => Record<string, any>)
-    | Record<string, any>
-    | {
-        placeholder?: string;
-        maxLength?: number;
-        [key: string]: any;
-      };
+      ) => ProSchemaFieldProps<ValueType>)
+    | ProSchemaFieldProps<ValueType>;
 
   /** @name 自定义的 formItemProps */
   formItemProps?:

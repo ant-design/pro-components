@@ -74,6 +74,10 @@ export default {
       name: 'theme-color',
       content: '#1890ff',
     },
+    {
+      name: 'google-site-verification',
+      content: '9LDp--DeEC-xOggsHl_t1MlR_1_2O972JpSUu8NZKMU',
+    },
   ],
   alias,
   // 用于切换 antd 暗黑模式
@@ -111,7 +115,6 @@ export default {
       }
     : false,
   hash: true,
-  exportStatic: {},
   targets: {
     chrome: 80,
     firefox: false,
@@ -193,7 +196,9 @@ export default {
       },
     ],
   },
+  ssr: isDeploy ? {} : undefined,
   webpack5: {},
-  mfsu: !isDeploy ? {} : undefined,
+  exportStatic: {},
+  // mfsu: !isDeploy ? {} : undefined,
   fastRefresh: {},
 };

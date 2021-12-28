@@ -100,7 +100,7 @@ class CellRenderFromItem<T> extends React.Component<
       columnProps?.formItemProps,
       counter.editableForm as FormInstance,
       {
-        rowKey: config.recordKey || config.index,
+        rowKey: this.state.rowName,
         rowIndex: config.index,
         ...columnProps,
         isEditable: true,
@@ -122,7 +122,7 @@ class CellRenderFromItem<T> extends React.Component<
           counter?.editableForm as FormInstance,
           {
             ...columnProps,
-            rowKey: config.recordKey || config.index,
+            rowKey: this.state.rowName,
             rowIndex: config.index,
             isEditable: true,
           },

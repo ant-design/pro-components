@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.32.0-beta.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.0-beta.7...@ant-design/pro-layout@6.32.0-beta.8) (2021-12-24)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.32.0-beta.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.0-beta.6...@ant-design/pro-layout@6.32.0-beta.7) (2021-12-23)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.32.0-beta.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.0-beta.5...@ant-design/pro-layout@6.32.0-beta.6) (2021-12-22)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.32.0-beta.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.0-beta.4...@ant-design/pro-layout@6.32.0-beta.5) (2021-12-22)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.32.0-beta.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.0-beta.3...@ant-design/pro-layout@6.32.0-beta.4) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.32.0-beta.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.0-beta.2...@ant-design/pro-layout@6.32.0-beta.3) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.32.0-beta.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.0-beta.1...@ant-design/pro-layout@6.32.0-beta.2) (2021-12-17)
+
+### Bug Fixes
+
+- **layout:** alway has a Provide ([#4261](https://github.com/ant-design/pro-components/issues/4261)) ([5c0ad5c](https://github.com/ant-design/pro-components/commit/5c0ad5cffd2983e1b963a249a0208ba3175c4433))
+- **utils:** useDebounceFn will auto reject promise ([#4270](https://github.com/ant-design/pro-components/issues/4270)) ([8de01a4](https://github.com/ant-design/pro-components/commit/8de01a4915bb8354923a0a6485f250cc6c242247))
+
+### Features
+
+- disable default error boundary ([#4276](https://github.com/ant-design/pro-components/issues/4276)) ([094942f](https://github.com/ant-design/pro-components/commit/094942fb96f4465e6e883c9ffb629ed7b228e9ce))
+
 # [6.32.0-beta.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.31.7...@ant-design/pro-layout@6.32.0-beta.1) (2021-12-13)
 
 ### Bug Fixes

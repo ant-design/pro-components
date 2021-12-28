@@ -112,7 +112,7 @@ const renderFooter: React.FC<
     'title'
   >
 > = ({ tabList, tabActiveKey, onTabChange, tabBarExtraContent, tabProps, prefixedClassName }) => {
-  if ((tabList && tabList.length) || tabBarExtraContent) {
+  if (Array.isArray(tabList) || tabBarExtraContent) {
     return (
       <Tabs
         className={`${prefixedClassName}-tabs`}

@@ -64,6 +64,9 @@ export default () => {
         <Descriptions.Item label="数字">
           <Field text="19897979797979" valueType="digit" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="数字范围">
+          <Field text={[123, 456]} valueType="digitRange" mode={state} plain={plain} />
+        </Descriptions.Item>
         <Descriptions.Item label="秒格式化">
           <Field text={2000000} valueType="second" mode={state} plain={plain} />
         </Descriptions.Item>
@@ -212,6 +215,51 @@ export default () => {
                   options: [
                     { label: '不解决', value: 'no' },
                     { label: '已废弃', value: 'clear' },
+                  ],
+                },
+              ];
+            }}
+          />
+        </Descriptions.Item>
+        <Descriptions.Item label="远程级联框">
+          <Field
+            mode={state}
+            params={{
+              name: 'test',
+            }}
+            valueType="cascader"
+            request={async () => {
+              return [
+                {
+                  value: 'zhejiang',
+                  label: 'Zhejiang',
+                  children: [
+                    {
+                      value: 'hangzhou',
+                      label: 'Hangzhou',
+                      children: [
+                        {
+                          value: 'xihu',
+                          label: 'West Lake',
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  value: 'jiangsu',
+                  label: 'Jiangsu',
+                  children: [
+                    {
+                      value: 'nanjing',
+                      label: 'Nanjing',
+                      children: [
+                        {
+                          value: 'zhonghuamen',
+                          label: 'Zhong Hua Men',
+                        },
+                      ],
+                    },
                   ],
                 },
               ];

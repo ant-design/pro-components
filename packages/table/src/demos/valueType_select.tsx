@@ -4,29 +4,29 @@ import ProTable from '@ant-design/pro-table';
 
 const cascaderOptions = [
   {
-    label: 'front end',
+    field: 'front end',
     value: 'fe',
-    children: [
+    language: [
       {
-        label: 'Javascript',
+        field: 'Javascript',
         value: 'js',
       },
       {
-        label: 'Typescript',
+        field: 'Typescript',
         value: 'ts',
       },
     ],
   },
   {
-    label: 'back end',
+    field: 'back end',
     value: 'be',
-    children: [
+    language: [
       {
-        label: 'Java',
+        field: 'Java',
         value: 'java',
       },
       {
-        label: 'Go',
+        field: 'Go',
         value: 'go',
       },
     ],
@@ -43,6 +43,7 @@ export type TableListItem = {
   key: number;
   status: string | number;
   cascader: string[];
+  treeSelect: string[];
 };
 const tableListDataSource: TableListItem[] = [];
 
@@ -51,6 +52,7 @@ for (let i = 0; i < 2; i += 1) {
     key: i,
     status: valueEnumMap[Math.floor(Math.random() * 10) % 3],
     cascader: ['fe', 'js'],
+    treeSelect: ['fe', 'js'],
   });
 }
 
@@ -107,6 +109,34 @@ const columns: ProColumns<TableListItem>[] = [
       options: cascaderOptions,
     },
     valueType: 'cascader',
+  },
+  {
+    title: '级联选择器',
+    key: 'cascader',
+    dataIndex: 'cascader',
+    width: 100,
+    fieldProps: {
+      options: cascaderOptions,
+      fieldNames: {
+        children: 'language',
+        label: 'field',
+      },
+    },
+    valueType: 'cascader',
+  },
+  {
+    title: '树形下拉框',
+    key: 'treeSelect',
+    dataIndex: 'treeSelect',
+    width: 100,
+    fieldProps: {
+      options: cascaderOptions,
+      fieldNames: {
+        children: 'language',
+        label: 'field',
+      },
+    },
+    valueType: 'treeSelect',
   },
   {
     title: '操作',

@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.61.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.6...@ant-design/pro-table@2.61.7) (2021-12-24)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.61.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.5...@ant-design/pro-table@2.61.6) (2021-12-23)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.61.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.4...@ant-design/pro-table@2.61.5) (2021-12-22)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.61.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.3...@ant-design/pro-table@2.61.4) (2021-12-22)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.61.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.2...@ant-design/pro-table@2.61.3) (2021-12-22)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.61.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.1...@ant-design/pro-table@2.61.2) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.61.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.0...@ant-design/pro-table@2.61.1) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.61.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.60.1...@ant-design/pro-table@2.61.0) (2021-12-20)
+
+### Bug Fixes
+
+- **table:** if one node, no draggable ([#4310](https://github.com/ant-design/pro-components/issues/4310)) ([819046b](https://github.com/ant-design/pro-components/commit/819046b61469a7707b3a4f3358208c7a277b6f08))
+
+### Features
+
+- **form:** Support ProFormTreeSelect and valueType=treeSelect ([#4237](https://github.com/ant-design/pro-components/issues/4237)) ([31fab85](https://github.com/ant-design/pro-components/commit/31fab85ecc2c3ef873e88b050f26d1c3de4b8f98))
+
+## [2.60.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.60.0...@ant-design/pro-table@2.60.1) (2021-12-17)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
 # [2.60.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.59.7...@ant-design/pro-table@2.60.0) (2021-12-13)
 
 ### Features

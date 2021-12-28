@@ -139,6 +139,7 @@ valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映
 | `timeRange`     | 时间区间                     |
 | `text`          | 文本框                       |
 | `select`        | 下拉框                       |
+| `treeSelect`    | 树形下拉框                   |
 | `checkbox`      | 多选框                       |
 | `rate`          | 星级组件                     |
 | `radio`         | 单选框                       |

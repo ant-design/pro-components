@@ -173,6 +173,7 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | breadcrumbRender | customize the data for breadcrumbs | `(route)=>route` | - |
 | route | Used to generate menus and breadcrumbs. umi's Layout will automatically have | [route](#route) | - |
 | disableMobile | disable automatic switching to mobile pages | `boolean` | false |
+| ErrorBoundary | Comes with error handling function to prevent blank screen. `ErrorBoundary=false` turn off default ErrorBoundary | `ReactNode` | default ErrorBoundary |
 | links | Show shortcut actions in the lower right corner of the menu | `ReactNode[]` | - |
 | menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu/) | `MenuProps` | undefined |
 | waterMarkProps | Configure watermark, watermark is a function of PageContainer, layout is only transparently transmitted to PageContainer | [WaterMarkProps](/components/water-mark) | - |

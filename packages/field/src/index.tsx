@@ -39,7 +39,10 @@ import FieldSecond from './components/Second';
 import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
 import FieldCascader from './components/Cascader';
+import FieldTreeSelect from './components/TreeSelect';
 import FieldColorPicker from './components/ColorPicker';
+import FieldDigitRange from './components/DigitRange';
+// import type {RangeInputNumberProps,ExtraProps as } from './components/DigitRange'
 import { noteOnce } from 'rc-util/lib/warning';
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
@@ -302,6 +305,10 @@ const defaultRenderText = (
     return <FieldDigit text={text as number} {...props} />;
   }
 
+  if (valueType === 'digitRange') {
+    return <FieldDigitRange text={text as number[]} {...props} />;
+  }
+
   if (valueType === 'second') {
     return <FieldSecond text={text as number} {...props} />;
   }
@@ -343,6 +350,11 @@ const defaultRenderText = (
   if (valueType === 'cascader') {
     return <FieldCascader text={text as string} {...props} />;
   }
+
+  if (valueType === 'treeSelect') {
+    return <FieldTreeSelect text={text as string} {...props} />;
+  }
+
   if (valueType === 'color') {
     return <FieldColorPicker text={text as string} {...props} />;
   }

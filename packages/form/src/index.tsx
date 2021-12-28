@@ -11,12 +11,15 @@ import ProFormSwitch from './components/Switch';
 import ProFormRate from './components/Rate';
 import ProFormSlider from './components/Slider';
 import ProFormCascader from './components/Cascader';
+import ProFormTreeSelect from './components/TreeSelect';
 import ProFormUploadDragger from './components/UploadDragger';
 import ProFormUploadButton from './components/UploadButton';
 import type { ProFormFieldProps } from './components/Field';
 import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
 import ProFormDigit from './components/Digit';
+import ProFormDigitRange from './components/DigitRange';
+import type { ProFormDigitRangeProps } from './components/DigitRange';
 import ProFormMoney from './components/Money';
 import type { ProFormFieldSetProps } from './components/FieldSet';
 import ProFormFieldSet from './components/FieldSet';
@@ -73,6 +76,7 @@ export type {
   ProFormColumnsType,
   LoginFormProps,
   ProFormInstance,
+  ProFormDigitRangeProps,
 };
 
 const ProFormGroup = ProForm.Group;
@@ -85,6 +89,7 @@ export {
   ProFormTimePicker,
   ProFormText,
   ProFormCascader,
+  ProFormTreeSelect,
   ProFormTextArea,
   ProFormSwitch,
   ProFormField,
@@ -92,6 +97,7 @@ export {
   ProFormSelect,
   FormItemProvide,
   ProFormDigit,
+  ProFormDigitRange,
   ProFormMoney,
   ProFormCheckbox,
   ProFormRadio,

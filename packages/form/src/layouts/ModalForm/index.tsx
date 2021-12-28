@@ -66,6 +66,13 @@ function ModalForm<T = Record<string, any>>({
     onChange: onVisibleChange,
   });
 
+  /** Modal dom 解除渲染之后 */
+  const [isDestroy, setIsDestroy] = useState<boolean>(!!rest.visible);
+
+  useEffect(() => {
+    setIsDestroy(!!rest.visible);
+  }, [rest.visible]);
+
   const context = useContext(ConfigProvider.ConfigContext);
 
   const renderDom = useMemo(() => {
@@ -201,6 +208,7 @@ function ModalForm<T = Record<string, any>>({
               width={width || 800}
               {...modalProps}
               afterClose={() => {
+                setIsDestroy(false);
                 modalProps?.afterClose?.();
               }}
               getContainer={false}
@@ -234,6 +242,7 @@ function ModalForm<T = Record<string, any>>({
           ...trigger.props,
           onClick: async (e: any) => {
             setVisible(!visible);
+            setIsDestroy(!isDestroy);
             trigger.props?.onClick?.(e);
           },
         })}
@@ -241,7 +250,7 @@ function ModalForm<T = Record<string, any>>({
   );
 
   /** 如果destroyOnClose，关闭的时候接触渲染Form */
-  if (modalProps?.destroyOnClose && !visible) return triggerDom;
+  if (modalProps?.destroyOnClose && !isDestroy) return triggerDom;
 
   return (
     <>

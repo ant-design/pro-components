@@ -178,11 +178,15 @@ const enLocale = {
 
 // Generate the intl object
 const enUSIntl = createIntl('en_US', enUS);
-
+import { ConfigProvider } from '@ant-design/pro-provide';
 // use
-<IntlProvider value={enUSIntl}>
+<ConfigProvider
+  value={{
+    intl: enUSIntl,
+  }}
+>
   <ProTable />
-</IntlProvider>;
+</ConfigProvider>;
 ```
 
 <code src="./demos/intl.tsx" background="#f5f5f5" height="320px"/>

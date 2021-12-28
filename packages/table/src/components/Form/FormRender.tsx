@@ -155,11 +155,15 @@ const FormRender = <T, U = any>({
           (['textarea', 'jsonCode', 'code'].includes(item?.valueType) && type === 'table')
             ? 'text'
             : (item?.valueType as 'text');
+        const columnKey = item?.key || item?.dataIndex?.toString();
         return {
           ...item,
           width: undefined,
           ...(item.search ? item.search : {}),
           valueType: finalValueType,
+          proFieldProps: {
+            proFieldKey: columnKey ? `table-field-${columnKey}` : undefined,
+          },
         };
       });
   }, [columns, type]);
