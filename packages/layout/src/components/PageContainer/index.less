@@ -21,16 +21,15 @@
       margin: 0;
     }
   }
+
   &-ghost {
+    backdrop-filter: blur(5px) saturate(100%);
+
     .@{pro-layout-page-container}-warp {
       background-color: transparent;
       .@{ant-prefix}-page-header.has-footer {
         padding-bottom: 24px;
       }
-    }
-
-    .@{ant-prefix}-page-header-ghost {
-      backdrop-filter: blur(5px) saturate(100%);
     }
 
     .@{pro-layout-page-container}-children-content {

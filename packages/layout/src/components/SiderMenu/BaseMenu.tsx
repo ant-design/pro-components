@@ -437,7 +437,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       className={cx(
         className,
         css`
-          padding: 6px;
+          padding-left: 6px;
+          padding-top: 6px;
           background: transparent;
           // 关掉动画避免性能问题
           * {
@@ -447,7 +448,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             padding: 8px;
           }
           .${antPrefixClassName}-menu-root {
-            padding: 6px;
+            padding-left: 6px;
           }
 
           .${antPrefixClassName}-menu-sub {
@@ -473,13 +474,32 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             }
           `,
       )}
+      _internalRenderSubMenuItem={(dom, menuItemProps) => {
+        return React.cloneElement(dom, {
+          ...dom.props,
+          ...menuItemProps,
+          className: cx(
+            css`
+              border-radius: 2px;
+              min-height: 40px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+              transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+              cursor: pointer;
+            `,
+          ),
+        });
+      }}
       _internalRenderMenuItem={(dom, menuItemProps) => {
         return React.cloneElement(dom, {
           ...dom.props,
           ...menuItemProps,
           className: css`
             border-radius: 2px;
-            height: 40px;
+            min-height: 40px;
+            width: 100%;
             display: flex;
             align-items: center;
             transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
