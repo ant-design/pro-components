@@ -10,6 +10,7 @@ import enGB from './locale/en_GB';
 import viVN from './locale/vi_VN';
 import itIT from './locale/it_IT';
 import esES from './locale/es_ES';
+import caES from './locale/ca_ES';
 import jaJP from './locale/ja_JP';
 import ruRU from './locale/ru_RU';
 import srRS from './locale/sr_RS';
@@ -132,6 +133,7 @@ const viVNIntl = createIntl('vi_VN', viVN);
 const itITIntl = createIntl('it_IT', itIT);
 const jaJPIntl = createIntl('ja_JP', jaJP);
 const esESIntl = createIntl('es_ES', esES);
+const caESIntl = createIntl('ca_ES', caES);
 const ruRUIntl = createIntl('ru_RU', ruRU);
 const srRSIntl = createIntl('sr_RS', srRS);
 const msMYIntl = createIntl('ms_MY', msMY);
@@ -154,6 +156,7 @@ const intlMap = {
   'it-IT': itITIntl,
   'ja-JP': jaJPIntl,
   'es-ES': esESIntl,
+  'ca-ES': caESIntl,
   'ru-RU': ruRUIntl,
   'sr-RS': srRSIntl,
   'ms-MY': msMYIntl,
@@ -181,6 +184,7 @@ export {
   itITIntl,
   jaJPIntl,
   esESIntl,
+  caESIntl,
   ruRUIntl,
   srRSIntl,
   msMYIntl,
