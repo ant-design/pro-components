@@ -50,10 +50,27 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
     if (!Array.isArray(doms)) doms = [doms];
     const domLength = doms.length;
     return (
-      <div className={`${prefixCls}-header-actions`}>
+      <div
+        className={cx(
+          `${prefixCls}-header-actions`,
+          css`
+            display: flex;
+          `,
+        )}
+      >
         {doms.map((dom, index) => (
           <span
-            className={`${prefixCls}-header-actions-item`}
+            className={cx(
+              `${prefixCls}-header-actions-item`,
+              css`
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 6px;
+                font-size: 16px;
+                cursor: pointer;
+              `,
+            )}
             style={{
               marginRight: index !== domLength ? 8 : undefined,
             }}
@@ -61,7 +78,18 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
             {dom}
           </span>
         ))}
-        {avatarDom}
+        <span
+          className={cx(
+            `${prefixCls}-header-actions-item`,
+            css`
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+            `,
+          )}
+        >
+          {avatarDom}
+        </span>
       </div>
     );
   };
