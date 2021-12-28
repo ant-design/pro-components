@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.61.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.7...@ant-design/pro-table@2.61.8) (2021-12-28)
+
+### Bug Fixes
+
+- **table:** Table 在 column 带有 request 情况下，搜索栏的表单由于没有设置 proFieldKey 导致在页面初始化会发出两个重 复的 request ([#4336](https://github.com/ant-design/pro-components/issues/4336)) ([219248b](https://github.com/ant-design/pro-components/commit/219248bbe80f3a3711524d668eac56626d131e89))
+
 ## [2.61.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.6...@ant-design/pro-table@2.61.7) (2021-12-24)
 
 **Note:** Version bump only for package @ant-design/pro-table
