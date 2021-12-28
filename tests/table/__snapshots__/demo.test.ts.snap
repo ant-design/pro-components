@@ -50909,7 +50909,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="cascader_list_0"
                             aria-autocomplete="list"
                             aria-controls="cascader_list"
                             aria-haspopup="listbox"
@@ -51001,7 +51000,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           class="ant-select-selection-search"
                         >
                           <input
-                            aria-activedescendant="cascader_list_0"
                             aria-autocomplete="list"
                             aria-controls="cascader_list"
                             aria-haspopup="listbox"
@@ -51090,6 +51088,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                       >
                         <div
                           class="ant-select ant-tree-select ant-pro-field-tree-select ant-select-single ant-select-show-arrow"
+                          options="[object Object],[object Object]"
                           style="width: 100%;"
                         >
                           <div
@@ -51099,7 +51098,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                               class="ant-select-selection-search"
                             >
                               <input
-                                aria-activedescendant="treeSelect_list_0"
                                 aria-autocomplete="list"
                                 aria-controls="treeSelect_list"
                                 aria-haspopup="listbox"

@@ -222,7 +222,7 @@ const EditorProTableDemo = (
 
 describe('EditorProTable', () => {
   it('📝 EditableProTable support recordCreatorProps=false', async () => {
-    const wrapper = render(
+    const wrapper = mount(
       <EditableProTable<DataSourceType>
         rowKey="id"
         recordCreatorProps={false}
@@ -230,7 +230,8 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    await waitForComponentToPaint(wrapper, 1000);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('📝 EditableProTable support pagination', async () => {
@@ -353,7 +354,7 @@ describe('EditorProTable', () => {
   });
 
   it('📝 EditableProTable support actionRender', async () => {
-    const wrapper = render(
+    const wrapper = mount(
       <EditableProTable<DataSourceType>
         rowKey="id"
         recordCreatorProps={false}
@@ -374,11 +375,12 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
+    await waitForComponentToPaint(wrapper, 1100);
     expect(wrapper.find('div#test').text()).toBe('xx');
   });
 
   it('📝 EditableProTable support recordCreatorProps', async () => {
-    const wrapper = render(
+    const wrapper = mount(
       <EditableProTable<DataSourceType>
         rowKey="id"
         recordCreatorProps={{
@@ -389,7 +391,8 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    await waitForComponentToPaint(wrapper, 1100);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('📝 EditableProTable support controlled', async () => {
@@ -421,6 +424,7 @@ describe('EditorProTable', () => {
       />,
     );
 
+    await waitForComponentToPaint(wrapper, 1100);
     expect(
       wrapper
         .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
@@ -483,7 +487,7 @@ describe('EditorProTable', () => {
         }}
       />,
     );
-
+    await waitForComponentToPaint(wrapper, 1000);
     act(() => {
       wrapper
         .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
@@ -560,7 +564,7 @@ describe('EditorProTable', () => {
         }}
       />,
     );
-
+    await waitForComponentToPaint(wrapper, 1000);
     act(() => {
       wrapper
         .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
@@ -638,6 +642,7 @@ describe('EditorProTable', () => {
       />,
     );
 
+    await waitForComponentToPaint(wrapper, 1200);
     act(() => {
       wrapper
         .find('.ant-table-cell .ant-row.ant-form-item .ant-form-item-control-input input')
@@ -722,7 +727,7 @@ describe('EditorProTable', () => {
   });
 
   it('📝 EditableProTable support recordCreatorProps.position', async () => {
-    const wrapper = render(
+    const wrapper = mount(
       <EditableProTable<DataSourceType>
         rowKey="id"
         recordCreatorProps={{
@@ -734,7 +739,8 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    await waitForComponentToPaint(wrapper, 1200);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('📝 support onEditorChange', async () => {
@@ -1077,13 +1083,14 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
+    await waitForComponentToPaint(wrapper, 1200);
     act(() => {
       expect(wrapper.render()).toMatchSnapshot();
     });
   });
 
   it('📝 columns support editable test', async () => {
-    const wrapper = render(
+    const wrapper = mount(
       <EditableProTable
         rowKey="id"
         editable={{
@@ -1108,7 +1115,8 @@ describe('EditorProTable', () => {
         value={defaultData}
       />,
     );
-    expect(wrapper).toMatchSnapshot();
+    await waitForComponentToPaint(wrapper, 1200);
+    expect(wrapper.render()).toMatchSnapshot();
   });
 
   it('📝 columns initialValue alway work', async () => {

@@ -1,7 +1,7 @@
 /* eslint max-classes-per-file: ["error", 3] */
 import React, { useContext, useRef, useCallback, useMemo, useEffect } from 'react';
 import type { TablePaginationConfig } from 'antd';
-import { Table, ConfigProvider, Card } from 'antd';
+import { Table, Spin, ConfigProvider, Card } from 'antd';
 
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
@@ -228,6 +228,14 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
             key="table"
             submitter={false}
             omitNil={false}
+            contentRender={(items: React.ReactNode) => {
+              if (counter.editableForm) return items;
+              return (
+                <div style={{ paddingTop: 100, textAlign: 'center' }}>
+                  <Spin size="large" />
+                </div>
+              );
+            }}
           >
             {tableDom}
           </ProForm>
@@ -635,6 +643,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // eslint-disable-next-line react-hooks/exhaustive-deps
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
   ]);
+
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
   useDeepCompareEffectDebounce(
     () => {
@@ -741,7 +750,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         alwaysShowAlert={propsRowSelection?.alwaysShowAlert}
       />
     ) : null;
-
   return (
     <TableRender
       {...props}
