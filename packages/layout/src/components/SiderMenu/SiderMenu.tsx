@@ -358,6 +358,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           className={cx([
             `${baseClassName}-actions-list`,
             css`
+              color: rgba(0, 0, 0, 0.45);
               animation: ${proLayoutTitleHide} 0.3s;
               & > * {
                 cursor: pointer;

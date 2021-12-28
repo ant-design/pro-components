@@ -148,7 +148,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
           background: #fff;
           @supports (backdrop-filter: blur(20px) saturate(150%)) {
             background-color: rgba(240, 242, 245, 0.4);
-            border-bottom: 1px solid #d8d8d8;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
             backdrop-filter: blur(20px) saturate(150%);
           }
 

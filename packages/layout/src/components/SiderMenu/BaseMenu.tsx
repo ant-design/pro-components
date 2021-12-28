@@ -83,6 +83,11 @@ const MenuDivider: React.FC<{
   </div>
 );
 
+const genMenuItemCss = (prefixCls: string | undefined, hasIcon: boolean) =>
+  `${prefixCls}-menu-item-title ${css`
+    margin-left: ${hasIcon ? '8px' : '0'};
+  `}`;
+
 // Allow menu.js config icon as string or ReactNode
 //   icon: 'setting',
 //   icon: 'icon-geren' #For Iconfont ,
@@ -128,7 +133,7 @@ class MenuUtil {
       const defaultTitle = item.icon ? (
         <span className={`${prefixCls}-menu-item`} title={name}>
           {hasIcon && getIcon(item.icon, iconPrefixes)}
-          <span className={`${prefixCls}-menu-item-title`}>{name}</span>
+          <span className={genMenuItemCss(prefixCls, hasIcon)}>{name}</span>
         </span>
       ) : (
         <span className={`${prefixCls}-menu-item`} title={name}>
@@ -213,7 +218,7 @@ class MenuUtil {
     let defaultItem = (
       <span className={`${prefixCls}-menu-item`}>
         {icon}
-        <span className={`${prefixCls}-menu-item-title`}>{name}</span>
+        <span className={genMenuItemCss(prefixCls, hasIcon)}>{name}</span>
       </span>
     );
     const isHttpUrl = isUrl(itemPath);
@@ -229,7 +234,7 @@ class MenuUtil {
           className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
         >
           {icon}
-          <span className={`${prefixCls}-menu-item-title`}>{name}</span>
+          <span className={genMenuItemCss(prefixCls, hasIcon)}>{name}</span>
         </span>
       );
     }
@@ -417,6 +422,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     return null;
   }
 
+  const antPrefixClassName = context.getPrefixCls();
+
   return (
     <Menu
       {...openKeysProps}
@@ -429,9 +436,38 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       style={style}
       className={cx(
         className,
+        css`
+          padding: 6px;
+          background: transparent;
+          // 关掉动画避免性能问题
+          * {
+            transition: none !important;
+          }
+          > * {
+            padding: 8px;
+          }
+          .${antPrefixClassName}-menu-root {
+            padding: 6px;
+          }
+
+          .${antPrefixClassName}-menu-sub {
+            background: transparent;
+          }
+
+          .${antPrefixClassName}-pro-menu-item-divider {
+            &:last-child {
+              display: none;
+            }
+          }
+          .${antPrefixClassName}-menu-item-group-title {
+            color: rgba(0, 0, 0, 0.45);
+            font-size: 12px;
+            line-height: 20px;
+          }
+        `,
         mode === 'horizontal' &&
           css`
-            li.${context.getPrefixCls()}-menu-item {
+            li.${antPrefixClassName}-menu-item {
               height: 100%;
               line-height: 1;
             }
@@ -443,6 +479,20 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           ...menuItemProps,
           className: css`
             border-radius: 2px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+            cursor: pointer;
+            a {
+              color: rgba(0, 0, 0, 0.65);
+              font-size: 14px;
+              line-height: 22px;
+            }
+            &:hover {
+              background-color: rgba(0, 0, 0, 0.05);
+              border-radius: 4px;
+            }
           `,
         });
       }}

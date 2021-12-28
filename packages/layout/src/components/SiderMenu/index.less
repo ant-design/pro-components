@@ -22,82 +22,6 @@
     }
   }
 
-  // 这里关掉了动画，不然使用无法兼容
-  .@{ant-prefix}-menu {
-    background: transparent;
-
-    &-root {
-      padding: 6px;
-    }
-
-    // 关掉动画避免性能问题
-    * {
-      transition: none !important;
-    }
-
-    &:not(.@{ant-prefix}-menu-horizontal) .@{ant-prefix}-menu-item-selected {
-      background-color: @color-neutral-light-active;
-      border-radius: 2px;
-    }
-
-    .@{ant-prefix}-menu-item:hover {
-      background-color: @color-neutral-light-active;
-    }
-
-    .@{ant-prefix}-menu-submenu-title:hover {
-      background-color: @color-neutral-light-active;
-    }
-
-    &-item {
-      transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1) !important;
-    }
-
-    &-item:active,
-    &-submenu-title:active {
-      background-color: @color-neutral-light-hover;
-    }
-
-    &-item-selected {
-      // 隐藏选中之后的蓝色
-      &::after {
-        display: none;
-      }
-    }
-
-    &-item-group-title {
-      color: rgba(0, 0, 0, 0.45);
-      font-size: 12px;
-      line-height: 20px;
-    }
-
-    .@{ant-prefix}-pro-menu-item-divider {
-      &:last-child {
-        display: none;
-      }
-    }
-  }
-
-  .@{ant-prefix}-menu-inline-collapsed {
-    &:not(.@{ant-prefix}-menu-horizontal) .@{ant-prefix}-menu-item-selected,
-    .@{ant-prefix}-menu-submenu-selected {
-      background-color: var(--ant-primary-color-deprecated-l-35);
-      border-radius: 2px;
-      a span {
-        color: var(--ant-primary-6);
-      }
-    }
-  }
-
-  &.@{ant-prefix}-layout-sider {
-    .@{ant-prefix}-menu-item a {
-      color: @heading-color;
-    }
-    .@{ant-prefix}-menu-item-selected a,
-    .@{ant-prefix}-menu-item a:hover {
-      color: @color-neutral-light-text;
-    }
-  }
-
   &-logo {
     color: @heading-color;
   }
@@ -160,9 +84,5 @@
         overflow-y: auto;
       }
     }
-  }
-
-  &-actions-list {
-    color: @text-color-secondary;
   }
 }
