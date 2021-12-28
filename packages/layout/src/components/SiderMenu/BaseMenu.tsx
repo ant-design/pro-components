@@ -437,8 +437,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       className={cx(
         className,
         css`
-          padding-left: 6px;
-          padding-top: 6px;
+          padding: 6px;
           background: transparent;
           // 关掉动画避免性能问题
           * {
@@ -448,7 +447,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             padding: 8px;
           }
           .${antPrefixClassName}-menu-root {
-            padding-left: 6px;
+            padding: 6px;
           }
 
           .${antPrefixClassName}-menu-sub {
