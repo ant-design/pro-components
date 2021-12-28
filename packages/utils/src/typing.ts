@@ -169,7 +169,7 @@ export type ProSchemaValueType<ValueType> =
   | (ValueType | ProFieldValueType)
   | ProFieldValueObjectType;
 
-export type ProSchemaFieldProps<T> = Record<string, any> & T;
+export type ProSchemaFieldProps<T> = Record<string, any> | T | Partial<InputProps>;
 
 /** 各个组件公共支持的 render */
 export type ProSchema<
@@ -234,7 +234,7 @@ export type ProSchema<
           entity: Entity;
         },
       ) => ProSchemaFieldProps<ValueType>)
-    | ProSchemaFieldProps<ValueType> | Record<string, any>;
+    | ProSchemaFieldProps<ValueType>;
 
   /** @name 自定义的 formItemProps */
   formItemProps?:
