@@ -83,7 +83,7 @@ const LightFilterContainer: React.FC<{
       outsideItems: outsideItemsArr,
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.items.length]);
+  }, [props.items]);
 
   const collapseLabelRender = () => {
     if (collapseLabel) {
