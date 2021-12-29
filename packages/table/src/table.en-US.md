@@ -305,7 +305,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| defaultValue | The default value of the column status, only for the first time | `record <string, ColumnsState>;` |
+| defaultValue | The default value of the column status, only for the first time | `Record <string, ColumnsState>;` |
 | value | Column status, support controlled mode | `Record <string, ColumnsState>;` |
 | onChange | Column status After changing | `(value: Record <string, ColumnsState>) => void` |
 | PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |
