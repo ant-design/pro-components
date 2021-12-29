@@ -267,6 +267,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     affixProps,
     ghost,
     fixedHeader,
+    breadcrumbRender,
     ...restProps
   } = props;
   const value = useContext(RouteContext);
@@ -299,6 +300,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   const pageHeaderDom = (
     <ProPageHeader
       {...restProps}
+      breadcrumbRender={breadcrumbRender || restProps?.header?.breadcrumbRender}
       ghost={ghost}
       prefixCls={undefined}
       prefixedClassName={prefixedClassName}
