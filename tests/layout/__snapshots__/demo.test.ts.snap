@@ -21133,8 +21133,92 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                 class="ant-pro-page-container-warp"
               >
                 <div
-                  class="ant-page-header"
+                  class="ant-page-header has-breadcrumb"
                 >
+                  <div
+                    class="ant-breadcrumb"
+                  >
+                    <span>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="/"
+                        >
+                          主页
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="/"
+                        >
+                          测试页
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="/admin"
+                        >
+                          管理
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="/admin/process"
+                        >
+                          申请单列表
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </span>
+                    <span>
+                      <span
+                        class="ant-breadcrumb-link"
+                      >
+                        <a
+                          href="/admin/process/edit/123"
+                        >
+                          编辑申请单
+                        </a>
+                      </span>
+                      <span
+                        class="ant-breadcrumb-separator"
+                      >
+                        /
+                      </span>
+                    </span>
+                  </div>
                   <div
                     class="ant-page-header-heading"
                   >
