@@ -27328,6 +27328,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                   class="ant-select-selection-search"
                 >
                   <input
+                    aria-activedescendant="area_list_0"
                     aria-autocomplete="list"
                     aria-controls="area_list"
                     aria-haspopup="listbox"
@@ -27453,6 +27454,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/base.tsx correctly 1`
                           style="width: 0px;"
                         >
                           <input
+                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                             aria-autocomplete="list"
                             aria-controls="rc_select_TEST_OR_SSR_list"
                             aria-haspopup="listbox"
