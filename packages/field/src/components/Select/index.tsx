@@ -423,11 +423,11 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   }));
 
   if (mode === 'read') {
-    const optionsValueEnum: ProSchemaValueEnumObj = options?.length
-      ? options?.reduce((pre: any, cur) => {
-          return { ...pre, [cur.value || '']: cur.label };
-        }, {})
-      : undefined;
+    const optionsValueEnumMap: ProSchemaValueEnumMap = new Map();
+    options?.forEach((opt) => {
+      optionsValueEnumMap.set(opt.value ?? '', opt.label);
+    });
+
     // 如果有 label 直接就用 label
     // @ts-ignore
     if (rest.text?.label) {
@@ -439,7 +439,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
       <>
         {proFieldParsingText(
           rest.text,
-          ObjToMap(valueEnum || optionsValueEnum) as unknown as ProSchemaValueEnumObj,
+          ObjToMap(valueEnum || optionsValueEnumMap) as unknown as ProSchemaValueEnumObj,
         )}
       </>
     );
