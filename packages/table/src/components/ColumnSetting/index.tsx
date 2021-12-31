@@ -128,6 +128,8 @@ const CheckboxList: React.FC<{
           key: columnKey,
           ...omit(rest, ['className']),
           selectable: false,
+          disableCheckbox: Boolean(config.disableCheckbox),
+          disabled: Boolean(config.disabled),
           isLeaf: parentConfig ? true : undefined,
         };
         if (children) {

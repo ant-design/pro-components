@@ -14,6 +14,8 @@ export type ColumnsState = {
   show?: boolean;
   fixed?: 'right' | 'left' | undefined;
   order?: number;
+  disableCheckbox?: boolean;
+  disabled?: boolean;
 };
 
 export type UseContainerProps<T = any> = {
