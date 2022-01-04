@@ -603,6 +603,7 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
               aria-selected="false"
               class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option  ant-select-item-option-active"
               data-item="[object Object]"
+              label="关闭"
               title="关闭"
             >
               <div
@@ -621,6 +622,7 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
               aria-selected="false"
               class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option  ant-select-item-option-disabled"
               data-item="[object Object]"
+              label="运行中"
               title="运行中"
             >
               <div
@@ -639,6 +641,7 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
               aria-selected="false"
               class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option "
               data-item="[object Object]"
+              label="已上线"
               title="已上线"
             >
               <div
@@ -657,6 +660,7 @@ exports[`Table valueEnum 🎏 dynamic enum test 1`] = `
               aria-selected="false"
               class="ant-select-item ant-select-item-option ant-pro-filed-search-select-option "
               data-item="[object Object]"
+              label="异常"
               title="异常"
             >
               <div
