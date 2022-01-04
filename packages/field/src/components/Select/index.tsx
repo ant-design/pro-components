@@ -14,8 +14,8 @@ import type {
   ProFieldValueEnumType,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
+  RequestOptionsType,
 } from '@ant-design/pro-utils';
-import type { DefaultOptionType } from 'antd/lib/select';
 
 import { useDebounceFn, useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
 import useSWR from 'swr';
@@ -30,7 +30,7 @@ import './index.less';
 
 let testId = 0;
 
-type SelectOptionType = Partial<DefaultOptionType>[];
+type SelectOptionType = Partial<RequestOptionsType>[];
 
 export type FieldSelectProps<FieldProps = any> = {
   text: string;
@@ -214,7 +214,7 @@ export const proFieldParsingValueEnumToArray = (
   valueEnumParams: ProFieldValueEnumType,
 ): SelectOptionType => {
   const enumArray: Partial<
-    DefaultOptionType & {
+    RequestOptionsType & {
       text: string;
       /** 是否禁用 */
       disabled?: boolean;
@@ -252,9 +252,10 @@ export const proFieldParsingValueEnumToArray = (
 export const useFieldFetchData = (
   props: FieldSelectProps & {
     proFieldKey?: React.Key;
+    defaultKeyWords?: string;
   },
 ): [boolean, SelectOptionType, (keyWord?: string) => void, () => void] => {
-  const [keyWords, setKeyWords] = useState<string | undefined>(undefined);
+  const [keyWords, setKeyWords] = useState<string | undefined>(props.defaultKeyWords);
   /** Key 是用来缓存请求的，如果不在是有问题 */
   const [cacheKey] = useState(() => {
     if (props.proFieldKey) {
@@ -325,6 +326,7 @@ export const useFieldFetchData = (
         keyWords: kw,
       }),
     {
+      revalidateIfStale: false,
       revalidateOnFocus: false,
       shouldRetryOnError: false,
       revalidateOnReconnect: false,
@@ -370,7 +372,6 @@ export const useFieldFetchData = (
     props.request ? (data as SelectOptionType) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
-      setLocaleData();
     },
     () => {
       setKeyWords(undefined);
