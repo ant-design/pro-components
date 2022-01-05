@@ -9124,7 +9124,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                   />
                 </svg>
               </span>
-               @2022 蚂蚁金服体验技术部出品
+               2022 蚂蚁金服体验技术部出品
             </div>
           </div>
         </footer>
