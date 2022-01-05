@@ -1597,10 +1597,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
     </div>
     <div
       class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
       <div
         class="ant-space-item"
-        style="margin-right: 8px;"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
         <button
           class="ant-btn ant-btn-primary"
@@ -1613,6 +1614,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       </div>
       <div
         class="ant-space-item"
+        style="padding-bottom: 8px;"
       >
         <button
           class="ant-btn"
@@ -2318,10 +2320,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
           </div>
           <div
             class="ant-space ant-space-horizontal ant-space-align-center"
+            style="flex-wrap: wrap; margin-bottom: -8px;"
           >
             <div
               class="ant-space-item"
-              style="margin-right: 8px;"
+              style="margin-right: 8px; padding-bottom: 8px;"
             >
               <button
                 class="ant-btn ant-btn-primary"
@@ -2334,6 +2337,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
             </div>
             <div
               class="ant-space-item"
+              style="padding-bottom: 8px;"
             >
               <button
                 class="ant-btn"
@@ -15346,10 +15350,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                       >
                         <div
                           class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="qixian-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="qixian-btn"
@@ -15362,6 +15367,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                           </div>
                           <div
                             class="qixian-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="qixian-btn qixian-btn-primary"
@@ -19676,10 +19682,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                           >
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-center"
+                              style="flex-wrap: wrap; margin-bottom: -8px;"
                             >
                               <div
                                 class="ant-space-item"
-                                style="margin-right: 8px;"
+                                style="margin-right: 8px; padding-bottom: 8px;"
                               >
                                 <button
                                   class="ant-btn"
@@ -19692,6 +19699,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                               </div>
                               <div
                                 class="ant-space-item"
+                                style="padding-bottom: 8px;"
                               >
                                 <button
                                   class="ant-btn ant-btn-primary"
@@ -21052,10 +21060,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -21068,6 +21077,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -22222,10 +22232,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -22238,6 +22249,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -23966,10 +23978,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/drag.tsx correctly 
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -23982,6 +23995,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/drag.tsx correctly 
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -24684,10 +24698,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/drag-sort-table.tsx
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -24700,6 +24715,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/drag-sort-table.tsx
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -25731,10 +25747,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                 >
                                   <div
                                     class="ant-space ant-space-horizontal ant-space-align-center"
+                                    style="flex-wrap: wrap; margin-bottom: -8px;"
                                   >
                                     <div
                                       class="ant-space-item"
-                                      style="margin-right: 8px;"
+                                      style="margin-right: 8px; padding-bottom: 8px;"
                                     >
                                       <button
                                         class="ant-btn"
@@ -25747,6 +25764,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                     </div>
                                     <div
                                       class="ant-space-item"
+                                      style="padding-bottom: 8px;"
                                     >
                                       <button
                                         class="ant-btn ant-btn-primary"
@@ -28430,10 +28448,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -28446,6 +28465,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -29049,10 +29069,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -29065,6 +29086,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -31241,10 +31263,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -31257,7 +31280,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                           </div>
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -31270,6 +31293,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -37067,10 +37091,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -37083,6 +37108,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -38437,10 +38463,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -38453,6 +38480,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -39302,10 +39330,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -39318,6 +39347,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -40364,10 +40394,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-left: 8px;"
+                            style="margin-left: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-rtl"
@@ -40380,6 +40411,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary ant-btn-rtl"
@@ -42408,10 +42440,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -42424,7 +42457,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                           </div>
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -42437,6 +42470,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -43260,10 +43294,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -43276,6 +43311,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -44940,10 +44976,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
         </span>
         <div
           class="ant-space ant-space-horizontal ant-space-align-center"
+          style="flex-wrap: wrap; margin-bottom: -8px;"
         >
           <div
             class="ant-space-item"
-            style="margin-right: 8px;"
+            style="margin-right: 8px; padding-bottom: 8px;"
           >
             <button
               class="ant-btn"
@@ -44956,6 +44993,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </div>
           <div
             class="ant-space-item"
+            style="padding-bottom: 8px;"
           >
             <button
               class="ant-btn ant-btn-primary"
@@ -45164,10 +45202,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -45180,6 +45219,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -46056,10 +46096,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -46072,6 +46113,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -49609,10 +49651,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -49625,6 +49668,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -51186,10 +51230,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -51202,6 +51247,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -52515,10 +52561,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -52531,6 +52578,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
@@ -53775,10 +53823,11 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -53791,6 +53840,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"

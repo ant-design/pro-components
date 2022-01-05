@@ -104,10 +104,11 @@ exports[`💵 ProFormMoney 💵 ProFormMoney value expect number 1`] = `
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -120,6 +121,7 @@ exports[`💵 ProFormMoney 💵 ProFormMoney value expect number 1`] = `
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn"
@@ -238,10 +240,11 @@ exports[`💵 ProFormMoney 💵 can input negative 1`] = `
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -254,6 +257,7 @@ exports[`💵 ProFormMoney 💵 can input negative 1`] = `
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn"
@@ -372,10 +376,11 @@ exports[`💵 ProFormMoney 💵 can not input negative 1`] = `
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -388,6 +393,7 @@ exports[`💵 ProFormMoney 💵 can not input negative 1`] = `
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn"
@@ -506,10 +512,11 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom locale 1`] = `
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -522,6 +529,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom locale 1`] = `
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn"
@@ -640,10 +648,11 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom symbol 1`] = `
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -656,6 +665,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom symbol 1`] = `
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn"
@@ -774,10 +784,11 @@ exports[`💵 ProFormMoney 💵 moneySymbol with global locale 1`] = `
   </div>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center"
+    style="flex-wrap: wrap; margin-bottom: -8px;"
   >
     <div
       class="ant-space-item"
-      style="margin-right: 8px;"
+      style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
         class="ant-btn ant-btn-primary"
@@ -790,6 +801,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with global locale 1`] = `
     </div>
     <div
       class="ant-space-item"
+      style="padding-bottom: 8px;"
     >
       <button
         class="ant-btn"
