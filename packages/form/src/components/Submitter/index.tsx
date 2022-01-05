@@ -115,7 +115,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     if (renderDom?.length === 1) {
       return renderDom[0] as JSX.Element;
     }
-    return <Space>{renderDom}</Space>;
+    return <Space wrap>{renderDom}</Space>;
   }
   return renderDom as JSX.Element;
 };
