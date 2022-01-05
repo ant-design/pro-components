@@ -13,6 +13,7 @@ const parseValueToMoment = (
   if (Array.isArray(value)) {
     return (value as any[]).map((v) => parseValueToMoment(v, formatter) as moment.Moment);
   }
+  if (typeof value === 'number') return moment(value);
   return moment(value, formatter);
 };
 

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.62.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.9...@ant-design/pro-table@2.62.0) (2022-01-05)
+
+### Bug Fixes
+
+- **table:** fix the param resetPageIndex is invalid in ProTable's method reload. ([#4397](https://github.com/ant-design/pro-components/issues/4397)) ([1169309](https://github.com/ant-design/pro-components/commit/11693090f876de639403bd6a1dfd4e57a4f81d8b))
+
+### Features
+
+- **ProTable:** support disabled setting's operation ([#4394](https://github.com/ant-design/pro-components/issues/4394)) ([89ef39f](https://github.com/ant-design/pro-components/commit/89ef39f1b2da7e43e6b221d289c0f8559d71e94f))
+
 ## [2.61.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.61.8...@ant-design/pro-table@2.61.9) (2021-12-28)
 
 ### Bug Fixes

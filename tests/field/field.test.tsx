@@ -7,7 +7,7 @@ import Field from '@ant-design/pro-field';
 
 import Demo from './fixtures/demo';
 import { waitForComponentToPaint, waitTime } from '../util';
-// import TreeSelectDemo from './fixtures/treeSelectDemo';
+import { TreeSelectDemo } from './fixtures/treeSelectDemo';
 
 const domRef = React.createRef();
 
@@ -448,151 +448,157 @@ describe('Field', () => {
     });
   });
 
-  // it(`🐴 treeSelect options single value`, async () => {
-  //   const html = mount(
-  //     <TreeSelectDemo
-  //       multiple={false}
-  //       labelInValue={false}
-  //       onChange={(res) => {
-  //         expect(Array.isArray(res)).toBeFalsy();
-  //         html.setProps({ value: res });
-  //       }}
-  //     />,
-  //   );
+  it(`🐴 treeSelect options single value`, async () => {
+    const html = mount(
+      <TreeSelectDemo
+        multiple={false}
+        labelInValue={false}
+        onChange={(res) => {
+          expect(Array.isArray(res)).toBeFalsy();
+          html.setProps({ value: res });
+        }}
+      />,
+    );
 
-  //   await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 200);
 
-  //   const searchInput = html.find('input.ant-select-selection-search-input');
+    const searchInput = html.find('input.ant-select-selection-search-input');
 
-  //   expect(searchInput.exists()).toBeTruthy();
+    expect(searchInput.exists()).toBeTruthy();
 
-  //   act(() => {
-  //     html.find('span.ant-select-tree-switcher_close').last().simulate('click');
-  //     html.find('span.ant-select-tree-switcher_close').last().simulate('click');
-  //   });
+    act(() => {
+      searchInput.simulate('change', {
+        target: {
+          value: 'Node5',
+        },
+      });
+    });
 
-  //   await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 200);
 
-  //   act(() => {
-  //     searchInput.simulate('change', {
-  //       target: {
-  //         value: 'Node5',
-  //       },
-  //     });
-  //   });
+    act(() => {
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+    });
 
-  //   await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 200);
 
-  //   const selectTreeTitle = html.find('span.ant-select-tree-title');
+    const selectTreeTitle = html.find('span.ant-select-tree-title');
 
-  //   await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 200);
 
-  //   act(() => {
-  //     selectTreeTitle.first().simulate('click');
-  //   });
+    act(() => {
+      selectTreeTitle.first().simulate('click');
+    });
 
-  //   await waitForComponentToPaint(html, 200);
-  //   act(() => {
-  //     selectTreeTitle.last().simulate('click');
-  //   });
+    await waitForComponentToPaint(html, 200);
 
-  //   await waitForComponentToPaint(html, 200);
+    expect(html.text()).toContain('Node2');
 
-  //   expect(html.text()).toContain('Child Node5');
+    act(() => {
+      selectTreeTitle.last().simulate('click');
+    });
 
-  //   act(() => {
-  //     html.unmount();
-  //   });
-  // });
+    await waitForComponentToPaint(html, 200);
 
-  // it(`🐴 treeSelect support request function and search, asynchronously loadData`, async () => {
-  //   const ref = React.createRef<{
-  //     fetchData: () => void;
-  //   }>();
+    expect(html.text()).toContain('Child Node5');
 
-  //   const requestFn = jest.fn(),
-  //     onSearchFn = jest.fn(),
-  //     onBlurFn = jest.fn(),
-  //     onClearFn = jest.fn(),
-  //     loadDataFn = jest.fn();
+    act(() => {
+      html.unmount();
+    });
+  });
 
-  //   const html = mount(
-  //     <TreeSelectDemo
-  //       ref={ref}
-  //       onSearch={onSearchFn}
-  //       onBlur={onBlurFn}
-  //       onClear={onClearFn}
-  //       loadData={loadDataFn}
-  //       onChange={(res) => {
-  //         html.setProps({ value: res });
-  //       }}
-  //       request={requestFn}
-  //     />,
-  //   );
+  it(`🐴 treeSelect support request function and search, asynchronously loadData`, async () => {
+    const requestFn = jest.fn(),
+      onSearchFn = jest.fn(),
+      onBlurFn = jest.fn(),
+      onClearFn = jest.fn(),
+      loadDataFn = jest.fn();
 
-  //   await waitForComponentToPaint(html, 200);
+    const html = mount(
+      <TreeSelectDemo
+        onSearch={onSearchFn}
+        onBlur={onBlurFn}
+        onClear={onClearFn}
+        loadData={loadDataFn}
+        onChange={(res: any) => {
+          html.setProps({ value: res });
+        }}
+        request={requestFn}
+      />,
+    );
 
-  //   expect(requestFn).toBeCalledTimes(1);
+    await waitForComponentToPaint(html, 200);
 
-  //   const searchInput = html.find('input.ant-select-selection-search-input');
+    expect(requestFn).toBeCalledTimes(1);
 
-  //   expect(searchInput.exists()).toBeTruthy();
+    act(() => {
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+    });
 
-  //   act(() => {
-  //     html.find('span.ant-select-tree-switcher_close').last().simulate('click');
-  //     html.find('span.ant-select-tree-switcher_close').last().simulate('click');
-  //   });
+    await waitForComponentToPaint(html, 200);
 
-  //   await waitForComponentToPaint(html, 200);
+    expect(loadDataFn).toBeCalledTimes(1);
 
-  //   expect(loadDataFn).toBeCalledTimes(1);
+    const searchInput = html.find('input.ant-select-selection-search-input');
 
-  //   act(() => {
-  //     searchInput.simulate('change', {
-  //       target: {
-  //         value: 'Node5',
-  //       },
-  //     });
-  //   });
+    expect(searchInput.exists()).toBeTruthy();
 
-  //   await waitForComponentToPaint(html, 200);
+    act(() => {
+      searchInput.simulate('change', {
+        target: {
+          value: 'Node5',
+        },
+      });
+    });
 
-  //   expect(onSearchFn).toBeCalled();
+    await waitForComponentToPaint(html, 200);
 
-  //   const selectTreeTitle = html.find('span.ant-select-tree-title');
-  //   expect(selectTreeTitle.exists()).toBeTruthy();
-  //   expect(selectTreeTitle.length).toBe(2);
+    expect(onSearchFn).toBeCalled();
 
-  //   await waitForComponentToPaint(html, 200);
+    act(() => {
+      html.find('.ant-select-tree-switcher_close').forEach((item) => item.simulate('click'));
+    });
 
-  //   act(() => {
-  //     selectTreeTitle.first().simulate('click');
-  //   });
+    await waitForComponentToPaint(html, 200);
 
-  //   await waitForComponentToPaint(html, 200);
-  //   act(() => {
-  //     selectTreeTitle.last().simulate('click');
-  //   });
-  //   await waitForComponentToPaint(html, 200);
+    const selectTreeTitle = html.find('.ant-select-tree-title');
 
-  //   expect(html.text()).toContain('Node2Child Node5');
+    expect(selectTreeTitle.exists()).toBeTruthy();
+    selectTreeTitle.forEach((item) => console.log(item.text()));
 
-  //   expect(html.find('input.ant-select-selection-search-input').prop('value')).toBe('');
+    expect(selectTreeTitle.length).toBe(2);
 
-  //   html.find('span.ant-select-clear').simulate('mousedown');
-  //   expect(onClearFn).toBeCalled();
-  //   expect(html.text()).toContain('');
+    await waitForComponentToPaint(html, 200);
 
-  //   act(() => {
-  //     searchInput.simulate('blur');
-  //   });
+    act(() => {
+      selectTreeTitle.first().simulate('click');
+    });
 
-  //   expect(onBlurFn).toBeCalledTimes(1);
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      selectTreeTitle.last().simulate('click');
+    });
+    await waitForComponentToPaint(html, 200);
 
-  //   act(() => {
-  //     html.unmount();
-  //   });
-  // });
+    expect(html.text()).toContain('Node2Child Node5');
+
+    expect(html.find('input.ant-select-selection-search-input').prop('value')).toBe('');
+
+    html.find('span.ant-select-clear').simulate('mousedown');
+    expect(onClearFn).toBeCalled();
+    expect(html.text()).toContain('');
+
+    act(() => {
+      searchInput.simulate('blur');
+    });
+
+    expect(onBlurFn).toBeCalledTimes(1);
+
+    act(() => {
+      html.unmount();
+    });
+  });
 
   it('🐴 edit and no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);

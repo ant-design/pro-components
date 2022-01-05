@@ -7,12 +7,10 @@ export function TreeSelectDemo(
   props: TreeSelectProps<any> & {
     request?: (...args: any) => any;
   },
-  ref: any,
 ) {
   const { request, value, ...fieldProps } = props;
   return (
     <Field
-      ref={ref}
       fieldProps={{
         fieldNames: {
           label: 'title',
@@ -25,6 +23,7 @@ export function TreeSelectDemo(
         treeNodeFilterProp: 'title',
         filterTreeNode: true,
         open: true,
+        showArrow: false,
         ...fieldProps,
       }}
       value={value}
@@ -68,4 +67,4 @@ export function TreeSelectDemo(
   );
 }
 
-export default React.forwardRef(TreeSelectDemo);
+export default TreeSelectDemo;

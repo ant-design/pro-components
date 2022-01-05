@@ -5666,10 +5666,11 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn"
@@ -5682,6 +5683,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"
