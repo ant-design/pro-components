@@ -66,12 +66,8 @@ function ModalForm<T = Record<string, any>>({
     onChange: onVisibleChange,
   });
 
-  /** Modal dom 解除渲染之后 */
-  const [isDestroy, setIsDestroy] = useState<boolean>(!!rest.visible);
-
-  useEffect(() => {
-    setIsDestroy(!!rest.visible);
-  }, [rest.visible]);
+  // destroyOnClose 时用来重置 form 的 key
+  const [formKey, setFormKey] = useMergedState<number>(0);
 
   const context = useContext(ConfigProvider.ConfigContext);
 
@@ -114,7 +110,10 @@ function ModalForm<T = Record<string, any>>({
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
-
+    // 如果打开了窗口，并且用户设置了 visible 和打开了 destroyOnClose，就更新表单的 key
+    if (visible && rest.visible && modalProps?.destroyOnClose) {
+      setFormKey(formKey + 1);
+    }
     return () => {
       if (!visible) scrollLocker?.unLock?.();
     };
@@ -184,6 +183,7 @@ function ModalForm<T = Record<string, any>>({
   const formDom = (
     <div ref={domRef} onClick={(e) => e.stopPropagation()}>
       <BaseForm
+        key={formKey}
         formComponentType="ModalForm"
         layout="vertical"
         {...omit(rest, ['visible'])}
@@ -208,7 +208,6 @@ function ModalForm<T = Record<string, any>>({
               width={width || 800}
               {...modalProps}
               afterClose={() => {
-                setIsDestroy(false);
                 modalProps?.afterClose?.();
               }}
               getContainer={false}
@@ -240,17 +239,17 @@ function ModalForm<T = Record<string, any>>({
       {trigger &&
         React.cloneElement(trigger, {
           ...trigger.props,
-          onClick: async (e: any) => {
+          onClick: (e: any) => {
             setVisible(!visible);
-            setIsDestroy(!isDestroy);
+            /** 如果用户打开了 destroyOnClose，更新表单的 key 来重置表单 */
+            if (!visible && modalProps?.destroyOnClose) {
+              setFormKey(formKey + 1);
+            }
             trigger.props?.onClick?.(e);
           },
         })}
     </React.Fragment>
   );
-
-  /** 如果destroyOnClose，关闭的时候接触渲染Form */
-  if (modalProps?.destroyOnClose && !isDestroy) return triggerDom;
 
   return (
     <>

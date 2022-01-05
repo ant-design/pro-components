@@ -62,16 +62,11 @@ function DrawerForm<T = Record<string, any>>({
     value: rest.visible,
     onChange: onVisibleChange,
   });
-  const [key, setKey] = useMergedState<number>(0);
+
+  // destroyOnClose 时用来重置 form 的 key
+  const [formKey, setFormKey] = useMergedState<number>(0);
+
   const context = useContext(ConfigProvider.ConfigContext);
-
-  /** Modal dom 解除渲染之后 */
-  const [isDestroy, setIsDestroy] = useMergedState<boolean>(!!rest.visible);
-
-  useEffect(() => {
-    setIsDestroy(!!rest.visible);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rest.visible]);
 
   const renderDom = useMemo(() => {
     if (drawerProps?.getContainer === false) {
@@ -112,12 +107,10 @@ function DrawerForm<T = Record<string, any>>({
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
-
-    // 如果打开了窗口，并且是用户设置的 visible，就触发一下重新更新
+    // 如果打开了窗口，并且用户设置了 visible 和打开了 destroyOnClose，就更新表单的 key
     if (visible && rest.visible && drawerProps?.destroyOnClose) {
-      setKey(key + 1);
+      setFormKey(formKey + 1);
     }
-
     return () => {
       if (!visible) scrollLocker?.unLock?.();
     };
@@ -165,7 +158,7 @@ function DrawerForm<T = Record<string, any>>({
       <BaseForm
         formComponentType="DrawerForm"
         layout="vertical"
-        key={key}
+        key={formKey}
         {...omit(rest, ['visible'])}
         formRef={formRef}
         submitter={
@@ -212,9 +205,7 @@ function DrawerForm<T = Record<string, any>>({
                 setVisible(false);
                 drawerProps?.onClose?.(e);
               }}
-              /** 完全关闭后删除 dom */
               afterVisibleChange={(afterVisible) => {
-                if (!afterVisible) setIsDestroy(false);
                 drawerProps?.afterVisibleChange?.(afterVisible);
               }}
               footer={
@@ -252,16 +243,16 @@ function DrawerForm<T = Record<string, any>>({
           ...trigger.props,
           onClick: async (e: any) => {
             setVisible(!visible);
-            setIsDestroy(!visible);
+            /** 如果用户打开了 destroyOnClose，更新表单的 key 来重置表单 */
+            if (!visible && drawerProps?.destroyOnClose) {
+              setFormKey(formKey + 1);
+            }
             trigger.props?.onClick?.(e);
           },
         })}
     </React.Fragment>
   );
-  /** 如果destroyOnClose，关闭的时候解除渲染Form */
-  if (drawerProps?.destroyOnClose && !isDestroy) return triggerDom;
 
-  /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
   return (
     <>
       {renderDom !== false && portalRenderDom ? createPortal(formDom, portalRenderDom) : formDom}
