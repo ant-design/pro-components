@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.5...@ant-design/pro-field@1.31.6) (2022-01-05)
+
+### Bug Fixes
+
+- **form:** 🐛 repeat send request ([#4400](https://github.com/ant-design/pro-components/issues/4400)) ([b61646a](https://github.com/ant-design/pro-components/commit/b61646abc0f811b8ce6fc0119e5c9f8c38d70f72))
+- **form:** render option failed while key is number 0. ([#4389](https://github.com/ant-design/pro-components/issues/4389)) ([f175c02](https://github.com/ant-design/pro-components/commit/f175c0289d2b975df40918ffc929d5eeacd59cd1))
+
 ## [1.31.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.4...@ant-design/pro-field@1.31.5) (2021-12-28)
 
 ### Bug Fixes

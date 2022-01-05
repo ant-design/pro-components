@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.20...@ant-design/pro-card@1.18.21) (2022-01-05)
+
+### Bug Fixes
+
+- **card:** ProCard A 嵌套在 ProCard B 中遍历生成时，在 ProCard A 上设置 key 值无效，会导致组件重新渲染 [#4368](https://github.com/ant-design/pro-components/issues/4368) ([#4372](https://github.com/ant-design/pro-components/issues/4372)) ([4a83337](https://github.com/ant-design/pro-components/commit/4a833377235646284934e1ed8180c297e81aabbf))
+
 ## [1.18.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.19...@ant-design/pro-card@1.18.20) (2021-12-28)
 
 **Note:** Version bump only for package @ant-design/pro-card

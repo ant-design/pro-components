@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.32.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.1...@ant-design/pro-layout@6.32.2) (2022-01-05)
+
+### Bug Fixes
+
+- **layout:** breadcrumbRender is not working in PageContainer's header🐛[BUG] ([#4385](https://github.com/ant-design/pro-components/issues/4385)) ([8e5fb7f](https://github.com/ant-design/pro-components/commit/8e5fb7f1c0a027c68465406ed915d90f33267b07))
+
 ## [6.32.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.0-beta.8...@ant-design/pro-layout@6.32.1) (2021-12-28)
 
 **Note:** Version bump only for package @ant-design/pro-layout
