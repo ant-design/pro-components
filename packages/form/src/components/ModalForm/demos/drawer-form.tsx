@@ -1,4 +1,4 @@
-﻿import React, { useRef } from 'react';
+﻿import React, { useEffect, useRef } from 'react';
 import { Button, message } from 'antd';
 import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
@@ -19,6 +19,9 @@ const waitTime = (time: number = 100) => {
 
 export default () => {
   const formRef = useRef<ProFormInstance>();
+
+  console.log('formRef: ', formRef);
+
   return (
     <DrawerForm<{
       name: string;
