@@ -20,8 +20,6 @@ const waitTime = (time: number = 100) => {
 export default () => {
   const formRef = useRef<ProFormInstance>();
 
-  console.log('formRef: ', formRef);
-
   return (
     <DrawerForm<{
       name: string;
