@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.32.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.2...@ant-design/pro-layout@6.32.3) (2022-01-07)
+
+### Bug Fixes
+
+- **layout:** fix breadcrumbRender =false no work error ([efa9023](https://github.com/ant-design/pro-components/commit/efa9023407236616f17e84315fdb04a51fe0cdb2))
+- **layout:** PageContainer attr affixProps typing ([#4416](https://github.com/ant-design/pro-components/issues/4416)) ([80d69ab](https://github.com/ant-design/pro-components/commit/80d69ab02dc0b3b63c278b19d90ca7049c141754))
+- **layout:** remove default Copyright, fix[#3841](https://github.com/ant-design/pro-components/issues/3841) ([#4409](https://github.com/ant-design/pro-components/issues/4409)) ([e8a2f2a](https://github.com/ant-design/pro-components/commit/e8a2f2a4b68c5910760ff1f3300e32f3fce33f9d))
+
 ## [6.32.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.1...@ant-design/pro-layout@6.32.2) (2022-01-05)
 
 ### Bug Fixes

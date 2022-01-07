@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.32.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.4...@ant-design/pro-utils@1.32.5) (2022-01-07)
+
+### Bug Fixes
+
+- **utils:** antd themes less file path ([#4411](https://github.com/ant-design/pro-components/issues/4411)) ([ff78bf0](https://github.com/ant-design/pro-components/commit/ff78bf0b3bbb52984a8cc12768e1099a6192fa1b))
+
 ## [1.32.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.3...@ant-design/pro-utils@1.32.4) (2022-01-05)
 
 ### Bug Fixes
