@@ -73,7 +73,7 @@ export type PageContainerProps = {
    *
    * @name 固钉的配置
    */
-  affixProps?: AffixProps;
+  affixProps?: Omit<AffixProps, 'children'>;
 
   /**
    * 只加载内容区域
