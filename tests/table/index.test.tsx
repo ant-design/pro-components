@@ -499,7 +499,7 @@ describe('BasicTable', () => {
     expect(fn).toBeCalled();
   });
 
-  it('🎏 actionRef should use', async () => {
+  it('🎏 actionRef support clearSelected', async () => {
     const fn = jest.fn();
     const onChangeFn = jest.fn();
     const actionRef = React.createRef<ActionType>();

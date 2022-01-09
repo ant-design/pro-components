@@ -32,7 +32,7 @@ const defaultAlertOptionRender = (props: { intl: IntlType; onCleanSelected: () =
 };
 
 function TableAlert<T>({
-  selectedRowKeys,
+  selectedRowKeys = [],
   onCleanSelected,
   alwaysShowAlert,
   selectedRows,

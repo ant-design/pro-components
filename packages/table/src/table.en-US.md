@@ -28,9 +28,7 @@ When your forms need to interact with the server or need multiple cell styles, P
 
 <code src="./demos/single.tsx" background="#f5f5f5" height="500px" />
 
-### DataSource
-
-<code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px"/>
+<code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px" debug/>
 
 ### Downgrade to a normal table
 
