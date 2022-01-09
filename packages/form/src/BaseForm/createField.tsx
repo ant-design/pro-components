@@ -1,4 +1,4 @@
-﻿import React, { useMemo } from 'react';
+﻿import React, { useMemo, useContext } from 'react';
 import {
   pickProFormItemProps,
   omitUndefined,
@@ -11,6 +11,7 @@ import { stringify } from 'use-json-comparison';
 import FieldContext from '../FieldContext';
 import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../interface';
 import ProFormItem from '../components/FormItem';
+import { FieldContext as RcFieldContext } from 'rc-field-form';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -127,10 +128,13 @@ function createField<P extends ProFormFieldItemProps = any>(
 
     const ignoreWidthValueType = useMemo(() => ['switch', 'radioButton', 'radio', 'rate'], []);
 
+    const { prefixName } = useContext(RcFieldContext);
     const proFieldKey = useMemo(() => {
-      return otherProps?.name && `form-field-${otherProps.name}`;
+      let name = otherProps?.name;
+      if (Array.isArray(prefixName) && name) name = `${prefixName.join('.')}.${name}`;
+      return name && `form-field-${name}`;
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [stringify(otherProps?.name)]);
+    }, [stringify(otherProps?.name), prefixName]);
 
     const realFieldPropsStyle = useMemo(
       () => ({
