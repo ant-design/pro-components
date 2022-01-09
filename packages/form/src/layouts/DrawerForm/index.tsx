@@ -158,7 +158,8 @@ function DrawerForm<T = Record<string, any>>({
     [],
   );
 
-  useImperativeHandle(rest.formRef, () => formRef.current);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useImperativeHandle(rest.formRef, () => formRef.current, [shouldRenderFormItems]);
 
   const formDom = (
     <div onClick={(e) => e.stopPropagation()}>
