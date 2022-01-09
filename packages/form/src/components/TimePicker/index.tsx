@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import ProField from '../Field';
-import type { DatePickerProps } from 'antd';
 import type { ProFormFieldItemProps } from '../../interface';
 import { dateArrayFormatter } from '@ant-design/pro-utils';
 import FieldContext from '../../FieldContext';
+import type { DatePickerProps, RangePickerProps } from 'antd/lib/date-picker';
 
 const valueType = 'time' as const;
 
 /** 时间区间选择器 */
-const TimeRangePicker: React.FC<ProFormFieldItemProps<DatePickerProps>> = React.forwardRef(
+const TimeRangePicker: React.FC<ProFormFieldItemProps<RangePickerProps>> = React.forwardRef(
   ({ fieldProps, proFieldProps, ...rest }, ref: any) => {
     const context = useContext(FieldContext);
     return (
