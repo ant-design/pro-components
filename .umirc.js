@@ -158,7 +158,13 @@ export default {
       },
       {
         title: '数据展示',
-        children: ['table', 'components/EditableTable/index', 'list', 'description'],
+        children: [
+          'table',
+          'components/EditableTable/index',
+          'components/DragSortTable/index',
+          'list',
+          'description',
+        ],
       },
       {
         title: '通用',
@@ -172,7 +178,13 @@ export default {
       },
       {
         title: 'Layout',
-        children: ['layout', 'components/PageContainer/index', 'card'],
+        children: [
+          'layout',
+          'components/PageContainer/index',
+          'components/DragSortTable/index',
+          'list',
+          'card',
+        ],
       },
       {
         title: 'Data entry',
