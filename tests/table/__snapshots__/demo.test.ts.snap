@@ -12493,6 +12493,87 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
           </div>
         </div>
         <div
+          class="ant-pro-table-alert"
+        >
+          <div
+            class="ant-alert ant-alert-info ant-alert-no-icon"
+            data-show="true"
+            role="alert"
+          >
+            <div
+              class="ant-alert-content"
+            >
+              <div
+                class="ant-alert-message"
+              >
+                <div
+                  class="ant-pro-table-alert-info"
+                >
+                  <div
+                    class="ant-pro-table-alert-info-content"
+                  >
+                    <div
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                    >
+                      <div
+                        class="ant-space-item"
+                        style="margin-right: 24px;"
+                      >
+                        <span>
+                          已选 1 项
+                          <a
+                            style="margin-left: 8px;"
+                          >
+                            取消选择
+                          </a>
+                        </span>
+                      </div>
+                      <div
+                        class="ant-space-item"
+                        style="margin-right: 24px;"
+                      >
+                        <span>
+                          容器数量: 16 个
+                        </span>
+                      </div>
+                      <div
+                        class="ant-space-item"
+                      >
+                        <span>
+                          调用量: 1680 次
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="ant-pro-table-alert-info-option"
+                  >
+                    <div
+                      class="ant-space ant-space-horizontal ant-space-align-center"
+                    >
+                      <div
+                        class="ant-space-item"
+                        style="margin-right: 16px;"
+                      >
+                        <a>
+                          批量删除
+                        </a>
+                      </div>
+                      <div
+                        class="ant-space-item"
+                      >
+                        <a>
+                          导出数据
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
           class="ant-table-wrapper"
         >
           <div
@@ -12554,7 +12635,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                                 class="ant-checkbox-wrapper"
                               >
                                 <span
-                                  class="ant-checkbox"
+                                  class="ant-checkbox ant-checkbox-indeterminate"
                                 >
                                   <input
                                     class="ant-checkbox-input"
@@ -12978,7 +13059,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                           </td>
                         </tr>
                         <tr
-                          class="ant-table-row ant-table-row-level-0"
+                          class="ant-table-row ant-table-row-level-0 ant-table-row-selected"
                           data-row-key="1"
                         >
                           <td
@@ -12986,12 +13067,13 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                             style="position: sticky; left: 0px;"
                           >
                             <label
-                              class="ant-checkbox-wrapper"
+                              class="ant-checkbox-wrapper ant-checkbox-wrapper-checked"
                             >
                               <span
-                                class="ant-checkbox"
+                                class="ant-checkbox ant-checkbox-checked"
                               >
                                 <input
+                                  checked=""
                                   class="ant-checkbox-input"
                                   type="checkbox"
                                   value=""
