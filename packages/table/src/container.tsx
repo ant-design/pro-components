@@ -20,6 +20,7 @@ export type ColumnsState = {
         checkbox: boolean;
         icon: boolean;
       };
+  hideIcon?: boolean;
 };
 
 export type UseContainerProps<T = any> = {

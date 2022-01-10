@@ -70,7 +70,11 @@ const CheckboxListItem: React.FC<{
   isLeaf?: boolean;
 }> = ({ columnKey, isLeaf, title, className, fixed }) => {
   const intl = useIntl();
-  const dom = (
+  const { columnsMap } = Container.useContainer();
+  const config = columnsMap[columnKey] || {};
+  const disableIcon = typeof config.disable === 'boolean' ? config.disable : config.disable?.icon;
+  const disabledStyle = disableIcon ? { color: '#f5f5f5' } : {};
+  const dom = !config.hideIcon ? (
     <span className={`${className}-list-item-option`}>
       <ToolTipIcon
         columnKey={columnKey}
@@ -78,7 +82,7 @@ const CheckboxListItem: React.FC<{
         title={intl.getMessage('tableToolBar.leftPin', '固定在列首')}
         show={fixed !== 'left'}
       >
-        <VerticalAlignTopOutlined />
+        <VerticalAlignTopOutlined style={disabledStyle} />
       </ToolTipIcon>
       <ToolTipIcon
         columnKey={columnKey}
@@ -86,7 +90,7 @@ const CheckboxListItem: React.FC<{
         title={intl.getMessage('tableToolBar.noPin', '不固定')}
         show={!!fixed}
       >
-        <VerticalAlignMiddleOutlined />
+        <VerticalAlignMiddleOutlined style={disabledStyle} />
       </ToolTipIcon>
       <ToolTipIcon
         columnKey={columnKey}
@@ -94,10 +98,10 @@ const CheckboxListItem: React.FC<{
         title={intl.getMessage('tableToolBar.rightPin', '固定在列尾')}
         show={fixed !== 'right'}
       >
-        <VerticalAlignBottomOutlined />
+        <VerticalAlignBottomOutlined style={disabledStyle} />
       </ToolTipIcon>
     </span>
-  );
+  ) : null;
   return (
     <span className={`${className}-list-item`} key={columnKey}>
       <div className={`${className}-list-item-title`}>{title}</div>
