@@ -32,9 +32,7 @@ ProTable 的诞生是为了解决项目中需要写很多 table 的样板代码�
 
 <code src="./demos/no-option.tsx" background="#f5f5f5" height="400px" title="查询（无按钮）表格" />
 
-### DataSource
-
-<code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px" title="DataSource" />
+<code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px" title="DataSource" debug />
 
 ### 无查询表单
 
@@ -85,22 +83,6 @@ RTL means right-to-left.
 ### 表格轮询
 
 <code src="./demos/pollinga.tsx" background="#f5f5f5" height="360px" title="表格轮询" />
-
-### 拖拽排序
-
-<code src="./demos/drag.tsx" background="#f5f5f5" height="360px" title="拖拽排序" />
-
-### 内部集成拖拽排序的可编辑表格`DragSortTable`
-
-<code src="./demos/drag-sort-table.tsx" background="#f5f5f5" height="360px" title="可编辑表格" />
-
-`DragSortTable`排序采用的[react-sortable-hoc](https://www.npmjs.com/package/react-sortable-hoc)，需要提供`rowKey`来确定数据的唯一值，否则不能正常工作。暂不支持`request`请求的数据进行排序，可将`request`请求的数据存起来通过`dataSource`传入。
-
-| 属性 | 描述 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| dragSortKey | 如配置此参数，则会在该 key 对应的行显示拖拽排序把手，允许拖拽排序 | `any` | - |
-| dragSortHandlerRender | 渲染自定义拖动排序把手的函数 如配置了 dragSortKey 但未配置此参数，则使用默认把手图标 | `(rowData: T, idx: number) => React.ReactNode` | `<MenuOutlined className="dragSortDefaultHandle" style={{ cursor: 'grab', color: '#999' }} />` |
-| onDragSortEnd | 拖动排序完成回调 | `(newDataSource: T[]) => Promise<void> \| void` | - |
 
 ### 搜索表单自定义
 
@@ -318,6 +300,8 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | params | 用于 `request` 查询的额外参数，一旦变化会触发重新加载 | `object` | - |
 | postData | 对通过 `request` 获取的数据进行处理 | `(data: T[]) => T[]` | - |
 | defaultData | 默认的数据 | `T[]` | - |
+| dataSource | Table 的数据，protable 推荐使用 request 来加载 | `T[]` | - |
+| onDataSourceChange | Table 的数据发生改变时触发 | `(dataSource: T[]) => void` | - |
 | actionRef | Table action 的引用，便于自定义触发 | `MutableRefObject<ActionType>` | - |
 | formRef | 可以获取到查询表单的 form 实例，用于一些灵活的配置 | `MutableRefObject<FormInstance>` | - |
 | toolBarRender | 渲染工具栏，支持返回一个 dom 数组，会自动增加 margin-right | `(action) => ReactNode[]` | - |

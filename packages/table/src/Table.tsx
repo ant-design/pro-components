@@ -379,9 +379,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   }, [propsActionRef]);
 
   /** 单选多选的相关逻辑 */
-  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<React.ReactText[]>([], {
-    value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
-  });
+  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<React.ReactText[] | undefined>(
+    propsRowSelection ? propsRowSelection?.defaultSelectedRowKeys : undefined,
+    {
+      value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
+    },
+  );
 
   const selectedRowsRef = useRef<T[]>([]);
 
@@ -523,7 +526,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   }, [action.dataSource, rowKey]);
 
   useEffect(() => {
-    selectedRowsRef.current = selectedRowKeys?.map(
+    selectedRowsRef.current = selectedRowKeys!?.map(
       (key): T => preserveRecordsRef.current?.get(key) as T,
     );
   }, [selectedRowKeys]);
@@ -721,7 +724,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
           options === false && !headerTitle && !toolBarRender && !toolbar && !isLightFilter
         }
         selectedRows={selectedRowsRef.current}
-        selectedRowKeys={selectedRowKeys}
+        selectedRowKeys={selectedRowKeys!}
         tableColumn={tableColumn}
         tooltip={tooltip}
         toolbar={toolbar}
@@ -742,7 +745,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const alertDom =
     propsRowSelection !== false ? (
       <Alert<T>
-        selectedRowKeys={selectedRowKeys}
+        selectedRowKeys={selectedRowKeys!}
         selectedRows={selectedRowsRef.current}
         onCleanSelected={onCleanSelected}
         alertOptionRender={rest.tableAlertOptionRender}

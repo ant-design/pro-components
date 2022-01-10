@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.6...@ant-design/pro-field@1.31.7) (2022-01-07)
+
+### Bug Fixes
+
+- **form:** 🐛 Cannot read properties of undefined (reading 'autoFocus' ([#4419](https://github.com/ant-design/pro-components/issues/4419)) ([0aea58d](https://github.com/ant-design/pro-components/commit/0aea58d71afdb4a123896729513dd8422c9bc892))
+
 ## [1.31.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.5...@ant-design/pro-field@1.31.6) (2022-01-05)
 
 ### Bug Fixes
