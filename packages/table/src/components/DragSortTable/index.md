@@ -9,6 +9,8 @@ nav:
 
 # DragSortTable - 拖动排序表格
 
+`DragSortTable`排序采用的[react-sortable-hoc](https://www.npmjs.com/package/react-sortable-hoc)，需要提供`rowKey`来确定数据的唯一值，否则不能正常工作。暂不支持`request`请求的数据进行排序，可将`request`请求的数据存起来通过`dataSource`传入。
+
 ## Demo
 
 ### 拖拽排序
@@ -18,8 +20,6 @@ nav:
 ### 拖拽排序编辑表格
 
 <code src="./demos/drag-sort-table.tsx" background="#f5f5f5" height="360px" title="可编辑表格" />
-
-`DragSortTable`排序采用的[react-sortable-hoc](https://www.npmjs.com/package/react-sortable-hoc)，需要提供`rowKey`来确定数据的唯一值，否则不能正常工作。暂不支持`request`请求的数据进行排序，可将`request`请求的数据存起来通过`dataSource`传入。
 
 ## API
 
