@@ -107,6 +107,7 @@ export const AppsLogoComponents: React.FC<{
   if (!props?.appList?.length) return null;
   return (
     <Popover
+      getPopupContainer={(triggerNode) => triggerNode.parentNode as HTMLElement}
       content={
         <div className={`${prefixCls}-basicLayout-apps-content`}>
           <ul className={cx(`${prefixCls}-basicLayout-apps-content-list`, appContentListCss)}>

@@ -65,31 +65,33 @@ exports[`PageContainer ⚡️ support fixedHeader 1`] = `
 `;
 
 exports[`PageContainer ⚡️ support footer 1`] = `
-<div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
->
+Array [
   <div
-    class="ant-pro-page-container-warp"
+    class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
   >
     <div
-      class="ant-page-header ant-page-header-ghost"
+      class="ant-pro-page-container-warp"
     >
       <div
-        class="ant-page-header-heading"
+        class="ant-page-header ant-page-header-ghost"
       >
         <div
-          class="ant-page-header-heading-left"
+          class="ant-page-header-heading"
         >
-          <span
-            class="ant-page-header-heading-title"
-            title="期贤"
+          <div
+            class="ant-page-header-heading-left"
           >
-            期贤
-          </span>
+            <span
+              class="ant-page-header-heading-title"
+              title="期贤"
+            >
+              期贤
+            </span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-pro-footer-bar css-1knbvf3"
   >
@@ -105,8 +107,8 @@ exports[`PageContainer ⚡️ support footer 1`] = `
         right
       </button>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`PageContainer ⚡️ support loading 1`] = `
@@ -603,9 +605,10 @@ exports[`PageContainer 🐲 content is text and title is null 2`] = `
 `;
 
 exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
-<div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
->
+Array [
+  <div
+    class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+  />,
   <div
     class="ant-pro-footer-bar css-1knbvf3"
   >
@@ -621,8 +624,8 @@ exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
         qixian
       </button>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;
 
 exports[`PageContainer 🐲 footer is null, do not render footerToolbar  2`] = `
@@ -827,22 +830,22 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
               </div>
             </div>
           </div>
+        </div>
+        <div
+          class="ant-pro-footer-bar css-1knbvf3"
+          style="width: 100%;"
+        >
           <div
-            class="ant-pro-footer-bar css-1knbvf3"
-            style="width: 100%;"
+            class="ant-pro-footer-bar-left css-8fxooz"
+          />
+          <div
+            class="ant-pro-footer-bar-right css-f3rqu0"
           >
-            <div
-              class="ant-pro-footer-bar-left css-8fxooz"
-            />
-            <div
-              class="ant-pro-footer-bar-right css-f3rqu0"
+            <button
+              type="button"
             >
-              <button
-                type="button"
-              >
-                qixian
-              </button>
-            </div>
+              qixian
+            </button>
           </div>
         </div>
       </main>
@@ -1198,49 +1201,51 @@ exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
 `;
 
 exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
-<div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
->
+Array [
   <div
-    class="ant-pro-page-container-warp"
+    class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
   >
     <div
-      class="ant-page-header has-breadcrumb ant-page-header-ghost"
+      class="ant-pro-page-container-warp"
     >
       <div
-        class="ant-breadcrumb"
-      >
-        <span>
-          <span
-            class="ant-breadcrumb-link"
-          >
-            <span>
-              home
-            </span>
-          </span>
-          <span
-            class="ant-breadcrumb-separator"
-          >
-            /
-          </span>
-        </span>
-      </div>
-      <div
-        class="ant-page-header-heading"
+        class="ant-page-header has-breadcrumb ant-page-header-ghost"
       >
         <div
-          class="ant-page-header-heading-left"
+          class="ant-breadcrumb"
         >
-          <span
-            class="ant-page-header-heading-title"
-            title="期贤"
-          >
-            期贤
+          <span>
+            <span
+              class="ant-breadcrumb-link"
+            >
+              <span>
+                home
+              </span>
+            </span>
+            <span
+              class="ant-breadcrumb-separator"
+            >
+              /
+            </span>
           </span>
+        </div>
+        <div
+          class="ant-page-header-heading"
+        >
+          <div
+            class="ant-page-header-heading-left"
+          >
+            <span
+              class="ant-page-header-heading-title"
+              title="期贤"
+            >
+              期贤
+            </span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </div>,
   <div
     class="ant-pro-footer-bar css-1knbvf3"
   >
@@ -1256,6 +1261,6 @@ exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
         right
       </button>
     </div>
-  </div>
-</div>
+  </div>,
+]
 `;

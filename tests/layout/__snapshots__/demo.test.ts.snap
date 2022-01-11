@@ -351,32 +351,32 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           </div>
         </div>
       </div>
+    </div>
+    <div
+      class="ant-pro-footer-bar css-1knbvf3"
+    >
       <div
-        class="ant-pro-footer-bar css-1knbvf3"
+        class="ant-pro-footer-bar-left css-8fxooz"
+      />
+      <div
+        class="ant-pro-footer-bar-right css-f3rqu0"
       >
-        <div
-          class="ant-pro-footer-bar-left css-8fxooz"
-        />
-        <div
-          class="ant-pro-footer-bar-right css-f3rqu0"
+        <button
+          class="ant-btn"
+          type="button"
         >
-          <button
-            class="ant-btn"
-            type="button"
-          >
-            <span>
-              重 置
-            </span>
-          </button>
-          <button
-            class="ant-btn ant-btn-primary"
-            type="button"
-          >
-            <span>
-              提 交
-            </span>
-          </button>
-        </div>
+          <span>
+            重 置
+          </span>
+        </button>
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
+          </span>
+        </button>
       </div>
     </div>
   </div>
@@ -10334,33 +10334,33 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   </div>
                 </div>
               </div>
+            </div>
+            <div
+              class="ant-pro-footer-bar css-1knbvf3"
+              style="width: calc(100% - 216px);"
+            >
               <div
-                class="ant-pro-footer-bar css-1knbvf3"
-                style="width: calc(100% - 216px);"
+                class="ant-pro-footer-bar-left css-8fxooz"
+              />
+              <div
+                class="ant-pro-footer-bar-right css-f3rqu0"
               >
-                <div
-                  class="ant-pro-footer-bar-left css-8fxooz"
-                />
-                <div
-                  class="ant-pro-footer-bar-right css-f3rqu0"
+                <button
+                  class="ant-btn"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn"
-                    type="button"
-                  >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      提 交
-                    </span>
-                  </button>
-                </div>
+                  <span>
+                    重 置
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
+                >
+                  <span>
+                    提 交
+                  </span>
+                </button>
               </div>
             </div>
           </main>
@@ -12289,33 +12289,33 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                 />
               </div>
             </div>
+          </div>
+          <div
+            class="qixian-pro-footer-bar css-1knbvf3"
+            style="width: calc(100% - 216px);"
+          >
             <div
-              class="qixian-pro-footer-bar css-1knbvf3"
-              style="width: calc(100% - 216px);"
+              class="qixian-pro-footer-bar-left css-8fxooz"
+            />
+            <div
+              class="qixian-pro-footer-bar-right css-f3rqu0"
             >
-              <div
-                class="qixian-pro-footer-bar-left css-8fxooz"
-              />
-              <div
-                class="qixian-pro-footer-bar-right css-f3rqu0"
+              <button
+                class="qixian-btn"
+                type="button"
               >
-                <button
-                  class="qixian-btn"
-                  type="button"
-                >
-                  <span>
-                    重 置
-                  </span>
-                </button>
-                <button
-                  class="qixian-btn qixian-btn-primary"
-                  type="button"
-                >
-                  <span>
-                    提 交
-                  </span>
-                </button>
-              </div>
+                <span>
+                  重 置
+                </span>
+              </button>
+              <button
+                class="qixian-btn qixian-btn-primary"
+                type="button"
+              >
+                <span>
+                  提 交
+                </span>
+              </button>
             </div>
           </div>
         </main>
@@ -14401,33 +14401,33 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                   </div>
                 </div>
               </div>
+            </div>
+            <div
+              class="ant-pro-footer-bar css-1knbvf3"
+              style="width: calc(100% - 216px);"
+            >
               <div
-                class="ant-pro-footer-bar css-1knbvf3"
-                style="width: calc(100% - 216px);"
+                class="ant-pro-footer-bar-left css-8fxooz"
+              />
+              <div
+                class="ant-pro-footer-bar-right css-f3rqu0"
               >
-                <div
-                  class="ant-pro-footer-bar-left css-8fxooz"
-                />
-                <div
-                  class="ant-pro-footer-bar-right css-f3rqu0"
+                <button
+                  class="ant-btn"
+                  type="button"
                 >
-                  <button
-                    class="ant-btn"
-                    type="button"
-                  >
-                    <span>
-                      重 置
-                    </span>
-                  </button>
-                  <button
-                    class="ant-btn ant-btn-primary"
-                    type="button"
-                  >
-                    <span>
-                      提 交
-                    </span>
-                  </button>
-                </div>
+                  <span>
+                    重 置
+                  </span>
+                </button>
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
+                >
+                  <span>
+                    提 交
+                  </span>
+                </button>
               </div>
             </div>
           </main>

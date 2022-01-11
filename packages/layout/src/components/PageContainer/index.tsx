@@ -335,21 +335,23 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   }, [props.waterMarkProps, value.waterMarkProps, loadingDom, content]);
 
   return (
-    <div style={style} className={containerClassName}>
-      {fixedHeader && pageHeaderDom ? (
-        // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
-        <Affix
-          offsetTop={value.hasHeader && value.fixedHeader ? value.headerHeight : 0}
-          {...affixProps}
-        >
-          {pageHeaderDom}
-        </Affix>
-      ) : (
-        pageHeaderDom
-      )}
-      {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
+    <>
+      <div style={style} className={containerClassName}>
+        {fixedHeader && pageHeaderDom ? (
+          // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
+          <Affix
+            offsetTop={value.hasHeader && value.fixedHeader ? value.headerHeight : 0}
+            {...affixProps}
+          >
+            {pageHeaderDom}
+          </Affix>
+        ) : (
+          pageHeaderDom
+        )}
+        {renderContentDom && <GridContent>{renderContentDom}</GridContent>}
+      </div>
       {footer && <FooterToolbar prefixCls={prefixCls}>{footer}</FooterToolbar>}
-    </div>
+    </>
   );
 };
 
