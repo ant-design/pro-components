@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.52.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.7...@ant-design/pro-form@1.52.8) (2022-01-11)
+
+### Bug Fixes
+
+- antd themes less file path ([#4436](https://github.com/ant-design/pro-components/issues/4436)) ([a6b66b4](https://github.com/ant-design/pro-components/commit/a6b66b4968e78a9c8175d17d2fe5a922cf70630f))
+- **form:** 🐛 DrawerForm cannot get form instance by formRef ([#4421](https://github.com/ant-design/pro-components/issues/4421)) ([179ac82](https://github.com/ant-design/pro-components/commit/179ac82072f4dcc51bbb607249a9670821d66662))
+- **form:** fix datePick typing error ([#4431](https://github.com/ant-design/pro-components/issues/4431)) ([cc8e893](https://github.com/ant-design/pro-components/commit/cc8e89360a209cff3182f9af316600c3ae2c6b97))
+- **form:** FormList same name will be cache problem ([#4426](https://github.com/ant-design/pro-components/issues/4426)) ([15ab36f](https://github.com/ant-design/pro-components/commit/15ab36f482aef5c6c6d78522d3ee41729197d54e))
+
 ## [1.52.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.6...@ant-design/pro-form@1.52.7) (2022-01-07)
 
 **Note:** Version bump only for package @ant-design/pro-form

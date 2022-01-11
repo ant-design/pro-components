@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.18.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.22...@ant-design/pro-card@1.18.23) (2022-01-11)
+
+### Bug Fixes
+
+- **card:** checkcard add vertical-align ([eff9e2e](https://github.com/ant-design/pro-components/commit/eff9e2ed66a3b9919f64a529d62afa757e2f3ede))
+- antd themes less file path ([#4436](https://github.com/ant-design/pro-components/issues/4436)) ([a6b66b4](https://github.com/ant-design/pro-components/commit/a6b66b4968e78a9c8175d17d2fe5a922cf70630f))
+
 ## [1.18.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-card@1.18.21...@ant-design/pro-card@1.18.22) (2022-01-07)
 
 **Note:** Version bump only for package @ant-design/pro-card

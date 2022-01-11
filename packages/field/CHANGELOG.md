@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.7...@ant-design/pro-field@1.31.8) (2022-01-11)
+
+### Bug Fixes
+
+- **form:** fix money value=0, style error ([832da15](https://github.com/ant-design/pro-components/commit/832da15ad21082c5e005bb216b4e8232d080c667))
+- antd themes less file path ([#4436](https://github.com/ant-design/pro-components/issues/4436)) ([a6b66b4](https://github.com/ant-design/pro-components/commit/a6b66b4968e78a9c8175d17d2fe5a922cf70630f))
+- **form:** fix money value=0, style error ([4d049e6](https://github.com/ant-design/pro-components/commit/4d049e61f1e93fd7633feea6d26638da61a81903))
+
 ## [1.31.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.6...@ant-design/pro-field@1.31.7) (2022-01-07)
 
 ### Bug Fixes
