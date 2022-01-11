@@ -484,7 +484,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
               align-items: flex-start;
               transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
               cursor: pointer;
-              padding: 8px;
             `,
             // 收起的样式
             collapsed &&
