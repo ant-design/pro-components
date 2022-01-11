@@ -51,7 +51,10 @@ async function release() {
   if (!args.publishOnly) {
     // Get updated packages
     logStep('check updated packages');
-    const updatedStdout = execa.sync(lernaCli, ['changed']).stdout;
+    const updatedStdout = execa.sync(lernaCli, [
+      'changed',
+      args['force-publish'] ? '--force-publish' : '',
+    ]).stdout;
     updated = updatedStdout
       .split('\n')
       .map((pkg) => {
