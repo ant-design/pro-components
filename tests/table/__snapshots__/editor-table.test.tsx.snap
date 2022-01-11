@@ -9,7 +9,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding-top:0"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-table-wrapper"
@@ -30,17 +30,17 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout:fixed"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
-                        style="width:48px"
+                        style="width: 48px;"
                       />
                       <col
-                        style="width:30%"
+                        style="width: 30%;"
                       />
                       <col
-                        style="width:120px"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -151,7 +151,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -170,7 +170,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="width:100%;margin:0;padding:0"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             🐛 [BUG]yarn install命令 antd2.4.5会报错
@@ -178,7 +178,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                               aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
-                              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+                              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
                               tabindex="0"
                             >
                               <span
@@ -251,7 +251,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -270,7 +270,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="width:100%;margin:0;padding:0"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             🐛 [BUG]无法创建工程npm create umi
@@ -278,7 +278,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                               aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
-                              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+                              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
                               tabindex="0"
                             >
                               <span
@@ -351,7 +351,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -370,7 +370,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="width:100%;margin:0;padding:0"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
@@ -378,7 +378,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                               aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
-                              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+                              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
                               tabindex="0"
                             >
                               <span
@@ -452,7 +452,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
       </div>
       <button
         class="ant-btn ant-btn-dashed"
-        style="display:block;margin:10px 0;width:100%"
+        style="display: block; margin: 10px 0px; width: 100%;"
         type="button"
       >
         <span
@@ -496,7 +496,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
   >
     <div
       class="ant-card-body"
-      style="padding-top:0"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-table-wrapper"
@@ -517,17 +517,17 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout:fixed"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
-                        style="width:48px"
+                        style="width: 48px;"
                       />
                       <col
-                        style="width:30%"
+                        style="width: 30%;"
                       />
                       <col
-                        style="width:120px"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -626,15 +626,15 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                         </th>
                       </tr>
                       <tr
-                        style="position:relative"
+                        style="position: relative;"
                       >
                         <td
                           colspan="0"
-                          style="visibility:hidden"
+                          style="visibility: hidden;"
                         >
                           <button
                             class="ant-btn ant-btn-dashed"
-                            style="display:block;margin:10px 0;width:100%"
+                            style="display: block; margin: 10px 0px; width: 100%;"
                             type="button"
                           >
                             <span
@@ -667,11 +667,11 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                         </td>
                         <td
                           colspan="5"
-                          style="position:absolute;left:0;width:100%"
+                          style="position: absolute; left: 0px; width: 100%;"
                         >
                           <button
                             class="ant-btn ant-btn-dashed"
-                            style="display:block;margin:10px 0;width:100%"
+                            style="display: block; margin: 10px 0px; width: 100%;"
                             type="button"
                           >
                             <span
@@ -716,7 +716,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -735,7 +735,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="width:100%;margin:0;padding:0"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             🐛 [BUG]yarn install命令 antd2.4.5会报错
@@ -743,7 +743,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                               aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
-                              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+                              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
                               tabindex="0"
                             >
                               <span
@@ -816,7 +816,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -835,7 +835,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="width:100%;margin:0;padding:0"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             🐛 [BUG]无法创建工程npm create umi
@@ -843,7 +843,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                               aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
-                              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+                              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
                               tabindex="0"
                             >
                               <span
@@ -916,7 +916,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -935,7 +935,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="width:100%;margin:0;padding:0"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
@@ -943,7 +943,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                               aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
-                              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+                              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
                               tabindex="0"
                             >
                               <span
@@ -1029,7 +1029,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
   >
     <div
       class="ant-card-body"
-      style="padding-top:0"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-table-wrapper"
@@ -1050,17 +1050,17 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout:fixed"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
-                        style="width:48px"
+                        style="width: 48px;"
                       />
                       <col
-                        style="width:30%"
+                        style="width: 30%;"
                       />
                       <col
-                        style="width:120px"
+                        style="width: 120px;"
                       />
                     </colgroup>
                     <thead
@@ -1171,7 +1171,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -1190,7 +1190,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="width:100%;margin:0;padding:0"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             🐛 [BUG]yarn install命令 antd2.4.5会报错
@@ -1198,7 +1198,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                               aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
-                              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+                              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
                               tabindex="0"
                             >
                               <span
@@ -1271,7 +1271,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -1290,7 +1290,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="width:100%;margin:0;padding:0"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             🐛 [BUG]无法创建工程npm create umi
@@ -1298,7 +1298,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                               aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
-                              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+                              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
                               tabindex="0"
                             >
                               <span
@@ -1371,7 +1371,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -1390,7 +1390,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                         >
                           <span
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
-                            style="width:100%;margin:0;padding:0"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             🧐 [问题] build 后还存在 es6 的代码（Umi@2.13.13）
@@ -1398,7 +1398,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                               aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
-                              style="border:0;background:transparent;padding:0;line-height:inherit;display:inline-block"
+                              style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
                               tabindex="0"
                             >
                               <span
@@ -1760,7 +1760,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
   >
     <div
       class="ant-card-body"
-      style="padding-top:0"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-table-wrapper"
@@ -1781,14 +1781,14 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                   class="ant-table-content"
                 >
                   <table
-                    style="table-layout:fixed"
+                    style="table-layout: fixed;"
                   >
                     <colgroup>
                       <col
-                        style="width:48px"
+                        style="width: 48px;"
                       />
                       <col
-                        style="width:48px"
+                        style="width: 48px;"
                       />
                     </colgroup>
                     <thead
@@ -1815,7 +1815,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -1847,7 +1847,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -1879,7 +1879,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
                         >
                           <span
                             class="ant-table-row-indent indent-level-0"
-                            style="padding-left:0px"
+                            style="padding-left: 0px;"
                           />
                           <button
                             aria-label="展开行"
@@ -1912,7 +1912,7 @@ exports[`EditorProTable 📝 columns support editable test 1`] = `
       </div>
       <button
         class="ant-btn ant-btn-dashed"
-        style="display:block;margin:10px 0;width:100%"
+        style="display: block; margin: 10px 0px; width: 100%;"
         type="button"
       >
         <span

@@ -96,29 +96,3 @@ ProFormFieldSet can combine the values of multiple children inside and store the
   <ProFormText width="md" />
 </ProFormFieldSet
 ```
-
-## ProFormDependency
-
-ProFormDependency is a simplified version of Form.Item with noStyle and shouldUpdate built in by default, we just need to configure name to determine which data we depend on and ProFormDependency will automatically handle the diff and and extract the corresponding values from the form. ProFormDependency will automatically process the diff and extract the corresponding values from the form.
-
-The name parameter must be an array, if it is a nested structure you can configure it like this `name={['name', ['name2', 'text']]}`. The value of the configured name will be passed in renderProps. `name={['name', ['name2', 'text']]}` The value of the values passed in is `{ name: string,name2: { text:string }`.
-
-```tsx | pure
-<ProFormDependency name={['name']}>
-  {({ name }) => {
-    return (
-      <ProFormSelect
-        options={[
-          {
-            value: 'chapter',
-            label: 'Effective when stamped',
-          },
-        ]}
-        width="md"
-        name="useMode"
-        label={`Contractual agreement with `${name`` to take effect `}
-      />
-    );
-  }}
-</ProFormDependency>
-```

@@ -66,7 +66,7 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
   const valueMap: Record<string, string> = useMemo(() => {
     const values = {};
     options?.forEach(({ label: aLabel, value: aValue }) => {
-      values[aValue] = aLabel || aValue;
+      values[aValue!] = aLabel || aValue;
     });
     return values;
   }, [options]);
@@ -143,8 +143,8 @@ const LightSelect: React.ForwardRefRenderFunction<any, SelectProps<any> & LightS
           keyword
             ? options?.filter((o) => {
                 return (
-                  String(o.label).toLowerCase().includes(keyword) ||
-                  o.value.toLowerCase().includes(keyword)
+                  String(o.label)?.toLowerCase()?.includes(keyword) ||
+                  o?.value?.toString()?.toLowerCase()?.includes(keyword)
                 );
               })
             : options

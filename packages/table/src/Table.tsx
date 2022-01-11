@@ -1,7 +1,7 @@
 /* eslint max-classes-per-file: ["error", 3] */
 import React, { useContext, useRef, useCallback, useMemo, useEffect } from 'react';
 import type { TablePaginationConfig } from 'antd';
-import { Table, ConfigProvider, Card } from 'antd';
+import { Table, Spin, ConfigProvider, Card } from 'antd';
 
 import type { ParamsType } from '@ant-design/pro-provider';
 import { useIntl, ConfigProviderWrap } from '@ant-design/pro-provider';
@@ -228,6 +228,14 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
             key="table"
             submitter={false}
             omitNil={false}
+            contentRender={(items: React.ReactNode) => {
+              if (counter.editableForm) return items;
+              return (
+                <div style={{ paddingTop: 100, textAlign: 'center' }}>
+                  <Spin size="large" />
+                </div>
+              );
+            }}
           >
             {tableDom}
           </ProForm>
@@ -371,9 +379,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   }, [propsActionRef]);
 
   /** 单选多选的相关逻辑 */
-  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<React.ReactText[]>([], {
-    value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
-  });
+  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<React.ReactText[] | undefined>(
+    propsRowSelection ? propsRowSelection?.defaultSelectedRowKeys : undefined,
+    {
+      value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
+    },
+  );
 
   const selectedRowsRef = useRef<T[]>([]);
 
@@ -515,7 +526,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   }, [action.dataSource, rowKey]);
 
   useEffect(() => {
-    selectedRowsRef.current = selectedRowKeys?.map(
+    selectedRowsRef.current = selectedRowKeys!?.map(
       (key): T => preserveRecordsRef.current?.get(key) as T,
     );
   }, [selectedRowKeys]);
@@ -635,6 +646,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // eslint-disable-next-line react-hooks/exhaustive-deps
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
   ]);
+
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
   useDeepCompareEffectDebounce(
     () => {
@@ -712,7 +724,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
           options === false && !headerTitle && !toolBarRender && !toolbar && !isLightFilter
         }
         selectedRows={selectedRowsRef.current}
-        selectedRowKeys={selectedRowKeys}
+        selectedRowKeys={selectedRowKeys!}
         tableColumn={tableColumn}
         tooltip={tooltip}
         toolbar={toolbar}
@@ -733,7 +745,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const alertDom =
     propsRowSelection !== false ? (
       <Alert<T>
-        selectedRowKeys={selectedRowKeys}
+        selectedRowKeys={selectedRowKeys!}
         selectedRows={selectedRowsRef.current}
         onCleanSelected={onCleanSelected}
         alertOptionRender={rest.tableAlertOptionRender}
@@ -741,7 +753,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         alwaysShowAlert={propsRowSelection?.alwaysShowAlert}
       />
     ) : null;
-
   return (
     <TableRender
       {...props}

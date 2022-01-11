@@ -28,9 +28,7 @@ When your forms need to interact with the server or need multiple cell styles, P
 
 <code src="./demos/single.tsx" background="#f5f5f5" height="500px" />
 
-### DataSource
-
-<code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px"/>
+<code src="./demos/dataSource.tsx" background="#f5f5f5" height="500px" debug/>
 
 ### Downgrade to a normal table
 
@@ -264,6 +262,8 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | params | Additional parameters used for `request` query, once changed will trigger reloading | `object` | - |
 | postData | Process the data obtained through `request` | `(data: T[]) => T[]` | - |
 | defaultData | Default data | `T[]` | - |
+| dataSource | Table data, protable recommends using request to load | `T[]` | - |
+| onDataSourceChange | Triggered when Table data changes | `(dataSource: T[]) => void` | - |
 | actionRef | Reference to Table action for custom triggering | `MutableRefObject<ActionType>` | - |
 | formRef | The form instance of the query form can be obtained for some flexible configuration | `MutableRefObject<FormInstance>` | - |
 | toolBarRender | Render toolbar, support returning a dom array, will automatically increase margin-right | `(action) => ReactNode[]` | - |
@@ -305,9 +305,9 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
-| defaultValue | The default value of the column status, only for the first time | `record <string, columnState>;` |
-| value | Column status, support controlled mode | `Record <string, columnState>;` |
-| onChange | Column status After changing | `(Value: Record <string, columnSstate>) => Viod` |
+| defaultValue | The default value of the column status, only for the first time | `Record <string, ColumnsState>;` |
+| value | Column status, support controlled mode | `Record <string, ColumnsState>;` |
+| onChange | Column status After changing | `(value: Record <string, ColumnsState>) => void` |
 | PersistenceKey | The key of the persistence column is used to determine if it is the same table | `string \| Number` |
 | PersistenceType | The type of persistence column, localStorage is also existing after closing the browser, sessionStorage closes the browser will be lost | `localstorage \| sessionStorage` |
 

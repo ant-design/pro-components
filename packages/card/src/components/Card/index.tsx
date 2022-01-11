@@ -153,7 +153,7 @@ const Card = React.forwardRef((props: CardProps, ref: any) => {
             }),
           }}
           // eslint-disable-next-line react/no-array-index-key
-          key={`pro-card-col-${index}`}
+          key={`pro-card-col-${element?.key || index}`}
           className={columnClassName}
         >
           {React.cloneElement(element)}

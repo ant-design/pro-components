@@ -1,5 +1,5 @@
-﻿import React, { useState, useEffect } from 'react';
-import { Form, Popover } from 'antd';
+﻿import React, { useState, useEffect, useContext } from 'react';
+import { Form, Popover, ConfigProvider } from 'antd';
 import type { FormItemProps, PopoverProps } from 'antd';
 import type { NamePath } from 'rc-field-form/lib/interface';
 import './index.less';
@@ -31,12 +31,15 @@ const InlineErrorFormItem: React.FC<{
 }> = ({ inputProps, input, extra, errorList, popoverProps }) => {
   const [visible, setVisible] = useState<boolean | undefined>(false);
   const [errorStringList, setErrorList] = useState<string[]>([]);
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
   useEffect(() => {
     if (inputProps.validateStatus !== 'validating') {
       setErrorList(inputProps.errors);
     }
   }, [inputProps.errors, inputProps.validateStatus]);
+
+  const prefixCls = getPrefixCls();
 
   return (
     <Popover
@@ -49,7 +52,7 @@ const InlineErrorFormItem: React.FC<{
         setVisible(visibleParams);
       }}
       content={
-        <div className="ant-form-item-with-help">
+        <div className={`${prefixCls}-form-item-with-help`}>
           {inputProps.validateStatus === 'validating' ? <LoadingOutlined /> : null}
           {errorList}
         </div>

@@ -3,6 +3,7 @@ import ProField from '../Field';
 import type { ProFormFieldItemProps } from '../../interface';
 import type { ProSchema } from '@ant-design/pro-utils';
 import type { TreeSelectProps } from 'antd';
+
 /**
  * 级联选择框
  *
@@ -30,4 +31,12 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<
   );
 };
 
-export default React.forwardRef(ProFormTreeSelect);
+const WarpProFormTreeSelect: React.FC<
+  ProFormFieldItemProps<TreeSelectProps<any>> & {
+    valueEnum?: ProSchema['valueEnum'];
+    params?: ProSchema['params'];
+    request?: ProSchema['request'];
+  }
+> = React.forwardRef(ProFormTreeSelect);
+
+export default WarpProFormTreeSelect;

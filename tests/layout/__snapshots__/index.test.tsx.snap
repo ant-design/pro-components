@@ -10,7 +10,7 @@ Array [
       style="min-height:100%"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
         style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
       >
         <div
@@ -181,43 +181,27 @@ Array [
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1e1x11c"
+            class="ant-pro-sider-collapsed-button css-1v5e81w"
           >
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 2 24"
-              width="1em"
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <g
-                  fill="currentColor"
-                  transform="translate(-248.000000, -429.000000)"
-                >
-                  <g
-                    transform="translate(0.000000, 56.000000)"
-                  >
-                    <g
-                      transform="translate(248.000000, 0.000000)"
-                    >
-                      <rect
-                        height="24"
-                        rx="1"
-                        width="2"
-                        x="0"
-                        y="373"
-                      />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </aside>
@@ -246,7 +230,7 @@ Array [
           class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header css-qa17u9"
         >
           <div
-            class="ant-pro-top-nav-header light css-epdxuq"
+            class="ant-pro-top-nav-header light css-1l1sujn"
           >
             <div
               class="ant-pro-top-nav-header-main css-17ldh9g"
@@ -432,7 +416,7 @@ Array [
       style="min-height:100%"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix css-8zt05c"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix css-rahbg5"
         style="padding-top:56px;background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
       >
         <div
@@ -467,43 +451,27 @@ Array [
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1e1x11c"
+            class="ant-pro-sider-collapsed-button css-1v5e81w"
           >
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 2 24"
-              width="1em"
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <g
-                  fill="currentColor"
-                  transform="translate(-248.000000, -429.000000)"
-                >
-                  <g
-                    transform="translate(0.000000, 56.000000)"
-                  >
-                    <g
-                      transform="translate(248.000000, 0.000000)"
-                    >
-                      <rect
-                        height="24"
-                        rx="1"
-                        width="2"
-                        x="0"
-                        y="373"
-                      />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </aside>
@@ -679,7 +647,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
     style="min-height:100%"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
@@ -825,43 +793,27 @@ exports[`BasicLayout 🥩 base use 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-1e1x11c"
+          class="ant-pro-sider-collapsed-button css-1v5e81w"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 2 24"
-            width="1em"
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-              stroke="none"
-              stroke-width="1"
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <g
-                fill="currentColor"
-                transform="translate(-248.000000, -429.000000)"
-              >
-                <g
-                  transform="translate(0.000000, 56.000000)"
-                >
-                  <g
-                    transform="translate(248.000000, 0.000000)"
-                  >
-                    <rect
-                      height="24"
-                      rx="1"
-                      width="2"
-                      x="0"
-                      y="373"
-                    />
-                  </g>
-                </g>
-              </g>
-            </g>
-          </svg>
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </aside>
@@ -886,7 +838,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
     style="min-height:100%"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
@@ -1032,43 +984,27 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-1e1x11c"
+          class="ant-pro-sider-collapsed-button css-1v5e81w"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 2 24"
-            width="1em"
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-              stroke="none"
-              stroke-width="1"
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <g
-                fill="currentColor"
-                transform="translate(-248.000000, -429.000000)"
-              >
-                <g
-                  transform="translate(0.000000, 56.000000)"
-                >
-                  <g
-                    transform="translate(248.000000, 0.000000)"
-                  >
-                    <rect
-                      height="24"
-                      rx="1"
-                      width="2"
-                      x="0"
-                      y="373"
-                    />
-                  </g>
-                </g>
-              </g>
-            </g>
-          </svg>
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </aside>
@@ -1094,7 +1030,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
@@ -1240,14 +1176,14 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
             data-menu-list="true"
             role="menu"
             style="width: 100%;"
             tabindex="0"
           >
             <li
-              class="ant-menu-submenu ant-menu-submenu-inline"
+              class="css-1ro1ei0"
               role="none"
             >
               <div
@@ -1276,7 +1212,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               </div>
             </li>
             <li
-              class="ant-menu-item ant-menu-item-only-child"
+              class="css-tj118t"
               data-menu-id="rc-menu-uuid-84044-6-/list"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1289,7 +1225,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                   class="ant-pro-menu-item"
                 >
                   <span
-                    class="ant-pro-menu-item-title"
+                    class="ant-pro-menu-item-title css-5r6t3y"
                   >
                     列表页
                   </span>
@@ -1303,43 +1239,27 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button css-1e1x11c"
+          class="ant-pro-sider-collapsed-button css-1v5e81w"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 2 24"
-            width="1em"
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-              stroke="none"
-              stroke-width="1"
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <g
-                fill="currentColor"
-                transform="translate(-248.000000, -429.000000)"
-              >
-                <g
-                  transform="translate(0.000000, 56.000000)"
-                >
-                  <g
-                    transform="translate(248.000000, 0.000000)"
-                  >
-                    <rect
-                      height="24"
-                      rx="1"
-                      width="2"
-                      x="0"
-                      y="373"
-                    />
-                  </g>
-                </g>
-              </g>
-            </g>
-          </svg>
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </aside>
@@ -1364,7 +1284,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
@@ -1510,43 +1430,27 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-1e1x11c"
+          class="ant-pro-sider-collapsed-button css-1v5e81w"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 2 24"
-            width="1em"
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-              stroke="none"
-              stroke-width="1"
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <g
-                fill="currentColor"
-                transform="translate(-248.000000, -429.000000)"
-              >
-                <g
-                  transform="translate(0.000000, 56.000000)"
-                >
-                  <g
-                    transform="translate(248.000000, 0.000000)"
-                  >
-                    <rect
-                      height="24"
-                      rx="1"
-                      width="2"
-                      x="0"
-                      y="373"
-                    />
-                  </g>
-                </g>
-              </g>
-            </g>
-          </svg>
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </aside>
@@ -1596,7 +1500,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
@@ -1742,14 +1646,14 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
             data-menu-list="true"
             role="menu"
             style="width: 100%;"
             tabindex="0"
           >
             <li
-              class="ant-menu-item ant-menu-item-only-child"
+              class="css-tj118t"
               data-menu-id="rc-menu-uuid-84044-1-/home"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1762,7 +1666,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
                   class="ant-pro-menu-item"
                 >
                   <span
-                    class="ant-pro-menu-item-title"
+                    class="ant-pro-menu-item-title css-5r6t3y"
                   >
                     首页
                   </span>
@@ -1770,7 +1674,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </span>
             </li>
             <li
-              class="ant-menu-submenu ant-menu-submenu-inline"
+              class="css-1ro1ei0"
               role="none"
             >
               <div
@@ -1799,7 +1703,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </div>
             </li>
             <li
-              class="ant-menu-item ant-menu-item-only-child"
+              class="css-tj118t"
               data-menu-id="rc-menu-uuid-84044-1-/data_ming"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1812,7 +1716,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
                   class="ant-pro-menu-item"
                 >
                   <span
-                    class="ant-pro-menu-item-title"
+                    class="ant-pro-menu-item-title css-5r6t3y"
                   >
                     明细数据
                   </span>
@@ -1820,7 +1724,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </span>
             </li>
             <li
-              class="ant-menu-item ant-menu-item-only-child"
+              class="css-tj118t"
               data-menu-id="rc-menu-uuid-84044-1-/other"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1833,7 +1737,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
                   class="ant-pro-menu-item"
                 >
                   <span
-                    class="ant-pro-menu-item-title"
+                    class="ant-pro-menu-item-title css-5r6t3y"
                   >
                     其他
                   </span>
@@ -1847,43 +1751,27 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button css-1e1x11c"
+          class="ant-pro-sider-collapsed-button css-1v5e81w"
         >
-          <svg
-            aria-hidden="true"
-            fill="currentColor"
-            height="1em"
-            viewBox="0 0 2 24"
-            width="1em"
+          <span
+            aria-label="right"
+            class="anticon anticon-right"
+            role="img"
           >
-            <g
-              fill="none"
-              fill-rule="evenodd"
-              stroke="none"
-              stroke-width="1"
+            <svg
+              aria-hidden="true"
+              data-icon="right"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <g
-                fill="currentColor"
-                transform="translate(-248.000000, -429.000000)"
-              >
-                <g
-                  transform="translate(0.000000, 56.000000)"
-                >
-                  <g
-                    transform="translate(248.000000, 0.000000)"
-                  >
-                    <rect
-                      height="24"
-                      rx="1"
-                      width="2"
-                      x="0"
-                      y="373"
-                    />
-                  </g>
-                </g>
-              </g>
-            </g>
-          </svg>
+              <path
+                d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+              />
+            </svg>
+          </span>
         </div>
       </div>
     </aside>

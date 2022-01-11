@@ -46,6 +46,9 @@ const ToolTipIcon: React.FC<{
           e.stopPropagation();
           e.preventDefault();
           const config = columnsMap[columnKey] || {};
+          const disableIcon =
+            typeof config.disable === 'boolean' ? config.disable : config.disable?.icon;
+          if (disableIcon) return;
           const columnKeyMap = {
             ...columnsMap,
             [columnKey]: { ...config, fixed } as ColumnsState,
@@ -128,6 +131,9 @@ const CheckboxList: React.FC<{
           key: columnKey,
           ...omit(rest, ['className']),
           selectable: false,
+          disabled: config.disable === true,
+          disableCheckbox:
+            typeof config.disable === 'boolean' ? config.disable : config.disable?.checkbox,
           isLeaf: parentConfig ? true : undefined,
         };
         if (children) {

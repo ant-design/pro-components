@@ -87,7 +87,9 @@ export function useActionType<T>(
     reload: async (resetPageIndex?: boolean) => {
       // 如果为 true，回到第一页
       if (resetPageIndex) {
-        await props.onCleanSelected();
+        await action.setPageInfo({
+          current: 1,
+        });
       }
       action?.reload();
     },

@@ -238,7 +238,7 @@ class CellRenderFromItem<T> extends React.Component<
  * @param valueType
  */
 function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactNode {
-  const { text, valueType, rowData, columnProps, counter } = config;
+  const { text, valueType, rowData, columnProps } = config;
 
   // 如果 valueType === text ，没必要多走一次 render
   if (
@@ -289,8 +289,6 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
       />
     );
   }
-
-  if (!counter.editableForm) return null;
 
   return <CellRenderFromItem config={config} proFieldProps={proFieldProps} />;
 }

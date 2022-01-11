@@ -24,7 +24,6 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const layoutClassName = getPrefixCls('pro-field-tree-select');
-  const [loading, options, fetchData] = useFieldFetchData(rest);
   const treeSelectRef = useRef(null);
 
   const {
@@ -35,9 +34,14 @@ const FieldTreeSelect: ProFieldFC<GroupProps> = (
     loadData,
     showSearch,
     autoClearSearchValue,
-    searchValue: propsSearchValue,
+    searchValue: propsSearchValue = '',
     ...fieldProps
   } = (rest.fieldProps as TreeSelectProps<any>) || {};
+
+  const [loading, options, fetchData] = useFieldFetchData({
+    ...rest,
+    defaultKeyWords: propsSearchValue,
+  });
   const [searchValue, setSearchValue] = useState(propsSearchValue);
 
   useImperativeHandle(ref, () => ({

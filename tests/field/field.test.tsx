@@ -7,7 +7,7 @@ import Field from '@ant-design/pro-field';
 
 import Demo from './fixtures/demo';
 import { waitForComponentToPaint, waitTime } from '../util';
-import TreeSelectDemo from './fixtures/treeSelectDemo';
+import { TreeSelectDemo } from './fixtures/treeSelectDemo';
 
 const domRef = React.createRef();
 
@@ -467,18 +467,17 @@ describe('Field', () => {
     expect(searchInput.exists()).toBeTruthy();
 
     act(() => {
-      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
-      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
-    });
-
-    await waitForComponentToPaint(html, 200);
-
-    act(() => {
       searchInput.simulate('change', {
         target: {
           value: 'Node5',
         },
       });
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
     });
 
     await waitForComponentToPaint(html, 200);
@@ -492,9 +491,13 @@ describe('Field', () => {
     });
 
     await waitForComponentToPaint(html, 200);
+
+    expect(html.text()).toContain('Node2');
+
     act(() => {
       selectTreeTitle.last().simulate('click');
     });
+
     await waitForComponentToPaint(html, 200);
 
     expect(html.text()).toContain('Child Node5');
@@ -503,11 +506,8 @@ describe('Field', () => {
       html.unmount();
     });
   });
-  it(`🐴 treeSelect support request function and search, asynchronously loadData`, async () => {
-    const ref = React.createRef<{
-      fetchData: () => void;
-    }>();
 
+  it(`🐴 treeSelect support request function and search, asynchronously loadData`, async () => {
     const requestFn = jest.fn(),
       onSearchFn = jest.fn(),
       onBlurFn = jest.fn(),
@@ -516,12 +516,11 @@ describe('Field', () => {
 
     const html = mount(
       <TreeSelectDemo
-        ref={ref}
         onSearch={onSearchFn}
         onBlur={onBlurFn}
         onClear={onClearFn}
         loadData={loadDataFn}
-        onChange={(res) => {
+        onChange={(res: any) => {
           html.setProps({ value: res });
         }}
         request={requestFn}
@@ -532,10 +531,6 @@ describe('Field', () => {
 
     expect(requestFn).toBeCalledTimes(1);
 
-    const searchInput = html.find('input.ant-select-selection-search-input');
-
-    expect(searchInput.exists()).toBeTruthy();
-
     act(() => {
       html.find('span.ant-select-tree-switcher_close').last().simulate('click');
       html.find('span.ant-select-tree-switcher_close').last().simulate('click');
@@ -544,6 +539,10 @@ describe('Field', () => {
     await waitForComponentToPaint(html, 200);
 
     expect(loadDataFn).toBeCalledTimes(1);
+
+    const searchInput = html.find('input.ant-select-selection-search-input');
+
+    expect(searchInput.exists()).toBeTruthy();
 
     act(() => {
       searchInput.simulate('change', {
@@ -557,8 +556,17 @@ describe('Field', () => {
 
     expect(onSearchFn).toBeCalled();
 
-    const selectTreeTitle = html.find('span.ant-select-tree-title');
+    act(() => {
+      html.find('.ant-select-tree-switcher_close').forEach((item) => item.simulate('click'));
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    const selectTreeTitle = html.find('.ant-select-tree-title');
+
     expect(selectTreeTitle.exists()).toBeTruthy();
+    selectTreeTitle.forEach((item) => console.log(item.text()));
+
     expect(selectTreeTitle.length).toBe(2);
 
     await waitForComponentToPaint(html, 200);

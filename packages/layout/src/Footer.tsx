@@ -8,8 +8,6 @@ import type { WithFalse } from './typings';
 
 const { Footer } = Layout;
 
-const defaultCopyright = '2019 蚂蚁金服体验技术部出品';
-
 export type FooterProps = {
   links?: WithFalse<
     {
@@ -39,7 +37,7 @@ const DefaultFooter: React.FC<FooterProps> = ({
       copyright={
         copyright === false ? null : (
           <Fragment>
-            <CopyrightOutlined /> {copyright || defaultCopyright}
+            <CopyrightOutlined /> {copyright}
           </Fragment>
         )
       }

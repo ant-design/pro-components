@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.32.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.4...@ant-design/pro-utils@1.32.5) (2022-01-07)
+
+### Bug Fixes
+
+- **utils:** antd themes less file path ([#4411](https://github.com/ant-design/pro-components/issues/4411)) ([ff78bf0](https://github.com/ant-design/pro-components/commit/ff78bf0b3bbb52984a8cc12768e1099a6192fa1b))
+
+## [1.32.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.3...@ant-design/pro-utils@1.32.4) (2022-01-05)
+
+### Bug Fixes
+
+- **form:** support using prefixCls from ConfigProvider in <InlineErrorFormItem /> ([#4403](https://github.com/ant-design/pro-components/issues/4403)) ([4fd876a](https://github.com/ant-design/pro-components/commit/4fd876a20531a479e4bc957a346b1bf179b940ac))
+- **utils:** timestamp in moment no need pass second param ([#4396](https://github.com/ant-design/pro-components/issues/4396)) ([62a4f8e](https://github.com/ant-design/pro-components/commit/62a4f8e7eff6a456853eaefdb5da120a693d5143))
+
+## [1.32.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.2...@ant-design/pro-utils@1.32.3) (2021-12-28)
+
+### Bug Fixes
+
+- **utils:** update typing.ts ([#4362](https://github.com/ant-design/pro-components/issues/4362)) ([4592841](https://github.com/ant-design/pro-components/commit/459284151dbcf2b1590996f54ed77457c651ae10))
+
 ## [1.32.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.1...@ant-design/pro-utils@1.32.2) (2021-12-24)
 
 ### Bug Fixes

@@ -3514,7 +3514,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -3660,14 +3660,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/home"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -3680,7 +3680,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                       class="ant-pro-menu-item"
                     >
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         首页
                       </span>
@@ -3688,7 +3688,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -3721,7 +3721,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                     id="rc-menu-uuid-test-/data_hui-popup"
                   >
                     <li
-                      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                      class="css-1ro1ei0"
                       role="none"
                     >
                       <div
@@ -3754,7 +3754,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                         id="rc-menu-uuid-test-/cc19e384db0c314c8f5bae7bd08375a1eb8280bc00fba70f3941602421d509c4-popup"
                       >
                         <li
-                          class="ant-menu-item ant-menu-item-only-child"
+                          class="css-tj118t"
                           data-menu-id="rc-menu-uuid-test-/data_hui2"
                           role="menuitem"
                           style="padding-left: 48px;"
@@ -3767,7 +3767,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                               class="ant-pro-menu-item"
                             >
                               <span
-                                class="ant-pro-menu-item-title"
+                                class="ant-pro-menu-item-title css-1upwz82"
                               >
                                 月表
                               </span>
@@ -3775,7 +3775,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                           </span>
                         </li>
                         <li
-                          class="ant-menu-item ant-menu-item-only-child"
+                          class="css-tj118t"
                           data-menu-id="rc-menu-uuid-test-/data_hui3"
                           role="menuitem"
                           style="padding-left: 48px;"
@@ -3788,7 +3788,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                               class="ant-pro-menu-item"
                             >
                               <span
-                                class="ant-pro-menu-item-title"
+                                class="ant-pro-menu-item-title css-1upwz82"
                               >
                                 日表
                               </span>
@@ -3798,7 +3798,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                       </ul>
                     </li>
                     <li
-                      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                      class="css-1ro1ei0"
                       role="none"
                     >
                       <div
@@ -3831,7 +3831,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                         id="rc-menu-uuid-test-/028ada2346da00990af63de1191f18cc87c96fc671323ae24df9dd39fc8c0fd2-popup"
                       >
                         <li
-                          class="ant-menu-item ant-menu-item-only-child"
+                          class="css-tj118t"
                           data-menu-id="rc-menu-uuid-test-/data_hui4"
                           role="menuitem"
                           style="padding-left: 48px;"
@@ -3844,7 +3844,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                               class="ant-pro-menu-item"
                             >
                               <span
-                                class="ant-pro-menu-item-title"
+                                class="ant-pro-menu-item-title css-1upwz82"
                               >
                                 月表
                               </span>
@@ -3852,7 +3852,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                           </span>
                         </li>
                         <li
-                          class="ant-menu-item ant-menu-item-only-child"
+                          class="css-tj118t"
                           data-menu-id="rc-menu-uuid-test-tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk"
                           role="menuitem"
                           style="padding-left: 48px;"
@@ -3865,7 +3865,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                               class="ant-pro-menu-item"
                             >
                               <span
-                                class="ant-pro-menu-item-title"
+                                class="ant-pro-menu-item-title css-1upwz82"
                               >
                                 日表
                               </span>
@@ -3883,43 +3883,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -3999,7 +3983,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -4145,14 +4129,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/welcome"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -4165,7 +4149,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                       class="ant-pro-menu-item"
                     >
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         欢迎
                       </span>
@@ -4173,7 +4157,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -4206,7 +4190,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                     id="rc-menu-uuid-test-/admin-popup"
                   >
                     <li
-                      class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/admin/process"
                       role="menuitem"
                       style="padding-left: 32px;"
@@ -4219,7 +4203,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-1upwz82"
                           >
                             申请单列表
                           </span>
@@ -4235,43 +4219,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -4433,7 +4401,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -4579,14 +4547,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/home"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -4599,7 +4567,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       class="ant-pro-menu-item"
                     >
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         首页
                       </span>
@@ -4607,7 +4575,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -4640,7 +4608,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     id="rc-menu-uuid-test-/data_hui-popup"
                   >
                     <li
-                      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                      class="css-1ro1ei0"
                       role="none"
                     >
                       <div
@@ -4673,7 +4641,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         id="rc-menu-uuid-test-/cc19e384db0c314c8f5bae7bd08375a1eb8280bc00fba70f3941602421d509c4-popup"
                       >
                         <li
-                          class="ant-menu-item ant-menu-item-only-child"
+                          class="css-tj118t"
                           data-menu-id="rc-menu-uuid-test-/data_hui2"
                           role="menuitem"
                           style="padding-left: 48px;"
@@ -4686,7 +4654,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                               class="ant-pro-menu-item"
                             >
                               <span
-                                class="ant-pro-menu-item-title"
+                                class="ant-pro-menu-item-title css-1upwz82"
                               >
                                 月表
                               </span>
@@ -4694,7 +4662,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           </span>
                         </li>
                         <li
-                          class="ant-menu-item ant-menu-item-only-child"
+                          class="css-tj118t"
                           data-menu-id="rc-menu-uuid-test-/data_hui3"
                           role="menuitem"
                           style="padding-left: 48px;"
@@ -4707,7 +4675,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                               class="ant-pro-menu-item"
                             >
                               <span
-                                class="ant-pro-menu-item-title"
+                                class="ant-pro-menu-item-title css-1upwz82"
                               >
                                 日表
                               </span>
@@ -4717,7 +4685,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       </ul>
                     </li>
                     <li
-                      class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                      class="css-1ro1ei0"
                       role="none"
                     >
                       <div
@@ -4750,7 +4718,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                         id="rc-menu-uuid-test-/028ada2346da00990af63de1191f18cc87c96fc671323ae24df9dd39fc8c0fd2-popup"
                       >
                         <li
-                          class="ant-menu-item ant-menu-item-only-child"
+                          class="css-tj118t"
                           data-menu-id="rc-menu-uuid-test-/data_hui4"
                           role="menuitem"
                           style="padding-left: 48px;"
@@ -4763,7 +4731,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                               class="ant-pro-menu-item"
                             >
                               <span
-                                class="ant-pro-menu-item-title"
+                                class="ant-pro-menu-item-title css-1upwz82"
                               >
                                 月表
                               </span>
@@ -4771,7 +4739,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           </span>
                         </li>
                         <li
-                          class="ant-menu-item ant-menu-item-only-child"
+                          class="css-tj118t"
                           data-menu-id="rc-menu-uuid-test-tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk"
                           role="menuitem"
                           style="padding-left: 48px;"
@@ -4784,7 +4752,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                               class="ant-pro-menu-item"
                             >
                               <span
-                                class="ant-pro-menu-item-title"
+                                class="ant-pro-menu-item-title css-1upwz82"
                               >
                                 日表
                               </span>
@@ -4796,7 +4764,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                   </ul>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -4829,7 +4797,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     id="rc-menu-uuid-test-/data_ming-popup"
                   >
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/other/homeEdit"
                       role="menuitem"
                       style="padding-left: 32px;"
@@ -4842,7 +4810,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-1upwz82"
                           >
                             概述导出
                           </span>
@@ -4852,7 +4820,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                   </ul>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -4885,7 +4853,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     id="rc-menu-uuid-test-/other-popup"
                   >
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/other/upLoad"
                       role="menuitem"
                       style="padding-left: 32px;"
@@ -4898,7 +4866,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-1upwz82"
                           >
                             odps同步导入
                           </span>
@@ -4906,7 +4874,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/other/upLoadMenu"
                       role="menuitem"
                       style="padding-left: 32px;"
@@ -4919,7 +4887,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-1upwz82"
                           >
                             菜单导入
                           </span>
@@ -4935,43 +4903,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -5051,7 +5003,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -5197,14 +5149,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/home"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -5234,7 +5186,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         收藏
                       </span>
@@ -5242,7 +5194,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                   </span>
                 </li>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/home/overview"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -5272,7 +5224,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         FaceBook
                       </span>
@@ -5280,7 +5232,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                   </span>
                 </li>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/home/search"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -5310,7 +5262,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         Twitter
                       </span>
@@ -5324,43 +5276,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -5440,7 +5376,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -5586,14 +5522,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/home"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -5606,7 +5542,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                       class="ant-pro-menu-item"
                     >
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         首页
                       </span>
@@ -5630,7 +5566,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     class="ant-menu-item-group-list"
                   >
                     <li
-                      class="ant-menu-submenu ant-menu-submenu-inline"
+                      class="css-1ro1ei0"
                       role="none"
                     >
                       <div
@@ -5659,7 +5595,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                       </div>
                     </li>
                     <li
-                      class="ant-menu-submenu ant-menu-submenu-inline"
+                      class="css-1ro1ei0"
                       role="none"
                     >
                       <div
@@ -5716,7 +5652,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     class="ant-menu-item-group-list"
                   >
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/other/homeEdit"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -5729,7 +5665,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-5r6t3y"
                           >
                             概述导出
                           </span>
@@ -5765,7 +5701,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     class="ant-menu-item-group-list"
                   >
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/other/upLoad"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -5778,7 +5714,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-5r6t3y"
                           >
                             odps同步导入
                           </span>
@@ -5786,7 +5722,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/other/upLoadMenu"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -5799,7 +5735,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-5r6t3y"
                           >
                             菜单导入
                           </span>
@@ -5856,43 +5792,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               </div>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -5972,7 +5892,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -6118,14 +6038,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -6158,7 +6078,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     id="rc-menu-uuid-test-/config-popup"
                   >
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/config/product"
                       role="menuitem"
                       style="padding-left: 32px;"
@@ -6171,7 +6091,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-1upwz82"
                           >
                             产品配置
                           </span>
@@ -6179,7 +6099,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/config/productManage"
                       role="menuitem"
                       style="padding-left: 32px;"
@@ -6192,7 +6112,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-1upwz82"
                           >
                             产品管理
                           </span>
@@ -6200,7 +6120,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/config/template"
                       role="menuitem"
                       style="padding-left: 32px;"
@@ -6213,7 +6133,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-1upwz82"
                           >
                             产品模板管理
                           </span>
@@ -6221,7 +6141,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/config/configItem"
                       role="menuitem"
                       style="padding-left: 32px;"
@@ -6234,7 +6154,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-1upwz82"
                           >
                             配置项模板管理
                           </span>
@@ -6242,7 +6162,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/config/meta"
                       role="menuitem"
                       style="padding-left: 32px;"
@@ -6255,7 +6175,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-1upwz82"
                           >
                             元数据管理
                           </span>
@@ -6265,7 +6185,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   </ul>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -6294,7 +6214,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -6323,7 +6243,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -6352,7 +6272,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -6387,43 +6307,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -6539,7 +6443,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
         >
           <div
@@ -6682,14 +6586,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-vr8pi0 ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  class="css-t9o9i3"
                   data-menu-id="rc-menu-uuid-test-/home"
                   role="menuitem"
                   tabindex="-1"
@@ -6718,7 +6622,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         收藏
                       </span>
@@ -6726,7 +6630,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                   </span>
                 </li>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-t9o9i3"
                   data-menu-id="rc-menu-uuid-test-/home/overview"
                   role="menuitem"
                   tabindex="-1"
@@ -6755,7 +6659,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         FaceBook
                       </span>
@@ -6763,7 +6667,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                   </span>
                 </li>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-t9o9i3"
                   data-menu-id="rc-menu-uuid-test-/home/search"
                   role="menuitem"
                   tabindex="-1"
@@ -6792,7 +6696,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         Twitter
                       </span>
@@ -6822,7 +6726,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                 style="min-height: 100%; height: 400px;"
               >
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-layout-side ant-pro-sider-light css-8zt05c"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-layout-side ant-pro-sider-light css-rahbg5"
                   style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
                 >
                   <div
@@ -6832,14 +6736,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                         data-menu-list="true"
                         role="menu"
                         style="width: 100%;"
                         tabindex="0"
                       >
                         <li
-                          class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                          class="css-tj118t"
                           data-menu-id="rc-menu-uuid-test-/home"
                           role="menuitem"
                           style="padding-left: 16px;"
@@ -6852,7 +6756,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                               class="ant-pro-menu-item"
                             >
                               <span
-                                class="ant-pro-menu-item-title"
+                                class="ant-pro-menu-item-title css-5r6t3y"
                               >
                                 首页
                               </span>
@@ -6860,7 +6764,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                           </span>
                         </li>
                         <li
-                          class="ant-menu-submenu ant-menu-submenu-inline"
+                          class="css-1ro1ei0"
                           role="none"
                         >
                           <div
@@ -6889,7 +6793,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                           </div>
                         </li>
                         <li
-                          class="ant-menu-submenu ant-menu-submenu-inline"
+                          class="css-1ro1ei0"
                           role="none"
                         >
                           <div
@@ -6918,7 +6822,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                           </div>
                         </li>
                         <li
-                          class="ant-menu-submenu ant-menu-submenu-inline"
+                          class="css-1ro1ei0"
                           role="none"
                         >
                           <div
@@ -6982,43 +6886,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       </div>
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-1e1x11c"
+                      class="ant-pro-sider-collapsed-button css-1v5e81w"
                     >
-                      <svg
-                        aria-hidden="true"
-                        fill="currentColor"
-                        height="1em"
-                        viewBox="0 0 2 24"
-                        width="1em"
+                      <span
+                        aria-label="right"
+                        class="anticon anticon-right"
+                        role="img"
                       >
-                        <g
-                          fill="none"
-                          fill-rule="evenodd"
-                          stroke="none"
-                          stroke-width="1"
+                        <svg
+                          aria-hidden="true"
+                          data-icon="right"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <g
-                            fill="currentColor"
-                            transform="translate(-248.000000, -429.000000)"
-                          >
-                            <g
-                              transform="translate(0.000000, 56.000000)"
-                            >
-                              <g
-                                transform="translate(248.000000, 0.000000)"
-                              >
-                                <rect
-                                  height="24"
-                                  rx="1"
-                                  width="2"
-                                  x="0"
-                                  y="373"
-                                />
-                              </g>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
+                          <path
+                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                          />
+                        </svg>
+                      </span>
                     </div>
                   </div>
                 </aside>
@@ -7159,7 +7047,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
             class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header css-qa17u9"
           >
             <div
-              class="ant-pro-top-nav-header light css-epdxuq"
+              class="ant-pro-top-nav-header light css-1l1sujn"
             >
               <div
                 class="ant-pro-top-nav-header-main css-17ldh9g"
@@ -7309,13 +7197,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1mn8ahk"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1jo3gzq"
                     data-menu-list="true"
                     role="menu"
                     tabindex="0"
                   >
                     <li
-                      class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                      class="ant-menu-overflow-item css-2gglqc"
                       data-menu-id="rc-menu-uuid-test-/home"
                       role="menuitem"
                       style="opacity: 1; order: 0;"
@@ -7328,7 +7216,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-5r6t3y"
                           >
                             首页
                           </span>
@@ -7336,7 +7224,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+                      class="ant-menu-overflow-item css-1ro1ei0"
                       role="none"
                       style="opacity: 1; order: 1;"
                     >
@@ -7364,7 +7252,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       </div>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+                      class="ant-menu-overflow-item css-1ro1ei0"
                       role="none"
                       style="opacity: 1; order: 2;"
                     >
@@ -7392,7 +7280,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       </div>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-menu-submenu ant-menu-submenu-horizontal"
+                      class="ant-menu-overflow-item css-1ro1ei0"
                       role="none"
                       style="opacity: 1; order: 3;"
                     >
@@ -7421,7 +7309,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     </li>
                     <li
                       aria-hidden="true"
-                      class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+                      class="ant-menu-overflow-item ant-menu-overflow-item-rest css-1ro1ei0"
                       role="none"
                       style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                     >
@@ -7478,7 +7366,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                 style="min-height: 100%;"
               >
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-layout-side ant-pro-sider-light css-8zt05c"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-layout-side ant-pro-sider-light css-rahbg5"
                   style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
                 >
                   <div
@@ -7488,14 +7376,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                         data-menu-list="true"
                         role="menu"
                         style="width: 100%;"
                         tabindex="0"
                       >
                         <li
-                          class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                          class="css-tj118t"
                           data-menu-id="rc-menu-uuid-test-/home"
                           role="menuitem"
                           style="padding-left: 16px;"
@@ -7508,7 +7396,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                               class="ant-pro-menu-item"
                             >
                               <span
-                                class="ant-pro-menu-item-title"
+                                class="ant-pro-menu-item-title css-5r6t3y"
                               >
                                 首页
                               </span>
@@ -7516,7 +7404,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           </span>
                         </li>
                         <li
-                          class="ant-menu-submenu ant-menu-submenu-inline"
+                          class="css-1ro1ei0"
                           role="none"
                         >
                           <div
@@ -7545,7 +7433,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           </div>
                         </li>
                         <li
-                          class="ant-menu-submenu ant-menu-submenu-inline"
+                          class="css-1ro1ei0"
                           role="none"
                         >
                           <div
@@ -7574,7 +7462,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                           </div>
                         </li>
                         <li
-                          class="ant-menu-submenu ant-menu-submenu-inline"
+                          class="css-1ro1ei0"
                           role="none"
                         >
                           <div
@@ -7609,43 +7497,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       />
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-1e1x11c"
+                      class="ant-pro-sider-collapsed-button css-1v5e81w"
                     >
-                      <svg
-                        aria-hidden="true"
-                        fill="currentColor"
-                        height="1em"
-                        viewBox="0 0 2 24"
-                        width="1em"
+                      <span
+                        aria-label="right"
+                        class="anticon anticon-right"
+                        role="img"
                       >
-                        <g
-                          fill="none"
-                          fill-rule="evenodd"
-                          stroke="none"
-                          stroke-width="1"
+                        <svg
+                          aria-hidden="true"
+                          data-icon="right"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
                         >
-                          <g
-                            fill="currentColor"
-                            transform="translate(-248.000000, -429.000000)"
-                          >
-                            <g
-                              transform="translate(0.000000, 56.000000)"
-                            >
-                              <g
-                                transform="translate(248.000000, 0.000000)"
-                              >
-                                <rect
-                                  height="24"
-                                  rx="1"
-                                  width="2"
-                                  x="0"
-                                  y="373"
-                                />
-                              </g>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
+                          <path
+                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                          />
+                        </svg>
+                      </span>
                     </div>
                   </div>
                 </aside>
@@ -7779,7 +7651,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
         class="css-1bredbg"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-8zt05c"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-rahbg5"
         style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
       >
         <div
@@ -7925,14 +7797,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                class="css-1ro1ei0"
                 role="none"
               >
                 <div
@@ -7972,7 +7844,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         welcome
                       </span>
@@ -7988,7 +7860,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                   id="rc-menu-uuid-test-/8df8bfdcc1ac18663f1991991ea0a32839cd657dd0af0e3f34abb3f49ddc00aa-popup"
                 >
                   <li
-                    class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                    class="css-1ro1ei0"
                     role="none"
                   >
                     <div
@@ -8009,7 +7881,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                           title="one"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-1upwz82"
                           >
                             one
                           </span>
@@ -8025,7 +7897,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                       id="rc-menu-uuid-test-/welcome-popup"
                     >
                       <li
-                        class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                        class="css-tj118t"
                         data-menu-id="rc-menu-uuid-test-/welcome/welcome"
                         role="menuitem"
                         style="padding-left: 48px;"
@@ -8038,7 +7910,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                             class="ant-pro-menu-item"
                           >
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-1upwz82"
                             >
                               two
                             </span>
@@ -8050,7 +7922,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                 </ul>
               </li>
               <li
-                class="ant-menu-item ant-menu-item-only-child"
+                class="css-tj118t"
                 data-menu-id="rc-menu-uuid-test-/demo"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -8082,7 +7954,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                       </svg>
                     </span>
                     <span
-                      class="ant-pro-menu-item-title"
+                      class="ant-pro-menu-item-title css-5r6t3y"
                     >
                       demo
                     </span>
@@ -8096,43 +7968,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1e1x11c"
+            class="ant-pro-sider-collapsed-button css-1v5e81w"
           >
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 2 24"
-              width="1em"
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <g
-                  fill="currentColor"
-                  transform="translate(-248.000000, -429.000000)"
-                >
-                  <g
-                    transform="translate(0.000000, 56.000000)"
-                  >
-                    <g
-                      transform="translate(248.000000, 0.000000)"
-                    >
-                      <rect
-                        height="24"
-                        rx="1"
-                        width="2"
-                        x="0"
-                        y="373"
-                      />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </aside>
@@ -8397,7 +8253,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
       style="min-height: 100%; height: 100vh;"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
         style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
       >
         <div
@@ -8555,14 +8411,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-vr8pi0 ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                class="css-t9o9i3"
                 data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
                 tabindex="-1"
@@ -8593,7 +8449,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                       </svg>
                     </span>
                     <span
-                      class="ant-pro-menu-item-title"
+                      class="ant-pro-menu-item-title css-5r6t3y"
                     >
                       欢迎
                     </span>
@@ -8601,7 +8457,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                 </span>
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-vertical"
+                class="css-1mq9stt"
                 role="none"
               >
                 <div
@@ -8640,7 +8496,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         管理页
                       </span>
@@ -8652,7 +8508,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                 </div>
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-vertical"
+                class="css-1mq9stt"
                 role="none"
               >
                 <div
@@ -8691,7 +8547,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         列表页
                       </span>
@@ -8703,7 +8559,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                 </div>
               </li>
               <li
-                class="ant-menu-item ant-menu-item-only-child"
+                class="css-t9o9i3"
                 data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
                 tabindex="-1"
@@ -8735,7 +8591,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                       </svg>
                     </span>
                     <span
-                      class="ant-pro-menu-item-title"
+                      class="ant-pro-menu-item-title css-5r6t3y"
                     >
                       Ant Design 官网外链
                     </span>
@@ -8762,43 +8618,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-ucmpxj"
+            class="ant-pro-sider-collapsed-button css-dslgrc"
           >
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 2 24"
-              width="1em"
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <g
-                  fill="currentColor"
-                  transform="translate(-248.000000, -429.000000)"
-                >
-                  <g
-                    transform="translate(0.000000, 56.000000)"
-                  >
-                    <g
-                      transform="translate(248.000000, 0.000000)"
-                    >
-                      <rect
-                        height="24"
-                        rx="1"
-                        width="2"
-                        x="0"
-                        y="373"
-                      />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </aside>
@@ -8942,7 +8782,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                   />
                 </svg>
               </span>
-               2019 蚂蚁金服体验技术部出品
+               2022 蚂蚁金服体验技术部出品
             </div>
           </div>
         </footer>
@@ -8969,7 +8809,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
           class="css-1bredbg"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -9130,14 +8970,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/welcome"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -9170,7 +9010,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           欢迎
                         </span>
@@ -9195,7 +9035,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     class="ant-menu-item-group-list"
                   >
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/admin/sub-page1"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -9228,7 +9068,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-5r6t3y"
                             >
                               一级页面
                             </span>
@@ -9237,7 +9077,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/admin/sub-page2"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -9270,7 +9110,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-5r6t3y"
                             >
                               二级页面
                             </span>
@@ -9279,7 +9119,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/admin/sub-page3"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -9312,7 +9152,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-5r6t3y"
                             >
                               三级页面
                             </span>
@@ -9349,7 +9189,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     class="ant-menu-item-group-list"
                   >
                     <li
-                      class="ant-menu-submenu ant-menu-submenu-inline"
+                      class="css-1ro1ei0"
                       role="none"
                     >
                       <div
@@ -9389,7 +9229,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-5r6t3y"
                             >
                               一级列表页面
                             </span>
@@ -9401,7 +9241,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </div>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/list/sub-page2"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -9434,7 +9274,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-5r6t3y"
                             >
                               二级列表页面
                             </span>
@@ -9443,7 +9283,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/list/sub-page3"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -9476,7 +9316,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-5r6t3y"
                             >
                               三级列表页面
                             </span>
@@ -9497,7 +9337,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   />
                 </div>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-https://ant.design"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -9531,7 +9371,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           Ant Design 官网外链
                         </span>
@@ -9610,7 +9450,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 </div>
               </div>
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list css-9cmh0n"
+                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list css-1b5qsvv"
               >
                 <div
                   class="ant-space-item"
@@ -9704,43 +9544,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               </p>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -11280,7 +11104,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
       style="min-height: 100%; max-height: 100vh;"
     >
       <aside
-        class="qixian-layout-sider qixian-layout-sider-dark qixian-pro-sider qixian-pro-sider-layout-side css-8zt05c"
+        class="qixian-layout-sider qixian-layout-sider-dark qixian-pro-sider qixian-pro-sider-layout-side css-rahbg5"
         style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
       >
         <div
@@ -11441,14 +11265,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-light qixian-pro-sider-menu"
+              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-light qixian-pro-sider-menu css-11d7kty"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="qixian-menu-item qixian-menu-item-selected qixian-menu-item-only-child"
+                class="css-tj118t"
                 data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -11481,7 +11305,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                         </svg>
                       </span>
                       <span
-                        class="qixian-pro-menu-item-title"
+                        class="qixian-pro-menu-item-title css-5r6t3y"
                       >
                         欢迎
                       </span>
@@ -11490,7 +11314,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                 </span>
               </li>
               <li
-                class="qixian-menu-submenu qixian-menu-submenu-inline"
+                class="css-1ro1ei0"
                 role="none"
               >
                 <div
@@ -11530,7 +11354,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                         </svg>
                       </span>
                       <span
-                        class="qixian-pro-menu-item-title"
+                        class="qixian-pro-menu-item-title css-5r6t3y"
                       >
                         管理页
                       </span>
@@ -11542,7 +11366,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                 </div>
               </li>
               <li
-                class="qixian-menu-submenu qixian-menu-submenu-inline"
+                class="css-1ro1ei0"
                 role="none"
               >
                 <div
@@ -11582,7 +11406,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                         </svg>
                       </span>
                       <span
-                        class="qixian-pro-menu-item-title"
+                        class="qixian-pro-menu-item-title css-5r6t3y"
                       >
                         列表页
                       </span>
@@ -11594,7 +11418,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                 </div>
               </li>
               <li
-                class="qixian-menu-item qixian-menu-item-only-child"
+                class="css-tj118t"
                 data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -11628,7 +11452,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                         </svg>
                       </span>
                       <span
-                        class="qixian-pro-menu-item-title"
+                        class="qixian-pro-menu-item-title css-5r6t3y"
                       >
                         Ant Design 官网外链
                       </span>
@@ -11689,43 +11513,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             </a>
           </div>
           <div
-            class="qixian-pro-sider-collapsed-button css-1e1x11c"
+            class="qixian-pro-sider-collapsed-button css-1v5e81w"
           >
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 2 24"
-              width="1em"
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <g
-                  fill="currentColor"
-                  transform="translate(-248.000000, -429.000000)"
-                >
-                  <g
-                    transform="translate(0.000000, 56.000000)"
-                  >
-                    <g
-                      transform="translate(248.000000, 0.000000)"
-                    >
-                      <rect
-                        height="24"
-                        rx="1"
-                        width="2"
-                        x="0"
-                        y="373"
-                      />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </aside>
@@ -12530,7 +12338,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
         class="css-1bredbg"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-8zt05c"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-rahbg5"
         style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
       >
         <div
@@ -12691,14 +12499,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                class="css-tj118t"
                 data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -12731,7 +12539,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         欢迎
                       </span>
@@ -12740,7 +12548,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                 </span>
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline"
+                class="css-1ro1ei0"
                 role="none"
               >
                 <div
@@ -12780,7 +12588,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         管理页
                       </span>
@@ -12792,7 +12600,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                 </div>
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-inline"
+                class="css-1ro1ei0"
                 role="none"
               >
                 <div
@@ -12832,7 +12640,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         列表页
                       </span>
@@ -12844,7 +12652,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                 </div>
               </li>
               <li
-                class="ant-menu-item ant-menu-item-only-child"
+                class="css-tj118t"
                 data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -12878,7 +12686,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         Ant Design 官网外链
                       </span>
@@ -13032,7 +12840,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -13073,14 +12881,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/welcome"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -13114,7 +12922,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           欢迎
                         </span>
@@ -13123,7 +12931,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -13165,7 +12973,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                             </svg>
                           </span>
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-5r6t3y"
                           >
                             管理页
                           </span>
@@ -13178,7 +12986,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -13220,7 +13028,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                             </svg>
                           </span>
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-5r6t3y"
                           >
                             列表页
                           </span>
@@ -13233,7 +13041,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                   </div>
                 </li>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-https://ant.design"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -13268,7 +13076,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           Ant Design 官网外链
                         </span>
@@ -13283,43 +13091,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -13415,7 +13207,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
           class="css-1bredbg"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -13576,14 +13368,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/welcome"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -13616,7 +13408,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           欢迎
                         </span>
@@ -13625,7 +13417,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -13665,7 +13457,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           管理页
                         </span>
@@ -13677,7 +13469,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -13717,7 +13509,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           列表页
                         </span>
@@ -13729,7 +13521,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                   </div>
                 </li>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-https://ant.design"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -13763,7 +13555,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           Ant Design 官网外链
                         </span>
@@ -13824,43 +13616,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               </a>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -15371,7 +15147,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
       style="min-height: 100%; height: 100vh; border: 1px solid #ddd;"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
         style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
       >
         <div
@@ -15542,43 +15318,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1e1x11c"
+            class="ant-pro-sider-collapsed-button css-1v5e81w"
           >
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 2 24"
-              width="1em"
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <g
-                  fill="currentColor"
-                  transform="translate(-248.000000, -429.000000)"
-                >
-                  <g
-                    transform="translate(0.000000, 56.000000)"
-                  >
-                    <g
-                      transform="translate(248.000000, 0.000000)"
-                    >
-                      <rect
-                        height="24"
-                        rx="1"
-                        width="2"
-                        x="0"
-                        y="373"
-                      />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </aside>
@@ -15665,7 +15425,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -15811,14 +15571,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/default"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -15832,7 +15592,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
                         class="ant-pro-menu-item"
                       >
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           默认错误
                         </span>
@@ -15841,7 +15601,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
                   </span>
                 </li>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/custom"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -15855,7 +15615,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
                         class="ant-pro-menu-item"
                       >
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           自定义错误
                         </span>
@@ -15870,43 +15630,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -15968,7 +15712,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
       style="min-height: 100%; height: 100vh;"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
         style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
       >
         <div
@@ -16126,14 +15870,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-vr8pi0 ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                class="css-t9o9i3"
                 data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
                 tabindex="-1"
@@ -16164,7 +15908,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                       </svg>
                     </span>
                     <span
-                      class="ant-pro-menu-item-title"
+                      class="ant-pro-menu-item-title css-5r6t3y"
                     >
                       欢迎
                     </span>
@@ -16172,7 +15916,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                 </span>
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-vertical"
+                class="css-1mq9stt"
                 role="none"
               >
                 <div
@@ -16211,7 +15955,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         管理页
                       </span>
@@ -16223,7 +15967,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                 </div>
               </li>
               <li
-                class="ant-menu-submenu ant-menu-submenu-vertical"
+                class="css-1mq9stt"
                 role="none"
               >
                 <div
@@ -16262,7 +16006,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         列表页
                       </span>
@@ -16274,7 +16018,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                 </div>
               </li>
               <li
-                class="ant-menu-item ant-menu-item-only-child"
+                class="css-t9o9i3"
                 data-menu-id="rc-menu-uuid-test-https://ant.design"
                 role="menuitem"
                 tabindex="-1"
@@ -16306,7 +16050,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                       </svg>
                     </span>
                     <span
-                      class="ant-pro-menu-item-title"
+                      class="ant-pro-menu-item-title css-5r6t3y"
                     >
                       Ant Design 官网外链
                     </span>
@@ -16320,43 +16064,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-ucmpxj"
+            class="ant-pro-sider-collapsed-button css-dslgrc"
           >
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 2 24"
-              width="1em"
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <g
-                  fill="currentColor"
-                  transform="translate(-248.000000, -429.000000)"
-                >
-                  <g
-                    transform="translate(0.000000, 56.000000)"
-                  >
-                    <g
-                      transform="translate(248.000000, 0.000000)"
-                    >
-                      <rect
-                        height="24"
-                        rx="1"
-                        width="2"
-                        x="0"
-                        y="373"
-                      />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </aside>
@@ -16498,7 +16226,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -16659,14 +16387,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/welcome"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -16698,7 +16426,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         欢迎
                       </span>
@@ -16706,7 +16434,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -16746,7 +16474,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           管理页
                         </span>
@@ -16758,7 +16486,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -16798,7 +16526,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           列表页
                         </span>
@@ -16810,7 +16538,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                   </div>
                 </li>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-https://ant.design"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -16843,7 +16571,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         Ant Design 官网外链
                       </span>
@@ -16857,43 +16585,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -17165,7 +16877,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
         style="background: rgb(255, 255, 255); box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35); transition: all 0.2s; overflow: hidden; height: 100%; width: 216px;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -17326,14 +17038,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/welcome"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -17365,7 +17077,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         欢迎
                       </span>
@@ -17373,7 +17085,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -17413,7 +17125,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           管理页
                         </span>
@@ -17425,7 +17137,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -17465,7 +17177,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           列表页
                         </span>
@@ -17477,7 +17189,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                   </div>
                 </li>
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-https://ant.design"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -17510,7 +17222,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         Ant Design 官网外链
                       </span>
@@ -17524,43 +17236,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -17652,7 +17348,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
         class="css-1bredbg"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-8zt05c"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-rahbg5"
         style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
       >
         <div
@@ -17729,14 +17425,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                class="css-tj118t"
                 data-menu-id="rc-menu-uuid-test-/admin/sub-page1"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -17769,7 +17465,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         一级页面
                       </span>
@@ -17778,7 +17474,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                 </span>
               </li>
               <li
-                class="ant-menu-item ant-menu-item-only-child"
+                class="css-tj118t"
                 data-menu-id="rc-menu-uuid-test-/admin/sub-page2"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -17811,7 +17507,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         二级页面
                       </span>
@@ -17820,7 +17516,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                 </span>
               </li>
               <li
-                class="ant-menu-item ant-menu-item-only-child"
+                class="css-tj118t"
                 data-menu-id="rc-menu-uuid-test-/admin/sub-page3"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -17853,7 +17549,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         三级页面
                       </span>
@@ -17897,43 +17593,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1e1x11c"
+            class="ant-pro-sider-collapsed-button css-1v5e81w"
           >
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 2 24"
-              width="1em"
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <g
-                  fill="currentColor"
-                  transform="translate(-248.000000, -429.000000)"
-                >
-                  <g
-                    transform="translate(0.000000, 56.000000)"
-                  >
-                    <g
-                      transform="translate(248.000000, 0.000000)"
-                    >
-                      <rect
-                        height="24"
-                        rx="1"
-                        width="2"
-                        x="0"
-                        y="373"
-                      />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </aside>
@@ -18297,7 +17977,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
         class="css-1bredbg"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-8zt05c"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-rahbg5"
         style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
       >
         <div
@@ -18443,14 +18123,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                class="css-tj118t"
                 data-menu-id="rc-menu-uuid-test-/welcome"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -18483,7 +18163,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         欢迎
                       </span>
@@ -18492,7 +18172,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                 </span>
               </li>
               <li
-                class="ant-menu-item ant-menu-item-only-child"
+                class="css-tj118t"
                 data-menu-id="rc-menu-uuid-test-/admin/sub-page2"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -18525,7 +18205,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         二级页面
                       </span>
@@ -18534,7 +18214,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                 </span>
               </li>
               <li
-                class="ant-menu-item ant-menu-item-only-child"
+                class="css-tj118t"
                 data-menu-id="rc-menu-uuid-test-/admin/sub-page3"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -18567,7 +18247,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         三级页面
                       </span>
@@ -18611,43 +18291,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1e1x11c"
+            class="ant-pro-sider-collapsed-button css-1v5e81w"
           >
-            <svg
-              aria-hidden="true"
-              fill="currentColor"
-              height="1em"
-              viewBox="0 0 2 24"
-              width="1em"
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
             >
-              <g
-                fill="none"
-                fill-rule="evenodd"
-                stroke="none"
-                stroke-width="1"
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
               >
-                <g
-                  fill="currentColor"
-                  transform="translate(-248.000000, -429.000000)"
-                >
-                  <g
-                    transform="translate(0.000000, 56.000000)"
-                  >
-                    <g
-                      transform="translate(248.000000, 0.000000)"
-                    >
-                      <rect
-                        height="24"
-                        rx="1"
-                        width="2"
-                        x="0"
-                        y="373"
-                      />
-                    </g>
-                  </g>
-                </g>
-              </g>
-            </svg>
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </aside>
@@ -19157,7 +18821,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
           class="css-1bredbg"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -19303,7 +18967,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -19326,7 +18990,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                     class="ant-menu-item-group-list"
                   >
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/admin/sub-page1"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -19359,7 +19023,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-5r6t3y"
                             >
                               一级页面
                             </span>
@@ -19368,7 +19032,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/admin/sub-page2"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -19401,7 +19065,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-5r6t3y"
                             >
                               二级页面
                             </span>
@@ -19410,7 +19074,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/admin/sub-page3"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -19443,7 +19107,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-5r6t3y"
                             >
                               三级页面
                             </span>
@@ -19480,7 +19144,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                     class="ant-menu-item-group-list"
                   >
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/list/sub-page2"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -19513,7 +19177,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-5r6t3y"
                             >
                               二级列表页面
                             </span>
@@ -19522,7 +19186,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                       </span>
                     </li>
                     <li
-                      class="ant-menu-item ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/list/sub-page3"
                       role="menuitem"
                       style="padding-left: 16px;"
@@ -19555,7 +19219,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                               </svg>
                             </span>
                             <span
-                              class="ant-pro-menu-item-title"
+                              class="ant-pro-menu-item-title css-5r6t3y"
                             >
                               三级列表页面
                             </span>
@@ -19646,7 +19310,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                 </div>
               </div>
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list css-9cmh0n"
+                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list css-1b5qsvv"
               >
                 <div
                   class="ant-space-item"
@@ -19740,43 +19404,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               </p>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -20178,7 +19826,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -20369,14 +20017,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/home"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -20389,7 +20037,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                       class="ant-pro-menu-item"
                     >
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         首页
                       </span>
@@ -20397,7 +20045,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -20426,7 +20074,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -20455,7 +20103,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                   </div>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -20490,43 +20138,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>
@@ -20665,7 +20297,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-81w2xc"
         >
           <div
-            class="ant-pro-top-nav-header light css-epdxuq"
+            class="ant-pro-top-nav-header light css-1l1sujn"
           >
             <div
               class="ant-pro-top-nav-header-main css-17ldh9g"
@@ -20830,13 +20462,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1mn8ahk"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1jo3gzq"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
                 >
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
                     style="opacity: 1; order: 0;"
@@ -20868,7 +20500,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           欢迎
                         </span>
@@ -20876,7 +20508,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     role="menuitem"
                     style="opacity: 1; order: 1;"
                     tabindex="-1"
@@ -20907,7 +20539,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           管理页
                         </span>
@@ -20915,7 +20547,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     role="menuitem"
                     style="opacity: 1; order: 2;"
                     tabindex="-1"
@@ -20946,7 +20578,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           列表页
                         </span>
@@ -20954,7 +20586,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     role="menuitem"
                     style="opacity: 1; order: 3;"
                     tabindex="-1"
@@ -20986,7 +20618,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           Ant Design 官网外链
                         </span>
@@ -20995,7 +20627,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </li>
                   <li
                     aria-hidden="true"
-                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+                    class="ant-menu-overflow-item ant-menu-overflow-item-rest css-1ro1ei0"
                     role="none"
                     style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                   >
@@ -21085,7 +20717,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-81w2xc"
         >
           <div
-            class="ant-pro-top-nav-header light css-epdxuq"
+            class="ant-pro-top-nav-header light css-1l1sujn"
           >
             <div
               class="ant-pro-top-nav-header-main css-17ldh9g"
@@ -21250,13 +20882,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1mn8ahk"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1jo3gzq"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
                 >
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
                     style="opacity: 1; order: 0;"
@@ -21288,7 +20920,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           欢迎
                         </span>
@@ -21296,7 +20928,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     role="menuitem"
                     style="opacity: 1; order: 1;"
                     tabindex="-1"
@@ -21327,7 +20959,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           管理页
                         </span>
@@ -21335,7 +20967,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     role="menuitem"
                     style="opacity: 1; order: 2;"
                     tabindex="-1"
@@ -21366,7 +20998,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           列表页
                         </span>
@@ -21374,7 +21006,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     role="menuitem"
                     style="opacity: 1; order: 3;"
                     tabindex="-1"
@@ -21406,7 +21038,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           Ant Design 官网外链
                         </span>
@@ -21415,7 +21047,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </li>
                   <li
                     aria-hidden="true"
-                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+                    class="ant-menu-overflow-item ant-menu-overflow-item-rest css-1ro1ei0"
                     role="none"
                     style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                   >
@@ -21486,7 +21118,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-81w2xc"
         >
           <div
-            class="ant-pro-top-nav-header light css-epdxuq"
+            class="ant-pro-top-nav-header light css-1l1sujn"
           >
             <div
               class="ant-pro-top-nav-header-main wide css-17ldh9g"
@@ -21651,13 +21283,13 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1mn8ahk"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1jo3gzq"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
                 >
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     data-menu-id="rc-menu-uuid-test-/welcome"
                     role="menuitem"
                     style="opacity: 1; order: 0;"
@@ -21689,7 +21321,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           欢迎
                         </span>
@@ -21697,7 +21329,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     role="menuitem"
                     style="opacity: 1; order: 1;"
                     tabindex="-1"
@@ -21728,7 +21360,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           管理页
                         </span>
@@ -21736,7 +21368,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     role="menuitem"
                     style="opacity: 1; order: 2;"
                     tabindex="-1"
@@ -21767,7 +21399,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           列表页
                         </span>
@@ -21775,7 +21407,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                     </span>
                   </li>
                   <li
-                    class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
+                    class="ant-menu-overflow-item css-2gglqc"
                     role="menuitem"
                     style="opacity: 1; order: 3;"
                     tabindex="-1"
@@ -21807,7 +21439,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                           </svg>
                         </span>
                         <span
-                          class="ant-pro-menu-item-title"
+                          class="ant-pro-menu-item-title css-5r6t3y"
                         >
                           Ant Design 官网外链
                         </span>
@@ -21816,7 +21448,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </li>
                   <li
                     aria-hidden="true"
-                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-menu-submenu ant-menu-submenu-horizontal"
+                    class="ant-menu-overflow-item ant-menu-overflow-item-rest css-1ro1ei0"
                     role="none"
                     style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                   >
@@ -21884,7 +21516,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
         style="min-height: 100%;"
       >
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-8zt05c"
+          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -22030,14 +21662,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
                 tabindex="0"
               >
                 <li
-                  class="ant-menu-item ant-menu-item-only-child"
+                  class="css-tj118t"
                   data-menu-id="rc-menu-uuid-test-/welcome"
                   role="menuitem"
                   style="padding-left: 16px;"
@@ -22050,7 +21682,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                       class="ant-pro-menu-item"
                     >
                       <span
-                        class="ant-pro-menu-item-title"
+                        class="ant-pro-menu-item-title css-5r6t3y"
                       >
                         欢迎
                       </span>
@@ -22058,7 +21690,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                   </span>
                 </li>
                 <li
-                  class="ant-menu-submenu ant-menu-submenu-inline ant-menu-submenu-open ant-menu-submenu-selected"
+                  class="css-1ro1ei0"
                   role="none"
                 >
                   <div
@@ -22091,7 +21723,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                     id="rc-menu-uuid-test-/admin-popup"
                   >
                     <li
-                      class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+                      class="css-tj118t"
                       data-menu-id="rc-menu-uuid-test-/admin/process"
                       role="menuitem"
                       style="padding-left: 32px;"
@@ -22104,7 +21736,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                           class="ant-pro-menu-item"
                         >
                           <span
-                            class="ant-pro-menu-item-title"
+                            class="ant-pro-menu-item-title css-1upwz82"
                           >
                             申请单列表
                           </span>
@@ -22120,43 +21752,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1e1x11c"
+              class="ant-pro-sider-collapsed-button css-1v5e81w"
             >
-              <svg
-                aria-hidden="true"
-                fill="currentColor"
-                height="1em"
-                viewBox="0 0 2 24"
-                width="1em"
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
               >
-                <g
-                  fill="none"
-                  fill-rule="evenodd"
-                  stroke="none"
-                  stroke-width="1"
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <g
-                    fill="currentColor"
-                    transform="translate(-248.000000, -429.000000)"
-                  >
-                    <g
-                      transform="translate(0.000000, 56.000000)"
-                    >
-                      <g
-                        transform="translate(248.000000, 0.000000)"
-                      >
-                        <rect
-                          height="24"
-                          rx="1"
-                          width="2"
-                          x="0"
-                          y="373"
-                        />
-                      </g>
-                    </g>
-                  </g>
-                </g>
-              </svg>
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
             </div>
           </div>
         </aside>

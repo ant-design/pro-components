@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.7...@ant-design/pro-field@1.31.8) (2022-01-11)
+
+### Bug Fixes
+
+- **form:** fix money value=0, style error ([832da15](https://github.com/ant-design/pro-components/commit/832da15ad21082c5e005bb216b4e8232d080c667))
+- antd themes less file path ([#4436](https://github.com/ant-design/pro-components/issues/4436)) ([a6b66b4](https://github.com/ant-design/pro-components/commit/a6b66b4968e78a9c8175d17d2fe5a922cf70630f))
+- **form:** fix money value=0, style error ([4d049e6](https://github.com/ant-design/pro-components/commit/4d049e61f1e93fd7633feea6d26638da61a81903))
+
+## [1.31.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.6...@ant-design/pro-field@1.31.7) (2022-01-07)
+
+### Bug Fixes
+
+- **form:** 🐛 Cannot read properties of undefined (reading 'autoFocus' ([#4419](https://github.com/ant-design/pro-components/issues/4419)) ([0aea58d](https://github.com/ant-design/pro-components/commit/0aea58d71afdb4a123896729513dd8422c9bc892))
+
+## [1.31.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.5...@ant-design/pro-field@1.31.6) (2022-01-05)
+
+### Bug Fixes
+
+- **form:** 🐛 repeat send request ([#4400](https://github.com/ant-design/pro-components/issues/4400)) ([b61646a](https://github.com/ant-design/pro-components/commit/b61646abc0f811b8ce6fc0119e5c9f8c38d70f72))
+- **form:** render option failed while key is number 0. ([#4389](https://github.com/ant-design/pro-components/issues/4389)) ([f175c02](https://github.com/ant-design/pro-components/commit/f175c0289d2b975df40918ffc929d5eeacd59cd1))
+
+## [1.31.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.4...@ant-design/pro-field@1.31.5) (2021-12-28)
+
+### Bug Fixes
+
+- **form:** fix react warning ([883eb37](https://github.com/ant-design/pro-components/commit/883eb3723a069a9b1a06a8dacc396e6991b0f139))
+- **form:** fix ts error ([dc2fa95](https://github.com/ant-design/pro-components/commit/dc2fa9564a2c34e07f1421545e131d725c27a1c0))
+
+## [1.31.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.3...@ant-design/pro-field@1.31.4) (2021-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.31.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.2...@ant-design/pro-field@1.31.3) (2021-12-24)
 
 **Note:** Version bump only for package @ant-design/pro-field

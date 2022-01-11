@@ -14,6 +14,12 @@ export type ColumnsState = {
   show?: boolean;
   fixed?: 'right' | 'left' | undefined;
   order?: number;
+  disable?:
+    | boolean
+    | {
+        checkbox: boolean;
+        icon: boolean;
+      };
 };
 
 export type UseContainerProps<T = any> = {

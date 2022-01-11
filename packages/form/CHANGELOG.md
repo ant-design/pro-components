@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.52.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.7...@ant-design/pro-form@1.52.8) (2022-01-11)
+
+### Bug Fixes
+
+- antd themes less file path ([#4436](https://github.com/ant-design/pro-components/issues/4436)) ([a6b66b4](https://github.com/ant-design/pro-components/commit/a6b66b4968e78a9c8175d17d2fe5a922cf70630f))
+- **form:** 🐛 DrawerForm cannot get form instance by formRef ([#4421](https://github.com/ant-design/pro-components/issues/4421)) ([179ac82](https://github.com/ant-design/pro-components/commit/179ac82072f4dcc51bbb607249a9670821d66662))
+- **form:** fix datePick typing error ([#4431](https://github.com/ant-design/pro-components/issues/4431)) ([cc8e893](https://github.com/ant-design/pro-components/commit/cc8e89360a209cff3182f9af316600c3ae2c6b97))
+- **form:** FormList same name will be cache problem ([#4426](https://github.com/ant-design/pro-components/issues/4426)) ([15ab36f](https://github.com/ant-design/pro-components/commit/15ab36f482aef5c6c6d78522d3ee41729197d54e))
+
+## [1.52.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.6...@ant-design/pro-form@1.52.7) (2022-01-07)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
+## [1.52.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.5...@ant-design/pro-form@1.52.6) (2022-01-05)
+
+### Bug Fixes
+
+- **form:** 表单 submitter 增加自动换行属性 ([#4406](https://github.com/ant-design/pro-components/issues/4406)) ([9f755ee](https://github.com/ant-design/pro-components/commit/9f755ee61c1e52a46fb5d3d11b524e5347d48f21))
+- **form:** DateRangePicker in LightFilter format is always set to YYYY-MM-DD ([#4374](https://github.com/ant-design/pro-components/issues/4374)) ([b3b84f2](https://github.com/ant-design/pro-components/commit/b3b84f27e8a315e8539fab9f93569f3b1f33f0db))
+- 重新给 LightFilter 内的表单项指定属性不生效 🐛[BUG] [#4366](https://github.com/ant-design/pro-components/issues/4366) ([#4375](https://github.com/ant-design/pro-components/issues/4375)) ([b0e2ebc](https://github.com/ant-design/pro-components/commit/b0e2ebcc2ae356d69272bfe64b8824fb5fe70c94))
+- **form:** fix stepForm props error ([1eec8a2](https://github.com/ant-design/pro-components/commit/1eec8a2ff97c95f3fea8400651ff5e2875561193))
+- fix doc error ([#4370](https://github.com/ant-design/pro-components/issues/4370)) ([438fe64](https://github.com/ant-design/pro-components/commit/438fe64c1d290aeb20f249582a7363740c32d6ae))
+
+## [1.52.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.4...@ant-design/pro-form@1.52.5) (2021-12-28)
+
+### Bug Fixes
+
+- **form:** fix ts error ([fbe853d](https://github.com/ant-design/pro-components/commit/fbe853d66aae90040ae0bc807c255fbf984611f2))
+
+## [1.52.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.3...@ant-design/pro-form@1.52.4) (2021-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
 ## [1.52.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.2...@ant-design/pro-form@1.52.3) (2021-12-24)
 
 **Note:** Version bump only for package @ant-design/pro-form
