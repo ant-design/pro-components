@@ -163,6 +163,12 @@ function DrawerForm<T = Record<string, any>>({
         key={key}
         {...omit(rest, ['visible'])}
         formRef={formRef}
+        onInit={(value, form) => {
+          if (rest.formRef) {
+            rest.formRef.current = form;
+          }
+          rest?.onInit?.(value, form);
+        }}
         submitter={
           rest.submitter === false
             ? false

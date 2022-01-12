@@ -790,6 +790,9 @@ describe('DrawerForm', () => {
       html.find('button#new').simulate('click');
     });
     waitForComponentToPaint(html, 200);
+
+    html.setProps({ formRef: ref, drawerProps: { destroyOnClose: true } });
+
     expect(ref.current).toBeTruthy();
   });
 });

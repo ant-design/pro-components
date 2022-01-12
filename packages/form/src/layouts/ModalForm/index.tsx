@@ -183,6 +183,12 @@ function ModalForm<T = Record<string, any>>({
         layout="vertical"
         {...omit(rest, ['visible'])}
         formRef={formRef}
+        onInit={(value, form) => {
+          if (rest.formRef) {
+            rest.formRef.current = form;
+          }
+          rest?.onInit?.(value, form);
+        }}
         onFinish={async (values) => {
           if (!onFinish) {
             return;
