@@ -789,10 +789,43 @@ describe('DrawerForm', () => {
     act(() => {
       html.find('button#new').simulate('click');
     });
-    waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 200);
 
     html.setProps({ formRef: ref, drawerProps: { destroyOnClose: true } });
 
     expect(ref.current).toBeTruthy();
+
+    html.unmount();
+  });
+
+  it('📦 ModelForm get formRef when destroyOnClose', async () => {
+    const ref = React.createRef<any>();
+
+    const html = mount(
+      <ModalForm
+        formRef={ref}
+        modalProps={{
+          destroyOnClose: true,
+        }}
+        trigger={
+          <Button id="new" type="primary">
+            新建
+          </Button>
+        }
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+
+    waitForComponentToPaint(html, 200);
+    expect(ref.current).toBeFalsy();
+    act(() => {
+      html.find('button#new').simulate('click');
+    });
+    await waitForComponentToPaint(html, 200);
+
+    expect(ref.current).toBeTruthy();
+
+    html.unmount();
   });
 });
