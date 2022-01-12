@@ -66,7 +66,6 @@ const valueEnum = {
 const columns: ProColumns<TableListItem>[] = [
   {
     title: '状态',
-    key: 'select',
     valueType: 'select',
     dataIndex: 'status',
     initialValue: ['all'],
@@ -75,7 +74,6 @@ const columns: ProColumns<TableListItem>[] = [
   },
   {
     title: '单选状态',
-    key: 'radio',
     dataIndex: 'status',
     valueType: 'radio',
     initialValue: 'all',
@@ -83,7 +81,6 @@ const columns: ProColumns<TableListItem>[] = [
     valueEnum,
   },
   {
-    key: 'radioButton',
     title: '单选按钮状态',
     dataIndex: 'status',
     valueType: 'radioButton',
@@ -92,23 +89,12 @@ const columns: ProColumns<TableListItem>[] = [
     valueEnum,
   },
   {
-    key: 'status',
     title: '多选状态',
     dataIndex: 'status',
     initialValue: ['all'],
     width: 100,
     valueType: 'checkbox',
     valueEnum,
-  },
-  {
-    title: '级联选择器',
-    key: 'cascader',
-    dataIndex: 'cascader',
-    width: 100,
-    fieldProps: {
-      options: cascaderOptions,
-    },
-    valueType: 'cascader',
   },
   {
     title: '级联选择器',
@@ -170,6 +156,9 @@ export default () => (
         defaultCollapsed: false,
         span: 12,
         labelWidth: 'auto',
+      }}
+      editable={{
+        type: 'multiple',
       }}
       rowKey="key"
       headerTitle="样式类"
