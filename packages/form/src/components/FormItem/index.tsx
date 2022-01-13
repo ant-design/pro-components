@@ -40,7 +40,7 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
       filedChildren?.props?.onChange?.(...restParams);
       filedChildren?.props?.fieldProps?.onChange?.(...restParams);
     },
-    [filedChildren],
+    [filedChildren, onChange],
   );
   const onBlurMemo = useCallback(
     function (...restParams: any[]): void {
@@ -51,7 +51,7 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
       filedChildren?.props?.onBlur?.(...restParams);
       filedChildren?.props?.fieldProps?.onBlur?.(...restParams);
     },
-    [filedChildren],
+    [filedChildren, onBlur],
   );
 
   const fieldProps = useMemo(() => {
