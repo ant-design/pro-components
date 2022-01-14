@@ -43,7 +43,7 @@ function createField<P extends ProFormFieldItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
   config?: ProFormItemCreateConfig,
 ): ProFormComponent<P, ExtendsProps> {
-  // 标记是否是 proform 的组件
+  // 标记是否是 ProForm 的组件
   // @ts-ignore
   // eslint-disable-next-line no-param-reassign
   Field.displayName = 'ProFormComponent';
@@ -74,6 +74,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       colSize,
       formItemProps: propsFormItemProps,
       filedConfig,
+      cacheForSwr,
       ...rest
     } = { ...defaultProps, ...props } as P & ExtendsProps;
 
@@ -130,7 +131,10 @@ function createField<P extends ProFormFieldItemProps = any>(
 
     const { prefixName } = useContext(RcFieldContext);
     const proFieldKey = useMemo(() => {
+      /** 如果没有cacheForSwr，默认关掉缓存 只有table中默认打开，form中打开问题还挺多的，有些场景name 会相同 */
+      if (!cacheForSwr) return undefined;
       let name = otherProps?.name;
+      if (Array.isArray(name)) name = name.join('_');
       if (Array.isArray(prefixName) && name) name = `${prefixName.join('.')}.${name}`;
       return name && `form-field-${name}`;
       // eslint-disable-next-line react-hooks/exhaustive-deps

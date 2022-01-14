@@ -114,6 +114,7 @@ class CellRenderFromItem<T> extends React.Component<
     };
     const inputDom = (
       <ProFormField
+        cacheForSwr
         key={config.recordKey || config.index}
         name={this.state.name}
         ignoreFormItem
