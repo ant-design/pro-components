@@ -1940,7 +1940,10 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                     >
                       <colgroup>
                         <col
-                          style="width: 30%;"
+                          style="width: 15%;"
+                        />
+                        <col
+                          style="width: 15%;"
                         />
                         <col />
                         <col />
@@ -1956,7 +1959,80 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           <th
                             class="ant-table-cell"
                           >
-                            活动名称
+                            <div
+                              class="ant-pro-core-label-tip"
+                            >
+                              <div
+                                class="ant-pro-core-label-tip-title"
+                              >
+                                活动名称
+                              </div>
+                              <span
+                                class="ant-pro-core-label-tip-icon"
+                              >
+                                <span
+                                  aria-label="info-circle"
+                                  class="anticon anticon-info-circle"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="info-circle"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                    />
+                                    <path
+                                      d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
+                          </th>
+                          <th
+                            class="ant-table-cell"
+                          >
+                            <div
+                              class="ant-pro-core-label-tip"
+                            >
+                              <div
+                                class="ant-pro-core-label-tip-title"
+                              >
+                                活动名称
+                              </div>
+                              <span
+                                class="ant-pro-core-label-tip-icon"
+                              >
+                                <span
+                                  aria-label="info-circle"
+                                  class="anticon anticon-info-circle"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="info-circle"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                                    />
+                                    <path
+                                      d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                            </div>
                           </th>
                           <th
                             class="ant-table-cell"
@@ -1987,6 +2063,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="624748504"
                         >
+                          <td
+                            class="ant-table-cell"
+                          >
+                            活动名称一
+                          </td>
                           <td
                             class="ant-table-cell"
                           >
@@ -2046,6 +2127,11 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                           class="ant-table-row ant-table-row-level-0"
                           data-row-key="624691229"
                         >
+                          <td
+                            class="ant-table-cell"
+                          >
+                            活动名称二
+                          </td>
                           <td
                             class="ant-table-cell"
                           >
@@ -2188,6 +2274,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
   {
     "id": 624748504,
     "title": "活动名称一",
+    "readonly": "活动名称一",
     "decs": "这个活动真好玩",
     "state": "open",
     "created_at": "2020-05-26T09:42:56Z",
@@ -2196,6 +2283,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
   {
     "id": 624691229,
     "title": "活动名称二",
+    "readonly": "活动名称二",
     "decs": "这个活动真好玩",
     "state": "closed",
     "created_at": "2020-05-26T08:19:22Z",

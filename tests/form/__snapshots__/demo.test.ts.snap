@@ -7509,7 +7509,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
                                     >
                                       <span
                                         aria-label="close-circle"
-                                        class="anticon anticon-close-circle ant-input-clear-icon"
+                                        class="anticon anticon-close-circle ant-input-clear-icon-hidden ant-input-clear-icon"
                                         role="button"
                                         tabindex="-1"
                                       >
