@@ -9,7 +9,8 @@ import React, {
   useEffect,
 } from 'react';
 import { Space, Spin, ConfigProvider } from 'antd';
-import type {
+import {
+  nanoid,
   ProFieldRequestData,
   ProFieldValueEnumType,
   ProSchemaValueEnumMap,
@@ -27,8 +28,6 @@ import type { ProFieldStatusType } from '../Status';
 import TableStatus, { ProFieldBadgeColor } from '../Status';
 import type { ProFieldFC } from '../../index';
 import './index.less';
-
-let testId = 0;
 
 type SelectOptionType = Partial<RequestOptionsType>[];
 
@@ -262,8 +261,7 @@ export const useFieldFetchData = (
       return props.proFieldKey.toString();
     }
     if (props.request) {
-      testId += 1;
-      return testId.toString();
+      return nanoid();
     }
     return 'no-fetch';
   });
@@ -407,10 +405,6 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   const inputRef = useRef();
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
-
-  useEffect(() => {
-    testId += 1;
-  }, []);
 
   useEffect(() => {
     keyWordsRef.current = fieldProps?.searchValue;
