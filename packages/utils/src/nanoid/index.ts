@@ -17,7 +17,7 @@ let genNanoid = (t = 21) => {
  * @returns
  */
 export const nanoid = () => {
-  if (typeof window !== 'undefined') {
+  if (typeof window === 'undefined') {
     return genNanoid();
   }
   // @ts-ignore
