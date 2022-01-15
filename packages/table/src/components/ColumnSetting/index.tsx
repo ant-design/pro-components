@@ -212,14 +212,8 @@ const CheckboxList: React.FC<{
       checkedKeys={treeDataConfig.keys}
       showLine={false}
       titleRender={(node) => {
-        return (
-          <CheckboxListItem
-            className={className}
-            {...node}
-            children={undefined}
-            columnKey={node.key}
-          />
-        );
+        delete node.children;
+        return <CheckboxListItem className={className} {...node} columnKey={node.key} />;
       }}
       height={280}
       treeData={treeDataConfig.list}
