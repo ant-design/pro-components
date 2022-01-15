@@ -307,7 +307,12 @@ export type ProSchema<
   /** @name request防抖动时间 默认10 单位ms */
   debounceTime?: number;
   /** @name 从服务器请求的参数，改变了会触发 reload */
-  params?: Record<string, any>;
+  params?:
+    | ((
+        record: Entity,
+        column: Omit<ProSchema<Entity, ExtraProps>, 'render' | 'renderFormItem'>,
+      ) => Record<string, any>)
+    | Record<string, any>;
   /** @name 依赖字段的name，暂时只在拥有 request 的项目中生效，会自动注入到 params 中 */
   dependencies?: NamePath[];
 
