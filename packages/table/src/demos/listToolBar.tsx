@@ -187,7 +187,7 @@ export default () => {
           draggable: true,
           checkable: true,
           checkedReset: false,
-          extra: [<a>确认</a>],
+          extra: [<a key="confirm">确认</a>],
         },
       }}
     />

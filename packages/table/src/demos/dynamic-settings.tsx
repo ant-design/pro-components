@@ -207,7 +207,7 @@ const DynamicSettings = () => {
           toolBarRender={
             config?.toolBarRender
               ? () => [
-                  <Button key="reload" type="primary">
+                  <Button key="refresh" type="primary">
                     刷新
                   </Button>,
                 ]
