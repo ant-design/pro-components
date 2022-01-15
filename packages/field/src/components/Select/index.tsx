@@ -9,8 +9,7 @@ import React, {
   useEffect,
 } from 'react';
 import { Space, Spin, ConfigProvider } from 'antd';
-import {
-  nanoid,
+import type {
   ProFieldRequestData,
   ProFieldValueEnumType,
   ProSchemaValueEnumMap,
@@ -18,7 +17,12 @@ import {
   RequestOptionsType,
 } from '@ant-design/pro-utils';
 
-import { useDebounceFn, useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
+import {
+  useDebounceFn,
+  nanoid,
+  useDeepCompareEffect,
+  useMountMergeState,
+} from '@ant-design/pro-utils';
 import useSWR from 'swr';
 import { useIntl } from '@ant-design/pro-provider';
 
