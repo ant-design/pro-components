@@ -134,6 +134,8 @@ export type ProColumnType<T = unknown, ValueType = 'text'> = ProSchema<
 
     /** @private */
     listKey?: string;
+    /** 只读 */
+    readonly?: boolean;
   },
   ProSchemaComponentTypes,
   ValueType,

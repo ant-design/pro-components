@@ -266,6 +266,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
     params: columnProps?.params,
+    readonly: columnProps?.readonly,
     text: valueType === 'index' || valueType === 'indexBorder' ? config.index : text,
     mode: config.mode,
     renderFormItem: undefined,
