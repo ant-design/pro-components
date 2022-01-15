@@ -159,7 +159,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     onReset,
     omitNil = true,
     isKeyPressSubmit,
-    autoFocusFirstInput,
+    autoFocusFirstInput = true,
     ...rest
   } = props;
   const [inlineForm] = Form.useForm(form);
