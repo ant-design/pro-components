@@ -21,7 +21,7 @@ export const nanoid = () => {
     return genNanoid();
   }
   // @ts-ignore
-  if (crypto.randomUUID && typeof crypto.randomUUID == 'function') {
+  if (crypto && crypto.randomUUID && typeof crypto.randomUUID == 'function') {
     // @ts-ignore
     return crypto.randomUUID();
   }
