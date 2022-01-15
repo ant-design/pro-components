@@ -79,6 +79,7 @@ function useDebounceFn<T extends any[], U = any>(
       if (wait !== 0) rejectRef.current?.(new Error('useDebounceFn is unmount'));
       cancel();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {
