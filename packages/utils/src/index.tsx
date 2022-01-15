@@ -70,6 +70,7 @@ import { arrayMoveImmutable } from './array-move';
 import { merge } from './merge';
 import { genCopyable } from './genCopyable';
 import { useRefFunction } from './hooks/useRefFunction';
+import { nanoid } from './nanoid';
 
 export type {
   RequestOptionsType,
@@ -132,6 +133,7 @@ export {
   runFunction,
   getFieldPropsOrFormItemProps,
   dateArrayFormatter,
+  nanoid,
   // hooks
   useEditableArray,
   useEditableMap,
