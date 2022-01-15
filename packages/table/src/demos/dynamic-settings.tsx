@@ -205,7 +205,13 @@ const DynamicSettings = () => {
           }
           options={config.options?.show ? config.options : false}
           toolBarRender={
-            config?.toolBarRender ? () => [<Button type="primary">刷新</Button>] : false
+            config?.toolBarRender
+              ? () => [
+                  <Button key="refresh" type="primary">
+                    刷新
+                  </Button>,
+                ]
+              : false
           }
           footer={config.footer ? () => 'Here is footer' : false}
           headerTitle={config.headerTitle}

@@ -71,13 +71,10 @@ export const defaultOnFilter = (value: string, record: any, dataIndex: string | 
   return String(itemValue) === String(value);
 };
 
-class OptionsCell extends React.Component<
-  {
-    children: () => React.ReactNode;
-    record: any;
-  },
-  {}
-> {
+class OptionsCell extends React.Component<{
+  children: () => React.ReactNode;
+  record: any;
+}> {
   shouldComponentUpdate(nextProps: any) {
     const { children, ...restProps } = this.props;
     const { children: nextChildren, ...restNextProps } = nextProps;
