@@ -103,34 +103,39 @@ exports[`💵 ProFormMoney 💵 ProFormMoney value expect number 1`] = `
     </div>
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    class="submitter-align-wrapper"
+    style="display: flex; justify-content: flex-start;"
   >
     <div
-      class="ant-space-item"
-      style="margin-right: 8px; padding-bottom: 8px;"
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
-        <span>
-          提 交
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-      style="padding-bottom: 8px;"
-    >
-      <button
-        class="ant-btn"
-        type="button"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
       >
-        <span>
-          重 置
-        </span>
-      </button>
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            重 置
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </form>
@@ -239,34 +244,39 @@ exports[`💵 ProFormMoney 💵 can input negative 1`] = `
     </div>
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    class="submitter-align-wrapper"
+    style="display: flex; justify-content: flex-start;"
   >
     <div
-      class="ant-space-item"
-      style="margin-right: 8px; padding-bottom: 8px;"
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
-        <span>
-          提 交
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-      style="padding-bottom: 8px;"
-    >
-      <button
-        class="ant-btn"
-        type="button"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
       >
-        <span>
-          重 置
-        </span>
-      </button>
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            重 置
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </form>
@@ -375,34 +385,39 @@ exports[`💵 ProFormMoney 💵 can not input negative 1`] = `
     </div>
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    class="submitter-align-wrapper"
+    style="display: flex; justify-content: flex-start;"
   >
     <div
-      class="ant-space-item"
-      style="margin-right: 8px; padding-bottom: 8px;"
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
-        <span>
-          提 交
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-      style="padding-bottom: 8px;"
-    >
-      <button
-        class="ant-btn"
-        type="button"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
       >
-        <span>
-          重 置
-        </span>
-      </button>
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            重 置
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </form>
@@ -511,34 +526,39 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom locale 1`] = `
     </div>
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    class="submitter-align-wrapper"
+    style="display: flex; justify-content: flex-start;"
   >
     <div
-      class="ant-space-item"
-      style="margin-right: 8px; padding-bottom: 8px;"
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
-        <span>
-          提 交
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-      style="padding-bottom: 8px;"
-    >
-      <button
-        class="ant-btn"
-        type="button"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
       >
-        <span>
-          重 置
-        </span>
-      </button>
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            重 置
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </form>
@@ -647,34 +667,39 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom symbol 1`] = `
     </div>
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    class="submitter-align-wrapper"
+    style="display: flex; justify-content: flex-start;"
   >
     <div
-      class="ant-space-item"
-      style="margin-right: 8px; padding-bottom: 8px;"
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
-        <span>
-          提 交
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-      style="padding-bottom: 8px;"
-    >
-      <button
-        class="ant-btn"
-        type="button"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            提 交
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
       >
-        <span>
-          重 置
-        </span>
-      </button>
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            重 置
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </form>
@@ -783,34 +808,39 @@ exports[`💵 ProFormMoney 💵 moneySymbol with global locale 1`] = `
     </div>
   </div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center"
-    style="flex-wrap: wrap; margin-bottom: -8px;"
+    class="submitter-align-wrapper"
+    style="display: flex; justify-content: flex-start;"
   >
     <div
-      class="ant-space-item"
-      style="margin-right: 8px; padding-bottom: 8px;"
+      class="ant-space ant-space-horizontal ant-space-align-center"
+      style="flex-wrap: wrap; margin-bottom: -8px;"
     >
-      <button
-        class="ant-btn ant-btn-primary"
-        type="button"
+      <div
+        class="ant-space-item"
+        style="margin-right: 8px; padding-bottom: 8px;"
       >
-        <span>
-          Submit
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-      style="padding-bottom: 8px;"
-    >
-      <button
-        class="ant-btn"
-        type="button"
+        <button
+          class="ant-btn ant-btn-primary"
+          type="button"
+        >
+          <span>
+            Submit
+          </span>
+        </button>
+      </div>
+      <div
+        class="ant-space-item"
+        style="padding-bottom: 8px;"
       >
-        <span>
-          Reset
-        </span>
-      </button>
+        <button
+          class="ant-btn"
+          type="button"
+        >
+          <span>
+            Reset
+          </span>
+        </button>
+      </div>
     </div>
   </div>
 </form>

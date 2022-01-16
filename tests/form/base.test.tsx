@@ -1936,7 +1936,22 @@ describe('ProForm', () => {
       const leftWrap = wrapperLeft.find('.submitter-align-wrapper');
       const centerWrap = wrapperCenter.find('.submitter-align-wrapper');
       const rightWrap = wrapperRight.find('.submitter-align-wrapper');
-      console.log(defaultWrap);
+      expect(JSON.stringify(defaultWrap.prop('style'))).toBe(
+        '{"display":"flex","justifyContent":"flex-start"}',
+      );
+      expect(JSON.stringify(leftWrap.prop('style'))).toBe(
+        '{"display":"flex","justifyContent":"flex-start"}',
+      );
+      expect(JSON.stringify(centerWrap.prop('style'))).toBe(
+        '{"display":"flex","justifyContent":"center"}',
+      );
+      expect(JSON.stringify(rightWrap.prop('style'))).toBe(
+        '{"display":"flex","justifyContent":"flex-end"}',
+      );
+      expect(wrapper.render()).toMatchSnapshot();
+      expect(leftWrap.render()).toMatchSnapshot();
+      expect(centerWrap.render()).toMatchSnapshot();
+      expect(rightWrap.render()).toMatchSnapshot();
     });
   });
 });

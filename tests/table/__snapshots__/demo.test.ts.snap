@@ -328,34 +328,39 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -1048,34 +1053,39 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -3478,34 +3488,39 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       </div>
     </div>
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center"
-      style="flex-wrap: wrap; margin-bottom: -8px;"
+      class="submitter-align-wrapper"
+      style="display: flex; justify-content: flex-start;"
     >
       <div
-        class="ant-space-item"
-        style="margin-right: 8px; padding-bottom: 8px;"
+        class="ant-space ant-space-horizontal ant-space-align-center"
+        style="flex-wrap: wrap; margin-bottom: -8px;"
       >
-        <button
-          class="ant-btn ant-btn-primary"
-          type="button"
+        <div
+          class="ant-space-item"
+          style="margin-right: 8px; padding-bottom: 8px;"
         >
-          <span>
-            提 交
-          </span>
-        </button>
-      </div>
-      <div
-        class="ant-space-item"
-        style="padding-bottom: 8px;"
-      >
-        <button
-          class="ant-btn"
-          type="button"
+          <button
+            class="ant-btn ant-btn-primary"
+            type="button"
+          >
+            <span>
+              提 交
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-space-item"
+          style="padding-bottom: 8px;"
         >
-          <span>
-            重 置
-          </span>
-        </button>
+          <button
+            class="ant-btn"
+            type="button"
+          >
+            <span>
+              重 置
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   </form>
@@ -4201,34 +4216,39 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
             </div>
           </div>
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center"
-            style="flex-wrap: wrap; margin-bottom: -8px;"
+            class="submitter-align-wrapper"
+            style="display: flex; justify-content: flex-start;"
           >
             <div
-              class="ant-space-item"
-              style="margin-right: 8px; padding-bottom: 8px;"
+              class="ant-space ant-space-horizontal ant-space-align-center"
+              style="flex-wrap: wrap; margin-bottom: -8px;"
             >
-              <button
-                class="ant-btn ant-btn-primary"
-                type="button"
+              <div
+                class="ant-space-item"
+                style="margin-right: 8px; padding-bottom: 8px;"
               >
-                <span>
-                  提 交
-                </span>
-              </button>
-            </div>
-            <div
-              class="ant-space-item"
-              style="padding-bottom: 8px;"
-            >
-              <button
-                class="ant-btn"
-                type="button"
+                <button
+                  class="ant-btn ant-btn-primary"
+                  type="button"
+                >
+                  <span>
+                    提 交
+                  </span>
+                </button>
+              </div>
+              <div
+                class="ant-space-item"
+                style="padding-bottom: 8px;"
               >
-                <span>
-                  重 置
-                </span>
-              </button>
+                <button
+                  class="ant-btn"
+                  type="button"
+                >
+                  <span>
+                    重 置
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
         </form>
@@ -17313,34 +17333,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="qixian-space qixian-space-horizontal qixian-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="qixian-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="qixian-btn"
-                              type="button"
+                            <div
+                              class="qixian-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="qixian-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="qixian-btn qixian-btn-primary"
-                              type="button"
+                              <button
+                                class="qixian-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="qixian-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="qixian-btn qixian-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -21645,34 +21670,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                             style="margin-right: 16px;"
                           >
                             <div
-                              class="ant-space ant-space-horizontal ant-space-align-center"
-                              style="flex-wrap: wrap; margin-bottom: -8px;"
+                              class="submitter-align-wrapper"
+                              style="display: flex; justify-content: flex-start;"
                             >
                               <div
-                                class="ant-space-item"
-                                style="margin-right: 8px; padding-bottom: 8px;"
+                                class="ant-space ant-space-horizontal ant-space-align-center"
+                                style="flex-wrap: wrap; margin-bottom: -8px;"
                               >
-                                <button
-                                  class="ant-btn"
-                                  type="button"
+                                <div
+                                  class="ant-space-item"
+                                  style="margin-right: 8px; padding-bottom: 8px;"
                                 >
-                                  <span>
-                                    重 置
-                                  </span>
-                                </button>
-                              </div>
-                              <div
-                                class="ant-space-item"
-                                style="padding-bottom: 8px;"
-                              >
-                                <button
-                                  class="ant-btn ant-btn-primary"
-                                  type="button"
+                                  <button
+                                    class="ant-btn"
+                                    type="button"
+                                  >
+                                    <span>
+                                      重 置
+                                    </span>
+                                  </button>
+                                </div>
+                                <div
+                                  class="ant-space-item"
+                                  style="padding-bottom: 8px;"
                                 >
-                                  <span>
-                                    查 询
-                                  </span>
-                                </button>
+                                  <button
+                                    class="ant-btn ant-btn-primary"
+                                    type="button"
+                                  >
+                                    <span>
+                                      查 询
+                                    </span>
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
@@ -23023,34 +23053,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -24195,34 +24230,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -25916,34 +25956,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                   style="margin-right: 16px;"
                                 >
                                   <div
-                                    class="ant-space ant-space-horizontal ant-space-align-center"
-                                    style="flex-wrap: wrap; margin-bottom: -8px;"
+                                    class="submitter-align-wrapper"
+                                    style="display: flex; justify-content: flex-start;"
                                   >
                                     <div
-                                      class="ant-space-item"
-                                      style="margin-right: 8px; padding-bottom: 8px;"
+                                      class="ant-space ant-space-horizontal ant-space-align-center"
+                                      style="flex-wrap: wrap; margin-bottom: -8px;"
                                     >
-                                      <button
-                                        class="ant-btn"
-                                        type="button"
+                                      <div
+                                        class="ant-space-item"
+                                        style="margin-right: 8px; padding-bottom: 8px;"
                                       >
-                                        <span>
-                                          重 置
-                                        </span>
-                                      </button>
-                                    </div>
-                                    <div
-                                      class="ant-space-item"
-                                      style="padding-bottom: 8px;"
-                                    >
-                                      <button
-                                        class="ant-btn ant-btn-primary"
-                                        type="button"
+                                        <button
+                                          class="ant-btn"
+                                          type="button"
+                                        >
+                                          <span>
+                                            重 置
+                                          </span>
+                                        </button>
+                                      </div>
+                                      <div
+                                        class="ant-space-item"
+                                        style="padding-bottom: 8px;"
                                       >
-                                        <span>
-                                          查 询
-                                        </span>
-                                      </button>
+                                        <button
+                                          class="ant-btn ant-btn-primary"
+                                          type="button"
+                                        >
+                                          <span>
+                                            查 询
+                                          </span>
+                                        </button>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -28617,34 +28662,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -29238,34 +29288,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -31432,47 +31487,52 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                导 出
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  导 出
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -37260,34 +37320,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -38632,34 +38697,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -39499,34 +39569,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -40563,34 +40638,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                         style="margin-left: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-left: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn ant-btn-rtl"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-left: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                إعادة تعيين
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary ant-btn-rtl"
-                              type="button"
+                              <button
+                                class="ant-btn ant-btn-rtl"
+                                type="button"
+                              >
+                                <span>
+                                  إعادة تعيين
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                ابحث
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary ant-btn-rtl"
+                                type="button"
+                              >
+                                <span>
+                                  ابحث
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -42609,47 +42689,52 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                导 出
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  导 出
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -43463,34 +43548,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -45145,34 +45235,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
           </span>
         </span>
         <div
-          class="ant-space ant-space-horizontal ant-space-align-center"
-          style="flex-wrap: wrap; margin-bottom: -8px;"
+          class="submitter-align-wrapper"
+          style="display: flex; justify-content: flex-start;"
         >
           <div
-            class="ant-space-item"
-            style="margin-right: 8px; padding-bottom: 8px;"
+            class="ant-space ant-space-horizontal ant-space-align-center"
+            style="flex-wrap: wrap; margin-bottom: -8px;"
           >
-            <button
-              class="ant-btn"
-              type="button"
+            <div
+              class="ant-space-item"
+              style="margin-right: 8px; padding-bottom: 8px;"
             >
-              <span>
-                重 置
-              </span>
-            </button>
-          </div>
-          <div
-            class="ant-space-item"
-            style="padding-bottom: 8px;"
-          >
-            <button
-              class="ant-btn ant-btn-primary"
-              type="button"
+              <button
+                class="ant-btn"
+                type="button"
+              >
+                <span>
+                  重 置
+                </span>
+              </button>
+            </div>
+            <div
+              class="ant-space-item"
+              style="padding-bottom: 8px;"
             >
-              <span>
-                提 交
-              </span>
-            </button>
+              <button
+                class="ant-btn ant-btn-primary"
+                type="button"
+              >
+                <span>
+                  提 交
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </form>
@@ -45371,34 +45466,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                         class="ant-space-item"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -46265,34 +46365,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -49820,34 +49925,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -51306,34 +51416,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -52591,34 +52706,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -53853,34 +53973,39 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                         style="margin-right: 16px;"
                       >
                         <div
-                          class="ant-space ant-space-horizontal ant-space-align-center"
-                          style="flex-wrap: wrap; margin-bottom: -8px;"
+                          class="submitter-align-wrapper"
+                          style="display: flex; justify-content: flex-start;"
                         >
                           <div
-                            class="ant-space-item"
-                            style="margin-right: 8px; padding-bottom: 8px;"
+                            class="ant-space ant-space-horizontal ant-space-align-center"
+                            style="flex-wrap: wrap; margin-bottom: -8px;"
                           >
-                            <button
-                              class="ant-btn"
-                              type="button"
+                            <div
+                              class="ant-space-item"
+                              style="margin-right: 8px; padding-bottom: 8px;"
                             >
-                              <span>
-                                重 置
-                              </span>
-                            </button>
-                          </div>
-                          <div
-                            class="ant-space-item"
-                            style="padding-bottom: 8px;"
-                          >
-                            <button
-                              class="ant-btn ant-btn-primary"
-                              type="button"
+                              <button
+                                class="ant-btn"
+                                type="button"
+                              >
+                                <span>
+                                  重 置
+                                </span>
+                              </button>
+                            </div>
+                            <div
+                              class="ant-space-item"
+                              style="padding-bottom: 8px;"
                             >
-                              <span>
-                                查 询
-                              </span>
-                            </button>
+                              <button
+                                class="ant-btn ant-btn-primary"
+                                type="button"
+                              >
+                                <span>
+                                  查 询
+                                </span>
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
