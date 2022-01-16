@@ -25,7 +25,15 @@ const Demo = () => {
               <ProFormDependency name={['name']}>
                 {({ name }) => {
                   if (!name) {
-                    return null;
+                    return (
+                      <span
+                        style={{
+                          lineHeight: '32px',
+                        }}
+                      >
+                        输入姓名展示
+                      </span>
+                    );
                   }
                   return <ProFormText name="remark" label="昵称详情" />;
                 }}
