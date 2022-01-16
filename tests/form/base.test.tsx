@@ -1892,4 +1892,51 @@ describe('ProForm', () => {
 
     expect(onFinish).toBeCalledWith(undefined);
   });
+
+  it('📦 submitter align', async () => {
+    const AppDefault = () => {
+      return (
+        <ProForm>
+          <ProFormDatePicker name="date" />
+        </ProForm>
+      );
+    };
+    const AppLeft = () => {
+      return (
+        <ProForm submitter={{ align: 'left' }}>
+          <ProFormDatePicker name="date" />
+        </ProForm>
+      );
+    };
+    const AppCenter = () => {
+      return (
+        <ProForm submitter={{ align: 'center' }}>
+          <ProFormDatePicker name="date" />
+        </ProForm>
+      );
+    };
+    const AppRight = () => {
+      return (
+        <ProForm submitter={{ align: 'right' }}>
+          <ProFormDatePicker name="date" />
+        </ProForm>
+      );
+    };
+
+    const wrapper = mount(<AppDefault />);
+    const wrapperLeft = mount(<AppLeft />);
+    const wrapperCenter = mount(<AppCenter />);
+    const wrapperRight = mount(<AppRight />);
+    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapperLeft);
+    await waitForComponentToPaint(wrapperCenter);
+    await waitForComponentToPaint(wrapperRight);
+    act(() => {
+      const defaultWrap = wrapper.find('.submitter-align-wrapper');
+      const leftWrap = wrapperLeft.find('.submitter-align-wrapper');
+      const centerWrap = wrapperCenter.find('.submitter-align-wrapper');
+      const rightWrap = wrapperRight.find('.submitter-align-wrapper');
+      console.log(defaultWrap);
+    });
+  });
 });

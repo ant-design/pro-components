@@ -89,6 +89,12 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 
 <code src="./demos/form-layout.tsx" title="标签与表单项布局" />
 
+### 提交按钮区域对齐方式
+
+可选择 `left`、`center`、`right` 方式对齐，默认为: `left`
+
+<code src="./demos/submitter-align.tsx" title="提交按钮区域对齐方式" />
+
 ### 登录
 
 <code src="./demos/login-form.tsx" height="300px" title="登录" />

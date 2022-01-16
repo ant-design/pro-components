@@ -13,6 +13,8 @@ export type SearchConfig = {
 };
 
 export type SubmitterProps<T = Record<string, any>> = {
+  /** @name 按钮对齐方式 */
+  align?: 'left' | 'center' | 'right';
   /** @name 提交方法 */
   onSubmit?: (value?: T) => void;
   /** @name 重置方法 */
@@ -36,6 +38,13 @@ export type SubmitterProps<T = Record<string, any>> = {
     | false;
 };
 
+/** 对齐方式到 css 属性的映射 */
+const alignMap: Record<string, string> = {
+  left: 'flex-start',
+  center: 'center',
+  right: 'flex-end',
+};
+
 /**
  * FormFooter 的组件，可以自动进行一些配置
  *
@@ -56,6 +65,7 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     searchConfig = {},
     submitButtonProps,
     resetButtonProps = {},
+    align = 'left',
   } = props;
   const submit = () => {
     form.submit();
@@ -115,7 +125,14 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
     if (renderDom?.length === 1) {
       return renderDom[0] as JSX.Element;
     }
-    return <Space wrap>{renderDom}</Space>;
+    return (
+      <div
+        className="submitter-align-wrapper"
+        style={{ display: 'flex', justifyContent: alignMap[align] }}
+      >
+        <Space wrap>{renderDom}</Space>
+      </div>
+    );
   }
   return renderDom as JSX.Element;
 };
