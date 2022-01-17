@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.32.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.4...@ant-design/pro-layout@6.32.5) (2022-01-17)
+
+### Bug Fixes
+
+- **layout:** SettingDrawer omit url params ([4937fee](https://github.com/ant-design/pro-components/commit/4937feeec51632fc6b752104f5055c60f6aacb49))
+
 ## [6.32.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.3...@ant-design/pro-layout@6.32.4) (2022-01-11)
 
 ### Bug Fixes
