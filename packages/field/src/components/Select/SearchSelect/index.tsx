@@ -96,8 +96,12 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     onClear,
     searchValue: propsSearchValue,
     showSearch,
+    fieldNames,
     ...restProps
   } = props;
+
+  const { label: labelPropsName = 'label', value: valuePropsName = 'value' } = fieldNames || {};
+
   const [searchValue, setSearchValue] = useState(propsSearchValue);
 
   const selectRef = useRef<any>();
@@ -142,12 +146,13 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   const renderOptions = (mapOptions: RequestOptionsType[]) => {
     return mapOptions.map((item) => {
       const {
-        label,
-        value,
         disabled: itemDisable,
         className: itemClassName,
         optionType,
       } = item as RequestOptionsType;
+
+      const label = item[labelPropsName];
+      const value = item[valuePropsName];
 
       if (optionType === 'optGroup') {
         return (
