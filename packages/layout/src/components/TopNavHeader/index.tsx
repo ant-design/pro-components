@@ -30,9 +30,10 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
     if (!avatarProps) return null;
     const { title, ...rest } = avatarProps;
     return [
-      <Avatar size="large" {...rest} />,
+      <Avatar size="large" {...rest} key="avatar" />,
       title ? (
         <span
+          key="name"
           style={{
             marginLeft: 8,
           }}

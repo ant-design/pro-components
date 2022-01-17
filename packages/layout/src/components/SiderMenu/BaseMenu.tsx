@@ -1,6 +1,6 @@
 import './index.less';
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
-import { Menu, Skeleton, Divider, ConfigProvider } from 'antd';
+import { Menu, Skeleton, ConfigProvider } from 'antd';
 import React, { useEffect, useState, useRef, useMemo, useContext } from 'react';
 import { isUrl, isImg, useMountMergeState } from '@ant-design/pro-utils';
 
@@ -67,17 +67,19 @@ let IconFont = createFromIconfontCN({
 const MenuDivider: React.FC<{
   index?: number | string;
   prefixCls?: string;
-}> = ({ prefixCls, index }) => (
+  collapsed?: boolean;
+}> = ({ prefixCls, collapsed, index }) => (
   <div
     key={index}
     className={`${prefixCls}-menu-item-divider`}
     style={{
-      padding: '16px 4px 4px 4px',
+      padding: collapsed ? '4px' : '16px 4px 4px 4px',
     }}
   >
-    <Divider
+    <Menu.Divider
       style={{
         margin: 0,
+        borderColor: '#D8D8D8',
       }}
     />
   </div>
@@ -168,7 +170,11 @@ class MenuUtil {
           {this.getNavMenuItems(item.routes, level + 1)}
         </MenuComponents>,
         isGroup && level === 0 ? (
-          <MenuDivider prefixCls={prefixCls} index={item.key || item.path} />
+          <MenuDivider
+            collapsed={this.props.collapsed}
+            prefixCls={prefixCls}
+            index={item.key || item.path}
+          />
         ) : (
           false
         ),
@@ -299,6 +305,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const context = useContext(ConfigProvider.ConfigContext);
 
+  const antPrefixClassName = context.getPrefixCls();
+
   // 用于减少 defaultOpenKeys 计算的组件
   const defaultOpenKeysRef = useRef<string[]>([]);
 
@@ -384,6 +392,135 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const [menuUtils] = useState(() => new MenuUtil(props));
 
+  const menuItemCssMap = useMemo(() => {
+    const itemHoverColor = !collapsed ? 'rgba(0, 0, 0, 0.03)' : 'rgba(0, 145, 255, 0.08)';
+    const itemSelectedColor = !collapsed ? 'rgba(0, 0, 0, 0.04)' : 'rgba(0, 145, 255, 0.1)';
+    return {
+      menuItem: css`
+        border-radius: 2px;
+        min-height: 40px;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        cursor: pointer;
+        line-height: 40px;
+
+        .${antPrefixClassName}-menu-title-content {
+          display: flex;
+          width: 100%;
+          color: rgba(0, 0, 0, 0.65);
+          font-size: 14px;
+          line-height: 40px;
+          transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        a {
+          width: 100%;
+          height: 100%;
+          color: rgba(0, 0, 0, 0.65);
+        }
+      `,
+      collapsedItem: css`
+        .${antPrefixClassName}-menu-title-content {
+          ${mode !== 'horizontal' ? 'width: 100%; line-height: 40px;' : ''}
+        }
+        .${antPrefixClassName}-pro-menu-item {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          color: rgba(0, 0, 0, 0.65);
+          font-size: 16px;
+        }
+      `,
+      horizontalItem: css`
+        height: 40px;
+        .${antPrefixClassName}-pro-menu-item {
+          padding: 0 20px;
+        }
+        &:hover {
+          a {
+            color: #000;
+          }
+        }
+      `,
+
+      verticalItem: css`
+        &:hover {
+          background-color: ${itemHoverColor};
+          border-radius: 4px;
+        }
+      `,
+      selectedItem: css`
+        background-color: ${itemSelectedColor};
+        border-radius: 4px;
+      `,
+
+      // subMenuItem Style
+      subMenuItem: css`
+        border-radius: 2px;
+        min-height: 40px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.65);
+        .${antPrefixClassName}-menu-submenu-title {
+          width: 100%;
+          margin-top: 0;
+          margin-bottom: 0;
+          line-height: 40px;
+        }
+        .${antPrefixClassName}-menu-submenu-arrow {
+          color: rgba(0, 0, 0, 0.25);
+        }
+      `,
+      collapsedSubMenuItem: css`
+        .${antPrefixClassName}-menu-submenu-title{
+          padding: 0 !important;
+          width: 100%;
+        }
+        .${antPrefixClassName}-menu-title-content {
+          ${mode !== 'horizontal' ? 'width: 100%;' : ''}
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+        }
+        .${antPrefixClassName}-menu-submenu-title .anticon {
+          font-size: 16px;
+        }
+        .${antPrefixClassName}-menu-submenu-arrow {
+          display: none;
+        }
+      `,
+      selectedSubItem: css`
+      .${antPrefixClassName}-menu-submenu-title{
+        background-color: ${itemSelectedColor};
+        border-radius: 4px;
+      }
+      `,
+      verticalSubItem: css`
+        .${antPrefixClassName}-menu-submenu-title:hover {
+          background-color: ${itemHoverColor};
+          border-radius: 4px;
+        }
+      `,
+      horizontalSubMenuItem: css`
+        .${antPrefixClassName}-menu-submenu-title:hover {
+          color: rgba(0, 0, 0, 0.65);
+          background-color: ${itemHoverColor};
+          border-radius: 4px;
+        }
+        .${antPrefixClassName}-menu-submenu-arrow {
+          display: none;
+        }
+      `,
+    };
+  }, [antPrefixClassName, collapsed, mode]);
+
   if (menu?.loading) {
     return (
       <div
@@ -422,8 +559,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     return null;
   }
 
-  const antPrefixClassName = context.getPrefixCls();
-
   return (
     <Menu
       {...openKeysProps}
@@ -442,6 +577,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           // 关掉动画避免性能问题
           * {
             transition: none !important;
+          }
+
+          .${antPrefixClassName}-menu-title-content{
+            width: 100%;
           }
 
           .${antPrefixClassName}-menu-root {
@@ -471,74 +610,32 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             }
           `,
       )}
-      _internalRenderSubMenuItem={(dom) => {
+      _internalRenderSubMenuItem={(dom, _, { selected }) => {
         return React.cloneElement(dom, {
           ...dom.props,
           className: cx(
-            css`
-              border-radius: 2px;
-              min-height: 40px;
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              align-items: flex-start;
-              transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-              cursor: pointer;
-              padding: 8px;
-            `,
+            menuItemCssMap.subMenuItem,
             // 收起的样式
-            collapsed &&
-              css`
-                justify-content: center;
-                font-size: 14px;
-              `,
+            collapsed && menuItemCssMap.collapsedSubMenuItem,
+            // 顶部菜单和水平菜单需要不同的 css
+            mode !== 'horizontal'
+              ? menuItemCssMap.verticalSubItem
+              : menuItemCssMap.horizontalSubMenuItem,
+            selected ? menuItemCssMap.selectedSubItem : null,
           ),
         });
       }}
-      _internalRenderMenuItem={(dom) => {
+      _internalRenderMenuItem={(dom, _, { selected }) => {
         return React.cloneElement(dom, {
           ...dom.props,
           className: cx(
             // 展开的样式
-            css`
-              border-radius: 2px;
-              min-height: 40px;
-              ${mode !== 'horizontal' ? 'width: 100%;' : ''}
-              display: flex;
-              align-items: center;
-              transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-              cursor: pointer;
-              padding: 8px;
-              a {
-                color: rgba(0, 0, 0, 0.65);
-                font-size: 14px;
-                line-height: 22px;
-                transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-              }
-            `,
+            menuItemCssMap.menuItem,
             // 收起的样式
-            collapsed &&
-              css`
-                justify-content: center;
-                a {
-                  font-size: 16px;
-                }
-              `,
+            collapsed && menuItemCssMap.collapsedItem,
             // 顶部菜单和水平菜单需要不同的 css
-            mode !== 'horizontal'
-              ? css`
-                  &:hover {
-                    background-color: rgba(0, 0, 0, 0.05);
-                    border-radius: 4px;
-                  }
-                `
-              : css`
-                  &:hover {
-                    a {
-                      color: #000;
-                    }
-                  }
-                `,
+            mode !== 'horizontal' ? menuItemCssMap.verticalItem : menuItemCssMap.horizontalItem,
+            selected ? menuItemCssMap.selectedItem : null,
           ),
         });
       }}
