@@ -112,14 +112,18 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ## 代码示例
 
-### 基本使用
+### 联动的 FormList
 
 <code src="./demos/base-use" heigh="174px" title="ProForm.List" />
 
-### 基本使用
+### 可调整的新建按钮位置
 
-<code src="./demos/list.tsx" heigh="174px" title="ProForm.List" />
+<code src="./demos/list.tsx" heigh="174px" title="ProForm.List-position" />
 
 ### 表单互相嵌套
 
-<code src="./demos/nested-list.tsx" heigh="1774px" title="ProForm.List" />
+<code src="./demos/nested-list.tsx" heigh="174px" title="ProForm.List-ProFormList" />
+
+### 复杂联动
+
+<code src="./demos/dependency.tsx" heigh="174px" title="ProForm.List-dependency" />
