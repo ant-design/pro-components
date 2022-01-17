@@ -126,14 +126,12 @@ const Submitter: React.FC<SubmitterProps & { form: FormInstance }> = (props) => 
       return renderDom[0] as JSX.Element;
     }
     return (
-      // <div
-      //   className="submitter-align-wrapper"
-      //   style={{ display: 'flex', justifyContent: alignMap[align] }}
-      // >
-      <Space wrap align="center">
-        {renderDom}
-      </Space>
-      // </div>
+      <div
+        className="submitter-align-wrapper"
+        style={{ display: 'flex', justifyContent: alignMap[align] }}
+      >
+        <Space wrap>{renderDom}</Space>
+      </div>
     );
   }
   return renderDom as JSX.Element;
