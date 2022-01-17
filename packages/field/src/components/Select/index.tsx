@@ -8,6 +8,7 @@ import React, {
   useCallback,
   useEffect,
 } from 'react';
+import type { SelectProps } from 'antd';
 import { Space, Spin, ConfigProvider } from 'antd';
 import type {
   ProFieldRequestData,
@@ -311,7 +312,7 @@ export const useFieldFetchData = (
     },
     [],
     props.debounceTime ?? 0,
-    // 因为使用了swc，自动清理请求可能导致缓存错误的数据
+    // 因为使用了swr，自动清理请求可能导致缓存错误的数据
     true,
   );
 
@@ -387,7 +388,10 @@ export const useFieldFetchData = (
  *
  * @param
  */
-const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
+const FieldSelect: ProFieldFC<FieldSelectProps & Pick<SelectProps, 'fieldNames'>> = (
+  props,
+  ref,
+) => {
   const {
     mode,
     valueEnum,
@@ -409,6 +413,13 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   const inputRef = useRef();
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
+  const { fieldNames } = fieldProps;
+
+  const {
+    label: labelPropsName = 'label',
+    value: valuePropsName = 'value',
+    options: optionsPropsName = 'options',
+  } = fieldNames || {};
 
   useEffect(() => {
     keyWordsRef.current = fieldProps?.searchValue;
@@ -421,24 +432,30 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     fetchData: () => fetchData(),
   }));
 
+  const optionsValueEnum = useMemo<Record<string, any>>(() => {
+    const traverseOptions = (_options: typeof options): Record<string, any> => {
+      return _options?.length > 0
+        ? _options?.reduce((pre, cur) => {
+            const curLabel = cur[labelPropsName],
+              curValue = cur[valuePropsName],
+              curOptions = cur[optionsPropsName];
+            return {
+              ...pre,
+              [curValue]: curLabel,
+              ...traverseOptions(curOptions),
+            };
+          }, {})
+        : {};
+    };
+    return traverseOptions(options);
+  }, [labelPropsName, options, optionsPropsName, valuePropsName]);
+
   if (mode === 'read') {
-    const optionsValueEnumMap: ProSchemaValueEnumMap = new Map();
-    options?.forEach((opt) => {
-      optionsValueEnumMap.set(opt.value ?? '', opt.label);
-    });
-
-    // 如果有 label 直接就用 label
-    // @ts-ignore
-    if (rest.text?.label) {
-      // @ts-ignore
-      return rest.text?.label;
-    }
-
     const dom = (
       <>
         {proFieldParsingText(
           rest.text,
-          ObjToMap(valueEnum || optionsValueEnumMap) as unknown as ProSchemaValueEnumObj,
+          ObjToMap(valueEnum || optionsValueEnum) as unknown as ProSchemaValueEnumObj,
         )}
       </>
     );
