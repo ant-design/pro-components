@@ -206,6 +206,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
         const values = await formRef.current?.validateFields(nameList);
         return transformKey(values, omitNil);
       },
+      formRef,
     }),
     [omitNil, transformKey],
   );
