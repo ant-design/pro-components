@@ -25,7 +25,7 @@ import ProForm, { DrawerForm, ModalForm, QueryFilter, LightFilter, StepsForm } f
 import type { ProFormFieldProps } from '../Field';
 import ProFormList from '../List';
 import type { NamePath } from 'antd/lib/form/interface';
-import warning from 'warning';
+import { noteOnce } from 'rc-util/lib/warning';
 
 export type ExtraProColumnType = {
   tooltip?: React.ReactNode;
@@ -278,11 +278,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
           /** ProFormDependency */
           if (item.valueType === 'dependency') {
-            warning(
+            noteOnce(
               Array.isArray(item.fieldProps?.name),
               'SchemaForm: fieldProps.name should be NamePath[] when valueType is "dependency"',
             );
-            warning(
+            noteOnce(
               typeof item.columns === 'function',
               'SchemaForm: columns should be a function when valueType is "dependency"',
             );
