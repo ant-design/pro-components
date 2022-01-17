@@ -118,6 +118,7 @@ describe('settingDrawer.test', () => {
     const html = mount(
       <div>
         <SettingDrawer
+          disableUrlParams={false}
           getContainer={false}
           collapse
           onSettingChange={(setting) => {
