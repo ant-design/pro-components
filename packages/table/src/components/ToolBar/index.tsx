@@ -112,8 +112,12 @@ function renderDefaultOption<T>(
         return null;
       }
 
-      const onClick: OptionsFunctionType =
+      let onClick: OptionsFunctionType =
         value === true ? defaultOptions[key] : (event) => value?.(event, actions.current);
+
+      if (typeof onClick !== 'function') {
+        onClick = () => {};
+      }
 
       if (key === 'setting') {
         return <ColumnSetting {...options[key]} columns={columns} key={key} />;
@@ -128,7 +132,7 @@ function renderDefaultOption<T>(
       const optionItem = getButtonText(defaultOptions)[key];
       if (optionItem) {
         return (
-          <span key={key} onClick={(event) => onClick?.(event)}>
+          <span key={key} onClick={onClick}>
             <Tooltip title={optionItem.text}>{optionItem.icon}</Tooltip>
           </span>
         );
