@@ -39,12 +39,28 @@ export default function App() {
         allowClear
         width={330}
         secondary
-        valueEnum={{
-          1001: 'jack',
-          1002: 'lucy',
-          1003: 'emliy',
-        }}
+        options={
+          [
+            {
+              v: 'v1',
+              l: 'l1',
+            },
+            {
+              v: 'v2',
+              l: 'l3',
+            },
+            {
+              v: 'v4',
+              l: 'l5',
+            },
+          ] as any
+        }
         fieldProps={{
+          fieldNames: {
+            value: 'v',
+            label: 'l',
+            options: 'options',
+          },
           showArrow: false,
           showSearch: true, // 使单选模式可搜索
           dropdownMatchSelectWidth: false,

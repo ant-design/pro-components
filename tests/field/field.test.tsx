@@ -389,7 +389,7 @@ describe('Field', () => {
     expect(html.text()).toBe('all');
   });
 
-  ['cascader', 'treeSelect'].forEach((valueType) => {
+  ['select', 'cascader', 'treeSelect'].forEach((valueType) => {
     it(`🐴 ${valueType} options fieldNames`, async () => {
       const html = mount(
         <Field
@@ -397,6 +397,8 @@ describe('Field', () => {
           fieldProps={{
             fieldNames: {
               label: 'title',
+              // select
+              options: 'children',
             },
             options: [
               {
