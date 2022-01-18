@@ -242,7 +242,6 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   defaultData?: T[];
 
   /** @name 初始化的参数，可以操作 table */
-  // actionRef?: Parameters<React.ForwardRefRenderFunction<ActionType>>[1];
   actionRef?: React.Ref<ActionType | undefined>;
 
   /** @name 操作自带的 form */
