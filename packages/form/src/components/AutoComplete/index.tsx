@@ -1,5 +1,5 @@
 import React from 'react';
-import { ProFormField } from '@ant-design/pro-form';
+import ProFormField from '../Field';
 
 const ProFormAutoCompleteComponents = React.forwardRef<any, any>(({ children, ...rest }, ref) => {
   return (
@@ -14,6 +14,8 @@ const ProFormAutoCompleteComponents = React.forwardRef<any, any>(({ children, ..
   );
 });
 
-const ProFormAutoComplete = ProFormAutoCompleteComponents as <T>(props: any) => React.ReactElement;
+const ProFormAutoComplete = ProFormAutoCompleteComponents as <T = any>(
+  props: T,
+) => React.ReactElement;
 
 export default ProFormAutoComplete;
