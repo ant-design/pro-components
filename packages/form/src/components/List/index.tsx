@@ -330,6 +330,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   },
   actionRef,
   style,
+  prefixCls,
   ...rest
 }) => {
   const actionRefs = useRef<FormListOperation>();
@@ -351,36 +352,46 @@ const ProFormList: React.FC<ProFormListProps> = ({
   if (!proFormContext.formRef) return null;
   return (
     <div className={baseClassName} style={style}>
-      <Form.List rules={rules} {...rest} name={name}>
-        {(fields, action, meta) => {
-          // 将 action 暴露给外部
-          actionRefs.current = action;
-          return (
-            <>
-              <ProFormListContainer
-                name={name}
-                originName={rest.name}
-                copyIconProps={copyIconProps}
-                deleteIconProps={deleteIconProps}
-                formInstance={proFormContext.formRef!.current!}
-                prefixCls={baseClassName}
-                meta={meta}
-                fields={fields}
-                itemContainerRender={itemContainerRender}
-                itemRender={itemRender}
-                creatorButtonProps={creatorButtonProps}
-                creatorRecord={creatorRecord}
-                actionRender={actionRender}
-                action={action}
-                alwaysShowItemLabel={alwaysShowItemLabel}
-              >
-                {children}
-              </ProFormListContainer>
-              <Form.ErrorList errors={meta.errors} />
-            </>
-          );
-        }}
-      </Form.List>
+      <Form.Item
+        label={label}
+        prefixCls={prefixCls}
+        tooltip={tooltip}
+        style={style}
+        {...rest}
+        name={undefined}
+        rules={undefined}
+      >
+        <Form.List rules={rules} {...rest} name={name}>
+          {(fields, action, meta) => {
+            // 将 action 暴露给外部
+            actionRefs.current = action;
+            return (
+              <>
+                <ProFormListContainer
+                  name={name}
+                  originName={rest.name}
+                  copyIconProps={copyIconProps}
+                  deleteIconProps={deleteIconProps}
+                  formInstance={proFormContext.formRef!.current!}
+                  prefixCls={baseClassName}
+                  meta={meta}
+                  fields={fields}
+                  itemContainerRender={itemContainerRender}
+                  itemRender={itemRender}
+                  creatorButtonProps={creatorButtonProps}
+                  creatorRecord={creatorRecord}
+                  actionRender={actionRender}
+                  action={action}
+                  alwaysShowItemLabel={alwaysShowItemLabel}
+                >
+                  {children}
+                </ProFormListContainer>
+                <Form.ErrorList errors={meta.errors} />
+              </>
+            );
+          }}
+        </Form.List>
+      </Form.Item>
     </div>
   );
 };
