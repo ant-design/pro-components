@@ -44,7 +44,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
     <Form.Item
       {...rest}
       noStyle
-      shouldUpdate={(prevValues, nextValues) => {
+      shouldUpdate={(prevValues, nextValues, info) => {
         let finalNames = names;
 
         // ignoreFormListField 为 true 时，应从全局取值，要将 names 中各项的路径前缀(formListField.listName)剥离掉
@@ -57,10 +57,15 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
             Array.isArray(nameItem) ? nameItem.slice(formListField.listName.length) : nameItem,
           );
         }
-        return finalNames.some((nameItem) => {
+        if (rest.shouldUpdate === false) return false;
+        if (rest.shouldUpdate === true) return true;
+        const isUpdate = finalNames.some((nameItem) => {
           const arrayName = Array.isArray(nameItem) ? nameItem : [nameItem];
           return !isDeepEqualReact(get(prevValues, arrayName), get(nextValues, arrayName));
         });
+        if (rest.shouldUpdate === undefined) return isUpdate;
+        const shouldUpdate = rest.shouldUpdate?.(prevValues, nextValues, info);
+        return isUpdate && !!shouldUpdate;
       }}
     >
       {(form: FormInstance) => {
