@@ -1,6 +1,7 @@
 import React from 'react';
-import { AutoComplete, SelectProps } from 'antd';
-import type { ProFieldFC } from '@ant-design/pro-field';
+import { AutoComplete } from 'antd';
+import type { SelectProps } from 'antd';
+import type { ProFieldFC } from '../../index';
 
 export type FieldAutoCompleteProps = {
   placeholder?: any;
