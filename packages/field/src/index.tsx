@@ -371,7 +371,7 @@ export type ProFieldPropsType = {
 } & RenderProps;
 
 const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
-  { text, valueType = 'text', onChange, renderFormItem, value, ...rest },
+  { text, valueType = 'text', mode = 'read', onChange, renderFormItem, value, readonly, ...rest },
   ref: any,
 ) => {
   const intl = useIntl();
@@ -386,15 +386,16 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
       onChange?.(...restParams);
     },
   };
+
   return (
     <React.Fragment>
       {defaultRenderText(
-        text ?? fieldProps?.value ?? '',
+        mode === 'edit' ? fieldProps?.value ?? text ?? '' : text ?? fieldProps?.value ?? '',
         valueType || 'text',
         {
           ref,
           ...rest,
-          mode: rest.mode || 'read',
+          mode: readonly ? 'read' : mode,
           renderFormItem: renderFormItem
             ? (...restProps) => {
                 const newDom = renderFormItem(...restProps);

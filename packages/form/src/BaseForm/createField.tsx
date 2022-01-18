@@ -182,7 +182,8 @@ function createField<P extends ProFormFieldItemProps = any>(
           })}
           proFieldProps={omitUndefined({
             // @ts-ignore
-            mode: readonly ? 'read' : rest?.mode,
+            mode: rest?.mode,
+            readonly,
             params: rest.params,
             proFieldKey: proFieldKey,
             ...proFieldProps,

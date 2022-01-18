@@ -336,4 +336,5 @@ export interface ProFieldProps {
   /** 这个属性可以设置useSwr的key */
   proFieldKey?: string;
   render?: any;
+  readonly?: boolean;
 }
