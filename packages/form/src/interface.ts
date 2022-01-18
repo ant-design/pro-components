@@ -99,7 +99,6 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
   fieldProps?: FieldProps & T;
   placeholder?: string | string[];
   secondary?: boolean;
-  allowClear?: boolean;
   /** 是否使用 swr 来缓存 缓存可能导致数据更新不及时，请谨慎使用，尤其是页面中多个组件 name相同 */
   cacheForSwr?: boolean;
   disabled?: boolean;
