@@ -3436,6 +3436,66 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/c
         >
           <label
             class=""
+            for="validate_other_auto"
+            title="自动完成"
+          >
+            自动完成
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <span>
+                a
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
+            for="validate_other_auto1"
+            title="自动完成对象"
+          >
+            自动完成对象
+          </label>
+        </div>
+        <div
+          class="ant-col ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <span>
+                hello
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="ant-row ant-form-item"
+      >
+        <div
+          class="ant-col ant-form-item-label"
+        >
+          <label
+            class=""
             for="validate_other_useMode"
             title="合同约定生效方式"
           >

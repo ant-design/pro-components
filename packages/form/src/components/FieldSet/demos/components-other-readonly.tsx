@@ -11,6 +11,7 @@ import ProForm, {
   ProFormUploadButton,
   ProFormUploadDragger,
   ProFormFieldSet,
+  ProFormAutoComplete,
 } from '@ant-design/pro-form';
 
 const Demo = () => (
@@ -31,6 +32,8 @@ const Demo = () => (
         name: '蚂蚁金服有限公司',
         radio: 'a',
         list: ['1', '2', '3'],
+        auto: 'a',
+        auto1: 'hello',
         select: 'china',
         'radio-button': 'a',
         dragger: [
@@ -103,6 +106,16 @@ const Demo = () => (
         }}
         placeholder="Please select a country"
         rules={[{ required: true, message: 'Please select your country!' }]}
+      />
+      <ProFormAutoComplete readonly name="auto" label="自动完成" options={['a', 'ab', 'abc']} />
+      <ProFormAutoComplete
+        readonly
+        name="auto1"
+        label="自动完成对象"
+        options={[
+          { value: 'hello', label: 'hello' },
+          { value: 'world', label: 'world' },
+        ]}
       />
       <ProFormSelect
         width="md"

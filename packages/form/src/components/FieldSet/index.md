@@ -50,6 +50,7 @@ const ProFormText = (props) => {
 | [ProFormUploadButton](https://ant.design/components/upload-cn/) | 按钮样式的上传文件 |
 | [ProFormUploadDragger](https://ant.design/components/upload-cn/) | 区域的上传文件，一般用于突出上传文件的表单中 |
 | ProFormMoney | 通用金额输入组件 |
+| ProFormAutoComplete | 自动完成组件 |
 
 ## 代码示例
 

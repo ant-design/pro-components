@@ -4,6 +4,7 @@ import ProFormField from '../Field';
 const ProFormAutoCompleteComponents = React.forwardRef<any, any>(({ children, ...rest }, ref) => {
   return (
     <ProFormField<any>
+      mode="edit"
       valueType="autoComplete"
       filedConfig={{ customLightMode: true }}
       ref={ref}

@@ -15,8 +15,9 @@ const FieldAutoComplete: ProFieldFC<FieldAutoCompleteProps> = (
   if (type === 'read') {
     const dom = <span ref={ref}>{text}</span>;
     if (render) {
-      render(text, { mode: type, ...fieldProps }, dom);
+      return render(text, { mode: type, ...fieldProps }, dom);
     }
+    return dom;
   }
   if (type === 'edit' || type === 'update') {
     const autoCompleteOptions = options?.map((x) =>

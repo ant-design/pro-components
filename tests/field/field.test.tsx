@@ -645,6 +645,7 @@ describe('Field', () => {
     'color',
     'cascader',
     'treeSelect',
+    'autoComplete',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType support render ${valueType}`, async () => {
