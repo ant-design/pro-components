@@ -24,6 +24,7 @@ import type { SearchConfig, TableFormItem } from './components/Form/FormRender';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { SizeType } from 'antd/lib/config-provider/SizeContext';
 import type { NamePath } from 'antd/lib/form/interface';
+import type React from 'react';
 
 export type PageInfo = {
   pageSize: number;
@@ -241,7 +242,8 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   defaultData?: T[];
 
   /** @name 初始化的参数，可以操作 table */
-  actionRef?: React.MutableRefObject<ActionType | undefined>;
+  // actionRef?: Parameters<React.ForwardRefRenderFunction<ActionType>>[1];
+  actionRef?: React.Ref<ActionType | undefined>;
 
   /** @name 操作自带的 form */
   formRef?: TableFormItem<T>['formRef'];

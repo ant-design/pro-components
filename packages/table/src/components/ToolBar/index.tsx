@@ -56,7 +56,7 @@ export type ToolBarProps<T = unknown> = {
       selectedRows?: T[];
     },
   ) => React.ReactNode[];
-  action?: React.MutableRefObject<ActionType | undefined>;
+  action: React.MutableRefObject<ActionType | undefined>;
   options?: OptionConfig | false;
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
@@ -113,7 +113,7 @@ function renderDefaultOption<T>(
       }
 
       const onClick: OptionsFunctionType =
-        value === true ? defaultOptions[key] : (event) => value(event, actions.current);
+        value === true ? defaultOptions[key] : (event) => value?.(event, actions.current);
 
       if (key === 'setting') {
         return <ColumnSetting {...options[key]} columns={columns} key={key} />;
@@ -128,14 +128,7 @@ function renderDefaultOption<T>(
       const optionItem = getButtonText(defaultOptions)[key];
       if (optionItem) {
         return (
-          <span
-            key={key}
-            onClick={(event) => {
-              if (typeof onClick === 'function') {
-                onClick(event);
-              }
-            }}
-          >
+          <span key={key} onClick={(event) => onClick?.(event)}>
             <Tooltip title={optionItem.text}>{optionItem.icon}</Tooltip>
           </span>
         );
