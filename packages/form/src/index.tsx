@@ -17,6 +17,7 @@ import ProFormUploadButton from './components/UploadButton';
 import type { ProFormFieldProps } from './components/Field';
 import ProFormField from './components/Field';
 import ProFormSelect from './components/Select';
+import ProFormAutoComplete from './components/AutoComplete';
 import ProFormDigit from './components/Digit';
 import ProFormDigitRange from './components/DigitRange';
 import type { ProFormDigitRangeProps } from './components/DigitRange';
@@ -89,6 +90,7 @@ export {
   ProFormTimePicker,
   ProFormText,
   ProFormCascader,
+  ProFormAutoComplete,
   ProFormTreeSelect,
   ProFormTextArea,
   ProFormSwitch,

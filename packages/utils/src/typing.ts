@@ -40,6 +40,7 @@ export type PageInfo = {
  * @param color 颜色选择器
  */
 export type ProFieldValueType =
+  | 'autoComplete'
   | 'text'
   | 'password'
   | 'money'

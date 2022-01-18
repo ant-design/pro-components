@@ -616,3 +616,26 @@ ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示�
 "pl-PL": "zł",
 }
 ```
+
+### ProFormAutoComplete
+
+与 [autoComplete](https://ant-design.gitee.io/components/auto-complete-cn/#API) 相同，可以直接通过`options`来添加可选项。
+
+```typescript jsx
+
+<ProFormAutoComplete
+    name="auto"
+    label="自动完成"
+    options={['hello', 'world']}
+/>
+
+<ProFormAutoComplete
+    name="auto1"
+    label="自动完成对象"
+    options={[{value:'hello',label:'hello'},{value:'world',label:'world'}]}
+/>
+```
+
+| 参数    | 说明               | 类型                        | 默认值 |
+| ------- | ------------------ | --------------------------- | ------ |
+| options | 数据化配置选项内容 | `string[]\|{label,value}[]` | -      |

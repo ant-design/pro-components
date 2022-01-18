@@ -10,6 +10,7 @@ import ProForm, {
   ProFormSlider,
   ProFormGroup,
   ProFormDigitRange,
+  ProFormAutoComplete,
 } from '@ant-design/pro-form';
 import Mock from 'mockjs';
 
@@ -53,6 +54,11 @@ const Demo = () => (
           gap: '0 32px',
         }}
       >
+        <ProFormAutoComplete
+          options={[{ value: 'ab' }, { value: 'abc' }, { value: 'abcd' }]}
+          name="auto"
+          label="自动完成"
+        />
         <ProFormSelect
           name="select"
           label="Select"

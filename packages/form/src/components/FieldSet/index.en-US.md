@@ -513,3 +513,26 @@ ProFormMoney's input box for entering amounts supports the display of currency s
 "pl-PL": "zł",
 }
 ```
+
+### ProFormAutoComplete
+
+Same as [autoComplete](https://ant-design.gitee.io/components/auto-complete-cn/#API) ，You can set `options` to set the content。
+
+```typescript jsx
+
+<ProFormAutoComplete
+    name="auto"
+    label="自动完成"
+    options={['hello', 'world']}
+/>
+
+<ProFormAutoComplete
+    name="auto1"
+    label="自动完成对象"
+    options={[{value:'hello',label:'hello'},{value:'world',label:'world'}]}
+/>
+```
+
+| parameters | descriptions                | type                        | default |
+| ---------- | --------------------------- | --------------------------- | ------- |
+| options    | the options of autocomplete | `string[]\|{label,value}[]` | -       |

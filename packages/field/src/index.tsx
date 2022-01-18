@@ -44,6 +44,7 @@ import FieldColorPicker from './components/ColorPicker';
 import FieldDigitRange from './components/DigitRange';
 // import type {RangeInputNumberProps,ExtraProps as } from './components/DigitRange'
 import { noteOnce } from 'rc-util/lib/warning';
+import FieldAutoComplete from './components/AutoComplete';
 
 const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
 
@@ -204,6 +205,11 @@ const defaultRenderText = (
       ',',
     )}, you need to configure options, request or valueEnum.`,
   );
+
+  /** 如果是自动完成 */
+  if (valueType === 'autoComplete') {
+    return <FieldAutoComplete text={text as string} {...props} />;
+  }
 
   /** 如果是金额的值 */
   if (valueType === 'money') {
