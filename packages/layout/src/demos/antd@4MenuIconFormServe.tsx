@@ -47,7 +47,7 @@ const loopMenuItem = (menus: MenuDataItem[]): MenuDataItem[] =>
 export default () => (
   <ProLayout
     style={{
-      height: 500,
+      minHeight: 500,
     }}
     fixSiderbar
     location={{

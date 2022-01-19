@@ -71,7 +71,7 @@ menu 配置 `defaultOpenAll` 可以默认打开所有菜单
 
 ### 总是打开所有菜单
 
-折叠按钮反复切换后 `defaultOpenAll` 将失效，menu 配置 `ignoreFlatMenu` 可以忽略手动折叠过的菜单，实现总是默认打开所有菜单
+折叠按钮反复切换后 `defaultOpenAll` 将失效，menu 配置 `ignoreFlatMenu` 可以忽略手动折叠过的菜单，实现总是默认打开所有菜单。因为计算时机在组件渲染前，所以异步菜单不生效。
 
 <code src="./demos/AlwaysDefaultOpenAllMenu.tsx" iframe="500px" title="总是默认打开所有菜单" />
 
