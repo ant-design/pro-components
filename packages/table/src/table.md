@@ -308,7 +308,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | onLoad | 数据加载完成后触发,会多次触发 | `(dataSource: T[]) => void` | - |
 | onLoadingChange | loading 被修改时触发，一般是网络请求导致的 | `(loading:boolean)=>void` | - |
 | onRequestError | 数据加载失败时触发 | `(error) => void` | - |
-| tableClassName | 封装的 table 的 className | string | - |
+| tableClassName | 封装的 table 的 className | `string` | - |
 | tableStyle | 封装的 table 的 style | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
 | options | table 工具栏，设为 false 时不显示 | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true, density?: boolean }}` | `{ fullScreen: false, reload:true, setting: true}` |
 | search | 是否显示搜索表单，传入对象时为搜索表单的配置 | `false` \| [SearchConfig](#search-搜索表单) | - |
@@ -439,7 +439,7 @@ ref.current.cancelEditable(rowKey);
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | title | 与 antd 中基本相同，但是支持通过传入一个方法 | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
-| tooltip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | string | - |
+| tooltip | 会在 title 之后展示一个 icon，hover 之后提示一些信息 | `string` | - |
 | ellipsis | 是否自动缩略 | `boolean` | - |
 | copyable | 是否支持复制 | `boolean` | - |
 | valueEnum | 值的枚举，会自动转化把值当成 key 来取出要显示的内容 | [valueEnum](/components/schema#valueenum) | - |
@@ -459,7 +459,7 @@ ref.current.cancelEditable(rowKey);
 | hideInForm | 在 Form 中不展示此列 | `boolean` | - |
 | hideInDescriptions | 在 Descriptions 中不展示此列 | `boolean` | - |
 | filters | 表头的筛选菜单项，当值为 true 时，自动使用 valueEnum 生成 | `boolean` \| `object[]` | false |
-| onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| 'false' | false |
+| onFilter | 筛选表单，为 true 时使用 ProTable 自带的，为 false 时关闭本地筛选 | `(value, record) => boolean` \| `false` | false |
 | request | 从服务器请求枚举 | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) | - |
 | initialValue | 查询表单项初始值 | `any` | - |
 
@@ -540,7 +540,7 @@ SearchProps 为 antd 的 [Input.Search](https://ant.design/components/input-cn/#
 | 参数      | 说明           | 类型                                  | 默认值     |
 | --------- | -------------- | ------------------------------------- | ---------- |
 | type      | 类型           | `inline` \| `dropdown` \| `tab`       | `dropdown` |
-| activeKey | 当前值         | string                                | -          |
+| activeKey | 当前值         | `string`                                | -          |
 | items     | 菜单项         | `{ key: string; label: ReactNode }[]` | -          |
 | onChange  | 切换菜单的回调 | `(activeKey)=>void`                   | -          |
 
