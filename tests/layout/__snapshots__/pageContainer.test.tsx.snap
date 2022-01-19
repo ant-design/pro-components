@@ -870,7 +870,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo css-1akpwz9"
+          class="ant-pro-sider-logo css-1ly2eay"
           id="logo"
         >
           <a>
@@ -1009,7 +1009,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-1v5e81w"
+          class="ant-pro-sider-collapsed-button css-ajkaa6"
         >
           <span
             aria-label="right"

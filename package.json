@@ -39,7 +39,7 @@
     "@types/react-dom": "^16.9.1",
     "prettier": "2.x",
     "typescript": "4.x",
-    "rc-menu":"^9.3.0"
+    "rc-menu":"^9.3.1"
   },
   "devDependencies": {
     "@ant-design/icons": "^4.6.2",

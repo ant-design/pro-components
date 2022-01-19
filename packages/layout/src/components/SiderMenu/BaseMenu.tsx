@@ -85,10 +85,22 @@ const MenuDivider: React.FC<{
   </div>
 );
 
-const genMenuItemCss = (prefixCls: string | undefined, hasIcon: boolean) =>
-  `${prefixCls}-menu-item-title ${css`
-    margin-left: ${hasIcon ? '8px' : '0'};
-  `}`;
+const genMenuItemCss = (
+  prefixCls: string | undefined,
+  state: { hasIcon?: boolean; collapsed?: boolean },
+) =>
+  cx(
+    `${prefixCls}-menu-item-title`,
+    state.hasIcon &&
+      css`
+        margin-left: 8px;
+      `,
+    state.hasIcon &&
+      state.collapsed &&
+      css`
+        display: none;
+      `,
+  );
 
 // Allow menu.js config icon as string or ReactNode
 //   icon: 'setting',
@@ -132,10 +144,18 @@ class MenuUtil {
       /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
       const hasIcon = level === 0 || (isGroup && level === 1);
       //  get defaultTitle by menuItemRender
+      const iconDom = getIcon(item.icon, iconPrefixes);
       const defaultTitle = item.icon ? (
         <span className={`${prefixCls}-menu-item`} title={name}>
-          {hasIcon && getIcon(item.icon, iconPrefixes)}
-          <span className={genMenuItemCss(prefixCls, hasIcon)}>{name}</span>
+          {hasIcon && iconDom}
+          <span
+            className={genMenuItemCss(prefixCls, {
+              hasIcon: hasIcon && !!iconDom,
+              collapsed: this.props.collapsed,
+            })}
+          >
+            {name}
+          </span>
         </span>
       ) : (
         <span className={`${prefixCls}-menu-item`} title={name}>
@@ -213,6 +233,7 @@ class MenuUtil {
       onCollapse,
       menuItemRender,
       iconPrefixes,
+      collapsed,
     } = this.props;
     // if local is true formatMessage all name。
     const name = this.getIntlName(item);
@@ -224,7 +245,14 @@ class MenuUtil {
     let defaultItem = (
       <span className={`${prefixCls}-menu-item`}>
         {icon}
-        <span className={genMenuItemCss(prefixCls, hasIcon)}>{name}</span>
+        <span
+          className={genMenuItemCss(prefixCls, {
+            hasIcon: !!icon && hasIcon,
+            collapsed,
+          })}
+        >
+          {name}
+        </span>
       </span>
     );
     const isHttpUrl = isUrl(itemPath);
@@ -240,7 +268,14 @@ class MenuUtil {
           className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
         >
           {icon}
-          <span className={genMenuItemCss(prefixCls, hasIcon)}>{name}</span>
+          <span
+            className={genMenuItemCss(prefixCls, {
+              hasIcon: hasIcon && !!icon,
+              collapsed: this.props.collapsed,
+            })}
+          >
+            {name}
+          </span>
         </span>
       );
     }
@@ -498,10 +533,12 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         }
       `,
       selectedSubItem: css`
-      .${antPrefixClassName}-menu-submenu-title{
-        background-color: ${itemSelectedColor};
-        border-radius: 4px;
-      }
+        .${antPrefixClassName}-menu-submenu-title{
+          color: rgb(0, 0, 0);
+        }
+        .${antPrefixClassName}-menu-submenu-arrow {
+          color: rgb(0, 0, 0);
+        }
       `,
       verticalSubItem: css`
         .${antPrefixClassName}-menu-submenu-title:hover {
@@ -615,6 +652,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         return React.cloneElement(dom, {
           ...dom.props,
           className: cx(
+            `${antPrefixClassName}-pro-menu-submenu`,
+            stateProps?.selected && `${antPrefixClassName}-pro-menu-submenu-selected`,
+            stateProps?.open && `${antPrefixClassName}-pro-menu-submenu-open`,
             menuItemCssMap.subMenuItem,
             // 收起的样式
             collapsed && menuItemCssMap.collapsedSubMenuItem,
@@ -630,6 +670,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         return React.cloneElement(dom, {
           ...dom.props,
           className: cx(
+            `${antPrefixClassName}-pro-menu-item`,
+            stateProps?.selected && `${antPrefixClassName}-pro-menu-item-selected`,
             // 展开的样式
             menuItemCssMap.menuItem,
             // 收起的样式

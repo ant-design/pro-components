@@ -29971,8 +29971,8 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         class="css-1owsomx"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-rahbg5"
-        style="padding-top: 56px; background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
+        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-lhumr"
+        style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -29981,14 +29981,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-vr8pi0 ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-1rnna1 ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="css-1mq9stt"
+                class="ant-pro-menu-submenu ant-pro-menu-submenu-selected css-1hgtbmz"
                 role="none"
               >
                 <div
@@ -30027,7 +30027,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                         </svg>
                       </span>
                       <span
-                        class="ant-pro-menu-item-title css-5r6t3y"
+                        class="ant-pro-menu-item-title css-1txeqs0"
                       >
                         一级名称
                       </span>
@@ -30045,7 +30045,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-dslgrc"
+            class="ant-pro-sider-collapsed-button css-7z7dij"
           >
             <span
               aria-label="right"
@@ -30084,7 +30084,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             class="ant-pro-global-header ant-pro-global-header-layout-mix css-902b2d"
           >
             <div
-              class="ant-pro-global-header-logo css-jthwfs"
+              class="ant-pro-global-header-logo css-1uv9trc"
             >
               <a>
                 <svg

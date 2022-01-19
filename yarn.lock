@@ -16867,10 +16867,10 @@ rc-mentions@~1.6.1:
     rc-trigger "^5.0.4"
     rc-util "^5.0.1"
 
-rc-menu@^9.0.0, rc-menu@^9.3.0, rc-menu@~9.0.12, rc-menu@~9.1.1:
-  version "9.3.0"
-  resolved "https://registry.npmmirror.com/rc-menu/download/rc-menu-9.3.0.tgz#4b5610abd55dab0de4700605ba598af9677eff0e"
-  integrity sha512-LGFZQIyR4d4WJ3G1KwFs4biFd55HAWZfyaWbB+PlUfN3xXXAR7kOceD8JYBM53y90xEkHBFX2TYepH5ivPfcEA==
+rc-menu@^9.0.0, rc-menu@^9.3.1, rc-menu@~9.0.12, rc-menu@~9.1.1:
+  version "9.3.1"
+  resolved "https://registry.npmmirror.com/rc-menu/download/rc-menu-9.3.1.tgz#a0e502938d2b7467ea8d343ae00c4af6019ba412"
+  integrity sha512-D9ZHlwtTpch0v15LXt7PRbAl+FCxXNEllly9fl1GhLzz52iTL2NVqzofecV5Yv3ekLUOojg+gkykv4elLNBKWg==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"

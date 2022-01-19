@@ -17,7 +17,7 @@ Array [
           class="ant-layout-sider-children"
         >
           <div
-            class="ant-pro-sider-logo css-1akpwz9"
+            class="ant-pro-sider-logo css-1ly2eay"
             id="logo"
           >
             <a>
@@ -181,7 +181,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1v5e81w"
+            class="ant-pro-sider-collapsed-button css-ajkaa6"
           >
             <span
               aria-label="right"
@@ -416,8 +416,8 @@ Array [
       style="min-height:100%"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix css-rahbg5"
-        style="padding-top:56px;background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix css-1d66ua4"
+        style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
       >
         <div
           class="ant-layout-sider-children"
@@ -451,7 +451,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1v5e81w"
+            class="ant-pro-sider-collapsed-button css-ajkaa6"
           >
             <span
               aria-label="right"
@@ -490,7 +490,7 @@ Array [
             class="ant-pro-global-header ant-pro-global-header-layout-mix css-902b2d"
           >
             <div
-              class="ant-pro-global-header-logo css-jthwfs"
+              class="ant-pro-global-header-logo css-1uv9trc"
             >
               <a>
                 <svg
@@ -654,7 +654,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo css-1akpwz9"
+          class="ant-pro-sider-logo css-1ly2eay"
           id="logo"
         >
           <a>
@@ -793,7 +793,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-1v5e81w"
+          class="ant-pro-sider-collapsed-button css-ajkaa6"
         >
           <span
             aria-label="right"
@@ -845,7 +845,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo css-1akpwz9"
+          class="ant-pro-sider-logo css-1ly2eay"
           id="logo"
         >
           <a>
@@ -984,7 +984,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-1v5e81w"
+          class="ant-pro-sider-collapsed-button css-ajkaa6"
         >
           <span
             aria-label="right"
@@ -1037,7 +1037,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo css-1akpwz9"
+          class="ant-pro-sider-logo css-1ly2eay"
           id="logo"
         >
           <a>
@@ -1176,14 +1176,14 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1rnna1"
             data-menu-list="true"
             role="menu"
             style="width: 100%;"
             tabindex="0"
           >
             <li
-              class="css-1ro1ei0"
+              class="ant-pro-menu-submenu css-4kh2q"
               role="none"
             >
               <div
@@ -1212,7 +1212,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               </div>
             </li>
             <li
-              class="css-tj118t"
+              class="ant-pro-menu-item css-1ai5orx"
               data-menu-id="rc-menu-uuid-84044-6-/list"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1225,7 +1225,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                   class="ant-pro-menu-item"
                 >
                   <span
-                    class="ant-pro-menu-item-title css-5r6t3y"
+                    class="ant-pro-menu-item-title"
                   >
                     列表页
                   </span>
@@ -1239,7 +1239,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button css-1v5e81w"
+          class="ant-pro-sider-collapsed-button css-ajkaa6"
         >
           <span
             aria-label="right"
@@ -1291,7 +1291,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo css-1akpwz9"
+          class="ant-pro-sider-logo css-1ly2eay"
           id="logo"
         >
           <a>
@@ -1430,7 +1430,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-1v5e81w"
+          class="ant-pro-sider-collapsed-button css-ajkaa6"
         >
           <span
             aria-label="right"
@@ -1507,7 +1507,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo css-1akpwz9"
+          class="ant-pro-sider-logo css-1ly2eay"
           id="logo"
         >
           <a>
@@ -1646,14 +1646,14 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-vr8pi0"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1rnna1"
             data-menu-list="true"
             role="menu"
             style="width: 100%;"
             tabindex="0"
           >
             <li
-              class="css-tj118t"
+              class="ant-pro-menu-item css-1ai5orx"
               data-menu-id="rc-menu-uuid-84044-1-/home"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1666,7 +1666,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
                   class="ant-pro-menu-item"
                 >
                   <span
-                    class="ant-pro-menu-item-title css-5r6t3y"
+                    class="ant-pro-menu-item-title"
                   >
                     首页
                   </span>
@@ -1674,7 +1674,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </span>
             </li>
             <li
-              class="css-1ro1ei0"
+              class="ant-pro-menu-submenu css-4kh2q"
               role="none"
             >
               <div
@@ -1703,7 +1703,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </div>
             </li>
             <li
-              class="css-tj118t"
+              class="ant-pro-menu-item css-1ai5orx"
               data-menu-id="rc-menu-uuid-84044-1-/data_ming"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1716,7 +1716,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
                   class="ant-pro-menu-item"
                 >
                   <span
-                    class="ant-pro-menu-item-title css-5r6t3y"
+                    class="ant-pro-menu-item-title"
                   >
                     明细数据
                   </span>
@@ -1724,7 +1724,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </span>
             </li>
             <li
-              class="css-tj118t"
+              class="ant-pro-menu-item css-1ai5orx"
               data-menu-id="rc-menu-uuid-84044-1-/other"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1737,7 +1737,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
                   class="ant-pro-menu-item"
                 >
                   <span
-                    class="ant-pro-menu-item-title css-5r6t3y"
+                    class="ant-pro-menu-item-title"
                   >
                     其他
                   </span>
@@ -1751,7 +1751,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button css-1v5e81w"
+          class="ant-pro-sider-collapsed-button css-ajkaa6"
         >
           <span
             aria-label="right"
