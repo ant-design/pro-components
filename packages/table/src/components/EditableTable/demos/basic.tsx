@@ -66,7 +66,7 @@ export default () => {
       width: '15%',
     },
     {
-      title: '活动名称',
+      title: '活动名称二',
       dataIndex: 'readonly',
       tooltip: '只读，使用form.getFieldValue可以获取到值',
       formItemProps: (form, { rowIndex }) => {

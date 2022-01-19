@@ -2004,7 +2004,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
                               <div
                                 class="ant-pro-core-label-tip-title"
                               >
-                                活动名称
+                                活动名称二
                               </div>
                               <span
                                 class="ant-pro-core-label-tip-icon"

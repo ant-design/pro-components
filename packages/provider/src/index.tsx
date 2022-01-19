@@ -70,6 +70,7 @@ export type ProFieldFCMode = 'read' | 'edit' | 'update';
 /** Render 第二个参数，里面包含了一些常用的参数 */
 export type ProFieldFCRenderProps = {
   mode?: ProFieldFCMode;
+  readonly?: boolean;
   placeholder?: string | string[];
   value?: any;
   onChange?: (...rest: any[]) => void;
