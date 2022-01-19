@@ -186,7 +186,11 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       return undefined;
     }
 
-    return actions;
+    return [
+      <div key="action" onClick={(e) => e.stopPropagation()}>
+        {actions}
+      </div>,
+    ];
   }, [actions, cardActionProps]);
 
   const titleDom =
