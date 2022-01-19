@@ -57,6 +57,7 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
         height: '100vh',
         ...style,
       }}
+      handler={<div />}
       closable={false}
       getContainer={getContainer}
       width={siderWidth}
@@ -67,12 +68,14 @@ const SiderMenuWrapper: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (prop
         className={classNames(`${prefixCls}-sider`, className)}
         collapsed={isMobile ? false : collapsed}
         splitMenus={false}
+        originCollapsed={collapsed}
         onCollapse={() => onCollapse?.(!collapsed)}
       />
     </Drawer>
   ) : (
     <SiderMenu
       className={classNames(`${prefixCls}-sider`, className)}
+      originCollapsed={collapsed}
       {...omitProps}
       style={style}
     />
