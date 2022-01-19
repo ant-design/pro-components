@@ -1,4 +1,6 @@
-/** Uuid: d502a5cf title: 基本使用 */
+/**
+ * title: 基本使用
+ */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';

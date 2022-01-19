@@ -1,4 +1,6 @@
-/** Uuid: 250d5cd3 title: 自定义头像 */
+/**
+ * title: 自定义头像
+ */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';

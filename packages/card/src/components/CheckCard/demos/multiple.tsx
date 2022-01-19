@@ -1,4 +1,6 @@
-/** Uuid: 9c5425b1 title: 多选模式 */
+/**
+ * title: 多选模式
+ */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';
