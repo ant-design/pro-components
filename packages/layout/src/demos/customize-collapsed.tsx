@@ -55,6 +55,7 @@ export default () => {
     return (
       <ProLayout
         {...props}
+        layout="mix"
         onCollapse={setCollapsed}
         postMenuData={(menuData) => {
           return [
@@ -74,6 +75,7 @@ export default () => {
   return (
     <ProLayout
       {...props}
+      layout="mix"
       onCollapse={setCollapsed}
       headerContentRender={() => {
         return (

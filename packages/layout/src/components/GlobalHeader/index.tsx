@@ -92,7 +92,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
         `${baseClassName}-logo`,
         css`
           position: relative;
-          overflow: hidden;
+          min-width: 216px;
           a {
             display: flex;
             align-items: center;
@@ -166,7 +166,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
               `${baseClassName}-logo`,
               css`
                 position: relative;
-                overflow: hidden;
+                min-width: 216px;
                 a {
                   display: flex;
                   align-items: center;

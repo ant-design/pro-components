@@ -432,13 +432,27 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         }}
         collapsedWidth={60}
         style={{
-          paddingTop: layout === 'mix' && !isMobile ? headerHeight : undefined,
           backgroundColor: 'transparent',
           ...style,
         }}
         width={siderWidth}
         theme={theme}
-        className={cx(siderClassName, siderCss)}
+        className={cx(
+          siderClassName,
+          siderCss,
+          fixSiderbar &&
+            css`
+              position: fixed;
+              top: 0;
+              left: 0;
+              z-index: 100;
+              height: 100%;
+            `,
+          layout === 'mix' &&
+            css`
+              top: ${headerHeight}px;
+            `,
+        )}
       >
         {headerDom && (
           <div
