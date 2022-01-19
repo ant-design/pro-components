@@ -36,9 +36,12 @@ export type OptionConfig = {
   search?: (OptionSearchProps & { name?: string }) | boolean;
 };
 
-export type OptionsType =
-  | ((e: React.MouseEvent<HTMLSpanElement>, action?: ActionType) => void)
-  | boolean;
+export type OptionsFunctionType = (
+  e: React.MouseEvent<HTMLSpanElement>,
+  action?: ActionType,
+) => void;
+
+export type OptionsType = OptionsFunctionType | boolean;
 
 export type ToolBarProps<T = unknown> = {
   headerTitle?: React.ReactNode;
@@ -53,7 +56,7 @@ export type ToolBarProps<T = unknown> = {
       selectedRows?: T[];
     },
   ) => React.ReactNode[];
-  action?: React.MutableRefObject<ActionType | undefined>;
+  action: React.MutableRefObject<ActionType | undefined>;
   options?: OptionConfig | false;
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
@@ -98,6 +101,7 @@ function renderDefaultOption<T>(
   defaultOptions: OptionConfig & {
     intl: IntlType;
   },
+  actions: React.MutableRefObject<ActionType | undefined>,
   columns: TableColumnType<T>[],
 ) {
   return Object.keys(options)
@@ -107,12 +111,20 @@ function renderDefaultOption<T>(
       if (!value) {
         return null;
       }
+
+      let onClick: OptionsFunctionType =
+        value === true ? defaultOptions[key] : (event) => value?.(event, actions.current);
+
+      if (typeof onClick !== 'function') {
+        onClick = () => {};
+      }
+
       if (key === 'setting') {
         return <ColumnSetting {...options[key]} columns={columns} key={key} />;
       }
       if (key === 'fullScreen') {
         return (
-          <span key={key} onClick={value === true ? defaultOptions[key] : value}>
+          <span key={key} onClick={onClick}>
             <FullScreenIcon />
           </span>
         );
@@ -120,18 +132,7 @@ function renderDefaultOption<T>(
       const optionItem = getButtonText(defaultOptions)[key];
       if (optionItem) {
         return (
-          <span
-            key={key}
-            onClick={() => {
-              if (value && defaultOptions[key] !== true) {
-                if (value !== true) {
-                  value();
-                  return;
-                }
-                defaultOptions[key]();
-              }
-            }}
-          >
+          <span key={key} onClick={onClick}>
             <Tooltip title={optionItem.text}>{optionItem.icon}</Tooltip>
           </span>
         );
@@ -181,6 +182,7 @@ function ToolBar<T>({
         ...defaultOptions,
         intl,
       },
+      action,
       columns,
     );
   }, [action, columns, intl, propsOptions]);

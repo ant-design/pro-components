@@ -578,6 +578,48 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledTimes(2);
   });
 
+  it('🎏 receives two parameters when options.(reload | fullScreen) is passed the function', async () => {
+    const reloadFn = jest.fn();
+    const fullScreenFn = jest.fn();
+    const actionRef = React.createRef<any>();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        options={{
+          reload: reloadFn,
+          fullScreen: fullScreenFn,
+        }}
+        actionRef={actionRef}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    act(() => {
+      html.find('.ant-pro-table-list-toolbar-setting-item span.anticon-reload').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(reloadFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
+
+    act(() => {
+      html
+        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')
+        .simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1200);
+    expect(fullScreenFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
+  });
+
   it('🎏 request reload', async () => {
     const fn = jest.fn();
     const html = mount(
