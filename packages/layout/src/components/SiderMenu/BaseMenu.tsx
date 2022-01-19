@@ -339,7 +339,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         }
       : undefined,
   });
-
   useEffect(() => {
     if (menu?.defaultOpenAll || propsOpenKeys === false || flatMenuKeys.length) {
       return;
@@ -360,29 +359,31 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     }
   }, [iconfontUrl]);
 
-  useEffect(() => {
-    // if pathname can't match, use the nearest parent's key
-    if (matchMenuKeys.join('-') !== (selectedKeys || []).join('-')) {
-      setSelectedKeys(matchMenuKeys);
-    }
-    if (
-      !defaultOpenAll &&
-      propsOpenKeys !== false &&
-      matchMenuKeys.join('-') !== (openKeys || []).join('-')
-    ) {
-      let newKeys: React.Key[] = matchMenuKeys;
-      // 如果不自动关闭，我需要把 openKeys 放进去
-      if (menu?.autoClose === false) {
-        newKeys = Array.from(new Set([...matchMenuKeys, ...(openKeys || [])]));
+  useEffect(
+    () => {
+      // if pathname can't match, use the nearest parent's key
+      if (matchMenuKeys.join('-') !== (selectedKeys || []).join('-')) {
+        setSelectedKeys(matchMenuKeys);
       }
-      setOpenKeys(newKeys);
-    } else if (menu?.ignoreFlatMenu && defaultOpenAll) {
-      // 忽略用户手动折叠过的菜单状态，折叠按钮切换之后也可实现默认展开所有菜单
-      setOpenKeys(getOpenKeysFromMenuData(menuData));
-    } else if (flatMenuKeys.length > 0) setDefaultOpenAll(false);
-
+      if (
+        !defaultOpenAll &&
+        propsOpenKeys !== false &&
+        matchMenuKeys.join('-') !== (openKeys || []).join('-')
+      ) {
+        let newKeys: React.Key[] = matchMenuKeys;
+        // 如果不自动关闭，我需要把 openKeys 放进去
+        if (menu?.autoClose === false) {
+          newKeys = Array.from(new Set([...matchMenuKeys, ...(openKeys || [])]));
+        }
+        setOpenKeys(newKeys);
+      } else if (menu?.ignoreFlatMenu && defaultOpenAll) {
+        // 忽略用户手动折叠过的菜单状态，折叠按钮切换之后也可实现默认展开所有菜单
+        setOpenKeys(getOpenKeysFromMenuData(menuData));
+      } else if (flatMenuKeys.length > 0) setDefaultOpenAll(false);
+    },
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [matchMenuKeys.join('-'), collapsed]);
+    [matchMenuKeys.join('-')],
+  );
 
   const openKeysProps = useMemo(
     () => getOpenKeysProps(openKeys, props),
@@ -610,7 +611,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             }
           `,
       )}
-      _internalRenderSubMenuItem={(dom, _, { selected }) => {
+      _internalRenderSubMenuItem={(dom, _, stateProps) => {
         return React.cloneElement(dom, {
           ...dom.props,
           className: cx(
@@ -621,11 +622,11 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             mode !== 'horizontal'
               ? menuItemCssMap.verticalSubItem
               : menuItemCssMap.horizontalSubMenuItem,
-            selected ? menuItemCssMap.selectedSubItem : null,
+            stateProps?.selected ? menuItemCssMap.selectedSubItem : null,
           ),
         });
       }}
-      _internalRenderMenuItem={(dom, _, { selected }) => {
+      _internalRenderMenuItem={(dom, _, stateProps) => {
         return React.cloneElement(dom, {
           ...dom.props,
           className: cx(
@@ -635,7 +636,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             collapsed && menuItemCssMap.collapsedItem,
             // 顶部菜单和水平菜单需要不同的 css
             mode !== 'horizontal' ? menuItemCssMap.verticalItem : menuItemCssMap.horizontalItem,
-            selected ? menuItemCssMap.selectedItem : null,
+            stateProps?.selected ? menuItemCssMap.selectedItem : null,
           ),
         });
       }}
@@ -646,10 +647,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       {menuUtils.getNavMenuItems(finallyData, 0)}
     </Menu>
   );
-};
-
-BaseMenu.defaultProps = {
-  postMenuData: (data) => data || [],
 };
 
 export { BaseMenu };

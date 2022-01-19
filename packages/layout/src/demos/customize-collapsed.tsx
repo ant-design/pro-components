@@ -15,6 +15,7 @@ export default () => {
       <div
         style={{
           height: '120vh',
+          minHeight: 600,
         }}
       >
         <ProFormRadio.Group

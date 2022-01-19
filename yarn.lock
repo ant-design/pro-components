@@ -16867,23 +16867,10 @@ rc-mentions@~1.6.1:
     rc-trigger "^5.0.4"
     rc-util "^5.0.1"
 
-rc-menu@^9.0.0, rc-menu@~9.1.1:
-  version "9.1.1"
-  resolved "https://registry.npmmirror.com/rc-menu/download/rc-menu-9.1.1.tgz#c44b9d8a9af6d1c26cf9cfeb9776b216bcee060d"
-  integrity sha512-yavNNsTgWOlUYwOrJtO8s1Hn0haUvc/x5ozx9KA/H0VspOksIFeWOp7lsEQ3juWyBI2VltDxWQ2DHc65OhZ5pg==
-  dependencies:
-    "@babel/runtime" "^7.10.1"
-    classnames "2.x"
-    rc-motion "^2.4.3"
-    rc-overflow "^1.2.0"
-    rc-trigger "^5.1.2"
-    rc-util "^5.12.0"
-    shallowequal "^1.1.0"
-
-rc-menu@~9.0.12:
-  version "9.0.14"
-  resolved "https://registry.npmmirror.com/rc-menu/download/rc-menu-9.0.14.tgz#289bda4a2f6c5ebb3248e2e305d52cf0c73cb9d5"
-  integrity sha1-KJvaSi9sXrsySOLjBdUs8Mc8udU=
+rc-menu@^9.0.0, rc-menu@^9.3.0, rc-menu@~9.0.12, rc-menu@~9.1.1:
+  version "9.3.0"
+  resolved "https://registry.npmmirror.com/rc-menu/download/rc-menu-9.3.0.tgz#4b5610abd55dab0de4700605ba598af9677eff0e"
+  integrity sha512-LGFZQIyR4d4WJ3G1KwFs4biFd55HAWZfyaWbB+PlUfN3xXXAR7kOceD8JYBM53y90xEkHBFX2TYepH5ivPfcEA==
   dependencies:
     "@babel/runtime" "^7.10.1"
     classnames "2.x"

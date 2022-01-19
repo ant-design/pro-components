@@ -267,6 +267,7 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
     formatMessage: propsFormatMessage,
     loading,
   } = props || {};
+
   const context = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
 

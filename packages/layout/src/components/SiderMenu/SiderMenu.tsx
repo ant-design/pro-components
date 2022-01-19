@@ -33,7 +33,6 @@ const defaultIconCss = css`
   border-radius: 40px;
   right: -8px;
   background-color: #fff;
-  transition: 'transform 0.3s';
   transition: transform right 0.3s;
   font-size: 16px;
   display: flex;
