@@ -37,6 +37,7 @@ const StatisticSkeleton: React.FC<{
     }
     return 16;
   };
+
   return (
     <Card
       bordered={false}

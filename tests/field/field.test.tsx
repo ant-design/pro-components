@@ -389,7 +389,7 @@ describe('Field', () => {
     expect(html.text()).toBe('all');
   });
 
-  ['cascader', 'treeSelect'].forEach((valueType) => {
+  ['select', 'cascader', 'treeSelect'].forEach((valueType) => {
     it(`🐴 ${valueType} options fieldNames`, async () => {
       const html = mount(
         <Field
@@ -397,6 +397,8 @@ describe('Field', () => {
           fieldProps={{
             fieldNames: {
               label: 'title',
+              // select
+              options: 'children',
             },
             options: [
               {
@@ -1145,6 +1147,28 @@ describe('Field', () => {
       />,
     );
     expect(html.text()).toBe('-');
+  });
+
+  it(`🐴 readonly and mode is edit use fieldProps.value`, async () => {
+    const html = mount(
+      <Field
+        text={10000}
+        mode="edit"
+        readonly
+        fieldProps={{
+          value: 2000,
+        }}
+      />,
+    );
+    await waitForComponentToPaint(200);
+    expect(html.text()).toBe('2000');
+    html.setProps({
+      fieldProps: {
+        value: 20000,
+      },
+    });
+    await waitForComponentToPaint(200);
+    expect(html.text()).toBe('20000');
   });
 
   it('🐴 select request debounceTime', async () => {

@@ -1,5 +1,5 @@
 ﻿import { CopyOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
-import { runFunction } from '@ant-design/pro-utils';
+import { nanoid, runFunction, ProFormContext } from '@ant-design/pro-utils';
 import type { ButtonProps, FormInstance } from 'antd';
 import { Button, ConfigProvider, Form, Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
@@ -7,7 +7,6 @@ import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/l
 import type { NamePath } from 'antd/lib/form/interface';
 import omit from 'omit.js';
 import toArray from 'rc-util/lib/Children/toArray';
-import get from 'rc-util/lib/utils/get';
 import type { ReactNode } from 'react';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import './index.less';
@@ -154,11 +153,10 @@ const ProFormListItem: React.FC<
       }
       return childrenItem;
     })
-    .map((childrenItem, childIndex) => {
+    .map((childrenItem) => {
       if (React.isValidElement(childrenItem)) {
         return React.cloneElement(childrenItem, {
-          // eslint-disable-next-line react/no-array-index-key
-          key: childIndex,
+          key: childrenItem.key || nanoid(),
           ...childrenItem?.props,
         });
       }
@@ -253,6 +251,20 @@ const ProFormListItem: React.FC<
 
 const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
   const { creatorButtonProps, prefixCls, children, creatorRecord, action, fields } = props;
+  const fieldKeyMap = useRef(new Map<string, string>());
+
+  const uuidFields = useMemo(() => {
+    return fields.map((field) => {
+      if (!fieldKeyMap.current?.has(field.key.toString())) {
+        fieldKeyMap.current?.set(field.key.toString(), nanoid());
+      }
+      const uuid = fieldKeyMap.current?.get(field.key.toString());
+      return {
+        ...field,
+        uuid,
+      };
+    });
+  }, [fields]);
 
   const creatorButton = useMemo(() => {
     if (creatorButtonProps === false) return null;
@@ -285,11 +297,13 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       }}
     >
       {creatorButtonProps !== false && creatorButtonProps?.position === 'top' && creatorButton}
-      {fields.map((field, index) => (
-        <ProFormListItem key={field.key} {...props} field={field} index={index}>
-          {children}
-        </ProFormListItem>
-      ))}
+      {uuidFields.map((field, index) => {
+        return (
+          <ProFormListItem {...props} key={field.uuid} field={field} index={index}>
+            {children}
+          </ProFormListItem>
+        );
+      })}
       {creatorButtonProps !== false && creatorButtonProps?.position !== 'top' && creatorButton}
     </div>
   );
@@ -316,6 +330,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   },
   actionRef,
   style,
+  prefixCls,
   ...rest
 }) => {
   const actionRefs = useRef<FormListOperation>();
@@ -332,53 +347,52 @@ const ProFormList: React.FC<ProFormListProps> = ({
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   useImperativeHandle(actionRef, () => actionRefs.current, [actionRefs.current]);
+  const proFormContext = useContext(ProFormContext);
 
+  if (!proFormContext.formRef) return null;
   return (
-    <Form.Item
-      label={label}
-      tooltip={tooltip}
-      rules={rules}
-      shouldUpdate={(prevValues, nextValues) => {
-        return get(prevValues, name) !== get(nextValues, name);
-      }}
-    >
-      {(formInstance) => {
-        return (
-          <div className={baseClassName} style={style}>
-            <Form.List rules={rules} {...rest} name={name}>
-              {(fields, action, meta) => {
-                // 将 action 暴露给外部
-                actionRefs.current = action;
-                return (
-                  <>
-                    <ProFormListContainer
-                      name={name}
-                      originName={rest.name}
-                      copyIconProps={copyIconProps}
-                      deleteIconProps={deleteIconProps}
-                      formInstance={formInstance as any}
-                      prefixCls={baseClassName}
-                      meta={meta}
-                      fields={fields}
-                      itemContainerRender={itemContainerRender}
-                      itemRender={itemRender}
-                      creatorButtonProps={creatorButtonProps}
-                      creatorRecord={creatorRecord}
-                      actionRender={actionRender}
-                      action={action}
-                      alwaysShowItemLabel={alwaysShowItemLabel}
-                    >
-                      {children}
-                    </ProFormListContainer>
-                    <Form.ErrorList errors={meta.errors} />
-                  </>
-                );
-              }}
-            </Form.List>
-          </div>
-        );
-      }}
-    </Form.Item>
+    <div className={baseClassName} style={style}>
+      <Form.Item
+        label={label}
+        prefixCls={prefixCls}
+        tooltip={tooltip}
+        style={style}
+        {...rest}
+        name={undefined}
+        rules={undefined}
+      >
+        <Form.List rules={rules} {...rest} name={name}>
+          {(fields, action, meta) => {
+            // 将 action 暴露给外部
+            actionRefs.current = action;
+            return (
+              <>
+                <ProFormListContainer
+                  name={name}
+                  originName={rest.name}
+                  copyIconProps={copyIconProps}
+                  deleteIconProps={deleteIconProps}
+                  formInstance={proFormContext.formRef!.current!}
+                  prefixCls={baseClassName}
+                  meta={meta}
+                  fields={fields}
+                  itemContainerRender={itemContainerRender}
+                  itemRender={itemRender}
+                  creatorButtonProps={creatorButtonProps}
+                  creatorRecord={creatorRecord}
+                  actionRender={actionRender}
+                  action={action}
+                  alwaysShowItemLabel={alwaysShowItemLabel}
+                >
+                  {children}
+                </ProFormListContainer>
+                <Form.ErrorList errors={meta.errors} />
+              </>
+            );
+          }}
+        </Form.List>
+      </Form.Item>
+    </div>
   );
 };
 

@@ -35,11 +35,11 @@ const LayoutSetting: React.FC<{
             defaultMessage: 'Content Width',
           }),
           action: (
-            <Select<string>
+            <Select
               value={contentWidth || 'Fixed'}
               size="small"
               className="content-width"
-              onSelect={(value) => {
+              onSelect={(value: string) => {
                 changeSetting('contentWidth', value);
               }}
               style={{ width: 80 }}

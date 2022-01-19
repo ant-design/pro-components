@@ -1,5 +1,10 @@
 ﻿import React from 'react';
-import ProForm, { ProFormList, ProFormText, ProFormDependency } from '@ant-design/pro-form';
+import ProForm, {
+  ProFormList,
+  ProFormText,
+  ProFormDependency,
+  ProFormSelect,
+} from '@ant-design/pro-form';
 
 const Demo = () => {
   return (
@@ -9,7 +14,7 @@ const Demo = () => {
         label="用户信息"
         initialValue={[
           {
-            name: '1111',
+            name: '我是姓名',
           },
         ]}
         itemContainerRender={(doms) => {
@@ -38,6 +43,18 @@ const Demo = () => {
                   return <ProFormText name="remark" label="昵称详情" />;
                 }}
               </ProFormDependency>
+              <ProFormSelect
+                name="addr"
+                width="md"
+                label="与 name 联动的选择器"
+                dependencies={['name']}
+                request={async (params) => [
+                  { label: params.name, value: 'all' },
+                  { label: 'Unresolved', value: 'open' },
+                  { label: 'Resolved', value: 'closed' },
+                  { label: 'Resolving', value: 'processing' },
+                ]}
+              />
             </>
           );
         }}

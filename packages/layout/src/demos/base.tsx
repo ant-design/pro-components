@@ -142,7 +142,7 @@ export default () => {
         onSettingChange={(changeSetting) => {
           setSetting(changeSetting);
         }}
-        disableUrlParams
+        disableUrlParams={false}
       />
     </div>
   );

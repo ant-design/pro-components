@@ -1,11 +1,4 @@
-﻿import React, {
-  useContext,
-  useEffect,
-  useMemo,
-  useImperativeHandle,
-  useRef,
-  useState,
-} from 'react';
+﻿import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { DrawerProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -158,8 +151,9 @@ function DrawerForm<T = Record<string, any>>({
     [],
   );
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useImperativeHandle(rest.formRef, () => formRef.current, [shouldRenderFormItems]);
+  if (rest.formRef) {
+    rest.formRef.current = formRef.current;
+  }
 
   const formDom = (
     <div onClick={(e) => e.stopPropagation()}>
@@ -169,6 +163,12 @@ function DrawerForm<T = Record<string, any>>({
         key={key}
         {...omit(rest, ['visible'])}
         formRef={formRef}
+        onInit={(value, form) => {
+          if (rest.formRef) {
+            rest.formRef.current = form;
+          }
+          rest?.onInit?.(value, form);
+        }}
         submitter={
           rest.submitter === false
             ? false
@@ -212,11 +212,10 @@ function DrawerForm<T = Record<string, any>>({
               onClose={(e) => {
                 setVisible(false);
                 drawerProps?.onClose?.(e);
-              }}
-              /** 完全关闭后删除 dom */
-              afterVisibleChange={(afterVisible) => {
-                if (!afterVisible) setIsDestroy(false);
-                drawerProps?.afterVisibleChange?.(afterVisible);
+                // drawer 的after close 在暂时有点问题，先用这个顶一下
+                setTimeout(() => {
+                  setIsDestroy(false);
+                }, 300);
               }}
               footer={
                 !!submitter && (

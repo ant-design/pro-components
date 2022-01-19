@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@1.0.3...@ant-design/pro-skeleton@1.0.4) (2022-01-17)
+
+### Bug Fixes
+
+- **form:** ProFormList use uuid ([#4479](https://github.com/ant-design/pro-components/issues/4479)) ([11b3f71](https://github.com/ant-design/pro-components/commit/11b3f717cf545d9a361f173975586a99375c6517))
+
 ## [1.0.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-skeleton@1.0.2...@ant-design/pro-skeleton@1.0.3) (2021-11-30)
 
 **Note:** Version bump only for package @ant-design/pro-skeleton

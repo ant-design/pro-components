@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.62.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.62.5...@ant-design/pro-table@2.62.6) (2022-01-18)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.62.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.62.4...@ant-design/pro-table@2.62.5) (2022-01-17)
+
+### Bug Fixes
+
+- **form:** default close swr cache ([#4470](https://github.com/ant-design/pro-components/issues/4470)) ([770a0fb](https://github.com/ant-design/pro-components/commit/770a0fb3360b1b0eac67deb3879f563cf9d9071b))
+- **table:** 🎸 Support readonly option for EditableTable ([#4466](https://github.com/ant-design/pro-components/issues/4466)) ([542fcd6](https://github.com/ant-design/pro-components/commit/542fcd61ed8858721fba584761f5854513350573))
+- **table:** params support function ([#4474](https://github.com/ant-design/pro-components/issues/4474)) ([e7379cc](https://github.com/ant-design/pro-components/commit/e7379cc57a6834d97e211e1237ca005dca9890b7))
+
+## [2.62.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.62.3...@ant-design/pro-table@2.62.4) (2022-01-12)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.62.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.62.2...@ant-design/pro-table@2.62.3) (2022-01-11)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
 ## [2.62.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.62.1...@ant-design/pro-table@2.62.2) (2022-01-11)
 
 ### Bug Fixes

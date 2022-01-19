@@ -1,11 +1,4 @@
-﻿import React, {
-  useContext,
-  useState,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-} from 'react';
+﻿import React, { useContext, useState, useEffect, useMemo, useRef } from 'react';
 import { Modal, ConfigProvider } from 'antd';
 import type { FormInstance, ModalProps, FormProps } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -155,7 +148,9 @@ function ModalForm<T = Record<string, any>>({
     }
   }, [modalProps?.destroyOnClose, visible]);
 
-  useImperativeHandle(rest.formRef, () => formRef.current);
+  if (rest.formRef) {
+    rest.formRef.current = formRef.current;
+  }
 
   const renderSubmitter =
     rest.submitter === false
@@ -188,6 +183,12 @@ function ModalForm<T = Record<string, any>>({
         layout="vertical"
         {...omit(rest, ['visible'])}
         formRef={formRef}
+        onInit={(value, form) => {
+          if (rest.formRef) {
+            rest.formRef.current = form;
+          }
+          rest?.onInit?.(value, form);
+        }}
         onFinish={async (values) => {
           if (!onFinish) {
             return;

@@ -127,6 +127,7 @@ export default () => {
           ]}
           readonly
           width="xs"
+          cacheForSwr
           name="useMode"
           label="合同约定生效方式"
         />

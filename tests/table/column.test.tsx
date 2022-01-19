@@ -145,4 +145,59 @@ describe('Table ColumnSetting', () => {
     await waitForComponentToPaint(html, 1200);
     expect(html.find('td.ant-table-cell').text()).toMatchSnapshot();
   });
+
+  it('🎏 columns request support params function', async () => {
+    const paramsKeys: string[] = [];
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            renderText: (text) => `${text}2144`,
+          },
+
+          {
+            title: 'Name',
+            key: 'name',
+            valueType: 'select',
+            dataIndex: 'name',
+            params: (rowData) => {
+              return {
+                key: rowData.key,
+              };
+            },
+            request: async (params) => {
+              paramsKeys.push(params.key);
+              return [];
+            },
+          },
+        ]}
+        search={false}
+        dataSource={[
+          {
+            key: '1',
+            name: 'Edward King',
+            age: 10,
+            status: 1,
+            sex: 'man',
+          },
+          {
+            key: '2',
+            name: 'Edward King',
+            age: 10,
+            status: 1,
+            sex: 'man',
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    expect(paramsKeys.length).toBe(2);
+    expect(paramsKeys.join('-')).toBe('1-2');
+  });
 });

@@ -189,6 +189,7 @@ function StepsForm<T = Record<string, any>>(
     from.current?.submit();
   };
 
+  /** 上一页功能 */
   const prePage = useRefFunction(() => {
     if (step < 1) return;
     setStep(step - 1);

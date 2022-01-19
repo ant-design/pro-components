@@ -35,7 +35,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.0.0",
     "@ant-design/pro-provider": "1.5.5",
-    "@ant-design/pro-utils": "1.32.5",
+    "@ant-design/pro-utils": "1.32.6",
     "@babel/runtime": "^7.16.3",
     "@emotion/css": "^11.5.0",
     "@emotion/react": "^11.6.0",

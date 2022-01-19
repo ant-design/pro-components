@@ -270,7 +270,7 @@ ProTable puts a layer of wrapping on top of antd's Table, supports some presets,
 | onLoad | Triggered after the data is loaded, it will be triggered multiple times | `(dataSource: T[]) => void` | - |
 | onLoadingChange | Triggered when loading is modified, usually caused by network requests | `(loading:boolean)=>void` | - |
 | onRequestError | Triggered when data loading fails | `(error) => void` | - |
-| tableClassName | className of the encapsulated table | string | - |
+| tableClassName | className of the encapsulated table | `string` | - |
 | tableStyle | style of the encapsulated table | [CSSProperties](https://www.htmlhelp.com/reference/css/properties.html) | - |
 | options | table toolbar, not displayed when set to false | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true, density?: boolean }}` | `{ fullScreen: false, reload :true, setting: true}` |
 | search | Whether to display the search form, when the object is passed in, it is the configuration of the search form | `false` \| [SearchConfig](#search-search form) | - |
@@ -401,13 +401,13 @@ ref.current.cancelEditable(rowKey);
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
 | title | Basically the same as in antd, but supports passing in a method | `ReactNode \| ((config: ProColumnType<T>, type: ProTableTypes) => ReactNode)` | - |
-| tooltip | An icon will be displayed after the title, and some information will be prompted after hover | string | - |
+| tooltip | An icon will be displayed after the title, and some information will be prompted after hover | `string` | - |
 | ellipsis | Whether to abbreviate automatically | `boolean` | - |
 | copyable | Whether to support copying | `boolean` | - |
 | valueEnum | The value enumeration will automatically convert the value as a key to retrieve the content to be displayed | [valueEnum](/components/schema#valueenum) | - |
 | valueType | The type of value, which will generate different renderers | [`valueType`](/components/schema#valuetype) | `text` |
 | order | The weight in the query form, the weight is ranked first | `number` | - |
-| fieldProps | The props of the query form will be transparently transmitted to the form item. If it is rendered as Input, all props of input are supported. Similarly, if it is select, all props of select are also supported. Also supports method input | `` (form,config)=>Record`\| `Record `` | - |
+| fieldProps | The props of the query form will be transparently transmitted to the form item. If it is rendered as Input, all props of input are supported. Similarly, if it is select, all props of select are also supported. Also supports method input | ` (form,config)=>Record \| Record ` | - |
 | `formItemProps` | The configuration passed to Form.Item can be configured with rules, but the default query form rules does not take effect. Need to configure `ignoreRules` | `(form,config)=>formItemProps` \| `formItemProps` | - |
 | renderText | Render like table, but must return string. If you just want to convert enumeration, you can use [valueEnum](/components/schema#valueenum) | `(text: any,record: T,index: number,action: UseFetchDataAction<T> ) => string` | - |
 | render | Render similar to table, the first parameter becomes dom, and the fourth parameter action is added | `(text: ReactNode,record: T,index: number,action: UseFetchDataAction<T>) => ReactNode \| ReactNode[]` | - |
@@ -421,7 +421,7 @@ ref.current.cancelEditable(rowKey);
 | hideInForm | Do not show this column in Form | `boolean` | - |
 | hideInDescriptions | Do not show this column in Descriptions | `boolean` | - |
 | filters | The filter menu item in the header. When the value is true, valueEnum is automatically generated | `boolean` \| `object[]` | false |
-| onFilter | Filter the form, use the built-in ProTable when it is true, turn off local filtering when it is false | `(value, record) => boolean` \|'false' | false |
+| onFilter | Filter the form, use the built-in ProTable when it is true, turn off local filtering when it is false | `(value, record) => boolean` \|`false` | false |
 | request | Request enumeration from server | [request](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params) | - |
 | initialValue | Initial value of query form item | `any` | - |
 
@@ -502,7 +502,7 @@ SearchProps is a property of antd's [Input.Search](https://ant.design/components
 | parameters | description                  | type                                  | default    |
 | ---------- | ---------------------------- | ------------------------------------- | ---------- |
 | type       | type                         | `inline` \| `dropdown` \| `tab`       | `dropdown` |
-| activeKey  | current value                | string                                | -          |
+| activeKey  | current value                | `string`                                | -          |
 | items      | menu items                   | `{ key: string; label: ReactNode }[]` | -          |
 | onChange   | Callback for switching menus | `(activeKey)=>void`                   | -          |
 

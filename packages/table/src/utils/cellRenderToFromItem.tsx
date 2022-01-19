@@ -114,6 +114,7 @@ class CellRenderFromItem<T> extends React.Component<
     };
     const inputDom = (
       <ProFormField
+        cacheForSwr
         key={config.recordKey || config.index}
         name={this.state.name}
         ignoreFormItem
@@ -265,7 +266,8 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
   const proFieldProps: ProFormFieldProps = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
-    params: columnProps?.params,
+    params: runFunction(columnProps?.params, rowData, columnProps),
+    readonly: columnProps?.readonly,
     text: valueType === 'index' || valueType === 'indexBorder' ? config.index : text,
     mode: config.mode,
     renderFormItem: undefined,

@@ -96,8 +96,16 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     onClear,
     searchValue: propsSearchValue,
     showSearch,
+    fieldNames,
     ...restProps
   } = props;
+
+  const {
+    label: labelPropsName = 'label',
+    value: valuePropsName = 'value',
+    options: optionsPropsName = 'options',
+  } = fieldNames || {};
+
   const [searchValue, setSearchValue] = useState(propsSearchValue);
 
   const selectRef = useRef<any>();
@@ -142,17 +150,19 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   const renderOptions = (mapOptions: RequestOptionsType[]) => {
     return mapOptions.map((item) => {
       const {
-        label,
-        value,
         disabled: itemDisable,
         className: itemClassName,
         optionType,
       } = item as RequestOptionsType;
 
+      const label = item[labelPropsName];
+      const value = item[valuePropsName];
+      const itemOptions = item[optionsPropsName] ?? [];
+
       if (optionType === 'optGroup') {
         return (
-          <OptGroup key={item.key || item.value} label={item.label}>
-            {renderOptions(item?.options || item?.children || [])}
+          <OptGroup key={value} label={label}>
+            {renderOptions(itemOptions)}
           </OptGroup>
         );
       }
@@ -164,7 +174,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           disabled={itemDisable}
           data-item={item}
           className={`${prefixCls}-option ${itemClassName || ''}`}
-          label={item.label}
+          label={label}
         >
           {optionItemRender?.(item as any) || label}
         </Option>

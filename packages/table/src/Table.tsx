@@ -1,5 +1,12 @@
 /* eslint max-classes-per-file: ["error", 3] */
-import React, { useContext, useRef, useCallback, useMemo, useEffect } from 'react';
+import React, {
+  useContext,
+  useRef,
+  useCallback,
+  useMemo,
+  useEffect,
+  useImperativeHandle,
+} from 'react';
 import type { TablePaginationConfig } from 'antd';
 import { Table, Spin, ConfigProvider, Card } from 'antd';
 
@@ -372,11 +379,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const defaultFormRef = useRef();
   const formRef = propRef || defaultFormRef;
 
-  useEffect(() => {
-    if (typeof propsActionRef === 'function' && actionRef.current) {
-      propsActionRef(actionRef.current);
-    }
-  }, [propsActionRef]);
+  useImperativeHandle(propsActionRef, () => actionRef.current);
 
   /** 单选多选的相关逻辑 */
   const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<React.ReactText[] | undefined>(

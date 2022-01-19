@@ -46,6 +46,7 @@ class ProFormField extends React.Component<
       valueEnum,
       params,
       name,
+      cacheForSwr = false,
       valuePropName = 'value',
       ...restProps
     } = this.props;
@@ -57,6 +58,7 @@ class ProFormField extends React.Component<
         render={render as any}
         renderFormItem={renderFormItem as any}
         valueType={(valueType as 'text') || 'text'}
+        cacheForSwr={cacheForSwr}
         fieldProps={{
           autoFocus,
           ...fieldProps,

@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.52.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.11...@ant-design/pro-form@1.52.12) (2022-01-18)
+
+### Bug Fixes
+
+- **form:** fix form list error ([c646dcf](https://github.com/ant-design/pro-components/commit/c646dcf48d2c61bc68a5f8ad4d947494941050b9))
+- **form:** ProFormDependency support shouldUpdate ([4d3a531](https://github.com/ant-design/pro-components/commit/4d3a531d18b23e235d6cfdf882ccfe54c286c7e5))
+
+## [1.52.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.10...@ant-design/pro-form@1.52.11) (2022-01-17)
+
+### Bug Fixes
+
+- **form:** default close swr cache ([#4470](https://github.com/ant-design/pro-components/issues/4470)) ([770a0fb](https://github.com/ant-design/pro-components/commit/770a0fb3360b1b0eac67deb3879f563cf9d9071b))
+- **form:** drawer auto focus first input ([#4473](https://github.com/ant-design/pro-components/issues/4473)) ([a9394e2](https://github.com/ant-design/pro-components/commit/a9394e2690cbb8fda9be52f31431454fe39b52dd))
+- **form:** ProFormList use uuid ([#4479](https://github.com/ant-design/pro-components/issues/4479)) ([11b3f71](https://github.com/ant-design/pro-components/commit/11b3f717cf545d9a361f173975586a99375c6517))
+
+## [1.52.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.9...@ant-design/pro-form@1.52.10) (2022-01-12)
+
+### Bug Fixes
+
+- **form:** fix ref no render error ([db98d79](https://github.com/ant-design/pro-components/commit/db98d79f876b8a4dd56b6fe040c0537fff1b6c0c))
+
+## [1.52.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.8...@ant-design/pro-form@1.52.9) (2022-01-11)
+
+**Note:** Version bump only for package @ant-design/pro-form
+
 ## [1.52.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.7...@ant-design/pro-form@1.52.8) (2022-01-11)
 
 ### Bug Fixes

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.8...@ant-design/pro-field@1.31.9) (2022-01-17)
+
+### Bug Fixes
+
+- **form:** default close swr cache ([#4470](https://github.com/ant-design/pro-components/issues/4470)) ([770a0fb](https://github.com/ant-design/pro-components/commit/770a0fb3360b1b0eac67deb3879f563cf9d9071b))
+
 ## [1.31.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.7...@ant-design/pro-field@1.31.8) (2022-01-11)
 
 ### Bug Fixes
