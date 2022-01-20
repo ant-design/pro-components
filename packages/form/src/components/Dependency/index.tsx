@@ -92,8 +92,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
         // ignoreFormListField === false 时，取局部依赖值
         const nameValues = name.reduce((pre, namePath) => {
           const finalNamePath = [formListField.listName, namePath].flat(1);
-          const fieldValue =
-            context.getFieldFormatValue?.(finalNamePath) ?? form.getFieldValue(finalNamePath);
+          const fieldValue = form.getFieldValue(finalNamePath);
           return set(pre, [namePath].flat(1), fieldValue, false);
         }, {});
         return children?.({ ...nameValues }, form as FormInstance<any>);
