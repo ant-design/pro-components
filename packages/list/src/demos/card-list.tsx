@@ -61,6 +61,7 @@ export default () => {
           defaultPageSize: 8,
           showSizeChanger: false,
         }}
+        showActions="hover"
         rowSelection={{}}
         grid={{ gutter: 16, column: 2 }}
         metas={{
