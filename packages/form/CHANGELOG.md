@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.52.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.12...@ant-design/pro-form@1.52.13) (2022-01-21)
+
+### Bug Fixes
+
+- **form:** 🐛 readonly form will not render the latest value ([#4494](https://github.com/ant-design/pro-components/issues/4494)) ([2c169a8](https://github.com/ant-design/pro-components/commit/2c169a846b72351f9988c22fd5c2ef2b1684b577))
+- **form:** 🐛 type error ([#4485](https://github.com/ant-design/pro-components/issues/4485)) ([21f4852](https://github.com/ant-design/pro-components/commit/21f4852cbd35f24ab8e756876653daaabe9b1780))
+- **form:** add note for pro form list ([b477100](https://github.com/ant-design/pro-components/commit/b477100c519991cba8dda652ac08bc529dde26d4))
+- **form:** ProFormList should show label when form layout is horizontal ([#4513](https://github.com/ant-design/pro-components/issues/4513)) ([53aae7c](https://github.com/ant-design/pro-components/commit/53aae7cdfdec04f76812eac488df5ff2ecb4049a))
+- **form:** SchemaForm dependency add warning message ([#4478](https://github.com/ant-design/pro-components/issues/4478)) ([fad7fe0](https://github.com/ant-design/pro-components/commit/fad7fe093c917f65c6c846bacc01a19abbf2d2d7))
+
 ## [1.52.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.11...@ant-design/pro-form@1.52.12) (2022-01-18)
 
 ### Bug Fixes

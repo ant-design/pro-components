@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.62.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.62.6...@ant-design/pro-table@2.62.7) (2022-01-21)
+
+### Bug Fixes
+
+- **form:** 🐛 readonly form will not render the latest value ([#4494](https://github.com/ant-design/pro-components/issues/4494)) ([2c169a8](https://github.com/ant-design/pro-components/commit/2c169a846b72351f9988c22fd5c2ef2b1684b577))
+- **table:** modify table document ([#4496](https://github.com/ant-design/pro-components/issues/4496)) ([1f9b4ae](https://github.com/ant-design/pro-components/commit/1f9b4aeb3b38c3dd097d4b960ec52fa07915db44))
+- **table:** parameter error when passing function to reload or fullScreen ([#4491](https://github.com/ant-design/pro-components/issues/4491)) ([3648489](https://github.com/ant-design/pro-components/commit/36484895dd040d1c1146b5f413aadcf116d30094))
+
 ## [2.62.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.62.5...@ant-design/pro-table@2.62.6) (2022-01-18)
 
 **Note:** Version bump only for package @ant-design/pro-table
