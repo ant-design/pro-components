@@ -95,8 +95,16 @@
     }
 
     &-show-action-hover {
-      .@{ant-prefix}-list-item-action {
+      .@{ant-prefix}-list-item-action,
+      .@{ant-prefix}-pro-card-extra,
+      .@{ant-prefix}-pro-card-actions {
         display: none;
+      }
+      &:hover {
+        .@{ant-prefix}-pro-card-extra,
+        .@{ant-prefix}-pro-card-actions {
+          display: flex;
+        }
       }
     }
 
