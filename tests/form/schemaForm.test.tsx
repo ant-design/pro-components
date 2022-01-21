@@ -5,7 +5,7 @@ import type { ProFormColumnsType } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
 import { Input } from 'antd';
 import { act } from 'react-dom/test-utils';
-import type { FormInstance } from 'rc-field-form';
+import type { FormInstance } from 'antd';
 
 const columns: ProFormColumnsType<any>[] = [
   {
