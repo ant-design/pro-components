@@ -5,6 +5,7 @@ import type { ProFormColumnsType } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
 import { Input } from 'antd';
 import { act } from 'react-dom/test-utils';
+import type { FormInstance } from 'rc-field-form';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -328,5 +329,56 @@ describe('SchemaForm', () => {
     });
 
     expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
+  });
+
+  [
+    'Form',
+    'ModalForm',
+    'DrawerForm',
+    'StepsForm',
+    'StepForm',
+    'LightFilter',
+    'QueryFilter',
+  ].forEach((layoutType) => {
+    it(`😊 When SchemaForm'layoutType property is ${layoutType}, make sure it is valid to get the form instance through formRef`, async () => {
+      const formColumns = [
+        [
+          {
+            dataIndex: 'name',
+            title: '签约客户名称',
+            tooltip: '最长为 24 位',
+            fieldProps: {
+              placeholder: '请输入名称',
+            },
+            width: 'md',
+          },
+        ],
+      ];
+      const formRef = React.createRef<FormInstance>();
+      const wrapper = mount(
+        <BetaSchemaForm
+          visible={true}
+          formRef={formRef as any}
+          layoutType={layoutType as 'Form'}
+          columns={formColumns.flat(layoutType !== 'StepsForm' ? 1 : 0) as any}
+          steps={[
+            {
+              title: 'Once',
+            },
+          ]}
+        />,
+      );
+      await waitForComponentToPaint(wrapper);
+
+      expect(formRef.current).toBeTruthy();
+
+      const value = {
+        name: 'Ant Design',
+      };
+
+      formRef.current!.setFieldsValue(value);
+
+      expect(formRef.current!.getFieldsValue()).toMatchObject(value);
+    });
   });
 });
