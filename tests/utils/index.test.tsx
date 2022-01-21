@@ -457,6 +457,35 @@ describe('utils', () => {
     expect(html.a.b.name).toBe('qixian_test');
   });
 
+  it('📅 transformKeySubmitValue for array', async () => {
+    const html = transformKeySubmitValue(
+      [
+        {
+          name: 1,
+        },
+        {
+          name: 2,
+        },
+        {
+          f: [1, 2, 4],
+        },
+      ],
+      {
+        1: {
+          name: (e: string) => {
+            return {
+              name: 2,
+              name2: `qixian_${e}`,
+            };
+          },
+        },
+      },
+    );
+
+    //@ts-expect-error
+    expect(html[1].name2).toBe('qixian_2');
+  });
+
   it('📅 transformKeySubmitValue return array', async () => {
     const html = transformKeySubmitValue(
       {
