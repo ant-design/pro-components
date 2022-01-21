@@ -137,6 +137,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
   const [stepCurrent, setStepCurrent] = useState((rest as StepsFormProps).current);
   const formRef = useRef<FormInstance | undefined>(props.form);
+  const [formInited, setFormInited] = useState<boolean>(false);
 
   const refMap = useMemo(() => {
     const obj = { form: formRef.current };
@@ -160,7 +161,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     () => refMap.form,
     // fix StepsForm formRef not change
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [stepCurrent],
+    [stepCurrent, formInited],
   );
 
   /**
@@ -421,6 +422,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
       formRef={formRef}
       {...rest}
       onInit={(...restValue) => {
+        setFormInited(true);
         if (needRealUpdate) {
           updateFormRender(updateTime + 1);
         }
