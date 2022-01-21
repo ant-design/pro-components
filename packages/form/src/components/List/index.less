@@ -3,12 +3,20 @@
 
 @pro-table-prefix-cls: ~'@{ant-prefix}-pro-form';
 
+// 只有在垂直模式隐藏label
+.@{ant-prefix}-form:not(.@{ant-prefix}-form-horizontal) {
+  .@{pro-table-prefix-cls}-list {
+    &-item {
+      .@{ant-prefix}-form-item-label {
+        display: none;
+      }
+    }
+  }
+}
+
 .@{pro-table-prefix-cls}-list {
   max-width: 100%;
   &-item {
-    .@{ant-prefix}-form-item-label {
-      display: none;
-    }
     &&-show-label {
       .@{ant-prefix}-form-item-label {
         display: inline-block;
