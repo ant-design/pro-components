@@ -52,19 +52,14 @@ const transformKeySubmitValue = <T = any>(
   if (typeof window === 'undefined') return values;
   // 如果 value 是 string | null | Array | Blob类型 其中之一，直接返回
   // 形如 {key: [File, File]} 的表单字段当进行第二次递归时会导致其直接越过 typeof value !== 'object' 这一判断 https://github.com/ant-design/pro-components/issues/2071
-  if (
-    typeof values !== 'object' ||
-    Array.isArray(values) ||
-    isNil(values) ||
-    values instanceof Blob
-  ) {
+  if (typeof values !== 'object' || isNil(values) || values instanceof Blob) {
     return values;
   }
-  let finalValues = {} as T;
+  let finalValues: any = Array.isArray(values) ? [] : ({} as T);
 
   const gen = (tempValues: T, parentsKey?: React.Key[]) => {
-    let result = {} as T;
-
+    const isArrayValues = Array.isArray(tempValues);
+    let result = isArrayValues ? ([] as any) : ({} as T);
     if (tempValues == null || tempValues === undefined) {
       return result;
     }
@@ -83,11 +78,13 @@ const transformKeySubmitValue = <T = any>(
           result = namePathSet(result, tempKey, itemValue);
           return;
         }
-        if (typeof tempKey === 'object') {
+        if (typeof tempKey === 'object' && !Array.isArray(finalValues)) {
           finalValues = {
             ...finalValues,
             ...tempKey,
           };
+        } else if (typeof tempKey === 'object' && Array.isArray(finalValues)) {
+          result = { ...result, ...tempKey };
         } else if (tempKey) {
           result = namePathSet(result, [tempKey], itemValue);
         }
@@ -113,9 +110,12 @@ const transformKeySubmitValue = <T = any>(
     return omit ? result : tempValues;
   };
 
-  finalValues = merge({}, gen(values), finalValues);
+  finalValues =
+    Array.isArray(values) && Array.isArray(finalValues)
+      ? [...gen(values)]
+      : merge({}, gen(values), finalValues);
 
-  return finalValues;
+  return finalValues as T;
 };
 
 export default transformKeySubmitValue;
