@@ -1,4 +1,6 @@
-/** Uuid: 483166e2 title: 选项列表 */
+/**
+ * title: 选项列表
+ */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';

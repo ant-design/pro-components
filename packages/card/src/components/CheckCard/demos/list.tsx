@@ -1,4 +1,6 @@
-/** Uuid: 69aec291 title: 应用列表示例 */
+/**
+ * title: 应用列表示例
+ */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';
