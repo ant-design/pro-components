@@ -7,9 +7,10 @@ import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/l
 import type { NamePath } from 'antd/lib/form/interface';
 import omit from 'omit.js';
 import toArray from 'rc-util/lib/Children/toArray';
-import type { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import './index.less';
+import { noteOnce } from 'rc-util/lib/warning';
 
 type IconConfig = {
   Icon?: React.FC<any>;
@@ -349,7 +350,16 @@ const ProFormList: React.FC<ProFormListProps> = ({
   useImperativeHandle(actionRef, () => actionRefs.current, [actionRefs.current]);
   const proFormContext = useContext(ProFormContext);
 
+  useEffect(() => {
+    noteOnce(!!proFormContext.formRef, `ProFormList 必须要放到 ProForm 中,否则会造成行为异常。`);
+    noteOnce(
+      !!proFormContext.formRef,
+      `Proformlist must be placed in ProForm, otherwise it will cause abnormal behavior.`,
+    );
+  }, [proFormContext.formRef]);
+
   if (!proFormContext.formRef) return null;
+
   return (
     <div className={baseClassName} style={style}>
       <Form.Item

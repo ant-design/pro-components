@@ -311,7 +311,7 @@ export const useFieldFetchData = (
       return loadData;
     },
     [],
-    props.debounceTime ?? 0,
+    props.debounceTime ?? props?.fieldProps?.debounceTime ?? 0,
     // 因为使用了swr，自动清理请求可能导致缓存错误的数据
     true,
   );

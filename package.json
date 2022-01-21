@@ -112,7 +112,6 @@
     "npm-run-all": "^4.1.5",
     "pify": "^5.0.0",
     "prettier": "^2.2.1",
-    "prettier-plugin-jsdoc": "^0.2.13",
     "pretty-quick": "^3.0.1",
     "pro-changelog": "^1.0.0",
     "progress-bar-webpack-plugin": "^2.1.0",
