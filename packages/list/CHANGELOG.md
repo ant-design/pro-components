@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.19...@ant-design/pro-list@1.21.20) (2022-01-21)
+
+### Bug Fixes
+
+- **card:** 修复 ProList 卡片模式 actions 区域事件冒泡导致点击选中卡片的问题 ([#4495](https://github.com/ant-design/pro-components/issues/4495)) ([9900ef2](https://github.com/ant-design/pro-components/commit/9900ef2cfed0be2a47098226218290b22556fd94))
+- **list:** 修复卡片列表 hover 失效问题 ([#4511](https://github.com/ant-design/pro-components/issues/4511)) ([da921b1](https://github.com/ant-design/pro-components/commit/da921b12ad9934d70276c7456cccc6923f3a2884)), closes [#4502](https://github.com/ant-design/pro-components/issues/4502)
+
 ## [1.21.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.18...@ant-design/pro-list@1.21.19) (2022-01-18)
 
 **Note:** Version bump only for package @ant-design/pro-list

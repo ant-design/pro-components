@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.32.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.6...@ant-design/pro-utils@1.32.7) (2022-01-21)
+
+### Bug Fixes
+
+- **form:** 🐛 readonly form will not render the latest value ([#4494](https://github.com/ant-design/pro-components/issues/4494)) ([2c169a8](https://github.com/ant-design/pro-components/commit/2c169a846b72351f9988c22fd5c2ef2b1684b577))
+- **form:** dependency transform from Array to Object ([#4500](https://github.com/ant-design/pro-components/issues/4500)) ([ecd74ea](https://github.com/ant-design/pro-components/commit/ecd74ea8f5e55fa264ee104f285794f36af9599d))
+
 ## [1.32.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.5...@ant-design/pro-utils@1.32.6) (2022-01-17)
 
 ### Bug Fixes

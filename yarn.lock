@@ -6664,11 +6664,6 @@ commander@^7.0.0, commander@^7.2.0:
   resolved "https://registry.npmmirror.com/commander/download/commander-7.2.0.tgz#a36cb57d0b501ce108e4d20559a150a391d97ab7"
   integrity sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==
 
-comment-parser@^0.7.6:
-  version "0.7.6"
-  resolved "https://registry.npmmirror.com/comment-parser/download/comment-parser-0.7.6.tgz?cache=0&sync_timestamp=1637132080812&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fcomment-parser%2Fdownload%2Fcomment-parser-0.7.6.tgz#0e743a53c8e646c899a1323db31f6cd337b10f12"
-  integrity sha1-DnQ6U8jmRsiZoTI9sx9s0zexDxI=
-
 commondir@^1.0.1:
   version "1.0.1"
   resolved "https://registry.nlark.com/commondir/download/commondir-1.0.1.tgz?cache=0&sync_timestamp=1622605315392&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fcommondir%2Fdownload%2Fcommondir-1.0.1.tgz#ddd800da0c66127393cca5950ea968a3aaf1253b"
@@ -12677,11 +12672,6 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.npmmirror.com/lines-and-columns/download/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
   integrity sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==
 
-linguist-languages@^7.11.1:
-  version "7.15.0"
-  resolved "https://registry.nlark.com/linguist-languages/download/linguist-languages-7.15.0.tgz#a93bed6b93015d8133622cb05da6296890862bfa"
-  integrity sha1-qTvta5MBXYEzYiywXaYpaJCGK/o=
-
 lint-staged@^10.0.2:
   version "10.5.4"
   resolved "https://registry.npmmirror.com/lint-staged/download/lint-staged-10.5.4.tgz#cd153b5f0987d2371fc1d2847a409a2fe705b665"
@@ -14038,9 +14028,9 @@ nan@^2.12.1:
   integrity sha1-PzSkc/8Y4VwbVia2KQO1rW5mX+4=
 
 nanoid@^3.1.23, nanoid@^3.1.30:
-  version "3.1.30"
-  resolved "https://registry.npmmirror.com/nanoid/download/nanoid-3.1.30.tgz#63f93cc548d2a113dc5dfbc63bfa09e2b9b64362"
-  integrity sha512-zJpuPDwOv8D2zq2WRoMe1HsfZthVewpel9CAvTfc/2mBD1uUT/agc5f7GHGWXlYkFvi1mVxe4IjvP2HNrop7nQ==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.2.0.tgz#62667522da6673971cca916a6d3eff3f415ff80c"
+  integrity sha512-fmsZYa9lpn69Ad5eDn7FMcnnSR+8R34W9qJEijxYhTbfOWzr22n1QxCMzXLK+ODyW2973V3Fux959iQoUxzUIA==
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -16291,14 +16281,6 @@ prepend-http@^2.0.0:
   version "2.0.0"
   resolved "https://registry.nlark.com/prepend-http/download/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
-
-prettier-plugin-jsdoc@^0.2.13:
-  version "0.2.13"
-  resolved "https://registry.npmmirror.com/prettier-plugin-jsdoc/download/prettier-plugin-jsdoc-0.2.13.tgz#78f87d884018def8c2ff467e6825c078f42592a0"
-  integrity sha1-ePh9iEAY3vjC/0Z+aCXAePQlkqA=
-  dependencies:
-    comment-parser "^0.7.6"
-    linguist-languages "^7.11.1"
 
 prettier-plugin-two-style-order@^1.0.0:
   version "1.0.1"

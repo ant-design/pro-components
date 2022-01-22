@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.9...@ant-design/pro-field@1.31.10) (2022-01-21)
+
+### Bug Fixes
+
+- **form:** 🐛 readonly form will not render the latest value ([#4494](https://github.com/ant-design/pro-components/issues/4494)) ([2c169a8](https://github.com/ant-design/pro-components/commit/2c169a846b72351f9988c22fd5c2ef2b1684b577))
+- **form:** ProFormSelect support debounceTime ([1f26167](https://github.com/ant-design/pro-components/commit/1f26167daf457f3033a5e862e05d412edede3750))
+- **form:** select fieldNames options ([#4484](https://github.com/ant-design/pro-components/issues/4484)) ([cb1b536](https://github.com/ant-design/pro-components/commit/cb1b5365c11da3c18d6b25b6dedc9afc98be8816))
+
 ## [1.31.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.8...@ant-design/pro-field@1.31.9) (2022-01-17)
 
 ### Bug Fixes
