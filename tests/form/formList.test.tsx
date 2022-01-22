@@ -755,7 +755,5 @@ describe('ProForm List', () => {
       expect(fnRemove).toBeCalledWith(0);
       expect(html.find('input.ant-input').length).toBe(2);
     });
-
-    expect(html).toMatchSnapshot();
   });
 });
