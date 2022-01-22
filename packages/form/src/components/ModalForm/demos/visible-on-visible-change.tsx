@@ -37,6 +37,9 @@ export default () => {
       <ModalForm
         title="新建表单"
         visible={modalVisit}
+        modalProps={{
+          destroyOnClose: true,
+        }}
         onFinish={async () => {
           message.success('提交成功');
           return true;
@@ -87,8 +90,14 @@ export default () => {
         <ProFormText width="xs" name="mangerName" disabled label="商务经理" initialValue="启途" />
       </ModalForm>
       <DrawerForm
-        onVisibleChange={setDrawerVisit}
+        onVisibleChange={(visible) => {
+          console.log('状态改变', visible);
+          setDrawerVisit(visible);
+        }}
         title="新建表单"
+        drawerProps={{
+          destroyOnClose: true,
+        }}
         visible={drawerVisit}
         onFinish={async () => {
           message.success('提交成功');

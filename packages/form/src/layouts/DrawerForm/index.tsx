@@ -1,4 +1,5 @@
-﻿import React, {
+import React, {
+  useCallback,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -8,6 +9,7 @@
 } from 'react';
 import type { DrawerProps, FormInstance, FormProps } from 'antd';
 import { ConfigProvider, Drawer } from 'antd';
+import { runFunctionDelay } from '@ant-design/pro-utils';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { createPortal } from 'react-dom';
 import omit from 'omit.js';
@@ -69,7 +71,14 @@ function DrawerForm<T = Record<string, any>>({
   const [isDestroy, setIsDestroy] = useMergedState<boolean>(!!rest.visible);
 
   useEffect(() => {
-    setIsDestroy(!!rest.visible);
+    // 如果传入的 visible 为 false ,说明需要关闭抽屉，但如果直接销毁会导致动画不播放，因此
+    // 延迟 300ms 执行销毁操作，如果 visible 为 true 或不传，则立即执行
+    runFunctionDelay(
+      () => {
+        setIsDestroy(!!rest.visible);
+      },
+      rest.visible === false ? 300 : 0,
+    );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rest.visible]);
 
@@ -160,6 +169,17 @@ function DrawerForm<T = Record<string, any>>({
 
   useImperativeHandle(rest.formRef, () => formRef.current);
 
+  const canClose = useCallback(() => {
+    // 如果存在 visible 属性，说明当前弹框的显示受控与用户传入的 visible 状态
+    // 如果在回调时，用户传递的 visible 仍为 true ，则不执行关闭和销毁操作
+    if (rest.visible === true) {
+      // 发送关闭请求等待用户更新传入的状态 visible
+      onVisibleChange?.(false);
+      return false;
+    }
+    return true;
+  }, [onVisibleChange, rest.visible]);
+
   const formDom = (
     <div onClick={(e) => e.stopPropagation()}>
       <BaseForm
@@ -187,6 +207,7 @@ function DrawerForm<T = Record<string, any>>({
                 resetButtonProps: {
                   preventDefault: true,
                   onClick: (e: any) => {
+                    if (!canClose()) return;
                     setVisible(false);
                     drawerProps?.onClose?.(e);
                   },
@@ -215,8 +236,12 @@ function DrawerForm<T = Record<string, any>>({
               getContainer={false}
               visible={visible}
               onClose={(e) => {
+                // 如果是 visible 受控，则需要看一下用户传入的 visible 是否改变
+                if (!canClose()) return;
+
                 setVisible(false);
                 drawerProps?.onClose?.(e);
+                console.log('关闭了，但是受控属性visible没有改变', rest.visible);
                 // drawer 的after close 在暂时有点问题，先用这个顶一下
                 setTimeout(() => {
                   setIsDestroy(false);

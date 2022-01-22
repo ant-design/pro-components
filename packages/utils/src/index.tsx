@@ -55,7 +55,7 @@ import type {
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
-import { runFunction } from './runFunction';
+import { runFunction, runFunctionDelay } from './runFunction';
 import type {
   BaseProFieldFC,
   ProFieldFCMode,
@@ -131,6 +131,7 @@ export {
   isBrowser,
   pickProProps,
   runFunction,
+  runFunctionDelay,
   getFieldPropsOrFormItemProps,
   dateArrayFormatter,
   nanoid,
