@@ -1,16 +1,17 @@
 ﻿import { CopyOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { nanoid, runFunction, ProFormContext } from '@ant-design/pro-utils';
-import type { ButtonProps, FormInstance } from 'antd';
+import { ButtonProps, FormInstance, Spin } from 'antd';
 import { Button, ConfigProvider, Form, Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import type { NamePath } from 'antd/lib/form/interface';
 import omit from 'omit.js';
 import toArray from 'rc-util/lib/Children/toArray';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import './index.less';
 import { noteOnce } from 'rc-util/lib/warning';
+import { StoreValue } from 'rc-field-form/es/interface';
 
 type IconConfig = {
   Icon?: React.FC<any>;
@@ -38,6 +39,12 @@ type ChildrenItemFunction = (
   operation: FormListOperation,
 ) => React.ReactNode;
 
+type FormListActionGuard = {
+  beforeAdd?: (defaultValue?: StoreValue, insertIndex?: number) => boolean | Promise<boolean>;
+  beforeRemove?: (index: number | number[]) => boolean | Promise<boolean>;
+  beforeMove?: (from: number, to: number) => boolean | Promise<boolean>;
+};
+
 export type ProFormListProps = Omit<FormListProps, 'children'> & {
   creatorButtonProps?:
     | false
@@ -49,6 +56,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
   label?: ReactNode;
   alwaysShowItemLabel?: boolean;
   tooltip?: LabelTooltipType;
+  actionGuard?: FormListActionGuard;
   actionRender?: (
     field: FormListFieldData,
     action: FormListOperation,
@@ -106,6 +114,7 @@ type ProFormListItemProps = {
   copyIconProps: ProFormListProps['copyIconProps'];
   deleteIconProps: ProFormListProps['deleteIconProps'];
   action: FormListOperation;
+  actionGuard?: FormListActionGuard;
   creatorRecord: ProFormListProps['creatorRecord'];
   actionRender: ProFormListProps['actionRender'];
   itemContainerRender: ProFormListProps['itemContainerRender'];
@@ -135,6 +144,7 @@ const ProFormListItem: React.FC<
     prefixCls,
     creatorRecord,
     action,
+    actionGuard,
     children,
     actionRender,
     fields,
@@ -146,6 +156,8 @@ const ProFormListItem: React.FC<
     ...rest
   } = props;
   const listContext = useContext(FormListContext);
+  const [loadingRemove, setLoadingRemove] = useState(false);
+  const [loadingCopy, setLoadingCopy] = useState(false);
 
   const childrenArray = listToArray(children)
     .map((childrenItem) => {
@@ -170,31 +182,53 @@ const ProFormListItem: React.FC<
     const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
     return (
       <Tooltip title={tooltipText} key="copy">
-        <Icon
-          className={`${prefixCls}-action-icon`}
-          onClick={() => {
-            action.add(
-              formInstance?.getFieldValue(
-                [listContext.listName, rest.name, field.name]
-                  .filter((item) => item !== undefined)
-                  .flat(1),
-              ),
-            );
-          }}
-        />
+        <Spin spinning={loadingCopy}>
+          <Icon
+            className={`${prefixCls}-action-icon action-copy`}
+            onClick={async () => {
+              setLoadingCopy(true);
+              await action.add(
+                formInstance?.getFieldValue(
+                  [listContext.listName, rest.name, field.name]
+                    .filter((item) => item !== undefined)
+                    .flat(1),
+                ),
+              );
+              setLoadingCopy(false);
+            }}
+          />
+        </Spin>
       </Tooltip>
     );
-  }, [action, copyIconProps, field.name, formInstance, listContext.listName, prefixCls, rest.name]);
+  }, [
+    action,
+    copyIconProps,
+    field.name,
+    formInstance,
+    listContext.listName,
+    loadingCopy,
+    prefixCls,
+    rest.name,
+  ]);
 
   const deleteIcon = useMemo(() => {
     if (!deleteIconProps) return null;
     const { Icon = DeleteOutlined, tooltipText } = deleteIconProps;
     return (
       <Tooltip title={tooltipText} key="delete">
-        <Icon className={`${prefixCls}-action-icon`} onClick={() => action.remove(field.name)} />
+        <Spin spinning={loadingRemove}>
+          <Icon
+            className={`${prefixCls}-action-icon action-remove`}
+            onClick={async () => {
+              setLoadingRemove(true);
+              await action.remove(field.name);
+              setLoadingRemove(false);
+            }}
+          />
+        </Spin>
       </Tooltip>
     );
-  }, [action, deleteIconProps, field.name, prefixCls]);
+  }, [action, deleteIconProps, field, loadingRemove, prefixCls]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
     () => [copyIcon, deleteIcon].filter(Boolean),
@@ -251,8 +285,48 @@ const ProFormListItem: React.FC<
 };
 
 const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
-  const { creatorButtonProps, prefixCls, children, creatorRecord, action, fields } = props;
+  const { creatorButtonProps, prefixCls, children, creatorRecord, action, fields, actionGuard } =
+    props;
   const fieldKeyMap = useRef(new Map<string, string>());
+  const [loading, setLoading] = useState(false);
+
+  /**
+   * 根据行为守卫包装action函数
+   */
+  const wrapperAction = useMemo(() => {
+    if (!actionGuard) return action;
+    const wrapAction = { ...action };
+    Object.keys(action).forEach((key) => {
+      if (!action[key]) return;
+      switch (key) {
+        case 'add':
+          if (!actionGuard.beforeAdd) return;
+          wrapAction.add = async (defaultValue?: StoreValue, insertIndex?: number) => {
+            const needAdd = await actionGuard.beforeAdd?.(defaultValue, insertIndex);
+            if (!needAdd) return;
+            action.add(defaultValue, insertIndex);
+          };
+          break;
+        case 'remove':
+          if (!actionGuard.beforeRemove) return;
+          wrapAction.remove = async (idx: number | number[]) => {
+            const needRemove = await actionGuard.beforeRemove?.(idx);
+            if (!needRemove) return;
+            action.remove(idx);
+          };
+          break;
+        case 'move':
+          if (!actionGuard.beforeMove) return;
+          wrapAction.move = async (from: number, to: number) => {
+            const needMove = await actionGuard.beforeMove?.(from, to);
+            if (!needMove) return;
+            action.move(from, to);
+          };
+          break;
+      }
+    });
+    return wrapAction;
+  }, [action, actionGuard]);
 
   const uuidFields = useMemo(() => {
     return fields.map((field) => {
@@ -274,21 +348,23 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       <Button
         className={`${prefixCls}-creator-button-${position}`}
         type="dashed"
+        loading={loading}
         block
         icon={<PlusOutlined />}
         {...omit(creatorButtonProps || {}, ['position', 'creatorButtonText'])}
-        onClick={() => {
+        onClick={async () => {
+          setLoading(true);
           let index;
           // 如果是顶部，加到第一个，如果不是，为空就是最后一个
           if (position === 'top') index = 0;
-
-          action.add(runFunction(creatorRecord), index);
+          await wrapperAction.add(runFunction(creatorRecord), index);
+          setLoading(false);
         }}
       >
         {creatorButtonText}
       </Button>
     );
-  }, [action, creatorButtonProps, creatorRecord, prefixCls]);
+  }, [creatorButtonProps, prefixCls, loading, wrapperAction, creatorRecord]);
 
   return (
     <div
@@ -300,7 +376,13 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       {creatorButtonProps !== false && creatorButtonProps?.position === 'top' && creatorButton}
       {uuidFields.map((field, index) => {
         return (
-          <ProFormListItem {...props} key={field.uuid} field={field} index={index}>
+          <ProFormListItem
+            {...props}
+            key={field.uuid}
+            field={field}
+            index={index}
+            action={wrapperAction}
+          >
             {children}
           </ProFormListItem>
         );
@@ -332,6 +414,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
   actionRef,
   style,
   prefixCls,
+  actionGuard,
   ...rest
 }) => {
   const actionRefs = useRef<FormListOperation>();
@@ -392,6 +475,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
                   creatorRecord={creatorRecord}
                   actionRender={actionRender}
                   action={action}
+                  actionGuard={actionGuard}
                   alwaysShowItemLabel={alwaysShowItemLabel}
                 >
                   {children}
