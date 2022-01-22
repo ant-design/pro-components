@@ -21,12 +21,6 @@ const Demo = () => {
               setTimeout(() => resolve(true), 1000);
             });
           },
-          beforeMove: async (from, to) => {
-            return new Promise((resolve) => {
-              console.log(from, to);
-              setTimeout(() => resolve(true), 1000);
-            });
-          },
           beforeRemove: async (index) => {
             return new Promise((resolve) => {
               if (index === 0) {

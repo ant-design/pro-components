@@ -42,7 +42,6 @@ type ChildrenItemFunction = (
 type FormListActionGuard = {
   beforeAdd?: (defaultValue?: StoreValue, insertIndex?: number) => boolean | Promise<boolean>;
   beforeRemove?: (index: number | number[]) => boolean | Promise<boolean>;
-  beforeMove?: (from: number, to: number) => boolean | Promise<boolean>;
 };
 
 export type ProFormListProps = Omit<FormListProps, 'children'> & {
@@ -313,14 +312,6 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
             const needRemove = await actionGuard.beforeRemove?.(idx);
             if (!needRemove) return;
             action.remove(idx);
-          };
-          break;
-        case 'move':
-          if (!actionGuard.beforeMove) return;
-          wrapAction.move = async (from: number, to: number) => {
-            const needMove = await actionGuard.beforeMove?.(from, to);
-            if (!needMove) return;
-            action.move(from, to);
           };
           break;
       }
