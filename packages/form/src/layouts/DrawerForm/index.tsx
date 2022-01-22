@@ -170,8 +170,8 @@ function DrawerForm<T = Record<string, any>>({
   useImperativeHandle(rest.formRef, () => formRef.current);
 
   const canClose = useCallback(() => {
-    // 如果存在 visible 属性，说明当前弹框的显示受控与用户传入的 visible 状态
-    // 如果在回调时，用户传递的 visible 仍为 true ，则不执行关闭和销毁操作
+    // 如果存在 visible 属性，说明当前弹框的显示受控于用户传入的 visible 状态
+    // 如果在 onClose 回调时，用户传递的 visible 仍为 true ，则不执行关闭和销毁操作
     if (rest.visible === true) {
       // 发送关闭请求等待用户更新传入的状态 visible
       onVisibleChange?.(false);
@@ -241,7 +241,6 @@ function DrawerForm<T = Record<string, any>>({
 
                 setVisible(false);
                 drawerProps?.onClose?.(e);
-                console.log('关闭了，但是受控属性visible没有改变', rest.visible);
                 // drawer 的after close 在暂时有点问题，先用这个顶一下
                 setTimeout(() => {
                   setIsDestroy(false);
