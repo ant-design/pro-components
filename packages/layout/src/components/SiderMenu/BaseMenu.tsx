@@ -573,8 +573,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       width: 100%;
     }
 
-
-
     &.${antPrefixClassName}-layout-sider-collapsed {
       flex-direction: column;
       padding-bottom: 24px;
