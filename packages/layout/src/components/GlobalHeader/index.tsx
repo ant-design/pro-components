@@ -1,6 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-
 import type { HeaderViewProps } from '../../Header';
 import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
 import { defaultRenderLogoAndTitle, defaultRenderCollapsedButton } from '../SiderMenu/SiderMenu';
@@ -130,7 +129,6 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
           align-items: center;
           height: 100%;
           padding: 0 16px;
-
           > * {
             height: 100%;
           }

@@ -10,7 +10,7 @@ Array [
       style="min-height:100%"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
         style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
       >
         <div
@@ -227,10 +227,10 @@ Array [
         style="position:relative"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header css-qa17u9"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header css-1uxh030"
         >
           <div
-            class="ant-pro-top-nav-header light css-1l1sujn"
+            class="ant-pro-top-nav-header light css-q8kmqe"
           >
             <div
               class="ant-pro-top-nav-header-main css-17ldh9g"
@@ -416,7 +416,7 @@ Array [
       style="min-height:100%"
     >
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix css-1d66ua4"
+        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix css-9qv556"
         style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
       >
         <div
@@ -484,10 +484,10 @@ Array [
           style="height:56px;line-height:56px;background:transparent"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-81w2xc"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-z0yhrw"
         >
           <div
-            class="ant-pro-global-header ant-pro-global-header-layout-mix css-902b2d"
+            class="ant-pro-global-header ant-pro-global-header-layout-mix css-97oob8"
           >
             <div
               class="ant-pro-global-header-logo css-1uv9trc"
@@ -647,7 +647,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
     style="min-height:100%"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
@@ -838,7 +838,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
     style="min-height:100%"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
@@ -1030,7 +1030,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
@@ -1176,7 +1176,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1rnna1"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
             data-menu-list="true"
             role="menu"
             style="width: 100%;"
@@ -1284,7 +1284,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
@@ -1500,7 +1500,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
     style="min-height: 100%;"
   >
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-rahbg5"
+      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
@@ -1646,7 +1646,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1rnna1"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
             data-menu-list="true"
             role="menu"
             style="width: 100%;"

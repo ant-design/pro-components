@@ -1,5 +1,3 @@
-import './Header.less';
-
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { Layout } from 'antd';
@@ -18,6 +16,15 @@ const ProLayoutFixedHeaderCss = css`
   top: 0;
   padding: 0;
   background: transparent;
+`;
+
+const ProLayoutHeader = css`
+  z-index: 9;
+  width: 100%;
+  background-color: rgba(240, 242, 245, 0.4);
+  border-bottom: 1px solid #d8d8d8;
+  backdrop-filter: blur(20px) saturate(150%);
+  transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 `;
 
 export type HeaderViewProps = GlobalHeaderProps & {
@@ -66,7 +73,29 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
     }
     return defaultDom;
   };
-
+  getHeaderActionsCss = () => {
+    const propsClassName = this.props.className;
+    return css`
+      .${propsClassName}-header-actions {
+        display: flex;
+        align-items: center;
+        font-size: 16;
+        cursor: pointer;
+        &-item {
+          padding: 0 8px;
+          &:hover {
+            color: @primary-color;
+          }
+        }
+      }
+      .${propsClassName}-header-realDark {
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 65%);
+      }
+      .${propsClassName}-header-actions-header-action {
+        transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+    `;
+  };
   render(): React.ReactNode {
     const {
       fixedHeader,
@@ -116,7 +145,9 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
         <Header
           className={cx(
             className,
-            ProLayoutFixedHeaderCss,
+            ProLayoutHeader,
+            this.getHeaderActionsCss(),
+            needFixedHeader && ProLayoutFixedHeaderCss,
             css({
               height: headerHeight,
               lineHeight: `${headerHeight}px`,

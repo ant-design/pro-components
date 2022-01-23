@@ -1,4 +1,3 @@
-import './index.less';
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
 import { Menu, Skeleton, ConfigProvider } from 'antd';
 import React, { useEffect, useState, useRef, useMemo, useContext } from 'react';
@@ -559,6 +558,54 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     };
   }, [antPrefixClassName, collapsed, mode]);
 
+  const menuCss = useMemo(() => {
+    return css`
+    
+    padding: 6px;
+    background: transparent;
+
+    // 关掉动画避免性能问题
+    * {
+      transition: none !important;
+    }
+
+    .${antPrefixClassName}-menu-title-content{
+      width: 100%;
+    }
+
+
+
+    &.${antPrefixClassName}-layout-sider-collapsed {
+      flex-direction: column;
+      padding-bottom: 24px;
+      .@{pro-layout-sider-menu-prefix-cls} {
+        &-logo {
+          padding: 16px 8px;
+        }
+      }
+    }
+
+    .${antPrefixClassName}-menu-root {
+      padding: 6px;
+    }
+
+    .${antPrefixClassName}-menu-sub {
+      background: transparent;
+    }
+
+    .${antPrefixClassName}-pro-menu-item-divider {
+      &:last-child {
+        display: none;
+      }
+    }
+    .${antPrefixClassName}-menu-item-group-title {
+      color: rgba(0, 0, 0, 0.45);
+      font-size: 12px;
+      line-height: 20px;
+    }
+  `;
+  }, [antPrefixClassName]);
+
   if (menu?.loading) {
     return (
       <div
@@ -609,37 +656,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       style={style}
       className={cx(
         className,
-        css`
-          padding: 6px;
-          background: transparent;
-          // 关掉动画避免性能问题
-          * {
-            transition: none !important;
-          }
-
-          .${antPrefixClassName}-menu-title-content{
-            width: 100%;
-          }
-
-          .${antPrefixClassName}-menu-root {
-            padding: 6px;
-          }
-
-          .${antPrefixClassName}-menu-sub {
-            background: transparent;
-          }
-
-          .${antPrefixClassName}-pro-menu-item-divider {
-            &:last-child {
-              display: none;
-            }
-          }
-          .${antPrefixClassName}-menu-item-group-title {
-            color: rgba(0, 0, 0, 0.45);
-            font-size: 12px;
-            line-height: 20px;
-          }
-        `,
+        menuCss,
         mode === 'horizontal' &&
           css`
             li.${antPrefixClassName}-menu-item {

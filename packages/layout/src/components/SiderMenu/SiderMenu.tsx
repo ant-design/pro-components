@@ -6,10 +6,7 @@ import { Avatar, Layout, Menu, ConfigProvider, Space } from 'antd';
 import classNames from 'classnames';
 import type { SiderProps } from 'antd/lib/layout/Sider';
 import { MenuUnfoldOutlined, MenuFoldOutlined, RightOutlined } from '@ant-design/icons';
-
 import { cx, css, keyframes } from '@emotion/css';
-
-import './index.less';
 import type { WithFalse } from '../../typings';
 import type { BaseMenuProps } from './BaseMenu';
 import { BaseMenu } from './BaseMenu';
@@ -195,6 +192,30 @@ const proLayoutTitleHide = keyframes`
 const siderCss = css`
   position: relative;
   background: transparent;
+
+  &-menu {
+    position: relative;
+    z-index: 10;
+    min-height: 100%;
+  }
+
+  /* 滚动槽 */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 3px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
+  }
+  /* 滚动条滑块 */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 3px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  }
   --ant-primary-color: @color-neutral-light-text;
 `;
 
@@ -406,6 +427,8 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     );
   }, [actionsDom, avatarDom, baseClassName, collapsed]);
 
+  const antPrefix = context.getPrefixCls();
+
   return (
     <>
       {fixSiderbar && (
@@ -452,6 +475,18 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             css`
               top: ${headerHeight}px;
             `,
+          css`
+            .${antPrefix}-layout-sider-children {
+              position: relative;
+              display: flex;
+              flex-direction: column;
+              height: 100%;
+              border-right: 1px solid rgba(5, 30, 55, 0.08);
+              > * {
+                contain: layout;
+              }
+            }
+          `,
         )}
       >
         {headerDom && (
@@ -505,7 +540,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               `${baseClassName}-links`,
               css`
                 width: 100%;
-                ul.${context.getPrefixCls()}-menu-root {
+                ul.${antPrefix}-menu-root {
                   height: auto;
                 }
               `,
