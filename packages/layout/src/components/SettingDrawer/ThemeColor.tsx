@@ -1,4 +1,5 @@
 import './ThemeColor.less';
+import { css, cx } from '@emotion/css';
 
 import { CheckOutlined } from '@ant-design/icons';
 
@@ -39,8 +40,16 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
     return null;
   }
   return (
-    <div className="theme-color">
-      <div className="theme-color-content">
+    <div
+      className={cx(
+        'theme-color',
+        css`
+          margin-top: 16px;
+          overflow: hidden;
+        `,
+      )}
+    >
+      <div className={cx('theme-color-content', css``)}>
         {colorList?.map(({ key, color }) => {
           if (!key) return null;
           return (
@@ -51,7 +60,21 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
               })}
             >
               <Tag
-                className="theme-color-block"
+                className={cx(
+                  'theme-color-block',
+                  css`
+                    float: left;
+                    width: 20px;
+                    height: 20px;
+                    margin-top: 8px;
+                    margin-right: 8px;
+                    color: #fff;
+                    font-weight: bold;
+                    text-align: center;
+                    border-radius: 2px;
+                    cursor: pointer;
+                  `,
+                )}
                 color={color}
                 check={value === color}
                 onClick={() => onChange && onChange(color)}
