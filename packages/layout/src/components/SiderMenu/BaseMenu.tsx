@@ -481,19 +481,15 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         }
       `,
       verticalItem: css`
-        .${antPrefixClassName}-menu-title-content:hover {
+        &:hover {
           background-color: ${itemHoverColor};
           border-radius: 4px;
         }
       `,
       selectedItem: css`
-        .${antPrefixClassName}-menu-title-content{
-          background-color: ${itemSelectedColor};
-          border-radius: 4px;
-        }
-      
+        background-color: ${itemSelectedColor};
+        border-radius: 4px;
       `,
-
       // subMenuItem Style
       subMenuItem: css`
         border-radius: 2px;
