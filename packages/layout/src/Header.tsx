@@ -22,6 +22,7 @@ const ProLayoutHeader = css`
   z-index: 9;
   width: 100%;
   background-color: rgba(240, 242, 245, 0.4);
+  padding: 0 8px;
   border-bottom: 1px solid #d8d8d8;
   backdrop-filter: blur(20px) saturate(150%);
   transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);

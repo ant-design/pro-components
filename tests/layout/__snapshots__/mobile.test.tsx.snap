@@ -656,7 +656,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
         style="height:56px;line-height:56px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header ant-pro-header css-z0yhrw"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-header css-1gclp53"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix css-97oob8"
@@ -828,7 +828,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
         style="height:56px;line-height:56px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header ant-pro-header css-z0yhrw"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-header css-1gclp53"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix css-97oob8"
@@ -994,7 +994,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
         style="height:56px;line-height:56px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header ant-pro-header css-z0yhrw"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-header css-1gclp53"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix css-97oob8"
@@ -1159,7 +1159,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
         style="height:56px;line-height:56px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-z0yhrw"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-1gclp53"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix css-97oob8"
@@ -1456,7 +1456,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
         style="height:56px;line-height:56px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-z0yhrw"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-1gclp53"
       >
         <div
           class="ant-pro-global-header ant-pro-global-header-layout-mix css-97oob8"
