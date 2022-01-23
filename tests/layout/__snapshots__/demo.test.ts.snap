@@ -4100,7 +4100,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -4569,7 +4569,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -4987,7 +4987,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -5589,7 +5589,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -5962,7 +5962,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -6457,7 +6457,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -7005,7 +7005,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-qwab55 ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-1glqovt ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -7155,7 +7155,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                         data-menu-list="true"
                         role="menu"
                         style="width: 100%;"
@@ -7616,7 +7616,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1v1w8n7"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-15utoud"
                     data-menu-list="true"
                     role="menu"
                     tabindex="0"
@@ -7795,7 +7795,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                         data-menu-list="true"
                         role="menu"
                         style="width: 100%;"
@@ -8216,7 +8216,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -8830,7 +8830,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-qwab55 ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-1glqovt ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -9141,6 +9141,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             >
               <a
                 href="https://pro.ant.design"
+                rel="noreferrer"
                 target="_blank"
                 title="Ant Design Pro"
               >
@@ -9148,6 +9149,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               </a>
               <a
                 href="https://github.com/ant-design/ant-design-pro"
+                rel="noreferrer"
                 target="_blank"
                 title="github"
               >
@@ -9173,6 +9175,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               </a>
               <a
                 href="https://ant.design"
+                rel="noreferrer"
                 target="_blank"
                 title="Ant Design"
               >
@@ -9389,7 +9392,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -10795,26 +10798,26 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 class="ant-drawer-body"
               >
                 <div
-                  class="ant-pro-setting-drawer-content"
+                  class="ant-pro-setting-drawer-content css-1d13jk3"
                 >
                   <div
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title"
+                      class="ant-pro-setting-drawer-title css-109isai"
                     >
                       整体风格设置
                     </h3>
                     <div
                       class="ant-pro-setting-drawer-block-checkbox"
-                      style="min-height: 42px;"
+                      style="display: flex; min-height: 42px;"
                     >
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item css-1nr32ud"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
                           role="img"
                           style="display: none;"
                         >
@@ -10834,11 +10837,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </span>
                       </div>
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-dark ant-pro-setting-drawer-block-checkbox-theme-item"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-dark ant-pro-setting-drawer-block-checkbox-theme-item css-q4zenb"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
                           role="img"
                           style="display: none;"
                         >
@@ -10858,11 +10861,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </span>
                       </div>
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-realDark ant-pro-setting-drawer-block-checkbox-theme-item"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-realDark ant-pro-setting-drawer-block-checkbox-theme-item css-molpz3"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
                           role="img"
                           style="display: none;"
                         >
@@ -10887,46 +10890,46 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title"
+                      class="ant-pro-setting-drawer-title css-109isai"
                     >
                       主题色
                     </h3>
                     <div
-                      class="theme-color"
+                      class="css-1xmh8xu"
                     >
                       <div
-                        class="theme-color-content"
+                        class="theme-color-content css-0"
                       >
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(24, 144, 255);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(245, 34, 45);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(250, 84, 28);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(250, 173, 20);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(19, 194, 194);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(82, 196, 26);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(47, 84, 235);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(114, 46, 209);"
                         />
                       </div>
@@ -10940,20 +10943,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title"
+                      class="ant-pro-setting-drawer-title css-109isai"
                     >
                       导航模式
                     </h3>
                     <div
                       class="ant-pro-setting-drawer-block-checkbox"
-                      style="min-height: 42px;"
+                      style="display: flex; min-height: 42px;"
                     >
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item css-q4zenb"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
                           role="img"
                           style="display: none;"
                         >
@@ -10973,11 +10976,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </span>
                       </div>
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item css-12twfot"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
                           role="img"
                           style="display: none;"
                         >
@@ -10997,11 +11000,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </span>
                       </div>
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item css-1g6trkn"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
                           role="img"
                           style="display: none;"
                         >
@@ -11207,7 +11210,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title"
+                      class="ant-pro-setting-drawer-title css-109isai"
                     >
                       内容区域
                     </h3>
@@ -11348,7 +11351,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title"
+                      class="ant-pro-setting-drawer-title css-109isai"
                     >
                       其他设置
                     </h3>
@@ -11469,7 +11472,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             </div>
           </div>
           <div
-            class="ant-pro-setting-drawer-handle"
+            class="ant-pro-setting-drawer-handle css-nq8m5w"
           >
             <span
               aria-label="setting"
@@ -11670,7 +11673,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-light qixian-pro-sider-menu css-owpsj9"
+              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-light qixian-pro-sider-menu css-nqx88"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -12753,7 +12756,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -13309,7 +13312,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -13796,7 +13799,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -14885,26 +14888,26 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                 class="ant-drawer-body"
               >
                 <div
-                  class="ant-pro-setting-drawer-content"
+                  class="ant-pro-setting-drawer-content css-1d13jk3"
                 >
                   <div
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title"
+                      class="ant-pro-setting-drawer-title css-109isai"
                     >
                       整体风格设置
                     </h3>
                     <div
                       class="ant-pro-setting-drawer-block-checkbox"
-                      style="min-height: 42px;"
+                      style="display: flex; min-height: 42px;"
                     >
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item css-1nr32ud"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
                           role="img"
                           style="display: none;"
                         >
@@ -14924,11 +14927,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                         </span>
                       </div>
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-dark ant-pro-setting-drawer-block-checkbox-theme-item"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-dark ant-pro-setting-drawer-block-checkbox-theme-item css-q4zenb"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
                           role="img"
                           style="display: none;"
                         >
@@ -14953,46 +14956,46 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title"
+                      class="ant-pro-setting-drawer-title css-109isai"
                     >
                       主题色
                     </h3>
                     <div
-                      class="theme-color"
+                      class="css-1xmh8xu"
                     >
                       <div
-                        class="theme-color-content"
+                        class="theme-color-content css-0"
                       >
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(24, 144, 255);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(245, 34, 45);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(250, 84, 28);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(250, 173, 20);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(19, 194, 194);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(82, 196, 26);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(47, 84, 235);"
                         />
                         <div
-                          class="theme-color-block"
+                          class="theme-color-block css-1v4zi6f"
                           style="background-color: rgb(114, 46, 209);"
                         />
                       </div>
@@ -15006,20 +15009,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title"
+                      class="ant-pro-setting-drawer-title css-109isai"
                     >
                       导航模式
                     </h3>
                     <div
                       class="ant-pro-setting-drawer-block-checkbox"
-                      style="min-height: 42px;"
+                      style="display: flex; min-height: 42px;"
                     >
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item css-q4zenb"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
                           role="img"
                           style="display: none;"
                         >
@@ -15039,11 +15042,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                         </span>
                       </div>
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item css-12twfot"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
                           role="img"
                           style="display: none;"
                         >
@@ -15063,11 +15066,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                         </span>
                       </div>
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item css-1g6trkn"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
                           role="img"
                           style="display: none;"
                         >
@@ -15273,7 +15276,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title"
+                      class="ant-pro-setting-drawer-title css-109isai"
                     >
                       内容区域
                     </h3>
@@ -15414,7 +15417,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title"
+                      class="ant-pro-setting-drawer-title css-109isai"
                     >
                       其他设置
                     </h3>
@@ -15535,7 +15538,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
             </div>
           </div>
           <div
-            class="ant-pro-setting-drawer-handle"
+            class="ant-pro-setting-drawer-handle css-nq8m5w"
           >
             <span
               aria-label="setting"
@@ -15999,7 +16002,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -16298,7 +16301,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-qwab55 ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-1glqovt ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -16596,6 +16599,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             >
               <a
                 href="www.alipay.com"
+                rel="noreferrer"
                 target="_self"
                 title="test"
               >
@@ -16603,6 +16607,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
               </a>
               <a
                 href="www.alipay.com"
+                rel="noreferrer"
                 target="_self"
                 title="test2"
               >
@@ -16815,7 +16820,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -17466,7 +17471,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -17853,7 +17858,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -18551,7 +18556,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -19395,7 +19400,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -20431,7 +20436,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -20876,7 +20881,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1v1w8n7"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-15utoud"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -21296,7 +21301,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1v1w8n7"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-15utoud"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -21697,7 +21702,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1v1w8n7"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-15utoud"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -21940,7 +21945,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-qwab55"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"

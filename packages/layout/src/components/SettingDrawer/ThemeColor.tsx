@@ -1,4 +1,3 @@
-import './ThemeColor.less';
 import { css, cx } from '@emotion/css';
 
 import { CheckOutlined } from '@ant-design/icons';
@@ -41,13 +40,10 @@ const ThemeColor: React.ForwardRefRenderFunction<HTMLDivElement, ThemeColorProps
   }
   return (
     <div
-      className={cx(
-        'theme-color',
-        css`
-          margin-top: 16px;
-          overflow: hidden;
-        `,
-      )}
+      className={css`
+        margin-top: 16px;
+        overflow: hidden;
+      `}
     >
       <div className={cx('theme-color-content', css``)}>
         {colorList?.map(({ key, color }) => {

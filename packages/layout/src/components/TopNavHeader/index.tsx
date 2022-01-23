@@ -61,6 +61,8 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
       >
         {doms.map((dom, index) => (
           <span
+            // eslint-disable-next-line react/no-array-index-key
+            key={index}
             className={cx(
               `${prefixCls}-header-actions-item`,
               css`

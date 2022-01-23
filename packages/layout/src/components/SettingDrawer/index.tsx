@@ -1,4 +1,3 @@
-import './index.less';
 import {
   CopyOutlined,
   CloseOutlined,
@@ -9,7 +8,7 @@ import { isBrowser, merge } from '@ant-design/pro-utils';
 import { useUrlSearchParams } from '@umijs/use-params';
 
 import { Button, Divider, Drawer, List, Switch, ConfigProvider, message, Alert } from 'antd';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { disable as darkreaderDisable, enable as darkreaderEnable } from '@umijs/ssr-darkreader';
 
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -23,6 +22,7 @@ import { gLocaleObject, getLanguage } from '../../locales';
 import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
 import { RegionalSetting } from './RegionalChange';
 import { genStringToTheme } from '../../utils/utils';
+import { cx, css } from '@emotion/css';
 
 type BodyProps = {
   title: string;
@@ -36,7 +36,19 @@ type MergerSettingsType<T> = Partial<T> & {
 
 const Body: React.FC<BodyProps> = ({ children, prefixCls, title }) => (
   <div style={{ marginBottom: 24 }}>
-    <h3 className={`${prefixCls}-drawer-title`}>{title}</h3>
+    <h3
+      className={cx(
+        `${prefixCls}-drawer-title`,
+        css`
+          margin-bottom: 12px;
+          color: @heading-color;
+          font-size: 14px;
+          line-height: 22px;
+        `,
+      )}
+    >
+      {title}
+    </h3>
     {children}
   </div>
 );
@@ -216,6 +228,9 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     themeOnly,
   } = props;
   const firstRender = useRef<boolean>(true);
+  const context = useContext(ConfigProvider.ConfigContext);
+
+  const antPrefix = context.getPrefixCls();
 
   const [show, setShow] = useMergedState(false, {
     value: props.collapse,
@@ -339,7 +354,30 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
       placement="right"
       getContainer={getContainer}
       handler={
-        <div className={`${baseClassName}-drawer-handle`} onClick={() => setShow(!show)}>
+        <div
+          className={cx(
+            `${baseClassName}-drawer-handle`,
+            css`
+              position: absolute;
+              top: 240px;
+              right: 300px;
+              z-index: 0;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 48px;
+              height: 48px;
+              font-size: 16px;
+              text-align: center;
+              background-color: @primary-color;
+              background-color: var(--ant-primary-color);
+              border-radius: 4px 0 0 4px;
+              cursor: pointer;
+              pointer-events: auto;
+            `,
+          )}
+          onClick={() => setShow(!show)}
+        >
           {show ? (
             <CloseOutlined
               style={{
@@ -361,7 +399,20 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
         zIndex: 999,
       }}
     >
-      <div className={`${baseClassName}-drawer-content`}>
+      <div
+        className={cx(
+          `${baseClassName}-drawer-content`,
+          css`
+            position: relative;
+            min-height: 100%;
+            .${antPrefix}-list-item {
+              span {
+                flex: 1;
+              }
+            }
+          `,
+        )}
+      >
         <Body
           title={formatMessage({
             id: 'app.setting.pagestyle',
