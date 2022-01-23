@@ -469,26 +469,29 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         }
       `,
       horizontalItem: css`
-        height: 40px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         .${antPrefixClassName}-pro-menu-item {
           padding: 0 20px;
         }
-        &:hover {
-          a {
-            color: #000;
-          }
+        .${antPrefixClassName}-menu-title-content:hover {
+          background-color: ${itemHoverColor};
+          border-radius: 4px;
         }
       `,
-
       verticalItem: css`
-        &:hover {
+        .${antPrefixClassName}-menu-title-content:hover {
           background-color: ${itemHoverColor};
           border-radius: 4px;
         }
       `,
       selectedItem: css`
-        background-color: ${itemSelectedColor};
-        border-radius: 4px;
+        .${antPrefixClassName}-menu-title-content{
+          background-color: ${itemSelectedColor};
+          border-radius: 4px;
+        }
+      
       `,
 
       // subMenuItem Style

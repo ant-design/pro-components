@@ -1212,7 +1212,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               </div>
             </li>
             <li
-              class="ant-pro-menu-item css-1ai5orx"
+              class="ant-pro-menu-item css-eu0w54"
               data-menu-id="rc-menu-uuid-84044-6-/list"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1653,7 +1653,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-item css-1ai5orx"
+              class="ant-pro-menu-item css-eu0w54"
               data-menu-id="rc-menu-uuid-84044-1-/home"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1703,7 +1703,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </div>
             </li>
             <li
-              class="ant-pro-menu-item css-1ai5orx"
+              class="ant-pro-menu-item css-eu0w54"
               data-menu-id="rc-menu-uuid-84044-1-/data_ming"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1724,7 +1724,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </span>
             </li>
             <li
-              class="ant-pro-menu-item css-1ai5orx"
+              class="ant-pro-menu-item css-eu0w54"
               data-menu-id="rc-menu-uuid-84044-1-/other"
               role="menuitem"
               style="padding-left: 16px;"
