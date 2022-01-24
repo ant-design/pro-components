@@ -340,7 +340,7 @@ describe('SchemaForm', () => {
     'LightFilter',
     'QueryFilter',
   ].forEach((layoutType) => {
-    it(`😊 When SchemaForm'layoutType property is ${layoutType}, make sure it is valid to get the form instance through formRef`, async () => {
+    it(`😊 When SchemaForm's layoutType property is ${layoutType}, make sure it is valid to get the form instance through formRef`, async () => {
       const formColumns = [
         [
           {

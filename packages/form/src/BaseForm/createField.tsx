@@ -1,4 +1,4 @@
-﻿import React, { useMemo, useContext } from 'react';
+﻿import React, { useMemo, useContext, useCallback, useState, useRef, useEffect } from 'react';
 import {
   pickProFormItemProps,
   omitUndefined,
@@ -33,6 +33,12 @@ const WIDTH_SIZE_ENUM = {
 
 type ProFormComponent<P, Extends> = React.ComponentType<P & Extends>;
 
+/** 处理fieldProps和formItemProps为function时传进来的方法, 目前只在SchemaForm时可能会有 */
+type FunctionFieldProps = {
+  getFormItemProps?: () => Record<string, any>;
+  getFieldProps?: () => Record<string, any>;
+};
+
 /**
  * 这个方法的主要作用的帮助 Field 增加 FormItem 同时也会处理 lightFilter
  *
@@ -48,7 +54,7 @@ function createField<P extends ProFormFieldItemProps = any>(
   // eslint-disable-next-line no-param-reassign
   Field.displayName = 'ProFormComponent';
 
-  const FieldWithContext: React.FC<P> = (props: P & ExtendsProps) => {
+  const FieldWithContext: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
     const {
       valueType,
       customLightMode,
@@ -72,14 +78,48 @@ function createField<P extends ProFormFieldItemProps = any>(
       readonly,
       allowClear,
       colSize,
-      formItemProps: propsFormItemProps,
+      getFormItemProps,
+      getFieldProps,
       filedConfig,
       cacheForSwr,
       ...rest
-    } = { ...defaultProps, ...props } as P & ExtendsProps;
+    } = { ...defaultProps, ...props };
 
+    const [only, forceUpdate] = useState<[]>();
+
+    const shouldRender = useRef<boolean>(true);
     /** 从 context 中拿到的值 */
-    const { fieldProps, formItemProps } = React.useContext(FieldContext);
+    const fieldContextValue = React.useContext(FieldContext);
+
+    const fieldProps = useMemo(
+      () => ({
+        ...fieldContextValue.fieldProps,
+        // 支持未传递getFieldProps的情况
+        ...(rest.fieldProps as any),
+        ...getFieldProps?.(),
+      }),
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      [fieldContextValue.fieldProps, getFieldProps, only], // random for onChange
+    );
+
+    const formItemProps = useMemo(
+      () => ({
+        ...fieldContextValue.formItemProps,
+        ...(rest.formItemProps as any),
+        // 支持未传递getFormItemProps的情况
+        ...getFormItemProps?.(),
+      }),
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      [fieldContextValue.formItemProps, getFormItemProps, only], // random for onChange
+    );
+
+    // 支持测试用例 renderFormItem support return false
+    useEffect(() => {
+      if (!rest.renderFormItem && shouldRender.current === false) {
+        shouldRender.current = true;
+        forceUpdate([]);
+      }
+    }, [rest.renderFormItem]);
 
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
@@ -103,23 +143,23 @@ function createField<P extends ProFormFieldItemProps = any>(
         ...realFormItem,
         disabled: props.disabled,
         placeholder,
-        ...(fieldProps || {}),
-        ...(rest.fieldProps || {}),
+        ...fieldProps,
         style: omitUndefined({
           // 有些组件是不需要自带的 width
-          ...rest.fieldProps?.style,
           ...fieldProps?.style,
         }),
       }) as any;
-    }, [fieldProps, placeholder, props.disabled, realFormItem, rest.fieldProps]);
+    }, [fieldProps, placeholder, props.disabled, realFormItem]);
 
-    const otherProps = {
-      messageVariables,
-      ...defaultFormItemProps,
-      ...formItemProps,
-      ...restFormItemProps,
-      ...propsFormItemProps,
-    };
+    const otherProps = useMemo(
+      () => ({
+        messageVariables,
+        ...defaultFormItemProps,
+        ...formItemProps,
+        ...restFormItemProps,
+      }),
+      [defaultFormItemProps, formItemProps, messageVariables, restFormItemProps],
+    );
 
     noteOnce(
       // eslint-disable-next-line @typescript-eslint/dot-notation
@@ -156,13 +196,43 @@ function createField<P extends ProFormFieldItemProps = any>(
     const propsValueType = useMemo(() => (rest as any).valueType, [(rest as any).valueType]);
     const prefRest = usePrevious(rest);
 
+    const onChange = useCallback(
+      (...restParams) => {
+        if (getFormItemProps || getFieldProps) {
+          forceUpdate([]);
+        }
+        realFieldProps?.onChange?.(...restParams);
+      },
+      [getFieldProps, getFormItemProps, realFieldProps],
+    );
+
+    const renderFormItem = (...args: any[]) => {
+      const renderDom = rest.renderFormItem(...args);
+
+      // 支持renderFormItem返回false||null||undefined后渲染组件
+      if (
+        (renderDom === false || renderDom === null || renderDom === undefined) &&
+        shouldRender.current === true
+      ) {
+        shouldRender.current = false;
+        // 由于renderFormItem可能会触发setState的执行，所以需要延迟执行
+        setTimeout(() => forceUpdate([]));
+      } else if (shouldRender.current === false) {
+        shouldRender.current = true;
+        forceUpdate([]);
+      }
+      return renderDom;
+    };
+
     const field = useMemo(() => {
       return (
         <Field
           // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
           // 比如 ProFormSelect 的 request
           {...(rest as P)}
+          renderFormItem={rest.renderFormItem ? renderFormItem : undefined}
           fieldProps={omitUndefined({
+            onChange,
             allowClear,
             ...realFieldProps,
             style: omitUndefined({
@@ -209,6 +279,10 @@ function createField<P extends ProFormFieldItemProps = any>(
       width,
     ]);
 
+    if (shouldRender.current === false) {
+      return null;
+    }
+
     return (
       <ProFormItem
         // 全局的提供一个 tip 功能，可以减少代码量
@@ -220,7 +294,7 @@ function createField<P extends ProFormFieldItemProps = any>(
         {...otherProps}
         ignoreFormItem={ignoreFormItem}
         transform={transform}
-        dataFormat={rest.fieldProps?.format}
+        dataFormat={fieldProps?.format}
         valueType={valueType || (rest as any).valueType}
         messageVariables={{
           label: (label as string) || '',
@@ -246,10 +320,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       </ProFormItem>
     );
   };
-  // 标记是否是 proform 的组件
-  // @ts-ignore
-  // eslint-disable-next-line no-param-reassign
-  FieldWithContext.displayName = 'ProFormComponent';
+
   return FieldWithContext as ProFormComponent<P, ExtendsProps>;
 }
 

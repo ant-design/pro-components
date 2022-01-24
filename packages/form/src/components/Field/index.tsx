@@ -7,8 +7,6 @@ import { runFunction, isDeepEqualReact } from '@ant-design/pro-utils';
 import createField from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
 import ProFormDependency from '../Dependency';
-import isEqualWith from 'shallowequal';
-import shallowEqual from 'shallowequal';
 
 export type ProFormFieldProps<T = any, FiledProps = InputProps & SelectProps<string>> = ProSchema<
   T,
@@ -19,6 +17,8 @@ export type ProFormFieldProps<T = any, FiledProps = InputProps & SelectProps<str
     ref?: any;
     plain?: boolean;
     text?: any;
+    getFieldProps?: () => Record<string, any>;
+    getFormItemProps?: () => Record<string, any>;
   },
   any,
   any
@@ -87,15 +87,6 @@ class ProFormField extends React.Component<
       autoFocus?: boolean;
     },
   ) {
-    console.log(
-      'nextProps, this.props: ',
-      nextProps,
-      this.props,
-      !isDeepEqualReact(nextProps, this.props, ['onChange', 'onBlur']),
-      !isEqualWith(nextProps, this.props, (...args) => {
-        console.log('args: ', args);
-      }),
-    );
     return !isDeepEqualReact(nextProps, this.props, ['onChange', 'onBlur']);
   }
 

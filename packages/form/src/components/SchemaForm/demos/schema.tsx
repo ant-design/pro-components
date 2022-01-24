@@ -36,10 +36,6 @@ const columns: ProFormColumnsType<DataItem>[] = [
         },
       ],
     },
-    renderFormItem(...args) {
-      console.log('args: ', args);
-      return '标题';
-    },
     width: 'm',
   },
   {
