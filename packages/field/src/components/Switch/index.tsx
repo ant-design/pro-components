@@ -36,7 +36,7 @@ const FieldSwitch: ProFieldFC<{ text: boolean; fieldProps?: SwitchProps }> = (
       <Switch
         ref={ref}
         {...Omit(fieldProps, ['value'])}
-        checked={fieldProps?.checked || fieldProps?.value}
+        checked={fieldProps?.checked ?? fieldProps?.value}
       />
     );
     if (renderFormItem) {
