@@ -697,7 +697,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
 
   /** 是不是 LightFilter, LightFilter 有一些特殊的处理 */
   const isLightFilter: boolean = search !== false && search?.filterType === 'light';
-
   const searchNode =
     search === false && type !== 'form' ? null : (
       <FormRender<T, U>
@@ -715,7 +714,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         search={search}
         form={props.form}
         formRef={formRef}
-        tableRef={tableRef}
         type={props.type || 'table'}
         cardBordered={props.cardBordered}
         dateFormatter={props.dateFormatter}
@@ -760,9 +758,13 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         alwaysShowAlert={propsRowSelection?.alwaysShowAlert}
       />
     ) : null;
+
+  const innerTableRef = tableRef || React.createRef<HTMLDivElement>();
+
   return (
     <TableRender
       {...props}
+      tableRef={innerTableRef}
       name={isEditorTable}
       rootRef={rootRef}
       size={counter.tableSize}

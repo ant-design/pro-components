@@ -248,7 +248,7 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   formRef?: TableFormItem<T>['formRef'];
 
   /** @name antd-table-wrapper-div */
-  tableRef?: React.RefObject<HTMLDivElement | undefined>;
+  tableRef?: React.RefObject<HTMLDivElement>;
 
   /** @name 渲染操作栏 */
   toolBarRender?: ToolBarProps<T>['toolBarRender'] | false;
