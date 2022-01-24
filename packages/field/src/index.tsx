@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useCallback, useContext, useMemo, useRef } from 'react';
 import { Avatar } from 'antd';
 import type {
   ProFieldValueType,
@@ -9,6 +9,7 @@ import type {
   ProFieldTextType,
   ProFieldRequestData,
 } from '@ant-design/pro-utils';
+import { isDeepEqualReact } from '@ant-design/pro-utils';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
 
 import ConfigContext, { useIntl } from '@ant-design/pro-provider';
@@ -364,6 +365,18 @@ const defaultRenderText = (
 
 export { defaultRenderText };
 
+export const useDeepEqual = () => {
+  const lastProps = useRef<any>(null);
+  const equal = useCallback((restProps: any[]) => {
+    if (isDeepEqualReact(lastProps.current, restProps)) {
+      return true;
+    }
+    lastProps.current = restProps;
+    return false;
+  }, []);
+  return equal;
+};
+
 /** ProField 的类型 */
 export type ProFieldPropsType = {
   text?: ProFieldTextType;
@@ -371,21 +384,49 @@ export type ProFieldPropsType = {
 } & RenderProps;
 
 const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
-  { text, valueType = 'text', mode = 'read', onChange, renderFormItem, value, readonly, ...rest },
+  { text, valueType = 'text', mode = 'read', onChange, value, readonly, ...rest },
   ref: any,
 ) => {
   const intl = useIntl();
   const context = useContext(ConfigContext);
 
-  const fieldProps = (value !== undefined || onChange || rest?.fieldProps) && {
-    value,
-    // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
-    ...omitUndefined(rest?.fieldProps),
-    onChange: (...restParams: any[]) => {
-      rest?.fieldProps?.onChange?.(...restParams);
-      onChange?.(...restParams);
+  const fieldProps = useMemo(
+    () =>
+      (value !== undefined || onChange || rest?.fieldProps) && {
+        value,
+        // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
+        ...omitUndefined(rest?.fieldProps),
+        onChange: (...restParams: any[]) => {
+          rest?.fieldProps?.onChange?.(...restParams);
+          onChange?.(...restParams);
+        },
+      },
+    [onChange, rest?.fieldProps, value],
+  );
+
+  const equal = useDeepEqual();
+
+  const renderFormItem: any = useCallback(
+    (...restProps: any[]) => {
+      console.log('restProps: ', restProps);
+
+      if (equal(restProps.slice(0, 1))) {
+        return;
+      }
+
+      const newDom = rest.renderFormItem!(...restProps);
+
+      // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
+      if (React.isValidElement(newDom))
+        return React.cloneElement(newDom, {
+          placeholder: rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
+          ...fieldProps,
+          ...((newDom.props as any) || {}),
+        });
+      return newDom;
     },
-  };
+    [equal, fieldProps, intl, rest.placeholder, rest.renderFormItem],
+  );
 
   return (
     <React.Fragment>
@@ -396,20 +437,7 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
           ref,
           ...rest,
           mode: readonly ? 'read' : mode,
-          renderFormItem: renderFormItem
-            ? (...restProps) => {
-                const newDom = renderFormItem(...restProps);
-                // renderFormItem 之后的dom可能没有props，这里会帮忙注入一下
-                if (React.isValidElement(newDom))
-                  return React.cloneElement(newDom, {
-                    placeholder:
-                      rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
-                    ...fieldProps,
-                    ...((newDom.props as any) || {}),
-                  });
-                return newDom;
-              }
-            : undefined,
+          renderFormItem: rest.renderFormItem ? renderFormItem : undefined,
           placeholder: rest.placeholder || intl.getMessage('tableForm.inputPlaceholder', '请输入'),
           fieldProps: pickProProps(fieldProps),
         },

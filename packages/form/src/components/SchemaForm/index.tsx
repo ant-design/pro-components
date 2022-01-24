@@ -311,7 +311,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
               'renderText',
               'title',
             ]),
-            key,
+            key: `${key}-${index}`,
             name: item.dataIndex,
             width: item.width as 'md',
             formItemProps: item.formItemProps,
@@ -328,29 +328,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             return <ProFormField {...formFieldProps} ignoreFormItem={true} />;
           };
 
-          if (item?.renderFormItem) {
-            const formDom = item?.renderFormItem?.(
-              {
-                type,
-                ...item,
-                originProps: originItem,
-              },
-              {
-                ...item,
-                defaultRender,
-                type,
-              },
-              refMap.form!,
-            );
-            if (formDom === false || formDom === undefined || formDom === null) {
-              return null;
-            }
-          }
+          console.log('formFieldProps: ', formFieldProps);
           return (
+            // eslint-disable-next-line react/jsx-key
             <ProFormField
               {...formFieldProps}
-              // eslint-disable-next-line react/no-array-index-key
-              key={`${key}-${index}`}
               transform={item.transform}
               renderFormItem={
                 item?.renderFormItem
