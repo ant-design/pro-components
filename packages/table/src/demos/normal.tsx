@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button, Tooltip } from 'antd';
 import { DownOutlined, QuestionCircleOutlined } from '@ant-design/icons';
 import type { ProColumns } from '@ant-design/pro-table';
@@ -117,9 +117,16 @@ const columns: ProColumns<TableListItem>[] = [
 ];
 
 export default () => {
+  const tableRef = useRef(null);
+  useEffect(() => {
+    setTimeout(() => {
+      console.log(tableRef.current);
+    }, 1000);
+  }, []);
   return (
     <ProTable<TableListItem>
       columns={columns}
+      tableRef={tableRef}
       request={(params, sorter, filter) => {
         // 表单搜索项会从 params 传入，传递给后端接口。
         console.log(params, sorter, filter);

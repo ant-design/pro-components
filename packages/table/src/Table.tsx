@@ -67,6 +67,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     onFilterChange: (sort: any) => void;
     editableUtils: any;
     rootRef: React.RefObject<HTMLDivElement>;
+    tableRef: React.RefObject<HTMLDivElement>;
   },
 ) {
   const {
@@ -94,6 +95,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     cardBordered,
     editableUtils,
     rootRef,
+    tableRef,
     ...rest
   } = props;
   const counter = Container.useContainer();
@@ -201,7 +203,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
   });
 
   /** 默认的 table dom，如果是编辑模式，外面还要包个 form */
-  const baseTableDom = <Table<T> {...getTableProps()} rowKey={rowKey} />;
+  const baseTableDom = <Table<T> {...getTableProps()} rowKey={rowKey} ref={tableRef} />;
 
   /** 自定义的 render */
   const tableDom = props.tableViewRender
@@ -368,6 +370,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     manualRequest,
     polling,
     tooltip,
+    tableRef,
     ...rest
   } = props;
 
@@ -712,6 +715,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
         search={search}
         form={props.form}
         formRef={formRef}
+        tableRef={tableRef}
         type={props.type || 'table'}
         cardBordered={props.cardBordered}
         dateFormatter={props.dateFormatter}

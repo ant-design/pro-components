@@ -1225,4 +1225,10 @@ describe('BasicTable', () => {
 
     expect(fn).toBeCalledTimes(2);
   });
+  it('🎏 antd table wrapper div ref', async () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const html = mount(<ProTable size="small" tableRef={ref} />);
+    await waitForComponentToPaint(html, 2000);
+    expect(ref.current?.className).toBe('ant-table-wrapper');
+  });
 });

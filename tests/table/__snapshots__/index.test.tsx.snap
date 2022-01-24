@@ -883,32 +883,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                           style="padding-bottom: 8px;"
                         >
                           <button
-                            class="ant-btn ant-btn-primary ant-btn-loading"
+                            class="ant-btn ant-btn-primary"
                             type="button"
                           >
-                            <span
-                              class="ant-btn-loading-icon"
-                            >
-                              <span
-                                aria-label="loading"
-                                class="anticon anticon-loading anticon-spin"
-                                role="img"
-                              >
-                                <svg
-                                  aria-hidden="true"
-                                  data-icon="loading"
-                                  fill="currentColor"
-                                  focusable="false"
-                                  height="1em"
-                                  viewBox="0 0 1024 1024"
-                                  width="1em"
-                                >
-                                  <path
-                                    d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
-                                  />
-                                </svg>
-                              </span>
-                            </span>
                             <span>
                               查 询
                             </span>
@@ -1166,30 +1143,8 @@ exports[`BasicTable 🎏 base use 1`] = `
         <div
           class="ant-spin-nested-loading"
         >
-          <div>
-            <div
-              class="ant-spin ant-spin-spinning"
-            >
-              <span
-                class="ant-spin-dot ant-spin-dot-spin"
-              >
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-                <i
-                  class="ant-spin-dot-item"
-                />
-              </span>
-            </div>
-          </div>
           <div
-            class="ant-spin-container ant-spin-blur"
+            class="ant-spin-container"
           >
             <div
               class="ant-table ant-table-small"
@@ -1354,7 +1309,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 0"
                         >
                           <span
-                            aria-label="Edward King 0"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -1387,49 +1341,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -1501,7 +1412,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 0"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -1668,7 +1579,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 1"
                         >
                           <span
-                            aria-label="Edward King 1"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -1701,49 +1611,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -1815,7 +1682,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 1"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -1982,7 +1849,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 2"
                         >
                           <span
-                            aria-label="Edward King 2"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -2015,49 +1881,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -2129,7 +1952,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 2"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -2296,7 +2119,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 3"
                         >
                           <span
-                            aria-label="Edward King 3"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -2329,49 +2151,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -2443,7 +2222,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 3"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -2610,7 +2389,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 4"
                         >
                           <span
-                            aria-label="Edward King 4"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -2643,49 +2421,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -2757,7 +2492,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 4"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -2924,7 +2659,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 5"
                         >
                           <span
-                            aria-label="Edward King 5"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -2957,49 +2691,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -3071,7 +2762,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 5"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -3238,7 +2929,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 6"
                         >
                           <span
-                            aria-label="Edward King 6"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -3271,49 +2961,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -3385,7 +3032,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 6"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -3552,7 +3199,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 7"
                         >
                           <span
-                            aria-label="Edward King 7"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -3585,49 +3231,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -3699,7 +3302,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 7"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -3866,7 +3469,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 8"
                         >
                           <span
-                            aria-label="Edward King 8"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -3899,49 +3501,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -4013,7 +3572,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 8"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -4180,7 +3739,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 9"
                         >
                           <span
-                            aria-label="Edward King 9"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -4213,49 +3771,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -4327,7 +3842,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 9"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -4494,7 +4009,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 10"
                         >
                           <span
-                            aria-label="Edward King 10"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -4527,49 +4041,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -4641,7 +4112,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 10"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -4808,7 +4279,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 11"
                         >
                           <span
-                            aria-label="Edward King 11"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -4841,49 +4311,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -4955,7 +4382,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 11"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -5122,7 +4549,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 12"
                         >
                           <span
-                            aria-label="Edward King 12"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -5155,49 +4581,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -5269,7 +4652,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 12"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -5436,7 +4819,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 13"
                         >
                           <span
-                            aria-label="Edward King 13"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -5469,49 +4851,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -5583,7 +4922,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 13"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -5750,7 +5089,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 14"
                         >
                           <span
-                            aria-label="Edward King 14"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -5783,49 +5121,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -5897,7 +5192,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 14"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -6064,7 +5359,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 15"
                         >
                           <span
-                            aria-label="Edward King 15"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -6097,49 +5391,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -6211,7 +5462,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 15"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -6378,7 +5629,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 16"
                         >
                           <span
-                            aria-label="Edward King 16"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -6411,49 +5661,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -6525,7 +5732,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 16"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -6692,7 +5899,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 17"
                         >
                           <span
-                            aria-label="Edward King 17"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -6725,49 +5931,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -6839,7 +6002,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 17"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -7006,7 +6169,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 18"
                         >
                           <span
-                            aria-label="Edward King 18"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -7039,49 +6201,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -7153,7 +6272,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 18"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
@@ -7320,7 +6439,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="Edward King 19"
                         >
                           <span
-                            aria-label="Edward King 19"
                             class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
@@ -7353,49 +6471,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
-                            >
-                              lg
-                            </span>
-                            <span
-                              aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
-                            >
-                              <span
-                                aria-hidden="true"
-                              >
-                                ...
-                              </span>
-                              <div
-                                aria-label="复制"
-                                class="ant-typography-copy"
-                                role="button"
-                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
-                                tabindex="0"
-                              >
-                                <span
-                                  aria-label="copy"
-                                  class="anticon anticon-copy"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="copy"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-                                    />
-                                  </svg>
-                                </span>
-                              </div>
-                            </span>
                           </span>
                         </td>
                         <td
@@ -7467,7 +6542,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           title="London, Park Lane no. 19"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                             style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >

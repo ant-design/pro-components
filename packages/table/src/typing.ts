@@ -246,6 +246,10 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
 
   /** @name 操作自带的 form */
   formRef?: TableFormItem<T>['formRef'];
+
+  /** @name antd-table-wrapper-div */
+  tableRef?: React.RefObject<HTMLDivElement>;
+
   /** @name 渲染操作栏 */
   toolBarRender?: ToolBarProps<T>['toolBarRender'] | false;
 
