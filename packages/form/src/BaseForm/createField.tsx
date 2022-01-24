@@ -321,6 +321,8 @@ function createField<P extends ProFormFieldItemProps = any>(
     );
   };
 
+  // 标记是否是 proform 的组件
+  FieldWithContext.displayName = 'ProFormComponent';
   return FieldWithContext as ProFormComponent<P, ExtendsProps>;
 }
 
