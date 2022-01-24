@@ -4,6 +4,7 @@ import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
+import type { ProFieldValueType, ValueTypeWithFieldProps } from './types';
 import type { UseEditableUtilType } from './useEditableArray';
 
 export type PageInfo = {
@@ -12,70 +13,7 @@ export type PageInfo = {
   current: number;
 };
 
-/**
- * @param textarea 文本框
- * @param password 密码框
- * @param money 金额 option 操作 需要返回一个数组
- * @param date 日期 YYYY-MM-DD
- * @param dateWeek 周选择器
- * @param dateMonth 月选择器
- * @param dateQuarter 季度选择器
- * @param dateYear 年选择器
- * @param dateRange 日期范围 YYYY-MM-DD[]
- * @param dateTime 日期和时间 YYYY-MM-DD HH:mm:ss
- * @param dateTimeRange 范围日期和时间 YYYY-MM-DD HH:mm:ss[]
- * @param time: 时间 HH:mm:ss
- * @param timeRange: 时间区间 HH:mm:ss[]
- * @param index：序列
- * @param indexBorder：序列
- * @param progress: 进度条
- * @param percent: 百分比
- * @param digit 数值
- * @param second 秒速
- * @param fromNow 相对于当前时间
- * @param avatar 头像
- * @param code 代码块
- * @param image 图片设置
- * @param jsonCode Json 的代码块，格式化了一下
- * @param color 颜色选择器
- */
-export type ProFieldValueType =
-  | 'text'
-  | 'password'
-  | 'money'
-  | 'textarea'
-  | 'option'
-  | 'date'
-  | 'dateWeek'
-  | 'dateMonth'
-  | 'dateQuarter'
-  | 'dateYear'
-  | 'dateRange'
-  | 'dateTimeRange'
-  | 'dateTime'
-  | 'time'
-  | 'timeRange'
-  | 'select'
-  | 'checkbox'
-  | 'rate'
-  | 'radio'
-  | 'radioButton'
-  | 'index'
-  | 'indexBorder'
-  | 'progress'
-  | 'percent'
-  | 'digit'
-  | 'digitRange'
-  | 'second'
-  | 'avatar'
-  | 'code'
-  | 'switch'
-  | 'fromNow'
-  | 'image'
-  | 'jsonCode'
-  | 'cascader'
-  | 'treeSelect'
-  | 'color';
+export { ProFieldValueType } from './types';
 
 export type RequestOptionsType = {
   label?: React.ReactNode;
@@ -90,7 +28,6 @@ export type ProFieldRequestData<U = any> = (params: U, props: any) => Promise<Re
 
 export type ProFieldValueEnumType = ProSchemaValueEnumMap | ProSchemaValueEnumObj;
 
-// function return type
 export type ProFieldValueObjectType = {
   type: 'progress' | 'money' | 'percent' | 'image';
   status?: 'normal' | 'active' | 'success' | 'exception' | undefined;
@@ -165,6 +102,7 @@ export type ProCoreActionType<T = {}> = {
 > &
   T;
 
+/** @deprecated */
 export type ProSchemaValueType<ValueType> =
   | (ValueType | ProFieldValueType)
   | ProFieldValueObjectType;
@@ -188,11 +126,6 @@ export type ProSchema<
    */
   dataIndex?: string | number | (string | number)[];
 
-  /** 选择如何渲染相应的模式 */
-  valueType?:
-    | ((entity: Entity, type: ComponentsType) => ProSchemaValueType<ValueType>)
-    | ProSchemaValueType<ValueType>;
-
   /**
    * 支持 ReactNode 和 方法
    *
@@ -200,7 +133,7 @@ export type ProSchema<
    */
   title?:
     | ((
-        schema: Omit<ProSchema<Entity, ExtraProps>, 'render' | 'renderFormItem'>,
+        schema: ProSchema<Entity, ExtraProps>,
         type: ComponentsType,
         dom: React.ReactNode,
       ) => React.ReactNode)
@@ -221,20 +154,6 @@ export type ProSchema<
     | ((row: Entity) => ProSchemaValueEnumObj | ProSchemaValueEnumMap)
     | ProSchemaValueEnumObj
     | ProSchemaValueEnumMap;
-
-  /** 自定义的 fieldProps render */
-  fieldProps?:
-    | ((
-        form: FormInstance<any>,
-        config: ProSchema<Entity, ExtraProps> & {
-          type: ComponentsType;
-          isEditable?: boolean;
-          rowKey?: string;
-          rowIndex: number;
-          entity: Entity;
-        },
-      ) => ProSchemaFieldProps<ValueType>)
-    | ProSchemaFieldProps<ValueType>;
 
   /** @name 自定义的 formItemProps */
   formItemProps?:
@@ -308,10 +227,7 @@ export type ProSchema<
   debounceTime?: number;
   /** @name 从服务器请求的参数，改变了会触发 reload */
   params?:
-    | ((
-        record: Entity,
-        column: Omit<ProSchema<Entity, ExtraProps>, 'render' | 'renderFormItem'>,
-      ) => Record<string, any>)
+    | ((record: Entity, column: ProSchema<Entity, ExtraProps>) => Record<string, any>)
     | Record<string, any>;
   /** @name 依赖字段的name，暂时只在拥有 request 的项目中生效，会自动注入到 params 中 */
   dependencies?: NamePath[];
@@ -326,7 +242,8 @@ export type ProSchema<
   hideInSearch?: boolean;
   /** 设置到 ProField 上面的 Props，内部属性 */
   proFieldProps?: ProFieldProps;
-} & ExtraProps;
+} & ExtraProps &
+  ValueTypeWithFieldProps<Entity, ComponentsType, ExtraProps, ValueType>;
 
 export interface ProFieldProps {
   light?: boolean;
