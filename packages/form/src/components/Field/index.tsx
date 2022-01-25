@@ -64,22 +64,29 @@ const ProFormField: React.FC<
       : params;
   }, [dependenciesValues, params]);
 
-  // 防止 formItem 的值被吃掉
-  if (children) {
-    if (React.isValidElement(children)) {
-      return React.cloneElement(children, {
-        ...restProps,
-        onChange: (...restParams: any) => {
-          if (fieldProps?.onChange) {
-            (fieldProps?.onChange as any)?.(...restParams);
-            return;
-          }
-          onChange?.(...restParams);
-        },
-        ...children.props,
-      });
+  const childrenRender = useMemo(() => {
+    // 防止 formItem 的值被吃掉
+    if (children) {
+      if (React.isValidElement(children)) {
+        return React.cloneElement(children, {
+          ...restProps,
+          onChange: (...restParams: any) => {
+            if (fieldProps?.onChange) {
+              (fieldProps?.onChange as any)?.(...restParams);
+              return;
+            }
+            onChange?.(...restParams);
+          },
+          ...children.props,
+        });
+      }
+      return children as JSX.Element;
     }
-    return children as JSX.Element;
+    return;
+  }, [children, fieldProps?.onChange, onChange, restProps]);
+
+  if (childrenRender) {
+    return childrenRender;
   }
 
   return (

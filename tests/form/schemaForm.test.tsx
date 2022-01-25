@@ -1,4 +1,4 @@
-﻿import React from 'react';
+﻿import React, { createRef } from 'react';
 import { mount } from 'enzyme';
 import { BetaSchemaForm } from '@ant-design/pro-form';
 import type { ProFormColumnsType } from '@ant-design/pro-form';
@@ -258,6 +258,36 @@ describe('SchemaForm', () => {
     expect(html.find('#test').exists()).toBeTruthy();
   });
 
+  it('😊 support SchemaForm renderFormItem return false', async () => {
+    const formRef = createRef<FormInstance>();
+    const html = mount(
+      <BetaSchemaForm
+        formRef={formRef as any}
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            renderFormItem: (_, __, form) => {
+              return false;
+            },
+          },
+          {
+            title: '标题',
+            dataIndex: 'title2',
+            width: 200,
+            renderFormItem: () => {
+              return <Input id="test" />;
+            },
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+
+    expect(html.find('div.ant-form-item').length).toBe(1);
+  });
+
   it('😊 SchemaForm support render', async () => {
     const html = mount(
       <BetaSchemaForm
@@ -406,6 +436,17 @@ describe('SchemaForm', () => {
             width: 'md',
           },
         ],
+        [
+          {
+            dataIndex: 'next',
+            title: '第二步',
+            tooltip: '最长为 24 位',
+            fieldProps: {
+              placeholder: '请输入名称',
+            },
+            width: 'md',
+          },
+        ],
       ];
       const formRef = React.createRef<FormInstance>();
       const wrapper = mount(
@@ -416,12 +457,14 @@ describe('SchemaForm', () => {
           columns={formColumns.flat(layoutType !== 'StepsForm' ? 1 : 0) as any}
           steps={[
             {
-              title: 'Once',
+              title: '一步',
+            },
+            {
+              title: '两步',
             },
           ]}
         />,
       );
-      await waitForComponentToPaint(wrapper);
 
       expect(formRef.current).toBeTruthy();
 
@@ -432,6 +475,16 @@ describe('SchemaForm', () => {
       formRef.current!.setFieldsValue(value);
 
       expect(formRef.current!.getFieldsValue()).toMatchObject(value);
+
+      if (layoutType === 'StepsForm') {
+        wrapper.find('button[type="button"]').simulate('click');
+        await waitForComponentToPaint(wrapper, 1000);
+        const stepsValue = {
+          next: 'Step 2',
+        };
+        formRef.current!.setFieldsValue(stepsValue);
+        expect(formRef.current!.getFieldsValue()).toMatchObject(stepsValue);
+      }
     });
   });
 });

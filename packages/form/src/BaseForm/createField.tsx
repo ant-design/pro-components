@@ -119,7 +119,7 @@ function createField<P extends ProFormFieldItemProps = any>(
 
     // 支持测试用例 renderFormItem support return false
     useEffect(() => {
-      if (!rest.renderFormItem && shouldRender.current === false) {
+      if (shouldRender.current === false && rest.renderFormItem) {
         shouldRender.current = true;
         forceUpdate([]);
       }
@@ -221,9 +221,6 @@ function createField<P extends ProFormFieldItemProps = any>(
         shouldRender.current = false;
         // 由于renderFormItem可能会触发setState的执行，所以需要延迟执行
         setTimeout(() => forceUpdate([]));
-      } else if (shouldRender.current === false) {
-        shouldRender.current = true;
-        forceUpdate([]);
       }
       return renderDom;
     };
@@ -320,15 +317,7 @@ function createField<P extends ProFormFieldItemProps = any>(
           ...otherProps.lightProps,
         })}
       >
-        {rest.dependencies ? (
-          <ProFormDependency name={rest.dependencies}>
-            {() => {
-              return field;
-            }}
-          </ProFormDependency>
-        ) : (
-          field
-        )}
+        {field}
       </ProFormItem>
     );
   };

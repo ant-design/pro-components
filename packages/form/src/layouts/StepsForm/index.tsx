@@ -250,6 +250,7 @@ function StepsForm<T = Record<string, any>>(
   });
 
   const nextPage = useRefFunction(() => {
+    console.log('formArray: ', formArray, step);
     if (step > formArray.length - 2) return;
     setStep(step + 1);
   });
