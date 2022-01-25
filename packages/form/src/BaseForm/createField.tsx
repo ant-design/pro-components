@@ -12,6 +12,7 @@ import FieldContext from '../FieldContext';
 import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../interface';
 import ProFormItem from '../components/FormItem';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
+import { ProFormDependency } from '..';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -48,7 +49,7 @@ type FunctionFieldProps = {
 function createField<P extends ProFormFieldItemProps = any>(
   Field: React.ComponentType<P> | React.ForwardRefExoticComponent<P>,
   config?: ProFormItemCreateConfig,
-): ProFormComponent<P, ExtendsProps> {
+): ProFormComponent<P, ExtendsProps & FunctionFieldProps> {
   // 标记是否是 ProForm 的组件
   // @ts-ignore
   // eslint-disable-next-line no-param-reassign
@@ -85,7 +86,10 @@ function createField<P extends ProFormFieldItemProps = any>(
       ...rest
     } = { ...defaultProps, ...props };
 
-    const [only, forceUpdate] = useState<[]>();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [_, forceUpdate] = useState<[]>();
+    // onChange触发fieldProps,formItemProps重新执行
+    const [onlyChange, forceUpdateByOnChange] = useState<[]>();
 
     const shouldRender = useRef<boolean>(true);
     /** 从 context 中拿到的值 */
@@ -99,7 +103,7 @@ function createField<P extends ProFormFieldItemProps = any>(
         ...getFieldProps?.(),
       }),
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      [fieldContextValue.fieldProps, getFieldProps, only], // random for onChange
+      [fieldContextValue.fieldProps, getFieldProps, onlyChange, rest.dependenciesValues], // random for onChange or dependencies
     );
 
     const formItemProps = useMemo(
@@ -110,7 +114,7 @@ function createField<P extends ProFormFieldItemProps = any>(
         ...getFormItemProps?.(),
       }),
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      [fieldContextValue.formItemProps, getFormItemProps, only], // random for onChange
+      [fieldContextValue.formItemProps, getFormItemProps, onlyChange, rest.dependenciesValues], // random for onChange or dependencies
     );
 
     // 支持测试用例 renderFormItem support return false
@@ -199,7 +203,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     const onChange = useCallback(
       (...restParams) => {
         if (getFormItemProps || getFieldProps) {
-          forceUpdate([]);
+          forceUpdateByOnChange([]);
         }
         realFieldProps?.onChange?.(...restParams);
       },
@@ -316,14 +320,38 @@ function createField<P extends ProFormFieldItemProps = any>(
           ...otherProps.lightProps,
         })}
       >
-        {field}
+        {rest.dependencies ? (
+          <ProFormDependency name={rest.dependencies}>
+            {() => {
+              return field;
+            }}
+          </ProFormDependency>
+        ) : (
+          field
+        )}
       </ProFormItem>
     );
   };
 
   // 标记是否是 proform 的组件
   FieldWithContext.displayName = 'ProFormComponent';
-  return FieldWithContext as ProFormComponent<P, ExtendsProps>;
+
+  const Wrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
+    const { dependencies } = props;
+    return dependencies ? (
+      <ProFormDependency name={dependencies}>
+        {(values) => {
+          return (
+            <FieldWithContext dependenciesValues={values} dependencies={dependencies} {...props} />
+          );
+        }}
+      </ProFormDependency>
+    ) : (
+      <FieldWithContext dependencies={dependencies} {...props} />
+    );
+  };
+
+  return Wrapper;
 }
 
 export default createField;

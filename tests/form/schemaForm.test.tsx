@@ -69,6 +69,8 @@ describe('SchemaForm', () => {
 
   it('😊 SchemaForm support dependencies', async () => {
     const requestFn = jest.fn();
+    const fieldPropsFn = jest.fn();
+    const formItemPropsFn = jest.fn();
     const html = mount(
       <BetaSchemaForm
         columns={[
@@ -86,6 +88,8 @@ describe('SchemaForm', () => {
             dataIndex: 'state',
             valueType: 'select',
             dependencies: ['title'],
+            fieldProps: fieldPropsFn,
+            formItemProps: formItemPropsFn,
             request: async ({ title }) => {
               requestFn(title);
               return [
@@ -110,6 +114,55 @@ describe('SchemaForm', () => {
     });
     await waitForComponentToPaint(html);
     expect(requestFn).toBeCalledWith('qixian');
+    expect(formItemPropsFn).toBeCalledTimes(2);
+    expect(fieldPropsFn).toBeCalledTimes(2);
+  });
+
+  it('😊 SchemaForm columns do not interfere with each other', async () => {
+    const fieldPropsFn = jest.fn();
+    const formItemPropsFn = jest.fn();
+    const renderFormItemFn = jest.fn();
+    const html = mount(
+      <BetaSchemaForm
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            initialValue: 'name',
+            fieldProps: {
+              id: 'title',
+            },
+            renderFormItem: (schema, { defaultRender }) => {
+              renderFormItemFn();
+              return defaultRender(schema);
+            },
+          },
+          {
+            title: '选择器',
+            dataIndex: 'state',
+            valueType: 'select',
+            fieldProps: fieldPropsFn,
+            formItemProps: formItemPropsFn,
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(fieldPropsFn).toBeCalledTimes(1);
+    expect(formItemPropsFn).toBeCalledTimes(1);
+    expect(renderFormItemFn).toBeCalledTimes(1);
+    act(() => {
+      html.find('input#title').simulate('change', {
+        target: {
+          value: 'qixian',
+        },
+      });
+    });
+    await waitForComponentToPaint(html);
+    expect(renderFormItemFn).toBeCalledTimes(2);
+    expect(formItemPropsFn).toBeCalledTimes(1);
+    expect(fieldPropsFn).toBeCalledTimes(1);
   });
 
   it('🐲 SchemaForm support StepsForm', async () => {
