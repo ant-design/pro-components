@@ -1,114 +1,19 @@
 ﻿/* eslint-disable react/no-array-index-key */
 import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
-import type { FormInstance, FormProps } from 'antd';
-import { Divider } from 'antd';
-import type {
-  DrawerFormProps,
-  QueryFilterProps,
-  ProFormProps,
-  StepFormProps,
-  ModalFormProps,
-  StepsFormProps,
-} from '../../index';
-import { ProFormFieldSet, ProFormDependency } from '../../index';
-import { ProFormGroup, ProFormField } from '../../index';
-import type {
-  ProCoreActionType,
-  ProSchema,
-  ProSchemaComponentTypes,
-  SearchTransformKeyFn,
-} from '@ant-design/pro-utils';
+import type { FormInstance } from 'antd';
+import type { ProFormColumnsType, ProFormProps, StepsFormProps } from '../../index';
+
 import { LabelIconTip, omitUndefined } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
-import omit from 'omit.js';
 import ProForm, { DrawerForm, ModalForm, QueryFilter, LightFilter, StepsForm } from '../../index';
-import type { ProFormFieldProps } from '../Field';
-import ProFormList from '../List';
-import type { NamePath } from 'antd/lib/form/interface';
-import { noteOnce } from 'rc-util/lib/warning';
+import { renderValueType } from './valueType';
+import type {
+  FormSchema,
+  ProFormRenderValueTypeHelpers,
+  ProFormRenderValueTypeItem,
+} from './typing';
 
-export type ExtraProColumnType = {
-  tooltip?: React.ReactNode;
-  key?: React.Key;
-  className?: string;
-  /**
-   * @type auto 使用组件默认的宽度
-   * @type xs=104px 适用于短数字、短文本或选项。
-   * @type sm=216px 适用于较短字段录入、如姓名、电话、ID 等。
-   * @type md=328px 标准宽度，适用于大部分字段长度。
-   * @type lg=440px 适用于较长字段录入，如长网址、标签组、文件路径等。
-   * @type xl=552px 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
-   */
-  width?: string | number;
-
-  name?: NamePath;
-};
-
-/** ProForm 的特色 layout */
-export type ProFormLayoutType =
-  | 'Form'
-  | 'ModalForm'
-  | 'DrawerForm'
-  | 'StepsForm'
-  | 'StepForm'
-  | 'LightFilter'
-  | 'QueryFilter'
-  | 'Embed';
-
-/** ProForm 支持的相关类型 */
-export type ProFormPropsType<T> = Omit<DrawerFormProps<T>, 'onFinish'> &
-  Omit<QueryFilterProps<T>, 'onFinish'> &
-  ProFormProps<T> &
-  Omit<StepFormProps<T>, 'onFinish'> &
-  Omit<ModalFormProps<T>, 'onFinish'> & {
-    layoutType?: ProFormLayoutType;
-  };
-
-export type FormFieldType = 'group' | 'formList' | 'formSet' | 'divider' | 'dependency';
-
-export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
-  T,
-  ExtraProColumnType & {
-    index?: number;
-    /**
-     * 每个表单占据的格子大小
-     *
-     * @param 总宽度 = span* colSize
-     * @param 默认为 1
-     */
-    colSize?: number;
-    /** 是否只读模式 */
-    readonly?: boolean;
-    /** 搜索表单的默认值 */
-    initialValue?: any;
-    /** 转化数据 */
-    transform?: SearchTransformKeyFn;
-    /** Form 的排序 */
-    order?: number;
-    /** 嵌套子项 */
-    columns?:
-      | ProFormColumnsType<T, ValueType | FormFieldType>[]
-      | ((values: any) => ProFormColumnsType<T, ValueType | FormFieldType>[]);
-  },
-  ProSchemaComponentTypes,
-  ValueType | FormFieldType
->;
-
-export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
-  title?:
-    | React.ReactNode
-    | ((
-        schema: ProFormColumnsType<T, ValueType>,
-        type: 'form',
-        dom: React.ReactNode,
-      ) => React.ReactNode);
-  description?: React.ReactNode;
-  steps?: StepFormProps[];
-  columns: ProFormColumnsType<T, ValueType>[] | ProFormColumnsType<T, ValueType>[][];
-  type?: any;
-  action?: React.MutableRefObject<ProCoreActionType | undefined>;
-} & Omit<FormProps<T>, 'onFinish'> &
-  ProFormPropsType<T>;
+export * from './typing';
 
 const FormComments = {
   DrawerForm,
@@ -161,8 +66,8 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
    *
    * @param items
    */
-  const genItems = useCallback(
-    (items: FormSchema<T, ValueType>['columns'], update?: number) => {
+  const genItems: ProFormRenderValueTypeHelpers<T, ValueType>['genItems'] = useCallback(
+    (items: FormSchema<T, ValueType>['columns']) => {
       if (layoutType === 'StepsForm') return [];
       return (items as ProFormColumnsType<T, ValueType>[])
         .filter((originItem) => {
@@ -187,7 +92,10 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
               tooltip={originItem.tooltip || originItem.tip}
             />,
           );
+
           const item = omitUndefined({
+            title,
+            label: title,
             name: originItem.name,
             valueType: runFunction(originItem.valueType, {}),
             key: originItem.key,
@@ -195,169 +103,37 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             valueEnum: originItem.valueEnum,
             dataIndex: originItem.key || originItem.dataIndex,
             initialValue: originItem.initialValue,
-            fieldProps: originItem.fieldProps as any,
-            formItemProps: originItem.formItemProps,
             width: originItem.width,
-            render: originItem.render,
-            renderFormItem: originItem.renderFormItem,
             index: originItem.index,
             readonly: originItem.readonly,
-            transform: originItem.transform,
             colSize: originItem.colSize,
             className: originItem.className,
+            tooltip: originItem.tooltip || originItem.tip,
+            dependencies: originItem.dependencies,
+            proFieldProps: originItem.proFieldProps,
+            getFieldProps: originItem.fieldProps
+              ? () => runFunction(originItem.fieldProps, refMap.form, originItem)
+              : undefined,
+            getFormItemProps: originItem.fieldProps
+              ? () => runFunction(originItem.formItemProps, refMap.form, originItem)
+              : undefined,
+            render: originItem.render,
+            renderFormItem: originItem.renderFormItem,
             renderText: originItem.renderText,
             request: originItem.request,
             params: originItem.params,
-            tooltip: originItem.tooltip || originItem.tip,
-            title,
-            dependencies: originItem.dependencies,
-            proFieldProps: originItem.proFieldProps,
+            transform: originItem.transform,
           });
 
-          const getFieldProps = () => runFunction(item.fieldProps, refMap.form, originItem);
-          const getFormItemProps = () => runFunction(item.formItemProps, refMap.form, originItem);
+          item.key = item.key || item.dataIndex?.toString() || index;
 
-          // 几种特殊的 value 不处理
-          if (
-            item.valueType &&
-            typeof item.valueType === 'string' &&
-            ['index', 'indexBorder', 'option'].includes(item?.valueType)
-          ) {
-            return null;
-          }
-
-          const key = item.key || item.dataIndex?.toString() || index;
-
-          if (item.valueType === 'group') {
-            if (!item.columns || !Array.isArray(item.columns)) return null;
-
-            return (
-              <ProFormGroup key={key} label={title} {...getFieldProps()}>
-                {genItems(item.columns)}
-              </ProFormGroup>
-            );
-          }
-
-          if (item.valueType === 'formList' && item.dataIndex) {
-            if (!item.columns || !Array.isArray(item.columns)) return null;
-            return (
-              <ProFormList
-                key={key}
-                name={item.dataIndex}
-                label={item.title}
-                initialValue={item.initialValue}
-                {...getFieldProps()}
-              >
-                {genItems(item.columns)}
-              </ProFormList>
-            );
-          }
-
-          if (item.valueType === 'formSet' && item.dataIndex) {
-            if (!item.columns || !Array.isArray(item.columns)) return null;
-            return (
-              <ProFormFieldSet
-                {...getFormItemProps()}
-                key={key}
-                initialValue={item.initialValue}
-                name={item.dataIndex}
-                label={item.title}
-                {...getFieldProps()}
-              >
-                {genItems(item.columns, update)}
-              </ProFormFieldSet>
-            );
-          }
-
-          /** 分割线 */
-          if (item.valueType === 'divider') {
-            return <Divider {...getFieldProps()} key={index} />;
-          }
-
-          /** ProFormDependency */
-          if (item.valueType === 'dependency') {
-            const fieldProps = getFieldProps();
-            noteOnce(
-              Array.isArray(fieldProps?.name),
-              'SchemaForm: fieldProps.name should be NamePath[] when valueType is "dependency"',
-            );
-            noteOnce(
-              typeof item.columns === 'function',
-              'SchemaForm: columns should be a function when valueType is "dependency"',
-            );
-
-            if (!Array.isArray(fieldProps?.name)) return null;
-
-            return (
-              <ProFormDependency {...fieldProps} key={key}>
-                {(values: any) => {
-                  if (!item.columns || typeof item.columns !== 'function') return null;
-                  return genItems(item.columns(values));
-                }}
-              </ProFormDependency>
-            );
-          }
-
-          /** 公用的 类型 props */
-          const formFieldProps: ProFormFieldProps = {
-            label: item.title,
-            ...omit(item, [
-              'dataIndex',
-              'width',
-              'render',
-              'renderFormItem',
-              'renderText',
-              'title',
-              'fieldProps',
-              'formItemProps',
-            ]),
-            getFieldProps: item.fieldProps ? getFieldProps : undefined,
-            getFormItemProps: item.formItemProps ? getFormItemProps : undefined,
-            name: item.dataIndex,
-            width: item.width as 'md',
-            render: item?.render
-              ? (dom, entity, renderIndex) =>
-                  item?.render?.(dom, entity, renderIndex, action?.current, {
-                    type,
-                    ...item,
-                    formItemProps: getFormItemProps(),
-                    fieldProps: getFieldProps(),
-                  })
-              : undefined,
-          };
-
-          const defaultRender = () => {
-            return <ProFormField {...formFieldProps} ignoreFormItem={true} />;
-          };
-
-          return (
-            <ProFormField
-              {...formFieldProps}
-              key={`${key}-${index}`}
-              renderFormItem={
-                item?.renderFormItem
-                  ? (schema, config) => {
-                      const renderConfig = omitUndefined({ ...config, onChange: undefined });
-                      return item?.renderFormItem?.(
-                        {
-                          type,
-                          ...item,
-                          formItemProps: getFormItemProps(),
-                          fieldProps: getFieldProps(),
-                          originProps: originItem,
-                        },
-                        {
-                          ...renderConfig,
-                          defaultRender,
-                          type,
-                        },
-                        refMap.form!,
-                      );
-                    }
-                  : undefined
-              }
-            />
-          );
+          return renderValueType(item as ProFormRenderValueTypeItem, {
+            action,
+            type,
+            originItem,
+            refMap,
+            genItems,
+          });
         });
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps

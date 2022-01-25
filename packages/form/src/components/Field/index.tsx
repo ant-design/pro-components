@@ -1,14 +1,13 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import React from 'react';
 import ProField from '@ant-design/pro-field';
-import type { InputProps, SelectProps } from 'antd';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction, isDeepEqualReact } from '@ant-design/pro-utils';
 import createField from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
 import ProFormDependency from '../Dependency';
 
-export type ProFormFieldProps<T = any, FiledProps = InputProps & SelectProps<string>> = ProSchema<
+export type ProFormFieldProps<T = any, FiledProps = Record<string, any>> = ProSchema<
   T,
   ProFormFieldItemProps<FiledProps> & {
     mode?: 'edit' | 'read' | 'update';

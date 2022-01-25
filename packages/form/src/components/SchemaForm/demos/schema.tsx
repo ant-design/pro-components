@@ -28,6 +28,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
   {
     title: '标题',
     dataIndex: 'title',
+    valueType: 'index',
     formItemProps: {
       rules: [
         {
