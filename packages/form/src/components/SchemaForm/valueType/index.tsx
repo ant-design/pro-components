@@ -34,4 +34,6 @@ export const renderValueType: ProSchemaRenderValueTypeFunction = (item, helpers)
       return dom;
     }
   }
+
+  return true;
 };
