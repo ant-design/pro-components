@@ -107,7 +107,7 @@ export type ProFormRenderValueTypeHelpers<T = Record<string, any>, ValueType = '
     form: FormInstance<any> | undefined;
   };
   genItems: (items: FormSchema<T, ValueType>['columns']) => React.ReactNode[];
-} & Pick<FormSchema, 'action'>;
+} & Pick<FormSchema<T, ValueType>, 'action'>;
 
 export type ProSchemaRenderValueTypeFunction<T = any, ValueType = any> = (
   item: ProFormRenderValueTypeItem<T, ValueType>,

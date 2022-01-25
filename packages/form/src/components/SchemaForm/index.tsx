@@ -7,11 +7,7 @@ import { LabelIconTip, omitUndefined } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import ProForm, { DrawerForm, ModalForm, QueryFilter, LightFilter, StepsForm } from '../../index';
 import { renderValueType } from './valueType';
-import type {
-  FormSchema,
-  ProFormRenderValueTypeHelpers,
-  ProFormRenderValueTypeItem,
-} from './typing';
+import type { FormSchema, ProFormRenderValueTypeHelpers } from './typing';
 
 export * from './typing';
 
@@ -127,7 +123,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
           item.key = item.key || item.dataIndex?.toString() || index;
 
-          return renderValueType(item as ProFormRenderValueTypeItem, {
+          return renderValueType(item, {
             action,
             type,
             originItem,
