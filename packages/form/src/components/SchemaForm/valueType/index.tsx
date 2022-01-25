@@ -15,7 +15,6 @@ const tasks: ProSchemaRenderValueTypeFunction[] = [
   formSet,
   divider,
   dependency,
-  field,
 ];
 
 export const renderValueType: ProSchemaRenderValueTypeFunction = (item, helpers) => {
@@ -24,9 +23,9 @@ export const renderValueType: ProSchemaRenderValueTypeFunction = (item, helpers)
     const dom = task(item, helpers);
 
     // False 不再遍历
-    if (dom === false) {
-      return false;
-    } else if (dom === true) {
+    // if (dom === false) {
+    //   return false;
+    if (dom === true) {
       // True 继续下一次
       continue;
     } else {
@@ -35,5 +34,6 @@ export const renderValueType: ProSchemaRenderValueTypeFunction = (item, helpers)
     }
   }
 
-  return true;
+  // 最后执行
+  return field(item, helpers);
 };
