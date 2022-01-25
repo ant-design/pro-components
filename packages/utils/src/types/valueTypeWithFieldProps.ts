@@ -219,11 +219,12 @@ type FieldPropsTypeBase<Entity, ComponentsType, ExtraProps, FieldPropsType> =
   | FieldPropsType
   | Record<string, any>;
 
-type PickFieldPropsByValueType<Type> = [ProFieldValueTypeWithFieldProps] extends [infer Item]
-  ? Item extends { valueType: any; fieldProps: any }
-    ? Type extends Item['valueType']
-      ? Item['fieldProps']
-      : never
+type PickFieldPropsByValueType<T> = ProFieldValueTypeWithFieldProps extends {
+  valueType: infer V;
+  fieldProps: infer F;
+}
+  ? T extends V
+    ? F
     : never
   : never;
 
