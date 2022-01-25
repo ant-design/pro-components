@@ -92,7 +92,7 @@ const InternalFormItem: React.FC<InternalProps> = ({
             errorList: JSX.Element;
             extra: JSX.Element;
           },
-        ) => <InlineErrorFormItem inputProps={inputProps} {...doms} />,
+        ) => <InlineErrorFormItem inputProps={inputProps} popoverProps={popoverProps} {...doms} />,
       }}
       {...rest}
       style={{
