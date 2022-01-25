@@ -17,6 +17,10 @@ export type ProFormFieldProps<T = any, FiledProps = Record<string, any>> = ProSc
     text?: any;
     getFieldProps?: () => Record<string, any>;
     getFormItemProps?: () => Record<string, any>;
+    /**
+     * dependencies value
+     */
+    dependenciesValues?: Record<string, any>;
   },
   any,
   any
