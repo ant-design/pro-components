@@ -63,9 +63,8 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
    * @param items
    */
   const genItems: ProFormRenderValueTypeHelpers<T, ValueType>['genItems'] = useCallback(
-    (items: FormSchema<T, ValueType>['columns']) => {
-      if (layoutType === 'StepsForm') return [];
-      return (items as ProFormColumnsType<T, ValueType>[])
+    (items: ProFormColumnsType<T, ValueType>[]) => {
+      return items
         .filter((originItem) => {
           if (originItem.hideInForm && type === 'form') {
             return false;
@@ -132,7 +131,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           });
         });
     },
-    [action, layoutType, refMap, type],
+    [action, refMap, type],
   );
 
   const onCurrentChange: StepsFormProps['onCurrentChange'] = useCallback(
@@ -165,7 +164,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     if (layoutType === 'StepsForm') {
       return;
     }
-    return genItems(columns);
+    return genItems(columns as any);
   }, [columns, genItems, layoutType]);
 
   /** 如果是StepsForm */
