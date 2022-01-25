@@ -132,8 +132,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           });
         });
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [action, layoutType, type],
+    [action, layoutType, refMap, type],
   );
 
   const onCurrentChange: StepsFormProps['onCurrentChange'] = useCallback(
