@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.52.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.13...@ant-design/pro-form@1.52.14) (2022-01-25)
+
+### Bug Fixes
+
+- **form:** BetaSchemaForm setFieldsValue 失效 ([#4516](https://github.com/ant-design/pro-components/issues/4516)) ([99fb154](https://github.com/ant-design/pro-components/commit/99fb15446a85e1a36edd5fa59cd762c76a68a4d8))
+- **form:** make sure it is valid to get the form instance through formRef ([#4517](https://github.com/ant-design/pro-components/issues/4517)) ([38d1f92](https://github.com/ant-design/pro-components/commit/38d1f92199ddad1390679ee020d517e68c61c235))
+- **form:** proformlist style bug ([#4524](https://github.com/ant-design/pro-components/issues/4524)) ([02cb00a](https://github.com/ant-design/pro-components/commit/02cb00a4a8073b148dd97a577577f23bc6d954ef))
+
 ## [1.52.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.12...@ant-design/pro-form@1.52.13) (2022-01-21)
 
 ### Bug Fixes

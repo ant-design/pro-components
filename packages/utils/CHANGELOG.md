@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.33.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.7...@ant-design/pro-utils@1.33.0) (2022-01-25)
+
+### Bug Fixes
+
+- **utils:** pass popoverProps to Popover in InlineErrorFormItem ([#4540](https://github.com/ant-design/pro-components/issues/4540)) ([8ff67fc](https://github.com/ant-design/pro-components/commit/8ff67fc3bf4ef7c9ee893d54e510d1c69e7b2a47))
+
+### Features
+
+- **form:** enhancement type ([#4523](https://github.com/ant-design/pro-components/issues/4523)) ([9c2a10b](https://github.com/ant-design/pro-components/commit/9c2a10bcc967e42cd97344f304aee8b4e1f86b53))
+
 ## [1.32.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.6...@ant-design/pro-utils@1.32.7) (2022-01-21)
 
 ### Bug Fixes
