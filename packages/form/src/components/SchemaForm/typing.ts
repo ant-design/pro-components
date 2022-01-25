@@ -10,7 +10,7 @@ import type { DrawerFormProps } from '../../layouts/DrawerForm';
 import type { ModalFormProps } from '../../layouts/ModalForm';
 import type { ProFormProps } from '../../layouts/ProForm';
 import type { QueryFilterProps } from '../../layouts/QueryFilter';
-import type { StepFormProps } from '../../layouts/StepsForm';
+import type { StepFormProps, StepsFormProps } from '../../layouts/StepsForm';
 
 export type ExtraProColumnType = {
   tooltip?: React.ReactNode;
@@ -45,10 +45,8 @@ export type ProFormPropsType<T> = Omit<DrawerFormProps<T>, 'onFinish'> &
   Omit<QueryFilterProps<T>, 'onFinish'> &
   ProFormProps<T> &
   Omit<StepFormProps<T>, 'onFinish'> &
-  Omit<ModalFormProps<T>, 'onFinish'> & {
-    layoutType?: ProFormLayoutType;
-  };
-
+  Omit<ModalFormProps<T>, 'onFinish'> &
+  Omit<StepsFormProps<T>, 'onFinish'>;
 export type FormFieldType = 'group' | 'formList' | 'formSet' | 'divider' | 'dependency';
 
 export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
@@ -92,6 +90,7 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
   columns: ProFormColumnsType<T, ValueType>[] | ProFormColumnsType<T, ValueType>[][];
   type?: any;
   action?: React.MutableRefObject<ProCoreActionType | undefined>;
+  layoutType?: ProFormLayoutType;
 } & Omit<FormProps<T>, 'onFinish'> &
   ProFormPropsType<T>;
 

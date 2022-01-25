@@ -32,7 +32,7 @@ const noop: any = () => {};
 function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
   const {
     columns,
-    layoutType = 'ProForm',
+    layoutType = 'Form',
     steps = [],
     type = 'form',
     action,

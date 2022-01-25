@@ -465,6 +465,7 @@ describe('SchemaForm', () => {
           ]}
         />,
       );
+      await waitForComponentToPaint(wrapper);
 
       expect(formRef.current).toBeTruthy();
 
