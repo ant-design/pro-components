@@ -1,4 +1,4 @@
-import { ProFormGroup } from '@ant-design/pro-form';
+import { ProFormGroup } from '../../../';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';
 
 export const group: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {

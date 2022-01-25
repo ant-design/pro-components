@@ -1,4 +1,4 @@
-import { ProFormField } from '@ant-design/pro-form';
+import { ProFormField } from '../../../';
 import { omitUndefined } from '@ant-design/pro-utils';
 import type { ProFormFieldProps } from '../../Field';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';
