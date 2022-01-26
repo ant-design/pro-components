@@ -299,6 +299,8 @@ describe('SchemaForm', () => {
       }),
     );
 
+    await waitForComponentToPaint(html);
+
     expect(html.find('div.ant-form-item').length).toBe(2);
   });
 

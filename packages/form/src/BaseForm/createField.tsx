@@ -4,6 +4,7 @@ import {
   omitUndefined,
   usePrevious,
   isDeepEqualReact,
+  useRefFunction,
 } from '@ant-design/pro-utils';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
@@ -13,6 +14,7 @@ import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } fro
 import ProFormItem from '../components/FormItem';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
 import { ProFormDependency } from '..';
+import type { NamePath } from 'rc-field-form/es/interface';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -71,7 +73,6 @@ function createField<P extends ProFormFieldItemProps = any>(
       tooltip,
       placeholder,
       width,
-      proFieldProps,
       bordered,
       messageVariables,
       ignoreFormItem,
@@ -83,11 +84,15 @@ function createField<P extends ProFormFieldItemProps = any>(
       getFieldProps,
       filedConfig,
       cacheForSwr,
+      proFieldProps,
       ...rest
     } = { ...defaultProps, ...props };
 
+    const propsRenderFormItem = useRefFunction(rest.renderFormItem);
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, forceUpdate] = useState<[]>();
+
     // onChange触发fieldProps,formItemProps重新执行
     const [onlyChange, forceUpdateByOnChange] = useState<[]>();
 
@@ -120,9 +125,9 @@ function createField<P extends ProFormFieldItemProps = any>(
     // 支持测试用例 renderFormItem support return false
     useEffect(() => {
       if (
-        (shouldRender.current === false && rest.renderFormItem) ||
+        shouldRender.current === false &&
         // 借助 dependenciesValues 重新执行renderFormItem
-        rest.dependenciesValues
+        (rest.renderFormItem || rest.dependenciesValues)
       ) {
         shouldRender.current = true;
         forceUpdate([]);
@@ -200,7 +205,6 @@ function createField<P extends ProFormFieldItemProps = any>(
       delete realFieldPropsStyle.width;
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     const propsValueType = useMemo(() => (rest as any).valueType, [(rest as any).valueType]);
     const prefRest = usePrevious(rest);
 
@@ -216,20 +220,64 @@ function createField<P extends ProFormFieldItemProps = any>(
       [getFieldProps, getFormItemProps, realFieldProps, rest.renderFormItem],
     );
 
-    const renderFormItem = (...args: any[]) => {
-      const renderDom = rest.renderFormItem(...args);
+    const renderFormItem = useCallback(
+      (...args: any) => {
+        const renderDom = propsRenderFormItem(...args);
 
-      // 支持renderFormItem返回false||null||undefined后渲染组件
-      if (
-        (renderDom === false || renderDom === null || renderDom === undefined) &&
-        shouldRender.current === true
-      ) {
-        shouldRender.current = false;
-        // 由于renderFormItem可能会触发setState的执行，所以需要延迟执行
-        setTimeout(() => forceUpdate([]));
-      }
-      return renderDom;
-    };
+        // 支持renderFormItem返回false||null||undefined后渲染组件
+        if (
+          (renderDom === false || renderDom === null || renderDom === undefined) &&
+          shouldRender.current === true
+        ) {
+          shouldRender.current = false;
+          // 由于renderFormItem可能会触发setState的执行，所以需要延迟执行
+          setTimeout(() => forceUpdate([]));
+        }
+        return renderDom;
+      },
+      [propsRenderFormItem],
+    );
+
+    const style = useMemo(() => {
+      return omitUndefined({
+        width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
+        ...realFieldPropsStyle,
+      });
+    }, [realFieldPropsStyle, width]);
+
+    const className = useMemo(() => {
+      return (
+        classnames(realFieldProps?.className, {
+          'pro-field': width && WIDTH_SIZE_ENUM[width],
+          [`pro-field-${width}`]:
+            width &&
+            // 有些 valueType 不需要宽度
+            !ignoreWidthValueType.includes(propsValueType as 'text') &&
+            !ignoreWidth &&
+            WIDTH_SIZE_ENUM[width],
+        }) || undefined
+      );
+    }, [ignoreWidth, ignoreWidthValueType, propsValueType, realFieldProps?.className, width]);
+
+    const fieldProFieldProps = useMemo(() => {
+      return omitUndefined({
+        mode: rest?.mode,
+        readonly,
+        params: rest.params,
+        proFieldKey: proFieldKey,
+        ...proFieldProps,
+      });
+    }, [proFieldKey, readonly, rest?.mode, rest.params, proFieldProps]);
+
+    const fieldFieldProps = useMemo(() => {
+      return {
+        onChange,
+        allowClear,
+        ...realFieldProps,
+        style,
+        className,
+      };
+    }, [allowClear, className, onChange, realFieldProps, style]);
 
     const field = useMemo(() => {
       return (
@@ -238,52 +286,25 @@ function createField<P extends ProFormFieldItemProps = any>(
           // 比如 ProFormSelect 的 request
           {...(rest as P)}
           renderFormItem={rest.renderFormItem ? renderFormItem : undefined}
-          fieldProps={omitUndefined({
-            onChange,
-            allowClear,
-            ...realFieldProps,
-            style: omitUndefined({
-              width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
-              ...realFieldPropsStyle,
-            }),
-            className:
-              classnames(realFieldProps?.className, {
-                'pro-field': width && WIDTH_SIZE_ENUM[width],
-                [`pro-field-${width}`]:
-                  width &&
-                  // 有些 valueType 不需要宽度
-                  !ignoreWidthValueType.includes(propsValueType as 'text') &&
-                  !ignoreWidth &&
-                  WIDTH_SIZE_ENUM[width],
-              }) || undefined,
-          })}
-          proFieldProps={omitUndefined({
-            mode: rest?.mode,
-            readonly,
-            params: rest.params,
-            proFieldKey: proFieldKey,
-            ...proFieldProps,
-          })}
+          fieldProps={fieldFieldProps}
+          proFieldProps={fieldProFieldProps}
         />
       );
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
-      allowClear,
-      ignoreWidth,
-      ignoreWidthValueType,
-      proFieldKey,
+      renderFormItem,
+      fieldProFieldProps,
+      fieldFieldProps,
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      stringify(proFieldProps),
-      onChange,
-      propsValueType,
-      readonly,
-      realFieldProps,
-      realFieldPropsStyle,
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      isDeepEqualReact(prefRest, rest, ['onChange', 'onBlur', 'onFocus', 'record'])
+      isDeepEqualReact(prefRest, rest, [
+        'onChange',
+        'onBlur',
+        'onFocus',
+        'record',
+        'renderFormItem',
+      ])
         ? undefined
         : {},
-      width,
     ]);
 
     if (shouldRender.current === false) {
