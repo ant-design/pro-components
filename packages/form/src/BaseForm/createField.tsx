@@ -14,7 +14,6 @@ import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } fro
 import ProFormItem from '../components/FormItem';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
 import { ProFormDependency } from '..';
-import type { NamePath } from 'rc-field-form/es/interface';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -205,6 +204,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       delete realFieldPropsStyle.width;
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const propsValueType = useMemo(() => (rest as any).valueType, [(rest as any).valueType]);
     const prefRest = usePrevious(rest);
 
