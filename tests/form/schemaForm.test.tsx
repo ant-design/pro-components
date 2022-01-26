@@ -79,6 +79,7 @@ describe('SchemaForm', () => {
             dataIndex: 'title',
             width: 200,
             initialValue: 'name',
+            formItemProps: formItemPropsFn,
             fieldProps: {
               id: 'title',
             },
@@ -89,7 +90,6 @@ describe('SchemaForm', () => {
             valueType: 'select',
             dependencies: ['title'],
             fieldProps: fieldPropsFn,
-            formItemProps: formItemPropsFn,
             request: async ({ title }) => {
               requestFn(title);
               return [
@@ -268,7 +268,11 @@ describe('SchemaForm', () => {
             title: '标题',
             dataIndex: 'title',
             width: 200,
+            dependencies: ['title2'],
             renderFormItem: (_, __, form) => {
+              if (form.getFieldValue('title2') === 'show') {
+                return <Input />;
+              }
               return false;
             },
           },
@@ -277,7 +281,7 @@ describe('SchemaForm', () => {
             dataIndex: 'title2',
             width: 200,
             renderFormItem: () => {
-              return <Input id="test" />;
+              return <Input id="test-input" />;
             },
           },
         ]}
@@ -286,6 +290,16 @@ describe('SchemaForm', () => {
     await waitForComponentToPaint(html);
 
     expect(html.find('div.ant-form-item').length).toBe(1);
+
+    expect(
+      html.find('input#test-input').simulate('change', {
+        target: {
+          value: 'show',
+        },
+      }),
+    );
+
+    expect(html.find('div.ant-form-item').length).toBe(2);
   });
 
   it('😊 SchemaForm support render', async () => {

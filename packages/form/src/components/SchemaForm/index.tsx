@@ -109,7 +109,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             getFieldProps: originItem.fieldProps
               ? () => runFunction(originItem.fieldProps, refMap.form, originItem)
               : undefined,
-            getFormItemProps: originItem.fieldProps
+            getFormItemProps: originItem.formItemProps
               ? () => runFunction(originItem.formItemProps, refMap.form, originItem)
               : undefined,
             render: originItem.render,

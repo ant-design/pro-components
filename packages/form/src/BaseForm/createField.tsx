@@ -119,11 +119,15 @@ function createField<P extends ProFormFieldItemProps = any>(
 
     // 支持测试用例 renderFormItem support return false
     useEffect(() => {
-      if (shouldRender.current === false && rest.renderFormItem) {
+      if (
+        (shouldRender.current === false && rest.renderFormItem) ||
+        // 借助 dependenciesValues 重新执行renderFormItem
+        rest.dependenciesValues
+      ) {
         shouldRender.current = true;
         forceUpdate([]);
       }
-    }, [rest.renderFormItem]);
+    }, [rest.dependenciesValues, rest.renderFormItem]);
 
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
@@ -204,10 +208,12 @@ function createField<P extends ProFormFieldItemProps = any>(
       (...restParams) => {
         if (getFormItemProps || getFieldProps) {
           forceUpdateByOnChange([]);
+        } else if (rest.renderFormItem) {
+          forceUpdate([]);
         }
         realFieldProps?.onChange?.(...restParams);
       },
-      [getFieldProps, getFormItemProps, realFieldProps],
+      [getFieldProps, getFormItemProps, realFieldProps, rest.renderFormItem],
     );
 
     const renderFormItem = (...args: any[]) => {
