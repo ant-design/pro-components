@@ -33,6 +33,8 @@ const WIDTH_SIZE_ENUM = {
   xl: 552,
 };
 
+const ignoreWidthValueType = ['switch', 'radioButton', 'radio', 'rate'];
+
 type ProFormComponent<P, Extends> = React.ComponentType<P & Extends>;
 
 /** 处理fieldProps和formItemProps为function时传进来的方法, 目前只在SchemaForm时可能会有 */
@@ -96,18 +98,36 @@ function createField<P extends ProFormFieldItemProps = any>(
     const [onlyChange, forceUpdateByOnChange] = useState<[]>();
 
     const shouldRender = useRef<boolean>(true);
+
     /** 从 context 中拿到的值 */
     const fieldContextValue = React.useContext(FieldContext);
 
     const fieldProps = useMemo(
-      () => ({
-        ...fieldContextValue.fieldProps,
-        // 支持未传递getFieldProps的情况
-        ...(rest.fieldProps as any),
-        ...getFieldProps?.(),
-      }),
+      () => {
+        const newFieldProps = {
+          ...(ignoreFormItem ? omitUndefined({ value: rest.value }) : {}),
+          placeholder,
+          disabled: props.disabled,
+          ...fieldContextValue.fieldProps,
+          ...(rest.fieldProps as any),
+          // 支持未传递getFieldProps的情况
+          ...getFieldProps?.(),
+        };
+
+        newFieldProps.style = omitUndefined(newFieldProps?.style);
+        return newFieldProps;
+      },
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      [fieldContextValue.fieldProps, getFieldProps, onlyChange, rest.dependenciesValues], // random for onChange or dependencies
+      [
+        ignoreFormItem,
+        fieldContextValue.fieldProps,
+        getFieldProps,
+        placeholder,
+        props.disabled,
+        rest.fieldProps,
+        rest.value,
+        rest.dependenciesValues,
+      ],
     );
 
     const formItemProps = useMemo(
@@ -118,7 +138,7 @@ function createField<P extends ProFormFieldItemProps = any>(
         ...getFormItemProps?.(),
       }),
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      [fieldContextValue.formItemProps, getFormItemProps, onlyChange, rest.dependenciesValues], // random for onChange or dependencies
+      [fieldContextValue.formItemProps, getFormItemProps, onlyChange, rest.dependenciesValues],
     );
 
     // 支持测试用例 renderFormItem support return false
@@ -136,33 +156,6 @@ function createField<P extends ProFormFieldItemProps = any>(
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
 
-    const formNeedProps = useMemo(() => {
-      return omitUndefined({
-        value: (rest as any).value,
-      });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [(rest as any).value]);
-
-    const realFormItem = useMemo(() => {
-      if (!ignoreFormItem) {
-        return {};
-      }
-      return omitUndefined(formNeedProps);
-    }, [formNeedProps, ignoreFormItem]);
-
-    const realFieldProps = useMemo(() => {
-      return omitUndefined({
-        ...realFormItem,
-        disabled: props.disabled,
-        placeholder,
-        ...fieldProps,
-        style: omitUndefined({
-          // 有些组件是不需要自带的 width
-          ...fieldProps?.style,
-        }),
-      }) as any;
-    }, [fieldProps, placeholder, props.disabled, realFormItem]);
-
     const otherProps = useMemo(
       () => ({
         messageVariables,
@@ -179,7 +172,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       '请不要在 Form 中使用 defaultXXX。如果需要默认值请使用 initialValues 和 initialValue。',
     );
 
-    const ignoreWidthValueType = useMemo(() => ['switch', 'radioButton', 'radio', 'rate'], []);
+    const propsValueType = useMemo(() => rest.valueType, [rest.valueType]);
 
     const { prefixName } = useContext(RcFieldContext);
     const proFieldKey = useMemo(() => {
@@ -192,20 +185,20 @@ function createField<P extends ProFormFieldItemProps = any>(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stringify(otherProps?.name), prefixName]);
 
-    const realFieldPropsStyle = useMemo(
-      () => ({
-        ...realFieldProps?.style,
-      }),
+    const fieldPropsStyle = useMemo(
+      () => {
+        const newStyle = {
+          ...fieldProps?.style,
+        };
+        if (newStyle.width !== undefined && propsValueType === 'switch') {
+          Reflect.deleteProperty(newStyle, 'width');
+        }
+        return newStyle;
+      },
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      [stringify(realFieldProps?.style)],
+      [stringify(fieldProps?.style), propsValueType],
     );
 
-    if (realFieldPropsStyle.width !== undefined && (rest as any).valueType === 'switch') {
-      delete realFieldPropsStyle.width;
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    const propsValueType = useMemo(() => (rest as any).valueType, [(rest as any).valueType]);
     const prefRest = usePrevious(rest);
 
     const onChange = useCallback(
@@ -215,9 +208,9 @@ function createField<P extends ProFormFieldItemProps = any>(
         } else if (rest.renderFormItem) {
           forceUpdate([]);
         }
-        realFieldProps?.onChange?.(...restParams);
+        fieldProps?.onChange?.(...restParams);
       },
-      [getFieldProps, getFormItemProps, realFieldProps, rest.renderFormItem],
+      [getFieldProps, getFormItemProps, fieldProps, rest.renderFormItem],
     );
 
     const renderFormItem = useCallback(
@@ -241,13 +234,13 @@ function createField<P extends ProFormFieldItemProps = any>(
     const style = useMemo(() => {
       return omitUndefined({
         width: width && !WIDTH_SIZE_ENUM[width] ? width : undefined,
-        ...realFieldPropsStyle,
+        ...fieldPropsStyle,
       });
-    }, [realFieldPropsStyle, width]);
+    }, [fieldPropsStyle, width]);
 
     const className = useMemo(() => {
       return (
-        classnames(realFieldProps?.className, {
+        classnames(fieldProps?.className, {
           'pro-field': width && WIDTH_SIZE_ENUM[width],
           [`pro-field-${width}`]:
             width &&
@@ -257,7 +250,7 @@ function createField<P extends ProFormFieldItemProps = any>(
             WIDTH_SIZE_ENUM[width],
         }) || undefined
       );
-    }, [ignoreWidth, ignoreWidthValueType, propsValueType, realFieldProps?.className, width]);
+    }, [ignoreWidth, propsValueType, fieldProps?.className, width]);
 
     const fieldProFieldProps = useMemo(() => {
       return omitUndefined({
@@ -273,11 +266,11 @@ function createField<P extends ProFormFieldItemProps = any>(
       return {
         onChange,
         allowClear,
-        ...realFieldProps,
+        ...fieldProps,
         style,
         className,
       };
-    }, [allowClear, className, onChange, realFieldProps, style]);
+    }, [allowClear, className, onChange, fieldProps, style]);
 
     const field = useMemo(() => {
       return (
@@ -307,46 +300,64 @@ function createField<P extends ProFormFieldItemProps = any>(
         : {},
     ]);
 
-    if (shouldRender.current === false) {
-      return null;
-    }
+    // 使用useMemo包裹避免不必要的re-render
+    const FormItem = useMemo(() => {
+      return (
+        <ProFormItem
+          // 全局的提供一个 tip 功能，可以减少代码量
+          // 轻量模式下不通过 FormItem 显示 label
+          label={label && proFieldProps?.light !== true ? label : undefined}
+          tooltip={proFieldProps?.light !== true && tooltip}
+          valuePropName={valuePropName}
+          key={otherProps.name?.toString()}
+          {...otherProps}
+          ignoreFormItem={ignoreFormItem}
+          transform={transform}
+          dataFormat={fieldProps?.format}
+          valueType={valueType || propsValueType}
+          messageVariables={{
+            label: (label as string) || '',
+            ...otherProps?.messageVariables,
+          }}
+          lightProps={omitUndefined({
+            ...fieldProps,
+            valueType: valueType || propsValueType,
+            bordered,
+            allowClear: field?.props?.allowClear ?? allowClear,
+            light: proFieldProps?.light,
+            label,
+            customLightMode,
+            labelFormatter: lightFilterLabelFormatter,
+            valuePropName,
+            footerRender: field?.props?.footerRender,
+            // 使用用户的配置覆盖默认的配置
+            ...rest.lightProps,
+            ...otherProps.lightProps,
+          })}
+        >
+          {field}
+        </ProFormItem>
+      );
+    }, [
+      label,
+      proFieldProps?.light,
+      tooltip,
+      valuePropName,
+      otherProps,
+      ignoreFormItem,
+      transform,
+      fieldProps,
+      valueType,
+      propsValueType,
+      bordered,
+      field,
+      allowClear,
+      customLightMode,
+      lightFilterLabelFormatter,
+      rest.lightProps,
+    ]);
 
-    return (
-      <ProFormItem
-        // 全局的提供一个 tip 功能，可以减少代码量
-        // 轻量模式下不通过 FormItem 显示 label
-        label={label && proFieldProps?.light !== true ? label : undefined}
-        tooltip={proFieldProps?.light !== true && tooltip}
-        valuePropName={valuePropName}
-        key={otherProps.name?.toString()}
-        {...otherProps}
-        ignoreFormItem={ignoreFormItem}
-        transform={transform}
-        dataFormat={fieldProps?.format}
-        valueType={valueType || (rest as any).valueType}
-        messageVariables={{
-          label: (label as string) || '',
-          ...otherProps?.messageVariables,
-        }}
-        lightProps={omitUndefined({
-          ...realFieldProps,
-          valueType: valueType || (rest as any).valueType,
-          bordered,
-          allowClear: field?.props?.allowClear ?? allowClear,
-          light: proFieldProps?.light,
-          label,
-          customLightMode,
-          labelFormatter: lightFilterLabelFormatter,
-          valuePropName,
-          footerRender: field?.props?.footerRender,
-          // 使用用户的配置覆盖默认的配置
-          ...rest.lightProps,
-          ...otherProps.lightProps,
-        })}
-      >
-        {field}
-      </ProFormItem>
-    );
+    return shouldRender.current ? FormItem : null;
   };
 
   // 标记是否是 proform 的组件
