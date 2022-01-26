@@ -21383,9 +21383,46 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
       </div>
     </div>
     <div
-      class="ant-divider ant-divider-horizontal"
-      role="separator"
-    />
+      class="ant-row ant-form-item"
+    >
+      <div
+        class="ant-col ant-form-item-label"
+      >
+        <label
+          class=""
+          for="Switch"
+          title="开关"
+        >
+          开关
+        </label>
+      </div>
+      <div
+        class="ant-col ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
+          >
+            <button
+              aria-checked="false"
+              class="ant-switch"
+              id="Switch"
+              role="switch"
+              type="button"
+            >
+              <div
+                class="ant-switch-handle"
+              />
+              <span
+                class="ant-switch-inner"
+              />
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div
       class="ant-pro-form-group"
     >
