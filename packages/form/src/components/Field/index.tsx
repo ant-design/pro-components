@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import React, { memo, useMemo } from 'react';
 import ProField from '@ant-design/pro-field';
 import type { ProSchema } from '@ant-design/pro-utils';
@@ -28,7 +27,7 @@ export type ProFormFieldProps<T = any, FiledProps = Record<string, any>> = ProSc
 
 const ProFormField: React.FC<
   ProFormFieldProps & {
-    onChange?: Function;
+    onChange?: (...args: any) => any;
     autoFocus?: boolean;
   }
 > = (props) => {
@@ -55,14 +54,15 @@ const ProFormField: React.FC<
   } = props;
 
   const propsParams = useMemo(() => {
-    return dependenciesValues
+    // 使用dependencies时 dependenciesValues是有值的
+    // 此时如果存在request，注入dependenciesValues
+    return dependenciesValues && restProps.request
       ? {
           ...params,
-          // dependencies change
           ...(dependenciesValues || {}),
         }
       : params;
-  }, [dependenciesValues, params]);
+  }, [dependenciesValues, params, restProps.request]);
 
   const childrenRender = useMemo(() => {
     // 防止 formItem 的值被吃掉
@@ -119,6 +119,6 @@ export default createField<ProFormFieldProps>(
   memo(ProFormField, (prevProps, nextProps) => {
     return isDeepEqualReact(nextProps, prevProps, ['onChange', 'onBlur']);
   }),
-) as <FiledProps, DataType = {}>(
+) as <FiledProps, DataType = Record<string, any>>(
   props: ProFormFieldProps<DataType, FiledProps>,
 ) => React.ReactElement;

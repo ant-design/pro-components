@@ -252,7 +252,6 @@ function createField<P extends ProFormFieldItemProps = any>(
               }) || undefined,
           })}
           proFieldProps={omitUndefined({
-            // @ts-ignore
             mode: rest?.mode,
             readonly,
             params: rest.params,
@@ -269,6 +268,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       proFieldKey,
       // eslint-disable-next-line react-hooks/exhaustive-deps
       stringify(proFieldProps),
+      onChange,
       propsValueType,
       readonly,
       realFieldProps,
