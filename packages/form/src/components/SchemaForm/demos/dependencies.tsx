@@ -1,6 +1,7 @@
-﻿import React, { useState } from 'react';
-import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
-import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-form';
+﻿import React from 'react';
+import type { ProFormColumnsType } from '@ant-design/pro-form';
+import { BetaSchemaForm } from '@ant-design/pro-form';
+import { Input } from 'antd';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -28,6 +29,7 @@ const columns: ProFormColumnsType<DataItem>[] = [
   {
     title: '标题',
     dataIndex: 'title',
+    initialValue: '必填',
     formItemProps: {
       rules: [
         {
@@ -44,11 +46,53 @@ const columns: ProFormColumnsType<DataItem>[] = [
     valueType: 'select',
     valueEnum,
     width: 'm',
+    tooltip: '当title为disabled时状态无法选择',
+    dependencies: ['title'],
+    fieldProps: (form) => {
+      if (form.getFieldValue('title') === 'disabled') {
+        return {
+          disabled: true,
+          placeholder: 'disabled',
+        };
+      } else {
+        return {
+          placeholder: 'normal',
+        };
+      }
+    },
   },
   {
     title: '标签',
     dataIndex: 'labels',
     width: 'm',
+    tooltip: '当title为必填时此项将为必填',
+    dependencies: ['title'],
+    formItemProps(form) {
+      if (form.getFieldValue('title') === '必填') {
+        return {
+          rules: [
+            {
+              required: true,
+            },
+          ],
+        };
+      } else {
+        return {};
+      }
+    },
+  },
+  {
+    title: 'title为hidden时隐藏',
+    dataIndex: 'hidden',
+    valueType: 'date',
+    dependencies: ['title'],
+    renderFormItem: (_, __, form) => {
+      if (form.getFieldValue('title') === 'hidden') {
+        return false;
+      } else {
+        return <Input />;
+      }
+    },
   },
   {
     title: '创建时间',
@@ -160,20 +204,11 @@ const columns: ProFormColumnsType<DataItem>[] = [
 ];
 
 export default () => {
-  const [layoutType, setLayoutType] = useState<ProFormLayoutType>('Form');
   return (
     <>
-      <ProFormSelect
-        label="布局方式"
-        options={['ProForm', 'ModalForm', 'DrawerForm', 'LightFilter', 'QueryFilter']}
-        fieldProps={{
-          value: layoutType,
-          onChange: (e) => setLayoutType(e),
-        }}
-      />
       <BetaSchemaForm<DataItem>
         trigger={<a>点击我</a>}
-        layoutType={layoutType}
+        layoutType="Form"
         onFinish={async (values) => {
           console.log(values);
         }}

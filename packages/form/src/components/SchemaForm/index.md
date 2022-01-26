@@ -51,9 +51,10 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 | `proFieldProps` | `proFieldProps` | 设置到 `ProField` 上面的 `props`，内部属性 |
 | `renderText` | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | 修改的数据是会被 valueType 定义的渲染组件消费 |
 | `render` | `(dom,entity,index, action, schema) => React.ReactNode` | 自定义只读模式的 dom,`render` 方法只管理的只读模式，编辑模式需要使用 `renderFormItem` |
-| `renderFormItem` | `(schema,config,form) => React.ReactNode` | 自定义编辑模式,返回一个 ReactNode，会自动包裹 value 和 onChange |
+| `renderFormItem` | `(schema,config,form) => React.ReactNode` | 自定义编辑模式,返回一个 ReactNode，会自动包裹 value 和 onChange。如返回 false,null,undefined 将不展示表单项 |
 | `request` | `(params,props) => Promise<{label,value}[]>` | 从远程请求网络数据，一般用于选择类组件 |
 | `params` | `Record<string, any>` | 额外传递给 `request` 的参数，组件不做处理,但是变化会引起`request` 重新请求数据 |
+| `dependencies` | `string \| number \| (string \| number)[]` | 所依赖的 values 变化后，触发 renderFormItem，fieldProps，formItemProps 重新执行，并把 values 注入到 params 里 [示例](#使用-dependencies-触发-fieldpropsformitempropsrenderformitem-更新) |
 | `hideInDescriptions` | `boolean` | 在 descriptions 中隐藏 |
 | `hideInForm` | `boolean` | 在 Form 中隐藏 |
 | `hideInTable` | `boolean` | 在 Table 中隐藏 |
@@ -77,3 +78,7 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 ### 使用 ProFormDependency
 
 <code src="./demos/dependency.tsx" height="300px" title="schema 表单" />
+
+### 使用 dependencies 触发 fieldProps，formItemProps，renderFormItem 更新
+
+<code src="./demos/dependencies.tsx" height="500px" title="schema dependencies" />
