@@ -15,13 +15,13 @@ const Demo = () => {
           },
         ]}
         actionGuard={{
-          beforeAdd: async (defaultValue, insertIndex) => {
+          beforeAddRow: async (defaultValue, insertIndex) => {
             return new Promise((resolve) => {
               console.log(defaultValue, insertIndex);
               setTimeout(() => resolve(true), 1000);
             });
           },
-          beforeRemove: async (index) => {
+          beforeRemoveRow: async (index) => {
             return new Promise((resolve) => {
               if (index === 0) {
                 message.error('这行不能删');

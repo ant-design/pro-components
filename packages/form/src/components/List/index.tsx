@@ -40,8 +40,8 @@ type ChildrenItemFunction = (
 ) => React.ReactNode;
 
 type FormListActionGuard = {
-  beforeAdd?: (defaultValue?: StoreValue, insertIndex?: number) => boolean | Promise<boolean>;
-  beforeRemove?: (index: number | number[]) => boolean | Promise<boolean>;
+  beforeAddRow?: (defaultValue?: StoreValue, insertIndex?: number) => boolean | Promise<boolean>;
+  beforeRemoveRow?: (index: number | number[]) => boolean | Promise<boolean>;
 };
 
 export type ProFormListProps = Omit<FormListProps, 'children'> & {
@@ -299,17 +299,17 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       if (!action[key]) return;
       switch (key) {
         case 'add':
-          if (!actionGuard.beforeAdd) return;
+          if (!actionGuard.beforeAddRow) return;
           wrapAction.add = async (defaultValue?: StoreValue, insertIndex?: number) => {
-            const needAdd = await actionGuard.beforeAdd?.(defaultValue, insertIndex);
+            const needAdd = await actionGuard.beforeAddRow?.(defaultValue, insertIndex);
             if (!needAdd) return;
             action.add(defaultValue, insertIndex);
           };
           break;
         case 'remove':
-          if (!actionGuard.beforeRemove) return;
+          if (!actionGuard.beforeRemoveRow) return;
           wrapAction.remove = async (idx: number | number[]) => {
-            const needRemove = await actionGuard.beforeRemove?.(idx);
+            const needRemove = await actionGuard.beforeRemoveRow?.(idx);
             if (!needRemove) return;
             action.remove(idx);
           };

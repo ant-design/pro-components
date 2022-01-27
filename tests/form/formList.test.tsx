@@ -683,14 +683,14 @@ describe('ProForm List', () => {
             Icon: CloseOutlined,
           }}
           actionGuard={{
-            beforeAdd: async (defaultValue, insertIndex) => {
+            beforeAddRow: async (defaultValue, insertIndex) => {
               return new Promise((resolve) => {
                 fnAdd(defaultValue?.name, insertIndex);
                 console.log(defaultValue?.name, insertIndex);
                 setTimeout(() => resolve(true), 1000);
               });
             },
-            beforeRemove: async (index) => {
+            beforeRemoveRow: async (index) => {
               console.log('--->', index);
               fnRemove(index);
               return new Promise((resolve) => {
