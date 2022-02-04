@@ -120,6 +120,7 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
   children,
   addonAfter,
   addonBefore,
+  valuePropName,
   convertValue,
   ...props
 }) => {
@@ -127,8 +128,9 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
     const getValuePropsFunc = (value: any) => {
       const newValue = convertValue?.(value, props.name!) ?? value;
       if (props.getValueProps) return props.getValueProps(newValue);
+
       return {
-        value: newValue,
+        [valuePropName || 'value']: newValue,
       };
     };
     if (!addonAfter && !addonBefore)
