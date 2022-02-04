@@ -69,6 +69,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       messageVariables,
       ignoreFormItem,
       transform,
+      convertValue,
       readonly,
       allowClear,
       colSize,
@@ -226,6 +227,7 @@ function createField<P extends ProFormFieldItemProps = any>(
           label: (label as string) || '',
           ...otherProps?.messageVariables,
         }}
+        convertValue={convertValue}
         lightProps={omitUndefined({
           ...realFieldProps,
           valueType: valueType || (rest as any).valueType,

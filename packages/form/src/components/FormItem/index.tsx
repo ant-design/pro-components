@@ -3,7 +3,11 @@ import type { FormItemProps } from 'antd';
 import { ConfigProvider, Form } from 'antd';
 import { FormListContext } from '../List';
 import FieldContext from '../../FieldContext';
-import type { SearchTransformKeyFn, ProSchemaValueType } from '@ant-design/pro-utils';
+import type {
+  SearchTransformKeyFn,
+  ProSchemaValueType,
+  SearchConvertKeyFn,
+} from '@ant-design/pro-utils';
 import { isDropdownValueType, omitUndefined } from '@ant-design/pro-utils';
 import type { LightWrapperProps } from '../../BaseForm/LightWrapper';
 import LightWrapper from '../../BaseForm/LightWrapper';
@@ -100,6 +104,10 @@ type WarpFormItemProps = {
   addonBefore?: React.ReactNode;
   /** @name 后置的dom * */
   addonAfter?: React.ReactNode;
+  /**
+   * @name 获取时转化值，一般用于将数据格式化为组件接收的格式
+   */
+  convertValue?: SearchConvertKeyFn;
 };
 
 /**
@@ -112,10 +120,23 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
   children,
   addonAfter,
   addonBefore,
+  convertValue,
   ...props
 }) => {
   const formDom = useMemo(() => {
-    if (!addonAfter && !addonBefore) return <Form.Item {...props}>{children}</Form.Item>;
+    const getValuePropsFunc = (value: any) => {
+      const newValue = convertValue?.(value, props.name!) ?? value;
+      if (props.getValueProps) return props.getValueProps(newValue);
+      return {
+        value: newValue,
+      };
+    };
+    if (!addonAfter && !addonBefore)
+      return (
+        <Form.Item {...props} getValueProps={getValuePropsFunc}>
+          {children}
+        </Form.Item>
+      );
     return (
       <Form.Item
         // @ts-ignore
@@ -154,11 +175,13 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
           ),
         }}
         {...props}
+        getValueProps={getValuePropsFunc}
       >
         {children}
       </Form.Item>
     );
-  }, [addonAfter, addonBefore, children, props]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [addonAfter, addonBefore, children, convertValue?.toString(), props]);
 
   return (
     <FormItemProvide.Provider
@@ -175,8 +198,9 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
 type ProFormItemProps = FormItemProps & {
   ignoreFormItem?: boolean;
   valueType?: ProSchemaValueType<'text'>;
-  /** @name 提交时转化值，一般用于数组类型 */
+  /** @name 提交时转化值，一般用于将值转化为提交的数据 */
   transform?: SearchTransformKeyFn;
+
   dataFormat?: string;
   lightProps?: LightWrapperProps;
 } & WarpFormItemProps;

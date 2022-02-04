@@ -204,4 +204,65 @@ describe('ProFormFieldSet', () => {
 
     html.unmount();
   });
+
+  it('😊 ProFormFieldSet convertValue', async () => {
+    const fn = jest.fn();
+    const valueFn = jest.fn();
+    const html = mount(
+      <ProForm
+        onFinish={async (values) => {
+          fn(values.listKey);
+        }}
+        onValuesChange={(value) => {
+          valueFn(value.list);
+        }}
+        initialValues={{ list: '1,2', listKey: '2' }}
+      >
+        <ProFormFieldSet
+          name="list"
+          convertValue={(value: string) => {
+            return value.split(',').map((item) => Number(item));
+          }}
+        >
+          <ProFormText
+            fieldProps={{
+              id: 'filedSet1',
+            }}
+            key="filedSet1"
+          />
+          <ProFormText
+            fieldProps={{
+              id: 'filedSet2',
+            }}
+            key="filedSet2"
+          />
+        </ProFormFieldSet>
+
+        <ProFormText
+          fieldProps={{
+            id: 'filedSet3',
+          }}
+          convertValue={(value: string) => {
+            return value + '-2';
+          }}
+          name="listKey"
+          key="filedSet3"
+        />
+      </ProForm>,
+    );
+    expect(html.find('input#filedSet1').at(0).props().value).toBe('1');
+    expect(html.find('input#filedSet2').at(0).props().value).toBe('2');
+    expect(html.find('input#filedSet3').at(0).props().value).toBe('2-2');
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    // expect(fn).toBeCalledWith('1');
+
+    html.unmount();
+  });
 });
