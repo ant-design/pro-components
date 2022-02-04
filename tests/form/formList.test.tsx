@@ -7,7 +7,7 @@ import ProForm, {
 } from '@ant-design/pro-form';
 import { act } from 'react-dom/test-utils';
 import { mount } from 'enzyme';
-import { waitForComponentToPaint } from '../util';
+import { waitForComponentToPaint, waitTime } from '../util';
 import { SnippetsOutlined, CloseOutlined } from '@ant-design/icons';
 import { Form } from 'antd';
 import _ from 'lodash';
@@ -669,5 +669,91 @@ describe('ProForm List', () => {
     await waitForComponentToPaint(html);
     expect(html.find('.anticon-snippets').exists()).toBeTruthy();
     expect(html.find('.anticon-close').exists()).toBeTruthy();
+  });
+  it('⛲  ProForm.List use behavior guard when triggering behavior', async () => {
+    const fnAdd = jest.fn();
+    const fnRemove = jest.fn();
+    const html = mount(
+      <ProForm>
+        <ProFormList
+          copyIconProps={{
+            Icon: SnippetsOutlined,
+          }}
+          deleteIconProps={{
+            Icon: CloseOutlined,
+          }}
+          actionGuard={{
+            beforeAddRow: async (defaultValue, insertIndex) => {
+              return new Promise((resolve) => {
+                fnAdd(defaultValue?.name, insertIndex);
+                console.log(defaultValue?.name, insertIndex);
+                setTimeout(() => resolve(true), 1000);
+              });
+            },
+            beforeRemoveRow: async (index) => {
+              console.log('--->', index);
+              fnRemove(index);
+              return new Promise((resolve) => {
+                if (index === 0) {
+                  resolve(false);
+                  return;
+                }
+                setTimeout(() => resolve(true), 1000);
+              });
+            },
+          }}
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+    expect(html.find('input.ant-input').length).toBe(1);
+    // 新增按钮
+    await act(async () => {
+      html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').simulate('click');
+      await waitTime(1200);
+      await waitForComponentToPaint(html);
+      expect(fnAdd).toBeCalledWith(undefined, undefined);
+      expect(html.find('input.ant-input').length).toBe(2);
+    });
+    // 复制按钮
+    await act(async () => {
+      html.find('.action-copy').at(0).simulate('click');
+      await waitTime(1200);
+      await waitForComponentToPaint(html);
+      expect(fnAdd).toBeCalledWith('1111', undefined);
+      expect(html.find('input.ant-input').length).toBe(3);
+      expect((html.find('input.ant-input').at(2).getDOMNode() as HTMLInputElement).value).toBe(
+        '1111',
+      );
+    });
+    // 删除按钮
+    await act(async () => {
+      html
+        .find('.action-remove')
+        .at(html.find('.action-remove').length - 1)
+        .simulate('click');
+      await waitTime(1200);
+      await waitForComponentToPaint(html);
+      expect(fnRemove).toBeCalledWith(2);
+      expect(html.find('input.ant-input').length).toBe(2);
+    });
+    // 删除按钮不能删除的项目
+    await act(async () => {
+      html.find('.action-remove').at(0).simulate('click');
+      await waitTime(1200);
+      await waitForComponentToPaint(html);
+      expect(fnRemove).toBeCalledWith(0);
+      expect(html.find('input.ant-input').length).toBe(2);
+    });
   });
 });
