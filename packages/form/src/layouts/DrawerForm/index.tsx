@@ -69,7 +69,9 @@ function DrawerForm<T = Record<string, any>>({
   const [isDestroy, setIsDestroy] = useMergedState<boolean>(!!rest.visible);
 
   useEffect(() => {
-    setIsDestroy(!!rest.visible);
+    if (!!rest.visible) {
+      setIsDestroy(!!rest.visible);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rest.visible]);
 

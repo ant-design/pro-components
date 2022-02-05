@@ -70,7 +70,9 @@ function ModalForm<T = Record<string, any>>({
   const [isDestroy, setIsDestroy] = useState<boolean>(!!rest.visible);
 
   useEffect(() => {
-    setIsDestroy(!!rest.visible);
+    if (!!rest.visible) {
+      setIsDestroy(!!rest.visible);
+    }
   }, [rest.visible]);
 
   const context = useContext(ConfigProvider.ConfigContext);
