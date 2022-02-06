@@ -302,9 +302,7 @@ function FieldEditableTable<
               <EditableTable<DataType, Params, ValueType>
                 {...props}
                 value={control.value}
-                onChange={(value: any[]) => {
-                  control.onChange?.(value);
-                }}
+                onChange={control.onChange}
               />
             );
           }}

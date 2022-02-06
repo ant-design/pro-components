@@ -557,20 +557,13 @@ function useEditableArray<RecordType>(
     // Object.keys(get(values, [props.tableName || ''].flat(1)) || values).forEach((recordKey) => {
     editableKeys.forEach((eachRecordKey) => {
       if (newLineRecordCache?.options.recordKey === eachRecordKey) return;
-      let recordKey = eachRecordKey.toString();
+      const recordKey = eachRecordKey.toString();
       // 如果数据在这个 form 中没有展示，也不显示
-      let editRow = get(
+      const editRow = get(
         values,
         [props.tableName || '', recordKey].flat(1).filter((key) => key || key === 0),
       );
-      if (!editRow) {
-        recordKey =
-          dataSourceKeyIndexMapRef.current.get(recordKeyToString(recordKey))?.toString() || '';
-        editRow = get(
-          values,
-          [props.tableName || '', recordKey].flat(1).filter((key) => key || key === 0),
-        );
-      }
+
       if (!editRow) return;
       dataSource = editableRowByKey(
         {
