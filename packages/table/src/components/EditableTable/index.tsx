@@ -294,7 +294,7 @@ function FieldEditableTable<
       <>
         <Field shouldUpdate={true} name={props.name} isList>
           {(control) => {
-            if (control.value !== undefined && !Array.isArray(control.value)) {
+            if (control.value === undefined || !Array.isArray(control.value)) {
               return null;
             }
 
