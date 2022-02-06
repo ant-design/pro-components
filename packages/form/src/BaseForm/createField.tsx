@@ -160,6 +160,8 @@ function createField<P extends ProFormFieldItemProps = any>(
     const field = useMemo(() => {
       return (
         <Field
+          // @ts-ignore
+          key={props.proFormFieldKey || props.name}
           // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
           // 比如 ProFormSelect 的 request
           {...(rest as P)}
@@ -209,7 +211,6 @@ function createField<P extends ProFormFieldItemProps = any>(
         : {},
       width,
     ]);
-
     return (
       <ProFormItem
         // 全局的提供一个 tip 功能，可以减少代码量
@@ -217,7 +218,9 @@ function createField<P extends ProFormFieldItemProps = any>(
         label={label && proFieldProps?.light !== true ? label : undefined}
         tooltip={proFieldProps?.light !== true && tooltip}
         valuePropName={valuePropName}
-        key={otherProps.name?.toString()}
+        // @ts-ignore
+        key={props.proFormFieldKey || otherProps.name?.toString()}
+        // @ts-ignore
         {...otherProps}
         ignoreFormItem={ignoreFormItem}
         transform={transform}

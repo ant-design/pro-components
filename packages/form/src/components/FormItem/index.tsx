@@ -205,6 +205,7 @@ type ProFormItemProps = FormItemProps & {
 
   dataFormat?: string;
   lightProps?: LightWrapperProps;
+  proFormFieldKey?: any;
 } & WarpFormItemProps;
 
 const ProFormItem: React.FC<ProFormItemProps> = (props) => {
@@ -263,7 +264,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
 
   if (typeof props.children === 'function') {
     return (
-      <WarpFormItem {...rest} name={name}>
+      <WarpFormItem {...rest} name={name} key={rest.proFormFieldKey || rest.name?.toString()}>
         {props.children}
       </WarpFormItem>
     );
@@ -271,7 +272,10 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
 
   // formItem 支持function，如果是function 我就直接不管了
   const children = (
-    <WithValueFomFiledProps key={rest.name?.toString()} valuePropName={props.valuePropName}>
+    <WithValueFomFiledProps
+      key={rest.proFormFieldKey || rest.name?.toString()}
+      valuePropName={props.valuePropName}
+    >
       {props.children}
     </WithValueFomFiledProps>
   );
@@ -279,7 +283,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   const lightDom = noLightFormItem ? (
     children
   ) : (
-    <LightWrapper {...lightProps} key={rest.name?.toString()} size={size}>
+    <LightWrapper {...lightProps} key={rest.proFormFieldKey || rest.name?.toString()} size={size}>
       {children}
     </LightWrapper>
   );
@@ -290,7 +294,12 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   }
 
   return (
-    <WarpFormItem {...formItemProps} {...rest} name={name}>
+    <WarpFormItem
+      key={rest.proFormFieldKey || rest.name?.toString()}
+      {...formItemProps}
+      {...rest}
+      name={name}
+    >
       {lightDom}
     </WarpFormItem>
   );

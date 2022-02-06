@@ -699,6 +699,7 @@ function useEditableArray<RecordType>(
         key: recordKey,
         childrenColumnName: props.childrenColumnName || 'children',
       };
+
       props.setDataSource(editableRowByKey(actionProps, 'update'));
       return res;
     },

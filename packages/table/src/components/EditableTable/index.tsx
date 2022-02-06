@@ -4,12 +4,13 @@ import type { ButtonProps, FormItemProps } from 'antd';
 import { Button, Form } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { PlusOutlined } from '@ant-design/icons';
-import { runFunction, useRefFunction } from '@ant-design/pro-utils';
+import { isDeepEqualReact, runFunction, usePrevious, useRefFunction } from '@ant-design/pro-utils';
 import { Field } from 'rc-field-form';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
 import type { GetRowKey } from 'antd/lib/table/interface';
-import type { ProFormInstance } from '@ant-design/pro-form';
+import { ProFormDependency, ProFormInstance } from '@ant-design/pro-form';
+import get from 'rc-util/lib/utils/get';
 
 export type RecordCreatorProps<DataSourceType> = {
   record: DataSourceType | ((index: number, dataSource: DataSourceType[]) => DataSourceType);
@@ -95,8 +96,11 @@ function EditableTable<
     rowKey,
     controlled,
     defaultValue,
+    onChange,
     ...rest
   } = props;
+
+  const preData = usePrevious(props.value);
   const actionRef = useRef<ActionType>();
   const formRef = useRef<ProFormInstance>();
 
@@ -107,7 +111,6 @@ function EditableTable<
     value: props.value,
     onChange: props.onChange,
   });
-
   const getRowKey = React.useMemo<GetRowKey<DataType>>((): GetRowKey<DataType> => {
     if (typeof rowKey === 'function' && rowKey) {
       return rowKey;
@@ -231,30 +234,44 @@ function EditableTable<
   }
 
   return (
-    <EditableTableActionContext.Provider value={actionRef}>
-      <ProTable<DataType, Params, ValueType>
-        search={false}
-        options={false}
-        pagination={false}
-        rowKey={rowKey}
-        revalidateOnFocus={false}
-        {...rest}
-        {...buttonRenderProps}
-        tableLayout="fixed"
-        actionRef={actionRef}
-        onChange={onTableChange}
-        dataSource={value}
-        editable={{
-          ...editableProps,
-          formProps: {
-            formRef,
-          },
+    <>
+      <EditableTableActionContext.Provider value={actionRef}>
+        <ProTable<DataType, Params, ValueType>
+          search={false}
+          options={false}
+          pagination={false}
+          rowKey={rowKey}
+          revalidateOnFocus={false}
+          {...rest}
+          {...buttonRenderProps}
+          tableLayout="fixed"
+          actionRef={actionRef}
+          onChange={onTableChange}
+          editable={{
+            ...editableProps,
+            formProps: {
+              formRef,
+            },
+          }}
+          dataSource={value}
+          onDataSourceChange={(dataSource: DataType[]) => {
+            setValue(dataSource);
+          }}
+        />
+      </EditableTableActionContext.Provider>
+      {/* 模拟 onValuesChange */}
+      <ProFormDependency name={[props.name!]}>
+        {(changeValue) => {
+          const list = get(changeValue, [props.name].flat(1) as string[]) as any[];
+          const changeItem = list?.find((item, index) => {
+            return !isDeepEqualReact(item, preData?.[index]);
+          });
+          if (!changeItem) return null;
+          props?.editable?.onValuesChange?.(changeItem, list);
+          return null;
         }}
-        onDataSourceChange={(dataSource: DataType[]) => {
-          setValue(dataSource);
-        }}
-      />
-    </EditableTableActionContext.Provider>
+      </ProFormDependency>
+    </>
   );
 }
 
@@ -264,6 +281,7 @@ function FieldEditableTable<
   ValueType = 'text',
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
   const { name, formItemProps } = props;
+
   if (!name) return <EditableTable<DataType, Params, ValueType> {...props} />;
   return (
     <Form.Item
@@ -276,11 +294,17 @@ function FieldEditableTable<
       <>
         <Field shouldUpdate={true} name={props.name} isList>
           {(control) => {
+            if (control.value !== undefined && !Array.isArray(control.value)) {
+              return null;
+            }
+
             return (
               <EditableTable<DataType, Params, ValueType>
                 {...props}
                 value={control.value}
-                onChange={control.onChange}
+                onChange={(value: any[]) => {
+                  control.onChange?.(value);
+                }}
               />
             );
           }}
