@@ -28,7 +28,10 @@ export type ListViewProps<RecordType> = Omit<AntdListProps<RecordType>, 'renderI
     dataSource: readonly RecordType[];
     renderItem?: (item: RecordType, index: number, defaultDom: JSX.Element) => React.ReactNode;
     actionRef: React.MutableRefObject<ActionType | undefined>;
+    // 当非卡片模式时，用于为每一行的项目绑定事件，用户设置 `grid`时将会失效
     onRow?: GetComponentProps<RecordType>;
+    // 兼容普通和卡片模式的事件绑定，代表每一个项目的事件，是对`onRow`的补充
+    onItem?: GetComponentProps<RecordType>;
     rowClassName?: string | ((item: RecordType, index: number) => string);
     /** Render 除了 header 之后的代码 */
     itemHeaderRender?: ItemProps<RecordType>['itemHeaderRender'];
@@ -53,6 +56,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
     rowSelection,
     pagination, // List 的 pagination 默认是 false
     onRow,
+    onItem,
     rowClassName,
     ...rest
   } = props;
@@ -228,6 +232,7 @@ function ListView<RecordType>(props: ListViewProps<RecordType>) {
             selected={selectedKeySet.has(getRowKey(item, index))}
             checkbox={checkboxDom}
             onRow={onRow}
+            onItem={onItem}
           />
         );
 

@@ -3,7 +3,12 @@ import type { ProFormItemProps } from './components/FormItem';
 import type { ProFormInstance } from './BaseForm';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type React from 'react';
-import type { ProFieldProps, ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import type {
+  ProFieldProps,
+  ProFieldValueType,
+  SearchConvertKeyFn,
+  SearchTransformKeyFn,
+} from '@ant-design/pro-utils';
 
 export type ProFormItemCreateConfig = {
   /** 自定义类型 */
@@ -43,6 +48,11 @@ export type ExtendsProps = {
 
   /** @name 提交时转化值，一般用于数组类型 */
   transform?: SearchTransformKeyFn;
+
+  /**
+   * @name 获取时转化值，一般用于将数据格式化为组件接收的格式
+   */
+  convertValue?: SearchConvertKeyFn;
 
   /**
    * 给 protable 开的口子

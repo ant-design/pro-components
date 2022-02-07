@@ -78,6 +78,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       messageVariables,
       ignoreFormItem,
       transform,
+      convertValue,
       readonly,
       allowClear,
       colSize,
@@ -275,6 +276,8 @@ function createField<P extends ProFormFieldItemProps = any>(
     const field = useMemo(() => {
       return (
         <Field
+          // @ts-ignore
+          key={props.proFormFieldKey || props.name}
           // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
           // 比如 ProFormSelect 的 request
           {...(rest as P)}
@@ -309,7 +312,9 @@ function createField<P extends ProFormFieldItemProps = any>(
           label={label && proFieldProps?.light !== true ? label : undefined}
           tooltip={proFieldProps?.light !== true && tooltip}
           valuePropName={valuePropName}
-          key={otherProps.name?.toString()}
+          // @ts-ignore
+          key={props.proFormFieldKey || otherProps.name?.toString()}
+          // @ts-ignore
           {...otherProps}
           ignoreFormItem={ignoreFormItem}
           transform={transform}
@@ -319,6 +324,7 @@ function createField<P extends ProFormFieldItemProps = any>(
             label: (label as string) || '',
             ...otherProps?.messageVariables,
           }}
+          convertValue={convertValue}
           lightProps={omitUndefined({
             ...fieldProps,
             valueType: valueType || propsValueType,
@@ -343,12 +349,14 @@ function createField<P extends ProFormFieldItemProps = any>(
       proFieldProps?.light,
       tooltip,
       valuePropName,
+      props.proFormFieldKey,
       otherProps,
       ignoreFormItem,
       transform,
       fieldProps,
       valueType,
       propsValueType,
+      convertValue,
       bordered,
       field,
       allowClear,

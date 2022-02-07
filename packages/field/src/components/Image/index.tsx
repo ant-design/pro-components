@@ -15,30 +15,24 @@ export type FieldImageProps = {
  *     text: number;
  *     moneySymbol?: string; }
  */
-const FieldImage: ProFieldFC<FieldImageProps> = ({
-  text,
-  mode: type,
-  render,
-  renderFormItem,
-  fieldProps,
-  placeholder,
-  width,
-}) => {
-  if (type === 'read') {
-    const dom = <Image width={width || 32} src={text} {...fieldProps} />;
-    if (render) {
-      return render(text, { mode: type, ...fieldProps }, dom);
+const FieldImage = React.forwardRef<FieldImageProps, any>(
+  ({ text, mode: type, render, renderFormItem, fieldProps, placeholder, width }, ref) => {
+    if (type === 'read') {
+      const dom = <Image ref={ref} width={width || 32} src={text} {...fieldProps} />;
+      if (render) {
+        return render(text, { mode: type, ...fieldProps }, dom);
+      }
+      return dom;
     }
-    return dom;
-  }
-  if (type === 'edit' || type === 'update') {
-    const dom = <Input placeholder={placeholder} {...fieldProps} />;
-    if (renderFormItem) {
-      return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+    if (type === 'edit' || type === 'update') {
+      const dom = <Input ref={ref} placeholder={placeholder} {...fieldProps} />;
+      if (renderFormItem) {
+        return renderFormItem(text, { mode: type, ...fieldProps }, dom);
+      }
+      return dom;
     }
-    return dom;
-  }
-  return null;
-};
+    return null;
+  },
+);
 
-export default FieldImage;
+export default FieldImage as ProFieldFC<FieldImageProps>;

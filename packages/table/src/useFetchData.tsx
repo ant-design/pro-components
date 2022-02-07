@@ -39,7 +39,6 @@ const useFetchData = <T extends RequestData<any>>(
 
   /** 轮询的setTime ID 存储 */
   const pollingSetTimeRef = useRef<any>();
-
   const [list, setList] = useMountMergeState<any[] | undefined>(defaultData, {
     value: options?.dataSource,
     onChange: options?.onDataSourceChange,

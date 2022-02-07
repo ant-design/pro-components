@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.10...@ant-design/pro-field@1.31.11) (2022-01-25)
+
+### Bug Fixes
+
+- **field:** Switch checked 为 false 不生效问题 ([#4527](https://github.com/ant-design/pro-components/issues/4527)) ([afcb9a5](https://github.com/ant-design/pro-components/commit/afcb9a57934e5cd7808654dd677495492a1b3eb6))
+
 ## [1.31.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.9...@ant-design/pro-field@1.31.10) (2022-01-21)
 
 ### Bug Fixes

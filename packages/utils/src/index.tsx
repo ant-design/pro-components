@@ -52,6 +52,7 @@ import type {
   RequestOptionsType,
   ProFieldProps,
   ProSchemaValueType,
+  SearchConvertKeyFn,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
@@ -73,6 +74,7 @@ import { useRefFunction } from './hooks/useRefFunction';
 import { nanoid } from './nanoid';
 
 export type {
+  SearchConvertKeyFn,
   RequestOptionsType,
   ProSchema,
   ProSchemaValueType,
