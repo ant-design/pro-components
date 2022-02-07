@@ -30,6 +30,7 @@ const noop: any = () => {};
 function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
   const {
     columns,
+    shouldUpdate = false,
     layoutType = 'Form',
     steps = [],
     type = 'form',
@@ -176,7 +177,6 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
   const onValuesChange: FormProps<T>['onValuesChange'] = useCallback(
     (changedValues, values) => {
-      const { shouldUpdate = true, onValuesChange: propsOnValuesChange } = restRef.current;
       if (
         shouldUpdate === true ||
         (typeof shouldUpdate === 'function' && shouldUpdate(values, oldValuesRef.current))
@@ -184,9 +184,9 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
         forceUpdateColumns([]);
       }
       oldValuesRef.current = values;
-      propsOnValuesChange?.(changedValues, values);
+      restRef.current.onValuesChange?.(changedValues, values);
     },
-    [restRef],
+    [restRef, shouldUpdate],
   );
 
   /** 如果是StepsForm */

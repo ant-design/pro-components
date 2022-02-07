@@ -161,8 +161,8 @@ describe('SchemaForm', () => {
     });
     await waitForComponentToPaint(html);
     expect(renderFormItemFn).toBeCalledTimes(2);
-    expect(formItemPropsFn).toBeCalledTimes(2);
     expect(fieldPropsFn).toBeCalledTimes(2);
+    expect(formItemPropsFn).toBeCalledTimes(2);
   });
 
   it('😊 SchemaForm support shouldUpdate as function', async () => {
@@ -413,7 +413,7 @@ describe('SchemaForm', () => {
         ]}
       />,
     );
-    await waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 1000);
 
     expect(html.find('div.ant-form-item').length).toBe(1);
 

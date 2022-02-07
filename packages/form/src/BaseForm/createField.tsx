@@ -1,10 +1,10 @@
-﻿import React, { useMemo, useContext, useCallback, useState, useRef, useEffect } from 'react';
+﻿import React, { useMemo, useContext, useCallback, useState, useEffect, useRef } from 'react';
 import {
   pickProFormItemProps,
   omitUndefined,
   usePrevious,
   isDeepEqualReact,
-  useRefFunction,
+  useLatest,
 } from '@ant-design/pro-utils';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
@@ -90,15 +90,19 @@ function createField<P extends ProFormFieldItemProps = any>(
       ...rest
     } = { ...defaultProps, ...props };
 
-    const propsRenderFormItem = useRefFunction(rest.renderFormItem);
+    const restRef = useLatest(rest);
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, forceUpdate] = useState<[]>();
 
+    /**
+     * 用于判断是否要重置shouldRender
+     */
+    const isUpdate = useRef<boolean>(false);
+    const shouldRender = useRef<boolean>(true);
+
     // onChange触发fieldProps,formItemProps重新执行
     const [onlyChange, forceUpdateByOnChange] = useState<[]>();
-
-    const shouldRender = useRef<boolean>(true);
 
     /** 从 context 中拿到的值 */
     const fieldContextValue = React.useContext(FieldContext);
@@ -149,8 +153,12 @@ function createField<P extends ProFormFieldItemProps = any>(
         // 借助 dependenciesValues 重新执行renderFormItem
         (rest.renderFormItem || rest.dependenciesValues)
       ) {
-        shouldRender.current = true;
-        forceUpdate([]);
+        if (isUpdate.current === true) {
+          shouldRender.current = true;
+          forceUpdate([]);
+        } else {
+          isUpdate.current = true;
+        }
       }
     }, [rest.dependenciesValues, rest.renderFormItem]);
 
@@ -186,20 +194,6 @@ function createField<P extends ProFormFieldItemProps = any>(
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [stringify(otherProps?.name), prefixName]);
 
-    const fieldPropsStyle = useMemo(
-      () => {
-        const newStyle = {
-          ...fieldProps?.style,
-        };
-        if (newStyle.width !== undefined && propsValueType === 'switch') {
-          Reflect.deleteProperty(newStyle, 'width');
-        }
-        return newStyle;
-      },
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      [stringify(fieldProps?.style), propsValueType],
-    );
-
     const prefRest = usePrevious(rest);
 
     const onChange = useCallback(
@@ -216,7 +210,7 @@ function createField<P extends ProFormFieldItemProps = any>(
 
     const renderFormItem = useCallback(
       (...args: any) => {
-        const renderDom = propsRenderFormItem(...args);
+        const renderDom = restRef.current.renderFormItem(...args);
 
         // 支持renderFormItem返回false||null||undefined后渲染组件
         if (
@@ -224,12 +218,30 @@ function createField<P extends ProFormFieldItemProps = any>(
           shouldRender.current === true
         ) {
           shouldRender.current = false;
+          isUpdate.current = false;
           // 由于renderFormItem可能会触发setState的执行，所以需要延迟执行
           setTimeout(() => forceUpdate([]));
+        } else {
+          isUpdate.current = true;
         }
+
         return renderDom;
       },
-      [propsRenderFormItem],
+      [restRef],
+    );
+
+    const fieldPropsStyle = useMemo(
+      () => {
+        const newStyle = {
+          ...fieldProps?.style,
+        };
+        if (newStyle.width !== undefined && propsValueType === 'switch') {
+          Reflect.deleteProperty(newStyle, 'width');
+        }
+        return newStyle;
+      },
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      [stringify(fieldProps?.style), propsValueType],
     );
 
     const style = useMemo(() => {
@@ -371,7 +383,7 @@ function createField<P extends ProFormFieldItemProps = any>(
   // 标记是否是 proform 的组件
   FieldWithContext.displayName = 'ProFormComponent';
 
-  const Wrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
+  const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
     const { dependencies } = props;
     return dependencies ? (
       <ProFormDependency name={dependencies}>
@@ -386,7 +398,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     );
   };
 
-  return Wrapper;
+  return DependencyWrapper;
 }
 
 export default createField;
