@@ -219,8 +219,8 @@ function createField<P extends ProFormFieldItemProps = any>(
         ) {
           shouldRender.current = false;
           isUpdate.current = false;
-          // 由于renderFormItem可能会触发setState的执行，所以需要延迟执行
-          setTimeout(() => forceUpdate([]));
+          // 由于renderFormItem可能会触发setState的执行，所以合适的时机执行
+          requestAnimationFrame(() => forceUpdate([]));
         } else {
           isUpdate.current = true;
         }
