@@ -1,9 +1,9 @@
 ﻿/* eslint-disable react/no-array-index-key */
 import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
-import type { FormInstance } from 'antd';
+import type { FormInstance, FormProps } from 'antd';
 import type { ProFormColumnsType, ProFormProps, StepsFormProps } from '../../index';
 
-import { LabelIconTip, omitUndefined } from '@ant-design/pro-utils';
+import { LabelIconTip, omitUndefined, useLatest } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import ProForm, { DrawerForm, ModalForm, QueryFilter, LightFilter, StepsForm } from '../../index';
 import { renderValueType } from './valueType';
@@ -19,7 +19,9 @@ const FormComments = {
   StepsForm,
   ModalForm,
 };
+
 const noop: any = () => {};
+
 /**
  * 此组件可以根据 Json Schema 来生成相应的表单,大部分配置与 antd 的 table 列配置相同
  *
@@ -38,8 +40,12 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, forceUpdate] = useState<[]>([]);
-  const formRef = useRef<FormInstance | undefined>(props.form);
+  const [changed, forceUpdateColumns] = useState<[]>([]);
 
+  const formRef = useRef<FormInstance | undefined>(props.form);
+  const oldValuesRef = useRef<T>();
+
+  const restRef = useLatest(rest);
   const refMap = useMemo(() => {
     const obj = { form: formRef.current };
     Object.defineProperty(obj, 'form', {
@@ -136,10 +142,10 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
 
   const onCurrentChange: StepsFormProps['onCurrentChange'] = useCallback(
     (current: number) => {
-      (rest as StepsFormProps).onCurrentChange?.(current);
+      restRef.current.onCurrentChange?.(current);
       forceUpdate([]);
     },
-    [rest],
+    [restRef],
   );
 
   const StepsFormDom = useMemo(() => {
@@ -165,7 +171,23 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
       return;
     }
     return genItems(columns as any);
-  }, [columns, genItems, layoutType]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [columns, genItems, layoutType, changed]);
+
+  const onValuesChange: FormProps<T>['onValuesChange'] = useCallback(
+    (changedValues, values) => {
+      const { shouldUpdate = true, onValuesChange: propsOnValuesChange } = restRef.current;
+      if (
+        shouldUpdate === true ||
+        (typeof shouldUpdate === 'function' && shouldUpdate(values, oldValuesRef.current))
+      ) {
+        forceUpdateColumns([]);
+      }
+      oldValuesRef.current = values;
+      propsOnValuesChange?.(changedValues, values);
+    },
+    [restRef],
+  );
 
   /** 如果是StepsForm */
   if (layoutType === 'StepsForm') return <>{StepsFormDom}</>;
@@ -173,7 +195,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   if (layoutType === 'Embed') return <>{ItemsDom}</>;
 
   return (
-    <Form formRef={formRef} {...rest}>
+    <Form onValuesChange={onValuesChange} formRef={formRef} {...rest}>
       {ItemsDom}
     </Form>
   );

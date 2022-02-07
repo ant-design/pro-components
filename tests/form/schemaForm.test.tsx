@@ -118,12 +118,138 @@ describe('SchemaForm', () => {
     expect(fieldPropsFn).toBeCalledTimes(2);
   });
 
+  it('😊 SchemaForm support shouldUpdate as true', async () => {
+    const fieldPropsFn = jest.fn();
+    const formItemPropsFn = jest.fn();
+    const renderFormItemFn = jest.fn();
+    const html = mount(
+      <BetaSchemaForm
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            initialValue: 'name',
+            fieldProps: {
+              id: 'title',
+            },
+            renderFormItem: (schema, { defaultRender }) => {
+              renderFormItemFn();
+              return defaultRender(schema);
+            },
+          },
+          {
+            title: '选择器',
+            dataIndex: 'state',
+            valueType: 'select',
+            fieldProps: fieldPropsFn,
+            formItemProps: formItemPropsFn,
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(fieldPropsFn).toBeCalledTimes(1);
+    expect(formItemPropsFn).toBeCalledTimes(1);
+    expect(renderFormItemFn).toBeCalledTimes(1);
+    act(() => {
+      html.find('input#title').simulate('change', {
+        target: {
+          value: 'qixian',
+        },
+      });
+    });
+    await waitForComponentToPaint(html);
+    expect(renderFormItemFn).toBeCalledTimes(2);
+    expect(formItemPropsFn).toBeCalledTimes(2);
+    expect(fieldPropsFn).toBeCalledTimes(2);
+  });
+
+  it('😊 SchemaForm support shouldUpdate as function', async () => {
+    const fieldPropsFn = jest.fn();
+    const formItemPropsFn = jest.fn();
+    const renderFormItemFn = jest.fn();
+    const shouldUpdateFn = jest.fn();
+    const html = mount(
+      <BetaSchemaForm
+        shouldUpdate={(value: any, oldValue?: any) => {
+          shouldUpdateFn(value.subtitle === 'rerender' && value.subtitle !== oldValue?.subtitle);
+          if (value.subtitle === 'rerender' && value.subtitle !== oldValue?.subtitle) {
+            return true;
+          } else {
+            return false;
+          }
+        }}
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            initialValue: 'name',
+            fieldProps: {
+              id: 'title',
+            },
+            renderFormItem: (schema, { defaultRender }) => {
+              renderFormItemFn();
+              return defaultRender(schema);
+            },
+          },
+          {
+            title: '副标题',
+            dataIndex: 'subtitle',
+            fieldProps: () => {
+              fieldPropsFn();
+              return {
+                id: 'subtitle',
+              };
+            },
+            formItemProps: formItemPropsFn,
+            dependencies: ['title'],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(shouldUpdateFn).toBeCalledTimes(0);
+    expect(fieldPropsFn).toBeCalledTimes(1);
+    expect(formItemPropsFn).toBeCalledTimes(1);
+    expect(renderFormItemFn).toBeCalledTimes(1);
+    act(() => {
+      html.find('input#title').simulate('change', {
+        target: {
+          value: 'not rerender',
+        },
+      });
+    });
+    await waitForComponentToPaint(html);
+    // Although shouldUpdate returns false, but using dependencies will still update
+    expect(renderFormItemFn).toBeCalledTimes(2);
+    expect(formItemPropsFn).toBeCalledTimes(2);
+    expect(fieldPropsFn).toBeCalledTimes(2);
+    expect(shouldUpdateFn).toBeCalledTimes(1);
+
+    act(() => {
+      html.find('input#subtitle').simulate('change', {
+        target: {
+          value: 'rerender',
+        },
+      });
+    });
+
+    expect(renderFormItemFn).toBeCalledTimes(3);
+    expect(formItemPropsFn).toBeCalledTimes(3);
+    expect(fieldPropsFn).toBeCalledTimes(3);
+    expect(shouldUpdateFn).toBeCalledTimes(2);
+    expect(shouldUpdateFn).toBeCalledWith(true);
+  });
+
   it('😊 SchemaForm columns do not interfere with each other', async () => {
     const fieldPropsFn = jest.fn();
     const formItemPropsFn = jest.fn();
     const renderFormItemFn = jest.fn();
     const html = mount(
       <BetaSchemaForm
+        shouldUpdate={false}
         columns={[
           {
             title: '标题',

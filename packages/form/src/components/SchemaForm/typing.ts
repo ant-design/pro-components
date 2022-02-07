@@ -91,6 +91,11 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
   type?: any;
   action?: React.MutableRefObject<ProCoreActionType | undefined>;
   layoutType?: ProFormLayoutType;
+  /**
+   * @default true
+   * Fine-grained control over when to update
+   */
+  shouldUpdate?: boolean | ((newValues: T, oldValues?: T) => boolean);
 } & Omit<FormProps<T>, 'onFinish'> &
   ProFormPropsType<T>;
 

@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import type { ProFormColumnsType } from '@ant-design/pro-form';
 import { BetaSchemaForm } from '@ant-design/pro-form';
 import { Input } from 'antd';
@@ -23,6 +23,7 @@ const valueEnum = {
 type DataItem = {
   name: string;
   state: string;
+  title: string;
 };
 
 const columns: ProFormColumnsType<DataItem>[] = [
@@ -47,7 +48,6 @@ const columns: ProFormColumnsType<DataItem>[] = [
     valueEnum,
     width: 'm',
     tooltip: '当title为disabled时状态无法选择',
-    dependencies: ['title'],
     fieldProps: (form) => {
       if (form.getFieldValue('title') === 'disabled') {
         return {
@@ -66,7 +66,6 @@ const columns: ProFormColumnsType<DataItem>[] = [
     dataIndex: 'labels',
     width: 'm',
     tooltip: '当title为必填时此项将为必填',
-    dependencies: ['title'],
     formItemProps(form) {
       if (form.getFieldValue('title') === '必填') {
         return {
@@ -85,7 +84,6 @@ const columns: ProFormColumnsType<DataItem>[] = [
     title: 'title为hidden时隐藏',
     dataIndex: 'hidden',
     valueType: 'date',
-    dependencies: ['title'],
     renderFormItem: (_, __, form) => {
       if (form.getFieldValue('title') === 'hidden') {
         return false;
@@ -100,9 +98,6 @@ const columns: ProFormColumnsType<DataItem>[] = [
     dataIndex: 'createName',
     valueType: 'date',
   },
-  {
-    valueType: 'divider',
-  },
 ];
 
 export default () => {
@@ -110,7 +105,12 @@ export default () => {
     <>
       <BetaSchemaForm<DataItem>
         trigger={<a>点击我</a>}
-        shouldUpdate={false}
+        shouldUpdate={(newValues, oldValues) => {
+          if (newValues.title !== oldValues?.title) {
+            return true;
+          }
+          return false;
+        }}
         layoutType="Form"
         onFinish={async (values) => {
           console.log(values);
