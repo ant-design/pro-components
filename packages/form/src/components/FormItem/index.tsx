@@ -262,6 +262,7 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     return false;
   }, [lightProps.customLightMode, isDropdown, lightProps.light]);
 
+  // formItem 支持function，如果是function 我就直接不管了
   if (typeof props.children === 'function') {
     return (
       <WarpFormItem {...rest} name={name} key={rest.proFormFieldKey || rest.name?.toString()}>
@@ -270,7 +271,6 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
     );
   }
 
-  // formItem 支持function，如果是function 我就直接不管了
   const children = (
     <WithValueFomFiledProps
       key={rest.proFormFieldKey || rest.name?.toString()}
