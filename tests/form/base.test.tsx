@@ -68,6 +68,11 @@ describe('ProForm', () => {
         syncToInitialValues={false}
       >
         <ProFormText name="navTheme" />
+        <ProForm.Item>
+          {() => {
+            return '123';
+          }}
+        </ProForm.Item>
       </ProForm>,
     );
     await waitForComponentToPaint(wrapper);
