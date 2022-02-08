@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.11...@ant-design/pro-field@1.31.12) (2022-02-08)
+
+### Bug Fixes
+
+- **form:** fix cannot be given refs error ([#4564](https://github.com/ant-design/pro-components/issues/4564)) ([bdea0e3](https://github.com/ant-design/pro-components/commit/bdea0e3473dc71c15aaa18c37b296acf5b47515d))
+
 ## [1.31.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.10...@ant-design/pro-field@1.31.11) (2022-01-25)
 
 ### Bug Fixes
