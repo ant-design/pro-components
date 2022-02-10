@@ -8,6 +8,7 @@ import {
   InlineErrorFormItem,
   useDebounceFn,
   pickProProps,
+  merge,
   DropdownFooter,
   LabelIconTip,
 } from '@ant-design/pro-utils';
@@ -83,6 +84,13 @@ describe('utils', () => {
       true,
     );
     expect(html.money === undefined).toBeTruthy();
+  });
+
+  it('📅 merge values not change null', () => {
+    const html = merge<{
+      status: null;
+    }>({}, { status: null });
+    expect(html.status).toEqual(null);
   });
 
   it('📅 conversionSubmitValue string', async () => {

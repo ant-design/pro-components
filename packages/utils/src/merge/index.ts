@@ -11,6 +11,8 @@ const merge = <T>(...rest: any[]): T => {
         if (
           typeof obj[key] === 'object' &&
           typeof rest[i][key] === 'object' &&
+          obj[key] !== undefined &&
+          obj[key] !== null &&
           !Array.isArray(obj[key]) &&
           !Array.isArray(rest[i][key])
         ) {
