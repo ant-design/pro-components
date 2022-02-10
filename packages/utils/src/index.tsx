@@ -34,6 +34,7 @@ import useDeepCompareEffect, { useDeepCompareEffectDebounce } from './hooks/useD
 import useDocumentTitle from './hooks/useDocumentTitle';
 import type { ProRequestData } from './hooks/useFetchData';
 import useFetchData from './hooks/useFetchData';
+import useLatest from './hooks/useLatest';
 
 /** Type */
 import type {
@@ -146,4 +147,5 @@ export {
   useMountMergeState,
   useFetchData,
   useDeepCompareEffectDebounce,
+  useLatest,
 };

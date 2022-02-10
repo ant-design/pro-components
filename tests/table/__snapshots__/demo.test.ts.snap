@@ -45567,7 +45567,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                 class="ant-col ant-form-item-label"
               >
                 <label
-                  class=""
+                  class="ant-form-item-required"
                   for="title"
                   title="标题"
                 >
@@ -48550,7 +48550,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                 style="flex: 0 0 80px;"
               >
                 <label
-                  class=""
+                  class="ant-form-item-required"
                   for="title"
                   title="标题"
                 >

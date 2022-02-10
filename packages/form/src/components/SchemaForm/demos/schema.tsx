@@ -57,7 +57,14 @@ const columns: ProFormColumnsType<DataItem>[] = [
     valueType: 'date',
   },
   {
-    valueType: 'divider',
+    valueType: 'switch',
+    title: '开关',
+    dataIndex: 'Switch',
+    fieldProps: {
+      style: {
+        width: '200px',
+      },
+    },
   },
   {
     title: '分组',
