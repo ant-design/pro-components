@@ -49,7 +49,7 @@
     "use-media-antd-query": "^1.1.0"
   },
   "peerDependencies": {
-    "antd": "4.x",
+    "antd": ">=4.18.0",
     "rc-field-form": "^1.22.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"

@@ -35,7 +35,7 @@
     "swr": "1.1.0"
   },
   "peerDependencies": {
-    "antd": "4.x",
+    "antd": ">=4.18.0",
     "react": ">=16.9.0"
   },
   "publishConfig": {
