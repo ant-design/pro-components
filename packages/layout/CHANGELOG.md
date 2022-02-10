@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.32.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.9...@ant-design/pro-layout@6.32.10) (2022-02-10)
+
+### Bug Fixes
+
+- **layout:** change less loader to reference ([6f2f87d](https://github.com/ant-design/pro-components/commit/6f2f87d846219258c1fcd23f4c042b3209bf8f5c))
+
 ## [6.32.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.8...@ant-design/pro-layout@6.32.9) (2022-02-10)
 
 **Note:** Version bump only for package @ant-design/pro-layout
