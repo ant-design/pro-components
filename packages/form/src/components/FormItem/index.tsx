@@ -27,7 +27,6 @@ const FormItemProvide = React.createContext<{
 const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) => {
   const {
     children: filedChildren,
-    value,
     onChange,
     onBlur,
     ignoreFormItem,
@@ -91,7 +90,7 @@ const WithValueFomFiledProps: React.FC<Record<string, any>> = (formFieldProps) =
     filedChildren,
     omitUndefined({
       ...restProps,
-      value,
+      [valuePropName]: formFieldProps[valuePropName],
       ...filedChildren.props,
       onChange: finalChange,
       fieldProps,
@@ -125,20 +124,23 @@ const WarpFormItem: React.FC<FormItemProps & WarpFormItemProps> = ({
   ...props
 }) => {
   const formDom = useMemo(() => {
-    const getValuePropsFunc = (value: any) => {
+    let getValuePropsFunc: any = (value: any) => {
       const newValue = convertValue?.(value, props.name!) ?? value;
       if (props.getValueProps) return props.getValueProps(newValue);
-
       return {
         [valuePropName || 'value']: newValue,
       };
     };
-    if (!addonAfter && !addonBefore)
+    if (!convertValue && !props.getValueProps) {
+      getValuePropsFunc = undefined;
+    }
+    if (!addonAfter && !addonBefore) {
       return (
-        <Form.Item {...props} getValueProps={getValuePropsFunc}>
+        <Form.Item {...props} valuePropName={valuePropName} getValueProps={getValuePropsFunc}>
           {children}
         </Form.Item>
       );
+    }
     return (
       <Form.Item
         // @ts-ignore
@@ -211,7 +213,15 @@ type ProFormItemProps = FormItemProps & {
 const ProFormItem: React.FC<ProFormItemProps> = (props) => {
   /** 从 context 中拿到的值 */
   const size = useContext(ConfigProvider.SizeContext);
-  const { valueType, transform, dataFormat, ignoreFormItem, lightProps = {}, ...rest } = props;
+  const {
+    valueType,
+    transform,
+    dataFormat,
+    ignoreFormItem,
+    lightProps = {},
+    children: unusedChildren,
+    ...rest
+  } = props;
   const formListField = useContext(FormListContext);
 
   // ProFromList 的 filed，里面有name和key
@@ -287,7 +297,6 @@ const ProFormItem: React.FC<ProFormItemProps> = (props) => {
       {children}
     </LightWrapper>
   );
-
   // 这里控制是否需要 LightWrapper，为了提升一点点性能
   if (ignoreFormItem) {
     return <>{lightDom}</>;
