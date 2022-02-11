@@ -718,6 +718,20 @@ function useEditableArray<RecordType>(
     },
   );
 
+  const actionCancelRef = useRefFunction(
+    async (
+      recordKey: RecordKey,
+      editRow: RecordType & {
+        index?: number;
+      },
+      originRow: RecordType & { index?: number },
+      newLine?: NewLineConfig<RecordType>,
+    ) => {
+      const res = await props?.onCancel?.(recordKey, editRow, originRow, newLine);
+      return res;
+    },
+  );
+
   const actionRender = (row: RecordType & { index: number }, form: FormInstance<any>) => {
     const key = props.getRowKey(row, row.index);
     const config = {
@@ -730,17 +744,7 @@ function useEditableArray<RecordType>(
       index: row.index,
       tableName: props.tableName,
       newLineConfig: newLineRecordCache,
-      onCancel: async (
-        recordKey: RecordKey,
-        editRow: RecordType & {
-          index?: number;
-        },
-        originRow: RecordType & { index?: number },
-        newLine?: NewLineConfig<RecordType>,
-      ) => {
-        const res = await props?.onCancel?.(recordKey, editRow, originRow, newLine);
-        return res;
-      },
+      onCancel: actionCancelRef,
       onDelete: actionDeleteRef,
       onSave: actionSaveRef,
       form,
