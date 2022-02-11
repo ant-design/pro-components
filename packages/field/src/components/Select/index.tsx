@@ -19,12 +19,13 @@ import type {
 } from '@ant-design/pro-utils';
 
 import {
-  useDebounceFn,
   nanoid,
   useDeepCompareEffect,
   useMountMergeState,
+  useDebounceValue,
 } from '@ant-design/pro-utils';
-import useSWR from 'swr';
+
+import useSWRImmutable from 'swr/immutable';
 import { useIntl } from '@ant-design/pro-provider';
 
 import LightSelect from './LightSelect';
@@ -300,39 +301,33 @@ export const useFieldFetchData = (
     setOptions(getOptionsFormValueEnum(props.valueEnum));
   }, [props.valueEnum]);
 
-  const [loading, setLoading] = useMountMergeState(false);
-
-  const { run: fetchData } = useDebounceFn<[Record<string, any>], SelectOptionType>(
-    async (params: Record<string, any>) => {
-      if (!props.request) return [];
-      setLoading(true);
-      const loadData = await props.request(params, props);
-      setLoading(false);
-      return loadData;
-    },
-    [],
+  const swrKey = useDebounceValue(
+    [proFieldKeyRef.current, props.params, keyWords] as const,
     props.debounceTime ?? props?.fieldProps?.debounceTime ?? 0,
-    // 因为使用了swr，自动清理请求可能导致缓存错误的数据
-    true,
+    [props.params, keyWords],
   );
 
-  const { data, mutate: setLocaleData } = useSWR(
+  const {
+    data,
+    mutate: setLocaleData,
+    isValidating,
+  } = useSWRImmutable(
     () => {
       if (!props.request) {
         return null;
       }
-      return [proFieldKeyRef.current, props.params, keyWords];
+      return swrKey;
     },
     (_, params, kw) =>
-      fetchData({
-        ...params,
-        keyWords: kw,
-      }),
+      props.request!(
+        {
+          ...params,
+          keyWords: kw,
+        },
+        props,
+      ),
     {
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
       shouldRetryOnError: false,
-      revalidateOnReconnect: false,
     },
   );
 
@@ -370,8 +365,9 @@ export const useFieldFetchData = (
 
     return opt;
   }, [options, keyWords, props.fieldProps?.filterOption]);
+
   return [
-    loading,
+    isValidating,
     props.request ? (data as SelectOptionType) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);

@@ -272,27 +272,29 @@ describe('Field', () => {
       expect(html.text()).toBeFalsy();
     });
 
-    it('🐴 select request loading', async () => {
-      const html = render(
-        <Field
-          text="default"
-          valueType={valueType as 'radio'}
-          mode="read"
-          request={async () => {
-            await waitTime(10000);
-            return [
-              { label: '全部', value: 'all' },
-              { label: '未解决', value: 'open' },
-              { label: '已解决', value: 'closed' },
-              { label: '解决中', value: 'processing' },
-            ];
-          }}
-        />,
-      );
-      expect(html.text()).toBe('default');
-    });
+    if (!['checkbox', 'radio', 'radioButton'].includes(valueType)) {
+      it(`🐴 ${valueType} request loading with request`, async () => {
+        const html = render(
+          <Field
+            text="default"
+            valueType={valueType as 'radio'}
+            mode="read"
+            request={async () => {
+              await waitTime(10000);
+              return [
+                { label: '全部', value: 'all' },
+                { label: '未解决', value: 'open' },
+                { label: '已解决', value: 'closed' },
+                { label: '解决中', value: 'processing' },
+              ];
+            }}
+          />,
+        );
+        expect(html.text()).toBe('default');
+      });
+    }
 
-    it('🐴 select request loading', async () => {
+    it(`🐴 ${valueType} request loading without request`, async () => {
       const html = render(
         <Field text="default" valueType={valueType as 'radio'} mode="read" options={[]} />,
       );
@@ -477,10 +479,6 @@ describe('Field', () => {
     });
 
     await waitForComponentToPaint(html, 200);
-
-    act(() => {
-      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
-    });
 
     await waitForComponentToPaint(html, 200);
 
@@ -1198,8 +1196,22 @@ describe('Field', () => {
         params: { name: 'test' },
       });
     });
+    await waitForComponentToPaint(html, 50);
+    act(() => {
+      html.setProps({
+        params: { name: 'test1' },
+      });
+    });
+    await waitForComponentToPaint(html, 50);
+    act(() => {
+      html.setProps({
+        params: { name: 'test2' },
+      });
+    });
+    await waitForComponentToPaint(html, 50);
+
     expect(requestFn).toBeCalledTimes(1);
-    await waitForComponentToPaint(html, 200);
+    await waitForComponentToPaint(html, 10000);
     expect(requestFn).toBeCalledTimes(2);
   });
 });

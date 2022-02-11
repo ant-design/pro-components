@@ -73,6 +73,7 @@ import { merge } from './merge';
 import { genCopyable } from './genCopyable';
 import { useRefFunction } from './hooks/useRefFunction';
 import { nanoid } from './nanoid';
+import useDebounceValue from './hooks/useDebounceValue';
 
 export type {
   SearchConvertKeyFn,
@@ -148,4 +149,5 @@ export {
   useFetchData,
   useDeepCompareEffectDebounce,
   useLatest,
+  useDebounceValue,
 };
