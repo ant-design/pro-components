@@ -135,7 +135,6 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
   {
     text,
     mode: type,
-    locale = 'zh-Hans-CN',
     render,
     renderFormItem,
     fieldProps,
@@ -143,7 +142,8 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
     plain,
     valueEnum,
     placeholder,
-    customSymbol,
+    locale = fieldProps.customSymbol ?? 'zh-Hans-CN',
+    customSymbol = fieldProps.customSymbol,
     numberFormatOptions = fieldProps?.numberFormatOptions,
     numberPopoverRender = fieldProps?.numberPopoverRender || false,
     ...rest
@@ -165,12 +165,17 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
       return undefined;
     }
     return defaultText;
-  }, [fieldProps.moneySymbol, intl, rest.moneySymbol, customSymbol]);
+  }, [customSymbol, fieldProps.moneySymbol, intl, rest.moneySymbol]);
 
   if (type === 'read') {
     const dom = (
       <span ref={ref}>
-        {getTextByLocale(moneySymbol ? locale : false, text, precision, numberFormatOptions)}
+        {getTextByLocale(
+          moneySymbol ? locale : false,
+          text,
+          precision,
+          numberFormatOptions ?? fieldProps.numberFormatOptions,
+        )}
       </span>
     );
     if (render) {
