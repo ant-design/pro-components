@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.34.1...@ant-design/pro-utils@1.34.2) (2022-02-11)
+
+### Bug Fixes
+
+- **table:** fix oncancel no use runtime datasource ([712cd1e](https://github.com/ant-design/pro-components/commit/712cd1e671d94dbf11a666226057d418c21bd063))
+
 ## [1.34.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.34.0...@ant-design/pro-utils@1.34.1) (2022-02-10)
 
 ### Bug Fixes

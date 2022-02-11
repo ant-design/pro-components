@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.13...@ant-design/pro-field@1.31.14) (2022-02-11)
+
+### Bug Fixes
+
+- **field:** use loadData error, improve huge data render performance ([#4605](https://github.com/ant-design/pro-components/issues/4605)) ([c88e438](https://github.com/ant-design/pro-components/commit/c88e4382c8d312e1509f1d3d0c066746f1645175))
+- **form:** fix FieldMoney fieldProps no work error ([3f165fe](https://github.com/ant-design/pro-components/commit/3f165fea2e5e8e96cea845b8fcdeaa722afb7ef9)), closes [#issuecomment-1034709707](https://github.com/ant-design/pro-components/issues/issuecomment-1034709707)
+
 ## [1.31.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.12...@ant-design/pro-field@1.31.13) (2022-02-10)
 
 **Note:** Version bump only for package @ant-design/pro-field
