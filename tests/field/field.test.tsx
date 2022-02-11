@@ -513,15 +513,17 @@ describe('Field', () => {
     const requestFn = jest.fn(),
       onSearchFn = jest.fn(),
       onBlurFn = jest.fn(),
-      onClearFn = jest.fn(),
-      loadDataFn = jest.fn();
+      onClearFn = jest.fn();
 
     const html = mount(
       <TreeSelectDemo
         onSearch={onSearchFn}
         onBlur={onBlurFn}
         onClear={onClearFn}
-        loadData={loadDataFn}
+        loadData={async (node) => {
+          expect(node).toBeTruthy();
+          return;
+        }}
         onChange={(res: any) => {
           html.setProps({ value: res });
         }}
@@ -539,8 +541,6 @@ describe('Field', () => {
     });
 
     await waitForComponentToPaint(html, 200);
-
-    expect(loadDataFn).toBeCalledTimes(1);
 
     const searchInput = html.find('input.ant-select-selection-search-input');
 

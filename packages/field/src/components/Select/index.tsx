@@ -415,12 +415,6 @@ const FieldSelect: ProFieldFC<FieldSelectProps & Pick<SelectProps, 'fieldNames'>
   const keyWordsRef = useRef<string>('');
   const { fieldNames } = fieldProps;
 
-  const {
-    label: labelPropsName = 'label',
-    value: valuePropsName = 'value',
-    options: optionsPropsName = 'options',
-  } = fieldNames || {};
-
   useEffect(() => {
     keyWordsRef.current = fieldProps?.searchValue;
   }, [fieldProps?.searchValue]);
@@ -432,23 +426,33 @@ const FieldSelect: ProFieldFC<FieldSelectProps & Pick<SelectProps, 'fieldNames'>
     fetchData: () => fetchData(),
   }));
 
-  const optionsValueEnum = useMemo<Record<string, any>>(() => {
-    const traverseOptions = (_options: typeof options): Record<string, any> => {
-      return _options?.length > 0
-        ? _options?.reduce((pre, cur) => {
-            const curLabel = cur[labelPropsName],
-              curValue = cur[valuePropsName],
-              curOptions = cur[optionsPropsName];
-            return {
-              ...pre,
-              [curValue]: curLabel,
-              ...traverseOptions(curOptions),
-            };
-          }, {})
-        : {};
+  const optionsValueEnum = useMemo(() => {
+    if (mode !== 'read') return;
+
+    const {
+      label: labelPropsName = 'label',
+      value: valuePropsName = 'value',
+      options: optionsPropsName = 'options',
+    } = fieldNames || {};
+
+    const valuesMap = new Map();
+
+    const traverseOptions = (_options: typeof options) => {
+      if (!_options?.length) {
+        return valuesMap;
+      }
+      const length = _options.length;
+      let i = 0;
+      while (i < length) {
+        const cur = _options[i++];
+        valuesMap.set(cur[valuePropsName], cur[labelPropsName]);
+        traverseOptions(cur[optionsPropsName]);
+      }
+      return valuesMap;
     };
+
     return traverseOptions(options);
-  }, [labelPropsName, options, optionsPropsName, valuePropsName]);
+  }, [fieldNames, mode, options]);
 
   if (mode === 'read') {
     const dom = (

@@ -34,7 +34,8 @@ const FieldCascader: ProFieldFC<GroupProps> = (
     fetchData: () => fetchData(),
   }));
 
-  const optionsValueEnum = useMemo<Record<string, any>>(() => {
+  const optionsValueEnum = useMemo(() => {
+    if (mode !== 'read') return;
     /**
      * Support cascader fieldNames
      *
@@ -46,22 +47,25 @@ const FieldCascader: ProFieldFC<GroupProps> = (
       children: childrenPropsName = 'children',
     } = rest.fieldProps?.fieldNames || {};
 
-    const traverseOptions = (_options: typeof options): Record<string, any> => {
-      return _options?.length > 0
-        ? _options?.reduce((pre, cur) => {
-            const label = cur[labelPropsName],
-              value = cur[valuePropsName],
-              children = cur[childrenPropsName];
-            return {
-              ...pre,
-              [value]: label,
-              ...traverseOptions(children),
-            };
-          }, {})
-        : {};
+    const valuesMap = new Map();
+
+    const traverseOptions = (_options: typeof options) => {
+      if (!_options?.length) {
+        return valuesMap;
+      }
+
+      const length = _options.length;
+      let i = 0;
+      while (i < length) {
+        const cur = _options[i++];
+        valuesMap.set(cur[valuePropsName], cur[labelPropsName]);
+        traverseOptions(cur[childrenPropsName]);
+      }
+      return valuesMap;
     };
+
     return traverseOptions(options);
-  }, [options, rest.fieldProps?.fieldNames]);
+  }, [mode, options, rest.fieldProps?.fieldNames]);
 
   if (mode === 'read') {
     const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;
