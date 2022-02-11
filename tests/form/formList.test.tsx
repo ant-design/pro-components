@@ -722,7 +722,7 @@ describe('ProForm List', () => {
       html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').simulate('click');
       await waitTime(1200);
       await waitForComponentToPaint(html);
-      expect(fnAdd).toBeCalledWith(undefined, undefined);
+      expect(fnAdd).toBeCalledWith(undefined, 1);
       expect(html.find('input.ant-input').length).toBe(2);
     });
     // 复制按钮

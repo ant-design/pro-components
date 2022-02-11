@@ -14,6 +14,9 @@ const Demo = () => {
             name: '1111',
           },
         ]}
+        creatorRecord={{
+          name: '222',
+        }}
         actionGuard={{
           beforeAddRow: async (defaultValue, insertIndex) => {
             return new Promise((resolve) => {

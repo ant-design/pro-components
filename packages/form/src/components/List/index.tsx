@@ -345,7 +345,8 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
         {...omit(creatorButtonProps || {}, ['position', 'creatorButtonText'])}
         onClick={async () => {
           setLoading(true);
-          let index;
+          // 如果不是从顶部开始添加，则插入的索引为当前行数
+          let index = uuidFields.length;
           // 如果是顶部，加到第一个，如果不是，为空就是最后一个
           if (position === 'top') index = 0;
           await wrapperAction.add(runFunction(creatorRecord), index);
@@ -355,7 +356,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
         {creatorButtonText}
       </Button>
     );
-  }, [creatorButtonProps, prefixCls, loading, wrapperAction, creatorRecord]);
+  }, [creatorButtonProps, prefixCls, loading, wrapperAction, creatorRecord, uuidFields]);
 
   return (
     <div
