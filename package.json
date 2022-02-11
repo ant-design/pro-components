@@ -18,7 +18,7 @@
     "release": "npm run test && node ./scripts/release.js",
     "site": "node ./scripts/preDeploy && cross-env SITE_DEPLOY='TRUE' dumi build",
     "size": "npm run build && yarn add --dev @size-limit/preset-app && size-limit",
-    "size:build": "yarn add --dev @size-limit/preset-app && cross-env PRO_COMPONENTS_CI='CI' webpack",
+    "size:build": "yarn add --dev -W @size-limit/preset-app && cross-env PRO_COMPONENTS_CI='CI' webpack",
     "start": "dumi dev",
     "sync:tnpm": "node -e 'require(\"./scripts/syncTNPM\")()'",
     "test": "jest",
