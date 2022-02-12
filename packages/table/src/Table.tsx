@@ -629,6 +629,12 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     propsActionRef.current = actionRef.current;
   }
 
+  // 当与 FormItem 配合使用时，由于内部不再创建 ProForm，需要用户将外部创建的 formRef 传进来后设置到当前的编辑表格表单中
+  // fix: #4600
+  if (props.formRef) {
+    counter.setEditorTableForm(props.formRef.current!);
+  }
+
   // ---------- 列计算相关 start  -----------------
   const tableColumn = useMemo(() => {
     return genProColumnToColumn<T>({

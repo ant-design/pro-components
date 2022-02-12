@@ -117,6 +117,7 @@ export default () => {
         headerTitle="可编辑表格"
         maxLength={5}
         name="table"
+        formRef={formRef}
         recordCreatorProps={
           position !== 'hidden'
             ? {
