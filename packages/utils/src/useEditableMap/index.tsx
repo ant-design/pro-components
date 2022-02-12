@@ -122,6 +122,7 @@ function useEditableMap<RecordType>(
       index?: number;
     },
   ) => {
+    console.log(recordKey, editRow, originRow);
     const success = await props?.onSave?.(recordKey, editRow, originRow);
     if (success === false) {
       return false;
