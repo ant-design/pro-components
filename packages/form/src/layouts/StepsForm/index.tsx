@@ -12,7 +12,7 @@ import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
 import './index.less';
 import type { ProFormProps } from '../ProForm';
-import type { SubmitterProps } from '../../components/Submitter';
+import type { SubmitterProps } from '../../components';
 
 type StepsFormProps<T = Record<string, any>> = {
   /**

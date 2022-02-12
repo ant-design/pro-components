@@ -32,8 +32,8 @@ import type { NamePath } from 'antd/lib/form/interface';
 
 import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';
-import type { SubmitterProps } from '../components/Submitter';
-import Submitter from '../components/Submitter';
+import type { SubmitterProps } from '../components';
+import { Submitter } from '../components';
 import type { GroupProps, FieldProps } from '../interface';
 import { noteOnce } from 'rc-util/lib/warning';
 

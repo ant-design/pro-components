@@ -1,4 +1,4 @@
-import { ProFormGroup } from '../../../';
+import { ProFormGroup } from '../../../layouts';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';
 
 export const group: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {

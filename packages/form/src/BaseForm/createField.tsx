@@ -11,9 +11,8 @@ import { noteOnce } from 'rc-util/lib/warning';
 import { stringify } from 'use-json-comparison';
 import FieldContext from '../FieldContext';
 import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../interface';
-import ProFormItem from '../components/FormItem';
+import { ProFormItem, ProFormDependency } from '../components';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
-import { ProFormDependency } from '..';
 
 export const TYPE = Symbol('ProFormComponent');
 
