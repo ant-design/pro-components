@@ -19552,7 +19552,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical"
-    trigger="[object Object]"
   >
     <input
       style="display: none;"
@@ -20092,7 +20091,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical"
-    trigger="[object Object]"
   >
     <input
       style="display: none;"
@@ -23719,7 +23717,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
   <form
     autocomplete="off"
     class="ant-form ant-form-vertical"
-    trigger="[object Object]"
   >
     <input
       style="display: none;"

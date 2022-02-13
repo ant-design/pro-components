@@ -28,26 +28,17 @@ const noop: any = () => {};
  *
  * @see 此组件仍为 beta 版本，api 可能发生变化
  */
+
 function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
-  const {
-    columns,
-    layoutType = 'Form',
-    steps = [],
-    type = 'form',
-    action,
-    formRef: propsFormRef,
-    ...restProps
-  } = props;
+  const { columns, layoutType = 'Form', steps = [], type = 'form', action, ...restProps } = props;
+
   const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, forceUpdate] = useState<[]>([]);
   const [columnsChange, forceUpdateColumns] = useState<[]>([]);
 
   const propsRef = useLatest(props);
-
-  const rest = useMemo(() => {
-    return omit(restProps, ['shouldUpdate']);
-  }, [restProps]);
 
   const formRef = useRef<FormInstance | undefined>(props.form);
   const oldValuesRef = useRef<T>();
@@ -67,7 +58,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     return obj;
   }, []);
 
-  useImperativeHandle(propsFormRef, () => refMap.form);
+  useImperativeHandle((restProps as ProFormProps<T>).formRef, () => refMap.form);
+
+  const rest = useMemo(() => {
+    return omit(restProps, ['shouldUpdate', 'formRef'] as any);
+  }, [restProps]);
 
   /**
    * 生成子项，方便被 table 接入
@@ -149,9 +144,9 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   /**
    * fixed StepsForm toggle step causing formRef to update
    */
-  const onCurrentChange: StepsFormProps['onCurrentChange'] = useCallback(
+  const onCurrentChange: StepsFormProps<T>['onCurrentChange'] = useCallback(
     (current: number) => {
-      propsRef.current.onCurrentChange?.(current);
+      (propsRef.current as StepsFormProps<T>).onCurrentChange?.(current);
       forceUpdate([]);
     },
     [propsRef],
