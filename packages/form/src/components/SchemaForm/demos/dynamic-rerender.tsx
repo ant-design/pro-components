@@ -104,7 +104,6 @@ export default () => {
   return (
     <>
       <BetaSchemaForm<DataItem>
-        trigger={<a>点击我</a>}
         shouldUpdate={(newValues, oldValues) => {
           if (newValues.title !== oldValues?.title) {
             return true;

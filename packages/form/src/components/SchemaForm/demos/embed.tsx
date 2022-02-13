@@ -68,21 +68,10 @@ export default () => {
         rules={[{ required: true, message: 'Please select your favorite colors!', type: 'array' }]}
       />
       <h1>表单1 </h1>
-      <BetaSchemaForm<DataItem>
-        trigger={<a>点击我</a>}
-        layoutType="Embed"
-        onFinish={async (values) => {
-          console.log(values);
-        }}
-        columns={columns}
-      />
+      <BetaSchemaForm<DataItem> layoutType="Embed" columns={columns} />
       <h1>表单2</h1>
       <BetaSchemaForm<DataItem>
-        trigger={<a>点击我</a>}
         layoutType="Embed"
-        onFinish={async (values) => {
-          console.log(values);
-        }}
         columns={[
           {
             title: '创建时间',

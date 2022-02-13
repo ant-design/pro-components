@@ -90,7 +90,6 @@ export default () => {
         }}
       />
       <BetaSchemaForm<DataItem>
-        trigger={<a>点击我</a>}
         layoutType="Form"
         onFinish={async (values) => {
           console.log(values);
