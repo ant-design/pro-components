@@ -172,7 +172,16 @@ export default () => {
     <>
       <ProFormSelect
         label="布局方式"
-        options={['ProForm', 'ModalForm', 'DrawerForm', 'LightFilter', 'QueryFilter']}
+        options={[
+          'Form',
+          'ModalForm',
+          'DrawerForm',
+          'LightFilter',
+          'QueryFilter',
+          'StepsForm',
+          'StepForm',
+          'Embed',
+        ]}
         fieldProps={{
           value: layoutType,
           onChange: (e) => setLayoutType(e),
@@ -184,7 +193,7 @@ export default () => {
         onFinish={async (values) => {
           console.log(values);
         }}
-        columns={columns}
+        columns={layoutType === 'StepsForm' ? [columns] : columns}
       />
     </>
   );

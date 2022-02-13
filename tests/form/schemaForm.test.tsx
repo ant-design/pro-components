@@ -1,7 +1,7 @@
 ﻿import React, { createRef } from 'react';
 import { mount } from 'enzyme';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-import type { ProFormColumnsType } from '@ant-design/pro-form';
+import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
 import { Input } from 'antd';
 import { act } from 'react-dom/test-utils';
@@ -595,7 +595,7 @@ describe('SchemaForm', () => {
         <BetaSchemaForm
           visible={true}
           formRef={formRef as any}
-          layoutType={layoutType as 'Form'}
+          layoutType={layoutType as ProFormLayoutType}
           columns={formColumns.flat(layoutType !== 'StepsForm' ? 1 : 0) as any}
           steps={[
             {

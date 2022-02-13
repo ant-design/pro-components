@@ -7,6 +7,7 @@ import type {
 import type { FormInstance, FormProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { DrawerFormProps } from '../../layouts/DrawerForm';
+import type { LightFilterProps } from '../../layouts/LightFilter';
 import type { ModalFormProps } from '../../layouts/ModalForm';
 import type { ProFormProps } from '../../layouts/ProForm';
 import type { QueryFilterProps } from '../../layouts/QueryFilter';
@@ -29,24 +30,20 @@ export type ExtraProColumnType = {
   name?: NamePath;
 };
 
-/** ProForm 的特色 layout */
-export type ProFormLayoutType =
-  | 'Form'
-  | 'ModalForm'
-  | 'DrawerForm'
-  | 'StepsForm'
-  | 'StepForm'
-  | 'LightFilter'
-  | 'QueryFilter'
-  | 'Embed';
-
 /** ProForm 支持的相关类型 */
-export type ProFormPropsType<T> = Omit<DrawerFormProps<T>, 'onFinish'> &
-  Omit<QueryFilterProps<T>, 'onFinish'> &
-  ProFormProps<T> &
-  Omit<StepFormProps<T>, 'onFinish'> &
-  Omit<ModalFormProps<T>, 'onFinish'> &
-  Omit<StepsFormProps<T>, 'onFinish'>;
+export type ProFormPropsType<T> =
+  | ({ layoutType?: 'Form' } & ProFormProps<T>)
+  | ({ layoutType: 'DrawerForm' } & DrawerFormProps<T>)
+  | ({ layoutType: 'ModalForm' } & ModalFormProps<T>)
+  | ({ layoutType: 'QueryFilter' } & QueryFilterProps<T>)
+  | ({ layoutType: 'LightFilter' } & LightFilterProps<T>)
+  | ({ layoutType: 'StepsForm' } & StepsFormProps<T>)
+  | ({ layoutType: 'StepForm' } & StepFormProps<T>)
+  | { layoutType: 'Embed' };
+
+/** ProForm 的特色 layout */
+export type ProFormLayoutType = ProFormPropsType<any>['layoutType'];
+
 export type FormFieldType = 'group' | 'formList' | 'formSet' | 'divider' | 'dependency';
 
 export type ProFormColumnsType<T = any, ValueType = 'text'> = ProSchema<
@@ -90,7 +87,6 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
   columns: ProFormColumnsType<T, ValueType>[] | ProFormColumnsType<T, ValueType>[][];
   type?: any;
   action?: React.MutableRefObject<ProCoreActionType | undefined>;
-  layoutType?: ProFormLayoutType;
   /**
    * @default true
    * Fine-grained control over when to update

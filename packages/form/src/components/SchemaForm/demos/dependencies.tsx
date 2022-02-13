@@ -109,7 +109,6 @@ export default () => {
   return (
     <>
       <BetaSchemaForm<DataItem>
-        trigger={<a>点击我</a>}
         shouldUpdate={false}
         layoutType="Form"
         onFinish={async (values) => {
