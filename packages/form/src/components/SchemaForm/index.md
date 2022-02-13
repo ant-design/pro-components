@@ -70,33 +70,23 @@ SchemaForm 表单最重要就是 Schema 的类型定义，我们使用了与 tab
 
 <code src="./demos/schema.tsx" height="764px" title="schema 表单" />
 
-<br />
-
 ### JSON 来生成分步表单
 
 <code src="./demos/steps-form.tsx" height="464px" title="schema 表单" />
-
-<br />
 
 ### 嵌入到 ProForm 中
 
 <code src="./demos/embed.tsx" height="464px" title="schema 表单" />
 
-<br />
-
 ### 使用 ProFormDependency
 
 <code src="./demos/dependency.tsx" height="300px" title="schema 表单" />
-
-<br />
 
 ## 高性能代码示例
 
 ### 结合 shouldUpdate=false 和 dependencies 触发更新
 
 <code src="./demos/dependencies.tsx" height="500px" title="schema dependencies" />
-
-<br />
 
 ### 动态控制是否重渲染
 
