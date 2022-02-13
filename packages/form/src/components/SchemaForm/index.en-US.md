@@ -69,33 +69,23 @@ The most important thing about the SchemaForm form is the type definition of the
 
 <code src="./demos/schema.tsx" height="764px" title="schema form" />
 
-<br />
-
 ### JSON to generate distributed forms
 
 <code src="./demos/steps-form.tsx" height="464px" title="schema form" />
-
-<br />
 
 ### Embed in ProForm
 
 <code src="./demos/embed.tsx" height="464px" title="schema form" />
 
-<br />
-
 ### Use ProFormDependency
 
 <code src="./demos/dependency.tsx" height="300px" title="schema dependency" />
-
-<br />
 
 ## High performance code examples
 
 ### Combining shouldUpdate=false with dependencies to trigger updates
 
 <code src="./demos/dependencies.tsx" height="500px" title="schema dependencies" />
-
-<br />
 
 ### Dynamically control whether to re-render
 
