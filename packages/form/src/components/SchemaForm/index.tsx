@@ -61,7 +61,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   useImperativeHandle((restProps as ProFormProps<T>).formRef, () => refMap.form);
 
   const rest = useMemo(() => {
-    return omit(restProps as any, ['shouldUpdate', 'formRef']);
+    return omit(restProps, ['shouldUpdate', 'formRef'] as any);
   }, [restProps]);
 
   /**
