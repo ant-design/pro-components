@@ -57,6 +57,10 @@ interface RequestData {
 
 <code src="./demos/base.tsx" title="基础定义列表" />
 
+### 数组类型 dataIndex
+
+<code src="./demos/arrayDataIndex.tsx" title="数组类型dataIndex" />
+
 ### 格式化配置
 
 根据配置格式化日期

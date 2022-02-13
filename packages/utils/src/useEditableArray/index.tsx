@@ -267,7 +267,9 @@ export function SaveEditableAction<T>({
         e.preventDefault();
         try {
           const isMapEditor = editorType === 'Map';
-          const namePath = [tableName, recordKey]
+          // 为了兼容类型为 array 的 dataIndex,当 recordKey 是一个数组时，用于获取表单值的 key 只取第一项，
+          // 从表单中获取回来之后，再根据 namepath 获取具体的某个字段并设置
+          const namePath = [tableName, Array.isArray(recordKey) ? recordKey[0] : recordKey]
             .map((key) => key?.toString())
             .flat(1)
             .filter(Boolean) as string[];
@@ -278,6 +280,14 @@ export function SaveEditableAction<T>({
           });
 
           const fields = context.getFieldFormatValue?.(namePath) || form.getFieldValue(namePath);
+          // 处理 dataIndex 为数组的情况
+          if (Array.isArray(recordKey) && recordKey.length > 1) {
+            // 获取 namepath
+            const [, ...recordKeyPath] = recordKey;
+            // 将目标值获取出来并设置到 fields 当中
+            const curValue = get(fields, recordKeyPath as string[]);
+            set(fields, recordKeyPath, curValue);
+          }
           const data = isMapEditor ? set({}, namePath, fields, true) : fields;
 
           // 获取数据并保存
