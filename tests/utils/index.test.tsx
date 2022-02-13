@@ -54,12 +54,10 @@ describe('utils', () => {
     expect(html.text()).toEqual('string');
   });
 
-  it('📅 useDebounceValue not deps', async () => {
+  it('📅 useDebounceValue without deps', async () => {
     const App = (props: { deps: string[] }) => {
       const [_, forceUpdate] = useState([]);
-      const value = useDebounceValue(props.deps?.[0], 100);
-
-      console.log('value: ', value, props.deps);
+      const value = useDebounceValue(props.deps?.[0]);
 
       useEffect(() => {
         setTimeout(() => {
