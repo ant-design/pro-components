@@ -1,14 +1,14 @@
 ﻿/* eslint-disable react/no-array-index-key */
 import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import type { FormInstance, FormProps } from 'antd';
-import type { ProFormColumnsType, ProFormProps, StepsFormProps } from '../../index';
 
 import { LabelIconTip, omitUndefined, useLatest } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
-import ProForm, { DrawerForm, ModalForm, QueryFilter, LightFilter, StepsForm } from '../../index';
 import { renderValueType } from './valueType';
-import type { FormSchema, ProFormRenderValueTypeHelpers } from './typing';
+import type { FormSchema, ProFormColumnsType, ProFormRenderValueTypeHelpers } from './typing';
 import omit from 'omit.js';
+import type { ProFormProps, StepsFormProps } from '../../layouts';
+import { StepsForm, DrawerForm, QueryFilter, LightFilter, ModalForm, ProForm } from '../../layouts';
 
 export * from './typing';
 

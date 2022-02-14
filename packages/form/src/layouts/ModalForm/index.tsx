@@ -6,7 +6,7 @@ import omit from 'omit.js';
 import { createPortal } from 'react-dom';
 
 import type { CommonFormProps } from '../../BaseForm';
-import BaseForm from '../../BaseForm';
+import { BaseForm } from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
 
 export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish' | 'title'> &

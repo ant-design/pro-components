@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom';
 import omit from 'omit.js';
 
 import type { CommonFormProps } from '../../BaseForm';
-import BaseForm from '../../BaseForm';
+import { BaseForm } from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
 
 export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &

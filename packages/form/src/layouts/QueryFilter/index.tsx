@@ -11,7 +11,7 @@ import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { CommonFormProps } from '../../BaseForm';
-import BaseForm from '../../BaseForm';
+import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
 import classNames from 'classnames';

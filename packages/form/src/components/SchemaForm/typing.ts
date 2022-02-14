@@ -6,12 +6,15 @@ import type {
 } from '@ant-design/pro-utils';
 import type { FormInstance, FormProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import type { DrawerFormProps } from '../../layouts/DrawerForm';
-import type { LightFilterProps } from '../../layouts/LightFilter';
-import type { ModalFormProps } from '../../layouts/ModalForm';
-import type { ProFormProps } from '../../layouts/ProForm';
-import type { QueryFilterProps } from '../../layouts/QueryFilter';
-import type { StepFormProps, StepsFormProps } from '../../layouts/StepsForm';
+import type {
+  DrawerFormProps,
+  LightFilterProps,
+  QueryFilterProps,
+  ProFormProps,
+  StepFormProps,
+  ModalFormProps,
+  StepsFormProps,
+} from '../../layouts';
 
 export type ExtraProColumnType = {
   tooltip?: React.ReactNode;

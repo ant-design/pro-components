@@ -1,5 +1,5 @@
 import { noteOnce } from 'rc-util/lib/warning';
-import { ProFormDependency } from '../../../index';
+import ProFormDependency from '../../Dependency';
 import type { ProSchemaRenderValueTypeFunction } from '../typing';
 
 export const dependency: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {

@@ -13,7 +13,7 @@ import ProForm, {
 } from '@ant-design/pro-form';
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import LightWrapper from '../BaseForm/LightWrapper';
+import { LightWrapper } from '../BaseForm';
 
 export default () => (
   <ConfigProvider locale={enUS}>

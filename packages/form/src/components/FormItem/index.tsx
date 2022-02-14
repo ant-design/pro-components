@@ -9,8 +9,8 @@ import type {
   SearchConvertKeyFn,
 } from '@ant-design/pro-utils';
 import { isDropdownValueType, omitUndefined } from '@ant-design/pro-utils';
-import type { LightWrapperProps } from '../../BaseForm/LightWrapper';
-import LightWrapper from '../../BaseForm/LightWrapper';
+import type { LightWrapperProps } from '../../BaseForm';
+import { LightWrapper } from '../../BaseForm';
 import type { NamePath } from 'antd/lib/form/interface';
 
 const FormItemProvide = React.createContext<{

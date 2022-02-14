@@ -1,5 +1,5 @@
 import type { FormItemProps, SpaceProps } from 'antd';
-import type { ProFormItemProps } from './components/FormItem';
+import type { ProFormItemProps } from './components';
 import type { ProFormInstance } from './BaseForm';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type React from 'react';
