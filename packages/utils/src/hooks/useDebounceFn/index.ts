@@ -23,25 +23,23 @@ function useDebounceFn<T extends any[], U = any>(
   fn: (...args: T) => Promise<any>,
   deps: DependencyList | number,
   wait?: number,
-  disableAutoCancel?: boolean,
 ): ReturnValue<T, U> {
-  // eslint-disable-next-line no-underscore-dangle
   const hooksDeps: DependencyList = (Array.isArray(deps) ? deps : []) as DependencyList;
-  // eslint-disable-next-line no-underscore-dangle
   const hookWait: number = typeof deps === 'number' ? deps : wait || 0;
   const timer = useRef<any>();
 
   const fnRef = useRef<any>(fn);
   /** 如果这个方法被清理里，应该报错，这样就可以减少错误信息了 */
-  const rejectRef = useRef<any>(() => {});
+  const rejectRef = useRef<((reason?: any) => void) | null>(null);
+
   fnRef.current = fn;
 
   const cancel = useCallback(() => {
-    if (disableAutoCancel) return;
     if (timer.current) {
       clearTimeout(timer.current);
+      timer.current = null;
     }
-  }, [disableAutoCancel]);
+  }, []);
 
   const run = useCallback(
     async (...args: any): Promise<U | undefined> => {
@@ -65,7 +63,7 @@ function useDebounceFn<T extends any[], U = any>(
       }
       return undefined;
     },
-    [wait, cancel, hookWait],
+    [cancel, hookWait, wait],
   );
 
   useUpdateEffect(() => {

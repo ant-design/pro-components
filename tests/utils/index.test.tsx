@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   conversionSubmitValue,
   parseValueToMoment,
@@ -11,6 +11,7 @@ import {
   merge,
   DropdownFooter,
   LabelIconTip,
+  useDebounceValue,
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
 import { Form, Input } from 'antd';
@@ -22,6 +23,68 @@ import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/in
 import { CodeFilled } from '@ant-design/icons';
 
 describe('utils', () => {
+  it('📅 useDebounceValue', async () => {
+    const App = (props: { deps: string[] }) => {
+      const value = useDebounceValue(props.deps?.[0], 200, props.deps);
+
+      return <>{value}</>;
+    };
+
+    const html = mount(<App deps={['name']} />);
+
+    await waitTime(100);
+
+    expect(html.text()).toEqual('name');
+
+    act(() => {
+      html.setProps({
+        deps: ['string'],
+      });
+    });
+    await waitTime(100);
+
+    html.update();
+
+    expect(html.text()).toEqual('name');
+
+    await waitTime(200);
+
+    html.update();
+
+    expect(html.text()).toEqual('string');
+  });
+
+  it('📅 useDebounceValue without deps', async () => {
+    const App = (props: { deps: string[] }) => {
+      const [_, forceUpdate] = useState([]);
+      const value = useDebounceValue(props.deps?.[0]);
+
+      useEffect(() => {
+        setTimeout(() => {
+          forceUpdate([]);
+        }, 1000);
+      }, []);
+
+      return <>{value}</>;
+    };
+
+    const html = mount(<App deps={['name']} />);
+
+    expect(html.text()).toEqual('name');
+
+    act(() => {
+      html.setProps({
+        deps: ['string'],
+      });
+    });
+
+    waitTime(1000);
+
+    html.update();
+
+    expect(html.text()).toEqual('name');
+  });
+
   it('📅 useDebounceFn', async () => {
     pickProProps({
       fieldProps: {
