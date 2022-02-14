@@ -95,7 +95,6 @@ export type GroupProps = {
 export type FieldProps = {
   style?: React.CSSProperties;
   width?: string;
-  format?: string;
 };
 
 export type LightFilterFooterRender =
