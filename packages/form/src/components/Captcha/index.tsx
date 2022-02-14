@@ -2,7 +2,7 @@
 import { Button, Input, Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import React, { useState, useEffect } from 'react';
-import { createField } from '../../BaseForm';
+import { createField } from '../../BaseForm/createField';
 import type { ProFormFieldItemProps } from '../../interface';
 
 export type ProFormCaptchaProps = ProFormFieldItemProps<InputProps> & {

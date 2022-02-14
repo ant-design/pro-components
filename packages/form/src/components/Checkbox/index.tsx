@@ -6,7 +6,7 @@ import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import type { CheckboxGroupProps } from 'antd/lib/checkbox';
 import type { ProFormFieldItemProps } from '../../interface';
-import { createField } from '../../BaseForm';
+import { createField } from '../../BaseForm/createField';
 
 export type ProFormCheckboxGroupProps = ProFormFieldItemProps<CheckboxGroupProps> & {
   layout?: 'horizontal' | 'vertical';

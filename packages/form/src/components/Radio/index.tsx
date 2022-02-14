@@ -5,7 +5,7 @@ import ProField from '../Field';
 import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import type { ProFormFieldItemProps } from '../../interface';
-import { createField } from '../../BaseForm';
+import { createField } from '../../BaseForm/createField';
 
 export type ProFormRadioGroupProps = ProFormFieldItemProps<RadioGroupProps> & {
   layout?: 'horizontal' | 'vertical';

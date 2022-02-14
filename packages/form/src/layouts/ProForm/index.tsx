@@ -33,4 +33,4 @@ ProForm.Group = Group;
 ProForm.useForm = Form.useForm;
 ProForm.Item = ProFormItem;
 
-export default ProForm;
+export { ProForm };

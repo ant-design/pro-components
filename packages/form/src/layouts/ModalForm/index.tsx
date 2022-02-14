@@ -187,4 +187,4 @@ function ModalForm<T = Record<string, any>>({
   );
 }
 
-export default ModalForm;
+export { ModalForm };

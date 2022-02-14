@@ -140,7 +140,7 @@ type ProFormInstance<T = any> = FormInstance<T> & {
   validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
 };
 
-function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
+function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   const {
     children,
     contentRender,
@@ -471,7 +471,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 /** 自动的formKey 防止重复 */
 let requestFormCacheId = 0;
 
-function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
+function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const { request, params, initialValues, formKey = requestFormCacheId, ...rest } = props;
   useEffect(() => {
     requestFormCacheId += 0;
@@ -491,7 +491,7 @@ function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   return (
     <ConfigProviderWrap>
-      <BaseForm
+      <BaseFormComponents
         autoComplete="off"
         {...rest}
         initialValues={{
@@ -505,4 +505,4 @@ function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
 export type { FormProps, ProFormInstance, FormItemProps, FormInstance };
 
-export default RequestForm;
+export { BaseForm };

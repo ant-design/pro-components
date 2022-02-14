@@ -443,4 +443,4 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   );
 }
 
-export default QueryFilter;
+export { QueryFilter };

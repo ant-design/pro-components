@@ -372,4 +372,4 @@ function StepsFormWarp<T = Record<string, any>>(
 StepsFormWarp.StepForm = StepForm;
 StepsFormWarp.useForm = Form.useForm;
 
-export default StepsFormWarp;
+export { StepsFormWarp as StepsForm };

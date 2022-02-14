@@ -400,4 +400,4 @@ function createField<P extends ProFormFieldItemProps = any>(
   return DependencyWrapper;
 }
 
-export default createField;
+export { createField };

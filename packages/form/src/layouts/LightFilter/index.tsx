@@ -259,4 +259,4 @@ function LightFilter<T = Record<string, any>>(props: LightFilterProps<T>) {
   );
 }
 
-export default LightFilter;
+export { LightFilter };

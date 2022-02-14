@@ -191,4 +191,4 @@ function DrawerForm<T = Record<string, any>>({
   );
 }
 
-export default DrawerForm;
+export { DrawerForm };

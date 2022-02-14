@@ -8,7 +8,12 @@ import { renderValueType } from './valueType';
 import type { FormSchema, ProFormColumnsType, ProFormRenderValueTypeHelpers } from './typing';
 import omit from 'omit.js';
 import type { ProFormProps, StepsFormProps } from '../../layouts';
-import { StepsForm, DrawerForm, QueryFilter, LightFilter, ModalForm, ProForm } from '../../layouts';
+import { DrawerForm } from '../../layouts/DrawerForm';
+import { QueryFilter } from '../../layouts/QueryFilter';
+import { LightFilter } from '../../layouts/LightFilter';
+import { StepsForm } from '../../layouts/StepsForm';
+import { ModalForm } from '../../layouts/ModalForm';
+import { ProForm } from '../../layouts/ProForm';
 
 export * from './typing';
 
