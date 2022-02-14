@@ -7,7 +7,7 @@
   "scripts": {
     "bootstrap": "node ./scripts/bootstrap.js",
     "build": "npm run build-lib && webpack && node ./scripts/gen_less_entry.js",
-    "build-lib": "cross-env BUILD_TYPE=lib father-build && cross-env BUILD_TYPE=es father-build",
+    "build-lib": "father-build",
     "changelog": "pro-changelog",
     "check-deps": "node ./scripts/checkDeps.js",
     "createRelease": "node ./scripts/createRelease.js",
