@@ -4,6 +4,7 @@ import { InputNumber, Popover } from 'antd';
 import { useIntl, intlMap as allIntlMap } from '@ant-design/pro-provider';
 import type { ProFieldFC } from '../../index';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import omit from 'omit.js';
 
 export type FieldMoneyProps = {
   text: number;
@@ -213,16 +214,21 @@ const FieldMoney: ProFieldFC<FieldMoneyProps> = (
             const reg = new RegExp(`/B(?=(d{${3 + (precision - DefaultPrecisionCont)}})+(?!d))/g`);
             return `${moneySymbol} ${value}`.replace(reg, ',');
           }
-          return value;
+          return value!?.toString();
         }}
         parser={(value) => {
           if (moneySymbol && value) {
             return value.replace(new RegExp(`\\${moneySymbol}\\s?|(,*)`, 'g'), '');
           }
-          return value;
+          return value!;
         }}
         placeholder={placeholder}
-        {...fieldProps}
+        {...omit(fieldProps, [
+          'numberFormatOptions',
+          'precision',
+          'numberPopoverRender',
+          'customSymbol',
+        ])}
       />
     );
     if (renderFormItem) {
