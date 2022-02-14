@@ -334,7 +334,7 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
   deletePopconfirmMessage,
   cancelEditable,
 }) => {
-  const [loading, setLoading] = useState<boolean>(() => false);
+  const [loading, setLoading] = useMountMergeState<boolean>(() => false);
   const onConfirm = async () => {
     try {
       setLoading(true);
