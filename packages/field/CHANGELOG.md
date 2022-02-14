@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.14...@ant-design/pro-field@1.31.15) (2022-02-14)
+
+### Bug Fixes
+
+- **field:** setting debounceTime results in repeated requests ([#4609](https://github.com/ant-design/pro-components/issues/4609)) ([51d2441](https://github.com/ant-design/pro-components/commit/51d2441b080c7060fe083803e8a89c4db3ec0a67))
+
 ## [1.31.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.13...@ant-design/pro-field@1.31.14) (2022-02-11)
 
 ### Bug Fixes

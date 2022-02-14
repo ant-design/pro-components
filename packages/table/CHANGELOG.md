@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.63.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.63.3...@ant-design/pro-table@2.63.4) (2022-02-14)
+
+### Bug Fixes
+
+- **table:** fix when name=xxx, form is null error ([3d5142d](https://github.com/ant-design/pro-components/commit/3d5142d48168459eecb36747220f72788666ceaf))
+
 ## [2.63.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.63.2...@ant-design/pro-table@2.63.3) (2022-02-11)
 
 **Note:** Version bump only for package @ant-design/pro-table
