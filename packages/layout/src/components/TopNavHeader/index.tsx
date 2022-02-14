@@ -24,13 +24,9 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
   const [rightSize, setRightSize] = useState<number | string>('auto');
 
   /** 减少一下渲染的次数 */
-  const setRightSizeDebounceFn = useDebounceFn(
-    async (width: number) => {
-      setRightSize(width);
-    },
-    [],
-    160,
-  );
+  const setRightSizeDebounceFn = useDebounceFn(async (width: number) => {
+    setRightSize(width);
+  }, 160);
 
   return (
     <div

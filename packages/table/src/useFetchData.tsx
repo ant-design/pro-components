@@ -138,30 +138,26 @@ const useFetchData = <T extends RequestData<any>>(
     return [];
   };
 
-  const fetchListDebounce = useDebounceFn(
-    async (isPolling: boolean) => {
-      if (pollingSetTimeRef.current) {
-        clearTimeout(pollingSetTimeRef.current);
-      }
-      const msg = await fetchList(isPolling);
+  const fetchListDebounce = useDebounceFn(async (isPolling: boolean) => {
+    if (pollingSetTimeRef.current) {
+      clearTimeout(pollingSetTimeRef.current);
+    }
+    const msg = await fetchList(isPolling);
 
-      // 把判断要不要轮询的逻辑放到后面来这样可以保证数据是根据当前来
-      // 放到请求前面会导致数据是上一次的
-      const needPolling = runFunction(polling, msg);
+    // 把判断要不要轮询的逻辑放到后面来这样可以保证数据是根据当前来
+    // 放到请求前面会导致数据是上一次的
+    const needPolling = runFunction(polling, msg);
 
-      // 如果需要轮询，搞个一段时间后执行
-      // 如果解除了挂载，删除一下
-      if (needPolling && !umountRef.current) {
-        pollingSetTimeRef.current = setTimeout(() => {
-          fetchListDebounce.run(needPolling);
-          // 这里判断最小要2000ms，不然一直loading
-        }, Math.max(needPolling, 2000));
-      }
-      return msg;
-    },
-    [],
-    debounceTime || 10,
-  );
+    // 如果需要轮询，搞个一段时间后执行
+    // 如果解除了挂载，删除一下
+    if (needPolling && !umountRef.current) {
+      pollingSetTimeRef.current = setTimeout(() => {
+        fetchListDebounce.run(needPolling);
+        // 这里判断最小要2000ms，不然一直loading
+      }, Math.max(needPolling, 2000));
+    }
+    return msg;
+  }, debounceTime || 10);
 
   // 如果轮询结束了，直接销毁定时器
   useEffect(() => {
