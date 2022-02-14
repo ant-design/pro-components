@@ -101,6 +101,27 @@ describe('BasicTable', () => {
     expect(html.find('.ant-pro-table-search').exists()).toBeFalsy();
   });
 
+  it('🎏 onLoadingChange should work', async () => {
+    const loadingChangerFn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={columns}
+        request={request}
+        rowKey="key"
+        onLoadingChange={loadingChangerFn}
+        rowSelection={{
+          selectedRowKeys: ['1'],
+        }}
+        search={false}
+        params={{ keyword: 'test' }}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 2000);
+    expect(loadingChangerFn).toBeCalledWith(true, false);
+  });
+
   it('🎏 do not render default option', async () => {
     const html = mount(
       <ProTable

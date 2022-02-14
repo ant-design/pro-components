@@ -5,6 +5,7 @@ import {
   useDeepCompareEffect,
   useMountMergeState,
   runFunction,
+  useRefFunction,
 } from '@ant-design/pro-utils';
 import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
 import { postDataPipeline } from './utils/index';
@@ -44,7 +45,7 @@ const useFetchData = <T extends RequestData<any>>(
     onChange: options?.onDataSourceChange,
   });
 
-  const [loading, setLoading] = useMountMergeState<UseFetchDataAction['loading']>(false, {
+  const [tableLoading, setLoading] = useMountMergeState<UseFetchDataAction['loading']>(false, {
     value: options?.loading,
     onChange: options?.onLoadingChange,
   });
@@ -79,9 +80,20 @@ const useFetchData = <T extends RequestData<any>>(
 
   const { effects = [] } = options || {};
 
+  /**
+   * 不这样做会导致状态不更新
+   *
+   * https://github.com/ant-design/pro-components/issues/4390
+   */
+  const requestFinally = useRefFunction(() => {
+    requestAnimationFrame(() => {
+      setLoading(false);
+      setPollingLoading(false);
+    });
+  });
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {
-    if (loading || requesting.current || !getData) {
+    if (tableLoading || requesting.current || !getData) {
       return [];
     }
 
@@ -90,7 +102,6 @@ const useFetchData = <T extends RequestData<any>>(
       manualRequestRef.current = false;
       return [];
     }
-
     if (!isPolling) {
       setLoading(true);
     } else {
@@ -109,7 +120,6 @@ const useFetchData = <T extends RequestData<any>>(
           : undefined;
 
       const { data = [], success, total = 0, ...rest } = (await getData(pageParams)) || {};
-      requesting.current = false;
       // 如果失败了，直接返回，不走剩下的逻辑了
       if (success === false) return [];
 
@@ -121,7 +131,6 @@ const useFetchData = <T extends RequestData<any>>(
       onLoad?.(responseData, rest);
       return responseData;
     } catch (e) {
-      requesting.current = false;
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) {
         throw new Error(e as string);
@@ -129,10 +138,8 @@ const useFetchData = <T extends RequestData<any>>(
       if (list === undefined) setList([]);
       onRequestError(e as Error);
     } finally {
-      requestAnimationFrame(() => {
-        setLoading(false);
-        setPollingLoading(false);
-      });
+      requesting.current = false;
+      requestFinally();
     }
 
     return [];
@@ -230,7 +237,7 @@ const useFetchData = <T extends RequestData<any>>(
   return {
     dataSource: list!,
     setDataSource: setList,
-    loading,
+    loading: tableLoading,
     reload: async () => {
       await fetchListDebounce.run(false);
     },
