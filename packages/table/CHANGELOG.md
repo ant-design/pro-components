@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.63.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.63.4...@ant-design/pro-table@2.63.5) (2022-02-14)
+
+### Bug Fixes
+
+- **table:** first use propsRef values ([cba7197](https://github.com/ant-design/pro-components/commit/cba7197522211ba5e0f3066095f7deadbe950679))
+- **table:** fix table loadingchange no work error ([42495b1](https://github.com/ant-design/pro-components/commit/42495b12cf7854b31f5ef3fa18823934895914ac))
+
 ## [2.63.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.63.3...@ant-design/pro-table@2.63.4) (2022-02-14)
 
 ### Bug Fixes

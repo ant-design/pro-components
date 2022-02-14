@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.53.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.4...@ant-design/pro-form@1.53.5) (2022-02-14)
+
+### Bug Fixes
+
+- **form:** fix xxx moudle is null errror ([e134df7](https://github.com/ant-design/pro-components/commit/e134df779368cc00a0c44ea19bbeae2b7c343fcd))
+
 ## [1.53.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.3...@ant-design/pro-form@1.53.4) (2022-02-14)
 
 ### Bug Fixes
