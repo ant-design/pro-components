@@ -92,11 +92,10 @@ describe('utils', () => {
       },
     });
     const fn = jest.fn();
-    const App = (props: { deps: string[] }) => {
-      const fetchData = useDebounceFn(async () => fn(), props.deps);
+    const App = ({ wait }: { wait?: number }) => {
+      const fetchData = useDebounceFn(async () => fn(), wait);
       useEffect(() => {
         fetchData.run();
-        return fetchData.cancel();
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       return (
@@ -109,7 +108,21 @@ describe('utils', () => {
         />
       );
     };
-    const html = mount(<App deps={['name']} />);
+    const html = mount(<App />);
+
+    expect(fn).toBeCalledTimes(1);
+
+    // wait === undefined
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    expect(fn).toBeCalledTimes(3);
+
+    // wait === 80
+    html.setProps({
+      wait: 80,
+    });
 
     act(() => {
       html.find('#test').simulate('click');
@@ -117,20 +130,65 @@ describe('utils', () => {
 
     await waitTime(100);
 
-    act(() => {
-      html.setProps({
-        deps: ['string'],
-      });
+    expect(fn).toBeCalledTimes(4);
+
+    // wait === 0
+    html.setProps({
+      wait: 0,
     });
+
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    expect(fn).toBeCalledTimes(6);
+
+    // wait === 100 but callback is cancelled
+    html.setProps({
+      wait: 100,
+    });
+
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    await waitTime(50);
+
+    act(() => {
+      html.unmount();
+    });
+
     await waitTime(100);
 
-    act(() => {
-      act(() => {
-        html.unmount();
-      });
+    expect(fn).toBeCalledTimes(6);
+  });
+
+  it('📅 useDebounceFn execution has errors', async () => {
+    pickProProps({
+      fieldProps: {
+        name: 'string',
+      },
     });
 
-    expect(fn).toBeCalledTimes(2);
+    const error = new Error('debounce error');
+    const catchFn = jest.fn();
+    const App = ({ wait }: { wait?: number }) => {
+      const fetchData = useDebounceFn(async () => {
+        throw error;
+      }, wait);
+
+      useEffect(() => {
+        fetchData.run().catch(catchFn);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, []);
+      return <div />;
+    };
+
+    mount(<App />);
+
+    await waitTime(100);
+
+    expect(catchFn).toBeCalledWith(error);
   });
 
   it('📅 conversionSubmitValue nil', async () => {

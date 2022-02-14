@@ -32,13 +32,9 @@ function useDeepCompareEffectDebounce(
   ignoreKeys?: string[],
   waitTime?: number,
 ) {
-  const effectDn = useDebounceFn(
-    async () => {
-      effect();
-    },
-    [],
-    waitTime || 16,
-  );
+  const effectDn = useDebounceFn(async () => {
+    effect();
+  }, waitTime || 16);
   useEffect(() => {
     effectDn.run();
     // eslint-disable-next-line react-hooks/exhaustive-deps

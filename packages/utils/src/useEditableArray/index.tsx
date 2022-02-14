@@ -547,14 +547,10 @@ function useEditableArray<RecordType>(
     return true;
   });
 
-  const propsOnValuesChange = useDebounceFn(
-    async (...rest: any[]) => {
-      //@ts-ignore
-      props.onValuesChange?.(...rest);
-    },
-    [],
-    64,
-  );
+  const propsOnValuesChange = useDebounceFn(async (...rest: any[]) => {
+    //@ts-ignore
+    props.onValuesChange?.(...rest);
+  }, 64);
 
   const onValuesChange = useRefFunction((value: RecordType, values: RecordType) => {
     if (!props.onValuesChange) {
