@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.16...@ant-design/pro-field@1.31.17) (2022-02-15)
+
+### Bug Fixes
+
+- **form:** omit money props for fieldProps ([c5016fc](https://github.com/ant-design/pro-components/commit/c5016fc7175f1282f817e7b6fa2511aa098e7f94))
+
 ## [1.31.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.15...@ant-design/pro-field@1.31.16) (2022-02-14)
 
 **Note:** Version bump only for package @ant-design/pro-field
