@@ -99,13 +99,13 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
 };
 
 const ProFormFieldSet: React.FC<FormItemProps & ProFormFieldSetProps> = React.forwardRef(
-  ({ children, space, valuePropName, fieldProps, ...rest }, ref) => {
+  ({ children, space, valuePropName, ...rest }, ref) => {
     useImperativeHandle(ref, () => ({}));
     return (
       <FieldSet
         space={space}
         valuePropName={valuePropName}
-        {...fieldProps}
+        {...rest.fieldProps}
         // 把 fieldProps 里的重置掉
         onChange={undefined}
         {...rest}

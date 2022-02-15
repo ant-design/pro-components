@@ -5784,9 +5784,9 @@ exports[`form demos 📸 renders ./packages/form/src/components/FieldSet/demos/d
                         id="dateTime"
                         placeholder="请选择"
                         readonly=""
-                        size="21"
-                        title="2016-11-22 00:00:00"
-                        value="2016-11-22 00:00:00"
+                        size="12"
+                        title="2016-11-22"
+                        value="2016-11-22"
                       />
                       <span
                         class="ant-picker-suffix"

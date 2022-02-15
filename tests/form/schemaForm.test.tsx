@@ -151,7 +151,7 @@ describe('SchemaForm', () => {
     await waitForComponentToPaint(html);
     expect(fieldPropsFn).toBeCalledTimes(1);
     expect(formItemPropsFn).toBeCalledTimes(1);
-    expect(renderFormItemFn).toBeCalledTimes(1);
+    expect(renderFormItemFn).toBeCalledTimes(2);
     act(() => {
       html.find('input#title').simulate('change', {
         target: {
@@ -160,7 +160,7 @@ describe('SchemaForm', () => {
       });
     });
     await waitForComponentToPaint(html);
-    expect(renderFormItemFn).toBeCalledTimes(2);
+    expect(renderFormItemFn).toBeCalledTimes(4);
     expect(fieldPropsFn).toBeCalledTimes(2);
     expect(formItemPropsFn).toBeCalledTimes(2);
   });
@@ -213,7 +213,7 @@ describe('SchemaForm', () => {
     expect(shouldUpdateFn).toBeCalledTimes(0);
     expect(fieldPropsFn).toBeCalledTimes(1);
     expect(formItemPropsFn).toBeCalledTimes(1);
-    expect(renderFormItemFn).toBeCalledTimes(1);
+    expect(renderFormItemFn).toBeCalledTimes(2);
     act(() => {
       html.find('input#title').simulate('change', {
         target: {
@@ -223,7 +223,7 @@ describe('SchemaForm', () => {
     });
     await waitForComponentToPaint(html);
     // Although shouldUpdate returns false, but using dependencies will still update
-    expect(renderFormItemFn).toBeCalledTimes(2);
+    expect(renderFormItemFn).toBeCalledTimes(3);
     expect(formItemPropsFn).toBeCalledTimes(2);
     expect(fieldPropsFn).toBeCalledTimes(2);
     expect(shouldUpdateFn).toBeCalledTimes(1);
@@ -236,7 +236,7 @@ describe('SchemaForm', () => {
       });
     });
 
-    expect(renderFormItemFn).toBeCalledTimes(3);
+    expect(renderFormItemFn).toBeCalledTimes(5);
     expect(formItemPropsFn).toBeCalledTimes(3);
     expect(fieldPropsFn).toBeCalledTimes(3);
     expect(shouldUpdateFn).toBeCalledTimes(2);
@@ -277,7 +277,7 @@ describe('SchemaForm', () => {
     await waitForComponentToPaint(html);
     expect(fieldPropsFn).toBeCalledTimes(1);
     expect(formItemPropsFn).toBeCalledTimes(1);
-    expect(renderFormItemFn).toBeCalledTimes(1);
+    expect(renderFormItemFn).toBeCalledTimes(2);
     act(() => {
       html.find('input#title').simulate('change', {
         target: {
@@ -286,7 +286,7 @@ describe('SchemaForm', () => {
       });
     });
     await waitForComponentToPaint(html);
-    expect(renderFormItemFn).toBeCalledTimes(2);
+    expect(renderFormItemFn).toBeCalledTimes(3);
     expect(formItemPropsFn).toBeCalledTimes(1);
     expect(fieldPropsFn).toBeCalledTimes(1);
   });

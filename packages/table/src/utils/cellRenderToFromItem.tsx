@@ -181,6 +181,7 @@ class CellRenderFromItem<T> extends React.Component<
       },
       counter?.editableForm as any,
     );
+
     return (
       <InlineErrorFormItem
         errorType="popover"

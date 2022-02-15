@@ -181,6 +181,7 @@ describe('ProFormFieldSet', () => {
         },
       });
     });
+    await waitForComponentToPaint(html);
     expect(valueFn).toBeCalledWith(['111']);
 
     act(() => {

@@ -71,6 +71,32 @@ export default () => {
       dataIndex: 'name',
     },
     {
+      title: '动态表单',
+      key: 'direction',
+      hideInTable: true,
+      dataIndex: 'direction',
+      renderFormItem: (item, { type, defaultRender, ...rest }, form) => {
+        if (type === 'form') {
+          return null;
+        }
+        const stateType = form.getFieldValue('state');
+        if (stateType === 3) {
+          return <Input />;
+        }
+        if (stateType === 4) {
+          return null;
+        }
+        return (
+          <MySelect
+            {...rest}
+            state={{
+              type: stateType,
+            }}
+          />
+        );
+      },
+    },
+    {
       title: '状态',
       dataIndex: 'state',
       initialValue: 1,
@@ -88,30 +114,11 @@ export default () => {
           label: '自定义',
           value: 3,
         },
+        {
+          label: '不展示',
+          value: 4,
+        },
       ],
-    },
-    {
-      title: '动态表单',
-      key: 'direction',
-      hideInTable: true,
-      dataIndex: 'direction',
-      renderFormItem: (item, { type, defaultRender, ...rest }, form) => {
-        if (type === 'form') {
-          return null;
-        }
-        const stateType = form.getFieldValue('state');
-        if (stateType === 3) {
-          return <Input />;
-        }
-        return (
-          <MySelect
-            {...rest}
-            state={{
-              type: stateType,
-            }}
-          />
-        );
-      },
     },
   ];
 

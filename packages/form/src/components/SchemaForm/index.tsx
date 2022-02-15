@@ -133,7 +133,6 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           });
 
           item.key = item.key || item.dataIndex?.toString() || index;
-
           return renderValueType(item, {
             action,
             type,
@@ -141,6 +140,9 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             refMap,
             genItems,
           });
+        })
+        .filter((field) => {
+          return Boolean(field);
         });
     },
     [action, refMap, type],
