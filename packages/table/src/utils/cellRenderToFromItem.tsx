@@ -94,7 +94,7 @@ class CellRenderFromItem<T> extends React.Component<
   }
   generateFormItem = () => {
     const { config, proFieldProps } = this.props;
-    const { text, columnProps, counter } = config;
+    const { text, columnProps, counter, rowData = {} } = config;
 
     /** 获取 formItemProps Props */
     const formItemProps = getFieldPropsOrFormItemProps(
@@ -176,7 +176,10 @@ class CellRenderFromItem<T> extends React.Component<
         },
         type: 'form',
         recordKey: config.recordKey,
-        record: counter?.editableForm?.getFieldValue([config.recordKey || config.index]),
+        record: {
+          ...rowData,
+          ...counter?.editableForm?.getFieldValue([config.recordKey || config.index]),
+        },
         isEditable: true,
       },
       counter?.editableForm as any,
