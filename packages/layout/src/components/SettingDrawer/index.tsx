@@ -41,7 +41,6 @@ const Body: React.FC<BodyProps> = ({ children, prefixCls, title }) => (
         `${prefixCls}-drawer-title`,
         css`
           margin-bottom: 12px;
-          color: @heading-color;
           font-size: 14px;
           line-height: 22px;
         `,
@@ -428,13 +427,6 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                 title: formatMessage({
                   id: 'app.setting.pagestyle.light',
                   defaultMessage: '亮色菜单风格',
-                }),
-              },
-              {
-                key: 'dark',
-                title: formatMessage({
-                  id: 'app.setting.pagestyle.dark',
-                  defaultMessage: '暗色菜单风格',
                 }),
               },
               {

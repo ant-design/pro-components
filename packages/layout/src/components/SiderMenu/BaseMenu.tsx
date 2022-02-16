@@ -545,6 +545,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         }
       `,
       horizontalSubMenuItem: css`
+        .${antPrefixClassName}-menu-submenu-title{
+          min-height: 43px;
+        }
         .${antPrefixClassName}-menu-submenu-title:hover {
           color: rgba(0, 0, 0, 0.65);
           background-color: ${itemHoverColor};

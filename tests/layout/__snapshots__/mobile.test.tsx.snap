@@ -2,7 +2,7 @@
 
 exports[`mobile BasicLayout 📱 base use 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-side css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout"
@@ -33,8 +33,11 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
+                <div
+                  class="css-1bredbg"
+                />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-1rw87g0"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-1bp5b6r"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
@@ -265,7 +268,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
 
 exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-side css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout"
@@ -296,8 +299,11 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
+                <div
+                  class="css-1bredbg"
+                />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-1rw87g0"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-1bp5b6r"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
@@ -528,7 +534,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
 
 exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
 >
   <section
     class="ant-layout"
@@ -559,8 +565,11 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
+                <div
+                  class="css-1bredbg"
+                />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-9qv556"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-7c4254"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
@@ -700,7 +709,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
 
 exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
 >
   <section
     class="ant-layout"
@@ -731,8 +740,11 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
+                <div
+                  class="css-1bredbg"
+                />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-9qv556"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-7c4254"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
@@ -872,7 +884,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
 
 exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
 >
   <section
     class="ant-layout"
@@ -903,8 +915,11 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
+                <div
+                  class="css-1bredbg"
+                />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-9qv556"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-7c4254"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
@@ -1037,7 +1052,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
 
 exports[`mobile BasicLayout 📱 layout=mix 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
 >
   <section
     class="ant-layout"
@@ -1068,8 +1083,11 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
+                <div
+                  class="css-1bredbg"
+                />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-9qv556"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-7c4254"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
@@ -1334,7 +1352,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
 
 exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-mix css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
 >
   <section
     class="ant-layout"
@@ -1365,8 +1383,11 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                 class="ant-drawer-body"
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
+                <div
+                  class="css-1bredbg"
+                />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-dark ant-pro-sider css-9qv556"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-7c4254"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div

@@ -2,14 +2,17 @@
 
 exports[`BasicLayout base use 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout"
     style="min-height:100%"
   >
+    <div
+      class="css-1bredbg"
+    />
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
@@ -260,14 +263,17 @@ exports[`BasicLayout base use 1`] = `
 
 exports[`BasicLayout content is text 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout"
     style="min-height:100%"
   >
+    <div
+      class="css-1bredbg"
+    />
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div

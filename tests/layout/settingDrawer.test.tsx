@@ -147,7 +147,7 @@ describe('settingDrawer.test', () => {
       layout: 'mix',
       contentWidth: 'Fluid',
       fixedHeader: true,
-      fixSiderbar: false,
+      fixSiderbar: true,
       headerHeight: 56,
       primaryColor: '#1890ff',
       splitMenus: false,
@@ -373,6 +373,7 @@ describe('settingDrawer.test', () => {
         disableUrlParams
         settings={defaultSettings}
         collapse
+        enableDarkTheme
         getContainer={false}
         onSettingChange={(setting) => onSettingChange(setting.navTheme)}
       />,

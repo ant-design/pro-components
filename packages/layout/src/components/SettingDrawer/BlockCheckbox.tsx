@@ -94,7 +94,7 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
                   background-color: #fff;
                 }
               `,
-            item.key === 'light' &&
+            item.key === 'top' &&
               css`
                 &::before {
                   background-color: transparent;
@@ -124,13 +124,11 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
                 position: absolute;
                 right: 6px;
                 bottom: 4px;
-                color: @primary-color;
                 color: var(--ant-primary-color);
                 font-weight: bold;
                 font-size: 14px;
                 pointer-events: none;
                 .action {
-                  color: @primary-color;
                   color: var(--ant-primary-color);
                 }
               `,

@@ -3947,14 +3947,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -4416,14 +4419,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -4834,14 +4840,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -5436,14 +5445,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -5809,14 +5821,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -6304,14 +6319,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -6855,14 +6873,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-1surmoh"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-1surmoh"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1owsomx"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
         >
           <div
@@ -7138,14 +7159,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-content-disable-margin css-1asytq3"
           >
             <div
-              class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-side css-qi6myi"
+              class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
             >
               <section
                 class="ant-layout ant-layout-has-sider"
                 style="min-height: 100%; height: 400px;"
               >
+                <div
+                  class="css-1bredbg"
+                />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-layout-side ant-pro-sider-light css-1rw87g0"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
                   style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
                 >
                   <div
@@ -7452,7 +7476,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
     style="height: 100vh; overflow: auto;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top css-1surmoh"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-top css-1surmoh"
     >
       <section
         class="ant-layout"
@@ -7643,7 +7667,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       </span>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-submenu css-30zdf3"
+                      class="ant-menu-overflow-item ant-pro-menu-submenu css-1hg3tw9"
                       role="none"
                       style="opacity: 1; order: 1;"
                     >
@@ -7671,7 +7695,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       </div>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-submenu css-30zdf3"
+                      class="ant-menu-overflow-item ant-pro-menu-submenu css-1hg3tw9"
                       role="none"
                       style="opacity: 1; order: 2;"
                     >
@@ -7699,7 +7723,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       </div>
                     </li>
                     <li
-                      class="ant-menu-overflow-item ant-pro-menu-submenu css-30zdf3"
+                      class="ant-menu-overflow-item ant-pro-menu-submenu css-1hg3tw9"
                       role="none"
                       style="opacity: 1; order: 3;"
                     >
@@ -7728,7 +7752,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     </li>
                     <li
                       aria-hidden="true"
-                      class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-pro-menu-submenu css-30zdf3"
+                      class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-pro-menu-submenu css-1hg3tw9"
                       role="none"
                       style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                     >
@@ -7778,14 +7802,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-pro-basicLayout-content-disable-margin css-1asytq3"
           >
             <div
-              class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-side css-qi6myi"
+              class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-is-children ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
             >
               <section
                 class="ant-layout ant-layout-has-sider"
                 style="min-height: 100%;"
               >
+                <div
+                  class="css-1bredbg"
+                />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-layout-side ant-pro-sider-light css-1rw87g0"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
                   style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
                 >
                   <div
@@ -8070,7 +8097,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
         class="css-1bredbg"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-1bp5b6r"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
         style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
       >
         <div
@@ -8665,14 +8692,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
   <br />
   <br />
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; height: 100vh;"
     >
+      <div
+        class="css-1owsomx"
+      />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
         style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
       >
         <div
@@ -9231,7 +9261,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
           class="css-1bredbg"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-1bp5b6r"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -10804,7 +10834,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title css-109isai"
+                      class="ant-pro-setting-drawer-title css-19crn7j"
                     >
                       整体风格设置
                     </h3>
@@ -10813,35 +10843,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       style="display: flex; min-height: 42px;"
                     >
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item css-1nr32ud"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item css-fd1sqo"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
-                          role="img"
-                          style="display: none;"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="check"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-dark ant-pro-setting-drawer-block-checkbox-theme-item css-q4zenb"
-                      >
-                        <span
-                          aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-fsey5o"
                           role="img"
                           style="display: none;"
                         >
@@ -10865,7 +10871,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-fsey5o"
                           role="img"
                           style="display: none;"
                         >
@@ -10890,7 +10896,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title css-109isai"
+                      class="ant-pro-setting-drawer-title css-19crn7j"
                     >
                       主题色
                     </h3>
@@ -10943,7 +10949,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title css-109isai"
+                      class="ant-pro-setting-drawer-title css-19crn7j"
                     >
                       导航模式
                     </h3>
@@ -10956,7 +10962,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-fsey5o"
                           role="img"
                           style="display: none;"
                         >
@@ -10976,11 +10982,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </span>
                       </div>
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item css-12twfot"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item css-9zfwmz"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-fsey5o"
                           role="img"
                           style="display: none;"
                         >
@@ -11004,7 +11010,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-fsey5o"
                           role="img"
                           style="display: none;"
                         >
@@ -11210,7 +11216,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title css-109isai"
+                      class="ant-pro-setting-drawer-title css-19crn7j"
                     >
                       内容区域
                     </h3>
@@ -11351,7 +11357,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title css-109isai"
+                      class="ant-pro-setting-drawer-title css-19crn7j"
                     >
                       其他设置
                     </h3>
@@ -11505,14 +11511,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
 exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro qixian-pro-basicLayout screen-md qixian-pro-basicLayout-side css-1xkro3g"
+    class="ant-design-pro qixian-pro-basicLayout screen-md qixian-pro-basicLayout-fix-siderbar qixian-pro-basicLayout-side css-1xkro3g"
   >
     <section
       class="qixian-layout qixian-layout-has-sider"
       style="min-height: 100%; max-height: 100vh;"
     >
+      <div
+        class="css-1bredbg"
+      />
       <aside
-        class="qixian-layout-sider qixian-layout-sider-dark qixian-pro-sider qixian-pro-sider-layout-side css-49o2bk"
+        class="qixian-layout-sider qixian-layout-sider-light qixian-pro-sider qixian-pro-sider-fixed qixian-pro-sider-layout-side qixian-pro-sider-light css-19pfaxv"
         style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
       >
         <div
@@ -13264,14 +13273,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -13638,7 +13650,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
           class="css-1bredbg"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-1bp5b6r"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -14894,7 +14906,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title css-109isai"
+                      class="ant-pro-setting-drawer-title css-19crn7j"
                     >
                       整体风格设置
                     </h3>
@@ -14903,35 +14915,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                       style="display: flex; min-height: 42px;"
                     >
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item css-1nr32ud"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item css-fd1sqo"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
-                          role="img"
-                          style="display: none;"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="check"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
-                            />
-                          </svg>
-                        </span>
-                      </div>
-                      <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-dark ant-pro-setting-drawer-block-checkbox-theme-item css-q4zenb"
-                      >
-                        <span
-                          aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-fsey5o"
                           role="img"
                           style="display: none;"
                         >
@@ -14956,7 +14944,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title css-109isai"
+                      class="ant-pro-setting-drawer-title css-19crn7j"
                     >
                       主题色
                     </h3>
@@ -15009,7 +14997,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title css-109isai"
+                      class="ant-pro-setting-drawer-title css-19crn7j"
                     >
                       导航模式
                     </h3>
@@ -15022,7 +15010,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-fsey5o"
                           role="img"
                           style="display: none;"
                         >
@@ -15042,11 +15030,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                         </span>
                       </div>
                       <div
-                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item css-12twfot"
+                        class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item css-9zfwmz"
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-fsey5o"
                           role="img"
                           style="display: none;"
                         >
@@ -15070,7 +15058,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                       >
                         <span
                           aria-label="check"
-                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-1qxl6np"
+                          class="anticon anticon-check ant-pro-setting-drawer-block-checkbox-selectIcon css-fsey5o"
                           role="img"
                           style="display: none;"
                         >
@@ -15276,7 +15264,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title css-109isai"
+                      class="ant-pro-setting-drawer-title css-19crn7j"
                     >
                       内容区域
                     </h3>
@@ -15417,7 +15405,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     style="margin-bottom: 24px;"
                   >
                     <h3
-                      class="ant-pro-setting-drawer-title css-109isai"
+                      class="ant-pro-setting-drawer-title css-19crn7j"
                     >
                       其他设置
                     </h3>
@@ -15571,14 +15559,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
 exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; height: 100vh; border: 1px solid #ddd;"
     >
+      <div
+        class="css-1bredbg"
+      />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
         style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
       >
         <div
@@ -15849,14 +15840,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -16136,14 +16130,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
 exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
       style="min-height: 100%; height: 100vh;"
     >
+      <div
+        class="css-1owsomx"
+      />
       <aside
-        class="ant-layout-sider ant-layout-sider-dark ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
         style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
       >
         <div
@@ -16652,14 +16649,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -17300,7 +17300,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
 exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -17309,8 +17309,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
       <div
         style="background: rgb(255, 255, 255); box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35); transition: all 0.2s; overflow: hidden; height: 100%; width: 216px;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -19254,7 +19257,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
           class="css-1bredbg"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side css-1bp5b6r"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -20238,14 +20241,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-side css-qi6myi"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -20698,7 +20704,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
 <DocumentFragment>
   children
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix css-qi6myi"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
   >
     <section
       class="ant-layout"
@@ -21046,7 +21052,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </li>
                   <li
                     aria-hidden="true"
-                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-pro-menu-submenu css-30zdf3"
+                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-pro-menu-submenu css-1hg3tw9"
                     role="none"
                     style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                   >
@@ -21101,7 +21107,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </section>
   </div>
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix css-qi6myi"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
   >
     <section
       class="ant-layout"
@@ -21118,7 +21124,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
     </section>
   </div>
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix css-qi6myi"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
   >
     <section
       class="ant-layout"
@@ -21466,7 +21472,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </li>
                   <li
                     aria-hidden="true"
-                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-pro-menu-submenu css-30zdf3"
+                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-pro-menu-submenu css-1hg3tw9"
                     role="none"
                     style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                   >
@@ -21867,7 +21873,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   </li>
                   <li
                     aria-hidden="true"
-                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-pro-menu-submenu css-30zdf3"
+                    class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-pro-menu-submenu css-1hg3tw9"
                     role="none"
                     style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                   >
@@ -21928,14 +21934,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
     style="height: 100vh;"
   >
     <div
-      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-mix css-qi6myi"
+      class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
     >
       <section
         class="ant-layout ant-layout-has-sider"
         style="min-height: 100%;"
       >
+        <div
+          class="css-1bredbg"
+        />
         <aside
-          class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-mix css-9qv556"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-7c4254"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div

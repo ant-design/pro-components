@@ -312,7 +312,7 @@ exports[`PageContainer 🐛 className prop should not be passed to its page head
 
 exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-top css-qi6myi"
 >
   <section
     class="ant-layout"
@@ -636,7 +636,7 @@ exports[`PageContainer 🐲 footer is null, do not render footerToolbar  2`] = `
 
 exports[`PageContainer 🐲 footer should know width 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-top css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-top-menu ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-top css-qi6myi"
 >
   <section
     class="ant-layout"
@@ -856,14 +856,17 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
 
 exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-side css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
 >
   <section
     class="ant-layout"
     style="min-height:100%"
   >
+    <div
+      class="css-1bredbg"
+    />
     <aside
-      class="ant-layout-sider ant-layout-sider-dark ant-pro-sider ant-pro-sider-layout-side css-1rw87g0"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
