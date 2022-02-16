@@ -181,7 +181,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-ajkaa6"
+            class="ant-pro-sider-collapsed-button css-x3zw25"
           >
             <span
               aria-label="right"
@@ -451,7 +451,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-ajkaa6"
+            class="ant-pro-sider-collapsed-button css-x3zw25"
           >
             <span
               aria-label="right"
@@ -793,7 +793,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-ajkaa6"
+          class="ant-pro-sider-collapsed-button css-x3zw25"
         >
           <span
             aria-label="right"
@@ -984,7 +984,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-ajkaa6"
+          class="ant-pro-sider-collapsed-button css-x3zw25"
         >
           <span
             aria-label="right"
@@ -1239,7 +1239,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button css-ajkaa6"
+          class="ant-pro-sider-collapsed-button css-x3zw25"
         >
           <span
             aria-label="right"
@@ -1430,7 +1430,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-ajkaa6"
+          class="ant-pro-sider-collapsed-button css-x3zw25"
         >
           <span
             aria-label="right"
@@ -1751,7 +1751,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button css-ajkaa6"
+          class="ant-pro-sider-collapsed-button css-x3zw25"
         >
           <span
             aria-label="right"

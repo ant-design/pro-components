@@ -4323,7 +4323,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -4659,7 +4659,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -5343,7 +5343,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -5716,7 +5716,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -6211,7 +6211,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               </div>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -6726,7 +6726,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -7305,7 +7305,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       </div>
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-ajkaa6"
+                      class="ant-pro-sider-collapsed-button css-x3zw25"
                     >
                       <span
                         aria-label="right"
@@ -7916,7 +7916,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       />
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-ajkaa6"
+                      class="ant-pro-sider-collapsed-button css-x3zw25"
                     >
                       <span
                         aria-label="right"
@@ -8387,7 +8387,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-ajkaa6"
+            class="ant-pro-sider-collapsed-button css-x3zw25"
           >
             <span
               aria-label="right"
@@ -9037,7 +9037,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-7z7dij"
+            class="ant-pro-sider-collapsed-button css-j24xrp"
           >
             <span
               aria-label="right"
@@ -9952,7 +9952,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               </p>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -11921,7 +11921,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             </a>
           </div>
           <div
-            class="qixian-pro-sider-collapsed-button css-ajkaa6"
+            class="qixian-pro-sider-collapsed-button css-x3zw25"
           >
             <span
               aria-label="right"
@@ -13522,7 +13522,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -14047,7 +14047,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               </a>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -15749,7 +15749,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-ajkaa6"
+            class="ant-pro-sider-collapsed-button css-x3zw25"
           >
             <span
               aria-label="right"
@@ -16061,7 +16061,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -16495,7 +16495,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-7z7dij"
+            class="ant-pro-sider-collapsed-button css-j24xrp"
           >
             <span
               aria-label="right"
@@ -17018,7 +17018,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -17669,7 +17669,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -18026,7 +18026,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-ajkaa6"
+            class="ant-pro-sider-collapsed-button css-x3zw25"
           >
             <span
               aria-label="right"
@@ -18724,7 +18724,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-ajkaa6"
+            class="ant-pro-sider-collapsed-button css-x3zw25"
           >
             <span
               aria-label="right"
@@ -19823,7 +19823,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               </p>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -20557,7 +20557,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"
@@ -22035,7 +22035,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-ajkaa6"
+              class="ant-pro-sider-collapsed-button css-x3zw25"
             >
               <span
                 aria-label="right"

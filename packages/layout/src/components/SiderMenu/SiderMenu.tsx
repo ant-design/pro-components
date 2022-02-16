@@ -27,7 +27,7 @@ const defaultIconCss = css`
   color: rgba(0, 0, 0, 0.45);
   text-align: center;
   border-radius: 40px;
-  right: -8px;
+  right: -12px;
   background-color: #fff;
   transition: transform 0.3s;
   font-size: 16px;
