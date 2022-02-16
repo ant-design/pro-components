@@ -558,6 +558,11 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsPagination, action, intl]);
 
+  useEffect(() => {
+    action.setPageInfo({
+      current: 1,
+    });
+  }, [params]);
   const counter = Container.useContainer();
 
   // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set
