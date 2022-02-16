@@ -64,6 +64,16 @@ export default () => {
         showActions="hover"
         rowSelection={{}}
         grid={{ gutter: 16, column: 2 }}
+        onItem={(record: any) => {
+          return {
+            onMouseEnter: () => {
+              console.log(record);
+            },
+            onClick: () => {
+              console.log(record);
+            },
+          };
+        }}
         metas={{
           title: {},
           subTitle: {},

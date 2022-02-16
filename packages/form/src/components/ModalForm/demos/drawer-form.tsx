@@ -35,7 +35,6 @@ export default () => {
       }
       autoFocusFirstInput
       drawerProps={{
-        forceRender: true,
         destroyOnClose: true,
       }}
       onFinish={async (values) => {

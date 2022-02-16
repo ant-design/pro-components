@@ -24,10 +24,6 @@
     }
   }
 
-  &-container {
-    margin-right: 8px;
-  }
-
   &-item {
     &:first-of-type {
       div:first-of-type {
@@ -41,6 +37,7 @@
   }
 
   &-action {
+    display: flex;
     height: 32px;
     margin-bottom: 24px;
     line-height: 32px;
@@ -55,14 +52,11 @@
   }
 
   &-action-icon {
-    margin-right: 8px;
+    margin-left: 8px;
     cursor: pointer;
     transition: color 0.3s ease-in-out;
     &:hover {
       color: @primary-color-hover;
-    }
-    &:last-child {
-      margin-right: 0;
     }
   }
 

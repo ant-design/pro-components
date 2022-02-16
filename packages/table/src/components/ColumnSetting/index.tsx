@@ -303,8 +303,10 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const { columnsMap, setColumnsMap, clearPersistenceStorage } = counter;
 
   useEffect(() => {
-    if (columnsMap) {
-      columnRef.current = JSON.parse(JSON.stringify(columnsMap));
+    if (counter.propsRef.current?.columnsState?.value) {
+      columnRef.current = JSON.parse(
+        JSON.stringify(counter.propsRef.current?.columnsState?.value || {}),
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -345,8 +347,8 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
 
   /** 重置项目 */
   const clearClick = useRefFunction(() => {
-    setColumnsMap(columnRef.current);
     clearPersistenceStorage?.();
+    setColumnsMap(columnRef.current);
   });
 
   // 未选中的 key 列表

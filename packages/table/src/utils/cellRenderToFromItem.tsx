@@ -95,6 +95,7 @@ class CellRenderFromItem<T> extends React.Component<
   generateFormItem = () => {
     const { config, proFieldProps } = this.props;
     const { text, columnProps, counter } = config;
+
     /** 获取 formItemProps Props */
     const formItemProps = getFieldPropsOrFormItemProps(
       columnProps?.formItemProps,
@@ -117,6 +118,8 @@ class CellRenderFromItem<T> extends React.Component<
         cacheForSwr
         key={config.recordKey || config.index}
         name={this.state.name}
+        // @ts-ignore
+        proFormFieldKey={config.recordKey || config.index}
         ignoreFormItem
         fieldProps={getFieldPropsOrFormItemProps(
           columnProps?.fieldProps,
@@ -178,6 +181,7 @@ class CellRenderFromItem<T> extends React.Component<
       },
       counter?.editableForm as any,
     );
+
     return (
       <InlineErrorFormItem
         errorType="popover"
@@ -219,6 +223,7 @@ class CellRenderFromItem<T> extends React.Component<
     ) {
       return (
         <Form.Item
+          key={config.recordKey || config.index}
           shouldUpdate={(pre, next) => {
             return isDeepEqualReact(get(pre, this.state.rowName), get(next, this.state.rowName));
           }}
@@ -291,8 +296,9 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
       />
     );
   }
-
-  return <CellRenderFromItem config={config} proFieldProps={proFieldProps} />;
+  return (
+    <CellRenderFromItem key={config.recordKey} config={config} proFieldProps={proFieldProps} />
+  );
 }
 
 export default cellRenderToFromItem;

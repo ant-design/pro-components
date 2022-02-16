@@ -61,11 +61,11 @@ ProForm comes with Filed , which basically corresponds to the valueType one by o
 ### Generic properties
 
 | parameter | description | type | default |
-| --- | --- | --- | --- | --- |
-| width | The length of the Field, we summarize the common Field lengths and suitable scenarios, support some enumeration "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - | tooltip |
+| --- | --- | --- | --- |
+| width | The length of the Field, we summarize the common Field lengths and suitable scenarios, support some enumeration "xs" , "s" , "m" , "l" , "x" | `number \| "xs" \| "s" \| "m" \| "l" \| "x"` | - |
 | tooltip | will add an icon next to the label to show the configured information when hovered | `string \| tooltipProps` | - |
 | secondary | Whether secondary control, only valid for LightFilter | `boolean` | `false` |
-| allowClear | Support for clearing, valid for LightFilter, will also be passed to `fieldProps` | `boolean` | `true` | if actively set. |
+| allowClear | Support for clearing, valid for LightFilter, will also be passed to `fieldProps` if actively set. | `boolean` | `true` |
 
 ### Width
 
@@ -193,7 +193,10 @@ Same as [Input.TextArea](https://ant.design/components/input/#Input.TextArea).
 
 Same as [checkbox](https://ant.design/components/checkbox/), but supports `options` and `layout`.
 
-| parameters | description | type | default | | --- | --- | --- | --- | options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - | | layout | Configure the look of the checkbox to support vertical `vertical` and `horizontal` | `horizontal` \| `vertical` | - |
+| parameters | description | type | default |
+| --- | --- | --- | --- | --- |
+| options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| layout | Configure the look of the checkbox to support vertical `vertical` and `horizontal` | `horizontal` \| `vertical` | - |
 
 ```tsx | pure
 <ProFormCheckbox.Group
@@ -210,7 +213,9 @@ Same as [checkbox](https://ant.design/components/checkbox/), but supports `optio
 
 Same as [radio](https://ant.design/components/radio/) but with support for `options`.
 
-| parameters | description | type | default | | --- | --- | --- | --- | options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - | | radioType | Set whether button mode or radio mode | `button` \| `radio` | `radio` |
+| parameters | description | type | default |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| options | options | Same as select, generates child nodes based on options, recommended. | `string[]` \| `{label:ReactNode,value:string}[]` | - |  | radioType | Set whether button mode or radio mode | `button` \| `radio` | `radio` |
 
 ```tsx | pure
 <ProFormRadio.Group

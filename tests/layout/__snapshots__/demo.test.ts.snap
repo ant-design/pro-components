@@ -81,7 +81,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
               class="ant-page-header-heading-extra"
             >
               <button
-                class="ant-btn"
+                class="ant-btn ant-btn-default"
                 type="button"
               >
                 <span>
@@ -89,7 +89,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                 </span>
               </button>
               <button
-                class="ant-btn"
+                class="ant-btn ant-btn-default"
                 type="button"
               >
                 <span>
@@ -105,7 +105,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
                 </span>
               </button>
               <button
-                class="ant-btn ant-dropdown-trigger"
+                class="ant-btn ant-btn-default ant-dropdown-trigger"
                 style="padding: 0px 8px;"
                 type="button"
               >
@@ -362,7 +362,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-pro-footer-bar-right css-f3rqu0"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -1946,7 +1946,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -2132,7 +2132,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -2318,7 +2318,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -2504,7 +2504,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -2690,7 +2690,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -2876,7 +2876,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -3062,7 +3062,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -3248,7 +3248,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -3434,7 +3434,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -3620,7 +3620,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/WaterMark/de
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -10009,7 +10009,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       class="ant-page-header-heading-extra"
                     >
                       <button
-                        class="ant-btn"
+                        class="ant-btn ant-btn-default"
                         type="button"
                       >
                         <span>
@@ -10017,7 +10017,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </span>
                       </button>
                       <button
-                        class="ant-btn"
+                        class="ant-btn ant-btn-default"
                         type="button"
                       >
                         <span>
@@ -10754,7 +10754,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 class="ant-pro-footer-bar-right css-f3rqu0"
               >
                 <button
-                  class="ant-btn"
+                  class="ant-btn ant-btn-default"
                   type="button"
                 >
                   <span>
@@ -11440,7 +11440,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-block"
+                    class="ant-btn ant-btn-default ant-btn-block"
                     style="margin-bottom: 24px;"
                     type="button"
                   >
@@ -11978,7 +11978,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                     class="qixian-page-header-heading-extra"
                   >
                     <button
-                      class="qixian-btn"
+                      class="qixian-btn qixian-btn-default"
                       type="button"
                     >
                       <span>
@@ -11986,7 +11986,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                       </span>
                     </button>
                     <button
-                      class="qixian-btn"
+                      class="qixian-btn qixian-btn-default"
                       type="button"
                     >
                       <span>
@@ -12709,7 +12709,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
               class="qixian-pro-footer-bar-right css-f3rqu0"
             >
               <button
-                class="qixian-btn"
+                class="qixian-btn qixian-btn-default"
                 type="button"
               >
                 <span>
@@ -14104,7 +14104,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                       class="ant-page-header-heading-extra"
                     >
                       <button
-                        class="ant-btn"
+                        class="ant-btn ant-btn-default"
                         type="button"
                       >
                         <span>
@@ -14112,7 +14112,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                         </span>
                       </button>
                       <button
-                        class="ant-btn"
+                        class="ant-btn ant-btn-default"
                         type="button"
                       >
                         <span>
@@ -14844,7 +14844,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                 class="ant-pro-footer-bar-right css-f3rqu0"
               >
                 <button
-                  class="ant-btn"
+                  class="ant-btn ant-btn-default"
                   type="button"
                 >
                   <span>
@@ -15506,7 +15506,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     </div>
                   </div>
                   <button
-                    class="ant-btn ant-btn-block"
+                    class="ant-btn ant-btn-default ant-btn-block"
                     style="margin-bottom: 24px;"
                     type="button"
                   >
@@ -15823,7 +15823,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                 >
                   Hello World
                   <button
-                    class="ant-btn"
+                    class="ant-btn ant-btn-default"
                     style="margin: 8px;"
                     type="button"
                   >
@@ -17800,7 +17800,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                 style="margin-bottom: 8px;"
               >
                 <button
-                  class="ant-btn ant-btn-sm"
+                  class="ant-btn ant-btn-default ant-btn-sm"
                   type="button"
                 >
                   <span
@@ -18838,7 +18838,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                           class="ant-input-group-addon"
                         >
                           <button
-                            class="ant-btn ant-btn-icon-only ant-input-search-button"
+                            class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                             type="button"
                           >
                             <span
@@ -18865,7 +18865,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
                       </span>
                     </span>
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -20405,7 +20405,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                     class="ant-input-group-addon"
                   >
                     <button
-                      class="ant-btn ant-btn-icon-only ant-input-search-button"
+                      class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                       type="button"
                     >
                       <span

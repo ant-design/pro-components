@@ -124,6 +124,7 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 <code src="./demos/linkage-customization.tsx" heigh="1774px" debug/>
 
 <code src="./demos/pro-form-dependency.debug.tsx" height="548px" title="formRef的使用" debug />
+<code src="./demos/label-col.tsx" height="548px"  debug />
 
 ## ProForm
 

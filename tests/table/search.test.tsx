@@ -1,7 +1,8 @@
 import { mount } from 'enzyme';
-import React from 'react';
+import React, { createRef } from 'react';
 import MockDate from 'mockdate';
 import { act } from 'react-dom/test-utils';
+import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
@@ -494,9 +495,11 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 renderFormItem support return false', async () => {
+    const formRef = createRef<FormInstance | null>();
     const html = mount(
       <ProTable
         size="small"
+        formRef={formRef as any}
         columns={[
           {
             title: '金额',
@@ -521,7 +524,29 @@ describe('BasicTable Search', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
+
     expect(html.find('div.ant-form-item').length).toBe(2);
+    act(() => {
+      html.setProps({
+        columns: [
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+            renderFormItem: () => <div />,
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ],
+      });
+    });
+
+    await waitForComponentToPaint(html, 200);
+    expect(html.find('div.ant-form-item').length).toBe(3);
+
     act(() => {
       html.setProps({
         columns: [

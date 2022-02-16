@@ -128,6 +128,8 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
   ) => JSX.Element | false | null;
 ```
 
+<code src="./demos/linkage_form.tsx" background="#f5f5f5" height="310px" title="搜索表单自定义" />
+
 #### FAQ
 
 #### 为什么不能自己设置 value 和 onchange
@@ -143,8 +145,6 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
 ##### 为什么设置 defaultValue 不生效？#
 
 因为 ProTable 子组件会转为受控模式。因而 defaultValue 不会生效。你需要在 Form 上通过 initialValues 设置默认值。
-
-<code src="./demos/linkage_form.tsx" background="#f5f5f5" height="310px" title="搜索表单自定义" />
 
 ### 表单操作自定义
 
@@ -329,7 +329,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | cardBordered | Table 和 Search 外围 Card 组件的边框 | `boolean \| {search?: boolean, table?: boolean}` | false |
 | debounceTime | 防抖时间 | `number` | 10 |
 | revalidateOnFocus | 窗口聚焦时自动重新请求 | `boolean` | `true` |
-| ColumnState | 受控的列状态，可以操作显示隐藏 | `columnStateType` | - |
+| columnState | 受控的列状态，可以操作显示隐藏 | `columnStateType` | - |
 
 #### RecordCreator
 

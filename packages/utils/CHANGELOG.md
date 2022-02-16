@@ -2,6 +2,49 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.34.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.34.3...@ant-design/pro-utils@1.34.4) (2022-02-14)
+
+### Bug Fixes
+
+- **form:** fix xxx moudle is null errror ([e134df7](https://github.com/ant-design/pro-components/commit/e134df779368cc00a0c44ea19bbeae2b7c343fcd))
+
+## [1.34.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.34.2...@ant-design/pro-utils@1.34.3) (2022-02-14)
+
+### Bug Fixes
+
+- **descriptions:** 修复当 dataIndex 设置为 keypath 数组时 ProDescriptions 更新异常问题 ([#4615](https://github.com/ant-design/pro-components/issues/4615)) ([b45b2f5](https://github.com/ant-design/pro-components/commit/b45b2f5cb21226b45742223c9756083437cd6455))
+- **field:** setting debounceTime results in repeated requests ([#4609](https://github.com/ant-design/pro-components/issues/4609)) ([51d2441](https://github.com/ant-design/pro-components/commit/51d2441b080c7060fe083803e8a89c4db3ec0a67))
+
+## [1.34.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.34.1...@ant-design/pro-utils@1.34.2) (2022-02-11)
+
+### Bug Fixes
+
+- **table:** fix oncancel no use runtime datasource ([712cd1e](https://github.com/ant-design/pro-components/commit/712cd1e671d94dbf11a666226057d418c21bd063))
+
+## [1.34.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.34.0...@ant-design/pro-utils@1.34.1) (2022-02-10)
+
+### Bug Fixes
+
+- **utils:** fix merge will change null to {} ([#4590](https://github.com/ant-design/pro-components/issues/4590)) ([001e0eb](https://github.com/ant-design/pro-components/commit/001e0eb6b43e9391fa84ff078ee3f013331221b9)), closes [#4583](https://github.com/ant-design/pro-components/issues/4583)
+- 🐛 make sure the function doesn't change ([#4568](https://github.com/ant-design/pro-components/issues/4568)) ([2dff56f](https://github.com/ant-design/pro-components/commit/2dff56f59e92c7dee563090b2581dfd1b02bf0fa))
+
+# [1.34.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.33.0...@ant-design/pro-utils@1.34.0) (2022-02-08)
+
+### Features
+
+- **form:** form support convertValue ([b555dc5](https://github.com/ant-design/pro-components/commit/b555dc5293ae9e92793b1ac6ad09e3cfbaf1bf64))
+- **table:** reduce the dom of the form ([#4565](https://github.com/ant-design/pro-components/issues/4565)) ([38750ea](https://github.com/ant-design/pro-components/commit/38750ea6a1de21702d4285f520e5b7ffb57f8fab))
+
+# [1.33.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.7...@ant-design/pro-utils@1.33.0) (2022-01-25)
+
+### Bug Fixes
+
+- **utils:** pass popoverProps to Popover in InlineErrorFormItem ([#4540](https://github.com/ant-design/pro-components/issues/4540)) ([8ff67fc](https://github.com/ant-design/pro-components/commit/8ff67fc3bf4ef7c9ee893d54e510d1c69e7b2a47))
+
+### Features
+
+- **form:** enhancement type ([#4523](https://github.com/ant-design/pro-components/issues/4523)) ([9c2a10b](https://github.com/ant-design/pro-components/commit/9c2a10bcc967e42cd97344f304aee8b4e1f86b53))
+
 ## [1.32.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.32.6...@ant-design/pro-utils@1.32.7) (2022-01-21)
 
 ### Bug Fixes

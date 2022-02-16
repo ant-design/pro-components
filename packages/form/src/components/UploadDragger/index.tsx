@@ -3,7 +3,7 @@ import { Upload, ConfigProvider } from 'antd';
 import type { DraggerProps, UploadProps } from 'antd/lib/upload';
 import { InboxOutlined } from '@ant-design/icons';
 import type { ProFormFieldItemProps } from '../../interface';
-import createField from '../../BaseForm/createField';
+import { createField } from '../../BaseForm/createField';
 
 export type ProFormDraggerProps = ProFormFieldItemProps<DraggerProps> & {
   icon?: React.ReactNode;

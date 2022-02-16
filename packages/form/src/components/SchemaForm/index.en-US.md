@@ -12,6 +12,8 @@ nav:
 
 SchemaForm is a tool for generating forms based on JSON Schema. SchemaForm will be mapped into different [form items](/components/schema) according to valueType.
 
+> **Tips**： If you encounter a stuck problem or have higher performance requirements, you can [reference example](#high-performance-code-examples).
+
 ## API
 
 SchemaForm provides the same API as [ProForm](/components/form#proform), and adds some APIs, the following SchemaForm new APIs.
@@ -21,6 +23,7 @@ SchemaForm provides the same API as [ProForm](/components/form#proform), and add
 | `layoutType` | [`ProFormLayoutType`](/components/schema-form#proformlayouttype) | Form layout mode used |
 | `steps` | `StepFormProps[]` | The distributed form configuration in `layoutType=steps` needs to configure columns to be used as an array |
 | `columns` | [`ProFormColumnsType` \| `ProFormColumnsType[]`](/components/schema-form#schema-definition) | The definition of the form is generally a json object. If it is a distributed form, it needs to be generated using a json array Multiple forms |
+| `shouldUpdate` | `(newValues: Record<string, any>, oldValues: Record<string, any>) => boolean \| boolean` | Fine-grained control whether to render. <br /> When it is `true` the form items are automatically re-rendered. <br /> When it is `false` will not update the form item, but can use [dependencies to trigger the update](#combining-shouldupdatefalse-with-dependencies-to-trigger-updates). <br /> When it is `function`, judge whether to re-render according to the return value Renders the form item, equivalent to directly assigning `true` or `false`. [Reference Example](#dynamically-control-whether-to-re-render) |
 
 ## ProFormLayoutType
 
@@ -50,13 +53,15 @@ The most important thing about the SchemaForm form is the type definition of the
 | `formItemProps` | `(form,config)=>formItemProps` \| `formItemProps` | Configuration passed to Form.Item |
 | `renderText` | `(text: any, record: Entity, index: number, action: ProCoreActionType) => any` | The modified data will be consumed by the rendering component defined by valueType |
 | `render` | `(dom,entity,index, action, schema) => React.ReactNode` | custom read-only mode dom, read-only mode managed by `render` method only, edit mode needs to use `renderFormItem` |
-| `renderFormItem` | `(schema,config,form) => React.ReactNode` | Custom edit mode, return a ReactNode, will automatically wrap value and onChange |
+| `renderFormItem` | `(schema,config,form) => React.ReactNode` | Custom edit mode, return a ReactNode, will automatically wrap value and onChange. If it returns false,null,undefined, the item will not be displayed |
 | `request` | `(params,props) => Promise<{label,value}[]>` | Request network data remotely, generally used to select class components |
 | `params` | `Record<string, any>` | The additional parameters passed to `request` will not be processed by the component, but changes will cause `request` to request data again |
+| `dependencies` | `string \| number \| (string \| number)[]` | After the dependent values changes, trigger renderFormItem, fieldProps, formItemProps to re-execute, and inject values into params [example](#use-dependencies-to-trigger-fieldprops-formitemprops-renderformitem-updates) |
 | `hideInDescriptions` | `boolean` | Hide in descriptions |
 | `hideInForm` | `boolean` | Hide in Form |
 | `hideInTable` | `boolean` | Hide in Table |
 | `hideInSearch` | `boolean` | Hide in the query form of Table |
+| `columns` | `ProFormColumnsType[] \| (values) => ProFormColumnsType[]` | nested，when valueType is dependency ，please use `(values) => ProFormColumnsType[]`, other valueType use `ProFormColumnsType[]` |
 
 ## Code example
 
@@ -74,4 +79,14 @@ The most important thing about the SchemaForm form is the type definition of the
 
 ### Use ProFormDependency
 
-<code src="./demos/dependency.tsx" height="300px" title="schema 表单" />
+<code src="./demos/dependency.tsx" height="300px" title="schema dependency" />
+
+## High performance code examples
+
+### Combining shouldUpdate=false with dependencies to trigger updates
+
+<code src="./demos/dependencies.tsx" height="500px" title="schema dependencies" />
+
+### Dynamically control whether to re-render
+
+<code src="./demos/dynamic-rerender.tsx" height="500px" title="dynamic rerender" />

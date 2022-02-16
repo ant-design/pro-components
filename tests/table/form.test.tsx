@@ -223,6 +223,7 @@ describe('BasicTable Search', () => {
           {
             title: '状态',
             dataIndex: 'status',
+            dependencies: ['name'],
             fieldProps: (form) => {
               if (form.getFieldValue?.('name') === 'closed') {
                 return {

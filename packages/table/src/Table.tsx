@@ -156,7 +156,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 
     return [...action.dataSource, row];
   };
-
   const getTableProps = () => ({
     ...rest,
     size,
@@ -215,7 +214,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     : baseTableDom;
 
   const tableContentDom = useMemo(() => {
-    if (props.editable) {
+    if (props.editable && !props.name) {
       return (
         <>
           {toolbarDom}

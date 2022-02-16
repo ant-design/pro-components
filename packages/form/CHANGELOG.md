@@ -2,6 +2,57 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.53.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.4...@ant-design/pro-form@1.53.5) (2022-02-14)
+
+### Bug Fixes
+
+- **form:** fix xxx moudle is null errror ([e134df7](https://github.com/ant-design/pro-components/commit/e134df779368cc00a0c44ea19bbeae2b7c343fcd))
+
+## [1.53.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.3...@ant-design/pro-form@1.53.4) (2022-02-14)
+
+### Bug Fixes
+
+- **form:** improve type reminder ([#4618](https://github.com/ant-design/pro-components/issues/4618)) ([3930e14](https://github.com/ant-design/pro-components/commit/3930e14095635c4261366d38e81ff320fbf3bd79))
+
+## [1.53.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.2...@ant-design/pro-form@1.53.3) (2022-02-11)
+
+### Bug Fixes
+
+- **form:** 解决行为守卫 insertIndex 为 undefined 的问题 ([#4606](https://github.com/ant-design/pro-components/issues/4606)) ([0885ccb](https://github.com/ant-design/pro-components/commit/0885ccb24f01a3f4b77b3990f8a435456cd79fbb)), closes [#4588](https://github.com/ant-design/pro-components/issues/4588)
+- **form:** fix getValuePropsFunc no work by newValue ([52ef52f](https://github.com/ant-design/pro-components/commit/52ef52f3e5c070166383957dfaeded8b40cdc030)), closes [#issuecomment-1034584412](https://github.com/ant-design/pro-components/issues/issuecomment-1034584412)
+
+## [1.53.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.1...@ant-design/pro-form@1.53.2) (2022-02-10)
+
+### Bug Fixes
+
+- **form:** modal and drawer new render function ([#4597](https://github.com/ant-design/pro-components/issues/4597)) ([fabb06a](https://github.com/ant-design/pro-components/commit/fabb06a093eca0ad0dcbdef89507d0450fbcdc8d))
+
+## [1.53.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.0...@ant-design/pro-form@1.53.1) (2022-02-10)
+
+### Bug Fixes
+
+- **form:** fix form list action error ([77dfdd1](https://github.com/ant-design/pro-components/commit/77dfdd1fb20df6e048ff0162ea18bdaf31985071))
+
+# [1.53.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.14...@ant-design/pro-form@1.53.0) (2022-02-08)
+
+### Bug Fixes
+
+- **list:** 修复 ProList 传入 grid 属性时不触发 onRow 内配置事件的问题 ([#4558](https://github.com/ant-design/pro-components/issues/4558)) ([b7b6514](https://github.com/ant-design/pro-components/commit/b7b6514f106cc8e411a178fecbdcea38e62953b3)), closes [#4549](https://github.com/ant-design/pro-components/issues/4549)
+
+### Features
+
+- **form:** 表单列表支持设置行为守卫 ([#4518](https://github.com/ant-design/pro-components/issues/4518)) ([d29e37b](https://github.com/ant-design/pro-components/commit/d29e37b08d4b198404138df0d8f4422034842705)), closes [#4514](https://github.com/ant-design/pro-components/issues/4514)
+- **form:** form support convertValue ([b555dc5](https://github.com/ant-design/pro-components/commit/b555dc5293ae9e92793b1ac6ad09e3cfbaf1bf64))
+- **table:** reduce the dom of the form ([#4565](https://github.com/ant-design/pro-components/issues/4565)) ([38750ea](https://github.com/ant-design/pro-components/commit/38750ea6a1de21702d4285f520e5b7ffb57f8fab))
+
+## [1.52.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.13...@ant-design/pro-form@1.52.14) (2022-01-25)
+
+### Bug Fixes
+
+- **form:** BetaSchemaForm setFieldsValue 失效 ([#4516](https://github.com/ant-design/pro-components/issues/4516)) ([99fb154](https://github.com/ant-design/pro-components/commit/99fb15446a85e1a36edd5fa59cd762c76a68a4d8))
+- **form:** make sure it is valid to get the form instance through formRef ([#4517](https://github.com/ant-design/pro-components/issues/4517)) ([38d1f92](https://github.com/ant-design/pro-components/commit/38d1f92199ddad1390679ee020d517e68c61c235))
+- **form:** proformlist style bug ([#4524](https://github.com/ant-design/pro-components/issues/4524)) ([02cb00a](https://github.com/ant-design/pro-components/commit/02cb00a4a8073b148dd97a577577f23bc6d954ef))
+
 ## [1.52.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.52.12...@ant-design/pro-form@1.52.13) (2022-01-21)
 
 ### Bug Fixes

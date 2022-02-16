@@ -1,21 +1,13 @@
-﻿import React, {
-  useContext,
-  useEffect,
-  useImperativeHandle,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
-import type { DrawerProps, FormInstance, FormProps } from 'antd';
-import { ConfigProvider, Drawer } from 'antd';
+﻿import React, { useEffect, useMemo, useRef } from 'react';
+import type { DrawerProps, FormProps } from 'antd';
+import { Drawer } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { createPortal } from 'react-dom';
 import omit from 'omit.js';
 
 import type { CommonFormProps } from '../../BaseForm';
-import BaseForm from '../../BaseForm';
+import { BaseForm } from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
-import ScrollLocker from 'rc-util/lib/Dom/scrollLocker';
 
 export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
   CommonFormProps<T> & {
@@ -62,40 +54,18 @@ function DrawerForm<T = Record<string, any>>({
     value: rest.visible,
     onChange: onVisibleChange,
   });
-  const [key, setKey] = useMergedState<number>(0);
-  const context = useContext(ConfigProvider.ConfigContext);
+
+  const footerRef = useRef<HTMLDivElement>(null);
 
   /** Modal dom 解除渲染之后 */
-  const [isDestroy, setIsDestroy] = useMergedState<boolean>(!!rest.visible);
+  const [isDestroy, setIsDestroy] = useMergedState<boolean>(false);
 
-  useEffect(() => {
-    setIsDestroy(!!rest.visible);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [rest.visible]);
-
-  const renderDom = useMemo(() => {
-    if (drawerProps?.getContainer === false) {
-      return false;
+  const needRenderForm = useMemo(() => {
+    if (drawerProps?.destroyOnClose) {
+      return visible;
     }
-    if (drawerProps?.getContainer) {
-      if (typeof drawerProps?.getContainer === 'function') {
-        return drawerProps?.getContainer?.();
-      }
-      if (typeof drawerProps?.getContainer === 'string') {
-        return document.getElementById(drawerProps?.getContainer);
-      }
-      return drawerProps?.getContainer;
-    }
-    return context?.getPopupContainer?.(document.body);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [context, drawerProps, visible]);
-
-  const [scrollLocker] = useState(() => {
-    if (typeof window === 'undefined') return undefined;
-    return new ScrollLocker({
-      container: renderDom || document.body,
-    });
-  });
+    return true;
+  }, [drawerProps?.destroyOnClose, visible]);
 
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
@@ -104,44 +74,15 @@ function DrawerForm<T = Record<string, any>>({
   );
 
   useEffect(() => {
-    if (visible) {
-      scrollLocker?.lock();
-    } else {
-      scrollLocker?.unLock();
-    }
     if (visible && rest.visible) {
       onVisibleChange?.(true);
     }
 
-    // 如果打开了窗口，并且是用户设置的 visible，就触发一下重新更新
-    if (visible && rest.visible && drawerProps?.destroyOnClose) {
-      setKey(key + 1);
-    }
-
-    return () => {
-      if (!visible) scrollLocker?.unLock?.();
-    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [visible]);
 
   /** 设置 trigger 的情况下，懒渲染优化性能；使之可以直接配合表格操作等场景使用 */
   const isFirstRender = useRef(!drawerProps?.forceRender);
-
-  /**
-   * IsFirstRender.current 或者 visible 为 true 的时候就渲染 不渲染能会造成一些问题,比如再次打开值不对了 只有手动配置
-   * drawerProps?.destroyOnClose 为 true 的时候才会每次关闭的时候删除 dom
-   */
-  const shouldRenderFormItems = useMemo(() => {
-    if (isFirstRender.current && visible === false) {
-      return false;
-    }
-    if (visible === false && drawerProps?.destroyOnClose) {
-      return false;
-    }
-    return true;
-  }, [visible, drawerProps?.destroyOnClose]);
-  /** 同步 props 和 本地 */
-  const formRef = useRef<FormInstance>();
 
   /** 如果 destroyOnClose ，重置一下表单 */
   useEffect(() => {
@@ -150,106 +91,6 @@ function DrawerForm<T = Record<string, any>>({
     }
   }, [drawerProps?.destroyOnClose, visible]);
 
-  useEffect(
-    () => () => {
-      scrollLocker?.unLock?.();
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [],
-  );
-
-  useImperativeHandle(rest.formRef, () => formRef.current);
-
-  const formDom = (
-    <div onClick={(e) => e.stopPropagation()}>
-      <BaseForm
-        formComponentType="DrawerForm"
-        layout="vertical"
-        key={key}
-        {...omit(rest, ['visible'])}
-        formRef={formRef}
-        onInit={(value, form) => {
-          if (rest.formRef) {
-            rest.formRef.current = form;
-          }
-          rest?.onInit?.(value, form);
-        }}
-        submitter={
-          rest.submitter === false
-            ? false
-            : {
-                ...rest.submitter,
-                searchConfig: {
-                  submitText: '确认',
-                  resetText: '取消',
-                  ...rest.submitter?.searchConfig,
-                },
-                resetButtonProps: {
-                  preventDefault: true,
-                  onClick: (e: any) => {
-                    setVisible(false);
-                    drawerProps?.onClose?.(e);
-                  },
-                  ...rest.submitter?.resetButtonProps,
-                },
-              }
-        }
-        onFinish={async (values) => {
-          if (!onFinish) {
-            return;
-          }
-          const success = await onFinish(values);
-          if (success) {
-            setVisible(false);
-            setTimeout(() => {
-              if (drawerProps?.destroyOnClose) formRef.current?.resetFields();
-            }, 300);
-          }
-        }}
-        contentRender={(item, submitter) => {
-          return (
-            <Drawer
-              title={title}
-              width={width || 800}
-              {...drawerProps}
-              getContainer={false}
-              visible={visible}
-              onClose={(e) => {
-                setVisible(false);
-                drawerProps?.onClose?.(e);
-                // drawer 的after close 在暂时有点问题，先用这个顶一下
-                setTimeout(() => {
-                  setIsDestroy(false);
-                }, 300);
-              }}
-              footer={
-                !!submitter && (
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'flex-end',
-                    }}
-                  >
-                    {submitter}
-                  </div>
-                )
-              }
-            >
-              {shouldRenderFormItems ? item : null}
-            </Drawer>
-          );
-        }}
-      >
-        {children}
-      </BaseForm>
-    </div>
-  );
-  /** 这个是为了支持 ssr */
-  const portalRenderDom = useMemo(() => {
-    if (typeof window === 'undefined') return undefined;
-    return renderDom || document.body;
-  }, [renderDom]);
-
   const triggerDom = (
     <React.Fragment key="trigger">
       {trigger &&
@@ -257,22 +98,97 @@ function DrawerForm<T = Record<string, any>>({
           ...trigger.props,
           onClick: async (e: any) => {
             setVisible(!visible);
-            setIsDestroy(!visible);
             trigger.props?.onClick?.(e);
           },
         })}
     </React.Fragment>
   );
-  /** 如果destroyOnClose，关闭的时候解除渲染Form */
-  if (drawerProps?.destroyOnClose && !isDestroy) return triggerDom;
 
-  /** 不放到 body 上会导致 z-index 的问题 遮罩什么的都遮不住了 */
+  useEffect(() => {
+    if (visible) {
+      setTimeout(() => {
+        setIsDestroy(visible);
+      }, 100);
+      return;
+    }
+    setIsDestroy(visible);
+  }, [setIsDestroy, visible]);
+
   return (
     <>
-      {renderDom !== false && portalRenderDom ? createPortal(formDom, portalRenderDom) : formDom}
+      <Drawer
+        title={title}
+        width={width || 800}
+        {...drawerProps}
+        visible={visible}
+        onClose={(e) => {
+          setVisible(false);
+          drawerProps?.onClose?.(e);
+        }}
+        footer={
+          rest.submitter !== false && (
+            <div
+              ref={footerRef}
+              style={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+              }}
+            />
+          )
+        }
+      >
+        {needRenderForm && (
+          <BaseForm
+            formComponentType="DrawerForm"
+            layout="vertical"
+            {...omit(rest, ['visible'])}
+            submitter={
+              rest.submitter === false
+                ? false
+                : {
+                    ...rest.submitter,
+                    searchConfig: {
+                      submitText: '确认',
+                      resetText: '取消',
+                      ...rest.submitter?.searchConfig,
+                    },
+                    resetButtonProps: {
+                      preventDefault: true,
+                      onClick: (e: any) => {
+                        setVisible(false);
+                        drawerProps?.onClose?.(e);
+                      },
+                      ...rest.submitter?.resetButtonProps,
+                    },
+                  }
+            }
+            onFinish={async (values) => {
+              if (!onFinish) {
+                return;
+              }
+              const success = await onFinish(values);
+              if (success) {
+                setVisible(false);
+              }
+            }}
+            contentRender={(item, submitter) => {
+              return (
+                <>
+                  {item}
+                  {footerRef.current && isDestroy && submitter
+                    ? createPortal(submitter, footerRef.current)
+                    : submitter}
+                </>
+              );
+            }}
+          >
+            {children}
+          </BaseForm>
+        )}
+      </Drawer>
       {triggerDom}
     </>
   );
 }
 
-export default DrawerForm;
+export { DrawerForm };

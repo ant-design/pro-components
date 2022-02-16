@@ -3,7 +3,7 @@ import { Space, Input } from 'antd';
 import type { FormItemProps, SpaceProps } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import type { GroupProps } from 'antd/lib/input';
-import createField from '../../BaseForm/createField';
+import { createField } from '../../BaseForm/createField';
 import { useRefFunction } from '@ant-design/pro-utils';
 
 export type ProFormFieldSetProps<T = any> = {

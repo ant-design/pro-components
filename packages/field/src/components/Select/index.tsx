@@ -19,12 +19,13 @@ import type {
 } from '@ant-design/pro-utils';
 
 import {
-  useDebounceFn,
   nanoid,
   useDeepCompareEffect,
   useMountMergeState,
+  useDebounceValue,
 } from '@ant-design/pro-utils';
-import useSWR from 'swr';
+
+import useSWRImmutable from 'swr/immutable';
 import { useIntl } from '@ant-design/pro-provider';
 
 import LightSelect from './LightSelect';
@@ -300,39 +301,33 @@ export const useFieldFetchData = (
     setOptions(getOptionsFormValueEnum(props.valueEnum));
   }, [props.valueEnum]);
 
-  const [loading, setLoading] = useMountMergeState(false);
-
-  const { run: fetchData } = useDebounceFn<[Record<string, any>], SelectOptionType>(
-    async (params: Record<string, any>) => {
-      if (!props.request) return [];
-      setLoading(true);
-      const loadData = await props.request(params, props);
-      setLoading(false);
-      return loadData;
-    },
-    [],
+  const swrKey = useDebounceValue(
+    [proFieldKeyRef.current, props.params, keyWords] as const,
     props.debounceTime ?? props?.fieldProps?.debounceTime ?? 0,
-    // 因为使用了swr，自动清理请求可能导致缓存错误的数据
-    true,
+    [props.params, keyWords],
   );
 
-  const { data, mutate: setLocaleData } = useSWR(
+  const {
+    data,
+    mutate: setLocaleData,
+    isValidating,
+  } = useSWRImmutable(
     () => {
       if (!props.request) {
         return null;
       }
-      return [proFieldKeyRef.current, props.params, keyWords];
+      return swrKey;
     },
     (_, params, kw) =>
-      fetchData({
-        ...params,
-        keyWords: kw,
-      }),
+      props.request!(
+        {
+          ...params,
+          keyWords: kw,
+        },
+        props,
+      ),
     {
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
       shouldRetryOnError: false,
-      revalidateOnReconnect: false,
     },
   );
 
@@ -370,8 +365,9 @@ export const useFieldFetchData = (
 
     return opt;
   }, [options, keyWords, props.fieldProps?.filterOption]);
+
   return [
-    loading,
+    isValidating,
     props.request ? (data as SelectOptionType) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
@@ -415,12 +411,6 @@ const FieldSelect: ProFieldFC<FieldSelectProps & Pick<SelectProps, 'fieldNames'>
   const keyWordsRef = useRef<string>('');
   const { fieldNames } = fieldProps;
 
-  const {
-    label: labelPropsName = 'label',
-    value: valuePropsName = 'value',
-    options: optionsPropsName = 'options',
-  } = fieldNames || {};
-
   useEffect(() => {
     keyWordsRef.current = fieldProps?.searchValue;
   }, [fieldProps?.searchValue]);
@@ -432,23 +422,33 @@ const FieldSelect: ProFieldFC<FieldSelectProps & Pick<SelectProps, 'fieldNames'>
     fetchData: () => fetchData(),
   }));
 
-  const optionsValueEnum = useMemo<Record<string, any>>(() => {
-    const traverseOptions = (_options: typeof options): Record<string, any> => {
-      return _options?.length > 0
-        ? _options?.reduce((pre, cur) => {
-            const curLabel = cur[labelPropsName],
-              curValue = cur[valuePropsName],
-              curOptions = cur[optionsPropsName];
-            return {
-              ...pre,
-              [curValue]: curLabel,
-              ...traverseOptions(curOptions),
-            };
-          }, {})
-        : {};
+  const optionsValueEnum = useMemo(() => {
+    if (mode !== 'read') return;
+
+    const {
+      label: labelPropsName = 'label',
+      value: valuePropsName = 'value',
+      options: optionsPropsName = 'options',
+    } = fieldNames || {};
+
+    const valuesMap = new Map();
+
+    const traverseOptions = (_options: typeof options) => {
+      if (!_options?.length) {
+        return valuesMap;
+      }
+      const length = _options.length;
+      let i = 0;
+      while (i < length) {
+        const cur = _options[i++];
+        valuesMap.set(cur[valuePropsName], cur[labelPropsName]);
+        traverseOptions(cur[optionsPropsName]);
+      }
+      return valuesMap;
     };
+
     return traverseOptions(options);
-  }, [labelPropsName, options, optionsPropsName, valuePropsName]);
+  }, [fieldNames, mode, options]);
 
   if (mode === 'read') {
     const dom = (

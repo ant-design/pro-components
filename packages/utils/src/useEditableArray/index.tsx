@@ -267,7 +267,9 @@ export function SaveEditableAction<T>({
         e.preventDefault();
         try {
           const isMapEditor = editorType === 'Map';
-          const namePath = [tableName, recordKey]
+          // 为了兼容类型为 array 的 dataIndex,当 recordKey 是一个数组时，用于获取表单值的 key 只取第一项，
+          // 从表单中获取回来之后，再根据 namepath 获取具体的某个字段并设置
+          const namePath = [tableName, Array.isArray(recordKey) ? recordKey[0] : recordKey]
             .map((key) => key?.toString())
             .flat(1)
             .filter(Boolean) as string[];
@@ -278,6 +280,14 @@ export function SaveEditableAction<T>({
           });
 
           const fields = context.getFieldFormatValue?.(namePath) || form.getFieldValue(namePath);
+          // 处理 dataIndex 为数组的情况
+          if (Array.isArray(recordKey) && recordKey.length > 1) {
+            // 获取 namepath
+            const [, ...recordKeyPath] = recordKey;
+            // 将目标值获取出来并设置到 fields 当中
+            const curValue = get(fields, recordKeyPath as string[]);
+            set(fields, recordKeyPath, curValue);
+          }
           const data = isMapEditor ? set({}, namePath, fields, true) : fields;
 
           // 获取数据并保存
@@ -324,7 +334,7 @@ export const DeleteEditableAction: React.FC<ActionRenderConfig<any> & { row: any
   deletePopconfirmMessage,
   cancelEditable,
 }) => {
-  const [loading, setLoading] = useState<boolean>(() => false);
+  const [loading, setLoading] = useMountMergeState<boolean>(() => false);
   const onConfirm = async () => {
     try {
       setLoading(true);
@@ -537,14 +547,10 @@ function useEditableArray<RecordType>(
     return true;
   });
 
-  const propsOnValuesChange = useDebounceFn(
-    async (...rest: any[]) => {
-      //@ts-ignore
-      props.onValuesChange?.(...rest);
-    },
-    [],
-    64,
-  );
+  const propsOnValuesChange = useDebounceFn(async (...rest: any[]) => {
+    //@ts-ignore
+    props.onValuesChange?.(...rest);
+  }, 64);
 
   const onValuesChange = useRefFunction((value: RecordType, values: RecordType) => {
     if (!props.onValuesChange) {
@@ -557,20 +563,13 @@ function useEditableArray<RecordType>(
     // Object.keys(get(values, [props.tableName || ''].flat(1)) || values).forEach((recordKey) => {
     editableKeys.forEach((eachRecordKey) => {
       if (newLineRecordCache?.options.recordKey === eachRecordKey) return;
-      let recordKey = eachRecordKey.toString();
+      const recordKey = eachRecordKey.toString();
       // 如果数据在这个 form 中没有展示，也不显示
-      let editRow = get(
+      const editRow = get(
         values,
         [props.tableName || '', recordKey].flat(1).filter((key) => key || key === 0),
       );
-      if (!editRow) {
-        recordKey =
-          dataSourceKeyIndexMapRef.current.get(recordKeyToString(recordKey))?.toString() || '';
-        editRow = get(
-          values,
-          [props.tableName || '', recordKey].flat(1).filter((key) => key || key === 0),
-        );
-      }
+
       if (!editRow) return;
       dataSource = editableRowByKey(
         {
@@ -699,6 +698,7 @@ function useEditableArray<RecordType>(
         key: recordKey,
         childrenColumnName: props.childrenColumnName || 'children',
       };
+
       props.setDataSource(editableRowByKey(actionProps, 'update'));
       return res;
     },
@@ -724,6 +724,20 @@ function useEditableArray<RecordType>(
     },
   );
 
+  const actionCancelRef = useRefFunction(
+    async (
+      recordKey: RecordKey,
+      editRow: RecordType & {
+        index?: number;
+      },
+      originRow: RecordType & { index?: number },
+      newLine?: NewLineConfig<RecordType>,
+    ) => {
+      const res = await props?.onCancel?.(recordKey, editRow, originRow, newLine);
+      return res;
+    },
+  );
+
   const actionRender = (row: RecordType & { index: number }, form: FormInstance<any>) => {
     const key = props.getRowKey(row, row.index);
     const config = {
@@ -736,17 +750,7 @@ function useEditableArray<RecordType>(
       index: row.index,
       tableName: props.tableName,
       newLineConfig: newLineRecordCache,
-      onCancel: async (
-        recordKey: RecordKey,
-        editRow: RecordType & {
-          index?: number;
-        },
-        originRow: RecordType & { index?: number },
-        newLine?: NewLineConfig<RecordType>,
-      ) => {
-        const res = await props?.onCancel?.(recordKey, editRow, originRow, newLine);
-        return res;
-      },
+      onCancel: actionCancelRef,
       onDelete: actionDeleteRef,
       onSave: actionSaveRef,
       form,

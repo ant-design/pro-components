@@ -336,7 +336,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -1056,7 +1056,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/DragSortTable/
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -2737,7 +2737,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
       class="ant-space-item"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -3499,7 +3499,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
         style="padding-bottom: 8px;"
       >
         <button
-          class="ant-btn"
+          class="ant-btn ant-btn-default"
           type="button"
         >
           <span>
@@ -4222,7 +4222,7 @@ exports[`table demos 📸 renders ./packages/table/src/components/EditableTable/
               style="padding-bottom: 8px;"
             >
               <button
-                class="ant-btn"
+                class="ant-btn ant-btn-default"
                 type="button"
               >
                 <span>
@@ -9476,7 +9476,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/basic.t
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -10446,7 +10446,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/menu.ts
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -11402,7 +11402,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -11442,7 +11442,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/multipl
                     style="margin-right: 8px;"
                   >
                     <button
-                      class="ant-btn ant-dropdown-trigger"
+                      class="ant-btn ant-btn-default ant-dropdown-trigger"
                       type="button"
                     >
                       <span>
@@ -12388,7 +12388,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/ListToolBar/no-titl
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -14361,7 +14361,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                     class="ant-space-item"
                   >
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -14924,7 +14924,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -15107,7 +15107,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -15289,7 +15289,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -15471,7 +15471,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -15653,7 +15653,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/batchOption.tsx cor
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -16722,7 +16722,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/columnsStateMap.tsx
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -17541,7 +17541,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="qixian-btn"
+                              class="qixian-btn qixian-btn-default"
                               type="button"
                             >
                               <span>
@@ -17968,7 +17968,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -18171,7 +18171,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -18377,7 +18377,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -18583,7 +18583,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -18789,7 +18789,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -18995,7 +18995,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -19201,7 +19201,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -19407,7 +19407,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -19613,7 +19613,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -19819,7 +19819,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -20025,7 +20025,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -20231,7 +20231,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -20437,7 +20437,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -20643,7 +20643,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -20849,7 +20849,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -21055,7 +21055,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -21261,7 +21261,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -21467,7 +21467,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -21673,7 +21673,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -21879,7 +21879,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/config-provider.tsx
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -22753,7 +22753,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                 style="margin-right: 8px; padding-bottom: 8px;"
                               >
                                 <button
-                                  class="ant-btn"
+                                  class="ant-btn ant-btn-default"
                                   type="button"
                                 >
                                   <span>
@@ -23141,7 +23141,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
@@ -23322,7 +23322,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
@@ -23504,7 +23504,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
@@ -23686,7 +23686,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
@@ -23868,7 +23868,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/crud.tsx correctly 
                                   </div>
                                   <span
                                     aria-hidden="true"
-                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                    style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                   >
                                     lg
                                   </span>
@@ -24351,7 +24351,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/customization-value
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -25523,7 +25523,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -25655,7 +25655,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                     style="margin-right: 8px;"
                   >
                     <button
-                      class="ant-btn ant-btn-dangerous"
+                      class="ant-btn ant-btn-default ant-btn-dangerous"
                       type="button"
                     >
                       <span>
@@ -25668,7 +25668,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                     style="margin-right: 8px;"
                   >
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -25693,7 +25693,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                     class="ant-space-item"
                   >
                     <button
-                      class="ant-btn ant-dropdown-trigger"
+                      class="ant-btn ant-btn-default ant-dropdown-trigger"
                       type="button"
                     >
                       <span
@@ -26128,7 +26128,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -26317,7 +26317,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -26506,7 +26506,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -26695,7 +26695,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -26884,7 +26884,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dataSource.tsx corr
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -27464,7 +27464,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
                                       style="margin-right: 8px; padding-bottom: 8px;"
                                     >
                                       <button
-                                        class="ant-btn"
+                                        class="ant-btn ant-btn-default"
                                         type="button"
                                       >
                                         <span>
@@ -30165,7 +30165,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -30233,7 +30233,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                     style="margin-right: 8px;"
                   >
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -30245,7 +30245,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 
                     class="ant-space-item"
                   >
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -30786,7 +30786,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/intl.tsx correctly 
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -31805,7 +31805,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/lightfilter.tsx cor
                     style="margin-right: 8px;"
                   >
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -32738,6 +32738,98 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
               >
                 <label
                   class=""
+                  for="direction"
+                  title="动态表单"
+                >
+                  动态表单
+                </label>
+              </div>
+              <div
+                class="ant-col ant-form-item-control"
+                style="max-width: calc(100% - 80px);"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <div
+                      class="ant-select ant-select-single ant-select-show-arrow"
+                    >
+                      <div
+                        class="ant-select-selector"
+                      >
+                        <span
+                          class="ant-select-selection-search"
+                        >
+                          <input
+                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
+                            aria-autocomplete="list"
+                            aria-controls="rc_select_TEST_OR_SSR_list"
+                            aria-haspopup="listbox"
+                            aria-owns="rc_select_TEST_OR_SSR_list"
+                            autocomplete="off"
+                            class="ant-select-selection-search-input"
+                            id="rc_select_TEST_OR_SSR"
+                            readonly=""
+                            role="combobox"
+                            style="opacity: 0;"
+                            type="search"
+                            unselectable="on"
+                            value=""
+                          />
+                        </span>
+                        <span
+                          class="ant-select-selection-placeholder"
+                        />
+                      </div>
+                      <span
+                        aria-hidden="true"
+                        class="ant-select-arrow"
+                        style="user-select: none;"
+                        unselectable="on"
+                      >
+                        <span
+                          aria-label="down"
+                          class="anticon anticon-down ant-select-suffix"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="down"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                            />
+                          </svg>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-col ant-col-8"
+            style="padding-left: 12px; padding-right: 12px;"
+          >
+            <div
+              class="ant-row ant-form-item"
+              style="flex-wrap: nowrap;"
+            >
+              <div
+                class="ant-col ant-form-item-label"
+                style="flex: 0 0 80px;"
+              >
+                <label
+                  class=""
                   for="state"
                   title="状态"
                 >
@@ -32847,98 +32939,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
             </div>
           </div>
           <div
-            class="ant-col ant-col-8"
-            style="padding-left: 12px; padding-right: 12px;"
-          >
-            <div
-              class="ant-row ant-form-item"
-              style="flex-wrap: nowrap;"
-            >
-              <div
-                class="ant-col ant-form-item-label"
-                style="flex: 0 0 80px;"
-              >
-                <label
-                  class=""
-                  for="direction"
-                  title="动态表单"
-                >
-                  动态表单
-                </label>
-              </div>
-              <div
-                class="ant-col ant-form-item-control"
-                style="max-width: calc(100% - 80px);"
-              >
-                <div
-                  class="ant-form-item-control-input"
-                >
-                  <div
-                    class="ant-form-item-control-input-content"
-                  >
-                    <div
-                      class="ant-select ant-select-single ant-select-show-arrow"
-                    >
-                      <div
-                        class="ant-select-selector"
-                      >
-                        <span
-                          class="ant-select-selection-search"
-                        >
-                          <input
-                            aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
-                            aria-autocomplete="list"
-                            aria-controls="rc_select_TEST_OR_SSR_list"
-                            aria-haspopup="listbox"
-                            aria-owns="rc_select_TEST_OR_SSR_list"
-                            autocomplete="off"
-                            class="ant-select-selection-search-input"
-                            id="rc_select_TEST_OR_SSR"
-                            readonly=""
-                            role="combobox"
-                            style="opacity: 0;"
-                            type="search"
-                            unselectable="on"
-                            value=""
-                          />
-                        </span>
-                        <span
-                          class="ant-select-selection-placeholder"
-                        />
-                      </div>
-                      <span
-                        aria-hidden="true"
-                        class="ant-select-arrow"
-                        style="user-select: none;"
-                        unselectable="on"
-                      >
-                        <span
-                          aria-label="down"
-                          class="anticon anticon-down ant-select-suffix"
-                          role="img"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            data-icon="down"
-                            fill="currentColor"
-                            focusable="false"
-                            height="1em"
-                            viewBox="64 64 896 896"
-                            width="1em"
-                          >
-                            <path
-                              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                            />
-                          </svg>
-                        </span>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
             class="ant-col ant-col-8 ant-col-offset-16"
             style="padding-left: 12px; padding-right: 12px; text-align: right;"
           >
@@ -32993,7 +32993,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -33006,7 +33006,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                             style="padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -35292,7 +35292,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                     style="margin-right: 8px;"
                   >
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -35305,7 +35305,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                     style="margin-right: 8px;"
                   >
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -35745,7 +35745,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -35931,7 +35931,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -36117,7 +36117,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -36303,7 +36303,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -36489,7 +36489,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/no-option.tsx corre
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -37538,7 +37538,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                     style="margin-right: 8px;"
                   >
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -37551,7 +37551,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                     style="margin-right: 8px;"
                   >
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -37991,7 +37991,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -38177,7 +38177,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -38363,7 +38363,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -38549,7 +38549,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -38735,7 +38735,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/normal.tsx correctl
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -39248,7 +39248,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -39617,7 +39617,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -39743,7 +39743,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -39869,7 +39869,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -39995,7 +39995,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -40121,7 +40121,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/open-rules.tsx corr
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -40840,7 +40840,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/pollinga.tsx correc
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -41707,7 +41707,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/renderTable.tsx cor
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -42771,7 +42771,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                             style="margin-left: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn ant-btn-rtl"
+                              class="ant-btn ant-btn-default ant-btn-rtl"
                               type="button"
                             >
                               <span>
@@ -43190,7 +43190,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -43383,7 +43383,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -43578,7 +43578,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -43773,7 +43773,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -43968,7 +43968,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/rtl_table.tsx corre
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -44362,7 +44362,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search.tsx correctl
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -45050,7 +45050,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -45063,7 +45063,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/search_option.tsx c
                             style="padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -45567,7 +45567,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                 class="ant-col ant-form-item-label"
               >
                 <label
-                  class=""
+                  class="ant-form-item-required"
                   for="title"
                   title="标题"
                 >
@@ -45891,7 +45891,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -46026,7 +46026,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                     class="ant-space-item"
                   >
                     <button
-                      class="ant-btn ant-dropdown-trigger"
+                      class="ant-btn ant-btn-default ant-dropdown-trigger"
                       type="button"
                     >
                       <span
@@ -46389,7 +46389,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -46578,7 +46578,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -46768,7 +46768,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -46958,7 +46958,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -47148,7 +47148,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single.tsx correctl
                               </div>
                               <span
                                 aria-hidden="true"
-                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                               >
                                 lg
                               </span>
@@ -47793,7 +47793,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
             style="margin-right: 8px; padding-bottom: 8px;"
           >
             <button
-              class="ant-btn"
+              class="ant-btn ant-btn-default"
               type="button"
             >
               <span>
@@ -48019,7 +48019,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -48550,7 +48550,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                 style="flex: 0 0 80px;"
               >
                 <label
-                  class=""
+                  class="ant-form-item-required"
                   for="title"
                   title="标题"
                 >
@@ -48913,7 +48913,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -49318,7 +49318,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -49522,7 +49522,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -49727,7 +49727,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -49932,7 +49932,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -50137,7 +50137,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/single-test.tsx cor
                                 </div>
                                 <span
                                   aria-hidden="true"
-                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                                  style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                                 >
                                   lg
                                 </span>
@@ -50562,7 +50562,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/split.tsx correctly
                                   class="ant-input-group-addon"
                                 >
                                   <button
-                                    class="ant-btn ant-btn-icon-only ant-input-search-button"
+                                    class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                                     type="button"
                                   >
                                     <span
@@ -51490,7 +51490,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                     style="margin-right: 8px;"
                   >
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -51503,7 +51503,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/table-nested.tsx co
                     style="margin-right: 8px;"
                   >
                     <button
-                      class="ant-btn"
+                      class="ant-btn ant-btn-default"
                       type="button"
                     >
                       <span>
@@ -52688,7 +52688,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType.tsx corre
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -54174,7 +54174,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -55459,7 +55459,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeDate.tsx c
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -56721,7 +56721,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueTypeNumber.tsx
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>

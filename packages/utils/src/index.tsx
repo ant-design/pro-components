@@ -34,6 +34,7 @@ import useDeepCompareEffect, { useDeepCompareEffectDebounce } from './hooks/useD
 import useDocumentTitle from './hooks/useDocumentTitle';
 import type { ProRequestData } from './hooks/useFetchData';
 import useFetchData from './hooks/useFetchData';
+import useLatest from './hooks/useLatest';
 
 /** Type */
 import type {
@@ -52,6 +53,7 @@ import type {
   RequestOptionsType,
   ProFieldProps,
   ProSchemaValueType,
+  SearchConvertKeyFn,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
@@ -71,8 +73,10 @@ import { merge } from './merge';
 import { genCopyable } from './genCopyable';
 import { useRefFunction } from './hooks/useRefFunction';
 import { nanoid } from './nanoid';
+import useDebounceValue from './hooks/useDebounceValue';
 
 export type {
+  SearchConvertKeyFn,
   RequestOptionsType,
   ProSchema,
   ProSchemaValueType,
@@ -144,4 +148,6 @@ export {
   useMountMergeState,
   useFetchData,
   useDeepCompareEffectDebounce,
+  useLatest,
+  useDebounceValue,
 };
