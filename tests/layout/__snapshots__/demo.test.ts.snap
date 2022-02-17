@@ -9504,6 +9504,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             >
               <a
                 href="https://pro.ant.design"
+                rel="noreferrer"
                 target="_blank"
                 title="Ant Design Pro"
               >
@@ -9511,6 +9512,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               </a>
               <a
                 href="https://github.com/ant-design/ant-design-pro"
+                rel="noreferrer"
                 target="_blank"
                 title="github"
               >
@@ -9536,6 +9538,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               </a>
               <a
                 href="https://ant.design"
+                rel="noreferrer"
                 target="_blank"
                 title="Ant Design"
               >
@@ -16811,6 +16814,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             >
               <a
                 href="www.alipay.com"
+                rel="noreferrer"
                 target="_self"
                 title="test"
               >
@@ -16818,6 +16822,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
               </a>
               <a
                 href="www.alipay.com"
+                rel="noreferrer"
                 target="_self"
                 title="test2"
               >
