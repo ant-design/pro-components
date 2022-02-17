@@ -82,7 +82,11 @@ export type CommonFormProps<
    * @see dateTime -> YYYY-MM-DD  HH:mm:SS
    * @see time -> HH:mm:SS
    */
-  dateFormatter?: 'number' | 'string' | false;
+  dateFormatter?:
+    | 'string'
+    | 'number'
+    | ((value: moment.Moment, valueType: string) => string | number)
+    | false;
   /** 表单初始化成功，比如布局，label等计算完成 */
   onInit?: (values: T, form: ProFormInstance<any>) => void;
 

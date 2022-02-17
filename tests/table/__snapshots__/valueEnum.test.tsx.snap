@@ -55,7 +55,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                     placeholder="请输入链接"
                     style="width: 100%;"
                     type="text"
-                    value=""
+                    value="2016-11-22 07:22:44"
                   />
                 </div>
               </div>

@@ -4,7 +4,11 @@ import get from 'rc-util/lib/utils/get';
 import isNil from '../isNil';
 import type { ProFieldValueType } from '../typing';
 
-type DateFormatter = 'number' | 'string' | false;
+type DateFormatter =
+  | 'number'
+  | 'string'
+  | ((value: moment.Moment, valueType: string) => string | number)
+  | false;
 
 export const dateFormatterMap = {
   time: 'HH:mm:ss',
@@ -50,7 +54,11 @@ export function isPlainObject(o: { constructor: any }) {
  * @param dateFormatter
  * @param valueType
  */
-const convertMoment = (value: moment.Moment, dateFormatter: string | false, valueType: string) => {
+export const convertMoment = (
+  value: moment.Moment,
+  dateFormatter: string | ((value: moment.Moment, valueType: string) => string | number) | false,
+  valueType: string,
+) => {
   if (!dateFormatter) {
     return value;
   }
@@ -60,6 +68,9 @@ const convertMoment = (value: moment.Moment, dateFormatter: string | false, valu
     }
     if (dateFormatter === 'string') {
       return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
+    }
+    if (typeof dateFormatter === 'function') {
+      return dateFormatter(value, valueType);
     }
     if (typeof dateFormatter === 'string' && dateFormatter !== 'string') {
       return value.format(dateFormatter);

@@ -113,7 +113,7 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | onFinish | Callback event after form is submitted and data validation is successful, same as antd 4 `Form` component API | `(values)=>Promise<void>` | - |
 | onReset | Callback for clicking the reset button | `(e)=>void` | - |
 | submitter | Submitter button-related configuration | `boolean` \| `SubmitterProps` | `true` |
-| dateFormatter | AutoFormat data, mainly moment forms, supports string and number modes | `string\| number \|false` | string |
+| dateFormatter | AutoFormat data, mainly moment forms, supports string and number modes. you also can use formatter function to format date | `string\| number \| ((value: Moment, valueType: string) => string \| number) \|false` | string |
 | syncToUrl | sync parameters to url,url only supports string, better read [documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) before using | `true` \| `(values,type)=>values` | - |
 | omitNil | ProForm automatically clears null and undefined data, if you have agreed that nil means something, set to false to disable this feature | `boolean` | true |
 | params | Parameters for initiating network requests, used in conjunction with request | `Record` | - |

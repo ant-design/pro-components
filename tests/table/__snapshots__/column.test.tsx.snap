@@ -60,14 +60,14 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                       id="name"
                       placeholder="请输入"
                       type="text"
-                      value=""
+                      value="2016-11-22 07:22:44"
                     />
                     <span
                       class="qixian-input-suffix"
                     >
                       <span
                         aria-label="close-circle"
-                        class="anticon anticon-close-circle qixian-input-clear-icon-hidden qixian-input-clear-icon"
+                        class="anticon anticon-close-circle qixian-input-clear-icon"
                         role="button"
                         tabindex="-1"
                       >

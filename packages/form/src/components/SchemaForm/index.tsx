@@ -2,8 +2,13 @@
 import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import type { FormInstance, FormProps } from 'antd';
 
-import { LabelIconTip, omitUndefined, useLatest } from '@ant-design/pro-utils';
-import { runFunction } from '@ant-design/pro-utils';
+import {
+  convertMoment,
+  LabelIconTip,
+  omitUndefined,
+  useLatest,
+  runFunction,
+} from '@ant-design/pro-utils';
 import { renderValueType } from './valueType';
 import type { FormSchema, ProFormColumnsType, ProFormRenderValueTypeHelpers } from './typing';
 import omit from 'omit.js';
@@ -14,6 +19,7 @@ import { LightFilter } from '../../layouts/LightFilter';
 import { StepsForm } from '../../layouts/StepsForm';
 import { ModalForm } from '../../layouts/ModalForm';
 import { ProForm } from '../../layouts/ProForm';
+import moment from 'moment';
 
 export * from './typing';
 
@@ -99,6 +105,30 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
               tooltip={originItem.tooltip || originItem.tip}
             />,
           );
+          // 如果指定了 dateFormatter 并且传入的 initialValue 是合法的日期。则也对 initialValue 进行转换
+          let initialValue = originItem.initialValue;
+          if (props.dateFormatter) {
+            if (Array.isArray(initialValue)) {
+              initialValue = initialValue.map((item) => {
+                if (moment(item).isValid()) {
+                  return convertMoment(
+                    moment(item),
+                    props.dateFormatter || false,
+                    runFunction(originItem.valueType, {}),
+                  );
+                }
+                return item;
+              });
+            } else {
+              if (moment(initialValue).isValid()) {
+                initialValue = convertMoment(
+                  moment(initialValue),
+                  props.dateFormatter || false,
+                  runFunction(originItem.valueType, {}),
+                );
+              }
+            }
+          }
 
           const item = omitUndefined({
             title,
@@ -109,7 +139,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             columns: originItem.columns,
             valueEnum: originItem.valueEnum,
             dataIndex: originItem.key || originItem.dataIndex,
-            initialValue: originItem.initialValue,
+            initialValue,
             width: originItem.width,
             index: originItem.index,
             readonly: originItem.readonly,

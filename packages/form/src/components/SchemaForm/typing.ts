@@ -6,6 +6,7 @@ import type {
 } from '@ant-design/pro-utils';
 import type { FormInstance, FormProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
+import { CommonFormProps } from '../../BaseForm';
 import type {
   DrawerFormProps,
   LightFilterProps,
@@ -96,7 +97,8 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
    */
   shouldUpdate?: boolean | ((newValues: T, oldValues?: T) => boolean);
 } & Omit<FormProps<T>, 'onFinish'> &
-  ProFormPropsType<T>;
+  ProFormPropsType<T> &
+  CommonFormProps<T>;
 
 export type ProFormRenderValueTypeItem<T = Record<string, any>, ValueType = 'text'> = {
   label: any;
