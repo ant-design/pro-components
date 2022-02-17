@@ -6,7 +6,7 @@ import type {
 } from '@ant-design/pro-utils';
 import type { FormInstance, FormProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
-import { CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
 import type {
   DrawerFormProps,
   LightFilterProps,

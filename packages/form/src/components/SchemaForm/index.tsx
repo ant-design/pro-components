@@ -3,11 +3,11 @@ import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } fr
 import type { FormInstance, FormProps } from 'antd';
 
 import {
-  convertMoment,
   LabelIconTip,
   omitUndefined,
   useLatest,
   runFunction,
+  convertInitialValue,
 } from '@ant-design/pro-utils';
 import { renderValueType } from './valueType';
 import type { FormSchema, ProFormColumnsType, ProFormRenderValueTypeHelpers } from './typing';
@@ -19,7 +19,6 @@ import { LightFilter } from '../../layouts/LightFilter';
 import { StepsForm } from '../../layouts/StepsForm';
 import { ModalForm } from '../../layouts/ModalForm';
 import { ProForm } from '../../layouts/ProForm';
-import moment from 'moment';
 
 export * from './typing';
 
@@ -107,28 +106,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           );
           // 如果指定了 dateFormatter 并且传入的 initialValue 是合法的日期。则也对 initialValue 进行转换
           let initialValue = originItem.initialValue;
-          if (props.dateFormatter) {
-            if (Array.isArray(initialValue)) {
-              initialValue = initialValue.map((item) => {
-                if (moment(item).isValid()) {
-                  return convertMoment(
-                    moment(item),
-                    props.dateFormatter || false,
-                    runFunction(originItem.valueType, {}),
-                  );
-                }
-                return item;
-              });
-            } else {
-              if (moment(initialValue).isValid()) {
-                initialValue = convertMoment(
-                  moment(initialValue),
-                  props.dateFormatter || false,
-                  runFunction(originItem.valueType, {}),
-                );
-              }
-            }
-          }
+          initialValue = convertInitialValue(
+            initialValue,
+            props.dateFormatter || false,
+            (originItem.valueType as string) || 'text',
+          );
 
           const item = omitUndefined({
             title,

@@ -80,6 +80,36 @@ export const convertMoment = (
 };
 
 /**
+ * 处理 initialValue 中的日期格式数据
+ * @param value
+ * @param dateFormatter
+ * @param valueType
+ * @returns
+ */
+export const convertInitialValue = (
+  value: any,
+  dateFormatter: string | ((value: moment.Moment, valueType: string) => string | number) | false,
+  valueType: string,
+) => {
+  let res = value;
+  if (dateFormatter) {
+    if (Array.isArray(value)) {
+      res = value.map((item) => {
+        if (moment(item).isValid()) {
+          return convertMoment(moment(item), dateFormatter || false, valueType);
+        }
+        return item;
+      });
+    } else {
+      if (moment(value).isValid()) {
+        res = convertMoment(moment(value), dateFormatter || false, valueType);
+      }
+    }
+  }
+  return res;
+};
+
+/**
  * 这里主要是来转化一下数据 将 moment 转化为 string 将 all 默认删除
  *
  * @param value
