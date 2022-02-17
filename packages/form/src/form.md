@@ -20,7 +20,7 @@ ProForm 在原来的 Form 的基础上增加一些语法糖和更多的布局设
 - 如果想要监听某个值，建议使用 `onValuesChange`。保持单向的数据流无论对开发者还是维护者都大有裨益
 - ProForm 没有黑科技，只是 antd 的 Form 的封装，如果要使用自定义的组件可以用 Form.Item 包裹后使用，支持混用
 
-```tsx
+```tsx | pure
 // 设置整体默认值
 <ProForm initialValues={obj} />
 
