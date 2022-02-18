@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import type { ProFormInstance } from '@ant-design/pro-form';
+import { ProFormDatePicker } from '@ant-design/pro-form';
 
 export type TableListItem = {
   key: number;
@@ -18,7 +19,7 @@ const columns: ProColumns<TableListItem>[] = [
     title: '创建时间',
     key: 'since',
     dataIndex: 'createdAt',
-    valueType: 'dateTime',
+    renderFormItem: () => <ProFormDatePicker initialValue="2022-08-09" />,
   },
 ];
 
@@ -85,7 +86,6 @@ export default () => {
         dateFormatter="number"
         headerTitle="日期格式化为数字"
       />
-
       <ProTable<TableListItem>
         columns={columns}
         request={(params) => {
