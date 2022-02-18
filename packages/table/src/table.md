@@ -84,6 +84,10 @@ RTL means right-to-left.
 
 <code src="./demos/pollinga.tsx" background="#f5f5f5" height="360px" title="表格轮询" />
 
+### dateFormatter - 日期格式化
+
+<code src="./demos/dateFormatter.tsx" background="#f5f5f5" height="360px" title="日期格式化" />
+
 ### 搜索表单自定义
 
 当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
