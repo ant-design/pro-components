@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.53.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.6...@ant-design/pro-form@1.53.7) (2022-02-18)
+
+### Bug Fixes
+
+- **form:** fix ignoreRules no work error ([5586970](https://github.com/ant-design/pro-components/commit/558697094fc0aa39b5ac372064608cdefa239798))
+- 🐛 make sure the formItemProps property is dosen't override ([#4662](https://github.com/ant-design/pro-components/issues/4662)) ([cd50ac4](https://github.com/ant-design/pro-components/commit/cd50ac44b319ce240f4435f10872733b4ba74690))
+- **table:** EditableProTable 支持在 renderFormItem 中的 record 中返回用户自定义的字段 ([#4644](https://github.com/ant-design/pro-components/issues/4644)) ([488122d](https://github.com/ant-design/pro-components/commit/488122d88f031472ee0786a98b2a3dd017c5cb5b))
+
 ## [1.53.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.5...@ant-design/pro-form@1.53.6) (2022-02-15)
 
 ### Bug Fixes
