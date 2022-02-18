@@ -18,8 +18,8 @@ const columns: ProColumns<TableListItem>[] = [
     title: '创建时间',
     key: 'since',
     dataIndex: 'createdAt',
-    valueType: 'dateTime',
-    initialValue: '2021-09-11 00:00:00',
+    valueType: 'date',
+    initialValue: '2021-09-11',
   },
 ];
 
@@ -38,7 +38,7 @@ export default () => {
               {
                 key: 1,
                 name: `TradeCode ${1}`,
-                createdAt: '2021-09-11 00:00:00',
+                createdAt: '2021-09-11',
               },
             ],
             success: true,
@@ -67,7 +67,7 @@ export default () => {
               {
                 key: 1,
                 name: `TradeCode ${1}`,
-                createdAt: '2021-09-11 00:00:00',
+                createdAt: '2021-09-11',
               },
             ],
             success: true,
@@ -96,7 +96,7 @@ export default () => {
               {
                 key: 1,
                 name: `TradeCode ${1}`,
-                createdAt: '2021-09-11 00:00:00',
+                createdAt: '2021-09-11',
               },
             ],
             success: true,
@@ -114,7 +114,7 @@ export default () => {
         options={false}
         dateFormatter={(value, valueType) => {
           console.log('====>', value, valueType);
-          return value.format('YYYY/MM/DD HH:mm:ss');
+          return value.format('YYYY/MM/DD');
         }}
         headerTitle="使用自定义函数进行日期格式化"
       />

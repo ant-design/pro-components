@@ -26634,9 +26634,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           id="since"
                           placeholder="请选择"
                           readonly=""
-                          size="21"
-                          title="2021-09-11 00:00:00"
-                          value="2021-09-11 00:00:00"
+                          size="12"
+                          title="2021-09-11"
+                          value="2021-09-11"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -26842,7 +26842,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <td
                             class="ant-table-cell"
                           >
-                            2021-09-11 00:00:00
+                            2021-09-11
                           </td>
                         </tr>
                       </tbody>
@@ -27139,9 +27139,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           id="since"
                           placeholder="请选择"
                           readonly=""
-                          size="21"
-                          title="2021-09-11 00:00:00"
-                          value="2021-09-11 00:00:00"
+                          size="12"
+                          title="2021-09-11"
+                          value="2021-09-11"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -27347,7 +27347,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <td
                             class="ant-table-cell"
                           >
-                            2021-09-11 00:00:00
+                            2021-09-11
                           </td>
                         </tr>
                       </tbody>
@@ -27570,7 +27570,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                         id="name"
                         placeholder="请输入"
                         type="text"
-                        value="2016/11/22 00:00:00"
+                        value="2016/11/22"
                       />
                       <span
                         class="ant-input-suffix"
@@ -27644,9 +27644,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           id="since"
                           placeholder="请选择"
                           readonly=""
-                          size="21"
-                          title="2021-09-10 16:00:00"
-                          value="2021-09-10 16:00:00"
+                          size="12"
+                          title="2021-09-10"
+                          value="2021-09-10"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -27852,7 +27852,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <td
                             class="ant-table-cell"
                           >
-                            2021-09-11 00:00:00
+                            2021-09-11
                           </td>
                         </tr>
                       </tbody>
