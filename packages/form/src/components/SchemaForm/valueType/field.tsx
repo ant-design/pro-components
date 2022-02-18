@@ -18,8 +18,8 @@ export const field: ProSchemaRenderValueTypeFunction = (
           item?.render?.(dom, entity, renderIndex, action?.current, {
             type,
             ...item,
-            formItemProps: item.getFormItemProps?.(),
-            fieldProps: item.getFieldProps?.(),
+            formItemProps: item.formItemProps,
+            fieldProps: item.fieldProps,
           })
       : undefined,
   };
@@ -35,8 +35,8 @@ export const field: ProSchemaRenderValueTypeFunction = (
           {
             type,
             ...item,
-            formItemProps: item.getFormItemProps?.(),
-            fieldProps: item.getFieldProps?.(),
+            formItemProps: item.formItemProps,
+            fieldProps: item.fieldProps,
             originProps: originItem,
           },
           {

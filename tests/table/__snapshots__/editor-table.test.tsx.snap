@@ -204,7 +204,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -348,7 +348,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -492,7 +492,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -901,7 +901,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -1045,7 +1045,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -1189,7 +1189,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps.positio
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -1488,7 +1488,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -1632,7 +1632,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -1776,7 +1776,7 @@ exports[`EditorProTable 📝 EditableProTable support recordCreatorProps=false 1
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>

@@ -118,11 +118,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             tooltip: originItem.tooltip || originItem.tip,
             dependencies: originItem.dependencies,
             proFieldProps: originItem.proFieldProps,
-            getFieldProps: originItem.fieldProps
-              ? () => runFunction(originItem.fieldProps, refMap.form, originItem)
+            fieldProps: originItem.fieldProps
+              ? runFunction(originItem.fieldProps, refMap.form, originItem)
               : undefined,
-            getFormItemProps: originItem.formItemProps
-              ? () => runFunction(originItem.formItemProps, refMap.form, originItem)
+            formItemProps: originItem.formItemProps
+              ? runFunction(originItem.formItemProps, refMap.form, originItem)
               : undefined,
             render: originItem.render,
             renderFormItem: originItem.renderFormItem,

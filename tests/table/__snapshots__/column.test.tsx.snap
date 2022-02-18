@@ -133,7 +133,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                           style="margin-right: 8px; padding-bottom: 8px;"
                         >
                           <button
-                            class="qixian-btn"
+                            class="qixian-btn qixian-btn-default"
                             type="button"
                           >
                             <span>

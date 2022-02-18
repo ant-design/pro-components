@@ -103,7 +103,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                           style="margin-right: 8px; padding-bottom: 8px;"
                         >
                           <button
-                            class="ant-btn"
+                            class="ant-btn ant-btn-default"
                             type="button"
                           >
                             <span>
