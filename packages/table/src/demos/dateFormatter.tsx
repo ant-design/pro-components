@@ -19,7 +19,7 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'since',
     dataIndex: 'createdAt',
     valueType: 'date',
-    initialValue: '2021-09-10',
+    initialValue: '2022-09-10',
   },
 ];
 
@@ -38,7 +38,7 @@ export default () => {
               {
                 key: 1,
                 name: `TradeCode ${1}`,
-                createdAt: '2021-09-10',
+                createdAt: '2022-09-10',
               },
             ],
             success: true,
@@ -67,7 +67,7 @@ export default () => {
               {
                 key: 1,
                 name: `TradeCode ${1}`,
-                createdAt: '2021-09-10',
+                createdAt: '2022-09-10',
               },
             ],
             success: true,
@@ -96,7 +96,7 @@ export default () => {
               {
                 key: 1,
                 name: `TradeCode ${1}`,
-                createdAt: '2021-09-10',
+                createdAt: '2022-09-10',
               },
             ],
             success: true,
