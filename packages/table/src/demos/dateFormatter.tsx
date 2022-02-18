@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import { Button } from 'antd';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import type { ProFormInstance } from '@ant-design/pro-form';
@@ -20,7 +19,7 @@ const columns: ProColumns<TableListItem>[] = [
     key: 'since',
     dataIndex: 'createdAt',
     valueType: 'dateTime',
-    initialValue: '2020-09-11 00:00:00',
+    initialValue: '2021-09-11 00:00:00',
   },
 ];
 
@@ -39,7 +38,7 @@ export default () => {
               {
                 key: 1,
                 name: `TradeCode ${1}`,
-                createdAt: 1602572994055,
+                createdAt: '2021-09-11 00:00:00',
               },
             ],
             success: true,
@@ -68,7 +67,7 @@ export default () => {
               {
                 key: 1,
                 name: `TradeCode ${1}`,
-                createdAt: 1602572994055,
+                createdAt: '2021-09-11 00:00:00',
               },
             ],
             success: true,
@@ -97,7 +96,7 @@ export default () => {
               {
                 key: 1,
                 name: `TradeCode ${1}`,
-                createdAt: 1602572994055,
+                createdAt: '2021-09-11 00:00:00',
               },
             ],
             success: true,
@@ -112,30 +111,6 @@ export default () => {
           onCollapse: setCollapsed,
         }}
         formRef={ref}
-        toolBarRender={() => [
-          <Button
-            key="set"
-            onClick={() => {
-              if (ref.current) {
-                ref.current.setFieldsValue({
-                  name: 'test-xxx',
-                });
-              }
-            }}
-          >
-            赋值
-          </Button>,
-          <Button
-            key="submit"
-            onClick={() => {
-              if (ref.current) {
-                ref.current.submit();
-              }
-            }}
-          >
-            提交
-          </Button>,
-        ]}
         options={false}
         dateFormatter={(value, valueType) => {
           console.log('====>', value, valueType);

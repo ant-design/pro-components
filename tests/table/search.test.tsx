@@ -697,7 +697,7 @@ describe('BasicTable Search', () => {
             key: 'since',
             dataIndex: 'createdAt',
             valueType: 'dateTime',
-            initialValue: '2020-09-11',
+            initialValue: '2020-09-11 00:00:00',
           },
         ]}
         request={(params) => {
@@ -734,7 +734,6 @@ describe('BasicTable Search', () => {
     await waitForComponentToPaint(html, 1400);
     expect(fn1).toHaveBeenLastCalledWith('2020/09/11', 'dateTime');
     expect(fn2).toBeCalledWith('2020/09/11 00:00:00');
-    expect(html).toMatchSnapshot();
     act(() => {
       html.unmount();
     });

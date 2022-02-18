@@ -157,7 +157,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           return Boolean(field);
         });
     },
-    [action, refMap, type],
+    [action, props.dateFormatter, refMap, type],
   );
 
   /**

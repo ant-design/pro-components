@@ -26635,8 +26635,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           placeholder="请选择"
                           readonly=""
                           size="21"
-                          title="2020-09-11 00:00:00"
-                          value="2020-09-11 00:00:00"
+                          title="2021-09-11 00:00:00"
+                          value="2021-09-11 00:00:00"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -26842,7 +26842,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <td
                             class="ant-table-cell"
                           >
-                            2020-10-13 07:09:54
+                            2021-09-11 00:00:00
                           </td>
                         </tr>
                       </tbody>
@@ -27140,8 +27140,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           placeholder="请选择"
                           readonly=""
                           size="21"
-                          title="2020-09-11 00:00:00"
-                          value="2020-09-11 00:00:00"
+                          title="2021-09-11 00:00:00"
+                          value="2021-09-11 00:00:00"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -27347,7 +27347,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <td
                             class="ant-table-cell"
                           >
-                            2020-10-13 07:09:54
+                            2021-09-11 00:00:00
                           </td>
                         </tr>
                       </tbody>
@@ -27645,8 +27645,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           placeholder="请选择"
                           readonly=""
                           size="21"
-                          title="2020-09-10 16:00:00"
-                          value="2020-09-10 16:00:00"
+                          title="2021-09-10 16:00:00"
+                          value="2021-09-10 16:00:00"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -27797,43 +27797,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                 使用自定义函数进行日期格式化
               </div>
             </div>
-            <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
-            >
-              <div
-                class="ant-space-item"
-              >
-                <div
-                  class="ant-space ant-space-horizontal ant-space-align-center"
-                >
-                  <div
-                    class="ant-space-item"
-                    style="margin-right: 8px;"
-                  >
-                    <button
-                      class="ant-btn"
-                      type="button"
-                    >
-                      <span>
-                        赋 值
-                      </span>
-                    </button>
-                  </div>
-                  <div
-                    class="ant-space-item"
-                  >
-                    <button
-                      class="ant-btn"
-                      type="button"
-                    >
-                      <span>
-                        提 交
-                      </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div
@@ -27889,7 +27852,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <td
                             class="ant-table-cell"
                           >
-                            2020-10-13 07:09:54
+                            2021-09-11 00:00:00
                           </td>
                         </tr>
                       </tbody>
