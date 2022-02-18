@@ -33,7 +33,6 @@ export const renderValueType: ProSchemaRenderValueTypeFunction = (item, helpers)
       return dom;
     }
   }
-
   // 最后执行
   return field(item, helpers);
 };
