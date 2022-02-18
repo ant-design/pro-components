@@ -26635,8 +26635,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           placeholder="请选择"
                           readonly=""
                           size="12"
-                          title="2021-09-11"
-                          value="2021-09-11"
+                          title="2021-09-10"
+                          value="2021-09-10"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -26842,7 +26842,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <td
                             class="ant-table-cell"
                           >
-                            2021-09-11
+                            2021-09-10
                           </td>
                         </tr>
                       </tbody>
@@ -27140,8 +27140,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           placeholder="请选择"
                           readonly=""
                           size="12"
-                          title="2021-09-11"
-                          value="2021-09-11"
+                          title="2021-09-10"
+                          value="2021-09-10"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -27347,7 +27347,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <td
                             class="ant-table-cell"
                           >
-                            2021-09-11
+                            2021-09-10
                           </td>
                         </tr>
                       </tbody>
@@ -27645,8 +27645,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           placeholder="请选择"
                           readonly=""
                           size="12"
-                          title="2021-09-10"
-                          value="2021-09-10"
+                          title="2021-09-09"
+                          value="2021-09-09"
                         />
                         <span
                           class="ant-picker-suffix"
@@ -27852,7 +27852,7 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           <td
                             class="ant-table-cell"
                           >
-                            2021-09-11
+                            2021-09-10
                           </td>
                         </tr>
                       </tbody>
