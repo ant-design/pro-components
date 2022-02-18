@@ -8,7 +8,7 @@ exports[`ProFormUpload 🏐 ProFormUploadButton support disable 1`] = `
     disabled={false}
   >
     <button
-      className="ant-btn ant-btn-default"
+      className="ant-btn"
       disabled={true}
       onClick={[Function]}
       type="button"
