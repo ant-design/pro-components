@@ -91,17 +91,18 @@ export const convertInitialValue = (
   dateFormatter: string | ((value: moment.Moment, valueType: string) => string | number) | false,
   valueType: string,
 ) => {
+  if (!value) return value;
   let res = value;
   if (dateFormatter) {
     if (Array.isArray(value)) {
       res = value.map((item) => {
-        if (moment(item).isValid()) {
+        if (moment(item, true).isValid()) {
           return convertMoment(moment(item), dateFormatter || false, valueType);
         }
         return item;
       });
     } else {
-      if (moment(value).isValid()) {
+      if (moment(value, true).isValid()) {
         res = convertMoment(moment(value), dateFormatter || false, valueType);
       }
     }
