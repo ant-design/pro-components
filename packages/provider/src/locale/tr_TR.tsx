@@ -1,5 +1,5 @@
 export default {
-  moneySymbol: '$',
+  moneySymbol: '₺',
   form: {
     lightFilter: {
       more: 'Daha Fazla',
