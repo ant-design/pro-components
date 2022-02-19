@@ -19,7 +19,7 @@ const columns: ProColumns<TableListItem>[] = [
     title: '创建时间',
     dataIndex: 'createdAt',
     valueType: 'date',
-    initialValue: '2022-08-09',
+    initialValue: '2022-08-10',
   },
 ];
 
