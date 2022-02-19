@@ -28297,8 +28297,8 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dateFormatter.tsx c
                           placeholder="请选择"
                           readonly=""
                           size="12"
-                          title="2022-08-08"
-                          value="2022-08-08"
+                          title="2022-08-09"
+                          value="2022-08-09"
                         />
                         <span
                           class="ant-picker-suffix"

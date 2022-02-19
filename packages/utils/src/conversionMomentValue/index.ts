@@ -69,11 +69,11 @@ export const convertMoment = (
     if (dateFormatter === 'string') {
       return value.format(dateFormatterMap[valueType] || 'YYYY-MM-DD HH:mm:ss');
     }
-    if (typeof dateFormatter === 'function') {
-      return dateFormatter(value, valueType);
-    }
     if (typeof dateFormatter === 'string' && dateFormatter !== 'string') {
       return value.format(dateFormatter);
+    }
+    if (typeof dateFormatter === 'function') {
+      return dateFormatter(value, valueType);
     }
   }
   return value;
@@ -97,13 +97,13 @@ export const convertInitialValue = (
     if (Array.isArray(value)) {
       res = value.map((item) => {
         if (moment(item, true).isValid()) {
-          return convertMoment(moment(item), dateFormatter || false, valueType);
+          return convertMoment(moment(item), dateFormatter, valueType);
         }
         return item;
       });
     } else {
       if (moment(value, true).isValid()) {
-        res = convertMoment(moment(value), dateFormatter || false, valueType);
+        res = convertMoment(moment(value), dateFormatter, valueType);
       }
     }
   }
