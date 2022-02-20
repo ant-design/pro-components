@@ -84,6 +84,10 @@ RTL means right-to-left.
 
 <code src="./demos/pollinga.tsx" background="#f5f5f5" height="360px" title="表格轮询" />
 
+### dateFormatter - 日期格式化
+
+<code src="./demos/dateFormatter.tsx" background="#f5f5f5" height="360px" title="日期格式化" />
+
 ### 搜索表单自定义
 
 当内置的表单项无法满足我们的基本需求，这时候我们就需要来自定义一下默认的组件，我们可以通过 `fieldProps` 和 `renderFormItem` 配合来使用。
@@ -313,7 +317,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | options | table 工具栏，设为 false 时不显示 | `{{ fullScreen: boolean \| function, reload: boolean \| function,setting: true, density?: boolean }}` | `{ fullScreen: false, reload:true, setting: true}` |
 | search | 是否显示搜索表单，传入对象时为搜索表单的配置 | `false` \| [SearchConfig](#search-搜索表单) | - |
 | defaultSize | 默认的 size | SizeType | - |
-| dateFormatter | 转化 moment 格式数据为特定类型，false 不做转化 | `"string"` \| `"number"` \| `false` | `"string"` |
+| dateFormatter | 转化 moment 格式数据为特定类型，false 不做转化 | `"string"` \| `"number"` \| ((value: Moment, valueType: string) => string \| number) \| `false` | `"string"` |
 | beforeSearchSubmit | 搜索之前进行一些修改 | `(params:T)=>T` | - |
 | onSizeChange | table 尺寸发生改变 | `(size: 'default' \| 'middle' \| 'small') => void` | - |
 | type | pro-table 类型 | `"form"` | - |
