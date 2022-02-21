@@ -261,17 +261,19 @@ function EditableTable<
         />
       </EditableTableActionContext.Provider>
       {/* 模拟 onValuesChange */}
-      <ProFormDependency name={[props.name!]}>
-        {(changeValue) => {
-          const list = get(changeValue, [props.name].flat(1) as string[]) as any[];
-          const changeItem = list?.find((item, index) => {
-            return !isDeepEqualReact(item, preData?.[index]);
-          });
-          if (!changeItem) return null;
-          props?.editable?.onValuesChange?.(changeItem, list);
-          return null;
-        }}
-      </ProFormDependency>
+      {props.name ? (
+        <ProFormDependency name={[props.name!]}>
+          {(changeValue) => {
+            const list = get(changeValue, [props.name].flat(1) as string[]) as any[];
+            const changeItem = list?.find((item, index) => {
+              return !isDeepEqualReact(item, preData?.[index]);
+            });
+            if (!changeItem) return null;
+            props?.editable?.onValuesChange?.(changeItem, list);
+            return null;
+          }}
+        </ProFormDependency>
+      ) : null}
     </>
   );
 }
@@ -290,10 +292,10 @@ function FieldEditableTable<
         maxWidth: '100%',
       }}
       {...formItemProps}
-      name={props.name}
+      name={name}
     >
       <>
-        <Field shouldUpdate={true} name={props.name} isList>
+        <Field shouldUpdate={true} name={name} isList>
           {(control) => {
             if (control.value === undefined || !Array.isArray(control.value)) return null;
             return (
