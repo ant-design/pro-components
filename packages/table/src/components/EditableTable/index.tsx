@@ -113,7 +113,7 @@ function EditableTable<
     onChange: props.onChange,
   });
   const getRowKey = React.useMemo<GetRowKey<DataType>>((): GetRowKey<DataType> => {
-    if (typeof rowKey === 'function' && rowKey) {
+    if (typeof rowKey === 'function') {
       return rowKey;
     }
     return (record: DataType, index?: number) => (record as any)[rowKey as string] || index;
