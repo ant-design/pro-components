@@ -13,6 +13,7 @@ import FieldContext from '../FieldContext';
 import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } from '../interface';
 import { ProFormItem, ProFormDependency } from '../components';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
+import type { FormItemProps } from 'antd';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -111,9 +112,9 @@ function createField<P extends ProFormFieldItemProps = any>(
      */
     const fieldContextValue = React.useContext(FieldContext);
 
-    const fieldProps = useMemo(
+    const fieldProps: Record<string, any> = useMemo(
       () => {
-        const newFieldProps = {
+        const newFieldProps: any = {
           ...(ignoreFormItem ? omitUndefined({ value: rest.value }) : {}),
           placeholder,
           disabled: props.disabled,
@@ -143,7 +144,7 @@ function createField<P extends ProFormFieldItemProps = any>(
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
 
-    const formItemProps = useMemo(
+    const formItemProps: FormItemProps = useMemo(
       () => ({
         ...fieldContextValue.formItemProps,
         ...restFormItemProps,
