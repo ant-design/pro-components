@@ -146,7 +146,13 @@ function createField<P extends ProFormFieldItemProps = any>(
         ...getFormItemProps?.(),
       }),
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      [fieldContextValue.formItemProps, getFormItemProps, onlyChange, rest.dependenciesValues],
+      [
+        fieldContextValue.formItemProps,
+        getFormItemProps,
+        onlyChange,
+        restFormItemProps,
+        rest.dependenciesValues,
+      ],
     );
 
     // 支持测试用例 renderFormItem support return false

@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { Button, Input } from 'antd';
-import { ProFormDateTimePicker, ProFormInstance } from '@ant-design/pro-form';
+import type { ProFormInstance } from '@ant-design/pro-form';
+import { ProFormDateTimePicker } from '@ant-design/pro-form';
 import { ProFormDigitRange } from '@ant-design/pro-form';
 import ProForm, {
   ProFormText,
@@ -15,7 +16,8 @@ import { act } from 'react-dom/test-utils';
 import { FontSizeOutlined } from '@ant-design/icons';
 import { mount } from 'enzyme';
 import { waitTime, waitForComponentToPaint } from '../util';
-import moment, { fn } from 'moment';
+import { render as reactRender } from '@testing-library/react';
+import moment from 'moment';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -1936,5 +1938,43 @@ describe('ProForm', () => {
     act(() => {
       expect(wrapper.render()).toMatchSnapshot();
     });
+  });
+
+  fit(`📦 when dateFormatter is a Function`, () => {
+    const html = reactRender(
+      <ProForm>
+        <ProFormText
+          width="md"
+          rules={[
+            {
+              required: true,
+              message: 'test',
+            },
+          ]}
+          name="function"
+          label="生效方式"
+        />
+      </ProForm>,
+    );
+
+    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(1);
+
+    html.rerender(
+      <ProForm>
+        <ProFormText
+          width="md"
+          rules={[
+            {
+              required: false,
+              message: 'test',
+            },
+          ]}
+          name="function"
+          label="生效方式"
+        />
+      </ProForm>,
+    );
+
+    expect(html.baseElement.querySelectorAll('.ant-form-item-required').length).toBe(0);
   });
 });
