@@ -1940,7 +1940,7 @@ describe('ProForm', () => {
     });
   });
 
-  fit(`📦 when dateFormatter is a Function`, () => {
+  it(`📦 rules change should rerender`, () => {
     const html = reactRender(
       <ProForm>
         <ProFormText
