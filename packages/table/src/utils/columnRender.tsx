@@ -15,6 +15,8 @@ import get from 'rc-util/lib/utils/get';
 import type { ActionType, ProColumns } from '../typing';
 import type { useContainer } from '../container';
 import { isMergeCell } from '.';
+import type { ProFormInstance } from '@ant-design/pro-form';
+import ProForm from '@ant-design/pro-form';
 
 /** 转化列的定义 */
 type ColumnRenderInterface<T> = {
@@ -71,20 +73,25 @@ export const defaultOnFilter = (value: string, record: any, dataIndex: string | 
   return String(itemValue) === String(value);
 };
 
-class OptionsCell extends React.Component<
-  {
-    children: () => React.ReactNode;
-    record: any;
-  },
-  {}
-> {
+class OptionsCell extends React.Component<{
+  children: (form: ProFormInstance) => React.ReactNode;
+  record: any;
+  form?: ProFormInstance;
+}> {
   shouldComponentUpdate(nextProps: any) {
     const { children, ...restProps } = this.props;
     const { children: nextChildren, ...restNextProps } = nextProps;
     return !isDeepEqualReact(restProps, restNextProps);
   }
   render() {
-    return <Space>{this.props.children()}</Space>;
+    if (this.props.form) return <Space>{this.props.children(this.props.form)}</Space>;
+    return (
+      <ProForm.Item>
+        {(form) => {
+          return <Space>{this.props.children(form as ProFormInstance<any>)}</Space>;
+        }}
+      </ProForm.Item>
+    );
   }
 }
 /**
@@ -137,14 +144,14 @@ export function columnRender<T>({
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
-        <OptionsCell record={rowData}>
-          {() =>
+        <OptionsCell record={rowData} form={editableForm}>
+          {(inform) =>
             editableUtils.actionRender(
               {
                 ...rowData,
                 index: columnProps.index || index,
               },
-              editableForm!,
+              inform!,
             )
           }
         </OptionsCell>

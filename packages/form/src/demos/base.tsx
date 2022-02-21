@@ -82,6 +82,10 @@ export default () => {
       formRef={formRef}
       params={{ id: '100' }}
       formKey="base-form-use-demo"
+      dateFormatter={(value, valueType) => {
+        console.log('---->', value, valueType);
+        return value.format('YYYY/MM/DD HH:mm:ss');
+      }}
       request={async () => {
         await waitTime(100);
         return {
@@ -127,6 +131,7 @@ export default () => {
           ]}
           readonly
           width="xs"
+          cacheForSwr
           name="useMode"
           label="合同约定生效方式"
         />

@@ -32,8 +32,8 @@ import type { NamePath } from 'antd/lib/form/interface';
 
 import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';
-import type { SubmitterProps } from '../components/Submitter';
-import Submitter from '../components/Submitter';
+import type { SubmitterProps } from '../components';
+import { Submitter } from '../components';
 import type { GroupProps, FieldProps } from '../interface';
 import { noteOnce } from 'rc-util/lib/warning';
 
@@ -82,7 +82,11 @@ export type CommonFormProps<
    * @see dateTime -> YYYY-MM-DD  HH:mm:SS
    * @see time -> HH:mm:SS
    */
-  dateFormatter?: 'number' | 'string' | false;
+  dateFormatter?:
+    | 'string'
+    | 'number'
+    | ((value: moment.Moment, valueType: string) => string | number)
+    | false;
   /** 表单初始化成功，比如布局，label等计算完成 */
   onInit?: (values: T, form: ProFormInstance<any>) => void;
 
@@ -140,7 +144,7 @@ type ProFormInstance<T = any> = FormInstance<T> & {
   validateFieldsReturnFormatValue?: (nameList?: NamePath[]) => Promise<T>;
 };
 
-function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
+function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
   const {
     children,
     contentRender,
@@ -159,7 +163,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
     onReset,
     omitNil = true,
     isKeyPressSubmit,
-    autoFocusFirstInput,
+    autoFocusFirstInput = true,
     ...rest
   } = props;
   const [inlineForm] = Form.useForm(form);
@@ -206,6 +210,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
         const values = await formRef.current?.validateFields(nameList);
         return transformKey(values, omitNil);
       },
+      formRef,
     }),
     [omitNil, transformKey],
   );
@@ -470,7 +475,7 @@ function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 /** 自动的formKey 防止重复 */
 let requestFormCacheId = 0;
 
-function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
+function BaseForm<T = Record<string, any>>(props: BaseFormProps<T>) {
   const { request, params, initialValues, formKey = requestFormCacheId, ...rest } = props;
   useEffect(() => {
     requestFormCacheId += 0;
@@ -490,7 +495,7 @@ function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
   return (
     <ConfigProviderWrap>
-      <BaseForm
+      <BaseFormComponents
         autoComplete="off"
         {...rest}
         initialValues={{
@@ -504,4 +509,4 @@ function RequestForm<T = Record<string, any>>(props: BaseFormProps<T>) {
 
 export type { FormProps, ProFormInstance, FormItemProps, FormInstance };
 
-export default RequestForm;
+export { BaseForm };

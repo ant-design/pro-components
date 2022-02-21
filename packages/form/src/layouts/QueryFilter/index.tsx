@@ -11,7 +11,7 @@ import { isBrowser, useMountMergeState } from '@ant-design/pro-utils';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { CommonFormProps } from '../../BaseForm';
-import BaseForm from '../../BaseForm';
+import { BaseForm } from '../../BaseForm';
 import type { ActionsProps } from './Actions';
 import Actions from './Actions';
 import classNames from 'classnames';
@@ -128,6 +128,7 @@ const flatMapItems = (items: React.ReactNode[], ignoreRules?: boolean): React.Re
     if (item?.type.displayName === 'ProForm-Group' && !item.props?.title) {
       return item.props.children;
     }
+
     if (ignoreRules && React.isValidElement(item)) {
       return React.cloneElement(item, {
         ...(item.props as any),
@@ -443,4 +444,4 @@ function QueryFilter<T = Record<string, any>>(props: QueryFilterProps<T>) {
   );
 }
 
-export default QueryFilter;
+export { QueryFilter };

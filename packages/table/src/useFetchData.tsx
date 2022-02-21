@@ -5,6 +5,7 @@ import {
   useDeepCompareEffect,
   useMountMergeState,
   runFunction,
+  useRefFunction,
 } from '@ant-design/pro-utils';
 import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
 import { postDataPipeline } from './utils/index';
@@ -39,13 +40,12 @@ const useFetchData = <T extends RequestData<any>>(
 
   /** 轮询的setTime ID 存储 */
   const pollingSetTimeRef = useRef<any>();
-
   const [list, setList] = useMountMergeState<any[] | undefined>(defaultData, {
     value: options?.dataSource,
     onChange: options?.onDataSourceChange,
   });
 
-  const [loading, setLoading] = useMountMergeState<UseFetchDataAction['loading']>(false, {
+  const [tableLoading, setLoading] = useMountMergeState<UseFetchDataAction['loading']>(false, {
     value: options?.loading,
     onChange: options?.onLoadingChange,
   });
@@ -80,9 +80,20 @@ const useFetchData = <T extends RequestData<any>>(
 
   const { effects = [] } = options || {};
 
+  /**
+   * 不这样做会导致状态不更新
+   *
+   * https://github.com/ant-design/pro-components/issues/4390
+   */
+  const requestFinally = useRefFunction(() => {
+    requestAnimationFrame(() => {
+      setLoading(false);
+      setPollingLoading(false);
+    });
+  });
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {
-    if (loading || requesting.current || !getData) {
+    if (tableLoading || requesting.current || !getData) {
       return [];
     }
 
@@ -91,7 +102,6 @@ const useFetchData = <T extends RequestData<any>>(
       manualRequestRef.current = false;
       return [];
     }
-
     if (!isPolling) {
       setLoading(true);
     } else {
@@ -110,7 +120,6 @@ const useFetchData = <T extends RequestData<any>>(
           : undefined;
 
       const { data = [], success, total = 0, ...rest } = (await getData(pageParams)) || {};
-      requesting.current = false;
       // 如果失败了，直接返回，不走剩下的逻辑了
       if (success === false) return [];
 
@@ -122,7 +131,6 @@ const useFetchData = <T extends RequestData<any>>(
       onLoad?.(responseData, rest);
       return responseData;
     } catch (e) {
-      requesting.current = false;
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) {
         throw new Error(e as string);
@@ -130,39 +138,33 @@ const useFetchData = <T extends RequestData<any>>(
       if (list === undefined) setList([]);
       onRequestError(e as Error);
     } finally {
-      requestAnimationFrame(() => {
-        setLoading(false);
-        setPollingLoading(false);
-      });
+      requesting.current = false;
+      requestFinally();
     }
 
     return [];
   };
 
-  const fetchListDebounce = useDebounceFn(
-    async (isPolling: boolean) => {
-      if (pollingSetTimeRef.current) {
-        clearTimeout(pollingSetTimeRef.current);
-      }
-      const msg = await fetchList(isPolling);
+  const fetchListDebounce = useDebounceFn(async (isPolling: boolean) => {
+    if (pollingSetTimeRef.current) {
+      clearTimeout(pollingSetTimeRef.current);
+    }
+    const msg = await fetchList(isPolling);
 
-      // 把判断要不要轮询的逻辑放到后面来这样可以保证数据是根据当前来
-      // 放到请求前面会导致数据是上一次的
-      const needPolling = runFunction(polling, msg);
+    // 把判断要不要轮询的逻辑放到后面来这样可以保证数据是根据当前来
+    // 放到请求前面会导致数据是上一次的
+    const needPolling = runFunction(polling, msg);
 
-      // 如果需要轮询，搞个一段时间后执行
-      // 如果解除了挂载，删除一下
-      if (needPolling && !umountRef.current) {
-        pollingSetTimeRef.current = setTimeout(() => {
-          fetchListDebounce.run(needPolling);
-          // 这里判断最小要2000ms，不然一直loading
-        }, Math.max(needPolling, 2000));
-      }
-      return msg;
-    },
-    [],
-    debounceTime || 10,
-  );
+    // 如果需要轮询，搞个一段时间后执行
+    // 如果解除了挂载，删除一下
+    if (needPolling && !umountRef.current) {
+      pollingSetTimeRef.current = setTimeout(() => {
+        fetchListDebounce.run(needPolling);
+        // 这里判断最小要2000ms，不然一直loading
+      }, Math.max(needPolling, 2000));
+    }
+    return msg;
+  }, debounceTime || 10);
 
   // 如果轮询结束了，直接销毁定时器
   useEffect(() => {
@@ -231,7 +233,7 @@ const useFetchData = <T extends RequestData<any>>(
   return {
     dataSource: list!,
     setDataSource: setList,
-    loading,
+    loading: tableLoading,
     reload: async () => {
       await fetchListDebounce.run(false);
     },

@@ -122,4 +122,4 @@ const LightWrapper: React.ForwardRefRenderFunction<any, LightWrapperProps> = (pr
   );
 };
 
-export default LightWrapper;
+export { LightWrapper };

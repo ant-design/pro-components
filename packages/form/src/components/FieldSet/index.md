@@ -283,6 +283,24 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 </>
 ```
 
+联动的 ProFormSelect
+
+````tsx | pure
+  <ProFormText name="name" label="姓名" />
+  <ProFormSelect
+    name="addr"
+    width="md"
+    label="与 name 联动的选择器"
+    // dependencies 的内容会注入 request 中
+    dependencies={['name']}
+    request={async (params) => [
+      { label: params.name, value: 'all' },
+      { label: 'Unresolved', value: 'open' },
+      { label: 'Resolved', value: 'closed' },
+      { label: 'Resolving', value: 'processing' },
+    ]}
+  />
+```
 自定义选项：
 
 ```tsx | pure
@@ -303,7 +321,7 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
   placeholder="Please select a country"
   rules={[{ required: true, message: 'Please select your country!' }]}
 />
-```
+````
 
 ### ProFormTreeSelect
 
@@ -605,14 +623,14 @@ ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示�
 "ru-RU": "₽",
 "sr-RS": "RSD",
 "ms-MY": "RM",
-"zh-TW": "$"
+"zh-TW": "NT$"
 "fr-FR": "€",
 "pt-BR": "R$",
 "ko-KR": "₩",
 "id-ID": "RP",
 "de-DE": "€",
 "fa-IR": "تومان",
-"tr-TR": "$",
+"tr-TR": "₺",
 "pl-PL": "zł",
 }
 ```

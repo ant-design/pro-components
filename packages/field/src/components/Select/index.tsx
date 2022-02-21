@@ -8,6 +8,7 @@ import React, {
   useCallback,
   useEffect,
 } from 'react';
+import type { SelectProps } from 'antd';
 import { Space, Spin, ConfigProvider } from 'antd';
 import type {
   ProFieldRequestData,
@@ -17,8 +18,14 @@ import type {
   RequestOptionsType,
 } from '@ant-design/pro-utils';
 
-import { useDebounceFn, useDeepCompareEffect, useMountMergeState } from '@ant-design/pro-utils';
-import useSWR from 'swr';
+import {
+  nanoid,
+  useDeepCompareEffect,
+  useMountMergeState,
+  useDebounceValue,
+} from '@ant-design/pro-utils';
+
+import useSWRImmutable from 'swr/immutable';
 import { useIntl } from '@ant-design/pro-provider';
 
 import LightSelect from './LightSelect';
@@ -27,8 +34,6 @@ import type { ProFieldStatusType } from '../Status';
 import TableStatus, { ProFieldBadgeColor } from '../Status';
 import type { ProFieldFC } from '../../index';
 import './index.less';
-
-let testId = 0;
 
 type SelectOptionType = Partial<RequestOptionsType>[];
 
@@ -262,8 +267,7 @@ export const useFieldFetchData = (
       return props.proFieldKey.toString();
     }
     if (props.request) {
-      testId += 1;
-      return testId.toString();
+      return nanoid();
     }
     return 'no-fetch';
   });
@@ -297,39 +301,33 @@ export const useFieldFetchData = (
     setOptions(getOptionsFormValueEnum(props.valueEnum));
   }, [props.valueEnum]);
 
-  const [loading, setLoading] = useMountMergeState(false);
-
-  const { run: fetchData } = useDebounceFn<[Record<string, any>], SelectOptionType>(
-    async (params: Record<string, any>) => {
-      if (!props.request) return [];
-      setLoading(true);
-      const loadData = await props.request(params, props);
-      setLoading(false);
-      return loadData;
-    },
-    [],
-    props.debounceTime ?? 0,
-    // 因为使用了swc，自动清理请求可能导致缓存错误的数据
-    true,
+  const swrKey = useDebounceValue(
+    [proFieldKeyRef.current, props.params, keyWords] as const,
+    props.debounceTime ?? props?.fieldProps?.debounceTime ?? 0,
+    [props.params, keyWords],
   );
 
-  const { data, mutate: setLocaleData } = useSWR(
+  const {
+    data,
+    mutate: setLocaleData,
+    isValidating,
+  } = useSWRImmutable(
     () => {
       if (!props.request) {
         return null;
       }
-      return [proFieldKeyRef.current, props.params, keyWords];
+      return swrKey;
     },
     (_, params, kw) =>
-      fetchData({
-        ...params,
-        keyWords: kw,
-      }),
+      props.request!(
+        {
+          ...params,
+          keyWords: kw,
+        },
+        props,
+      ),
     {
-      revalidateIfStale: false,
-      revalidateOnFocus: false,
       shouldRetryOnError: false,
-      revalidateOnReconnect: false,
     },
   );
 
@@ -367,8 +365,9 @@ export const useFieldFetchData = (
 
     return opt;
   }, [options, keyWords, props.fieldProps?.filterOption]);
+
   return [
-    loading,
+    isValidating,
     props.request ? (data as SelectOptionType) : resOptions,
     (fetchKeyWords?: string) => {
       setKeyWords(fetchKeyWords);
@@ -385,7 +384,10 @@ export const useFieldFetchData = (
  *
  * @param
  */
-const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
+const FieldSelect: ProFieldFC<FieldSelectProps & Pick<SelectProps, 'fieldNames'>> = (
+  props,
+  ref,
+) => {
   const {
     mode,
     valueEnum,
@@ -407,10 +409,7 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
   const inputRef = useRef();
   const intl = useIntl();
   const keyWordsRef = useRef<string>('');
-
-  useEffect(() => {
-    testId += 1;
-  }, []);
+  const { fieldNames } = fieldProps;
 
   useEffect(() => {
     keyWordsRef.current = fieldProps?.searchValue;
@@ -423,24 +422,40 @@ const FieldSelect: ProFieldFC<FieldSelectProps> = (props, ref) => {
     fetchData: () => fetchData(),
   }));
 
+  const optionsValueEnum = useMemo(() => {
+    if (mode !== 'read') return;
+
+    const {
+      label: labelPropsName = 'label',
+      value: valuePropsName = 'value',
+      options: optionsPropsName = 'options',
+    } = fieldNames || {};
+
+    const valuesMap = new Map();
+
+    const traverseOptions = (_options: typeof options) => {
+      if (!_options?.length) {
+        return valuesMap;
+      }
+      const length = _options.length;
+      let i = 0;
+      while (i < length) {
+        const cur = _options[i++];
+        valuesMap.set(cur[valuePropsName], cur[labelPropsName]);
+        traverseOptions(cur[optionsPropsName]);
+      }
+      return valuesMap;
+    };
+
+    return traverseOptions(options);
+  }, [fieldNames, mode, options]);
+
   if (mode === 'read') {
-    const optionsValueEnumMap: ProSchemaValueEnumMap = new Map();
-    options?.forEach((opt) => {
-      optionsValueEnumMap.set(opt.value ?? '', opt.label);
-    });
-
-    // 如果有 label 直接就用 label
-    // @ts-ignore
-    if (rest.text?.label) {
-      // @ts-ignore
-      return rest.text?.label;
-    }
-
     const dom = (
       <>
         {proFieldParsingText(
           rest.text,
-          ObjToMap(valueEnum || optionsValueEnumMap) as unknown as ProSchemaValueEnumObj,
+          ObjToMap(valueEnum || optionsValueEnum) as unknown as ProSchemaValueEnumObj,
         )}
       </>
     );

@@ -2,6 +2,73 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.31.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.16...@ant-design/pro-field@1.31.17) (2022-02-15)
+
+### Bug Fixes
+
+- **form:** omit money props for fieldProps ([c5016fc](https://github.com/ant-design/pro-components/commit/c5016fc7175f1282f817e7b6fa2511aa098e7f94))
+
+## [1.31.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.15...@ant-design/pro-field@1.31.16) (2022-02-14)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.31.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.14...@ant-design/pro-field@1.31.15) (2022-02-14)
+
+### Bug Fixes
+
+- **field:** setting debounceTime results in repeated requests ([#4609](https://github.com/ant-design/pro-components/issues/4609)) ([51d2441](https://github.com/ant-design/pro-components/commit/51d2441b080c7060fe083803e8a89c4db3ec0a67))
+
+## [1.31.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.13...@ant-design/pro-field@1.31.14) (2022-02-11)
+
+### Bug Fixes
+
+- **field:** use loadData error, improve huge data render performance ([#4605](https://github.com/ant-design/pro-components/issues/4605)) ([c88e438](https://github.com/ant-design/pro-components/commit/c88e4382c8d312e1509f1d3d0c066746f1645175))
+- **form:** fix FieldMoney fieldProps no work error ([3f165fe](https://github.com/ant-design/pro-components/commit/3f165fea2e5e8e96cea845b8fcdeaa722afb7ef9)), closes [#issuecomment-1034709707](https://github.com/ant-design/pro-components/issues/issuecomment-1034709707)
+
+## [1.31.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.12...@ant-design/pro-field@1.31.13) (2022-02-10)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.31.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.11...@ant-design/pro-field@1.31.12) (2022-02-08)
+
+### Bug Fixes
+
+- **form:** fix cannot be given refs error ([#4564](https://github.com/ant-design/pro-components/issues/4564)) ([bdea0e3](https://github.com/ant-design/pro-components/commit/bdea0e3473dc71c15aaa18c37b296acf5b47515d))
+
+## [1.31.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.10...@ant-design/pro-field@1.31.11) (2022-01-25)
+
+### Bug Fixes
+
+- **field:** Switch checked 为 false 不生效问题 ([#4527](https://github.com/ant-design/pro-components/issues/4527)) ([afcb9a5](https://github.com/ant-design/pro-components/commit/afcb9a57934e5cd7808654dd677495492a1b3eb6))
+
+## [1.31.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.9...@ant-design/pro-field@1.31.10) (2022-01-21)
+
+### Bug Fixes
+
+- **form:** 🐛 readonly form will not render the latest value ([#4494](https://github.com/ant-design/pro-components/issues/4494)) ([2c169a8](https://github.com/ant-design/pro-components/commit/2c169a846b72351f9988c22fd5c2ef2b1684b577))
+- **form:** ProFormSelect support debounceTime ([1f26167](https://github.com/ant-design/pro-components/commit/1f26167daf457f3033a5e862e05d412edede3750))
+- **form:** select fieldNames options ([#4484](https://github.com/ant-design/pro-components/issues/4484)) ([cb1b536](https://github.com/ant-design/pro-components/commit/cb1b5365c11da3c18d6b25b6dedc9afc98be8816))
+
+## [1.31.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.8...@ant-design/pro-field@1.31.9) (2022-01-17)
+
+### Bug Fixes
+
+- **form:** default close swr cache ([#4470](https://github.com/ant-design/pro-components/issues/4470)) ([770a0fb](https://github.com/ant-design/pro-components/commit/770a0fb3360b1b0eac67deb3879f563cf9d9071b))
+
+## [1.31.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.7...@ant-design/pro-field@1.31.8) (2022-01-11)
+
+### Bug Fixes
+
+- **form:** fix money value=0, style error ([832da15](https://github.com/ant-design/pro-components/commit/832da15ad21082c5e005bb216b4e8232d080c667))
+- antd themes less file path ([#4436](https://github.com/ant-design/pro-components/issues/4436)) ([a6b66b4](https://github.com/ant-design/pro-components/commit/a6b66b4968e78a9c8175d17d2fe5a922cf70630f))
+- **form:** fix money value=0, style error ([4d049e6](https://github.com/ant-design/pro-components/commit/4d049e61f1e93fd7633feea6d26638da61a81903))
+
+## [1.31.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.6...@ant-design/pro-field@1.31.7) (2022-01-07)
+
+### Bug Fixes
+
+- **form:** 🐛 Cannot read properties of undefined (reading 'autoFocus' ([#4419](https://github.com/ant-design/pro-components/issues/4419)) ([0aea58d](https://github.com/ant-design/pro-components/commit/0aea58d71afdb4a123896729513dd8422c9bc892))
+
 ## [1.31.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.5...@ant-design/pro-field@1.31.6) (2022-01-05)
 
 ### Bug Fixes

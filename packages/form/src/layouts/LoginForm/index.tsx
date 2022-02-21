@@ -1,7 +1,7 @@
 import { ConfigProvider } from 'antd';
 import React, { useContext, useMemo } from 'react';
 import type { ProFormProps } from '../ProForm';
-import ProForm from '../ProForm';
+import { ProForm } from '../ProForm';
 import { useIntl } from '@ant-design/pro-provider';
 
 import './index.less';
@@ -67,4 +67,4 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
     </div>
   );
 }
-export default LoginForm;
+export { LoginForm };

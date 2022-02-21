@@ -27,13 +27,18 @@ import useMountMergeState from './useMountMergeState';
 /** Hooks */
 import useDebounceFn from './hooks/useDebounceFn';
 import usePrevious from './hooks/usePrevious';
-import conversionMomentValue, { dateFormatterMap } from './conversionMomentValue';
+import conversionMomentValue, {
+  dateFormatterMap,
+  convertMoment,
+  convertInitialValue,
+} from './conversionMomentValue';
 import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
 import useDeepCompareEffect, { useDeepCompareEffectDebounce } from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
 import type { ProRequestData } from './hooks/useFetchData';
 import useFetchData from './hooks/useFetchData';
+import useLatest from './hooks/useLatest';
 
 /** Type */
 import type {
@@ -52,6 +57,7 @@ import type {
   RequestOptionsType,
   ProFieldProps,
   ProSchemaValueType,
+  SearchConvertKeyFn,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
@@ -70,8 +76,11 @@ import { arrayMoveImmutable } from './array-move';
 import { merge } from './merge';
 import { genCopyable } from './genCopyable';
 import { useRefFunction } from './hooks/useRefFunction';
+import { nanoid } from './nanoid';
+import useDebounceValue from './hooks/useDebounceValue';
 
 export type {
+  SearchConvertKeyFn,
   RequestOptionsType,
   ProSchema,
   ProSchemaValueType,
@@ -115,6 +124,8 @@ export {
   transformKeySubmitValue,
   conversionMomentValue as conversionSubmitValue,
   conversionMomentValue,
+  convertMoment,
+  convertInitialValue,
   parseValueToMoment,
   genCopyable,
   useDocumentTitle,
@@ -132,6 +143,7 @@ export {
   runFunction,
   getFieldPropsOrFormItemProps,
   dateArrayFormatter,
+  nanoid,
   // hooks
   useEditableArray,
   useEditableMap,
@@ -142,4 +154,6 @@ export {
   useMountMergeState,
   useFetchData,
   useDeepCompareEffectDebounce,
+  useLatest,
+  useDebounceValue,
 };

@@ -1,5 +1,5 @@
 export default {
-  moneySymbol: '$',
+  moneySymbol: 'NT$',
   form: {
     lightFilter: {
       more: '更多篩選',

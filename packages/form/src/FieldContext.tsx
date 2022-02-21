@@ -3,7 +3,7 @@ import type { FormItemProps } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { ProSchemaValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
 import type { GroupProps, FieldProps } from './interface';
-import type { ProFormInstance } from '.';
+import type { ProFormInstance } from './BaseForm';
 
 export type FiledContextProps = {
   fieldProps?: FieldProps;

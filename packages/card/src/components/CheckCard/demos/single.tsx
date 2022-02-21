@@ -1,4 +1,6 @@
-/** Uuid: 900875c6 title: 单选模式 */
+/**
+ * title: 单选模式
+ */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';

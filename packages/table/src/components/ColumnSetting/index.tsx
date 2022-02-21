@@ -211,15 +211,9 @@ const CheckboxList: React.FC<{
       onCheck={(_, e) => onCheckTree(e)}
       checkedKeys={treeDataConfig.keys}
       showLine={false}
-      titleRender={(node) => {
-        return (
-          <CheckboxListItem
-            className={className}
-            {...node}
-            children={undefined}
-            columnKey={node.key}
-          />
-        );
+      titleRender={(_node) => {
+        const node = { ..._node, children: undefined };
+        return <CheckboxListItem className={className} {...node} columnKey={node.key} />;
       }}
       height={280}
       treeData={treeDataConfig.list}
@@ -309,8 +303,10 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
   const { columnsMap, setColumnsMap, clearPersistenceStorage } = counter;
 
   useEffect(() => {
-    if (columnsMap) {
-      columnRef.current = JSON.parse(JSON.stringify(columnsMap));
+    if (counter.propsRef.current?.columnsState?.value) {
+      columnRef.current = JSON.parse(
+        JSON.stringify(counter.propsRef.current?.columnsState?.value || {}),
+      );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -351,8 +347,8 @@ function ColumnSetting<T>(props: ColumnSettingProps<T>) {
 
   /** 重置项目 */
   const clearClick = useRefFunction(() => {
-    setColumnsMap(columnRef.current);
     clearPersistenceStorage?.();
+    setColumnsMap(columnRef.current);
   });
 
   // 未选中的 key 列表

@@ -13,7 +13,7 @@ Los componentes de la Serie Pro se colocan aquí para soportar componentes de se
 
 | [![edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![Edge](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)](http://godban.github.io/browsers-support-badges/) | [![electron_48x48](https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png)](http://godban.github.io/browsers-support-badges/) |
 | --- | --- | --- | --- | --- |
-| IE11, Edge | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones |
+| Edge | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones | últimas 2 versiones |
 
 ## Contribuyendo
 

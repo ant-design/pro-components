@@ -2,6 +2,66 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.32.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.13...@ant-design/pro-layout@6.32.14) (2022-02-15)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.32.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.12...@ant-design/pro-layout@6.32.13) (2022-02-14)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.32.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.11...@ant-design/pro-layout@6.32.12) (2022-02-14)
+
+### Bug Fixes
+
+- **field:** setting debounceTime results in repeated requests ([#4609](https://github.com/ant-design/pro-components/issues/4609)) ([51d2441](https://github.com/ant-design/pro-components/commit/51d2441b080c7060fe083803e8a89c4db3ec0a67))
+
+## [6.32.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.10...@ant-design/pro-layout@6.32.11) (2022-02-11)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.32.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.9...@ant-design/pro-layout@6.32.10) (2022-02-10)
+
+### Bug Fixes
+
+- **layout:** change less loader to reference ([6f2f87d](https://github.com/ant-design/pro-components/commit/6f2f87d846219258c1fcd23f4c042b3209bf8f5c))
+
+## [6.32.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.8...@ant-design/pro-layout@6.32.9) (2022-02-10)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.32.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.7...@ant-design/pro-layout@6.32.8) (2022-02-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.32.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.6...@ant-design/pro-layout@6.32.7) (2022-01-25)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.32.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.5...@ant-design/pro-layout@6.32.6) (2022-01-21)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.32.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.4...@ant-design/pro-layout@6.32.5) (2022-01-17)
+
+### Bug Fixes
+
+- **layout:** SettingDrawer omit url params ([4937fee](https://github.com/ant-design/pro-components/commit/4937feeec51632fc6b752104f5055c60f6aacb49))
+
+## [6.32.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.3...@ant-design/pro-layout@6.32.4) (2022-01-11)
+
+### Bug Fixes
+
+- fix ts error ([dbd357a](https://github.com/ant-design/pro-components/commit/dbd357afbb7cbb0dabe2b44324e9c9e6265ec862))
+
+## [6.32.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.2...@ant-design/pro-layout@6.32.3) (2022-01-07)
+
+### Bug Fixes
+
+- **layout:** fix breadcrumbRender =false no work error ([efa9023](https://github.com/ant-design/pro-components/commit/efa9023407236616f17e84315fdb04a51fe0cdb2))
+- **layout:** PageContainer attr affixProps typing ([#4416](https://github.com/ant-design/pro-components/issues/4416)) ([80d69ab](https://github.com/ant-design/pro-components/commit/80d69ab02dc0b3b63c278b19d90ca7049c141754))
+- **layout:** remove default Copyright, fix[#3841](https://github.com/ant-design/pro-components/issues/3841) ([#4409](https://github.com/ant-design/pro-components/issues/4409)) ([e8a2f2a](https://github.com/ant-design/pro-components/commit/e8a2f2a4b68c5910760ff1f3300e32f3fce33f9d))
+
 ## [6.32.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.1...@ant-design/pro-layout@6.32.2) (2022-01-05)
 
 ### Bug Fixes
