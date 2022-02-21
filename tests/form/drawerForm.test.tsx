@@ -315,7 +315,7 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 500);
 
     act(() => {
       wrapper.find('button.ant-btn-primary').simulate('click');
@@ -341,7 +341,7 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 500);
 
     act(() => {
       wrapper.find('button.ant-btn-primary').simulate('click');

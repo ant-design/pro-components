@@ -42,7 +42,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/array
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn"
                   type="button"
                 >
                   <span>
@@ -3066,7 +3066,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/reque
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn"
                   type="button"
                 >
                   <span>
@@ -3269,7 +3269,7 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                     </div>
                     <span
                       aria-hidden="true"
-                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                      style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
                     >
                       lg
                     </span>

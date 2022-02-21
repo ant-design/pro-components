@@ -362,7 +362,7 @@ exports[`SchemaForm 😊 SchemaForm support columns 1`] = `
       style="padding-bottom: 8px;"
     >
       <button
-        class="ant-btn ant-btn-default"
+        class="ant-btn"
         type="button"
       >
         <span>

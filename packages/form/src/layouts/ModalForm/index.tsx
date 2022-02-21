@@ -168,12 +168,20 @@ function ModalForm<T = Record<string, any>>({
             }}
             submitter={renderSubmitter}
             contentRender={(item, submitter) => {
+              let dom;
+              if (rest.submitter !== false) {
+                dom =
+                  footerRef.current &&
+                  isDestroy &&
+                  submitter &&
+                  createPortal(submitter, footerRef.current);
+              } else {
+                dom = submitter;
+              }
               return (
                 <>
                   {item}
-                  {footerRef.current && isDestroy && submitter
-                    ? createPortal(submitter, footerRef.current)
-                    : submitter}
+                  {dom}
                 </>
               );
             }}
