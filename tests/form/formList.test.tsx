@@ -756,4 +756,110 @@ describe('ProForm List', () => {
       expect(html.find('input.ant-input').length).toBe(2);
     });
   });
+  it('⛲  ProForm.List Add/Del limit', async () => {
+    const html = mount(
+      <ProForm>
+        <ProFormList
+          copyIconProps={{
+            Icon: SnippetsOutlined,
+          }}
+          deleteIconProps={{
+            Icon: CloseOutlined,
+          }}
+          min={1}
+          max={4}
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+    expect(html.find('input.ant-input').length).toBe(1);
+    // 尝试增加超过4条数据，但实际只能增加4个
+    await act(async () => {
+      html.find('.action-copy').at(0).simulate('click');
+      await waitTime(50);
+      html.find('.action-copy').at(0).simulate('click');
+      await waitTime(50);
+      html.find('.action-copy').at(0).simulate('click');
+      await waitTime(50);
+      html.find('.action-copy').at(0).simulate('click');
+      await waitTime(50);
+      html.find('.action-copy').at(0).simulate('click');
+      await waitTime(1200);
+      await waitForComponentToPaint(html);
+      expect(html.find('input.ant-input').length).toBe(4);
+    });
+    // 尝试删除掉所有，但实际至少保留一个
+    await act(async () => {
+      html.find('.action-remove').at(0).simulate('click');
+      await waitTime(50);
+      html.find('.action-remove').at(0).simulate('click');
+      await waitTime(50);
+      html.find('.action-remove').at(0).simulate('click');
+      await waitTime(50);
+      html.find('.action-remove').at(0).simulate('click');
+      await waitTime(1200);
+      await waitForComponentToPaint(html);
+      expect(html.find('input.ant-input').length).toBe(1);
+    });
+  });
+  it('⛲  ProForm.List hide action btn when over limit', async () => {
+    const html = mount(
+      <ProForm>
+        <ProFormList
+          copyIconProps={{
+            Icon: SnippetsOutlined,
+          }}
+          deleteIconProps={{
+            Icon: CloseOutlined,
+          }}
+          min={1}
+          max={4}
+          hideActionBtnWhenOverLimit
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    await waitForComponentToPaint(html);
+    expect(html.find('input.ant-input').length).toBe(1);
+    // 尝试增加到4条数据
+    await act(async () => {
+      html.find('.action-copy').at(0).simulate('click');
+      html.find('.action-copy').at(0).simulate('click');
+      html.find('.action-copy').at(0).simulate('click');
+      await waitTime(1200);
+      await waitForComponentToPaint(html);
+      const createBtn = html.find('.ant-btn.ant-pro-form-list-creator-button-bottom');
+      const copyBtn = html.find('.action-copy');
+      expect(createBtn.length).toBe(0);
+      expect(copyBtn.length).toBe(0);
+    });
+    // 尝试删除掉所有，但实际至少保留一个
+    await act(async () => {
+      html.find('.action-remove').at(0).simulate('click');
+      html.find('.action-remove').at(0).simulate('click');
+      html.find('.action-remove').at(0).simulate('click');
+      await waitTime(1200);
+      await waitForComponentToPaint(html);
+      expect(html.find('.action-remove').length).toBe(0);
+    });
+  });
 });
