@@ -560,10 +560,15 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   }, [propsPagination, action, intl]);
 
   useEffect(() => {
-    action.setPageInfo({
-      current: 1,
-    });
+    // request 存在且params不为空，且已经请求过数据才需要设置。
+    if (props.request && params && action.dataSource) {
+      action.setPageInfo({
+        current: 1,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
+
   const counter = Container.useContainer();
 
   // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set
