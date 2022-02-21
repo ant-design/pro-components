@@ -101,7 +101,7 @@ exports[`ProForm 📦 submitter props support resetButtonProps 1`] = `
       style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
-        class="ant-btn test_button"
+        class="ant-btn ant-btn-default test_button"
         type="button"
       >
         <span>
@@ -144,7 +144,7 @@ exports[`ProForm 📦 submitter props support submitButtonProps 1`] = `
       style="margin-right: 8px; padding-bottom: 8px;"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -280,7 +280,7 @@ exports[`ProForm 📦 validateFieldsReturnFormatValue 1`] = `
       style="padding-bottom: 8px;"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
