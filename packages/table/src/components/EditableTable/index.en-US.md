@@ -64,12 +64,12 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 In order to use it, we preset a New function, which in most cases already meets most new creation needs, but many times the needs are always strange. We have also prepared `recordCreatorProps` to control the generation of buttons. Same API as the Pro series components, `recordCreatorProps={false}` turns off the button and uses `actionRef.current?.addEditRecord(row)` to control the new row.
 
-`recordCreatorProps` also supports some custom styles, `position='top'|'end'` can be configured to add at the head or at the end of the table. `record` can be configured to add a new row with default data. Here is an example
+`recordCreatorProps` also supports some custom styles, `position='top'|'bottom'` can be configured to add at the head or at the end of the table. `record` can be configured to add a new row with default data. Here is an example
 
 ```typescript
 recordCreatorProps = {
   // 顶部添加还是末尾添加
-  position: 'end',
+  position: 'bottom',
   // 新增一行的方式，默认是缓存，取消后就会消失
   // 如果设置为 dataSource 会触发 onchange，取消后也不会消失，只能删除
   newRecordType: 'dataSource',
@@ -88,7 +88,7 @@ recordCreatorProps = {
 ```typescript
 recordCreatorProps = {
   // Add at the top or at the end
-  position: 'end',
+  position: 'bottom',
   // the way to add a new line, default is cached, will disappear when cancelled
   // if set to dataSource it will trigger onchange, it won't disappear if cancelled, only deleted
   newRecordType: 'dataSource',
@@ -100,7 +100,7 @@ recordCreatorProps = {
     display: 'none',
   },
   // https://ant.design/components/button/#API
-  ... .antButtonProps,
+  ...antButtonProps,
 };
 ```
 
