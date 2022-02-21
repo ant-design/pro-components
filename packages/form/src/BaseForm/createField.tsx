@@ -36,7 +36,10 @@ const ignoreWidthValueType = ['switch', 'radioButton', 'radio', 'rate'];
 
 type ProFormComponent<P, Extends> = React.ComponentType<P & Extends>;
 
-/** 处理fieldProps和formItemProps为function时传进来的方法, 目前只在SchemaForm时可能会有 */
+/**
+ * 处理fieldProps和formItemProps为function时传进来的方法
+ * 目前只在SchemaForm时可能会有
+ */
 type FunctionFieldProps = {
   getFormItemProps?: () => Record<string, any>;
   getFieldProps?: () => Record<string, any>;
@@ -103,7 +106,9 @@ function createField<P extends ProFormFieldItemProps = any>(
     // onChange触发fieldProps,formItemProps重新执行
     const [onlyChange, forceUpdateByOnChange] = useState<[]>();
 
-    /** 从 context 中拿到的值 */
+    /**
+     * 从 context 中拿到的值
+     */
     const fieldContextValue = React.useContext(FieldContext);
 
     const fieldProps = useMemo(
@@ -113,9 +118,10 @@ function createField<P extends ProFormFieldItemProps = any>(
           placeholder,
           disabled: props.disabled,
           ...fieldContextValue.fieldProps,
-          ...(rest.fieldProps as any),
-          // 支持未传递getFieldProps的情况
           ...getFieldProps?.(),
+          // 支持未传递getFieldProps的情况
+          // 某些特殊hack情况下覆盖原来设置的fieldProps参数
+          ...rest.fieldProps,
         };
 
         newFieldProps.style = omitUndefined(newFieldProps?.style);
@@ -140,10 +146,11 @@ function createField<P extends ProFormFieldItemProps = any>(
     const formItemProps = useMemo(
       () => ({
         ...fieldContextValue.formItemProps,
-        // 支持未传递getFormItemProps的情况
         ...restFormItemProps,
-        ...(rest.formItemProps as any),
         ...getFormItemProps?.(),
+        // 支持未传递getFormItemProps的情况
+        // 某些特殊hack情况下覆盖原来设置的formItemProps参数
+        ...rest.formItemProps,
       }),
       // eslint-disable-next-line react-hooks/exhaustive-deps
       [fieldContextValue.formItemProps, getFormItemProps, onlyChange, rest.dependenciesValues],
@@ -378,9 +385,6 @@ function createField<P extends ProFormFieldItemProps = any>(
 
     return shouldRender.current ? FormItem : null;
   };
-
-  // 标记是否是 proform 的组件
-  FieldWithContext.displayName = 'ProFormComponent';
 
   const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
     const { dependencies } = props;
