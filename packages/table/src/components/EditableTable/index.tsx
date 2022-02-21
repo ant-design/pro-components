@@ -283,19 +283,17 @@ function FieldEditableTable<
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
-  const { name, formItemProps } = props;
-
-  if (!name) return <EditableTable<DataType, Params, ValueType> {...props} />;
+  if (!props.name) return <EditableTable<DataType, Params, ValueType> {...props} />;
   return (
     <Form.Item
       style={{
         maxWidth: '100%',
       }}
-      {...formItemProps}
-      name={name}
+      {...props?.formItemProps}
+      name={props.name}
     >
       <>
-        <Field shouldUpdate={true} name={name} isList>
+        <Field shouldUpdate={true} name={props.name} isList>
           {(control) => {
             if (control.value === undefined || !Array.isArray(control.value)) return null;
             return (
