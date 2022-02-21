@@ -9,7 +9,8 @@ import { Field } from 'rc-field-form';
 import ProTable from '../../Table';
 import type { ProTableProps, ActionType } from '../../typing';
 import type { GetRowKey } from 'antd/lib/table/interface';
-import { ProFormDependency, ProFormInstance } from '@ant-design/pro-form';
+import type { ProFormInstance } from '@ant-design/pro-form';
+import { ProFormDependency } from '@ant-design/pro-form';
 import get from 'rc-util/lib/utils/get';
 
 export type RecordCreatorProps<DataSourceType> = {

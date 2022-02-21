@@ -5673,7 +5673,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
                             style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>

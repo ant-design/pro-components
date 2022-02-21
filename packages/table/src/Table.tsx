@@ -234,6 +234,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
             key="table"
             submitter={false}
             omitNil={false}
+            dateFormatter={props.dateFormatter}
             contentRender={(items: React.ReactNode) => {
               if (counter.editableForm) return items;
               return (

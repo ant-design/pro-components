@@ -2,8 +2,13 @@
 import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import type { FormInstance, FormProps } from 'antd';
 
-import { LabelIconTip, omitUndefined, useLatest } from '@ant-design/pro-utils';
-import { runFunction } from '@ant-design/pro-utils';
+import {
+  LabelIconTip,
+  omitUndefined,
+  useLatest,
+  runFunction,
+  convertInitialValue,
+} from '@ant-design/pro-utils';
 import { renderValueType } from './valueType';
 import type { FormSchema, ProFormColumnsType, ProFormRenderValueTypeHelpers } from './typing';
 import omit from 'omit.js';
@@ -99,6 +104,13 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
               tooltip={originItem.tooltip || originItem.tip}
             />,
           );
+          // 如果指定了 dateFormatter 并且传入的 initialValue 是合法的日期。则也对 initialValue 进行转换
+          let initialValue = originItem.initialValue;
+          initialValue = convertInitialValue(
+            initialValue,
+            props.dateFormatter || false,
+            (originItem.valueType as string) || 'text',
+          );
 
           const item = omitUndefined({
             title,
@@ -109,7 +121,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             columns: originItem.columns,
             valueEnum: originItem.valueEnum,
             dataIndex: originItem.key || originItem.dataIndex,
-            initialValue: originItem.initialValue,
+            initialValue,
             width: originItem.width,
             index: originItem.index,
             readonly: originItem.readonly,
@@ -118,11 +130,11 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             tooltip: originItem.tooltip || originItem.tip,
             dependencies: originItem.dependencies,
             proFieldProps: originItem.proFieldProps,
-            getFieldProps: originItem.fieldProps
-              ? () => runFunction(originItem.fieldProps, refMap.form, originItem)
+            fieldProps: originItem.fieldProps
+              ? runFunction(originItem.fieldProps, refMap.form, originItem)
               : undefined,
-            getFormItemProps: originItem.formItemProps
-              ? () => runFunction(originItem.formItemProps, refMap.form, originItem)
+            formItemProps: originItem.formItemProps
+              ? runFunction(originItem.formItemProps, refMap.form, originItem)
               : undefined,
             render: originItem.render,
             renderFormItem: originItem.renderFormItem,
@@ -145,7 +157,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           return Boolean(field);
         });
     },
-    [action, refMap, type],
+    [action, props.dateFormatter, refMap, type],
   );
 
   /**

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.63.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.63.6...@ant-design/pro-table@2.63.7) (2022-02-18)
+
+### Bug Fixes
+
+- **form:** fix ignoreRules no work error ([5586970](https://github.com/ant-design/pro-components/commit/558697094fc0aa39b5ac372064608cdefa239798))
+- **table:** EditableProTable 支持在 renderFormItem 中的 record 中返回用户自定义的字段 ([#4644](https://github.com/ant-design/pro-components/issues/4644)) ([488122d](https://github.com/ant-design/pro-components/commit/488122d88f031472ee0786a98b2a3dd017c5cb5b))
+
 ## [2.63.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.63.5...@ant-design/pro-table@2.63.6) (2022-02-15)
 
 ### Bug Fixes

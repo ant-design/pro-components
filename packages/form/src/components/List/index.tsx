@@ -1,17 +1,19 @@
 ﻿import { CopyOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { nanoid, runFunction, ProFormContext } from '@ant-design/pro-utils';
-import { ButtonProps, FormInstance, Spin } from 'antd';
+import type { ButtonProps, FormInstance } from 'antd';
+import { Spin } from 'antd';
 import { Button, ConfigProvider, Form, Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { FormListFieldData, FormListOperation, FormListProps } from 'antd/lib/form/FormList';
 import type { NamePath } from 'antd/lib/form/interface';
 import omit from 'omit.js';
 import toArray from 'rc-util/lib/Children/toArray';
-import { ReactNode, useEffect, useState } from 'react';
+import type { ReactNode } from 'react';
+import { useEffect, useState } from 'react';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import './index.less';
 import { noteOnce } from 'rc-util/lib/warning';
-import { StoreValue } from 'rc-field-form/es/interface';
+import type { StoreValue } from 'rc-field-form/es/interface';
 
 type IconConfig = {
   Icon?: React.FC<any>;

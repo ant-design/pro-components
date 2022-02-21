@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { Button, Input } from 'antd';
-import type { ProFormInstance } from '@ant-design/pro-form';
+import { ProFormDateTimePicker, ProFormInstance } from '@ant-design/pro-form';
 import { ProFormDigitRange } from '@ant-design/pro-form';
 import ProForm, {
   ProFormText,
@@ -15,7 +15,7 @@ import { act } from 'react-dom/test-utils';
 import { FontSizeOutlined } from '@ant-design/icons';
 import { mount } from 'enzyme';
 import { waitTime, waitForComponentToPaint } from '../util';
-import moment from 'moment';
+import moment, { fn } from 'moment';
 
 describe('ProForm', () => {
   it('📦 submit props actionsRender=false', async () => {
@@ -1896,5 +1896,45 @@ describe('ProForm', () => {
     await waitForComponentToPaint(wrapper, 100);
 
     expect(onFinish).toBeCalledWith(undefined);
+  });
+
+  it('📦 when dateFormatter is a Function', async () => {
+    const fn1 = jest.fn();
+    const fn2 = jest.fn();
+    const App = () => {
+      return (
+        <ProForm
+          dateFormatter={(value, valueType) => {
+            fn1(value.format('YYYY/MM/DD HH:mm:ss'), valueType);
+            return value.format('YYYY/MM/DD HH:mm:ss');
+          }}
+          onFinish={async (values) => {
+            fn2(values.datetime);
+            return true;
+          }}
+        >
+          <ProFormDateTimePicker
+            name="datetime"
+            initialValue={moment('2021-08-09 12:12:12')}
+            fieldProps={{ open: true }}
+          />
+        </ProForm>
+      );
+    };
+
+    const wrapper = mount(<App />);
+    await waitForComponentToPaint(wrapper);
+
+    expect(fn1).toBeCalledWith('2021/08/09 12:12:12', 'dateTime');
+    act(() => {
+      wrapper.find('button.ant-btn-primary').at(1).simulate('click');
+    });
+
+    await waitForComponentToPaint(wrapper, 100);
+    expect(fn2).toHaveBeenCalledWith('2021/08/09 12:12:12');
+
+    act(() => {
+      expect(wrapper.render()).toMatchSnapshot();
+    });
   });
 });

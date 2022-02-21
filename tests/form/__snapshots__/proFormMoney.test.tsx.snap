@@ -124,7 +124,7 @@ exports[`💵 ProFormMoney 💵 ProFormMoney value expect number 1`] = `
       style="padding-bottom: 8px;"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -260,7 +260,7 @@ exports[`💵 ProFormMoney 💵 can input negative 1`] = `
       style="padding-bottom: 8px;"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -396,7 +396,7 @@ exports[`💵 ProFormMoney 💵 can not input negative 1`] = `
       style="padding-bottom: 8px;"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -532,7 +532,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom locale 1`] = `
       style="padding-bottom: 8px;"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -668,7 +668,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with custom symbol 1`] = `
       style="padding-bottom: 8px;"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
@@ -804,7 +804,7 @@ exports[`💵 ProFormMoney 💵 moneySymbol with global locale 1`] = `
       style="padding-bottom: 8px;"
     >
       <button
-        class="ant-btn"
+        class="ant-btn ant-btn-default"
         type="button"
       >
         <span>
