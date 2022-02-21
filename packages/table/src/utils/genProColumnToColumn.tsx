@@ -1,6 +1,7 @@
 ﻿import type { ProSchemaComponentTypes, UseEditableUtilType } from '@ant-design/pro-utils';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import type { TableColumnType } from 'antd';
+import { Table } from 'antd';
 import { runFunction } from '@ant-design/pro-utils';
 import { omitBoolean, omitUndefinedAndEmptyArr } from '@ant-design/pro-utils';
 import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
@@ -23,7 +24,11 @@ export function genProColumnToColumn<T>(params: {
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
-}): (TableColumnType<T> & { index?: number })[] {
+}): (TableColumnType<T> & {
+  index?: number;
+  isExtraColumns?: boolean;
+  extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;
+})[] {
   const { columns, counter, columnEmptyText, type, editableUtils } = params;
   return columns
     .map((columnProps, columnsIndex) => {
@@ -43,6 +48,16 @@ export function genProColumnToColumn<T>(params: {
         return {
           index: columnsIndex,
           ...columnProps,
+        };
+      }
+      const isExtraColumns =
+        columnProps === Table.EXPAND_COLUMN || columnProps === Table.SELECTION_COLUMN;
+      if (isExtraColumns) {
+        return {
+          index: columnsIndex,
+          isExtraColumns: true,
+          hideInTable: false,
+          extraColumn: columnProps,
         };
       }
       const config = counter.columnsMap[columnKey] || { fixed: columnProps.fixed };
@@ -93,5 +108,7 @@ export function genProColumnToColumn<T>(params: {
     })
     .filter((item) => !item.hideInTable) as unknown as (TableColumnType<T> & {
     index?: number;
+    isExtraColumns?: boolean;
+    extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;
   })[];
 }
