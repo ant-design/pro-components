@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [6.33.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.14...@ant-design/pro-layout@6.33.0) (2022-02-21)
+
+### Features
+
+- **form,table,utils:** form 和 table 的 dateFormatter 支持函数 ([#4657](https://github.com/ant-design/pro-components/issues/4657)) ([bdbbae4](https://github.com/ant-design/pro-components/commit/bdbbae4212fede8bf230f9577feae853ce6bf287))
+
 ## [6.32.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.32.13...@ant-design/pro-layout@6.32.14) (2022-02-15)
 
 **Note:** Version bump only for package @ant-design/pro-layout

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.64.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.63.7...@ant-design/pro-table@2.64.0) (2022-02-21)
+
+### Bug Fixes
+
+- **EditableTable:** onValuesChange is not executed when name is not passed ([#4679](https://github.com/ant-design/pro-components/issues/4679)) ([9565441](https://github.com/ant-design/pro-components/commit/9565441438d6c38bc97004b52b27a1842c62f82c))
+- **table:** table 的 param 发生变化时重置分页为 1 ([#4648](https://github.com/ant-design/pro-components/issues/4648)) ([a2487b9](https://github.com/ant-design/pro-components/commit/a2487b93649a6b144904712e0a99b1fa2354be1b))
+
+### Features
+
+- **form,table,utils:** form 和 table 的 dateFormatter 支持函数 ([#4657](https://github.com/ant-design/pro-components/issues/4657)) ([bdbbae4](https://github.com/ant-design/pro-components/commit/bdbbae4212fede8bf230f9577feae853ce6bf287))
+
 ## [2.63.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.63.6...@ant-design/pro-table@2.63.7) (2022-02-18)
 
 ### Bug Fixes
