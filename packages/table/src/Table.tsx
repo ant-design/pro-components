@@ -649,7 +649,6 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // eslint-disable-next-line react-hooks/exhaustive-deps
     editableUtils.editableKeys && editableUtils.editableKeys.join(','),
   ]);
-  console.log('tableColumn:', tableColumn);
 
   /** Table Column 变化的时候更新一下，这个参数将会用于渲染 */
   useDeepCompareEffectDebounce(
