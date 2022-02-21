@@ -261,17 +261,19 @@ function EditableTable<
         />
       </EditableTableActionContext.Provider>
       {/* 模拟 onValuesChange */}
-      <ProFormDependency name={[props.name!]}>
-        {(changeValue) => {
-          const list = get(changeValue, [props.name].flat(1) as string[]) as any[];
-          const changeItem = list?.find((item, index) => {
-            return !isDeepEqualReact(item, preData?.[index]);
-          });
-          if (!changeItem) return null;
-          props?.editable?.onValuesChange?.(changeItem, list);
-          return null;
-        }}
-      </ProFormDependency>
+      {props.name ? (
+        <ProFormDependency name={[props.name!]}>
+          {(changeValue) => {
+            const list = get(changeValue, [props.name].flat(1) as string[]) as any[];
+            const changeItem = list?.find((item, index) => {
+              return !isDeepEqualReact(item, preData?.[index]);
+            });
+            if (!changeItem) return null;
+            props?.editable?.onValuesChange?.(changeItem, list);
+            return null;
+          }}
+        </ProFormDependency>
+      ) : null}
     </>
   );
 }
@@ -281,15 +283,13 @@ function FieldEditableTable<
   Params extends ParamsType = ParamsType,
   ValueType = 'text',
 >(props: EditableProTableProps<DataType, Params, ValueType>) {
-  const { name, formItemProps } = props;
-
-  if (!name) return <EditableTable<DataType, Params, ValueType> {...props} />;
+  if (!props.name) return <EditableTable<DataType, Params, ValueType> {...props} />;
   return (
     <Form.Item
       style={{
         maxWidth: '100%',
       }}
-      {...formItemProps}
+      {...props?.formItemProps}
       name={props.name}
     >
       <>
