@@ -870,7 +870,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           style="margin-right: 8px; padding-bottom: 8px;"
                         >
                           <button
-                            class="ant-btn"
+                            class="ant-btn ant-btn-default"
                             type="button"
                           >
                             <span>
@@ -977,7 +977,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -1008,7 +1008,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-dropdown-trigger ant-pro-table-dropdown"
+                    class="ant-btn ant-btn-default ant-dropdown-trigger ant-pro-table-dropdown"
                     type="button"
                   >
                     <span>
@@ -1344,7 +1344,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -1658,7 +1658,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -1972,7 +1972,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -2286,7 +2286,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -2600,7 +2600,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -2914,7 +2914,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -3228,7 +3228,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -3542,7 +3542,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -3856,7 +3856,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -4170,7 +4170,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -4484,7 +4484,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -4798,7 +4798,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -5112,7 +5112,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -5426,7 +5426,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -5740,7 +5740,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -6054,7 +6054,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -6368,7 +6368,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -6682,7 +6682,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -6996,7 +6996,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -7310,7 +7310,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                             </div>
                             <span
                               aria-hidden="true"
-                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 9999px;"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
                             >
                               lg
                             </span>
@@ -7880,7 +7880,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                           style="margin-right:8px;padding-bottom:8px"
                         >
                           <button
-                            class="ant-btn"
+                            class="ant-btn ant-btn-default"
                             type="button"
                           >
                             <span>
@@ -8411,7 +8411,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                           style="margin-right: 8px; padding-bottom: 8px;"
                         >
                           <button
-                            class="ant-btn"
+                            class="ant-btn ant-btn-default"
                             type="button"
                           >
                             <span>
