@@ -1,7 +1,8 @@
 import { mount } from 'enzyme';
-import React from 'react';
+import React, { createRef } from 'react';
 import MockDate from 'mockdate';
 import { act } from 'react-dom/test-utils';
+import type { FormInstance } from 'antd';
 import { Input } from 'antd';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
@@ -426,8 +427,8 @@ describe('BasicTable Search', () => {
 
     expect(formValues.origin).toBe('origin');
     expect(formValues.status).toBe('state');
-    expect(formValues.startTime).toBe('2020-09-11');
-    expect(formValues.endTime).toBe('2020-09-22');
+    expect(formValues.startTime).toBe('2020-09-11 00:00:00');
+    expect(formValues.endTime).toBe('2020-09-22 00:00:00');
     expect(fn).toBeCalledTimes(1);
 
     act(() => {
@@ -494,9 +495,11 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 renderFormItem support return false', async () => {
+    const formRef = createRef<FormInstance | null>();
     const html = mount(
       <ProTable
         size="small"
+        formRef={formRef as any}
         columns={[
           {
             title: '金额',
@@ -521,7 +524,29 @@ describe('BasicTable Search', () => {
       />,
     );
     await waitForComponentToPaint(html, 1200);
+
     expect(html.find('div.ant-form-item').length).toBe(2);
+    act(() => {
+      html.setProps({
+        columns: [
+          {
+            title: '金额',
+            dataIndex: 'money',
+            valueType: 'money',
+            renderFormItem: () => <div />,
+          },
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+        ],
+      });
+    });
+
+    await waitForComponentToPaint(html, 200);
+    expect(html.find('div.ant-form-item').length).toBe(3);
+
     act(() => {
       html.setProps({
         columns: [
@@ -656,6 +681,59 @@ describe('BasicTable Search', () => {
     act(() => {
       expect(html.render()).toMatchSnapshot();
     });
+    act(() => {
+      html.unmount();
+    });
+  });
+
+  it('🎏 when dateFormatter is a Function', async () => {
+    const fn1 = jest.fn();
+    const fn2 = jest.fn();
+    const html = mount(
+      <ProTable
+        columns={[
+          {
+            title: '创建时间',
+            key: 'since',
+            dataIndex: 'createdAt',
+            valueType: 'dateTime',
+            initialValue: '2020-09-11 00:00:00',
+          },
+        ]}
+        request={(params) => {
+          console.log('-->', params);
+          fn2(params.since);
+          return Promise.resolve({
+            data: [
+              {
+                key: 1,
+                name: `TradeCode ${1}`,
+                createdAt: 1602572994055,
+              },
+            ],
+            success: true,
+          });
+        }}
+        rowKey="key"
+        pagination={{
+          showSizeChanger: true,
+        }}
+        options={false}
+        dateFormatter={(value, valueType) => {
+          console.log('====>', value, valueType);
+          fn1(value.format('YYYY/MM/DD'), valueType);
+          return value.format('YYYY/MM/DD HH:mm:ss');
+        }}
+        headerTitle="表单赋值"
+      />,
+    );
+    await waitForComponentToPaint(html, 1400);
+    act(() => {
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(html, 1400);
+    expect(fn1).toHaveBeenLastCalledWith('2020/09/11', 'dateTime');
+    expect(fn2).toBeCalledWith('2020/09/11 00:00:00');
     act(() => {
       html.unmount();
     });

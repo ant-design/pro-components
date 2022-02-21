@@ -112,29 +112,22 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ## 代码示例
 
-### 基本使用
+### 联动的 FormList
 
 <code src="./demos/base-use" heigh="174px" title="ProForm.List" />
 
-### 基本使用
+### 可调整的新建按钮位置
 
-<code src="./demos/list.tsx" heigh="174px" title="ProForm.List" />
-
-### 互相依赖表单
-
-<code src="./demos/dependency.tsx" heigh="174px" title="ProForm.List" />
-
-### 获取表单依赖值
-
-下面例子演示了不同情形下的依赖取值顺序：
-
-- `<ProFormDependency>`**不在**`<ProFormList>`中：根据`name`声明的依赖项，从全局取值（情形 1）
-- `<ProFormDependency>`**在**`<ProFormList>`中
-  - `<ProFormDependency>`的`ignoreFormListField`为`true`：根据`name`声明的依赖项，从全局取值（情形 2）
-  - `<ProFormDependency>`的`ignoreFormListField`为`false`：根据`name`声明的依赖项，从局部取值（情形 3）
-
-<code src="./demos/dependency2.tsx" heigh="1774px" title="ProForm.List" />
+<code src="./demos/list.tsx" heigh="174px" title="ProForm.List-position" />
 
 ### 表单互相嵌套
 
-<code src="./demos/nested-list.tsx" heigh="1774px" title="ProForm.List" />
+<code src="./demos/nested-list.tsx" heigh="174px" title="ProForm.List-ProFormList" />
+
+### 复杂联动
+
+<code src="./demos/dependency.tsx" heigh="174px" title="ProForm.List-dependency" />
+
+### 行为守卫
+
+<code src="./demos/pro-form-list.tsx" heigh="1774px" title="行为守卫"/>

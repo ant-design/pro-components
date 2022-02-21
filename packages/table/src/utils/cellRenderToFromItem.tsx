@@ -94,7 +94,8 @@ class CellRenderFromItem<T> extends React.Component<
   }
   generateFormItem = () => {
     const { config, proFieldProps } = this.props;
-    const { text, columnProps, counter } = config;
+    const { text, columnProps, counter, rowData = {} } = config;
+
     /** 获取 formItemProps Props */
     const formItemProps = getFieldPropsOrFormItemProps(
       columnProps?.formItemProps,
@@ -114,8 +115,11 @@ class CellRenderFromItem<T> extends React.Component<
     };
     const inputDom = (
       <ProFormField
+        cacheForSwr
         key={config.recordKey || config.index}
         name={this.state.name}
+        // @ts-ignore
+        proFormFieldKey={config.recordKey || config.index}
         ignoreFormItem
         fieldProps={getFieldPropsOrFormItemProps(
           columnProps?.fieldProps,
@@ -172,11 +176,15 @@ class CellRenderFromItem<T> extends React.Component<
         },
         type: 'form',
         recordKey: config.recordKey,
-        record: counter?.editableForm?.getFieldValue([config.recordKey || config.index]),
+        record: {
+          ...rowData,
+          ...counter?.editableForm?.getFieldValue([config.recordKey || config.index]),
+        },
         isEditable: true,
       },
       counter?.editableForm as any,
     );
+
     return (
       <InlineErrorFormItem
         errorType="popover"
@@ -218,6 +226,7 @@ class CellRenderFromItem<T> extends React.Component<
     ) {
       return (
         <Form.Item
+          key={config.recordKey || config.index}
           shouldUpdate={(pre, next) => {
             return isDeepEqualReact(get(pre, this.state.rowName), get(next, this.state.rowName));
           }}
@@ -265,7 +274,8 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
   const proFieldProps: ProFormFieldProps = {
     valueEnum: runFunction<[T | undefined]>(columnProps?.valueEnum, rowData),
     request: columnProps?.request,
-    params: columnProps?.params,
+    params: runFunction(columnProps?.params, rowData, columnProps),
+    readonly: columnProps?.readonly,
     text: valueType === 'index' || valueType === 'indexBorder' ? config.index : text,
     mode: config.mode,
     renderFormItem: undefined,
@@ -289,8 +299,9 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
       />
     );
   }
-
-  return <CellRenderFromItem config={config} proFieldProps={proFieldProps} />;
+  return (
+    <CellRenderFromItem key={config.recordKey} config={config} proFieldProps={proFieldProps} />
+  );
 }
 
 export default cellRenderToFromItem;

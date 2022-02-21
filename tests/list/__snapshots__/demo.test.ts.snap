@@ -724,7 +724,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                   style="width: 50%; max-width: 50%;"
                 >
                   <div
-                    class="ant-pro-list-row-card"
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
@@ -804,7 +804,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         style="margin-right: -8px; margin-left: -8px;"
                       >
                         <div
-                          class="ant-pro-list-row-header"
+                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                         >
                           <div
                             style="flex: 1;"
@@ -848,7 +848,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                   style="width: 50%; max-width: 50%;"
                 >
                   <div
-                    class="ant-pro-list-row-card"
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
@@ -928,7 +928,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         style="margin-right: -8px; margin-left: -8px;"
                       >
                         <div
-                          class="ant-pro-list-row-header"
+                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                         >
                           <div
                             style="flex: 1;"
@@ -972,7 +972,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                   style="width: 50%; max-width: 50%;"
                 >
                   <div
-                    class="ant-pro-list-row-card"
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
@@ -1052,7 +1052,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         style="margin-right: -8px; margin-left: -8px;"
                       >
                         <div
-                          class="ant-pro-list-row-header"
+                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                         >
                           <div
                             style="flex: 1;"
@@ -1096,7 +1096,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                   style="width: 50%; max-width: 50%;"
                 >
                   <div
-                    class="ant-pro-list-row-card"
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
@@ -1176,7 +1176,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         style="margin-right: -8px; margin-left: -8px;"
                       >
                         <div
-                          class="ant-pro-list-row-header"
+                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                         >
                           <div
                             style="flex: 1;"
@@ -1220,7 +1220,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                   style="width: 50%; max-width: 50%;"
                 >
                   <div
-                    class="ant-pro-list-row-card"
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
@@ -1300,7 +1300,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         style="margin-right: -8px; margin-left: -8px;"
                       >
                         <div
-                          class="ant-pro-list-row-header"
+                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                         >
                           <div
                             style="flex: 1;"
@@ -1344,7 +1344,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                   style="width: 50%; max-width: 50%;"
                 >
                   <div
-                    class="ant-pro-list-row-card"
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
@@ -1424,7 +1424,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         style="margin-right: -8px; margin-left: -8px;"
                       >
                         <div
-                          class="ant-pro-list-row-header"
+                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                         >
                           <div
                             style="flex: 1;"
@@ -1468,7 +1468,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                   style="width: 50%; max-width: 50%;"
                 >
                   <div
-                    class="ant-pro-list-row-card"
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
@@ -1548,7 +1548,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         style="margin-right: -8px; margin-left: -8px;"
                       >
                         <div
-                          class="ant-pro-list-row-header"
+                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                         >
                           <div
                             style="flex: 1;"
@@ -1592,7 +1592,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                   style="width: 50%; max-width: 50%;"
                 >
                   <div
-                    class="ant-pro-list-row-card"
+                    class="ant-pro-list-row-show-action-hover ant-pro-list-row-card"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-border ant-pro-card-hoverable"
@@ -1672,7 +1672,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/card-list.tsx correct
                         style="margin-right: -8px; margin-left: -8px;"
                       >
                         <div
-                          class="ant-pro-list-row-header"
+                          class="ant-pro-list-row-show-action-hover ant-pro-list-row-header"
                         >
                           <div
                             style="flex: 1;"
@@ -5666,13 +5666,14 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
                       >
                         <div
                           class="ant-space ant-space-horizontal ant-space-align-center"
+                          style="flex-wrap: wrap; margin-bottom: -8px;"
                         >
                           <div
                             class="ant-space-item"
-                            style="margin-right: 8px;"
+                            style="margin-right: 8px; padding-bottom: 8px;"
                           >
                             <button
-                              class="ant-btn"
+                              class="ant-btn ant-btn-default"
                               type="button"
                             >
                               <span>
@@ -5682,6 +5683,7 @@ exports[`list demos 📸 renders ./packages/list/src/demos/search.tsx correctly 
                           </div>
                           <div
                             class="ant-space-item"
+                            style="padding-bottom: 8px;"
                           >
                             <button
                               class="ant-btn ant-btn-primary"

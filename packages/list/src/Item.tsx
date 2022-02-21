@@ -89,6 +89,7 @@ export type ItemProps<RecordType> = {
   cardProps?: ProCardProps;
   record: RecordType;
   onRow?: GetComponentProps<RecordType>;
+  onItem?: GetComponentProps<RecordType>;
   itemHeaderRender?:
     | ((item: RecordType, index: number, defaultDom: JSX.Element | null) => React.ReactNode)
     | false;
@@ -131,6 +132,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
     className: propsClassName = defaultClassName,
     record,
     onRow,
+    onItem,
     itemHeaderRender,
     cardActionProps,
     extra,
@@ -186,7 +188,11 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       return undefined;
     }
 
-    return actions;
+    return [
+      <div key="action" onClick={(e) => e.stopPropagation()}>
+        {actions}
+      </div>,
+    ];
   }, [actions, cardActionProps]);
 
   const titleDom =
@@ -238,8 +244,10 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       actions={extraDom}
       extra={!!extra && <div className={extraClassName}>{extra}</div>}
       {...onRow?.(record, index)}
+      {...onItem?.(record, index)}
       onClick={(e) => {
         onRow?.(record, index)?.onClick?.(e);
+        onItem?.(record, index)?.onClick?.(e);
         if (expandRowByClick) {
           onExpand(!expanded);
         }
@@ -285,6 +293,7 @@ function ProListItem<RecordType>(props: ItemProps<RecordType>) {
       subTitle={subTitle}
       extra={extraDom}
       actions={actionsDom}
+      {...onItem?.(record, index)}
     >
       <Skeleton avatar title={false} loading={loading} active>
         <div className={`${className}-header`}>

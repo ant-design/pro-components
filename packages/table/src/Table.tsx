@@ -1,5 +1,12 @@
 /* eslint max-classes-per-file: ["error", 3] */
-import React, { useContext, useRef, useCallback, useMemo, useEffect } from 'react';
+import React, {
+  useContext,
+  useRef,
+  useCallback,
+  useMemo,
+  useEffect,
+  useImperativeHandle,
+} from 'react';
 import type { TablePaginationConfig } from 'antd';
 import { Table, Spin, ConfigProvider, Card } from 'antd';
 
@@ -149,7 +156,6 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
 
     return [...action.dataSource, row];
   };
-
   const getTableProps = () => ({
     ...rest,
     size,
@@ -208,7 +214,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     : baseTableDom;
 
   const tableContentDom = useMemo(() => {
-    if (props.editable) {
+    if (props.editable && !props.name) {
       return (
         <>
           {toolbarDom}
@@ -228,6 +234,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
             key="table"
             submitter={false}
             omitNil={false}
+            dateFormatter={props.dateFormatter}
             contentRender={(items: React.ReactNode) => {
               if (counter.editableForm) return items;
               return (
@@ -372,16 +379,15 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const defaultFormRef = useRef();
   const formRef = propRef || defaultFormRef;
 
-  useEffect(() => {
-    if (typeof propsActionRef === 'function' && actionRef.current) {
-      propsActionRef(actionRef.current);
-    }
-  }, [propsActionRef]);
+  useImperativeHandle(propsActionRef, () => actionRef.current);
 
   /** 单选多选的相关逻辑 */
-  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<React.ReactText[]>([], {
-    value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
-  });
+  const [selectedRowKeys, setSelectedRowKeys] = useMountMergeState<React.ReactText[] | undefined>(
+    propsRowSelection ? propsRowSelection?.defaultSelectedRowKeys : undefined,
+    {
+      value: propsRowSelection ? propsRowSelection.selectedRowKeys : undefined,
+    },
+  );
 
   const selectedRowsRef = useRef<T[]>([]);
 
@@ -523,7 +529,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   }, [action.dataSource, rowKey]);
 
   useEffect(() => {
-    selectedRowsRef.current = selectedRowKeys?.map(
+    selectedRowsRef.current = selectedRowKeys!?.map(
       (key): T => preserveRecordsRef.current?.get(key) as T,
     );
   }, [selectedRowKeys]);
@@ -721,7 +727,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
           options === false && !headerTitle && !toolBarRender && !toolbar && !isLightFilter
         }
         selectedRows={selectedRowsRef.current}
-        selectedRowKeys={selectedRowKeys}
+        selectedRowKeys={selectedRowKeys!}
         tableColumn={tableColumn}
         tooltip={tooltip}
         toolbar={toolbar}
@@ -742,7 +748,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
   const alertDom =
     propsRowSelection !== false ? (
       <Alert<T>
-        selectedRowKeys={selectedRowKeys}
+        selectedRowKeys={selectedRowKeys!}
         selectedRows={selectedRowsRef.current}
         onCleanSelected={onCleanSelected}
         alertOptionRender={rest.tableAlertOptionRender}

@@ -5,7 +5,7 @@ import get from 'rc-util/lib/utils/get';
 import { useContext, useMemo } from 'react';
 import set from 'rc-util/lib/utils/set';
 import { FormListContext } from '../List';
-import { ProFormContext, merge } from '@ant-design/pro-utils';
+import { ProFormContext, merge, isDeepEqualReact } from '@ant-design/pro-utils';
 
 declare type RenderChildren<Values = any> = (
   values: Record<string, any>,
@@ -44,7 +44,7 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
     <Form.Item
       {...rest}
       noStyle
-      shouldUpdate={(prevValues, nextValues) => {
+      shouldUpdate={(prevValues, nextValues, info) => {
         let finalNames = names;
 
         // ignoreFormListField 为 true 时，应从全局取值，要将 names 中各项的路径前缀(formListField.listName)剥离掉
@@ -57,11 +57,15 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
             Array.isArray(nameItem) ? nameItem.slice(formListField.listName.length) : nameItem,
           );
         }
-
-        return finalNames.some((nameItem) => {
+        if (rest.shouldUpdate === false) return false;
+        if (rest.shouldUpdate === true) return true;
+        const isUpdate = finalNames.some((nameItem) => {
           const arrayName = Array.isArray(nameItem) ? nameItem : [nameItem];
-          return get(prevValues, arrayName) !== get(nextValues, arrayName);
+          return !isDeepEqualReact(get(prevValues, arrayName), get(nextValues, arrayName));
         });
+        if (rest.shouldUpdate === undefined) return isUpdate;
+        const shouldUpdate = rest.shouldUpdate?.(prevValues, nextValues, info);
+        return isUpdate && !!shouldUpdate;
       }}
     >
       {(form: FormInstance) => {
@@ -88,7 +92,8 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
         // ignoreFormListField === false 时，取局部依赖值
         const nameValues = name.reduce((pre, namePath) => {
           const finalNamePath = [formListField.listName, namePath].flat(1);
-          const fieldValue = form.getFieldValue(finalNamePath);
+          const fieldValue =
+            context.getFieldFormatValue?.(finalNamePath) ?? form.getFieldValue(finalNamePath);
           return set(pre, [namePath].flat(1), fieldValue, false);
         }, {});
         return children?.({ ...nameValues }, form as FormInstance<any>);

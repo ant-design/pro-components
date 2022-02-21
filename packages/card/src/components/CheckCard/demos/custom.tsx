@@ -1,4 +1,6 @@
-/** Uuid: 4d4d1bdf title: 自定义尺寸 */
+/**
+ * title: 自定义尺寸
+ */
 
 import React from 'react';
 import { CheckCard } from '@ant-design/pro-card';

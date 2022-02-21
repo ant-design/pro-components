@@ -47,14 +47,15 @@ describe('DrawerForm', () => {
         />
       </DrawerForm>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 300);
 
     expect(wrapper.find('input#test').exists()).toBeFalsy();
 
     act(() => {
       wrapper.find('button#new').simulate('click');
     });
-    await waitForComponentToPaint(wrapper);
+
+    await waitForComponentToPaint(wrapper, 300);
     expect(wrapper.find('input#test').exists()).toBeTruthy();
     act(() => {
       wrapper.unmount();
@@ -62,14 +63,12 @@ describe('DrawerForm', () => {
   });
 
   it('📦 DrawerForm first render items', async () => {
-    const fn = jest.fn();
     const wrapper = mount(
       <DrawerForm
         width={600}
         drawerProps={{
           forceRender: true,
         }}
-        onVisibleChange={(visible) => fn(visible)}
       >
         <ProFormText
           name="name"
@@ -79,8 +78,7 @@ describe('DrawerForm', () => {
         />
       </DrawerForm>,
     );
-    await waitForComponentToPaint(wrapper);
-
+    await waitForComponentToPaint(wrapper, 300);
     expect(wrapper.find('input#test').exists()).toBeTruthy();
     act(() => {
       wrapper.unmount();
@@ -99,7 +97,7 @@ describe('DrawerForm', () => {
       wrapper.find('button#new').simulate('click');
     });
 
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 300);
 
     expect(wrapper.find('.ant-drawer-footer').length).toBe(0);
     act(() => {
@@ -132,7 +130,7 @@ describe('DrawerForm', () => {
         visible: true,
       });
     });
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 200);
 
     expect(wrapper.find('input#test').exists()).toBeTruthy();
 
@@ -210,12 +208,13 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </DrawerForm>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 300);
 
     act(() => {
-      wrapper.find('.ant-drawer-footer button.ant-btn').at(0).simulate('click');
+      wrapper.find('.ant-drawer-footer').update().find('button.ant-btn').at(0).simulate('click');
     });
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 300);
+
     expect(fn).toBeCalledWith(false);
 
     act(() => {
@@ -356,179 +355,6 @@ describe('DrawerForm', () => {
     });
   });
 
-  it('📦 getContainer is function', async () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const wrapper = mount(
-      <div>
-        <div id="render-form" ref={ref} />
-        <DrawerForm
-          drawerProps={{
-            getContainer: () => ref.current!,
-          }}
-          trigger={
-            <Button id="new" type="primary">
-              新建
-            </Button>
-          }
-        >
-          <ProFormText name="name" />
-        </DrawerForm>
-      </div>,
-    );
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('#new').at(0).simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
-    act(() => {
-      wrapper.unmount();
-    });
-  });
-
-  it('📦 getContainer is string', async () => {
-    const ref = React.createRef<HTMLDivElement>();
-    document.getElementById = () => ref.current;
-    const wrapper = mount(
-      <div>
-        <div id="render-form" ref={ref} />
-        <DrawerForm
-          drawerProps={{
-            getContainer: 'render-form',
-          }}
-          trigger={
-            <Button id="new" type="primary">
-              新建
-            </Button>
-          }
-        >
-          <ProFormText name="name" />
-        </DrawerForm>
-      </div>,
-    );
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('#new').at(0).simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
-    act(() => {
-      wrapper.unmount();
-    });
-  });
-
-  it('📦 getContainer is element', async () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const Demo = () => (
-      <div>
-        <div id="render-form" ref={ref} />
-        <DrawerForm
-          drawerProps={{
-            getContainer: ref.current!,
-          }}
-          trigger={
-            <Button id="new" type="primary">
-              新建
-            </Button>
-          }
-        >
-          <ProFormText name="name" />
-        </DrawerForm>
-      </div>
-    );
-
-    const wrapper = mount(<Demo />);
-
-    act(() => {
-      wrapper.setProps({
-        id: '1212',
-      });
-    });
-
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('#new').at(0).simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
-    act(() => {
-      wrapper.unmount();
-    });
-  });
-
-  it('📦 ModalForm getContainer is function', async () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const wrapper = mount(
-      <div>
-        <div id="render-form" ref={ref} />
-        <ModalForm
-          modalProps={{
-            getContainer: () => ref.current!,
-          }}
-          trigger={
-            <Button id="new" type="primary">
-              新建
-            </Button>
-          }
-        >
-          <ProFormText name="name" />
-        </ModalForm>
-      </div>,
-    );
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('#new').at(0).simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper);
-
-    expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
-
-    act(() => {
-      wrapper.unmount();
-    });
-  });
-
-  it('📦 ModalForm getContainer is string', async () => {
-    const ref = React.createRef<HTMLDivElement>();
-    document.getElementById = () => ref.current;
-    const wrapper = mount(
-      <div>
-        <div id="render-form" ref={ref} />
-        <ModalForm
-          modalProps={{
-            getContainer: 'render-form',
-          }}
-          trigger={
-            <Button id="new" type="primary">
-              新建
-            </Button>
-          }
-        >
-          <ProFormText name="name" />
-        </ModalForm>
-      </div>,
-    );
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('#new').at(0).simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
-    act(() => {
-      wrapper.unmount();
-    });
-  });
-
   it('📦 submitter config no reset default config', async () => {
     const fn = jest.fn();
     const wrapper = mount(
@@ -557,7 +383,7 @@ describe('DrawerForm', () => {
     act(() => {
       wrapper.find('button#new').simulate('click');
     });
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 200);
     expect(fn).toBeCalledWith(true);
 
     act(() => {
@@ -565,46 +391,6 @@ describe('DrawerForm', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(fn).toBeCalledWith(false);
-    act(() => {
-      wrapper.unmount();
-    });
-  });
-
-  it('📦 ModalForm getContainer is element', async () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const Demo = () => (
-      <div>
-        <div id="render-form" ref={ref} />
-        <ModalForm
-          modalProps={{
-            getContainer: ref.current || undefined,
-          }}
-          trigger={
-            <Button id="new" type="primary">
-              新建
-            </Button>
-          }
-        >
-          <ProFormText name="name" />
-        </ModalForm>
-      </div>
-    );
-
-    const wrapper = mount(<Demo />);
-    act(() => {
-      wrapper.setProps({
-        id: '1212',
-      });
-    });
-
-    await waitForComponentToPaint(wrapper);
-
-    act(() => {
-      wrapper.find('#new').at(0).simulate('click');
-    });
-
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('#render-form').render().find('.ant-form').length).toBe(1);
     act(() => {
       wrapper.unmount();
     });
@@ -643,18 +429,21 @@ describe('DrawerForm', () => {
           },
         });
     });
-    await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('Input#test').props().value).toEqual('test');
+    await waitForComponentToPaint(wrapper, 200);
+
+    expect(wrapper.find('.ant-input#test').props().value).toEqual('test');
     await waitForComponentToPaint(wrapper);
 
     act(() => {
       wrapper.find('.ant-drawer-close').simulate('click');
     });
     await waitForComponentToPaint(wrapper);
+
     act(() => {
       wrapper.find('button#new').simulate('click');
     });
-    await waitForComponentToPaint(wrapper);
+
+    await waitForComponentToPaint(wrapper, 200);
 
     expect(wrapper.find('Input#test').props().value).toEqual('test');
 
@@ -667,7 +456,6 @@ describe('DrawerForm', () => {
     const wrapper = mount(
       <DrawerForm
         drawerProps={{
-          getContainer: false,
           destroyOnClose: true,
         }}
         initialValues={{
@@ -741,7 +529,6 @@ describe('DrawerForm', () => {
         <ProFormText name="name" />
       </ModalForm>,
     );
-
     expect(html.baseElement.querySelector('form')).toBeFalsy();
     html.unmount();
   });
@@ -762,6 +549,70 @@ describe('DrawerForm', () => {
     );
 
     expect(html.baseElement.querySelector('form')).toBeFalsy();
+    html.unmount();
+  });
+
+  it('📦 drawerForm get formRef when destroyOnClose', async () => {
+    const ref = React.createRef<any>();
+
+    const html = mount(
+      <DrawerForm
+        formRef={ref}
+        drawerProps={{
+          destroyOnClose: true,
+        }}
+        trigger={
+          <Button id="new" type="primary">
+            新建
+          </Button>
+        }
+      >
+        <ProFormText name="name" />
+      </DrawerForm>,
+    );
+
+    waitForComponentToPaint(html, 200);
+    expect(ref.current).toBeFalsy();
+    act(() => {
+      html.find('button#new').simulate('click');
+    });
+    await waitForComponentToPaint(html, 200);
+
+    html.setProps({ formRef: ref, drawerProps: { destroyOnClose: true } });
+
+    expect(ref.current).toBeTruthy();
+
+    html.unmount();
+  });
+
+  it('📦 ModelForm get formRef when destroyOnClose', async () => {
+    const ref = React.createRef<any>();
+
+    const html = mount(
+      <ModalForm
+        formRef={ref}
+        modalProps={{
+          destroyOnClose: true,
+        }}
+        trigger={
+          <Button id="new" type="primary">
+            新建
+          </Button>
+        }
+      >
+        <ProFormText name="name" />
+      </ModalForm>,
+    );
+
+    waitForComponentToPaint(html, 200);
+    expect(ref.current).toBeFalsy();
+    act(() => {
+      html.find('button#new').simulate('click');
+    });
+    await waitForComponentToPaint(html, 200);
+
+    expect(ref.current).toBeTruthy();
+
     html.unmount();
   });
 });

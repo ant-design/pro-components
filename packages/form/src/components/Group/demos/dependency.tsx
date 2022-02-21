@@ -1,97 +1,63 @@
 ﻿import React from 'react';
 import ProForm, {
-  ProFormSelect,
-  ProFormDependency,
   ProFormList,
   ProFormText,
+  ProFormDependency,
+  ProFormSelect,
 } from '@ant-design/pro-form';
 
 const Demo = () => {
   return (
     <ProForm>
-      <ProFormSelect
-        options={[
-          {
-            value: 'select',
-            label: '选择框',
-          },
-          {
-            value: 'input',
-            label: '输入框',
-          },
-        ]}
-        width="xs"
-        name="globalUseMode"
-        label="全局生效方式组件的类型"
-      />
       <ProFormList
         name={['default', 'users']}
         label="用户信息"
         initialValue={[
           {
-            name: '1111',
+            name: '我是姓名',
           },
         ]}
-        alwaysShowItemLabel
+        itemContainerRender={(doms) => {
+          return <ProForm.Group>{doms}</ProForm.Group>;
+        }}
       >
-        <ProForm.Group>
-          <ProFormSelect
-            options={[
-              {
-                value: 'select',
-                label: '选择框',
-              },
-              {
-                value: 'input',
-                label: '输入框',
-              },
-            ]}
-            width="xs"
-            name="useMode"
-            label="生效方式组件的类型"
-          />
-          <ProFormDependency name={['useMode']}>
-            {({ useMode }) => {
-              if (useMode === 'select') {
-                return (
-                  <ProFormSelect
-                    options={[
-                      {
-                        value: 'chapter',
-                        label: '盖章后生效',
-                      },
-                    ]}
-                    width="md"
-                    name="function"
-                    label="生效方式"
-                  />
-                );
-              }
-              return <ProFormText width="md" name="function" label="生效方式" />;
-            }}
-          </ProFormDependency>
-
-          <ProFormDependency name={['globalUseMode']} ignoreFormListField>
-            {({ globalUseMode }) => {
-              if (globalUseMode === 'select') {
-                return (
-                  <ProFormSelect
-                    options={[
-                      {
-                        value: 'chapter',
-                        label: '盖章后生效',
-                      },
-                    ]}
-                    width="md"
-                    name="gfunction"
-                    label="外层联动生效方式"
-                  />
-                );
-              }
-              return <ProFormText width="md" name="gfunction" label="外层联动生效方式" />;
-            }}
-          </ProFormDependency>
-        </ProForm.Group>
+        {(f, index, action) => {
+          console.log(f, index, action);
+          return (
+            <>
+              <ProFormText initialValue={index} name="rowKey" label={`第 ${index} 配置`} />
+              <ProFormText name="name" label="姓名" />
+              <ProFormDependency name={['name']}>
+                {({ name }) => {
+                  if (!name) {
+                    return (
+                      <span
+                        style={{
+                          lineHeight: '32px',
+                        }}
+                      >
+                        输入姓名展示
+                      </span>
+                    );
+                  }
+                  return <ProFormText name="remark" label="昵称详情" />;
+                }}
+              </ProFormDependency>
+              <ProFormSelect
+                name="addr"
+                width="md"
+                label="与 name 联动的选择器"
+                dependencies={['name']}
+                request={async (params) => [
+                  { label: params.name, value: 'all' },
+                  { label: 'Unresolved', value: 'open' },
+                  { label: 'Resolved', value: 'closed' },
+                  { label: 'Resolving', value: 'processing' },
+                ]}
+              />
+            </>
+          );
+        }}
       </ProFormList>
     </ProForm>
   );

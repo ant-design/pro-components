@@ -7,7 +7,7 @@ import omit from 'omit.js';
 import { BetaSchemaForm } from '@ant-design/pro-form';
 
 import type { ProSchemaComponentTypes } from '@ant-design/pro-utils';
-import type { ActionType, ProColumns } from '../../typing';
+import type { ActionType, ProColumns, ProTableProps } from '../../typing';
 
 import './index.less';
 
@@ -98,7 +98,7 @@ export type TableFormItem<T, U = any> = {
   onReset?: (value: T) => void;
   form?: Omit<ProFormProps, 'form'>;
   type?: ProSchemaComponentTypes;
-  dateFormatter?: 'string' | 'number' | false;
+  dateFormatter?: ProTableProps<T, U, any>['dateFormatter'];
   search?: false | SearchConfig;
   columns: ProColumns<U, any>[];
   formRef: React.MutableRefObject<FormInstance | undefined>;

@@ -101,6 +101,27 @@ describe('BasicTable', () => {
     expect(html.find('.ant-pro-table-search').exists()).toBeFalsy();
   });
 
+  it('🎏 onLoadingChange should work', async () => {
+    const loadingChangerFn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={columns}
+        request={request}
+        rowKey="key"
+        onLoadingChange={loadingChangerFn}
+        rowSelection={{
+          selectedRowKeys: ['1'],
+        }}
+        search={false}
+        params={{ keyword: 'test' }}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 2000);
+    expect(loadingChangerFn).toBeCalledWith(true, false);
+  });
+
   it('🎏 do not render default option', async () => {
     const html = mount(
       <ProTable
@@ -499,7 +520,7 @@ describe('BasicTable', () => {
     expect(fn).toBeCalled();
   });
 
-  it('🎏 actionRef should use', async () => {
+  it('🎏 actionRef support clearSelected', async () => {
     const fn = jest.fn();
     const onChangeFn = jest.fn();
     const actionRef = React.createRef<ActionType>();
@@ -576,6 +597,48 @@ describe('BasicTable', () => {
 
     await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalledTimes(2);
+  });
+
+  it('🎏 receives two parameters when options.(reload | fullScreen) is passed the function', async () => {
+    const reloadFn = jest.fn();
+    const fullScreenFn = jest.fn();
+    const actionRef = React.createRef<any>();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        options={{
+          reload: reloadFn,
+          fullScreen: fullScreenFn,
+        }}
+        actionRef={actionRef}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    act(() => {
+      html.find('.ant-pro-table-list-toolbar-setting-item span.anticon-reload').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(reloadFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
+
+    act(() => {
+      html
+        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')
+        .simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1200);
+    expect(fullScreenFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
   });
 
   it('🎏 request reload', async () => {

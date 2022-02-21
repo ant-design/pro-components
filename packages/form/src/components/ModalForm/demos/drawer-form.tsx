@@ -19,6 +19,7 @@ const waitTime = (time: number = 100) => {
 
 export default () => {
   const formRef = useRef<ProFormInstance>();
+
   return (
     <DrawerForm<{
       name: string;
@@ -34,7 +35,6 @@ export default () => {
       }
       autoFocusFirstInput
       drawerProps={{
-        forceRender: true,
         destroyOnClose: true,
       }}
       onFinish={async (values) => {

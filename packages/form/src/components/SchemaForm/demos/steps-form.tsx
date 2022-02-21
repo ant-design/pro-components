@@ -181,6 +181,9 @@ export default () => {
           title: '第三步',
         },
       ]}
+      onCurrentChange={(current) => {
+        console.log('current: ', current);
+      }}
       formRef={formRef}
       onFinish={async (values) => {
         return new Promise((resolve) => {

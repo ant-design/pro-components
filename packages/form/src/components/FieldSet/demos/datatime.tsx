@@ -36,7 +36,13 @@ export default () => {
         <ProFormDatePicker.Month name="dateMonth" label="月" />
         <ProFormDatePicker.Quarter name="dateQuarter" label="季度" />
         <ProFormDatePicker.Year name="dateYear" label="年" />
-        <ProFormDateTimePicker name="dateTime" label="日期时间" />
+        <ProFormDateTimePicker
+          name="dateTime"
+          label="日期时间"
+          fieldProps={{
+            format: (value) => value.format('YYYY-MM-DD'),
+          }}
+        />
         <ProFormDateRangePicker name="dateRange" label="日期区间" />
         <ProFormDateTimeRangePicker name="dateTimeRange" label="日期时间区间" />
       </ProForm.Group>

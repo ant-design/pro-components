@@ -1,9 +1,14 @@
 import type { FormItemProps, SpaceProps } from 'antd';
-import type { ProFormItemProps } from './components/FormItem';
+import type { ProFormItemProps } from './components';
 import type { ProFormInstance } from './BaseForm';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type React from 'react';
-import type { ProFieldProps, ProFieldValueType, SearchTransformKeyFn } from '@ant-design/pro-utils';
+import type {
+  ProFieldProps,
+  ProFieldValueType,
+  SearchConvertKeyFn,
+  SearchTransformKeyFn,
+} from '@ant-design/pro-utils';
 
 export type ProFormItemCreateConfig = {
   /** 自定义类型 */
@@ -43,6 +48,11 @@ export type ExtendsProps = {
 
   /** @name 提交时转化值，一般用于数组类型 */
   transform?: SearchTransformKeyFn;
+
+  /**
+   * @name 获取时转化值，一般用于将数据格式化为组件接收的格式
+   */
+  convertValue?: SearchConvertKeyFn;
 
   /**
    * 给 protable 开的口子
@@ -85,7 +95,6 @@ export type GroupProps = {
 export type FieldProps = {
   style?: React.CSSProperties;
   width?: string;
-  format?: string;
 };
 
 export type LightFilterFooterRender =
@@ -99,7 +108,8 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
   fieldProps?: FieldProps & T;
   placeholder?: string | string[];
   secondary?: boolean;
-  allowClear?: boolean;
+  /** 是否使用 swr 来缓存 缓存可能导致数据更新不及时，请谨慎使用，尤其是页面中多个组件 name相同 */
+  cacheForSwr?: boolean;
   disabled?: boolean;
   /**
    * @type auto 使用组件默认的宽度

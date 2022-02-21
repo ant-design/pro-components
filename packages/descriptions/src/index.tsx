@@ -53,6 +53,7 @@ export type ProDescriptionsItemProps<T = Record<string, any>, ValueType = 'text'
     mode?: ProFieldFCMode;
     children?: React.ReactNode;
     order?: number;
+    index?: number;
   },
   ProSchemaComponentTypes,
   ValueType
@@ -246,7 +247,7 @@ export const FieldRender: React.FC<
 };
 
 const schemaToDescriptionsItem = (
-  items: ProDescriptionsItemProps<any>[],
+  items: ProDescriptionsItemProps<any, any>[],
   entity: any,
   action: ProCoreActionType<any>,
   editableUtils?: UseEditableMapUtilType,
@@ -418,28 +419,35 @@ const ProDescriptions = <RecordType extends Record<string, any>, ValueType = 'te
     return <ProSkeleton type="descriptions" list={false} pageHeader={false} />;
   }
 
-  const getColumns = () => {
+  const getColumns = (): ProDescriptionsItemProps<RecordType, ValueType>[] => {
     // 因为 Descriptions 只是个语法糖，children 是不会执行的，所以需要这里处理一下
-    const childrenColumns = toArray(props.children).map((item) => {
-      const {
-        valueEnum,
-        valueType,
-        dataIndex,
-        request: itemRequest,
-      } = item.props as ProDescriptionsItemProps;
+    const childrenColumns = toArray(props.children)
+      .filter(Boolean)
+      .map((item) => {
+        if (!React.isValidElement(item)) {
+          return item;
+        }
+        const {
+          valueEnum,
+          valueType,
+          dataIndex,
+          request: itemRequest,
+        } = item?.props as ProDescriptionsItemProps;
 
-      if (!valueType && !valueEnum && !dataIndex && !itemRequest) {
-        return item;
-      }
+        if (!valueType && !valueEnum && !dataIndex && !itemRequest) {
+          return item;
+        }
 
-      return {
-        ...item.props,
-        entity: dataSource,
-      };
-    });
+        return {
+          ...(item?.props as ProDescriptionsItemProps),
+          entity: dataSource,
+        };
+      }) as ProDescriptionsItemProps<RecordType, ValueType>[];
+
     return [...(columns || []), ...childrenColumns]
       .filter((item) => {
-        if (['index', 'indexBorder'].includes(item?.valueType)) {
+        if (!item) return false;
+        if (item?.valueType && ['index', 'indexBorder'].includes(item?.valueType as string)) {
           return false;
         }
         return !item?.hideInDescriptions;

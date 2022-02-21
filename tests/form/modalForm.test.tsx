@@ -54,7 +54,7 @@ describe('ModalForm', () => {
     act(() => {
       wrapper.find('button#new').simulate('click');
     });
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 200);
     expect(fn).toBeCalledWith(true);
 
     act(() => {
@@ -203,7 +203,7 @@ describe('ModalForm', () => {
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      wrapper.find('.ant-modal-footer button.ant-btn').at(0).simulate('click');
+      wrapper.find('.ant-modal-footer').update().find('button.ant-btn').at(0).simulate('click');
     });
     expect(fn).toBeCalledWith(false);
   });

@@ -1,10 +1,11 @@
-﻿import React from 'react';
+﻿import React, { createRef } from 'react';
 import { mount } from 'enzyme';
 import { BetaSchemaForm } from '@ant-design/pro-form';
-import type { ProFormColumnsType } from '@ant-design/pro-form';
+import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
 import { waitForComponentToPaint } from '../util';
 import { Input } from 'antd';
 import { act } from 'react-dom/test-utils';
+import type { FormInstance } from 'antd';
 
 const columns: ProFormColumnsType<any>[] = [
   {
@@ -68,6 +69,8 @@ describe('SchemaForm', () => {
 
   it('😊 SchemaForm support dependencies', async () => {
     const requestFn = jest.fn();
+    const fieldPropsFn = jest.fn();
+    const formItemPropsFn = jest.fn();
     const html = mount(
       <BetaSchemaForm
         columns={[
@@ -76,6 +79,7 @@ describe('SchemaForm', () => {
             dataIndex: 'title',
             width: 200,
             initialValue: 'name',
+            formItemProps: formItemPropsFn,
             fieldProps: {
               id: 'title',
             },
@@ -85,6 +89,7 @@ describe('SchemaForm', () => {
             dataIndex: 'state',
             valueType: 'select',
             dependencies: ['title'],
+            fieldProps: fieldPropsFn,
             request: async ({ title }) => {
               requestFn(title);
               return [
@@ -107,8 +112,183 @@ describe('SchemaForm', () => {
         },
       });
     });
-    await waitForComponentToPaint(html);
+    await waitForComponentToPaint(html, 1000);
     expect(requestFn).toBeCalledWith('qixian');
+    expect(formItemPropsFn).toBeCalledTimes(2);
+    expect(fieldPropsFn).toBeCalledTimes(2);
+  });
+
+  it('😊 SchemaForm support shouldUpdate as true', async () => {
+    const fieldPropsFn = jest.fn();
+    const formItemPropsFn = jest.fn();
+    const renderFormItemFn = jest.fn();
+    const html = mount(
+      <BetaSchemaForm
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            initialValue: 'name',
+            fieldProps: {
+              id: 'title',
+            },
+            renderFormItem: (schema, { defaultRender }) => {
+              renderFormItemFn();
+              return defaultRender(schema);
+            },
+          },
+          {
+            title: '选择器',
+            dataIndex: 'state',
+            valueType: 'select',
+            fieldProps: fieldPropsFn,
+            formItemProps: formItemPropsFn,
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(fieldPropsFn).toBeCalledTimes(1);
+    expect(formItemPropsFn).toBeCalledTimes(1);
+    expect(renderFormItemFn).toBeCalledTimes(2);
+    act(() => {
+      html.find('input#title').simulate('change', {
+        target: {
+          value: 'qixian',
+        },
+      });
+    });
+    await waitForComponentToPaint(html);
+    expect(renderFormItemFn).toBeCalledTimes(4);
+    expect(fieldPropsFn).toBeCalledTimes(2);
+    expect(formItemPropsFn).toBeCalledTimes(2);
+  });
+
+  it('😊 SchemaForm support shouldUpdate as function', async () => {
+    const fieldPropsFn = jest.fn();
+    const formItemPropsFn = jest.fn();
+    const renderFormItemFn = jest.fn();
+    const shouldUpdateFn = jest.fn();
+    const html = mount(
+      <BetaSchemaForm
+        shouldUpdate={(value: any, oldValue?: any) => {
+          shouldUpdateFn(value.subtitle === 'rerender' && value.subtitle !== oldValue?.subtitle);
+          if (value.subtitle === 'rerender' && value.subtitle !== oldValue?.subtitle) {
+            return true;
+          } else {
+            return false;
+          }
+        }}
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            initialValue: 'name',
+            fieldProps: {
+              id: 'title',
+            },
+            renderFormItem: (schema, { defaultRender }) => {
+              renderFormItemFn();
+              return defaultRender(schema);
+            },
+          },
+          {
+            title: '副标题',
+            dataIndex: 'subtitle',
+            fieldProps: () => {
+              fieldPropsFn();
+              return {
+                id: 'subtitle',
+              };
+            },
+            formItemProps: formItemPropsFn,
+            dependencies: ['title'],
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(shouldUpdateFn).toBeCalledTimes(0);
+    expect(fieldPropsFn).toBeCalledTimes(1);
+    expect(formItemPropsFn).toBeCalledTimes(1);
+    expect(renderFormItemFn).toBeCalledTimes(2);
+    act(() => {
+      html.find('input#title').simulate('change', {
+        target: {
+          value: 'not rerender',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 1000);
+    // Although shouldUpdate returns false, but using dependencies will still update
+    expect(renderFormItemFn).toBeCalledTimes(3);
+    expect(formItemPropsFn).toBeCalledTimes(1);
+    expect(fieldPropsFn).toBeCalledTimes(1);
+    expect(shouldUpdateFn).toBeCalledTimes(1);
+
+    act(() => {
+      html.find('input#subtitle').simulate('change', {
+        target: {
+          value: 'rerender',
+        },
+      });
+    });
+
+    expect(renderFormItemFn).toBeCalledTimes(5);
+    expect(formItemPropsFn).toBeCalledTimes(2);
+    expect(fieldPropsFn).toBeCalledTimes(2);
+    expect(shouldUpdateFn).toBeCalledTimes(2);
+    expect(shouldUpdateFn).toBeCalledWith(true);
+  });
+
+  it('😊 SchemaForm columns do not interfere with each other', async () => {
+    const fieldPropsFn = jest.fn();
+    const formItemPropsFn = jest.fn();
+    const renderFormItemFn = jest.fn();
+    const html = mount(
+      <BetaSchemaForm
+        shouldUpdate={false}
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            initialValue: 'name',
+            fieldProps: {
+              id: 'title',
+            },
+            renderFormItem: (schema, { defaultRender }) => {
+              renderFormItemFn();
+              return defaultRender(schema);
+            },
+          },
+          {
+            title: '选择器',
+            dataIndex: 'state',
+            valueType: 'select',
+            fieldProps: fieldPropsFn,
+            formItemProps: formItemPropsFn,
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html);
+    expect(fieldPropsFn).toBeCalledTimes(1);
+    expect(formItemPropsFn).toBeCalledTimes(1);
+    expect(renderFormItemFn).toBeCalledTimes(2);
+    act(() => {
+      html.find('input#title').simulate('change', {
+        target: {
+          value: 'qixian',
+        },
+      });
+    });
+    await waitForComponentToPaint(html);
+    expect(renderFormItemFn).toBeCalledTimes(3);
+    expect(formItemPropsFn).toBeCalledTimes(1);
+    expect(fieldPropsFn).toBeCalledTimes(1);
   });
 
   it('🐲 SchemaForm support StepsForm', async () => {
@@ -202,6 +382,52 @@ describe('SchemaForm', () => {
     );
     await waitForComponentToPaint(html);
     expect(html.find('#test').exists()).toBeTruthy();
+  });
+
+  it('😊 support SchemaForm renderFormItem return false', async () => {
+    const formRef = createRef<FormInstance>();
+    const html = mount(
+      <BetaSchemaForm
+        formRef={formRef as any}
+        columns={[
+          {
+            title: '标题',
+            dataIndex: 'title',
+            width: 200,
+            dependencies: ['title2'],
+            renderFormItem: (_, __, form) => {
+              if (form.getFieldValue('title2') === 'show') {
+                return <Input />;
+              }
+              return false;
+            },
+          },
+          {
+            title: '标题',
+            dataIndex: 'title2',
+            width: 200,
+            renderFormItem: () => {
+              return <Input id="test-input" />;
+            },
+          },
+        ]}
+      />,
+    );
+    await waitForComponentToPaint(html, 1000);
+
+    expect(html.find('div.ant-form-item').length).toBe(1);
+
+    expect(
+      html.find('input#test-input').simulate('change', {
+        target: {
+          value: 'show',
+        },
+      }),
+    );
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('div.ant-form-item').length).toBe(2);
   });
 
   it('😊 SchemaForm support render', async () => {
@@ -326,7 +552,83 @@ describe('SchemaForm', () => {
         },
       });
     });
+    await waitForComponentToPaint(wrapper, 1000);
+    console.log(wrapper.find('span#label_text').debug());
+    // expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
+  });
 
-    expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
+  [
+    'Form',
+    'ModalForm',
+    'DrawerForm',
+    'StepsForm',
+    'StepForm',
+    'LightFilter',
+    'QueryFilter',
+  ].forEach((layoutType) => {
+    it(`😊 When SchemaForm's layoutType property is ${layoutType}, make sure it is valid to get the form instance through formRef`, async () => {
+      const formColumns = [
+        [
+          {
+            dataIndex: 'name',
+            title: '签约客户名称',
+            tooltip: '最长为 24 位',
+            fieldProps: {
+              placeholder: '请输入名称',
+            },
+            width: 'md',
+          },
+        ],
+        [
+          {
+            dataIndex: 'next',
+            title: '第二步',
+            tooltip: '最长为 24 位',
+            fieldProps: {
+              placeholder: '请输入名称',
+            },
+            width: 'md',
+          },
+        ],
+      ];
+      const formRef = React.createRef<FormInstance>();
+      const wrapper = mount(
+        <BetaSchemaForm
+          visible={true}
+          formRef={formRef as any}
+          layoutType={layoutType as ProFormLayoutType}
+          columns={formColumns.flat(layoutType !== 'StepsForm' ? 1 : 0) as any}
+          steps={[
+            {
+              title: '一步',
+            },
+            {
+              title: '两步',
+            },
+          ]}
+        />,
+      );
+      await waitForComponentToPaint(wrapper);
+
+      expect(formRef.current).toBeTruthy();
+
+      const value = {
+        name: 'Ant Design',
+      };
+
+      formRef.current!.setFieldsValue(value);
+
+      expect(formRef.current!.getFieldsValue()).toMatchObject(value);
+
+      if (layoutType === 'StepsForm') {
+        wrapper.find('button[type="button"]').simulate('click');
+        await waitForComponentToPaint(wrapper, 1000);
+        const stepsValue = {
+          next: 'Step 2',
+        };
+        formRef.current!.setFieldsValue(stepsValue);
+        expect(formRef.current!.getFieldsValue()).toMatchObject(stepsValue);
+      }
+    });
   });
 });

@@ -4,7 +4,11 @@ import get from 'rc-util/lib/utils/get';
 import isNil from '../isNil';
 import type { ProFieldValueType } from '../typing';
 
-type DateFormatter = 'number' | 'string' | false;
+type DateFormatter =
+  | 'number'
+  | 'string'
+  | ((value: moment.Moment, valueType: string) => string | number)
+  | false;
 
 export const dateFormatterMap = {
   time: 'HH:mm:ss',
@@ -50,7 +54,11 @@ export function isPlainObject(o: { constructor: any }) {
  * @param dateFormatter
  * @param valueType
  */
-const convertMoment = (value: moment.Moment, dateFormatter: string | false, valueType: string) => {
+export const convertMoment = (
+  value: moment.Moment,
+  dateFormatter: string | ((value: moment.Moment, valueType: string) => string | number) | false,
+  valueType: string,
+) => {
   if (!dateFormatter) {
     return value;
   }
@@ -64,8 +72,42 @@ const convertMoment = (value: moment.Moment, dateFormatter: string | false, valu
     if (typeof dateFormatter === 'string' && dateFormatter !== 'string') {
       return value.format(dateFormatter);
     }
+    if (typeof dateFormatter === 'function') {
+      return dateFormatter(value, valueType);
+    }
   }
   return value;
+};
+
+/**
+ * 处理 initialValue 中的日期格式数据
+ * @param value
+ * @param dateFormatter
+ * @param valueType
+ * @returns
+ */
+export const convertInitialValue = (
+  value: any,
+  dateFormatter: string | ((value: moment.Moment, valueType: string) => string | number) | false,
+  valueType: string,
+) => {
+  if (!value) return value;
+  let res = value;
+  if (dateFormatter) {
+    if (Array.isArray(value)) {
+      res = value.map((item) => {
+        if (moment(item, true).isValid()) {
+          return convertMoment(moment(item), dateFormatter, valueType);
+        }
+        return item;
+      });
+    } else {
+      if (moment(value, true).isValid()) {
+        res = convertMoment(moment(value), dateFormatter, valueType);
+      }
+    }
+  }
+  return res;
 };
 
 /**

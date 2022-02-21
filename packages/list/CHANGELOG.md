@@ -2,6 +2,79 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.28...@ant-design/pro-list@1.21.29) (2022-02-18)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.27...@ant-design/pro-list@1.21.28) (2022-02-15)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.26...@ant-design/pro-list@1.21.27) (2022-02-14)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.25...@ant-design/pro-list@1.21.26) (2022-02-14)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.25](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.24...@ant-design/pro-list@1.21.25) (2022-02-11)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.24](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.23...@ant-design/pro-list@1.21.24) (2022-02-10)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.22...@ant-design/pro-list@1.21.23) (2022-02-10)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.21...@ant-design/pro-list@1.21.22) (2022-02-08)
+
+### Bug Fixes
+
+- **list:** 修复 ProList 传入 grid 属性时不触发 onRow 内配置事件的问题 ([#4558](https://github.com/ant-design/pro-components/issues/4558)) ([b7b6514](https://github.com/ant-design/pro-components/commit/b7b6514f106cc8e411a178fecbdcea38e62953b3)), closes [#4549](https://github.com/ant-design/pro-components/issues/4549)
+
+## [1.21.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.20...@ant-design/pro-list@1.21.21) (2022-01-25)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.19...@ant-design/pro-list@1.21.20) (2022-01-21)
+
+### Bug Fixes
+
+- **card:** 修复 ProList 卡片模式 actions 区域事件冒泡导致点击选中卡片的问题 ([#4495](https://github.com/ant-design/pro-components/issues/4495)) ([9900ef2](https://github.com/ant-design/pro-components/commit/9900ef2cfed0be2a47098226218290b22556fd94))
+- **list:** 修复卡片列表 hover 失效问题 ([#4511](https://github.com/ant-design/pro-components/issues/4511)) ([da921b1](https://github.com/ant-design/pro-components/commit/da921b12ad9934d70276c7456cccc6923f3a2884)), closes [#4502](https://github.com/ant-design/pro-components/issues/4502)
+
+## [1.21.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.18...@ant-design/pro-list@1.21.19) (2022-01-18)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.17...@ant-design/pro-list@1.21.18) (2022-01-17)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.16...@ant-design/pro-list@1.21.17) (2022-01-12)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.15...@ant-design/pro-list@1.21.16) (2022-01-11)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.14...@ant-design/pro-list@1.21.15) (2022-01-11)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.13...@ant-design/pro-list@1.21.14) (2022-01-07)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
+## [1.21.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.12...@ant-design/pro-list@1.21.13) (2022-01-05)
+
+**Note:** Version bump only for package @ant-design/pro-list
+
 ## [1.21.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-list@1.21.11...@ant-design/pro-list@1.21.12) (2021-12-28)
 
 ### Bug Fixes

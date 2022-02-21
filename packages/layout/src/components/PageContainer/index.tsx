@@ -73,7 +73,7 @@ export type PageContainerProps = {
    *
    * @name 固钉的配置
    */
-  affixProps?: AffixProps;
+  affixProps?: Omit<AffixProps, 'children'>;
 
   /**
    * 只加载内容区域
@@ -297,10 +297,15 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
       </>
     ) : null;
   }, [children, prefixedClassName, value.hasFooterToolbar]);
+
+  const memoBreadcrumbRender = useMemo(() => {
+    if (breadcrumbRender == false) return false;
+    return breadcrumbRender || restProps?.header?.breadcrumbRender;
+  }, [breadcrumbRender, restProps?.header?.breadcrumbRender]);
   const pageHeaderDom = (
     <ProPageHeader
       {...restProps}
-      breadcrumbRender={breadcrumbRender || restProps?.header?.breadcrumbRender}
+      breadcrumbRender={memoBreadcrumbRender}
       ghost={ghost}
       prefixCls={undefined}
       prefixedClassName={prefixedClassName}

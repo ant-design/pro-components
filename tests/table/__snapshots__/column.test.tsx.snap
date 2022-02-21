@@ -126,13 +126,14 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                     >
                       <div
                         class="qixian-space qixian-space-horizontal qixian-space-align-center"
+                        style="flex-wrap: wrap; margin-bottom: -8px;"
                       >
                         <div
                           class="qixian-space-item"
-                          style="margin-right: 8px;"
+                          style="margin-right: 8px; padding-bottom: 8px;"
                         >
                           <button
-                            class="qixian-btn"
+                            class="qixian-btn qixian-btn-default"
                             type="button"
                           >
                             <span>
@@ -142,6 +143,7 @@ exports[`Table ColumnSetting 🎏 config provide render 1`] = `
                         </div>
                         <div
                           class="qixian-space-item"
+                          style="padding-bottom: 8px;"
                         >
                           <button
                             class="qixian-btn qixian-btn-primary"

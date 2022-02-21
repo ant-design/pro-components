@@ -1,6 +1,7 @@
 import { render, mount } from 'enzyme';
 import React, { useEffect, useMemo, useState } from 'react';
 import type { BasicLayoutProps } from '@ant-design/pro-layout';
+import { render as libraryRender } from '@testing-library/react';
 import BasicLayout, { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
 import { act } from 'react-dom/test-utils';
 import { waitForComponentToPaint } from '../util';
@@ -383,5 +384,30 @@ describe('PageContainer', () => {
     await waitForComponentToPaint(wrapper, 1000);
 
     expect(wrapper.find('#customLoading').length).toBe(0);
+  });
+
+  it('🐛 breadcrumbRender and restProps?.header?.breadcrumbRender', async () => {
+    const html = libraryRender(
+      <PageContainer
+        className="custom-className"
+        breadcrumbRender={false}
+        header={{
+          breadcrumbRender: () => 'diss',
+        }}
+      />,
+    );
+
+    expect(html.container.innerText).toBe(undefined);
+
+    html.rerender(
+      <PageContainer
+        className="custom-className"
+        header={{
+          breadcrumbRender: () => 'diss',
+        }}
+      />,
+    );
+    console.log();
+    expect(html.container.getElementsByClassName('has-breadcrumb')[0].innerHTML).toBe('diss');
   });
 });

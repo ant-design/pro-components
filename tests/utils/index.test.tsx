@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   conversionSubmitValue,
   parseValueToMoment,
@@ -8,8 +8,10 @@ import {
   InlineErrorFormItem,
   useDebounceFn,
   pickProProps,
+  merge,
   DropdownFooter,
   LabelIconTip,
+  useDebounceValue,
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
 import { Form, Input } from 'antd';
@@ -21,6 +23,68 @@ import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/in
 import { CodeFilled } from '@ant-design/icons';
 
 describe('utils', () => {
+  it('📅 useDebounceValue', async () => {
+    const App = (props: { deps: string[] }) => {
+      const value = useDebounceValue(props.deps?.[0], 200, props.deps);
+
+      return <>{value}</>;
+    };
+
+    const html = mount(<App deps={['name']} />);
+
+    await waitTime(100);
+
+    expect(html.text()).toEqual('name');
+
+    act(() => {
+      html.setProps({
+        deps: ['string'],
+      });
+    });
+    await waitTime(100);
+
+    html.update();
+
+    expect(html.text()).toEqual('name');
+
+    await waitTime(200);
+
+    html.update();
+
+    expect(html.text()).toEqual('string');
+  });
+
+  it('📅 useDebounceValue without deps', async () => {
+    const App = (props: { deps: string[] }) => {
+      const [_, forceUpdate] = useState([]);
+      const value = useDebounceValue(props.deps?.[0]);
+
+      useEffect(() => {
+        setTimeout(() => {
+          forceUpdate([]);
+        }, 1000);
+      }, []);
+
+      return <>{value}</>;
+    };
+
+    const html = mount(<App deps={['name']} />);
+
+    expect(html.text()).toEqual('name');
+
+    act(() => {
+      html.setProps({
+        deps: ['string'],
+      });
+    });
+
+    waitTime(1000);
+
+    html.update();
+
+    expect(html.text()).toEqual('name');
+  });
+
   it('📅 useDebounceFn', async () => {
     pickProProps({
       fieldProps: {
@@ -28,11 +92,10 @@ describe('utils', () => {
       },
     });
     const fn = jest.fn();
-    const App = (props: { deps: string[] }) => {
-      const fetchData = useDebounceFn(async () => fn(), props.deps);
+    const App = ({ wait }: { wait?: number }) => {
+      const fetchData = useDebounceFn(async () => fn(), wait);
       useEffect(() => {
         fetchData.run();
-        return fetchData.cancel();
         // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       return (
@@ -45,7 +108,21 @@ describe('utils', () => {
         />
       );
     };
-    const html = mount(<App deps={['name']} />);
+    const html = mount(<App />);
+
+    expect(fn).toBeCalledTimes(1);
+
+    // wait === undefined
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    expect(fn).toBeCalledTimes(3);
+
+    // wait === 80
+    html.setProps({
+      wait: 80,
+    });
 
     act(() => {
       html.find('#test').simulate('click');
@@ -53,20 +130,65 @@ describe('utils', () => {
 
     await waitTime(100);
 
-    act(() => {
-      html.setProps({
-        deps: ['string'],
-      });
+    expect(fn).toBeCalledTimes(4);
+
+    // wait === 0
+    html.setProps({
+      wait: 0,
     });
+
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    expect(fn).toBeCalledTimes(6);
+
+    // wait === 100 but callback is cancelled
+    html.setProps({
+      wait: 100,
+    });
+
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    await waitTime(50);
+
+    act(() => {
+      html.unmount();
+    });
+
     await waitTime(100);
 
-    act(() => {
-      act(() => {
-        html.unmount();
-      });
+    expect(fn).toBeCalledTimes(6);
+  });
+
+  it('📅 useDebounceFn execution has errors', async () => {
+    pickProProps({
+      fieldProps: {
+        name: 'string',
+      },
     });
 
-    expect(fn).toBeCalledTimes(2);
+    const error = new Error('debounce error');
+    const catchFn = jest.fn();
+    const App = ({ wait }: { wait?: number }) => {
+      const fetchData = useDebounceFn(async () => {
+        throw error;
+      }, wait);
+
+      useEffect(() => {
+        fetchData.run().catch(catchFn);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, []);
+      return <div />;
+    };
+
+    mount(<App />);
+
+    await waitTime(100);
+
+    expect(catchFn).toBeCalledWith(error);
   });
 
   it('📅 conversionSubmitValue nil', async () => {
@@ -83,6 +205,13 @@ describe('utils', () => {
       true,
     );
     expect(html.money === undefined).toBeTruthy();
+  });
+
+  it('📅 merge values not change null', () => {
+    const html = merge<{
+      status: null;
+    }>({}, { status: null });
+    expect(html.status).toEqual(null);
   });
 
   it('📅 conversionSubmitValue string', async () => {
@@ -455,6 +584,35 @@ describe('utils', () => {
       },
     );
     expect(html.a.b.name).toBe('qixian_test');
+  });
+
+  it('📅 transformKeySubmitValue for array', async () => {
+    const html = transformKeySubmitValue(
+      [
+        {
+          name: 1,
+        },
+        {
+          name: 2,
+        },
+        {
+          f: [1, 2, 4],
+        },
+      ],
+      {
+        1: {
+          name: (e: string) => {
+            return {
+              name: 2,
+              name2: `qixian_${e}`,
+            };
+          },
+        },
+      },
+    );
+
+    //@ts-expect-error
+    expect(html[1].name2).toBe('qixian_2');
   });
 
   it('📅 transformKeySubmitValue return array', async () => {
