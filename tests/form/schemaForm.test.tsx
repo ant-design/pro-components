@@ -112,7 +112,7 @@ describe('SchemaForm', () => {
         },
       });
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html);
     expect(requestFn).toBeCalledWith('qixian');
     expect(formItemPropsFn).toBeCalledTimes(2);
     expect(fieldPropsFn).toBeCalledTimes(2);
@@ -221,11 +221,11 @@ describe('SchemaForm', () => {
         },
       });
     });
-    await waitForComponentToPaint(html, 1000);
+    await waitForComponentToPaint(html);
     // Although shouldUpdate returns false, but using dependencies will still update
     expect(renderFormItemFn).toBeCalledTimes(3);
-    expect(formItemPropsFn).toBeCalledTimes(1);
-    expect(fieldPropsFn).toBeCalledTimes(1);
+    expect(formItemPropsFn).toBeCalledTimes(2);
+    expect(fieldPropsFn).toBeCalledTimes(2);
     expect(shouldUpdateFn).toBeCalledTimes(1);
 
     act(() => {
@@ -237,8 +237,8 @@ describe('SchemaForm', () => {
     });
 
     expect(renderFormItemFn).toBeCalledTimes(5);
-    expect(formItemPropsFn).toBeCalledTimes(2);
-    expect(fieldPropsFn).toBeCalledTimes(2);
+    expect(formItemPropsFn).toBeCalledTimes(3);
+    expect(fieldPropsFn).toBeCalledTimes(3);
     expect(shouldUpdateFn).toBeCalledTimes(2);
     expect(shouldUpdateFn).toBeCalledWith(true);
   });
@@ -552,9 +552,8 @@ describe('SchemaForm', () => {
         },
       });
     });
-    await waitForComponentToPaint(wrapper, 1000);
-    console.log(wrapper.find('span#label_text').debug());
-    // expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
+
+    expect(wrapper.find('span#label_text').text()).toBe('与《test》 与 《test2》合同约定生效方式');
   });
 
   [

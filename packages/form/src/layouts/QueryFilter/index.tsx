@@ -128,7 +128,6 @@ const flatMapItems = (items: React.ReactNode[], ignoreRules?: boolean): React.Re
     if (item?.type.displayName === 'ProForm-Group' && !item.props?.title) {
       return item.props.children;
     }
-
     if (ignoreRules && React.isValidElement(item)) {
       return React.cloneElement(item, {
         ...(item.props as any),

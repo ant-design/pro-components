@@ -7409,7 +7409,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/collapsible.tsx corre
         class="ant-pro-card-extra"
       >
         <button
-          class="ant-btn ant-btn-default ant-btn-sm"
+          class="ant-btn ant-btn-sm"
           type="button"
         >
           <span>
@@ -9462,7 +9462,7 @@ exports[`card demos 📸 renders ./packages/card/src/demos/steps-v.tsx correctly
                 class="ant-space-item"
               >
                 <button
-                  class="ant-btn ant-btn-default"
+                  class="ant-btn"
                   disabled=""
                   type="button"
                 >
