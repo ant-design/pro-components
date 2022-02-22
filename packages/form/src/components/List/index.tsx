@@ -341,10 +341,6 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       switch (key) {
         case 'add':
           wrapAction.add = async (defaultValue?: StoreValue, insertIndex?: number) => {
-            if (count === max) {
-              console.warn(`最多添加${max}条数据`);
-              return;
-            }
             if (!actionGuard?.beforeAddRow) {
               action.add(defaultValue, insertIndex);
               return;
@@ -356,10 +352,6 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
           break;
         case 'remove':
           wrapAction.remove = async (idx: number | number[]) => {
-            if (count === min) {
-              console.warn(`至少保留${min}条数据`);
-              return;
-            }
             if (!actionGuard?.beforeRemoveRow) {
               action.remove(idx);
               return;
@@ -372,7 +364,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       }
     });
     return wrapAction;
-  }, [action, actionGuard, uuidFields, max, min]);
+  }, [action, actionGuard, uuidFields]);
 
   const creatorButton = useMemo(() => {
     if (creatorButtonProps === false || uuidFields.length === max) return null;
