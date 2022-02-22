@@ -313,7 +313,6 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     fields,
     actionGuard,
     max,
-    min,
   } = props;
   const fieldKeyMap = useRef(new Map<string, string>());
   const [loading, setLoading] = useState(false);
