@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
 import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
