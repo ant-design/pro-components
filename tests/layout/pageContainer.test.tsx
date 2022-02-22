@@ -407,7 +407,6 @@ describe('PageContainer', () => {
         }}
       />,
     );
-    console.log();
     expect(html.container.getElementsByClassName('has-breadcrumb')[0].innerHTML).toBe('diss');
   });
 });
