@@ -274,10 +274,12 @@ describe('descriptions', () => {
         ]}
       />,
     );
+
     expect(
-      wrapper.baseElement.querySelectorAll('.ant-descriptions-item-content div.ant-typography-copy')
-        .length,
-    ).toBe(1);
+      wrapper.baseElement.querySelector(
+        'span.ant-descriptions-item-content div.ant-typography-copy',
+      ),
+    ).toBeTruthy();
 
     wrapper.rerender(
       <ProDescriptions
@@ -302,5 +304,7 @@ describe('descriptions', () => {
       wrapper.baseElement.querySelectorAll('.ant-descriptions-item-content .ant-typography-copy')
         .length,
     ).toBe(0);
+
+    wrapper.unmount();
   });
 });
