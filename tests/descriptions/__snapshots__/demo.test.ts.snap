@@ -3233,13 +3233,18 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                 <span
                   class="ant-descriptions-item-label"
                 >
+                  文本
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
                   <span
-                    aria-label="文本"
+                    aria-label="这是一段文本columns"
                     class="ant-typography ant-typography-ellipsis ant-typography-single-line"
                     style="width: 100%; margin: 0px; padding: 0px;"
                     title=""
                   >
-                    文本
+                    这是一段文本columns
                     <div
                       aria-label="Copy"
                       class="ant-typography-copy"
@@ -3311,11 +3316,6 @@ exports[`descriptions demos 📸 renders ./packages/descriptions/src/demos/use-d
                       </div>
                     </span>
                   </span>
-                </span>
-                <span
-                  class="ant-descriptions-item-content"
-                >
-                  这是一段文本columns
                 </span>
               </div>
             </td>

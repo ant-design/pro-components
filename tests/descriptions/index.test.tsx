@@ -4,6 +4,7 @@ import { Button } from 'antd';
 import ProDescriptions from '@ant-design/pro-descriptions';
 import type { ProCoreActionType } from '@ant-design/pro-utils';
 import { act } from 'react-dom/test-utils';
+import { render as reactRender } from '@testing-library/react';
 
 import { waitForComponentToPaint, waitTime } from '../util';
 
@@ -249,5 +250,57 @@ describe('descriptions', () => {
     act(() => {
       expect(html.render()).toMatchSnapshot();
     });
+  });
+
+  it('📝 typography support and copy', async () => {
+    const wrapper = reactRender(
+      <ProDescriptions
+        title="dataSource and columns"
+        dataSource={{
+          id: '这是一段文本columns',
+          date: '20200809',
+          money: '1212100',
+          state: 'all',
+          state2: 'open',
+        }}
+        columns={[
+          {
+            title: '文本',
+            key: 'text',
+            dataIndex: 'id',
+            ellipsis: true,
+            copyable: true,
+          },
+        ]}
+      />,
+    );
+    expect(
+      wrapper.baseElement.querySelectorAll('.ant-descriptions-item-content div.ant-typography-copy')
+        .length,
+    ).toBe(1);
+
+    wrapper.rerender(
+      <ProDescriptions
+        title="dataSource and columns"
+        dataSource={{
+          id: '这是一段文本columns',
+          date: '20200809',
+          money: '1212100',
+          state: 'all',
+          state2: 'open',
+        }}
+        columns={[
+          {
+            title: '文本',
+            key: 'text',
+            dataIndex: 'id',
+          },
+        ]}
+      />,
+    );
+    expect(
+      wrapper.baseElement.querySelectorAll('.ant-descriptions-item-content .ant-typography-copy')
+        .length,
+    ).toBe(0);
   });
 });

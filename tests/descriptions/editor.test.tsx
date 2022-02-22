@@ -204,7 +204,13 @@ describe('Descriptions', () => {
       wrapper.find('#reset_test').simulate('click');
     });
     await waitForComponentToPaint(wrapper, 200);
-
+    console.log(
+      wrapper
+        .find('td.ant-descriptions-item .ant-descriptions-item-content')
+        .at(0)
+        .find(`.ant-input`)
+        .props().value,
+    );
     expect(
       wrapper
         .find('td.ant-descriptions-item .ant-descriptions-item-content')

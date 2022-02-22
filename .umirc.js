@@ -214,5 +214,4 @@ export default {
   webpack5: {},
   exportStatic: {},
   mfsu: !isDeploy ? {} : undefined,
-  fastRefresh: {},
 };
