@@ -1,7 +1,6 @@
 ﻿import { CopyOutlined, DeleteOutlined, PlusOutlined } from '@ant-design/icons';
 import { nanoid, runFunction, ProFormContext } from '@ant-design/pro-utils';
 import type { ButtonProps, FormInstance } from 'antd';
-import { message } from 'antd';
 import { Spin } from 'antd';
 import { Button, ConfigProvider, Form, Tooltip } from 'antd';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
@@ -106,8 +105,6 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
   max?: number;
   /** 允许增加的最少条数，删除时校验 */
   min?: number;
-  /** 当达到目标条数时隐藏相应的操作按钮 */
-  hideActionBtnWhenOverLimit?: boolean;
 };
 
 /** Antd 自带的toArray 不这次方法，所以需要自己搞一个 */
@@ -142,7 +139,6 @@ type ProFormListItemProps = {
   alwaysShowItemLabel: ProFormListProps['alwaysShowItemLabel'];
   max: ProFormListProps['max'];
   min: ProFormListProps['min'];
-  hideActionBtnWhenOverLimit: ProFormListProps['hideActionBtnWhenOverLimit'];
   /** 列表当前条目数量 */
   count: number;
 };
@@ -173,7 +169,6 @@ const ProFormListItem: React.FC<
     alwaysShowItemLabel,
     min,
     max,
-    hideActionBtnWhenOverLimit,
     count,
     ...rest
   } = props;
@@ -200,7 +195,7 @@ const ProFormListItem: React.FC<
 
   const copyIcon = useMemo(() => {
     /** 复制按钮的配置 */
-    if (!copyIconProps || (max === count && hideActionBtnWhenOverLimit)) return null;
+    if (!copyIconProps || max === count) return null;
     const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
     return (
       <Tooltip title={tooltipText} key="copy">
@@ -226,7 +221,6 @@ const ProFormListItem: React.FC<
     copyIconProps,
     max,
     count,
-    hideActionBtnWhenOverLimit,
     loadingCopy,
     prefixCls,
     action,
@@ -237,7 +231,7 @@ const ProFormListItem: React.FC<
   ]);
 
   const deleteIcon = useMemo(() => {
-    if (!deleteIconProps || (min === count && hideActionBtnWhenOverLimit)) return null;
+    if (!deleteIconProps || min === count) return null;
     const { Icon = DeleteOutlined, tooltipText } = deleteIconProps;
     return (
       <Tooltip title={tooltipText} key="delete">
@@ -253,16 +247,7 @@ const ProFormListItem: React.FC<
         </Spin>
       </Tooltip>
     );
-  }, [
-    deleteIconProps,
-    min,
-    count,
-    hideActionBtnWhenOverLimit,
-    loadingRemove,
-    prefixCls,
-    action,
-    field.name,
-  ]);
+  }, [deleteIconProps, min, count, loadingRemove, prefixCls, action, field.name]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
     () => [copyIcon, deleteIcon].filter(Boolean),
@@ -329,7 +314,6 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     actionGuard,
     max,
     min,
-    hideActionBtnWhenOverLimit = false,
   } = props;
   const fieldKeyMap = useRef(new Map<string, string>());
   const [loading, setLoading] = useState(false);
@@ -358,7 +342,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
         case 'add':
           wrapAction.add = async (defaultValue?: StoreValue, insertIndex?: number) => {
             if (count === max) {
-              message.error(`最多添加${max}条数据`);
+              console.warn(`最多添加${max}条数据`);
               return;
             }
             if (!actionGuard?.beforeAddRow) {
@@ -373,7 +357,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
         case 'remove':
           wrapAction.remove = async (idx: number | number[]) => {
             if (count === min) {
-              message.error(`至少保留${min}条数据`);
+              console.warn(`至少保留${min}条数据`);
               return;
             }
             if (!actionGuard?.beforeRemoveRow) {
@@ -391,8 +375,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
   }, [action, actionGuard, uuidFields, max, min]);
 
   const creatorButton = useMemo(() => {
-    if (creatorButtonProps === false || (uuidFields.length === max && hideActionBtnWhenOverLimit))
-      return null;
+    if (creatorButtonProps === false || uuidFields.length === max) return null;
     const { position = 'bottom', creatorButtonText = '添加一行数据' } = creatorButtonProps || {};
     return (
       <Button
@@ -415,16 +398,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
         {creatorButtonText}
       </Button>
     );
-  }, [
-    creatorButtonProps,
-    prefixCls,
-    loading,
-    wrapperAction,
-    creatorRecord,
-    uuidFields,
-    max,
-    hideActionBtnWhenOverLimit,
-  ]);
+  }, [creatorButtonProps, prefixCls, loading, wrapperAction, creatorRecord, uuidFields, max]);
 
   return (
     <div
@@ -478,7 +452,6 @@ const ProFormList: React.FC<ProFormListProps> = ({
   actionGuard,
   min,
   max,
-  hideActionBtnWhenOverLimit,
   ...rest
 }) => {
   const actionRefs = useRef<FormListOperation>();
@@ -543,7 +516,6 @@ const ProFormList: React.FC<ProFormListProps> = ({
                   alwaysShowItemLabel={alwaysShowItemLabel}
                   min={min}
                   max={max}
-                  hideActionBtnWhenOverLimit={hideActionBtnWhenOverLimit}
                   count={fields.length}
                 >
                   {children}

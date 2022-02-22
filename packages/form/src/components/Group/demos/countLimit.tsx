@@ -13,7 +13,6 @@ export default () => {
         }}
         min={1}
         max={4}
-        hideActionBtnWhenOverLimit
         actionGuard={{
           beforeAddRow: async (defaultValue, insertIndex, count) => {
             return new Promise((resolve) => {
