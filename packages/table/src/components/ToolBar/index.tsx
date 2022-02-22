@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { ReactNode, useEffect, useMemo } from 'react';
 import { ReloadOutlined, SettingOutlined } from '@ant-design/icons';
 import type { TableColumnType } from 'antd';
 import { Tooltip } from 'antd';
@@ -34,6 +34,7 @@ export type OptionConfig = {
         extra?: React.ReactNode;
       };
   search?: (OptionSearchProps & { name?: string }) | boolean;
+  icon?: React.ReactNode;
 };
 
 export type OptionsFunctionType = (
@@ -130,10 +131,14 @@ function renderDefaultOption<T>(
         );
       }
       const optionItem = getButtonText(defaultOptions)[key];
+      let icon: React.ReactNode = optionItem.icon;
+      if (typeof options[key] === 'function' && options[key]().icon) {
+        icon = options[key]().icon;
+      }
       if (optionItem) {
         return (
           <span key={key} onClick={onClick}>
-            <Tooltip title={optionItem.text}>{optionItem.icon}</Tooltip>
+            <Tooltip title={optionItem.text}>{icon}</Tooltip>
           </span>
         );
       }
