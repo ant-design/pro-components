@@ -42,8 +42,12 @@ type ChildrenItemFunction = (
 ) => React.ReactNode;
 
 type FormListActionGuard = {
-  beforeAddRow?: (defaultValue?: StoreValue, insertIndex?: number) => boolean | Promise<boolean>;
-  beforeRemoveRow?: (index: number | number[]) => boolean | Promise<boolean>;
+  beforeAddRow?: (
+    defaultValue?: StoreValue,
+    insertIndex?: number,
+    count?: number,
+  ) => boolean | Promise<boolean>;
+  beforeRemoveRow?: (index: number | number[], count?: number) => boolean | Promise<boolean>;
 };
 
 export type ProFormListProps = Omit<FormListProps, 'children'> & {
@@ -62,6 +66,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
     field: FormListFieldData,
     action: FormListOperation,
     defaultActionDom: ReactNode[],
+    count: number,
   ) => ReactNode[];
   children: ReactNode | ChildrenItemFunction;
   itemContainerRender?: (
@@ -96,6 +101,10 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
   actionRef?: React.MutableRefObject<FormListOperation | undefined>;
   /** 放在div上面的属性 */
   style?: React.CSSProperties;
+  /** 允许增加的最大条数 */
+  max?: number;
+  /** 允许增加的最少条数，删除时校验 */
+  min?: number;
 };
 
 /** Antd 自带的toArray 不这次方法，所以需要自己搞一个 */
@@ -128,6 +137,10 @@ type ProFormListItemProps = {
   name: ProFormListProps['name'];
   originName: ProFormListProps['name'];
   alwaysShowItemLabel: ProFormListProps['alwaysShowItemLabel'];
+  max: ProFormListProps['max'];
+  min: ProFormListProps['min'];
+  /** 列表当前条目数量 */
+  count: number;
 };
 
 const ProFormListItem: React.FC<
@@ -154,6 +167,9 @@ const ProFormListItem: React.FC<
     index,
     formInstance,
     alwaysShowItemLabel,
+    min,
+    max,
+    count,
     ...rest
   } = props;
   const listContext = useContext(FormListContext);
@@ -179,7 +195,7 @@ const ProFormListItem: React.FC<
 
   const copyIcon = useMemo(() => {
     /** 复制按钮的配置 */
-    if (!copyIconProps) return null;
+    if (!copyIconProps || max === count) return null;
     const { Icon = CopyOutlined, tooltipText } = copyIconProps as IconConfig;
     return (
       <Tooltip title={tooltipText} key="copy">
@@ -202,18 +218,20 @@ const ProFormListItem: React.FC<
       </Tooltip>
     );
   }, [
-    action,
     copyIconProps,
-    field.name,
-    formInstance,
-    listContext.listName,
+    max,
+    count,
     loadingCopy,
     prefixCls,
+    action,
+    formInstance,
+    listContext.listName,
     rest.name,
+    field.name,
   ]);
 
   const deleteIcon = useMemo(() => {
-    if (!deleteIconProps) return null;
+    if (!deleteIconProps || min === count) return null;
     const { Icon = DeleteOutlined, tooltipText } = deleteIconProps;
     return (
       <Tooltip title={tooltipText} key="delete">
@@ -229,14 +247,14 @@ const ProFormListItem: React.FC<
         </Spin>
       </Tooltip>
     );
-  }, [action, deleteIconProps, field, loadingRemove, prefixCls]);
+  }, [deleteIconProps, min, count, loadingRemove, prefixCls, action, field.name]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
     () => [copyIcon, deleteIcon].filter(Boolean),
     [copyIcon, deleteIcon],
   );
 
-  const actions = actionRender?.(field, action, defaultActionDom) || defaultActionDom;
+  const actions = actionRender?.(field, action, defaultActionDom, count) || defaultActionDom;
 
   const dom = actions.length > 0 ? <div className={`${prefixCls}-action`}>{actions}</div> : null;
 
@@ -286,40 +304,18 @@ const ProFormListItem: React.FC<
 };
 
 const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
-  const { creatorButtonProps, prefixCls, children, creatorRecord, action, fields, actionGuard } =
-    props;
+  const {
+    creatorButtonProps,
+    prefixCls,
+    children,
+    creatorRecord,
+    action,
+    fields,
+    actionGuard,
+    max,
+  } = props;
   const fieldKeyMap = useRef(new Map<string, string>());
   const [loading, setLoading] = useState(false);
-
-  /**
-   * 根据行为守卫包装action函数
-   */
-  const wrapperAction = useMemo(() => {
-    if (!actionGuard) return action;
-    const wrapAction = { ...action };
-    Object.keys(action).forEach((key) => {
-      if (!action[key]) return;
-      switch (key) {
-        case 'add':
-          if (!actionGuard.beforeAddRow) return;
-          wrapAction.add = async (defaultValue?: StoreValue, insertIndex?: number) => {
-            const needAdd = await actionGuard.beforeAddRow?.(defaultValue, insertIndex);
-            if (!needAdd) return;
-            action.add(defaultValue, insertIndex);
-          };
-          break;
-        case 'remove':
-          if (!actionGuard.beforeRemoveRow) return;
-          wrapAction.remove = async (idx: number | number[]) => {
-            const needRemove = await actionGuard.beforeRemoveRow?.(idx);
-            if (!needRemove) return;
-            action.remove(idx);
-          };
-          break;
-      }
-    });
-    return wrapAction;
-  }, [action, actionGuard]);
 
   const uuidFields = useMemo(() => {
     return fields.map((field) => {
@@ -334,8 +330,43 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
     });
   }, [fields]);
 
+  /**
+   * 根据行为守卫包装action函数
+   */
+  const wrapperAction = useMemo(() => {
+    const wrapAction = { ...action };
+    const count = uuidFields.length;
+    Object.keys(action).forEach((key) => {
+      switch (key) {
+        case 'add':
+          wrapAction.add = async (defaultValue?: StoreValue, insertIndex?: number) => {
+            if (!actionGuard?.beforeAddRow) {
+              action.add(defaultValue, insertIndex);
+              return;
+            }
+            const needAdd = await actionGuard.beforeAddRow?.(defaultValue, insertIndex, count);
+            if (!needAdd) return;
+            action.add(defaultValue, insertIndex);
+          };
+          break;
+        case 'remove':
+          wrapAction.remove = async (idx: number | number[]) => {
+            if (!actionGuard?.beforeRemoveRow) {
+              action.remove(idx);
+              return;
+            }
+            const needRemove = await actionGuard.beforeRemoveRow?.(idx, count);
+            if (!needRemove) return;
+            action.remove(idx);
+          };
+          break;
+      }
+    });
+    return wrapAction;
+  }, [action, actionGuard, uuidFields]);
+
   const creatorButton = useMemo(() => {
-    if (creatorButtonProps === false) return null;
+    if (creatorButtonProps === false || uuidFields.length === max) return null;
     const { position = 'bottom', creatorButtonText = '添加一行数据' } = creatorButtonProps || {};
     return (
       <Button
@@ -358,7 +389,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
         {creatorButtonText}
       </Button>
     );
-  }, [creatorButtonProps, prefixCls, loading, wrapperAction, creatorRecord, uuidFields]);
+  }, [creatorButtonProps, prefixCls, loading, wrapperAction, creatorRecord, uuidFields, max]);
 
   return (
     <div
@@ -376,6 +407,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
             field={field}
             index={index}
             action={wrapperAction}
+            count={uuidFields.length}
           >
             {children}
           </ProFormListItem>
@@ -409,6 +441,8 @@ const ProFormList: React.FC<ProFormListProps> = ({
   style,
   prefixCls,
   actionGuard,
+  min,
+  max,
   ...rest
 }) => {
   const actionRefs = useRef<FormListOperation>();
@@ -471,6 +505,9 @@ const ProFormList: React.FC<ProFormListProps> = ({
                   action={action}
                   actionGuard={actionGuard}
                   alwaysShowItemLabel={alwaysShowItemLabel}
+                  min={min}
+                  max={max}
+                  count={fields.length}
                 >
                   {children}
                 </ProFormListContainer>

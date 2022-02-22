@@ -64,6 +64,8 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 | label | 与 From.Item 相同 | `ReactNode` | - |
 | name | list 在 form 中的值，必填项 | `NamePath` | - |
 | alwaysShowItemLabel | Item 中总是展示 label | `boolean` | - |
+| min | 最少条目，删除时如果当前数据条目少于该数则无法删除 | `number` | - |
+| max | 最多条目，新增或复制时如果当前数据条目多于该数则无法新增或复制 | `number` | - |
 
 ## ProFormFieldSet
 
@@ -131,3 +133,7 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 ### 行为守卫
 
 <code src="./demos/pro-form-list.tsx" heigh="1774px" title="行为守卫"/>
+
+### 增删条目限制
+
+<code src="./demos/countLimit.tsx" heigh="1774px" title="增删条目限制"/>
