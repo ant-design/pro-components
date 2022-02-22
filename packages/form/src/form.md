@@ -169,7 +169,7 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
 
 > render 的第二个参数是默认的 dom 数组，第一个是重置按钮，第二个是提交按钮。
 
-```tsx
+```tsx | pure
 <ProForm
   submitter={{
     // 配置按钮文本
@@ -208,7 +208,7 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
 
 <code src="./demos/formRef.tsx" height="548px" title="formRef的使用" />
 
-```tsx
+```tsx | pure
 const App = () => {
   // 绑定一个 ProFormInstance 实例
   const formRef = useRef<
