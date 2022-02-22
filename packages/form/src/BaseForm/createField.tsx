@@ -4,7 +4,6 @@ import {
   omitUndefined,
   usePrevious,
   isDeepEqualReact,
-  useLatest,
 } from '@ant-design/pro-utils';
 import classnames from 'classnames';
 import { noteOnce } from 'rc-util/lib/warning';
@@ -89,16 +88,8 @@ function createField<P extends ProFormFieldItemProps = any>(
       ...rest
     } = { ...defaultProps, ...props };
 
-    const restRef = useLatest(rest);
-
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [_, forceUpdate] = useState<[]>();
-
-    /**
-     * 用于判断是否要重置shouldRender
-     */
-    const isUpdate = useRef<boolean>(false);
-    const shouldRender = useRef<boolean>(true);
 
     // onChange触发fieldProps,formItemProps重新执行
     const [onlyChange, forceUpdateByOnChange] = useState<[]>();
@@ -149,22 +140,6 @@ function createField<P extends ProFormFieldItemProps = any>(
       [fieldContextValue.formItemProps, getFormItemProps, onlyChange, rest.dependenciesValues],
     );
 
-    // 支持测试用例 renderFormItem support return false
-    useEffect(() => {
-      if (
-        shouldRender.current === false &&
-        // 借助 dependenciesValues 重新执行renderFormItem
-        (rest.renderFormItem || rest.dependenciesValues)
-      ) {
-        if (isUpdate.current === true) {
-          shouldRender.current = true;
-          forceUpdate([]);
-        } else {
-          isUpdate.current = true;
-        }
-      }
-    }, [rest.dependenciesValues, rest.renderFormItem]);
-
     const otherProps = useMemo(
       () => ({
         messageVariables,
@@ -205,28 +180,6 @@ function createField<P extends ProFormFieldItemProps = any>(
         fieldProps?.onChange?.(...restParams);
       },
       [getFieldProps, getFormItemProps, fieldProps, rest.renderFormItem],
-    );
-
-    const renderFormItem = useCallback(
-      (...args: any) => {
-        const renderDom = restRef.current.renderFormItem(...args);
-
-        // 支持renderFormItem返回false||null||undefined后渲染组件
-        if (
-          (renderDom === false || renderDom === null || renderDom === undefined) &&
-          shouldRender.current === true
-        ) {
-          shouldRender.current = false;
-          isUpdate.current = false;
-          // 由于renderFormItem可能会触发setState的执行，所以合适的时机执行
-          requestAnimationFrame(() => forceUpdate([]));
-        } else {
-          isUpdate.current = true;
-        }
-
-        return renderDom;
-      },
-      [restRef],
     );
 
     const fieldPropsStyle = useMemo(
@@ -292,24 +245,16 @@ function createField<P extends ProFormFieldItemProps = any>(
           // ProXxx 上面的 props 透传给 FieldProps，可能包含 Field 自定义的 props，
           // 比如 ProFormSelect 的 request
           {...(rest as P)}
-          renderFormItem={rest.renderFormItem ? renderFormItem : undefined}
           fieldProps={fieldFieldProps}
           proFieldProps={fieldProFieldProps}
         />
       );
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [
-      renderFormItem,
       fieldProFieldProps,
       fieldFieldProps,
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      isDeepEqualReact(prefRest, rest, [
-        'onChange',
-        'onBlur',
-        'onFocus',
-        'record',
-        'renderFormItem',
-      ])
+      isDeepEqualReact(prefRest, rest, ['onChange', 'onBlur', 'onFocus', 'record'])
         ? undefined
         : {},
     ]);
@@ -376,7 +321,7 @@ function createField<P extends ProFormFieldItemProps = any>(
       rest.lightProps,
     ]);
 
-    return shouldRender.current ? FormItem : null;
+    return FormItem;
   };
 
   // 标记是否是 proform 的组件
@@ -384,6 +329,7 @@ function createField<P extends ProFormFieldItemProps = any>(
 
   const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
     const { dependencies } = props;
+
     return dependencies ? (
       <ProFormDependency name={dependencies}>
         {(values) => {
