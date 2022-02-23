@@ -5,7 +5,7 @@ import type { AvatarProps } from 'antd';
 import { Avatar, Layout, Menu, ConfigProvider, Space } from 'antd';
 import classNames from 'classnames';
 import type { SiderProps } from 'antd/lib/layout/Sider';
-import { MenuUnfoldOutlined, MenuFoldOutlined, RightOutlined } from '@ant-design/icons';
+import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import { cx, css, keyframes } from '@emotion/css';
 import type { WithFalse } from '../../typings';
 import type { BaseMenuProps } from './BaseMenu';
