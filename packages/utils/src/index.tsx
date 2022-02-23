@@ -27,7 +27,11 @@ import useMountMergeState from './useMountMergeState';
 /** Hooks */
 import useDebounceFn from './hooks/useDebounceFn';
 import usePrevious from './hooks/usePrevious';
-import conversionMomentValue, { dateFormatterMap } from './conversionMomentValue';
+import conversionMomentValue, {
+  dateFormatterMap,
+  convertMoment,
+  convertInitialValue,
+} from './conversionMomentValue';
 import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
 import useDeepCompareEffect, { useDeepCompareEffectDebounce } from './hooks/useDeepCompareEffect';
@@ -120,6 +124,8 @@ export {
   transformKeySubmitValue,
   conversionMomentValue as conversionSubmitValue,
   conversionMomentValue,
+  convertMoment,
+  convertInitialValue,
   parseValueToMoment,
   genCopyable,
   useDocumentTitle,

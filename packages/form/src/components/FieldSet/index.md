@@ -623,14 +623,14 @@ ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示�
 "ru-RU": "₽",
 "sr-RS": "RSD",
 "ms-MY": "RM",
-"zh-TW": "$"
+"zh-TW": "NT$"
 "fr-FR": "€",
 "pt-BR": "R$",
 "ko-KR": "₩",
 "id-ID": "RP",
 "de-DE": "€",
 "fa-IR": "تومان",
-"tr-TR": "$",
+"tr-TR": "₺",
 "pl-PL": "zł",
 }
 ```

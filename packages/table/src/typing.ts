@@ -297,7 +297,11 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
    *
    * @name 如何格式化日期
    */
-  dateFormatter?: 'string' | 'number' | false;
+  dateFormatter?:
+    | 'string'
+    | 'number'
+    | ((value: moment.Moment, valueType: string) => string | number)
+    | false;
   /** @name 格式化搜索表单提交数据 */
   beforeSearchSubmit?: (params: Partial<U>) => any;
   /**

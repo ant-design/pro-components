@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.35.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.34.5...@ant-design/pro-utils@1.35.0) (2022-02-21)
+
+### Features
+
+- **form,table,utils:** form 和 table 的 dateFormatter 支持函数 ([#4657](https://github.com/ant-design/pro-components/issues/4657)) ([bdbbae4](https://github.com/ant-design/pro-components/commit/bdbbae4212fede8bf230f9577feae853ce6bf287))
+
+## [1.34.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.34.4...@ant-design/pro-utils@1.34.5) (2022-02-15)
+
+### Bug Fixes
+
+- **form:** fix form datetime no format error ([e420f7b](https://github.com/ant-design/pro-components/commit/e420f7b51ac2da0ebb22c0a1f6336c994ca90088))
+- **table:** fix React state update on an unmounted component error ([07cf3a3](https://github.com/ant-design/pro-components/commit/07cf3a360ba0b12381cfd2574a30c4fdbccc51e2))
+
 ## [1.34.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.34.3...@ant-design/pro-utils@1.34.4) (2022-02-14)
 
 ### Bug Fixes

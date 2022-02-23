@@ -234,6 +234,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
             key="table"
             submitter={false}
             omitNil={false}
+            dateFormatter={props.dateFormatter}
             contentRender={(items: React.ReactNode) => {
               if (counter.editableForm) return items;
               return (
@@ -557,6 +558,16 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     return mergePagination<T>(propsPagination, pageConfig, intl);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsPagination, action, intl]);
+
+  useEffect(() => {
+    // request 存在且params不为空，且已经请求过数据才需要设置。
+    if (props.request && params && action.dataSource) {
+      action.setPageInfo({
+        current: 1,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params]);
 
   const counter = Container.useContainer();
 

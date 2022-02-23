@@ -134,15 +134,25 @@ function createField<P extends ProFormFieldItemProps = any>(
       ],
     );
 
+    // restFormItemProps is user props pass to Form.Item
+    const restFormItemProps = pickProFormItemProps(rest);
+
     const formItemProps = useMemo(
       () => ({
         ...fieldContextValue.formItemProps,
-        ...(rest.formItemProps as any),
         // 支持未传递getFormItemProps的情况
+        ...restFormItemProps,
+        ...(rest.formItemProps as any),
         ...getFormItemProps?.(),
       }),
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      [fieldContextValue.formItemProps, getFormItemProps, onlyChange, rest.dependenciesValues],
+      [
+        fieldContextValue.formItemProps,
+        getFormItemProps,
+        onlyChange,
+        restFormItemProps,
+        rest.dependenciesValues,
+      ],
     );
 
     // 支持测试用例 renderFormItem support return false
@@ -161,17 +171,13 @@ function createField<P extends ProFormFieldItemProps = any>(
       }
     }, [rest.dependenciesValues, rest.renderFormItem]);
 
-    // restFormItemProps is user props pass to Form.Item
-    const restFormItemProps = pickProFormItemProps(rest);
-
     const otherProps = useMemo(
       () => ({
         messageVariables,
         ...defaultFormItemProps,
         ...formItemProps,
-        ...restFormItemProps,
       }),
-      [defaultFormItemProps, formItemProps, messageVariables, restFormItemProps],
+      [defaultFormItemProps, formItemProps, messageVariables],
     );
 
     noteOnce(

@@ -22,23 +22,6 @@ describe('Card', () => {
     expect(fn).toBeCalled();
   });
 
-  it('🥩 resize breakpoint', async () => {
-    // @ts-ignore
-    Grid.useBreakpoint.mockReturnValue({ xs: true });
-
-    const wrapper = mount(
-      <ProCard
-        style={{ marginTop: 8 }}
-        gutter={[{ xs: 8, sm: 8, md: 16, lg: 24, xl: 32, xxl: 32 }, 16]}
-        title="24栅格"
-      >
-        <ProCard colSpan={{ xs: 2, sm: 4, md: 6, lg: 8, xl: 10, xxl: 12 }}>Col</ProCard>
-      </ProCard>,
-    );
-
-    await waitForComponentToPaint(wrapper);
-  });
-
   it('🥩 collapsible defaultCollapsed', async () => {
     const wrapper = mount(
       <ProCard title="可折叠" headerBordered collapsible defaultCollapsed>

@@ -243,7 +243,7 @@ describe('ModalForm', () => {
         <ProFormText name="name" />
       </ModalForm>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 500);
 
     act(() => {
       wrapper.find('button.ant-btn-primary').simulate('click');
@@ -265,7 +265,7 @@ describe('ModalForm', () => {
         <ProFormText name="name" />
       </ModalForm>,
     );
-    await waitForComponentToPaint(wrapper);
+    await waitForComponentToPaint(wrapper, 500);
 
     act(() => {
       wrapper.find('button.ant-btn-primary').simulate('click');
