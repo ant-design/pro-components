@@ -12,7 +12,7 @@ exports[`BasicLayout base use 1`] = `
       class="css-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1ckx0yp"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
@@ -158,14 +158,14 @@ exports[`BasicLayout base use 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
             data-menu-list="true"
             role="menu"
             style="width:100%"
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-submenu css-4kh2q"
+              class="ant-pro-menu-submenu css-22u8dk"
               role="none"
             >
               <div
@@ -198,7 +198,7 @@ exports[`BasicLayout base use 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button css-x3zw25"
+          class="ant-pro-sider-collapsed-button css-1iy4bll"
         >
           <span
             aria-label="right"
@@ -273,7 +273,7 @@ exports[`BasicLayout content is text 1`] = `
       class="css-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1ckx0yp"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
@@ -419,14 +419,14 @@ exports[`BasicLayout content is text 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
             data-menu-list="true"
             role="menu"
             style="width:100%"
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-submenu css-4kh2q"
+              class="ant-pro-menu-submenu css-22u8dk"
               role="none"
             >
               <div
@@ -459,7 +459,7 @@ exports[`BasicLayout content is text 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button css-x3zw25"
+          class="ant-pro-sider-collapsed-button css-1iy4bll"
         >
           <span
             aria-label="right"

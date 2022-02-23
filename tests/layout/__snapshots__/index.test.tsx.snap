@@ -13,7 +13,7 @@ Array [
         class="css-1bredbg"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1ckx0yp"
         style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
       >
         <div
@@ -184,7 +184,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-x3zw25"
+            class="ant-pro-sider-collapsed-button css-1iy4bll"
           >
             <span
               aria-label="right"
@@ -230,7 +230,7 @@ Array [
         style="position:relative"
       >
         <header
-          class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header css-1fr33y4"
+          class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header css-167gfby"
         >
           <div
             class="ant-pro-top-nav-header light css-q8kmqe"
@@ -242,7 +242,7 @@ Array [
                 class="ant-pro-top-nav-header-main-left css-12ycn0f"
               >
                 <div
-                  class="ant-pro-top-nav-header-logo css-50sq74"
+                  class="ant-pro-top-nav-header-logo css-175ftd7"
                   id="logo"
                 >
                   <a>
@@ -422,7 +422,7 @@ Array [
         class="css-1bredbg"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-7c4254"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-lpzfug"
         style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
       >
         <div
@@ -457,7 +457,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-x3zw25"
+            class="ant-pro-sider-collapsed-button css-1iy4bll"
           >
             <span
               aria-label="right"
@@ -490,13 +490,13 @@ Array [
           style="height:56px;line-height:56px;background:transparent"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-1gclp53"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-rrbx5t"
         >
           <div
-            class="ant-pro-global-header ant-pro-global-header-layout-mix css-97oob8"
+            class="ant-pro-global-header ant-pro-global-header-layout-mix css-12qlbcg"
           >
             <div
-              class="ant-pro-global-header-logo css-1uv9trc"
+              class="ant-pro-global-header-logo css-1ef7plb"
             >
               <a>
                 <svg
@@ -656,7 +656,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
       class="css-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1ckx0yp"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
@@ -802,7 +802,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-x3zw25"
+          class="ant-pro-sider-collapsed-button css-1iy4bll"
         >
           <span
             aria-label="right"
@@ -850,7 +850,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
       class="css-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1ckx0yp"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
@@ -996,7 +996,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-x3zw25"
+          class="ant-pro-sider-collapsed-button css-1iy4bll"
         >
           <span
             aria-label="right"
@@ -1045,7 +1045,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       class="css-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1ckx0yp"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
@@ -1191,14 +1191,14 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
             data-menu-list="true"
             role="menu"
             style="width: 100%;"
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-submenu css-4kh2q"
+              class="ant-pro-menu-submenu css-22u8dk"
               role="none"
             >
               <div
@@ -1227,7 +1227,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               </div>
             </li>
             <li
-              class="ant-pro-menu-item css-1ai5orx"
+              class="ant-pro-menu-item css-mocfav"
               data-menu-id="rc-menu-uuid-84044-6-/list"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1254,7 +1254,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button css-x3zw25"
+          class="ant-pro-sider-collapsed-button css-1iy4bll"
         >
           <span
             aria-label="right"
@@ -1302,7 +1302,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
       class="css-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1ckx0yp"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
@@ -1448,7 +1448,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         />
         <div
-          class="ant-pro-sider-collapsed-button css-x3zw25"
+          class="ant-pro-sider-collapsed-button css-1iy4bll"
         >
           <span
             aria-label="right"
@@ -1521,7 +1521,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
       class="css-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1bp5b6r"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light css-1ckx0yp"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
@@ -1667,14 +1667,14 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1glqovt"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
             data-menu-list="true"
             role="menu"
             style="width: 100%;"
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-item css-1ai5orx"
+              class="ant-pro-menu-item css-mocfav"
               data-menu-id="rc-menu-uuid-84044-1-/home"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1695,7 +1695,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </span>
             </li>
             <li
-              class="ant-pro-menu-submenu css-4kh2q"
+              class="ant-pro-menu-submenu css-22u8dk"
               role="none"
             >
               <div
@@ -1724,7 +1724,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </div>
             </li>
             <li
-              class="ant-pro-menu-item css-1ai5orx"
+              class="ant-pro-menu-item css-mocfav"
               data-menu-id="rc-menu-uuid-84044-1-/data_ming"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1745,7 +1745,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
               </span>
             </li>
             <li
-              class="ant-pro-menu-item css-1ai5orx"
+              class="ant-pro-menu-item css-mocfav"
               data-menu-id="rc-menu-uuid-84044-1-/other"
               role="menuitem"
               style="padding-left: 16px;"
@@ -1772,7 +1772,7 @@ exports[`BasicLayout 🥩 support menuDataRender 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button css-x3zw25"
+          class="ant-pro-sider-collapsed-button css-1iy4bll"
         >
           <span
             aria-label="right"

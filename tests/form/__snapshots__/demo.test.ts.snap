@@ -31955,7 +31955,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         class="css-1owsomx"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-7c4254"
+        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-lpzfug"
         style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
       >
         <div
@@ -31965,14 +31965,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-1glqovt ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-cb1hae ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="ant-pro-menu-submenu ant-pro-menu-submenu-selected css-1hgtbmz"
+                class="ant-pro-menu-submenu ant-pro-menu-submenu-selected css-u5d5uf"
                 role="none"
               >
                 <div
@@ -32029,7 +32029,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-j24xrp"
+            class="ant-pro-sider-collapsed-button css-ayiq75"
           >
             <span
               aria-label="right"
@@ -32062,13 +32062,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-header css-1gclp53"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-header css-rrbx5t"
         >
           <div
-            class="ant-pro-global-header ant-pro-global-header-layout-mix css-97oob8"
+            class="ant-pro-global-header ant-pro-global-header-layout-mix css-12qlbcg"
           >
             <div
-              class="ant-pro-global-header-logo css-1uv9trc"
+              class="ant-pro-global-header-logo css-1ef7plb"
             >
               <a>
                 <svg
@@ -33589,7 +33589,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                           </div>
                         </div>
                         <div
-                          class="ant-pro-footer-bar css-1knbvf3"
+                          class="ant-pro-footer-bar css-1v95bqc"
                           style="width: calc(100% - 60px);"
                         >
                           <div

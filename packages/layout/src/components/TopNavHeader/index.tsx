@@ -71,6 +71,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
                 justify-content: center;
                 padding: 6px;
                 font-size: 16px;
+                color: rgba(0, 0, 0, 0.45);
                 cursor: pointer;
               `,
             )}
@@ -81,18 +82,21 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
             {dom}
           </span>
         ))}
-        <span
-          className={cx(
-            `${prefixCls}-header-actions-item`,
-            css`
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-            `,
-          )}
-        >
-          {avatarDom}
-        </span>
+        {avatarDom && (
+          <span
+            className={cx(
+              `${prefixCls}-header-actions-item`,
+              css`
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding-left: 24px;
+              `,
+            )}
+          >
+            {avatarDom}
+          </span>
+        )}
       </div>
     );
   };
@@ -239,7 +243,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
                   h1 {
                     display: inline-block;
                     margin: 0 0 0 12px;
-                    color: var(--ant-primary-color);
+                    color: rgba(0, 0, 0, 0.85);
                     font-weight: 400;
                     font-size: 16px;
                     vertical-align: top;

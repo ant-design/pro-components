@@ -8,7 +8,7 @@ import { TopNavHeader, RightContent } from '../TopNavHeader';
 import type { MenuDataItem } from '../../index';
 import type { WithFalse } from '../../typings';
 import { clearMenuItem } from '../../utils/utils';
-import { defaultRenderLogo } from '../AppsLogoComponents';
+import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import { css, cx } from '@emotion/css';
 
 export type GlobalHeaderProps = {
@@ -104,8 +104,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
             h1 {
               height: 32px;
               margin: 0 0 0 8px;
-              margin: 0 0 0 12px;
-              color: var(--ant-primary-color);
+              color: rgba(0, 0, 0, 0.85);
               font-weight: 600;
               font-size: 18px;
               line-height: 32px;
@@ -131,6 +130,10 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
           padding: 0 16px;
           > * {
             height: 100%;
+          }
+
+          .${prefixCls}-basicLayout-apps-icon {
+            margin-right: 16px;
           }
         `,
       )}
@@ -159,6 +162,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
       )}
       {layout === 'mix' && !isMobile && (
         <>
+          <AppsLogoComponents {...props} />
           <div
             className={cx(
               `${baseClassName}-logo`,
@@ -177,8 +181,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
                   h1 {
                     height: 32px;
                     margin: 0 0 0 8px;
-                    margin: 0 0 0 12px;
-                    color: var(--ant-primary-color);
+                    color: rgba(0, 0, 0, 0.85);
                     font-weight: 600;
                     font-size: 18px;
                     line-height: 32px;

@@ -96,11 +96,11 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
           padding: 0 24px;
           line-height: 64px;
           background-color: #fff;
-          border-top: 1px solid #d8d8d8;
+          border-top: 1px solid rgba(0, 0, 0, 0.06);
           transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
           @supports (backdrop-filter: blur(20px) saturate(150%)) {
             background-color: rgba(240, 242, 245, 0.4);
-            border-top: 1px solid #d8d8d8;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
             backdrop-filter: blur(20px) saturate(150%);
           }
         `,

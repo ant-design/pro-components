@@ -72,13 +72,13 @@ const MenuDivider: React.FC<{
     key={index}
     className={`${prefixCls}-menu-item-divider`}
     style={{
-      padding: collapsed ? '4px' : '16px 4px 4px 4px',
+      padding: collapsed ? '4px' : '16px 0px',
     }}
   >
     <Menu.Divider
       style={{
         margin: 0,
-        borderColor: '#D8D8D8',
+        borderColor: 'rgba(0,0,0,0.06)',
       }}
     />
   </div>
@@ -176,18 +176,23 @@ class MenuUtil {
         ? subMenuItemRender({ ...item, isUrl: false }, defaultTitle)
         : subMenuTitle;
       const MenuComponents: React.ElementType = isGroup && level === 0 ? ItemGroup : SubMenu;
+
       return [
-        <MenuComponents
-          key={item.key || item.path}
-          title={title}
-          {...(isGroup
-            ? {}
-            : {
-                onTitleClick: item.onTitleClick,
-              })}
-        >
-          {this.getNavMenuItems(item.routes, level + 1)}
-        </MenuComponents>,
+        isGroup && level === 0 && this.props.collapsed ? (
+          this.getNavMenuItems(item.routes, level + 1)
+        ) : (
+          <MenuComponents
+            key={item.key || item.path}
+            title={title}
+            {...(isGroup
+              ? {}
+              : {
+                  onTitleClick: item.onTitleClick,
+                })}
+          >
+            {this.getNavMenuItems(item.routes, level + 1)}
+          </MenuComponents>
+        ),
         isGroup && level === 0 ? (
           <MenuDivider
             collapsed={this.props.collapsed}
@@ -452,6 +457,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           width: 100%;
           height: 100%;
           color: rgba(0, 0, 0, 0.65);
+          .anticon {
+            color: rgba(0, 0, 0, 0.45);
+          }
         }
       `,
       collapsedItem: css`
@@ -489,6 +497,12 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       selectedItem: css`
         background-color: ${itemSelectedColor};
         border-radius: 4px;
+        a {
+          color: rgba(0, 0, 0, 0.85);
+          .anticon {
+            color: rgba(0, 0, 0, 0.65);
+          }
+        }
       `,
       // subMenuItem Style
       subMenuItem: css`
@@ -501,14 +515,21 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         cursor: pointer;
         color: rgba(0, 0, 0, 0.65);
+
         .${antPrefixClassName}-menu-submenu-title {
           width: 100%;
           margin-top: 0;
           margin-bottom: 0;
           line-height: 40px;
+
+          .anticon {
+            color: rgba(0, 0, 0, 0.45);
+          }
         }
         .${antPrefixClassName}-menu-submenu-arrow {
           color: rgba(0, 0, 0, 0.25);
+          transform: rotate(1.25turn);
+          transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         }
       `,
       collapsedSubMenuItem: css`
@@ -533,9 +554,15 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       selectedSubItem: css`
         .${antPrefixClassName}-menu-submenu-title{
           color: rgb(0, 0, 0);
+
+          .anticon {
+            color: rgba(0, 0, 0, 0.65);
+          }
         }
+      `,
+      openItem: css`
         .${antPrefixClassName}-menu-submenu-arrow {
-          color: rgb(0, 0, 0);
+          transform: rotate(0.75turn);
         }
       `,
       verticalSubItem: css`
@@ -547,6 +574,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       horizontalSubMenuItem: css`
         .${antPrefixClassName}-menu-submenu-title{
           min-height: 43px;
+          display: flex;
+          align-items: center;
         }
         .${antPrefixClassName}-menu-submenu-title:hover {
           color: rgba(0, 0, 0, 0.65);
@@ -567,7 +596,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     background: transparent;
 
     // 关掉动画避免性能问题
-    * {
+    * > div {
       transition: none !important;
     }
 
@@ -680,6 +709,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
               ? menuItemCssMap.verticalSubItem
               : menuItemCssMap.horizontalSubMenuItem,
             stateProps?.selected ? menuItemCssMap.selectedSubItem : null,
+            stateProps?.open && menuItemCssMap.openItem,
           ),
         });
       }}

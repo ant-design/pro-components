@@ -27,7 +27,7 @@ const defaultIconCss = css`
   color: rgba(0, 0, 0, 0.45);
   text-align: center;
   border-radius: 40px;
-  right: -12px;
+  right: -13px;
   background-color: #fff;
   transition: transform 0.3s;
   font-size: 16px;
@@ -37,6 +37,10 @@ const defaultIconCss = css`
   cursor: pointer;
   .anticon {
     font-size: 14px;
+  }
+
+  &:hover {
+    color: rgba(0, 0, 0, 0.65);
   }
 `;
 
@@ -481,7 +485,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               display: flex;
               flex-direction: column;
               height: 100%;
-              border-right: 1px solid rgba(5, 30, 55, 0.08);
+              border-right: 1px solid rgba(0, 0, 0, 0.06);
               > * {
                 contain: layout;
               }

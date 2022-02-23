@@ -1,32 +1,17 @@
 import React, { useState } from 'react';
-import { Button, Descriptions, Result, Space, Statistic } from 'antd';
-import {
-  InfoCircleOutlined,
-  LikeOutlined,
-  MergeCellsOutlined,
-  QuestionCircleOutlined,
-  UserOutlined,
-} from '@ant-design/icons';
+import { Button } from 'antd';
+import { GithubFilled, QuestionCircleFilled, InfoCircleFilled } from '@ant-design/icons';
 
 import type { ProSettings } from '@ant-design/pro-layout';
 import { ProLayout, PageContainer, SettingDrawer } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
 import ProCard from '@ant-design/pro-card';
 
-const content = (
-  <Descriptions size="small" column={2}>
-    <Descriptions.Item label="创建人">张三</Descriptions.Item>
-    <Descriptions.Item label="联系方式">
-      <a>421421</a>
-    </Descriptions.Item>
-    <Descriptions.Item label="创建时间">2017-01-10</Descriptions.Item>
-    <Descriptions.Item label="更新时间">2017-10-10</Descriptions.Item>
-    <Descriptions.Item label="备注">中国浙江省杭州市西湖区古翠路</Descriptions.Item>
-  </Descriptions>
-);
-
 export default () => {
-  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({ fixSiderbar: true });
+  const [settings, setSetting] = useState<Partial<ProSettings> | undefined>({
+    fixSiderbar: true,
+    layout: 'mix',
+  });
   const [pathname, setPathname] = useState('/welcome');
   return (
     <div
@@ -50,14 +35,14 @@ export default () => {
           content: 'Pro Layout',
         }}
         avatarProps={{
-          icon: <UserOutlined />,
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
           size: 'small',
           title: '七妮妮',
         }}
         actionsRender={() => [
-          <InfoCircleOutlined key="InfoCircleOutlined" />,
-          <QuestionCircleOutlined key="QuestionCircleOutlined" />,
-          <MergeCellsOutlined key="MergeCellsOutlined" />,
+          <InfoCircleFilled key="InfoCircleFilled" />,
+          <QuestionCircleFilled key="QuestionCircleFilled" />,
+          <GithubFilled key="GithubFilled" />,
         ]}
         menuFooterRender={() => {
           return (
@@ -85,23 +70,6 @@ export default () => {
         {...settings}
       >
         <PageContainer
-          content={content}
-          tabList={[
-            {
-              tab: '基本信息',
-              key: 'base',
-            },
-            {
-              tab: '详细信息',
-              key: 'info',
-            },
-          ]}
-          extraContent={
-            <Space size={24}>
-              <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
-              <Statistic title="Unmerged" value={93} suffix="/ 100" />
-            </Space>
-          }
           extra={[
             <Button key="3">操作</Button>,
             <Button key="2">操作</Button>,
@@ -122,15 +90,7 @@ export default () => {
               minHeight: 600,
             }}
           >
-            <Result
-              status="404"
-              style={{
-                height: '100%',
-              }}
-              title="Hello World"
-              subTitle="Sorry, you are not authorized to access this page."
-              extra={<Button type="primary">Back Home</Button>}
-            />
+            <div />
           </ProCard>
         </PageContainer>
       </ProLayout>

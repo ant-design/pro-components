@@ -83,10 +83,15 @@ const appContentLisItem = css`
 `;
 
 const AppIconsCss = css`
-  display: inline-block;
-  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
   font-size: 14px;
   line-height: 14px;
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
   &:hover {
     color: #2155f4;
     background-color: rgba(0, 87, 127, 0.06);
@@ -108,6 +113,7 @@ export const AppsLogoComponents: React.FC<{
   return (
     <Popover
       getPopupContainer={(triggerNode) => triggerNode.parentNode as HTMLElement}
+      placement="rightTop"
       content={
         <div className={`${prefixCls}-basicLayout-apps-content`}>
           <ul className={cx(`${prefixCls}-basicLayout-apps-content-list`, appContentListCss)}>
@@ -121,7 +127,7 @@ export const AppsLogoComponents: React.FC<{
                     appContentLisItem,
                   )}
                 >
-                  <a href={app.url} target="_blank">
+                  <a href={app.url} target="_blank" rel="noreferrer">
                     {defaultRenderLogo(app.icon)}
                     <span>{app.title}</span>
                   </a>
