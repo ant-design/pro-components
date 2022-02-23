@@ -49,7 +49,6 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
 
     if (!doms) return null;
     if (!Array.isArray(doms)) doms = [doms];
-    const domLength = doms.length;
     return (
       <div
         className={cx(
@@ -69,15 +68,16 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                padding: 6px;
+                padding: 6px 12px;
                 font-size: 16px;
                 color: rgba(0, 0, 0, 0.45);
                 cursor: pointer;
+                border-radius: 4px;
+                &:hover {
+                  background-color: rgba(0, 0, 0, 0.03);
+                }
               `,
             )}
-            style={{
-              marginRight: index !== domLength ? 8 : undefined,
-            }}
           >
             {dom}
           </span>
@@ -91,6 +91,12 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
                 align-items: center;
                 justify-content: center;
                 padding-left: 24px;
+                padding-right: 24px;
+                border-radius: 4px;
+                cursor: pointer;
+                &:hover {
+                  background-color: rgba(0, 0, 0, 0.03);
+                }
               `,
             )}
           >
@@ -112,11 +118,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
         minWidth: rightSize,
       }}
     >
-      <div
-        style={{
-          paddingRight: 12,
-        }}
-      >
+      <div>
         <ResizeObserver
           onResize={({ width }: { width: number }) => {
             setRightSizeDebounceFn.run(width);

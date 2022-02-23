@@ -31955,7 +31955,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         class="css-1owsomx"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-lpzfug"
+        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-1s7f4hx"
         style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
       >
         <div
@@ -31965,7 +31965,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-cb1hae ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-1njfd7u ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -32065,7 +32065,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           class="ant-layout-header ant-pro-fixed-header ant-pro-header css-rrbx5t"
         >
           <div
-            class="ant-pro-global-header ant-pro-global-header-layout-mix css-12qlbcg"
+            class="ant-pro-global-header ant-pro-global-header-layout-mix css-1n57u1k"
           >
             <div
               class="ant-pro-global-header-logo css-1ef7plb"

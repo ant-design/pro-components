@@ -128,7 +128,8 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
           align-items: center;
           height: 100%;
           padding: 0 16px;
-          > * {
+
+          > a {
             height: 100%;
           }
 

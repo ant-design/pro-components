@@ -4103,7 +4103,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -4575,7 +4575,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -4996,7 +4996,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -5601,7 +5601,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -5977,7 +5977,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -6475,7 +6475,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -7026,7 +7026,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-cb1hae ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-1njfd7u ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -7179,7 +7179,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                         data-menu-list="true"
                         role="menu"
                         style="width: 100%;"
@@ -7640,7 +7640,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1d87ndm"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-189sgvv"
                     data-menu-list="true"
                     role="menu"
                     tabindex="0"
@@ -7822,7 +7822,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                         data-menu-list="true"
                         role="menu"
                         style="width: 100%;"
@@ -8243,7 +8243,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -8860,7 +8860,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-cb1hae ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-1njfd7u ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -9261,7 +9261,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
           class="css-1bredbg"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-lpzfug"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-1s7f4hx"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -9271,7 +9271,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -9739,7 +9739,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-rrbx5t"
           >
             <div
-              class="ant-pro-global-header ant-pro-global-header-layout-mix css-12qlbcg"
+              class="ant-pro-global-header ant-pro-global-header-layout-mix css-1n57u1k"
             >
               <span
                 class="ant-pro-basicLayout-apps-icon css-162f6bl"
@@ -9898,9 +9898,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                 class="ant-pro-right-content"
                 style="min-width: auto;"
               >
-                <div
-                  style="padding-right: 12px;"
-                >
+                <div>
                   <div
                     style="display: flex; align-items: center;"
                   >
@@ -9908,8 +9906,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       class="ant-pro-header-actions css-1thgah9"
                     >
                       <span
-                        class="ant-pro-header-actions-item css-1vk1hhl"
-                        style="margin-right: 8px;"
+                        class="ant-pro-header-actions-item css-1st06xa"
                       >
                         <span
                           aria-label="info-circle"
@@ -9932,8 +9929,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </span>
                       </span>
                       <span
-                        class="ant-pro-header-actions-item css-1vk1hhl"
-                        style="margin-right: 8px;"
+                        class="ant-pro-header-actions-item css-1st06xa"
                       >
                         <span
                           aria-label="question-circle"
@@ -9956,8 +9952,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </span>
                       </span>
                       <span
-                        class="ant-pro-header-actions-item css-1vk1hhl"
-                        style="margin-right: 8px;"
+                        class="ant-pro-header-actions-item css-1st06xa"
                       >
                         <span
                           aria-label="github"
@@ -9980,7 +9975,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </span>
                       </span>
                       <span
-                        class="ant-pro-header-actions-item css-tdcpgp"
+                        class="ant-pro-header-actions-item css-c7xz8t"
                       >
                         <span
                           class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
@@ -11000,7 +10995,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-light qixian-pro-sider-menu css-9yrigx"
+              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-light qixian-pro-sider-menu css-jzfydl"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -12073,7 +12068,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
         class="css-1bredbg"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-lpzfug"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-1s7f4hx"
         style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
       >
         <div
@@ -12083,7 +12078,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -12298,7 +12293,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
           class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-rrbx5t"
         >
           <div
-            class="ant-pro-global-header ant-pro-global-header-layout-mix css-12qlbcg"
+            class="ant-pro-global-header ant-pro-global-header-layout-mix css-1n57u1k"
           >
             <span
               class="ant-pro-basicLayout-apps-icon css-162f6bl"
@@ -12657,7 +12652,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -13144,7 +13139,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -15329,7 +15324,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -15631,7 +15626,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-cb1hae ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu css-1njfd7u ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -16153,7 +16148,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -16807,7 +16802,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -17194,7 +17189,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -17892,7 +17887,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -18736,7 +18731,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -19025,7 +19020,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               class="ant-pro-sider-actions css-1iat9ir"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar css-11rcmo1"
+                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar css-yps43y"
               >
                 <div
                   class="ant-space-item"
@@ -19775,7 +19770,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -20220,7 +20215,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1d87ndm"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-189sgvv"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -20640,7 +20635,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1d87ndm"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-189sgvv"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -21041,7 +21036,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-1d87ndm"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light css-189sgvv"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -21277,7 +21272,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
           class="css-1bredbg"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-lpzfug"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light css-1s7f4hx"
           style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
         >
           <div
@@ -21287,7 +21282,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-cb1hae"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -21413,7 +21408,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
             class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-rrbx5t"
           >
             <div
-              class="ant-pro-global-header ant-pro-global-header-layout-mix css-12qlbcg"
+              class="ant-pro-global-header ant-pro-global-header-layout-mix css-1n57u1k"
             >
               <div
                 class="ant-pro-global-header-logo css-1ef7plb"

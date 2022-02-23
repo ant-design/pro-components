@@ -328,6 +328,9 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             `${baseClassName}-actions-avatar`,
             css`
               font-size: 12px;
+              & > * {
+                cursor: pointer;
+              }
             `,
           )}
         >
@@ -477,6 +480,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             `,
           layout === 'mix' &&
             css`
+              height: calc(100% - ${headerHeight}px);
               top: ${headerHeight}px;
             `,
           css`

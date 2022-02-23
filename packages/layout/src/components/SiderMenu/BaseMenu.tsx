@@ -591,7 +591,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const menuCss = useMemo(() => {
     return css`
-    
     padding: 6px;
     background: transparent;
 
