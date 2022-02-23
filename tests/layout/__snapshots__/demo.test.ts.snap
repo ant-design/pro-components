@@ -4326,27 +4326,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -4665,27 +4657,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -5352,27 +5336,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -5728,27 +5704,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -6226,27 +6194,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               </div>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -6744,27 +6704,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -7329,27 +7281,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       </div>
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-1iy4bll"
+                      class="ant-pro-sider-collapsed-button css-sm7khf"
                     >
-                      <span
-                        aria-label="right"
-                        class="anticon anticon-right"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 12 12"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="right"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                          />
-                        </svg>
-                      </span>
+                        <path
+                          d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                        />
+                      </svg>
                     </div>
                   </div>
                 </aside>
@@ -7943,27 +7887,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       />
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-1iy4bll"
+                      class="ant-pro-sider-collapsed-button css-sm7khf"
                     >
-                      <span
-                        aria-label="right"
-                        class="anticon anticon-right"
-                        role="img"
+                      <svg
+                        aria-hidden="true"
+                        fill="currentColor"
+                        height="1em"
+                        viewBox="0 0 12 12"
+                        width="1em"
                       >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="right"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="64 64 896 896"
-                          width="1em"
-                        >
-                          <path
-                            d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                          />
-                        </svg>
-                      </span>
+                        <path
+                          d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                        />
+                      </svg>
                     </div>
                   </div>
                 </aside>
@@ -8414,27 +8350,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1iy4bll"
+            class="ant-pro-sider-collapsed-button css-sm7khf"
           >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+              />
+            </svg>
           </div>
         </div>
       </aside>
@@ -9067,27 +8995,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-ayiq75"
+            class="ant-pro-sider-collapsed-button css-xq8zdc"
           >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+              />
+            </svg>
           </div>
         </div>
       </aside>
@@ -9703,27 +9623,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               </p>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -11243,27 +11155,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             </a>
           </div>
           <div
-            class="qixian-pro-sider-collapsed-button css-1iy4bll"
+            class="qixian-pro-sider-collapsed-button css-sm7khf"
           >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+              />
+            </svg>
           </div>
         </div>
       </aside>
@@ -12862,27 +12766,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -13387,27 +13283,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               </a>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -15068,27 +14956,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1iy4bll"
+            class="ant-pro-sider-collapsed-button css-sm7khf"
           >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+              />
+            </svg>
           </div>
         </div>
       </aside>
@@ -15383,27 +15263,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -15820,27 +15692,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-ayiq75"
+            class="ant-pro-sider-collapsed-button css-xq8zdc"
           >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+              />
+            </svg>
           </div>
         </div>
       </aside>
@@ -16346,27 +16210,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -17000,27 +16856,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -17357,27 +17205,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1iy4bll"
+            class="ant-pro-sider-collapsed-button css-sm7khf"
           >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+              />
+            </svg>
           </div>
         </div>
       </aside>
@@ -18055,27 +17895,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button css-1iy4bll"
+            class="ant-pro-sider-collapsed-button css-sm7khf"
           >
-            <span
-              aria-label="right"
-              class="anticon anticon-right"
-              role="img"
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="right"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+              />
+            </svg>
           </div>
         </div>
       </aside>
@@ -19154,27 +18986,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               </p>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -19891,27 +19715,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
@@ -21372,27 +21188,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button css-1iy4bll"
+              class="ant-pro-sider-collapsed-button css-sm7khf"
             >
-              <span
-                aria-label="right"
-                class="anticon anticon-right"
-                role="img"
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
               >
-                <svg
-                  aria-hidden="true"
-                  data-icon="right"
-                  fill="currentColor"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
-                  />
-                </svg>
-              </span>
+                <path
+                  d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+                />
+              </svg>
             </div>
           </div>
         </aside>
