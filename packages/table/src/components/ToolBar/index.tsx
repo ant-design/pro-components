@@ -131,8 +131,8 @@ function renderDefaultOption<T>(
         );
       }
       const optionItem = getButtonText(defaultOptions)[key];
-      let icon: React.ReactNode = optionItem.icon;
-      if (typeof options[key] === 'function' && options[key]().icon) {
+      let icon: React.ReactNode = optionItem?.icon;
+      if (typeof options[key] === 'function' && options[key]()?.icon) {
         icon = options[key]().icon;
       }
       if (optionItem) {
