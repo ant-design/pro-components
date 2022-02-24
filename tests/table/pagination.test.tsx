@@ -1,5 +1,5 @@
 import { mount } from 'enzyme';
-import React from 'react';
+import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
@@ -256,6 +256,56 @@ describe('BasicTable pagination', () => {
     act(() => {
       html.find('li.ant-pagination-item.ant-pagination-item-2').simulate('click');
     });
+    await waitForComponentToPaint(html, 200);
+    expect(fn).toBeCalledTimes(1);
+  });
+
+  it('🎏 pagination was correct in controlled mode && params was in deep comparison', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable<{
+        money: number;
+      }>
+        size="small"
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        params={{}}
+        pagination={{
+          onChange: (page) => {
+            html.setProps({
+              pagination: {
+                current: page,
+              },
+            });
+          },
+        }}
+        request={() => {
+          fn();
+          return new Promise((resolve) => {
+            resolve({
+              success: true,
+              data: new Array(50)
+                .toString()
+                .split(',')
+                .map(function (item, index) {
+                  return {
+                    money: index,
+                  };
+                }),
+            });
+          });
+        }}
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    act(() => {
+      html.find('li.ant-pagination-item.ant-pagination-item-2').simulate('click');
+    });
+    expect(html.props().pagination.current === 2).toBe(true);
     await waitForComponentToPaint(html, 200);
     expect(fn).toBeCalledTimes(1);
   });
