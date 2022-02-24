@@ -1,6 +1,8 @@
 ﻿import React, { useState } from 'react';
 import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
 import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-form';
+import moment from 'moment';
+import { DatePicker } from 'antd';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -54,7 +56,8 @@ const columns: ProFormColumnsType<DataItem>[] = [
     title: '创建时间',
     key: 'showTime',
     dataIndex: 'createName',
-    valueType: 'date',
+    initialValue: [moment().add(-1, 'm'), moment()],
+    renderFormItem: () => <DatePicker.RangePicker />,
   },
   {
     valueType: 'switch',

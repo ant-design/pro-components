@@ -427,8 +427,8 @@ describe('BasicTable Search', () => {
 
     expect(formValues.origin).toBe('origin');
     expect(formValues.status).toBe('state');
-    expect(formValues.startTime).toBe('2020-09-11 00:00:00');
-    expect(formValues.endTime).toBe('2020-09-22 00:00:00');
+    expect(formValues.startTime).toBe('2020-09-11');
+    expect(formValues.endTime).toBe('2020-09-22');
     expect(fn).toBeCalledTimes(1);
 
     act(() => {
@@ -691,7 +691,6 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 when dateFormatter is a Function', async () => {
-    const fn1 = jest.fn();
     const fn2 = jest.fn();
     const html = mount(
       <ProTable
@@ -725,7 +724,6 @@ describe('BasicTable Search', () => {
         options={false}
         dateFormatter={(value, valueType) => {
           console.log('====>', value, valueType);
-          fn1(value.format('YYYY/MM/DD'), valueType);
           return value.format('YYYY/MM/DD HH:mm:ss');
         }}
         headerTitle="表单赋值"
@@ -736,8 +734,7 @@ describe('BasicTable Search', () => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
     await waitForComponentToPaint(html, 1400);
-    expect(fn1).toHaveBeenLastCalledWith('2020/09/11', 'dateTime');
-    expect(fn2).toBeCalledWith('2020/09/11 00:00:00');
+    expect(fn2).toBeCalledWith('2020-09-11 00:00:00');
     act(() => {
       html.unmount();
     });
