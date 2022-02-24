@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.55.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.54.0...@ant-design/pro-form@1.55.0) (2022-02-24)
+
+### Bug Fixes
+
+- **form:** initialValue no cover ([0669ddd](https://github.com/ant-design/pro-components/commit/0669ddd4a6f29d92cb37353e66b03c0b42ebef0f))
+- 🐛 live code error ([#4690](https://github.com/ant-design/pro-components/issues/4690)) ([6ebd33b](https://github.com/ant-design/pro-components/commit/6ebd33bbf04bb19f98ba21da8a34eb66c039ecad))
+
+### Features
+
+- **form:** ProFormList 支持设置 min 和 max 控制条目数量 ([#4684](https://github.com/ant-design/pro-components/issues/4684)) ([0e648d4](https://github.com/ant-design/pro-components/commit/0e648d44f595f27eacd2a8d5f30634e29619683a))
+
 # [1.54.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.7...@ant-design/pro-form@1.54.0) (2022-02-21)
 
 ### Bug Fixes
