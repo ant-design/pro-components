@@ -61,6 +61,11 @@ const msMoneyIntl = {
   currency: 'MYR',
 };
 
+const ptMoneyIntl = {
+  style: 'currency',
+  currency: 'BRL',
+};
+
 const intlMap = {
   default: defaultMoneyIntl,
   'zh-Hans-CN': {
@@ -71,6 +76,7 @@ const intlMap = {
   'ru-RU': ruMoneyIntl,
   'ms-MY': msMoneyIntl,
   'sr-RS': rsMoneyIntl,
+  'pt-BR': ptMoneyIntl,
 };
 
 const getTextByLocale = (
