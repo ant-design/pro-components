@@ -60,8 +60,13 @@ const getSpanConfig = (
       layout,
     };
   }
+
   const spanConfig = span
-    ? Object.keys(span).map((key) => [CONFIG_SPAN_BREAKPOINTS[key], 24 / span[key], 'horizontal'])
+    ? ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].map((key) => [
+        CONFIG_SPAN_BREAKPOINTS[key],
+        24 / span[key],
+        'horizontal',
+      ])
     : BREAKPOINTS[layout || 'default'];
 
   const breakPoint = (spanConfig || BREAKPOINTS.default).find(
