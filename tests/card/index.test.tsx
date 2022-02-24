@@ -3,7 +3,6 @@ import React from 'react';
 import ProCard from '@ant-design/pro-card';
 import { waitForComponentToPaint } from '../util';
 import { act } from 'react-dom/test-utils';
-import { Grid } from 'antd';
 
 jest.mock('antd/lib/grid/hooks/useBreakpoint');
 

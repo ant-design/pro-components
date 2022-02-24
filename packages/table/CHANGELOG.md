@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.64.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.64.0...@ant-design/pro-table@2.64.1) (2022-02-24)
+
+### Bug Fixes
+
+- **table:** fix page=1, no reset pageIndex ([62b3188](https://github.com/ant-design/pro-components/commit/62b31889f179d57e373040151ea02925b0c220b2))
+- **table:** fix page=1, no reset pageIndex ([3ae828d](https://github.com/ant-design/pro-components/commit/3ae828d68402bb732f7f161401e7be025cc36d26))
+
 # [2.64.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.63.7...@ant-design/pro-table@2.64.0) (2022-02-21)
 
 ### Bug Fixes
