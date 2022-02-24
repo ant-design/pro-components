@@ -559,7 +559,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsPagination, action, intl]);
 
-  useEffect(() => {
+  useDeepCompareEffect(() => {
     // request 存在且params不为空，且已经请求过数据才需要设置。
     if (props.request && params && action.dataSource) {
       action.setPageInfo({
