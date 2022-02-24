@@ -84,7 +84,7 @@ describe('BasicTable', () => {
 
     expect(pageSizeOnchange).toBeCalledWith(10);
 
-    html.setProps({ params: { keyword: 'test' } });
+    html.setProps({ params: { keyword: 'test2' } });
 
     await waitForComponentToPaint(html, 1000);
 
