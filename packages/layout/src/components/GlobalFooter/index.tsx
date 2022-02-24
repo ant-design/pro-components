@@ -3,7 +3,7 @@ import './index.less';
 import React, { useContext } from 'react';
 import type { WithFalse } from '../../typings';
 import { ConfigProvider } from 'antd';
-import { css, cx } from '@emotion/css';
+import { css, cx } from '../../emotion';
 
 export type GlobalFooterProps = {
   links?: WithFalse<

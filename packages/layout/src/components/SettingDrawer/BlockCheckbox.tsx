@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { Tooltip } from 'antd';
 import { CheckOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
-import { css, cx } from '@emotion/css';
+import { css, cx } from '../../emotion';
 
 export type BlockCheckboxProps = {
   value: string;

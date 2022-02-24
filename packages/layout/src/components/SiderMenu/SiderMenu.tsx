@@ -6,7 +6,6 @@ import { Avatar, Layout, Menu, ConfigProvider, Space } from 'antd';
 import classNames from 'classnames';
 import type { SiderProps } from 'antd/lib/layout/Sider';
 import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import { cx, css, keyframes } from '@emotion/css';
 import type { WithFalse } from '../../typings';
 import type { BaseMenuProps } from './BaseMenu';
 import { BaseMenu } from './BaseMenu';
@@ -15,6 +14,8 @@ import type { HeaderViewProps } from '../../Header';
 import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import { ArrowSvgIcon } from './Arrow';
+
+import { cx, css, keyframes } from '../../emotion';
 
 const { Sider } = Layout;
 

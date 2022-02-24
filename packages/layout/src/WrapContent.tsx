@@ -4,7 +4,7 @@ import React from 'react';
 import { ConfigProvider, Layout } from 'antd';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 import { ErrorBoundary } from '@ant-design/pro-utils';
-import { cx, css } from '@emotion/css';
+import { cx, css } from './emotion';
 
 const WrapContent: React.FC<{
   isChildrenLayout?: boolean;

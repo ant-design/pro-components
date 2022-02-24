@@ -7,7 +7,7 @@ import { BaseMenu } from '../SiderMenu/BaseMenu';
 import type { GlobalHeaderProps } from '../GlobalHeader';
 import { Avatar, ConfigProvider } from 'antd';
 import { AppsLogoComponents } from '../AppsLogoComponents';
-import { css, cx } from '@emotion/css';
+import { css, cx } from '../../emotion';
 import { useDebounceFn } from '@ant-design/pro-utils';
 
 export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;

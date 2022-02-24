@@ -37,7 +37,7 @@ import { clearMenuItem } from './utils/utils';
 import type { WaterMarkProps } from './components/WaterMark';
 import { ConfigProviderWrap } from '@ant-design/pro-provider';
 
-import { cx, css } from '@emotion/css';
+import { cx, css } from './emotion';
 
 const ProLayoutCss = css`
   // BFC

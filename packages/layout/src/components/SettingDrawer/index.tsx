@@ -22,7 +22,7 @@ import { gLocaleObject, getLanguage } from '../../locales';
 import { LayoutSetting, renderLayoutSettingItem } from './LayoutChange';
 import { RegionalSetting } from './RegionalChange';
 import { genStringToTheme } from '../../utils/utils';
-import { cx, css } from '@emotion/css';
+import { cx, css } from '../../emotion';
 
 type BodyProps = {
   title: string;

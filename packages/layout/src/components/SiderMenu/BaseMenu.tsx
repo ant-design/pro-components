@@ -11,7 +11,7 @@ import { getOpenKeysFromMenuData } from '../../utils/utils';
 import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } from '../../typings';
 import { MenuCounter } from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
-import { css, cx } from '@emotion/css';
+import { cx, css } from '../../emotion';
 
 // todo
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';

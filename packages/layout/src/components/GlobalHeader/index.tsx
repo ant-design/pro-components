@@ -9,7 +9,7 @@ import type { MenuDataItem } from '../../index';
 import type { WithFalse } from '../../typings';
 import { clearMenuItem } from '../../utils/utils';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
-import { css, cx } from '@emotion/css';
+import { css, cx } from '../../emotion';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;

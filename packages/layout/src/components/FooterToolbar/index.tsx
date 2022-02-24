@@ -5,7 +5,7 @@ import { ConfigProvider } from 'antd';
 import omit from 'omit.js';
 import type { RouteContextType } from '../../index';
 import { RouteContext } from '../../index';
-import { css, cx } from '@emotion/css';
+import { css, cx } from '../../emotion';
 
 export type FooterToolbarProps = {
   extra?: React.ReactNode;

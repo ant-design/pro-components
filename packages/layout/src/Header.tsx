@@ -7,7 +7,7 @@ import { TopNavHeader } from './components/TopNavHeader';
 import type { WithFalse } from './typings';
 import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { clearMenuItem } from './utils/utils';
-import { css, cx } from '@emotion/css';
+import { cx, css } from './emotion';
 
 const { Header } = Layout;
 

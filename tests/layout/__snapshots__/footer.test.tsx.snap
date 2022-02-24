@@ -13,7 +13,7 @@ exports[`DefaultFooter test 🦶 links support false 1`] = `
   style="padding:0"
 >
   <div
-    class="ant-pro-global-footer css-i69sqo"
+    class="ant-pro-global-footer ant-design-pro-layout-i69sqo"
   >
     <div
       class="ant-pro-global-footer-copyright"

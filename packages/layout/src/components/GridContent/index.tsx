@@ -4,7 +4,7 @@ import { ConfigProvider } from 'antd';
 
 import { RouteContext } from '../../RouteContext';
 import type { PureSettings } from '../../defaultSettings';
-import { css, cx } from '@emotion/css';
+import { css, cx } from '../../emotion';
 
 type GridContentProps = {
   contentWidth?: PureSettings['contentWidth'];

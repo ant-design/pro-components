@@ -2,7 +2,7 @@
 
 exports[`mobile BasicLayout 📱 base use 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-qi6myi"
 >
   <section
     class="ant-layout"
@@ -34,17 +34,17 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <div
-                  class="css-1bredbg"
+                  class="ant-design-pro-layout-1bredbg"
                 />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-1ckx0yp"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1ckx0yp"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-pro-sider-logo css-1ly2eay"
+                      class="ant-pro-sider-logo ant-design-pro-layout-1ly2eay"
                       id="logo"
                     >
                       <a>
@@ -183,14 +183,14 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1njfd7u"
                         data-menu-list="true"
                         role="menu"
                         style="width:100%"
                         tabindex="0"
                       >
                         <li
-                          class="ant-pro-menu-submenu css-22u8dk"
+                          class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
                           role="none"
                         >
                           <div
@@ -223,7 +223,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                       />
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-mijcvg"
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-mijcvg"
                     >
                       <svg
                         aria-hidden="true"
@@ -251,7 +251,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
       style="position:relative"
     >
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       />
     </div>
   </section>
@@ -260,7 +260,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
 
 exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-qi6myi"
 >
   <section
     class="ant-layout"
@@ -292,17 +292,17 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <div
-                  class="css-1bredbg"
+                  class="ant-design-pro-layout-1bredbg"
                 />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-1ckx0yp"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1ckx0yp"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-pro-sider-logo css-1ly2eay"
+                      class="ant-pro-sider-logo ant-design-pro-layout-1ly2eay"
                       id="logo"
                     >
                       <a>
@@ -441,14 +441,14 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1njfd7u"
                         data-menu-list="true"
                         role="menu"
                         style="width:100%"
                         tabindex="0"
                       >
                         <li
-                          class="ant-pro-menu-submenu css-22u8dk"
+                          class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
                           role="none"
                         >
                           <div
@@ -481,7 +481,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                       />
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-mijcvg"
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-mijcvg"
                     >
                       <svg
                         aria-hidden="true"
@@ -509,7 +509,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
       style="position:relative"
     >
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       />
     </div>
   </section>
@@ -518,7 +518,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
 
 exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-qi6myi"
 >
   <section
     class="ant-layout"
@@ -550,17 +550,17 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <div
-                  class="css-1bredbg"
+                  class="ant-design-pro-layout-1bredbg"
                 />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-1s7f4hx"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1s7f4hx"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-pro-sider-logo css-1ly2eay"
+                      class="ant-pro-sider-logo ant-design-pro-layout-1ly2eay"
                       id="logo"
                     >
                       title
@@ -569,14 +569,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1njfd7u"
                         data-menu-list="true"
                         role="menu"
                         style="width:100%"
                         tabindex="0"
                       >
                         <li
-                          class="ant-pro-menu-submenu css-22u8dk"
+                          class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
                           role="none"
                         >
                           <div
@@ -609,7 +609,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                       />
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-5jsr18"
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-5jsr18"
                     >
                       <svg
                         aria-hidden="true"
@@ -641,14 +641,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
         style="height:56px;line-height:56px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header ant-pro-header css-rrbx5t"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-rrbx5t"
       >
         <div
-          class="ant-pro-global-header ant-pro-global-header-layout-mix css-1n57u1k"
+          class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
         >
           title
           <span
-            class="ant-pro-global-header-collapsed-button css-1v1t0hf"
+            class="ant-pro-global-header-collapsed-button ant-design-pro-layout-1v1t0hf"
           >
             <span
               aria-label="menu-unfold"
@@ -676,7 +676,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
         </div>
       </header>
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       />
     </div>
   </section>
@@ -685,7 +685,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
 
 exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-qi6myi"
 >
   <section
     class="ant-layout"
@@ -717,17 +717,17 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <div
-                  class="css-1bredbg"
+                  class="ant-design-pro-layout-1bredbg"
                 />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-1s7f4hx"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1s7f4hx"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
                     class="ant-layout-sider-children"
                   >
                     <div
-                      class="ant-pro-sider-logo css-1ly2eay"
+                      class="ant-pro-sider-logo ant-design-pro-layout-1ly2eay"
                       id="logo"
                     >
                       title
@@ -736,14 +736,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1njfd7u"
                         data-menu-list="true"
                         role="menu"
                         style="width:100%"
                         tabindex="0"
                       >
                         <li
-                          class="ant-pro-menu-submenu css-22u8dk"
+                          class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
                           role="none"
                         >
                           <div
@@ -776,7 +776,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                       />
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-5jsr18"
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-5jsr18"
                     >
                       <svg
                         aria-hidden="true"
@@ -808,14 +808,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
         style="height:56px;line-height:56px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header ant-pro-header css-rrbx5t"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-rrbx5t"
       >
         <div
-          class="ant-pro-global-header ant-pro-global-header-layout-mix css-1n57u1k"
+          class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
         >
           title
           <span
-            class="ant-pro-global-header-collapsed-button css-1v1t0hf"
+            class="ant-pro-global-header-collapsed-button ant-design-pro-layout-1v1t0hf"
           >
             <span
               aria-label="menu-unfold"
@@ -843,7 +843,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
         </div>
       </header>
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       />
     </div>
   </section>
@@ -852,7 +852,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
 
 exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-qi6myi"
 >
   <section
     class="ant-layout"
@@ -884,10 +884,10 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <div
-                  class="css-1bredbg"
+                  class="ant-design-pro-layout-1bredbg"
                 />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-1s7f4hx"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1s7f4hx"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
@@ -897,14 +897,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1njfd7u"
                         data-menu-list="true"
                         role="menu"
                         style="width:100%"
                         tabindex="0"
                       >
                         <li
-                          class="ant-pro-menu-submenu css-22u8dk"
+                          class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
                           role="none"
                         >
                           <div
@@ -937,7 +937,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                       />
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-5jsr18"
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-5jsr18"
                     >
                       <svg
                         aria-hidden="true"
@@ -969,13 +969,13 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
         style="height:56px;line-height:56px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header ant-pro-header css-rrbx5t"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-rrbx5t"
       >
         <div
-          class="ant-pro-global-header ant-pro-global-header-layout-mix css-1n57u1k"
+          class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
         >
           <span
-            class="ant-pro-global-header-collapsed-button css-1v1t0hf"
+            class="ant-pro-global-header-collapsed-button ant-design-pro-layout-1v1t0hf"
           >
             <span
               aria-label="menu-unfold"
@@ -1003,7 +1003,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
         </div>
       </header>
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       />
     </div>
   </section>
@@ -1012,7 +1012,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
 
 exports[`mobile BasicLayout 📱 layout=mix 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-qi6myi"
 >
   <section
     class="ant-layout"
@@ -1044,10 +1044,10 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <div
-                  class="css-1bredbg"
+                  class="ant-design-pro-layout-1bredbg"
                 />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-1s7f4hx"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1s7f4hx"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
@@ -1057,14 +1057,14 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1njfd7u"
                         data-menu-list="true"
                         role="menu"
                         style="width:100%"
                         tabindex="0"
                       >
                         <li
-                          class="ant-pro-menu-submenu css-22u8dk"
+                          class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
                           role="none"
                         >
                           <div
@@ -1097,7 +1097,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                       />
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-mijcvg"
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-mijcvg"
                     >
                       <svg
                         aria-hidden="true"
@@ -1129,13 +1129,13 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
         style="height:56px;line-height:56px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-rrbx5t"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-rrbx5t"
       >
         <div
-          class="ant-pro-global-header ant-pro-global-header-layout-mix css-1n57u1k"
+          class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
         >
           <span
-            class="ant-pro-global-header-logo css-neqn59"
+            class="ant-pro-global-header-logo ant-design-pro-layout-neqn59"
           >
             <a>
               <svg
@@ -1267,7 +1267,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
             </a>
           </span>
           <span
-            class="ant-pro-global-header-collapsed-button css-1v1t0hf"
+            class="ant-pro-global-header-collapsed-button ant-design-pro-layout-1v1t0hf"
           >
             <span
               aria-label="menu-fold"
@@ -1295,7 +1295,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
         </div>
       </header>
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       />
     </div>
   </section>
@@ -1304,7 +1304,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
 
 exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix css-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-xs ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-qi6myi"
 >
   <section
     class="ant-layout"
@@ -1336,10 +1336,10 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                 style="height:100vh;padding:0;display:flex;flex-direction:row"
               >
                 <div
-                  class="css-1bredbg"
+                  class="ant-design-pro-layout-1bredbg"
                 />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light css-1s7f4hx"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-1s7f4hx"
                   style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
                 >
                   <div
@@ -1349,14 +1349,14 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu css-1njfd7u"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1njfd7u"
                         data-menu-list="true"
                         role="menu"
                         style="width:100%"
                         tabindex="0"
                       >
                         <li
-                          class="ant-pro-menu-submenu css-22u8dk"
+                          class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
                           role="none"
                         >
                           <div
@@ -1389,7 +1389,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                       />
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button css-mijcvg"
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-mijcvg"
                     >
                       <svg
                         aria-hidden="true"
@@ -1421,13 +1421,13 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
         style="height:56px;line-height:56px;background:transparent"
       />
       <header
-        class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header css-rrbx5t"
+        class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-rrbx5t"
       >
         <div
-          class="ant-pro-global-header ant-pro-global-header-layout-mix css-1n57u1k"
+          class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
         >
           <span
-            class="ant-pro-global-header-logo css-neqn59"
+            class="ant-pro-global-header-logo ant-design-pro-layout-neqn59"
           >
             <a>
               <svg
@@ -1559,7 +1559,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
             </a>
           </span>
           <span
-            class="ant-pro-global-header-collapsed-button css-1v1t0hf"
+            class="ant-pro-global-header-collapsed-button ant-design-pro-layout-1v1t0hf"
           >
             <span
               aria-label="menu-fold"
@@ -1587,7 +1587,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
         </div>
       </header>
       <main
-        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header css-1asytq3"
+        class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       />
     </div>
   </section>
