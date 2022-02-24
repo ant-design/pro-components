@@ -9971,31 +9971,22 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-layout-watermark-wrapper"
-                    style="position: relative;"
+                    class="ant-pro-page-container-children-content"
                   >
                     <div
-                      class="ant-pro-page-container-children-content"
+                      class="ant-pro-card"
+                      style="height: 200vh; min-height: 800px;"
                     >
                       <div
-                        class="ant-pro-card"
-                        style="height: 120vh; min-height: 600px;"
+                        class="ant-pro-card-body"
                       >
-                        <div
-                          class="ant-pro-card-body"
-                        >
-                          <div />
-                        </div>
+                        <div />
                       </div>
                     </div>
-                    <div
-                      style="height: 48px; margin-top: 24px;"
-                    />
-                    <div
-                      class="ant-pro-layout-watermark"
-                      style="z-index: 9; position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-size: 332px; pointer-events: none; background-repeat: repeat; background-image: url(data:image/png;base64,00);"
-                    />
                   </div>
+                  <div
+                    style="height: 48px; margin-top: 24px;"
+                  />
                 </div>
               </div>
             </div>

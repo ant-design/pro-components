@@ -31,9 +31,6 @@ export default () => {
         menu={{
           type: 'group',
         }}
-        waterMarkProps={{
-          content: 'Pro Layout',
-        }}
         avatarProps={{
           src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
           size: 'small',
@@ -86,8 +83,8 @@ export default () => {
         >
           <ProCard
             style={{
-              height: '120vh',
-              minHeight: 600,
+              height: '200vh',
+              minHeight: 800,
             }}
           >
             <div />
