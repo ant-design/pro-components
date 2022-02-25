@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 
 import type { MenuDataItem } from '@ant-design/pro-layout';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
-import { Input } from 'antd';
+import { Input, Button, Space } from 'antd';
 import complexMenu from './complexMenu';
+import { PlusCircleFilled, SearchOutlined } from '@ant-design/icons';
 
 const filterByMenuDate = (data: MenuDataItem[], keyWord: string): MenuDataItem[] =>
   data
@@ -36,11 +37,36 @@ export default () => {
         }}
         menuExtraRender={({ collapsed }) =>
           !collapsed && (
-            <Input.Search
-              onSearch={(e) => {
-                setKeyWord(e);
+            <Space
+              style={{
+                marginTop: 16,
               }}
-            />
+            >
+              <Input
+                style={{
+                  borderRadius: 4,
+                  backgroundColor: 'rgba(0,0,0,0.03)',
+                }}
+                prefix={
+                  <SearchOutlined
+                    style={{
+                      color: 'rgba(0, 0, 0, 0.15)',
+                    }}
+                  />
+                }
+                placeholder="搜索方案"
+                bordered={false}
+                onPressEnter={(e) => {
+                  setKeyWord((e.target as HTMLInputElement).value);
+                }}
+              />
+              <PlusCircleFilled
+                style={{
+                  color: '#1677FF',
+                  fontSize: 24,
+                }}
+              />
+            </Space>
           )
         }
         menuDataRender={() => complexMenu}
