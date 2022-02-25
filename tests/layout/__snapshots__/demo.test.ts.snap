@@ -7431,7 +7431,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
           style="position: relative;"
         >
           <header
-            class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header ant-design-pro-layout-167gfby"
+            class="ant-layout-header ant-pro-fixed-header-action ant-pro-top-menu ant-pro-header ant-design-pro-layout-1b2exge"
           >
             <div
               class="ant-pro-top-nav-header light ant-design-pro-layout-q8kmqe"
@@ -9480,7 +9480,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             style="height: 56px; line-height: 56px; background: transparent;"
           />
           <header
-            class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-rrbx5t"
+            class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-15nnfzd"
           >
             <div
               class="ant-pro-top-nav-header light ant-design-pro-layout-q8kmqe"
@@ -12344,7 +12344,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-rrbx5t"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-15nnfzd"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
@@ -20041,7 +20041,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-rrbx5t"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-15nnfzd"
         >
           <div
             class="ant-pro-top-nav-header light ant-design-pro-layout-q8kmqe"
@@ -20461,7 +20461,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-rrbx5t"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-15nnfzd"
         >
           <div
             class="ant-pro-top-nav-header light ant-design-pro-layout-q8kmqe"
@@ -20862,7 +20862,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-rrbx5t"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-15nnfzd"
         >
           <div
             class="ant-pro-top-nav-header light ant-design-pro-layout-q8kmqe"
@@ -21391,7 +21391,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
             style="height: 56px; line-height: 56px; background: transparent;"
           />
           <header
-            class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-rrbx5t"
+            class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-15nnfzd"
           >
             <div
               class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"

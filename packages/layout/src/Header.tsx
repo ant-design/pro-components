@@ -87,7 +87,7 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
         &-item {
           padding: 0 8px;
           &:hover {
-            color: @primary-color;
+            color: #1890ff;
           }
         }
       }
