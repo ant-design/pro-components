@@ -26,6 +26,17 @@ describe('BasicLayout', () => {
     expect(wrapper.render()).toMatchSnapshot();
   });
 
+  it('🥩 support headerRender', async () => {
+    const wrapper = mount(
+      <BasicLayout layout="mix" headerRender={() => <div id="testid">testid</div>}>
+        XXX
+      </BasicLayout>,
+    );
+    await waitForComponentToPaint(wrapper);
+
+    expect(wrapper.find('#testid').exists()).toBeTruthy();
+  });
+
   it('🥩 do not render menu', async () => {
     const wrapper = mount(<BasicLayout menuRender={false} />);
     await waitForComponentToPaint(wrapper);
