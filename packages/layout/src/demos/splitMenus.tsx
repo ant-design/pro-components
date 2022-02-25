@@ -53,7 +53,9 @@ export default () => {
         style={{
           height: '100vh',
         }}
-      />
+      >
+        xxxx
+      </ProLayout>
       <SettingDrawer collapse />
     </>
   );

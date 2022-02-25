@@ -21243,7 +21243,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         </header>
         <main
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
-        />
+        >
+          xxxx
+        </main>
       </div>
     </section>
   </div>
