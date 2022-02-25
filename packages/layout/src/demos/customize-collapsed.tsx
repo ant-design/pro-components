@@ -8,7 +8,7 @@ import defaultProps from './_defaultProps';
 
 export default () => {
   const [pathname, setPathname] = useState('/welcome');
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const [position, setPosition] = useState<'header' | 'menu'>('header');
   const children = (
     <PageContainer>

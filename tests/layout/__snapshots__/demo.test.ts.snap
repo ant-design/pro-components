@@ -12123,7 +12123,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
       />
       <aside
         class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-1s7f4hx"
-        style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+        style="background-color: transparent; max-width: 216px; min-width: 216px; width: 216px; flex: 0 0 216px;"
       >
         <div
           class="ant-layout-sider-children"
