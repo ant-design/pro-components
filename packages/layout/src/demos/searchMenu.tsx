@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import type { MenuDataItem } from '@ant-design/pro-layout';
 import ProLayout, { PageContainer } from '@ant-design/pro-layout';
-import { Input, Button, Space } from 'antd';
+import { Input, Space } from 'antd';
 import complexMenu from './complexMenu';
 import { PlusCircleFilled, SearchOutlined } from '@ant-design/icons';
 
@@ -41,6 +41,7 @@ export default () => {
               style={{
                 marginTop: 16,
               }}
+              align="center"
             >
               <Input
                 style={{

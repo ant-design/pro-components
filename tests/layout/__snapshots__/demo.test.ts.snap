@@ -9818,7 +9818,71 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       class="ant-pro-header-actions ant-design-pro-layout-1thgah9"
                     >
                       <span
-                        class="ant-pro-header-actions-item ant-design-pro-layout-1st06xa"
+                        class="ant-pro-header-actions-item ant-design-pro-layout-75dulu"
+                      >
+                        <div
+                          aria-hidden="true"
+                          style="display: flex; align-items: center; margin-right: 24px;"
+                        >
+                          <span
+                            class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
+                            style="border-radius: 4px; margin-right: 12px; background-color: rgba(0, 0, 0, 0.03);"
+                          >
+                            <span
+                              class="ant-input-prefix"
+                            >
+                              <span
+                                aria-label="search"
+                                class="anticon anticon-search"
+                                role="img"
+                                style="color: rgba(0, 0, 0, 0.15);"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="search"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                                  />
+                                </svg>
+                              </span>
+                            </span>
+                            <input
+                              class="ant-input ant-input-borderless"
+                              placeholder="搜索方案"
+                              type="text"
+                              value=""
+                            />
+                          </span>
+                          <span
+                            aria-label="plus-circle"
+                            class="anticon anticon-plus-circle"
+                            role="img"
+                            style="color: rgb(22, 119, 255); font-size: 24px;"
+                          >
+                            <svg
+                              aria-hidden="true"
+                              data-icon="plus-circle"
+                              fill="currentColor"
+                              focusable="false"
+                              height="1em"
+                              viewBox="64 64 896 896"
+                              width="1em"
+                            >
+                              <path
+                                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm192 472c0 4.4-3.6 8-8 8H544v152c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V544H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h152V328c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v152h152c4.4 0 8 3.6 8 8v48z"
+                              />
+                            </svg>
+                          </span>
+                        </div>
+                      </span>
+                      <span
+                        class="ant-pro-header-actions-item ant-design-pro-layout-1mu81ss"
                       >
                         <span
                           aria-label="info-circle"
@@ -9841,7 +9905,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </span>
                       </span>
                       <span
-                        class="ant-pro-header-actions-item ant-design-pro-layout-1st06xa"
+                        class="ant-pro-header-actions-item ant-design-pro-layout-1mu81ss"
                       >
                         <span
                           aria-label="question-circle"
@@ -9864,7 +9928,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         </span>
                       </span>
                       <span
-                        class="ant-pro-header-actions-item ant-design-pro-layout-1st06xa"
+                        class="ant-pro-header-actions-item ant-design-pro-layout-1mu81ss"
                       >
                         <span
                           aria-label="github"

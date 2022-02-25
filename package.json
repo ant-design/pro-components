@@ -39,7 +39,7 @@
     "@types/react-dom": "^16.9.1",
     "prettier": "2.x",
     "typescript": "4.x",
-    "rc-menu":"^9.3.1"
+    "rc-menu": "^9.3.1"
   },
   "devDependencies": {
     "@ant-design/icons": "^4.6.2",
@@ -48,6 +48,7 @@
     "@babel/preset-env": "^7.16.4",
     "@babel/preset-react": "^7.16.0",
     "@babel/preset-typescript": "^7.8.3",
+    "@emotion/babel-plugin": "^11.7.2",
     "@octokit/core": "^3.2.5",
     "@size-limit/preset-big-lib": "^7.0.8",
     "@testing-library/react": "^12.1.2",

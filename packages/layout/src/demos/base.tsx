@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { Button } from 'antd';
-import { GithubFilled, QuestionCircleFilled, InfoCircleFilled } from '@ant-design/icons';
+import { Button, Input } from 'antd';
+import {
+  GithubFilled,
+  QuestionCircleFilled,
+  InfoCircleFilled,
+  SearchOutlined,
+  PlusCircleFilled,
+} from '@ant-design/icons';
 
 import type { ProSettings } from '@ant-design/pro-layout';
 import { ProLayout, PageContainer, SettingDrawer } from '@ant-design/pro-layout';
@@ -37,6 +43,42 @@ export default () => {
           title: '七妮妮',
         }}
         actionsRender={() => [
+          <div
+            key="SearchOutlined"
+            aria-hidden
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              marginRight: 24,
+            }}
+            onMouseDown={(e) => {
+              e.stopPropagation();
+              e.preventDefault();
+            }}
+          >
+            <Input
+              style={{
+                borderRadius: 4,
+                marginRight: 12,
+                backgroundColor: 'rgba(0,0,0,0.03)',
+              }}
+              prefix={
+                <SearchOutlined
+                  style={{
+                    color: 'rgba(0, 0, 0, 0.15)',
+                  }}
+                />
+              }
+              placeholder="搜索方案"
+              bordered={false}
+            />
+            <PlusCircleFilled
+              style={{
+                color: '#1677FF',
+                fontSize: 24,
+              }}
+            />
+          </div>,
           <InfoCircleFilled key="InfoCircleFilled" />,
           <QuestionCircleFilled key="QuestionCircleFilled" />,
           <GithubFilled key="GithubFilled" />,

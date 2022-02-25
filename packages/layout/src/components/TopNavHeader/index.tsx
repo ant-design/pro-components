@@ -58,30 +58,40 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
           `,
         )}
       >
-        {doms.map((dom, index) => (
-          <span
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            className={cx(
-              `${prefixCls}-header-actions-item`,
-              css`
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding: 6px 12px;
-                font-size: 16px;
-                color: rgba(0, 0, 0, 0.45);
-                cursor: pointer;
-                border-radius: 4px;
-                &:hover {
-                  background-color: rgba(0, 0, 0, 0.03);
-                }
-              `,
-            )}
-          >
-            {dom}
-          </span>
-        ))}
+        {doms.map((dom, index) => {
+          let hideHover = false;
+          // 如果配置了 hideHover 就不展示 hover 效果了
+          if (React.isValidElement(dom)) {
+            hideHover = !!dom?.props?.['aria-hidden'];
+          }
+          return (
+            <span
+              // eslint-disable-next-line react/no-array-index-key
+              key={index}
+              className={cx(
+                `${prefixCls}-header-actions-item`,
+                css`
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  padding: 0px 12px;
+                  font-size: 16px;
+                  color: rgba(0, 0, 0, 0.45);
+                  cursor: pointer;
+                  border-radius: 4px;
+                `,
+                !hideHover &&
+                  css`
+                    &:hover {
+                      background-color: rgba(0, 0, 0, 0.03);
+                    }
+                  `,
+              )}
+            >
+              {dom}
+            </span>
+          );
+        })}
         {avatarDom && (
           <span
             className={cx(

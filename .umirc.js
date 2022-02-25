@@ -126,6 +126,7 @@ export default {
     '@s-site-menu-width': '258px',
     '@root-entry-name': 'variable',
   },
+  extraBabelPlugins: ['@emotion'],
   ignoreMomentLocale: true,
   menus: {
     '/components': [
