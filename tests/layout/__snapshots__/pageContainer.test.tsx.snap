@@ -472,7 +472,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
               </div>
             </div>
             <div
-              class="ant-pro-top-nav-header-menu ant-design-pro-layout-fjparg"
+              class="ant-pro-top-nav-header-menu ant-design-pro-layout-1omcxtl"
               style="flex: 1;"
             />
           </div>
@@ -796,7 +796,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
               </div>
             </div>
             <div
-              class="ant-pro-top-nav-header-menu ant-design-pro-layout-fjparg"
+              class="ant-pro-top-nav-header-menu ant-design-pro-layout-1omcxtl"
               style="flex: 1;"
             />
           </div>

@@ -28,6 +28,9 @@ export type GlobalHeaderProps = {
   splitMenus?: boolean;
   /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
   actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
+  headerContentRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
 } & Partial<PureSettings>;
 
 const renderLogo = (
@@ -91,7 +94,8 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
         `${baseClassName}-logo`,
         css`
           position: relative;
-          min-width: 216px;
+          min-width: 154px;
+          margin-right: ${isMobile ? '0' : '16px'};
           a {
             display: flex;
             align-items: center;
@@ -169,7 +173,8 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
               `${baseClassName}-logo`,
               css`
                 position: relative;
-                min-width: 216px;
+                min-width: 156px;
+                margin-right: ${isMobile ? '0' : '16px'};
                 a {
                   display: flex;
                   align-items: center;

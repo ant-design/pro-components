@@ -1135,7 +1135,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
           class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
         >
           <span
-            class="ant-pro-global-header-logo ant-design-pro-layout-neqn59"
+            class="ant-pro-global-header-logo ant-design-pro-layout-1coqekw"
           >
             <a>
               <svg
@@ -1427,7 +1427,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
           class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
         >
           <span
-            class="ant-pro-global-header-logo ant-design-pro-layout-neqn59"
+            class="ant-pro-global-header-logo ant-design-pro-layout-1coqekw"
           >
             <a>
               <svg

@@ -22,6 +22,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
   prefixCls,
   avatarProps,
   actionsRender,
+  headerContentRender,
   ...props
 }) => {
   const [rightSize, setRightSize] = useState<number | string>('auto');
@@ -165,6 +166,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     style,
     layout,
     actionsRender,
+    headerContentRender,
   } = props;
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const antdPreFix = getPrefixCls();
@@ -175,6 +177,14 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     { ...props, collapsed: false },
     layout === 'mix' ? 'headerTitleRender' : undefined,
   );
+
+  const contentDom = useMemo(() => {
+    const defaultDom = <BaseMenu theme="light" {...props} {...props.menuProps} />;
+    if (headerContentRender) {
+      return headerContentRender(props, defaultDom);
+    }
+    return defaultDom;
+  }, [headerContentRender, props]);
 
   return (
     <div
@@ -275,6 +285,8 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
             `${prefixCls}-menu`,
             css`
               min-width: 0;
+              display: flex;
+              align-items: center;
               .${antdPreFix}-menu.${antdPreFix}-menu-horizontal {
                 height: 100%;
                 border: none;
@@ -282,7 +294,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
             `,
           )}
         >
-          <BaseMenu theme="light" {...props} {...props.menuProps} />
+          {contentDom}
         </div>
         {(rightContentRender || actionsRender) && (
           <RightContent rightContentRender={rightContentRender} {...props} />
