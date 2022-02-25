@@ -157,7 +157,7 @@ export default () => {
               >
                 <Divider
                   style={{
-                    height: '1.2em',
+                    height: '1.5em',
                   }}
                   type="vertical"
                 />

@@ -9653,7 +9653,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     <div
                       class="ant-divider ant-divider-vertical"
                       role="separator"
-                      style="height: 1.2em;"
+                      style="height: 1.5em;"
                     />
                     <div
                       class="ant-dropdown-trigger css-u94877"
