@@ -10,6 +10,7 @@ import type { WithFalse } from '../../typings';
 import { clearMenuItem } from '../../utils/utils';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import { css, cx } from '../../emotion';
+import type { AvatarProps } from 'antd';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;
@@ -28,6 +29,13 @@ export type GlobalHeaderProps = {
   splitMenus?: boolean;
   /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
   actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
+
+  /** 头像的设置 */
+  avatarProps?: WithFalse<
+    AvatarProps & {
+      title?: React.ReactNode;
+    }
+  >;
   headerContentRender?: WithFalse<
     (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
   >;
@@ -202,7 +210,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
         </>
       )}
       <div style={{ flex: 1 }}>{children}</div>
-      {(rightContentRender || props.actionsRender) && (
+      {(rightContentRender || props.actionsRender || props.avatarProps) && (
         <RightContent rightContentRender={rightContentRender} {...props} />
       )}
     </div>

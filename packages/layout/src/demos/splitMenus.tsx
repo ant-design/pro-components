@@ -56,7 +56,27 @@ export default () => {
           height: '100vh',
         }}
       />
-
+      <ProLayout
+        {...defaultProps}
+        layout="mix"
+        menuHeaderRender={() => null}
+        splitMenus
+        fixSiderbar
+        location={{
+          pathname: '/welcome',
+        }}
+        contentWidth="Fixed"
+        openKeys={false}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          size: 'small',
+        }}
+        style={{
+          height: '100vh',
+        }}
+      >
+        xxxx
+      </ProLayout>
       <ProLayout
         {...defaultProps}
         layout="mix"
@@ -68,10 +88,6 @@ export default () => {
         }}
         contentWidth="Fixed"
         openKeys={false}
-        avatarProps={{
-          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
-          size: 'small',
-        }}
         style={{
           height: '100vh',
         }}

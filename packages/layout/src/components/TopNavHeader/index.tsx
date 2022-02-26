@@ -48,7 +48,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
   const rightActionsRender = (restParams: any) => {
     let doms = actionsRender && actionsRender?.(restParams);
 
-    if (!doms) return null;
+    if (!doms && !avatarDom) return null;
     if (!Array.isArray(doms)) doms = [doms];
     return (
       <div
@@ -56,10 +56,11 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
           `${prefixCls}-header-actions`,
           css`
             display: flex;
+            height: 100%;
           `,
         )}
       >
-        {doms.map((dom, index) => {
+        {doms.filter(Boolean).map((dom, index) => {
           let hideHover = false;
           // 如果配置了 hideHover 就不展示 hover 效果了
           if (React.isValidElement(dom)) {
@@ -127,9 +128,14 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
       className={`${prefixCls}-right-content`}
       style={{
         minWidth: rightSize,
+        height: '100%',
       }}
     >
-      <div>
+      <div
+        style={{
+          height: '100%',
+        }}
+      >
         <ResizeObserver
           onResize={({ width }: { width: number }) => {
             setRightSizeDebounceFn.run(width);
@@ -140,6 +146,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
               style={{
                 display: 'flex',
                 alignItems: 'center',
+                height: '100%',
               }}
             >
               {(rightContentRender || rightActionsRender)({
@@ -296,7 +303,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
         >
           {contentDom}
         </div>
-        {(rightContentRender || actionsRender) && (
+        {(rightContentRender || actionsRender || props.avatarProps) && (
           <RightContent rightContentRender={rightContentRender} {...props} />
         )}
       </div>
