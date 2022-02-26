@@ -1,6 +1,7 @@
 import React from 'react';
 import ProLayout, { SettingDrawer } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
+import { PageContainer } from '../components/PageContainer';
 
 export default () => {
   return (
@@ -75,7 +76,7 @@ export default () => {
           height: '100vh',
         }}
       >
-        xxxx
+        <PageContainer>xxxx</PageContainer>
       </ProLayout>
       <SettingDrawer collapse />
     </>

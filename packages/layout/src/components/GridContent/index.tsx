@@ -29,6 +29,7 @@ const GridContent: React.FC<GridContentProps> = (props) => {
   const contentWidth = propsContentWidth || value.contentWidth;
   const className = `${prefixCls}-grid-content`;
   const isWide = contentWidth === 'Fixed';
+
   return (
     <div
       className={cx(

@@ -21531,7 +21531,45 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
         <main
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
-          xxxx
+          <div
+            class="ant-pro-page-container ant-pro-page-container-ghost"
+          >
+            <div
+              class="ant-pro-page-container-warp"
+            >
+              <div
+                class="ant-page-header ant-page-header-ghost"
+              >
+                <div
+                  class="ant-page-header-heading"
+                >
+                  <div
+                    class="ant-page-header-heading-left"
+                  >
+                    <span
+                      class="ant-page-header-heading-title"
+                      title="欢迎"
+                    >
+                      欢迎
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="ant-pro-grid-content wide ant-design-pro-layout-17lrabp"
+            >
+              <div
+                class="ant-pro-grid-content-children"
+              >
+                <div
+                  class="ant-pro-page-container-children-content"
+                >
+                  xxxx
+                </div>
+              </div>
+            </div>
+          </div>
         </main>
       </div>
     </section>
