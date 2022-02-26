@@ -41,6 +41,22 @@ export default () => {
 
       <ProLayout
         {...defaultProps}
+        layout="top"
+        menuExtraRender={false}
+        menuHeaderRender={false}
+        headerTheme="light"
+        navTheme="light"
+        location={{
+          pathname: '/welcome',
+        }}
+        rightContentRender={() => 'dom'}
+        style={{
+          height: '100vh',
+        }}
+      />
+
+      <ProLayout
+        {...defaultProps}
         layout="mix"
         menuHeaderRender={() => null}
         splitMenus
@@ -50,6 +66,10 @@ export default () => {
         }}
         contentWidth="Fixed"
         openKeys={false}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          size: 'small',
+        }}
         style={{
           height: '100vh',
         }}
