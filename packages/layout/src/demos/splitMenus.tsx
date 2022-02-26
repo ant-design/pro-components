@@ -60,7 +60,7 @@ export default () => {
         {...defaultProps}
         layout="mix"
         menuHeaderRender={() => null}
-        splitMenus
+        splitMenus={false}
         fixSiderbar
         location={{
           pathname: '/welcome',

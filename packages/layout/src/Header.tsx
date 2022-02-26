@@ -55,11 +55,13 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
       this.props;
     const isTop = layout === 'top';
     const clearMenuData = clearMenuItem(this.props.menuData || []);
+
     let defaultDom = (
       <GlobalHeader onCollapse={onCollapse} {...this.props} menuData={clearMenuData}>
-        {headerContentRender && headerContentRender(this.props, this.props.children)}
+        {headerContentRender && headerContentRender(this.props, null)}
       </GlobalHeader>
     );
+
     if (isTop && !isMobile) {
       defaultDom = (
         <TopNavHeader
@@ -76,6 +78,7 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
     }
     return defaultDom;
   };
+
   getHeaderActionsCss = () => {
     const propsClassName = this.props.className;
     return css`
@@ -99,6 +102,7 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
       }
     `;
   };
+
   render(): React.ReactNode {
     const {
       fixedHeader,
