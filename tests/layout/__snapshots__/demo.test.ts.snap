@@ -20864,7 +20864,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             class="ant-pro-top-nav-header light ant-design-pro-layout-q8kmqe"
           >
             <div
-              class="ant-pro-top-nav-header-main ant-design-pro-layout-17ldh9g"
+              class="ant-pro-top-nav-header-main wide ant-design-pro-layout-17ldh9g"
             >
               <div
                 class="ant-pro-top-nav-header-menu ant-design-pro-layout-1omcxtl"

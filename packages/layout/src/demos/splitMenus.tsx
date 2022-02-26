@@ -42,6 +42,7 @@ export default () => {
       <ProLayout
         {...defaultProps}
         layout="top"
+        contentWidth="Fixed"
         menuExtraRender={false}
         menuHeaderRender={false}
         headerTheme="light"
