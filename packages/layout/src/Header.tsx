@@ -106,16 +106,11 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
       className: propsClassName,
       style,
       collapsed,
-      siderWidth,
-      hasSiderMenu,
-      isMobile,
       prefixCls,
       headerHeight,
     } = this.props;
     const needFixedHeader = fixedHeader || layout === 'mix';
     const isTop = layout === 'top';
-
-    const needSettingWidth = needFixedHeader && hasSiderMenu && !isTop && !isMobile;
 
     const className = classNames(propsClassName, {
       [`${prefixCls}-fixed-header`]: needFixedHeader,
@@ -123,12 +118,6 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
       [`${prefixCls}-top-menu`]: isTop,
       [`${prefixCls}-header`]: true,
     });
-
-    /** 计算侧边栏的宽度，不然导致左边的样式会出问题 */
-    const width =
-      layout !== 'mix' && needSettingWidth
-        ? `calc(100% - ${collapsed ? 60 : siderWidth}px)`
-        : '100%';
 
     const right = needFixedHeader ? 0 : undefined;
 
@@ -154,7 +143,7 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
             css({
               height: headerHeight,
               lineHeight: `${headerHeight}px`,
-              width,
+              width: '100%',
               zIndex: layout === 'mix' ? 100 : 19,
               right,
               ...style,
