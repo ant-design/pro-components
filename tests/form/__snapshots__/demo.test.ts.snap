@@ -32367,7 +32367,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
         class="ant-design-pro-layout-1owsomx"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-ohtrxp"
+        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-6ppcqy"
         style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
       >
         <div
@@ -32377,14 +32377,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-12x36a8 ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-design-pro-layout-u5d5uf"
+                class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-design-pro-layout-1y72ou5"
                 role="none"
               >
                 <div
@@ -32441,7 +32441,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-u0m9km"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-555ph9"
           >
             <svg
               aria-hidden="true"

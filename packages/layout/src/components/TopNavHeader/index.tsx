@@ -9,6 +9,7 @@ import { Avatar, ConfigProvider } from 'antd';
 import { AppsLogoComponents } from '../AppsLogoComponents';
 import { css, cx } from '../../emotion';
 import { useDebounceFn } from '@ant-design/pro-utils';
+import { ProLayoutContext } from '../../ProLayoutContext';
 
 export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 
@@ -25,6 +26,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
   headerContentRender,
   ...props
 }) => {
+  const designToken = useContext(ProLayoutContext);
   const [rightSize, setRightSize] = useState<number | string>('auto');
 
   const avatarDom = useMemo(() => {
@@ -78,14 +80,14 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
                   justify-content: center;
                   padding: 0px 12px;
                   font-size: 16px;
-                  color: rgba(0, 0, 0, 0.45);
+                  color: ${designToken.textColorSecondary};
                   cursor: pointer;
                   border-radius: 4px;
                 `,
                 !hideHover &&
                   css`
                     &:hover {
-                      background-color: rgba(0, 0, 0, 0.03);
+                      background-color: ${designToken.rightActionsItemHoverBgColor};
                     }
                   `,
               )}

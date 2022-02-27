@@ -1,5 +1,5 @@
-import type { ProLayoutProps } from './BasicLayout';
-import { ProLayout } from './BasicLayout';
+import type { ProLayoutProps } from './ProLayout';
+import { ProLayout } from './ProLayout';
 import type { HeaderViewProps as HeaderProps } from './Header';
 import { DefaultHeader } from './Header';
 import type { TopNavHeaderProps } from './components/TopNavHeader';

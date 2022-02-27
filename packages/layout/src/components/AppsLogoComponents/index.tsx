@@ -3,11 +3,12 @@ import { Popover, ConfigProvider } from 'antd';
 import React, { useContext } from 'react';
 import { AppsLogo } from './AppsLogo';
 import {
-  appContentLisItem,
+  getAppContentLisItem,
   getAntdPopoverContentListCss,
   appContentListCss,
   appIconsCss,
 } from './css';
+import { ProLayoutContext } from '../../ProLayoutContext';
 
 export type AppsLogoComponentsAppList = {
   title: React.ReactNode;
@@ -42,6 +43,7 @@ export const AppsLogoComponents: React.FC<{
   appList?: AppsLogoComponentsAppList;
   prefixCls?: string;
 }> = (props) => {
+  const designToken = useContext(ProLayoutContext);
   const { appList, prefixCls = 'ant' } = props;
   const antdContext = useContext(ConfigProvider.ConfigContext);
   const antdPreFixCls = antdContext.getPrefixCls();
@@ -62,7 +64,7 @@ export const AppsLogoComponents: React.FC<{
                   key={index}
                   className={cx(
                     `${prefixCls}-basicLayout-apps-content-list-item`,
-                    appContentLisItem,
+                    getAppContentLisItem(designToken),
                   )}
                 >
                   <a href={app.url} target="_blank" rel="noreferrer">

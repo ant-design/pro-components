@@ -12,6 +12,7 @@ import type { MenuDataItem, MessageDescriptor, Route, RouterTypes, WithFalse } f
 import { MenuCounter } from './Counter';
 import type { PrivateSiderMenuProps } from './SiderMenu';
 import { cx, css } from '../../emotion';
+import { ProLayoutContext } from '../../ProLayoutContext';
 
 // todo
 export type MenuMode = 'vertical' | 'vertical-left' | 'vertical-right' | 'horizontal' | 'inline';
@@ -342,6 +343,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     openKeys: propsOpenKeys,
   } = props;
 
+  const designToken = useContext(ProLayoutContext);
   const context = useContext(ConfigProvider.ConfigContext);
 
   const antPrefixClassName = context.getPrefixCls();
@@ -433,8 +435,14 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const [menuUtils] = useState(() => new MenuUtil(props));
 
   const menuItemCssMap = useMemo(() => {
-    const itemHoverColor = !collapsed ? 'rgba(0, 0, 0, 0.03)' : 'rgba(0, 145, 255, 0.08)';
-    const itemSelectedColor = !collapsed ? 'rgba(0, 0, 0, 0.04)' : 'rgba(0, 145, 255, 0.1)';
+    const itemHoverColor = !collapsed
+      ? designToken.menuItemHoverBgColor
+      : designToken.menuItemCollapsedHoverBgColor;
+
+    const itemSelectedColor = !collapsed
+      ? designToken.menuItemSelectedBgColor
+      : designToken.menuItemCollapsedSelectedBgColor;
+
     return {
       menuItem: css`
         border-radius: 2px;
@@ -448,7 +456,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         .${antPrefixClassName}-menu-title-content {
           display: flex;
           width: 100%;
-          color: rgba(0, 0, 0, 0.65);
+          color: ${designToken.textColor};
           font-size: 14px;
           line-height: 40px;
           transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -456,9 +464,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         a {
           width: 100%;
           height: 100%;
-          color: rgba(0, 0, 0, 0.65);
+          color: ${designToken.textColor};
           .anticon {
-            color: rgba(0, 0, 0, 0.45);
+            color: ${designToken.textColorSecondary};
           }
         }
       `,
@@ -472,7 +480,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           justify-content: center;
           width: 100%;
           height: 100%;
-          color: rgba(0, 0, 0, 0.65);
+          color: ${designToken.textColor};
           font-size: 16px;
         }
       `,
@@ -498,9 +506,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         background-color: ${itemSelectedColor};
         border-radius: 4px;
         a {
-          color: rgba(0, 0, 0, 0.85);
+          color: ${designToken.headingColor};
           .anticon {
-            color: rgba(0, 0, 0, 0.65);
+            color: ${designToken.textColor};
           }
         }
       `,
@@ -514,7 +522,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         align-items: flex-start;
         transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         cursor: pointer;
-        color: rgba(0, 0, 0, 0.65);
+        color: ${designToken.textColor};
 
         .${antPrefixClassName}-menu-submenu-title {
           width: 100%;
@@ -523,7 +531,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           line-height: 40px;
 
           .anticon {
-            color: rgba(0, 0, 0, 0.45);
+            color: ${designToken.textColorSecondary};
           }
         }
         .${antPrefixClassName}-menu-submenu-arrow {
@@ -553,10 +561,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       `,
       selectedSubItem: css`
         .${antPrefixClassName}-menu-submenu-title{
-          color: rgb(0, 0, 0);
-
+          color: ${designToken.menuSelectedTextColor};
           .anticon {
-            color: rgba(0, 0, 0, 0.65);
+            color: ${designToken.textColorSecondary};
           }
         }
       `,
@@ -578,7 +585,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           align-items: center;
         }
         .${antPrefixClassName}-menu-submenu-title:hover {
-          color: rgba(0, 0, 0, 0.65);
+          color:${designToken.textColor};
           background-color: ${itemHoverColor};
           border-radius: 4px;
         }
@@ -587,7 +594,19 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         }
       `,
     };
-  }, [antPrefixClassName, collapsed, mode]);
+  }, [
+    antPrefixClassName,
+    collapsed,
+    designToken.headingColor,
+    designToken.menuItemCollapsedHoverBgColor,
+    designToken.menuItemCollapsedSelectedBgColor,
+    designToken.menuItemHoverBgColor,
+    designToken.menuItemSelectedBgColor,
+    designToken.menuSelectedTextColor,
+    designToken.textColor,
+    designToken.textColorSecondary,
+    mode,
+  ]);
 
   const menuCss = useMemo(() => {
     return css`
@@ -622,12 +641,12 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       }
     }
     .${antPrefixClassName}-menu-item-group-title {
-      color: rgba(0, 0, 0, 0.45);
+      color: ${designToken.textColorSecondary};
       font-size: 12px;
       line-height: 20px;
     }
   `;
-  }, [antPrefixClassName]);
+  }, [antPrefixClassName, designToken.textColorSecondary, props.isMobile]);
 
   if (menu?.loading) {
     return (

@@ -1,4 +1,5 @@
 ﻿import { css } from '../../emotion';
+import type { LayoutDesignToken } from '../../ProLayoutContext';
 
 export const appContentListCss = css`
   box-sizing: content-box;
@@ -14,7 +15,7 @@ export const getAntdPopoverContentListCss = (prefix: string) => css`
  }
 `;
 
-export const appContentLisItem = css`
+export const getAppContentLisItem = (designToken: LayoutDesignToken) => css`
   position: relative;
   display: inline-block;
   width: 328px;
@@ -40,7 +41,7 @@ export const appContentLisItem = css`
     }
     & > div {
       margin-left: 14px;
-      color: rgba(0, 0, 0, 0.85);
+      color: ${designToken.headingColor};
       font-size: 14px;
       line-height: 22px;
       white-space: nowrap;
@@ -48,7 +49,7 @@ export const appContentLisItem = css`
     }
 
     & > div > span {
-      color: rgba(0, 0, 0, 0.45);
+      color: ${designToken.textColorSecondary};
       font-size: 12px;
       line-height: 20px;
     }

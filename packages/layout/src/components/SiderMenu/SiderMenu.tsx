@@ -13,19 +13,19 @@ import type { HeaderViewProps } from '../../Header';
 import type { AppsLogoComponentsAppList } from '../AppsLogoComponents';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import { ArrowSvgIcon } from './Arrow';
-
 import { cx, css, keyframes } from '../../emotion';
+import { ProLayoutContext } from '../../ProLayoutContext';
 
-const { Sider } = Layout;
+import type { LayoutDesignToken } from '../../ProLayoutContext';
 
-const defaultIconCss = css`
+export const defaultIconCss = (designToken: LayoutDesignToken) => css`
   position: absolute;
   top: 18px;
   z-index: 101;
   width: 24px;
   height: 24px;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.45);
+  color: ${designToken.textColorSecondary};
   text-align: center;
   border-radius: 40px;
   right: -13px;
@@ -41,18 +41,108 @@ const defaultIconCss = css`
   }
 
   &:hover {
-    color: rgba(0, 0, 0, 0.65);
+    color: ${designToken.textColor};
   }
 `;
 
+export const proLayoutTitleHide = keyframes`
+0% {
+  display: none;
+  width: 1px;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+}
+80% {
+  display: none;
+  width: 1px;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+}
+100% {
+  display: unset;
+  height: auto;
+  opacity: 1;
+}`;
+
+export const siderCss = css`
+  position: relative;
+  background: transparent;
+
+  &-menu {
+    position: relative;
+    z-index: 10;
+    min-height: 100%;
+  }
+
+  /* 滚动槽 */
+  ::-webkit-scrollbar {
+    width: 2px;
+    height: 6px;
+    background-color: transparent;
+  }
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 3px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
+  }
+  /* 滚动条滑块 */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12);
+    border-radius: 3px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+export const siderTitleViewCss = (designToken: LayoutDesignToken) => css`
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 16px;
+  border-bottom: 1px solid ${designToken.borderColorSplit};
+  cursor: pointer;
+
+  > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 22px;
+    font-size: 22px;
+  }
+
+  img {
+    display: inline-block;
+    height: 22px;
+    vertical-align: middle;
+  }
+
+  h1 {
+    display: inline-block;
+    height: 22px;
+    margin: 0 0 0 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    vertical-align: middle;
+    animation: ${proLayoutTitleHide} 0.35s;
+  }
+`;
+
+const { Sider } = Layout;
+
 const CollapsedIcon: React.FC<any> = (props) => {
   const { isMobile, collapsed, ...rest } = props;
+  const designToken = useContext(ProLayoutContext);
   return (
     <div
       {...rest}
       className={cx(
         props.className,
-        defaultIconCss,
+        defaultIconCss(designToken),
         css({
           boxShadow:
             '0 4px 16px -4px rgba(0,0,0,0.05), 0 2px 8px -2px rgba(25,15,15,0.07), 0 1px 2px 0 rgba(0,0,0,0.08)',
@@ -172,93 +262,6 @@ export type PrivateSiderMenuProps = {
   originCollapsed?: boolean;
 };
 
-const proLayoutTitleHide = keyframes`
-0% {
-  display: none;
-  width: 1px;
-  margin: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  opacity: 0;
-}
-80% {
-  display: none;
-  width: 1px;
-  margin: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  opacity: 0;
-}
-100% {
-  display: unset;
-  height: auto;
-  opacity: 1;
-}`;
-
-const siderCss = css`
-  position: relative;
-  background: transparent;
-
-  &-menu {
-    position: relative;
-    z-index: 10;
-    min-height: 100%;
-  }
-
-  /* 滚动槽 */
-  ::-webkit-scrollbar {
-    width: 2px;
-    height: 6px;
-    background-color: transparent;
-  }
-  ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.06);
-    border-radius: 3px;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
-  }
-  /* 滚动条滑块 */
-  ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.12);
-    border-radius: 3px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-  }
-`;
-
-const siderTitleViewCss = css`
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 16px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  cursor: pointer;
-
-  > a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 22px;
-    font-size: 22px;
-  }
-
-  img {
-    display: inline-block;
-    height: 22px;
-    vertical-align: middle;
-  }
-
-  h1 {
-    display: inline-block;
-    height: 22px;
-    margin: 0 0 0 12px;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 22px;
-    vertical-align: middle;
-    animation: ${proLayoutTitleHide} 0.35s;
-  }
-`;
-
 const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   const {
     collapsed,
@@ -285,6 +288,9 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
     headerHeight,
     logoStyle,
   } = props;
+
+  const designToken = useContext(ProLayoutContext);
+
   const context = useContext(ConfigProvider.ConfigContext);
   const baseClassName = `${prefixCls}-sider`;
   const { flatMenuKeys } = MenuCounter.useContainer();
@@ -352,7 +358,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           className={cx([
             `${baseClassName}-actions-list`,
             css`
-              color: rgba(0, 0, 0, 0.45);
+              color: ${designToken.textColor};
               animation: ${proLayoutTitleHide} 0.3s;
               & > * {
                 cursor: pointer;
@@ -465,7 +471,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         }}
         collapsedWidth={60}
         style={{
-          backgroundColor: 'transparent',
+          backgroundColor: designToken.menuBackgroundColor,
           ...style,
         }}
         width={siderWidth}
@@ -493,7 +499,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               display: flex;
               flex-direction: column;
               height: 100%;
-              border-right: 1px solid rgba(0, 0, 0, 0.06);
+              border-right: 1px solid ${designToken.borderColorSplit};
               > * {
                 contain: layout;
               }
@@ -507,7 +513,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               classNames(`${baseClassName}-logo`, {
                 [`${baseClassName}-logo-collapsed`]: collapsed,
               }),
-              siderTitleViewCss,
+              siderTitleViewCss?.(designToken),
               collapsed && siderTitleViewCollapsedCss,
             ])}
             onClick={layout !== 'mix' ? onMenuHeaderClick : undefined}

@@ -35,14 +35,14 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-198543r"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-wkax08"
                     style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
                   >
                     <div
                       class="ant-layout-sider-children"
                     >
                       <div
-                        class="ant-pro-sider-logo ant-design-pro-layout-1ly2eay"
+                        class="ant-pro-sider-logo ant-design-pro-layout-18peocf"
                         id="logo"
                       >
                         <a>
@@ -181,14 +181,14 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1vtz3lb"
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-nuhubi"
                           data-menu-list="true"
                           role="menu"
                           style="width: 100%;"
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-1ndl8gr"
                             role="none"
                           >
                             <div
@@ -223,7 +223,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                         />
                       </div>
                       <div
-                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-rlvblc"
+                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-rkj18j"
                       >
                         <svg
                           aria-hidden="true"
@@ -294,14 +294,14 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-198543r"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-wkax08"
                     style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
                   >
                     <div
                       class="ant-layout-sider-children"
                     >
                       <div
-                        class="ant-pro-sider-logo ant-design-pro-layout-1ly2eay"
+                        class="ant-pro-sider-logo ant-design-pro-layout-18peocf"
                         id="logo"
                       >
                         <a>
@@ -440,14 +440,14 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1vtz3lb"
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-nuhubi"
                           data-menu-list="true"
                           role="menu"
                           style="width: 100%;"
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-1ndl8gr"
                             role="none"
                           >
                             <div
@@ -482,7 +482,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                         />
                       </div>
                       <div
-                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-1ftg76t"
+                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-1gd21uf"
                       >
                         <svg
                           aria-hidden="true"
@@ -553,14 +553,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-198543r"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-wkax08"
                     style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
                   >
                     <div
                       class="ant-layout-sider-children"
                     >
                       <div
-                        class="ant-pro-sider-logo ant-design-pro-layout-1ly2eay"
+                        class="ant-pro-sider-logo ant-design-pro-layout-18peocf"
                         id="logo"
                       >
                         title
@@ -569,14 +569,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1vtz3lb"
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-nuhubi"
                           data-menu-list="true"
                           role="menu"
                           style="width: 100%;"
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-1ndl8gr"
                             role="none"
                           >
                             <div
@@ -611,7 +611,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                         />
                       </div>
                       <div
-                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-rlvblc"
+                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-rkj18j"
                       >
                         <svg
                           aria-hidden="true"
@@ -698,14 +698,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-198543r"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-wkax08"
                     style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
                   >
                     <div
                       class="ant-layout-sider-children"
                     >
                       <div
-                        class="ant-pro-sider-logo ant-design-pro-layout-1ly2eay"
+                        class="ant-pro-sider-logo ant-design-pro-layout-18peocf"
                         id="logo"
                       >
                         title
@@ -714,14 +714,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1vtz3lb"
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-nuhubi"
                           data-menu-list="true"
                           role="menu"
                           style="width: 100%;"
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-1ndl8gr"
                             role="none"
                           >
                             <div
@@ -756,7 +756,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                         />
                       </div>
                       <div
-                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-rlvblc"
+                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-rkj18j"
                       >
                         <svg
                           aria-hidden="true"
@@ -843,7 +843,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-198543r"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-wkax08"
                     style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
                   >
                     <div
@@ -853,14 +853,14 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1vtz3lb"
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-nuhubi"
                           data-menu-list="true"
                           role="menu"
                           style="width: 100%;"
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-1ndl8gr"
                             role="none"
                           >
                             <div
@@ -895,7 +895,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                         />
                       </div>
                       <div
-                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-rlvblc"
+                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-rkj18j"
                       >
                         <svg
                           aria-hidden="true"
@@ -981,7 +981,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-198543r"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-wkax08"
                     style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
                   >
                     <div
@@ -991,14 +991,14 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1vtz3lb"
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-nuhubi"
                           data-menu-list="true"
                           role="menu"
                           style="width: 100%;"
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-1ndl8gr"
                             role="none"
                           >
                             <div
@@ -1033,7 +1033,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                         />
                       </div>
                       <div
-                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-1ftg76t"
+                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-1gd21uf"
                       >
                         <svg
                           aria-hidden="true"
@@ -1251,7 +1251,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                   style="height: 100vh; padding: 0px; display: flex; flex-direction: row;"
                 >
                   <aside
-                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-198543r"
+                    class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-light ant-design-pro-layout-wkax08"
                     style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
                   >
                     <div
@@ -1261,14 +1261,14 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                         style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                       >
                         <ul
-                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1vtz3lb"
+                          class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-nuhubi"
                           data-menu-list="true"
                           role="menu"
                           style="width: 100%;"
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-1ndl8gr"
                             role="none"
                           >
                             <div
@@ -1303,7 +1303,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                         />
                       </div>
                       <div
-                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-1ftg76t"
+                        class="ant-pro-sider-collapsed-button ant-design-pro-layout-1gd21uf"
                       >
                         <svg
                           aria-hidden="true"
