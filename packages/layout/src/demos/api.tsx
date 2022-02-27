@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Switch, Avatar } from 'antd';
+import { Switch } from 'antd';
 import ProLayout, { PageContainer, DefaultFooter } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
 import { GithubOutlined } from '@ant-design/icons';
@@ -103,13 +103,9 @@ export default () => {
         collapsed={collapsed}
         loading={loading}
         onCollapse={setCollapsed}
-        rightContentRender={() =>
-          right ? (
-            <div>
-              <Avatar src="https://avatars1.githubusercontent.com/u/8186664?s=460&v=4" />
-            </div>
-          ) : null
-        }
+        avatarProps={{
+          src: 'https://avatars1.githubusercontent.com/u/8186664?s=460&v=4',
+        }}
         location={{
           pathname: '/welcome',
         }}

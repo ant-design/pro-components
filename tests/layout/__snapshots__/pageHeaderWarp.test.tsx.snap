@@ -165,7 +165,7 @@ exports[`BasicLayout base use 1`] = `
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-submenu ant-design-pro-layout-y74sbb"
+              class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
               role="none"
             >
               <div
@@ -418,7 +418,7 @@ exports[`BasicLayout content is text 1`] = `
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-submenu ant-design-pro-layout-y74sbb"
+              class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
               role="none"
             >
               <div

@@ -161,7 +161,6 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | headerRender | Custom header render method | `(props: BasicLayoutProps) => ReactNode` | - |
 | headerTitleRender | Custom header title method, works in mix mode | `(logo,title,props)=>ReactNode` | - |
 | headerContentRender | Custom header content methods | `(props: BasicLayoutProps) => ReactNode` | - |
-| rightContentRender | Custom render method for the right part of the header | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | Custom method for collapsed button | `(collapsed: boolean) => ReactNode` | - |
 | footerRender | Custom render method for footer | `(props: BasicLayoutProps) => JSX.Element \| false` | - |
 | pageTitleRender | The render method for custom page titles | `(props: BasicLayoutProps) => ReactNode` | - |

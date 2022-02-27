@@ -23,6 +23,8 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 <code src="./demos/base.tsx" iframe="650px" title="基础使用"/>
 
+### 通过 token 修改样式
+
 <code src="./demos/theme.tsx" iframe="650px" title="通过 token 修改样式"/>
 
 ### 分组菜单样式
@@ -126,6 +128,7 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | pure | 是否删除掉所有的自带界面 | `boolean` | - |
 | loading | layout 的加载态 | `boolean` | - |
 | location | 当前应用会话的位置信息。如果你的应用创建了自定义的 history，则需要显示指定 location 属性，详见 [issue](https://github.com/ant-design/pro-components/issues/327) | [history.location](https://reactrouter.com/web/api/history) | isBrowser ? window.location : undefined |
+| appList | 跨站点导航列表 | `{ icon, title, desc:, url }[]` | - |
 | menuHeaderRender | 渲染 logo 和 title | `ReactNode` \| `(logo,title)=>ReactNode` | - |
 | menuFooterRender | 在 layout 底部渲染一个块 | `(menuProps)=>ReactNode` | - |
 | onMenuHeaderClick | menu 菜单的头部点击事件 | `(e: React.MouseEvent<HTMLDivElement>) => void` | - |
@@ -152,7 +155,8 @@ PageContainer 配置 `ghost` 可以将页头切换为透明模式。
 | headerRender | 自定义头的 render 方法 | `(props: BasicLayoutProps) => ReactNode` | - |
 | headerTitleRender | 自定义头标题的方法,mix 模式下生效 | `(logo,title,props)=>ReactNode` | - |
 | headerContentRender | 自定义头内容的方法 | `(props: BasicLayoutProps) => ReactNode` | - |
-| rightContentRender | 自定义头右部的 render 方法 | `(props: HeaderViewProps) => ReactNode` | - |
+| avatarProps | layout 的头像设置，不同的 layout 放在不同的位置 | [`AvatarProps`](https://ant.design/components/avatar-cn/) | - |
+| actionsRender | 自定义操作列表 | `(layoutProps)=>ReactNode[]` | - |
 | collapsedButtonRender | 自定义 collapsed button 的方法 | `(collapsed: boolean) => ReactNode` | - |
 | footerRender | 自定义页脚的 render 方法 | `(props: BasicLayoutProps) => JSX.Element \| false` | - |
 | pageTitleRender | 自定义页面标题的显示方法 | `(props: BasicLayoutProps) => string` | - |
@@ -409,6 +413,64 @@ const Page = () => (
   </RouteContext.Consumer>
 );
 ```
+
+## Token
+
+Token 是一种设计系统的基本元素，可以使用 Token 快速的修改组件库的基础样式。
+
+### 默认的 token
+
+默认的 token 部分来自于 antd，可能会有一些改动，以下是 layout 依赖的部分。
+
+| token              | 说明           | 默认值                |
+| ------------------ | -------------- | --------------------- |
+| primaryColor       | 主色           | `#1677FF`             |
+| errorColor         | 错误色         | `#ff4d4f`             |
+| successColor       | 成功色         | `#52c41a`             |
+| infoColor          | 通知色         | `#1677FF`             |
+| warningColor       | 警告色         | `#faad14`             |
+| headingColor       | 标题色         | `rgba(0, 0, 0, 0.85)` |
+| textColor          | 正文色         | `rgba(0, 0, 0, 0.65)` |
+| textColorSecondary | 次级色         | `rgba(0, 0, 0, 0.45)` |
+| borderColorBase    | 边框基本色     | `#d9d9d9`             |
+| borderColorSplit   | 分隔边框的颜色 | `rgba(0, 0, 0, 0.06)` |
+| borderRadiusBase   | 默认圆角       | `4px`                 |
+
+### Sider Token
+
+Sider Token 是 侧边菜单的色值，与顶部菜单不同。
+
+| token | 说明 | 默认值 |
+| --- | --- | --- |
+| menuBackgroundColor | menu 的背景颜色 | `transparent` |
+| menuTitleTextColor | sider 的标题字体颜色 | `headingColor` |
+| menuItemDividerColor | menuItem 分割线的颜色 | `borderColorSplit` |
+| menuSubArrowColor | menuItem 的箭头颜色 | `rgba(0, 0, 0, 0.25)` |
+| menuTextColor | menuItem 的字体颜色 | `textColor` |
+| menuTextColorSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `textColor` |
+| menuSelectedTextColor | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
+| menuItemHoverBgColor | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
+| menuItemSelectedBgColor | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
+| menuItemCollapsedHoverBgColor | 收起 menuItem 的 hover 背景颜色 | `rgba(0, 145, 255, 0.1)` |
+| menuItemCollapsedSelectedBgColor | 收起 menuItem 的选中背景颜色 | `rgba(0, 145, 255, 0.08)` |
+| collapsedButtonBgColor | 展开收起按钮背景颜色 | `#fff` |
+| collapsedButtonTextColor | 展开收起按钮 hover 字体颜色 | `menuTextColorSecondary` |
+| collapsedButtonHoverTextColor | 展开收起按钮 hover 时字体颜色 | `menuTextColor` |
+
+### Header Token
+
+| token | 说明 | 默认值 |
+| --- | --- | --- |
+| headerTitleColor | sider 的标题字体颜色 | `headingColor` |
+| menuTextColor | menuItem 的字体颜色 | `textColor` |
+| menuTextColorSecondary | menu 的二级字体颜色，比如 footer 和 action 的 icon | `textColor` |
+| menuSelectedTextColor | menuItem 的选中字体颜色 | `rgb(0,0,0)` |
+| menuItemHoverBgColor | menuItem 的 hover 背景颜色 | `rgba(90, 75, 75, 0.03)` |
+| menuItemSelectedBgColor | menuItem 的选中背景颜色 | `rgba(0, 0, 0, 0.04)` |
+| menuItemCollapsedHoverBgColor | 收起 menuItem 的 hover 背景颜色 | `rgba(0, 145, 255, 0.1)` |
+| menuItemCollapsedSelectedBgColor | 收起 menuItem 的选中背景颜色 | `rgba(0, 145, 255, 0.08)` |
+| rightActionsItemTextColor | 右上角字体颜色 | `textColorSecondary` |
+| rightActionsItemHoverBgColor | 右上角选中的 hover 颜色 | `rgba(0, 0, 0, 0.03)` |
 
 ## FAQ
 

@@ -127,7 +127,7 @@ type BaseLayoutMenuDesignToken = {
   menuTextColor: string;
 
   /**
-   * menuItem 二级字体颜色
+   * menu 的二级字体颜色，比如 footer 和 action 的 icon
    */
   menuTextColorSecondary: string;
   /**
@@ -135,20 +135,20 @@ type BaseLayoutMenuDesignToken = {
    */
   menuSelectedTextColor: string;
   /**
-   * menuItem 的 hover 字体颜色
+   * menuItem 的 hover 背景颜色
    */
   menuItemHoverBgColor: string;
   /**
-   * menuItem 的选中字体颜色
+   * menuItem 的选中背景颜色
    */
   menuItemSelectedBgColor: string;
 
   /**
-   * 收起 menuItem 的 hover 字体颜色
+   * 收起 menuItem 的 hover 背景颜色
    */
   menuItemCollapsedHoverBgColor: string;
   /**
-   * 收起 menuItem 的选中字体颜色
+   * 收起 menuItem 的选中背景颜色
    */
   menuItemCollapsedSelectedBgColor: string;
 };
@@ -164,7 +164,7 @@ type BaseLayoutDesignToken = {
      */
     menuBackgroundColor: string;
     /**
-     * 收起 menuItem 分割线的颜色
+     * 展开 menuItem 分割线的颜色
      */
     menuItemDividerColor: string;
     /**
@@ -176,7 +176,7 @@ type BaseLayoutDesignToken = {
      */
     collapsedButtonBgColor: string;
     /**
-     * 展开收起按钮 hover 字体颜色
+     *  展开收起按钮 hover 时字体颜色
      */
     collapsedButtonHoverTextColor: string;
     /**
@@ -201,7 +201,7 @@ type BaseLayoutDesignToken = {
      */
     rightActionsItemTextColor: string;
     /**
-     * 右上角选中的hover 颜色
+     * 右上角选中的 hover 颜色
      */
     rightActionsItemHoverBgColor: string;
   };
@@ -221,21 +221,10 @@ export const getLayoutDesignToken: (
     menuItemSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
     menuItemCollapsedHoverBgColor: 'rgba(0, 145, 255, 0.1)',
     menuItemCollapsedSelectedBgColor: 'rgba(0, 145, 255, 0.08)',
-    rightActionsItemTextColor: finalDesignTokens.textColorSecondary,
   };
   return {
     ...designTokens,
-    sider: {
-      ...menuToken,
-      menuBackgroundColor: 'transparent',
-      menuItemDividerColor: finalDesignTokens.borderColorSplit,
-      collapsedButtonTextColor: finalDesignTokens?.sider?.menuTextColorSecondary,
-      collapsedButtonHoverTextColor: finalDesignTokens.textColor,
-      collapsedButtonBgColor: '#fff',
-      menuTitleTextColor: finalDesignTokens.headingColor,
-    },
     ...menuToken,
-    menuSubArrowColor: 'rgba(0, 0, 0, 0.25)',
     ...finalDesignTokens,
     header: {
       ...menuToken,
@@ -243,6 +232,16 @@ export const getLayoutDesignToken: (
       rightActionsItemTextColor: finalDesignTokens.textColorSecondary,
       rightActionsItemHoverBgColor: 'rgba(0, 0, 0, 0.03)',
       ...finalDesignTokens.header,
+    },
+    sider: {
+      ...menuToken,
+      menuBackgroundColor: 'transparent',
+      menuItemDividerColor: finalDesignTokens.borderColorSplit,
+      menuTitleTextColor: finalDesignTokens.headingColor,
+      menuSubArrowColor: 'rgba(0, 0, 0, 0.25)',
+      collapsedButtonTextColor: finalDesignTokens?.sider?.menuTextColorSecondary,
+      collapsedButtonHoverTextColor: finalDesignTokens.textColor,
+      collapsedButtonBgColor: '#fff',
     },
   } as LayoutDesignToken;
 };

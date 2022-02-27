@@ -188,7 +188,7 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-y74sbb"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
                             role="none"
                           >
                             <div
@@ -447,7 +447,7 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-y74sbb"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
                             role="none"
                           >
                             <div
@@ -576,7 +576,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-y74sbb"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
                             role="none"
                           >
                             <div
@@ -721,7 +721,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-y74sbb"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
                             role="none"
                           >
                             <div
@@ -860,7 +860,7 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-y74sbb"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
                             role="none"
                           >
                             <div
@@ -998,7 +998,7 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-y74sbb"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
                             role="none"
                           >
                             <div
@@ -1268,7 +1268,7 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                           tabindex="0"
                         >
                           <li
-                            class="ant-pro-menu-submenu ant-design-pro-layout-y74sbb"
+                            class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
                             role="none"
                           >
                             <div

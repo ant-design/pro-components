@@ -19,6 +19,10 @@ export type GlobalHeaderProps = {
   isMobile?: boolean;
   logo?: React.ReactNode;
   menuRender?: WithFalse<(props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode>;
+  /**
+   * @deprecated
+   * 使用 actionsRender 和 avatarProps 代替
+   */
   rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
   className?: string;
   prefixCls?: string;

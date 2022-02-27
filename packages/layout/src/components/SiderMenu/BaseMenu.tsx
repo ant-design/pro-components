@@ -534,7 +534,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           margin-top: 0;
           margin-bottom: 0;
           line-height: 40px;
-
           .anticon {
             color: ${menuDesignToken.menuTextColor};
           }
@@ -579,6 +578,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       `,
       verticalSubItem: css`
         .${antPrefixClassName}-menu-submenu-title:hover {
+          color: ${menuDesignToken.menuTextColor};
           background-color: ${itemHoverColor};
           border-radius: ${designToken.borderRadiusBase};
         }

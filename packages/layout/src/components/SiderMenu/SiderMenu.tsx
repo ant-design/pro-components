@@ -241,9 +241,8 @@ export type SiderMenuProps = {
   /** Layout的操作功能列表，不同的 layout 会放到不同的位置 */
   actionsRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode[]>;
   /**
-   * Layout的操作功能列表,不同的 layout 会放到不同的位置
-   *
-   * @deprecated 使用 actionsRender 来替代
+   * @deprecated
+   * 使用 actionsRender 和 avatarProps 代替
    */
   rightContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
 

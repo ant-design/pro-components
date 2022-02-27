@@ -1,5 +1,5 @@
 ﻿import React, { useState } from 'react';
-import { Button, Descriptions, Result, Avatar, Space, Statistic } from 'antd';
+import { Button, Descriptions, Result, Space, Statistic } from 'antd';
 import { LikeOutlined, UserOutlined } from '@ant-design/icons';
 
 import type { ProSettings } from '@ant-design/pro-layout';
@@ -74,11 +74,9 @@ export default () => {
             {dom}
           </a>
         )}
-        rightContentRender={() => (
-          <div>
-            <Avatar shape="square" size="small" icon={<UserOutlined />} />
-          </div>
-        )}
+        avatarProps={{
+          icon: <UserOutlined />,
+        }}
         {...settings}
       >
         <PageContainer
