@@ -104,43 +104,45 @@ export default () => {
           size: 'small',
           title: '七妮妮',
         }}
-        actionsRender={() => [
-          <div
-            key="SearchOutlined"
-            aria-hidden
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              marginRight: 24,
-            }}
-            onMouseDown={(e) => {
-              e.stopPropagation();
-              e.preventDefault();
-            }}
-          >
-            <Input
+        actionsRender={(props) => [
+          props.layout !== 'side' ? (
+            <div
+              key="SearchOutlined"
+              aria-hidden
               style={{
-                borderRadius: 4,
-                marginRight: 12,
-                backgroundColor: 'rgba(0,0,0,0.03)',
+                display: 'flex',
+                alignItems: 'center',
+                marginRight: 24,
               }}
-              prefix={
-                <SearchOutlined
-                  style={{
-                    color: 'rgba(0, 0, 0, 0.15)',
-                  }}
-                />
-              }
-              placeholder="搜索方案"
-              bordered={false}
-            />
-            <PlusCircleFilled
-              style={{
-                color: '#1677FF',
-                fontSize: 24,
+              onMouseDown={(e) => {
+                e.stopPropagation();
+                e.preventDefault();
               }}
-            />
-          </div>,
+            >
+              <Input
+                style={{
+                  borderRadius: 4,
+                  marginRight: 12,
+                  backgroundColor: 'rgba(0,0,0,0.03)',
+                }}
+                prefix={
+                  <SearchOutlined
+                    style={{
+                      color: 'rgba(0, 0, 0, 0.15)',
+                    }}
+                  />
+                }
+                placeholder="搜索方案"
+                bordered={false}
+              />
+              <PlusCircleFilled
+                style={{
+                  color: '#1677FF',
+                  fontSize: 24,
+                }}
+              />
+            </div>
+          ) : undefined,
           <InfoCircleFilled key="InfoCircleFilled" />,
           <QuestionCircleFilled key="QuestionCircleFilled" />,
           <GithubFilled key="GithubFilled" />,

@@ -147,6 +147,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
                 display: 'flex',
                 alignItems: 'center',
                 height: '100%',
+                justifyContent: 'flex-end',
               }}
             >
               {(rightContentRender || rightActionsRender)({

@@ -409,6 +409,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
   /** 操作区域的dom */
   const actionAreaDom = useMemo(() => {
     if (!avatarDom && !actionsDom) return null;
+
     return (
       <div
         className={cx(

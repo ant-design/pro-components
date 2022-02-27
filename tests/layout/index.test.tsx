@@ -9,6 +9,8 @@ import { waitForComponentToPaint } from '../util';
 import { LoginForm, ProFormText } from '@ant-design/pro-form';
 import { ConfigProvider } from 'antd';
 import en_US from 'antd/lib/locale/en_US';
+import { GithubFilled, InfoCircleFilled, QuestionCircleFilled } from '@ant-design/icons';
+import { bigDefaultProps } from './defaultProps';
 
 describe('BasicLayout', () => {
   beforeAll(() => {
@@ -105,6 +107,100 @@ describe('BasicLayout', () => {
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.baseElement.querySelectorAll('.ant-pro-basicLayout-apps-icon').length).toBe(1);
+  });
+
+  it('🥩 group title when collapsed, title is hidden', async () => {
+    const wrapper = render(
+      <BasicLayout
+        brandBgImg={{
+          url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
+        }}
+        {...bigDefaultProps}
+        appList={undefined}
+        location={{
+          pathname: '/list',
+        }}
+        menu={{
+          type: 'group',
+        }}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          size: 'small',
+          title: '七妮妮',
+        }}
+        actionsRender={() => [
+          <InfoCircleFilled key="InfoCircleFilled" />,
+          <QuestionCircleFilled key="QuestionCircleFilled" />,
+          <GithubFilled key="GithubFilled" />,
+        ]}
+        menuFooterRender={() => {
+          return (
+            <p
+              style={{
+                textAlign: 'center',
+                color: 'rgba(0,0,0,0.6)',
+                paddingTop: 12,
+              }}
+            >
+              Power by Ant Design
+            </p>
+          );
+        }}
+      >
+        <div />
+      </BasicLayout>,
+    );
+
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.baseElement.querySelectorAll('.ant-menu-item-group-title').length).toBe(2);
+    expect(wrapper.baseElement.querySelectorAll('.ant-pro-sider-actions-collapsed').length).toBe(0);
+
+    wrapper.rerender(
+      <BasicLayout
+        brandBgImg={{
+          url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
+        }}
+        {...bigDefaultProps}
+        appList={undefined}
+        location={{
+          pathname: '/list',
+        }}
+        collapsed
+        menu={{
+          type: 'group',
+        }}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          size: 'small',
+          title: '七妮妮',
+        }}
+        actionsRender={() => [
+          <InfoCircleFilled key="InfoCircleFilled" />,
+          <QuestionCircleFilled key="QuestionCircleFilled" />,
+          <GithubFilled key="GithubFilled" />,
+        ]}
+        menuFooterRender={() => {
+          return (
+            <p
+              style={{
+                textAlign: 'center',
+                color: 'rgba(0,0,0,0.6)',
+                paddingTop: 12,
+              }}
+            >
+              Power by Ant Design
+            </p>
+          );
+        }}
+      >
+        <div />
+      </BasicLayout>,
+    );
+
+    expect(wrapper.baseElement.querySelectorAll('.ant-menu-item-group-title').length).toBe(0);
+
+    // collapsed 的时候action 将会消失
+    expect(wrapper.baseElement.querySelectorAll('.ant-pro-sider-actions-collapsed').length).toBe(1);
   });
 
   it('🥩 do not render footer', async () => {
