@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.55.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.54.0...@ant-design/pro-form@1.55.0) (2022-02-24)
+
+### Bug Fixes
+
+- **form:** initialValue no cover ([0669ddd](https://github.com/ant-design/pro-components/commit/0669ddd4a6f29d92cb37353e66b03c0b42ebef0f))
+- 🐛 live code error ([#4690](https://github.com/ant-design/pro-components/issues/4690)) ([6ebd33b](https://github.com/ant-design/pro-components/commit/6ebd33bbf04bb19f98ba21da8a34eb66c039ecad))
+
+### Features
+
+- **form:** ProFormList 支持设置 min 和 max 控制条目数量 ([#4684](https://github.com/ant-design/pro-components/issues/4684)) ([0e648d4](https://github.com/ant-design/pro-components/commit/0e648d44f595f27eacd2a8d5f30634e29619683a))
+
+# [1.54.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.7...@ant-design/pro-form@1.54.0) (2022-02-21)
+
+### Bug Fixes
+
+- **form:** 修复 modalForm 和 drawerForm 内容区表单按钮一闪而逝的问题 ([#4680](https://github.com/ant-design/pro-components/issues/4680)) ([f321fde](https://github.com/ant-design/pro-components/commit/f321fde3f88a5bc5745d68040a6c7b938eb58587))
+- **form:** fix FormItemProp no rerender error ([2365df4](https://github.com/ant-design/pro-components/commit/2365df4acf36c42c6489d474e5225b92dc16bf60))
+
+### Features
+
+- **form:** 更新货币符号 ([#4667](https://github.com/ant-design/pro-components/issues/4667)) ([b873a17](https://github.com/ant-design/pro-components/commit/b873a17d2d7c2265c7f381e2a09825ed8706444d))
+- **form:** improve dependency component archive ([#4678](https://github.com/ant-design/pro-components/issues/4678)) ([fcbc6c9](https://github.com/ant-design/pro-components/commit/fcbc6c9b944bb7e9e822ec5f0407cd7b413b11db))
+- **form,table,utils:** form 和 table 的 dateFormatter 支持函数 ([#4657](https://github.com/ant-design/pro-components/issues/4657)) ([bdbbae4](https://github.com/ant-design/pro-components/commit/bdbbae4212fede8bf230f9577feae853ce6bf287))
+
 ## [1.53.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.53.6...@ant-design/pro-form@1.53.7) (2022-02-18)
 
 ### Bug Fixes

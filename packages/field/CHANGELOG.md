@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.32.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.18...@ant-design/pro-field@1.32.0) (2022-02-24)
+
+### Features
+
+- **field:** add pt-BR support to number format ([#4700](https://github.com/ant-design/pro-components/issues/4700)) ([dc845c0](https://github.com/ant-design/pro-components/commit/dc845c0a588ffed4e2d664f162702b08720898f7))
+
+## [1.31.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.17...@ant-design/pro-field@1.31.18) (2022-02-21)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.31.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.16...@ant-design/pro-field@1.31.17) (2022-02-15)
 
 ### Bug Fixes

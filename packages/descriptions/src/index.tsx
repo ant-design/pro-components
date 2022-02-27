@@ -172,7 +172,6 @@ export const FieldRender: React.FC<
       rowKey: dataIndex,
       isEditable: false,
     });
-
     return <ProFormField name={dataIndex} {...fieldConfig} fieldProps={fieldProps} />;
   }
 
@@ -280,8 +279,6 @@ const schemaToDescriptionsItem = (
           ? restItem.title(item, 'descriptions', restItem.title)
           : restItem.title;
 
-      const titleDom: React.ReactNode = genCopyable(title, item, text);
-
       //  dataIndex 无所谓是否存在
       // 有些时候不需要 dataIndex 可以直接 render
       const valueType =
@@ -300,14 +297,18 @@ const schemaToDescriptionsItem = (
         editable?.(text, entity, index) !== false;
 
       const Component = showEditIcon ? Space : React.Fragment;
+
+      const contentDom: React.ReactNode =
+        fieldMode === 'edit' ? text : genCopyable(text, item, text);
+
       const field = (
         <Descriptions.Item
           {...restItem}
           key={restItem.label?.toString() || index}
           label={
-            (titleDom || restItem.label || restItem.tooltip || restItem.tip) && (
+            (title || restItem.label || restItem.tooltip || restItem.tip) && (
               <LabelIconTip
-                label={titleDom || restItem.label}
+                label={title || restItem.label}
                 tooltip={restItem.tooltip || restItem.tip}
                 ellipsis={item.ellipsis}
               />
@@ -319,7 +320,7 @@ const schemaToDescriptionsItem = (
               {...item}
               dataIndex={item.dataIndex || index}
               mode={fieldMode}
-              text={text}
+              text={contentDom}
               valueType={valueType}
               entity={entity}
               index={index}

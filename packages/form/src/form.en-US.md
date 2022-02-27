@@ -21,7 +21,7 @@ Step-by-step forms, Modal forms, Drawer forms, Query forms, Lightweight filters 
 - If you want to listen to a value, it is recommended to use `onValuesChange`. Keeping a unidirectional data flow is a great benefit for both developers and maintainers
 - ProForm has no black technology, it's just a wrapper for antd's Form, if you want to use a custom component you can wrap it with Form.
 
-```tsx |pure
+```tsx | pure
 // Set overall default values
 <ProForm initialValues={obj} />
 

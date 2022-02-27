@@ -34395,9 +34395,9 @@ exports[`table demos 📸 renders ./packages/table/src/demos/linkage_form.tsx co
                         </span>
                         <span
                           class="ant-select-selection-item"
-                          title="1970-01-01 00:00:00"
+                          title="月份"
                         >
-                          1970-01-01 00:00:00
+                          月份
                         </span>
                       </div>
                       <span

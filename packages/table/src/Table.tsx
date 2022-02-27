@@ -559,6 +559,16 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [propsPagination, action, intl]);
 
+  useDeepCompareEffect(() => {
+    // request 存在且params不为空，且已经请求过数据才需要设置。
+    if (props.request && params && action.dataSource && action?.pageInfo?.current !== 1) {
+      action.setPageInfo({
+        current: 1,
+      });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [params]);
+
   const counter = Container.useContainer();
 
   // 设置 name 到 store 中，里面用了 ref ，所以不用担心直接 set

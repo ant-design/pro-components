@@ -172,14 +172,25 @@ function DrawerForm<T = Record<string, any>>({
               }
             }}
             contentRender={(item, submitter) => {
-              return (
-                <>
-                  {item}
-                  {footerRef.current && isDestroy && submitter
-                    ? createPortal(submitter, footerRef.current)
-                    : submitter}
-                </>
-              );
+              // 未配置自定义提交按钮，则直接将提交按钮渲染到内容区
+              if (rest.submitter === false) {
+                return (
+                  <>
+                    {item}
+                    {submitter}
+                  </>
+                );
+              }
+              // 如果用户配置了自定义的提交按钮，那么我们等到弹框/抽屉底部区域渲染成功后再将自定义按钮渲染过去
+              if (footerRef.current && isDestroy && submitter) {
+                return (
+                  <>
+                    {item}
+                    {createPortal(submitter, footerRef.current)}
+                  </>
+                );
+              }
+              return item;
             }}
           >
             {children}

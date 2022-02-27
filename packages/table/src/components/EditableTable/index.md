@@ -74,14 +74,14 @@ nav:
 
 为了使用，我们预设了一个新建的功能，大多数情况下已经可以满足大部分新建的需求，但是很多时候需求总是千奇百怪。我们也准备了 `recordCreatorProps` 来控制生成按钮。与 Pro 系列组件的 API 相同，`recordCreatorProps={false}`就可以关掉按钮，同时使用 `actionRef.current?.addEditRecord(row)`  来控制新建行。
 
-`recordCreatorProps` 也支持自定义一些样式，`position='top'|'end'` 可以配置增加在表格头还是表格尾部。`record` 可以配置新增行的默认数据。以下是一个列举
+`recordCreatorProps` 也支持自定义一些样式，`position='top'|'bottom'` 可以配置增加在表格头还是表格尾部。`record` 可以配置新增行的默认数据。以下是一个列举
 
 ```typescript
 recordCreatorProps = {
   // 要增加到哪个节点下，一般用于多重嵌套表格
   parentKey: React.key,
   // 顶部添加还是末尾添加
-  position: 'end',
+  position: 'bottom',
   // 新增一行的方式，默认是缓存，取消后就会消失
   // 如果设置为 dataSource 会触发 onchange，取消后也不会消失，只能删除
   newRecordType: 'dataSource',

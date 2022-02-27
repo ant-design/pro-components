@@ -427,8 +427,8 @@ describe('BasicTable Search', () => {
 
     expect(formValues.origin).toBe('origin');
     expect(formValues.status).toBe('state');
-    expect(formValues.startTime).toBe('2020-09-11 00:00:00');
-    expect(formValues.endTime).toBe('2020-09-22 00:00:00');
+    expect(formValues.startTime).toBe('2020-09-11');
+    expect(formValues.endTime).toBe('2020-09-22');
     expect(fn).toBeCalledTimes(1);
 
     act(() => {
@@ -505,6 +505,9 @@ describe('BasicTable Search', () => {
             title: '金额',
             dataIndex: 'money',
             valueType: 'money',
+            formItemProps: {
+              className: 'money-class',
+            },
             renderFormItem: () => false,
           },
           {
@@ -513,19 +516,15 @@ describe('BasicTable Search', () => {
             dataIndex: 'name',
           },
         ]}
-        request={async () => {
-          await waitTime(500);
-          return {
-            data: [],
-            success: true,
-          };
-        }}
+        dataSource={[]}
         rowKey="key"
       />,
     );
     await waitForComponentToPaint(html, 1200);
 
     expect(html.find('div.ant-form-item').length).toBe(2);
+    expect(html.find('.money-class').length).toBe(0);
+
     act(() => {
       html.setProps({
         columns: [
@@ -533,6 +532,9 @@ describe('BasicTable Search', () => {
             title: '金额',
             dataIndex: 'money',
             valueType: 'money',
+            formItemProps: {
+              className: 'money-class',
+            },
             renderFormItem: () => <div />,
           },
           {
@@ -543,8 +545,10 @@ describe('BasicTable Search', () => {
         ],
       });
     });
-
     await waitForComponentToPaint(html, 200);
+
+    expect(html.find('div.money-class').length).toBe(1);
+
     expect(html.find('div.ant-form-item').length).toBe(3);
 
     act(() => {
@@ -687,7 +691,6 @@ describe('BasicTable Search', () => {
   });
 
   it('🎏 when dateFormatter is a Function', async () => {
-    const fn1 = jest.fn();
     const fn2 = jest.fn();
     const html = mount(
       <ProTable
@@ -721,7 +724,6 @@ describe('BasicTable Search', () => {
         options={false}
         dateFormatter={(value, valueType) => {
           console.log('====>', value, valueType);
-          fn1(value.format('YYYY/MM/DD'), valueType);
           return value.format('YYYY/MM/DD HH:mm:ss');
         }}
         headerTitle="表单赋值"
@@ -732,8 +734,7 @@ describe('BasicTable Search', () => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
     await waitForComponentToPaint(html, 1400);
-    expect(fn1).toHaveBeenLastCalledWith('2020/09/11', 'dateTime');
-    expect(fn2).toBeCalledWith('2020/09/11 00:00:00');
+    expect(fn2).toBeCalledWith('2020-09-11 00:00:00');
     act(() => {
       html.unmount();
     });

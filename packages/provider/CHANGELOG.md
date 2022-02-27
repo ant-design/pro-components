@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.8...@ant-design/pro-provider@1.6.0) (2022-02-21)
+
+### Features
+
+- **form:** 更新货币符号 ([#4667](https://github.com/ant-design/pro-components/issues/4667)) ([b873a17](https://github.com/ant-design/pro-components/commit/b873a17d2d7c2265c7f381e2a09825ed8706444d))
+
 ## [1.5.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.7...@ant-design/pro-provider@1.5.8) (2022-02-14)
 
 ### Bug Fixes

@@ -44,6 +44,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 base use', async () => {
+    const pageSizeOnchange = jest.fn();
     const html = mount(
       <ProTable
         size="small"
@@ -53,6 +54,9 @@ describe('BasicTable', () => {
         params={{ keyword: 'test' }}
         pagination={{
           defaultCurrent: 10,
+          onChange: (e) => {
+            pageSizeOnchange(e);
+          },
         }}
         toolBarRender={() => [
           <Input.Search
@@ -77,6 +81,14 @@ describe('BasicTable', () => {
     act(() => {
       expect(html.render()).toMatchSnapshot();
     });
+
+    expect(pageSizeOnchange).toBeCalledWith(10);
+
+    html.setProps({ params: { keyword: 'test2' } });
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(pageSizeOnchange).toBeCalledWith(1);
   });
 
   it('🎏 do not render Search', async () => {
