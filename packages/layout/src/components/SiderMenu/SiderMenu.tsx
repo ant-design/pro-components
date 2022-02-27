@@ -5,7 +5,6 @@ import type { AvatarProps } from 'antd';
 import { Avatar, Layout, Menu, ConfigProvider, Space } from 'antd';
 import classNames from 'classnames';
 import type { SiderProps } from 'antd/lib/layout/Sider';
-import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import type { WithFalse } from '../../typings';
 import type { BaseMenuProps } from './BaseMenu';
 import { BaseMenu } from './BaseMenu';
@@ -55,14 +54,18 @@ const CollapsedIcon: React.FC<any> = (props) => {
         props.className,
         defaultIconCss,
         css({
-          transform: !props?.collapsed ? 'rotate(90deg)' : 'rotate(-90deg)',
           boxShadow:
             '0 4px 16px -4px rgba(0,0,0,0.05), 0 2px 8px -2px rgba(25,15,15,0.07), 0 1px 2px 0 rgba(0,0,0,0.08)',
         }),
+        !isMobile &&
+          css({
+            transform: !collapsed ? 'rotate(90deg)' : 'rotate(-90deg)',
+          }),
         isMobile &&
           css({
-            right: '-20px',
-            transform: !props?.collapsed ? 'rotate(-180deg) translate(8px, 0px);' : 'rotate(0deg) ',
+            right: collapsed ? '-18px' : '-12px',
+            top: '72px',
+            transform: collapsed ? 'rotate(-90deg) translate(8px, 0px);' : 'rotate(90deg) ',
           }),
       )}
     >
@@ -164,9 +167,6 @@ export type SiderMenuProps = {
   logoStyle?: CSSProperties;
 } & Pick<BaseMenuProps, Exclude<keyof BaseMenuProps, ['onCollapse']>>;
 
-export const defaultRenderCollapsedButton = (collapsed?: boolean) =>
-  collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />;
-
 export type PrivateSiderMenuProps = {
   matchMenuKeys: string[];
   originCollapsed?: boolean;
@@ -207,7 +207,7 @@ const siderCss = css`
 
   /* 滚动槽 */
   ::-webkit-scrollbar {
-    width: 6px;
+    width: 2px;
     height: 6px;
     background-color: transparent;
   }
@@ -222,7 +222,6 @@ const siderCss = css`
     border-radius: 3px;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
   }
-  --ant-primary-color: @color-neutral-light-text;
 `;
 
 const siderTitleViewCss = css`
@@ -386,6 +385,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         collapsed={originCollapsed}
         className={`${baseClassName}-collapsed-button`}
         onClick={() => {
+          console.log('xx');
           onCollapse?.(!collapsed);
         }}
       />
@@ -441,7 +441,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   return (
     <>
-      {fixSiderbar && (
+      {fixSiderbar && !isMobile && (
         <div
           className={css({
             width: collapsed ? 48 : siderWidth,
@@ -482,6 +482,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               height: 100%;
             `,
           layout === 'mix' &&
+            !isMobile &&
             css`
               height: calc(100% - ${headerHeight}px);
               top: ${headerHeight}px;

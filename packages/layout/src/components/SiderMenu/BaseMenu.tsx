@@ -591,7 +591,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const menuCss = useMemo(() => {
     return css`
-    padding: 6px;
+    padding: ${props.isMobile ? 0 : '6px'};
     background: transparent;
 
     // 关掉动画避免性能问题
@@ -606,11 +606,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     &.${antPrefixClassName}-layout-sider-collapsed {
       flex-direction: column;
       padding-bottom: 24px;
-      .@{pro-layout-sider-menu-prefix-cls} {
-        &-logo {
-          padding: 16px 8px;
-        }
-      }
     }
 
     .${antPrefixClassName}-menu-root {

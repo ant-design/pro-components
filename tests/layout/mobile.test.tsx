@@ -1,4 +1,5 @@
-﻿import { mount, render } from 'enzyme';
+﻿import { mount } from 'enzyme';
+import { render, fireEvent } from '@testing-library/react';
 import React from 'react';
 import BasicLayout from '@ant-design/pro-layout';
 import { act } from 'react-dom/test-utils';
@@ -33,19 +34,19 @@ describe('mobile BasicLayout', () => {
     const html = render(
       <BasicLayout {...defaultProps} getContainer={false} onCollapse={() => {}} />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 collapsed=false', async () => {
     const html = render(<BasicLayout {...defaultProps} getContainer={false} collapsed={false} />);
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout=mix', async () => {
     const html = render(
       <BasicLayout {...defaultProps} getContainer={false} layout="mix" collapsed={false} />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout=mix and splitMenus', async () => {
@@ -58,7 +59,7 @@ describe('mobile BasicLayout', () => {
         collapsed={false}
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout menuHeaderRender=false', async () => {
@@ -71,7 +72,7 @@ describe('mobile BasicLayout', () => {
         menuHeaderRender={false}
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout menuHeaderRender', async () => {
@@ -84,7 +85,7 @@ describe('mobile BasicLayout', () => {
         menuHeaderRender={() => 'title'}
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout menuHeaderRender', async () => {
@@ -97,7 +98,7 @@ describe('mobile BasicLayout', () => {
         menuHeaderRender={() => 'title'}
       />,
     );
-    expect(html).toMatchSnapshot();
+    expect(html.asFragment()).toMatchSnapshot();
   });
 
   it('📱 layout collapsedButtonRender', async () => {

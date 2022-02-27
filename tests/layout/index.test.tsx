@@ -102,8 +102,9 @@ describe('BasicLayout', () => {
     await waitForComponentToPaint(wrapper);
 
     act(() => {
-      const event = new Event('click');
-      wrapper.baseElement.querySelector('.ant-pro-basicLayout-apps-icon')?.dispatchEvent(event);
+      (
+        wrapper.baseElement.querySelector('.ant-pro-basicLayout-apps-icon') as HTMLDivElement
+      )?.click();
     });
     await waitForComponentToPaint(wrapper);
     expect(wrapper.baseElement.querySelectorAll('.ant-pro-basicLayout-apps-icon').length).toBe(1);

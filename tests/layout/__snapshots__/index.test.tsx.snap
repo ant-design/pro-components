@@ -13,7 +13,7 @@ Array [
         class="ant-design-pro-layout-1bredbg"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1ckx0yp"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
         style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
       >
         <div
@@ -184,7 +184,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-sm7khf"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
           >
             <svg
               aria-hidden="true"
@@ -414,7 +414,7 @@ Array [
         class="ant-design-pro-layout-1bredbg"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-1s7f4hx"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-ohtrxp"
         style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
       >
         <div
@@ -449,7 +449,7 @@ Array [
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-sm7khf"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
           >
             <svg
               aria-hidden="true"
@@ -640,7 +640,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
       class="ant-design-pro-layout-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1ckx0yp"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
@@ -786,7 +786,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-sm7khf"
+          class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
         >
           <svg
             aria-hidden="true"
@@ -826,7 +826,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
       class="ant-design-pro-layout-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1ckx0yp"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
@@ -972,7 +972,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-sm7khf"
+          class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
         >
           <svg
             aria-hidden="true"
@@ -1013,7 +1013,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
       class="ant-design-pro-layout-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1ckx0yp"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
@@ -1159,7 +1159,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1njfd7u"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
             data-menu-list="true"
             role="menu"
             style="width: 100%;"
@@ -1222,7 +1222,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-sm7khf"
+          class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
         >
           <svg
             aria-hidden="true"
@@ -1262,7 +1262,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
       class="ant-design-pro-layout-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-1ckx0yp"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
       style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
     >
       <div
@@ -1408,7 +1408,7 @@ exports[`BasicLayout 🥩 support loading 1`] = `
           style="flex: 1; overflow-y: auto; overflow-x: hidden;"
         />
         <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-sm7khf"
+          class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
         >
           <svg
             aria-hidden="true"
