@@ -21961,6 +21961,453 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             <div
               style="flex: 1;"
             />
+            <div
+              class="ant-pro-right-content"
+              style="min-width: auto; height: 100%;"
+            >
+              <div
+                style="height: 100%;"
+              >
+                <div
+                  style="display: flex; align-items: center; height: 100%;"
+                >
+                  <div
+                    class="ant-pro-header-actions ant-design-pro-layout-3a6lt1"
+                  >
+                    <span
+                      class="ant-pro-header-actions-item ant-design-pro-layout-1mu81ss"
+                    >
+                      <a>
+                        key
+                      </a>
+                    </span>
+                    <span
+                      class="ant-pro-header-actions-item ant-design-pro-layout-c7xz8t"
+                    >
+                      <span
+                        class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
+                      >
+                        <img
+                          src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                        />
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <main
+          class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
+        >
+          xxxx
+        </main>
+      </div>
+    </section>
+  </div>
+  <div
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-qi6myi"
+  >
+    <section
+      class="ant-layout ant-layout-has-sider"
+      style="min-height: 100%; height: 100vh;"
+    >
+      <div
+        class="ant-design-pro-layout-1bredbg"
+      />
+      <aside
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-1s7f4hx"
+        style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+      >
+        <div
+          class="ant-layout-sider-children"
+        >
+          <div
+            style="flex: 1; overflow-y: auto; overflow-x: hidden;"
+          >
+            <ul
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1njfd7u"
+              data-menu-list="true"
+              role="menu"
+              style="width: 100%;"
+              tabindex="0"
+            >
+              <li
+                class="ant-pro-menu-item ant-pro-menu-item-selected ant-design-pro-layout-5h5hbj"
+                data-menu-id="rc-menu-uuid-test-/welcome"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  <span
+                    class="ant-pro-menu-item"
+                  >
+                    <span
+                      aria-label="smile"
+                      class="anticon anticon-smile"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="smile"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zM288 421a48.01 48.01 0 0196 0 48.01 48.01 0 01-96 0zm224 272c-85.5 0-155.6-67.3-160-151.6a8 8 0 018-8.4h48.1c4.2 0 7.8 3.2 8.1 7.4C420 589.9 461.5 629 512 629s92.1-39.1 95.8-88.6c.3-4.2 3.9-7.4 8.1-7.4H664a8 8 0 018 8.4C667.6 625.7 597.5 693 512 693zm176-224a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                    >
+                      欢迎
+                    </span>
+                  </span>
+                </span>
+              </li>
+              <li
+                class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
+                role="none"
+              >
+                <div
+                  aria-controls="rc-menu-uuid-test-/admin-popup"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="ant-menu-submenu-title"
+                  data-menu-id="rc-menu-uuid-test-/admin"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    <span
+                      class="ant-pro-menu-item"
+                      title="管理页"
+                    >
+                      <span
+                        aria-label="crown"
+                        class="anticon anticon-crown"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="crown"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M899.6 276.5L705 396.4 518.4 147.5a8.06 8.06 0 00-12.9 0L319 396.4 124.3 276.5c-5.7-3.5-13.1 1.2-12.2 7.9L188.5 865c1.1 7.9 7.9 14 16 14h615.1c8 0 14.9-6 15.9-14l76.4-580.6c.8-6.7-6.5-11.4-12.3-7.9zM512 734.2c-62.1 0-112.6-50.5-112.6-112.6S449.9 509 512 509s112.6 50.5 112.6 112.6S574.1 734.2 512 734.2zm0-160.9c-26.6 0-48.2 21.6-48.2 48.3 0 26.6 21.6 48.3 48.2 48.3s48.2-21.6 48.2-48.3c0-26.6-21.6-48.3-48.2-48.3z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                      >
+                        管理页
+                      </span>
+                    </span>
+                  </span>
+                  <i
+                    class="ant-menu-submenu-arrow"
+                  />
+                </div>
+              </li>
+              <li
+                class="ant-pro-menu-submenu ant-design-pro-layout-22u8dk"
+                role="none"
+              >
+                <div
+                  aria-controls="rc-menu-uuid-test-/list-popup"
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="ant-menu-submenu-title"
+                  data-menu-id="rc-menu-uuid-test-/list"
+                  role="menuitem"
+                  style="padding-left: 16px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    <span
+                      class="ant-pro-menu-item"
+                      title="列表页"
+                    >
+                      <span
+                        aria-label="tablet"
+                        class="anticon anticon-tablet"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="tablet"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M800 64H224c-35.3 0-64 28.7-64 64v768c0 35.3 28.7 64 64 64h576c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64zM512 824c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40z"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                      >
+                        列表页
+                      </span>
+                    </span>
+                  </span>
+                  <i
+                    class="ant-menu-submenu-arrow"
+                  />
+                </div>
+              </li>
+              <li
+                class="ant-pro-menu-item ant-design-pro-layout-mocfav"
+                data-menu-id="rc-menu-uuid-test-https://ant.design"
+                role="menuitem"
+                style="padding-left: 16px;"
+                tabindex="-1"
+              >
+                <span
+                  class="ant-menu-title-content"
+                >
+                  <span
+                    class="ant-pro-menu-item ant-pro-menu-item-link"
+                    title="Ant Design 官网外链"
+                  >
+                    <span
+                      aria-label="chrome"
+                      class="anticon anticon-chrome"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="chrome"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M371.8 512c0 77.5 62.7 140.2 140.2 140.2S652.2 589.5 652.2 512 589.5 371.8 512 371.8 371.8 434.4 371.8 512zM900 362.4l-234.3 12.1c63.6 74.3 64.6 181.5 11.1 263.7l-188 289.2c78 4.2 158.4-12.9 231.2-55.2 180-104 253-322.1 180-509.8zM320.3 591.9L163.8 284.1A415.35 415.35 0 0096 512c0 208 152.3 380.3 351.4 410.8l106.9-209.4c-96.6 18.2-189.9-34.8-234-121.5zm218.5-285.5l344.4 18.1C848 254.7 792.6 194 719.8 151.7 653.9 113.6 581.5 95.5 510.5 96c-122.5.5-242.2 55.2-322.1 154.5l128.2 196.9c32-91.9 124.8-146.7 222.2-141z"
+                        />
+                      </svg>
+                    </span>
+                    <span
+                      class="ant-pro-menu-item-title ant-design-pro-layout-z6d1z6"
+                    >
+                      Ant Design 官网外链
+                    </span>
+                  </span>
+                </span>
+              </li>
+            </ul>
+            <div
+              aria-hidden="true"
+              style="display: none;"
+            />
+          </div>
+          <div
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-sm7khf"
+          >
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              height="1em"
+              viewBox="0 0 12 12"
+              width="1em"
+            >
+              <path
+                d="M6.432 7.967a.448.448 0 01-.318.133h-.228a.46.46 0 01-.318-.133L2.488 4.85a.305.305 0 010-.43l.427-.43a.293.293 0 01.42 0L6 6.687l2.665-2.699a.299.299 0 01.426 0l.42.431a.305.305 0 010 .43L6.432 7.967z"
+              />
+            </svg>
+          </div>
+        </div>
+      </aside>
+      <div
+        class="ant-layout"
+        style="position: relative;"
+      >
+        <header
+          class="ant-layout-header"
+          style="height: 56px; line-height: 56px; background: transparent;"
+        />
+        <header
+          class="ant-layout-header ant-pro-fixed-header ant-pro-fixed-header-action ant-pro-header ant-design-pro-layout-15nnfzd"
+        >
+          <div
+            class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
+          >
+            <span
+              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+            >
+              <svg
+                aria-hidden="true"
+                fill="currentColor"
+                height="1em"
+                viewBox="0 0 12 12"
+                width="1em"
+              >
+                <path
+                  d="M0 0h3v3H0V0zm4.5 0h3v3h-3V0zM9 0h3v3H9V0zM0 4.5h3v3H0v-3zm4.503 0h3v3h-3v-3zM9 4.5h3v3H9v-3zM0 9h3v3H0V9zm4.503 0h3v3h-3V9zM9 9h3v3H9V9z"
+                />
+              </svg>
+            </span>
+            <div
+              class="ant-pro-global-header-logo ant-design-pro-layout-77pcpe"
+            >
+              <a>
+                <svg
+                  height="1em"
+                  viewBox="0 0 200 200"
+                  width="1em"
+                >
+                  <defs>
+                    <lineargradient
+                      id="linearGradient-1"
+                      x1="62.1023273%"
+                      x2="108.19718%"
+                      y1="0%"
+                      y2="37.8635764%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#4285EB"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#2EC7FF"
+                      />
+                    </lineargradient>
+                    <lineargradient
+                      id="linearGradient-2"
+                      x1="69.644116%"
+                      x2="54.0428975%"
+                      y1="0%"
+                      y2="108.456714%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#29CDFF"
+                      />
+                      <stop
+                        offset="37.8600687%"
+                        stop-color="#148EFF"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#0A60FF"
+                      />
+                    </lineargradient>
+                    <lineargradient
+                      id="linearGradient-3"
+                      x1="69.6908165%"
+                      x2="16.7228981%"
+                      y1="-12.9743587%"
+                      y2="117.391248%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#FA816E"
+                      />
+                      <stop
+                        offset="41.472606%"
+                        stop-color="#F74A5C"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#F51D2C"
+                      />
+                    </lineargradient>
+                    <lineargradient
+                      id="linearGradient-4"
+                      x1="68.1279872%"
+                      x2="30.4400914%"
+                      y1="-35.6905737%"
+                      y2="114.942679%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#FA8E7D"
+                      />
+                      <stop
+                        offset="51.2635191%"
+                        stop-color="#F74A5C"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#F51D2C"
+                      />
+                    </lineargradient>
+                  </defs>
+                  <g
+                    fill="none"
+                    fill-rule="evenodd"
+                    stroke="none"
+                    stroke-width="1"
+                  >
+                    <g
+                      transform="translate(-20.000000, -20.000000)"
+                    >
+                      <g
+                        transform="translate(20.000000, 20.000000)"
+                      >
+                        <g>
+                          <g
+                            fill-rule="nonzero"
+                          >
+                            <g>
+                              <path
+                                d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                fill="url(#linearGradient-1)"
+                              />
+                              <path
+                                d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                fill="url(#linearGradient-2)"
+                              />
+                            </g>
+                            <path
+                              d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                              fill="url(#linearGradient-3)"
+                            />
+                          </g>
+                          <ellipse
+                            cx="100.519339"
+                            cy="100.436681"
+                            fill="url(#linearGradient-4)"
+                            rx="23.6001926"
+                            ry="23.580786"
+                          />
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                <h1>
+                  Ant Design Pro
+                </h1>
+              </a>
+            </div>
+            <div
+              style="flex: 1;"
+            />
           </div>
         </header>
         <main

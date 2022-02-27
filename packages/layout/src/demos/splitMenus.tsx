@@ -77,6 +77,26 @@ export default () => {
       >
         xxxx
       </ProLayout>
+
+      <ProLayout
+        {...defaultProps}
+        layout="mix"
+        menuHeaderRender={() => null}
+        location={{
+          pathname: '/welcome',
+        }}
+        openKeys={false}
+        actionsRender={() => [<a key="key">key</a>]}
+        avatarProps={{
+          src: 'https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg',
+          size: 'small',
+        }}
+        style={{
+          height: '100vh',
+        }}
+      >
+        xxxx
+      </ProLayout>
       <ProLayout
         {...defaultProps}
         layout="mix"

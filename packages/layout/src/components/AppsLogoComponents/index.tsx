@@ -50,6 +50,7 @@ export const AppsLogoComponents: React.FC<{
     <Popover
       getPopupContainer={(triggerNode) => triggerNode.parentNode as HTMLElement}
       placement="rightTop"
+      trigger={['click', 'hover']}
       overlayClassName={cx(getAntdPopoverContentListCss(antdPreFixCls))}
       content={
         <div className={`${prefixCls}-basicLayout-apps-content`}>

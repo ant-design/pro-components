@@ -422,6 +422,7 @@ const ProLayout: React.FC<ProLayoutProps> = (props) => {
   const headerDom = headerRender(
     {
       ...defaultProps,
+      children: null,
       hasSiderMenu: !!siderMenuDom,
       menuData,
       isMobile,

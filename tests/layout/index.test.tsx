@@ -64,134 +64,57 @@ describe('BasicLayout', () => {
     });
   });
 
-  it('🥩 support menuDataRender', async () => {
-    const wrapper = mount(
+  it('🥩 support appList', async () => {
+    const wrapper = render(
       <BasicLayout
-        menuDataRender={() =>
-          [
-            {
-              path: '/home',
-              name: '首页',
-              locale: 'menu.home',
-              routes: [
-                {
-                  path: '/home/overview',
-                  name: '概述',
-                  hideInMenu: true,
-                  exact: true,
-                  locale: 'menu.home.overview',
-                },
-                {
-                  path: '/home/search',
-                  name: '搜索',
-                  exact: true,
-                  hideInMenu: true,
-                  locale: 'menu.home.search',
-                },
-              ],
-            },
-            {
-              path: '/data_hui',
-              name: '汇总数据',
-              locale: 'menu.data_hui',
-              routes: [
-                {
-                  collapsed: true,
-                  menuName: '域买家维度交易',
-                  name: '域买家维度交易',
-                  routes: [
-                    {
-                      id: 2,
-                      isNavHome: '2',
-                      itemId: '191020104',
-                      itemName: '_交易_买家_月表',
-                      tab: 'adm_rk_cr_tb_trd_byr_ms',
-                      tabProj: 'alining_odps_biisk',
-                      name: '_交易_买家_月表',
-                      path: '/data_hui1?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alibis_odps_biisk',
-                    },
-                    {
-                      id: 3,
-                      isNavHome: '3',
-                      name: '_航旅交易_买家_日表',
-                      path: '/data_hui2?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
-                    },
-                  ],
-                },
-                {
-                  collapsed: true,
-                  name: '域买家维度交易2',
-                  routes: [
-                    {
-                      id: 5,
-                      name: '_交易_买家_月表',
-                      path: '/data_hui3?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=box-shadow',
-                    },
-                    {
-                      id: 6,
-                      name: '_航旅交易_买家_日表',
-                      path: '/data_hui4?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
-                    },
-                  ],
-                },
-                {
-                  collapsed: true,
-                  name: '域买家维度交易3',
-                  routes: [
-                    {
-                      id: 7,
-                      name: '_交易_买家_月表2',
-                      path: '/data_hui5?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=box-shadow',
-                    },
-                    {
-                      id: 8,
-                      name: '_航旅交易_买家_日表3',
-                      path: '/data_hui6?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
-                    },
-                  ],
-                },
-              ],
-            },
-            {
-              path: '/data_ming',
-              name: '明细数据',
-              locale: 'menu.data_ming',
-            },
-            {
-              path: '/other',
-              name: '其他',
-
-              locale: 'menu.other',
-              routes: [
-                {
-                  path: '/other/upLoad',
-                  name: 'odps同步导入',
-                  exact: true,
-                  locale: 'menu.other.upLoad',
-                  hideInMenu: true,
-                },
-                {
-                  path: '/other/upLoadMenu',
-                  name: '菜单导入',
-                  exact: true,
-                  locale: 'menu.other.upLoadMenu',
-                  hideInMenu: true,
-                },
-                {
-                  path: '/other/homeEdit',
-                  name: '概述编辑',
-                  exact: true,
-                  locale: 'menu.other.homeEdit',
-                  hideInMenu: true,
-                },
-              ],
-            },
-          ] as any
-        }
+        appList={[
+          {
+            icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+            title: 'Ant Design',
+            desc: '杭州市较知名的 UI 设计语言',
+            url: 'https://ant.design',
+          },
+        ]}
+        route={{
+          routes: [
+            [
+              {
+                path: '/home',
+                name: '首页',
+                locale: 'menu.home',
+                routes: [
+                  {
+                    path: '/home/overview',
+                    name: '概述',
+                    hideInMenu: true,
+                    exact: true,
+                    locale: 'menu.home.overview',
+                  },
+                ],
+              },
+            ],
+          ],
+        }}
       />,
     );
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.render()).toMatchSnapshot();
+
+    act(() => {
+      const event = new Event('click');
+      wrapper.baseElement.querySelector('.ant-pro-basicLayout-apps-icon')?.dispatchEvent(event);
+    });
+    await waitForComponentToPaint(wrapper);
+    expect(wrapper.baseElement.querySelectorAll('.ant-pro-basicLayout-apps-icon').length).toBe(1);
+  });
+
+  it('🥩 do not render footer', async () => {
+    const wrapper = mount(<BasicLayout footerRender={false} />);
+    await waitForComponentToPaint(wrapper);
+    const footer = wrapper.find('footer');
+    expect(footer.exists()).toBe(false);
+    act(() => {
+      wrapper.unmount();
+    });
   });
 
   it('🥩 do not render footer', async () => {
