@@ -77,17 +77,24 @@ export default () => {
   const [pathname, setPathname] = useState('/list');
   return (
     <ProLayout
+      splitMenus
       token={{
-        menuBackgroundColor: '#004FD9',
-        menuTextColor: 'rgba(255,255,255,0.85)',
-        menuTextColorSecondary: 'rgba(255,255,255,0.65)',
-        menuSelectedTextColor: '#fff',
-        menuTitleTextColor: 'rgba(255,255,255,0.95)',
-        menuItemHoverBgColor: 'rgba(0,0,0,0.06)',
-        menuItemSelectedBgColor: 'rgba(0,0,0,0.15)',
-        menuItemDividerColor: 'rgba(255,255,255,0.15)',
-        collapsedButtonTextColor: 'rgba(0,0,0,0.45)',
-        collapsedButtonHoverTextColor: 'rgba(0,0,0,0.65)',
+        sider: {
+          menuBackgroundColor: '#004FD9',
+          menuTextColor: 'rgba(255,255,255,0.85)',
+          menuTextColorSecondary: 'rgba(255,255,255,0.65)',
+          menuSelectedTextColor: '#fff',
+          menuTitleTextColor: 'rgba(255,255,255,0.95)',
+          menuItemHoverBgColor: 'rgba(0,0,0,0.06)',
+          menuItemCollapsedHoverBgColor: 'rgba(0,0,0,0.06)',
+          menuItemSelectedBgColor: 'rgba(0,0,0,0.15)',
+          menuItemCollapsedSelectedBgColor: 'rgba(0,0,0,0.15)',
+          menuItemDividerColor: 'rgba(255,255,255,0.15)',
+          collapsedButtonBgColor: '#fff',
+          collapsedButtonTextColor: 'rgba(0,0,0,0.45)',
+          collapsedButtonHoverTextColor: 'rgba(0,0,0,0.65)',
+          menuSubArrowColor: 'rgba(255,255,255,0.15)',
+        },
       }}
       brandBgImg={{
         url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',

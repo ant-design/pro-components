@@ -32377,14 +32377,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-v2g30 ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-design-pro-layout-1aes3jx"
+                class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-design-pro-layout-d0bcgz"
                 role="none"
               >
                 <div
@@ -32441,7 +32441,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-d5kg8v"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-4x055d"
           >
             <svg
               aria-hidden="true"

@@ -873,7 +873,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo ant-design-pro-layout-1uaa94s"
+          class="ant-pro-sider-logo ant-design-pro-layout-1dzrjwb"
           id="logo"
         >
           <a>
@@ -1012,7 +1012,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-l9uh64"
+          class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
         >
           <svg
             aria-hidden="true"

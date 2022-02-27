@@ -80,14 +80,14 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
                   justify-content: center;
                   padding: 0px 12px;
                   font-size: 16px;
-                  color: ${designToken.textColorSecondary};
+                  color: ${designToken?.header?.rightActionsItemTextColor};
                   cursor: pointer;
                   border-radius: ${designToken.borderRadiusBase};
                 `,
                 !hideHover &&
                   css`
                     &:hover {
-                      background-color: ${designToken.rightActionsItemHoverBgColor};
+                      background-color: ${designToken.header?.rightActionsItemHoverBgColor};
                     }
                   `,
               )}
@@ -190,7 +190,15 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
   );
 
   const contentDom = useMemo(() => {
-    const defaultDom = <BaseMenu theme="light" {...props} {...props.menuProps} />;
+    const defaultDom = (
+      <BaseMenu
+        theme="light"
+        {...props}
+        {...props.menuProps}
+        collapsed={false}
+        menuRenderType="header"
+      />
+    );
     if (headerContentRender) {
       return headerContentRender(props, defaultDom);
     }
@@ -276,7 +284,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
                   h1 {
                     display: inline-block;
                     margin: 0 0 0 12px;
-                    color: ${designToken.headingColor};
+                    color: ${designToken?.header?.headerTitleColor};
                     font-weight: 400;
                     font-size: 16px;
                     vertical-align: top;

@@ -25,7 +25,7 @@ export const defaultIconCss = (designToken: LayoutDesignToken) => css`
   width: 24px;
   height: 24px;
   font-size: 14px;
-  color: ${designToken.collapsedButtonTextColor};
+  color: ${designToken.sider.collapsedButtonTextColor};
   text-align: center;
   border-radius: 40px;
   right: -13px;
@@ -41,7 +41,7 @@ export const defaultIconCss = (designToken: LayoutDesignToken) => css`
   }
 
   &:hover {
-    color: ${designToken.collapsedButtonHoverTextColor};
+    color: ${designToken.sider.collapsedButtonHoverTextColor};
   }
 `;
 
@@ -103,8 +103,8 @@ export const siderTitleViewCss = (designToken: LayoutDesignToken) => css`
   align-items: center;
   justify-content: space-between;
   padding: 16px 16px;
-  color: ${designToken.menuTextColor};
-  border-bottom: 1px solid ${designToken.menuItemDividerColor};
+  color: ${designToken.sider.menuTextColor};
+  border-bottom: 1px solid ${designToken.sider.menuItemDividerColor};
   cursor: pointer;
 
   > a {
@@ -125,7 +125,7 @@ export const siderTitleViewCss = (designToken: LayoutDesignToken) => css`
     display: inline-block;
     height: 22px;
     margin: 0 0 0 12px;
-    color: ${designToken.menuTitleTextColor};
+    color: ${designToken.sider.menuTitleTextColor};
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;
@@ -262,6 +262,7 @@ export type SiderMenuProps = {
 export type PrivateSiderMenuProps = {
   matchMenuKeys: string[];
   originCollapsed?: boolean;
+  menuRenderType?: 'header';
 };
 
 const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
@@ -360,7 +361,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           className={cx([
             `${baseClassName}-actions-list`,
             css`
-              color: ${designToken.menuTextColor};
+              color: ${designToken.sider.menuTextColor};
               animation: ${proLayoutTitleHide} 0.3s;
               & > * {
                 cursor: pointer;
@@ -392,10 +393,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         isMobile={isMobile}
         collapsed={originCollapsed}
         className={`${baseClassName}-collapsed-button`}
-        onClick={() => {
-          console.log('xx');
-          onCollapse?.(!collapsed);
-        }}
+        onClick={() => onCollapse?.(!collapsed)}
       />
     );
 
@@ -429,7 +427,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             justify-content: space-between;
             margin: 4px 0;
             padding: 0 16px;
-            color: ${designToken.menuTextColor};
+            color: ${designToken.sider.menuTextColor};
           `,
           collapsed &&
             css`
@@ -444,7 +442,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         {actionsDom}
       </div>
     );
-  }, [actionsDom, avatarDom, baseClassName, collapsed, designToken.menuTextColor]);
+  }, [actionsDom, avatarDom, baseClassName, collapsed, designToken.sider.menuTextColor]);
 
   const antPrefix = context.getPrefixCls();
 
@@ -474,7 +472,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
         }}
         collapsedWidth={60}
         style={{
-          backgroundColor: designToken.menuBackgroundColor,
+          backgroundColor: designToken.sider.menuBackgroundColor,
           ...style,
         }}
         width={siderWidth}
@@ -605,7 +603,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               `${baseClassName}-footer`,
               collapsed && `${baseClassName}-footer-collapsed`,
               css`
-                color: ${designToken.menuTextColorSecondary};
+                color: ${designToken.sider.menuTextColorSecondary};
                 animation: ${proLayoutTitleHide} 0.35s;
               `,
               collapsed &&
