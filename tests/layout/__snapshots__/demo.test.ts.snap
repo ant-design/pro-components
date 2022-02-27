@@ -9908,7 +9908,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     style="height: 100%;"
                   >
                     <div
-                      style="display: flex; align-items: center; height: 100%;"
+                      style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                     >
                       <div
                         class="ant-pro-header-actions ant-design-pro-layout-3a6lt1"
@@ -21113,7 +21113,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="height: 100%;"
                 >
                   <div
-                    style="display: flex; align-items: center; height: 100%;"
+                    style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                   >
                     dom
                   </div>
@@ -21528,7 +21528,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   style="height: 100%;"
                 >
                   <div
-                    style="display: flex; align-items: center; height: 100%;"
+                    style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                   >
                     <div
                       class="ant-pro-header-actions ant-design-pro-layout-3a6lt1"
@@ -21969,7 +21969,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="height: 100%;"
               >
                 <div
-                  style="display: flex; align-items: center; height: 100%;"
+                  style="display: flex; align-items: center; height: 100%; justify-content: flex-end;"
                 >
                   <div
                     class="ant-pro-header-actions ant-design-pro-layout-3a6lt1"

@@ -1170,11 +1170,11 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               role="none"
             >
               <div
-                aria-controls="rc-menu-uuid-84044-5-/admin-popup"
+                aria-controls="rc-menu-uuid-84044-6-/admin-popup"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                data-menu-id="rc-menu-uuid-84044-5-/admin"
+                data-menu-id="rc-menu-uuid-84044-6-/admin"
                 role="menuitem"
                 style="padding-left: 16px;"
                 tabindex="-1"
@@ -1196,7 +1196,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
             </li>
             <li
               class="ant-pro-menu-item ant-design-pro-layout-mocfav"
-              data-menu-id="rc-menu-uuid-84044-5-/list"
+              data-menu-id="rc-menu-uuid-84044-6-/list"
               role="menuitem"
               style="padding-left: 16px;"
               tabindex="-1"
