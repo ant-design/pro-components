@@ -89,6 +89,9 @@ export default () => {
       }}
     >
       <ProLayout
+        token={{
+          menuBackgroundColor: 'red',
+        }}
         brandBgImg={{
           url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
         }}

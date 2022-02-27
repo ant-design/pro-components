@@ -82,7 +82,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
                   font-size: 16px;
                   color: ${designToken.textColorSecondary};
                   cursor: pointer;
-                  border-radius: 4px;
+                  border-radius: ${designToken.borderRadiusBase};
                 `,
                 !hideHover &&
                   css`
@@ -106,7 +106,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
                 justify-content: center;
                 padding-left: 24px;
                 padding-right: 24px;
-                border-radius: 4px;
+                border-radius: ${designToken.borderRadiusBase};
                 cursor: pointer;
                 &:hover {
                   background-color: rgba(0, 0, 0, 0.03);
@@ -178,6 +178,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     actionsRender,
     headerContentRender,
   } = props;
+  const designToken = useContext(ProLayoutContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const antdPreFix = getPrefixCls();
 
@@ -275,7 +276,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
                   h1 {
                     display: inline-block;
                     margin: 0 0 0 12px;
-                    color: rgba(0, 0, 0, 0.85);
+                    color: ${designToken.headingColor};
                     font-weight: 400;
                     font-size: 16px;
                     vertical-align: top;

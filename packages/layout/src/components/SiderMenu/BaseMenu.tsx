@@ -445,7 +445,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
 
     return {
       menuItem: css`
-        border-radius: 2px;
+        border-radius: ${designToken.borderRadiusBase};
         min-height: 40px;
         display: flex;
         align-items: center;
@@ -493,18 +493,18 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         }
         .${antPrefixClassName}-menu-title-content:hover {
           background-color: ${itemHoverColor};
-          border-radius: 4px;
+          border-radius: ${designToken.borderRadiusBase};
         }
       `,
       verticalItem: css`
         &:hover {
           background-color: ${itemHoverColor};
-          border-radius: 4px;
+          border-radius: ${designToken.borderRadiusBase};
         }
       `,
       selectedItem: css`
         background-color: ${itemSelectedColor};
-        border-radius: 4px;
+        border-radius: ${designToken.borderRadiusBase};
         a {
           color: ${designToken.headingColor};
           .anticon {
@@ -514,7 +514,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       `,
       // subMenuItem Style
       subMenuItem: css`
-        border-radius: 2px;
+        border-radius: ${designToken.borderRadiusBase};
         min-height: 40px;
         display: flex;
         flex-direction: column;
@@ -575,7 +575,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       verticalSubItem: css`
         .${antPrefixClassName}-menu-submenu-title:hover {
           background-color: ${itemHoverColor};
-          border-radius: 4px;
+          border-radius: ${designToken.borderRadiusBase};
         }
       `,
       horizontalSubMenuItem: css`
@@ -587,7 +587,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         .${antPrefixClassName}-menu-submenu-title:hover {
           color:${designToken.textColor};
           background-color: ${itemHoverColor};
-          border-radius: 4px;
+          border-radius: ${designToken.borderRadiusBase};
         }
         .${antPrefixClassName}-menu-submenu-arrow {
           display: none;
@@ -597,6 +597,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   }, [
     antPrefixClassName,
     collapsed,
+    designToken.borderRadiusBase,
     designToken.headingColor,
     designToken.menuItemCollapsedHoverBgColor,
     designToken.menuItemCollapsedSelectedBgColor,

@@ -89,15 +89,15 @@ export const baseDesignTokens: BaseDesignToken = {
   /**
    * 正文色
    */
-  textColor: 'rgba(0,0,0,0.65)',
+  textColor: 'rgba(0, 0, 0, 0.65)',
   /**
    * 标题色
    */
-  headingColor: 'rgba(0,0,0,0.85)',
+  headingColor: 'rgba(0, 0, 0, 0.85)',
   /**
    * 次级色
    */
-  textColorSecondary: 'rgba(0,0,0,0.45)',
+  textColorSecondary: 'rgba(0, 0, 0, 0.45)',
 
   /**
    * 边框基本色
@@ -107,7 +107,7 @@ export const baseDesignTokens: BaseDesignToken = {
   /**
    * 分隔边框的颜色
    */
-  borderColorSplit: 'rgba(0,0,0,0.06)',
+  borderColorSplit: 'rgba(0, 0, 0, 0.06)',
 
   /**
    * 默认阴影

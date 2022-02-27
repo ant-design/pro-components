@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import type { HeaderViewProps } from '../../Header';
 import type { SiderMenuProps, PrivateSiderMenuProps } from '../SiderMenu/SiderMenu';
@@ -11,6 +11,7 @@ import { clearMenuItem } from '../../utils/utils';
 import { AppsLogoComponents, defaultRenderLogo } from '../AppsLogoComponents';
 import { css, cx } from '../../emotion';
 import type { AvatarProps } from 'antd';
+import { ProLayoutContext } from '../../ProLayoutContext';
 
 export type GlobalHeaderProps = {
   collapsed?: boolean;
@@ -73,6 +74,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     menuData,
     prefixCls,
   } = props;
+  const designToken = useContext(ProLayoutContext);
   const baseClassName = `${prefixCls}-global-header`;
   const className = classNames(propClassName, baseClassName, {
     [`${baseClassName}-layout-${layout}`]: layout && headerTheme === 'dark',
@@ -116,7 +118,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
             h1 {
               height: 32px;
               margin: 0 0 0 8px;
-              color: rgba(0, 0, 0, 0.85);
+              color: ${designToken.headingColor};
               font-weight: 600;
               font-size: 18px;
               line-height: 32px;
@@ -195,7 +197,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
                   h1 {
                     height: 32px;
                     margin: 0 0 0 8px;
-                    color: rgba(0, 0, 0, 0.85);
+                    color: ${designToken.headingColor};
                     font-weight: 600;
                     font-size: 18px;
                     line-height: 32px;

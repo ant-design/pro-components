@@ -24,7 +24,7 @@ export const getAppContentLisItem = (designToken: LayoutDesignToken) => css`
   vertical-align: top;
   list-style-type: none;
   transition: transform 0.2s cubic-bezier(0.333, 0, 0, 1);
-  border-radius: 4px;
+  border-radius: ${designToken.borderRadiusBase};
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.03);

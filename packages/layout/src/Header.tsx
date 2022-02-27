@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import { Layout } from 'antd';
 import type { GlobalHeaderProps } from './components/GlobalHeader';
@@ -8,6 +8,8 @@ import type { WithFalse } from './typings';
 import type { PrivateSiderMenuProps } from './components/SiderMenu/SiderMenu';
 import { clearMenuItem } from './utils/utils';
 import { cx, css } from './emotion';
+import type { LayoutDesignToken } from './ProLayoutContext';
+import { ProLayoutContext } from './ProLayoutContext';
 
 const { Header } = Layout;
 
@@ -18,12 +20,12 @@ const ProLayoutFixedHeaderCss = css`
   background: transparent;
 `;
 
-const ProLayoutHeader = css`
+const getProLayoutHeader = (designToken: LayoutDesignToken) => css`
   z-index: 9;
   width: 100%;
   background-color: rgba(240, 242, 245, 0.4);
   padding: 0 8px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid ${designToken.borderColorSplit};
   backdrop-filter: blur(20px) saturate(150%);
   transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 `;
@@ -45,20 +47,17 @@ export type HeaderViewProps = GlobalHeaderProps & {
   hasSiderMenu?: boolean;
 };
 
-type HeaderViewState = {
-  visible: boolean;
-};
+const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props) => {
+  const designToken = useContext(ProLayoutContext);
 
-class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, HeaderViewState> {
-  renderContent = () => {
-    const { isMobile, onCollapse, navTheme, layout, headerRender, headerContentRender } =
-      this.props;
+  const renderContent = () => {
+    const { isMobile, onCollapse, navTheme, layout, headerRender, headerContentRender } = props;
     const isTop = layout === 'top';
-    const clearMenuData = clearMenuItem(this.props.menuData || []);
+    const clearMenuData = clearMenuItem(props.menuData || []);
 
     let defaultDom = (
-      <GlobalHeader onCollapse={onCollapse} {...this.props} menuData={clearMenuData}>
-        {headerContentRender && headerContentRender(this.props, null)}
+      <GlobalHeader onCollapse={onCollapse} {...props} menuData={clearMenuData}>
+        {headerContentRender && headerContentRender(props, null)}
       </GlobalHeader>
     );
 
@@ -68,19 +67,19 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
           theme={navTheme as 'light' | 'dark'}
           mode="horizontal"
           onCollapse={onCollapse}
-          {...this.props}
+          {...props}
           menuData={clearMenuData}
         />
       );
     }
     if (headerRender && typeof headerRender === 'function') {
-      return headerRender(this.props, defaultDom);
+      return headerRender(props, defaultDom);
     }
     return defaultDom;
   };
 
-  getHeaderActionsCss = () => {
-    const propsClassName = this.props.className;
+  const getHeaderActionsCss = () => {
+    const propsClassName = props.className;
     return css`
       .${propsClassName}-header-actions {
         display: flex;
@@ -90,7 +89,7 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
         &-item {
           padding: 0 8px;
           &:hover {
-            color: #1890ff;
+            color: ${designToken.textColor};
           }
         }
       }
@@ -103,62 +102,60 @@ class DefaultHeader extends Component<HeaderViewProps & PrivateSiderMenuProps, H
     `;
   };
 
-  render(): React.ReactNode {
-    const {
-      fixedHeader,
-      layout,
-      className: propsClassName,
-      style,
-      collapsed,
-      prefixCls,
-      headerHeight,
-    } = this.props;
-    const needFixedHeader = fixedHeader || layout === 'mix';
-    const isTop = layout === 'top';
+  const {
+    fixedHeader,
+    layout,
+    className: propsClassName,
+    style,
+    collapsed,
+    prefixCls,
+    headerHeight,
+  } = props;
+  const needFixedHeader = fixedHeader || layout === 'mix';
+  const isTop = layout === 'top';
 
-    const className = classNames(propsClassName, {
-      [`${prefixCls}-fixed-header`]: needFixedHeader,
-      [`${prefixCls}-fixed-header-action`]: !collapsed,
-      [`${prefixCls}-top-menu`]: isTop,
-      [`${prefixCls}-header`]: true,
-    });
+  const className = classNames(propsClassName, {
+    [`${prefixCls}-fixed-header`]: needFixedHeader,
+    [`${prefixCls}-fixed-header-action`]: !collapsed,
+    [`${prefixCls}-top-menu`]: isTop,
+    [`${prefixCls}-header`]: true,
+  });
 
-    const right = needFixedHeader ? 0 : undefined;
+  const right = needFixedHeader ? 0 : undefined;
 
-    if (layout === 'side') return null;
+  if (layout === 'side') return null;
 
-    return (
-      <>
-        {needFixedHeader && (
-          <Header
-            style={{
-              height: headerHeight,
-              lineHeight: `${headerHeight}px`,
-              background: 'transparent',
-            }}
-          />
-        )}
+  return (
+    <>
+      {needFixedHeader && (
         <Header
-          className={cx(
-            className,
-            ProLayoutHeader,
-            this.getHeaderActionsCss(),
-            needFixedHeader && ProLayoutFixedHeaderCss,
-            css({
-              height: headerHeight,
-              lineHeight: `${headerHeight}px`,
-              width: '100%',
-              zIndex: layout === 'mix' ? 100 : 19,
-              right,
-              ...style,
-            }),
-          )}
-        >
-          {this.renderContent()}
-        </Header>
-      </>
-    );
-  }
-}
+          style={{
+            height: headerHeight,
+            lineHeight: `${headerHeight}px`,
+            background: 'transparent',
+          }}
+        />
+      )}
+      <Header
+        className={cx(
+          className,
+          getProLayoutHeader(designToken),
+          getHeaderActionsCss(),
+          needFixedHeader && ProLayoutFixedHeaderCss,
+          css({
+            height: headerHeight,
+            lineHeight: `${headerHeight}px`,
+            width: '100%',
+            zIndex: layout === 'mix' ? 100 : 19,
+            right,
+            ...style,
+          }),
+        )}
+      >
+        {renderContent()}
+      </Header>
+    </>
+  );
+};
 
 export { DefaultHeader };
