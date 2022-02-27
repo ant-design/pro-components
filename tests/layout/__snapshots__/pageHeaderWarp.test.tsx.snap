@@ -12,14 +12,14 @@ exports[`BasicLayout base use 1`] = `
       class="ant-design-pro-layout-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-wkax08"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo ant-design-pro-layout-18peocf"
+          class="ant-pro-sider-logo ant-design-pro-layout-1uaa94s"
           id="logo"
         >
           <a>
@@ -158,14 +158,14 @@ exports[`BasicLayout base use 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-12x36a8"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-v2g30"
             data-menu-list="true"
             role="menu"
             style="width:100%"
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-submenu ant-design-pro-layout-1ndl8gr"
+              class="ant-pro-menu-submenu ant-design-pro-layout-1w1dqm3"
               role="none"
             >
               <div
@@ -198,7 +198,7 @@ exports[`BasicLayout base use 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-d8v0zt"
+          class="ant-pro-sider-collapsed-button ant-design-pro-layout-l9uh64"
         >
           <svg
             aria-hidden="true"
@@ -265,14 +265,14 @@ exports[`BasicLayout content is text 1`] = `
       class="ant-design-pro-layout-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-wkax08"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo ant-design-pro-layout-18peocf"
+          class="ant-pro-sider-logo ant-design-pro-layout-1uaa94s"
           id="logo"
         >
           <a>
@@ -411,14 +411,14 @@ exports[`BasicLayout content is text 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         >
           <ul
-            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-12x36a8"
+            class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-v2g30"
             data-menu-list="true"
             role="menu"
             style="width:100%"
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-submenu ant-design-pro-layout-1ndl8gr"
+              class="ant-pro-menu-submenu ant-design-pro-layout-1w1dqm3"
               role="none"
             >
               <div
@@ -451,7 +451,7 @@ exports[`BasicLayout content is text 1`] = `
           />
         </div>
         <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-d8v0zt"
+          class="ant-pro-sider-collapsed-button ant-design-pro-layout-l9uh64"
         >
           <svg
             aria-hidden="true"

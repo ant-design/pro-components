@@ -68,22 +68,25 @@ const MenuDivider: React.FC<{
   index?: number | string;
   prefixCls?: string;
   collapsed?: boolean;
-}> = ({ prefixCls, collapsed, index }) => (
-  <div
-    key={index}
-    className={`${prefixCls}-menu-item-divider`}
-    style={{
-      padding: collapsed ? '4px' : '16px 0px',
-    }}
-  >
-    <Menu.Divider
+}> = ({ prefixCls, collapsed, index }) => {
+  const designToken = useContext(ProLayoutContext);
+  return (
+    <div
+      key={index}
+      className={`${prefixCls}-menu-item-divider`}
       style={{
-        margin: 0,
-        borderColor: 'rgba(0,0,0,0.06)',
+        padding: collapsed ? '4px' : '16px 0px',
       }}
-    />
-  </div>
-);
+    >
+      <Menu.Divider
+        style={{
+          margin: 0,
+          borderColor: designToken.menuItemDividerColor,
+        }}
+      />
+    </div>
+  );
+};
 
 const genMenuItemCss = (
   prefixCls: string | undefined,
@@ -456,7 +459,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         .${antPrefixClassName}-menu-title-content {
           display: flex;
           width: 100%;
-          color: ${designToken.textColor};
+          color: ${designToken.menuTextColor};
           font-size: 14px;
           line-height: 40px;
           transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -464,9 +467,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         a {
           width: 100%;
           height: 100%;
-          color: ${designToken.textColor};
+          color: ${designToken.menuTextColor};
           .anticon {
-            color: ${designToken.textColorSecondary};
+            color: ${designToken.menuTextColor};
           }
         }
       `,
@@ -480,7 +483,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           justify-content: center;
           width: 100%;
           height: 100%;
-          color: ${designToken.textColor};
+          color: ${designToken.menuTextColor};
           font-size: 16px;
         }
       `,
@@ -506,9 +509,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         background-color: ${itemSelectedColor};
         border-radius: ${designToken.borderRadiusBase};
         a {
-          color: ${designToken.headingColor};
+          color: ${designToken.menuSelectedTextColor};
           .anticon {
-            color: ${designToken.textColor};
+            color: ${designToken.menuSelectedTextColor};
           }
         }
       `,
@@ -522,7 +525,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         align-items: flex-start;
         transition: background-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
         cursor: pointer;
-        color: ${designToken.textColor};
+        color: ${designToken.menuTextColor};
 
         .${antPrefixClassName}-menu-submenu-title {
           width: 100%;
@@ -531,7 +534,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           line-height: 40px;
 
           .anticon {
-            color: ${designToken.textColorSecondary};
+            color: ${designToken.menuTextColor};
           }
         }
         .${antPrefixClassName}-menu-submenu-arrow {
@@ -598,12 +601,12 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     antPrefixClassName,
     collapsed,
     designToken.borderRadiusBase,
-    designToken.headingColor,
     designToken.menuItemCollapsedHoverBgColor,
     designToken.menuItemCollapsedSelectedBgColor,
     designToken.menuItemHoverBgColor,
     designToken.menuItemSelectedBgColor,
     designToken.menuSelectedTextColor,
+    designToken.menuTextColor,
     designToken.textColor,
     designToken.textColorSecondary,
     mode,
@@ -642,12 +645,12 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       }
     }
     .${antPrefixClassName}-menu-item-group-title {
-      color: ${designToken.textColorSecondary};
+      color: ${designToken.menuTextColorSecondary};
       font-size: 12px;
       line-height: 20px;
     }
   `;
-  }, [antPrefixClassName, designToken.textColorSecondary, props.isMobile]);
+  }, [antPrefixClassName, designToken.menuTextColorSecondary, props.isMobile]);
 
   if (menu?.loading) {
     return (

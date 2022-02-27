@@ -89,9 +89,6 @@ export default () => {
       }}
     >
       <ProLayout
-        token={{
-          menuBackgroundColor: 'red',
-        }}
         brandBgImg={{
           url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
         }}
@@ -289,7 +286,6 @@ export default () => {
             <p
               style={{
                 textAlign: 'center',
-                color: 'rgba(0,0,0,0.6)',
                 paddingTop: 12,
               }}
             >

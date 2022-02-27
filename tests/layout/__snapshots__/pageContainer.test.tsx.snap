@@ -93,7 +93,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-pro-footer-bar ant-design-pro-layout-1v95bqc"
+    class="ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
   >
     <div
       class="ant-pro-footer-bar-left ant-design-pro-layout-8fxooz"
@@ -323,7 +323,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-1b2exge"
+        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-1bk6vv6"
       >
         <div
           class="ant-pro-top-nav-header light ant-design-pro-layout-q8kmqe"
@@ -501,7 +501,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
                 class="ant-pro-page-container-children-content"
               >
                 <div
-                  class="ant-pro-footer-bar ant-design-pro-layout-1v95bqc"
+                  class="ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
                   style="width: 100%;"
                 >
                   <div
@@ -610,7 +610,7 @@ Array [
     class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
   />,
   <div
-    class="ant-pro-footer-bar ant-design-pro-layout-1v95bqc"
+    class="ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
   >
     <div
       class="ant-pro-footer-bar-left ant-design-pro-layout-8fxooz"
@@ -647,7 +647,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-1b2exge"
+        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-1bk6vv6"
       >
         <div
           class="ant-pro-top-nav-header light ant-design-pro-layout-q8kmqe"
@@ -832,7 +832,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
           </div>
         </div>
         <div
-          class="ant-pro-footer-bar ant-design-pro-layout-1v95bqc"
+          class="ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
           style="width: 100%;"
         >
           <div
@@ -866,14 +866,14 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
       class="ant-design-pro-layout-1bredbg"
     />
     <aside
-      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-wkax08"
+      class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
       style="background-color:transparent;flex:0 0 216px;max-width:216px;min-width:216px;width:216px"
     >
       <div
         class="ant-layout-sider-children"
       >
         <div
-          class="ant-pro-sider-logo ant-design-pro-layout-18peocf"
+          class="ant-pro-sider-logo ant-design-pro-layout-1uaa94s"
           id="logo"
         >
           <a>
@@ -1012,7 +1012,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
           style="flex:1;overflow-y:auto;overflow-x:hidden"
         />
         <div
-          class="ant-pro-sider-collapsed-button ant-design-pro-layout-d8v0zt"
+          class="ant-pro-sider-collapsed-button ant-design-pro-layout-l9uh64"
         >
           <svg
             aria-hidden="true"
@@ -1165,7 +1165,7 @@ exports[`PageContainer 💄 config is null 1`] = `
 
 exports[`PageContainer 🔥 footer bar support extra 1`] = `
 <div
-  class="qixian_footer ant-pro-footer-bar ant-design-pro-layout-1v95bqc"
+  class="qixian_footer ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
 >
   <div
     class="ant-pro-footer-bar-left ant-design-pro-layout-8fxooz"
@@ -1189,7 +1189,7 @@ exports[`PageContainer 🔥 footer bar support extra 1`] = `
 
 exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
 <div
-  class="qixian_footer ant-pro-footer-bar ant-design-pro-layout-1v95bqc"
+  class="qixian_footer ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
 >
   home_toolbar
 </div>
@@ -1242,7 +1242,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-pro-footer-bar ant-design-pro-layout-1v95bqc"
+    class="ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
   >
     <div
       class="ant-pro-footer-bar-left ant-design-pro-layout-8fxooz"

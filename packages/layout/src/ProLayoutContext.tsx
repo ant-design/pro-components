@@ -127,6 +127,18 @@ type BaseLayoutDesignToken = {
   /**
    * menuItem 的字体颜色
    */
+  menuTextColor: string;
+  /**
+   * menu 顶部 title 的字体颜色
+   */
+  menuTitleTextColor: string;
+  /**
+   * menuItem 二级字体颜色
+   */
+  menuTextColorSecondary: string;
+  /**
+   * menuItem 的选中字体颜色
+   */
   menuSelectedTextColor: string;
   /**
    * menuItem 的 hover 字体颜色
@@ -145,9 +157,25 @@ type BaseLayoutDesignToken = {
    */
   menuItemCollapsedSelectedBgColor: string;
   /**
+   * 收起 menuItem 分割线的颜色
+   */
+  menuItemDividerColor: string;
+  /**
    * menuItem 的箭头颜色
    */
   menuSubArrowColor: string;
+  /**
+   * 展开收起按钮背景颜色
+   */
+  collapsedButtonBgColor: string;
+  /**
+   * 展开收起按钮 hover 字体颜色
+   */
+  collapsedButtonHoverTextColor: string;
+  /**
+   * 展开收起按钮字体颜色
+   */
+  collapsedButtonTextColor: string;
   /**
    * 右上角字体颜色
    */
@@ -167,6 +195,13 @@ export const getLayoutDesignToken: (
   return {
     ...designTokens,
     menuBackgroundColor: 'transparent',
+    menuTextColor: designTokens.textColor,
+    menuTextColorSecondary: designTokens.textColorSecondary,
+    menuItemDividerColor: designTokens.borderColorSplit,
+    collapsedButtonTextColor: designTokens.menuTextColorSecondary,
+    collapsedButtonHoverTextColor: designTokens.textColor,
+    collapsedButtonBgColor: '#fff',
+    menuTitleTextColor: designTokens.headingColor,
     menuSelectedTextColor: 'rgb(0,0,0)',
     menuItemHoverBgColor: 'rgba(90, 75, 75, 0.03)',
     menuItemSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
