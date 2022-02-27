@@ -112,34 +112,44 @@ function createField<P extends ProFormFieldItemProps = any>(
      */
     const fieldContextValue = React.useContext(FieldContext);
 
-    const fieldProps: Record<string, any> = useMemo(
+    /**
+     * dependenciesValues change to trigger re-execute of getFieldProps and getFormItemProps
+     */
+    const changedProps = useMemo(
       () => {
-        const newFieldProps: any = {
-          ...(ignoreFormItem ? omitUndefined({ value: rest.value }) : {}),
-          placeholder,
-          disabled: props.disabled,
-          ...fieldContextValue.fieldProps,
-          ...getFieldProps?.(),
-          // 支持未传递getFieldProps的情况
-          // 某些特殊hack情况下覆盖原来设置的fieldProps参数
-          ...rest.fieldProps,
+        return {
+          formItemProps: getFormItemProps?.(),
+          fieldProps: getFieldProps?.(),
         };
-
-        newFieldProps.style = omitUndefined(newFieldProps?.style);
-        return newFieldProps;
       },
+
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      [
-        ignoreFormItem,
-        fieldContextValue.fieldProps,
-        getFieldProps,
-        placeholder,
-        props.disabled,
-        rest.fieldProps,
-        rest.value,
-        rest.dependenciesValues,
-      ],
+      [getFieldProps, getFormItemProps, rest.dependenciesValues, onlyChange],
     );
+
+    const fieldProps: Record<string, any> = useMemo(() => {
+      const newFieldProps: any = {
+        ...(ignoreFormItem ? omitUndefined({ value: rest.value }) : {}),
+        placeholder,
+        disabled: props.disabled,
+        ...fieldContextValue.fieldProps,
+        ...changedProps.fieldProps,
+        // 支持未传递getFieldProps的情况
+        // 某些特殊hack情况下覆盖原来设置的fieldProps参数
+        ...rest.fieldProps,
+      };
+
+      newFieldProps.style = omitUndefined(newFieldProps?.style);
+      return newFieldProps;
+    }, [
+      ignoreFormItem,
+      rest.value,
+      rest.fieldProps,
+      placeholder,
+      props.disabled,
+      fieldContextValue.fieldProps,
+      changedProps.fieldProps,
+    ]);
 
     // restFormItemProps is user props pass to Form.Item
     const restFormItemProps = pickProFormItemProps(rest);
@@ -148,13 +158,17 @@ function createField<P extends ProFormFieldItemProps = any>(
       () => ({
         ...fieldContextValue.formItemProps,
         ...restFormItemProps,
-        ...getFormItemProps?.(),
+        ...changedProps.formItemProps,
         // 支持未传递getFormItemProps的情况
         // 某些特殊hack情况下覆盖原来设置的formItemProps参数
         ...rest.formItemProps,
       }),
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      [fieldContextValue.formItemProps, getFormItemProps, onlyChange, rest.dependenciesValues],
+      [
+        changedProps.formItemProps,
+        fieldContextValue.formItemProps,
+        rest.formItemProps,
+        restFormItemProps,
+      ],
     );
 
     // 支持测试用例 renderFormItem support return false
