@@ -158,6 +158,7 @@ const WaterMark: React.FC<WaterMarkProps> = (props) => {
     <div
       style={{
         position: 'relative',
+        overflow: 'hidden',
         ...style,
       }}
       className={wrapperCls}
