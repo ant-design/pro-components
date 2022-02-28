@@ -69,7 +69,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
             hideHover = !!dom?.props?.['aria-hidden'];
           }
           return (
-            <span
+            <div
               // eslint-disable-next-line react/no-array-index-key
               key={index}
               className={cx(
@@ -78,7 +78,7 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
                   display: inline-flex;
                   align-items: center;
                   justify-content: center;
-                  padding: 0px 12px;
+                  padding: 0px 6px;
                   font-size: 16px;
                   color: ${designToken?.header?.rightActionsItemTextColor};
                   cursor: pointer;
@@ -86,14 +86,18 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
                 `,
                 !hideHover &&
                   css`
-                    &:hover {
-                      background-color: ${designToken.header?.rightActionsItemHoverBgColor};
+                    > * {
+                      padding: 6px;
+                      border-radius: ${designToken.borderRadiusBase};
+                      &:hover {
+                        background-color: ${designToken.header?.rightActionsItemHoverBgColor};
+                      }
                     }
                   `,
               )}
             >
               {dom}
-            </span>
+            </div>
           );
         })}
         {avatarDom && (
@@ -104,17 +108,27 @@ export const RightContent: React.FC<TopNavHeaderProps> = ({
                 display: inline-flex;
                 align-items: center;
                 justify-content: center;
-                padding-left: 24px;
-                padding-right: 24px;
-                border-radius: ${designToken.borderRadiusBase};
-                cursor: pointer;
-                &:hover {
-                  background-color: rgba(0, 0, 0, 0.03);
-                }
+                padding-left: 16px;
+                padding-right: 16px;
               `,
             )}
           >
-            {avatarDom}
+            <div
+              className={css`
+                height: 44px;
+                padding: 8px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                line-height: 44px;
+                border-radius: ${designToken.borderRadiusBase};
+                &:hover {
+                  background-color: rgba(0, 0, 0, 0.03);
+                }
+              `}
+            >
+              {avatarDom}
+            </div>
           </span>
         )}
       </div>

@@ -9889,8 +9889,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       <div
                         class="ant-pro-header-actions ant-design-pro-layout-3a6lt1"
                       >
-                        <span
-                          class="ant-pro-header-actions-item ant-design-pro-layout-1mu81ss"
+                        <div
+                          class="ant-pro-header-actions-item ant-design-pro-layout-robske"
                         >
                           <span
                             aria-label="info-circle"
@@ -9911,9 +9911,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               />
                             </svg>
                           </span>
-                        </span>
-                        <span
-                          class="ant-pro-header-actions-item ant-design-pro-layout-1mu81ss"
+                        </div>
+                        <div
+                          class="ant-pro-header-actions-item ant-design-pro-layout-robske"
                         >
                           <span
                             aria-label="question-circle"
@@ -9934,9 +9934,9 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               />
                             </svg>
                           </span>
-                        </span>
-                        <span
-                          class="ant-pro-header-actions-item ant-design-pro-layout-1mu81ss"
+                        </div>
+                        <div
+                          class="ant-pro-header-actions-item ant-design-pro-layout-robske"
                         >
                           <span
                             aria-label="github"
@@ -9957,22 +9957,26 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                               />
                             </svg>
                           </span>
-                        </span>
+                        </div>
                         <span
-                          class="ant-pro-header-actions-item ant-design-pro-layout-c7xz8t"
+                          class="ant-pro-header-actions-item ant-design-pro-layout-6nj587"
                         >
-                          <span
-                            class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
+                          <div
+                            class="ant-design-pro-layout-28gywd"
                           >
-                            <img
-                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
-                            />
-                          </span>
-                          <span
-                            style="margin-left: 8px;"
-                          >
-                            七妮妮
-                          </span>
+                            <span
+                              class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
+                            >
+                              <img
+                                src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                              />
+                            </span>
+                            <span
+                              style="margin-left: 8px;"
+                            >
+                              七妮妮
+                            </span>
+                          </div>
                         </span>
                       </div>
                     </div>
@@ -21482,15 +21486,19 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                       class="ant-pro-header-actions ant-design-pro-layout-3a6lt1"
                     >
                       <span
-                        class="ant-pro-header-actions-item ant-design-pro-layout-c7xz8t"
+                        class="ant-pro-header-actions-item ant-design-pro-layout-6nj587"
                       >
-                        <span
-                          class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
+                        <div
+                          class="ant-design-pro-layout-28gywd"
                         >
-                          <img
-                            src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
-                          />
-                        </span>
+                          <span
+                            class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
+                          >
+                            <img
+                              src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                            />
+                          </span>
+                        </div>
                       </span>
                     </div>
                   </div>
@@ -21922,23 +21930,27 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                   <div
                     class="ant-pro-header-actions ant-design-pro-layout-3a6lt1"
                   >
-                    <span
-                      class="ant-pro-header-actions-item ant-design-pro-layout-1mu81ss"
+                    <div
+                      class="ant-pro-header-actions-item ant-design-pro-layout-robske"
                     >
                       <a>
                         key
                       </a>
-                    </span>
+                    </div>
                     <span
-                      class="ant-pro-header-actions-item ant-design-pro-layout-c7xz8t"
+                      class="ant-pro-header-actions-item ant-design-pro-layout-6nj587"
                     >
-                      <span
-                        class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
+                      <div
+                        class="ant-design-pro-layout-28gywd"
                       >
-                        <img
-                          src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
-                        />
-                      </span>
+                        <span
+                          class="ant-avatar ant-avatar-sm ant-avatar-circle ant-avatar-image"
+                        >
+                          <img
+                            src="https://gw.alipayobjects.com/zos/antfincdn/efFD%24IOql2/weixintupian_20170331104822.jpg"
+                          />
+                        </span>
+                      </div>
                     </span>
                   </div>
                 </div>
