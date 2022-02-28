@@ -91,16 +91,16 @@ export default () => {
       <ProLayout
         layoutBgImgList={[
           {
-            src: 'https://pic1.zhimg.com/50/v2-21b4095421c767ac415cd4fd51885460_720w.jpg?source=b1f6dc53',
+            src: 'https://img.alicdn.com/imgextra/i2/O1CN01M98riY1ZvkjB487II_!!6000000003257-2-tps-609-606.png',
             right: 0,
             top: 10,
             height: '336px',
           },
           {
-            src: 'https://pic1.zhimg.com/50/v2-21b4095421c767ac415cd4fd51885460_720w.jpg?source=b1f6dc53',
-            bottom: 0,
-            left: -200,
-            height: '336px',
+            src: 'https://img.alicdn.com/imgextra/i2/O1CN01M98riY1ZvkjB487II_!!6000000003257-2-tps-609-606.png',
+            bottom: -300,
+            left: 10,
+            height: '606px',
           },
         ]}
         {...defaultProps}

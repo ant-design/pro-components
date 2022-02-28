@@ -567,6 +567,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                     className={css`
                       pointer-events: none;
                       position: absolute;
+                      overflow: hidden;
                       top: 0;
                       left: 0;
                       z-index: 0;

@@ -9488,15 +9488,15 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
           style="position: relative;"
         >
           <div
-            class="ant-design-pro-layout-i4ggmf"
+            class="ant-design-pro-layout-1jv8mgb"
           >
             <img
-              src="https://pic1.zhimg.com/50/v2-21b4095421c767ac415cd4fd51885460_720w.jpg?source=b1f6dc53"
-              style="position: absolute; src: https://pic1.zhimg.com/50/v2-21b4095421c767ac415cd4fd51885460_720w.jpg?source=b1f6dc53; right: 0px; top: 10px; height: 336px;"
+              src="https://img.alicdn.com/imgextra/i2/O1CN01M98riY1ZvkjB487II_!!6000000003257-2-tps-609-606.png"
+              style="position: absolute; src: https://img.alicdn.com/imgextra/i2/O1CN01M98riY1ZvkjB487II_!!6000000003257-2-tps-609-606.png; right: 0px; top: 10px; height: 336px;"
             />
             <img
-              src="https://pic1.zhimg.com/50/v2-21b4095421c767ac415cd4fd51885460_720w.jpg?source=b1f6dc53"
-              style="position: absolute; src: https://pic1.zhimg.com/50/v2-21b4095421c767ac415cd4fd51885460_720w.jpg?source=b1f6dc53; bottom: 0px; left: -200px; height: 336px;"
+              src="https://img.alicdn.com/imgextra/i2/O1CN01M98riY1ZvkjB487II_!!6000000003257-2-tps-609-606.png"
+              style="position: absolute; src: https://img.alicdn.com/imgextra/i2/O1CN01M98riY1ZvkjB487II_!!6000000003257-2-tps-609-606.png; bottom: -300px; left: 10px; height: 606px;"
             />
           </div>
           <header
