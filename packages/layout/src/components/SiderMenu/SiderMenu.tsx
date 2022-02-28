@@ -448,19 +448,34 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
 
   const antPrefix = context.getPrefixCls();
 
+  const collapsedWidth = 60;
+
+  const collapsedCss = useMemo(() => {
+    // 收起时完全隐藏菜单
+    return (
+      props?.menu?.hideMenuWhenCollapsed &&
+      collapsed &&
+      css`
+        left: -${collapsedWidth}px;
+      `
+    );
+  }, [collapsed, props?.menu?.hideMenuWhenCollapsed]);
+
   return (
     <>
-      {fixSiderbar && !isMobile && (
+      {fixSiderbar && !isMobile && !collapsedCss && (
         <div
-          className={css({
-            width: collapsed ? 60 : siderWidth,
-            overflow: 'hidden',
-            flex: `0 0 ${collapsed ? 60 : siderWidth}px`,
-            maxWidth: collapsed ? 60 : siderWidth,
-            minWidth: collapsed ? 60 : siderWidth,
-            transition: `background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)`,
-            ...style,
-          })}
+          className={cx(
+            css({
+              width: collapsed ? collapsedWidth : siderWidth,
+              overflow: 'hidden',
+              flex: `0 0 ${collapsed ? collapsedWidth : siderWidth}px`,
+              maxWidth: collapsed ? collapsedWidth : siderWidth,
+              minWidth: collapsed ? collapsedWidth : siderWidth,
+              transition: `background-color 0.3s, min-width 0.3s, max-width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)`,
+              ...style,
+            }),
+          )}
         />
       )}
       <Sider
@@ -472,7 +487,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           if (isMobile) return;
           onCollapse?.(collapse);
         }}
-        collapsedWidth={60}
+        collapsedWidth={collapsedWidth}
         style={{
           backgroundColor: designToken.sider.menuBackgroundColor,
           ...style,
@@ -490,6 +505,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               z-index: 100;
               height: 100%;
             `,
+          collapsedCss,
           layout === 'mix' &&
             !isMobile &&
             css`

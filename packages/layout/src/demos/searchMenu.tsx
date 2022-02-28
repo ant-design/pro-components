@@ -35,6 +35,9 @@ export default () => {
         location={{
           pathname: '/home/overview',
         }}
+        menu={{
+          hideMenuWhenCollapsed: true,
+        }}
         menuExtraRender={({ collapsed }) =>
           !collapsed && (
             <Space

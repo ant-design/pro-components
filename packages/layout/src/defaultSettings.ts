@@ -28,6 +28,7 @@ export type PureSettings = {
   /** @name menu 相关的一些配置 */
   menu?: {
     locale?: boolean;
+    hideMenuWhenCollapsed?: boolean;
     defaultOpenAll?: boolean;
     ignoreFlatMenu?: boolean; // 是否忽略用户手动折叠过的菜单状态，如选择忽略，折叠按钮切换之后也可实现展开所有菜单
     loading?: boolean;
