@@ -32615,10 +32615,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
             >
               <div
                 class="ant-page-header has-breadcrumb ant-page-header-ghost"

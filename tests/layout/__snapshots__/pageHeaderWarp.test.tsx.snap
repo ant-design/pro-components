@@ -222,10 +222,10 @@ exports[`BasicLayout base use 1`] = `
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       >
         <div
-          class="ant-pro-page-container ant-pro-page-container-ghost"
+          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
         >
           <div
-            class="ant-pro-page-container-warp"
+            class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
           >
             <div
               class="ant-page-header ant-page-header-ghost"
@@ -475,10 +475,10 @@ exports[`BasicLayout content is text 1`] = `
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       >
         <div
-          class="ant-pro-page-container ant-pro-page-container-ghost"
+          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
         >
           <div
-            class="ant-pro-page-container-warp"
+            class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
           >
             <div
               class="ant-page-header ant-page-header-ghost"
@@ -501,16 +501,16 @@ exports[`BasicLayout content is text 1`] = `
                 class="ant-page-header-content"
               >
                 <div
-                  class="ant-pro-page-container-detail"
+                  class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                 >
                   <div
-                    class="ant-pro-page-container-main"
+                    class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                   >
                     <div
-                      class="ant-pro-page-container-row"
+                      class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                     >
                       <div
-                        class="ant-pro-page-container-content"
+                        class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                       >
                         just so so
                       </div>

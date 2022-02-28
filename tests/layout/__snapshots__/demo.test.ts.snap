@@ -6,10 +6,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
     style="background: rgb(245, 247, 250);"
   >
     <div
-      class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+      class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1tn7goq"
     >
       <div
-        class="ant-pro-page-container-warp"
+        class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
       >
         <div
           class="ant-page-header has-breadcrumb has-footer ant-page-header-ghost"
@@ -389,14 +389,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
     style="background: rgb(245, 247, 250);"
   >
     <div
-      class="ant-pro-page-container ant-pro-page-container-ghost"
+      class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
     >
       <div>
         <div
           class=""
         >
           <div
-            class="ant-pro-page-container-warp"
+            class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
           >
             <div
               class="ant-page-header has-breadcrumb has-footer ant-page-header-ghost"
@@ -690,10 +690,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
     style="background: rgb(245, 247, 250);"
   >
     <div
-      class="ant-pro-page-container ant-pro-page-container-ghost"
+      class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
     >
       <div
-        class="ant-pro-page-container-warp"
+        class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
       >
         <div
           class="ant-page-header ant-page-header-ghost"
@@ -716,16 +716,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
             class="ant-page-header-content"
           >
             <div
-              class="ant-pro-page-container-detail"
+              class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
             >
               <div
-                class="ant-pro-page-container-main"
+                class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
               >
                 <div
-                  class="ant-pro-page-container-row"
+                  class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                 >
                   <div
-                    class="ant-pro-page-container-content"
+                    class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                   >
                     <div
                       class="ant-descriptions"
@@ -840,7 +840,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
           class="ant-pro-grid-content-children"
         >
           <div
-            class="ant-pro-page-container-children-content"
+            class="ant-pro-page-container-children-content ant-design-pro-layout-uh9nme"
           >
             <div
               class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -923,10 +923,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-card-body"
       >
         <div
-          class="ant-pro-page-container ant-pro-page-container-ghost"
+          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
         >
           <div
-            class="ant-pro-page-container-warp"
+            class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
           >
             <div
               class="ant-page-header has-breadcrumb ant-page-header-ghost"
@@ -1039,10 +1039,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-card-body"
       >
         <div
-          class="ant-pro-page-container ant-pro-page-container-ghost"
+          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
         >
           <div
-            class="ant-pro-page-container-warp"
+            class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
           >
             <div
               class="ant-page-header has-breadcrumb ant-page-header-ghost"
@@ -1160,10 +1160,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/components/PageContaine
         class="ant-card-body"
       >
         <div
-          class="ant-pro-page-container ant-pro-page-container-ghost"
+          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
         >
           <div
-            class="ant-pro-page-container-warp"
+            class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
           >
             <div
               class="ant-page-header has-breadcrumb ant-page-header-ghost"
@@ -4350,10 +4350,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header ant-page-header-ghost"
@@ -4362,16 +4362,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                     class="ant-page-header-content"
                   >
                     <div
-                      class="ant-pro-page-container-detail"
+                      class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                     >
                       <div
-                        class="ant-pro-page-container-main"
+                        class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                       >
                         <div
-                          class="ant-pro-page-container-row"
+                          class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                         >
                           <div
-                            class="ant-pro-page-container-content"
+                            class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                           >
                             欢迎使用
                           </div>
@@ -4681,10 +4681,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header has-breadcrumb ant-page-header-ghost"
@@ -4775,16 +4775,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                     class="ant-page-header-content"
                   >
                     <div
-                      class="ant-pro-page-container-detail"
+                      class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                     >
                       <div
-                        class="ant-pro-page-container-main"
+                        class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                       >
                         <div
-                          class="ant-pro-page-container-row"
+                          class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                         >
                           <div
-                            class="ant-pro-page-container-content"
+                            class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                           >
                             欢迎使用
                           </div>
@@ -5360,10 +5360,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header ant-page-header-ghost"
@@ -5372,16 +5372,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                     class="ant-page-header-content"
                   >
                     <div
-                      class="ant-pro-page-container-detail"
+                      class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                     >
                       <div
-                        class="ant-pro-page-container-main"
+                        class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                       >
                         <div
-                          class="ant-pro-page-container-row"
+                          class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                         >
                           <div
-                            class="ant-pro-page-container-content"
+                            class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                           >
                             欢迎使用
                           </div>
@@ -5728,10 +5728,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header ant-page-header-ghost"
@@ -5740,16 +5740,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
                     class="ant-page-header-content"
                   >
                     <div
-                      class="ant-pro-page-container-detail"
+                      class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                     >
                       <div
-                        class="ant-pro-page-container-main"
+                        class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                       >
                         <div
-                          class="ant-pro-page-container-row"
+                          class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                         >
                           <div
-                            class="ant-pro-page-container-content"
+                            class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                           >
                             欢迎使用
                           </div>
@@ -6218,10 +6218,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header ant-page-header-ghost"
@@ -6230,16 +6230,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
                     class="ant-page-header-content"
                   >
                     <div
-                      class="ant-pro-page-container-detail"
+                      class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                     >
                       <div
-                        class="ant-pro-page-container-main"
+                        class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                       >
                         <div
-                          class="ant-pro-page-container-row"
+                          class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                         >
                           <div
-                            class="ant-pro-page-container-content"
+                            class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                           >
                             欢迎使用
                           </div>
@@ -6728,10 +6728,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header has-breadcrumb ant-page-header-ghost"
@@ -6776,16 +6776,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                     class="ant-page-header-content"
                   >
                     <div
-                      class="ant-pro-page-container-detail"
+                      class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                     >
                       <div
-                        class="ant-pro-page-container-main"
+                        class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                       >
                         <div
-                          class="ant-pro-page-container-row"
+                          class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                         >
                           <div
-                            class="ant-pro-page-container-content"
+                            class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                           >
                             欢迎使用
                           </div>
@@ -7311,10 +7311,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                     class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
                   >
                     <div
-                      class="ant-pro-page-container ant-pro-page-container-ghost"
+                      class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
                     >
                       <div
-                        class="ant-pro-page-container-warp"
+                        class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
                       >
                         <div
                           class="ant-page-header has-breadcrumb ant-page-header-ghost"
@@ -7373,16 +7373,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                             class="ant-page-header-content"
                           >
                             <div
-                              class="ant-pro-page-container-detail"
+                              class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                             >
                               <div
-                                class="ant-pro-page-container-main"
+                                class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                               >
                                 <div
-                                  class="ant-pro-page-container-row"
+                                  class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                                 >
                                   <div
-                                    class="ant-pro-page-container-content"
+                                    class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                                   >
                                     欢迎使用
                                   </div>
@@ -7917,10 +7917,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                     class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
                   >
                     <div
-                      class="ant-pro-page-container ant-pro-page-container-ghost"
+                      class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
                     >
                       <div
-                        class="ant-pro-page-container-warp"
+                        class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
                       >
                         <div
                           class="ant-page-header has-breadcrumb ant-page-header-ghost"
@@ -7979,16 +7979,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                             class="ant-page-header-content"
                           >
                             <div
-                              class="ant-pro-page-container-detail"
+                              class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                             >
                               <div
-                                class="ant-pro-page-container-main"
+                                class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                               >
                                 <div
-                                  class="ant-pro-page-container-row"
+                                  class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                                 >
                                   <div
-                                    class="ant-pro-page-container-content"
+                                    class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                                   >
                                     欢迎使用
                                   </div>
@@ -8380,10 +8380,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
             >
               <div
                 class="ant-page-header has-breadcrumb ant-page-header-ghost"
@@ -8442,16 +8442,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                   class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail"
+                    class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                   >
                     <div
-                      class="ant-pro-page-container-main"
+                      class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                     >
                       <div
-                        class="ant-pro-page-container-row"
+                        class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                       >
                         <div
-                          class="ant-pro-page-container-content"
+                          class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                         >
                           欢迎使用
                         </div>
@@ -9031,10 +9031,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
             >
               <div
                 class="ant-page-header ant-page-header-ghost"
@@ -9057,16 +9057,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
                   class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail"
+                    class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                   >
                     <div
-                      class="ant-pro-page-container-main"
+                      class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                     >
                       <div
-                        class="ant-pro-page-container-row"
+                        class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                       >
                         <div
-                          class="ant-pro-page-container-content"
+                          class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                         >
                           欢迎使用
                         </div>
@@ -9485,8 +9485,20 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
         </aside>
         <div
           class="ant-layout"
-          style="background-image: url(https://img.alicdn.com/imgextra/i2/O1CN01M98riY1ZvkjB487II_!!6000000003257-2-tps-609-606.png); background-size: 306px; background-repeat: no-repeat; position: relative;"
+          style="position: relative;"
         >
+          <div
+            class="ant-design-pro-layout-i4ggmf"
+          >
+            <img
+              src="https://pic1.zhimg.com/50/v2-21b4095421c767ac415cd4fd51885460_720w.jpg?source=b1f6dc53"
+              style="position: absolute; src: https://pic1.zhimg.com/50/v2-21b4095421c767ac415cd4fd51885460_720w.jpg?source=b1f6dc53; right: 0px; top: 10px; height: 336px;"
+            />
+            <img
+              src="https://pic1.zhimg.com/50/v2-21b4095421c767ac415cd4fd51885460_720w.jpg?source=b1f6dc53"
+              style="position: absolute; src: https://pic1.zhimg.com/50/v2-21b4095421c767ac415cd4fd51885460_720w.jpg?source=b1f6dc53; bottom: 0px; left: -200px; height: 336px;"
+            />
+          </div>
           <header
             class="ant-layout-header"
             style="height: 56px; line-height: 56px; background: transparent;"
@@ -9989,10 +10001,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header ant-page-header-ghost"
@@ -11253,10 +11265,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
           class="qixian-layout-content qixian-pro-basicLayout-content qixian-pro-basicLayout-has-header ant-design-pro-layout-3gtq5v"
         >
           <div
-            class="qixian-pro-page-container qixian-pro-page-container-ghost qixian-pro-page-container-with-footer"
+            class="qixian-pro-page-container qixian-pro-page-container-ghost qixian-pro-page-container-with-footer ant-design-pro-layout-1tn7goq"
           >
             <div
-              class="qixian-pro-page-container-warp"
+              class="qixian-pro-page-container-warp ant-design-pro-layout-pmcjns"
             >
               <div
                 class="qixian-page-header has-footer qixian-page-header-ghost"
@@ -11307,16 +11319,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                   class="qixian-page-header-content"
                 >
                   <div
-                    class="qixian-pro-page-container-detail"
+                    class="qixian-pro-page-container-detail ant-design-pro-layout-2i0nty"
                   >
                     <div
-                      class="qixian-pro-page-container-main"
+                      class="qixian-pro-page-container-main ant-design-pro-layout-1700k5z"
                     >
                       <div
-                        class="qixian-pro-page-container-row"
+                        class="qixian-pro-page-container-row ant-design-pro-layout-ce0msd"
                       >
                         <div
-                          class="qixian-pro-page-container-content"
+                          class="qixian-pro-page-container-content ant-design-pro-layout-1w0qitr"
                         >
                           <div
                             class="qixian-descriptions qixian-descriptions-small"
@@ -11441,7 +11453,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
                           </div>
                         </div>
                         <div
-                          class="qixian-pro-page-container-extraContent"
+                          class="qixian-pro-page-container-extraContent ant-design-pro-layout-pxhk8v"
                         >
                           <div
                             class="qixian-space qixian-space-horizontal qixian-space-align-center"
@@ -12456,10 +12468,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
             >
               <div
                 class="ant-page-header ant-page-header-ghost"
@@ -12864,10 +12876,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header ant-page-header-ghost"
@@ -12890,16 +12902,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                     class="ant-page-header-content"
                   >
                     <div
-                      class="ant-pro-page-container-detail"
+                      class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                     >
                       <div
-                        class="ant-pro-page-container-main"
+                        class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                       >
                         <div
-                          class="ant-pro-page-container-row"
+                          class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                         >
                           <div
-                            class="ant-pro-page-container-content"
+                            class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                           >
                             欢迎使用
                           </div>
@@ -13387,10 +13399,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header has-footer ant-page-header-ghost"
@@ -13441,16 +13453,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                     class="ant-page-header-content"
                   >
                     <div
-                      class="ant-pro-page-container-detail"
+                      class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                     >
                       <div
-                        class="ant-pro-page-container-main"
+                        class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                       >
                         <div
-                          class="ant-pro-page-container-row"
+                          class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                         >
                           <div
-                            class="ant-pro-page-container-content"
+                            class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                           >
                             <div
                               class="ant-descriptions ant-descriptions-small"
@@ -13575,7 +13587,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                             </div>
                           </div>
                           <div
-                            class="ant-pro-page-container-extraContent"
+                            class="ant-pro-page-container-extraContent ant-design-pro-layout-pxhk8v"
                           >
                             <div
                               class="ant-space ant-space-horizontal ant-space-align-center"
@@ -15060,10 +15072,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
             >
               <div
                 class="ant-page-header ant-page-header-ghost"
@@ -15072,16 +15084,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
                   class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail"
+                    class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                   >
                     <div
-                      class="ant-pro-page-container-main"
+                      class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                     >
                       <div
-                        class="ant-pro-page-container-row"
+                        class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                       >
                         <div
-                          class="ant-pro-page-container-content"
+                          class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                         >
                           欢迎使用
                         </div>
@@ -15796,10 +15808,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
             >
               <div
                 class="ant-page-header ant-page-header-ghost"
@@ -15822,16 +15834,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
                   class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail"
+                    class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                   >
                     <div
-                      class="ant-pro-page-container-main"
+                      class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                     >
                       <div
-                        class="ant-pro-page-container-row"
+                        class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                       >
                         <div
-                          class="ant-pro-page-container-content"
+                          class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                         >
                           欢迎使用
                         </div>
@@ -16314,10 +16326,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header ant-page-header-ghost"
@@ -16340,16 +16352,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                     class="ant-page-header-content"
                   >
                     <div
-                      class="ant-pro-page-container-detail"
+                      class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                     >
                       <div
-                        class="ant-pro-page-container-main"
+                        class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                       >
                         <div
-                          class="ant-pro-page-container-row"
+                          class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                         >
                           <div
-                            class="ant-pro-page-container-content"
+                            class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                           >
                             <div
                               class="ant-descriptions ant-descriptions-small"
@@ -16486,7 +16498,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                   class="ant-pro-grid-content-children"
                 >
                   <div
-                    class="ant-pro-page-container-children-content"
+                    class="ant-pro-page-container-children-content ant-design-pro-layout-uh9nme"
                   >
                     <div
                       class="ant-pro-card ant-pro-card-contain-card ant-pro-card-ghost"
@@ -16961,10 +16973,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
             >
               <div
                 class="ant-page-header ant-page-header-ghost"
@@ -16987,16 +16999,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                   class="ant-page-header-content"
                 >
                   <div
-                    class="ant-pro-page-container-detail"
+                    class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                   >
                     <div
-                      class="ant-pro-page-container-main"
+                      class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                     >
                       <div
-                        class="ant-pro-page-container-row"
+                        class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                       >
                         <div
-                          class="ant-pro-page-container-content"
+                          class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                         >
                           欢迎使用
                         </div>
@@ -18011,11 +18023,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
           class="ant-layout-content ant-pro-basicLayout-content ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             style="padding-top: 48px;"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
             >
               <div
                 class="ant-page-header ant-page-header-ghost"
@@ -18939,16 +18951,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
         </aside>
         <div
           class="ant-layout"
-          style="background-image: url(https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png); background-size: 306px; background-repeat: no-repeat; position: relative;"
+          style="position: relative;"
         >
           <main
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header ant-page-header-ghost"
@@ -19702,10 +19714,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header has-breadcrumb ant-page-header-ghost"
@@ -19764,16 +19776,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                     class="ant-page-header-content"
                   >
                     <div
-                      class="ant-pro-page-container-detail"
+                      class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                     >
                       <div
-                        class="ant-pro-page-container-main"
+                        class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                       >
                         <div
-                          class="ant-pro-page-container-row"
+                          class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                         >
                           <div
-                            class="ant-pro-page-container-content"
+                            class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                           >
                             欢迎使用
                           </div>
@@ -22205,10 +22217,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost"
+            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
             >
               <div
                 class="ant-page-header ant-page-header-ghost"
@@ -22829,16 +22841,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
       </aside>
       <div
         class="ant-layout"
-        style="background-image: url(https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png); background-size: 306px; background-repeat: no-repeat; position: relative;"
+        style="position: relative;"
       >
         <main
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
+            class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1tn7goq"
           >
             <div
-              class="ant-pro-page-container-warp"
+              class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
             >
               <div
                 class="ant-page-header ant-page-header-ghost"
@@ -23327,10 +23339,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
             class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
           >
             <div
-              class="ant-pro-page-container ant-pro-page-container-ghost"
+              class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
             >
               <div
-                class="ant-pro-page-container-warp"
+                class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
               >
                 <div
                   class="ant-page-header ant-page-header-ghost"
@@ -23353,16 +23365,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                     class="ant-page-header-content"
                   >
                     <div
-                      class="ant-pro-page-container-detail"
+                      class="ant-pro-page-container-detail ant-design-pro-layout-2i0nty"
                     >
                       <div
-                        class="ant-pro-page-container-main"
+                        class="ant-pro-page-container-main ant-design-pro-layout-1700k5z"
                       >
                         <div
-                          class="ant-pro-page-container-row"
+                          class="ant-pro-page-container-row ant-design-pro-layout-ce0msd"
                         >
                           <div
-                            class="ant-pro-page-container-content"
+                            class="ant-pro-page-container-content ant-design-pro-layout-1w0qitr"
                           >
                             欢迎使用
                           </div>

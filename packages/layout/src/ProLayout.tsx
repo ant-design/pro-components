@@ -60,10 +60,15 @@ export type ProLayoutProps = Partial<RouterTypes<Route>> &
   ProLayoutProviderProps &
   HeaderViewProps & {
     /** Layout 的品牌配置，表现为一张背景图片 */
-    brandBgImg?: {
-      url?: string;
-      size?: string;
-    };
+    layoutBgImgList?: {
+      src?: string;
+      width?: string;
+      height?: string;
+      left?: number;
+      top?: number;
+      bottom?: number;
+      right?: number;
+    }[];
     pure?: boolean;
     /** @name logo url */
     logo?: React.ReactNode | WithFalse<() => React.ReactNode>;
@@ -266,7 +271,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
     actionRef,
-    brandBgImg,
+    layoutBgImgList,
     formatMessage: propsFormatMessage,
     loading,
   } = props || {};
@@ -491,14 +496,23 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   const [hasFooterToolbar, setHasFooterToolbar] = useState(false);
   useDocumentTitle(pageTitleInfo, props.title || false);
-  const brandBgImgStyle: CSSProperties = brandBgImg
-    ? {
-        backgroundImage: `url("${brandBgImg?.url}")`,
-        backgroundSize: `${brandBgImg?.size || '306px'}`,
-        backgroundPosition: 'top 0px right 95px',
-        backgroundRepeat: 'no-repeat',
-      }
-    : {};
+  const bgImgStyleList = useMemo(() => {
+    if (layoutBgImgList && layoutBgImgList.length > 0) {
+      return layoutBgImgList.map((item, index) => {
+        return (
+          <img
+            key={index}
+            src={item.src}
+            style={{
+              position: 'absolute',
+              ...item,
+            }}
+          />
+        );
+      });
+    }
+    return null;
+  }, [layoutBgImgList]);
 
   const antdPrefixCls = context.getPrefixCls();
 
@@ -547,10 +561,22 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               }}
             >
               {siderMenuDom}
-              <div
-                style={{ ...brandBgImgStyle, ...genLayoutStyle }}
-                className={context.getPrefixCls('layout')}
-              >
+              <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
+                {bgImgStyleList && (
+                  <div
+                    className={css`
+                      pointer-events: none;
+                      position: absolute;
+                      top: 0;
+                      left: 0;
+                      z-index: 0;
+                      height: 100%;
+                      width: 100%;
+                    `}
+                  >
+                    {bgImgStyleList}
+                  </div>
+                )}
                 {headerDom}
                 <WrapContent
                   isChildrenLayout={isChildrenLayout}

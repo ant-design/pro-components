@@ -14,11 +14,13 @@ import type {
 import { RouteContext } from '../../RouteContext';
 import { GridContent } from '../GridContent';
 import { FooterToolbar } from '../FooterToolbar';
-import './index.less';
 import { PageLoading } from '../PageLoading';
 import type { WithFalse } from '../../typings';
 import type { WaterMarkProps } from '../WaterMark';
 import { WaterMark } from '../WaterMark';
+import { css, cx } from '../../emotion';
+
+const [sm, md, lg, xl] = [576, 768, 992, 1200].map((bp) => `@media (min-width: ${bp}px)`);
 
 export type PageHeaderTabConfig = {
   /** @name tabs 的列表 */
@@ -144,12 +146,78 @@ const renderPageHeader = (
     return null;
   }
   return (
-    <div className={`${prefixedClassName}-detail`}>
-      <div className={`${prefixedClassName}-main`}>
-        <div className={`${prefixedClassName}-row`}>
-          {content && <div className={`${prefixedClassName}-content`}>{content}</div>}
+    <div
+      className={cx(
+        `${prefixedClassName}-detail`,
+        css`
+          display: flex;
+          ${sm} {
+            display: block;
+          }
+        `,
+      )}
+    >
+      <div
+        className={cx(
+          `${prefixedClassName}-main`,
+          css`
+            width: 100%;
+          `,
+        )}
+      >
+        <div
+          className={cx(
+            `${prefixedClassName}-row`,
+            css`
+              display: flex;
+              width: 100%;
+              ${md} {
+                display: block;
+              }
+            `,
+          )}
+        >
+          {content && (
+            <div
+              className={cx(
+                `${prefixedClassName}-content`,
+                css`
+                  flex: auto;
+                  width: 100%;
+                `,
+              )}
+            >
+              {content}
+            </div>
+          )}
           {extraContent && (
-            <div className={`${prefixedClassName}-extraContent`}>{extraContent}</div>
+            <div
+              className={cx(
+                `${prefixedClassName}-extraContent`,
+                css`
+                  flex: 0 1 auto;
+                  min-width: 242px;
+                  margin-left: 88px;
+                  text-align: right;
+
+                  ${sm} {
+                    margin-left: 0;
+                  }
+                  ${md} {
+                    margin-left: 0;
+                    text-align: left;
+                  }
+                  ${lg} {
+                    margin-left: 20px;
+                  }
+                  ${xl} {
+                    margin-left: 44px;
+                  }
+                `,
+              )}
+            >
+              {extraContent}
+            </div>
           )}
         </div>
       </div>
@@ -193,6 +261,7 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
     ...restProps
   } = props;
 
+  const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const getBreadcrumbRender = useMemo(() => {
     if (!breadcrumbRender) {
       return undefined;
@@ -238,9 +307,22 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
   ) {
     return null;
   }
-
+  const antdPrefixCls = getPrefixCls();
   return (
-    <div className={`${prefixedClassName}-warp`}>
+    <div
+      className={cx(
+        `${prefixedClassName}-warp`,
+        props.ghost &&
+          css`
+            background-color: transparent;
+          `,
+        css`
+          .${antdPrefixCls}-tabs-nav {
+            margin: 0;
+          }
+        `,
+      )}
+    >
       <PageHeader
         {...pageHeaderProps}
         breadcrumb={
@@ -249,7 +331,14 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
             : { ...pageHeaderProps.breadcrumb, ...value.breadcrumbProps }
         }
         breadcrumbRender={getBreadcrumbRender}
-        prefixCls={prefixCls}
+        prefixCls={cx(
+          prefixCls,
+          props.ghost &&
+            props.footer &&
+            css`
+              padding-bottom: 24px;
+            `,
+        )}
       >
         {header?.children || renderPageHeader(content, extraContent, prefixedClassName)}
       </PageHeader>
@@ -285,7 +374,18 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   const content = useMemo(() => {
     return children ? (
       <>
-        <div className={`${prefixedClassName}-children-content`}>{children}</div>
+        <div
+          className={cx(
+            `${prefixedClassName}-children-content`,
+            props.ghost &&
+              css`
+                margin: 24px 24px 0;
+                margin-top: 0;
+              `,
+          )}
+        >
+          {children}
+        </div>
         {value.hasFooterToolbar && (
           <div
             style={{
@@ -296,7 +396,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         )}
       </>
     ) : null;
-  }, [children, prefixedClassName, value.hasFooterToolbar]);
+  }, [children, prefixedClassName, props.ghost, value.hasFooterToolbar]);
 
   const memoBreadcrumbRender = useMemo(() => {
     if (breadcrumbRender == false) return false;
@@ -336,7 +436,16 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
 
   return (
     <>
-      <div style={style} className={containerClassName}>
+      <div
+        style={style}
+        className={cx(
+          containerClassName,
+          ghost &&
+            css`
+              backdrop-filter: blur(5px) saturate(100%);
+            `,
+        )}
+      >
         {fixedHeader && pageHeaderDom ? (
           // 在 hasHeader 且 fixedHeader 的情况下，才需要设置高度
           <Affix
