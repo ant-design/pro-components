@@ -360,6 +360,10 @@ export type ProTableProps<T, U extends ParamsType, ValueType = 'text'> = {
   defaultSize?: SizeType;
   /** @name, 可编辑表格的name,通过这个name 可以直接与 form通信，无需嵌套 */
   name?: NamePath;
+  /**
+   * 错误边界自定义
+   */
+  ErrorBoundary?: any;
 } & Omit<TableProps<T>, 'columns' | 'rowSelection'>;
 
 export type ActionType = ProCoreActionType & {

@@ -251,6 +251,12 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 <code src="./demos/customization-value-type.tsx" debug background="#f5f5f5" heigh="462px" title="自定义 valueType"/>
 
+### 自定义错误边界
+
+<code src="./demos/error-boundaries.tsx"  title="自定义错误边界" iframe="462px" />
+
+<code src="./demos/error-boundaries-false.tsx" debug title="取消自定义错误边界" iframe="462px" />
+
 <code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
 
 ## API
@@ -334,6 +340,7 @@ ProTable 在 antd 的 Table 上进行了一层封装，支持了一些预设，�
 | debounceTime | 防抖时间 | `number` | 10 |
 | revalidateOnFocus | 窗口聚焦时自动重新请求 | `boolean` | `true` |
 | columnState | 受控的列状态，可以操作显示隐藏 | `columnStateType` | - |
+| ErrorBoundary | 自带了错误处理功能，防止白屏，`ErrorBoundary=false` 关闭默认错误边界 | `ReactNode` | 内置 ErrorBoundary |
 
 #### RecordCreator
 
