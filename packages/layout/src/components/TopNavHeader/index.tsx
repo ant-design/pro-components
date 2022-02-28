@@ -299,7 +299,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
                     display: inline-block;
                     margin: 0 0 0 12px;
                     color: ${designToken?.header?.headerTitleColor};
-                    font-weight: 400;
+                    font-weight: 600;
                     font-size: 16px;
                     vertical-align: top;
                   }

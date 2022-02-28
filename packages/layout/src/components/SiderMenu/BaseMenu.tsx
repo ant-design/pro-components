@@ -472,6 +472,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           color: ${menuDesignToken.menuTextColor};
           .anticon {
             color: ${menuDesignToken.menuTextColor};
+            opacity: 0.69;
           }
         }
       `,

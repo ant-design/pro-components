@@ -234,7 +234,7 @@ Array [
                 class="ant-pro-top-nav-header-main-left ant-design-pro-layout-12ycn0f"
               >
                 <div
-                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-175ftd7"
+                  class="ant-pro-top-nav-header-logo ant-design-pro-layout-d9v9fy"
                   id="logo"
                 >
                   <a>
@@ -1195,7 +1195,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
               </div>
             </li>
             <li
-              class="ant-pro-menu-item ant-design-pro-layout-bonr94"
+              class="ant-pro-menu-item ant-design-pro-layout-hxmrjc"
               data-menu-id="rc-menu-uuid-84044-6-/list"
               role="menuitem"
               style="padding-left: 16px;"

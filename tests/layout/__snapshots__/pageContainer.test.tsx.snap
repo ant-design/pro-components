@@ -335,7 +335,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
               class="ant-pro-top-nav-header-main-left ant-design-pro-layout-12ycn0f"
             >
               <div
-                class="ant-pro-top-nav-header-logo ant-design-pro-layout-175ftd7"
+                class="ant-pro-top-nav-header-logo ant-design-pro-layout-d9v9fy"
                 id="logo"
               >
                 <a>
@@ -659,7 +659,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
               class="ant-pro-top-nav-header-main-left ant-design-pro-layout-12ycn0f"
             >
               <div
-                class="ant-pro-top-nav-header-logo ant-design-pro-layout-175ftd7"
+                class="ant-pro-top-nav-header-logo ant-design-pro-layout-d9v9fy"
                 id="logo"
               >
                 <a>
