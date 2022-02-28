@@ -31477,6 +31477,100 @@ exports[`table demos 📸 renders ./packages/table/src/demos/dynamic-settings.ts
 </DocumentFragment>
 `;
 
+exports[`table demos 📸 renders ./packages/table/src/demos/error-boundaries.tsx correctly 1`] = `
+<DocumentFragment>
+  <button
+    aria-checked="true"
+    class="ant-switch ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    />
+    <span
+      class="ant-switch-inner"
+    >
+      使用自定义错误边界
+    </span>
+  </button>
+  <div
+    class="ant-result ant-result-info"
+    style="height: 100%; background: rgb(255, 255, 255);"
+  >
+    <div
+      class="ant-result-icon"
+    >
+      <img
+        src="https://gw.alipayobjects.com/zos/antfincdn/zIgkN%26mpMZ/shibaizhuangtaizuo.png"
+        width="256"
+      />
+    </div>
+    <div
+      class="ant-result-title"
+    >
+      错误处理
+    </div>
+    <div
+      class="ant-result-extra"
+    >
+      <div
+        style="max-width: 620px; text-align: left; background-color: rgba(255, 229, 100, 0.3); border-left-color: #ffe564; border-left-width: 9px; border-left-style: solid; padding: 20px 45px 20px 26px; margin: 20px auto 30px auto;"
+      >
+        <p>
+          注意
+        </p>
+        <p>
+          错误边界
+          <strong>
+            无法
+          </strong>
+          捕获以下场景中产生的错误：
+        </p>
+        <ul
+          style="list-style: none;"
+        >
+          <li>
+            事件处理（
+            <a
+              href="https://zh-hans.reactjs.org/docs/error-boundaries.html#how-about-event-handlers#how-about-event-handlers"
+            >
+              了解更多
+            </a>
+            ）
+          </li>
+          <li>
+            异步代码（例如 
+            <code>
+              setTimeout
+            </code>
+             或 
+            <code>
+              requestAnimationFrame
+            </code>
+             回调函数）
+          </li>
+          <li>
+            服务端渲染
+          </li>
+          <li>
+            它自身抛出来的错误（并非它的子组件）
+          </li>
+        </ul>
+      </div>
+      <button
+        class="ant-btn ant-btn-primary ant-btn-dangerous"
+        type="button"
+      >
+        <span>
+          刷新页面
+        </span>
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`table demos 📸 renders ./packages/table/src/demos/form.tsx correctly 1`] = `
 <DocumentFragment>
   <div
