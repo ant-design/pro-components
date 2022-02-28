@@ -9476,11 +9476,16 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             <div
               class="ant-pro-sider-footer ant-design-pro-layout-we91af"
             >
-              <p
+              <div
                 style="text-align: center; padding-top: 12px;"
               >
-                Power by Ant Design
-              </p>
+                <p>
+                  © 2021 Made with love
+                </p>
+                <p>
+                  by Ant Design
+                </p>
+              </div>
             </div>
             <div
               class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"

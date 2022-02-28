@@ -305,14 +305,15 @@ export default () => {
         }}
         menuFooterRender={() => {
           return (
-            <p
+            <div
               style={{
                 textAlign: 'center',
                 paddingTop: 12,
               }}
             >
-              Power by Ant Design
-            </p>
+              <p>© 2021 Made with love</p>
+              <p>by Ant Design</p>
+            </div>
           );
         }}
         onMenuHeaderClick={(e) => console.log(e)}
