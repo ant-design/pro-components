@@ -1223,6 +1223,7 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                     style="table-layout: auto;"
                   >
                     <colgroup>
+                      <col />
                       <col
                         class="ant-table-expand-icon-col"
                       />
@@ -1234,6 +1235,11 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                       class="ant-table-thead"
                     >
                       <tr>
+                        <th
+                          class="ant-table-cell"
+                        >
+                          Name
+                        </th>
                         <th
                           class="ant-table-cell ant-table-row-expand-icon-cell"
                         />
@@ -1261,11 +1267,6 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                             </label>
                           </div>
                         </th>
-                        <th
-                          class="ant-table-cell"
-                        >
-                          Name
-                        </th>
                       </tr>
                     </thead>
                     <tbody
@@ -1276,6 +1277,11 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                         data-row-key="1"
                       >
                         <td
+                          class="ant-table-cell"
+                        >
+                          Name 1
+                        </td>
+                        <td
                           class="ant-table-cell ant-table-row-expand-icon-cell"
                         >
                           <button
@@ -1303,11 +1309,6 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                               />
                             </span>
                           </label>
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                        >
-                          Name 1
                         </td>
                       </tr>
                       <tr
@@ -1315,6 +1316,11 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                         data-row-key="2"
                       >
                         <td
+                          class="ant-table-cell"
+                        >
+                          Name 2
+                        </td>
+                        <td
                           class="ant-table-cell ant-table-row-expand-icon-cell"
                         >
                           <button
@@ -1342,11 +1348,6 @@ exports[`Table ColumnSetting 🎏 extra columns 1`] = `
                               />
                             </span>
                           </label>
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                        >
-                          Name 2
                         </td>
                       </tr>
                     </tbody>
