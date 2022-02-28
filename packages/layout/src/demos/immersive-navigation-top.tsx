@@ -57,8 +57,8 @@ export default () => {
           tags={<Tag color="blue">状态一</Tag>}
           header={{
             style: {
-              padding: '4px 16px',
-              backgroundColor: 'rgba(255,255,255,0.6)',
+              padding: '8px 16px',
+              backgroundColor: '#fff',
               position: 'fixed',
               top: 0,
               width: '100%',
