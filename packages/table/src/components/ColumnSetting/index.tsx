@@ -228,7 +228,7 @@ const CheckboxList: React.FC<{
 };
 
 const GroupCheckboxList: React.FC<{
-  localColumns: (ProColumns<any> & { index?: number; isExtraColumns?: boolean })[];
+  localColumns: (ProColumns<any> & { index?: number })[];
   className?: string;
   draggable: boolean;
   checkable: boolean;
@@ -241,9 +241,6 @@ const GroupCheckboxList: React.FC<{
   localColumns.forEach((item) => {
     /** 不在 setting 中展示的 */
     if (item.hideInSetting) {
-      return;
-    }
-    if (item.isExtraColumns) {
       return;
     }
     const { fixed } = item;

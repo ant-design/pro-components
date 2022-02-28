@@ -56,7 +56,7 @@ export function genProColumnToColumn<T>(params: {
         return {
           index: columnsIndex,
           isExtraColumns: true,
-          hideInTable: false,
+          hideInTable: true,
           extraColumn: columnProps,
         };
       }
