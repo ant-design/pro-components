@@ -251,6 +251,10 @@ import { ConfigProvider } from '@ant-design/pro-provide';
 
 <code src="./demos/customization-value-type.tsx" debug background="#f5f5f5" heigh="462px" title="自定义 valueType"/>
 
+### 自定义错误边界
+
+<code src="./demos/error-boundaries.tsx"  title="自定义错误边界" iframe="462px" />
+
 <code src="./demos/config-provider.tsx" debug background="#f5f5f5" heigh="462px"/>
 
 ## API
