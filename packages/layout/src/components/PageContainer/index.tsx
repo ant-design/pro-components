@@ -377,7 +377,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         <div
           className={cx(
             `${prefixedClassName}-children-content`,
-            props.ghost &&
+            ghost &&
               css`
                 margin: 24px 24px 0;
                 margin-top: 0;
@@ -396,7 +396,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         )}
       </>
     ) : null;
-  }, [children, prefixedClassName, props.ghost, value.hasFooterToolbar]);
+  }, [children, ghost, prefixedClassName, value.hasFooterToolbar]);
 
   const memoBreadcrumbRender = useMemo(() => {
     if (breadcrumbRender == false) return false;

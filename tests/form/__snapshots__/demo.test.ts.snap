@@ -32364,7 +32364,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
       style="min-height: 100%;"
     >
       <div
-        class="ant-design-pro-layout-1owsomx"
+        class="ant-design-pro-layout-iyyuqj"
       />
       <aside
         class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-pj3lg9"
@@ -32682,7 +32682,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-content"
+                  class="ant-pro-page-container-children-content ant-design-pro-layout-uh9nme"
                 >
                   <div
                     class="ant-card ant-card-bordered"
