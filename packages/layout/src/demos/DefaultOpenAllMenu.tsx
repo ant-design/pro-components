@@ -16,7 +16,7 @@ export default () => (
       route={{
         routes: complexMenu,
       }}
-      menu={{ defaultOpenAll: true }}
+      menu={{ defaultOpenAll: true, hideMenuWhenCollapsed: true }}
     >
       <PageContainer content="欢迎使用">
         <div>Hello World</div>

@@ -2,7 +2,7 @@
 
 exports[`PageContainer ⚡️ support fixHeader 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
 >
   <div
     class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -31,7 +31,7 @@ exports[`PageContainer ⚡️ support fixHeader 1`] = `
 
 exports[`PageContainer ⚡️ support fixedHeader 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
 >
   <div>
     <div
@@ -67,7 +67,7 @@ exports[`PageContainer ⚡️ support fixedHeader 1`] = `
 exports[`PageContainer ⚡️ support footer 1`] = `
 Array [
   <div
-    class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1tn7goq"
+    class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1kcmo0"
   >
     <div
       class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -113,7 +113,7 @@ Array [
 
 exports[`PageContainer ⚡️ support loading 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
 >
   <div
     class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -138,10 +138,11 @@ exports[`PageContainer ⚡️ support loading 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro-grid-content ant-design-pro-layout-fl9ciq"
+    class="ant-pro-grid-content ant-design-pro-layout-18ckwwo"
   >
     <div
       class="ant-pro-grid-content-children"
+      style="padding-top:24px"
     >
       <div
         style="padding-top:100px;text-align:center"
@@ -174,7 +175,7 @@ exports[`PageContainer ⚡️ support loading 1`] = `
 
 exports[`PageContainer ⚡️ support more loading props 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
 >
   <div
     class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -199,10 +200,11 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro-grid-content ant-design-pro-layout-fl9ciq"
+    class="ant-pro-grid-content ant-design-pro-layout-18ckwwo"
   >
     <div
       class="ant-pro-grid-content-children"
+      style="padding-top:24px"
     >
       <div
         style="padding-top:100px;text-align:center"
@@ -240,7 +242,7 @@ exports[`PageContainer ⚡️ support more loading props 1`] = `
 
 exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
 <div
-  class="ant-pro-page-container custom-className ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+  class="ant-pro-page-container custom-className ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
 >
   <div
     class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -265,10 +267,11 @@ exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
     </div>
   </div>
   <div
-    class="ant-pro-grid-content ant-design-pro-layout-fl9ciq"
+    class="ant-pro-grid-content ant-design-pro-layout-18ckwwo"
   >
     <div
       class="ant-pro-grid-content-children"
+      style="padding-top: 24px;"
     >
       <div
         id="customLoading"
@@ -283,7 +286,7 @@ exports[`PageContainer 🌛 PageContainer with custom loading 1`] = `
 
 exports[`PageContainer 🐛 className prop should not be passed to its page header, fix #3493 1`] = `
 <div
-  class="ant-pro-page-container custom-className ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+  class="ant-pro-page-container custom-className ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
 >
   <div
     class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -482,7 +485,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       >
         <div
-          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
         >
           <div
             class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -492,10 +495,11 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
             />
           </div>
           <div
-            class="ant-pro-grid-content ant-design-pro-layout-fl9ciq"
+            class="ant-pro-grid-content ant-design-pro-layout-18ckwwo"
           >
             <div
               class="ant-pro-grid-content-children"
+              style="padding-top: 24px;"
             >
               <div
                 class="ant-pro-page-container-children-content ant-design-pro-layout-uh9nme"
@@ -532,7 +536,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
 
 exports[`PageContainer 🐲 content is text and title is null 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
 >
   <div
     class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -568,7 +572,7 @@ exports[`PageContainer 🐲 content is text and title is null 1`] = `
 
 exports[`PageContainer 🐲 content is text and title is null 2`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
 >
   <div
     class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -607,7 +611,7 @@ exports[`PageContainer 🐲 content is text and title is null 2`] = `
 exports[`PageContainer 🐲 footer is null, do not render footerToolbar  1`] = `
 Array [
   <div
-    class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1tn7goq"
+    class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1kcmo0"
   />,
   <div
     class="ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
@@ -630,7 +634,7 @@ Array [
 
 exports[`PageContainer 🐲 footer is null, do not render footerToolbar  2`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
 />
 `;
 
@@ -806,7 +810,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       >
         <div
-          class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1tn7goq"
+          class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1kcmo0"
         >
           <div
             class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -1036,7 +1040,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       >
         <div
-          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
         >
           <div
             class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -1130,7 +1134,7 @@ exports[`PageContainer 🐲 pro-layout support breadcrumbProps 1`] = `
 
 exports[`PageContainer 💄 base use 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
 >
   <div
     class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -1159,7 +1163,7 @@ exports[`PageContainer 💄 base use 1`] = `
 
 exports[`PageContainer 💄 config is null 1`] = `
 <div
-  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+  class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
 />
 `;
 
@@ -1198,7 +1202,7 @@ exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
 exports[`PageContainer 🔥 support footer and breadcrumb 1`] = `
 Array [
   <div
-    class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1tn7goq"
+    class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer ant-design-pro-layout-1kcmo0"
   >
     <div
       class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"

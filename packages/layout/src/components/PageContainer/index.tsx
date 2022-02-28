@@ -363,6 +363,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
 
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
+  const antdPrefixCls = getPrefixCls();
 
   const prefixedClassName = `${prefixCls}-page-container`;
 
@@ -442,7 +443,11 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
           containerClassName,
           ghost &&
             css`
-              backdrop-filter: blur(5px) saturate(100%);
+              .${antdPrefixCls}-affix {
+                .${prefixedClassName}-warp {
+                  background-color: #fff;
+                }
+              }
             `,
         )}
       >

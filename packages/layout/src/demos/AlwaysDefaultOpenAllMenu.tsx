@@ -73,7 +73,7 @@ export default () => (
           },
         ],
       }}
-      menu={{ defaultOpenAll: true, ignoreFlatMenu: true }}
+      menu={{ defaultOpenAll: true, hideMenuWhenCollapsed: true, ignoreFlatMenu: true }}
     >
       <PageContainer content="欢迎使用">
         <div>Hello World</div>

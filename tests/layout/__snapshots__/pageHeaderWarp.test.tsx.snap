@@ -222,7 +222,7 @@ exports[`BasicLayout base use 1`] = `
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       >
         <div
-          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
         >
           <div
             class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -475,7 +475,7 @@ exports[`BasicLayout content is text 1`] = `
         class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
       >
         <div
-          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+          class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
         >
           <div
             class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"

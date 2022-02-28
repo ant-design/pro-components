@@ -29,8 +29,15 @@ export default () => {
           pathname: '/welcome',
         }}
       >
-        <PageContainer ghost content={content}>
-          <ProCard direction="column" ghost gutter={[0, 16]}>
+        <PageContainer fixedHeader content={content}>
+          <ProCard
+            direction="column"
+            ghost
+            gutter={[0, 16]}
+            style={{
+              height: '200vh',
+            }}
+          >
             <ProCard style={{ height: 200 }} />
             <ProCard gutter={16} ghost style={{ height: 200 }}>
               <ProCard colSpan={16} />

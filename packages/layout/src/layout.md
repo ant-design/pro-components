@@ -83,9 +83,9 @@ menu 配置 `defaultOpenAll` 可以默认打开所有菜单
 
 <code src="./demos/IconFont.tsx" iframe="500px" title="使用 IconFont" />
 
-### ghost 模式
+### 吸顶 header
 
-PageContainer 配置 `ghost` 可以将页头切换为透明模式。
+PageContainer 配置 `fixedHeader` 可以将吸顶 header。
 
 <code src="./demos/ghost.tsx" iframe="500px" title="ghost 模式" />
 

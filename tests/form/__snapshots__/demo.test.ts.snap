@@ -32615,7 +32615,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1tn7goq"
+            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
           >
             <div
               class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
@@ -32676,10 +32676,11 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-design-pro-layout-fl9ciq"
+              class="ant-pro-grid-content ant-design-pro-layout-18ckwwo"
             >
               <div
                 class="ant-pro-grid-content-children"
+                style="padding-top: 24px;"
               >
                 <div
                   class="ant-pro-page-container-children-content ant-design-pro-layout-uh9nme"

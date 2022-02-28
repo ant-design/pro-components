@@ -41,8 +41,8 @@ const GridContent: React.FC<GridContentProps> = (props) => {
         css`
           width: 100%;
           contain: layout;
-          .${prefixCls}-card {
-            border-radius: 2px;
+          .${prefixCls}-card:not(.${prefixCls}-card-ghost) {
+            border-radius: 4px;
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(25, 15, 15, 0.07),
               0 0 1px 0 rgba(0, 0, 0, 0.08);
           }
@@ -55,7 +55,14 @@ const GridContent: React.FC<GridContentProps> = (props) => {
       )}
       style={style}
     >
-      <div className={`${prefixCls}-grid-content-children`}>{children}</div>
+      <div
+        className={`${prefixCls}-grid-content-children`}
+        style={{
+          paddingTop: 24,
+        }}
+      >
+        {children}
+      </div>
     </div>
   );
 };
