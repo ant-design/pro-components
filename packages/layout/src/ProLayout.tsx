@@ -475,11 +475,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     genLayoutStyle.minHeight = 0;
   }
 
-  const contentClassName = classNames(`${baseClassName}-content`, {
-    [`${baseClassName}-has-header`]: headerDom,
-    [`${baseClassName}-content-disable-margin`]: disableContentMargin,
-  });
-
   /** 页面切换的时候触发 */
   useEffect(() => {
     props.onPageChange?.(props.location);
@@ -510,14 +505,20 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
 
   /** Disable之后样式 */
   const proLayoutDisableContentMargin = useMemo(() => {
-    if (disableContentMargin) return ``;
+    if (!disableContentMargin) return '';
     return css`
-      margin: 0;
+      margin: 0 !important;
       .${antdPrefixCls}-pro-page-container {
         margin: 0;
       }
     `;
   }, [antdPrefixCls, disableContentMargin]);
+
+  const contentClassName = classNames(`${baseClassName}-content`, {
+    [`${baseClassName}-has-header`]: headerDom,
+    [`${baseClassName}-content-disable-margin`]: disableContentMargin,
+    [proLayoutDisableContentMargin]: disableContentMargin,
+  });
 
   return (
     <MenuCounter.Provider>
@@ -559,7 +560,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                   background: transparent;
                 }
               `,
-              proLayoutDisableContentMargin,
             )}
           >
             {bgImgStyleList && (

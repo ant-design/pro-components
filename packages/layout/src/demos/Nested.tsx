@@ -14,6 +14,7 @@ export default () => (
       location={{
         pathname: '/home',
       }}
+      fixSiderbar={false}
       collapsedButtonRender={false}
       collapsed
       iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
@@ -43,12 +44,16 @@ export default () => (
         location={{
           pathname: '/home/overview',
         }}
+        fixSiderbar={false}
         route={{
           routes: complexMenu,
         }}
         navTheme="light"
         style={{
           height: '400px',
+        }}
+        menu={{
+          hideMenuWhenCollapsed: true,
         }}
         avatarProps={{
           icon: <UserOutlined />,

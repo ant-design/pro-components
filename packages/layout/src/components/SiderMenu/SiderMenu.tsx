@@ -478,6 +478,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           )}
         />
       )}
+
       <Sider
         collapsible
         trigger={null}
@@ -526,113 +527,121 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           `,
         )}
       >
-        {headerDom && (
-          <div
-            className={cx([
-              classNames(`${baseClassName}-logo`, {
-                [`${baseClassName}-logo-collapsed`]: collapsed,
-              }),
-              siderTitleViewCss?.(designToken),
-              collapsed && siderTitleViewCollapsedCss,
-            ])}
-            onClick={layout !== 'mix' ? onMenuHeaderClick : undefined}
-            id="logo"
-            style={logoStyle}
-          >
-            {headerDom}
-            {appsDom}
-          </div>
-        )}
-        {extraDom && (
-          <div
-            className={cx([
-              `${baseClassName}-extra`,
-              !headerDom && `${baseClassName}-extra-no-logo`,
-              css`
-                margin-bottom: 16px;
-                padding: 0 16px;
-              `,
-              // no-logo
-              !headerDom &&
-                css`
-                  margin-top: 16px;
-                `,
-            ])}
-          >
-            {extraDom}
-          </div>
-        )}
         <div
           style={{
-            flex: 1,
-            overflowY: 'auto',
-            overflowX: 'hidden',
+            height: '100%',
+            width: '100%',
+            opacity: collapsedCss ? 0 : 1,
           }}
         >
-          {menuRenderDom}
-        </div>
-        {links ? (
-          <div
-            className={cx(
-              `${baseClassName}-links`,
-              css`
-                width: 100%;
-                ul.${antPrefix}-menu-root {
-                  height: auto;
-                }
-              `,
-            )}
-          >
-            <Menu
-              inlineIndent={16}
-              className={`${baseClassName}-link-menu`}
-              selectedKeys={[]}
-              openKeys={[]}
-              theme="light"
-              mode="inline"
+          {headerDom && (
+            <div
+              className={cx([
+                classNames(`${baseClassName}-logo`, {
+                  [`${baseClassName}-logo-collapsed`]: collapsed,
+                }),
+                siderTitleViewCss?.(designToken),
+                collapsed && siderTitleViewCollapsedCss,
+              ])}
+              onClick={layout !== 'mix' ? onMenuHeaderClick : undefined}
+              id="logo"
+              style={logoStyle}
             >
-              {(links || []).map((node, index) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <Menu.Item className={`${baseClassName}-link`} key={index}>
-                  {node}
-                </Menu.Item>
-              ))}
-            </Menu>
-          </div>
-        ) : null}
-        {layout !== 'mix' && (
-          <>
-            {actionAreaDom}
-            {rightContentRender ? (
-              <div
-                className={classNames(`${baseClassName}-actions`, {
-                  [`${baseClassName}-actions-collapsed`]: collapsed,
-                })}
-              >
-                {rightContentRender?.(props)}
-              </div>
-            ) : null}
-          </>
-        )}
-
-        {menuFooterRender && (
-          <div
-            className={cx([
-              `${baseClassName}-footer`,
-              collapsed && `${baseClassName}-footer-collapsed`,
-              css`
-                color: ${designToken.sider.menuTextColorSecondary};
-                animation: ${proLayoutTitleHide} 0.35s;
-              `,
-              collapsed &&
+              {headerDom}
+              {appsDom}
+            </div>
+          )}
+          {extraDom && (
+            <div
+              className={cx([
+                `${baseClassName}-extra`,
+                !headerDom && `${baseClassName}-extra-no-logo`,
                 css`
-                  display: none;
+                  margin-bottom: 16px;
+                  padding: 0 16px;
                 `,
-            ])}
+                // no-logo
+                !headerDom &&
+                  css`
+                    margin-top: 16px;
+                  `,
+              ])}
+            >
+              {extraDom}
+            </div>
+          )}
+          <div
+            style={{
+              flex: 1,
+              overflowY: 'auto',
+              overflowX: 'hidden',
+            }}
           >
-            {menuFooterRender(props)}
+            {menuRenderDom}
           </div>
-        )}
+          {links ? (
+            <div
+              className={cx(
+                `${baseClassName}-links`,
+                css`
+                  width: 100%;
+                  ul.${antPrefix}-menu-root {
+                    height: auto;
+                  }
+                `,
+              )}
+            >
+              <Menu
+                inlineIndent={16}
+                className={`${baseClassName}-link-menu`}
+                selectedKeys={[]}
+                openKeys={[]}
+                theme="light"
+                mode="inline"
+              >
+                {(links || []).map((node, index) => (
+                  // eslint-disable-next-line react/no-array-index-key
+                  <Menu.Item className={`${baseClassName}-link`} key={index}>
+                    {node}
+                  </Menu.Item>
+                ))}
+              </Menu>
+            </div>
+          ) : null}
+          {layout !== 'mix' && (
+            <>
+              {actionAreaDom}
+              {rightContentRender ? (
+                <div
+                  className={classNames(`${baseClassName}-actions`, {
+                    [`${baseClassName}-actions-collapsed`]: collapsed,
+                  })}
+                >
+                  {rightContentRender?.(props)}
+                </div>
+              ) : null}
+            </>
+          )}
+
+          {menuFooterRender && (
+            <div
+              className={cx([
+                `${baseClassName}-footer`,
+                collapsed && `${baseClassName}-footer-collapsed`,
+                css`
+                  color: ${designToken.sider.menuTextColorSecondary};
+                  animation: ${proLayoutTitleHide} 0.35s;
+                `,
+                collapsed &&
+                  css`
+                    display: none;
+                  `,
+              ])}
+            >
+              {menuFooterRender(props)}
+            </div>
+          )}
+        </div>
         {collapsedDom}
       </Sider>
     </>
