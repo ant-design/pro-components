@@ -10,6 +10,10 @@ export const appContentListCss = css`
 `;
 
 export const getAntdPopoverContentListCss = (prefix: string) => css`
+  .${prefix}-popover-inner {
+    border-radius: 8px;
+  }
+  
  .${prefix}-popover-inner-content{
     padding:8px;
  }

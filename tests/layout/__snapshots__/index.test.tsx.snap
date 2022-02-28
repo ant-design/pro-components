@@ -3,7 +3,7 @@
 exports[`BasicLayout 🥩 BasicLayout menu support menu.true 1`] = `
 Array [
   <div
-    class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-qi6myi"
+    class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-5v4zot"
   >
     <section
       class="ant-layout"
@@ -211,7 +211,7 @@ Array [
     </section>
   </div>,
   <div
-    class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-top-menu ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-top ant-design-pro-layout-qi6myi"
+    class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-top-menu ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-top ant-design-pro-layout-5v4zot"
   >
     <section
       class="ant-layout"
@@ -404,7 +404,7 @@ Array [
     </section>
   </div>,
   <div
-    class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-qi6myi"
+    class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-5v4zot"
   >
     <section
       class="ant-layout"
@@ -630,7 +630,7 @@ Array [
 
 exports[`BasicLayout 🥩 base use 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-5v4zot"
 >
   <section
     class="ant-layout"
@@ -816,7 +816,7 @@ exports[`BasicLayout 🥩 base use 1`] = `
 
 exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-5v4zot"
 >
   <section
     class="ant-layout"
@@ -1003,7 +1003,7 @@ exports[`BasicLayout 🥩 contentStyle should change dom 1`] = `
 
 exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-5v4zot"
 >
   <section
     class="ant-layout ant-layout-has-sider"
@@ -1252,7 +1252,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
 
 exports[`BasicLayout 🥩 support loading 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-qi6myi"
+  class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-5v4zot"
 >
   <section
     class="ant-layout ant-layout-has-sider"

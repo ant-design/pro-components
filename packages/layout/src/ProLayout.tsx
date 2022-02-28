@@ -41,14 +41,6 @@ import { Logo } from './Logo';
 import type { ProLayoutProviderProps } from './ProLayoutContext';
 import { ProLayoutProvider } from './ProLayoutContext';
 
-const ProLayoutCss = css`
-  // BFC
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100%;
-`;
-
 let layoutIndex = 0;
 
 export type LayoutBreadcrumbProps = {
@@ -517,7 +509,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   const antdPrefixCls = context.getPrefixCls();
 
   /** Disable之后样式 */
-  const ProLayoutDisableContentMargin = useMemo(() => {
+  const proLayoutDisableContentMargin = useMemo(() => {
     if (disableContentMargin) return ``;
     return css`
       margin: 0;
@@ -553,7 +545,39 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
         {props.pure ? (
           <ConfigProviderWrap autoClearCache>{children}</ConfigProviderWrap>
         ) : (
-          <div className={cx(className, ProLayoutCss, ProLayoutDisableContentMargin)}>
+          <div
+            className={cx(
+              className,
+              css`
+                // BFC
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                min-height: 100%;
+                background-color: #f0f2f5;
+                .${antdPrefixCls}-layout {
+                  background: transparent;
+                }
+              `,
+              proLayoutDisableContentMargin,
+            )}
+          >
+            {bgImgStyleList && (
+              <div
+                className={css`
+                  pointer-events: none;
+                  position: fixed;
+                  overflow: hidden;
+                  top: 0;
+                  left: 0;
+                  z-index: 0;
+                  height: 100%;
+                  width: 100%;
+                `}
+              >
+                {bgImgStyleList}
+              </div>
+            )}
             <Layout
               style={{
                 minHeight: '100%',
@@ -562,22 +586,6 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
             >
               {siderMenuDom}
               <div style={genLayoutStyle} className={context.getPrefixCls('layout')}>
-                {bgImgStyleList && (
-                  <div
-                    className={css`
-                      pointer-events: none;
-                      position: absolute;
-                      overflow: hidden;
-                      top: 0;
-                      left: 0;
-                      z-index: 0;
-                      height: 100%;
-                      width: 100%;
-                    `}
-                  >
-                    {bgImgStyleList}
-                  </div>
-                )}
                 {headerDom}
                 <WrapContent
                   isChildrenLayout={isChildrenLayout}
