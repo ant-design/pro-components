@@ -90,7 +90,7 @@ export default () => {
     >
       <ProLayout
         brandBgImg={{
-          url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
+          url: 'https://img.alicdn.com/imgextra/i2/O1CN01M98riY1ZvkjB487II_!!6000000003257-2-tps-609-606.png',
         }}
         {...defaultProps}
         location={{
@@ -106,8 +106,9 @@ export default () => {
         }}
         actionsRender={(props) => {
           if (props.isMobile) return [];
+
           return [
-            props.layout !== 'side' ? (
+            props.layout !== 'side' && document.body.clientWidth > 1400 ? (
               <div
                 key="SearchOutlined"
                 aria-hidden
@@ -151,7 +152,10 @@ export default () => {
           ];
         }}
         headerContentRender={(_, defaultDom) => {
-          if (_.isMobile) return null;
+          if (document.body.clientWidth < 1400) {
+            return defaultDom;
+          }
+          if (_.isMobile) return defaultDom;
           return (
             <>
               <div

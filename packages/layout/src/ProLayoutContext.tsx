@@ -206,6 +206,18 @@ type BaseLayoutDesignToken = {
      */
     rightActionsItemHoverBgColor: string;
   };
+  /**
+   * 跨站点应用的图标颜色
+   */
+  appListIconTextColor: string;
+  /**
+   * 跨站点应用的图标hover颜色
+   */
+  appListIconHoverTextColor: string;
+  /**
+   * 跨站点应用的图标hover背景颜色
+   */
+  appListIconHoverBgColor: string;
 };
 
 export type LayoutDesignToken = BaseLayoutDesignToken & BaseDesignToken;
@@ -225,6 +237,9 @@ export const getLayoutDesignToken: (
   };
   return {
     ...designTokens,
+    appListIconTextColor: '#666',
+    appListIconHoverTextColor: finalDesignTokens.textColor,
+    appListIconHoverBgColor: menuToken.menuItemSelectedBgColor,
     ...finalDesignTokens,
     header: {
       ...menuToken,
@@ -239,8 +254,8 @@ export const getLayoutDesignToken: (
       menuItemDividerColor: finalDesignTokens.borderColorSplit,
       menuTitleTextColor: finalDesignTokens.headingColor,
       menuSubArrowColor: 'rgba(0, 0, 0, 0.25)',
-      collapsedButtonTextColor: finalDesignTokens?.sider?.menuTextColorSecondary,
-      collapsedButtonHoverTextColor: finalDesignTokens.textColor,
+      collapsedButtonTextColor: menuToken?.menuTextColorSecondary,
+      collapsedButtonHoverTextColor: menuToken?.menuTextColor,
       collapsedButtonBgColor: '#fff',
       ...finalDesignTokens.sider,
     },

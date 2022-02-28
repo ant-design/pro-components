@@ -81,7 +81,7 @@ export const AppsLogoComponents: React.FC<{
         </div>
       }
     >
-      <span className={cx(`${prefixCls}-basicLayout-apps-icon`, appIconsCss)}>
+      <span className={cx(`${prefixCls}-basicLayout-apps-icon`, appIconsCss(designToken))}>
         <AppsLogo />
       </span>
     </Popover>

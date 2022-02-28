@@ -618,6 +618,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     return css`
     padding: ${props.isMobile ? 0 : '6px'};
     background: transparent;
+    border:none !important;
 
     // 关掉动画避免性能问题
     * > div {

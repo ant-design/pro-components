@@ -261,7 +261,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     defaultCollapsed,
     style,
     disableContentMargin,
-    siderWidth = 216,
+    siderWidth: propsSiderWidth,
     menu,
     isChildrenLayout: propsIsChildrenLayout,
     menuDataRender,
@@ -270,6 +270,12 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     formatMessage: propsFormatMessage,
     loading,
   } = props || {};
+
+  const siderWidth = useMemo(() => {
+    if (propsSiderWidth) return propsSiderWidth;
+    if (props.layout === 'mix') return 215;
+    return 256;
+  }, [props.layout, propsSiderWidth]);
 
   const context = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');

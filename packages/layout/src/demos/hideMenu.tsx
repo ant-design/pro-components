@@ -20,7 +20,7 @@ export default () => (
           transition: 'all 0.2s',
           overflow: 'hidden',
           height: '100%',
-          width: props.collapsed ? 0 : props.siderWidth || 216,
+          width: props.collapsed ? 0 : props.siderWidth || 256,
         }}
       >
         {dom}

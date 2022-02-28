@@ -319,7 +319,7 @@ describe('BasicLayout', () => {
   it('🥩 siderWidth default', async () => {
     const wrapper = mount(<BasicLayout />);
     await waitForComponentToPaint(wrapper);
-    expect(wrapper.find('.ant-pro-sider').get(1).props.width).toBe(216);
+    expect(wrapper.find('.ant-pro-sider').get(1).props.width).toBe(256);
 
     await waitForComponentToPaint(wrapper);
     act(() => {
@@ -1315,7 +1315,7 @@ describe('BasicLayout', () => {
   it('🥩  navTheme=realDark', () => {
     const html = render(<BasicLayout navTheme="realDark" />);
     expect(html.baseElement.querySelector('aside.ant-layout-sider')?.getAttribute('style')).toBe(
-      'background-color: transparent; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 65%); flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;',
+      'background-color: transparent; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 65%); flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;',
     );
   });
 

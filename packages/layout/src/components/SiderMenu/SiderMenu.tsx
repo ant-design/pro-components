@@ -29,7 +29,7 @@ export const defaultIconCss = (designToken: LayoutDesignToken) => css`
   text-align: center;
   border-radius: 40px;
   right: -13px;
-  background-color: #fff;
+  background-color: ${designToken.sider.collapsedButtonBgColor};
   transition: transform 0.3s;
   font-size: 16px;
   display: flex;
@@ -76,24 +76,6 @@ export const siderCss = css`
     position: relative;
     z-index: 10;
     min-height: 100%;
-  }
-
-  /* 滚动槽 */
-  ::-webkit-scrollbar {
-    width: 2px;
-    height: 6px;
-    background-color: transparent;
-  }
-  ::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.06);
-    border-radius: 3px;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.08);
-  }
-  /* 滚动条滑块 */
-  ::-webkit-scrollbar-thumb {
-    background: rgba(0, 0, 0, 0.12);
-    border-radius: 3px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -336,9 +318,14 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           className={cx(
             `${baseClassName}-actions-avatar`,
             css`
-              font-size: 12px;
+              font-size: 14px;
+              padding: 8px;
+              border-radius: ${designToken.borderRadiusBase};
               & > * {
                 cursor: pointer;
+              }
+              &:hover {
+                background: rgba(0, 0, 0, 0.018);
               }
             `,
           )}
@@ -347,7 +334,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           {avatarProps.title && !collapsed && <span>{avatarProps.title}</span>}
         </Space>
       ),
-    [avatarProps, baseClassName, collapsed],
+    [avatarProps, baseClassName, collapsed, designToken.borderRadiusBase],
   );
 
   const actionsDom = useMemo(
@@ -356,15 +343,13 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       return (
         <Space
           align="center"
+          size={4}
           direction={collapsed ? 'vertical' : 'horizontal'}
           className={cx([
             `${baseClassName}-actions-list`,
             css`
               color: ${designToken.sider.menuTextColor};
               animation: ${proLayoutTitleHide} 0.3s;
-              & > * {
-                cursor: pointer;
-              }
             `,
             collapsed &&
               css`
@@ -373,7 +358,25 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
               `,
           ])}
         >
-          {actionsRender?.(props)}
+          {actionsRender?.(props).map((item, index) => {
+            return (
+              <div
+                key={index}
+                className={css`
+                  padding: 6px;
+                  line-height: 16px;
+                  font-size: 16px;
+                  cursor: pointer;
+                  border-radius: ${designToken.borderRadiusBase};
+                  &:hover {
+                    background: rgba(0, 0, 0, 0.018);
+                  }
+                `}
+              >
+                {item}
+              </div>
+            );
+          })}
         </Space>
       );
     },

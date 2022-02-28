@@ -56,7 +56,7 @@ export const getAppContentLisItem = (designToken: LayoutDesignToken) => css`
   }
 `;
 
-export const appIconsCss = css`
+export const appIconsCss = (designToken: LayoutDesignToken) => css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -66,8 +66,9 @@ export const appIconsCss = css`
   height: 28px;
   width: 28px;
   cursor: pointer;
+  color: ${designToken.appListIconTextColor};
   &:hover {
-    color: #2155f4;
-    background-color: rgba(0, 87, 127, 0.06);
+    color: ${designToken.appListIconHoverTextColor};
+    background-color: ${designToken.appListIconHoverBgColor};
   }
 `;

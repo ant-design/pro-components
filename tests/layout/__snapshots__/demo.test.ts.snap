@@ -3954,11 +3954,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -4103,7 +4103,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -4326,7 +4326,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -4418,11 +4418,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -4567,7 +4567,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -4657,7 +4657,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -4831,11 +4831,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -4980,7 +4980,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -5336,7 +5336,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -5428,11 +5428,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -5577,7 +5577,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -5704,7 +5704,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/IconFont.tsx corr
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -5796,11 +5796,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -5945,7 +5945,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -6194,7 +6194,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MenuGroup.tsx cor
               </div>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -6286,11 +6286,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -6435,7 +6435,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -6704,7 +6704,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -6835,7 +6835,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
           class="ant-design-pro-layout-1owsomx"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
+          class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
           style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
         >
           <div
@@ -6978,7 +6978,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x ant-menu-inline-collapsed"
+                class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v ant-menu-inline-collapsed"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -7118,11 +7118,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                 style="min-height: 100%; height: 400px;"
               >
                 <div
-                  class="ant-design-pro-layout-1bredbg"
+                  class="ant-design-pro-layout-l4gpps"
                 />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-                  style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+                  style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
                 >
                   <div
                     class="ant-layout-sider-children"
@@ -7131,7 +7131,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                         data-menu-list="true"
                         role="menu"
                         style="width: 100%;"
@@ -7255,7 +7255,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       class="ant-pro-sider-actions ant-design-pro-layout-dpqlg1"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-yps43y"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-sw93vk"
                       >
                         <div
                           class="ant-space-item"
@@ -7287,7 +7287,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/Nested.tsx correc
                       </div>
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
                     >
                       <svg
                         aria-hidden="true"
@@ -7590,7 +7590,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                   style="flex: 1;"
                 >
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-6w8o3k"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-12xojw8"
                     data-menu-list="true"
                     role="menu"
                     tabindex="0"
@@ -7759,11 +7759,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                 style="min-height: 100%;"
               >
                 <div
-                  class="ant-design-pro-layout-1bredbg"
+                  class="ant-design-pro-layout-l4gpps"
                 />
                 <aside
-                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-                  style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+                  class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+                  style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
                 >
                   <div
                     class="ant-layout-sider-children"
@@ -7772,7 +7772,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       style="flex: 1; overflow-y: auto; overflow-x: hidden;"
                     >
                       <ul
-                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                         data-menu-list="true"
                         role="menu"
                         style="width: 100%;"
@@ -7893,7 +7893,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/TopmenuNested.tsx
                       />
                     </div>
                     <div
-                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+                      class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
                     >
                       <svg
                         aria-hidden="true"
@@ -8036,11 +8036,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
       style="min-height: 500px;"
     >
       <div
-        class="ant-design-pro-layout-1bredbg"
+        class="ant-design-pro-layout-l4gpps"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-        style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+        style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -8185,7 +8185,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -8356,7 +8356,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
           >
             <svg
               aria-hidden="true"
@@ -8636,7 +8636,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
         class="ant-design-pro-layout-1owsomx"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
+        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
         style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
       >
         <div
@@ -8775,7 +8775,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               </svg>
             </a>
             <span
-              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
             >
               <svg
                 aria-hidden="true"
@@ -8794,7 +8794,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -8991,7 +8991,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             class="ant-pro-sider-actions ant-pro-sider-actions-collapsed ant-design-pro-layout-16k5acn"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-yps43y"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-sw93vk"
             >
               <div
                 class="ant-space-item"
@@ -9007,7 +9007,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-4x055d"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-u0m9km"
           >
             <svg
               aria-hidden="true"
@@ -9190,11 +9190,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-18ivuhd"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-ohtrxp"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-pj3lg9"
+          style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -9203,7 +9203,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -9467,7 +9467,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
               </p>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -9485,7 +9485,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
         </aside>
         <div
           class="ant-layout"
-          style="background-image: url(https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png); background-size: 306px; background-repeat: no-repeat; position: relative;"
+          style="background-image: url(https://img.alicdn.com/imgextra/i2/O1CN01M98riY1ZvkjB487II_!!6000000003257-2-tps-609-606.png); background-size: 306px; background-repeat: no-repeat; position: relative;"
         >
           <header
             class="ant-layout-header"
@@ -9504,7 +9504,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   class="ant-pro-top-nav-header-main-left ant-design-pro-layout-12ycn0f"
                 >
                   <span
-                    class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+                    class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
                   >
                     <svg
                       aria-hidden="true"
@@ -9659,44 +9659,8 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                   class="ant-pro-top-nav-header-menu ant-design-pro-layout-1omcxtl"
                   style="flex: 1;"
                 >
-                  <div
-                    style="display: flex; align-items: center; margin-right: 52px;"
-                  >
-                    <div
-                      class="ant-divider ant-divider-vertical"
-                      role="separator"
-                      style="height: 1.5em;"
-                    />
-                    <div
-                      class="ant-dropdown-trigger css-u94877"
-                      style="color: rgba(0, 0, 0, 0.85); font-weight: 500; cursor: pointer; display: flex; gap: 4px; align-items: center;"
-                    >
-                      <span>
-                         企业级资产中心
-                      </span>
-                      <span
-                        aria-label="caret-down"
-                        class="anticon anticon-caret-down"
-                        role="img"
-                      >
-                        <svg
-                          aria-hidden="true"
-                          data-icon="caret-down"
-                          fill="currentColor"
-                          focusable="false"
-                          height="1em"
-                          viewBox="0 0 1024 1024"
-                          width="1em"
-                        >
-                          <path
-                            d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
                   <ul
-                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-6w8o3k"
+                    class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-12xojw8"
                     data-menu-list="true"
                     role="menu"
                     tabindex="0"
@@ -9926,70 +9890,6 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                         class="ant-pro-header-actions ant-design-pro-layout-3a6lt1"
                       >
                         <span
-                          class="ant-pro-header-actions-item ant-design-pro-layout-75dulu"
-                        >
-                          <div
-                            aria-hidden="true"
-                            style="display: flex; align-items: center; margin-right: 24px;"
-                          >
-                            <span
-                              class="ant-input-affix-wrapper ant-input-affix-wrapper-borderless"
-                              style="border-radius: 4px; margin-right: 12px; background-color: rgba(0, 0, 0, 0.03);"
-                            >
-                              <span
-                                class="ant-input-prefix"
-                              >
-                                <span
-                                  aria-label="search"
-                                  class="anticon anticon-search"
-                                  role="img"
-                                  style="color: rgba(0, 0, 0, 0.15);"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="search"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                              <input
-                                class="ant-input ant-input-borderless"
-                                placeholder="搜索方案"
-                                type="text"
-                                value=""
-                              />
-                            </span>
-                            <span
-                              aria-label="plus-circle"
-                              class="anticon anticon-plus-circle"
-                              role="img"
-                              style="color: rgb(22, 119, 255); font-size: 24px;"
-                            >
-                              <svg
-                                aria-hidden="true"
-                                data-icon="plus-circle"
-                                fill="currentColor"
-                                focusable="false"
-                                height="1em"
-                                viewBox="64 64 896 896"
-                                width="1em"
-                              >
-                                <path
-                                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm192 472c0 4.4-3.6 8-8 8H544v152c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V544H328c-4.4 0-8-3.6-8-8v-48c0-4.4 3.6-8 8-8h152V328c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v152h152c4.4 0 8 3.6 8 8v48z"
-                                />
-                              </svg>
-                            </span>
-                          </div>
-                        </span>
-                        <span
                           class="ant-pro-header-actions-item ant-design-pro-layout-1mu81ss"
                         >
                           <span
@@ -10165,7 +10065,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
             </div>
             <div
               class="ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
-              style="width: calc(100% - 216px);"
+              style="width: calc(100% - 215px);"
             >
               <div
                 class="ant-pro-footer-bar-left ant-design-pro-layout-8fxooz"
@@ -10907,11 +10807,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
       style="min-height: 100%; max-height: 100vh;"
     >
       <div
-        class="ant-design-pro-layout-1bredbg"
+        class="ant-design-pro-layout-l4gpps"
       />
       <aside
-        class="qixian-layout-sider qixian-layout-sider-light qixian-pro-sider qixian-pro-sider-fixed qixian-pro-sider-layout-side qixian-pro-sider-light ant-design-pro-layout-fnwxdo"
-        style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+        class="qixian-layout-sider qixian-layout-sider-light qixian-pro-sider qixian-pro-sider-fixed qixian-pro-sider-layout-side qixian-pro-sider-light ant-design-pro-layout-1anmt99"
+        style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="qixian-layout-sider-children"
@@ -11052,7 +10952,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
               </h1>
             </a>
             <span
-              class="qixian-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+              class="qixian-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
             >
               <svg
                 aria-hidden="true"
@@ -11071,7 +10971,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-light qixian-pro-sider-menu ant-design-pro-layout-15fy2dt"
+              class="qixian-menu qixian-menu-root qixian-menu-inline qixian-menu-light qixian-pro-sider-menu ant-design-pro-layout-1s58pz1"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -11276,7 +11176,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             class="qixian-pro-sider-actions ant-design-pro-layout-dpqlg1"
           >
             <div
-              class="qixian-space qixian-space-horizontal qixian-space-align-center qixian-pro-sider-actions-avatar ant-design-pro-layout-yps43y"
+              class="qixian-space qixian-space-horizontal qixian-space-align-center qixian-pro-sider-actions-avatar ant-design-pro-layout-sw93vk"
             >
               <div
                 class="qixian-space-item"
@@ -11325,7 +11225,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
             </a>
           </div>
           <div
-            class="qixian-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+            class="qixian-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
           >
             <svg
               aria-hidden="true"
@@ -12096,7 +11996,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/config-provider.t
           </div>
           <div
             class="qixian-pro-footer-bar ant-design-pro-layout-1xfh3iz"
-            style="width: calc(100% - 216px);"
+            style="width: calc(100% - 256px);"
           >
             <div
               class="qixian-pro-footer-bar-left ant-design-pro-layout-8fxooz"
@@ -12139,11 +12039,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
       style="min-height: 100%;"
     >
       <div
-        class="ant-design-pro-layout-1bredbg"
+        class="ant-design-pro-layout-18ivuhd"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-ohtrxp"
-        style="background-color: transparent; max-width: 216px; min-width: 216px; width: 216px; flex: 0 0 216px;"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-pj3lg9"
+        style="background-color: transparent; max-width: 215px; min-width: 215px; width: 215px; flex: 0 0 215px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -12152,7 +12052,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -12370,7 +12270,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customize-collaps
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
           >
             <span
-              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
             >
               <svg
                 aria-hidden="true"
@@ -12682,11 +12582,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -12707,7 +12607,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
                 </h1>
               </div>
               <span
-                class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+                class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
               >
                 <svg
                   aria-hidden="true"
@@ -12726,7 +12626,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -12936,7 +12836,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/customizeMenu.tsx
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -13041,11 +12941,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -13186,7 +13086,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                 </h1>
               </a>
               <span
-                class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+                class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
               >
                 <svg
                   aria-hidden="true"
@@ -13205,7 +13105,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -13410,7 +13310,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               class="ant-pro-sider-actions ant-design-pro-layout-dpqlg1"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-yps43y"
+                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-sw93vk"
               >
                 <div
                   class="ant-space-item"
@@ -13459,7 +13359,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
               </a>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -14239,7 +14139,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
             </div>
             <div
               class="ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
-              style="width: calc(100% - 216px);"
+              style="width: calc(100% - 256px);"
             >
               <div
                 class="ant-pro-footer-bar-left ant-design-pro-layout-8fxooz"
@@ -14958,11 +14858,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
       style="min-height: 100%; height: 100vh; border: 1px solid #ddd;"
     >
       <div
-        class="ant-design-pro-layout-1bredbg"
+        class="ant-design-pro-layout-l4gpps"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-        style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+        style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -15132,7 +15032,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamicMenu.tsx c
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
           >
             <svg
               aria-hidden="true"
@@ -15231,11 +15131,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -15380,7 +15280,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -15439,7 +15339,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/error-boundaries.
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -15516,7 +15416,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
         class="ant-design-pro-layout-1owsomx"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
+        class="ant-layout-sider ant-layout-sider-light ant-layout-sider-collapsed ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
         style="background-color: transparent; flex: 0 0 60px; max-width: 60px; min-width: 60px; width: 60px;"
       >
         <div
@@ -15655,7 +15555,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
               </svg>
             </a>
             <span
-              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
             >
               <svg
                 aria-hidden="true"
@@ -15674,7 +15574,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -15868,7 +15768,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-4x055d"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-u0m9km"
           >
             <svg
               aria-hidden="true"
@@ -16024,11 +15924,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -16169,7 +16069,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
                 </h1>
               </a>
               <span
-                class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+                class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
               >
                 <svg
                   aria-hidden="true"
@@ -16188,7 +16088,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -16386,7 +16286,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/ghost.tsx correct
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -16667,14 +16567,14 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
       style="min-height: 100%; height: 100vh;"
     >
       <div
-        style="background: rgb(255, 255, 255); box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35); transition: all 0.2s; overflow: hidden; height: 100%; width: 216px;"
+        style="background: rgb(255, 255, 255); box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35); transition: all 0.2s; overflow: hidden; height: 100%; width: 256px;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -16815,7 +16715,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
                 </h1>
               </a>
               <span
-                class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+                class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
               >
                 <svg
                   aria-hidden="true"
@@ -16834,7 +16734,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -17032,7 +16932,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/hideMenu.tsx corr
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -17133,11 +17033,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
       style="min-height: 100%;"
     >
       <div
-        class="ant-design-pro-layout-1bredbg"
+        class="ant-design-pro-layout-l4gpps"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-        style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+        style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -17213,7 +17113,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -17355,7 +17255,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             class="ant-pro-sider-actions ant-design-pro-layout-dpqlg1"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-yps43y"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-sw93vk"
             >
               <div
                 class="ant-space-item"
@@ -17387,7 +17287,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
           >
             <svg
               aria-hidden="true"
@@ -17760,11 +17660,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
       style="min-height: 100%;"
     >
       <div
-        class="ant-design-pro-layout-1bredbg"
+        class="ant-design-pro-layout-l4gpps"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-        style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+        style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -17909,7 +17809,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -18051,7 +17951,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             class="ant-pro-sider-actions ant-design-pro-layout-dpqlg1"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-yps43y"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-sw93vk"
             >
               <div
                 class="ant-space-item"
@@ -18083,7 +17983,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/immersive-navigat
             </div>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
           >
             <svg
               aria-hidden="true"
@@ -18602,11 +18502,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -18751,7 +18651,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -19040,7 +18940,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               class="ant-pro-sider-actions ant-design-pro-layout-dpqlg1"
             >
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-yps43y"
+                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-sw93vk"
               >
                 <div
                   class="ant-space-item"
@@ -19080,87 +18980,99 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
                 </div>
               </div>
               <div
-                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list ant-design-pro-layout-11to7b5"
+                class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list ant-design-pro-layout-jbz2n0"
               >
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
+                  style="margin-right: 4px;"
                 >
-                  <span
-                    aria-label="info-circle"
-                    class="anticon anticon-info-circle"
-                    role="img"
+                  <div
+                    class="ant-design-pro-layout-1x7nm2g"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="info-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
                     >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                      />
-                      <path
-                        d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                      />
-                    </svg>
-                  </span>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div
                   class="ant-space-item"
-                  style="margin-right: 8px;"
+                  style="margin-right: 4px;"
                 >
-                  <span
-                    aria-label="question-circle"
-                    class="anticon anticon-question-circle"
-                    role="img"
+                  <div
+                    class="ant-design-pro-layout-1x7nm2g"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="question-circle"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="question-circle"
+                      class="anticon anticon-question-circle"
+                      role="img"
                     >
-                      <path
-                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                      />
-                      <path
-                        d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-                      />
-                    </svg>
-                  </span>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="question-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
                 <div
                   class="ant-space-item"
                 >
-                  <span
-                    aria-label="merge-cells"
-                    class="anticon anticon-merge-cells"
-                    role="img"
+                  <div
+                    class="ant-design-pro-layout-1x7nm2g"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="merge-cells"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="merge-cells"
+                      class="anticon anticon-merge-cells"
+                      role="img"
                     >
-                      <defs>
-                        <style />
-                      </defs>
-                      <path
-                        d="M482.2 508.4L331.3 389c-3-2.4-7.3-.2-7.3 3.6V478H184V184h204v128c0 2.2 1.8 4 4 4h60c2.2 0 4-1.8 4-4V144c0-15.5-12.5-28-28-28H144c-15.5 0-28 12.5-28 28v736c0 15.5 12.5 28 28 28h284c15.5 0 28-12.5 28-28V712c0-2.2-1.8-4-4-4h-60c-2.2 0-4 1.8-4 4v128H184V546h140v85.4c0 3.8 4.4 6 7.3 3.6l150.9-119.4a4.5 4.5 0 000-7.2zM880 116H596c-15.5 0-28 12.5-28 28v168c0 2.2 1.8 4 4 4h60c2.2 0 4-1.8 4-4V184h204v294H700v-85.4c0-3.8-4.3-6-7.3-3.6l-151 119.4a4.52 4.52 0 000 7.1l151 119.5c2.9 2.3 7.3.2 7.3-3.6V546h140v294H636V712c0-2.2-1.8-4-4-4h-60c-2.2 0-4 1.8-4 4v168c0 15.5 12.5 28 28 28h284c15.5 0 28-12.5 28-28V144c0-15.5-12.5-28-28-28z"
-                      />
-                    </svg>
-                  </span>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="merge-cells"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <defs>
+                          <style />
+                        </defs>
+                        <path
+                          d="M482.2 508.4L331.3 389c-3-2.4-7.3-.2-7.3 3.6V478H184V184h204v128c0 2.2 1.8 4 4 4h60c2.2 0 4-1.8 4-4V144c0-15.5-12.5-28-28-28H144c-15.5 0-28 12.5-28 28v736c0 15.5 12.5 28 28 28h284c15.5 0 28-12.5 28-28V712c0-2.2-1.8-4-4-4h-60c-2.2 0-4 1.8-4 4v128H184V546h140v85.4c0 3.8 4.4 6 7.3 3.6l150.9-119.4a4.5 4.5 0 000-7.2zM880 116H596c-15.5 0-28 12.5-28 28v168c0 2.2 1.8 4 4 4h60c2.2 0 4-1.8 4-4V184h204v294H700v-85.4c0-3.8-4.3-6-7.3-3.6l-151 119.4a4.52 4.52 0 000 7.1l151 119.5c2.9 2.3 7.3.2 7.3-3.6V546h140v294H636V712c0-2.2-1.8-4-4-4h-60c-2.2 0-4 1.8-4 4v168c0 15.5 12.5 28 28 28h284c15.5 0 28-12.5 28-28V144c0-15.5-12.5-28-28-28z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -19174,7 +19086,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/menu-group.tsx co
               </p>
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -19588,11 +19500,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-l4gpps"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+          style="background-color: transparent; flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -19810,7 +19722,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -19931,7 +19843,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"
@@ -20091,7 +20003,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 class="ant-pro-top-nav-header-main-left ant-design-pro-layout-12ycn0f"
               >
                 <span
-                  class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+                  class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
                 >
                   <svg
                     aria-hidden="true"
@@ -20247,7 +20159,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-6w8o3k"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-12xojw8"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -20511,7 +20423,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 class="ant-pro-top-nav-header-main-left ant-design-pro-layout-12ycn0f"
               >
                 <span
-                  class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+                  class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
                 >
                   <svg
                     aria-hidden="true"
@@ -20667,7 +20579,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-6w8o3k"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-12xojw8"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -20909,7 +20821,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-6w8o3k"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-12xojw8"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -21192,7 +21104,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 class="ant-pro-top-nav-header-main-left ant-design-pro-layout-12ycn0f"
               >
                 <span
-                  class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+                  class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
                 >
                   <svg
                     aria-hidden="true"
@@ -21348,7 +21260,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
                 style="flex: 1;"
               >
                 <ul
-                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-6w8o3k"
+                  class="ant-menu-overflow ant-menu ant-menu-root ant-menu-horizontal ant-menu-light ant-design-pro-layout-12xojw8"
                   data-menu-list="true"
                   role="menu"
                   tabindex="0"
@@ -21603,11 +21515,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
       style="min-height: 100%; height: 100vh;"
     >
       <div
-        class="ant-design-pro-layout-1bredbg"
+        class="ant-design-pro-layout-18ivuhd"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-ohtrxp"
-        style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-pj3lg9"
+        style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -21616,7 +21528,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -21814,7 +21726,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
           >
             <svg
               aria-hidden="true"
@@ -21845,7 +21757,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
           >
             <span
-              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
             >
               <svg
                 aria-hidden="true"
@@ -22050,11 +21962,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
       style="min-height: 100%; height: 100vh;"
     >
       <div
-        class="ant-design-pro-layout-1bredbg"
+        class="ant-design-pro-layout-18ivuhd"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-ohtrxp"
-        style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-pj3lg9"
+        style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
       >
         <div
           class="ant-layout-sider-children"
@@ -22063,7 +21975,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -22261,7 +22173,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
           >
             <svg
               aria-hidden="true"
@@ -22292,7 +22204,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/splitMenus.tsx co
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
           >
             <span
-              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-4fb6xh"
             >
               <svg
                 aria-hidden="true"
@@ -22505,17 +22417,17 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
       style="min-height: 100%;"
     >
       <div
-        class="ant-design-pro-layout-1bredbg"
+        class="ant-design-pro-layout-l4gpps"
       />
       <aside
-        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-198543r"
-        style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+        class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-side ant-pro-sider-light ant-design-pro-layout-f14nv1"
+        style="background-color: rgb(0, 79, 217); flex: 0 0 256px; max-width: 256px; min-width: 256px; width: 256px;"
       >
         <div
           class="ant-layout-sider-children"
         >
           <div
-            class="ant-pro-sider-logo ant-design-pro-layout-1dzrjwb"
+            class="ant-pro-sider-logo ant-design-pro-layout-1m72fql"
             id="logo"
           >
             <a>
@@ -22650,7 +22562,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
               </h1>
             </a>
             <span
-              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-162f6bl"
+              class="ant-pro-basicLayout-apps-icon ant-design-pro-layout-qiju5"
             >
               <svg
                 aria-hidden="true"
@@ -22669,7 +22581,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+              class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1su64pn"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
@@ -22692,7 +22604,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                   class="ant-menu-item-group-list"
                 >
                   <li
-                    class="ant-pro-menu-item ant-design-pro-layout-bonr94"
+                    class="ant-pro-menu-item ant-design-pro-layout-15wujwq"
                     data-menu-id="rc-menu-uuid-test-/list/sub-page/sub-sub-page1"
                     role="menuitem"
                     style="padding-left: 16px;"
@@ -22734,7 +22646,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     </span>
                   </li>
                   <li
-                    class="ant-pro-menu-item ant-design-pro-layout-bonr94"
+                    class="ant-pro-menu-item ant-design-pro-layout-15wujwq"
                     data-menu-id="rc-menu-uuid-test-/list/sub-page/sub-sub-page2"
                     role="menuitem"
                     style="padding-left: 16px;"
@@ -22776,7 +22688,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                     </span>
                   </li>
                   <li
-                    class="ant-pro-menu-item ant-design-pro-layout-bonr94"
+                    class="ant-pro-menu-item ant-design-pro-layout-15wujwq"
                     data-menu-id="rc-menu-uuid-test-/list/sub-page/sub-sub-page3"
                     role="menuitem"
                     style="padding-left: 16px;"
@@ -22825,11 +22737,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
               >
                 <li
                   class="ant-menu-item-divider"
-                  style="margin: 0px; border-color: rgba(0, 0, 0, 0.06);"
+                  style="margin: 0px; border-color: rgba(255,255,255,0.15);"
                 />
               </div>
               <li
-                class="ant-pro-menu-item ant-design-pro-layout-bonr94"
+                class="ant-pro-menu-item ant-design-pro-layout-15wujwq"
                 data-menu-id="rc-menu-uuid-test-/list/sub-page2"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -22871,7 +22783,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
                 </span>
               </li>
               <li
-                class="ant-pro-menu-item ant-design-pro-layout-bonr94"
+                class="ant-pro-menu-item ant-design-pro-layout-15wujwq"
                 data-menu-id="rc-menu-uuid-test-/list/sub-page3"
                 role="menuitem"
                 style="padding-left: 16px;"
@@ -22924,10 +22836,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
             </div>
           </div>
           <div
-            class="ant-pro-sider-actions ant-design-pro-layout-dpqlg1"
+            class="ant-pro-sider-actions ant-design-pro-layout-183ktqg"
           >
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-yps43y"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-avatar ant-design-pro-layout-sw93vk"
             >
               <div
                 class="ant-space-item"
@@ -22951,83 +22863,103 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
               </div>
             </div>
             <div
-              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list ant-design-pro-layout-11to7b5"
+              class="ant-space ant-space-horizontal ant-space-align-center ant-pro-sider-actions-list ant-design-pro-layout-1rczh8s"
             >
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
+                style="margin-right: 4px;"
               >
-                <span
-                  aria-label="info-circle"
-                  class="anticon anticon-info-circle"
-                  role="img"
-                >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="info-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-                    />
-                  </svg>
-                </span>
+                <div
+                  class="ant-design-pro-layout-1x7nm2g"
+                />
               </div>
               <div
                 class="ant-space-item"
-                style="margin-right: 8px;"
+                style="margin-right: 4px;"
               >
-                <span
-                  aria-label="question-circle"
-                  class="anticon anticon-question-circle"
-                  role="img"
+                <div
+                  class="ant-design-pro-layout-1x7nm2g"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="question-circle"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="info-circle"
+                    class="anticon anticon-info-circle"
+                    role="img"
                   >
-                    <path
-                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 708c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm62.9-219.5a48.3 48.3 0 00-30.9 44.8V620c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8v-21.5c0-23.1 6.7-45.9 19.9-64.9 12.9-18.6 30.9-32.8 52.1-40.9 34-13.1 56-41.6 56-72.7 0-44.1-43.1-80-96-80s-96 35.9-96 80v7.6c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V420c0-39.3 17.2-76 48.4-103.3C430.4 290.4 470 276 512 276s81.6 14.5 111.6 40.7C654.8 344 672 380.7 672 420c0 57.8-38.1 109.8-97.1 132.5z"
-                    />
-                  </svg>
-                </span>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="info-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-space-item"
+                style="margin-right: 4px;"
+              >
+                <div
+                  class="ant-design-pro-layout-1x7nm2g"
+                >
+                  <span
+                    aria-label="question-circle"
+                    class="anticon anticon-question-circle"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="question-circle"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 708c-22.1 0-40-17.9-40-40s17.9-40 40-40 40 17.9 40 40-17.9 40-40 40zm62.9-219.5a48.3 48.3 0 00-30.9 44.8V620c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8v-21.5c0-23.1 6.7-45.9 19.9-64.9 12.9-18.6 30.9-32.8 52.1-40.9 34-13.1 56-41.6 56-72.7 0-44.1-43.1-80-96-80s-96 35.9-96 80v7.6c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V420c0-39.3 17.2-76 48.4-103.3C430.4 290.4 470 276 512 276s81.6 14.5 111.6 40.7C654.8 344 672 380.7 672 420c0 57.8-38.1 109.8-97.1 132.5z"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </div>
               <div
                 class="ant-space-item"
               >
-                <span
-                  aria-label="github"
-                  class="anticon anticon-github"
-                  role="img"
+                <div
+                  class="ant-design-pro-layout-1x7nm2g"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="github"
-                    fill="currentColor"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
+                  <span
+                    aria-label="github"
+                    class="anticon anticon-github"
+                    role="img"
                   >
-                    <path
-                      d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"
-                    />
-                  </svg>
-                </span>
+                    <svg
+                      aria-hidden="true"
+                      data-icon="github"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M511.6 76.3C264.3 76.2 64 276.4 64 523.5 64 718.9 189.3 885 363.8 946c23.5 5.9 19.9-10.8 19.9-22.2v-77.5c-135.7 15.9-141.2-73.9-150.3-88.9C215 726 171.5 718 184.5 703c30.9-15.9 62.4 4 98.9 57.9 26.4 39.1 77.9 32.5 104 26 5.7-23.5 17.9-44.5 34.7-60.8-140.6-25.2-199.2-111-199.2-213 0-49.5 16.3-95 48.3-131.7-20.4-60.5 1.9-112.3 4.9-120 58.1-5.2 118.5 41.6 123.2 45.3 33-8.9 70.7-13.6 112.9-13.6 42.4 0 80.2 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.3-43.9 2.9 7.7 24.7 58.3 5.5 118 32.4 36.8 48.9 82.7 48.9 132.3 0 102.2-59 188.1-200 212.9a127.5 127.5 0 0138.1 91v112.5c.8 9 0 17.9 15 17.9 177.1-59.7 304.6-227 304.6-424.1 0-247.2-200.4-447.3-447.5-447.3z"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
           <div
-            class="ant-pro-sider-footer ant-design-pro-layout-we91af"
+            class="ant-pro-sider-footer ant-design-pro-layout-18143e8"
           >
             <p
               style="text-align: center; padding-top: 12px;"
@@ -23036,7 +22968,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
             </p>
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-1qm55d"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-d8v0zt"
           >
             <svg
               aria-hidden="true"
@@ -23140,7 +23072,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/theme.tsx correct
           </div>
           <div
             class="ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
-            style="width: calc(100% - 216px);"
+            style="width: calc(100% - 256px);"
           >
             <div
               class="ant-pro-footer-bar-left ant-design-pro-layout-8fxooz"
@@ -23186,11 +23118,11 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
         style="min-height: 100%;"
       >
         <div
-          class="ant-design-pro-layout-1bredbg"
+          class="ant-design-pro-layout-18ivuhd"
         />
         <aside
-          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-ohtrxp"
-          style="background-color: transparent; flex: 0 0 216px; max-width: 216px; min-width: 216px; width: 216px;"
+          class="ant-layout-sider ant-layout-sider-light ant-pro-sider ant-pro-sider-fixed ant-pro-sider-layout-mix ant-pro-sider-light ant-design-pro-layout-pj3lg9"
+          style="background-color: transparent; flex: 0 0 215px; max-width: 215px; min-width: 215px; width: 215px;"
         >
           <div
             class="ant-layout-sider-children"
@@ -23199,7 +23131,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               style="flex: 1; overflow-y: auto; overflow-x: hidden;"
             >
               <ul
-                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-16xvg1x"
+                class="ant-menu ant-menu-root ant-menu-inline ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v"
                 data-menu-list="true"
                 role="menu"
                 style="width: 100%;"
@@ -23289,7 +23221,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
               />
             </div>
             <div
-              class="ant-pro-sider-collapsed-button ant-design-pro-layout-17e5kht"
+              class="ant-pro-sider-collapsed-button ant-design-pro-layout-1u6uupv"
             >
               <svg
                 aria-hidden="true"

@@ -95,6 +95,9 @@ export default () => {
           collapsedButtonHoverTextColor: 'rgba(0,0,0,0.65)',
           menuSubArrowColor: 'rgba(255,255,255,0.15)',
         },
+        appListIconTextColor: 'rgba(255,255,255,0.85)',
+        appListIconHoverTextColor: 'rgba(255,255,255,0.95)',
+        appListIconHoverBgColor: 'rgba(0,0,0,0.06)',
       }}
       brandBgImg={{
         url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
