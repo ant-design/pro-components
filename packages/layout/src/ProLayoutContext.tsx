@@ -24,6 +24,7 @@ export type BaseDesignToken = {
   /**
    *警告色
    */
+
   warningColor: string;
 
   /**
@@ -224,7 +225,6 @@ export const getLayoutDesignToken: (
   };
   return {
     ...designTokens,
-    ...menuToken,
     ...finalDesignTokens,
     header: {
       ...menuToken,
@@ -242,6 +242,7 @@ export const getLayoutDesignToken: (
       collapsedButtonTextColor: finalDesignTokens?.sider?.menuTextColorSecondary,
       collapsedButtonHoverTextColor: finalDesignTokens.textColor,
       collapsedButtonBgColor: '#fff',
+      ...finalDesignTokens.sider,
     },
   } as LayoutDesignToken;
 };
