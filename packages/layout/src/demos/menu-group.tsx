@@ -24,9 +24,6 @@ export default () => {
         brandBgImg={{
           url: 'https://gw.alipayobjects.com/zos/antfincdn/tQVPs1q2X%26/yonghushenfen.png',
         }}
-        menu={{
-          type: 'group',
-        }}
         fixSiderbar
         route={{
           path: '/',
