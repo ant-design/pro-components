@@ -263,9 +263,7 @@ describe('BasicTable pagination', () => {
   it('🎏 pagination was correct in controlled mode && params was in deep comparison', async () => {
     const currentFn = jest.fn();
     const html = mount(
-      <ProTable<{
-        money: number;
-      }>
+      <ProTable
         size="small"
         columns={[
           {
@@ -281,19 +279,9 @@ describe('BasicTable pagination', () => {
           },
         }}
         request={() => {
-          return new Promise((resolve) => {
-            resolve({
-              success: true,
-              total: 2,
-              data: [
-                {
-                  money: 1,
-                },
-                {
-                  money: 2,
-                },
-              ],
-            });
+          return request({
+            pageSize: 10,
+            current: 1,
           });
         }}
       />,
