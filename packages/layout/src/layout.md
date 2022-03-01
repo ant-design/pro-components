@@ -416,7 +416,7 @@ const Page = () => (
 
 ## Token
 
-Token 是一种设计系统的基本元素，可以使用 Token 快速的修改组件库的基础样式。
+Token 是一种设计系统的基本元素，可以使用 Token 快速的修改组件库的基础样式。Layout 中可以通过 token 属性来配置这些颜色。
 
 ### 默认的 token
 
@@ -436,7 +436,7 @@ Token 是一种设计系统的基本元素，可以使用 Token 快速的修改�
 | borderColorSplit   | 分隔边框的颜色 | `rgba(0, 0, 0, 0.06)` |
 | borderRadiusBase   | 默认圆角       | `4px`                 |
 
-### Sider Token
+### Layout 的 token
 
 | token                     | 说明                            | 默认值                |
 | ------------------------- | ------------------------------- | --------------------- |
@@ -444,6 +444,8 @@ Token 是一种设计系统的基本元素，可以使用 Token 快速的修改�
 | appListIconTextColor      | 跨站点应用的图标颜色            | `#666`                |
 | appListIconHoverTextColor | 跨站点应用的图标 hover 颜色     | `rgba(0, 0, 0, 0.65)` |
 | appListIconHoverTextColor | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |
+
+### Sider Token
 
 Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 
