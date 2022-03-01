@@ -261,7 +261,7 @@ describe('BasicTable pagination', () => {
   });
 
   it('🎏 pagination was correct in controlled mode && params was in deep comparison', async () => {
-    const fn = jest.fn();
+    const currentFn = jest.fn();
     const html = mount(
       <ProTable<{
         money: number;
@@ -275,27 +275,27 @@ describe('BasicTable pagination', () => {
         ]}
         params={{}}
         pagination={{
+          pageSize: 1,
           onChange: (page) => {
+            currentFn(page);
             html.setProps({
-              pagination: {
-                current: page,
-              },
+              params: {},
             });
           },
         }}
         request={() => {
-          fn();
           return new Promise((resolve) => {
             resolve({
               success: true,
-              data: new Array(50)
-                .toString()
-                .split(',')
-                .map(function (item, index) {
-                  return {
-                    money: index,
-                  };
-                }),
+              total: 2,
+              data: [
+                {
+                  money: 1,
+                },
+                {
+                  money: 2,
+                },
+              ],
             });
           });
         }}
@@ -305,8 +305,7 @@ describe('BasicTable pagination', () => {
     act(() => {
       html.find('li.ant-pagination-item.ant-pagination-item-2').simulate('click');
     });
-    expect(html.props().pagination.current === 2).toBe(true);
     await waitForComponentToPaint(html, 200);
-    expect(fn).toBeCalledTimes(1);
+    expect(currentFn).toBeCalledWith(2);
   });
 });
