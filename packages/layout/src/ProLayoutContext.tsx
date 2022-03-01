@@ -228,10 +228,16 @@ type BaseLayoutDesignToken = {
   appListIconHoverBgColor: string;
 };
 
+type DeepPartial<T> = T extends object
+  ? {
+      [P in keyof T]?: DeepPartial<T[P]>;
+    }
+  : T;
+
 export type LayoutDesignToken = BaseLayoutDesignToken & BaseDesignToken;
 
 export const getLayoutDesignToken: (
-  baseDesignTokens: Partial<LayoutDesignToken>,
+  baseDesignTokens: DeepPartial<LayoutDesignToken>,
 ) => LayoutDesignToken = (designTokens) => {
   const finalDesignTokens = { ...baseDesignTokens, ...designTokens };
   const menuToken = {
@@ -275,7 +281,7 @@ const defaultToken = getLayoutDesignToken(baseDesignTokens);
 
 export const ProLayoutContext = React.createContext<LayoutDesignToken>(defaultToken);
 
-export type ProLayoutProviderProps = { token?: Partial<LayoutDesignToken> };
+export type ProLayoutProviderProps = { token?: DeepPartial<LayoutDesignToken> };
 
 export const ProLayoutProvider: React.FC<ProLayoutProviderProps> = (props) => {
   return (
