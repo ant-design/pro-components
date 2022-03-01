@@ -430,7 +430,11 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     // 只要loadingDom非空我们就渲染loadingDom,否则渲染内容
     const dom = loadingDom || content;
     if (props.waterMarkProps || value.waterMarkProps) {
-      return <WaterMark {...(props.waterMarkProps || value.waterMarkProps)}>{dom}</WaterMark>;
+      const waterMarkProps = {
+        ...value.waterMarkProps,
+        ...props.waterMarkProps,
+      };
+      return <WaterMark {...waterMarkProps}>{dom}</WaterMark>;
     }
     return dom;
   }, [props.waterMarkProps, value.waterMarkProps, loadingDom, content]);

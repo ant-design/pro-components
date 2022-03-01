@@ -162,7 +162,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     rowSelection: rowSelection === false ? undefined : rowSelection,
     className: tableClassName,
     style: tableStyle,
-    columns,
+    columns: columns.map((item) => (item.isExtraColumns ? item.extraColumn : item)),
     loading: action.loading,
     dataSource: editableUtils.newLineRecord ? editableDataSource() : action.dataSource,
     pagination,
@@ -802,15 +802,23 @@ const ProviderWarp = <
   props: ProTableProps<DataType, Params, ValueType>,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+  const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
   return (
     <Container.Provider initialState={props}>
       <ConfigProviderWrap>
-        <ErrorBoundary>
+        {props.ErrorBoundary === false ? (
           <ProTable<DataType, Params, ValueType>
             defaultClassName={getPrefixCls('pro-table')}
             {...props}
           />
-        </ErrorBoundary>
+        ) : (
+          <ErrorComponent>
+            <ProTable<DataType, Params, ValueType>
+              defaultClassName={getPrefixCls('pro-table')}
+              {...props}
+            />
+          </ErrorComponent>
+        )}
       </ConfigProviderWrap>
     </Container.Provider>
   );
