@@ -159,6 +159,18 @@ type BaseLayoutDesignToken = {
    * layout 的背景颜色
    */
   layoutBgColor: string;
+  /**
+   * 跨站点应用的图标颜色
+   */
+  appListIconTextColor: string;
+  /**
+   * 跨站点应用的图标hover颜色
+   */
+  appListIconHoverTextColor: string;
+  /**
+   * 跨站点应用的图标hover背景颜色
+   */
+  appListIconHoverBgColor: string;
 
   /**
    * 侧边side的 token 配置
@@ -214,18 +226,6 @@ type BaseLayoutDesignToken = {
      */
     rightActionsItemHoverBgColor: string;
   };
-  /**
-   * 跨站点应用的图标颜色
-   */
-  appListIconTextColor: string;
-  /**
-   * 跨站点应用的图标hover颜色
-   */
-  appListIconHoverTextColor: string;
-  /**
-   * 跨站点应用的图标hover背景颜色
-   */
-  appListIconHoverBgColor: string;
 };
 
 type DeepPartial<T> = T extends object
