@@ -2,7 +2,7 @@
 
 exports[`BasicLayout base use 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1kr0gdp"
+  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-hixu3c"
 >
   <section
     class="ant-layout"
@@ -255,7 +255,7 @@ exports[`BasicLayout base use 1`] = `
 
 exports[`BasicLayout content is text 1`] = `
 <div
-  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1kr0gdp"
+  class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-hixu3c"
 >
   <section
     class="ant-layout"

@@ -38,7 +38,7 @@ import { ConfigProviderWrap } from '@ant-design/pro-provider';
 
 import { cx, css } from './emotion';
 import { Logo } from './Logo';
-import type { ProLayoutProviderProps } from './ProLayoutContext';
+import { ProLayoutContext, ProLayoutProviderProps } from './ProLayoutContext';
 import { ProLayoutProvider } from './ProLayoutContext';
 
 let layoutIndex = 0;
@@ -267,6 +267,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     formatMessage: propsFormatMessage,
     loading,
   } = props || {};
+  const designToken = useContext(ProLayoutContext);
 
   const siderWidth = useMemo(() => {
     if (propsSiderWidth) return propsSiderWidth;
@@ -555,8 +556,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                 flex-direction: column;
                 width: 100%;
                 min-height: 100%;
-                background-color: #f0f2f5;
-                .${antdPrefixCls}-layout {
+                background-color: ${designToken.layoutBgColor};
+                . ${antdPrefixCls}-layout {
                   background: transparent;
                 }
               `,

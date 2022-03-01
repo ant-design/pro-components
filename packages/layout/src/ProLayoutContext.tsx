@@ -155,6 +155,14 @@ type BaseLayoutMenuDesignToken = {
 };
 
 type BaseLayoutDesignToken = {
+  /**
+   * layout 的背景颜色
+   */
+  layoutBgColor: string;
+
+  /**
+   * 侧边side的 token 配置
+   */
   sider: BaseLayoutMenuDesignToken & {
     /**
      * menu 顶部 title 的字体颜色
@@ -237,6 +245,7 @@ export const getLayoutDesignToken: (
   };
   return {
     ...designTokens,
+    layoutBgColor: '#f0f2f5',
     appListIconTextColor: '#666',
     appListIconHoverTextColor: finalDesignTokens.textColor,
     appListIconHoverBgColor: menuToken.menuItemSelectedBgColor,

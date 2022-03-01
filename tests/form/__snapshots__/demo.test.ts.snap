@@ -32357,7 +32357,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/labelInValue.tsx corr
 exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-1kr0gdp"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-hixu3c"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -33994,7 +33994,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                           </div>
                         </div>
                         <div
-                          class="ant-pro-footer-bar ant-design-pro-layout-1xfh3iz"
+                          class="ant-pro-footer-bar ant-design-pro-layout-70pyg"
                           style="width: calc(100% - 60px);"
                         >
                           <div
