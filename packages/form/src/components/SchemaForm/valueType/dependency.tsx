@@ -5,7 +5,7 @@ import type { ProSchemaRenderValueTypeFunction } from '../typing';
 export const dependency: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {
   /** ProFormDependency */
   if (item.valueType === 'dependency') {
-    const fieldProps = item.fieldProps! as any;
+    const fieldProps = item.getFieldProps?.();
     noteOnce(
       Array.isArray(fieldProps?.name),
       'SchemaForm: fieldProps.name should be NamePath[] when valueType is "dependency"',

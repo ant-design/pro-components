@@ -19951,7 +19951,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
         class="ant-col ant-form-item-label"
       >
         <label
-          class=""
+          class="ant-form-item-required"
           for="labels"
           title="标签"
         >
@@ -20490,7 +20490,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
         class="ant-col ant-form-item-label"
       >
         <label
-          class=""
+          class="ant-form-item-required"
           for="labels"
           title="标签"
         >
