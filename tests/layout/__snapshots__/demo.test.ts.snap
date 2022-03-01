@@ -9109,7 +9109,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
             class="ant-pro-global-footer ant-design-pro-layout-i69sqo"
           >
             <div
-              class="ant-pro-global-footer-links ant-design-pro-layout-1xk1ml5"
+              class="ant-pro-global-footer-links ant-design-pro-layout-jkr0c3"
             >
               <a
                 href="https://pro.ant.design"
@@ -9155,7 +9155,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/api.tsx correctly
               </a>
             </div>
             <div
-              class="ant-pro-global-footer-copyright"
+              class="ant-pro-global-footer-copyright ant-design-pro-layout-k0t88"
             >
               <span
                 aria-label="copyright"
@@ -10232,6 +10232,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                       <div
                         class="theme-color-content ant-design-pro-layout-0"
                       >
+                        <div
+                          class="theme-color-block ant-design-pro-layout-1v4zi6f"
+                          style="background-color: rgb(22, 119, 255);"
+                        />
                         <div
                           class="theme-color-block ant-design-pro-layout-1v4zi6f"
                           style="background-color: rgb(24, 144, 255);"
@@ -14288,6 +14292,10 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/dynamic-settings.
                       >
                         <div
                           class="theme-color-block ant-design-pro-layout-1v4zi6f"
+                          style="background-color: rgb(22, 119, 255);"
+                        />
+                        <div
+                          class="theme-color-block ant-design-pro-layout-1v4zi6f"
                           style="background-color: rgb(24, 144, 255);"
                         />
                         <div
@@ -15902,7 +15910,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
             class="ant-pro-global-footer ant-design-pro-layout-i69sqo"
           >
             <div
-              class="ant-pro-global-footer-links ant-design-pro-layout-1xk1ml5"
+              class="ant-pro-global-footer-links ant-design-pro-layout-jkr0c3"
             >
               <a
                 href="www.alipay.com"
@@ -15922,7 +15930,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/footer.tsx correc
               </a>
             </div>
             <div
-              class="ant-pro-global-footer-copyright"
+              class="ant-pro-global-footer-copyright ant-design-pro-layout-k0t88"
             >
               <span
                 aria-label="copyright"
@@ -19583,7 +19591,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/searchMenu.tsx co
                     aria-label="plus-circle"
                     class="anticon anticon-plus-circle"
                     role="img"
-                    style="color: rgb(22, 119, 255); font-size: 24px;"
+                    style="font-size: 24px;"
                   >
                     <svg
                       aria-hidden="true"

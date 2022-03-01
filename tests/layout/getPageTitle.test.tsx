@@ -13,7 +13,7 @@ const pageProps = {
   headerHeight: 56,
   title: 'Ant Design Pro',
   iconfontUrl: '',
-  primaryColor: '#1890ff',
+  primaryColor: '#1677FF',
   prefixCls: 'ant-pro',
   siderWidth: 208,
   breadcrumb: {

@@ -16,7 +16,7 @@ exports[`DefaultFooter test 🦶 links support false 1`] = `
     class="ant-pro-global-footer ant-design-pro-layout-i69sqo"
   >
     <div
-      class="ant-pro-global-footer-copyright"
+      class="ant-pro-global-footer-copyright ant-design-pro-layout-k0t88"
     >
       <span
         aria-label="copyright"

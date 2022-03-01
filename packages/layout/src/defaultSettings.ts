@@ -74,7 +74,7 @@ const defaultSettings: ProSettings = {
   fixSiderbar: true,
   headerHeight: 56,
   iconfontUrl: '',
-  primaryColor: '#1890ff',
+  primaryColor: '#1677FF',
   splitMenus: false,
 };
 export { defaultSettings };

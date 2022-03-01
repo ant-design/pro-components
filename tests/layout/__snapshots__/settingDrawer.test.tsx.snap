@@ -82,7 +82,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                   >
                     <div
                       class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1890ff"
+                      style="background-color:#1677FF"
                     >
                       <span
                         aria-label="check"
@@ -104,6 +104,10 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                         </svg>
                       </span>
                     </div>
+                    <div
+                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
+                      style="background-color:#1890ff"
+                    />
                     <div
                       class="theme-color-block ant-design-pro-layout-1v4zi6f"
                       style="background-color:#F5222D"
@@ -1411,7 +1415,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                   >
                     <div
                       class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1890ff"
+                      style="background-color:#1677FF"
                     >
                       <span
                         aria-label="check"
@@ -1433,6 +1437,10 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                         </svg>
                       </span>
                     </div>
+                    <div
+                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
+                      style="background-color:#1890ff"
+                    />
                     <div
                       class="theme-color-block ant-design-pro-layout-1v4zi6f"
                       style="background-color:#F5222D"
@@ -2082,7 +2090,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                   >
                     <div
                       class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1890ff"
+                      style="background-color:#1677FF"
                     >
                       <span
                         aria-label="check"
@@ -2104,6 +2112,10 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                         </svg>
                       </span>
                     </div>
+                    <div
+                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
+                      style="background-color:#1890ff"
+                    />
                     <div
                       class="theme-color-block ant-design-pro-layout-1v4zi6f"
                       style="background-color:#F5222D"
@@ -2746,7 +2758,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                   >
                     <div
                       class="theme-color-block ant-design-pro-layout-1v4zi6f"
-                      style="background-color:#1890ff"
+                      style="background-color:#1677FF"
                     >
                       <span
                         aria-label="check"
@@ -2768,6 +2780,10 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                         </svg>
                       </span>
                     </div>
+                    <div
+                      class="theme-color-block ant-design-pro-layout-1v4zi6f"
+                      style="background-color:#1890ff"
+                    />
                     <div
                       class="theme-color-block ant-design-pro-layout-1v4zi6f"
                       style="background-color:#F5222D"

@@ -276,7 +276,29 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
   }, [props.layout, propsSiderWidth]);
 
   const context = useContext(ConfigProvider.ConfigContext);
+
   const prefixCls = props.prefixCls ?? context.getPrefixCls('pro');
+
+  // 设置主题
+  useEffect(() => {
+    ConfigProvider.config({
+      theme: {
+        primaryColor: designToken.primaryColor,
+        infoColor: designToken.infoColor,
+        successColor: designToken.successColor,
+        // processingColor: designToken.processingColor,
+        errorColor: designToken.errorColor,
+        warningColor: designToken.warningColor,
+      },
+    });
+  }, [
+    designToken.errorColor,
+    designToken.infoColor,
+    designToken.primaryColor,
+    // designToken.processingColor,
+    designToken.successColor,
+    designToken.warningColor,
+  ]);
 
   const [menuLoading, setMenuLoading] = useMountMergeState(false, {
     value: menu?.loading,

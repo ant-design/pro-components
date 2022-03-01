@@ -66,7 +66,7 @@ export default () => {
               />
               <PlusCircleFilled
                 style={{
-                  color: '#1677FF',
+                  color: 'var(--ant-primary-color)',
                   fontSize: 24,
                 }}
               />

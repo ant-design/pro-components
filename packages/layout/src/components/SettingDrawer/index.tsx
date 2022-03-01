@@ -111,7 +111,7 @@ const updateTheme = async (dark: boolean, color?: string) => {
   if (!ConfigProvider.config) return;
   ConfigProvider.config({
     theme: {
-      primaryColor: genStringToTheme(color) || '#1890ff',
+      primaryColor: genStringToTheme(color) || '#1677FF',
     },
   });
 
@@ -209,6 +209,7 @@ const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
     hideHintAlert,
     hideCopyButton,
     colorList = [
+      { key: 'techBlue', color: '#1677FF' },
       { key: 'daybreak', color: '#1890ff' },
       { key: 'dust', color: '#F5222D' },
       { key: 'volcano', color: '#FA541C' },

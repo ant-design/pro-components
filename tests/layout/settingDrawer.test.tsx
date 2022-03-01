@@ -85,7 +85,7 @@ describe('settingDrawer.test', () => {
       button.simulate('click');
     });
     await waitForComponentToPaint(wrapper);
-    expect(onSettingChange).toBeCalledWith('#1890ff');
+    expect(onSettingChange).toBeCalledWith('#1677FF');
 
     act(() => {
       const button = wrapper.find('div.theme-color-content div.theme-color-block').at(1);
@@ -149,7 +149,7 @@ describe('settingDrawer.test', () => {
       fixedHeader: true,
       fixSiderbar: true,
       headerHeight: 56,
-      primaryColor: '#1890ff',
+      primaryColor: '#1677FF',
       splitMenus: false,
     });
     act(() => {

@@ -1,9 +1,8 @@
-import './index.less';
-
 import React, { useContext } from 'react';
 import type { WithFalse } from '../../typings';
 import { ConfigProvider } from 'antd';
 import { css, cx } from '../../emotion';
+import { ProLayoutContext } from '../../ProLayoutContext';
 
 export type GlobalFooterProps = {
   links?: WithFalse<
@@ -22,6 +21,7 @@ export type GlobalFooterProps = {
 
 const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalFooterProps) => {
   const context = useContext(ConfigProvider.ConfigContext);
+  const designToken = useContext(ProLayoutContext);
   const baseClassName = context.getPrefixCls(prefixCls || 'pro-global-footer');
 
   if (
@@ -51,10 +51,13 @@ const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalF
             css`
               margin-bottom: 8px;
               a {
+                color: ${designToken.textColorSecondary};
                 transition: all 0.3s;
-
                 &:not(:last-child) {
                   margin-right: 40px;
+                }
+                &:hover {
+                  color: ${designToken.textColor};
                 }
               }
             `,
@@ -73,7 +76,19 @@ const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalF
           ))}
         </div>
       )}
-      {copyright && <div className={`${baseClassName}-copyright`}>{copyright}</div>}
+      {copyright && (
+        <div
+          className={cx(
+            `${baseClassName}-copyright`,
+            css`
+              font-size: 14px;
+              color: ${designToken.textColorSecondary};
+            `,
+          )}
+        >
+          {copyright}
+        </div>
+      )}
     </div>
   );
 };

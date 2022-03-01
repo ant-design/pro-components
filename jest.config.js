@@ -26,7 +26,7 @@ module.exports = {
   },
   unmockedModulePathPatterns: ['node_modules/react/', 'node_modules/enzyme/'],
   testURL:
-    'http://localhost?navTheme=realDark&layout=mix&primaryColor=daybreak&splitMenus=false&fixedHeader=true',
+    'http://localhost?navTheme=realDark&layout=mix&primaryColor=techBlue&splitMenus=false&fixedHeader=true',
   verbose: true,
   snapshotSerializers: [require.resolve('enzyme-to-json/serializer')],
   setupFiles: ['./tests/setupTests.js'],

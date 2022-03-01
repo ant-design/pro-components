@@ -57,7 +57,7 @@ const defaultSettings: ProSettings = {
   },
   title: 'Ant Design Pro',
   iconfontUrl: '',
-  primaryColor: '#1890ff',
+  primaryColor: '#1677FF',
 };
 
 export { defaultSettings };
