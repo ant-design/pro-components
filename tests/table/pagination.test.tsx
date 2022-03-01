@@ -278,9 +278,6 @@ describe('BasicTable pagination', () => {
           pageSize: 1,
           onChange: (page) => {
             currentFn(page);
-            html.setProps({
-              params: {},
-            });
           },
         }}
         request={() => {
@@ -304,6 +301,9 @@ describe('BasicTable pagination', () => {
     await waitForComponentToPaint(html, 1200);
     act(() => {
       html.find('li.ant-pagination-item.ant-pagination-item-2').simulate('click');
+      html.setProps({
+        params: {},
+      });
     });
     await waitForComponentToPaint(html, 200);
     expect(currentFn).toBeCalledWith(2);
