@@ -95,7 +95,7 @@ export type ProCoreActionType<T = {}> = {
   /** @name 重置任何输入项，包括表单 */
   reset?: () => void;
   /** @name 清空选择 */
-  clearSelected?: () => void;
+  clearSelected: () => void;
   /** @name p页面的信息都在里面 */
   pageInfo?: PageInfo;
 } & Omit<

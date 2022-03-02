@@ -562,7 +562,7 @@ describe('BasicTable', () => {
     await waitForComponentToPaint(html, 1200);
 
     act(() => {
-      actionRef.current?.clearSelected?.();
+      actionRef.current?.clearSelected();
     });
     await waitForComponentToPaint(html);
     expect(fn).toBeCalled();
