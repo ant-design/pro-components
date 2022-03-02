@@ -262,7 +262,9 @@ interface IValueEnum {
 
 ## 远程数据
 
-对于 `select`, `checkbox`, `radio`, `radioButton` 这四个 valueType,我们统一支持了 `request`,`params`,`fieldProps.options`，`valueEnum` 来支持远程数据，这几个属性分别有不同的用法。
+支持组件 `Select`, `TreeSelect`, `Cascader`, `Checkbox`, `Radio`, `RadioButton`
+
+支持参数 `request`,`params`,`fieldProps.options`, `valueEnum` 来支持远程数据，这几个属性分别有不同的用法。
 
 ### `valueEnum`
 
@@ -392,6 +394,8 @@ export default () => (
 
 ### `request` 和 `params`
 
+> 可以使用 debounceTime 调整请求防抖时间，默认为 10ms
+
 大部分时候我们是从网络中获取数据，但是获取写一个 hooks 来请求数据还是比较繁琐的，同时还要定义一系列状态，所以我们提供了 `request` 和 `params` 来获取数据。
 
 - `request` 是一个 promise,需要返回一个 options 相同的数据
@@ -410,6 +414,7 @@ const request = async () => [
   label="Select"
   params={{}}
   valueType="select"
+  debounceTime={1000}
   request={request}
   placeholder="Please select a country"
 />;
