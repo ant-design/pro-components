@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.65.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.64.1...@ant-design/pro-table@2.65.0) (2022-03-02)
+
+### Bug Fixes
+
+- **table:** ProTable 默认表头可滚动，表格滚动在 antd 中 ([#4729](https://github.com/ant-design/pro-components/issues/4729)) ([8629397](https://github.com/ant-design/pro-components/commit/8629397fb3de0d6148c40eeedddae97dca2cf0e0))
+
+### Features
+
+- **table:** support antd Table extra column ([#9604](https://github.com/ant-design/pro-components/issues/9604)) ([#4704](https://github.com/ant-design/pro-components/issues/4704)) ([8a7426e](https://github.com/ant-design/pro-components/commit/8a7426e177cb62a4786e4f5d734ba13d4d64eada))
+- **table:** support ErrorBoundary ([#4738](https://github.com/ant-design/pro-components/issues/4738)) ([66f815e](https://github.com/ant-design/pro-components/commit/66f815ef13a0a7e42ee7f2376740634bce1bf513))
+
 ## [2.64.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.64.0...@ant-design/pro-table@2.64.1) (2022-02-24)
 
 ### Bug Fixes
