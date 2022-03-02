@@ -124,33 +124,41 @@ const Highlight: React.FC<{
   label: string;
   words: string[];
 }> = ({ label, words }) => {
-  const REG_LIST = '.^$*+-?()[]{}\\|';
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const lightCls = getPrefixCls('pro-select-item-option-content-light');
   const optionCls = getPrefixCls('pro-select-item-option-content');
-  const reg = new RegExp(
-    words
-      .map((word) => {
-        return word
-          .split('')
-          .map((w) => (REG_LIST.includes(w) ? `\\${w}` : w))
-          .join('');
-      })
-      .join('|'),
+  const matchKeywordsRE = new RegExp(
+    words.map((word) => word.replace(/[-[\]/{}()*+?.\\^$|]/g, '\\$&')).join('|'),
     'gi',
   );
-  const token = label.replace(reg, '#@$&#');
-  const elements = token.split('#').map((x) =>
-    x[0] === '@'
-      ? React.createElement(
-          'span',
-          {
-            className: lightCls,
-          },
-          x.slice(1),
-        )
-      : x,
-  );
+
+  let matchText = label;
+
+  const elements: React.ReactNode[] = [];
+
+  while (matchText.length) {
+    const match = matchKeywordsRE.exec(matchText);
+    if (!match) {
+      elements.push(matchText);
+      break;
+    }
+
+    const start = match.index;
+    const matchLength = match[0].length + start;
+
+    elements.push(
+      matchText.slice(0, start),
+      React.createElement(
+        'span',
+        {
+          className: lightCls,
+        },
+        matchText.slice(start, matchLength),
+      ),
+    );
+    matchText = matchText.slice(matchLength);
+  }
+
   return React.createElement(
     'div',
     {
