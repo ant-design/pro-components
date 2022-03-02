@@ -19,6 +19,7 @@ import type { WithFalse } from '../../typings';
 import type { WaterMarkProps } from '../WaterMark';
 import { WaterMark } from '../WaterMark';
 import { css, cx } from '../../emotion';
+import { ProLayoutContext } from '../../ProLayoutContext';
 
 const [sm, md, lg, xl] = [576, 768, 992, 1200].map((bp) => `@media (min-width: ${bp}px)`);
 
@@ -54,9 +55,6 @@ export type PageContainerProps = {
   extraContent?: React.ReactNode;
   prefixCls?: string;
   footer?: ReactNode[];
-
-  /** @name 是否显示背景色 */
-  ghost?: boolean;
 
   /**
    * 与 antd 完全相同
@@ -260,7 +258,7 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
     breadcrumbRender,
     ...restProps
   } = props;
-
+  const designToken = useContext(ProLayoutContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const getBreadcrumbRender = useMemo(() => {
     if (!breadcrumbRender) {
@@ -312,11 +310,8 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
     <div
       className={cx(
         `${prefixedClassName}-warp`,
-        props.ghost &&
-          css`
-            background-color: transparent;
-          `,
         css`
+          background-color: ${designToken.pageContainer?.pageContainerBgColor};
           .${antdPrefixCls}-tabs-nav {
             margin: 0;
           }
@@ -333,8 +328,7 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
         breadcrumbRender={getBreadcrumbRender}
         prefixCls={cx(
           prefixCls,
-          props.ghost &&
-            props.footer &&
+          props.footer &&
             css`
               padding-bottom: 24px;
             `,
@@ -354,13 +348,12 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     style,
     footer,
     affixProps,
-    ghost = true,
     fixedHeader,
     breadcrumbRender,
     ...restProps
   } = props;
   const value = useContext(RouteContext);
-
+  const designToken = useContext(ProLayoutContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const prefixCls = props.prefixCls || getPrefixCls('pro');
   const antdPrefixCls = getPrefixCls();
@@ -368,7 +361,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
   const prefixedClassName = `${prefixCls}-page-container`;
 
   const containerClassName = classNames(prefixedClassName, className, {
-    [`${prefixCls}-page-container-ghost`]: ghost,
+    [`${prefixCls}-page-container-ghost`]: true,
     [`${prefixCls}-page-container-with-footer`]: footer,
   });
 
@@ -378,11 +371,9 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         <div
           className={cx(
             `${prefixedClassName}-children-content`,
-            ghost &&
-              css`
-                margin: 24px 24px 0;
-                margin-top: 0;
-              `,
+            css`
+              margin: ${designToken.pageContainer.pageContainerContentMargin};
+            `,
           )}
         >
           {children}
@@ -397,7 +388,12 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         )}
       </>
     ) : null;
-  }, [children, ghost, prefixedClassName, value.hasFooterToolbar]);
+  }, [
+    children,
+    designToken.pageContainer.pageContainerContentMargin,
+    prefixedClassName,
+    value.hasFooterToolbar,
+  ]);
 
   const memoBreadcrumbRender = useMemo(() => {
     if (breadcrumbRender == false) return false;
@@ -407,7 +403,7 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
     <ProPageHeader
       {...restProps}
       breadcrumbRender={memoBreadcrumbRender}
-      ghost={ghost}
+      ghost={true}
       prefixCls={undefined}
       prefixedClassName={prefixedClassName}
     />
@@ -445,11 +441,12 @@ const PageContainer: React.FC<PageContainerProps> = (props) => {
         style={style}
         className={cx(
           containerClassName,
-          ghost &&
+          fixedHeader &&
+            pageHeaderDom &&
             css`
               .${antdPrefixCls}-affix {
                 .${prefixedClassName}-warp {
-                  background-color: #fff;
+                  background-color: ${designToken.pageContainer.pageContainerFixedBgColor};
                 }
               }
             `,

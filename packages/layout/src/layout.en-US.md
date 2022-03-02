@@ -466,6 +466,14 @@ Sider Token is the color value of the side menu, unlike the top menu.
 | rightActionsItemTextColor | Font color | in the upper-right corner `textColorSecondary` |
 | rightActionsItemHoverBgColor | The hover color selected in the upper-right corner | `rgba(0, 0, 0, 0.03)` |
 
+### pageContainer Token
+
+| token | Description | The default value is |
+| --- | --- | --- |
+| pageContainerContentMargin | PageContainer comes with a margin | `#fff` |
+| pageContainerBgColor | The background color of pageContainer is | `transparent` |
+| pageContainerFixedBgColor | PageContainer is fixed when the background color | `#FFF` |
+
 ## FAQ
 
 ### Customizing Layout

@@ -481,6 +481,14 @@ Sider Token 是 侧边菜单的色值，与顶部菜单不同。
 | rightActionsItemTextColor | 右上角字体颜色 | `textColorSecondary` |
 | rightActionsItemHoverBgColor | 右上角选中的 hover 颜色 | `rgba(0, 0, 0, 0.03)` |
 
+### pageContainer Token
+
+| token                      | 说明                             | 默认值        |
+| -------------------------- | -------------------------------- | ------------- |
+| pageContainerContentMargin | pageContainer 自带的 margin      | `#fff`        |
+| pageContainerBgColor       | pageContainer 的背景颜色         | `transparent` |
+| pageContainerFixedBgColor  | pageContainer 被固定时的背景颜色 | `#FFF`        |
+
 ## FAQ
 
 ### 自定义布局

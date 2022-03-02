@@ -55,14 +55,7 @@ const GridContent: React.FC<GridContentProps> = (props) => {
       )}
       style={style}
     >
-      <div
-        className={`${prefixCls}-grid-content-children`}
-        style={{
-          paddingTop: 24,
-        }}
-      >
-        {children}
-      </div>
+      <div className={`${prefixCls}-grid-content-children`}>{children}</div>
     </div>
   );
 };

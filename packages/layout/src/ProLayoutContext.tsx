@@ -226,6 +226,24 @@ type BaseLayoutDesignToken = {
      */
     rightActionsItemHoverBgColor: string;
   };
+
+  /**
+   * pageContainer
+   */
+  pageContainer: {
+    /**
+     * pageContainer 自带的 margin
+     */
+    pageContainerContentMargin: string;
+    /**
+     * pageContainer 的背景颜色
+     */
+    pageContainerBgColor: string;
+    /**
+     * pageContainer 被固定时的背景颜色
+     */
+    pageContainerFixedBgColor: string;
+  };
 };
 
 type DeepPartial<T> = T extends object
@@ -273,6 +291,12 @@ export const getLayoutDesignToken: (
       collapsedButtonHoverTextColor: menuToken?.menuTextColor,
       collapsedButtonBgColor: '#fff',
       ...finalDesignTokens.sider,
+    },
+    pageContainer: {
+      pageContainerBgColor: 'transparent',
+      pageContainerFixedBgColor: '#fff',
+      pageContainerContentMargin: '24px 24px 0',
+      ...finalDesignTokens.pageContainer,
     },
   } as LayoutDesignToken;
 };

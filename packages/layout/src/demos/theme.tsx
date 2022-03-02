@@ -13,7 +13,8 @@ import defaultProps from './_defaultProps';
 import ProCard from '@ant-design/pro-card';
 
 export default () => {
-  const [pathname, setPathname] = useState('/list');
+  const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
+
   return (
     <ProLayout
       splitMenus

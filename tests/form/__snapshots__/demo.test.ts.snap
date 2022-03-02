@@ -32615,10 +32615,10 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           class="ant-layout-content ant-pro-basicLayout-content ant-pro-basicLayout-has-header ant-design-pro-layout-1asytq3"
         >
           <div
-            class="ant-pro-page-container ant-pro-page-container-ghost ant-design-pro-layout-1kcmo0"
+            class="ant-pro-page-container ant-pro-page-container-ghost"
           >
             <div
-              class="ant-pro-page-container-warp ant-design-pro-layout-ckivyg"
+              class="ant-pro-page-container-warp ant-design-pro-layout-e2nh6s"
             >
               <div
                 class="ant-page-header has-breadcrumb ant-page-header-ghost"
@@ -32680,10 +32680,9 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             >
               <div
                 class="ant-pro-grid-content-children"
-                style="padding-top: 24px;"
               >
                 <div
-                  class="ant-pro-page-container-children-content ant-design-pro-layout-uh9nme"
+                  class="ant-pro-page-container-children-content ant-design-pro-layout-en409b"
                 >
                   <div
                     class="ant-card ant-card-bordered"

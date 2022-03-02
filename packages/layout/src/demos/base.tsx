@@ -80,7 +80,9 @@ export default () => {
     layout: 'mix',
     splitMenus: true,
   });
-  const [pathname, setPathname] = useState('/list');
+
+  const [pathname, setPathname] = useState('/list/sub-page/sub-sub-page1');
+
   return (
     <div
       id="test-pro-layout"
