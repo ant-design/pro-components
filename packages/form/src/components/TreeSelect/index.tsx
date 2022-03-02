@@ -1,7 +1,6 @@
 ﻿import React from 'react';
 import ProField from '../Field';
-import type { ProFormFieldItemProps } from '../../interface';
-import type { ProSchema } from '@ant-design/pro-utils';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
 import type { TreeSelectProps } from 'antd';
 
 /**
@@ -11,11 +10,7 @@ import type { TreeSelectProps } from 'antd';
  */
 const ProFormTreeSelect: React.ForwardRefRenderFunction<
   any,
-  ProFormFieldItemProps<TreeSelectProps<any>> & {
-    valueEnum?: ProSchema['valueEnum'];
-    params?: ProSchema['params'];
-    request?: ProSchema['request'];
-  }
+  ProFormFieldItemProps<TreeSelectProps<any>> & ProFormFieldRemoteProps
 > = ({ fieldProps, request, params, proFieldProps, ...rest }, ref) => {
   return (
     <ProField
@@ -32,11 +27,7 @@ const ProFormTreeSelect: React.ForwardRefRenderFunction<
 };
 
 const WarpProFormTreeSelect: React.FC<
-  ProFormFieldItemProps<TreeSelectProps<any>> & {
-    valueEnum?: ProSchema['valueEnum'];
-    params?: ProSchema['params'];
-    request?: ProSchema['request'];
-  }
+  ProFormFieldItemProps<TreeSelectProps<any>> & ProFormFieldRemoteProps
 > = React.forwardRef(ProFormTreeSelect);
 
 export default WarpProFormTreeSelect;

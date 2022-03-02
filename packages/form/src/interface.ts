@@ -6,6 +6,7 @@ import type React from 'react';
 import type {
   ProFieldProps,
   ProFieldValueType,
+  ProSchema,
   SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
@@ -127,3 +128,11 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
   footerRender?: LightFilterFooterRender;
 } & Omit<ProFormItemProps, 'valueType'> &
   ExtendsProps;
+
+/**
+ * load remote data props
+ */
+export type ProFormFieldRemoteProps = Pick<
+  ProSchema,
+  'debounceTime' | 'request' | 'valueEnum' | 'params'
+>;

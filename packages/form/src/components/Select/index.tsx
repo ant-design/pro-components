@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 import type { SelectProps } from 'antd';
 import ProFormField from '../Field';
-import type { ProSchema } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
-import type { ProFormFieldItemProps } from '../../interface';
+import type { ProFormFieldItemProps, ProFormFieldRemoteProps } from '../../interface';
 import FieldContext from '../../FieldContext';
 
 export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
@@ -24,16 +23,11 @@ export type ProFormSelectProps<T = any> = ProFormFieldItemProps<
     optionItemRender?: (item: T) => React.ReactNode;
   }
 > & {
-  valueEnum?: ProSchema['valueEnum'];
-  params?: ProSchema['params'];
-  request?: ProSchema['request'];
-  /** 防抖动时间 默认10 单位ms */
-  debounceTime?: number;
   options?: SelectProps<any>['options'] | string[];
   mode?: SelectProps<any>['mode'] | 'single';
   showSearch?: SelectProps<any>['showSearch'];
   readonly?: boolean;
-};
+} & ProFormFieldRemoteProps;
 
 /**
  * 选择框
