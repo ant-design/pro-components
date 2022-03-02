@@ -1,11 +1,10 @@
-import React, { useMemo, useState, useCallback, useRef, useContext } from 'react';
+import React, { useMemo, useCallback, useRef, useContext } from 'react';
 import { useDragSort } from '../../utils/useDragSort';
 import type { ParamsType } from '@ant-design/pro-provider';
 import ProTable from '../../Table';
 import { SortableHandle } from 'react-sortable-hoc';
 import { MenuOutlined } from '@ant-design/icons';
 import type { ProColumns, ProTableProps } from '../../typing';
-import { useDeepCompareEffectDebounce } from '@ant-design/pro-utils';
 import { ConfigProvider } from 'antd';
 import './index.less';
 
@@ -40,8 +39,6 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
     [getPrefixCls],
   );
 
-  const [columns, setRefColumns] = useState<DragTableProps<T, U>['columns']>(propsColumns);
-
   const isDragSortColumn = useCallback(
     (item: ProColumns<T, any>) => {
       return item.key === dragSortKey || item.dataIndex === dragSortKey;
@@ -57,50 +54,47 @@ function DragSortTable<T, U extends ParamsType>(props: DragTableProps<T, U>) {
   const originColumnRef = useRef<ProColumns<T, 'text'> | undefined>({ ...handleColumn });
   // 使用自定义hooks获取拖拽相关组件的components集合
   const { components } = useDragSort<T>({
-    data: oriDs?.slice(),
+    dataSource: oriDs?.slice(),
     dragSortKey,
     onDragSortEnd,
     components: props.components,
     rowKey,
   });
 
-  // 重写列配置的render,并在卸载时恢复原始render
-  useDeepCompareEffectDebounce(
-    () => {
-      const originColumn = originColumnRef.current!;
-      if (!handleColumn) return () => {};
-      const dargRender = (...args: any[]) => {
-        const [dom, rowData, index, action, schema] = args;
-        const RealHandle = dragSortHandlerRender
-          ? handleCreator(dragSortHandlerRender(rowData, index))
-          : DragHandle;
-        return (
-          <div className={getPrefixCls('pro-table-drag-visible-cell')}>
-            <RealHandle />
-            {originColumn.render?.(dom, rowData, index, action, schema)}
-          </div>
-        );
-      };
-      // 重新生成数据
-      setRefColumns(
-        columns?.map((item) => {
-          if (!isDragSortColumn(item)) {
-            return item;
-          }
-          return {
-            ...item,
-            render: dargRender,
-          };
-        }),
+  // 重写列配置的render
+  const columns: any = useMemo(() => {
+    const originColumn = originColumnRef.current!;
+    if (!handleColumn) return propsColumns;
+    const dargRender = (...args: any[]) => {
+      const [dom, rowData, index, action, schema] = args;
+      const RealHandle = dragSortHandlerRender
+        ? handleCreator(dragSortHandlerRender(rowData, index))
+        : DragHandle;
+      return (
+        <div className={getPrefixCls('pro-table-drag-visible-cell')}>
+          <RealHandle />
+          {originColumn.render?.(dom, rowData, index, action, schema)}
+        </div>
       );
-      /* istanbul ignore next */
-      return () => {
-        setRefColumns(props.columns);
+    };
+    // 重新生成数据
+    return propsColumns?.map((item) => {
+      if (!isDragSortColumn(item)) {
+        return item;
+      }
+      return {
+        ...item,
+        render: dargRender,
       };
-    },
-    [dragSortHandlerRender, handleColumn],
-    ['render', 'renderFormItem'],
-  );
+    });
+  }, [
+    DragHandle,
+    dragSortHandlerRender,
+    getPrefixCls,
+    handleColumn,
+    isDragSortColumn,
+    propsColumns,
+  ]);
 
   return handleColumn ? (
     <ProTable
