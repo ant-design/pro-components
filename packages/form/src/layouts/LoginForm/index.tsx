@@ -58,7 +58,7 @@ function LoginForm<T = Record<string, any>>(props: Partial<LoginFormProps<T>>) {
         {subTitle ? <div className={getCls('desc')}>{subTitle}</div> : null}
       </div>
       <div className={getCls('main')}>
-        <ProForm isKeyPressSubmit submitter={submitter} {...proFormProps}>
+        <ProForm isKeyPressSubmit {...proFormProps} submitter={submitter}>
           {message}
           {children}
         </ProForm>
