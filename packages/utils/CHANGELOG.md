@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.35.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.35.0...@ant-design/pro-utils@1.35.1) (2022-03-02)
+
+### Bug Fixes
+
+- remove convertInitialValue error ([da16912](https://github.com/ant-design/pro-components/commit/da16912b1881fd70388ef4605d0f23010d4efc85))
+
 # [1.35.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.34.5...@ant-design/pro-utils@1.35.0) (2022-02-21)
 
 ### Features

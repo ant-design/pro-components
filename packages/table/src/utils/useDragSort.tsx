@@ -1,38 +1,36 @@
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
-import React, { useCallback } from 'react';
+import React from 'react';
 import type { TableComponents } from 'rc-table/lib/interface';
 import type { SortDataParams } from './index';
 import { sortData } from './index';
+import { useRefFunction } from '@ant-design/pro-utils';
 
 export interface UseDragSortOptions<T> {
-  data?: T[];
+  dataSource?: T[];
   onDragSortEnd?: (newDataSource: T[]) => Promise<void> | void;
   dragSortKey?: string;
   components?: TableComponents<T>;
   rowKey: any;
 }
 export function useDragSort<T>(props: UseDragSortOptions<T>) {
-  const { data = [], onDragSortEnd, dragSortKey } = props;
+  const { dataSource = [], onDragSortEnd, dragSortKey } = props;
 
   // 拖拽排序相关逻辑
   const SortableItem = SortableElement((p: any) => <tr {...p} />);
   const SortContainer = SortableContainer((p: any) => <tbody {...p} />);
 
   /* istanbul ignore next */
-  const handleSortEnd = useCallback(
-    (params: SortDataParams) => {
+  const handleSortEnd = useRefFunction((params: SortDataParams) => {
+    /* istanbul ignore next */
+    const newDataSource: T[] | null = sortData<T>(params, dataSource);
+    /* istanbul ignore next */
+    if (newDataSource && onDragSortEnd) {
       /* istanbul ignore next */
-      const newDs: T[] | null = sortData<T>(params, data);
-      /* istanbul ignore next */
-      if (newDs && onDragSortEnd) {
-        /* istanbul ignore next */
-        onDragSortEnd(newDs);
-      }
-    },
-    [data, onDragSortEnd],
-  );
+      onDragSortEnd(newDataSource);
+    }
+  });
 
-  const DraggableContainer = (p: any) => (
+  const DraggableContainer = useRefFunction((p: any) => (
     <SortContainer
       useDragHandle
       disableAutoscroll
@@ -40,18 +38,19 @@ export function useDragSort<T>(props: UseDragSortOptions<T>) {
       onSortEnd={handleSortEnd}
       {...p}
     />
-  );
+  ));
 
-  const DraggableBodyRow = (p: any) => {
+  const DraggableBodyRow = useRefFunction((p: any) => {
     const { className: DraggableBodyRowClassName, style: DraggableBodyRowStyle, ...restProps } = p;
     // function findIndex base on Table rowKey props and should always be a right array index
-    const index = data.findIndex(
-      (x: any) => x[props.rowKey ?? 'index'] === restProps['data-row-key'],
+    const index = dataSource.findIndex(
+      (item: any) => item[props.rowKey ?? 'index'] === restProps['data-row-key'],
     );
     return <SortableItem index={index} {...restProps} />;
-  };
+  });
 
   const components: TableComponents<T> = props.components || {};
+
   if (dragSortKey) {
     components.body = {
       ...(props.components?.body || {}),
