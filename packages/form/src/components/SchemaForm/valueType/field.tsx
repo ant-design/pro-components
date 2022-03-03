@@ -28,7 +28,7 @@ export const field: ProSchemaRenderValueTypeFunction = (
     return <ProFormField {...formFieldProps} ignoreFormItem={true} />;
   };
 
-  const renderFormItem: any = item?.renderFormItem
+  const renderFormItem = item?.renderFormItem
     ? (_: any, config: any) => {
         const renderConfig = omitUndefined({ ...config, onChange: undefined });
         return item?.renderFormItem?.(
@@ -51,16 +51,7 @@ export const field: ProSchemaRenderValueTypeFunction = (
 
   if (item?.renderFormItem) {
     const dom = renderFormItem?.(null, {});
-    if (dom) {
-      return (
-        <ProFormField
-          {...formFieldProps}
-          key={`${item.key}-${item.index}`}
-          renderFormItem={renderFormItem}
-        />
-      );
-    }
-    return dom;
+    if (!dom) return dom;
   }
 
   return (
