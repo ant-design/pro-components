@@ -36,6 +36,9 @@ describe('DrawerForm', () => {
     const wrapper = mount(
       <DrawerForm
         width={600}
+        drawerProps={{
+          forceRender: false,
+        }}
         trigger={<Button id="new">新建</Button>}
         onVisibleChange={(visible) => fn(visible)}
       >

@@ -119,6 +119,7 @@ function DrawerForm<T = Record<string, any>>({
       <Drawer
         title={title}
         width={width || 800}
+        forceRender
         {...drawerProps}
         visible={visible}
         onClose={(e) => {

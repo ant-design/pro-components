@@ -134,6 +134,7 @@ function ModalForm<T = Record<string, any>>({
       <Modal
         title={title}
         width={width || 800}
+        forceRender
         {...modalProps}
         visible={visible}
         onCancel={(e) => {

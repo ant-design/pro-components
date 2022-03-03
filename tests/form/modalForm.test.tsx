@@ -69,6 +69,9 @@ describe('ModalForm', () => {
     const wrapper = mount(
       <ModalForm
         width={600}
+        modalProps={{
+          forceRender: false,
+        }}
         trigger={<Button id="new">新建</Button>}
         onVisibleChange={(visible) => fn(visible)}
       >
