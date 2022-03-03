@@ -70,6 +70,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     rightContentRender,
     className: propsClassName,
     style,
+    headerContentRender,
     layout,
   } = props;
   const prefixCls = `${props.prefixCls || 'ant-pro'}-top-nav-header`;
@@ -82,6 +83,16 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     light: theme === 'light',
   });
 
+  const defaultDom = (
+    <div style={{ flex: 1 }} className={`${prefixCls}-menu`}>
+      <BaseMenu {...props} {...props.menuProps} />
+    </div>
+  );
+
+  const headerContentDom = headerContentRender
+    ? headerContentRender?.(props, defaultDom)
+    : defaultDom;
+
   return (
     <div className={className} style={style}>
       <div ref={ref} className={`${prefixCls}-main ${contentWidth === 'Fixed' ? 'wide' : ''}`}>
@@ -93,7 +104,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
           </div>
         )}
         <div style={{ flex: 1 }} className={`${prefixCls}-menu`}>
-          <BaseMenu {...props} {...props.menuProps} />
+          {headerContentDom}
         </div>
         {rightContentRender && (
           <RightContent rightContentRender={rightContentRender} prefixCls={prefixCls} {...props} />
