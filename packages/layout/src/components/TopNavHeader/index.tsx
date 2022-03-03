@@ -83,11 +83,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     light: theme === 'light',
   });
 
-  const defaultDom = (
-    <div style={{ flex: 1 }} className={`${prefixCls}-menu`}>
-      <BaseMenu {...props} {...props.menuProps} />
-    </div>
-  );
+  const defaultDom = <BaseMenu {...props} {...props.menuProps} />;
 
   const headerContentDom = headerContentRender
     ? headerContentRender?.(props, defaultDom)
