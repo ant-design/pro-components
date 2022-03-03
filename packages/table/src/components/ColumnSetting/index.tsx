@@ -18,7 +18,7 @@ import { genColumnKey } from '../../utils/index';
 import type { ProColumns } from '../../typing';
 
 import './index.less';
-import { omitUndefined, useRefFunction } from '@ant-design/pro-utils';
+import { useRefFunction } from '@ant-design/pro-utils';
 import type { CheckboxChangeEvent } from 'antd/lib/checkbox';
 
 type ColumnSettingProps<T = any> = {
