@@ -90,18 +90,33 @@ const MenuDivider: React.FC<{
 
 const genMenuItemCss = (
   prefixCls: string | undefined,
-  state: { hasIcon?: boolean; collapsed?: boolean },
+  state: { hasIcon?: boolean; collapsed?: boolean; collapsedShowTitle?: boolean },
 ) =>
   cx(
     `${prefixCls}-menu-item-title`,
     state.hasIcon &&
+      !state.collapsedShowTitle &&
       css`
         margin-left: 8px;
       `,
     state.hasIcon &&
       state.collapsed &&
+      !state.collapsedShowTitle &&
       css`
         display: none;
+      `,
+    state.hasIcon &&
+      state.collapsed &&
+      state.collapsedShowTitle &&
+      css`
+        text-align: center;
+        font-size: 12px;
+        height: 20px;
+        line-height: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
       `,
   );
 
@@ -155,6 +170,7 @@ class MenuUtil {
             className={genMenuItemCss(prefixCls, {
               hasIcon: hasIcon && !!iconDom,
               collapsed: this.props.collapsed,
+              collapsedShowTitle: this.props.menu?.collapsedShowTitle,
             })}
           >
             {name}
@@ -257,6 +273,7 @@ class MenuUtil {
           className={genMenuItemCss(prefixCls, {
             hasIcon: !!icon && hasIcon,
             collapsed,
+            collapsedShowTitle: this.props.menu?.collapsedShowTitle,
           })}
         >
           {name}
@@ -280,6 +297,7 @@ class MenuUtil {
             className={genMenuItemCss(prefixCls, {
               hasIcon: hasIcon && !!icon,
               collapsed: this.props.collapsed,
+              collapsedShowTitle: this.props.menu?.collapsedShowTitle,
             })}
           >
             {name}
@@ -476,16 +494,27 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           }
         }
       `,
+      collapsedItemShowTitle: css`
+        margin-top: 12px;
+        margin-bottom: 12px;
+        .${antPrefixClassName}-pro-menu-item {
+          padding-top: 6px;
+          padding-bottom: 6px;
+        }
+      `,
       collapsedItem: css`
         .${antPrefixClassName}-menu-title-content {
           ${mode !== 'horizontal' ? 'width: 100%; line-height: 40px;' : ''}
         }
         .${antPrefixClassName}-pro-menu-item {
           display: flex;
+          flex-direction: column;
           align-items: center;
           justify-content: center;
           width: 100%;
           height: 100%;
+          padding-top: 6px;
+          padding-bottom: 6px;
           color: ${menuDesignToken.menuTextColor};
           font-size: 16px;
         }
@@ -744,6 +773,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             menuItemCssMap.menuItem,
             // 收起的样式
             collapsed && menuItemCssMap.collapsedItem,
+            /**
+             * 收起时展示 title
+             */
+            collapsed && menu?.collapsedShowTitle && menuItemCssMap.collapsedItemShowTitle,
             // 顶部菜单和水平菜单需要不同的 css
             mode !== 'horizontal' ? menuItemCssMap.verticalItem : menuItemCssMap.horizontalItem,
             stateProps?.selected ? menuItemCssMap.selectedItem : null,

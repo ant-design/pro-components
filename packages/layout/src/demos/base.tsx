@@ -125,7 +125,6 @@ export default () => {
         }}
         actionsRender={(props) => {
           if (props.isMobile) return [];
-
           return [
             props.layout !== 'side' && document.body.clientWidth > 1400 ? (
               <div

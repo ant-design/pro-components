@@ -27,9 +27,13 @@ ProLayout 可以提供一个标准又不失灵活的中后台标准布局，同�
 
 <code src="./demos/theme.tsx" iframe="650px" title="通过 token 修改样式"/>
 
+### 收起时展示 title
+
+<code src="./demos/collapsedShowTitle.tsx" iframe="650px" title=" 收起时展示 title"/>
+
 ### 不分组菜单样式
 
-<code src="./demos/menu-group.tsx" iframe="650px" title="基础使用"/>
+<code src="./demos/menu-group.tsx" iframe="650px" title="不分组菜单样式"/>
 
 ### 从服务器加载 menu
 
