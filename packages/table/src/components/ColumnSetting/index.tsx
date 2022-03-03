@@ -173,22 +173,14 @@ const CheckboxList: React.FC<{
   /** 选中反选功能 */
   const onCheckTree = useRefFunction((e) => {
     const columnKey = e.node.key;
-    const tempConfig = columnsMap[columnKey] || {};
-    const newSetting = { ...tempConfig };
-    if (e.checked) {
-      delete newSetting.show;
-    } else {
-      newSetting.show = false;
-    }
-    const columnKeyMap = {
+    const newSetting = { ...columnsMap[columnKey] };
+
+    newSetting.show = e.checked;
+
+    setColumnsMap({
       ...columnsMap,
-      [columnKey]: omitUndefined(newSetting) as ColumnsState,
-    };
-    // 如果没有值了，直接干掉他
-    if (!omitUndefined(newSetting)) {
-      delete columnKeyMap[columnKey];
-    }
-    setColumnsMap(columnKeyMap);
+      [columnKey]: newSetting,
+    });
   });
 
   if (!show) {
