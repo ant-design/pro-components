@@ -350,6 +350,7 @@ describe('ModalForm', () => {
         modalProps={{
           getContainer: false,
           destroyOnClose: true,
+          forceRender: false,
         }}
         initialValues={{
           name: '1234',
