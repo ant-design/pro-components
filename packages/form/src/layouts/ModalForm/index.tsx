@@ -4,15 +4,15 @@ import type { ModalProps, FormProps } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { createPortal } from 'react-dom';
 
-import type { BaseFormProps, CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
-import { merge } from '@ant-design/pro-utils';
+import merge from 'lodash/merge';
 
 export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish' | 'title'> &
   CommonFormProps<T> & {
     /**
-     * 接受返回一个boolean，返回 true 会关掉这个弹窗
+     * 接收任意值，返回 真值 会关掉这个弹窗
      *
      * @name 表单结束后调用
      */
@@ -69,13 +69,11 @@ function ModalForm<T = Record<string, any>>({
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerMount: React.RefCallback<HTMLDivElement> = useCallback((element) => {
-    if (element && footerRef.current === null) {
-      footerRef.current = element;
+  const footerCallback: React.RefCallback<HTMLDivElement> = useCallback((element) => {
+    if (footerRef.current === null && element) {
       forceUpdate([]);
-    } else if (element !== null) {
-      footerRef.current = null;
     }
+    footerRef.current = element;
   }, []);
 
   useEffect(() => {
@@ -99,23 +97,27 @@ function ModalForm<T = Record<string, any>>({
     });
   }, [setVisible, trigger, visible]);
 
-  const submitterConfig: BaseFormProps['submitter'] = useMemo(() => {
+  const submitterConfig = useMemo(() => {
     if (rest.submitter === false) {
       return false;
     }
-    return merge(rest.submitter, {
-      searchConfig: {
-        submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
-        resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
-      },
-      resetButtonProps: {
-        preventDefault: true,
-        onClick: (e: any) => {
-          setVisible(false);
-          modalProps?.onCancel?.(e);
+
+    return merge(
+      {
+        searchConfig: {
+          submitText: modalProps?.okText ?? context.locale?.Modal?.okText ?? '确认',
+          resetText: modalProps?.cancelText ?? context.locale?.Modal?.cancelText ?? '取消',
+        },
+        resetButtonProps: {
+          preventDefault: true,
+          onClick: (e: any) => {
+            setVisible(false);
+            modalProps?.onCancel?.(e);
+          },
         },
       },
-    });
+      rest.submitter,
+    );
   }, [
     context.locale?.Modal?.cancelText,
     context.locale?.Modal?.okText,
@@ -124,7 +126,7 @@ function ModalForm<T = Record<string, any>>({
     setVisible,
   ]);
 
-  const contentRender: BaseFormProps['contentRender'] = useCallback((formDom, submitter) => {
+  const contentRender = useCallback((formDom: any, submitter: any) => {
     return (
       <>
         {formDom}
@@ -148,7 +150,7 @@ function ModalForm<T = Record<string, any>>({
         footer={
           rest.submitter !== false && (
             <div
-              ref={footerMount}
+              ref={footerCallback}
               style={{
                 display: 'flex',
                 justifyContent: 'flex-end',
@@ -162,15 +164,7 @@ function ModalForm<T = Record<string, any>>({
           layout="vertical"
           {...rest}
           submitter={submitterConfig}
-          onFinish={async (values) => {
-            if (!onFinish) {
-              return;
-            }
-            const success = await onFinish(values);
-            if (success) {
-              setVisible(false);
-            }
-          }}
+          onFinish={async (values) => (await onFinish?.(values)) && setVisible(false)}
           contentRender={contentRender}
         >
           {children}

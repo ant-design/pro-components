@@ -1,22 +1,23 @@
-﻿import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+﻿import React, { useCallback, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import type { DrawerProps, FormProps } from 'antd';
+import { ConfigProvider } from 'antd';
 import { Drawer } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import { createPortal } from 'react-dom';
 
-import type { BaseFormProps, CommonFormProps } from '../../BaseForm';
+import type { CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
-import { merge } from '@ant-design/pro-utils';
+import merge from 'lodash/merge';
 
 export type DrawerFormProps<T = Record<string, any>> = Omit<FormProps, 'onFinish' | 'title'> &
   CommonFormProps<T> & {
     /**
-     * 接受返回一个boolean，返回 true 会关掉这个抽屉
+     * 接收任意值，返回 真值 会关掉这个抽屉
      *
      * @name 表单结束后调用
      */
-    onFinish?: (formData: T) => Promise<boolean | void>;
+    onFinish?: (formData: T) => Promise<any>;
 
     /** @name 用于触发抽屉打开的 dom */
     trigger?: JSX.Element;
@@ -57,6 +58,8 @@ function DrawerForm<T = Record<string, any>>({
     'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
 
+  const context = useContext(ConfigProvider.ConfigContext);
+
   const [, forceUpdate] = useState([]);
 
   const [visible, setVisible] = useMergedState<boolean>(!!propVisible, {
@@ -66,13 +69,11 @@ function DrawerForm<T = Record<string, any>>({
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerMount: React.RefCallback<HTMLDivElement> = useCallback((element) => {
-    if (element && footerRef.current === null) {
-      footerRef.current = element;
+  const footerCallback: React.RefCallback<HTMLDivElement> = useCallback((element) => {
+    if (footerRef.current === null && element) {
       forceUpdate([]);
-    } else if (element !== null) {
-      footerRef.current = null;
     }
+    footerRef.current = element;
   }, []);
 
   useEffect(() => {
@@ -96,26 +97,35 @@ function DrawerForm<T = Record<string, any>>({
     });
   }, [setVisible, trigger, visible]);
 
-  const submitterConfig: BaseFormProps['submitter'] = useMemo(() => {
+  const submitterConfig = useMemo(() => {
     if (rest.submitter === false) {
       return false;
     }
-    return merge(rest.submitter, {
-      searchConfig: {
-        submitText: '确认',
-        resetText: '取消',
-      },
-      resetButtonProps: {
-        preventDefault: true,
-        onClick: (e: any) => {
-          setVisible(false);
-          drawerProps?.onClose?.(e);
+    return merge(
+      {
+        searchConfig: {
+          submitText: context.locale?.Modal?.okText ?? '确认',
+          resetText: context.locale?.Modal?.cancelText ?? '取消',
+        },
+        resetButtonProps: {
+          preventDefault: true,
+          onClick: (e: any) => {
+            setVisible(false);
+            drawerProps?.onClose?.(e);
+          },
         },
       },
-    });
-  }, [drawerProps, rest.submitter, setVisible]);
+      rest.submitter,
+    );
+  }, [
+    context.locale?.Modal?.cancelText,
+    context.locale?.Modal?.okText,
+    drawerProps,
+    rest.submitter,
+    setVisible,
+  ]);
 
-  const contentRender: BaseFormProps['contentRender'] = useCallback((formDom, submitter) => {
+  const contentRender = useCallback((formDom: any, submitter: any) => {
     return (
       <>
         {formDom}
@@ -139,7 +149,7 @@ function DrawerForm<T = Record<string, any>>({
         footer={
           rest.submitter !== false && (
             <div
-              ref={footerMount}
+              ref={footerCallback}
               style={{
                 display: 'flex',
                 justifyContent: 'flex-end',
@@ -149,19 +159,11 @@ function DrawerForm<T = Record<string, any>>({
         }
       >
         <BaseForm
-          formComponentType="ModalForm"
+          formComponentType="DrawerForm"
           layout="vertical"
           {...rest}
           submitter={submitterConfig}
-          onFinish={async (values) => {
-            if (!onFinish) {
-              return;
-            }
-            const success = await onFinish(values);
-            if (success) {
-              setVisible(false);
-            }
-          }}
+          onFinish={async (values) => (await onFinish?.(values)) && setVisible(false)}
           contentRender={contentRender}
         >
           {children}
