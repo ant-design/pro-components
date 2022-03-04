@@ -1,4 +1,4 @@
-﻿import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
+﻿import React, { useContext, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Modal, ConfigProvider } from 'antd';
 import type { ModalProps, FormProps } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -69,14 +69,14 @@ function ModalForm<T = Record<string, any>>({
 
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerMount: React.RefCallback<HTMLDivElement> = (element) => {
+  const footerMount: React.RefCallback<HTMLDivElement> = useCallback((element) => {
     if (element && footerRef.current === null) {
       footerRef.current = element;
       forceUpdate([]);
     } else if (element !== null) {
       footerRef.current = null;
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (visible && propVisible) {
@@ -124,14 +124,14 @@ function ModalForm<T = Record<string, any>>({
     setVisible,
   ]);
 
-  const contentRender: BaseFormProps['contentRender'] = (formDom, submitter) => {
+  const contentRender: BaseFormProps['contentRender'] = useCallback((formDom, submitter) => {
     return (
       <>
         {formDom}
         {footerRef.current && submitter ? createPortal(submitter, footerRef.current) : submitter}
       </>
     );
-  };
+  }, []);
 
   return (
     <>
@@ -161,6 +161,7 @@ function ModalForm<T = Record<string, any>>({
           formComponentType="ModalForm"
           layout="vertical"
           {...rest}
+          submitter={submitterConfig}
           onFinish={async (values) => {
             if (!onFinish) {
               return;
@@ -170,7 +171,6 @@ function ModalForm<T = Record<string, any>>({
               setVisible(false);
             }
           }}
-          submitter={submitterConfig}
           contentRender={contentRender}
         >
           {children}

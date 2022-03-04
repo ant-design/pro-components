@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useMemo, useRef, useState } from 'react';
+﻿import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { DrawerProps, FormProps } from 'antd';
 import { Drawer } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
@@ -57,23 +57,23 @@ function DrawerForm<T = Record<string, any>>({
     'DrawerForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
 
+  const [, forceUpdate] = useState([]);
+
   const [visible, setVisible] = useMergedState<boolean>(!!propVisible, {
     value: propVisible,
     onChange: onVisibleChange,
   });
 
-  const [, forceUpdate] = useState([]);
-
   const footerRef = useRef<HTMLDivElement | null>(null);
 
-  const footerMount: React.RefCallback<HTMLDivElement> = (element) => {
+  const footerMount: React.RefCallback<HTMLDivElement> = useCallback((element) => {
     if (element && footerRef.current === null) {
       footerRef.current = element;
       forceUpdate([]);
     } else if (element !== null) {
       footerRef.current = null;
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (visible && propVisible) {
@@ -115,14 +115,14 @@ function DrawerForm<T = Record<string, any>>({
     });
   }, [drawerProps, rest.submitter, setVisible]);
 
-  const contentRender: BaseFormProps['contentRender'] = (formDom, submitter) => {
+  const contentRender: BaseFormProps['contentRender'] = useCallback((formDom, submitter) => {
     return (
       <>
         {formDom}
         {footerRef.current && submitter ? createPortal(submitter, footerRef.current) : submitter}
       </>
     );
-  };
+  }, []);
 
   return (
     <>
@@ -149,7 +149,7 @@ function DrawerForm<T = Record<string, any>>({
         }
       >
         <BaseForm
-          formComponentType="DrawerForm"
+          formComponentType="ModalForm"
           layout="vertical"
           {...rest}
           submitter={submitterConfig}
