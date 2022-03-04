@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.55.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.55.0...@ant-design/pro-form@1.55.2) (2022-03-04)
+
+### Bug Fixes
+
+- **form:** 🐛 hide upload button when fileList.length >= max ([#4752](https://github.com/ant-design/pro-components/issues/4752)) ([2828fac](https://github.com/ant-design/pro-components/commit/2828fac182e110c11e053085cceac4051c0835c5))
+- **form:** 修复 queryFilter 响应式会受 span 的属性顺序问题 ([#4722](https://github.com/ant-design/pro-components/issues/4722)) ([36cacf5](https://github.com/ant-design/pro-components/commit/36cacf5d3ba746c30da9079a27fba3ae65678a6c))
+- **form:** ignoreRules dosen't work ([#4687](https://github.com/ant-design/pro-components/issues/4687)) ([9173858](https://github.com/ant-design/pro-components/commit/9173858d5d869272c1b155f725887f7e6d635743))
+- **form:** ModalForm and Drawer alway forceRender ([2f41fe6](https://github.com/ant-design/pro-components/commit/2f41fe697559daa0f23a9a0ec5711006d373c950))
+- **form:** submitter default config overwrite by proFormProps.submitter ([#4751](https://github.com/ant-design/pro-components/issues/4751)) ([3e5fca7](https://github.com/ant-design/pro-components/commit/3e5fca789b0e24210c9bb5e2658b16f0e175715b))
+
 ## [1.55.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.55.0...@ant-design/pro-form@1.55.1) (2022-03-02)
 
 ### Bug Fixes
