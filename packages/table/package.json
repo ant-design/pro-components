@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-table",
-  "version": "2.66.0",
+  "version": "2.66.1",
   "description": "🏆 Use Ant Design Table like a Pro!",
   "keywords": [
     "antd",
@@ -34,8 +34,8 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
-    "@ant-design/pro-field": "1.32.2",
-    "@ant-design/pro-form": "1.55.2",
+    "@ant-design/pro-field": "1.32.3",
+    "@ant-design/pro-form": "1.55.3",
     "@ant-design/pro-provider": "1.6.0",
     "@ant-design/pro-utils": "1.35.2",
     "@babel/runtime": "^7.16.3",
