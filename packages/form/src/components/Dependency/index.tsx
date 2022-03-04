@@ -1,10 +1,11 @@
 import { Form } from 'antd';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { FormInstance, FormItemProps } from 'antd';
-import get from 'rc-util/lib/utils/get';
-import { useCallback, useContext, useMemo } from 'react';
 import set from 'rc-util/lib/utils/set';
+import get from 'rc-util/lib/utils/get';
+import { useContext, useMemo } from 'react';
 import { FormListContext } from '../List';
+import { ProFormContext, isDeepEqualReact } from '@ant-design/pro-utils';
 
 declare type RenderChildren<Values = any> = (
   values: Record<string, any>,
@@ -21,68 +22,60 @@ export type ProFormDependencyProps = Omit<
 };
 
 const ProFormDependency: React.FC<ProFormDependencyProps> = ({
-  name,
+  name: names,
   children,
   ignoreFormListField,
   ...rest
 }) => {
-  // ProFromList 的 filed，里面有name和key
+  const context = useContext(ProFormContext);
+  // ProFromList 的 field，里面有name和key
   const formListField = useContext(FormListContext);
-  /**
-   * 处理放到 Form.List 的情况
-   *
-   * @param itemName
-   */
-  const getNamePath = useCallback(
-    (itemName: NamePath) => {
-      if (formListField.name === undefined || ignoreFormListField) {
-        return [itemName].flat(1) as string[];
-      }
-      return [formListField.listName, itemName].flat(2) as string[];
-    },
-    [formListField.listName, formListField.name, ignoreFormListField],
-  );
 
-  const names = useMemo(() => {
-    if (formListField.name === undefined) {
-      return name;
-    }
-    return name.map((itemName: NamePath) => {
-      return [formListField.listName, itemName].flat(1) as string[];
+  // flatten each name into an (string | number)[]
+  const flattenNames = useMemo(() => {
+    return names.map((itemName: NamePath) => {
+      const name = [itemName];
+
+      // ignoreFormListField为 true 或 formListField.name === undefined 时
+      // 应从全局取值，要将 names 中各项的路径前缀(formListField.listName)忽略
+      if (
+        !ignoreFormListField &&
+        formListField.name !== undefined &&
+        formListField.listName?.length
+      ) {
+        name.unshift(formListField.listName);
+      }
+
+      return name.flat(1);
     });
-  }, [formListField.listName, formListField.name, name]);
+  }, [formListField.listName, formListField.name, ignoreFormListField, names]);
 
   return (
     <Form.Item
       {...rest}
       noStyle
-      shouldUpdate={(prevValues, nextValues) => {
-        return names.some((nameItem) => {
-          const arrayName = Array.isArray(nameItem) ? nameItem : [nameItem];
-          return get(prevValues, arrayName) !== get(nextValues, arrayName);
+      shouldUpdate={(prevValues, nextValues, info) => {
+        if (typeof rest.shouldUpdate === 'boolean') {
+          return rest.shouldUpdate;
+        } else if (typeof rest.shouldUpdate === 'function') {
+          return rest.shouldUpdate?.(prevValues, nextValues, info);
+        }
+
+        return flattenNames.some((name) => {
+          return !isDeepEqualReact(get(prevValues, name), get(nextValues, name));
         });
       }}
     >
-      {(form) => {
-        const values = names.reduce((pre, next) => {
-          const value = form.getFieldsValue([next].flat(1));
-          return {
-            ...pre,
-            ...value,
-          };
-        }, {});
-        const nameValues = name
-          .map((itemName) => {
-            const namePath = getNamePath(itemName);
-            return set({}, [itemName].flat(1) as string[], get(values, namePath));
-          })
-          .reduce((pre, next) => {
-            return {
-              ...pre,
-              ...next,
-            };
-          }, {});
-        return children?.(nameValues, form as FormInstance<any>);
+      {(form: FormInstance) => {
+        let values: Record<string, any> = {};
+        for (let i = 0; i < names.length; i++) {
+          const pathToGet = flattenNames[i],
+            pathToSet = names[i];
+
+          const value = context.getFieldFormatValue?.(pathToGet) ?? form.getFieldValue(pathToGet);
+          values = set(values, Array.isArray(pathToSet) ? pathToSet : [pathToSet], value, false);
+        }
+        return children?.(values, form);
       }}
     </Form.Item>
   );

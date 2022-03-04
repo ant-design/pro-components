@@ -32,7 +32,7 @@ export type PureSettings = {
   fixedHeader: boolean;
   /** Sticky siderbar */
   fixSiderbar: boolean;
-  menu: { locale?: boolean; defaultOpenAll?: boolean };
+  menu: { locale?: boolean; defaultOpenAll?: boolean; ignoreFlatMenu?: boolean };
   title: string;
   // Your custom iconfont Symbol script Url
   // eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js

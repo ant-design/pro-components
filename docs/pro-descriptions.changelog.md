@@ -9,6 +9,24 @@ group:
 
 # Change Log
 
+## @ant-design/pro-descriptions@1.9.6
+
+`2021-08-19`
+
+- 🐛 fix(descriptions): RequestData 类型优化 [#3448](https://github.com/ant-design/pro-components/pull/3448) [@ohhoney1](https://github.com/ohhoney1)
+
+## @ant-design/pro-descriptions@1.8.2
+
+`2021-06-15`
+
+- 🐛 fix(descriptions): fix descriptions fomart error [#3015](https://github.com/ant-design/pro-components/pull/3015) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-descriptions@1.7.12
+
+`2021-05-24`
+
+- 🐛 fix(descriptions): Fix the problem of remounting every time you refresh [#2815](https://github.com/ant-design/pro-components/pull/2815) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-descriptions@1.6.11
 
 `2021-03-31`

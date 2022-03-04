@@ -5,11 +5,13 @@ import type { ProColumns, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 import moment from 'moment';
 import enUSIntl from 'antd/lib/locale/en_US';
+import enGBIntl from 'antd/lib/locale/en_GB';
 import zhCNIntl from 'antd/lib/locale/zh_CN';
 import viVNIntl from 'antd/lib/locale/vi_VN';
 import itITIntl from 'antd/lib/locale/it_IT';
 import jaJPIntl from 'antd/lib/locale/ja_JP';
 import esESIntl from 'antd/lib/locale/es_ES';
+import caESIntl from 'antd/lib/locale/ca_ES';
 import ruRUIntl from 'antd/lib/locale/ru_RU';
 import srRSIntl from 'antd/lib/locale/sr_RS';
 import msMYIntl from 'antd/lib/locale/ms_MY';
@@ -20,10 +22,12 @@ import ptBRIntl from 'antd/lib/locale/pt_BR';
 const intlMap = {
   zhCNIntl,
   enUSIntl,
+  enGBIntl,
   viVNIntl,
   itITIntl,
   jaJPIntl,
   esESIntl,
+  caESIntl,
   ruRUIntl,
   srRSIntl,
   msMYIntl,

@@ -1,0 +1,75 @@
+@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index.less';
+
+@pro-inline-error-form-item-prefix-cls: ~'@{ant-prefix}-pro-inline-error-form-item';
+@ant-design-progress-prefix-cls: ~'@{ant-prefix}-progress-bg';
+
+.@{pro-inline-error-form-item-prefix-cls} {
+  &-multiple {
+    padding: 6px 8px 12px 8px;
+  }
+
+  &-progress {
+    &-success {
+      .@{ant-design-progress-prefix-cls} {
+        background-color: @success-color;
+      }
+    }
+
+    &-error {
+      .@{ant-design-progress-prefix-cls} {
+        background-color: @error-color;
+      }
+    }
+
+    &-warning {
+      .@{ant-design-progress-prefix-cls} {
+        background-color: @warning-color;
+      }
+    }
+  }
+
+  &-rule {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &-content {
+      display: flex;
+      align-items: center;
+
+      &-icon {
+        &-default {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 14px;
+          height: 22px;
+
+          &-circle {
+            width: 6px;
+            height: 6px;
+            background-color: @text-color-secondary;
+            border-radius: 4px;
+          }
+        }
+
+        &-loading {
+          color: @primary-color;
+        }
+
+        &-error {
+          color: @error-color;
+        }
+
+        &-success {
+          color: @success-color;
+        }
+      }
+
+      &-text {
+        color: @text-color;
+      }
+    }
+  }
+}

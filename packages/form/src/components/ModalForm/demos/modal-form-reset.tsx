@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button, message, Space } from 'antd';
-import type { FormInstance } from 'antd';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import { ModalForm, ProFormText } from '@ant-design/pro-form';
 
 const waitTime = (time: number = 100) => {
@@ -12,14 +12,15 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
-  const formRef = useRef<FormInstance>();
+  const restFormRef = useRef<ProFormInstance>();
+  const formRef = useRef<ProFormInstance>();
   const [modalVisible, setModalVisible] = useState<boolean>(false);
 
   return (
     <Space>
       <ModalForm
         title="新建表单"
-        formRef={formRef}
+        formRef={restFormRef}
         visible={modalVisible}
         trigger={
           <Button
@@ -38,7 +39,7 @@ export default () => {
           },
           resetButtonProps: {
             onClick: () => {
-              formRef.current?.resetFields();
+              restFormRef.current?.resetFields();
               //   setModalVisible(false);
             },
           },

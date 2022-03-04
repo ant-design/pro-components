@@ -1,16 +1,19 @@
-@import '~antd/es/style/themes/default.less';
+@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index.less';
 
 @pro-list-toolbar: ~'@{ant-prefix}-pro-table-list-toolbar';
 
 .@{pro-list-toolbar} {
   overflow-x: auto;
-  overflow-y: hidden;
   line-height: 1;
 
   &-container {
     display: flex;
     justify-content: space-between;
     padding: @padding-md 0;
+    &-mobile {
+      flex-direction: column;
+    }
   }
 
   &-title {
@@ -41,7 +44,7 @@
     }
 
     &:hover {
-      color: @primary-color;
+      color: @primary-color-hover;
     }
   }
 

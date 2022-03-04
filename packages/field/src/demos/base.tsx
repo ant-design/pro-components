@@ -51,6 +51,9 @@ export default () => {
         <Descriptions.Item label="数字">
           <Field text="19897979797979" valueType="digit" mode={state} plain={plain} />
         </Descriptions.Item>
+        <Descriptions.Item label="数字范围">
+          <Field text={[123, 456]} valueType="digitRange" mode={state} plain={plain} />
+        </Descriptions.Item>
         <Descriptions.Item label="秒格式化">
           <Field text={2000000} valueType="second" mode={state} plain={plain} />
         </Descriptions.Item>
@@ -192,7 +195,7 @@ export default () => {
                 label: '特殊选项',
                 value: 'optGroup',
                 optionType: 'optGroup',
-                children: [
+                options: [
                   { label: '不解决', value: 'no' },
                   { label: '已废弃', value: 'clear' },
                 ],
@@ -200,7 +203,52 @@ export default () => {
             ]}
           />
         </Descriptions.Item>
-
+        <Descriptions.Item label="级联选择框">
+          <Field
+            text={['zhejiang', 'hangzhou', 'xihu']}
+            mode={state}
+            valueType="cascader"
+            fieldProps={{
+              fieldNames: {
+                label: 'name',
+              },
+            }}
+            request={async () => [
+              {
+                value: 'zhejiang',
+                name: 'Zhejiang',
+                children: [
+                  {
+                    value: 'hangzhou',
+                    name: 'Hangzhou',
+                    children: [
+                      {
+                        value: 'xihu',
+                        name: 'West Lake',
+                      },
+                    ],
+                  },
+                ],
+              },
+              {
+                value: 'jiangsu',
+                name: 'Jiangsu',
+                children: [
+                  {
+                    value: 'nanjing',
+                    name: 'Nanjing',
+                    children: [
+                      {
+                        value: 'zhonghuamen',
+                        name: 'Zhong Hua Men',
+                      },
+                    ],
+                  },
+                ],
+              },
+            ]}
+          />
+        </Descriptions.Item>
         <Descriptions.Item label="进度条">
           <Field text="40" valueType="progress" mode={state} plain={plain} />
         </Descriptions.Item>

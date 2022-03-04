@@ -1,4 +1,5 @@
-@import '~antd/es/style/themes/default.less';
+@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index.less';
 
 @pro-table-alert-prefix-cls: ~'@{ant-prefix}-pro-table-alert';
 
@@ -13,7 +14,7 @@
   &-info {
     display: flex;
     align-items: center;
-    transition: 0.3 all;
+    transition: all 0.3s;
     &-content {
       flex: 1;
     }

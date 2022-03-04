@@ -1,9 +1,11 @@
 import type { ReactNode } from 'react';
 import type { TabsProps } from 'antd';
 import type { TabPaneProps } from 'antd';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 
 export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 export type Gutter = number | Partial<Record<Breakpoint, number>>;
+// eslint-disable-next-line @typescript-eslint/ban-types
 export type ProCardTabsProps = {} & TabsProps;
 
 export type ColSpanType = number | string;
@@ -20,7 +22,7 @@ export type CardProps = {
   /** 副标题 */
   subTitle?: React.ReactNode;
   /** 标题说明 */
-  tooltip?: string;
+  tooltip?: string | LabelTooltipType;
   /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
   /** 右上角自定义区域 */
@@ -31,6 +33,8 @@ export type CardProps = {
   type?: 'default' | 'inner';
   /** 指定 Flex 方向，仅在嵌套子卡片时有效 */
   direction?: 'column' | 'row';
+  /** 是否自动换行，仅在嵌套子卡片时有效 */
+  wrap?: boolean;
   /** 尺寸 */
   size?: 'default' | 'small';
   /** 加载中 */
@@ -65,6 +69,12 @@ export type CardProps = {
   tabs?: ProCardTabsProps;
   /** 前缀 */
   prefixCls?: string;
+  /** ProCard 的 ref */
+  ref?: React.Ref<HTMLDivElement | undefined>;
+  /** 是否展示选中样式 */
+  checked?: boolean;
+  /** 选中改变 */
+  onChecked?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 } & Omit<React.HTMLAttributes<HTMLDivElement>, 'title'>;
 
 export type ProCardTabPaneProps = {

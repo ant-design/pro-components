@@ -1,6 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, Table } from 'antd';
 import ProTable from '@ant-design/pro-table';
 import { request } from './demo';
 import { waitForComponentToPaint } from '../util';
@@ -130,11 +130,107 @@ describe('Table ColumnSetting', () => {
           },
         ]}
         search={false}
-        request={request}
+        dataSource={[
+          {
+            key: '1',
+            name: 'Edward King',
+            age: 10,
+            status: 1,
+            sex: 'man',
+          },
+        ]}
         rowKey="key"
       />,
     );
     await waitForComponentToPaint(html, 1200);
-    expect(html.find('td.ant-table-cell')).toMatchSnapshot();
+    expect(html.find('td.ant-table-cell').text()).toMatchSnapshot();
+  });
+
+  it('🎏 columns request support params function', async () => {
+    const paramsKeys: string[] = [];
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+            renderText: (text) => `${text}2144`,
+          },
+
+          {
+            title: 'Name',
+            key: 'name',
+            valueType: 'select',
+            dataIndex: 'name',
+            params: (rowData) => {
+              return {
+                key: rowData.key,
+              };
+            },
+            request: async (params) => {
+              paramsKeys.push(params.key);
+              return [];
+            },
+          },
+        ]}
+        search={false}
+        dataSource={[
+          {
+            key: '1',
+            name: 'Edward King',
+            age: 10,
+            status: 1,
+            sex: 'man',
+          },
+          {
+            key: '2',
+            name: 'Edward King',
+            age: 10,
+            status: 1,
+            sex: 'man',
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    expect(paramsKeys.length).toBe(2);
+    expect(paramsKeys.join('-')).toBe('1-2');
+  });
+
+  it('🎏 extra columns', async () => {
+    const html = mount(
+      <ProTable
+        rowKey="key"
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            dataIndex: 'name',
+          },
+          Table.EXPAND_COLUMN,
+          Table.SELECTION_COLUMN,
+        ]}
+        dataSource={[
+          {
+            key: '1',
+            name: 'Name 1',
+          },
+          {
+            key: '2',
+            name: 'Name 2',
+          },
+        ]}
+        expandable={{
+          expandedRowRender: (record) => <div>{record.name}</div>,
+        }}
+        rowSelection={{}}
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+    expect(html.render()).toMatchSnapshot();
   });
 });

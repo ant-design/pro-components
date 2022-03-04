@@ -7,7 +7,7 @@ nav:
   path: /components
 ---
 
-# PageContainer
+# PageContainer - 页容器
 
 PageContainer 是为了减少繁杂的面包屑配置和标题，很多页面都需要面包屑和标题的配置。当然也可以关掉自动生成的，而使用自己的配置。
 
@@ -62,7 +62,7 @@ PageContainer 封装了 antd 的 PageHeader 组件，增加了 tabList 和 conte
 
 ### 页面加载中
 
-<code src="./demos/loading.tsx" iframe="500px" title="页面加载中" desc="通过 `loading` 属性配置页面加载。"/>
+<code src="./demos/loading.tsx" iframe="800px" title="页面加载中" desc="通过 `loading` 属性配置页面加载。"/>
 
 ## API
 
@@ -76,12 +76,13 @@ PageContainer 封装了 ant design 的 PageHeader 组件，增加了 tabList 和
 | tabActiveKey | 当前高亮的 tab 项 | string | - |
 | onTabChange | 切换面板的回调 | `(key) => void` | - |
 | tabBarExtraContent | tab bar 上额外的元素 | `React.ReactNode` | - |
-| header | [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性。 | `PageHeaderProps` | - |
+| header | [PageHeader](https://ant.design/components/page-header-cn/) 的所有属性 | `PageHeaderProps` | - |
 | ghost | 配置头部区域的背景颜色为透明 | boolean | false |
 | fixedHeader | 固定 pageHeader 的内容到顶部，如果页面内容较少，最好不要使用，会有严重的遮挡问题 | `boolean` | - |
 | affixProps | 固钉的配置，与 antd 完全相同 | `AffixProps` | - |
-
-| footer | 悬浮在底部的操作栏，传入一个数组，会自动加空格 | `ReactNode[]` | - | | waterMarkProps | 配置水印, Layout 会透传给 PageContainer，但是以 PageContainer 的配置优先 | [WaterMarkProps](/components/water-mark) | - | | tabProps | [Tabs 的相关属性](https://ant.design/components/tabs-cn/#Tabs),只有卡片样式的页签支持新增和关闭选项。使用 closable={false} 禁止关闭。 | `TabsProps` | |
+| footer | 悬浮在底部的操作栏，传入一个数组，会自动加空格 | `ReactNode[]` | - |
+| waterMarkProps | 配置水印，Layout 会透传给 PageContainer，但是以 PageContainer 的配置优先 | [WaterMarkProps](/components/water-mark) | - |
+| tabProps | Tabs 的相关属性，只有卡片样式的页签支持新增和关闭选项。使用 `closable={false}` 禁止关闭 | [TabsProps](https://ant.design/components/tabs-cn/#Tabs) | - |
 
 > fixedHeader 使用了 antd 的 Affix 实现，默认监听 body，如果你的滚动条不在 body 上需要人肉[设置](https://ant.design/components/affix-cn/)一下。
 
@@ -103,4 +104,22 @@ FooterToolbar api 比较简单，主要功能是实现了在 layout 中自动控
 >
   <Button>提交</Button>
 </FooterToolbar>
+```
+
+### ProBreadcrumb
+
+配置与面包屑相同，只是增加了自动根据路由计算面包屑的功能。此功能必须要在 ProLayout 中使用。
+
+```tsx | pure
+import { ProLayout, ProBreadcrumb } from '@ant-design/pro-layout';
+
+return (props) => (
+  <ProLayout
+    {...props}
+    // 将面包屑显示在顶部
+    headerContentRender={() => {
+      return <ProBreadcrumb />;
+    }}
+  />
+);
 ```

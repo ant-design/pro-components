@@ -21,6 +21,28 @@ type GithubIssueItem = {
   closed_at?: string;
 };
 
+const nestedColumns = [
+  {
+    title: 'col without dataIndex',
+    key: 'expand',
+  },
+  {
+    title: 'normal col',
+    dataIndex: 'key',
+  },
+];
+
+const nestedData = [
+  {
+    key: 1,
+    children: [
+      {
+        key: 11,
+      },
+    ],
+  },
+];
+
 const columns: ProColumns<GithubIssueItem>[] = [
   {
     title: '序号',
@@ -52,6 +74,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     initialValue: 'all',
     onFilter: true,
     order: 2,
+    ellipsis: true,
     fieldProps: {
       noStyle: true,
     },
@@ -110,6 +133,7 @@ const columns: ProColumns<GithubIssueItem>[] = [
     dataIndex: 'created_at',
     valueType: 'dateTime',
     width: '20%',
+    ellipsis: true,
     render: (value) => {
       return {
         children: value,
@@ -170,6 +194,7 @@ export default () => {
           </Button>,
         ]}
       />
+      <ProTable columns={nestedColumns} dataSource={nestedData} />
       <ProTable<GithubIssueItem>
         columns={columns}
         actionRef={(ref) => console.log(ref)}

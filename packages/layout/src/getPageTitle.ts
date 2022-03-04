@@ -42,14 +42,14 @@ export type GetPageTitleProps = {
 };
 
 /**
- * 获取关于 pageTile 的所有信息方便包装
+ * 获取关于 pageTitle 的所有信息方便包装
  *
  * @param props
- * @param ignoreTile
+ * @param ignoreTitle
  */
 const getPageTitleInfo = (
   props: GetPageTitleProps,
-  ignoreTile?: boolean,
+  ignoreTitle?: boolean,
 ): {
   // 页面标题
   title: string;
@@ -63,12 +63,12 @@ const getPageTitleInfo = (
     breadcrumb,
     breadcrumbMap,
     formatMessage,
-    title = 'Ant Design Pro',
+    title,
     menu = {
       locale: false,
     },
   } = props;
-  const pageTitle = ignoreTile ? '' : title || '';
+  const pageTitle = ignoreTitle ? '' : title || '';
   const currRouterData = matchParamsPath(pathname, breadcrumb, breadcrumbMap);
   if (!currRouterData) {
     return {
@@ -93,7 +93,7 @@ const getPageTitleInfo = (
       pageName: pageTitle,
     };
   }
-  if (ignoreTile || !title) {
+  if (ignoreTitle || !title) {
     return {
       title: pageName,
       id: currRouterData.locale || '',
@@ -109,8 +109,8 @@ const getPageTitleInfo = (
 
 export { getPageTitleInfo };
 
-const getPageTitle = (props: GetPageTitleProps, ignoreTile?: boolean) => {
-  return getPageTitleInfo(props, ignoreTile).title;
+const getPageTitle = (props: GetPageTitleProps, ignoreTitle?: boolean) => {
+  return getPageTitleInfo(props, ignoreTitle).title;
 };
 
 export default getPageTitle;

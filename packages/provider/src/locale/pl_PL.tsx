@@ -53,4 +53,7 @@ export default {
     prev: 'Zurück',
     submit: 'Abschließen',
   },
+  loginForm: {
+    submitText: 'Zaloguj się',
+  },
 };

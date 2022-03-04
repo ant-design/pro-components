@@ -2,6 +2,102 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.8...@ant-design/pro-provider@1.6.0) (2022-02-21)
+
+### Features
+
+- **form:** 更新货币符号 ([#4667](https://github.com/ant-design/pro-components/issues/4667)) ([b873a17](https://github.com/ant-design/pro-components/commit/b873a17d2d7c2265c7f381e2a09825ed8706444d))
+
+## [1.5.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.7...@ant-design/pro-provider@1.5.8) (2022-02-14)
+
+### Bug Fixes
+
+- **field:** setting debounceTime results in repeated requests ([#4609](https://github.com/ant-design/pro-components/issues/4609)) ([51d2441](https://github.com/ant-design/pro-components/commit/51d2441b080c7060fe083803e8a89c4db3ec0a67))
+
+## [1.5.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.6...@ant-design/pro-provider@1.5.7) (2022-02-10)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.5.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.5...@ant-design/pro-provider@1.5.6) (2022-01-21)
+
+### Bug Fixes
+
+- **form:** 🐛 readonly form will not render the latest value ([#4494](https://github.com/ant-design/pro-components/issues/4494)) ([2c169a8](https://github.com/ant-design/pro-components/commit/2c169a846b72351f9988c22fd5c2ef2b1684b577))
+
+## [1.5.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.4...@ant-design/pro-provider@1.5.5) (2022-01-05)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.5.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.3...@ant-design/pro-provider@1.5.4) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.5.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.2...@ant-design/pro-provider@1.5.3) (2021-12-10)
+
+### Bug Fixes
+
+- **provide:** close auto clean cache ([#4243](https://github.com/ant-design/pro-components/issues/4243)) ([e638cb5](https://github.com/ant-design/pro-components/commit/e638cb5ff7830793020c94328ef2833c20f352f7))
+
+## [1.5.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.1...@ant-design/pro-provider@1.5.2) (2021-12-08)
+
+### Bug Fixes
+
+- **table:** fix keywords reset formSearch error ([#4214](https://github.com/ant-design/pro-components/issues/4214)) ([146f1da](https://github.com/ant-design/pro-components/commit/146f1da84d10df0cbb350bd350b17473778bced9))
+
+## [1.5.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.5.0...@ant-design/pro-provider@1.5.1) (2021-12-07)
+
+### Bug Fixes
+
+- simplify swr usage ([#4181](https://github.com/ant-design/pro-components/issues/4181)) ([ed66732](https://github.com/ant-design/pro-components/commit/ed6673272882af09287eb87457df2a8ca9daf7f1))
+
+# [1.5.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.20...@ant-design/pro-provider@1.5.0) (2021-11-30)
+
+### Features
+
+- **table:** support revalidateOnFocus ([#4120](https://github.com/ant-design/pro-components/issues/4120)) ([1046109](https://github.com/ant-design/pro-components/commit/104610914eedfecd88ceb2e38d86c47ff8b2fc89))
+
+## [1.4.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.19...@ant-design/pro-provider@1.4.20) (2021-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.4.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.18...@ant-design/pro-provider@1.4.19) (2021-09-24)
+
+### Bug Fixes
+
+- **table:** optimize style performance ([#3706](https://github.com/ant-design/pro-components/issues/3706)) ([df59f7e](https://github.com/ant-design/pro-components/commit/df59f7e893ba59a564d253bbd7330d4ed7da2900))
+
+## [1.4.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.17...@ant-design/pro-provider@1.4.18) (2021-09-16)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.4.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.16...@ant-design/pro-provider@1.4.17) (2021-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.4.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.15...@ant-design/pro-provider@1.4.16) (2021-07-19)
+
+### Bug Fixes
+
+- **form:** proformUploadDragger padding ([#3251](https://github.com/ant-design/pro-components/issues/3251)) ([3b2b43c](https://github.com/ant-design/pro-components/commit/3b2b43c050e324c92beb22f314a98dbab2988f06))
+
+## [1.4.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.14...@ant-design/pro-provider@1.4.15) (2021-07-01)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.4.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.13...@ant-design/pro-provider@1.4.14) (2021-06-17)
+
+### Bug Fixes
+
+- **form:** switch width style fixed ([4e7543d](https://github.com/ant-design/pro-components/commit/4e7543daca5c5da3cfef2761737301e392a41cac))
+
+## [1.4.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.12...@ant-design/pro-provider@1.4.13) (2021-06-08)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
+## [1.4.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.11...@ant-design/pro-provider@1.4.12) (2021-04-29)
+
+**Note:** Version bump only for package @ant-design/pro-provider
+
 ## [1.4.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-provider@1.4.10...@ant-design/pro-provider@1.4.11) (2021-04-19)
 
 **Note:** Version bump only for package @ant-design/pro-provider

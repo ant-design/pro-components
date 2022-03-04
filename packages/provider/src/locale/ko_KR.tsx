@@ -45,13 +45,16 @@ export default {
     density: '여백',
     densityDefault: '기본',
     densityLarger: '많은 여백',
-    densityMiddle: '중건 여백',
+    densityMiddle: '중간 여백',
     densitySmall: '좁은 여백',
   },
   stepsForm: {
     next: '다음',
     prev: '이전',
     submit: '종료',
+  },
+  loginForm: {
+    submitText: '로그인',
   },
   editableTable: {
     action: {

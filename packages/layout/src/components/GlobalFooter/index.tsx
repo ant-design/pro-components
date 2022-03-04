@@ -42,6 +42,7 @@ export default ({ className, prefixCls, links, copyright, style }: GlobalFooterP
               title={link.key}
               target={link.blankTarget ? '_blank' : '_self'}
               href={link.href}
+              rel="noreferrer"
             >
               {link.title}
             </a>

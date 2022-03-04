@@ -53,13 +53,19 @@ interface RequestData {
 
 ### 基础定义列表
 
-### 常见配置
-
-<code src="./demos/dynamic-descriptions.tsx" title="常见配置" height="500px"/>
-
 ### 基本使用
 
 <code src="./demos/base.tsx" title="基础定义列表" />
+
+### 数组类型 dataIndex
+
+<code src="./demos/arrayDataIndex.tsx" title="数组类型dataIndex" />
+
+### 格式化配置
+
+根据配置格式化日期
+
+<code src="./demos/format.tsx" title="format configuration" />
 
 ### 远程请求数据
 
@@ -77,7 +83,7 @@ interface RequestData {
 
 ProDescriptions 支持了和 Table 相同的 dataSource
 
-<code src="./demos/data-source.tsx" title="dataSource 配置数据"/>
+<code src="./demos/use-data-source.tsx" title="dataSource 配置数据"/>
 
 ### 可编辑的定义列表
 
@@ -95,10 +101,12 @@ API 与 ProTable 相同
 | --- | --- | --- | --- |
 | title | 描述列表的标题，显示在最顶部 | `ReactNode` | - |
 | tooltip | 内容的补充描述，hover 后显示 | `string` | - |
+| ellipsis | 是否自动缩略 | `boolean` | - |
+| copyable | 是否支持复制 | `boolean` | - |
 | loading | 展示一个加载的骨架屏，骨架屏和 dom 不会一一对应 | `boolean` | - |
 | extra | 描述列表的操作区域，显示在右上方 | `string` \| `ReactNode` | - |
 | bordered | 是否展示边框 | boolean | false |
-| column | 一行的 `ProDescriptionsItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | number | 3 |
+| column | 一行的 `ProDescriptionsItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 1, sm: 2, md: 3}` | number | 3 |
 | size | 设置列表的大小。可以设置为 `middle` 、`small`, 或不填（只有设置 `bordered={true}` 生效） | `default` \| `middle` \| `small` | - |
 | layout | 描述布局 | `horizontal` \| `vertical` | `horizontal` |
 | colon | 配置 `ProDescriptions.Item` 的 `colon` 的默认值 | boolean | true |
@@ -112,12 +120,16 @@ API 与 ProTable 相同
 | 属性 | 描述 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | form | 可编辑表格的 form 实例，使用 `Form.useForm` 生成后使用 | `FormInstance` | - |
+| formProps | 可以配置 form 的属性，但是不支持 onFinish | [`FormProps`](https://procomponents.ant.design/components/form#proform) | - |
 | editableKeys | 正在编辑的行，受控属性。 默认 `key` 会使用 `rowKey` 的配置，如果没有配置会使用 `index`，建议使用 rowKey | `Key[]` | - |
 | onChange | 行数据被修改的时候触发 | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | 保存一行的时候触发，只更新 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onSave | 保存一行的时候触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| saveText | 保存一行的文字 | `React.ReactNode` | `保存` |
 | onDelete | 删除一行的时候触发 | `(key: Key, row: T) => Promise<any>` | - |
-| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
-| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
+| deleteText | 删除一行的文字 | `React.ReactNode` | `删除` |
+| onCancel | 取消编辑一行时触发 | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
+| cancelText | 取消编辑一行的文字 | `React.ReactNode` | `取消` |
+| actionRender | 自定义编辑模式的操作栏 | `(row: T, config: ActionRenderConfig<T>,defaultDom) => ReactNode[]` | - |
 | deletePopconfirmMessage | 删除时弹出的确认框提示消息 | `ReactNode` | `删除此行？` |
 | onlyOneLineEditorAlertMessage | 只能编辑一行的的提示 | `ReactNode` | `只能同时编辑一行` |
 | onlyAddOneLineAlertMessage | 只能同时新增一行的提示 | `ReactNode` | `只能新增一行` |
@@ -130,7 +142,7 @@ API 与 ProTable 相同
 | tooltip | 内容的补充描述，hover 后显示 | string | - |
 | span | 包含列的数量 | number | 1 |
 | valueType | 格式化的类型 | `ValueType` | - |
-| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
 | request | 从网络请求枚举数据 | `()=>Promise<{[key:string`\|`number]:any}>` | - |
 | dataIndex | 返回数据的 key 与 ProDescriptions 的 request 配合使用，用于配置式的定义列表 | `React.Text` \| `React.Text[]` | - |
 | editable | 在编辑表格中是否可编辑的，函数的参数和 table 的 render 一样 | `false` \| `(text: any, record: T,index: number) => boolean` | true |

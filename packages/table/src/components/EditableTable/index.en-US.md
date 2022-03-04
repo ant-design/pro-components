@@ -17,6 +17,10 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 <code src="./demos/basic.tsx" background="#f5f5f5" height="420px" title="Editable Form" />
 
+### Link with content outside the edit form
+
+<code src="./demos/form-linkage.tsx" background="#f5f5f5" height="420px" title="Link with content outside the edit form" />
+
 ### Custom Editable Tables
 
 <code src="./demos/custom.tsx" background="#f5f5f5" height="420px" title="Custom Editable Form" />
@@ -31,28 +35,28 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 | Properties | Description | Type | Default |
 | --- | --- | --- | --- |
-| value | Same as dataSource, pass in an array of metadata for table rendering | `T[]` | `undefined` |
-| onChange | The dataSource is triggered when the table is modified, both deletion and modification. | `(value:T[])=>void` | `undefined` |
-| recordCreatorProps | Configuration related to creating a new row of data | [RecordCreatorProps](#recordcreator) & [ButtonProps](https://ant.design/components/button-cn/ #API) | - |
-| maxLength | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number | - |
-| editable | Whether or not editable in the edit table, the function's arguments are the same as the table's render | `false` \| `(text: any, record: T,index: number) => boolean` | true |
+| `value` | Same as dataSource, pass in an array of metadata for table rendering | `T[]` | `undefined` |
+| `onChange` | The dataSource is triggered when the table is modified, both deletion and modification. | `(value:T[])=>void` | `undefined` |
+| `recordCreatorProps` | Configuration related to creating a new row of data | [RecordCreatorProps](#recordcreator) & [ButtonProps](<https://ant.design/components/button/> #API) | - |
+| `maxLength` | The maximum number of rows, the New button will disappear when the maximum number of rows is reached | number | - |
+| `editable` | Related configuration of editable table | [TableRowEditable<T>](#editable-Editable row configuration) | - |
+| `controlled` | Whether controlled, if controlled every edit modifies the dataSource | `boolean` | false |
 
 > Other APIs are the same as ProTable.
-
-### editable 编辑行配置
 
 ### editable edit line configuration
 
 | Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
 | form | Form instance of editable form, use `Form.useForm` to generate and use | `FormInstance` | - |
-| editableKeys | Row being edited, controlled attributes. The default `key` will use the configuration of `rowKey`, if there is no configuration, it will use the `index`, it is recommended to use rowKey | `Key[]` | - |
+| formProps | form properties can be configured, but onFinish is not supported | [`FormProps'](https://procomponents.ant.design/components/form#proform) | - |
+| editableKeys | Row being edited, controlled attributes. The default`key` will use the configuration of `rowKey`,if there is no configuration, it will use the`index`, it is recommended to use rowKey | `Key[]` | - |
 | onChange | Triggered when row data is modified | `(editableKeys: Key[], editableRows: T[]) => void` | - |
-| onSave | Triggered when a row is saved, only update | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onSave | Triggered when a row is saved | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | onDelete | Triggered when a row is deleted | `(key: Key, row: T) => Promise<any>` | - |
-| onCancel | Triggered when cancel editing a line | `(key: Key, row: T,newLine?:newLineConfig) => Promise<any>` | - |
+| onCancel | Triggered when cancel editing a line | `(key: Key, row: T,originRow:T,newLine?:newLineConfig) => Promise<any>` | - |
 | actionRender | Custom edit mode action bar | `(row: T, config: ActionRenderConfig<T>) => ReactNode[]` | - |
-| deletePopconfirmMessage | The pop-up confirmation box prompt message when deleting | `ReactNode` | `Delete this line? ` |
+| deletePopconfirmMessage | The pop-up confirmation box prompt message when deleting | `ReactNode` | `Delete this line?` |
 | onlyOneLineEditorAlertMessage | Only one line can be edited | `ReactNode` | `Only one line can be edited at the same time` |
 | onlyAddOneLineAlertMessage | Only one line can be added at the same time | `ReactNode` | `Only add one line` |
 
@@ -60,12 +64,12 @@ EditableProTable is essentially the same as ProTable, with a few presets added t
 
 In order to use it, we preset a New function, which in most cases already meets most new creation needs, but many times the needs are always strange. We have also prepared `recordCreatorProps` to control the generation of buttons. Same API as the Pro series components, `recordCreatorProps={false}` turns off the button and uses `actionRef.current?.addEditRecord(row)` to control the new row.
 
-`recordCreatorProps` also supports some custom styles, `position='top'|'end'` can be configured to add at the head or at the end of the table. `record` can be configured to add a new row with default data. Here is an example
+`recordCreatorProps` also supports some custom styles, `position='top'|'bottom'` can be configured to add at the head or at the end of the table. `record` can be configured to add a new row with default data. Here is an example
 
 ```typescript
 recordCreatorProps = {
   // 顶部添加还是末尾添加
-  position: 'end',
+  position: 'bottom',
   // 新增一行的方式，默认是缓存，取消后就会消失
   // 如果设置为 dataSource 会触发 onchange，取消后也不会消失，只能删除
   newRecordType: 'dataSource',
@@ -76,7 +80,7 @@ recordCreatorProps = {
   style: {
     display: 'none',
   },
-  // https://ant.design/components/button-cn/#API
+  // https://ant.design/components/button/#API
   ...antButtonProps,
 };
 ```
@@ -84,7 +88,7 @@ recordCreatorProps = {
 ```typescript
 recordCreatorProps = {
   // Add at the top or at the end
-  position: 'end',
+  position: 'bottom',
   // the way to add a new line, default is cached, will disappear when cancelled
   // if set to dataSource it will trigger onchange, it won't disappear if cancelled, only deleted
   newRecordType: 'dataSource',
@@ -95,7 +99,7 @@ recordCreatorProps = {
   style: {
     display: 'none',
   },
-  // https://ant.design/components/button-cn/#API
+  // https://ant.design/components/button/#API
   ... .antButtonProps,
 };
 ```
@@ -211,8 +215,8 @@ render: (text, record, _, action) => [
     Edit
   </a>,
   <EditableProTable.RecordCreator
-    record={{
-      ... .record,
+    record={()=>{
+      ...record,
       id: (Math.random() * 1000000).toFixed(0),
     }}
   >

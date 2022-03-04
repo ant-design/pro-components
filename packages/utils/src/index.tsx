@@ -27,11 +27,14 @@ import useMountMergeState from './useMountMergeState';
 /** Hooks */
 import useDebounceFn from './hooks/useDebounceFn';
 import usePrevious from './hooks/usePrevious';
-import conversionSubmitValue from './conversionSubmitValue';
+import conversionMomentValue, { dateFormatterMap, convertMoment } from './conversionMomentValue';
 import transformKeySubmitValue from './transformKeySubmitValue';
 import parseValueToMoment from './parseValueToMoment';
-import useDeepCompareEffect from './hooks/useDeepCompareEffect';
+import useDeepCompareEffect, { useDeepCompareEffectDebounce } from './hooks/useDeepCompareEffect';
 import useDocumentTitle from './hooks/useDocumentTitle';
+import type { ProRequestData } from './hooks/useFetchData';
+import useFetchData from './hooks/useFetchData';
+import useLatest from './hooks/useLatest';
 
 /** Type */
 import type {
@@ -48,6 +51,9 @@ import type {
   ProFieldValueObjectType,
   ProFieldTextType,
   RequestOptionsType,
+  ProFieldProps,
+  ProSchemaValueType,
+  SearchConvertKeyFn,
 } from './typing';
 import getFieldPropsOrFormItemProps from './getFieldPropsOrFormItemProps';
 import DropdownFooter from './components/DropdownFooter';
@@ -60,10 +66,20 @@ import type {
 } from '@ant-design/pro-provider';
 import ErrorBoundary from './components/ErrorBoundary';
 import dateArrayFormatter from './dateArrayFormatter';
+import ProFormContext from './components/ProFormContext';
+import isDeepEqualReact from './isDeepEqualReact';
+import { arrayMoveImmutable } from './array-move';
+import { merge } from './merge';
+import { genCopyable } from './genCopyable';
+import { useRefFunction } from './hooks/useRefFunction';
+import { nanoid } from './nanoid';
+import useDebounceValue from './hooks/useDebounceValue';
 
 export type {
+  SearchConvertKeyFn,
   RequestOptionsType,
   ProSchema,
+  ProSchemaValueType,
   ProCoreActionType,
   ProSchemaComponentTypes,
   ProSchemaValueEnumMap,
@@ -72,6 +88,7 @@ export type {
   ProTableEditableFnType,
   RowEditableConfig,
   RowEditableType,
+  ProRequestData,
   ProFieldRequestData,
   UseEditableType,
   UseEditableUtilType,
@@ -85,23 +102,32 @@ export type {
   ProFieldTextType,
   ProFieldValueEnumType,
   ProFieldValueObjectType,
+  ProFieldProps,
 };
 
 export {
-  omitBoolean,
   LabelIconTip,
+  ProFormContext,
+  isDeepEqualReact,
   FilterDropdown,
   FieldLabel,
+  arrayMoveImmutable,
   InlineErrorFormItem,
   DropdownFooter,
   ErrorBoundary,
+  dateFormatterMap,
   // function
   transformKeySubmitValue,
-  conversionSubmitValue,
+  conversionMomentValue as conversionSubmitValue,
+  conversionMomentValue,
+  convertMoment,
   parseValueToMoment,
+  genCopyable,
   useDocumentTitle,
   isImg,
+  omitBoolean,
   isNil,
+  merge,
   isDropdownValueType,
   omitUndefined,
   omitUndefinedAndEmptyArr,
@@ -112,11 +138,17 @@ export {
   runFunction,
   getFieldPropsOrFormItemProps,
   dateArrayFormatter,
+  nanoid,
   // hooks
   useEditableArray,
   useEditableMap,
+  useRefFunction,
   useDeepCompareEffect,
   usePrevious,
   useDebounceFn,
   useMountMergeState,
+  useFetchData,
+  useDeepCompareEffectDebounce,
+  useLatest,
+  useDebounceValue,
 };

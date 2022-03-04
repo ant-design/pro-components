@@ -1,5 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
-import React from 'react';
+import React, { useContext, useImperativeHandle, useEffect, useRef, useState } from 'react';
 import type { SelectProps } from 'antd';
 import { Select, ConfigProvider } from 'antd';
 import classNames from 'classnames';
@@ -19,6 +18,8 @@ export type DataValuesType<T> = DataValueType<T> | DataValueType<T>[];
 
 export interface SearchSelectProps<T = Record<string, any>>
   extends Omit<SelectProps<KeyLabel | KeyLabel[]>, 'options'> {
+  /** 防抖动时间 默认10 单位ms */
+  debounceTime?: number;
   /** 自定义搜索方法, 返回搜索结果的 Promise */
   request?: (params: { query: string }) => Promise<DataValueType<T>[]>;
   /** 自定义选项渲染 */
@@ -81,6 +82,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     onSearch,
     onFocus,
     onChange,
+    autoClearSearchValue,
     searchOnFocus = false,
     resetAfterSelect = false,
     optionFilterProp = 'label',
@@ -93,9 +95,28 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
     prefixCls: customizePrefixCls,
     onClear,
     searchValue: propsSearchValue,
+    showSearch,
+    fieldNames,
     ...restProps
   } = props;
+
+  const {
+    label: labelPropsName = 'label',
+    value: valuePropsName = 'value',
+    options: optionsPropsName = 'options',
+  } = fieldNames || {};
+
   const [searchValue, setSearchValue] = useState(propsSearchValue);
+
+  const selectRef = useRef<any>();
+
+  useImperativeHandle(ref, () => selectRef.current);
+
+  useEffect(() => {
+    if (restProps.autoFocus) {
+      selectRef?.current?.focus();
+    }
+  }, [restProps.autoFocus]);
 
   useEffect(() => {
     setSearchValue(propsSearchValue);
@@ -129,17 +150,19 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   const renderOptions = (mapOptions: RequestOptionsType[]) => {
     return mapOptions.map((item) => {
       const {
-        label,
-        value,
         disabled: itemDisable,
         className: itemClassName,
         optionType,
       } = item as RequestOptionsType;
 
+      const label = item[labelPropsName];
+      const value = item[valuePropsName];
+      const itemOptions = item[optionsPropsName] ?? [];
+
       if (optionType === 'optGroup') {
         return (
-          <OptGroup key={item.key || item.value} label={item.label}>
-            {renderOptions(item?.children || [])}
+          <OptGroup key={value} label={label}>
+            {renderOptions(itemOptions)}
           </OptGroup>
         );
       }
@@ -147,11 +170,11 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         <Option
           {...item}
           value={value!}
-          key={value}
+          key={value || label?.toString()}
           disabled={itemDisable}
           data-item={item}
           className={`${prefixCls}-option ${itemClassName || ''}`}
-          label={item.label}
+          label={label}
         >
           {optionItemRender?.(item as any) || label}
         </Option>
@@ -160,22 +183,25 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
   };
   return (
     <Select<any>
-      ref={ref}
+      ref={selectRef}
       className={classString}
       allowClear
       disabled={disabled}
       mode={mode}
+      showSearch={showSearch}
       searchValue={searchValue}
       optionFilterProp={optionFilterProp}
       optionLabelProp={optionLabelProp}
       onClear={() => {
         onClear?.();
         fetchData('');
-        setSearchValue('');
+        if (showSearch) {
+          setSearchValue('');
+        }
       }}
       {...restProps}
       onSearch={
-        restProps?.showSearch
+        showSearch
           ? (value) => {
               fetchData(value);
               onSearch?.(value);
@@ -184,6 +210,13 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
           : undefined
       }
       onChange={(value, optionList, ...rest) => {
+        // 将搜索框置空 和 antd 行为保持一致
+        if (showSearch && autoClearSearchValue) {
+          fetchData('');
+          onSearch?.('');
+          setSearchValue('');
+        }
+
         if (!props.labelInValue) {
           onChange?.(value, optionList, ...rest);
           return;
@@ -198,6 +231,7 @@ const SearchSelect = <T,>(props: SearchSelectProps<T[]>, ref: any) => {
         // 合并值
         const mergeValue = getMergeValue(value, optionList) as any;
         onChange?.(mergeValue, optionList, ...rest);
+
         // 将搜索结果置空，重新搜索
         if (resetAfterSelect) resetData();
       }}

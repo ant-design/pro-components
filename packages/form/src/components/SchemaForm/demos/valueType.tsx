@@ -77,7 +77,7 @@ export default () => {
         label="valueType 选择"
         options={options}
         width={200}
-        mode="singe"
+        mode="single"
         fieldProps={{
           labelInValue: false,
           value: valueType,
@@ -85,7 +85,6 @@ export default () => {
         }}
       />
       <BetaSchemaForm<DataItem>
-        trigger={<a>点击我</a>}
         layoutType="Form"
         onFinish={async (values) => {
           console.log(values);

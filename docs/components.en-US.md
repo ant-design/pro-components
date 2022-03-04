@@ -19,14 +19,6 @@ ProComponents was developed to reduce the cost of implementing CRUD in the middl
 - [ProDescriptions](/components/descriptions) provides the ability to use the same configuration as a table
 - [ProSkeleton](/components/skeleton) Page level skeleton screen
 
-## CRUD
-
-ProTable, ProDescriptions, and ProForm are all wrapped based on ProFields; ProTable and ProDescriptions render different ProFields based on valueType, and Form is wrapped by a different Form is wrapped by a different FormField.
-
-ProForm can easily implement read-only mode, ProTable can quickly implement query forms and editable forms, ProDescriptions can implement node editing, and here is an example You can switch between three components.
-
-<code src="../packages/table/src/demos/crud.tsx">
-
 ## Form layout toggle
 
 The main feature of ProForm is that it has a lot of pre-defined layouts, so if you need to switch you just need to change the Layout of the outer wrapper, here is a demo.
@@ -37,9 +29,19 @@ The main feature of ProForm is that it has a lot of pre-defined layouts, so if y
 
 ProTable, ProList uses a new data structure which is very easy to use if you use the parameters we have agreed upon.
 
-``tsx | pure const msg: { data: T[]; page: number; success: boolean; total: number; } = { data: [], page: 1, success: true, total: 0, };
-
-````
+```tsx | pure
+const msg: {
+  data: T[];
+  page: number;
+  success: boolean;
+  total: number;
+} = {
+  data: [],
+  page: 1,
+  success: true,
+  total: 0,
+};
+```
 
 If your backend data uses a familiar url, we could use a request to convert it, but it would be a pain to configure each table. If you're using umi's request, we can define a global transformer. We need to configure this in app.tsx
 
@@ -64,7 +66,7 @@ export const request: RequestConfig = {
 import { request } from 'umi';
 
 <ProTable request={request('/list')} />;
-````
+```
 
 If fetch is used, you can customize fetch.
 
@@ -124,7 +126,7 @@ export type ProSchema<T = unknown, U = string, Extra = unknown> = {
   /**
    *@name shows an icon, hover shows some hints
    */
-  tooltip?: string;
+  tooltip?: LabelTooltipType | string;
 
   /**
    * @deprecated you can use tooltip, this change is for consistency with antd

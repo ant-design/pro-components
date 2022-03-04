@@ -7,11 +7,109 @@ import Field from '@ant-design/pro-field';
 
 import Demo from './fixtures/demo';
 import { waitForComponentToPaint, waitTime } from '../util';
+import { TreeSelectDemo } from './fixtures/treeSelectDemo';
+
+const domRef = React.createRef();
 
 describe('Field', () => {
   it('🐴 base use', async () => {
     const html = render(<Field text="100" valueType="money" mode="edit" />);
     expect(html).toMatchSnapshot();
+  });
+
+  it('🐴 money onchange values', async () => {
+    const html = mount(<Field text="100" numberPopoverRender valueType="money" mode="edit" />);
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+
+    act(() => {
+      html.find('InputNumber').simulate('mousedown');
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 1000');
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: '￥ 100',
+        },
+      });
+    });
+
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 100');
+  });
+
+  it('🐴 money onchange values, when no moneySymbol', async () => {
+    const html = mount(<Field text="100" moneySymbol={false} valueType="money" mode="edit" />);
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+
+    act(() => {
+      html.find('InputNumber').simulate('mousedown');
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('1000');
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: '100',
+        },
+      });
+    });
+
+    html.update();
+    expect(html.find('input').props().value).toBe('100');
+  });
+
+  it('🐴 money numberPopoverRender onchange values', async () => {
+    const html = mount(
+      <Field text="100" numberPopoverRender={() => 123} valueType="money" mode="edit" />,
+    );
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 1000');
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: '￥ 100',
+        },
+      });
+    });
+
+    html.update();
+    expect(html.find('input').props().value).toBe('￥ 100');
+  });
+
+  it('🐴 should trigger onChange function provided when change', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <Field text="100" valueType="money" mode="edit" fieldProps={{ onChange: fn }} />,
+    );
+    act(() => {
+      html.find('input').simulate('change', {
+        target: {
+          value: 1000,
+        },
+      });
+    });
+
+    expect(fn).toBeCalled();
   });
 
   it('🐴 percent=0', async () => {
@@ -82,13 +180,14 @@ describe('Field', () => {
     expect(html.text()).toBe('default');
   });
 
-  ['select', 'checkbox', 'radio', 'radioButton'].forEach((valueType) => {
+  ['select', 'checkbox', 'radio', 'radioButton', 'cascader', 'treeSelect'].forEach((valueType) => {
     it(`🐴 ${valueType} support render function`, async () => {
       const html = render(
         <Field
           text="default"
           valueType={valueType as 'radio'}
           mode="read"
+          ref={domRef}
           render={(text, _, dom) => <>pre{dom}</>}
           valueEnum={{
             default: { text: '关闭', status: 'Default' },
@@ -115,6 +214,7 @@ describe('Field', () => {
           mode="read"
           request={async () => {
             fn();
+            await waitTime(1000);
             return [
               { label: '全部', value: 'all' },
               { label: '未解决', value: 'open' },
@@ -125,7 +225,7 @@ describe('Field', () => {
         />,
       );
 
-      await waitForComponentToPaint(html, 100);
+      await waitForComponentToPaint(html, 1200);
       act(() => {
         ref.current?.fetchData();
       });
@@ -172,27 +272,29 @@ describe('Field', () => {
       expect(html.text()).toBeFalsy();
     });
 
-    it('🐴 select request loading', async () => {
-      const html = render(
-        <Field
-          text="default"
-          valueType={valueType as 'radio'}
-          mode="read"
-          request={async () => {
-            await waitTime(10000);
-            return [
-              { label: '全部', value: 'all' },
-              { label: '未解决', value: 'open' },
-              { label: '已解决', value: 'closed' },
-              { label: '解决中', value: 'processing' },
-            ];
-          }}
-        />,
-      );
-      expect(html.text()).toBe('default');
-    });
+    if (!['checkbox', 'radio', 'radioButton'].includes(valueType)) {
+      it(`🐴 ${valueType} request loading with request`, async () => {
+        const html = render(
+          <Field
+            text="default"
+            valueType={valueType as 'radio'}
+            mode="read"
+            request={async () => {
+              await waitTime(10000);
+              return [
+                { label: '全部', value: 'all' },
+                { label: '未解决', value: 'open' },
+                { label: '已解决', value: 'closed' },
+                { label: '解决中', value: 'processing' },
+              ];
+            }}
+          />,
+        );
+        expect(html.text()).toBe('default');
+      });
+    }
 
-    it('🐴 select request loading', async () => {
+    it(`🐴 ${valueType} request loading without request`, async () => {
       const html = render(
         <Field text="default" valueType={valueType as 'radio'} mode="read" options={[]} />,
       );
@@ -289,6 +391,215 @@ describe('Field', () => {
     expect(html.text()).toBe('all');
   });
 
+  ['select', 'cascader', 'treeSelect'].forEach((valueType) => {
+    it(`🐴 ${valueType} options fieldNames`, async () => {
+      const html = mount(
+        <Field
+          text={['0-0', '0-0-0']}
+          fieldProps={{
+            fieldNames: {
+              label: 'title',
+              // select
+              options: 'children',
+            },
+            options: [
+              {
+                title: 'Node1',
+                value: '0-0',
+                children: [
+                  {
+                    title: 'Child Node1',
+                    value: '0-0-0',
+                  },
+                ],
+              },
+              {
+                title: 'Node2',
+                value: '0-1',
+                children: [
+                  {
+                    title: 'Child Node3',
+                    value: '0-1-0',
+                  },
+                  {
+                    title: 'Child Node4',
+                    value: '0-1-1',
+                  },
+                  {
+                    title: 'Child Node5',
+                    value: '0-1-2',
+                  },
+                ],
+              },
+            ],
+          }}
+          valueType={valueType as 'cascader'}
+          mode="read"
+        />,
+      );
+      await waitForComponentToPaint(html, 100);
+      expect(html.text()).toBe('Node1Child Node1');
+
+      act(() => {
+        html.setProps({
+          fieldProps: { options: [] },
+        });
+      });
+
+      await waitForComponentToPaint(html, 100);
+
+      expect(html.text()).toBe('0-00-0-0');
+    });
+  });
+
+  it(`🐴 treeSelect options single value`, async () => {
+    const html = mount(
+      <TreeSelectDemo
+        multiple={false}
+        labelInValue={false}
+        onChange={(res) => {
+          expect(Array.isArray(res)).toBeFalsy();
+          html.setProps({ value: res });
+        }}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 200);
+
+    const searchInput = html.find('input.ant-select-selection-search-input');
+
+    expect(searchInput.exists()).toBeTruthy();
+
+    act(() => {
+      searchInput.simulate('change', {
+        target: {
+          value: 'Node5',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    await waitForComponentToPaint(html, 200);
+
+    const selectTreeTitle = html.find('span.ant-select-tree-title');
+
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      selectTreeTitle.first().simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(html.text()).toContain('Node2');
+
+    act(() => {
+      selectTreeTitle.last().simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(html.text()).toContain('Child Node5');
+
+    act(() => {
+      html.unmount();
+    });
+  });
+
+  it(`🐴 treeSelect support request function and search, asynchronously loadData`, async () => {
+    const requestFn = jest.fn(),
+      onSearchFn = jest.fn(),
+      onBlurFn = jest.fn(),
+      onClearFn = jest.fn();
+
+    const html = mount(
+      <TreeSelectDemo
+        onSearch={onSearchFn}
+        onBlur={onBlurFn}
+        onClear={onClearFn}
+        loadData={async (node) => {
+          expect(node).toBeTruthy();
+          return;
+        }}
+        onChange={(res: any) => {
+          html.setProps({ value: res });
+        }}
+        request={requestFn}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(requestFn).toBeCalledTimes(1);
+
+    act(() => {
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+      html.find('span.ant-select-tree-switcher_close').last().simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    const searchInput = html.find('input.ant-select-selection-search-input');
+
+    expect(searchInput.exists()).toBeTruthy();
+
+    act(() => {
+      searchInput.simulate('change', {
+        target: {
+          value: 'Node5',
+        },
+      });
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(onSearchFn).toBeCalled();
+
+    act(() => {
+      html.find('.ant-select-tree-switcher_close').forEach((item) => item.simulate('click'));
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    const selectTreeTitle = html.find('.ant-select-tree-title');
+
+    expect(selectTreeTitle.exists()).toBeTruthy();
+    selectTreeTitle.forEach((item) => console.log(item.text()));
+
+    expect(selectTreeTitle.length).toBe(2);
+
+    await waitForComponentToPaint(html, 200);
+
+    act(() => {
+      selectTreeTitle.first().simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 200);
+    act(() => {
+      selectTreeTitle.last().simulate('click');
+    });
+    await waitForComponentToPaint(html, 200);
+
+    expect(html.text()).toContain('Node2Child Node5');
+
+    expect(html.find('input.ant-select-selection-search-input').prop('value')).toBe('');
+
+    html.find('span.ant-select-clear').simulate('mousedown');
+    expect(onClearFn).toBeCalled();
+    expect(html.text()).toContain('');
+
+    act(() => {
+      searchInput.simulate('blur');
+    });
+
+    expect(onBlurFn).toBeCalledTimes(1);
+
+    act(() => {
+      html.unmount();
+    });
+  });
+
   it('🐴 edit and no plain', async () => {
     const html = render(<Demo plain={false} state="edit" />);
     expect(html).toMatchSnapshot();
@@ -325,17 +636,21 @@ describe('Field', () => {
     'progress',
     'percent',
     'digit',
+    'digitRange',
     'second',
     'code',
     'jsonCode',
     'rate',
     'image',
     'color',
+    'cascader',
+    'treeSelect',
   ];
   valueTypes.forEach((valueType) => {
     it(`🐴 valueType support render ${valueType}`, async () => {
       const html = render(
         <Field
+          ref={domRef}
           text="1994-07-29 12:00:00"
           mode="read"
           valueType={valueType as 'text'}
@@ -414,7 +729,7 @@ describe('Field', () => {
           text="100"
           valueType={{
             type: 'money',
-            moneySymbol: '',
+            moneySymbol: false,
             locale,
           }}
           mode="read"
@@ -528,6 +843,84 @@ describe('Field', () => {
     );
     expect(html.text()).toBe('- 100.0%');
   });
+  it('🐴 percent prefix="???" onchange values', async () => {
+    const html = mount(
+      <Field
+        text="100"
+        valueType={{
+          type: 'percent',
+        }}
+        prefix="???"
+        mode="read"
+      />,
+    );
+    // read test
+    expect(html.text()).toBe('???100.00%');
+    // change edit mode
+    html.setProps({
+      mode: 'edit',
+    });
+    // edit test
+    act(() => {
+      html.find('.ant-input-number-input').simulate('change', {
+        target: {
+          value: '123',
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('??? 123');
+    act(() => {
+      html.find('.ant-input-number-input').simulate('change', {
+        target: {
+          value: '123456',
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe('??? 123,456');
+  });
+  it('🐴 percent magic prefix onchange values', async () => {
+    const words = '1234567890 ~!@#$%^&*()_+{}:"?> <?>L:'.split('');
+    const magicPrefix = words
+      .map(() => words[Math.floor(Math.random() * words.length - 1)])
+      .join('');
+    const html = mount(
+      <Field
+        text="100"
+        valueType={{
+          type: 'percent',
+        }}
+        prefix={magicPrefix}
+        mode="read"
+      />,
+    );
+    // read test
+    expect(html.text()).toBe(`${magicPrefix}100.00%`);
+    // change edit mode
+    html.setProps({
+      mode: 'edit',
+    });
+    // edit test
+    act(() => {
+      html.find('.ant-input-number-input').simulate('change', {
+        target: {
+          value: '123',
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe(`${magicPrefix} 123`);
+    act(() => {
+      html.find('.ant-input-number-input').simulate('change', {
+        target: {
+          value: '123456',
+        },
+      });
+    });
+    html.update();
+    expect(html.find('input').props().value).toBe(`${magicPrefix} 123,456`);
+  });
 
   it('🐴 password support visible', async () => {
     const html = mount(<Field text={123456} valueType="password" mode="read" />);
@@ -537,49 +930,6 @@ describe('Field', () => {
     });
     await waitForComponentToPaint(html);
     expect(html.find('span.anticon-eye').exists()).toBeTruthy();
-  });
-
-  it('🐴 valueType=text', async () => {
-    const html = mount(
-      <Field
-        text="100"
-        fieldProps={{
-          composition: true,
-        }}
-        valueType="text"
-        mode="edit"
-      />,
-    );
-    await waitForComponentToPaint(html);
-    html.find('input').simulate('compositionstart', {
-      target: {
-        value: 'xxx',
-      },
-    });
-    await waitForComponentToPaint(html);
-
-    html.find('input').simulate('change', {
-      target: {
-        value: 'xxx',
-      },
-    });
-
-    await waitForComponentToPaint(html);
-
-    html.find('input').simulate('compositionend', {
-      target: {
-        value: 'xxx',
-      },
-    });
-
-    await waitForComponentToPaint(html);
-
-    html.find('input').simulate('change', {
-      target: {
-        value: 'xxx',
-      },
-    });
-    expect(html.find('input').props().value).toBe('xxx');
   });
 
   it('🐴 password support controlled visible', async () => {
@@ -696,5 +1046,172 @@ describe('Field', () => {
       />,
     );
     expect(html.text()).toBe('2');
+  });
+
+  it(`🐴 valueType digit support formatter`, async () => {
+    const html = render(
+      <Field
+        text={10000}
+        mode="read"
+        valueType="digit"
+        fieldProps={{
+          formatter: (value: string) => `$${value}`,
+        }}
+      />,
+    );
+    expect(html.text()).toBe('$￥ 10000');
+  });
+
+  it(`🐴 valueType digitRange base use`, async () => {
+    const html = render(<Field text={[12.34, 56.78]} mode="read" valueType="digitRange" />);
+    expect(html.text()).toBe('￥ 12.34 ~ ￥ 56.78');
+  });
+
+  it(`🐴 valueType digitRange normal input simulate`, async () => {
+    const html = mount(<Field mode="edit" valueType="digitRange" />);
+    await waitForComponentToPaint(html);
+    act(() => {
+      html
+        .find('.ant-input-number-input')
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: '12.34',
+          },
+        });
+      html
+        .find('.ant-input-number-input')
+        .at(1)
+        .simulate('change', {
+          target: {
+            value: '56.78',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('.ant-input-number-input').at(0).props().value).toBe('12.34');
+    expect(html.find('.ant-input-number-input').at(1).props().value).toBe('56.78');
+  });
+
+  it(`🐴 valueType digitRange will exchange when value1 > valu2`, async () => {
+    const html = mount(<Field mode="edit" valueType="digitRange" />);
+    await waitForComponentToPaint(html);
+    act(() => {
+      html
+        .find('.ant-input-number-input')
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: '56.78',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html
+        .find('.ant-input-number-input')
+        .at(1)
+        .simulate('change', {
+          target: {
+            value: '12.34',
+          },
+        });
+    });
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('.ant-input-number-input').at(1).simulate('blur');
+    });
+
+    await waitForComponentToPaint(html);
+
+    expect(html.find('.ant-input-number-input').at(0).props().value).toBe('12.34');
+    expect(html.find('.ant-input-number-input').at(1).props().value).toBe('56.78');
+  });
+
+  it(`🐴 text render null`, async () => {
+    const html = render(
+      <Field
+        text={10000}
+        mode="read"
+        // @ts-ignore
+        render={() => undefined}
+        emptyText="-"
+      />,
+    );
+    expect(html.text()).toBe('-');
+  });
+
+  it(`🐴 readonly and mode is edit use fieldProps.value`, async () => {
+    const html = mount(
+      <Field
+        text={10000}
+        mode="edit"
+        readonly
+        fieldProps={{
+          value: 2000,
+        }}
+      />,
+    );
+    await waitForComponentToPaint(200);
+    expect(html.text()).toBe('2000');
+    html.setProps({
+      fieldProps: {
+        value: 20000,
+      },
+    });
+    await waitForComponentToPaint(200);
+    expect(html.text()).toBe('20000');
+  });
+
+  it('🐴 select request debounceTime', async () => {
+    const requestFn = jest.fn();
+    const html = mount(
+      <Field
+        text="default"
+        debounceTime={200}
+        valueType="select"
+        mode="edit"
+        request={async (params) => {
+          requestFn(params?.test);
+          await waitTime(10);
+          return [
+            { label: '全部', value: 'all' },
+            { label: '未解决', value: 'open' },
+            { label: '已解决', value: 'closed' },
+            { label: '解决中', value: 'processing' },
+          ];
+        }}
+      />,
+    );
+    await waitForComponentToPaint(html, 200);
+    expect(requestFn).toBeCalledTimes(1);
+    act(() => {
+      html.setProps({
+        params: { name: 'test' },
+      });
+    });
+    await waitForComponentToPaint(html, 50);
+    act(() => {
+      html.setProps({
+        params: { name: 'test1' },
+      });
+    });
+    await waitForComponentToPaint(html, 50);
+    act(() => {
+      html.setProps({
+        params: { name: 'test2' },
+      });
+    });
+    await waitForComponentToPaint(html, 50);
+
+    expect(requestFn).toBeCalledTimes(1);
+    await waitForComponentToPaint(html, 10000);
+    expect(requestFn).toBeCalledTimes(2);
   });
 });

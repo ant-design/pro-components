@@ -1,8 +1,8 @@
-import React from 'react';
+import type React from 'react';
 import type { TablePaginationConfig } from 'antd';
-import { SortOrder } from 'antd/es/table/interface';
-
+import type { SortOrder } from 'antd/es/table/interface';
 import type { UseEditableUtilType } from '@ant-design/pro-utils';
+import { arrayMoveImmutable } from '@ant-design/pro-utils';
 import type { IntlType } from '@ant-design/pro-provider';
 
 import type {
@@ -87,7 +87,9 @@ export function useActionType<T>(
     reload: async (resetPageIndex?: boolean) => {
       // 如果为 true，回到第一页
       if (resetPageIndex) {
-        await props.onCleanSelected();
+        await action.setPageInfo({
+          current: 1,
+        });
       }
       action?.reload();
     },
@@ -176,7 +178,7 @@ function parseDataIndex(dataIndex: ProColumnType['dataIndex']): string | undefin
  * @param columns ProColumns
  */
 export function parseDefaultColumnConfig<T, Value>(columns: ProColumns<T, Value>[]) {
-  const filter: Record<string, React.ReactText[]> = {};
+  const filter: Record<string, React.ReactText[] | null> = {};
   const sort: Record<string, SortOrder> = {};
   columns.forEach((column) => {
     // 转换 dataIndex
@@ -185,8 +187,13 @@ export function parseDefaultColumnConfig<T, Value>(columns: ProColumns<T, Value>
       return;
     }
     // 当 column 启用 filters 功能时，取出默认的筛选值
-    if (column.filters && column.defaultFilteredValue) {
-      filter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
+    if (column.filters) {
+      const defaultFilteredValue = column.defaultFilteredValue as React.ReactText[];
+      if (defaultFilteredValue === undefined) {
+        filter[dataIndex] = null;
+      } else {
+        filter[dataIndex] = column.defaultFilteredValue as React.ReactText[];
+      }
     }
     // 当 column 启用 sorter 功能时，取出默认的排序值
     if (column.sorter && column.defaultSortOrder) {
@@ -194,4 +201,22 @@ export function parseDefaultColumnConfig<T, Value>(columns: ProColumns<T, Value>
     }
   });
   return { sort, filter };
+}
+
+export type SortDataParams = { oldIndex: number; newIndex: number };
+
+/**
+ * 数据排序核心逻辑
+ *
+ * @param oldIndex 原始位置
+ * @param newIndex 新位置
+ * @param data 原始数组
+ */
+export function sortData<T>({ oldIndex, newIndex }: SortDataParams, data: T[]): T[] | null {
+  if (oldIndex !== newIndex) {
+    const newData = arrayMoveImmutable([...(data || [])], oldIndex, newIndex).filter((el) => !!el);
+    return [...newData];
+  }
+  /* istanbul ignore next */
+  return null;
 }

@@ -1,31 +1,33 @@
-import React from 'react';
-import ProField from '@ant-design/pro-field';
+import React, { useContext } from 'react';
+import ProField from '../Field';
 import type { MonthPickerProps } from 'antd/lib/date-picker';
-import createField from '../../BaseForm/createField';
-import type { ProFormItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../interface';
+import FieldContext from '../../FieldContext';
 
-const valueType = 'dateMonth';
+const valueType = 'dateMonth' as const;
 /**
  * 周选择组件
  *
  * @param
  */
-const ProFormDatePickerMonth: React.FC<ProFormItemProps<MonthPickerProps>> = React.forwardRef(
-  ({ proFieldProps, fieldProps }, ref) => {
+const ProFormDatePickerMonth: React.FC<ProFormFieldItemProps<MonthPickerProps>> = React.forwardRef(
+  ({ proFieldProps, fieldProps, ...rest }, ref) => {
+    const context = useContext(FieldContext);
     return (
       <ProField
         ref={ref}
-        text={fieldProps?.value}
         mode="edit"
         valueType={valueType}
-        fieldProps={fieldProps}
-        {...proFieldProps}
+        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
+        proFieldProps={proFieldProps}
+        filedConfig={{
+          valueType,
+          customLightMode: true,
+        }}
+        {...rest}
       />
     );
   },
 );
 
-export default createField<ProFormItemProps<MonthPickerProps>>(ProFormDatePickerMonth, {
-  valueType,
-  customLightMode: true,
-});
+export default ProFormDatePickerMonth;

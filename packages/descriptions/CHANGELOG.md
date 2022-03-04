@@ -2,6 +2,457 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.49](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.48...@ant-design/pro-descriptions@1.10.49) (2022-03-04)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.48](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.46...@ant-design/pro-descriptions@1.10.48) (2022-03-04)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.47](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.46...@ant-design/pro-descriptions@1.10.47) (2022-03-02)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.46](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.45...@ant-design/pro-descriptions@1.10.46) (2022-02-24)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions copy dom error ([#4695](https://github.com/ant-design/pro-components/issues/4695)) ([2f832bb](https://github.com/ant-design/pro-components/commit/2f832bb114c6f8cb2a3f43b4b5f73c565dcc681d))
+
+## [1.10.45](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.44...@ant-design/pro-descriptions@1.10.45) (2022-02-21)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.44](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.43...@ant-design/pro-descriptions@1.10.44) (2022-02-18)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.43](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.42...@ant-design/pro-descriptions@1.10.43) (2022-02-15)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.42](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.41...@ant-design/pro-descriptions@1.10.42) (2022-02-14)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.41](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.40...@ant-design/pro-descriptions@1.10.41) (2022-02-14)
+
+### Bug Fixes
+
+- **descriptions:** 修复当 dataIndex 设置为 keypath 数组时 ProDescriptions 更新异常问题 ([#4615](https://github.com/ant-design/pro-components/issues/4615)) ([b45b2f5](https://github.com/ant-design/pro-components/commit/b45b2f5cb21226b45742223c9756083437cd6455))
+
+## [1.10.40](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.39...@ant-design/pro-descriptions@1.10.40) (2022-02-11)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.39](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.38...@ant-design/pro-descriptions@1.10.39) (2022-02-10)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.38](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.37...@ant-design/pro-descriptions@1.10.38) (2022-02-10)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.37](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.36...@ant-design/pro-descriptions@1.10.37) (2022-02-08)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.36](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.35...@ant-design/pro-descriptions@1.10.36) (2022-01-25)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.35](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.34...@ant-design/pro-descriptions@1.10.35) (2022-01-21)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.34](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.33...@ant-design/pro-descriptions@1.10.34) (2022-01-18)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.33](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.32...@ant-design/pro-descriptions@1.10.33) (2022-01-17)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.32](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.31...@ant-design/pro-descriptions@1.10.32) (2022-01-12)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.31](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.30...@ant-design/pro-descriptions@1.10.31) (2022-01-11)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.30](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.29...@ant-design/pro-descriptions@1.10.30) (2022-01-11)
+
+### Bug Fixes
+
+- antd themes less file path ([#4436](https://github.com/ant-design/pro-components/issues/4436)) ([a6b66b4](https://github.com/ant-design/pro-components/commit/a6b66b4968e78a9c8175d17d2fe5a922cf70630f))
+
+## [1.10.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.28...@ant-design/pro-descriptions@1.10.29) (2022-01-07)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions if is null ([28df05e](https://github.com/ant-design/pro-components/commit/28df05e12d3e534f1c118547a1b0a793c40d85c1))
+
+## [1.10.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.27...@ant-design/pro-descriptions@1.10.28) (2022-01-05)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.26...@ant-design/pro-descriptions@1.10.27) (2021-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.25...@ant-design/pro-descriptions@1.10.26) (2021-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.25](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.24...@ant-design/pro-descriptions@1.10.25) (2021-12-24)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.24](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.23...@ant-design/pro-descriptions@1.10.24) (2021-12-23)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.22...@ant-design/pro-descriptions@1.10.23) (2021-12-22)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.21...@ant-design/pro-descriptions@1.10.22) (2021-12-22)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.20...@ant-design/pro-descriptions@1.10.21) (2021-12-22)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.19...@ant-design/pro-descriptions@1.10.20) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.18...@ant-design/pro-descriptions@1.10.19) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.17...@ant-design/pro-descriptions@1.10.18) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.16...@ant-design/pro-descriptions@1.10.17) (2021-12-17)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.13...@ant-design/pro-descriptions@1.10.16) (2021-12-13)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.12...@ant-design/pro-descriptions@1.10.13) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.11...@ant-design/pro-descriptions@1.10.12) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.10...@ant-design/pro-descriptions@1.10.11) (2021-12-09)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.9...@ant-design/pro-descriptions@1.10.10) (2021-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.8...@ant-design/pro-descriptions@1.10.9) (2021-12-07)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.7...@ant-design/pro-descriptions@1.10.8) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.6...@ant-design/pro-descriptions@1.10.7) (2021-12-01)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.5...@ant-design/pro-descriptions@1.10.6) (2021-11-30)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.4...@ant-design/pro-descriptions@1.10.5) (2021-11-23)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.3...@ant-design/pro-descriptions@1.10.4) (2021-11-23)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.2...@ant-design/pro-descriptions@1.10.3) (2021-11-22)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.1...@ant-design/pro-descriptions@1.10.2) (2021-11-18)
+
+### Bug Fixes
+
+- **descriptions:** unuse protable ([#4062](https://github.com/ant-design/pro-components/issues/4062)) ([04d6a6c](https://github.com/ant-design/pro-components/commit/04d6a6c94aaf1597ec5bbdb9135fdacbdca9640a))
+- **table:** fix table validateFields no work error ([#4058](https://github.com/ant-design/pro-components/issues/4058)) ([0291e08](https://github.com/ant-design/pro-components/commit/0291e085a17d57d654b698695e9a2c31915a07e0))
+
+## [1.10.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.0...@ant-design/pro-descriptions@1.10.1) (2021-11-16)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+# [1.10.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.30...@ant-design/pro-descriptions@1.10.0) (2021-11-15)
+
+### Features
+
+- **form:** support antd next ([#4038](https://github.com/ant-design/pro-components/issues/4038)) ([96a64c3](https://github.com/ant-design/pro-components/commit/96a64c35d0fc6a359a4ff3d36b96f510f4580c63)), closes [#3770](https://github.com/ant-design/pro-components/issues/3770) [#3863](https://github.com/ant-design/pro-components/issues/3863)
+
+## [1.9.30](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.29...@ant-design/pro-descriptions@1.9.30) (2021-11-12)
+
+### Bug Fixes
+
+- **form:** fix proform.item no support QueryFilter error ([#4011](https://github.com/ant-design/pro-components/issues/4011)) ([5eff600](https://github.com/ant-design/pro-components/commit/5eff600f580d99452f9e1a84b7c36c315e55804f))
+
+## [1.9.29](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.28...@ant-design/pro-descriptions@1.9.29) (2021-11-08)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.28](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.27...@ant-design/pro-descriptions@1.9.28) (2021-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.27](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.26...@ant-design/pro-descriptions@1.9.27) (2021-10-27)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.26](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.25...@ant-design/pro-descriptions@1.9.26) (2021-10-26)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions item set style error ([#3860](https://github.com/ant-design/pro-components/issues/3860)) ([27659b3](https://github.com/ant-design/pro-components/commit/27659b3b81d3eba3e8241ca4e05c0caed8464e1a))
+
+## [1.9.25](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.24...@ant-design/pro-descriptions@1.9.25) (2021-10-19)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.24](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.23...@ant-design/pro-descriptions@1.9.24) (2021-10-18)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.23](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.22...@ant-design/pro-descriptions@1.9.23) (2021-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.22](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.21...@ant-design/pro-descriptions@1.9.22) (2021-10-12)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.21](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.20...@ant-design/pro-descriptions@1.9.21) (2021-10-08)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.20](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.19...@ant-design/pro-descriptions@1.9.20) (2021-10-08)
+
+### Bug Fixes
+
+- **field:** timePicker 组件用 moment 解析时间不填入 format 是会直接 Invalid date ([#3745](https://github.com/ant-design/pro-components/issues/3745)) ([31fc899](https://github.com/ant-design/pro-components/commit/31fc8993aa5486281c76691df41ddb80d827074a))
+
+## [1.9.19](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.18...@ant-design/pro-descriptions@1.9.19) (2021-09-26)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.17...@ant-design/pro-descriptions@1.9.18) (2021-09-24)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.16...@ant-design/pro-descriptions@1.9.17) (2021-09-18)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.15...@ant-design/pro-descriptions@1.9.16) (2021-09-18)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.14...@ant-design/pro-descriptions@1.9.15) (2021-09-17)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.13...@ant-design/pro-descriptions@1.9.14) (2021-09-16)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.12...@ant-design/pro-descriptions@1.9.13) (2021-09-10)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.11...@ant-design/pro-descriptions@1.9.12) (2021-09-09)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.10...@ant-design/pro-descriptions@1.9.11) (2021-09-07)
+
+### Bug Fixes
+
+- **form:** if valueType need request, note need request ([#3575](https://github.com/ant-design/pro-components/issues/3575)) ([41bb815](https://github.com/ant-design/pro-components/commit/41bb81540408659256da329fe0eb02e5c1583ea5))
+
+## [1.9.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.9...@ant-design/pro-descriptions@1.9.10) (2021-08-30)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.8...@ant-design/pro-descriptions@1.9.9) (2021-08-30)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.7...@ant-design/pro-descriptions@1.9.8) (2021-08-26)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.6...@ant-design/pro-descriptions@1.9.7) (2021-08-24)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.5...@ant-design/pro-descriptions@1.9.6) (2021-08-19)
+
+### Bug Fixes
+
+- **descriptions:** RequestData 类型优化 ([#3448](https://github.com/ant-design/pro-components/issues/3448)) ([d4253e0](https://github.com/ant-design/pro-components/commit/d4253e0efb330e06157f9739c638fe56722ad9eb))
+
+## [1.9.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.4...@ant-design/pro-descriptions@1.9.5) (2021-08-09)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.3...@ant-design/pro-descriptions@1.9.4) (2021-08-05)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.2...@ant-design/pro-descriptions@1.9.3) (2021-08-03)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.1...@ant-design/pro-descriptions@1.9.2) (2021-07-30)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.9.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.9.0...@ant-design/pro-descriptions@1.9.1) (2021-07-30)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+# [1.9.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.8.9...@ant-design/pro-descriptions@1.9.0) (2021-07-26)
+
+### Features
+
+- **table:** support children column add function ([#3273](https://github.com/ant-design/pro-components/issues/3273)) ([2396e03](https://github.com/ant-design/pro-components/commit/2396e031d771ae818445d386e573898708b64f07))
+
+## [1.8.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.8.8...@ant-design/pro-descriptions@1.8.9) (2021-07-20)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.8.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.8.7...@ant-design/pro-descriptions@1.8.8) (2021-07-19)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.8.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.8.6...@ant-design/pro-descriptions@1.8.7) (2021-07-06)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.8.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.8.5...@ant-design/pro-descriptions@1.8.6) (2021-07-01)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.8.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.8.4...@ant-design/pro-descriptions@1.8.5) (2021-06-28)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.8.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.8.3...@ant-design/pro-descriptions@1.8.4) (2021-06-23)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.8.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.8.2...@ant-design/pro-descriptions@1.8.3) (2021-06-17)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.8.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.8.1...@ant-design/pro-descriptions@1.8.2) (2021-06-15)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions fomart error ([#3015](https://github.com/ant-design/pro-components/issues/3015)) ([beb6ce2](https://github.com/ant-design/pro-components/commit/beb6ce2881f94862663051bf597c4a035646729a))
+
+## [1.8.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.8.0...@ant-design/pro-descriptions@1.8.1) (2021-06-09)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+# [1.8.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.15...@ant-design/pro-descriptions@1.8.0) (2021-06-08)
+
+### Features
+
+- **form:** support more tooltip props ([#2932](https://github.com/ant-design/pro-components/issues/2932)) ([bedd7eb](https://github.com/ant-design/pro-components/commit/bedd7ebb0784da8fbb9c4998651f39f5efff5354))
+- **table:** onsave support origin data and no merge record ([#2949](https://github.com/ant-design/pro-components/issues/2949)) ([8c9d021](https://github.com/ant-design/pro-components/commit/8c9d0218c2d8927bae4fb0bad9a911a3b905d580))
+
+## [1.7.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.14...@ant-design/pro-descriptions@1.7.15) (2021-05-31)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.7.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.13...@ant-design/pro-descriptions@1.7.14) (2021-05-28)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.7.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.12...@ant-design/pro-descriptions@1.7.13) (2021-05-25)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.7.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.11...@ant-design/pro-descriptions@1.7.12) (2021-05-24)
+
+### Bug Fixes
+
+- **descriptions:** Fix the problem of remounting every time you refresh ([#2815](https://github.com/ant-design/pro-components/issues/2815)) ([78df6fa](https://github.com/ant-design/pro-components/commit/78df6faadce48f07aafaa4d319fdca43b32ec2d1))
+
+## [1.7.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.10...@ant-design/pro-descriptions@1.7.11) (2021-05-23)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.7.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.9...@ant-design/pro-descriptions@1.7.10) (2021-05-21)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.7.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.8...@ant-design/pro-descriptions@1.7.9) (2021-05-18)
+
+### Bug Fixes
+
+- **Descriptions:** fix Descriptions reset will set value ([#2732](https://github.com/ant-design/pro-components/issues/2732)) ([e36a35d](https://github.com/ant-design/pro-components/commit/e36a35d98111329a575c8316022637b9a4c5959c))
+- **Descriptions:** fix proFieldKey is same error ([#2729](https://github.com/ant-design/pro-components/issues/2729)) ([be501ec](https://github.com/ant-design/pro-components/commit/be501ece15d04a9680fb08bd036e48587857dd9c))
+- **form:** support fieldProps.format ([#2735](https://github.com/ant-design/pro-components/issues/2735)) ([13bebc6](https://github.com/ant-design/pro-components/commit/13bebc6181e4d6a9b54ca1e8d443c927e0d5559d))
+- **table:** tabs and menu add keys ([#2733](https://github.com/ant-design/pro-components/issues/2733)) ([310bc90](https://github.com/ant-design/pro-components/commit/310bc90b62e74a643bb50e7207185c388997c318))
+
+## [1.7.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.7...@ant-design/pro-descriptions@1.7.8) (2021-05-11)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.7.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.6...@ant-design/pro-descriptions@1.7.7) (2021-04-29)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.7.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.5...@ant-design/pro-descriptions@1.7.6) (2021-04-29)
+
+### Bug Fixes
+
+- **form:** switch add default props ([#2629](https://github.com/ant-design/pro-components/issues/2629)) ([7d6ce1f](https://github.com/ant-design/pro-components/commit/7d6ce1f60584d79ae25a157dca0db2e8e1dbb7da))
+
+## [1.7.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.4...@ant-design/pro-descriptions@1.7.5) (2021-04-22)
+
+### Bug Fixes
+
+- **form:** support moneySymbol=undefined ([#2579](https://github.com/ant-design/pro-components/issues/2579)) ([029482d](https://github.com/ant-design/pro-components/commit/029482d557c8de3cb761af59560aa5e7a9166082))
+
+## [1.7.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.3...@ant-design/pro-descriptions@1.7.4) (2021-04-19)
+
+### Bug Fixes
+
+- **form:** fix moneySymbol no work error ([#2539](https://github.com/ant-design/pro-components/issues/2539)) ([a0bd582](https://github.com/ant-design/pro-components/commit/a0bd5821f00f61af8265a5ae6d1fc53f8d2ec8c5))
+
+## [1.7.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.2...@ant-design/pro-descriptions@1.7.3) (2021-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
 ## [1.7.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.7.1...@ant-design/pro-descriptions@1.7.2) (2021-04-19)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

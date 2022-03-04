@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
+import { useSWRConfig, SWRConfig } from 'swr';
 import zh_CN from 'antd/lib/locale/zh_CN';
 
 import arEG from './locale/ar_EG';
 import zhCN from './locale/zh_CN';
 import enUS from './locale/en_US';
+import enGB from './locale/en_GB';
 import viVN from './locale/vi_VN';
 import itIT from './locale/it_IT';
 import esES from './locale/es_ES';
+import caES from './locale/ca_ES';
 import jaJP from './locale/ja_JP';
 import ruRU from './locale/ru_RU';
 import srRS from './locale/sr_RS';
@@ -46,7 +49,7 @@ export type ProSchemaValueEnumObj = Record<string, ProSchemaValueEnumType | Reac
 export type BaseProFieldFC = {
   /** 值的类型 */
   text: React.ReactNode;
-
+  /** 放置到组件上 props */
   fieldProps?: any;
   /** 模式类型 */
   mode: ProFieldFCMode;
@@ -58,7 +61,7 @@ export type BaseProFieldFC = {
   label?: React.ReactNode;
   /** 映射值的类型 */
   valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
-
+  /** 唯一的key，用于网络请求 */
   proFieldKey?: React.Key;
 };
 
@@ -67,6 +70,7 @@ export type ProFieldFCMode = 'read' | 'edit' | 'update';
 /** Render 第二个参数，里面包含了一些常用的参数 */
 export type ProFieldFCRenderProps = {
   mode?: ProFieldFCMode;
+  readonly?: boolean;
   placeholder?: string | string[];
   value?: any;
   onChange?: (...rest: any[]) => void;
@@ -125,10 +129,12 @@ const createIntl = (locale: string, localeMap: Record<string, any>): IntlType =>
 const arEGIntl = createIntl('ar_EG', arEG);
 const zhCNIntl = createIntl('zh_CN', zhCN);
 const enUSIntl = createIntl('en_US', enUS);
+const enGBIntl = createIntl('en_GB', enGB);
 const viVNIntl = createIntl('vi_VN', viVN);
 const itITIntl = createIntl('it_IT', itIT);
 const jaJPIntl = createIntl('ja_JP', jaJP);
 const esESIntl = createIntl('es_ES', esES);
+const caESIntl = createIntl('ca_ES', caES);
 const ruRUIntl = createIntl('ru_RU', ruRU);
 const srRSIntl = createIntl('sr_RS', srRS);
 const msMYIntl = createIntl('ms_MY', msMY);
@@ -146,10 +152,12 @@ const intlMap = {
   'ar-EG': arEGIntl,
   'zh-CN': zhCNIntl,
   'en-US': enUSIntl,
+  'en-GB': enGBIntl,
   'vi-VN': viVNIntl,
   'it-IT': itITIntl,
   'ja-JP': jaJPIntl,
   'es-ES': esESIntl,
+  'ca-ES': caESIntl,
   'ru-RU': ruRUIntl,
   'sr-RS': srRSIntl,
   'ms-MY': msMYIntl,
@@ -171,11 +179,13 @@ export type ParamsType = Record<string, any>;
 export {
   arEGIntl,
   enUSIntl,
+  enGBIntl,
   zhCNIntl,
   viVNIntl,
   itITIntl,
   jaJPIntl,
   esESIntl,
+  caESIntl,
   ruRUIntl,
   srRSIntl,
   msMYIntl,
@@ -224,15 +234,38 @@ const findIntlKeyByAntdLocaleKey = (localeKey: string | undefined) => {
 };
 
 /**
+ * 组件解除挂载后清空一下 cache
+ *
+ * @returns
+ */
+const CacheClean = () => {
+  const { cache } = useSWRConfig();
+
+  useEffect(() => {
+    return () => {
+      // is a map
+      // @ts-ignore
+      cache.clear();
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  return null;
+};
+
+/**
  * 如果没有配置 locale，这里组件会根据 antd 的 key 来自动选择
  *
  * @param param0
  */
-const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => {
+const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({
+  children,
+  autoClearCache = false,
+}) => {
   const { locale } = useContext(AntdConfigProvider.ConfigContext);
   // 如果 locale 不存在自动注入的 AntdConfigProvider
   const Provider = locale === undefined ? AntdConfigProvider : React.Fragment;
-  return (
+
+  const configProviderDom = (
     <ConfigConsumer>
       {(value) => {
         const localeName = locale?.locale;
@@ -250,6 +283,7 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
                 locale: zh_CN,
               }
             : {};
+
         return (
           <Provider {...configProvider}>
             <ConfigProvider
@@ -258,6 +292,7 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
                 intl: intl || zhCNIntl,
               }}
             >
+              {autoClearCache && <CacheClean />}
               {children}
             </ConfigProvider>
           </Provider>
@@ -265,6 +300,9 @@ const ConfigProviderWrap: React.FC<Record<string, unknown>> = ({ children }) => 
       }}
     </ConfigConsumer>
   );
+  if (!autoClearCache) return configProviderDom;
+
+  return <SWRConfig value={{ provider: () => new Map() }}>{configProviderDom}</SWRConfig>;
 };
 
 export { ConfigConsumer, ConfigProvider, ConfigProviderWrap, createIntl };

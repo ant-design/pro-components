@@ -35,6 +35,11 @@ const options = [
   { value: `timeRange`, label: `时间区间`, initialValue: [Date.now(), Date.now()] },
   { value: `text`, label: `文本框`, initialValue: '123456' },
   { value: `select`, label: `下拉框`, initialValue: 'open' },
+  {
+    value: 'treeSelect',
+    label: '树形下拉框',
+    initialValue: ['0-0', '0-0-0'],
+  },
   { value: `checkbox`, label: `多选框`, initialValue: 'open' },
   { value: `rate`, label: `星级组件`, initialValue: '' },
   { value: `radio`, label: `单选框`, initialValue: 'open' },
@@ -77,7 +82,7 @@ export default () => {
         label="valueType 选择"
         options={options}
         width={200}
-        mode="singe"
+        mode="single"
         fieldProps={{
           labelInValue: false,
           value: valueType,
@@ -85,7 +90,6 @@ export default () => {
         }}
       />
       <BetaSchemaForm<DataItem>
-        trigger={<a>点击我</a>}
         layoutType="Form"
         onFinish={async (values) => {
           console.log(values);
@@ -105,7 +109,49 @@ export default () => {
                 valueType,
                 title: '编辑器',
                 dataIndex: valueType || 'text',
-                valueEnum,
+                valueEnum: valueType === 'select' ? valueEnum : undefined,
+                fieldProps:
+                  valueType === 'select'
+                    ? {
+                        multiple: true,
+                        options: [
+                          {
+                            title: 'Node1',
+                            value: '0-0',
+                            key: '0-0',
+                            children: [
+                              {
+                                title: 'Child Node1',
+                                value: '0-0-0',
+                                key: '0-0-0',
+                              },
+                            ],
+                          },
+                          {
+                            title: 'Node2',
+                            value: '0-1',
+                            key: '0-1',
+                            children: [
+                              {
+                                title: 'Child Node3',
+                                value: '0-1-0',
+                                key: '0-1-0',
+                              },
+                              {
+                                title: 'Child Node4',
+                                value: '0-1-1',
+                                key: '0-1-1',
+                              },
+                              {
+                                title: 'Child Node5',
+                                value: '0-1-2',
+                                key: '0-1-2',
+                              },
+                            ],
+                          },
+                        ],
+                      }
+                    : undefined,
                 formItemProps: {
                   rules: [
                     {

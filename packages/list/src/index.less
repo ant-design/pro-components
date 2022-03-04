@@ -1,23 +1,18 @@
-@import '~antd/es/style/themes/default.less';
-@import '~antd/es/list/style/index.less';
+@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index.less';
+@import (reference) '~antd/es/list/style/index.less';
 
 @pro-list-prefix-cls: ~'@{ant-prefix}-pro-list';
 
 .@{pro-list-prefix-cls} {
-  .@{ant-prefix}-list-grid {
-    padding: 0 24px;
-  }
+  background-color: transparent;
 
   .@{ant-prefix}-pro-table-alert {
-    margin: 0 24px 16px 24px;
-  }
-
-  .@{ant-prefix}-list-pagination {
-    padding: 0 18px;
+    margin-bottom: 16px;
   }
 
   .@{pro-list-prefix-cls}-row {
-    padding: 0 18px 0 24px;
+    border-bottom: 1px solid @border-color-split;
 
     &:last-child {
       border-bottom: none;
@@ -52,6 +47,11 @@
 
       &:hover {
         background-color: transparent;
+      }
+
+      .@{ant-prefix}-list-item-meta-title {
+        margin: 0;
+        line-height: 22px;
       }
     }
 
@@ -95,8 +95,16 @@
     }
 
     &-show-action-hover {
-      .@{ant-prefix}-list-item-action {
+      .@{ant-prefix}-list-item-action,
+      .@{ant-prefix}-pro-card-extra,
+      .@{ant-prefix}-pro-card-actions {
         display: none;
+      }
+      &:hover {
+        .@{ant-prefix}-pro-card-extra,
+        .@{ant-prefix}-pro-card-actions {
+          display: flex;
+        }
       }
     }
 
@@ -116,7 +124,7 @@
       justify-content: space-between;
       height: 44px;
       padding: 0 24px;
-      color: rgba(0, 0, 0, 0.45);
+      color: @text-color-secondary;
       line-height: 44px;
       background: rgba(0, 0, 0, 0.02);
 
@@ -157,7 +165,7 @@
     &-expand-icon {
       margin-right: 8;
       margin-right: 8px;
-      color: rgba(0, 0, 0, 0.45);
+      color: @text-color-secondary;
       > .anticon > svg {
         transition: 0.3s;
       }
@@ -171,9 +179,10 @@
 
     &-title {
       margin-right: 16px;
+      word-break: break-all;
       cursor: pointer;
       &:hover {
-        color: @primary-color;
+        color: @primary-color-hover;
       }
     }
 
@@ -191,6 +200,7 @@
 
     &-description {
       margin-top: 4px;
+      word-break: break-all;
     }
 
     &-avatar {
@@ -203,6 +213,13 @@
   }
 
   .@{ant-prefix}-list {
+    &-item {
+      padding: 12px;
+      cursor: pointer;
+    }
+  }
+
+  .ant-list-vertical .ant-pro-list-row .@{ant-prefix}-list {
     &-header {
       padding: 0;
       border-bottom: none;
@@ -210,7 +227,7 @@
 
     .@{ant-prefix}-list-item {
       width: 100%;
-      border-bottom: 1px solid @border-color-split;
+      padding: 12px 18px 12px 24px;
 
       &-meta-avatar {
         display: flex;
@@ -220,6 +237,7 @@
       &-action-split {
         display: none;
       }
+
       &-meta-title {
         margin: 0;
       }
@@ -227,6 +245,9 @@
   }
 
   &-no-split {
+    .@{pro-list-prefix-cls}-row {
+      border-bottom: none;
+    }
     .@{ant-prefix}-list .@{ant-prefix}-list-item {
       border-bottom: none;
     }
@@ -240,7 +261,8 @@
 
   .@{ant-prefix}-list-vertical {
     .@{pro-list-prefix-cls}-row {
-      padding: 0 24px;
+      padding: 12px 18px 12px 24px;
+
       &-header-title {
         display: flex;
         flex-direction: column;

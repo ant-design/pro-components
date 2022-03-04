@@ -15,9 +15,7 @@ const DensityIcon = () => {
         <Menu
           selectedKeys={[counter.tableSize as string]}
           onClick={({ key }) => {
-            if (counter.setTableSize) {
-              counter.setTableSize(key as DensitySize);
-            }
+            counter.setTableSize?.(key as DensitySize);
           }}
           style={{
             width: 80,

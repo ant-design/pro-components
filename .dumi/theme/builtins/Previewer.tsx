@@ -1,5 +1,6 @@
 ﻿import React from 'react';
 import LazyLoad from 'react-lazyload';
+import { isBrowser } from 'umi';
 // @ts-ignore
 import ProSkeleton from '@ant-design/pro-skeleton';
 import PreView, { IPreviewerProps } from 'dumi-theme-default/src/builtins/Previewer';
@@ -11,6 +12,9 @@ export default ({
 }: IPreviewerProps & {
   height: string;
 }) => {
+  if (!isBrowser()) {
+    return null;
+  }
   return (
     <LazyLoad
       height={`calc(${rest.height} + 128px)` || 500}

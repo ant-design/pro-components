@@ -223,8 +223,9 @@ describe('BasicTable Search', () => {
           {
             title: '状态',
             dataIndex: 'status',
+            dependencies: ['name'],
             fieldProps: (form) => {
-              if (form.getFieldValue('name') === 'closed') {
+              if (form.getFieldValue?.('name') === 'closed') {
                 return {
                   disabled: true,
                   id: 'status',
@@ -235,7 +236,7 @@ describe('BasicTable Search', () => {
               };
             },
             formItemProps: (form) => {
-              if (form.getFieldValue('name') === 'closed') {
+              if (form.getFieldValue?.('name') === 'closed') {
                 return {
                   noStyle: true,
                 };
@@ -266,5 +267,49 @@ describe('BasicTable Search', () => {
     });
     await waitForComponentToPaint(html, 500);
     expect(html.find('.ant-select-disabled').exists()).toBeTruthy();
+  });
+
+  it('🎏 make sure formItemProps have the highest priority', async () => {
+    const ref = React.createRef<FormInstance | undefined>();
+    const html = mount(
+      <ProTable
+        type="form"
+        // @ts-ignore
+        formRef={ref}
+        size="small"
+        form={{
+          onValuesChange(changedValue) {
+            expect(changedValue).toEqual({
+              changedName: 'Pro Components',
+            });
+          },
+        }}
+        columns={[
+          {
+            title: 'Name',
+            key: 'name',
+            fieldProps: {
+              id: 'name',
+            },
+            formItemProps: {
+              name: 'changedName',
+            },
+            dataIndex: 'name',
+          },
+        ]}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1400);
+
+    /** 修改值 */
+    act(() => {
+      html.find('input#name').simulate('change', {
+        target: {
+          value: 'Pro Components',
+        },
+      });
+    });
+    await waitForComponentToPaint(html);
   });
 });

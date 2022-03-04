@@ -1,4 +1,6 @@
-@import (reference) '~antd/lib/style/themes/default';
+@root-entry-name: 'default';
+
+@import (reference) '~antd/es/style/themes/index.less';
 
 @pro-card-statistic-prefix-cls: ~'@{ant-prefix}-pro-card-statistic';
 
@@ -48,7 +50,7 @@
   }
 
   .@{ant-prefix}-statistic-title {
-    color: rgba(0, 0, 0, 0.65);
+    color: @text-color;
   }
 
   &-layout-inline {

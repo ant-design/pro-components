@@ -1,6 +1,7 @@
 ﻿import type { ProSchemaComponentTypes, UseEditableUtilType } from '@ant-design/pro-utils';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import type { TableColumnType } from 'antd';
+import { Table } from 'antd';
 import { runFunction } from '@ant-design/pro-utils';
 import { omitBoolean, omitUndefinedAndEmptyArr } from '@ant-design/pro-utils';
 import { proFieldParsingValueEnumToArray } from '@ant-design/pro-field';
@@ -17,15 +18,19 @@ import { defaultOnFilter, renderColumnsTitle, columnRender } from './columnRende
  * @param map
  * @param columnEmptyText
  */
-export function genProColumnToColumn<T>(props: {
+export function genProColumnToColumn<T>(params: {
   columns: ProColumns<T, any>[];
   counter: ReturnType<typeof useContainer>;
   columnEmptyText: ProFieldEmptyText;
   type: ProSchemaComponentTypes;
   editableUtils: UseEditableUtilType;
-}): (TableColumnType<T> & { index?: number })[] {
-  const { columns, counter, columnEmptyText, type, editableUtils } = props;
-  return (columns
+}): (TableColumnType<T> & {
+  index?: number;
+  isExtraColumns?: boolean;
+  extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;
+})[] {
+  const { columns, counter, columnEmptyText, type, editableUtils } = params;
+  return columns
     .map((columnProps, columnsIndex) => {
       const {
         key,
@@ -36,7 +41,7 @@ export function genProColumnToColumn<T>(props: {
         onFilter,
         filters = [],
       } = columnProps as ProColumnGroupType<T, any>;
-      const columnKey = genColumnKey(key, columnsIndex);
+      const columnKey = genColumnKey(key || dataIndex?.toString(), columnsIndex);
       // 这些都没有，说明是普通的表格不需要 pro 管理
       const noNeedPro = !valueEnum && !valueType && !children;
       if (noNeedPro) {
@@ -45,17 +50,29 @@ export function genProColumnToColumn<T>(props: {
           ...columnProps,
         };
       }
-      const { propsRef } = counter;
+      const isExtraColumns =
+        columnProps === Table.EXPAND_COLUMN || columnProps === Table.SELECTION_COLUMN;
+      if (isExtraColumns) {
+        return {
+          index: columnsIndex,
+          isExtraColumns: true,
+          hideInTable: false,
+          hideInSetting: true,
+          extraColumn: columnProps,
+        };
+      }
       const config = counter.columnsMap[columnKey] || { fixed: columnProps.fixed };
 
       const genOnFilter = () => {
-        if (!propsRef.current?.request || onFilter === true) {
+        if (onFilter === true) {
           return (value: string, row: T) => defaultOnFilter(value, row, dataIndex as string[]);
         }
         return omitBoolean(onFilter);
       };
+
       const tempColumns = {
         index: columnsIndex,
+        key: columnKey,
         ...columnProps,
         title: renderColumnsTitle(columnProps),
         valueEnum,
@@ -66,12 +83,11 @@ export function genProColumnToColumn<T>(props: {
               ).filter((valueItem) => valueItem && valueItem.value !== 'all')
             : filters,
         onFilter: genOnFilter(),
-        ellipsis: false,
         fixed: config.fixed,
         width: columnProps.width || (columnProps.fixed ? 200 : undefined),
         children: (columnProps as ProColumnGroupType<T, any>).children
           ? genProColumnToColumn({
-              ...props,
+              ...params,
               columns: (columnProps as ProColumnGroupType<T, any>)?.children,
             })
           : undefined,
@@ -91,7 +107,9 @@ export function genProColumnToColumn<T>(props: {
       };
       return omitUndefinedAndEmptyArr(tempColumns);
     })
-    .filter((item) => !item.hideInTable) as unknown) as (TableColumnType<T> & {
+    .filter((item) => !item.hideInTable) as unknown as (TableColumnType<T> & {
     index?: number;
+    isExtraColumns?: boolean;
+    extraColumn?: typeof Table.EXPAND_COLUMN | typeof Table.SELECTION_COLUMN;
   })[];
 }

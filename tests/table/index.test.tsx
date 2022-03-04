@@ -11,8 +11,10 @@ describe('BasicTable', () => {
   const LINE_STR_COUNT = 20;
   // Mock offsetHeight
   // @ts-expect-error
-  const originOffsetHeight = Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'offsetHeight')
-    .get;
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetHeight',
+  ).get;
   Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
     get() {
       let html = this.innerHTML;
@@ -42,6 +44,7 @@ describe('BasicTable', () => {
   });
 
   it('🎏 base use', async () => {
+    const pageSizeOnchange = jest.fn();
     const html = mount(
       <ProTable
         size="small"
@@ -51,6 +54,9 @@ describe('BasicTable', () => {
         params={{ keyword: 'test' }}
         pagination={{
           defaultCurrent: 10,
+          onChange: (e) => {
+            pageSizeOnchange(e);
+          },
         }}
         toolBarRender={() => [
           <Input.Search
@@ -75,6 +81,14 @@ describe('BasicTable', () => {
     act(() => {
       expect(html.render()).toMatchSnapshot();
     });
+
+    expect(pageSizeOnchange).toBeCalledWith(10);
+
+    html.setProps({ params: { keyword: 'test2' } });
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(pageSizeOnchange).toBeCalledWith(1);
   });
 
   it('🎏 do not render Search', async () => {
@@ -97,6 +111,27 @@ describe('BasicTable', () => {
 
     await waitForComponentToPaint(html, 2000);
     expect(html.find('.ant-pro-table-search').exists()).toBeFalsy();
+  });
+
+  it('🎏 onLoadingChange should work', async () => {
+    const loadingChangerFn = jest.fn();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={columns}
+        request={request}
+        rowKey="key"
+        onLoadingChange={loadingChangerFn}
+        rowSelection={{
+          selectedRowKeys: ['1'],
+        }}
+        search={false}
+        params={{ keyword: 'test' }}
+      />,
+    );
+
+    await waitForComponentToPaint(html, 2000);
+    expect(loadingChangerFn).toBeCalledWith(true, false);
   });
 
   it('🎏 do not render default option', async () => {
@@ -153,6 +188,35 @@ describe('BasicTable', () => {
 
     expect(html.find('.ant-btn.ant-btn-primary').text()).toBe('test');
     expect(html.find('.ant-btn').at(0).text()).toBe('test2');
+  });
+
+  it('🎏 ProTable support card props is false', async () => {
+    const html = mount(
+      <ProTable
+        size="small"
+        cardProps={false}
+        toolBarRender={false}
+        columns={[
+          {
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        dataSource={[]}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    expect(html.find('.ant-card').exists()).toBe(false);
+
+    act(() => {
+      html.setProps({
+        cardProps: undefined,
+      });
+    });
+    await waitForComponentToPaint(html, 1200);
+    expect(html.find('.ant-card').exists()).toBe(true);
   });
 
   it('🎏 do not render setting', async () => {
@@ -468,7 +532,7 @@ describe('BasicTable', () => {
     expect(fn).toBeCalled();
   });
 
-  it('🎏 actionRef should use', async () => {
+  it('🎏 actionRef support clearSelected', async () => {
     const fn = jest.fn();
     const onChangeFn = jest.fn();
     const actionRef = React.createRef<ActionType>();
@@ -545,6 +609,48 @@ describe('BasicTable', () => {
 
     await waitForComponentToPaint(html, 1200);
     expect(fn).toBeCalledTimes(2);
+  });
+
+  it('🎏 receives two parameters when options.(reload | fullScreen) is passed the function', async () => {
+    const reloadFn = jest.fn();
+    const fullScreenFn = jest.fn();
+    const actionRef = React.createRef<any>();
+    const html = mount(
+      <ProTable
+        size="small"
+        columns={[
+          {
+            title: 'money',
+            dataIndex: 'money',
+            valueType: 'money',
+          },
+        ]}
+        options={{
+          reload: reloadFn,
+          fullScreen: fullScreenFn,
+        }}
+        actionRef={actionRef}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    act(() => {
+      html.find('.ant-pro-table-list-toolbar-setting-item span.anticon-reload').simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(reloadFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
+
+    act(() => {
+      html
+        .find('.ant-pro-table-list-toolbar-setting-item span.anticon-fullscreen')
+        .simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 1200);
+    expect(fullScreenFn).toHaveBeenCalledWith(expect.anything(), actionRef.current);
   });
 
   it('🎏 request reload', async () => {
@@ -880,7 +986,7 @@ describe('BasicTable', () => {
     });
     await waitForComponentToPaint(html, 1200);
     act(() => {
-      html.find('.ant-dropdown-menu-item').at(1).simulate('click');
+      html.find('li.ant-dropdown-menu-item').at(1).simulate('click');
     });
     await waitForComponentToPaint(html, 1200);
 
@@ -1015,6 +1121,68 @@ describe('BasicTable', () => {
     expect(fn).toBeCalledWith('name');
   });
 
+  it('🎏 search = true, name = test,onSearch return false', async () => {
+    const fn = jest.fn();
+    const html = mount(
+      <ProTable<
+        Record<string, any>,
+        {
+          test: string;
+        }
+      >
+        columns={[{ dataIndex: 'name' }]}
+        options={{
+          search: {
+            name: 'test',
+            onSearch: (keyword) => keyword !== 'name',
+          },
+        }}
+        request={async (params) => {
+          fn(params.test);
+          return { data: [] };
+        }}
+        rowKey="key"
+      />,
+    );
+    await waitForComponentToPaint(html, 1200);
+
+    act(() => {
+      html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
+        target: {
+          value: 'name',
+        },
+      });
+    });
+
+    act(() => {
+      html
+        .find('.ant-pro-table-list-toolbar-search input')
+        .simulate('keydown', { key: 'Enter', keyCode: 13 });
+    });
+
+    await waitForComponentToPaint(html, 600);
+
+    expect(fn).toBeCalledWith(undefined);
+
+    act(() => {
+      html.find('.ant-pro-table-list-toolbar-search input').simulate('change', {
+        target: {
+          value: 'name1',
+        },
+      });
+    });
+
+    act(() => {
+      html
+        .find('.ant-pro-table-list-toolbar-search input')
+        .simulate('keydown', { key: 'Enter', keyCode: 13 });
+    });
+
+    await waitForComponentToPaint(html, 200);
+
+    expect(fn).toBeCalledWith('name1');
+  });
+
   it('🎏 bordered = true', async () => {
     const html = mount(
       <ProTable
@@ -1086,7 +1254,7 @@ describe('BasicTable', () => {
     for (let i = 0; i < 10; i += 1) {
       ref.current?.reload();
     }
-    await waitForComponentToPaint(html, 500);
+    await waitForComponentToPaint(html, 2000);
 
     expect(fn).toBeCalledTimes(2);
   });

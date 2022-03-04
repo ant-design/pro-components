@@ -9,6 +9,30 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.22.6
+
+`2021-10-08`
+
+- 🐛 fix(field): timePicker 组件用 moment 解析时间不填入 format 是会直接 Invalid date [#3745](https://github.com/ant-design/pro-components/pull/3745) [@rojer95](https://github.com/rojer95)
+
+## @ant-design/pro-field@1.22.0
+
+`2021-09-07`
+
+- 💥 feat(form,field): 增加 ProFormMoney 组件 [#3588](https://github.com/ant-design/pro-components/pull/3588) [@kiner-tang](https://github.com/kiner-tang)
+
+## @ant-design/pro-field@1.20.0
+
+`2021-08-24`
+
+- 🐛 fix(field-percent): fix parser and formatter regexp #3459 [#3505](https://github.com/ant-design/pro-components/pull/3505) [@yangger6](https://github.com/yangger6)
+
+## @ant-design/pro-field@1.19.0
+
+`2021-08-19`
+
+- 💥 feat(table): 增加在 ProTable 中的 ProColumns 中 fieldProps 支持的属性类型描述 [#3410](https://github.com/ant-design/pro-components/pull/3410) [@kiner-tang](https://github.com/kiner-tang)
+
 ## @ant-design/pro-field@1.15.0
 
 `2021-04-15`

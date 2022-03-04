@@ -2,6 +2,516 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.32.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.32.2...@ant-design/pro-field@1.32.3) (2022-03-04)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.32.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.32.0...@ant-design/pro-field@1.32.2) (2022-03-04)
+
+### Bug Fixes
+
+- **form:** 🐛 Select search result label containing `#` do not display ([#4754](https://github.com/ant-design/pro-components/issues/4754)) ([69bf8d6](https://github.com/ant-design/pro-components/commit/69bf8d634337900022100a406c70303a316dbb1a))
+
+## [1.32.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.32.0...@ant-design/pro-field@1.32.1) (2022-03-02)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.32.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.18...@ant-design/pro-field@1.32.0) (2022-02-24)
+
+### Features
+
+- **field:** add pt-BR support to number format ([#4700](https://github.com/ant-design/pro-components/issues/4700)) ([dc845c0](https://github.com/ant-design/pro-components/commit/dc845c0a588ffed4e2d664f162702b08720898f7))
+
+## [1.31.18](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.17...@ant-design/pro-field@1.31.18) (2022-02-21)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.31.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.16...@ant-design/pro-field@1.31.17) (2022-02-15)
+
+### Bug Fixes
+
+- **form:** omit money props for fieldProps ([c5016fc](https://github.com/ant-design/pro-components/commit/c5016fc7175f1282f817e7b6fa2511aa098e7f94))
+
+## [1.31.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.15...@ant-design/pro-field@1.31.16) (2022-02-14)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.31.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.14...@ant-design/pro-field@1.31.15) (2022-02-14)
+
+### Bug Fixes
+
+- **field:** setting debounceTime results in repeated requests ([#4609](https://github.com/ant-design/pro-components/issues/4609)) ([51d2441](https://github.com/ant-design/pro-components/commit/51d2441b080c7060fe083803e8a89c4db3ec0a67))
+
+## [1.31.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.13...@ant-design/pro-field@1.31.14) (2022-02-11)
+
+### Bug Fixes
+
+- **field:** use loadData error, improve huge data render performance ([#4605](https://github.com/ant-design/pro-components/issues/4605)) ([c88e438](https://github.com/ant-design/pro-components/commit/c88e4382c8d312e1509f1d3d0c066746f1645175))
+- **form:** fix FieldMoney fieldProps no work error ([3f165fe](https://github.com/ant-design/pro-components/commit/3f165fea2e5e8e96cea845b8fcdeaa722afb7ef9)), closes [#issuecomment-1034709707](https://github.com/ant-design/pro-components/issues/issuecomment-1034709707)
+
+## [1.31.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.12...@ant-design/pro-field@1.31.13) (2022-02-10)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.31.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.11...@ant-design/pro-field@1.31.12) (2022-02-08)
+
+### Bug Fixes
+
+- **form:** fix cannot be given refs error ([#4564](https://github.com/ant-design/pro-components/issues/4564)) ([bdea0e3](https://github.com/ant-design/pro-components/commit/bdea0e3473dc71c15aaa18c37b296acf5b47515d))
+
+## [1.31.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.10...@ant-design/pro-field@1.31.11) (2022-01-25)
+
+### Bug Fixes
+
+- **field:** Switch checked 为 false 不生效问题 ([#4527](https://github.com/ant-design/pro-components/issues/4527)) ([afcb9a5](https://github.com/ant-design/pro-components/commit/afcb9a57934e5cd7808654dd677495492a1b3eb6))
+
+## [1.31.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.9...@ant-design/pro-field@1.31.10) (2022-01-21)
+
+### Bug Fixes
+
+- **form:** 🐛 readonly form will not render the latest value ([#4494](https://github.com/ant-design/pro-components/issues/4494)) ([2c169a8](https://github.com/ant-design/pro-components/commit/2c169a846b72351f9988c22fd5c2ef2b1684b577))
+- **form:** ProFormSelect support debounceTime ([1f26167](https://github.com/ant-design/pro-components/commit/1f26167daf457f3033a5e862e05d412edede3750))
+- **form:** select fieldNames options ([#4484](https://github.com/ant-design/pro-components/issues/4484)) ([cb1b536](https://github.com/ant-design/pro-components/commit/cb1b5365c11da3c18d6b25b6dedc9afc98be8816))
+
+## [1.31.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.8...@ant-design/pro-field@1.31.9) (2022-01-17)
+
+### Bug Fixes
+
+- **form:** default close swr cache ([#4470](https://github.com/ant-design/pro-components/issues/4470)) ([770a0fb](https://github.com/ant-design/pro-components/commit/770a0fb3360b1b0eac67deb3879f563cf9d9071b))
+
+## [1.31.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.7...@ant-design/pro-field@1.31.8) (2022-01-11)
+
+### Bug Fixes
+
+- **form:** fix money value=0, style error ([832da15](https://github.com/ant-design/pro-components/commit/832da15ad21082c5e005bb216b4e8232d080c667))
+- antd themes less file path ([#4436](https://github.com/ant-design/pro-components/issues/4436)) ([a6b66b4](https://github.com/ant-design/pro-components/commit/a6b66b4968e78a9c8175d17d2fe5a922cf70630f))
+- **form:** fix money value=0, style error ([4d049e6](https://github.com/ant-design/pro-components/commit/4d049e61f1e93fd7633feea6d26638da61a81903))
+
+## [1.31.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.6...@ant-design/pro-field@1.31.7) (2022-01-07)
+
+### Bug Fixes
+
+- **form:** 🐛 Cannot read properties of undefined (reading 'autoFocus' ([#4419](https://github.com/ant-design/pro-components/issues/4419)) ([0aea58d](https://github.com/ant-design/pro-components/commit/0aea58d71afdb4a123896729513dd8422c9bc892))
+
+## [1.31.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.5...@ant-design/pro-field@1.31.6) (2022-01-05)
+
+### Bug Fixes
+
+- **form:** 🐛 repeat send request ([#4400](https://github.com/ant-design/pro-components/issues/4400)) ([b61646a](https://github.com/ant-design/pro-components/commit/b61646abc0f811b8ce6fc0119e5c9f8c38d70f72))
+- **form:** render option failed while key is number 0. ([#4389](https://github.com/ant-design/pro-components/issues/4389)) ([f175c02](https://github.com/ant-design/pro-components/commit/f175c0289d2b975df40918ffc929d5eeacd59cd1))
+
+## [1.31.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.4...@ant-design/pro-field@1.31.5) (2021-12-28)
+
+### Bug Fixes
+
+- **form:** fix react warning ([883eb37](https://github.com/ant-design/pro-components/commit/883eb3723a069a9b1a06a8dacc396e6991b0f139))
+- **form:** fix ts error ([dc2fa95](https://github.com/ant-design/pro-components/commit/dc2fa9564a2c34e07f1421545e131d725c27a1c0))
+
+## [1.31.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.3...@ant-design/pro-field@1.31.4) (2021-12-28)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.31.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.2...@ant-design/pro-field@1.31.3) (2021-12-24)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.31.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.1...@ant-design/pro-field@1.31.2) (2021-12-23)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.31.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.31.0...@ant-design/pro-field@1.31.1) (2021-12-22)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.31.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.30.3...@ant-design/pro-field@1.31.0) (2021-12-22)
+
+### Features
+
+- **field:** add DigitRange component ([#4133](https://github.com/ant-design/pro-components/issues/4133)) ([227a42d](https://github.com/ant-design/pro-components/commit/227a42def19035dc70e52f56142b33f55dd65f4b))
+
+## [1.30.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.30.2...@ant-design/pro-field@1.30.3) (2021-12-22)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.30.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.30.1...@ant-design/pro-field@1.30.2) (2021-12-20)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.30.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.30.0...@ant-design/pro-field@1.30.1) (2021-12-20)
+
+### Bug Fixes
+
+- **field:** Cascader support loading icon ([#4319](https://github.com/ant-design/pro-components/issues/4319)) ([57a3f92](https://github.com/ant-design/pro-components/commit/57a3f92bd869a2b733c2f538a0166d0ad3fd8f19))
+
+# [1.30.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.29.1...@ant-design/pro-field@1.30.0) (2021-12-20)
+
+### Bug Fixes
+
+- **field:** fix money no work error ([#4311](https://github.com/ant-design/pro-components/issues/4311)) ([e1c0712](https://github.com/ant-design/pro-components/commit/e1c071212d4d0c0556e0eda280c69ba999ec6019))
+
+### Features
+
+- **form:** Support ProFormTreeSelect and valueType=treeSelect ([#4237](https://github.com/ant-design/pro-components/issues/4237)) ([31fab85](https://github.com/ant-design/pro-components/commit/31fab85ecc2c3ef873e88b050f26d1c3de4b8f98))
+
+## [1.29.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.29.0...@ant-design/pro-field@1.29.1) (2021-12-17)
+
+### Bug Fixes
+
+- **field:** timeRange 解析时间不填入 format 是会直接 Invalid date ([#4278](https://github.com/ant-design/pro-components/issues/4278)) ([5179f2b](https://github.com/ant-design/pro-components/commit/5179f2b91b8dbf3442f2ac58dec8b7f7ff5ea511))
+
+# [1.29.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.7...@ant-design/pro-field@1.29.0) (2021-12-13)
+
+### Bug Fixes
+
+- **form:** relay no render DrawerForm and ModalForm ([#4254](https://github.com/ant-design/pro-components/issues/4254)) ([f986ecb](https://github.com/ant-design/pro-components/commit/f986ecb9d89d4e3edef18d50eee4c37e730227d9))
+
+### Features
+
+- **layout:** settingDrawer use new antd new function ([#4042](https://github.com/ant-design/pro-components/issues/4042)) ([8e907d8](https://github.com/ant-design/pro-components/commit/8e907d8bbe48848c37e8ce1d5a584880e181f250))
+
+## [1.28.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.6...@ant-design/pro-field@1.28.7) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.28.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.5...@ant-design/pro-field@1.28.6) (2021-12-10)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.28.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.4...@ant-design/pro-field@1.28.5) (2021-12-09)
+
+### Bug Fixes
+
+- **form:** cascader mode=text error ([#4213](https://github.com/ant-design/pro-components/issues/4213)) ([fdbd1d6](https://github.com/ant-design/pro-components/commit/fdbd1d62757bd9a3ad167290830a8fd050f66fc9))
+- **form:** fix InputNumberPopover null error ([#4238](https://github.com/ant-design/pro-components/issues/4238)) ([2f12d30](https://github.com/ant-design/pro-components/commit/2f12d306f440dc94ed2603ea9d45cd2e0731e8f7))
+
+## [1.28.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.3...@ant-design/pro-field@1.28.4) (2021-12-08)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.28.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.2...@ant-design/pro-field@1.28.3) (2021-12-07)
+
+### Bug Fixes
+
+- simplify swr usage ([#4181](https://github.com/ant-design/pro-components/issues/4181)) ([ed66732](https://github.com/ant-design/pro-components/commit/ed6673272882af09287eb87457df2a8ca9daf7f1))
+
+## [1.28.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.1...@ant-design/pro-field@1.28.2) (2021-12-01)
+
+### Bug Fixes
+
+- **form:** fix RangePicker format is string,will error ([#4169](https://github.com/ant-design/pro-components/issues/4169)) ([996b806](https://github.com/ant-design/pro-components/commit/996b80680c12c27c87ecb9b14faaac9ed5685898))
+
+## [1.28.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.28.0...@ant-design/pro-field@1.28.1) (2021-12-01)
+
+### Bug Fixes
+
+- **form:** change numberPopoverRender render dom ([#4161](https://github.com/ant-design/pro-components/issues/4161)) ([8280d6c](https://github.com/ant-design/pro-components/commit/8280d6c962759c05a2e58d39c915df6e54c83f07))
+
+# [1.28.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.27.1...@ant-design/pro-field@1.28.0) (2021-11-30)
+
+### Features
+
+- **table:** support revalidateOnFocus ([#4120](https://github.com/ant-design/pro-components/issues/4120)) ([1046109](https://github.com/ant-design/pro-components/commit/104610914eedfecd88ceb2e38d86c47ff8b2fc89))
+
+## [1.27.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.27.0...@ant-design/pro-field@1.27.1) (2021-11-23)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.27.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.26.3...@ant-design/pro-field@1.27.0) (2021-11-23)
+
+### Features
+
+- **table:** request add record props ([5ec71f8](https://github.com/ant-design/pro-components/commit/5ec71f823619ccbe798391c446427aa1371208bb))
+
+## [1.26.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.26.2...@ant-design/pro-field@1.26.3) (2021-11-22)
+
+### Bug Fixes
+
+- **ProForm:** 修复 ProForm 请求两次问题 ([#4074](https://github.com/ant-design/pro-components/issues/4074)) ([fe9d08c](https://github.com/ant-design/pro-components/commit/fe9d08c950497bb2447ca088471b9dc8b86acb67))
+
+## [1.26.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.26.1...@ant-design/pro-field@1.26.2) (2021-11-18)
+
+### Bug Fixes
+
+- **form:** support higher accuracy ([#4051](https://github.com/ant-design/pro-components/issues/4051)) ([f81e801](https://github.com/ant-design/pro-components/commit/f81e801ad49491100402ad9b817f479baa41f941))
+- **table:** fix table validateFields no work error ([#4058](https://github.com/ant-design/pro-components/issues/4058)) ([0291e08](https://github.com/ant-design/pro-components/commit/0291e085a17d57d654b698695e9a2c31915a07e0))
+
+## [1.26.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.26.0...@ant-design/pro-field@1.26.1) (2021-11-16)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.26.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.25.0...@ant-design/pro-field@1.26.0) (2021-11-15)
+
+### Features
+
+- **form:** support antd next ([#4038](https://github.com/ant-design/pro-components/issues/4038)) ([96a64c3](https://github.com/ant-design/pro-components/commit/96a64c35d0fc6a359a4ff3d36b96f510f4580c63)), closes [#3770](https://github.com/ant-design/pro-components/issues/3770) [#3863](https://github.com/ant-design/pro-components/issues/3863)
+
+# [1.25.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.24.1...@ant-design/pro-field@1.25.0) (2021-11-12)
+
+### Bug Fixes
+
+- **field:** fromNow should show time ([#3958](https://github.com/ant-design/pro-components/issues/3958)) ([47c0076](https://github.com/ant-design/pro-components/commit/47c0076c4b2036505b0de52b008b1d431b744bd0))
+- **form:** fix onchange rechange error ([#4022](https://github.com/ant-design/pro-components/issues/4022)) ([69b4335](https://github.com/ant-design/pro-components/commit/69b433533db8a6df71dec2de05a4a8c4e6a480fc))
+- **form:** fix proform.item no support QueryFilter error ([#4011](https://github.com/ant-design/pro-components/issues/4011)) ([5eff600](https://github.com/ant-design/pro-components/commit/5eff600f580d99452f9e1a84b7c36c315e55804f))
+
+### Features
+
+- **field:** select request 添加防抖动属性 ([#3987](https://github.com/ant-design/pro-components/issues/3987)) ([887e654](https://github.com/ant-design/pro-components/commit/887e6541dae8e614789e651c74b32abc875e83e7))
+- **form:** money support numberPopover ([#4008](https://github.com/ant-design/pro-components/issues/4008)) ([0d720f1](https://github.com/ant-design/pro-components/commit/0d720f19bf196f31bf16f4f730b039dd1a87ba3d))
+
+## [1.24.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.24.0...@ant-design/pro-field@1.24.1) (2021-11-02)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.24.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.23.0...@ant-design/pro-field@1.24.0) (2021-10-27)
+
+### Features
+
+- **form:** support Cascader ([#3904](https://github.com/ant-design/pro-components/issues/3904)) ([be63c81](https://github.com/ant-design/pro-components/commit/be63c81be1102fd2f099e9182fb296a01a8b59f0))
+
+# [1.23.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.10...@ant-design/pro-field@1.23.0) (2021-10-26)
+
+### Features
+
+- **form:** support autoFocusFirstInput props ([#3894](https://github.com/ant-design/pro-components/issues/3894)) ([a860555](https://github.com/ant-design/pro-components/commit/a860555f6ab683b52bb0cfd58e6be60fe98a70fe))
+
+## [1.22.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.9...@ant-design/pro-field@1.22.10) (2021-10-19)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.8...@ant-design/pro-field@1.22.9) (2021-10-18)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.7...@ant-design/pro-field@1.22.8) (2021-10-15)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.6...@ant-design/pro-field@1.22.7) (2021-10-08)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.5...@ant-design/pro-field@1.22.6) (2021-10-08)
+
+### Bug Fixes
+
+- **field:** timePicker 组件用 moment 解析时间不填入 format 是会直接 Invalid date ([#3745](https://github.com/ant-design/pro-components/issues/3745)) ([31fc899](https://github.com/ant-design/pro-components/commit/31fc8993aa5486281c76691df41ddb80d827074a))
+
+## [1.22.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.4...@ant-design/pro-field@1.22.5) (2021-09-24)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.3...@ant-design/pro-field@1.22.4) (2021-09-18)
+
+### Bug Fixes
+
+- **utils:** use swr beta verison fix ie support ([7046b1b](https://github.com/ant-design/pro-components/commit/7046b1b6f9cb1b793fd53a7fc8e6356c8830426a))
+
+## [1.22.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.2...@ant-design/pro-field@1.22.3) (2021-09-18)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.22.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.1...@ant-design/pro-field@1.22.2) (2021-09-16)
+
+### Bug Fixes
+
+- [#3651](https://github.com/ant-design/pro-components/issues/3651) 修复金额输入组件设置 width 无效的问题 ([#3654](https://github.com/ant-design/pro-components/issues/3654)) ([ef72dba](https://github.com/ant-design/pro-components/commit/ef72dbae77a77a5831a6056d4194ac3524f7afe8))
+
+## [1.22.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.22.0...@ant-design/pro-field@1.22.1) (2021-09-09)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.22.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.21.2...@ant-design/pro-field@1.22.0) (2021-09-07)
+
+### Bug Fixes
+
+- **form:** if valueType need request, note need request ([#3575](https://github.com/ant-design/pro-components/issues/3575)) ([41bb815](https://github.com/ant-design/pro-components/commit/41bb81540408659256da329fe0eb02e5c1583ea5))
+
+### Features
+
+- **form,field:** 增加 ProFormMoney 组件 ([#3588](https://github.com/ant-design/pro-components/issues/3588)) ([2435ac3](https://github.com/ant-design/pro-components/commit/2435ac34b968ebbbeb018ab070f94f344822eddd)), closes [Form#3547](https://github.com/Form/issues/3547) [#3547](https://github.com/ant-design/pro-components/issues/3547)
+
+## [1.21.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.21.1...@ant-design/pro-field@1.21.2) (2021-08-30)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.21.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.21.0...@ant-design/pro-field@1.21.1) (2021-08-30)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.21.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.20.0...@ant-design/pro-field@1.21.0) (2021-08-26)
+
+### Features
+
+- **form:** huge performance improvement ([#3528](https://github.com/ant-design/pro-components/issues/3528)) ([31be4cc](https://github.com/ant-design/pro-components/commit/31be4cc533b222607808742dd51d9016017fb4f0))
+- **form:** huge performance improvement ([#3533](https://github.com/ant-design/pro-components/issues/3533)) ([8092203](https://github.com/ant-design/pro-components/commit/8092203475a61380365821cf1c4e3b9886fec0b6))
+
+# [1.20.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.19.0...@ant-design/pro-field@1.20.0) (2021-08-24)
+
+### Bug Fixes
+
+- **field-percent:** fix parser and formatter regexp [#3459](https://github.com/ant-design/pro-components/issues/3459) ([#3505](https://github.com/ant-design/pro-components/issues/3505)) ([3f469a1](https://github.com/ant-design/pro-components/commit/3f469a145ab6a3ff607f7fc6d0a797d880521353))
+- **form:** proformtext support prefix and suffix ([#3524](https://github.com/ant-design/pro-components/issues/3524)) ([d368def](https://github.com/ant-design/pro-components/commit/d368defbbc378edeb50ef3b2d4e86ec4c4805ca2))
+
+### Features
+
+- **form:** form columns support dependencies ([#3523](https://github.com/ant-design/pro-components/issues/3523)) ([73624c8](https://github.com/ant-design/pro-components/commit/73624c87cf81e417cc3547386050261a45903bce))
+
+# [1.19.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.17...@ant-design/pro-field@1.19.0) (2021-08-19)
+
+### Bug Fixes
+
+- **form:** ProFormSelect: can not search after triggered clear event ([#3455](https://github.com/ant-design/pro-components/issues/3455)) ([7d7bf60](https://github.com/ant-design/pro-components/commit/7d7bf606f2c2eee24a4403eac2f273f4f0e6b392))
+
+### Features
+
+- **form:** Second support day ([#3437](https://github.com/ant-design/pro-components/issues/3437)) ([9bd255a](https://github.com/ant-design/pro-components/commit/9bd255a1a4f94b15803616b65849ce24f313387a))
+
+## [1.18.17](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.16...@ant-design/pro-field@1.18.17) (2021-08-09)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.18.16](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.15...@ant-design/pro-field@1.18.16) (2021-08-05)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.18.15](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.14...@ant-design/pro-field@1.18.15) (2021-08-03)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.18.14](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.13...@ant-design/pro-field@1.18.14) (2021-07-30)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.18.13](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.12...@ant-design/pro-field@1.18.13) (2021-07-26)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.18.12](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.11...@ant-design/pro-field@1.18.12) (2021-07-20)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.18.11](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.10...@ant-design/pro-field@1.18.11) (2021-07-19)
+
+### Bug Fixes
+
+- 修复用户自定义的 render 在返回空时报错问题 ([#3225](https://github.com/ant-design/pro-components/issues/3225)) ([b15a306](https://github.com/ant-design/pro-components/commit/b15a3063ca96e66ec7868d3d09d00aad43c3b4c3))
+
+## [1.18.10](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.9...@ant-design/pro-field@1.18.10) (2021-07-06)
+
+### Bug Fixes
+
+- **select:** fix FieldSelect request warning ([#3159](https://github.com/ant-design/pro-components/issues/3159)) ([473736f](https://github.com/ant-design/pro-components/commit/473736fcf400c271b5ab4d6bd24cb29ac39b317d))
+
+## [1.18.9](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.8...@ant-design/pro-field@1.18.9) (2021-07-01)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.18.8](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.7...@ant-design/pro-field@1.18.8) (2021-06-28)
+
+### Bug Fixes
+
+- **form:** fix Group vertical style error ([#3102](https://github.com/ant-design/pro-components/issues/3102)) ([0f05bae](https://github.com/ant-design/pro-components/commit/0f05baea7e375174f2af2b18963b678698bae618))
+- **form:** fix reg inclubes “(” error ([#3103](https://github.com/ant-design/pro-components/issues/3103)) ([cc1f9d0](https://github.com/ant-design/pro-components/commit/cc1f9d06eb796df620f0f28f4764ff797a96692f))
+- **form:** fix select optionGroup no filter error ([#3100](https://github.com/ant-design/pro-components/issues/3100)) ([5a9419c](https://github.com/ant-design/pro-components/commit/5a9419c89e40cf6de953258ef00a382887922519))
+
+## [1.18.7](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.6...@ant-design/pro-field@1.18.7) (2021-06-23)
+
+### Bug Fixes
+
+- **field:** autoClearSearchValue no work ([#3070](https://github.com/ant-design/pro-components/issues/3070)) ([a80611f](https://github.com/ant-design/pro-components/commit/a80611fe39001d0b2aeffcce4140c220c30d09d2))
+- **form:** fix regular match ([#3064](https://github.com/ant-design/pro-components/issues/3064)) ([06a8465](https://github.com/ant-design/pro-components/commit/06a8465cc708b4ff044f2cbfeb8c9833b08327e6))
+
+## [1.18.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.5...@ant-design/pro-field@1.18.6) (2021-06-17)
+
+### Bug Fixes
+
+- **form:** switch width style fixed ([4e7543d](https://github.com/ant-design/pro-components/commit/4e7543daca5c5da3cfef2761737301e392a41cac))
+
+## [1.18.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.4...@ant-design/pro-field@1.18.5) (2021-06-15)
+
+### Bug Fixes
+
+- **descriptions:** fix descriptions fomart error ([#3015](https://github.com/ant-design/pro-components/issues/3015)) ([beb6ce2](https://github.com/ant-design/pro-components/commit/beb6ce2881f94862663051bf597c4a035646729a))
+
+## [1.18.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.3...@ant-design/pro-field@1.18.4) (2021-06-09)
+
+### Bug Fixes
+
+- **form:** fix autoClearSearchValue not work ([#2970](https://github.com/ant-design/pro-components/issues/2970)) ([51e5467](https://github.com/ant-design/pro-components/commit/51e5467043091f16eb3552963e967d8e2215ff8f))
+
+## [1.18.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.2...@ant-design/pro-field@1.18.3) (2021-06-08)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.18.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.1...@ant-design/pro-field@1.18.2) (2021-05-31)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.18.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.18.0...@ant-design/pro-field@1.18.1) (2021-05-28)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.18.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.17.2...@ant-design/pro-field@1.18.0) (2021-05-25)
+
+### Features
+
+- **table:** eidt table use Proform ([#2832](https://github.com/ant-design/pro-components/issues/2832)) ([5c8b4ba](https://github.com/ant-design/pro-components/commit/5c8b4bac7169d2d0c091b1d1d9a68f03166abd88))
+
+## [1.17.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.17.1...@ant-design/pro-field@1.17.2) (2021-05-24)
+
+### Bug Fixes
+
+- **form:** digit support formatter ([#2818](https://github.com/ant-design/pro-components/issues/2818)) ([25f5417](https://github.com/ant-design/pro-components/commit/25f5417bab8a8d1177ab9da41f94ff1100f91e25))
+
+## [1.17.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.17.0...@ant-design/pro-field@1.17.1) (2021-05-23)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+# [1.17.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.16.0...@ant-design/pro-field@1.17.0) (2021-05-21)
+
+### Features
+
+- **form:** select option support ellipsis ([#2765](https://github.com/ant-design/pro-components/issues/2765)) ([ee8a7f2](https://github.com/ant-design/pro-components/commit/ee8a7f2040b72af357b62ff39f7effecac2e91f8))
+
+# [1.16.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.6...@ant-design/pro-field@1.16.0) (2021-05-18)
+
+### Bug Fixes
+
+- **Descriptions:** fix proFieldKey is same error ([#2729](https://github.com/ant-design/pro-components/issues/2729)) ([be501ec](https://github.com/ant-design/pro-components/commit/be501ece15d04a9680fb08bd036e48587857dd9c))
+- **form:** support fieldProps.format ([#2735](https://github.com/ant-design/pro-components/issues/2735)) ([13bebc6](https://github.com/ant-design/pro-components/commit/13bebc6181e4d6a9b54ca1e8d443c927e0d5559d))
+
+### Features
+
+- **form:** select option height light support less([#2667](https://github.com/ant-design/pro-components/issues/2667)) ([#2748](https://github.com/ant-design/pro-components/issues/2748)) ([a302eb3](https://github.com/ant-design/pro-components/commit/a302eb308c0a2623fd885fca764e15fccce3a07b))
+- **form:** valueType digit supports intlProps ([#2740](https://github.com/ant-design/pro-components/issues/2740)) ([c88c2f7](https://github.com/ant-design/pro-components/commit/c88c2f77f3d3d756e149ad96493d4db8bcbe46f7))
+
+## [1.15.6](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.5...@ant-design/pro-field@1.15.6) (2021-05-11)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.15.5](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.4...@ant-design/pro-field@1.15.5) (2021-04-29)
+
+### Bug Fixes
+
+- **form:** FieldImage support fieldProps ([#2586](https://github.com/ant-design/pro-components/issues/2586)) ([accdf17](https://github.com/ant-design/pro-components/commit/accdf17524b6f8f480f6c070f477622fe646cdef))
+- **form:** switch add default props ([#2629](https://github.com/ant-design/pro-components/issues/2629)) ([7d6ce1f](https://github.com/ant-design/pro-components/commit/7d6ce1f60584d79ae25a157dca0db2e8e1dbb7da))
+
+## [1.15.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.3...@ant-design/pro-field@1.15.4) (2021-04-22)
+
+### Bug Fixes
+
+- **form:** support moneySymbol=undefined ([#2579](https://github.com/ant-design/pro-components/issues/2579)) ([029482d](https://github.com/ant-design/pro-components/commit/029482d557c8de3cb761af59560aa5e7a9166082))
+
+## [1.15.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.2...@ant-design/pro-field@1.15.3) (2021-04-19)
+
+### Bug Fixes
+
+- **form:** fix moneySymbol no work error ([#2539](https://github.com/ant-design/pro-components/issues/2539)) ([a0bd582](https://github.com/ant-design/pro-components/commit/a0bd5821f00f61af8265a5ae6d1fc53f8d2ec8c5))
+
+## [1.15.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.1...@ant-design/pro-field@1.15.2) (2021-04-19)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
 ## [1.15.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.15.0...@ant-design/pro-field@1.15.1) (2021-04-19)
 
 **Note:** Version bump only for package @ant-design/pro-field

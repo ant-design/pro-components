@@ -28,6 +28,9 @@ export type GlobalHeaderProps = {
   onMenuHeaderClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   style?: React.CSSProperties;
   menuHeaderRender?: SiderMenuProps['menuHeaderRender'];
+  headerContentRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
   collapsedButtonRender?: SiderMenuProps['collapsedButtonRender'];
   splitMenus?: boolean;
 } & Partial<PureSettings>;
@@ -73,6 +76,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
     const noChildrenMenuData = (menuData || []).map((item) => ({
       ...item,
       children: undefined,
+      routes: undefined,
     }));
     const clearMenuData = clearMenuItem(noChildrenMenuData);
     return (

@@ -1,23 +1,18 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { UploadProps, ButtonProps } from 'antd';
 import { Upload, Button } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
-import type { ProFormItemProps } from '../../interface';
-import createField from '../../BaseForm/createField';
+import type { ProFormFieldItemProps } from '../../interface';
+import { createField } from '../../BaseForm/createField';
 
-export type ProFormDraggerProps = ProFormItemProps<UploadProps> & {
+export type ProFormDraggerProps = ProFormFieldItemProps<UploadProps> & {
   icon?: React.ReactNode;
   title?: React.ReactNode;
-  name?: UploadProps['name'];
-  listType?: UploadProps['listType'];
-  action?: UploadProps['action'];
-  accept?: UploadProps['accept'];
   max?: number;
   value?: UploadProps['fileList'];
-  onChange?: UploadProps['onChange'];
   buttonProps?: ButtonProps;
   disabled?: ButtonProps['disabled'];
-};
+} & Pick<UploadProps, 'name' | 'listType' | 'action' | 'accept' | 'fileList' | 'onChange'>;
 
 /**
  * 上传按钮组件
@@ -34,19 +29,23 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
     title = '单击上传',
     max,
     icon = <UploadOutlined />,
-    value,
     buttonProps,
     onChange,
     disabled,
     proFieldProps,
+    ...restProps
   },
   ref,
 ) => {
+  const value = useMemo(() => {
+    return restProps.fileList ?? restProps.value;
+  }, [restProps.fileList, restProps.value]);
+
   // 如果配置了 max ，并且 超过了文件列表的大小，就不展示按钮
   const showUploadButton =
     (max === undefined || !value || value?.length < max) && proFieldProps?.mode !== 'read';
 
-  const isPictureCard = fieldProps?.listType === 'picture-card';
+  const isPictureCard = (listType ?? fieldProps?.listType) === 'picture-card';
   return (
     <Upload
       action={action}
@@ -58,12 +57,8 @@ const ProFormUploadButton: React.ForwardRefRenderFunction<any, ProFormDraggerPro
       fileList={value}
       {...fieldProps}
       onChange={(info) => {
-        if (onChange) {
-          onChange(info);
-        }
-        if (fieldProps?.onChange) {
-          fieldProps?.onChange(info);
-        }
+        onChange?.(info);
+        fieldProps?.onChange?.(info);
       }}
     >
       {showUploadButton &&

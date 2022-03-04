@@ -1,10 +1,10 @@
-﻿import type React from 'react';
+﻿/* eslint-disable react-hooks/exhaustive-deps */
+import type React from 'react';
 import { useCallback, useMemo } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import type { FormInstance } from 'antd';
 import { useIntl } from '@ant-design/pro-provider';
 import { message } from 'antd';
-import ReactDOM from 'react-dom';
 import type {
   ActionRenderConfig,
   ActionTypeText,
@@ -57,17 +57,17 @@ function useEditableMap<RecordType>(
   });
   /** 一个用来标志的set 提供了方便的 api 来去重什么的 */
   const editableKeysSet = useMemo(() => {
-    const keys = editableType === 'single' ? editableKeys.slice(0, 1) : editableKeys;
+    const keys = editableType === 'single' ? editableKeys?.slice(0, 1) : editableKeys;
     return new Set(keys);
-  }, [editableKeys.join(','), editableType]);
+  }, [(editableKeys || []).join(','), editableType]);
 
   /** 这行是不是编辑状态 */
   const isEditable = useCallback(
     (recordKey: RecordKey) => {
-      if (editableKeys.includes(recordKeyToString(recordKey))) return true;
+      if (editableKeys?.includes(recordKeyToString(recordKey))) return true;
       return false;
     },
-    [editableKeys.join(',')],
+    [(editableKeys || []).join(',')],
   );
 
   /**
@@ -93,10 +93,8 @@ function useEditableMap<RecordType>(
    */
   const cancelEditable = (recordKey: RecordKey) => {
     // 防止多次渲染
-    ReactDOM.unstable_batchedUpdates(() => {
-      editableKeysSet.delete(recordKeyToString(recordKey));
-      setEditableRowKeys(Array.from(editableKeysSet));
-    });
+    editableKeysSet.delete(recordKeyToString(recordKey));
+    setEditableRowKeys(Array.from(editableKeysSet));
     return true;
   };
 
@@ -105,9 +103,10 @@ function useEditableMap<RecordType>(
     editRow: RecordType & {
       index?: number;
     },
+    originRow: RecordType & { index?: number },
     newLine?: NewLineConfig<any>,
   ) => {
-    const success = await props?.onCancel?.(recordKey, editRow, newLine);
+    const success = await props?.onCancel?.(recordKey, editRow, originRow, newLine);
     if (success === false) {
       return false;
     }
@@ -119,8 +118,11 @@ function useEditableMap<RecordType>(
     editRow: RecordType & {
       index?: number;
     },
+    originRow: RecordType & {
+      index?: number;
+    },
   ) => {
-    const success = await props?.onSave?.(recordKey, editRow);
+    const success = await props?.onSave?.(recordKey, editRow, originRow);
     if (success === false) {
       return false;
     }
@@ -158,16 +160,18 @@ function useEditableMap<RecordType>(
         editorType: 'Map',
         ...config,
       };
+
       const defaultDoms = defaultActionRender(props.dataSource, renderConfig);
-      if (props.actionRender)
+      if (props.actionRender) {
         return props.actionRender(props.dataSource, renderConfig, {
           save: defaultDoms[0],
           delete: defaultDoms[1],
           cancel: defaultDoms[2],
         });
+      }
       return defaultDoms;
     },
-    [editableKeys.join(',')],
+    [editableKeys && editableKeys.join(','), props.dataSource],
   );
 
   return {

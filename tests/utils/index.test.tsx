@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   conversionSubmitValue,
   parseValueToMoment,
@@ -8,7 +8,10 @@ import {
   InlineErrorFormItem,
   useDebounceFn,
   pickProProps,
+  merge,
   DropdownFooter,
+  LabelIconTip,
+  useDebounceValue,
 } from '@ant-design/pro-utils';
 import { mount } from 'enzyme';
 import { Form, Input } from 'antd';
@@ -16,8 +19,72 @@ import type { Moment } from 'moment';
 import moment from 'moment';
 import { act } from 'react-dom/test-utils';
 import { waitTime, waitForComponentToPaint } from '../util';
+import isDropdownValueType from '../../packages/utils/src/isDropdownValueType/index';
+import { CodeFilled } from '@ant-design/icons';
 
 describe('utils', () => {
+  it('📅 useDebounceValue', async () => {
+    const App = (props: { deps: string[] }) => {
+      const value = useDebounceValue(props.deps?.[0], 200, props.deps);
+
+      return <>{value}</>;
+    };
+
+    const html = mount(<App deps={['name']} />);
+
+    await waitTime(100);
+
+    expect(html.text()).toEqual('name');
+
+    act(() => {
+      html.setProps({
+        deps: ['string'],
+      });
+    });
+    await waitTime(100);
+
+    html.update();
+
+    expect(html.text()).toEqual('name');
+
+    await waitTime(200);
+
+    html.update();
+
+    expect(html.text()).toEqual('string');
+  });
+
+  it('📅 useDebounceValue without deps', async () => {
+    const App = (props: { deps: string[] }) => {
+      const [_, forceUpdate] = useState([]);
+      const value = useDebounceValue(props.deps?.[0]);
+
+      useEffect(() => {
+        setTimeout(() => {
+          forceUpdate([]);
+        }, 1000);
+      }, []);
+
+      return <>{value}</>;
+    };
+
+    const html = mount(<App deps={['name']} />);
+
+    expect(html.text()).toEqual('name');
+
+    act(() => {
+      html.setProps({
+        deps: ['string'],
+      });
+    });
+
+    waitTime(1000);
+
+    html.update();
+
+    expect(html.text()).toEqual('name');
+  });
+
   it('📅 useDebounceFn', async () => {
     pickProProps({
       fieldProps: {
@@ -25,11 +92,11 @@ describe('utils', () => {
       },
     });
     const fn = jest.fn();
-    const App = (props: { deps: string[] }) => {
-      const fetchData = useDebounceFn(async () => fn(), props.deps);
+    const App = ({ wait }: { wait?: number }) => {
+      const fetchData = useDebounceFn(async () => fn(), wait);
       useEffect(() => {
         fetchData.run();
-        return fetchData.cancel();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
       }, []);
       return (
         <div
@@ -41,7 +108,21 @@ describe('utils', () => {
         />
       );
     };
-    const html = mount(<App deps={['name']} />);
+    const html = mount(<App />);
+
+    expect(fn).toBeCalledTimes(1);
+
+    // wait === undefined
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    expect(fn).toBeCalledTimes(3);
+
+    // wait === 80
+    html.setProps({
+      wait: 80,
+    });
 
     act(() => {
       html.find('#test').simulate('click');
@@ -49,20 +130,65 @@ describe('utils', () => {
 
     await waitTime(100);
 
-    act(() => {
-      html.setProps({
-        deps: ['string'],
-      });
+    expect(fn).toBeCalledTimes(4);
+
+    // wait === 0
+    html.setProps({
+      wait: 0,
     });
+
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    expect(fn).toBeCalledTimes(6);
+
+    // wait === 100 but callback is cancelled
+    html.setProps({
+      wait: 100,
+    });
+
+    act(() => {
+      html.find('#test').simulate('click');
+    });
+
+    await waitTime(50);
+
+    act(() => {
+      html.unmount();
+    });
+
     await waitTime(100);
 
-    act(() => {
-      act(() => {
-        html.unmount();
-      });
+    expect(fn).toBeCalledTimes(6);
+  });
+
+  it('📅 useDebounceFn execution has errors', async () => {
+    pickProProps({
+      fieldProps: {
+        name: 'string',
+      },
     });
 
-    expect(fn).toBeCalledTimes(2);
+    const error = new Error('debounce error');
+    const catchFn = jest.fn();
+    const App = ({ wait }: { wait?: number }) => {
+      const fetchData = useDebounceFn(async () => {
+        throw error;
+      }, wait);
+
+      useEffect(() => {
+        fetchData.run().catch(catchFn);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, []);
+      return <div />;
+    };
+
+    mount(<App />);
+
+    await waitTime(100);
+
+    expect(catchFn).toBeCalledWith(error);
   });
 
   it('📅 conversionSubmitValue nil', async () => {
@@ -79,6 +205,13 @@ describe('utils', () => {
       true,
     );
     expect(html.money === undefined).toBeTruthy();
+  });
+
+  it('📅 merge values not change null', () => {
+    const html = merge<{
+      status: null;
+    }>({}, { status: null });
+    expect(html.status).toEqual(null);
   });
 
   it('📅 conversionSubmitValue string', async () => {
@@ -285,9 +418,7 @@ describe('utils', () => {
       html.find('Input#test').simulate('focus');
     });
     await waitForComponentToPaint(html, 100);
-    expect(html.find('div.ant-popover').exists()).toBeTruthy();
-    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(0);
-    expect(html.find('.ant-popover .anticon.anticon-close-circle').length).toEqual(0);
+    expect(html.find('div.ant-popover').exists()).toBeFalsy();
 
     act(() => {
       html.find('Input#test').simulate('change', {
@@ -297,23 +428,13 @@ describe('utils', () => {
       });
     });
     await waitForComponentToPaint(html, 1000);
-
-    const li = html.find('div.ant-popover .ant-popover-inner-content ul li');
-    expect(li.length).toEqual(4);
-    expect(li.at(0).find('.ant-space-item span').at(1).text()).toEqual(ruleMessage.required);
-    expect(li.at(1).find('.ant-space-item span').at(1).text()).toEqual(ruleMessage.min);
-    expect(li.at(2).find('.ant-space-item span').at(1).text()).toEqual(ruleMessage.numberRequired);
-    expect(li.at(3).find('.ant-space-item span').at(1).text()).toEqual(ruleMessage.alphaRequired);
-    expect(
-      html
-        .find('div.ant-popover .ant-progress-bg')
-        .at(0)
-        .getDOMNode()
-        .getAttribute('style')
-        ?.indexOf('width: 50%'),
-    ).toBeGreaterThanOrEqual(0);
-    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(2);
-
+    expect(html.find('div.ant-popover').exists()).toBeTruthy();
+    const li = html.find(
+      'div.ant-popover .ant-popover-inner-content div.ant-form-item-explain-error',
+    );
+    expect(li.exists()).toBeTruthy();
+    expect(li.at(0).text()).toBe(ruleMessage.min);
+    expect(li.at(1).text()).toBe(ruleMessage.alphaRequired);
     act(() => {
       html.find('Input#test').simulate('change', {
         target: {
@@ -322,7 +443,16 @@ describe('utils', () => {
       });
     });
     await waitForComponentToPaint(html, 1000);
-    expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeTruthy();
+
+    act(() => {
+      html.find('Input#test').simulate('change', {
+        target: {
+          value: '.',
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 1000);
+    expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeFalsy();
 
     act(() => {
       html.find('Input#test').simulate('change', {
@@ -333,76 +463,6 @@ describe('utils', () => {
     });
     await waitForComponentToPaint(html, 1000);
     expect(html.find('div.ant-popover.ant-popover-hidden').exists()).toBeFalsy();
-    expect(html.find('.ant-popover .anticon.anticon-check-circle').length).toEqual(0);
-  });
-
-  it('📅 InlineErrorFormItem no progress', async () => {
-    const html = mount(
-      <Form>
-        <InlineErrorFormItem
-          errorType="popover"
-          rules={[
-            {
-              required: true,
-              message: '必填项',
-            },
-          ]}
-          popoverProps={{ trigger: 'focus' }}
-          name="title"
-          progressProps={false}
-        >
-          <Input id="test" />
-        </InlineErrorFormItem>
-      </Form>,
-    );
-    act(() => {
-      html.find('Input#test').simulate('focus');
-    });
-    act(() => {
-      html.find('Input#test').simulate('change', {
-        target: {
-          value: '1',
-        },
-      });
-    });
-    await waitForComponentToPaint(html, 100);
-    expect(html.find('div.ant-popover .ant-progress').exists()).toBeFalsy();
-  });
-
-  it('📅 InlineErrorFormItem have progress', async () => {
-    const html = mount(
-      <Form>
-        <InlineErrorFormItem
-          errorType="popover"
-          rules={[
-            {
-              required: true,
-              message: '必填项',
-            },
-            {
-              min: 12,
-              message: '最小长度12',
-            },
-          ]}
-          popoverProps={{ trigger: 'focus' }}
-          name="title"
-        >
-          <Input id="test" />
-        </InlineErrorFormItem>
-      </Form>,
-    );
-    act(() => {
-      html.find('Input#test').simulate('focus');
-    });
-    act(() => {
-      html.find('Input#test').simulate('change', {
-        target: {
-          value: '1',
-        },
-      });
-    });
-    await waitForComponentToPaint(html, 100);
-    expect(html.find('div.ant-popover .ant-progress').exists()).toBeTruthy();
   });
 
   it('📅 transformKeySubmitValue return string', async () => {
@@ -495,6 +555,66 @@ describe('utils', () => {
     expect((html as any).dateRange2).toBe('2019-11-16 12:55:26');
   });
 
+  it('📅 transformKeySubmitValue return nest object', async () => {
+    const html = transformKeySubmitValue(
+      {
+        d: new Map(),
+        e: new Set(),
+        f: document.createElement('div'),
+        c: new RegExp('/'),
+        g: React.createElement('a', {}),
+        a: {
+          b: {
+            name: 'test',
+          },
+        },
+      },
+      {
+        a: {
+          b: {
+            name: (e: string) => ({
+              a: {
+                b: {
+                  name: `qixian_${e}`,
+                },
+              },
+            }),
+          } as any,
+        },
+      },
+    );
+    expect(html.a.b.name).toBe('qixian_test');
+  });
+
+  it('📅 transformKeySubmitValue for array', async () => {
+    const html = transformKeySubmitValue(
+      [
+        {
+          name: 1,
+        },
+        {
+          name: 2,
+        },
+        {
+          f: [1, 2, 4],
+        },
+      ],
+      {
+        1: {
+          name: (e: string) => {
+            return {
+              name: 2,
+              name2: `qixian_${e}`,
+            };
+          },
+        },
+      },
+    );
+
+    //@ts-expect-error
+    expect(html[1].name2).toBe('qixian_2');
+  });
+
   it('📅 transformKeySubmitValue return array', async () => {
     const html = transformKeySubmitValue(
       {
@@ -554,7 +674,7 @@ describe('utils', () => {
     });
     expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
     expect(html.tag).not.toBe(labelInValue);
-    expect(html.tag.label).toBe(labelInValue.label);
+    expect(React.isValidElement(html.tag.label)).toBeTruthy();
   });
 
   it('📅 transformKeySubmitValue ignore Blob', async () => {
@@ -574,6 +694,20 @@ describe('utils', () => {
     expect(html.files[0]).toBe(file);
   });
 
+  it('📅 transformKeySubmitValue ignore null', async () => {
+    const dataIn = {
+      dataTime: '2019-11-16 12:50:26',
+      time: '2019-11-16 12:50:26',
+      file: null,
+    };
+    const html = transformKeySubmitValue(dataIn, {
+      dataTime: () => ['new-dataTime'],
+      time: undefined,
+    });
+    expect(html['new-dataTime']).toBe('2019-11-16 12:50:26');
+    expect(html.file).toBe(undefined);
+  });
+
   it('📅 isNil', async () => {
     expect(isNil(null)).toBe(true);
     expect(isNil(undefined)).toBe(true);
@@ -590,5 +724,32 @@ describe('utils', () => {
     );
     expect(isUrl('procomponents.ant.design/en-US/components/layout')).toBe(false);
     expect(isUrl('https:://procomponents.ant.design/en-US/components/layout')).toBe(false);
+  });
+
+  it('isDropdownValueType', async () => {
+    expect(isDropdownValueType('date')).toBeTruthy();
+    expect(isDropdownValueType('dateRange')).toBeFalsy();
+    expect(isDropdownValueType('dateTimeRange')).toBeFalsy();
+    expect(isDropdownValueType('timeRange')).toBeFalsy();
+    expect(isDropdownValueType('select')).toBeTruthy();
+  });
+  it('LabelIconTip', async () => {
+    const html = mount(
+      <LabelIconTip
+        label="xxx"
+        subTitle="xxx"
+        tooltip={{
+          icon: <CodeFilled />,
+        }}
+      />,
+    );
+
+    act(() => {
+      html.find('div').at(0).simulate('mousedown');
+      html.find('div').at(0).simulate('mouseleave');
+      html.find('div').at(0).simulate('mousemove');
+    });
+
+    expect(html.render()).toMatchSnapshot();
   });
 });

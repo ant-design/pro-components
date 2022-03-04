@@ -1,6 +1,8 @@
 ﻿import React, { useState } from 'react';
 import type { ProFormColumnsType, ProFormLayoutType } from '@ant-design/pro-form';
 import { BetaSchemaForm, ProFormSelect } from '@ant-design/pro-form';
+import moment from 'moment';
+import { DatePicker } from 'antd';
 
 const valueEnum = {
   all: { text: '全部', status: 'Default' },
@@ -54,7 +56,18 @@ const columns: ProFormColumnsType<DataItem>[] = [
     title: '创建时间',
     key: 'showTime',
     dataIndex: 'createName',
-    valueType: 'date',
+    initialValue: [moment().add(-1, 'm'), moment()],
+    renderFormItem: () => <DatePicker.RangePicker />,
+  },
+  {
+    valueType: 'switch',
+    title: '开关',
+    dataIndex: 'Switch',
+    fieldProps: {
+      style: {
+        width: '200px',
+      },
+    },
   },
   {
     title: '分组',
@@ -161,7 +174,17 @@ export default () => {
   return (
     <>
       <ProFormSelect
-        options={['ProForm', 'ModalForm', 'DrawerForm', 'LightFilter', 'QueryFilter']}
+        label="布局方式"
+        options={[
+          'Form',
+          'ModalForm',
+          'DrawerForm',
+          'LightFilter',
+          'QueryFilter',
+          'StepsForm',
+          'StepForm',
+          'Embed',
+        ]}
         fieldProps={{
           value: layoutType,
           onChange: (e) => setLayoutType(e),
@@ -173,7 +196,7 @@ export default () => {
         onFinish={async (values) => {
           console.log(values);
         }}
-        columns={columns}
+        columns={layoutType === 'StepsForm' ? [columns] : columns}
       />
     </>
   );

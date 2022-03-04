@@ -1,11 +1,12 @@
-﻿@import (reference) '~antd/es/style/themes/default';
+﻿@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index.less';
 
 @pro-form-checkbox: ~'@{ant-prefix}-pro-field-checkbox';
 
 .@{pro-form-checkbox} {
   &-vertical {
     .@{ant-prefix}-checkbox-group-item {
-      display: block;
+      display: flex;
       margin-right: 0;
     }
   }

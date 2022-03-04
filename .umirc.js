@@ -19,15 +19,17 @@ const alias = pkgList.reduce((pre, pkg) => {
 console.log(`🌼 alias list \n${chalk.blue(Object.keys(alias).join('\n'))}`);
 
 const tailPkgList = pkgList
-  .map((path) => [join('packages', path, 'src'), join('packages', path, 'src', 'components')])
+  .map((path) => [join('packages', path, 'src')])
   .reduce((acc, val) => acc.concat(val), []);
 
 const isProduction = process.env.NODE_ENV === 'production';
 
+const isDeploy = process.env.SITE_DEPLOY === 'TRUE';
+
 export default {
   title: 'ProComponents',
   mode: 'site',
-  logo: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+  logo: 'https://gw.alipayobjects.com/zos/antfincdn/upvrAjAPQX/Logo_Tech%252520UI.svg',
   extraBabelPlugins: [
     [
       'import',
@@ -50,7 +52,7 @@ export default {
     },
     {
       property: 'og:description',
-      content: '🏆 Use Ant Design like a Pro!',
+      content: '🏆 让中后台开发更简单',
     },
     {
       name: 'keywords',
@@ -58,15 +60,23 @@ export default {
     },
     {
       name: 'description',
-      content: '🏆 Use Ant Design like a Pro! 包含 table form 等多个组件。',
+      content: '🏆 让中后台开发更简单 包含 table form 等多个组件。',
     },
     {
       name: 'apple-mobile-web-app-capable',
       content: 'yes',
     },
     {
-      name: 'apple-mobile-web-app-status-bar-style"',
+      name: 'apple-mobile-web-app-status-bar-style',
       content: 'black-translucent',
+    },
+    {
+      name: 'theme-color',
+      content: '#1890ff',
+    },
+    {
+      name: 'google-site-verification',
+      content: '9LDp--DeEC-xOggsHl_t1MlR_1_2O972JpSUu8NZKMU',
     },
   ],
   alias,
@@ -74,6 +84,8 @@ export default {
   // antd: {
   //   dark: true,
   // },
+  headScripts: ['https://gw.alipayobjects.com/os/antfincdn/fdj3WlJd5c/darkreader.js'],
+  externals: { darkreader: 'window.DarkReader' },
   resolve: {
     includes: [...tailPkgList, 'docs'],
   },
@@ -103,10 +115,6 @@ export default {
       }
     : false,
   hash: true,
-  ssr: {
-    devServerRender: false,
-  },
-  exportStatic: {},
   targets: {
     chrome: 80,
     firefox: false,
@@ -116,11 +124,9 @@ export default {
   },
   theme: {
     '@s-site-menu-width': '258px',
+    '@root-entry-name': 'variable',
   },
-  links:
-    process.env.NODE_ENV === 'development'
-      ? ['https://gw.alipayobjects.com/os/lib/antd/4.6.6/dist/antd.css']
-      : [],
+  ignoreMomentLocale: true,
   menus: {
     '/components': [
       {
@@ -131,27 +137,35 @@ export default {
         title: '布局',
         children: [
           'layout',
-          'PageContainer/index',
+          'components/PageContainer/index',
           'card',
-          'WaterMark/index',
-          'StatisticCard/index',
+          'components/WaterMark/index',
+          'components/StatisticCard/index',
+          'components/CheckCard/index',
         ],
       },
       {
         title: '数据录入',
         children: [
           'form',
-          'FieldSet/index',
-          'Group/index',
-          'SchemaForm/index',
-          'QueryFilter/index',
-          'StepsForm/index',
-          'ModalForm/index',
+          'components/FieldSet/index',
+          'components/Group/index',
+          'components/Dependency/index',
+          'components/SchemaForm/index',
+          'components/QueryFilter/index',
+          'components/StepsForm/index',
+          'components/ModalForm/index',
         ],
       },
       {
         title: '数据展示',
-        children: ['table', 'EditableTable/index', 'list', 'description'],
+        children: [
+          'table',
+          'components/EditableTable/index',
+          'components/DragSortTable/index',
+          'list',
+          'description',
+        ],
       },
       {
         title: '通用',
@@ -165,22 +179,30 @@ export default {
       },
       {
         title: 'Layout',
-        children: ['layout', 'PageContainer/index', 'card'],
+        children: [
+          'layout',
+          'components/PageContainer/index',
+          'components/DragSortTable/index',
+          'list',
+          'card',
+        ],
       },
       {
         title: 'Data entry',
         children: [
           'form',
-          'FieldSet/index',
-          'Group/index',
-          'QueryFilter/index',
-          'StepsForm/index',
-          'ModalForm/index',
+          'components/FieldSet/index',
+          'components/Group/index',
+          'components/Dependency/index',
+          'components/SchemaForm/index',
+          'components/QueryFilter/index',
+          'components/StepsForm/index',
+          'components/ModalForm/index',
         ],
       },
       {
         title: 'Data Display',
-        children: ['table', 'EditableTable/index', 'list', 'description'],
+        children: ['table', 'components/EditableTable/index', 'list', 'description'],
       },
       {
         title: 'General',
@@ -188,5 +210,8 @@ export default {
       },
     ],
   },
+  ssr: isDeploy ? {} : undefined,
   webpack5: {},
+  exportStatic: {},
+  mfsu: !isDeploy ? {} : undefined,
 };

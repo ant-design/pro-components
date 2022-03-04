@@ -40,7 +40,7 @@ const FieldRadio: ProFieldFC<GroupProps> = (
   if (mode === 'read') {
     const optionsValueEnum = options?.length
       ? options?.reduce((pre: any, cur) => {
-          return { ...pre, [cur.value]: cur.label };
+          return { ...pre, [cur.value ?? '']: cur.label };
         }, {})
       : undefined;
     const dom = <>{proFieldParsingText(rest.text, ObjToMap(rest.valueEnum || optionsValueEnum))}</>;

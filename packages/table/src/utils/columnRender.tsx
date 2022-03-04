@@ -1,12 +1,12 @@
 ﻿import React from 'react';
-import { Space, Form, Typography } from 'antd';
+import { Space } from 'antd';
 import type {
   ProFieldValueType,
   ProSchemaComponentTypes,
   ProTableEditableFnType,
   UseEditableUtilType,
 } from '@ant-design/pro-utils';
-import { isNil } from '@ant-design/pro-utils';
+import { isNil, genCopyable, isDeepEqualReact } from '@ant-design/pro-utils';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import cellRenderToFromItem from './cellRenderToFromItem';
 import { LabelIconTip } from '@ant-design/pro-utils';
@@ -15,6 +15,8 @@ import get from 'rc-util/lib/utils/get';
 import type { ActionType, ProColumns } from '../typing';
 import type { useContainer } from '../container';
 import { isMergeCell } from '.';
+import type { ProFormInstance } from '@ant-design/pro-form';
+import ProForm from '@ant-design/pro-form';
 
 /** 转化列的定义 */
 type ColumnRenderInterface<T> = {
@@ -38,7 +40,7 @@ export const renderColumnsTitle = (item: ProColumns<any>) => {
   if (title && typeof title === 'function') {
     return title(item, 'table', <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />);
   }
-  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} />;
+  return <LabelIconTip label={title} tooltip={item.tooltip || item.tip} ellipsis={item.ellipsis} />;
 };
 
 /** 判断可不可编辑 */
@@ -53,40 +55,6 @@ function isEditableCell<T>(
   }
   return editable?.(text, rowData, index) === false;
 }
-
-/**
- * 生成 Copyable 或 Ellipsis 的 dom
- *
- * @param dom
- * @param item
- * @param text
- */
-export const genCopyable = (dom: React.ReactNode, item: ProColumns<any>, text: string) => {
-  if (item.copyable || item.ellipsis) {
-    return (
-      <Typography.Text
-        style={{
-          maxWidth: '100%',
-          margin: 0,
-          padding: 0,
-        }}
-        title=""
-        copyable={
-          item.copyable && text
-            ? {
-                text,
-                tooltips: ['', ''],
-              }
-            : undefined
-        }
-        ellipsis={item.ellipsis && text ? { tooltip: text } : false}
-      >
-        {dom}
-      </Typography.Text>
-    );
-  }
-  return dom;
-};
 
 /**
  * 默认的 filter 方法
@@ -105,6 +73,27 @@ export const defaultOnFilter = (value: string, record: any, dataIndex: string | 
   return String(itemValue) === String(value);
 };
 
+class OptionsCell extends React.Component<{
+  children: (form: ProFormInstance) => React.ReactNode;
+  record: any;
+  form?: ProFormInstance;
+}> {
+  shouldComponentUpdate(nextProps: any) {
+    const { children, ...restProps } = this.props;
+    const { children: nextChildren, ...restNextProps } = nextProps;
+    return !isDeepEqualReact(restProps, restNextProps);
+  }
+  render() {
+    if (this.props.form) return <Space>{this.props.children(this.props.form)}</Space>;
+    return (
+      <ProForm.Item>
+        {(form) => {
+          return <Space>{this.props.children(form as ProFormInstance<any>)}</Space>;
+        }}
+      </ProForm.Item>
+    );
+  }
+}
 /**
  * 这个组件负责单元格的具体渲染
  *
@@ -120,11 +109,11 @@ export function columnRender<T>({
   type,
   editableUtils,
 }: ColumnRenderInterface<T>): any {
-  const { action } = counter;
+  const { action, prefixName, editableForm } = counter;
   const { isEditable, recordKey } = editableUtils.isEditable({ ...rowData, index });
   const { renderText = (val: any) => val } = columnProps;
 
-  const renderTextStr = renderText(text, rowData, index, action.current as ActionType);
+  const renderTextStr = renderText(text, rowData, index, action as ActionType);
   const mode =
     isEditable && !isEditableCell(text, rowData, index, columnProps?.editable) ? 'edit' : 'read';
 
@@ -133,11 +122,19 @@ export function columnRender<T>({
     valueType: (columnProps.valueType as ProFieldValueType) || 'text',
     index,
     rowData,
-    columnProps,
+    columnProps: {
+      ...columnProps,
+      // 为了兼容性，原来写了个错别字
+      // @ts-ignore
+      entry: rowData,
+      entity: rowData,
+    },
+    counter,
     columnEmptyText,
     type,
     recordKey,
     mode,
+    prefixName,
   });
 
   const dom: React.ReactNode =
@@ -147,49 +144,50 @@ export function columnRender<T>({
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
-        <Form.Item shouldUpdate noStyle>
-          {(form: any) => (
-            <Space size={16}>
-              {editableUtils.actionRender(
-                {
-                  ...rowData,
-                  index: columnProps.index || index,
-                },
-                form,
-              )}
-            </Space>
-          )}
-        </Form.Item>
+        <OptionsCell record={rowData} form={editableForm}>
+          {(inform) =>
+            editableUtils.actionRender(
+              {
+                ...rowData,
+                index: columnProps.index || index,
+              },
+              inform!,
+            )
+          }
+        </OptionsCell>
       );
     }
     return dom;
   }
 
-  if (columnProps.render) {
-    const renderDom = columnProps.render(
-      dom,
-      rowData,
-      index,
-      {
-        ...(action.current as ActionType),
-        ...editableUtils,
-      },
-      {
-        ...columnProps,
-        isEditable,
-        type: 'table',
-      },
-    );
-
-    // 如果是合并单元格的，直接返回对象
-    if (isMergeCell(renderDom)) {
-      return renderDom;
-    }
-
-    if (renderDom && columnProps.valueType === 'option' && Array.isArray(renderDom)) {
-      return <Space size={16}>{renderDom}</Space>;
-    }
-    return renderDom as React.ReactNode;
+  if (!columnProps.render) {
+    const isReactRenderNode =
+      React.isValidElement(dom) || ['string', 'number'].includes(typeof dom);
+    return !isNil(dom) && isReactRenderNode ? dom : null;
   }
-  return !isNil(dom) ? dom : null;
+
+  const renderDom = columnProps.render(
+    dom,
+    rowData,
+    index,
+    {
+      ...(action as ActionType),
+      ...editableUtils,
+    },
+    {
+      ...columnProps,
+      isEditable,
+      type: 'table',
+    },
+  );
+
+  // 如果是合并单元格的，直接返回对象
+  if (isMergeCell(renderDom)) {
+    return renderDom;
+  }
+
+  if (renderDom && columnProps.valueType === 'option' && Array.isArray(renderDom)) {
+    return <Space size={16}>{renderDom}</Space>;
+  }
+  return renderDom as React.ReactNode;
 }

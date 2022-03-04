@@ -5,7 +5,6 @@ import { Tooltip } from 'antd';
 import type { SearchProps } from 'antd/lib/input';
 import type { IntlType } from '@ant-design/pro-provider';
 import { useIntl } from '@ant-design/pro-provider';
-import isDeepEqualReact from 'fast-deep-equal/es6/react';
 import type { ListToolBarProps } from '../ListToolBar';
 import ListToolBar from '../ListToolBar';
 import ColumnSetting from '../ColumnSetting';
@@ -14,7 +13,13 @@ import FullScreenIcon from './FullscreenIcon';
 import DensityIcon from './DensityIcon';
 import Container from '../../container';
 import type { ActionType, ProTableProps } from '../../typing';
-import { omitUndefined } from '@ant-design/pro-utils';
+import { omitUndefined, isDeepEqualReact } from '@ant-design/pro-utils';
+import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
+
+type OptionSearchProps = Omit<SearchProps, 'onSearch'> & {
+  /** 如果 onSearch 返回一个false，直接拦截请求 */
+  onSearch?: (keyword: string) => boolean | undefined;
+};
 
 export type OptionConfig = {
   density?: boolean;
@@ -25,17 +30,22 @@ export type OptionConfig = {
     | {
         draggable?: boolean;
         checkable?: boolean;
+        checkedReset?: boolean;
+        extra?: React.ReactNode;
       };
-  search?: (SearchProps & { name?: string }) | boolean;
+  search?: (OptionSearchProps & { name?: string }) | boolean;
 };
 
-export type OptionsType =
-  | ((e: React.MouseEvent<HTMLSpanElement>, action?: ActionType) => void)
-  | boolean;
+export type OptionsFunctionType = (
+  e: React.MouseEvent<HTMLSpanElement>,
+  action?: ActionType,
+) => void;
+
+export type OptionsType = OptionsFunctionType | boolean;
 
 export type ToolBarProps<T = unknown> = {
   headerTitle?: React.ReactNode;
-  tooltip?: string;
+  tooltip?: string | LabelTooltipType;
   /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
   tip?: string;
   toolbar?: ListToolBarProps;
@@ -46,7 +56,7 @@ export type ToolBarProps<T = unknown> = {
       selectedRows?: T[];
     },
   ) => React.ReactNode[];
-  action?: React.MutableRefObject<ActionType | undefined>;
+  action: React.MutableRefObject<ActionType | undefined>;
   options?: OptionConfig | false;
   selectedRowKeys?: (string | number)[];
   selectedRows?: T[];
@@ -91,6 +101,7 @@ function renderDefaultOption<T>(
   defaultOptions: OptionConfig & {
     intl: IntlType;
   },
+  actions: React.MutableRefObject<ActionType | undefined>,
   columns: TableColumnType<T>[],
 ) {
   return Object.keys(options)
@@ -100,12 +111,20 @@ function renderDefaultOption<T>(
       if (!value) {
         return null;
       }
+
+      let onClick: OptionsFunctionType =
+        value === true ? defaultOptions[key] : (event) => value?.(event, actions.current);
+
+      if (typeof onClick !== 'function') {
+        onClick = () => {};
+      }
+
       if (key === 'setting') {
         return <ColumnSetting {...options[key]} columns={columns} key={key} />;
       }
       if (key === 'fullScreen') {
         return (
-          <span key={key} onClick={value === true ? defaultOptions[key] : value}>
+          <span key={key} onClick={onClick}>
             <FullScreenIcon />
           </span>
         );
@@ -113,18 +132,7 @@ function renderDefaultOption<T>(
       const optionItem = getButtonText(defaultOptions)[key];
       if (optionItem) {
         return (
-          <span
-            key={key}
-            onClick={() => {
-              if (value && defaultOptions[key] !== true) {
-                if (value !== true) {
-                  value();
-                  return;
-                }
-                defaultOptions[key]();
-              }
-            }}
-          >
+          <span key={key} onClick={onClick}>
             <Tooltip title={optionItem.text}>{optionItem.icon}</Tooltip>
           </span>
         );
@@ -164,9 +172,8 @@ function ToolBar<T>({
 
     const options = {
       ...defaultOptions,
-      ...(propsOptions || {
-        fullScreen: false,
-      }),
+      fullScreen: false,
+      ...propsOptions,
     };
 
     return renderDefaultOption<T>(
@@ -175,6 +182,7 @@ function ToolBar<T>({
         ...defaultOptions,
         intl,
       },
+      action,
       columns,
     );
   }, [action, columns, intl, propsOptions]);
@@ -208,6 +216,7 @@ function ToolBar<T>({
       onSearch?.('');
     }
   }, [counter.keyWords, onSearch]);
+
   return (
     <ListToolBar
       title={headerTitle}
@@ -226,7 +235,7 @@ export type ToolbarRenderProps<T> = {
   onFormSearchSubmit: (params: any) => void;
   searchNode: React.ReactNode;
   tableColumn: any[];
-  tooltip?: string;
+  tooltip?: string | LabelTooltipType;
   selectedRows: T[];
   selectedRowKeys: React.Key[];
   headerTitle: React.ReactNode;
@@ -240,10 +249,16 @@ export type ToolbarRenderProps<T> = {
 class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
   onSearch = (keyword: string) => {
     const { options, onFormSearchSubmit, actionRef } = this.props;
+
     if (!options || !options.search) {
       return;
     }
     const { name = 'keyword' } = options.search === true ? {} : options.search;
+
+    /** 如果传入的 onSearch 返回值为 false，应该直接拦截请求 */
+    const success = (options.search as OptionSearchProps)?.onSearch?.(keyword);
+
+    if (success === false) return;
 
     // 查询的时候的回到第一页
     actionRef?.current?.setPageInfo?.({
@@ -252,7 +267,6 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
 
     onFormSearchSubmit(
       omitUndefined({
-        // ...formSearch,
         _timestamp: Date.now(),
         [name]: keyword,
       }),
@@ -297,6 +311,7 @@ class ToolbarRender<T> extends React.Component<ToolbarRenderProps<T>> {
         actionRef: next.actionRef,
         toolBarRender: next.toolBarRender,
       },
+      ['render', 'renderFormItem'],
     );
   };
   shouldComponentUpdate = (next: ToolbarRenderProps<T>) => {

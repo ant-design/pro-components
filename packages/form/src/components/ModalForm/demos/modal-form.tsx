@@ -29,6 +29,7 @@ export default () => {
           新建表单
         </Button>
       }
+      autoFocusFirstInput
       modalProps={{
         onCancel: () => console.log('run'),
       }}
@@ -56,7 +57,7 @@ export default () => {
       </ProForm.Group>
       <ProForm.Group>
         <ProFormSelect
-          options={[
+          request={async () => [
             {
               value: 'chapter',
               label: '盖章后生效',

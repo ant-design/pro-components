@@ -1,5 +1,5 @@
 ---
-title: WaterMark 水印组件
+title: WaterMark - 水印组件
 order: 0
 legacy: /layout
 group:
@@ -19,11 +19,17 @@ nav:
 
 ## 代码演示
 
-### 自定义配置
+### 前置水印
 
-这里给出一些通用配置项。如需进一步配置请联系我们。
+水印组件默认实现为前置水印，即设想水印会显示在内容的上方，zIndex 默认设置为 9，如果你不希望水印遮挡上层内容，可以调整该值到小于上层内容的 zIndex。
 
-<code src="./demos/custom.tsx" background="#f0f2f5"/>
+<code src="./demos/frontend.tsx" />
+
+### 文字水印
+
+通过 `content` 指定文字水印内容。
+
+<code src="./demos/text.tsx" />
 
 ### 图片水印
 
@@ -31,11 +37,11 @@ nav:
 
 <code src="./demos/image.tsx" />
 
-### 文字水印
+### 自定义配置
 
-通过 `content` 指定文字水印内容。
+这里给出一些通用配置项。如需进一步配置请联系我们。
 
-<code src="./demos/text.tsx" />
+<code src="./demos/custom.tsx" background="#f0f2f5"/>
 
 ## API
 

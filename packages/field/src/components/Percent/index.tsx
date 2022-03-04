@@ -74,13 +74,11 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
         ref={ref}
         formatter={(value) => {
           if (value && prefix) {
-            return `${prefix} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            return `${prefix} ${value}`.replace(/\B(?=(\d{3})+(?!\d)$)/g, ',');
           }
           return value;
         }}
-        parser={(value) =>
-          value ? value.replace(new RegExp(`\\${prefix}\\s?|(,*)`, 'g'), '') : ''
-        }
+        parser={(value) => (value ? value.replace(/.*\s|,/g, '') : '')}
         placeholder={placeholder}
         {...fieldProps}
       />

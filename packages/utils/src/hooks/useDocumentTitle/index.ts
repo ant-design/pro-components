@@ -14,7 +14,7 @@ function useDocumentTitle(
     if (isBrowser() && titleText) {
       document.title = titleText;
     }
-  }, [titleInfo.title]);
+  }, [titleInfo.title, titleText]);
 }
 
 export default useDocumentTitle;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useImperativeHandle } from 'react';
 import { Space, ConfigProvider } from 'antd';
 import type { ProFieldFC } from '../../index';
 
@@ -20,16 +20,14 @@ const addArrayKeys = (doms: React.ReactNode[]) =>
  *
  * @param
  */
-const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) => {
+const FieldOptions: ProFieldFC = ({ text, mode: type, render, fieldProps }, ref) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
   const className = getPrefixCls('pro-field-option');
 
+  useImperativeHandle(ref, () => ({}));
+
   if (render) {
-    const doms = (render(
-      text,
-      { mode: type, ...fieldProps },
-      <></>,
-    ) as unknown) as React.ReactNode[];
+    const doms = render(text, { mode: type, ...fieldProps }, <></>) as unknown as React.ReactNode[];
 
     if (!doms || doms?.length < 1 || !Array.isArray(doms)) {
       return null;
@@ -56,4 +54,4 @@ const FieldOptions: ProFieldFC<{}> = ({ text, mode: type, render, fieldProps }) 
   );
 };
 
-export default FieldOptions;
+export default React.forwardRef(FieldOptions);

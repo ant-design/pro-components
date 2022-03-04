@@ -1,52 +1,147 @@
 import { createContainer } from 'unstated-next';
-import { useState, useRef } from 'react';
+import { useState, useCallback, useRef, useMemo, useEffect } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
 import type { ProTableProps } from './index';
 import type { DensitySize } from './components/ToolBar/DensityIcon';
 import type { ActionType } from './typing';
+import type { TableColumnType } from 'antd';
+import { genColumnKey } from './utils';
+import { noteOnce } from 'rc-util/lib/warning';
+import type { ProFormInstance } from '@ant-design/pro-form';
 
 export type ColumnsState = {
   show?: boolean;
   fixed?: 'right' | 'left' | undefined;
   order?: number;
+  disable?:
+    | boolean
+    | {
+        checkbox: boolean;
+        icon: boolean;
+      };
 };
 
-export type UseContainerProps = {
+export type UseContainerProps<T = any> = {
   columnsStateMap?: Record<string, ColumnsState>;
   onColumnsStateChange?: (map: Record<string, ColumnsState>) => void;
   size?: DensitySize;
+  defaultSize?: DensitySize;
   onSizeChange?: (size: DensitySize) => void;
+  columns?: TableColumnType<T>[];
+  columnsState?: ProTableProps<any, any, any>['columnsState'];
 };
 
 function useContainer(props: UseContainerProps = {}) {
   const actionRef = useRef<ActionType>();
+  /** 父 form item 的 name */
+  const prefixNameRef = useRef<any>();
+
+  /** 自己 props 的引用 */
   const propsRef = useRef<ProTableProps<any, any, any>>();
+
+  /** 可编辑表格的formRef */
+  const editableFormRef = useRef<ProFormInstance<any>>();
 
   // 共享状态比较难，就放到这里了
   const [keyWords, setKeyWords] = useState<string | undefined>('');
   // 用于排序的数组
   const sortKeyColumns = useRef<string[]>([]);
 
-  const [tableSize, setTableSize] = useMergedState<DensitySize>(props.size || 'middle', {
-    value: props.size,
-    onChange: props.onSizeChange,
-  });
-
-  const [columnsMap, setColumnsMap] = useMergedState<Record<string, ColumnsState>>(
-    props.columnsStateMap || {},
+  const [tableSize, setTableSize] = useMergedState<DensitySize>(
+    () => props.size || props.defaultSize || 'middle',
     {
-      value: props.columnsStateMap,
-      onChange: props.onColumnsStateChange,
+      value: props.size,
+      onChange: props.onSizeChange,
     },
   );
 
-  return {
-    action: actionRef,
+  /** 默认全选中 */
+  const defaultColumnKeyMap = useMemo(() => {
+    const columnKeyMap = {};
+    props.columns?.forEach(({ key, fixed }, index) => {
+      const columnKey = genColumnKey(key, index);
+      if (columnKey) {
+        columnKeyMap[columnKey] = {
+          show: true,
+          fixed,
+        };
+      }
+    });
+    return columnKeyMap;
+  }, [props.columns]);
+
+  const [columnsMap, setColumnsMap] = useMergedState<Record<string, ColumnsState>>(
+    () => {
+      const { persistenceType, persistenceKey } = props.columnsState || {};
+
+      if (persistenceKey && persistenceType && typeof window !== 'undefined') {
+        /** 从持久化中读取数据 */
+        const storage = window[persistenceType];
+        try {
+          const storageValue = storage?.getItem(persistenceKey);
+          if (storageValue) {
+            return JSON.parse(storageValue);
+          }
+        } catch (error) {
+          console.warn(error);
+        }
+      }
+      return (
+        props.columnsStateMap ||
+        props.columnsState?.value ||
+        props.columnsState?.defaultValue ||
+        defaultColumnKeyMap
+      );
+    },
+    {
+      value: props.columnsState?.value || props.columnsStateMap,
+      onChange: props.columnsState?.onChange || props.onColumnsStateChange,
+    },
+  );
+
+  noteOnce(!props.columnsStateMap, 'columnsStateMap已经废弃，请使用 columnsState.value 替换');
+  noteOnce(
+    !props.columnsStateMap,
+    'columnsStateMap has been discarded, please use columnSstate.value replacement',
+  );
+
+  /** 清空一下当前的 key */
+  const clearPersistenceStorage = useCallback(() => {
+    const { persistenceType, persistenceKey } = props.columnsState || {};
+
+    if (!persistenceKey || !persistenceType || typeof window === 'undefined') return;
+
+    /** 给持久化中设置数据 */
+    const storage = window[persistenceType];
+    try {
+      storage?.removeItem(persistenceKey);
+    } catch (error) {
+      console.error(error);
+    }
+  }, [props.columnsState]);
+
+  useEffect(() => {
+    if (!props.columnsState?.persistenceKey || !props.columnsState?.persistenceType) {
+      return;
+    }
+    if (typeof window === 'undefined') return;
+    /** 给持久化中设置数据 */
+    const { persistenceType, persistenceKey } = props.columnsState;
+    const storage = window[persistenceType];
+    try {
+      storage?.setItem(persistenceKey, JSON.stringify(columnsMap));
+    } catch (error) {
+      console.error(error);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.columnsState?.persistenceKey, columnsMap, props.columnsState?.persistenceType]);
+  const renderValue = {
+    action: actionRef.current,
     setAction: (newAction?: ActionType) => {
       actionRef.current = newAction;
     },
-    sortKeyColumns,
+    sortKeyColumns: sortKeyColumns.current,
     setSortKeyColumns: (keys: string[]) => {
       sortKeyColumns.current = keys;
     },
@@ -56,8 +151,36 @@ function useContainer(props: UseContainerProps = {}) {
     setKeyWords: (k: string | undefined) => setKeyWords(k),
     setTableSize,
     tableSize,
+    prefixName: prefixNameRef.current,
+    setPrefixName: (name: any) => {
+      prefixNameRef.current = name;
+    },
+    setEditorTableForm: (form: ProFormInstance<any>) => {
+      editableFormRef.current = form;
+    },
+    editableForm: editableFormRef.current,
     setColumnsMap,
+    columns: props.columns,
+    clearPersistenceStorage,
   };
+
+  Object.defineProperty(renderValue, 'prefixName', {
+    get: (): string => prefixNameRef.current,
+  });
+
+  Object.defineProperty(renderValue, 'sortKeyColumns', {
+    get: (): string[] => sortKeyColumns.current,
+  });
+
+  Object.defineProperty(renderValue, 'action', {
+    get: () => actionRef.current,
+  });
+
+  Object.defineProperty(renderValue, 'editableForm', {
+    get: () => editableFormRef.current,
+  });
+
+  return renderValue;
 }
 
 const Container = createContainer<ReturnType<typeof useContainer>, UseContainerProps>(useContainer);

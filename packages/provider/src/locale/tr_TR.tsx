@@ -1,5 +1,5 @@
 export default {
-  moneySymbol: '$',
+  moneySymbol: '₺',
   form: {
     lightFilter: {
       more: 'Daha Fazla',
@@ -52,6 +52,9 @@ export default {
     next: 'Sıradaki',
     prev: 'Önceki',
     submit: 'Gönder',
+  },
+  loginForm: {
+    submitText: 'Giriş Yap',
   },
   editableTable: {
     action: {

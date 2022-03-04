@@ -4,7 +4,11 @@ import ProCard from '@ant-design/pro-card';
 export default () => {
   return (
     <>
-      <ProCard loading style={{ width: 300 }}>
+      <ProCard loading style={{ maxWidth: 300 }}>
+        内容
+      </ProCard>
+
+      <ProCard loading style={{ maxWidth: 300, marginTop: 16 }} layout="center">
         内容
       </ProCard>
 
@@ -12,7 +16,7 @@ export default () => {
         title="自定义 Loading"
         extra="extra"
         loading={<div>加载中</div>}
-        style={{ width: 300, marginTop: 16 }}
+        style={{ maxWidth: 300, marginTop: 16 }}
       >
         内容
       </ProCard>

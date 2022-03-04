@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import type { ProFormInstance } from '@ant-design/pro-form';
 import ProForm, {
   StepsForm,
   ProFormText,
@@ -20,13 +21,15 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const formRef = useRef<ProFormInstance>();
+
   return (
     <ProCard>
       <StepsForm<{
         name: string;
       }>
-        onFinish={async (values) => {
-          console.log(values);
+        formRef={formRef}
+        onFinish={async () => {
           await waitTime(1000);
           message.success('提交成功');
         }}
@@ -41,8 +44,11 @@ export default () => {
         }>
           name="base"
           title="创建实验"
-          onFinish={async ({ name }) => {
-            console.log(name);
+          stepProps={{
+            description: '这里填入的都是基本信息',
+          }}
+          onFinish={async () => {
+            console.log(formRef.current?.getFieldsValue());
             await waitTime(2000);
             return true;
           }}
@@ -64,6 +70,13 @@ export default () => {
         }>
           name="checkbox"
           title="设置参数"
+          stepProps={{
+            description: '这里填入运维参数',
+          }}
+          onFinish={async () => {
+            console.log(formRef.current?.getFieldsValue());
+            return true;
+          }}
         >
           <ProFormCheckbox.Group
             name="checkbox"
@@ -81,7 +94,13 @@ export default () => {
             />
           </ProForm.Group>
         </StepsForm.StepForm>
-        <StepsForm.StepForm name="time" title="发布实验">
+        <StepsForm.StepForm
+          name="time"
+          title="发布实验"
+          stepProps={{
+            description: '这里填入发布判断',
+          }}
+        >
           <ProFormCheckbox.Group
             name="checkbox"
             label="部署单元"

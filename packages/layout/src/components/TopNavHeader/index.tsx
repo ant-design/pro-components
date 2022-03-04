@@ -7,19 +7,30 @@ import './index.less';
 
 import BaseMenu from '../SiderMenu/BaseMenu';
 import type { GlobalHeaderProps } from '../GlobalHeader';
+import { useDebounceFn } from '@ant-design/pro-utils';
 
-export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps & {};
+export type TopNavHeaderProps = SiderMenuProps & GlobalHeaderProps & PrivateSiderMenuProps;
 
 /**
  * 抽离出来是为了防止 rightSize 经常改变导致菜单 render
  *
  * @param param0
  */
-const RightContent: React.FC<TopNavHeaderProps> = ({ rightContentRender, ...props }) => {
+export const RightContent: React.FC<TopNavHeaderProps> = ({
+  rightContentRender,
+  prefixCls,
+  ...props
+}) => {
   const [rightSize, setRightSize] = useState<number | string>('auto');
+
+  /** 减少一下渲染的次数 */
+  const setRightSizeDebounceFn = useDebounceFn(async (width: number) => {
+    setRightSize(width);
+  }, 160);
 
   return (
     <div
+      className={`${prefixCls}-right-content`}
       style={{
         minWidth: rightSize,
       }}
@@ -31,13 +42,16 @@ const RightContent: React.FC<TopNavHeaderProps> = ({ rightContentRender, ...prop
       >
         <ResizeObserver
           onResize={({ width }: { width: number }) => {
-            setRightSize(width);
+            setRightSizeDebounceFn.run(width);
           }}
         >
           {rightContentRender && (
-            <div>
+            <div className={`${prefixCls}-right-content-resize`}>
               {rightContentRender({
                 ...props,
+                // 测试专用
+                //@ts-ignore
+                rightContentSize: rightSize,
               })}
             </div>
           )}
@@ -56,6 +70,7 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     rightContentRender,
     className: propsClassName,
     style,
+    headerContentRender,
     layout,
   } = props;
   const prefixCls = `${props.prefixCls || 'ant-pro'}-top-nav-header`;
@@ -68,6 +83,12 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     light: theme === 'light',
   });
 
+  const defaultDom = <BaseMenu {...props} {...props.menuProps} />;
+
+  const headerContentDom = headerContentRender
+    ? headerContentRender?.(props, defaultDom)
+    : defaultDom;
+
   return (
     <div className={className} style={style}>
       <div ref={ref} className={`${prefixCls}-main ${contentWidth === 'Fixed' ? 'wide' : ''}`}>
@@ -79,9 +100,11 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
           </div>
         )}
         <div style={{ flex: 1 }} className={`${prefixCls}-menu`}>
-          <BaseMenu {...props} {...props.menuProps} />
+          {headerContentDom}
         </div>
-        {rightContentRender && <RightContent rightContentRender={rightContentRender} {...props} />}
+        {rightContentRender && (
+          <RightContent rightContentRender={rightContentRender} prefixCls={prefixCls} {...props} />
+        )}
       </div>
     </div>
   );

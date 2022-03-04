@@ -55,4 +55,11 @@ export default {
       delete: '删除',
     },
   },
+  switch: {
+    open: '打开',
+    close: '关闭',
+  },
+  loginForm: {
+    submitText: '登录',
+  },
 };

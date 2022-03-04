@@ -8,6 +8,7 @@ exports[`BasicTable 🎏 base use 1`] = `
     class="ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
+      autocomplete="off"
       class="ant-form ant-form-horizontal ant-pro-form-query-filter"
     >
       <input
@@ -24,6 +25,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -39,6 +41,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -93,6 +96,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -100,7 +104,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             >
               <label
                 class=""
-                for="name"
+                for="textarea"
                 title="Textarea"
               >
                 Textarea
@@ -108,6 +112,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -121,7 +126,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   >
                     <input
                       class="ant-input"
-                      id="name"
+                      id="textarea"
                       placeholder="请输入"
                       type="text"
                       value=""
@@ -158,6 +163,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -173,6 +179,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -182,10 +189,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <div
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  hidden=""
-                  name="sex"
                   style="width: 100%;"
-                  text=""
                 >
                   <div
                     class="ant-select-selector"
@@ -249,6 +253,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -264,6 +269,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -273,10 +279,7 @@ exports[`BasicTable 🎏 base use 1`] = `
               >
                 <div
                   class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                  hidden=""
-                  name="status"
                   style="width: 100%;"
-                  text=""
                 >
                   <div
                     class="ant-select-selector"
@@ -340,6 +343,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -355,6 +359,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -404,6 +409,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -419,6 +425,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -468,6 +475,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -483,6 +491,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -556,7 +565,6 @@ exports[`BasicTable 🎏 base use 1`] = `
                     class="ant-input-number-input-wrap"
                   >
                     <input
-                      aria-valuemin="0"
                       autocomplete="off"
                       class="ant-input-number-input"
                       id="money"
@@ -573,6 +581,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -588,6 +597,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -609,6 +619,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -624,6 +635,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -678,6 +690,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -693,6 +706,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -750,6 +764,7 @@ exports[`BasicTable 🎏 base use 1`] = `
         </div>
         <div
           class="ant-row ant-form-item ant-form-item-hidden"
+          style="flex-wrap: nowrap;"
         >
           <div
             class="ant-col ant-form-item-label"
@@ -757,7 +772,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           >
             <label
               class=""
-              for="status"
+              for="status2"
               title="状态"
             >
               状态
@@ -765,6 +780,7 @@ exports[`BasicTable 🎏 base use 1`] = `
           </div>
           <div
             class="ant-col ant-form-item-control"
+            style="max-width: calc(100% - 80px);"
           >
             <div
               class="ant-form-item-control-input"
@@ -778,7 +794,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 >
                   <input
                     class="ant-input"
-                    id="status"
+                    id="status2"
                     placeholder="请输入"
                     type="text"
                     value=""
@@ -847,13 +863,14 @@ exports[`BasicTable 🎏 base use 1`] = `
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="flex-wrap: wrap; margin-bottom: -8px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 8px;"
+                          style="margin-right: 8px; padding-bottom: 8px;"
                         >
                           <button
-                            class="ant-btn"
+                            class="ant-btn ant-btn-default"
                             type="button"
                           >
                             <span>
@@ -863,6 +880,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         </div>
                         <div
                           class="ant-space-item"
+                          style="padding-bottom: 8px;"
                         >
                           <button
                             class="ant-btn ant-btn-primary"
@@ -915,27 +933,26 @@ exports[`BasicTable 🎏 base use 1`] = `
   </div>
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
       >
         <div
-          class="ant-pro-table-list-toolbar-container"
+          class="ant-pro-table-list-toolbar-container ant-pro-table-list-toolbar-container-mobile"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           />
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
+            class="ant-space ant-space-vertical ant-space-align-end ant-pro-table-list-toolbar-right"
           >
             <div
               class="ant-space-item"
-              style="margin-right: 16px;"
+              style="margin-right: 16px; margin-bottom: 16px;"
             >
               <div
                 class="ant-space ant-space-horizontal ant-space-align-center"
@@ -960,7 +977,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                         class="ant-input-group-addon"
                       >
                         <button
-                          class="ant-btn ant-btn-icon-only ant-input-search-button"
+                          class="ant-btn ant-btn-default ant-btn-icon-only ant-input-search-button"
                           type="button"
                         >
                           <span
@@ -991,7 +1008,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn ant-dropdown-trigger ant-pro-table-dropdown"
+                    class="ant-btn ant-btn-default ant-dropdown-trigger ant-pro-table-dropdown"
                     type="button"
                   >
                     <span>
@@ -1130,7 +1147,7 @@ exports[`BasicTable 🎏 base use 1`] = `
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-small ant-table-layout-fixed"
+              class="ant-table ant-table-small"
             >
               <div
                 class="ant-table-container"
@@ -1150,7 +1167,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                       <col />
                       <col />
                       <col
-                        style="width: 100px; min-width: 100px;"
+                        style="width: 100px;"
                       />
                     </colgroup>
                     <thead
@@ -1168,7 +1185,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           边框序号
                         </th>
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           Name
                         </th>
@@ -1184,37 +1201,33 @@ exports[`BasicTable 🎏 base use 1`] = `
                             class="ant-table-filter-column"
                           >
                             <span
-                              class="ant-table-filter-column-title"
+                              class="ant-table-column-title"
                             >
                               sex
                             </span>
                             <span
-                              class="ant-table-filter-trigger-container"
+                              class="ant-dropdown-trigger ant-table-filter-trigger"
+                              role="button"
+                              tabindex="-1"
                             >
                               <span
-                                class="ant-dropdown-trigger ant-table-filter-trigger"
-                                role="button"
-                                tabindex="-1"
+                                aria-label="filter"
+                                class="anticon anticon-filter"
+                                role="img"
                               >
-                                <span
-                                  aria-label="filter"
-                                  class="anticon anticon-filter"
-                                  role="img"
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="filter"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
                                 >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="filter"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
-                                    />
-                                  </svg>
-                                </span>
+                                  <path
+                                    d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                                  />
+                                </svg>
                               </span>
                             </span>
                           </div>
@@ -1230,7 +1243,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                           Age
                         </th>
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
                         >
                           Address
                         </th>
@@ -1292,16 +1305,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 0"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 0"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 0
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -1327,6 +1342,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -1334,12 +1392,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 0
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -1394,22 +1452,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           10
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 0"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 0"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 0
                           </span>
                         </td>
                         <td
@@ -1422,16 +1473,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 12:50:26
-                          </span>
+                          2019-11-16 12:50:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -1572,16 +1619,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 1"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 1"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 1
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -1607,6 +1656,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -1614,12 +1706,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 1
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -1674,22 +1766,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           11
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 1"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 1"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 1
                           </span>
                         </td>
                         <td
@@ -1702,16 +1787,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 12:52:26
-                          </span>
+                          2019-11-16 12:52:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -1852,16 +1933,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 2"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 2"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 2
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -1887,6 +1970,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -1894,12 +2020,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 2
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -1954,22 +2080,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           12
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 2"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 2"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 2
                           </span>
                         </td>
                         <td
@@ -1982,16 +2101,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 12:54:26
-                          </span>
+                          2019-11-16 12:54:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2132,16 +2247,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 3"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 3"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 3
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2167,6 +2284,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -2174,12 +2334,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 3
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2234,22 +2394,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           13
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 3"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 3"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 3
                           </span>
                         </td>
                         <td
@@ -2262,16 +2415,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 12:56:26
-                          </span>
+                          2019-11-16 12:56:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2412,16 +2561,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 4"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 4"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 4
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2447,6 +2598,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -2454,12 +2648,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 4
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2514,22 +2708,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           14
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 4"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 4"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 4
                           </span>
                         </td>
                         <td
@@ -2542,16 +2729,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 12:58:26
-                          </span>
+                          2019-11-16 12:58:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2692,16 +2875,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 5"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 5"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 5
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2727,6 +2912,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -2734,12 +2962,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 5
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -2794,22 +3022,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           15
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 5"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 5"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 5
                           </span>
                         </td>
                         <td
@@ -2822,16 +3043,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:00:26
-                          </span>
+                          2019-11-16 13:00:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -2972,16 +3189,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 6"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 6"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 6
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -3007,6 +3226,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3014,12 +3276,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 6
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -3074,22 +3336,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           16
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 6"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 6"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 6
                           </span>
                         </td>
                         <td
@@ -3102,16 +3357,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:02:26
-                          </span>
+                          2019-11-16 13:02:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3252,16 +3503,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 7"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 7"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 7
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -3287,6 +3540,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3294,12 +3590,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 7
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -3354,22 +3650,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           17
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 7"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 7"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 7
                           </span>
                         </td>
                         <td
@@ -3382,16 +3671,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:04:26
-                          </span>
+                          2019-11-16 13:04:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3532,16 +3817,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 8"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 8"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 8
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -3567,6 +3854,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3574,12 +3904,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 8
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -3634,22 +3964,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           18
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 8"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 8"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 8
                           </span>
                         </td>
                         <td
@@ -3662,16 +3985,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:06:26
-                          </span>
+                          2019-11-16 13:06:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -3812,16 +4131,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 9"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 9"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 9
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -3847,6 +4168,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -3854,12 +4218,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 9
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -3914,22 +4278,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           19
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 9"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 9"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 9
                           </span>
                         </td>
                         <td
@@ -3942,16 +4299,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:08:26
-                          </span>
+                          2019-11-16 13:08:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4092,16 +4445,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 10"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 10"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 10
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -4127,6 +4482,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -4134,12 +4532,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 10
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -4194,22 +4592,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           20
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 10"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 10"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 10
                           </span>
                         </td>
                         <td
@@ -4222,16 +4613,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:10:26
-                          </span>
+                          2019-11-16 13:10:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4372,16 +4759,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 11"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 11"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 11
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -4407,6 +4796,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -4414,12 +4846,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 11
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -4474,22 +4906,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           21
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 11"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 11"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 11
                           </span>
                         </td>
                         <td
@@ -4502,16 +4927,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:12:26
-                          </span>
+                          2019-11-16 13:12:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4652,16 +5073,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 12"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 12"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 12
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -4687,6 +5110,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -4694,12 +5160,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 12
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -4754,22 +5220,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           22
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 12"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 12"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 12
                           </span>
                         </td>
                         <td
@@ -4782,16 +5241,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:14:26
-                          </span>
+                          2019-11-16 13:14:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -4932,16 +5387,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 13"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 13"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 13
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -4967,6 +5424,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -4974,12 +5474,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 13
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -5034,22 +5534,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           23
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 13"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 13"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 13
                           </span>
                         </td>
                         <td
@@ -5062,16 +5555,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:16:26
-                          </span>
+                          2019-11-16 13:16:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5212,16 +5701,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 14"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 14"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 14
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -5247,6 +5738,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -5254,12 +5788,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 14
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -5314,22 +5848,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           24
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 14"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 14"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 14
                           </span>
                         </td>
                         <td
@@ -5342,16 +5869,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:18:26
-                          </span>
+                          2019-11-16 13:18:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5492,16 +6015,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 15"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 15"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 15
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -5527,6 +6052,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -5534,12 +6102,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 15
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -5594,22 +6162,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           25
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 15"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 15"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 15
                           </span>
                         </td>
                         <td
@@ -5622,16 +6183,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:20:26
-                          </span>
+                          2019-11-16 13:20:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -5772,16 +6329,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 16"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 16"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 16
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -5807,6 +6366,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -5814,12 +6416,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 16
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -5874,22 +6476,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           26
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 16"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 16"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 16
                           </span>
                         </td>
                         <td
@@ -5902,16 +6497,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:22:26
-                          </span>
+                          2019-11-16 13:22:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6052,16 +6643,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 17"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 17"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 17
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -6087,6 +6680,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -6094,12 +6730,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 17
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -6154,22 +6790,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           27
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 17"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 17"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 17
                           </span>
                         </td>
                         <td
@@ -6182,16 +6811,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:24:26
-                          </span>
+                          2019-11-16 13:24:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6332,16 +6957,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 18"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 18"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 18
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -6367,6 +6994,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -6374,12 +7044,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 18
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -6434,22 +7104,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           28
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 18"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 18"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 18
                           </span>
                         </td>
                         <td
@@ -6462,16 +7125,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:26:26
-                          </span>
+                          2019-11-16 13:26:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -6612,16 +7271,18 @@ exports[`BasicTable 🎏 base use 1`] = `
                           </div>
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="Edward King 19"
                         >
                           <span
-                            class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            aria-label="Edward King 19"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 19
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -6647,6 +7308,49 @@ exports[`BasicTable 🎏 base use 1`] = `
                                 </svg>
                               </span>
                             </div>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; word-break: keep-all; white-space: nowrap;"
+                            >
+                              lg
+                            </span>
+                            <span
+                              aria-hidden="true"
+                              style="position: fixed; display: block; left: 0px; top: 0px; z-index: -9999; visibility: hidden; pointer-events: none; width: 0px; white-space: normal; margin: 0px; padding: 0px;"
+                            >
+                              <span
+                                aria-hidden="true"
+                              >
+                                ...
+                              </span>
+                              <div
+                                aria-label="复制"
+                                class="ant-typography-copy"
+                                role="button"
+                                style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
+                                tabindex="0"
+                              >
+                                <span
+                                  aria-label="copy"
+                                  class="anticon anticon-copy"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="copy"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                                    />
+                                  </svg>
+                                </span>
+                              </div>
+                            </span>
                           </span>
                         </td>
                         <td
@@ -6654,12 +7358,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         >
                           <span
                             class="ant-typography"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
                             Edward King 19
                             <div
-                              aria-label=""
+                              aria-label="复制"
                               class="ant-typography-copy"
                               role="button"
                               style="border: 0px; background: transparent; padding: 0px; line-height: inherit; display: inline-block;"
@@ -6714,22 +7418,15 @@ exports[`BasicTable 🎏 base use 1`] = `
                           29
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-ellipsis"
+                          title="London, Park Lane no. 19"
                         >
                           <span
-                            class="ant-typography ant-typography-ellipsis"
-                            style="max-width: 100%; margin: 0px; padding: 0px;"
+                            class="ant-typography ant-typography-ellipsis ant-typography-single-line ant-typography-ellipsis-single-line"
+                            style="width: 100%; margin: 0px; padding: 0px;"
                             title=""
                           >
-                            <span>
-                              London, Park Lane
-                              <span
-                                aria-hidden="true"
-                                title=" no. 19"
-                              >
-                                ...
-                              </span>
-                            </span>
+                            London, Park Lane no. 19
                           </span>
                         </td>
                         <td
@@ -6742,16 +7439,12 @@ exports[`BasicTable 🎏 base use 1`] = `
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16
-                          </span>
+                          2019-11-16
                         </td>
                         <td
                           class="ant-table-cell"
                         >
-                          <span>
-                            2019-11-16 13:28:26
-                          </span>
+                          2019-11-16 13:28:26
                         </td>
                         <td
                           class="ant-table-cell"
@@ -7055,6 +7748,7 @@ exports[`BasicTable 🎏 base use 1`] = `
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -7067,7 +7761,9 @@ exports[`BasicTable 🎏 base use 1`] = `
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"
@@ -7132,6 +7828,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
     class="ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
+      autocomplete="off"
       class="ant-form ant-form-horizontal ant-pro-form-query-filter"
     >
       <input
@@ -7176,13 +7873,14 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="flex-wrap:wrap;margin-bottom:-8px"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right:8px"
+                          style="margin-right:8px;padding-bottom:8px"
                         >
                           <button
-                            class="ant-btn"
+                            class="ant-btn ant-btn-default"
                             type="button"
                           >
                             <span>
@@ -7192,6 +7890,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
                         </div>
                         <div
                           class="ant-space-item"
+                          style="padding-bottom:8px"
                         >
                           <button
                             class="ant-btn ant-btn-primary"
@@ -7215,11 +7914,10 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
   </div>
   <div
     class="ant-card"
-    style="height:100%"
   >
     <div
       class="ant-card-body"
-      style="padding-top:0;padding-bottom:0"
+      style="padding-top:0"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -7228,7 +7926,7 @@ exports[`BasicTable 🎏 columns = undefined 1`] = `
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           />
           <div
             class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
@@ -7482,6 +8180,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
     class="ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
+      autocomplete="off"
       class="ant-form ant-form-horizontal ant-pro-form-query-filter"
     >
       <input
@@ -7498,6 +8197,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -7513,6 +8213,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -7522,9 +8223,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                 >
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow"
-                    name="status"
                     style="width: 100%;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"
@@ -7593,9 +8292,11 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -7605,9 +8306,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                 >
                   <div
                     class="ant-select ant-pro-filed-search-select ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
-                    name="status"
                     style="width: 100%;"
-                    text=""
                   >
                     <div
                       class="ant-select-selector"
@@ -7705,13 +8404,14 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="flex-wrap: wrap; margin-bottom: -8px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 8px;"
+                          style="margin-right: 8px; padding-bottom: 8px;"
                         >
                           <button
-                            class="ant-btn"
+                            class="ant-btn ant-btn-default"
                             type="button"
                           >
                             <span>
@@ -7721,6 +8421,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         </div>
                         <div
                           class="ant-space-item"
+                          style="padding-bottom: 8px;"
                         >
                           <button
                             class="ant-btn ant-btn-primary"
@@ -7744,11 +8445,10 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
   </div>
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-table-wrapper"
@@ -8715,6 +9415,7 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -8727,7 +9428,9 @@ exports[`BasicTable 🎏 valueEnum support function 1`] = `
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"

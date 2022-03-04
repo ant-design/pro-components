@@ -1,10 +1,12 @@
-@import (reference) '~antd/es/style/themes/default';
+@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index.less';
 
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
 
 .@{pro-card-prefix-cls} {
   // 分隔线
   &-divider {
+    flex: none;
     width: @border-width-base;
     margin: @card-padding-base @margin-xs;
     background-color: @border-color-split;

@@ -29,10 +29,96 @@ nav:
 | `params` | `Record<string, any>` | 额外传递给 `request` 的参数，组件不做处理,但是变化会引起`request` 重新请求数据 |
 | `hideInForm` | `boolean` | 在 Form 中隐藏 |
 | `hideInTable` | `boolean` | 在 Table 中隐藏 |
-| `hideInSearch` | `boolean` | 在 Table 的查询表格中隐藏 |
+| `hideInSearch` | `boolean` | 在 Table 的查询表单中隐藏 |
 | `hideInDescriptions` | `boolean` | 在 descriptions 中隐藏 |
 
-## valueType
+## TypeScript 定义
+
+```tsx | pure
+export type ProSchema<T = unknown, U = string, Extra = unknown> = {
+  /** @name 确定这个列的唯一值 */
+  key?: React.ReactText;
+  /**
+   * 支持一个数组，[a,b] 会转化为 obj.a.b
+   *
+   * @name 与实体映射的key
+   */
+  dataIndex?: string | number | (string | number)[];
+  /** 选择如何渲染相应的模式 */
+  valueType?: ((entity: T, type: ProSchemaComponentTypes) => U) | U;
+
+  /**
+   * 支持 ReactNode 和 方法
+   *
+   * @name 标题
+   */
+  title?:
+    | ((
+        schema: ProSchema<T, U, Extra>,
+        type: ProSchemaComponentTypes,
+        dom: React.ReactNode,
+      ) => React.ReactNode)
+    | React.ReactNode;
+
+  /** @name 展示一个 icon，hover 是展示一些提示信息 */
+  tooltip?: string | LabelTooltipType;
+
+  /** @deprecated 你可以使用 tooltip，这个更改是为了与 antd 统一 */
+  tip?: string;
+
+  render?: (
+    dom: React.ReactNode,
+    entity: T,
+    index: number,
+    action: ProCoreActionType,
+    schema: ProSchema<T, U, Extra>,
+  ) => React.ReactNode;
+
+  /**
+   * 返回一个node，会自动包裹 value 和 onChange
+   *
+   * @name 自定义编辑模式
+   */
+  renderFormItem?: (
+    item: ProSchema<T, U, Extra>,
+    config: {
+      index?: number;
+      value?: any;
+      onSelect?: (value: any) => void;
+      type: ProSchemaComponentTypes;
+      defaultRender: (newItem: ProSchema<T, U, Extra>) => JSX.Element | null;
+    },
+    form: FormInstance,
+  ) => React.ReactNode;
+
+  /**
+   * 必须要返回 string
+   *
+   * @name 自定义 render
+   */
+  renderText?: (text: any, record: T, index: number, action: ProCoreActionType) => any;
+
+  fieldProps?: any;
+  /** @name 映射值的类型 */
+  valueEnum?: ProSchemaValueEnumObj | ProSchemaValueEnumMap;
+
+  /** @name 从服务器请求枚举 */
+  request?: ProFieldRequestData<ProSchema>;
+
+  /** @name 从服务器请求的参数，改变了会触发 reload */
+  params?: {
+    [key: string]: any;
+  };
+  /** @name 隐藏在 descriptions */
+  hideInDescriptions?: boolean;
+} & Extra;
+```
+
+## valueType 列表
+
+<code src="./demos/valueType.tsx" height="154" title="schema 表单" />
+
+### API
 
 valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映射成不同的表单项。以下是支持的常见表单项：
 
@@ -53,6 +139,7 @@ valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映
 | `timeRange`     | 时间区间                     |
 | `text`          | 文本框                       |
 | `select`        | 下拉框                       |
+| `treeSelect`    | 树形下拉框                   |
 | `checkbox`      | 多选框                       |
 | `rate`          | 星级组件                     |
 | `radio`         | 单选框                       |
@@ -63,11 +150,12 @@ valueType 是 ProComponents 的灵魂，ProComponents 会根据 valueType 来映
 | `second`        | 秒格式化                     |
 | `avatar`        | 头像                         |
 | `code`          | 代码框                       |
-| `switch`        | 单选多选                     |
+| `switch`        | 开关                         |
 | `fromNow`       | 相对于当前时间               |
 | `image`         | 图片                         |
 | `jsonCode`      | 代码框，但是带了 json 格式化 |
-| `color`         | 时间选择器                   |
+| `color`         | 颜色选择器                   |
+| `cascader`      | 级联选择器                   |
 
 这里 demo 可以来了解一下各个 valueType 的展示效果。
 
@@ -110,15 +198,11 @@ return { type: 'money', locale: 'en-Us' };
 return { type: 'percent', showSymbol: true | false, precision: 2 };
 ```
 
-### valueType 查看
-
-<code src="./demos/valueType.tsx" height="154px" title="schema 表单" />
-
 如果我们带的 valueType 不能满足需求，我们可以用自定义 valueType 来自定义业务组件。
 
 ### 自定义 valueType
 
-<code src="./demos/customization-value-type.tsx" height="154px" title="schema 表单" />
+<code src="./demos/customization-value-type.tsx" height="154" title="schema 表单" />
 
 ### valueEnum
 
@@ -178,7 +262,9 @@ interface IValueEnum {
 
 ## 远程数据
 
-对于 `select`, `checkbox`, `radio`, `radioButton` 这四个 valueType,我们统一支持了 `request`,`params`,`fieldProps.options`，`valueEnum` 来支持远程数据，这几个属性分别有不同的用法。
+支持组件 `Select`, `TreeSelect`, `Cascader`, `Checkbox`, `Radio`, `RadioButton`
+
+支持参数 `request`,`params`,`fieldProps.options`, `valueEnum` 来支持远程数据，这几个属性分别有不同的用法。
 
 ### `valueEnum`
 
@@ -196,6 +282,34 @@ const valueEnum = {
     status: 'Success',
   },
 };
+```
+
+```tsx
+import React from 'react';
+import { ProFormSelect } from '@ant-design/pro-form';
+
+const valueEnum = {
+  all: { text: '全部', status: 'Default' },
+  open: {
+    text: '未解决',
+    status: 'Error',
+  },
+  closed: {
+    text: '已解决',
+    status: 'Success',
+  },
+};
+
+export default () => (
+  <ProFormSelect
+    name="select2"
+    label="Select"
+    params={{}}
+    valueType="select"
+    valueEnum={valueEnum}
+    placeholder="Please select a country"
+  />
+);
 ```
 
 ### `fieldProps.options`
@@ -248,7 +362,39 @@ const columns = [
 ];
 ```
 
+```tsx
+import React from 'react';
+import { ProFormSelect } from '@ant-design/pro-form';
+
+const options = [
+  {
+    label: 'item 1',
+    value: 'a',
+  },
+  {
+    label: 'item 2',
+    value: 'b',
+  },
+  {
+    label: 'item 3',
+    value: 'c',
+  },
+];
+
+export default () => (
+  <ProFormSelect
+    name="select2"
+    label="Select"
+    valueType="select"
+    fieldProps={{ options }}
+    placeholder="Please select a country"
+  />
+);
+```
+
 ### `request` 和 `params`
+
+> 可以使用 debounceTime 调整请求防抖时间，默认为 10ms
 
 大部分时候我们是从网络中获取数据，但是获取写一个 hooks 来请求数据还是比较繁琐的，同时还要定义一系列状态，所以我们提供了 `request` 和 `params` 来获取数据。
 
@@ -268,6 +414,7 @@ const request = async () => [
   label="Select"
   params={{}}
   valueType="select"
+  debounceTime={1000}
   request={request}
   placeholder="Please select a country"
 />;
@@ -283,6 +430,35 @@ const columns = [
     params: {},
   },
 ];
+```
+
+```tsx
+import React from 'react';
+import ProForm, { ProFormText, ProFormSelect } from '@ant-design/pro-form';
+
+const request = async (params) => {
+  console.log(params);
+  return [
+    { label: params.text, value: 'all' },
+    { label: '未解决', value: 'open' },
+    { label: '已解决', value: 'closed' },
+    { label: '解决中', value: 'processing' },
+  ];
+};
+
+export default () => (
+  <ProForm>
+    <ProFormText label="相互依赖的" initialValue="所有的" name="text" />
+    <ProFormSelect
+      name="select2"
+      label="Select"
+      valueType="select"
+      dependencies={['text']}
+      request={request}
+      placeholder="Please select a country"
+    />
+  </ProForm>
+);
 ```
 
 在实际的使用中 `request` 增加了一个 5s 缓存，可能会导致数据更新不及时，如果需要频繁更新，建议使用 `state`+`fieldProps.options`。

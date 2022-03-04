@@ -32,7 +32,7 @@ In addition to display type form items, we also provide form items for combining
 
 ## ProFormList
 
-ProFormList is basically the same as the [Form.List](https://ant.design/components/form-cn/#Form.List) API. It adds its own operation buttons: delete and copy, and it also includes a `new row` button.
+ProFormList is basically the same as the [Form.List](https://ant.design/components/form/#Form.List) API. It adds its own operation buttons: delete and copy, and it also includes a `new row` button.
 
 ```tsx | pure
 <ProFormList
@@ -76,6 +76,7 @@ ProFormList is basically the same as the [Form.List](https://ant.design/componen
 | creatorButtonProps | Configuration of a new line of buttons | `buttonProps & {creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"Create a new line"}` |
 | label | Same as From.Item | `ReactNode` | - |
 | name | The value of list in the form, required | `NamePath` | - |
+| alwaysShowItemLabel | always show label in Item | `boolean` | - |
 
 ## ProFormFieldSet
 
@@ -85,36 +86,13 @@ ProFormFieldSet can combine the values of multiple children inside and store the
 <ProFormFieldSet
   name="list"
   label="List of components"
+  // Two methods are supported, type="group" will be wrapped with input.group
+  // If not configured, use space by default
+  type="group"
   transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
 >
   <ProFormText width="md" />
   <ProFormText width="md" />
   <ProFormText width="md" />
 </ProFormFieldSet
-```
-
-## ProFormDependency
-
-ProFormDependency is a simplified version of Form.Item with noStyle and shouldUpdate built in by default, we just need to configure name to determine which data we depend on and ProFormDependency will automatically handle the diff and and extract the corresponding values from the form. ProFormDependency will automatically process the diff and extract the corresponding values from the form.
-
-The name parameter must be an array, if it is a nested structure you can configure it like this `name={['name', ['name2', 'text']]}`. The value of the configured name will be passed in renderProps. `name={['name', ['name2', 'text']]}` The value of the values passed in is `{ name: string,name2: { text:string }`.
-
-```tsx | pure
-<ProFormDependency name={['name']}>
-  {({ name }) => {
-    return (
-      <ProFormSelect
-        options={[
-          {
-            value: 'chapter',
-            label: 'Effective when stamped',
-          },
-        ]}
-        width="md"
-        name="useMode"
-        label={`Contractual agreement with `${name`` to take effect `}
-      />
-    );
-  }}
-</ProFormDependency>
 ```

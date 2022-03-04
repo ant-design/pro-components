@@ -8,6 +8,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
     class="ant-pro-table-search ant-pro-table-search-query-filter"
   >
     <form
+      autocomplete="off"
       class="ant-form ant-form-horizontal ant-pro-form-query-filter"
     >
       <input
@@ -24,6 +25,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
         >
           <div
             class="ant-row ant-form-item"
+            style="flex-wrap: nowrap;"
           >
             <div
               class="ant-col ant-form-item-label"
@@ -39,6 +41,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
             </div>
             <div
               class="ant-col ant-form-item-control"
+              style="max-width: calc(100% - 80px);"
             >
               <div
                 class="ant-form-item-control-input"
@@ -93,13 +96,14 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                     >
                       <div
                         class="ant-space ant-space-horizontal ant-space-align-center"
+                        style="flex-wrap: wrap; margin-bottom: -8px;"
                       >
                         <div
                           class="ant-space-item"
-                          style="margin-right: 8px;"
+                          style="margin-right: 8px; padding-bottom: 8px;"
                         >
                           <button
-                            class="ant-btn"
+                            class="ant-btn ant-btn-default"
                             type="button"
                           >
                             <span>
@@ -109,6 +113,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                         </div>
                         <div
                           class="ant-space-item"
+                          style="padding-bottom: 8px;"
                         >
                           <button
                             class="ant-btn ant-btn-primary"
@@ -132,11 +137,10 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
   </div>
   <div
     class="ant-card"
-    style="height: 100%;"
   >
     <div
       class="ant-card-body"
-      style="padding-top: 0px; padding-bottom: 0px;"
+      style="padding-top: 0px;"
     >
       <div
         class="ant-pro-table-list-toolbar"
@@ -145,7 +149,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
           class="ant-pro-table-list-toolbar-container"
         >
           <div
-            class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-left"
+            class="ant-pro-table-list-toolbar-left"
           />
           <div
             class="ant-space ant-space-horizontal ant-space-align-center ant-pro-table-list-toolbar-right"
@@ -484,6 +488,7 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                 class="ant-pagination-options"
               >
                 <div
+                  aria-label="页码"
                   class="ant-select ant-select-sm ant-pagination-options-size-changer ant-select-single ant-select-show-arrow"
                 >
                   <div
@@ -496,7 +501,9 @@ exports[`Table valueEnum 🎏 customization valueType 1`] = `
                         aria-activedescendant="rc_select_TEST_OR_SSR_list_0"
                         aria-autocomplete="list"
                         aria-controls="rc_select_TEST_OR_SSR_list"
+                        aria-expanded="false"
                         aria-haspopup="listbox"
+                        aria-label="页码"
                         aria-owns="rc_select_TEST_OR_SSR_list"
                         autocomplete="off"
                         class="ant-select-selection-search-input"

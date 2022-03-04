@@ -5,6 +5,7 @@ import { Input } from 'antd';
 import ProProvider from '@ant-design/pro-provider';
 
 import { waitForComponentToPaint } from '../util';
+import { act } from 'react-dom/test-utils';
 
 const defaultProps = {
   columns: [
@@ -43,7 +44,7 @@ describe('BasicTable valueType', () => {
               link: {
                 render: (text: any) => <a id="link">{text}</a>,
                 renderFormItem: (_: any, props: any) => (
-                  <Input placeholder="请输入链接" {...props?.fieldProps} />
+                  <Input placeholder="请输入链接" id="name" {...props?.fieldProps} />
                 ),
               },
             },
@@ -65,6 +66,10 @@ describe('BasicTable valueType', () => {
     expect(html.find('input#name').exists()).toBeTruthy();
 
     expect(html.find('input#name').props().value).toBe('TradeCode');
+
+    act(() => {
+      html.unmount();
+    });
   });
 
   it('🎏 table valueType render support fieldProps', async () => {
@@ -81,7 +86,7 @@ describe('BasicTable valueType', () => {
                   </a>
                 ),
                 renderFormItem: (_: any, props: any) => (
-                  <Input placeholder="请输入链接" {...props?.fieldProps} />
+                  <Input placeholder="请输入链接" id="name" {...props?.fieldProps} />
                 ),
               },
             },
@@ -103,5 +108,9 @@ describe('BasicTable valueType', () => {
     expect(html.find('input#name').exists()).toBeTruthy();
 
     expect(html.find('input#name').props().color).toBe('red');
+
+    act(() => {
+      html.unmount();
+    });
   });
 });

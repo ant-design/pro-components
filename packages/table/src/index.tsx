@@ -11,6 +11,7 @@ import {
   itITIntl,
   jaJPIntl,
   esESIntl,
+  caESIntl,
   ruRUIntl,
   msMYIntl,
   zhTWIntl,
@@ -30,6 +31,8 @@ import cellRenderToFromItem from './utils/cellRenderToFromItem';
 import type { ColumnsState } from './container';
 import type { ActionType, ProColumns, ProColumnType, ProTableProps, RequestData } from './typing';
 import EditableProTable from './components/EditableTable';
+import type { DragTableProps } from './components/DragSortTable';
+import DragSortTable from './components/DragSortTable';
 
 type ProColumnsValueType = ProFieldValueType;
 type TableRowEditable<T> = RowEditableConfig<T>;
@@ -45,6 +48,7 @@ export type {
   ProColumnType,
   RequestData,
   ListToolBarProps,
+  DragTableProps,
 };
 
 export {
@@ -54,6 +58,7 @@ export {
   FieldStatus as TableStatus,
   Search,
   EditableProTable,
+  DragSortTable,
   ConfigProvider as IntlProvider,
   ConfigProvider,
   ConfigConsumer as IntlConsumer,
@@ -68,6 +73,7 @@ export {
   itITIntl,
   jaJPIntl,
   esESIntl,
+  caESIntl,
   ruRUIntl,
   msMYIntl,
   zhTWIntl,

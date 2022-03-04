@@ -1,4 +1,5 @@
-@import (reference) '~antd/es/style/themes/default';
+@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index.less';
 @import (reference) '~antd/es/style/mixins/index.less';
 
 @pro-card-prefix-cls: ~'@{ant-prefix}-pro-card';
@@ -13,11 +14,26 @@
     border-top: @border-width-base @border-style-base @border-color-split;
     .clearfix;
 
-    & > li {
+    .@{ant-prefix}-space {
+      gap: 0 !important;
+      width: 100%;
+    }
+
+    & > li,
+    .@{ant-prefix}-space-item {
+      flex: 1;
       float: left;
       margin: @card-actions-li-margin;
       color: @text-color-secondary;
       text-align: center;
+
+      > a {
+        color: @text-color-secondary;
+        transition: color 0.3s;
+        &:hover {
+          color: @primary-color-hover;
+        }
+      }
 
       > span {
         position: relative;
@@ -28,7 +44,7 @@
         cursor: pointer;
 
         &:hover {
-          color: @primary-color;
+          color: @primary-color-hover;
           transition: color 0.3s;
         }
 
@@ -41,7 +57,7 @@
           transition: color 0.3s;
 
           &:hover {
-            color: @primary-color;
+            color: @primary-color-hover;
           }
         }
 

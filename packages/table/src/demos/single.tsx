@@ -86,7 +86,8 @@ const columns: ProColumns<GithubIssueItem>[] = [
     title: '创建时间',
     key: 'showTime',
     dataIndex: 'created_at',
-    valueType: 'date',
+    valueType: 'dateTime',
+    sorter: true,
     hideInSearch: true,
   },
   {
@@ -144,15 +145,20 @@ export default () => {
     <ProTable<GithubIssueItem>
       columns={columns}
       actionRef={actionRef}
-      request={async (params = {}) =>
-        request<{
+      request={async (params = {}, sort, filter) => {
+        console.log(sort, filter);
+        return request<{
           data: GithubIssueItem[];
         }>('https://proapi.azurewebsites.net/github/issues', {
           params,
-        })
-      }
+        });
+      }}
       editable={{
         type: 'multiple',
+      }}
+      columnsState={{
+        persistenceKey: 'pro-table-singe-demos',
+        persistenceType: 'localStorage',
       }}
       rowKey="id"
       search={{

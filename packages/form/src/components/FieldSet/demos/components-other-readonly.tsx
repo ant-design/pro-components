@@ -83,7 +83,16 @@ const Demo = () => (
       }}
       onFinish={async (value) => console.log(value)}
     >
-      <ProFormText readonly width="md" name="name" label="name" />
+      <ProFormText
+        readonly
+        width="md"
+        name="name"
+        label="name"
+        fieldProps={{
+          prefix: 'prefix',
+          suffix: 'suffix',
+        }}
+      />
       <ProFormSelect
         name="select"
         readonly
@@ -162,6 +171,10 @@ const Demo = () => (
           },
         ]}
       />
+      <ProForm.Group>
+        <ProFormText hidden label="text1" />
+        <ProFormText label="text2" />
+      </ProForm.Group>
       <ProFormRadio.Group
         readonly
         name="radio-button"

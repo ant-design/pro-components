@@ -1,4 +1,5 @@
-@import '~antd/es/style/themes/default.less';
+@root-entry-name: 'default';
+@import (reference) '~antd/es/style/themes/index.less';
 
 @pro-column-setting-prefix-cls: ~'@{ant-prefix}-pro-table-column-setting';
 
@@ -13,9 +14,19 @@
 
   &-overlay {
     .@{ant-prefix}-popover-inner-content {
+      width: 200px;
       padding: 0px;
       padding-bottom: 8px;
     }
+
+    .@{ant-prefix}-tree-node-content-wrapper:hover {
+      background-color: transparent;
+    }
+
+    .@{ant-prefix}-tree-draggable-icon {
+      cursor: grab;
+    }
+
     .@{ant-prefix}-tree-treenode {
       align-items: center;
 
@@ -40,7 +51,6 @@
   flex-direction: column;
   width: 100%;
   padding-top: 8px;
-  padding-left: 16px;
 
   &.@{pro-column-setting-prefix-cls}-list-group {
     padding-top: 0;

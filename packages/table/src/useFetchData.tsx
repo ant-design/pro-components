@@ -5,8 +5,8 @@ import {
   useDeepCompareEffect,
   useMountMergeState,
   runFunction,
+  useRefFunction,
 } from '@ant-design/pro-utils';
-import { unstable_batchedUpdates } from 'react-dom';
 import type { PageInfo, RequestData, UseFetchProps, UseFetchDataAction } from './typing';
 import { postDataPipeline } from './utils/index';
 
@@ -40,13 +40,12 @@ const useFetchData = <T extends RequestData<any>>(
 
   /** 轮询的setTime ID 存储 */
   const pollingSetTimeRef = useRef<any>();
-
   const [list, setList] = useMountMergeState<any[] | undefined>(defaultData, {
     value: options?.dataSource,
     onChange: options?.onDataSourceChange,
   });
 
-  const [loading, setLoading] = useMountMergeState<UseFetchDataAction['loading']>(false, {
+  const [tableLoading, setLoading] = useMountMergeState<UseFetchDataAction['loading']>(false, {
     value: options?.loading,
     onChange: options?.onLoadingChange,
   });
@@ -64,27 +63,37 @@ const useFetchData = <T extends RequestData<any>>(
 
   // Batching update  https://github.com/facebook/react/issues/14259
   const setDataAndLoading = (newData: T[], dataTotal: number) => {
-    unstable_batchedUpdates(() => {
-      setList(newData);
-      if (pageInfo.total !== dataTotal) {
-        setPageInfo({
-          ...pageInfo,
-          total: dataTotal || newData.length,
-        });
-      }
-    });
+    setList(newData);
+
+    if (pageInfo?.total !== dataTotal) {
+      setPageInfo({
+        ...pageInfo,
+        total: dataTotal || newData.length,
+      });
+    }
   };
 
   // pre state
-  const prePage = usePrevious(pageInfo.current);
-  const prePageSize = usePrevious(pageInfo.pageSize);
+  const prePage = usePrevious(pageInfo?.current);
+  const prePageSize = usePrevious(pageInfo?.pageSize);
   const prePolling = usePrevious(polling);
 
   const { effects = [] } = options || {};
 
+  /**
+   * 不这样做会导致状态不更新
+   *
+   * https://github.com/ant-design/pro-components/issues/4390
+   */
+  const requestFinally = useRefFunction(() => {
+    requestAnimationFrame(() => {
+      setLoading(false);
+      setPollingLoading(false);
+    });
+  });
   /** 请求数据 */
   const fetchList = async (isPolling: boolean) => {
-    if (loading || requesting.current || !getData) {
+    if (tableLoading || requesting.current || !getData) {
       return [];
     }
 
@@ -93,7 +102,6 @@ const useFetchData = <T extends RequestData<any>>(
       manualRequestRef.current = false;
       return [];
     }
-
     if (!isPolling) {
       setLoading(true);
     } else {
@@ -101,7 +109,7 @@ const useFetchData = <T extends RequestData<any>>(
     }
 
     requesting.current = true;
-    const { pageSize, current } = pageInfo;
+    const { pageSize, current } = pageInfo || {};
     try {
       const pageParams =
         options?.pageInfo !== false
@@ -112,9 +120,6 @@ const useFetchData = <T extends RequestData<any>>(
           : undefined;
 
       const { data = [], success, total = 0, ...rest } = (await getData(pageParams)) || {};
-
-      requesting.current = false;
-
       // 如果失败了，直接返回，不走剩下的逻辑了
       if (success === false) return [];
 
@@ -126,47 +131,40 @@ const useFetchData = <T extends RequestData<any>>(
       onLoad?.(responseData, rest);
       return responseData;
     } catch (e) {
-      requesting.current = false;
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) {
-        throw new Error(e);
+        throw new Error(e as string);
       }
       if (list === undefined) setList([]);
-      onRequestError(e);
+      onRequestError(e as Error);
     } finally {
-      requestAnimationFrame(() => {
-        setLoading(false);
-        setPollingLoading(false);
-      });
+      requesting.current = false;
+      requestFinally();
     }
 
     return [];
   };
 
-  const fetchListDebounce = useDebounceFn(
-    async (isPolling: boolean) => {
-      if (pollingSetTimeRef.current) {
-        clearTimeout(pollingSetTimeRef.current);
-      }
-      const msg = await fetchList(isPolling);
+  const fetchListDebounce = useDebounceFn(async (isPolling: boolean) => {
+    if (pollingSetTimeRef.current) {
+      clearTimeout(pollingSetTimeRef.current);
+    }
+    const msg = await fetchList(isPolling);
 
-      // 把判断要不要轮询的逻辑放到后面来这样可以保证数据是根据当前来
-      // 放到请求前面会导致数据是上一次的
-      const needPolling = runFunction(polling, msg);
+    // 把判断要不要轮询的逻辑放到后面来这样可以保证数据是根据当前来
+    // 放到请求前面会导致数据是上一次的
+    const needPolling = runFunction(polling, msg);
 
-      // 如果需要轮询，搞个一段时间后执行
-      // 如果解除了挂载，删除一下
-      if (needPolling && !umountRef.current) {
-        pollingSetTimeRef.current = setTimeout(() => {
-          fetchListDebounce.run(needPolling);
-          // 这里判断最小要2000ms，不然一直loading
-        }, Math.max(needPolling, 2000));
-      }
-      return msg;
-    },
-    [],
-    debounceTime || 10,
-  );
+    // 如果需要轮询，搞个一段时间后执行
+    // 如果解除了挂载，删除一下
+    if (needPolling && !umountRef.current) {
+      pollingSetTimeRef.current = setTimeout(() => {
+        fetchListDebounce.run(needPolling);
+        // 这里判断最小要2000ms，不然一直loading
+      }, Math.max(needPolling, 2000));
+    }
+    return msg;
+  }, debounceTime || 10);
 
   // 如果轮询结束了，直接销毁定时器
   useEffect(() => {
@@ -179,6 +177,7 @@ const useFetchData = <T extends RequestData<any>>(
     return () => {
       clearTimeout(pollingSetTimeRef.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [polling]);
 
   useEffect(
@@ -190,12 +189,17 @@ const useFetchData = <T extends RequestData<any>>(
 
   /** PageIndex 改变的时候自动刷新 */
   useEffect(() => {
-    const { current, pageSize } = pageInfo;
+    const { current, pageSize } = pageInfo || {};
     // 如果上次的页码为空或者两次页码等于是没必要查询的
     // 如果 pageSize 发生变化是需要查询的，所以又加了 prePageSize
     if ((!prePage || prePage === current) && (!prePageSize || prePageSize === pageSize)) {
       return;
     }
+
+    if ((options.pageInfo && list && list?.length > pageSize) || 0) {
+      return;
+    }
+
     // 如果 list 的长度大于 pageSize 的长度
     // 说明是一个假分页
     // (pageIndex - 1 || 1) 至少要第一页
@@ -204,7 +208,8 @@ const useFetchData = <T extends RequestData<any>>(
     if (current !== undefined && list && list.length <= pageSize) {
       fetchListDebounce.run(false);
     }
-  }, [pageInfo.current]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageInfo?.current]);
 
   // pageSize 修改后返回第一页
   useEffect(() => {
@@ -212,7 +217,8 @@ const useFetchData = <T extends RequestData<any>>(
       return;
     }
     fetchListDebounce.run(false);
-  }, [pageInfo.pageSize]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageInfo?.pageSize]);
 
   useDeepCompareEffect(() => {
     fetchListDebounce.run(false);
@@ -227,7 +233,7 @@ const useFetchData = <T extends RequestData<any>>(
   return {
     dataSource: list!,
     setDataSource: setList,
-    loading,
+    loading: tableLoading,
     reload: async () => {
       await fetchListDebounce.run(false);
     },

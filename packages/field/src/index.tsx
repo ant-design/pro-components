@@ -10,11 +10,11 @@ import type {
   ProFieldRequestData,
 } from '@ant-design/pro-utils';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
-
 import ConfigContext, { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';
 import FieldProgress from './components/Progress';
+import type { FieldMoneyProps } from './components/Money';
 import FieldMoney from './components/Money';
 import FieldDatePicker from './components/DatePicker';
 import FieldFromNow from './components/FromNow';
@@ -37,12 +37,22 @@ import FieldDigit from './components/Digit';
 import FieldSecond from './components/Second';
 import FieldRadio from './components/Radio';
 import FieldImage from './components/Image';
+import FieldCascader from './components/Cascader';
+import FieldTreeSelect from './components/TreeSelect';
 import FieldColorPicker from './components/ColorPicker';
+import FieldDigitRange from './components/DigitRange';
+// import type {RangeInputNumberProps,ExtraProps as } from './components/DigitRange'
+import { noteOnce } from 'rc-util/lib/warning';
+
+const REQUEST_VALUE_TYPE = ['select', 'radio', 'radioButton', 'checkbook'];
+
+export type ProFieldMoneyProps = FieldMoneyProps;
 
 export type ProFieldEmptyText = string | false;
 
 /** 默认的 Field 需要实现的功能 */
-export type ProFieldFC<T> = React.ForwardRefRenderFunction<
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type ProFieldFC<T = {}> = React.ForwardRefRenderFunction<
   any,
   BaseProFieldFC & ProRenderFieldPropsType & T
 >;
@@ -171,6 +181,29 @@ const defaultRenderText = (
       );
     }
   }
+
+  const needValueEnum = REQUEST_VALUE_TYPE.includes(valueType as string);
+  const hasValueEnum = !!(
+    props.valueEnum ||
+    props.request ||
+    props.options ||
+    props.fieldProps?.options
+  );
+
+  noteOnce(
+    !needValueEnum || hasValueEnum,
+    `如果设置了 valueType 为 ${REQUEST_VALUE_TYPE.join(
+      ',',
+    )}中任意一个，则需要配置options，request, valueEnum 其中之一，否则无法生成选项。`,
+  );
+
+  noteOnce(
+    !needValueEnum || hasValueEnum,
+    `If you set valueType to any of ${REQUEST_VALUE_TYPE.join(
+      ',',
+    )}, you need to configure options, request or valueEnum.`,
+  );
+
   /** 如果是金额的值 */
   if (valueType === 'money') {
     return <FieldMoney {...props} text={text as number} />;
@@ -271,6 +304,10 @@ const defaultRenderText = (
     return <FieldDigit text={text as number} {...props} />;
   }
 
+  if (valueType === 'digitRange') {
+    return <FieldDigitRange text={text as number[]} {...props} />;
+  }
+
   if (valueType === 'second') {
     return <FieldSecond text={text as number} {...props} />;
   }
@@ -309,6 +346,13 @@ const defaultRenderText = (
   if (valueType === 'image') {
     return <FieldImage text={text as string} {...props} />;
   }
+  if (valueType === 'cascader') {
+    return <FieldCascader text={text as string} {...props} />;
+  }
+
+  if (valueType === 'treeSelect') {
+    return <FieldTreeSelect text={text as string} {...props} />;
+  }
 
   if (valueType === 'color') {
     return <FieldColorPicker text={text as string} {...props} />;
@@ -326,8 +370,8 @@ export type ProFieldPropsType = {
 } & RenderProps;
 
 const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
-  { text, valueType = 'text', onChange, renderFormItem, value, ...rest },
-  ref,
+  { text, valueType = 'text', mode = 'read', onChange, renderFormItem, value, readonly, ...rest },
+  ref: any,
 ) => {
   const intl = useIntl();
   const context = useContext(ConfigContext);
@@ -337,20 +381,20 @@ const ProField: React.ForwardRefRenderFunction<any, ProFieldPropsType> = (
     // fieldProps 优先级更高，在类似 LightFilter 场景下需要覆盖默认的 value 和 onChange
     ...omitUndefined(rest?.fieldProps),
     onChange: (...restParams: any[]) => {
-      onChange?.(...restParams);
       rest?.fieldProps?.onChange?.(...restParams);
+      onChange?.(...restParams);
     },
   };
 
   return (
     <React.Fragment>
       {defaultRenderText(
-        text ?? fieldProps?.value ?? '',
+        mode === 'edit' ? fieldProps?.value ?? text ?? '' : text ?? fieldProps?.value ?? '',
         valueType || 'text',
         {
-          ...rest,
-          mode: rest.mode || 'read',
           ref,
+          ...rest,
+          mode: readonly ? 'read' : mode,
           renderFormItem: renderFormItem
             ? (...restProps) => {
                 const newDom = renderFormItem(...restProps);
@@ -390,6 +434,6 @@ export {
   proFieldParsingValueEnumToArray,
 };
 
-export type { ProFieldValueType };
+export type { ProFieldValueType, FieldMoneyProps };
 
 export default React.forwardRef(ProField) as typeof ProField;

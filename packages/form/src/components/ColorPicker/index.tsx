@@ -1,16 +1,15 @@
 ﻿import React from 'react';
 import type { SketchPickerProps } from 'react-color';
 import type { PopoverProps } from 'antd';
-import ProField from '@ant-design/pro-field';
-import type { ProFormItemProps } from '../../interface';
-import createField from '../../BaseForm/createField';
+import ProFromField from '../Field';
+import type { ProFormFieldItemProps } from '../../interface';
 
 type ColorPickerProps = SketchPickerProps & {
   value?: string;
   onChange?: (color: string) => void;
 };
 
-type ProFormColorPickerProps = ProFormItemProps<ColorPickerProps> & {
+export type ProFormColorPickerProps = ProFormFieldItemProps<ColorPickerProps> & {
   popoverProps?: PopoverProps;
   colors?: string[];
 };
@@ -20,11 +19,11 @@ type ProFormColorPickerProps = ProFormItemProps<ColorPickerProps> & {
  * @param
  */
 const ProFormColorPicker: React.ForwardRefRenderFunction<any, ProFormColorPickerProps> = (
-  { fieldProps, popoverProps, proFieldProps, colors },
+  { fieldProps, popoverProps, proFieldProps, colors, ...rest },
   ref,
 ) => {
   return (
-    <ProField
+    <ProFromField
       mode="edit"
       valueType="color"
       fieldProps={{
@@ -33,13 +32,15 @@ const ProFormColorPicker: React.ForwardRefRenderFunction<any, ProFormColorPicker
         ...fieldProps,
       }}
       ref={ref}
-      {...proFieldProps}
+      proFieldProps={proFieldProps}
+      filedConfig={{
+        defaultProps: {
+          width: '100%',
+        },
+      }}
+      {...rest}
     />
   );
 };
 
-export default createField<ProFormColorPickerProps>(React.forwardRef(ProFormColorPicker), {
-  defaultProps: {
-    width: '100%',
-  },
-});
+export default React.forwardRef(ProFormColorPicker);

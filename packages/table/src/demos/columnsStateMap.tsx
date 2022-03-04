@@ -102,8 +102,10 @@ export default () => {
         search: true,
       }}
       rowKey="key"
-      columnsStateMap={columnsStateMap}
-      onColumnsStateChange={(map) => setColumnsStateMap(map)}
+      columnsState={{
+        value: columnsStateMap,
+        onChange: setColumnsStateMap,
+      }}
       search={false}
       dateFormatter="string"
       headerTitle="受控模式"

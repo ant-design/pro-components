@@ -1,10 +1,14 @@
-import { mount, render } from 'enzyme';
+import { mount, render as enzymeRender } from 'enzyme';
 import React, { useState } from 'react';
 import { act } from 'react-dom/test-utils';
+import { render } from '@testing-library/react';
 import type { BasicLayoutProps } from '@ant-design/pro-layout';
 import BasicLayout from '@ant-design/pro-layout';
 
 import { waitForComponentToPaint } from '../util';
+import { LoginForm, ProFormText } from '@ant-design/pro-form';
+import { ConfigProvider } from 'antd';
+import en_US from 'antd/lib/locale/en_US';
 
 describe('BasicLayout', () => {
   beforeAll(() => {
@@ -12,7 +16,7 @@ describe('BasicLayout', () => {
     process.env.USE_MEDIA = 'md';
   });
   it('🥩 base use', async () => {
-    const html = render(<BasicLayout />);
+    const html = enzymeRender(<BasicLayout />);
     expect(html).toMatchSnapshot();
   });
 
@@ -58,7 +62,7 @@ describe('BasicLayout', () => {
               path: '/home',
               name: '首页',
               locale: 'menu.home',
-              children: [
+              routes: [
                 {
                   path: '/home/overview',
                   name: '概述',
@@ -79,65 +83,59 @@ describe('BasicLayout', () => {
               path: '/data_hui',
               name: '汇总数据',
               locale: 'menu.data_hui',
-              children: [
+              routes: [
                 {
                   collapsed: true,
                   menuName: '域买家维度交易',
                   name: '域买家维度交易',
-                  children: [
+                  routes: [
                     {
                       id: 2,
                       isNavHome: '2',
                       itemId: '191020104',
                       itemName: '_交易_买家_月表',
                       tab: 'adm_rk_cr_tb_trd_byr_ms',
-                      tabProj: 'alifin_odps_birisk',
+                      tabProj: 'alining_odps_biisk',
                       name: '_交易_买家_月表',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui1?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alibis_odps_biisk',
                     },
                     {
                       id: 3,
                       isNavHome: '3',
                       name: '_航旅交易_买家_日表',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui2?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
                     },
                   ],
                 },
                 {
                   collapsed: true,
                   name: '域买家维度交易2',
-                  children: [
+                  routes: [
                     {
                       id: 5,
                       name: '_交易_买家_月表',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui3?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=box-shadow',
                     },
                     {
                       id: 6,
                       name: '_航旅交易_买家_日表',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui4?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
                     },
                   ],
                 },
                 {
                   collapsed: true,
                   name: '域买家维度交易3',
-                  children: [
+                  routes: [
                     {
                       id: 7,
                       name: '_交易_买家_月表2',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui5?tableName=adm_rk_cr_tb_trd_byr_ms&tableSchema=box-shadow',
                     },
                     {
                       id: 8,
                       name: '_航旅交易_买家_日表3',
-                      path:
-                        '/data_hui?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=alifin_odps_birisk',
+                      path: '/data_hui6?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
                     },
                   ],
                 },
@@ -153,7 +151,7 @@ describe('BasicLayout', () => {
               name: '其他',
 
               locale: 'menu.other',
-              children: [
+              routes: [
                 {
                   path: '/other/upLoad',
                   name: 'odps同步导入',
@@ -198,16 +196,14 @@ describe('BasicLayout', () => {
   it('🥩 menuDataRender change date', async () => {
     const wrapper = mount(<BasicLayout menuDataRender={() => []} />);
     await waitForComponentToPaint(wrapper, 100);
-    act(() => {
-      expect(wrapper.render()).toMatchSnapshot();
-    });
+    expect(wrapper.find('ul.ant-pro-sider-menu').exists()).toBeFalsy();
     act(() => {
       wrapper.setProps({
         menuDataRender: () => [
           {
             path: '/home',
             name: '首页',
-            children: [
+            routes: [
               {
                 path: '/home/overview',
                 name: '概述',
@@ -223,11 +219,9 @@ describe('BasicLayout', () => {
         ],
       });
     });
-    await waitForComponentToPaint(wrapper, 100);
+    await waitForComponentToPaint(wrapper, 1000);
 
-    act(() => {
-      expect(wrapper.render()).toMatchSnapshot();
-    });
+    expect(wrapper.find('ul.ant-pro-sider-menu').exists()).toBeTruthy();
   });
 
   it('🥩 use onLogoClick', async () => {
@@ -278,7 +272,11 @@ describe('BasicLayout', () => {
     const onCollapse = jest.fn();
     const wrapper = mount(<BasicLayout onCollapse={onCollapse} />);
     await waitForComponentToPaint(wrapper);
-    wrapper.find('.ant-pro-sider-collapsed-button').map((item) => item && item.simulate('click'));
+    act(() => {
+      wrapper
+        .find('li.ant-pro-sider-collapsed-button')
+        .map((item) => item && item.simulate('click'));
+    });
     expect(onCollapse).toHaveBeenCalled();
 
     await waitForComponentToPaint(wrapper);
@@ -390,7 +388,7 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 contentStyle should change dom', async () => {
-    const wrapper = render(
+    const wrapper = enzymeRender(
       <BasicLayout
         contentStyle={{
           padding: 56,
@@ -735,41 +733,56 @@ describe('BasicLayout', () => {
   });
 
   it('🥩 BasicLayout menu support menu.true', async () => {
-    const wrapper = render(
-      <BasicLayout
-        menu={{
-          loading: true,
-        }}
-        menuDataRender={() => [
-          {
-            path: '/welcome',
-            name: '欢迎',
-            hideInMenu: true,
-          },
-          {
-            path: '/admin',
-            name: '管理页',
-            routes: [
-              {
-                path: '/admin/sub-page1',
-                name: '一级页面',
-              },
-              {
-                path: '/admin/sub-page2',
-                name: '二级页面',
-              },
-              {
-                path: '/admin/sub-page3',
-                name: '三级页面',
-              },
-            ],
-          },
-          {
-            name: '列表页',
-            path: '/list',
-          },
-        ]}
-      />,
+    const wrapper = enzymeRender(
+      <>
+        <BasicLayout
+          menu={{
+            loading: true,
+          }}
+          menuDataRender={() => [
+            {
+              path: '/welcome',
+              name: '欢迎',
+            },
+            {
+              name: '列表页',
+              path: '/list',
+            },
+          ]}
+        />
+        <BasicLayout
+          menu={{
+            loading: true,
+          }}
+          layout="top"
+          menuDataRender={() => [
+            {
+              path: '/welcome',
+              name: '欢迎',
+            },
+            {
+              name: '列表页',
+              path: '/list',
+            },
+          ]}
+        />
+        <BasicLayout
+          menu={{
+            loading: true,
+          }}
+          layout="mix"
+          menuDataRender={() => [
+            {
+              path: '/welcome',
+              name: '欢迎',
+            },
+            {
+              name: '列表页',
+              path: '/list',
+            },
+          ]}
+        />
+      </>,
     );
     expect(wrapper).toMatchSnapshot();
   });
@@ -806,18 +819,19 @@ describe('BasicLayout', () => {
       });
     });
     await waitForComponentToPaint(wrapper);
-
-    wrapper.setProps({
-      menu: {
-        loading: false,
-      },
-      menuDataRender: () => [
-        {
-          path: '/welcome',
-          name: '欢迎',
-          layout: 'top',
+    act(() => {
+      wrapper.setProps({
+        menu: {
+          loading: false,
         },
-      ],
+        menuDataRender: () => [
+          {
+            path: '/welcome',
+            name: '欢迎',
+            layout: 'top',
+          },
+        ],
+      });
     });
     await waitForComponentToPaint(wrapper, 100);
     expect(wrapper.find('.ant-pro-basicLayout-top').exists()).toBeTruthy();
@@ -901,7 +915,7 @@ describe('BasicLayout', () => {
       html.find('span.ant-pro-menu-item-link').simulate('click');
     });
 
-    expect(html.find('.ant-menu-submenu-open').length).toBe(2);
+    expect(html.find('li.ant-menu-submenu-open').length).toBe(2);
   });
 
   it('🥩 BasicLayout menu support onSelect', async () => {
@@ -1050,5 +1064,350 @@ describe('BasicLayout', () => {
     actionRef.current?.reload();
 
     expect(fn).toBeCalledTimes(2);
+  });
+
+  it('🥩 BasicLayout support menu.params', async () => {
+    const fn = jest.fn();
+    const defaultMenu = {
+      locale: false,
+      params: {},
+      request: async (params: Record<string, string>) => {
+        fn(params);
+        return [
+          {
+            path: '/admin',
+            name: '管理页',
+          },
+          {
+            name: '列表页',
+            path: '/list',
+          },
+        ];
+      },
+    };
+
+    const html = mount(<BasicLayout menu={defaultMenu} />);
+
+    await waitForComponentToPaint(html, 1000);
+
+    expect(fn).toBeCalledTimes(1);
+
+    act(() => {
+      html.setProps({
+        menu: {
+          ...defaultMenu,
+          params: {
+            id: '1212',
+          },
+        },
+      });
+    });
+
+    await waitForComponentToPaint(html, 100);
+
+    expect(fn).toBeCalledTimes(2);
+    expect(fn).toBeCalledWith({
+      id: '1212',
+    });
+    act(() => {
+      html.setProps({
+        menu: {
+          ...defaultMenu,
+          params: {
+            id: '123',
+          },
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(fn).toBeCalledTimes(3);
+    expect(fn).toBeCalledWith({
+      id: '123',
+    });
+
+    act(() => {
+      html.setProps({
+        menu: {
+          ...defaultMenu,
+          params: {
+            id: '123',
+          },
+        },
+      });
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(fn).toBeCalledTimes(3);
+  });
+
+  it('🥩 BasicLayout support menu.defaultOpenAll', async () => {
+    const Demo = () => {
+      const [pathname, setPathname] = useState('/admin/sub-page1');
+      return (
+        <BasicLayout
+          menu={{
+            defaultOpenAll: true,
+          }}
+          location={{ pathname }}
+          menuItemRender={(item, dom) => (
+            <a
+              onClick={() => {
+                item.onClick();
+                setPathname(item.path || '/welcome');
+              }}
+            >
+              {dom}
+            </a>
+          )}
+          menuDataRender={() => [
+            {
+              path: '/home',
+              name: '首页',
+              locale: 'menu.home',
+              routes: [
+                {
+                  path: '/home/overview',
+                  name: '概述',
+                  hideInMenu: true,
+                  locale: 'menu.home.overview',
+                },
+                {
+                  path: '/home/search',
+                  name: '搜索',
+                  hideInMenu: true,
+                  locale: 'menu.home.search',
+                },
+              ],
+            },
+            {
+              path: '/data_hui',
+              name: '汇总数据',
+              locale: 'menu.data_hui',
+              routes: [
+                {
+                  collapsed: true,
+                  menuName: '域买家维度交易',
+                  name: '域买家维度交易',
+                  routes: [
+                    {
+                      id: 2,
+                      name: '月表',
+                      path: '/data_hui2',
+                    },
+                    {
+                      name: '日表',
+                      path: '/data_hui3?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
+                    },
+                  ],
+                },
+                {
+                  name: '维度交易',
+                  path: '/',
+                  routes: [
+                    {
+                      name: '月表',
+                      path: '/data_hui4',
+                    },
+                    {
+                      name: '日表',
+                      key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
+                      path: '/data_hui5',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+        />
+      );
+    };
+    const html = mount(<Demo />);
+    await waitForComponentToPaint(html);
+
+    expect(html.find('li.ant-menu-submenu').length).toBe(3);
+    expect(html.find('li.ant-menu-submenu-open').length).toBe(3);
+  });
+
+  it('🥩 BasicLayout support menu.ignoreFlatMenu', async () => {
+    const Demo = () => {
+      const [pathname, setPathname] = useState('/admin/sub-page1');
+      return (
+        <BasicLayout
+          menu={{
+            defaultOpenAll: true,
+            ignoreFlatMenu: true,
+          }}
+          location={{ pathname }}
+          menuItemRender={(item, dom) => (
+            <a
+              onClick={() => {
+                item.onClick();
+                setPathname(item.path || '/welcome');
+              }}
+            >
+              {dom}
+            </a>
+          )}
+          menuDataRender={() => [
+            {
+              path: '/home',
+              name: '首页',
+              locale: 'menu.home',
+              routes: [
+                {
+                  path: '/home/overview',
+                  name: '概述',
+                  hideInMenu: true,
+                  locale: 'menu.home.overview',
+                },
+                {
+                  path: '/home/search',
+                  name: '搜索',
+                  hideInMenu: true,
+                  locale: 'menu.home.search',
+                },
+              ],
+            },
+            {
+              path: '/data_hui',
+              name: '汇总数据',
+              locale: 'menu.data_hui',
+              routes: [
+                {
+                  collapsed: true,
+                  menuName: '域买家维度交易',
+                  name: '域买家维度交易',
+                  routes: [
+                    {
+                      id: 2,
+                      name: '月表',
+                      path: '/data_hui2',
+                    },
+                    {
+                      name: '日表',
+                      path: '/data_hui3?tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
+                    },
+                  ],
+                },
+                {
+                  name: '维度交易',
+                  path: '/',
+                  routes: [
+                    {
+                      name: '月表',
+                      path: '/data_hui4',
+                    },
+                    {
+                      name: '日表',
+                      key: 'tableName=adm_rk_cr_tb_trv_byr_ds&tableSchema=box-shadow',
+                      path: '/data_hui5',
+                    },
+                  ],
+                },
+              ],
+            },
+          ]}
+        />
+      );
+    };
+    const html = mount(<Demo />);
+    await waitForComponentToPaint(html);
+
+    expect(html.find('li.ant-menu-submenu').length).toBe(3);
+    expect(html.find('li.ant-menu-submenu-open').length).toBe(3);
+
+    act(() => {
+      html.find('li.ant-pro-sider-collapsed-button').simulate('click');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('li.ant-menu-submenu-open').length).toBe(0);
+
+    act(() => {
+      html.find('li.ant-pro-sider-collapsed-button').simulate('click');
+    });
+    await waitForComponentToPaint(html, 100);
+    expect(html.find('li.ant-menu-submenu-open').length).toBe(3);
+  });
+
+  it('🥩  navTheme=realDark', () => {
+    const html = render(<BasicLayout navTheme="realDark" />);
+    expect(html.baseElement.querySelector('aside.ant-layout-sider')?.getAttribute('style')).toBe(
+      'overflow: hidden; box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 65%); flex: 0 0 208px; max-width: 208px; min-width: 208px; width: 208px;',
+    );
+  });
+
+  it('🥩 formatMessage support', () => {
+    const html = render(
+      <BasicLayout
+        menu={{
+          locale: true,
+        }}
+        route={{
+          routes: [
+            {
+              name: 'home',
+              locale: 'menu.home',
+              path: '/home',
+            },
+          ],
+        }}
+        formatMessage={({
+          id,
+          defaultMessage,
+        }: {
+          id: string;
+          defaultMessage?: string;
+        }): string => {
+          const locales = {
+            'menu.home': '主页',
+          };
+          return locales[id] ? locales[id] : (defaultMessage as string);
+        }}
+      />,
+    );
+
+    expect(html.getByText('主页')).toBeTruthy();
+  });
+
+  it('🥩 pure should has provide', () => {
+    let html = render(
+      <ConfigProvider locale={en_US}>
+        <BasicLayout>
+          <LoginForm>
+            <ProFormText />
+          </LoginForm>
+        </BasicLayout>
+      </ConfigProvider>,
+    );
+    expect(html.container.querySelector('.ant-btn.ant-btn-primary.ant-btn-lg')?.textContent).toBe(
+      'Login',
+    );
+
+    expect(html.getByText('Login')).toBeTruthy();
+
+    html.rerender(
+      <ConfigProvider locale={en_US}>
+        <BasicLayout pure>
+          <LoginForm>
+            <ProFormText />
+          </LoginForm>
+        </BasicLayout>
+      </ConfigProvider>,
+    );
+
+    expect(html.container.querySelector('.ant-btn.ant-btn-primary.ant-btn-lg')?.textContent).toBe(
+      'Login',
+    );
+
+    html = render(
+      <ConfigProvider locale={en_US}>
+        <LoginForm>
+          <ProFormText />
+        </LoginForm>
+      </ConfigProvider>,
+    );
+
+    expect(html.container.querySelector('.ant-btn.ant-btn-primary.ant-btn-lg')?.textContent).toBe(
+      '登 录',
+    );
   });
 });

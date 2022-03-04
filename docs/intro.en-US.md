@@ -9,6 +9,8 @@ nav:
   path: /docs
 ---
 
+![banner](https://gw.alipayobjects.com/zos/antfincdn/7VBnGHwjaW/bianzu%2525202.svg)
+
 ## The concept of #ProComponents
 
 Ant Design defines the basic design specification and provides a large number of basic components. However, for middle and backend applications, we want to provide a higher level of abstraction, provide higher level design specifications, and provide corresponding components so that developers can quickly build high quality pages.

@@ -3,8 +3,7 @@ import Icon, { createFromIconfontCN } from '@ant-design/icons';
 import { Menu, Skeleton } from 'antd';
 import React, { useEffect, useState, useRef, useMemo } from 'react';
 import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import { isUrl, isImg } from '@ant-design/pro-utils';
+import { isUrl, isImg, useMountMergeState } from '@ant-design/pro-utils';
 
 import type { MenuTheme, MenuProps } from 'antd';
 import type { PureSettings } from '../../defaultSettings';
@@ -51,6 +50,7 @@ export type BaseMenuProps = {
         onClick: () => void;
       },
       defaultDom: React.ReactNode,
+      menuProps: BaseMenuProps,
     ) => React.ReactNode
   >;
   postMenuData?: (menusData?: MenuDataItem[]) => MenuDataItem[];
@@ -99,7 +99,7 @@ class MenuUtil {
 
   /** Get SubMenu or Item */
   getSubMenuOrItem = (item: MenuDataItem, isChildren: boolean): React.ReactNode => {
-    if (Array.isArray(item.children) && item && item.children.length > 0) {
+    if (Array.isArray(item.routes) && item && item.routes.length > 0) {
       const name = this.getIntlName(item);
       const { subMenuItemRender, prefixCls, menu, iconPrefixes } = this.props;
       //  get defaultTitle by menuItemRender
@@ -121,7 +121,7 @@ class MenuUtil {
       const MenuComponents: React.ElementType = menu?.type === 'group' ? ItemGroup : SubMenu;
       return (
         <MenuComponents title={title} key={item.key || item.path} onTitleClick={item.onTitleClick}>
-          {this.getNavMenuItems(item.children, true)}
+          {this.getNavMenuItems(item.routes, true)}
         </MenuComponents>
       );
     }
@@ -177,7 +177,7 @@ class MenuUtil {
         <span
           title={name}
           onClick={() => {
-            window.open(itemPath);
+            window?.open?.(itemPath);
           }}
           className={`${prefixCls}-menu-item ${prefixCls}-menu-item-link`}
         >
@@ -195,8 +195,9 @@ class MenuUtil {
         isMobile,
         replace: itemPath === location.pathname,
         onClick: () => onCollapse && onCollapse(true),
+        children: undefined,
       };
-      return menuItemRender(renderItemProps, defaultItem);
+      return menuItemRender(renderItemProps, defaultItem, this.props);
     }
     return defaultItem;
   };
@@ -250,9 +251,9 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
   const defaultOpenKeysRef = useRef<string[]>([]);
 
   const { flatMenuKeys } = MenuCounter.useContainer();
-  const [defaultOpenAll, setDefaultOpenAll] = useState(menu?.defaultOpenAll);
+  const [defaultOpenAll, setDefaultOpenAll] = useMountMergeState(menu?.defaultOpenAll);
 
-  const [openKeys, setOpenKeys] = useMergedState<WithFalse<React.Key[]>>(
+  const [openKeys, setOpenKeys] = useMountMergeState<WithFalse<React.Key[]>>(
     () => {
       if (menu?.defaultOpenAll) {
         return getOpenKeysFromMenuData(menuData) || [];
@@ -268,7 +269,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     },
   );
 
-  const [selectedKeys, setSelectedKeys] = useMergedState<string[] | undefined>([], {
+  const [selectedKeys, setSelectedKeys] = useMountMergeState<string[] | undefined>([], {
     value: propsSelectedKeys,
     onChange: onSelect
       ? (keys) => {
@@ -315,32 +316,38 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         newKeys = Array.from(new Set([...matchMenuKeys, ...(openKeys || [])]));
       }
       setOpenKeys(newKeys);
+    } else if (menu?.ignoreFlatMenu && defaultOpenAll) {
+      // 忽略用户手动折叠过的菜单状态，折叠按钮切换之后也可实现默认展开所有菜单
+      setOpenKeys(getOpenKeysFromMenuData(menuData));
     } else if (flatMenuKeys.length > 0) setDefaultOpenAll(false);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [matchMenuKeys.join('-'), collapsed]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const openKeysProps = useMemo(() => getOpenKeysProps(openKeys, props), [
+  const openKeysProps = useMemo(
+    () => getOpenKeysProps(openKeys, props),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    openKeys && openKeys.join(','),
-    props.layout,
-    props.collapsed,
-  ]);
+    [openKeys && openKeys.join(','), props.layout, props.collapsed],
+  );
 
   const [menuUtils] = useState(() => new MenuUtil(props));
 
   if (menu?.loading) {
     return (
       <div
-        style={{
-          padding: 24,
-        }}
+        style={
+          mode?.includes('inline')
+            ? { padding: 24 }
+            : {
+                marginTop: 16,
+              }
+        }
       >
         <Skeleton
+          active
           title={false}
           paragraph={{
-            rows: 6,
+            rows: mode?.includes('inline') ? 6 : 1,
           }}
         />
       </div>
@@ -370,6 +377,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       {...openKeysProps}
       key="Menu"
       mode={mode}
+      inlineIndent={16}
       defaultOpenKeys={defaultOpenKeysRef.current}
       theme={theme}
       selectedKeys={selectedKeys}

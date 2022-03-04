@@ -2,11 +2,11 @@ import type H from 'history';
 import type { BreadcrumbProps as AntdBreadcrumbProps } from 'antd';
 import React from 'react';
 import pathToRegexp from 'path-to-regexp';
-import { isBrowser } from '@ant-design/pro-utils';
 
 import type { ProSettings } from '../defaultSettings';
 import type { MenuDataItem, MessageDescriptor, WithFalse } from '../typings';
 import { urlToList } from './pathTools';
+import type { BasicLayoutProps } from '../BasicLayout';
 
 export type BreadcrumbProps = {
   breadcrumbList?: { title: string; href: string }[];
@@ -80,16 +80,12 @@ const conversionFromLocation = (
   // Loop data mosaic routing
   const extraBreadcrumbItems: AntdBreadcrumbProps['routes'] = pathSnippets
     .map((url) => {
-      // For application that has configured router base
-      // @ts-ignore
-      const { routerBase = '/' } = isBrowser() ? window : {};
-      const realPath = routerBase === '/' ? url : `${routerBase}${url}`;
       const currentBreadcrumb = getBreadcrumb(breadcrumbMap, url);
       const name = renderItemLocal(currentBreadcrumb, props);
       const { hideInBreadcrumb } = currentBreadcrumb;
       return name && !hideInBreadcrumb
         ? {
-            path: realPath,
+            path: url,
             breadcrumbName: name,
             component: currentBreadcrumb.component,
           }
@@ -118,8 +114,12 @@ export const genBreadcrumbProps = (props: BreadcrumbProps): AntdBreadcrumbProps[
 };
 
 // use breadcrumbRender to change routes
-export const getBreadcrumbProps = (props: BreadcrumbProps): BreadcrumbListReturn => {
+export const getBreadcrumbProps = (
+  props: BreadcrumbProps,
+  layoutPros: BasicLayoutProps,
+): BreadcrumbListReturn => {
   const { breadcrumbRender, itemRender: propsItemRender } = props;
+  const { minLength = 2 } = layoutPros.breadcrumbProps || {};
   const routesArray = genBreadcrumbProps(props);
   const itemRender = propsItemRender || defaultItemRender;
   let routes = routesArray;
@@ -127,7 +127,7 @@ export const getBreadcrumbProps = (props: BreadcrumbProps): BreadcrumbListReturn
   if (breadcrumbRender) {
     routes = breadcrumbRender(routes) || [];
   }
-  if ((routes && routes.length < 2) || breadcrumbRender === false) {
+  if ((routes && routes.length < minLength) || breadcrumbRender === false) {
     routes = undefined;
   }
   return {

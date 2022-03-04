@@ -1,5 +1,5 @@
 import { DownOutlined } from '@ant-design/icons';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import ProForm, {
   ProFormDigit,
   ProFormRadio,
@@ -16,6 +16,7 @@ import ProTable from '@ant-design/pro-table';
 import { useDebounceFn } from '@ant-design/pro-utils';
 import ProCard from '@ant-design/pro-card';
 import { Button } from 'antd';
+import type { ProFormInstance } from '@ant-design/pro-form';
 
 const valueTypeArray = [
   'password',
@@ -156,6 +157,8 @@ const initData = {
 };
 
 const DynamicSettings = () => {
+  const ref = useRef<ProFormInstance>();
+
   const [config, setConfig] = useState<any>(initData);
 
   /** 去抖配置 */
@@ -186,6 +189,7 @@ const DynamicSettings = () => {
       >
         <ProTable
           {...config}
+          formRef={ref}
           pagination={
             config.pagination?.show
               ? config.pagination
@@ -201,7 +205,13 @@ const DynamicSettings = () => {
           }
           options={config.options?.show ? config.options : false}
           toolBarRender={
-            config?.toolBarRender ? () => [<Button type="primary">刷新</Button>] : false
+            config?.toolBarRender
+              ? () => [
+                  <Button key="refresh" type="primary">
+                    刷新
+                  </Button>,
+                ]
+              : false
           }
           footer={config.footer ? () => 'Here is footer' : false}
           headerTitle={config.headerTitle}
@@ -217,16 +227,15 @@ const DynamicSettings = () => {
         colon={false}
         onValuesChange={(_, values) => updateConfig.run(values)}
       >
-        <ProCard colSpan="470px" tabs={{}} />
         <ProCard
           colSpan="470px"
           style={{
             height: '100vh',
             overflow: 'auto',
-            position: 'fixed',
             boxShadow: '2px 0 6px rgba(0, 21, 41, 0.35)',
             top: 0,
             right: 0,
+            width: 470,
           }}
           tabs={{}}
         >
@@ -608,12 +617,17 @@ const DynamicSettings = () => {
                       marginBottom: 8,
                       position: 'relative',
                     }}
+                    bodyStyle={{
+                      padding: 8,
+                      paddingRight: 16,
+                      paddingTop: 16,
+                    }}
                   >
                     <div
                       style={{
                         position: 'absolute',
-                        top: -2,
-                        right: 4,
+                        top: -4,
+                        right: 2,
                       }}
                     >
                       {action}
@@ -623,12 +637,6 @@ const DynamicSettings = () => {
                 );
               }}
             >
-              {/*  {
-                title: 'time',
-                dataIndex: 'time',
-                valueType: 'date',
-              }, */}
-
               <ProFormText
                 rules={[
                   {
@@ -668,11 +676,24 @@ const DynamicSettings = () => {
                   width="xs"
                   label="值类型"
                   name="valueType"
+                  fieldProps={{
+                    onChange: () => {
+                      ref.current?.resetFields();
+                    },
+                  }}
                   options={valueTypeArray.map((value) => ({
                     label: value,
                     value,
                   }))}
                 />
+              </ProFormGroup>
+              <ProFormGroup
+                style={{
+                  marginTop: 8,
+                }}
+                size={8}
+              >
+                <ProFormText width="xs" label="列提示" name="tooltip" />
               </ProFormGroup>
               <ProFormDependency name={['valueType', 'valueEnum']}>
                 {({ valueType, valueEnum }) => {

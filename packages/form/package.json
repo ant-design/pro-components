@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "1.21.2",
+  "version": "1.55.3",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
@@ -34,18 +34,21 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "1.15.1",
-    "@ant-design/pro-provider": "1.4.11",
-    "@ant-design/pro-utils": "1.16.1",
-    "@umijs/use-params": "^1.0.2",
+    "@ant-design/pro-field": "1.32.3",
+    "@ant-design/pro-provider": "1.6.0",
+    "@ant-design/pro-utils": "1.35.2",
+    "@babel/runtime": "^7.16.3",
+    "@umijs/use-params": "^1.0.9",
     "classnames": "^2.2.6",
     "omit.js": "^2.0.2",
-    "rc-resize-observer": "^0.2.3",
+    "rc-resize-observer": "^1.1.0",
     "rc-util": "^5.0.6",
+    "use-json-comparison": "^1.0.5",
     "use-media-antd-query": "^1.0.6"
   },
   "peerDependencies": {
-    "antd": "4.x",
+    "antd": ">=4.18.0",
+    "rc-field-form": "^1.22.0",
     "react": ">=16.9.0",
     "react-dom": ">=16.9.0"
   },

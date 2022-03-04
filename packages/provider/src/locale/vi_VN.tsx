@@ -40,4 +40,7 @@ export default {
     densityMiddle: 'Trung bình',
     densitySmall: 'Chật',
   },
+  loginForm: {
+    submitText: 'Đăng nhập',
+  },
 };

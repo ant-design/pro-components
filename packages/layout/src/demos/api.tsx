@@ -1,8 +1,8 @@
-/* eslint-disable import/no-unresolved */
 import React, { useState } from 'react';
 import { Switch, Avatar } from 'antd';
 import ProLayout, { PageContainer, DefaultFooter } from '@ant-design/pro-layout';
 import defaultProps from './_defaultProps';
+import { GithubOutlined } from '@ant-design/icons';
 
 export default () => {
   const [loading, setLoading] = useState(false);
@@ -114,7 +114,33 @@ export default () => {
           pathname: '/welcome',
         }}
         pure={pure}
-        footerRender={() => (footer ? <DefaultFooter /> : null)}
+        footerRender={() =>
+          footer ? (
+            <DefaultFooter
+              links={[
+                {
+                  key: 'Ant Design Pro',
+                  title: 'Ant Design Pro',
+                  href: 'https://pro.ant.design',
+                  blankTarget: true,
+                },
+                {
+                  key: 'github',
+                  title: <GithubOutlined />,
+                  href: 'https://github.com/ant-design/ant-design-pro',
+                  blankTarget: true,
+                },
+                {
+                  key: 'Ant Design',
+                  title: 'Ant Design',
+                  href: 'https://ant.design',
+                  blankTarget: true,
+                },
+              ]}
+              copyright="2022 蚂蚁金服体验技术部出品"
+            />
+          ) : null
+        }
       >
         <PageContainer content="欢迎使用">Hello World</PageContainer>
       </ProLayout>

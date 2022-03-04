@@ -9,6 +9,7 @@ import ProForm, {
   ProFormDigit,
   ProFormSlider,
   ProFormGroup,
+  ProFormDigitRange,
 } from '@ant-design/pro-form';
 import Mock from 'mockjs';
 
@@ -35,6 +36,7 @@ const Demo = () => (
         name: 'qixian',
         radio: 'a',
         'radio-button': 'a',
+        'input-number-range': [2, 4],
       }}
       onValuesChange={(_, values) => {
         console.log(values);
@@ -45,7 +47,12 @@ const Demo = () => (
         <ProFormText width="md" name="name" label="name" />
         <ProFormText.Password width="md" name="password" label="password" />
       </ProFormGroup>
-      <ProFormGroup label="选择类">
+      <ProFormGroup
+        label="选择类"
+        style={{
+          gap: '0 32px',
+        }}
+      >
         <ProFormSelect
           name="select"
           label="Select"
@@ -60,6 +67,7 @@ const Demo = () => (
           name="select2"
           label="支持搜索查询的 Select"
           showSearch
+          debounceTime={300}
           request={async ({ keyWords }) => {
             await waitTime(1000);
             return Mock.mock({
@@ -171,6 +179,12 @@ const Demo = () => (
         />
       </ProFormGroup>
       <ProFormGroup label="数字类">
+        <ProFormDigitRange
+          label="InputNumberRange"
+          name="input-number-range"
+          separator="-"
+          separatorWidth={60}
+        />
         <ProFormDigit label="InputNumber" name="input-number" width="sm" min={1} max={10} />
         <ProFormSwitch name="switch" label="Switch" />
         <ProFormSlider

@@ -22,7 +22,9 @@ export type HeaderViewProps = GlobalHeaderProps & {
   headerTitleRender?: WithFalse<
     (logo: React.ReactNode, title: React.ReactNode, props: HeaderViewProps) => React.ReactNode
   >;
-  headerContentRender?: WithFalse<(props: HeaderViewProps) => React.ReactNode>;
+  headerContentRender?: WithFalse<
+    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
+  >;
   siderWidth?: number;
   hasSiderMenu?: boolean;
 };
@@ -33,19 +35,13 @@ type HeaderViewState = {
 
 class HeaderView extends Component<HeaderViewProps & PrivateSiderMenuProps, HeaderViewState> {
   renderContent = () => {
-    const {
-      isMobile,
-      onCollapse,
-      navTheme,
-      layout,
-      headerRender,
-      headerContentRender,
-    } = this.props;
+    const { isMobile, onCollapse, navTheme, layout, headerRender, headerContentRender } =
+      this.props;
     const isTop = layout === 'top';
     const clearMenuData = clearMenuItem(this.props.menuData || []);
     let defaultDom = (
       <GlobalHeader onCollapse={onCollapse} {...this.props} menuData={clearMenuData}>
-        {headerContentRender && headerContentRender(this.props)}
+        {headerContentRender && headerContentRender(this.props, null)}
       </GlobalHeader>
     );
     if (isTop && !isMobile) {

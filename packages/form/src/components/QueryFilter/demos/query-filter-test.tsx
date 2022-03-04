@@ -1,5 +1,6 @@
 import React from 'react';
-import { QueryFilter, ProFormText } from '@ant-design/pro-form';
+import ProForm, { QueryFilter, ProFormText } from '@ant-design/pro-form';
+import { Input } from 'antd';
 
 export default () => {
   return (
@@ -14,6 +15,9 @@ export default () => {
         span={6}
         defaultCollapsed={false}
       >
+        <ProForm.Item name="name" label="test">
+          <Input />
+        </ProForm.Item>
         <ProFormText name="name" label="应用名称" rules={[{ required: true }]} />
         <ProFormText name="sex" label="性别" />
       </QueryFilter>

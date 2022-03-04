@@ -59,9 +59,11 @@ export const columns: ProColumns[] = [
     key: 'name',
     dataIndex: 'name',
     copyable: true,
+    ellipsis: true,
   },
   {
     title: 'Textarea',
+    key: 'textarea',
     dataIndex: 'name',
     valueType: 'textarea',
     copyable: true,
@@ -128,7 +130,7 @@ export const columns: ProColumns[] = [
   },
   {
     title: '状态',
-    dataIndex: 'status',
+    dataIndex: 'status2',
     render: () => (
       <div>
         <TableStatus.Success>上线成功</TableStatus.Success>

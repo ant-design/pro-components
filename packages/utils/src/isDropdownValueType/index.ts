@@ -1,6 +1,11 @@
 const isDropdownValueType = (valueType: string) => {
   let isDropdown = false;
-  if (/^date/.test(valueType) || valueType === 'select') {
+  if (
+    (typeof valueType === 'string' &&
+      valueType.startsWith('date') &&
+      !valueType.endsWith('Range')) ||
+    valueType === 'select'
+  ) {
     isDropdown = true;
   }
   return isDropdown;

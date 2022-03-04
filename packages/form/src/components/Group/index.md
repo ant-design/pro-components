@@ -63,6 +63,9 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
 | creatorButtonProps | 新建一行按钮的配置 | `buttonProps & { creatorButtonText:string,position:"top"\|"bottom" }` | `{creatorButtonText:"新建一行"}` |
 | label | 与 From.Item 相同 | `ReactNode` | - |
 | name | list 在 form 中的值，必填项 | `NamePath` | - |
+| alwaysShowItemLabel | Item 中总是展示 label | `boolean` | - |
+| min | 最少条目，删除时如果当前数据条目少于该数则无法删除 | `number` | - |
+| max | 最多条目，新增或复制时如果当前数据条目多于该数则无法新增或复制 | `number` | - |
 
 ## ProFormFieldSet
 
@@ -72,6 +75,9 @@ ProFormFieldSet 可以将内部的多个 children 的值组合并且存储在 Pr
 <ProFormFieldSet
   name="list"
   label="组件列表"
+  // 支持 两种方式，type="group" 会用input.group 包裹
+  // 如果不配置 默认使用 space
+  type="group"
   transform={(value: any) => ({ startTime: value[0], endTime: value[1] })}
 >
   <ProFormText width="md" />
@@ -108,18 +114,26 @@ name 参数必须要是一个数组，如果是嵌套的结构可以这样配置
 
 ## 代码示例
 
-### 自定义 List
+### 联动的 FormList
 
-<code src="./demos/customize.tsx" heigh="1774px" title="ProForm.List" />
+<code src="./demos/base-use" heigh="174px" title="ProForm.List" />
 
-### 基本使用
+### 可调整的新建按钮位置
 
-<code src="./demos/list.tsx" heigh="1774px" title="ProForm.List" />
-
-### 互相依赖表单
-
-<code src="./demos/dependency.tsx" heigh="1774px" title="ProForm.List" />
+<code src="./demos/list.tsx" heigh="174px" title="ProForm.List-position" />
 
 ### 表单互相嵌套
 
-<code src="./demos/nested-list.tsx" heigh="1774px" title="ProForm.List" />
+<code src="./demos/nested-list.tsx" heigh="174px" title="ProForm.List-ProFormList" />
+
+### 复杂联动
+
+<code src="./demos/dependency.tsx" heigh="174px" title="ProForm.List-dependency" />
+
+### 行为守卫
+
+<code src="./demos/pro-form-list.tsx" heigh="1774px" title="行为守卫"/>
+
+### 增删条目限制
+
+<code src="./demos/countLimit.tsx" heigh="1774px" title="增删条目限制"/>

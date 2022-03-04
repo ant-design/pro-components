@@ -1,4 +1,4 @@
-import { MenuDataItem } from '@umijs/route-utils';
+import type { MenuDataItem } from '@umijs/route-utils';
 import type { MenuTheme } from 'antd/lib/menu/MenuContext';
 
 export type ContentWidth = 'Fluid' | 'Fixed';
@@ -29,8 +29,10 @@ export type PureSettings = {
   menu?: {
     locale?: boolean;
     defaultOpenAll?: boolean;
+    ignoreFlatMenu?: boolean; // 是否忽略用户手动折叠过的菜单状态，如选择忽略，折叠按钮切换之后也可实现展开所有菜单
     loading?: boolean;
     onLoadingChange?: (loading?: boolean) => void;
+    params?: Record<string, any>;
     request?: (
       params: Record<string, any>,
       defaultMenuData: MenuDataItem[],
@@ -43,7 +45,7 @@ export type PureSettings = {
    *
    * @name Layout 的 title，也会显示在浏览器标签上
    */
-  title: string | false;
+  title?: string | false;
   /**
    * Your custom iconfont Symbol script Url eg：//at.alicdn.com/t/font_1039637_btcrd5co4w.js
    * 注意：如果需要图标多色，Iconfont 图标项目里要进行批量去色处理 Usage: https://github.com/ant-design/ant-design-pro/pull/3517
@@ -69,13 +71,9 @@ const defaultSettings: ProSettings = {
   contentWidth: 'Fluid',
   fixedHeader: false,
   fixSiderbar: false,
-  menu: {
-    locale: true,
-  },
   headerHeight: 48,
-  title: 'Ant Design Pro',
   iconfontUrl: '',
-  primaryColor: 'daybreak',
+  primaryColor: '#1890ff',
   splitMenus: false,
 };
 export default defaultSettings;

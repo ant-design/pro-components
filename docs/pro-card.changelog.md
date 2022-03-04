@@ -10,6 +10,73 @@ group:
 
 # Change Log
 
+## @ant-design/pro-card@1.15.3
+
+`2021-10-12`
+
+- 🐛 fix(card): fix card ehen theme change no change color error [#3804](https://github.com/ant-design/pro-components/pull/3804) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-card@1.15.2
+
+`2021-10-09`
+
+- 🐛 fix(card): Divider disappeared in Firefox [#3794](https://github.com/ant-design/pro-components/pull/3794) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-card@1.15.1
+
+`2021-10-09`
+
+- 🐛 fix(list): fix when cardActionProps=actions no run render funtions [#3791](https://github.com/ant-design/pro-components/pull/3791) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-card@1.15.0
+
+`2021-10-08`
+
+- 💥 feat(list): add cardlist operate [#3746](https://github.com/ant-design/pro-components/pull/3746) [@liuxulian](https://github.com/liuxulian)
+
+## @ant-design/pro-card@1.14.20
+
+`2021-09-16`
+
+- 💥 feat(list): card list support selected [#3666](https://github.com/ant-design/pro-components/pull/3666) [@liuxulian](https://github.com/liuxulian)
+
+## @ant-design/pro-card@1.14.4
+
+`2021-07-01`
+
+- 🐛 fix(card): support chrome under 85 that not support rowgap [#3112](https://github.com/ant-design/pro-components/pull/3112) [@rdmclin2](https://github.com/rdmclin2)
+
+## @ant-design/pro-card@1.13.0
+
+`2021-05-25`
+
+- 💥 feat(card): card support ref(#2831) [#2842](https://github.com/ant-design/pro-components/pull/2842) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-card@1.12.2
+
+`2021-05-24`
+
+- 🐛 fix(card): use antd less var for title [#2817](https://github.com/ant-design/pro-components/pull/2817) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-card@1.12.0
+
+`2021-05-18`
+
+- 🐛 fix(card): card loading in layout center [#2739](https://github.com/ant-design/pro-components/pull/2739) [@rdmclin2](https://github.com/rdmclin2)
+
+## @ant-design/pro-card@1.11.13
+
+`2021-05-11`
+
+- 🐛 fix(card): col map lost key [#2694](https://github.com/ant-design/pro-components/pull/2694) [@rdmclin2](https://github.com/rdmclin2)
+
+## @ant-design/pro-card@1.11.12
+
+`2021-04-29`
+
+- 🐛 fix(form): ispicturecard judgment logic [#2619](https://github.com/ant-design/pro-components/pull/2619) [@0x30](https://github.com/0x30)
+- 🐛 fix(card): support multiLine and add responsive demos [#2589](https://github.com/ant-design/pro-components/pull/2589) [@rdmclin2](https://github.com/rdmclin2)
+
 ## @ant-design/pro-card@1.11.0
 
 `2021-03-11`

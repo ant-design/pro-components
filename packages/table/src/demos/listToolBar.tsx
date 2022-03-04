@@ -130,7 +130,7 @@ const renderBadge = (count: number, active = false) => {
 };
 
 export default () => {
-  const [activekey, setActiveKey] = useState<React.Key>('tab1');
+  const [activeKey, setActiveKey] = useState<React.Key>('tab1');
 
   return (
     <ProTable<TableListItem>
@@ -151,19 +151,19 @@ export default () => {
         ),
         menu: {
           type: 'tab',
-          activeKey: activekey,
+          activeKey: activeKey,
           items: [
             {
               key: 'tab1',
-              label: <span>应用{renderBadge(99, activekey === 'tab1')}</span>,
+              label: <span>应用{renderBadge(99, activeKey === 'tab1')}</span>,
             },
             {
               key: 'tab2',
-              label: <span>项目{renderBadge(30, activekey === 'tab2')}</span>,
+              label: <span>项目{renderBadge(30, activeKey === 'tab2')}</span>,
             },
             {
               key: 'tab3',
-              label: <span>文章{renderBadge(30, activekey === 'tab3')}</span>,
+              label: <span>文章{renderBadge(30, activeKey === 'tab3')}</span>,
             },
           ],
           onChange: (key) => {
@@ -182,6 +182,14 @@ export default () => {
       }}
       search={false}
       dateFormatter="string"
+      options={{
+        setting: {
+          draggable: true,
+          checkable: true,
+          checkedReset: false,
+          extra: [<a key="confirm">确认</a>],
+        },
+      }}
     />
   );
 };

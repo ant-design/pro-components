@@ -39,4 +39,7 @@ export default {
     densityMiddle: 'Media',
     densitySmall: 'Compatta',
   },
+  loginForm: {
+    submitText: 'Accedi',
+  },
 };

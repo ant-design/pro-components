@@ -1,13 +1,15 @@
 import React, { useContext, useRef, useEffect, useImperativeHandle } from 'react';
 import type { FormProps, FormInstance } from 'antd';
+import type { StepProps } from 'rc-steps/lib/Step';
 import { noteOnce } from 'rc-util/lib/warning';
 
 import type { CommonFormProps } from '../../BaseForm';
-import BaseForm from '../../BaseForm';
+import { BaseForm } from '../../BaseForm';
 import { StepsFormProvide } from './index';
 
 export type StepFormProps<T = Record<string, any>> = {
   step?: number;
+  stepProps?: StepProps;
 } & Omit<FormProps<T>, 'onFinish'> &
   Omit<CommonFormProps<T>, 'submitter'>;
 
@@ -15,6 +17,8 @@ function StepForm<T = Record<string, any>>({
   onFinish,
   step,
   formRef: propFormRef,
+  title,
+  stepProps,
   ...restProps
 }: StepFormProps<T>) {
   const formRef = useRef<FormInstance | undefined>();
@@ -23,7 +27,7 @@ function StepForm<T = Record<string, any>>({
   // eslint-disable-next-line @typescript-eslint/dot-notation
   noteOnce(!restProps['submitter'], 'StepForm 不包含提交按钮，请在 StepsForm 上');
   /** 重置 formRef */
-  useImperativeHandle(propFormRef, () => formRef.current, [formRef.current]);
+  useImperativeHandle(propFormRef, () => formRef.current);
 
   /** Dom 不存在的时候解除挂载 */
   useEffect(() => {
@@ -32,6 +36,7 @@ function StepForm<T = Record<string, any>>({
         context?.unRegForm(restProps.name);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (context && context?.formArrayRef) {

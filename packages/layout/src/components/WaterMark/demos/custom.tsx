@@ -3,12 +3,12 @@ import React from 'react';
 import { Divider } from 'antd';
 import { WaterMark } from '@ant-design/pro-layout';
 import ProCard from '@ant-design/pro-card';
-import ProField from '@ant-design/pro-field';
 import ProForm, {
   ProFormDependency,
   ProFormColorPicker,
   ProFormSlider,
   ProFormText,
+  ProFormField,
 } from '@ant-design/pro-form';
 
 export default () => {
@@ -85,7 +85,8 @@ export default () => {
           <ProFormDependency name={['rotate', 'content', 'fontColor', 'fontSize', 'zIndex']}>
             {({ rotate, content, fontColor, fontSize, zIndex }) => {
               return (
-                <ProField
+                <ProFormField
+                  ignoreFormItem
                   mode="read"
                   valueType="code"
                   style={{ width: 220 }}

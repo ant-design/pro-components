@@ -1,5 +1,13 @@
 export default {
-  moneySymbol: '￥',
+  moneySymbol: 'NT$',
+  form: {
+    lightFilter: {
+      more: '更多篩選',
+      clear: '清除',
+      confirm: '確認',
+      itemUnit: '項',
+    },
+  },
   tableForm: {
     search: '查詢',
     reset: '重置',
@@ -39,5 +47,19 @@ export default {
     densityLarger: '默認',
     densityMiddle: '中等',
     densitySmall: '緊湊',
+  },
+  editableTable: {
+    action: {
+      save: '保存',
+      cancel: '取消',
+      delete: '刪除',
+    },
+  },
+  switch: {
+    open: '打開',
+    close: '關閉',
+  },
+  loginForm: {
+    submitText: '登入',
   },
 };

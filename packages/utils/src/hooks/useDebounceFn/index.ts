@@ -1,62 +1,36 @@
-import type { DependencyList } from 'react';
-import { useEffect, useRef, useCallback } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
+import { useRefFunction } from '../useRefFunction';
 
-export type ReturnValue<T extends any[]> = {
-  run: (...args: T) => void;
-  cancel: () => void;
-};
-const useUpdateEffect: typeof useEffect = (effect, deps) => {
-  const isMounted = useRef(false);
+function useDebounceFn<T extends any[], U = any>(fn: (...args: T) => Promise<any>, wait?: number) {
+  const callback = useRefFunction(fn);
 
-  useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true;
-    } else {
-      return effect();
-    }
-    return () => undefined;
-  }, deps);
-};
-
-function useDebounceFn<T extends any[]>(
-  fn: (...args: T) => Promise<any>,
-  deps: DependencyList | number,
-  wait?: number,
-): ReturnValue<T> {
-  // eslint-disable-next-line no-underscore-dangle
-  const hooksDeps: DependencyList = (Array.isArray(deps) ? deps : []) as DependencyList;
-  // eslint-disable-next-line no-underscore-dangle
-  const hookWait: number = typeof deps === 'number' ? deps : wait || 0;
   const timer = useRef<any>();
-
-  const fnRef = useRef<any>(fn);
-  fnRef.current = fn;
 
   const cancel = useCallback(() => {
     if (timer.current) {
       clearTimeout(timer.current);
+      timer.current = null;
     }
   }, []);
 
   const run = useCallback(
-    async (...args: any): Promise<void> => {
-      return new Promise((resolve) => {
-        cancel();
+    async (...args: any): Promise<U | undefined> => {
+      if (wait === 0 || wait === undefined) {
+        return callback(...args);
+      }
+      cancel();
+      return new Promise<U>((resolve) => {
         timer.current = setTimeout(async () => {
-          await fnRef.current(...args);
-          resolve();
-        }, hookWait);
+          resolve(await callback(...args));
+        }, wait);
       });
     },
-    [hookWait, cancel],
+    [callback, cancel, wait],
   );
 
-  useUpdateEffect(() => {
-    run();
+  useEffect(() => {
     return cancel;
-  }, [...hooksDeps, run]);
-
-  useEffect(() => cancel, []);
+  }, [cancel]);
 
   return {
     run,

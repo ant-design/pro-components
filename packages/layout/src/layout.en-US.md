@@ -26,7 +26,7 @@ ProLayout extends umi's router configuration, adding name, icon, locale, hideInM
 ```ts | pure
 export interface MenuDataItem {
   /** @name submenu */
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   /** @name Hide child nodes in the menu */
   hideChildrenInMenu?: boolean;
   /** @name hideSelf and children in menu */
@@ -147,14 +147,14 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | headerTheme | The theme for the top navigation, with mix mode in effect | `light` \| `dark` | `dark` |
 | fixedHeader | Whether to fix the header to the top | `boolean` | `false` |
 | fixSiderbar | whether to fix the navigation | `boolean` | `false` |
-| breakpoint | Trigger [breakpoint](https://ant.design/components/grid-cn/#Col) for responsive layouts | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
+| breakpoint | Trigger [breakpoint](https://ant.design/components/grid/#Col) for responsive layouts | `Enum { 'xs', 'sm', 'md', 'lg', 'xl', 'xxl' }` | `lg` |
 | menu | For the moment, only locale,locale can be turned off for the menu's own globalization | `{ locale: boolean, defaultOpenAll: boolean }` | `{ locale: true }` |
-| iconfontUrl | Use the icon configuration of [IconFont](https://ant.design/components/icon-cn/#components-icon-demo-iconfont) | `URL` | - |
+| iconfontUrl | Use the icon configuration of [IconFont](https://ant.design/components/icon/#components-icon-demo-iconfont) | `URL` | - |
 | iconPrefixes | icon prefix of side menu | `string` | `icon-` |
 | locale | Language settings for the current layout | `zh-CN` \| `zh-TW` \| `en-US` | navigator.language |
 | settings | settings for layout | [`Settings`](#Settings) | - |
 | siderWidth | width of the side menu | `number` | 208 |
-| defaultCollapsed | The default collapsed and expanded menus | `boolean` | - |
+| defaultCollapsed | The default collapsed and expanded menus, will be affected by `breakpoint`, `breakpoint=false` work | `boolean` | - |
 | collapsed | Controls the collapse and expansion of the menu | `boolean` | - |
 | onCollapse | The collapsed event of the menu | `(collapsed: boolean) => void` | - |
 | onPageChange | Triggered on page switch | `(location: Location) => void` | - |
@@ -163,37 +163,55 @@ PageContainer configuration `ghost` can switch the page header to transparent mo
 | headerContentRender | Custom header content methods | `(props: BasicLayoutProps) => ReactNode` | - |
 | rightContentRender | Custom render method for the right part of the header | `(props: HeaderViewProps) => ReactNode` | - |
 | collapsedButtonRender | Custom method for collapsed button | `(collapsed: boolean) => ReactNode` | - |
-| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => ReactNode` | - |
+| footerRender | Custom render method for footer | `(props: BasicLayoutProps) => JSX.Element \| false` | - |
 | pageTitleRender | The render method for custom page titles | `(props: BasicLayoutProps) => ReactNode` | - |
 | menuRender | The render method for custom menus | `(props: HeaderViewProps) => ReactNode` | - |
 | postMenuData | View the menu data before displaying it, changes will not trigger a re-render | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
-| menuItemRender | The render method for custom menu items | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
+| menuItemRender | The render method for custom menu items | [`(itemProps: MenuDataItem, defaultDom: React.ReactNode, props: BaseMenuProps) => ReactNode`](/components/layout/#menudataitem) | - |
 | subMenuItemRender | Customize the render method with submenu items | [`(itemProps: MenuDataItem) => ReactNode`](/components/layout/#menudataitem) | - |
 | menuDataRender | The render method of menuData, used to customize menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | breadcrumbRender | customize the data for breadcrumbs | `(route)=>route` | - |
-| route | Used to generate menus and breadcrumbs. umi's Layout will automatically have | [route](#Route) | - |
+| route | Used to generate menus and breadcrumbs. umi's Layout will automatically have | [route](#route) | - |
 | disableMobile | disable automatic switching to mobile pages | `boolean` | false |
+| ErrorBoundary | Comes with error handling function to prevent blank screen. `ErrorBoundary=false` turn off default ErrorBoundary | `ReactNode` | default ErrorBoundary |
 | links | Show shortcut actions in the lower right corner of the menu | `ReactNode[]` | - |
-| menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu-cn/) | `MenuProps` | undefined |
+| menuProps | The props passed to the antd menu component, see (https://ant.design/components/menu/) | `MenuProps` | undefined |
 | waterMarkProps | Configure watermark, watermark is a function of PageContainer, layout is only transparently transmitted to PageContainer | [WaterMarkProps](/components/water-mark) | - |
 
 ### SettingDrawer
 
-> SettingDrawer provides a graphical interface to set the layout's configuration. It is not recommended for use in a formal environment.
-
-| Parameters | Description | Type | Default |
+| Parameters | Description | Type | Default Value |
 | --- | --- | --- | --- |
-| settings | settings for layout | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
-| onSettingChange | [`Settings`](#Settings) change event occurs | `(settings: [`Settings`](#Settings) ) => void` | - |
-| hideHintAlert | Remove the following alert message | `boolean` | - |
+| settings | layout settings | [`Settings`](#Settings) \| [`Settings`](#Settings) | - |
+| onSettingChange | [`Settings`](#Settings) A change event occurred | `(settings: [`Settings`](#Settings)) => void` | - |
+| hideHintAlert | Delete the prompt message below | `boolean` | - |
+| hideCopyButton | Do not show copy function | `boolean` | - |
+| disableUrlParams | Disable synchronization settings to query parameters | `boolean` | `false` |
+| enableDarkTheme | Turn on black theme switching function ｜ `boolean` | `false` |
+| colorList | Built-in color switching system ｜ `{key,color}[]` | `ColorList` |
+
+Built-in color list
+
+```tsx
+const colorList = [
+  { key: 'daybreak', color: '#1890ff' },
+  { key: 'dust', color: '#F5222D' },
+  { key: 'volcano', color: '#FA541C' },
+  { key: 'sunset', color: '#FAAD14' },
+  { key: 'cyan', color: '#13C2C2' },
+  { key: 'green', color: '#52C41A' },
+  { key: 'geekblue', color: '#2F54EB' },
+  { key: 'purple', color: '#722ED1' },
+];
+```
 
 ### PageLoading
 
 A simple loading page
 
-| parameters | description                    | type      | default |
-| ---------- | ------------------------------ | --------- | ------- |
-| tip        | A small description of loading | ReactNode | -       |
+| parameters | description | type | default |
+| --- | --- | --- | --- |
+| [(...)](https://ant.design/components/spin-cn/#API) | support all other antd `Spin` component parameters | - | - |
 
 ### RouteContext
 
@@ -223,15 +241,13 @@ GridContent encapsulates the [equal-width](https://preview.pro.ant.design/dashbo
 
 Generate menuData and breadcrumb based on router information.
 
-``js | pure import { getMenuData } from '@ant-design/pro-layout';
-
+```js | pure import { getMenuData } from '@ant-design/pro-layout';
 const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDataRender);
-
-````
+```
 
 | parameters | description | type | default |
 | --- | --- | --- | --- |
-| routes | The configuration information for the route | [route[]](#Route) | - |
+| routes | The configuration information for the route | [route[]](#route) | - |
 | menu | The configuration entry for menu, default `{locale: true}` | `{ locale: boolean }` | - |
 | menuDataRender | The render method of menuData, used to customize menuData | `(menuData: MenuDataItem[]) => MenuDataItem[]` | - |
 | formatMessage | The formatMessage method of react-intl | `(data: { id: any; defaultMessage?: string }) => string;` | - |
@@ -240,7 +256,7 @@ const { breadcrumb, menuData } = getMenuData(routes, menu, formatMessage, menuDa
 
 getPageTitle encapsulates the logic of the title generated on the menuData.
 
-``` js | pure
+```js | pure
 import { getPageTitle } from '@ant-design/pro-layout';
 
 const title = getPageTitle({
@@ -250,7 +266,7 @@ const title = getPageTitle({
   title,
   formatMessage,
 });
-````
+```
 
 | parameters | description | type | default |
 | --- | --- | --- | --- |
@@ -297,7 +313,7 @@ export interface Settings {
 
 export interface MenuDataItem {
   authority?: string[] | string;
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;
@@ -321,7 +337,7 @@ export interface Route {
     name: string;
     path: string;
     // Optional secondary menu
-    children?: Route['routes'];
+    routes?: Route['routes'];
   }>;
 }
 ```
@@ -390,7 +406,7 @@ const Page = () => (
 
 ProLayout provides some api to remove areas that are not needed by the user. Some configurations are also provided in SettingDrawer to set them.
 
-! [setting-drawer-render](https://gw.alipayobjects.com/zos/antfincdn/mCXDkK2pJ0/60298863-F5A5-4af2-923A-13EF912DB0E1.png)
+![setting-drawer-render](https://gw.alipayobjects.com/zos/antfincdn/mCXDkK2pJ0/60298863-F5A5-4af2-923A-13EF912DB0E1.png)
 
 - `headerRender` can customize the top bar
 - `footerRender` can customize the footer
@@ -414,7 +430,7 @@ The width of the menu is not customizable because it involves animation and huge
 
 Auto-cut menu is an exclusive ability of `mix` mode to place the first level of the menu into the top bar. We can set `splitMenus=true` to turn it on, and for a good experience it's best to set a redirect for each level of the menu, which will prevent switching to a white screen page.
 
-! [cutMenu](https://gw.alipayobjects.com/zos/antfincdn/H9hDMcrUh1/5438EB45-27F8-4B4F-8740-54F7BE55075C.png)
+![cutMenu](https://gw.alipayobjects.com/zos/antfincdn/H9hDMcrUh1/5438EB45-27F8-4B4F-8740-54F7BE55075C.png)
 
 ### Customizing menus
 
@@ -426,7 +442,7 @@ In order to provide more functionality, we extended the routers configuration by
 // You can get this type by importing { MenuDataItem } from '@ant-design/pro-layout'
 // to get this type
 export interface MenuDataItem {
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   hideChildrenInMenu?: boolean;
   hideInMenu?: boolean;
   icon?: string;

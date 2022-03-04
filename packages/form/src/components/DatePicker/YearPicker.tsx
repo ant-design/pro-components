@@ -1,31 +1,34 @@
-import React from 'react';
-import ProField from '@ant-design/pro-field';
+import React, { useContext } from 'react';
+import ProFormField from '../Field';
 import type { DatePickerProps } from 'antd';
-import createField from '../../BaseForm/createField';
-import type { ProFormItemProps } from '../../interface';
+import type { ProFormFieldItemProps } from '../../interface';
+import FieldContext from '../../FieldContext';
 
-const valueType = 'dateYear';
+const valueType = 'dateYear' as const;
 /**
  * 周选择组件
  *
  * @param
  */
-const ProFormDatePickerYear: React.FC<ProFormItemProps<DatePickerProps>> = React.forwardRef(
-  ({ proFieldProps, fieldProps }, ref: any) => {
+const ProFormDatePickerYear: React.FC<ProFormFieldItemProps<DatePickerProps>> = React.forwardRef(
+  ({ proFieldProps, fieldProps, ...rest }, ref: any) => {
+    const context = useContext(FieldContext);
+
     return (
-      <ProField
+      <ProFormField
         ref={ref}
-        text={fieldProps?.value}
         mode="edit"
         valueType={valueType}
-        fieldProps={fieldProps}
-        {...proFieldProps}
+        fieldProps={{ getPopupContainer: context.getPopupContainer, ...fieldProps }}
+        proFieldProps={proFieldProps}
+        filedConfig={{
+          valueType,
+          customLightMode: true,
+        }}
+        {...rest}
       />
     );
   },
 );
 
-export default createField<ProFormItemProps<DatePickerProps>>(ProFormDatePickerYear, {
-  valueType,
-  customLightMode: true,
-});
+export default ProFormDatePickerYear;

@@ -21,6 +21,8 @@ nav:
 
 <code src="./demos/search-value.tsx" debug/>
 
+<code src="./demos/tree-select-search-value.tsx" debug/>
+
 ## API
 
 ```typescript | pure

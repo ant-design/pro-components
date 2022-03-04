@@ -131,11 +131,10 @@ describe('StepsForm', () => {
     act(() => {
       html.find('button.ant-btn.ant-btn-primary').simulate('click');
     });
+
     await waitForComponentToPaint(html);
+
     expect(onFinish).toBeCalled();
-
-    await waitForComponentToPaint(html);
-
     expect(fn).toBeCalled();
     expect(currentFn).toBeCalled();
 
@@ -507,6 +506,41 @@ describe('StepsForm', () => {
     await waitForComponentToPaint(html);
     act(() => {
       html.unmount();
+    });
+  });
+  it('🐲 support deepmerge form value', async () => {
+    const submit = jest.fn(() => Promise.resolve());
+    const html = mount<StepsFormProps>(
+      <StepsForm
+        stepFormRender={(dom) => {
+          return <div id="content">{dom}</div>;
+        }}
+        onFinish={submit}
+      >
+        <StepsForm.StepForm name="base" title="表单1">
+          <ProFormText name={['info', 'name']} initialValue={'chenshuai'} />
+        </StepsForm.StepForm>
+        <StepsForm.StepForm name="moreInfo" title="表单2">
+          <ProFormText name={['info', 'age']} initialValue={'22'} />
+        </StepsForm.StepForm>
+      </StepsForm>,
+    );
+    await waitForComponentToPaint(html);
+    act(() => {
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    });
+
+    await waitForComponentToPaint(html);
+
+    act(() => {
+      html.find('button.ant-btn.ant-btn-primary').simulate('click');
+    });
+    await waitForComponentToPaint(html);
+    expect(submit).toBeCalledWith({
+      info: {
+        name: 'chenshuai',
+        age: '22',
+      },
     });
   });
 });

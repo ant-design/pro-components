@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 
-export type RequestData = {
-  data: any;
+export type RequestData<T = any> = {
+  data?: T;
   success?: boolean;
   [key: string]: any;
-};
+} & Record<string, any>;
 export type UseFetchDataAction<T extends RequestData> = {
   dataSource: T['data'] | T;
   setDataSource: (value: T['data'] | T) => void;
@@ -56,9 +56,9 @@ const useFetchData = <T extends RequestData>(
     } catch (e) {
       // 如果没有传递这个方法的话，需要把错误抛出去，以免吞掉错误
       if (onRequestError === undefined) {
-        throw new Error(e);
+        throw new Error(e as string);
       } else {
-        onRequestError(e);
+        onRequestError(e as Error);
       }
       setLoading(false);
     }
@@ -69,6 +69,7 @@ const useFetchData = <T extends RequestData>(
       return;
     }
     fetchList();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [...(effects || []), manual]);
 
   return {

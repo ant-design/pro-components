@@ -53,11 +53,18 @@ export default {
     prev: 'Previous',
     submit: 'Finish',
   },
+  loginForm: {
+    submitText: 'Login',
+  },
   editableTable: {
     action: {
       save: 'Save',
       cancel: 'Cancel',
       delete: 'Delete',
     },
+  },
+  switch: {
+    open: 'open',
+    close: 'close',
   },
 };

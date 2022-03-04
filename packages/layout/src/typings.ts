@@ -12,7 +12,7 @@ export type LinkProps = {
 
 export type MenuDataItem = {
   /** @name 子菜单 */
-  children?: MenuDataItem[];
+  routes?: MenuDataItem[];
   /** @name 在菜单中隐藏子节点 */
   hideChildrenInMenu?: boolean;
   /** @name 在菜单中隐藏自己和子节点 */

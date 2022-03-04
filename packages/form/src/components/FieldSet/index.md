@@ -28,6 +28,29 @@ const ProFormText = (props) => {
 
 所以我们给 ProFormText 设置的 props 其实是 Form.Item 的，fieldProps 才是包含的组件的，要切记。
 
+## 组件列表
+
+| 组件 | 使用场景 |
+| --- | --- |
+| [ProFormText](https://ant.design/components/input-cn/#Input.Password) | 用于输入各类文本 |
+| [ProFormDigit](https://ant.design/components/input-number-cn/) | 用于输入数字，它自带了一个格式化(保留 2 位小数，最小值为 0)，有需要你可以关掉它。 |
+| [ProFormText.Password](https://ant.design/components/input-cn/#Input.Password) | 用于输入密码 |
+| [ProFormTextArea](https://ant.design/components/input-cn/#Input.Password) | 用于输入多行文本 |
+| ProFormCaptcha | 用于输入验证码， 一般需要与发送验证码接口一起使用 |
+| [ProFormDatePicker](https://ant.design/components/date-picker-cn/) | 日期选择器用于输入日期 |
+| [ProFormDateTimePicker](https://ant.design/components/date-picker-cn/) | 日期+时间选择器，用于输入日期和时间 |
+| [ProFormDateRangePicker](https://ant.design/components/date-picker-cn/) | 日期区间选择器用于输入一个日期区间 |
+| [ProFormDateTimeRangePicker](https://ant.design/components/date-picker-cn/) | 日期+时间区间选择器，用于输入一个日期+时间的区间 |
+| [ProFormSelect](https://ant.design/components/select-cn/) | 支持 `request` 和 `valueEnum` 两种方式来生成子项，用于从两项以上中选择一项 |
+| [ProFormTreeSelect](https://ant.design/components/tree-select-cn/) | 支持 `request` 和 `valueEnum` 两种方式来生成子项，用于从两项以上中选择一项 |
+| [ProFormCheckbox](https://ant.design/components/checkbox-cn/) | 在 Checkbox 基础上支持了 layout，也支持 `request` 和 `valueEnum` 两种方式来生成子项 |
+| [ProFormRadio.Group](https://ant.design/components/radio-cn/) | 在 Radio 基础上也支持 `request` 和 `valueEnum` 两种方式来生成子项，用于单选某项，但是可以展示出来所有选项。 |
+| [ProFormSlider](https://ant.design/components/slider-cn/) | 当用户需要在数值区间/自定义区间内进行选择时，可为连续或离散值。 |
+| [ProFormSwitch](https://ant.design/components/switch-cn/) | 用于输入互斥的两个选项，一般是 true 和 false |
+| [ProFormUploadButton](https://ant.design/components/upload-cn/) | 按钮样式的上传文件 |
+| [ProFormUploadDragger](https://ant.design/components/upload-cn/) | 区域的上传文件，一般用于突出上传文件的表单中 |
+| ProFormMoney | 通用金额输入组件 |
+
 ## 代码示例
 
 ### 表单项
@@ -49,6 +72,10 @@ const ProFormText = (props) => {
 ### 上传表单
 
 <code src="./demos/upload.tsx" heigh="574px" title="上传表单"/>
+
+### 只读表单
+
+<code src="./demos/components-other-readonly.tsx" heigh="774px"  debug/>
 
 ## API
 
@@ -130,6 +157,47 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 <ProFormText.Password label="InputPassword" name="input-password" />
 ```
 
+### ProFormTextArea
+
+与 [Input.TextArea](https://ant.design/components/input-cn/#Input.TextArea) 相同。
+
+```tsx | pure
+<ProFormTextArea
+  name="text"
+  label="名称"
+  placeholder="请输入名称"
+  fieldProps={inputTextAreaProps}
+/>
+```
+
+### ProFormDigit
+
+与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化(保留 2 位小数，最小值为 0)，有需要你可以关掉它。
+
+```tsx | pure
+<ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
+```
+
+如果要修改小数位数：
+
+```tsx | pure
+<ProFormDigit
+  label="InputNumber"
+  name="input-number"
+  min={1}
+  max={10}
+  fieldProps={{ precision: 0 }}
+/>
+```
+
+### ProFormDigitRange
+
+与 [inputNumber](https://ant.design/components/input-number-cn/) 类似。 它提供输入数字范围。
+
+```tsx | pure
+<ProFormDigitRange label='InputNumberRange' name='input-number-range'>
+```
+
 ### ProFormDatePicker
 
 与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
@@ -143,12 +211,12 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
 
 ```tsx | pure
-<ProFormDateTimePicker name="datetime" label="日期" />
+<ProFormDateTimePicker name="datetime" label="日期时间" />
 ```
 
 ### ProFormDateRangePicker
 
-与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
+与 [DatePicker.RangePicker](https://ant.design/components/date-picker-cn/#RangePicker) 相同。
 
 ```tsx | pure
 <ProFormDateRangePicker name="dateRange" label="日期" />
@@ -156,10 +224,10 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 
 ### ProFormDateTimeRangePicker
 
-与 [DatePicker](https://ant.design/components/date-picker-cn/) 相同。
+与 [DatePicker.RangePicker](https://ant.design/components/date-picker-cn/#RangePicker) 相同。
 
 ```tsx | pure
-<ProFormDateRangePicker name="datetimeRange" label="日期" />
+<ProFormDateTimeRangePicker name="datetimeRange" label="日期时间" />
 ```
 
 ### ProFormTimePicker
@@ -171,145 +239,21 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 <ProFormTimePicker.RangePicker name="timeRange" label="时间区间" />
 ```
 
-### ProFormTextArea
-
-与 [Input](https://ant.design/components/input-cn/) 相同。
-
-```tsx | pure
-<ProFormTextArea
-  name="text"
-  label="名称"
-  placeholder="请输入名称"
-  fieldProps={inputTextAreaProps}
-/>
-```
-
-### ProFormCheckbox
-
-> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
-
-与 [checkbox](https://ant.design/components/checkbox-cn/) 相同，但是支持了 `options` 与 `layout`。
-
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| options | 与 select 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
-| layout | 配置 checkbox 的样子，支持垂直`vertical` 和 `horizontal` | `horizontal` \| `vertical` | - |
-
-```tsx | pure
-<ProFormCheckbox.Group
-  name="checkbox"
-  layout="vertical"
-  label="行业分布"
-  options={['农业', '制造业', '互联网']}
-/>
-```
-
-### ProFormRadio.Group
-
-> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
-
-与 [radio](https://ant.design/components/radio-cn/) 相同，但是支持了 `options`。
-
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| options | 与 select 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
-| radioType | 设置是按钮模式还是 radio 模式 | `button`\|`radio` | `radio` |
-
-```tsx | pure
-<ProFormRadio.Group
-  name="radio-group"
-  label="Radio.Group"
-  options={[
-    {
-      label: 'item 1',
-      value: 'a',
-    },
-    {
-      label: 'item 2',
-      value: 'b',
-    },
-    {
-      label: 'item 3',
-      value: 'c',
-    },
-  ]}
-/>
-```
-
-### ProFormSwitch
-
-与 [switch](https://ant.design/components/switch-cn/) 相同。
-
-```tsx | pure
-<ProFormSwitch name="switch" label="Switch" />
-```
-
-### ProFormRate
-
-与 [rate](https://ant.design/components/rate-cn/) 相同。
-
-```tsx | pure
-<ProFormRate name="rate" label="Rate" />
-```
-
-### ProFormSlider
-
-与 [slider](https://ant.design/components/slider-cn/) 相同。
-
-```tsx | pure
-<ProFormSlider
-  name="slider"
-  label="Slider"
-  marks={{
-    0: 'A',
-    20: 'B',
-    40: 'C',
-    60: 'D',
-    80: 'E',
-    100: 'F',
-  }}
-/>
-```
-
-### ProFormUploadDragger
-
-与 [upload](https://ant.design/components/upload-cn/) 相同。预设了 Dragger 的样式，其他与 Upload 相同。
-
-| 参数        | 说明             | 类型        | 默认值                           |
-| ----------- | ---------------- | ----------- | -------------------------------- |
-| icon        | Dragger 的图表。 | `ReactNode` | InboxOutlined                    |
-| title       | Dragger 的标题   | `ReactNode` | '单击或拖动文件到此区域进行上传' |
-| description | Dragger 的描述   | `ReactNode` | '支持单次或批量上传'             |
-
-```tsx | pure
-<ProFormUploadDragger label="Dragger" name="dragger" action="upload.do" />
-```
-
-### ProFormUploadButton
-
-与 [upload](https://ant.design/components/upload-cn/) 相同。预设了 Button 的样式，其他与 Upload 相同。
-
-| 参数  | 说明             | 类型        | 默认值         |
-| ----- | ---------------- | ----------- | -------------- |
-| icon  | Dragger 的图表。 | `ReactNode` | UploadOutlined |
-| title | Dragger 的标题   | `ReactNode` | 单击上传       |
-
-```tsx | pure
-<ProFormUploadButton label="upload" name="upload" action="upload.do" />
-```
-
 ### ProFormSelect
 
 与 [select](https://ant.design/components/select-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
 
-> 请求远程数据比较复杂，详细可以看[这里](/components/field#远程数据)。
-
-> 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `{[key:string`\|`number]:any}` | - |
-| request | 从网络请求枚举数据 | `()=>Promise<{[key:string`\|`number]:any}>` | - |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| debounceTime | 防抖动时间，与 request 配合使用 | `number` | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `` (form,config)=>SelectProps`\| `SelectProps `` | - |
+
+> 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
 
 ```tsx | pure
 <>
@@ -339,22 +283,354 @@ ProFormCaptcha 是为了支持中后台中常见的验证码功能开发的组�
 </>
 ```
 
-### ProFormDigit
+联动的 ProFormSelect
 
-与 [inputNumber](https://ant.design/components/input-number-cn/) 相同。它自带了一个格式化(保留 2 位小数，最小值为 0)，有需要你可以关掉它。
+````tsx | pure
+  <ProFormText name="name" label="姓名" />
+  <ProFormSelect
+    name="addr"
+    width="md"
+    label="与 name 联动的选择器"
+    // dependencies 的内容会注入 request 中
+    dependencies={['name']}
+    request={async (params) => [
+      { label: params.name, value: 'all' },
+      { label: 'Unresolved', value: 'open' },
+      { label: 'Resolved', value: 'closed' },
+      { label: 'Resolving', value: 'processing' },
+    ]}
+  />
+```
+自定义选项：
 
 ```tsx | pure
-<ProFormDigit label="InputNumber" name="input-number" min={1} max={10} />
+<ProFormSelect
+  name="select"
+  label="Select"
+  options={[
+    { label: '全部', value: 'all' },
+    { label: '未解决', value: 'open' },
+    { label: '已解决', value: 'closed' },
+    { label: '解决中', value: 'processing' },
+  ]}
+  fieldProps={{
+    optionItemRender(item) {
+      return item.label + ' - ' + item.value;
+    },
+  }}
+  placeholder="Please select a country"
+  rules={[{ required: true, message: 'Please select your country!' }]}
+/>
+````
+
+### ProFormTreeSelect
+
+与 [tree-select](https://ant.design/components/tree-select-cn/) 相同。支持了 request 和 valueEnum 两种方式来生成 options。
+
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| valueEnum | 当前列值的枚举 [valueEnum](/components/table#valueenum) | `Record` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| debounceTime | 防抖动时间，与 request 配合使用 | `number` | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `` (form,config)=>TreeSelectProps`\| `TreeSelectProps `` | - |
+
+> 有了 options 为什么要支持 valueEnum 呢？ valueEnum 可以与 table，descriptions 共用，在工程化上有优势。
+
+```tsx | pure
+<ProFormTreeSelect
+  name="name"
+  placeholder="Please select"
+  allowClear
+  width={330}
+  secondary
+  request={async () => {
+    return [
+      {
+        title: 'Node1',
+        value: '0-0',
+        children: [
+          {
+            title: 'Child Node1',
+            value: '0-0-0',
+          },
+        ],
+      },
+      {
+        title: 'Node2',
+        value: '0-1',
+        children: [
+          {
+            title: 'Child Node3',
+            value: '0-1-0',
+          },
+          {
+            title: 'Child Node4',
+            value: '0-1-1',
+          },
+          {
+            title: 'Child Node5',
+            value: '0-1-2',
+          },
+        ],
+      },
+    ];
+  }}
+  // tree-select args
+  fieldProps={{
+    showArrow: false,
+    filterTreeNode: true,
+    showSearch: true,
+    dropdownMatchSelectWidth: false,
+    labelInValue: true,
+    autoClearSearchValue: true,
+    multiple: true,
+    treeNodeFilterProp: 'title',
+    fieldNames: {
+      label: 'title',
+    },
+  }}
+/>
 ```
 
-如果要修改小数位数：
+### ProFormCheckbox
+
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
+
+与 [checkbox](https://ant.design/components/checkbox-cn/) 相同，但是支持了 `options` 与 `layout`。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| options | 与 select 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| layout | 配置 checkbox 的样子，支持垂直`vertical` 和 `horizontal` | `horizontal` \| `vertical` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `(form,config)=>CheckboxProps \| CheckboxProps` | - |
 
 ```tsx | pure
-<ProFormDigit
-  label="InputNumber"
-  name="input-number"
-  min={1}
-  max={10}
-  fieldProps={{ precision: 0 }}
+<ProFormCheckbox.Group
+  name="checkbox"
+  layout="vertical"
+  label="行业分布"
+  options={['农业', '制造业', '互联网']}
 />
+```
+
+### ProFormRadio.Group
+
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
+
+与 [radio](https://ant.design/components/radio-cn/) 相同，但是支持了 `options`。
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| options | 与 select 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| radioType | 设置是按钮模式还是 radio 模式 | `button`\|`radio` | `radio` |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `(form,config)=>RadioProps \|RadioProps` | - |
+
+```tsx | pure
+<ProFormRadio.Group
+  name="radio-group"
+  label="Radio.Group"
+  options={[
+    {
+      label: 'item 1',
+      value: 'a',
+    },
+    {
+      label: 'item 2',
+      value: 'b',
+    },
+    {
+      label: 'item 3',
+      value: 'c',
+    },
+  ]}
+/>
+```
+
+### ProFormCascader
+
+与 [cascader](https://ant.design/components/cascader-cn/) 相同，通过 filedProps 配置 cascader 的数据。
+
+> 请求远程数据比较复杂，详细可以看[这里](https://procomponents.ant.design/components/schema#request-%E5%92%8C-params)。
+
+```tsx | pure
+<ProFormCascader
+  name="area"
+  label="区域"
+  fieldProps={{
+    options: [
+      {
+        value: 'zhejiang',
+        label: 'Zhejiang',
+        children: [
+          {
+            value: 'hangzhou',
+            label: 'Hangzhou',
+            children: [
+              {
+                value: 'xihu',
+                label: 'West Lake',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  }}
+/>
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| options | 与 cascader 相同，根据 options 生成子节点，推荐使用。 | `string[]` \| `{label:ReactNode,value:string}[]` | - |
+| request | 从网络请求枚举数据 | `()=>Promise<{label,value}>` | - |
+| params | 发起网络请求的参数,与 request 配合使用 | `Record` | - |
+| fieldProps | antd 组件的 props | `(form,config)=>CascaderProps \| CascaderProps` | - |
+
+### ProFormSwitch
+
+与 [switch](https://ant.design/components/switch-cn/) 相同，通过 filedProps 配置 switch 的数据。
+
+| 参数       | 说明              | 类型                                        | 默认值 |
+| ---------- | ----------------- | ------------------------------------------- | ------ |
+| fieldProps | antd 组件的 props | `(form,config)=>SwitchProps \| SwitchProps` | -      |
+
+```tsx | pure
+<ProFormSwitch name="switch" label="Switch" />
+```
+
+### ProFormRate
+
+| 参数       | 说明              | 类型                                    | 默认值 |
+| ---------- | ----------------- | --------------------------------------- | ------ |
+| fieldProps | antd 组件的 props | `(form,config)=>RateProps \| RateProps` | -      |
+
+与 [rate](https://ant.design/components/rate-cn/) 相同，通过 filedProps 配置 rate 的数据。
+
+```tsx | pure
+<ProFormRate name="rate" label="Rate" />
+```
+
+### ProFormSlider
+
+与 [slider](https://ant.design/components/slider-cn/) 相同，通过 filedProps 配置 slider 的数据。
+
+| 参数       | 说明              | 类型                                        | 默认值 |
+| ---------- | ----------------- | ------------------------------------------- | ------ |
+| fieldProps | antd 组件的 props | `(form,config)=>SliderProps \| SliderProps` | -      |
+
+```tsx | pure
+<ProFormSlider
+  name="slider"
+  label="Slider"
+  marks={{
+    0: 'A',
+    20: 'B',
+    40: 'C',
+    60: 'D',
+    80: 'E',
+    100: 'F',
+  }}
+/>
+```
+
+### ProFormUploadDragger
+
+与 [upload](https://ant.design/components/upload-cn/) 相同。预设了 Dragger 的样式，其他与 Upload 相同。
+
+| 参数        | 说明           | 类型        | 默认值                           |
+| ----------- | -------------- | ----------- | -------------------------------- |
+| icon        | Dragger 的图标 | `ReactNode` | InboxOutlined                    |
+| title       | Dragger 的标题 | `ReactNode` | '单击或拖动文件到此区域进行上传' |
+| description | Dragger 的描述 | `ReactNode` | '支持单次或批量上传'             |
+
+```tsx | pure
+<ProFormUploadDragger label="Dragger" name="dragger" action="upload.do" />
+```
+
+### ProFormUploadButton
+
+与 [upload](https://ant.design/components/upload-cn/) 相同。预设了 Button 的样式，其他与 Upload 相同。
+
+| 参数  | 说明                                       | 类型        | 默认值         |
+| ----- | ------------------------------------------ | ----------- | -------------- |
+| icon  | Button 的图标                              | `ReactNode` | UploadOutlined |
+| title | Button 的标题                              | `ReactNode` | 单击上传       |
+| max   | 最大上传数量, 超过最大数量就会隐藏上传按钮 | `number`    | -              |
+
+```tsx | pure
+<ProFormUploadButton label="upload" name="upload" action="upload.do" />
+```
+
+### ProFormMoney
+
+ProFormMoney 用于输入金额的输入框，支持根据全局国际化显示货币符号，支持输入负数、支持自定义货币符号等
+
+```tsx | pure
+<ProFormMoney
+  label="限制金额最小为0"
+  name="amount1"
+  locale="en-US"
+  initialValue={22.22}
+  min={0}
+/>
+<ProFormMoney
+  label="不限制金额大小"
+  name="amount2"
+  locale="en-GB"
+  initialValue={22.22}
+/>
+<ProFormMoney
+  label="货币符号跟随全局国际化"
+  name="amount3"
+  initialValue={22.22}
+/>
+<ProFormMoney
+  label="自定义货币符号"
+  name="amount4"
+  initialValue={22.22}
+  customSymbol="💰"
+/>
+```
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| locale | 单独设置的国际化地区值，根据不同的地区显示不同的货币符号，支持地区详见下面的地区目录 | `string` | `zh-Hans-CN` |
+| customSymbol | 自定义金额符号 | `string` | - |
+| numberPopoverRender | 自定义 Popover 的值，false 可以关闭他 | `((props: InputNumberProps, defaultText: string) => React.ReactNode)`\| `boolean` | false |
+| numberFormatOptions | NumberFormat 的配置，文档可以查看 [mdn](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) | NumberFormatOptions | - |
+| min | 最小值 | `number` | - |
+| max | 最大值 | `number` | - |
+
+#### 以下为地区编码与货币符号对照表
+
+```json
+{
+"ar-EG": "$",
+"zh-CN": "¥",
+"en-US": "$",
+"en-GB": "£",
+"vi-VN": "₫",
+"it-IT": "€",
+"ja-JP": "¥",
+"es-ES": "€",
+"ru-RU": "₽",
+"sr-RS": "RSD",
+"ms-MY": "RM",
+"zh-TW": "NT$"
+"fr-FR": "€",
+"pt-BR": "R$",
+"ko-KR": "₩",
+"id-ID": "RP",
+"de-DE": "€",
+"fa-IR": "تومان",
+"tr-TR": "₺",
+"pl-PL": "zł",
+}
 ```

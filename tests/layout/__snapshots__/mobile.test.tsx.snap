@@ -30,34 +30,37 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
+                class="ant-drawer-header ant-drawer-header-close-only"
               >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
+                <div
+                  class="ant-drawer-header-title"
                 >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
+                  <button
+                    aria-label="Close"
+                    class="ant-drawer-close"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="close"
+                      class="anticon anticon-close"
+                      role="img"
                     >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
               <div
                 class="ant-drawer-body"
@@ -75,10 +78,132 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                       id="logo"
                     >
                       <a>
-                        <img
-                          alt="logo"
-                          src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
-                        />
+                        <svg
+                          height="32px"
+                          viewBox="0 0 200 200"
+                          width="32px"
+                        >
+                          <defs>
+                            <linearGradient
+                              id="linearGradient-1"
+                              x1="62.1023273%"
+                              x2="108.19718%"
+                              y1="0%"
+                              y2="37.8635764%"
+                            >
+                              <stop
+                                offset="0%"
+                                stop-color="#4285EB"
+                              />
+                              <stop
+                                offset="100%"
+                                stop-color="#2EC7FF"
+                              />
+                            </linearGradient>
+                            <linearGradient
+                              id="linearGradient-2"
+                              x1="69.644116%"
+                              x2="54.0428975%"
+                              y1="0%"
+                              y2="108.456714%"
+                            >
+                              <stop
+                                offset="0%"
+                                stop-color="#29CDFF"
+                              />
+                              <stop
+                                offset="37.8600687%"
+                                stop-color="#148EFF"
+                              />
+                              <stop
+                                offset="100%"
+                                stop-color="#0A60FF"
+                              />
+                            </linearGradient>
+                            <linearGradient
+                              id="linearGradient-3"
+                              x1="69.6908165%"
+                              x2="16.7228981%"
+                              y1="-12.9743587%"
+                              y2="117.391248%"
+                            >
+                              <stop
+                                offset="0%"
+                                stop-color="#FA816E"
+                              />
+                              <stop
+                                offset="41.472606%"
+                                stop-color="#F74A5C"
+                              />
+                              <stop
+                                offset="100%"
+                                stop-color="#F51D2C"
+                              />
+                            </linearGradient>
+                            <linearGradient
+                              id="linearGradient-4"
+                              x1="68.1279872%"
+                              x2="30.4400914%"
+                              y1="-35.6905737%"
+                              y2="114.942679%"
+                            >
+                              <stop
+                                offset="0%"
+                                stop-color="#FA8E7D"
+                              />
+                              <stop
+                                offset="51.2635191%"
+                                stop-color="#F74A5C"
+                              />
+                              <stop
+                                offset="100%"
+                                stop-color="#F51D2C"
+                              />
+                            </linearGradient>
+                          </defs>
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            stroke="none"
+                            stroke-width="1"
+                          >
+                            <g
+                              transform="translate(-20.000000, -20.000000)"
+                            >
+                              <g
+                                transform="translate(20.000000, 20.000000)"
+                              >
+                                <g>
+                                  <g
+                                    fill-rule="nonzero"
+                                  >
+                                    <g>
+                                      <path
+                                        d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                        fill="url(#linearGradient-1)"
+                                      />
+                                      <path
+                                        d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                        fill="url(#linearGradient-2)"
+                                      />
+                                    </g>
+                                    <path
+                                      d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                                      fill="url(#linearGradient-3)"
+                                    />
+                                  </g>
+                                  <ellipse
+                                    cx="100.519339"
+                                    cy="100.436681"
+                                    fill="url(#linearGradient-4)"
+                                    rx="23.6001926"
+                                    ry="23.580786"
+                                  />
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
                         <h1>
                           Ant Design Pro
                         </h1>
@@ -88,41 +213,57 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -148,10 +289,132 @@ exports[`mobile BasicLayout 📱 base use 1`] = `
             class="ant-pro-global-header-logo"
           >
             <a>
-              <img
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
-              />
+              <svg
+                height="32px"
+                viewBox="0 0 200 200"
+                width="32px"
+              >
+                <defs>
+                  <linearGradient
+                    id="linearGradient-1"
+                    x1="62.1023273%"
+                    x2="108.19718%"
+                    y1="0%"
+                    y2="37.8635764%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#4285EB"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#2EC7FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-2"
+                    x1="69.644116%"
+                    x2="54.0428975%"
+                    y1="0%"
+                    y2="108.456714%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#29CDFF"
+                    />
+                    <stop
+                      offset="37.8600687%"
+                      stop-color="#148EFF"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#0A60FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-3"
+                    x1="69.6908165%"
+                    x2="16.7228981%"
+                    y1="-12.9743587%"
+                    y2="117.391248%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA816E"
+                    />
+                    <stop
+                      offset="41.472606%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-4"
+                    x1="68.1279872%"
+                    x2="30.4400914%"
+                    y1="-35.6905737%"
+                    y2="114.942679%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA8E7D"
+                    />
+                    <stop
+                      offset="51.2635191%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                </defs>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    transform="translate(-20.000000, -20.000000)"
+                  >
+                    <g
+                      transform="translate(20.000000, 20.000000)"
+                    >
+                      <g>
+                        <g
+                          fill-rule="nonzero"
+                        >
+                          <g>
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-1)"
+                            />
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-2)"
+                            />
+                          </g>
+                          <path
+                            d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                            fill="url(#linearGradient-3)"
+                          />
+                        </g>
+                        <ellipse
+                          cx="100.519339"
+                          cy="100.436681"
+                          fill="url(#linearGradient-4)"
+                          rx="23.6001926"
+                          ry="23.580786"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
             </a>
           </span>
           <span
@@ -220,34 +483,37 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
+                class="ant-drawer-header ant-drawer-header-close-only"
               >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
+                <div
+                  class="ant-drawer-header-title"
                 >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
+                  <button
+                    aria-label="Close"
+                    class="ant-drawer-close"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="close"
+                      class="anticon anticon-close"
+                      role="img"
                     >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
               <div
                 class="ant-drawer-body"
@@ -265,10 +531,132 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                       id="logo"
                     >
                       <a>
-                        <img
-                          alt="logo"
-                          src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
-                        />
+                        <svg
+                          height="32px"
+                          viewBox="0 0 200 200"
+                          width="32px"
+                        >
+                          <defs>
+                            <linearGradient
+                              id="linearGradient-1"
+                              x1="62.1023273%"
+                              x2="108.19718%"
+                              y1="0%"
+                              y2="37.8635764%"
+                            >
+                              <stop
+                                offset="0%"
+                                stop-color="#4285EB"
+                              />
+                              <stop
+                                offset="100%"
+                                stop-color="#2EC7FF"
+                              />
+                            </linearGradient>
+                            <linearGradient
+                              id="linearGradient-2"
+                              x1="69.644116%"
+                              x2="54.0428975%"
+                              y1="0%"
+                              y2="108.456714%"
+                            >
+                              <stop
+                                offset="0%"
+                                stop-color="#29CDFF"
+                              />
+                              <stop
+                                offset="37.8600687%"
+                                stop-color="#148EFF"
+                              />
+                              <stop
+                                offset="100%"
+                                stop-color="#0A60FF"
+                              />
+                            </linearGradient>
+                            <linearGradient
+                              id="linearGradient-3"
+                              x1="69.6908165%"
+                              x2="16.7228981%"
+                              y1="-12.9743587%"
+                              y2="117.391248%"
+                            >
+                              <stop
+                                offset="0%"
+                                stop-color="#FA816E"
+                              />
+                              <stop
+                                offset="41.472606%"
+                                stop-color="#F74A5C"
+                              />
+                              <stop
+                                offset="100%"
+                                stop-color="#F51D2C"
+                              />
+                            </linearGradient>
+                            <linearGradient
+                              id="linearGradient-4"
+                              x1="68.1279872%"
+                              x2="30.4400914%"
+                              y1="-35.6905737%"
+                              y2="114.942679%"
+                            >
+                              <stop
+                                offset="0%"
+                                stop-color="#FA8E7D"
+                              />
+                              <stop
+                                offset="51.2635191%"
+                                stop-color="#F74A5C"
+                              />
+                              <stop
+                                offset="100%"
+                                stop-color="#F51D2C"
+                              />
+                            </linearGradient>
+                          </defs>
+                          <g
+                            fill="none"
+                            fill-rule="evenodd"
+                            stroke="none"
+                            stroke-width="1"
+                          >
+                            <g
+                              transform="translate(-20.000000, -20.000000)"
+                            >
+                              <g
+                                transform="translate(20.000000, 20.000000)"
+                              >
+                                <g>
+                                  <g
+                                    fill-rule="nonzero"
+                                  >
+                                    <g>
+                                      <path
+                                        d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                        fill="url(#linearGradient-1)"
+                                      />
+                                      <path
+                                        d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                                        fill="url(#linearGradient-2)"
+                                      />
+                                    </g>
+                                    <path
+                                      d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                                      fill="url(#linearGradient-3)"
+                                    />
+                                  </g>
+                                  <ellipse
+                                    cx="100.519339"
+                                    cy="100.436681"
+                                    fill="url(#linearGradient-4)"
+                                    rx="23.6001926"
+                                    ry="23.580786"
+                                  />
+                                </g>
+                              </g>
+                            </g>
+                          </g>
+                        </svg>
                         <h1>
                           Ant Design Pro
                         </h1>
@@ -278,41 +666,57 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -338,10 +742,132 @@ exports[`mobile BasicLayout 📱 collapsed=false 1`] = `
             class="ant-pro-global-header-logo"
           >
             <a>
-              <img
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
-              />
+              <svg
+                height="32px"
+                viewBox="0 0 200 200"
+                width="32px"
+              >
+                <defs>
+                  <linearGradient
+                    id="linearGradient-1"
+                    x1="62.1023273%"
+                    x2="108.19718%"
+                    y1="0%"
+                    y2="37.8635764%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#4285EB"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#2EC7FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-2"
+                    x1="69.644116%"
+                    x2="54.0428975%"
+                    y1="0%"
+                    y2="108.456714%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#29CDFF"
+                    />
+                    <stop
+                      offset="37.8600687%"
+                      stop-color="#148EFF"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#0A60FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-3"
+                    x1="69.6908165%"
+                    x2="16.7228981%"
+                    y1="-12.9743587%"
+                    y2="117.391248%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA816E"
+                    />
+                    <stop
+                      offset="41.472606%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-4"
+                    x1="68.1279872%"
+                    x2="30.4400914%"
+                    y1="-35.6905737%"
+                    y2="114.942679%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA8E7D"
+                    />
+                    <stop
+                      offset="51.2635191%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                </defs>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    transform="translate(-20.000000, -20.000000)"
+                  >
+                    <g
+                      transform="translate(20.000000, 20.000000)"
+                    >
+                      <g>
+                        <g
+                          fill-rule="nonzero"
+                        >
+                          <g>
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-1)"
+                            />
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-2)"
+                            />
+                          </g>
+                          <path
+                            d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                            fill="url(#linearGradient-3)"
+                          />
+                        </g>
+                        <ellipse
+                          cx="100.519339"
+                          cy="100.436681"
+                          fill="url(#linearGradient-4)"
+                          rx="23.6001926"
+                          ry="23.580786"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
             </a>
           </span>
           <span
@@ -410,34 +936,37 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
+                class="ant-drawer-header ant-drawer-header-close-only"
               >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
+                <div
+                  class="ant-drawer-header-title"
                 >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
+                  <button
+                    aria-label="Close"
+                    class="ant-drawer-close"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="close"
+                      class="anticon anticon-close"
+                      role="img"
                     >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
               <div
                 class="ant-drawer-body"
@@ -460,41 +989,57 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -587,34 +1132,37 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
+                class="ant-drawer-header ant-drawer-header-close-only"
               >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
+                <div
+                  class="ant-drawer-header-title"
                 >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
+                  <button
+                    aria-label="Close"
+                    class="ant-drawer-close"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="close"
+                      class="anticon anticon-close"
+                      role="img"
                     >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
               <div
                 class="ant-drawer-body"
@@ -637,41 +1185,57 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender 2`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -764,34 +1328,37 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
+                class="ant-drawer-header ant-drawer-header-close-only"
               >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
+                <div
+                  class="ant-drawer-header-title"
                 >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
+                  <button
+                    aria-label="Close"
+                    class="ant-drawer-close"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="close"
+                      class="anticon anticon-close"
+                      role="img"
                     >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
               <div
                 class="ant-drawer-body"
@@ -808,41 +1375,57 @@ exports[`mobile BasicLayout 📱 layout menuHeaderRender=false 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -934,34 +1517,37 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
+                class="ant-drawer-header ant-drawer-header-close-only"
               >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
+                <div
+                  class="ant-drawer-header-title"
                 >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
+                  <button
+                    aria-label="Close"
+                    class="ant-drawer-close"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="close"
+                      class="anticon anticon-close"
+                      role="img"
                     >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
               <div
                 class="ant-drawer-body"
@@ -978,41 +1564,57 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -1042,10 +1644,132 @@ exports[`mobile BasicLayout 📱 layout=mix 1`] = `
             class="ant-pro-global-header-logo"
           >
             <a>
-              <img
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
-              />
+              <svg
+                height="32px"
+                viewBox="0 0 200 200"
+                width="32px"
+              >
+                <defs>
+                  <linearGradient
+                    id="linearGradient-1"
+                    x1="62.1023273%"
+                    x2="108.19718%"
+                    y1="0%"
+                    y2="37.8635764%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#4285EB"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#2EC7FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-2"
+                    x1="69.644116%"
+                    x2="54.0428975%"
+                    y1="0%"
+                    y2="108.456714%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#29CDFF"
+                    />
+                    <stop
+                      offset="37.8600687%"
+                      stop-color="#148EFF"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#0A60FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-3"
+                    x1="69.6908165%"
+                    x2="16.7228981%"
+                    y1="-12.9743587%"
+                    y2="117.391248%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA816E"
+                    />
+                    <stop
+                      offset="41.472606%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-4"
+                    x1="68.1279872%"
+                    x2="30.4400914%"
+                    y1="-35.6905737%"
+                    y2="114.942679%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA8E7D"
+                    />
+                    <stop
+                      offset="51.2635191%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                </defs>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    transform="translate(-20.000000, -20.000000)"
+                  >
+                    <g
+                      transform="translate(20.000000, 20.000000)"
+                    >
+                      <g>
+                        <g
+                          fill-rule="nonzero"
+                        >
+                          <g>
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-1)"
+                            />
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-2)"
+                            />
+                          </g>
+                          <path
+                            d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                            fill="url(#linearGradient-3)"
+                          />
+                        </g>
+                        <ellipse
+                          cx="100.519339"
+                          cy="100.436681"
+                          fill="url(#linearGradient-4)"
+                          rx="23.6001926"
+                          ry="23.580786"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
             </a>
           </span>
           <span
@@ -1114,34 +1838,37 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
               class="ant-drawer-wrapper-body"
             >
               <div
-                class="ant-drawer-header-no-title"
+                class="ant-drawer-header ant-drawer-header-close-only"
               >
-                <button
-                  aria-label="Close"
-                  class="ant-drawer-close"
-                  style="--scroll-bar:0px"
-                  type="button"
+                <div
+                  class="ant-drawer-header-title"
                 >
-                  <span
-                    aria-label="close"
-                    class="anticon anticon-close"
-                    role="img"
+                  <button
+                    aria-label="Close"
+                    class="ant-drawer-close"
+                    type="button"
                   >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="close"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
+                    <span
+                      aria-label="close"
+                      class="anticon anticon-close"
+                      role="img"
                     >
-                      <path
-                        d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
-                      />
-                    </svg>
-                  </span>
-                </button>
+                      <svg
+                        aria-hidden="true"
+                        data-icon="close"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M563.8 512l262.5-312.9c4.4-5.2.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9A7.95 7.95 0 00203 838h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z"
+                        />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
               <div
                 class="ant-drawer-body"
@@ -1158,41 +1885,57 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
                       style="flex:1;overflow-y:auto;overflow-x:hidden"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-menu"
+                        data-menu-list="true"
                         role="menu"
                         style="width:100%"
+                        tabindex="0"
                       >
                         <li
                           class="ant-menu-submenu ant-menu-submenu-inline"
-                          role="menuitem"
+                          role="none"
                         >
                           <div
                             aria-expanded="false"
                             aria-haspopup="true"
                             class="ant-menu-submenu-title"
-                            role="button"
-                            style="padding-left:24px"
+                            role="menuitem"
+                            style="padding-left:16px"
+                            tabindex="-1"
                           >
                             <span
-                              class="ant-pro-menu-item"
-                              title="welcome"
+                              class="ant-menu-title-content"
                             >
-                              welcome
+                              <span
+                                class="ant-pro-menu-item"
+                                title="welcome"
+                              >
+                                welcome
+                              </span>
                             </span>
                             <i
                               class="ant-menu-submenu-arrow"
                             />
                           </div>
-                          <div />
                         </li>
                       </ul>
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
+                      />
                     </div>
                     <div
                       class="ant-pro-sider-links"
                     >
                       <ul
-                        class="ant-menu ant-menu-dark ant-pro-sider-link-menu ant-menu-root ant-menu-inline"
+                        class="ant-menu ant-menu-root ant-menu-inline ant-menu-dark ant-pro-sider-link-menu"
+                        data-menu-list="true"
                         role="menu"
+                        tabindex="0"
+                      />
+                      <div
+                        aria-hidden="true"
+                        style="display:none"
                       />
                     </div>
                   </div>
@@ -1222,10 +1965,132 @@ exports[`mobile BasicLayout 📱 layout=mix and splitMenus 1`] = `
             class="ant-pro-global-header-logo"
           >
             <a>
-              <img
-                alt="logo"
-                src="https://gw.alipayobjects.com/zos/antfincdn/PmY%24TNNDBI/logo.svg"
-              />
+              <svg
+                height="32px"
+                viewBox="0 0 200 200"
+                width="32px"
+              >
+                <defs>
+                  <linearGradient
+                    id="linearGradient-1"
+                    x1="62.1023273%"
+                    x2="108.19718%"
+                    y1="0%"
+                    y2="37.8635764%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#4285EB"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#2EC7FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-2"
+                    x1="69.644116%"
+                    x2="54.0428975%"
+                    y1="0%"
+                    y2="108.456714%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#29CDFF"
+                    />
+                    <stop
+                      offset="37.8600687%"
+                      stop-color="#148EFF"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#0A60FF"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-3"
+                    x1="69.6908165%"
+                    x2="16.7228981%"
+                    y1="-12.9743587%"
+                    y2="117.391248%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA816E"
+                    />
+                    <stop
+                      offset="41.472606%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                  <linearGradient
+                    id="linearGradient-4"
+                    x1="68.1279872%"
+                    x2="30.4400914%"
+                    y1="-35.6905737%"
+                    y2="114.942679%"
+                  >
+                    <stop
+                      offset="0%"
+                      stop-color="#FA8E7D"
+                    />
+                    <stop
+                      offset="51.2635191%"
+                      stop-color="#F74A5C"
+                    />
+                    <stop
+                      offset="100%"
+                      stop-color="#F51D2C"
+                    />
+                  </linearGradient>
+                </defs>
+                <g
+                  fill="none"
+                  fill-rule="evenodd"
+                  stroke="none"
+                  stroke-width="1"
+                >
+                  <g
+                    transform="translate(-20.000000, -20.000000)"
+                  >
+                    <g
+                      transform="translate(20.000000, 20.000000)"
+                    >
+                      <g>
+                        <g
+                          fill-rule="nonzero"
+                        >
+                          <g>
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C99.2571609,26.9692191 101.032305,26.9692191 102.20193,28.1378823 L129.985225,55.8983314 C134.193707,60.1033528 141.017005,60.1033528 145.225487,55.8983314 C149.433969,51.69331 149.433969,44.8756232 145.225487,40.6706018 L108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-1)"
+                            />
+                            <path
+                              d="M91.5880863,4.17652823 L4.17996544,91.5127728 C-0.519240605,96.2081146 -0.519240605,103.791885 4.17996544,108.487227 L91.5880863,195.823472 C96.2872923,200.518814 103.877304,200.518814 108.57651,195.823472 L145.225487,159.204632 C149.433969,154.999611 149.433969,148.181924 145.225487,143.976903 C141.017005,139.771881 134.193707,139.771881 129.985225,143.976903 L102.20193,171.737352 C101.032305,172.906015 99.2571609,172.906015 98.0875359,171.737352 L28.285908,101.993122 C27.1162831,100.824459 27.1162831,99.050775 28.285908,97.8821118 L98.0875359,28.1378823 C100.999864,25.6271836 105.751642,20.541824 112.729652,19.3524487 C117.915585,18.4685261 123.585219,20.4140239 129.738554,25.1889424 C125.624663,21.0784292 118.571995,14.0340304 108.58055,4.05574592 C103.862049,-0.537986846 96.2692618,-0.500797906 91.5880863,4.17652823 Z"
+                              fill="url(#linearGradient-2)"
+                            />
+                          </g>
+                          <path
+                            d="M153.685633,135.854579 C157.894115,140.0596 164.717412,140.0596 168.925894,135.854579 L195.959977,108.842726 C200.659183,104.147384 200.659183,96.5636133 195.960527,91.8688194 L168.690777,64.7181159 C164.472332,60.5180858 157.646868,60.5241425 153.435895,64.7316526 C149.227413,68.936674 149.227413,75.7543607 153.435895,79.9593821 L171.854035,98.3623765 C173.02366,99.5310396 173.02366,101.304724 171.854035,102.473387 L153.685633,120.626849 C149.47715,124.83187 149.47715,131.649557 153.685633,135.854579 Z"
+                            fill="url(#linearGradient-3)"
+                          />
+                        </g>
+                        <ellipse
+                          cx="100.519339"
+                          cy="100.436681"
+                          fill="url(#linearGradient-4)"
+                          rx="23.6001926"
+                          ry="23.580786"
+                        />
+                      </g>
+                    </g>
+                  </g>
+                </g>
+              </svg>
             </a>
           </span>
           <span

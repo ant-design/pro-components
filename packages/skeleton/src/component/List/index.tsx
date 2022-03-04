@@ -29,14 +29,15 @@ const StatisticSkeleton: React.FC<{
   const colSize = useMediaQuery();
   const arraySize = size === undefined ? MediaQueryKeyEnum[colSize] || 6 : size;
   const firstWidth = (index: number) => {
-    if (arraySize > 2 && index !== 0) {
-      return 42;
-    }
     if (index === 0) {
       return 0;
     }
+    if (arraySize > 2) {
+      return 42;
+    }
     return 16;
   };
+
   return (
     <Card
       bordered={false}

@@ -1,8 +1,7 @@
 import React from 'react';
 import type { TablePaginationConfig } from 'antd';
 import omit from 'omit.js';
-import isDeepEqualReact from 'fast-deep-equal/es6/react';
-import { omitUndefined } from '@ant-design/pro-utils';
+import { omitUndefined, isDeepEqualReact } from '@ant-design/pro-utils';
 import type { ProTableProps, ActionType } from '../../typing';
 import { isBordered } from '../../utils/index';
 import './index.less';
@@ -150,8 +149,16 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
       dateFormatter,
       form,
       search,
+      pagination,
       manualRequest,
     } = this.props;
+
+    const pageInfo = pagination
+      ? omitUndefined({
+          current: pagination.current,
+          pageSize: pagination.pageSize,
+        })
+      : {};
     return (
       <FormRender<U, T>
         submitButtonLoading={loading}
@@ -163,7 +170,13 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
         onReset={this.onReset}
         dateFormatter={dateFormatter}
         search={search}
-        form={form}
+        form={{
+          ...form,
+          extraUrlParams: {
+            ...pageInfo,
+            ...form?.extraUrlParams,
+          },
+        }}
         action={action}
         bordered={isBordered('search', cardBordered)}
       />

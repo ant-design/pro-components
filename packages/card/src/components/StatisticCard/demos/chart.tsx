@@ -7,7 +7,7 @@ export default () => {
     <StatisticCard
       title="大盘趋势"
       tip="大盘说明"
-      style={{ width: 480 }}
+      style={{ maxWidth: 480 }}
       extra={<EllipsisOutlined />}
       chart={
         <img

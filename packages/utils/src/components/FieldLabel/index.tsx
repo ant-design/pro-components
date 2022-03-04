@@ -41,6 +41,13 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
   const prefixCls = getPrefixCls('pro-core-field-label');
   const intl = useIntl();
 
+  const formatterText = (aValue: any) => {
+    if (formatter) {
+      return formatter(aValue);
+    }
+    return Array.isArray(aValue) ? aValue.join(',') : String(aValue);
+  };
+
   const getTextByValue = (
     aLabel?: React.ReactNode | React.ReactNode[],
     aValue?: string | string[],
@@ -51,12 +58,6 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
       aValue !== '' &&
       (!Array.isArray(aValue) || aValue.length)
     ) {
-      let str: string;
-      if (formatter) {
-        str = formatter(aValue);
-      } else {
-        str = Array.isArray(aValue) ? aValue.join(',') : String(aValue);
-      }
       const prefix = aLabel ? (
         <>
           {aLabel}
@@ -65,14 +66,16 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
       ) : (
         ''
       );
+      const str = formatterText(aValue);
       if (!ellipsis) {
         return (
           <span>
             {prefix}
-            {str}
+            {formatterText(aValue)}
           </span>
         );
       }
+
       const getText = () => {
         const isArrayValue = Array.isArray(aValue) && aValue.length > 1;
         const unitText = intl.getMessage('form.lightFilter.itemUnit', '项');
@@ -86,7 +89,7 @@ const FieldLabel: React.FC<FieldLabelProps> = (props) => {
       return (
         <span title={str}>
           {prefix}
-          {str?.substr(0, 32)}
+          {str?.toString()?.substr?.(0, 32)}
           {tail}
         </span>
       );

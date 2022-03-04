@@ -9,6 +9,97 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.26.5
+
+`2021-10-18`
+
+- Revert "fix(layout): 优化 PageContainer 头部和内容之间的间距" [#3848](https://github.com/ant-design/pro-components/pull/3848) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.26.3
+
+`2021-10-12`
+
+- 🐛 fix(layout): 优化 PageContainer 头部和内容之间的间距 [#3812](https://github.com/ant-design/pro-components/pull/3812) [@chj-damon](https://github.com/chj-damon)
+
+## @ant-design/pro-layout@6.26.0
+
+`2021-09-24`
+
+- feat: PageContainer 的 loading 属性支持传输自定义元素方式自定义 loading [#3702](https://github.com/ant-design/pro-components/pull/3702) [@kiner-tang](https://github.com/kiner-tang)
+
+## @ant-design/pro-layout@6.25.4
+
+`2021-09-10`
+
+- 🐛 fix(layout): remove extra dom node [#3631](https://github.com/ant-design/pro-components/pull/3631) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.25.0
+
+`2021-08-30`
+
+- 💥 feat(layout): support layout error boundaries [#3551](https://github.com/ant-design/pro-components/pull/3551) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.24.1
+
+`2021-08-19`
+
+- 🐛 fix(layout): 解决侧边栏菜单折叠按钮切换之后，defaultOpenAll 失效 [#3460](https://github.com/ant-design/pro-components/pull/3460) [@GargantuaX](https://github.com/GargantuaX)
+
+## @ant-design/pro-layout@6.23.1
+
+`2021-07-30`
+
+- 🐛 fix(layout): no use cdn img [#3331](https://github.com/ant-design/pro-components/pull/3331) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.23.0
+
+`2021-07-26`
+
+- 💥 feat(layout): Add .ant-pro-page-container-with-footer className when footer exists [#3275](https://github.com/ant-design/pro-components/pull/3275) [@dengfuping](https://github.com/dengfuping)
+
+## @ant-design/pro-layout@6.22.0
+
+`2021-07-19`
+
+- 💥 feat(layout): support breadcrumbProps.minLength to set breadcrumb length [#3263](https://github.com/ant-design/pro-components/pull/3263) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(layout): add ProBreadcrumb [#3257](https://github.com/ant-design/pro-components/pull/3257) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.20.0
+
+`2021-06-28`
+
+- 🐛 fix(layout): defaultSettings do not set menu locale [#3105](https://github.com/ant-design/pro-components/pull/3105) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(layout): 给 menuItemRender 添加参数 [#3081](https://github.com/ant-design/pro-components/pull/3081) [@snadn](https://github.com/snadn)
+- 💥 feat(form): add layout demo [#3076](https://github.com/ant-design/pro-components/pull/3076) [@rdmclin2](https://github.com/rdmclin2)
+
+## @ant-design/pro-layout@6.19.4
+
+`2021-06-08`
+
+- 🐛 fix(layout): fix layout fast load error [#2933](https://github.com/ant-design/pro-components/pull/2933) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): fix menu params alway run error [#2931](https://github.com/ant-design/pro-components/pull/2931) [@chenshuai2144](https://github.com/chenshuai2144)
+- 🐛 fix(layout): if have menuDataRender, alway render layout [#2920](https://github.com/ant-design/pro-components/pull/2920) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.18.1
+
+`2021-05-18`
+
+- 🐛 fix(card): card loading in layout center [#2739](https://github.com/ant-design/pro-components/pull/2739) [@rdmclin2](https://github.com/rdmclin2)
+- 🐛 fix(layout): do not use base [#2734](https://github.com/ant-design/pro-components/pull/2734) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.18.0
+
+`2021-05-11`
+
+- 💥 feat(layout): support for all parameters of the Spin component [#2704](https://github.com/ant-design/pro-components/pull/2704) [@jiyingzhi](https://github.com/jiyingzhi)
+
+## @ant-design/pro-layout@6.17.0
+
+`2021-04-22`
+
+- 🐛 fix(layout): routes change should reload menu [#2573](https://github.com/ant-design/pro-components/pull/2573) [@chenshuai2144](https://github.com/chenshuai2144)
+- 💥 feat(layout): layout support params [#2545](https://github.com/ant-design/pro-components/pull/2545) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-layout@6.16.2
 
 `2021-04-15`
