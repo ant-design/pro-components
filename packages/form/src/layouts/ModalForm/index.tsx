@@ -1,13 +1,13 @@
-﻿import React, { useContext, useEffect, useMemo, useRef } from 'react';
+﻿import React, { useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { Modal, ConfigProvider } from 'antd';
 import type { ModalProps, FormProps } from 'antd';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
-import omit from 'omit.js';
 import { createPortal } from 'react-dom';
 
-import type { CommonFormProps } from '../../BaseForm';
+import type { BaseFormProps, CommonFormProps } from '../../BaseForm';
 import { BaseForm } from '../../BaseForm';
 import { noteOnce } from 'rc-util/lib/warning';
+import { merge } from '@ant-design/pro-utils';
 
 export type ModalFormProps<T = Record<string, any>> = Omit<FormProps<T>, 'onFinish' | 'title'> &
   CommonFormProps<T> & {
@@ -49,85 +49,89 @@ function ModalForm<T = Record<string, any>>({
   onFinish,
   title,
   width,
+  visible: propVisible,
   ...rest
 }: ModalFormProps<T>) {
-  const [visible, setVisible] = useMergedState<boolean>(!!rest.visible, {
-    value: rest.visible,
-    onChange: onVisibleChange,
-  });
-
-  /** Modal dom 解除渲染之后 */
-  const [isDestroy, setIsDestroy] = useMergedState<boolean>(false);
-
-  const needRenderForm = useMemo(() => {
-    if (modalProps?.destroyOnClose) {
-      return visible;
-    }
-    return true;
-  }, [modalProps?.destroyOnClose, visible]);
-
-  useEffect(() => {
-    if (visible && rest.visible) {
-      onVisibleChange?.(true);
-    }
-  }, [rest.visible, visible]);
-
-  const context = useContext(ConfigProvider.ConfigContext);
-
   noteOnce(
     // eslint-disable-next-line @typescript-eslint/dot-notation
     !rest['footer'] || !modalProps?.footer,
     'ModalForm 是一个 ProForm 的特殊布局，如果想自定义按钮，请使用 submit.render 自定义。',
   );
 
-  const renderSubmitter =
-    rest.submitter === false
-      ? false
-      : {
-          ...rest.submitter,
-          searchConfig: {
-            submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
-            resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
-            ...rest.submitter?.searchConfig,
-          },
-          submitButtonProps: {
-            type: (modalProps?.okType as 'text') || 'primary',
-            ...rest.submitter?.submitButtonProps,
-          },
-          resetButtonProps: {
-            preventDefault: true,
-            onClick: (e: React.MouseEvent<HTMLButtonElement>) => {
-              modalProps?.onCancel?.(e);
-              setVisible(false);
-            },
-            ...rest.submitter?.resetButtonProps,
-          },
-        };
+  const context = useContext(ConfigProvider.ConfigContext);
 
-  const triggerDom = (
-    <React.Fragment key="trigger">
-      {trigger &&
-        React.cloneElement(trigger, {
-          ...trigger.props,
-          onClick: async (e: any) => {
-            setVisible(!visible);
-            trigger.props?.onClick?.(e);
-          },
-        })}
-    </React.Fragment>
-  );
+  const [, forceUpdate] = useState([]);
+
+  const [visible, setVisible] = useMergedState<boolean>(!!propVisible, {
+    value: propVisible,
+    onChange: onVisibleChange,
+  });
+
+  const footerRef = useRef<HTMLDivElement | null>(null);
+
+  const footerMount: React.RefCallback<HTMLDivElement> = (element) => {
+    if (element && footerRef.current === null) {
+      footerRef.current = element;
+      forceUpdate([]);
+    } else if (element !== null) {
+      footerRef.current = null;
+    }
+  };
 
   useEffect(() => {
-    if (visible) {
-      setTimeout(() => {
-        setIsDestroy(visible);
-      }, 100);
-      return;
+    if (visible && propVisible) {
+      onVisibleChange?.(true);
     }
-    setIsDestroy(visible);
-  }, [setIsDestroy, visible]);
+  }, [onVisibleChange, propVisible, visible]);
 
-  const footerRef = useRef<HTMLDivElement>(null);
+  const triggerDom = useMemo(() => {
+    if (!trigger) {
+      return null;
+    }
+
+    return React.cloneElement(trigger, {
+      key: 'trigger',
+      ...trigger.props,
+      onClick: async (e: any) => {
+        setVisible(!visible);
+        trigger.props?.onClick?.(e);
+      },
+    });
+  }, [setVisible, trigger, visible]);
+
+  const submitterConfig: BaseFormProps['submitter'] = useMemo(() => {
+    if (rest.submitter === false) {
+      return false;
+    }
+    return merge(rest.submitter, {
+      searchConfig: {
+        submitText: modalProps?.okText || context.locale?.Modal?.okText || '确认',
+        resetText: modalProps?.cancelText || context.locale?.Modal?.cancelText || '取消',
+      },
+      resetButtonProps: {
+        preventDefault: true,
+        onClick: (e: any) => {
+          setVisible(false);
+          modalProps?.onCancel?.(e);
+        },
+      },
+    });
+  }, [
+    context.locale?.Modal?.cancelText,
+    context.locale?.Modal?.okText,
+    modalProps,
+    rest.submitter,
+    setVisible,
+  ]);
+
+  const contentRender: BaseFormProps['contentRender'] = (formDom, submitter) => {
+    return (
+      <>
+        {formDom}
+        {footerRef.current && submitter ? createPortal(submitter, footerRef.current) : submitter}
+      </>
+    );
+  };
 
   return (
     <>
@@ -144,7 +148,7 @@ function ModalForm<T = Record<string, any>>({
         footer={
           rest.submitter !== false && (
             <div
-              ref={footerRef}
+              ref={footerMount}
               style={{
                 display: 'flex',
                 justifyContent: 'flex-end',
@@ -153,46 +157,24 @@ function ModalForm<T = Record<string, any>>({
           )
         }
       >
-        {needRenderForm && (
-          <BaseForm
-            formComponentType="ModalForm"
-            layout="vertical"
-            {...omit(rest, ['visible'])}
-            onFinish={async (values) => {
-              if (!onFinish) {
-                return;
-              }
-              const success = await onFinish(values);
-              if (success) {
-                setVisible(false);
-              }
-            }}
-            submitter={renderSubmitter}
-            contentRender={(item, submitter) => {
-              // 未配置自定义提交按钮，则直接将提交按钮渲染到内容区
-              if (rest.submitter === false) {
-                return (
-                  <>
-                    {item}
-                    {submitter}
-                  </>
-                );
-              }
-              // 如果用户配置了自定义的提交按钮，那么我们等到弹框/抽屉底部区域渲染成功后再将自定义按钮渲染过去
-              if (footerRef.current && isDestroy && submitter) {
-                return (
-                  <>
-                    {item}
-                    {createPortal(submitter, footerRef.current)}
-                  </>
-                );
-              }
-              return item;
-            }}
-          >
-            {children}
-          </BaseForm>
-        )}
+        <BaseForm
+          formComponentType="ModalForm"
+          layout="vertical"
+          {...rest}
+          onFinish={async (values) => {
+            if (!onFinish) {
+              return;
+            }
+            const success = await onFinish(values);
+            if (success) {
+              setVisible(false);
+            }
+          }}
+          submitter={submitterConfig}
+          contentRender={contentRender}
+        >
+          {children}
+        </BaseForm>
       </Modal>
       {triggerDom}
     </>
