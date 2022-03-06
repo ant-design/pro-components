@@ -86,6 +86,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
   itemRender?: (
     doms: { listDom: ReactNode; action: ReactNode },
     listMeta: {
+      name: FormListProps['name'];
       field: FormListFieldData;
       fields: FormListFieldData[];
       index: number;
@@ -259,6 +260,7 @@ const ProFormListItem: React.FC<
   const dom = actions.length > 0 ? <div className={`${prefixCls}-action`}>{actions}</div> : null;
 
   const options = {
+    name: rest.name,
     field,
     index,
     record: formInstance?.getFieldValue?.(
