@@ -11,6 +11,8 @@ group:
 
 ## @ant-design/pro-table@2.66.0
 
+`2022-03-04`
+
 - fix(Table): preserve columnState when deselecting (#4761). [#4761](https://github.com/ant-design/pro-components/pull/#4761) [@1247748612](https://github.com/1247748612)
 - fix(table): fix DragSortTable render is cache error. [d5c716a](https://github.com/ant-design/pro-components/commit/d5c716a)
 - feat(table): support antd Table extra column (#9604) (#4704). [#9604](https://github.com/ant-design/pro-components/pull/#9604) [@sarufarr](https://github.com/sarufarr)
@@ -19,113 +21,165 @@ group:
 
 ## @ant-design/pro-table@2.64.1
 
+`2022-02-24`
+
 - fix(table): fix page=1, no reset pageIndex. [62b3188](https://github.com/ant-design/pro-components/commit/62b3188)
 - fix(table): fix page=1, no reset pageIndex. [3ae828d](https://github.com/ant-design/pro-components/commit/3ae828d)
 
 ## @ant-design/pro-table@2.64.0
 
+`2022-02-21`
+
 - fix(table): table 的 param 发生变化时重置分页为 1 (#4648). [#4648](https://github.com/ant-design/pro-components/pull/#4648) [@qq1170623178](https://github.com/qq1170623178)
 
 ## @ant-design/pro-table@2.63.7
+
+`2022-02-18`
 
 - fix(table): EditableProTable 支持在 renderFormItem 中的 record 中返回用户自定义的字段 (#4644). [#4644](https://github.com/ant-design/pro-components/pull/#4644) [@kiner-tang](https://github.com/kiner-tang)
 
 ## @ant-design/pro-table@2.63.6
 
+`2022-02-15`
+
 - fix(table): fix React state update on an unmounted component error. [07cf3a3](https://github.com/ant-design/pro-components/commit/07cf3a3)
 
 ## @ant-design/pro-table@2.63.5
+
+`2022-02-14`
 
 - fix(table): fix table loadingchange no work error. [42495b1](https://github.com/ant-design/pro-components/commit/42495b1)
 - fix(table): first use propsRef values. [cba7197](https://github.com/ant-design/pro-components/commit/cba7197)
 
 ## @ant-design/pro-table@2.63.4
 
+`2022-02-14`
+
 - fix(table): fix when name=xxx, form is null error. [3d5142d](https://github.com/ant-design/pro-components/commit/3d5142d)
 
 ## @ant-design/pro-table@2.63.3
+
+`2022-02-11`
 
 - fix(table): fix oncancel no use runtime datasource. [712cd1e](https://github.com/ant-design/pro-components/commit/712cd1e)
 
 ## @ant-design/pro-table@2.63.0
 
+`2022-02-08`
+
 - feat(table): reduce the dom of the form (#4565). [#4565](https://github.com/ant-design/pro-components/pull/#4565) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-table@2.62.7
+
+`2022-01-21`
 
 - fix(table): parameter error when passing function to reload or fullScreen (#4491). [#4491](https://github.com/ant-design/pro-components/pull/#4491) [@1247748612](https://github.com/1247748612)
 - fix(table): modify table document (#4496). [#4496](https://github.com/ant-design/pro-components/pull/#4496) [@xiaotiandada](https://github.com/xiaotiandada)
 
 ## @ant-design/pro-table@2.62.5
 
+`2022-01-17`
+
 - fix(table): params support function (#4474). [#4474](https://github.com/ant-design/pro-components/pull/#4474) [@chenshuai2144](https://github.com/chenshuai2144)
 - fix(table): 🎸 Support readonly option for EditableTable (#4466). [#4466](https://github.com/ant-design/pro-components/pull/#4466) [@1247748612](https://github.com/1247748612)
 
 ## @ant-design/pro-table@2.62.2
 
+`2022-01-11`
+
 - fix(table): fix defaultSelectedRowKeys no work error (#4432). [#4432](https://github.com/ant-design/pro-components/pull/#4432) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-table@2.62.0
+
+`2022-01-05`
 
 - fix(table): fix the param resetPageIndex is invalid in ProTable's method reload. (#4397). [#4397](https://github.com/ant-design/pro-components/pull/#4397) [@ooPG233](https://github.com/ooPG233)
 
 ## @ant-design/pro-table@2.61.9
 
+`2021-12-28`
+
 - fix(table): fix table no rerender error. [5af32fb](https://github.com/ant-design/pro-components/commit/5af32fb)
 
 ## @ant-design/pro-table@2.61.8
+
+`2021-12-28`
 
 - fix(table): Table 在 column 带有 request 情况下，搜索栏的表单由于没有设置 proFieldKey 导致在页面初始化会发出两个重 复的 request (#4336). [#4336](https://github.com/ant-design/pro-components/pull/#4336) [@rojer95](https://github.com/rojer95)
 
 ## @ant-design/pro-table@2.61.0
 
+`2021-12-20`
+
 - fix(table): if one node, no draggable (#4310). [#4310](https://github.com/ant-design/pro-components/pull/#4310) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-table@2.59.4
+
+`2021-12-08`
 
 - fix(table): fix keywords reset formSearch error (#4214). [#4214](https://github.com/ant-design/pro-components/pull/#4214) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-table@2.59.1
 
+`2021-12-01`
+
 - fix(table): if form.ignoreRules disable auto reload (#4158). [#4158](https://github.com/ant-design/pro-components/pull/#4158) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-table@2.59.0
+
+`2021-11-30`
 
 - fix(table): ProTable 中 配置了 params， 通过改变 params 来重新请求数据时，页码没有从第一页开始 (#4142). [#4142](https://github.com/ant-design/pro-components/pull/#4142) [@aiyuekuang](https://github.com/aiyuekuang)
 - feat(table): support revalidateOnFocus (#4120). [#4120](https://github.com/ant-design/pro-components/pull/#4120) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-table@2.58.1
 
+`2021-11-23`
+
 - fix(table): fix valueEnum error. [15d5835](https://github.com/ant-design/pro-components/commit/15d5835)
 
 ## @ant-design/pro-table@2.58.0
 
+`2021-11-23`
+
 - feat(table): request add record props. [5ec71f8](https://github.com/ant-design/pro-components/commit/5ec71f8)
 
 ## @ant-design/pro-table@2.57.2
+
+`2021-11-18`
 
 - fix(table): pro table support lightProps (#4068). [#4068](https://github.com/ant-design/pro-components/pull/#4068) [@chenshuai2144](https://github.com/chenshuai2144)
 - fix(table): fix table validateFields no work error (#4058). [#4058](https://github.com/ant-design/pro-components/pull/#4058) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-table@2.57.1
 
+`2021-11-16`
+
 - fix(table):alway render cell form (#4047). [#4047](https://github.com/ant-design/pro-components/pull/#4047) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-table@2.57.0
+
+`2021-11-15`
 
 - feat(table):Reduce the use of layering and forms (#4037). [#4037](https://github.com/ant-design/pro-components/pull/#4037) [@chenshuai2144](https://github.com/chenshuai2144)
 - feat(table): add card table (#4033). [#4033](https://github.com/ant-design/pro-components/pull/#4033) [@rdmclin2](https://github.com/rdmclin2)
 
 ## @ant-design/pro-table@2.56.9
 
+`2021-11-12`
+
 - fix(table): fix editor table rowkey error (#4000). [#4000](https://github.com/ant-design/pro-components/pull/#4000) [@chenshuai2144](https://github.com/chenshuai2144)
 - fix(table): 取消编辑行后表单未能全部重置 (#3997). [#3997](https://github.com/ant-design/pro-components/pull/#3997) [@Zeng-J](https://github.com/Zeng-J)
 
 ## @ant-design/pro-table@2.56.8
 
+`2021-11-08`
+
 - 🐛 fix(table): EditableTable controlled default value (#3965). [#3965](https://github.com/ant-design/pro-components/pull/#3965) [@DerrickTel](https://github.com/DerrickTel)
 
 ## @ant-design/pro-table@2.56.4
+
+`2021-10-26`
 
 - fix(table): fix when dataSource=null, no work error (#3877). [#3877](https://github.com/ant-design/pro-components/pull/#3877) [@chenshuai2144](https://github.com/chenshuai2144)
 

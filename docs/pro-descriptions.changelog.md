@@ -11,29 +11,43 @@ group:
 
 ## @ant-design/pro-descriptions@1.10.46
 
+`2022-02-24`
+
 - fix(descriptions): fix descriptions copy dom error (#4695). [#4695](https://github.com/ant-design/pro-components/pull/#4695) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-descriptions@1.10.41
+
+`2022-02-14`
 
 - fix(descriptions): 修复当 dataIndex 设置为 keypath 数组时 ProDescriptions 更新异常问题 (#4615). [#4615](https://github.com/ant-design/pro-components/pull/#4615) [@kiner-tang](https://github.com/kiner-tang)
 
 ## @ant-design/pro-descriptions@1.10.29
 
+`2022-01-07`
+
 - fix(descriptions): fix descriptions if is null. [28df05e](https://github.com/ant-design/pro-components/commit/28df05e)
 
 ## @ant-design/pro-descriptions@1.10.2
+
+`2021-11-18`
 
 - fix(descriptions): unuse protable (#4062). [#4062](https://github.com/ant-design/pro-components/pull/#4062) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-descriptions@1.10.1
 
+`2021-11-16`
+
 - fix(descriptions): fix descriptions cancel values no work error (#4043). [#4043](https://github.com/ant-design/pro-components/pull/#4043) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-descriptions@1.9.26
 
+`2021-10-26`
+
 - fix(descriptions): fix descriptions item set style error (#3860). [#3860](https://github.com/ant-design/pro-components/pull/#3860) [@chenshuai2144](https://github.com/chenshuai2144)
 
 ## @ant-design/pro-descriptions@1.9.20
+
+`2021-10-08`
 
 - fix(descriptions): RequestData 类型优化 (#3448). [#3448](https://github.com/ant-design/pro-components/pull/#3448) [@ohhoney1](https://github.com/ohhoney1)
 - fix(descriptions): fix descriptions fomart error (#3015). [#3015](https://github.com/ant-design/pro-components/pull/#3015) [@chenshuai2144](https://github.com/chenshuai2144)
