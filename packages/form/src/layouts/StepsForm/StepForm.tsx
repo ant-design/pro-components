@@ -48,15 +48,9 @@ function StepForm<T = Record<string, any>>({
       formRef={formRef}
       onFinish={async (values) => {
         if (restProps.name) {
-          try {
-            // looks like `True`
-            if (await context?.onFormFinish(restProps.name, values)) {
-              if (!context?.lastStep) context?.next();
-            }
-          } catch {}
+          context?.onFormFinish(restProps.name, values);
         }
         if (onFinish) {
-          console.log('onFinish: ', onFinish);
           context?.setLoading(true);
           // 如果报错，直接抛出
           const success = await onFinish?.(values);
@@ -67,6 +61,8 @@ function StepForm<T = Record<string, any>>({
           context?.setLoading(false);
           return;
         }
+
+        if (!context?.lastStep) context?.next();
       }}
       layout="vertical"
       {...restProps}

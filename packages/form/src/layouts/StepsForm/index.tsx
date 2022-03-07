@@ -1,10 +1,10 @@
 import React, {
   useRef,
   useCallback,
-  useEffect,
   useContext,
   useImperativeHandle,
   useMemo,
+  useState,
 } from 'react';
 import type { StepsProps, FormInstance } from 'antd';
 import { Form, Steps, ConfigProvider, Button, Space } from 'antd';
@@ -13,7 +13,7 @@ import type { FormProviderProps } from 'antd/lib/form/context';
 import useMergedState from 'rc-util/lib/hooks/useMergedState';
 import classNames from 'classnames';
 import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
-import { useMountMergeState, merge, useRefFunction } from '@ant-design/pro-utils';
+import { merge, useRefFunction } from '@ant-design/pro-utils';
 
 import type { StepFormProps } from './StepForm';
 import StepForm from './StepForm';
@@ -107,11 +107,12 @@ function StepsForm<T = Record<string, any>>(
     formMapRef: propsFormMapRef,
     ...rest
   } = props;
+
   const formDataRef = useRef(new Map<string, Record<string, any>>());
   const formMapRef = useRef(new Map<string, StepFormProps>());
   const formArrayRef = useRef<React.MutableRefObject<FormInstance<any> | undefined>[]>([]);
-  const [formArray, setFormArray] = useMountMergeState<string[]>([]);
-  const [loading, setLoading] = useMountMergeState<boolean>(false);
+  const [formArray, setFormArray] = useState<string[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
   const intl = useIntl();
 
   /** 受控的方式来操作表单 */
@@ -120,24 +121,26 @@ function StepsForm<T = Record<string, any>>(
     onChange: props.onCurrentChange,
   });
 
-  const lastStep = useMemo(() => step === formMapRef.current.size - 1, [step]);
+  const lastStep = useMemo(() => step === formArray.length - 1, [formArray.length, step]);
 
-  /** 注册一个form进入，方便进行 props 的修改 */
+  /**
+   * 注册一个form进入，方便进行 props 的修改
+   */
   const regForm = useCallback((name: string, childrenFormProps: StepFormProps) => {
+    if (!formMapRef.current.has(name)) {
+      setFormArray((oldFormArray) => [...oldFormArray, name]);
+    }
     formMapRef.current.set(name, childrenFormProps);
   }, []);
 
-  /** 接触挂载掉这个 form，同时步数 -1 */
+  /**
+   * 解除挂载掉这个 form，同时步数 -1
+   */
   const unRegForm = useCallback((name: string) => {
+    setFormArray((oldFormArray) => oldFormArray.filter((n) => n === name));
     formMapRef.current.delete(name);
     formDataRef.current.delete(name);
   }, []);
-
-  /** Children 计算完成之后，重新生成一下当前的步骤列表 */
-  useEffect(() => {
-    setFormArray(Array.from(formMapRef.current.keys()));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [Array.from(formMapRef.current.keys()).join(',')]);
 
   useImperativeHandle(propsFormMapRef, () => formArrayRef.current);
 
@@ -149,7 +152,9 @@ function StepsForm<T = Record<string, any>>(
     [step],
   );
 
-  /** ProForm处理了一下 from 的数据，在其中做了一些操作 如果使用 Provider 自带的，自带的数据处理就无法生效了 */
+  /**
+   * ProForm处理了一下 from 的数据，在其中做了一些操作 如果使用 Provider 自带的，自带的数据处理就无法生效了
+   */
   const onFormFinish = useCallback(
     async (name: string, formData: any) => {
       formDataRef.current.set(name, formData);
@@ -166,34 +171,38 @@ function StepsForm<T = Record<string, any>>(
           setStep(0);
           formArrayRef.current.forEach((form) => form.current?.resetFields());
         }
+      } catch (error) {
+        console.log(error);
       } finally {
         setLoading(false);
       }
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [step, formMapRef, onFinish],
+    [lastStep, onFinish, setLoading, setStep],
   );
 
-  const stepsDom = (
-    <div
-      className={`${prefixCls}-steps-container`}
-      style={{
-        maxWidth: Math.min(formArray.length * 320, 1160),
-      }}
-    >
-      <Steps {...stepsProps} current={step} onChange={undefined}>
-        {formArray.map((item) => {
-          const itemProps = formMapRef.current.get(item);
-          return <Steps.Step key={item} title={itemProps?.title} {...itemProps?.stepProps} />;
-        })}
-      </Steps>
-    </div>
+  const stepsDom = useMemo(
+    () => (
+      <div
+        className={`${prefixCls}-steps-container`}
+        style={{
+          maxWidth: Math.min(formArray.length * 320, 1160),
+        }}
+      >
+        <Steps {...stepsProps} current={step} onChange={undefined}>
+          {formArray.map((item) => {
+            const itemProps = formMapRef.current.get(item);
+            return <Steps.Step key={item} title={itemProps?.title} {...itemProps?.stepProps} />;
+          })}
+        </Steps>
+      </div>
+    ),
+    [formArray, prefixCls, step, stepsProps],
   );
 
-  const onSubmit = () => {
+  const onSubmit = useRefFunction(() => {
     const from = formArrayRef.current[step];
     from.current?.submit();
-  };
+  });
 
   /** 上一页功能 */
   const prePage = useRefFunction(() => {
@@ -201,48 +210,60 @@ function StepsForm<T = Record<string, any>>(
     setStep(step - 1);
   });
 
-  const next = submitter !== false && (
-    <Button
-      key="next"
-      type="primary"
-      loading={loading}
-      {...submitter?.submitButtonProps}
-      onClick={() => {
-        submitter?.onSubmit?.();
-        onSubmit();
-      }}
-    >
-      {intl.getMessage('stepsForm.next', '下一步')}
-    </Button>
-  );
+  const next = useMemo(() => {
+    return (
+      submitter !== false && (
+        <Button
+          key="next"
+          type="primary"
+          loading={loading}
+          {...submitter?.submitButtonProps}
+          onClick={() => {
+            submitter?.onSubmit?.();
+            onSubmit();
+          }}
+        >
+          {intl.getMessage('stepsForm.next', '下一步')}
+        </Button>
+      )
+    );
+  }, [intl, loading, onSubmit, submitter]);
 
-  const pre = submitter !== false && (
-    <Button
-      key="pre"
-      {...submitter?.resetButtonProps}
-      onClick={() => {
-        prePage();
-        submitter?.onReset?.();
-      }}
-    >
-      {intl.getMessage('stepsForm.prev', '上一步')}
-    </Button>
-  );
+  const pre = useMemo(() => {
+    return (
+      submitter !== false && (
+        <Button
+          key="pre"
+          {...submitter?.resetButtonProps}
+          onClick={() => {
+            prePage();
+            submitter?.onReset?.();
+          }}
+        >
+          {intl.getMessage('stepsForm.prev', '上一步')}
+        </Button>
+      )
+    );
+  }, [intl, prePage, submitter]);
 
-  const submit = submitter !== false && (
-    <Button
-      key="submit"
-      type="primary"
-      loading={loading}
-      {...submitter?.submitButtonProps}
-      onClick={() => {
-        submitter?.onSubmit?.();
-        onSubmit();
-      }}
-    >
-      {intl.getMessage('stepsForm.submit', '提交')}
-    </Button>
-  );
+  const submit = useMemo(() => {
+    return (
+      submitter !== false && (
+        <Button
+          key="submit"
+          type="primary"
+          loading={loading}
+          {...submitter?.submitButtonProps}
+          onClick={() => {
+            submitter?.onSubmit?.();
+            onSubmit();
+          }}
+        >
+          {intl.getMessage('stepsForm.submit', '提交')}
+        </Button>
+      )
+    );
+  }, [intl, loading, onSubmit, submitter]);
 
   const getActionButton = useRefFunction(() => {
     const index = step || 0;
@@ -261,7 +282,6 @@ function StepsForm<T = Record<string, any>>(
   });
 
   const renderSubmitter = () => {
-    const submitterDom = getActionButton();
     if (submitter && submitter.render) {
       const submitterProps: any = {
         form: formArrayRef.current[step]?.current,
@@ -269,55 +289,62 @@ function StepsForm<T = Record<string, any>>(
         step,
         onPre: prePage,
       };
-      return submitter.render(submitterProps, submitterDom) as React.ReactNode;
+
+      return submitter.render(submitterProps, getActionButton()) as React.ReactNode;
     }
     if (submitter && submitter?.render === false) {
       return null;
     }
-    return submitterDom;
+    return getActionButton();
   };
 
-  const formDom = toArray(props.children).map((item, index) => {
-    const itemProps = item.props as StepFormProps;
-    const name = itemProps.name || `${index}`;
-    regForm(name, itemProps);
-    /** 是否是当前的表单 */
-    const isShow = step === index;
+  const formDom = useMemo(() => {
+    return toArray(props.children).map((item, index) => {
+      const itemProps = item.props as StepFormProps;
+      const name = itemProps.name || `${index}`;
+      regForm(name, itemProps);
+      /** 是否是当前的表单 */
+      const isShow = step === index;
 
-    const config = isShow
-      ? {
-          contentRender: stepFormRender,
-          submitter: false,
-        }
-      : {};
-    return (
-      <div
-        className={classNames(`${prefixCls}-step`, {
-          [`${prefixCls}-step-active`]: isShow,
-        })}
-        key={name}
-      >
-        {React.cloneElement(item, {
-          ...config,
-          ...formProps,
-          ...itemProps,
-          name,
-          step: index,
-          key: name,
-        })}
-      </div>
-    );
-  });
+      const config = isShow
+        ? {
+            contentRender: stepFormRender,
+            submitter: false,
+          }
+        : {};
+      return (
+        <div
+          className={classNames(`${prefixCls}-step`, {
+            [`${prefixCls}-step-active`]: isShow,
+          })}
+          key={name}
+        >
+          {React.cloneElement(item, {
+            ...config,
+            ...formProps,
+            ...itemProps,
+            name,
+            step: index,
+            key: name,
+          })}
+        </div>
+      );
+    });
+  }, [formProps, prefixCls, props.children, regForm, step, stepFormRender]);
 
-  const finalStepsDom = props.stepsRender
-    ? props.stepsRender(
-        formArray.map((item) => ({
-          key: item,
-          title: formMapRef.current.get(item)?.title,
-        })),
-        stepsDom,
-      )
-    : stepsDom;
+  const finalStepsDom = useMemo(
+    () =>
+      props.stepsRender
+        ? props.stepsRender(
+            formArray.map((item) => ({
+              key: item,
+              title: formMapRef.current.get(item)?.title,
+            })),
+            stepsDom,
+          )
+        : stepsDom,
+    [formArray, props, stepsDom],
+  );
 
   const submitterDom = renderSubmitter();
 
