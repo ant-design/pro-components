@@ -1,4 +1,11 @@
-import React, { useRef, useCallback, useEffect, useContext, useImperativeHandle } from 'react';
+import React, {
+  useRef,
+  useCallback,
+  useEffect,
+  useContext,
+  useImperativeHandle,
+  useMemo,
+} from 'react';
 import type { StepsProps, FormInstance } from 'antd';
 import { Form, Steps, ConfigProvider, Button, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
@@ -71,6 +78,7 @@ export const StepsFormProvide = React.createContext<
       formArrayRef: React.MutableRefObject<React.MutableRefObject<FormInstance<any> | undefined>[]>;
       loading: boolean;
       setLoading: (loading: boolean) => void;
+      lastStep: boolean;
       formMapRef: React.MutableRefObject<Map<string, StepFormProps>>;
       next: () => void;
     }
@@ -112,6 +120,8 @@ function StepsForm<T = Record<string, any>>(
     onChange: props.onCurrentChange,
   });
 
+  const lastStep = useMemo(() => step === formMapRef.current.size - 1, [step]);
+
   /** 注册一个form进入，方便进行 props 的修改 */
   const regForm = useCallback((name: string, childrenFormProps: StepFormProps) => {
     formMapRef.current.set(name, childrenFormProps);
@@ -143,25 +153,21 @@ function StepsForm<T = Record<string, any>>(
   const onFormFinish = useCallback(
     async (name: string, formData: any) => {
       formDataRef.current.set(name, formData);
-      // 如果是最后一步
-      if (step === formMapRef.current.size - 1 || formMapRef.current.size === 0) {
-        if (!onFinish) {
-          return;
+      // 如果不是最后一步
+      if (!lastStep || !onFinish) {
+        return;
+      }
+
+      setLoading(true);
+      const values: any = merge({}, ...Array.from(formDataRef.current.values()));
+      try {
+        const success = await onFinish(values);
+        if (success) {
+          setStep(0);
+          formArrayRef.current.forEach((form) => form.current?.resetFields());
         }
-        setLoading(true);
-        const values: any = merge({}, ...Array.from(formDataRef.current.values()));
-        try {
-          const success = await onFinish(values);
-          if (success) {
-            setStep(0);
-            formArrayRef.current.forEach((form) => form.current?.resetFields());
-          }
-        } catch (error) {
-          // eslint-disable-next-line no-console
-          console.log(error);
-        } finally {
-          setLoading(false);
-        }
+      } finally {
+        setLoading(false);
       }
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -326,6 +332,7 @@ function StepsForm<T = Record<string, any>>(
             next: nextPage,
             formArrayRef,
             formMapRef,
+            lastStep,
             unRegForm,
             onFormFinish,
           }}
