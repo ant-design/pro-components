@@ -160,6 +160,7 @@ class CellRenderFromItem<T> extends React.Component<
         type: 'table',
       },
       {
+        ...(columnProps.fieldProps as any),
         defaultRender: () => {
           return (
             <InlineErrorFormItem
