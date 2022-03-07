@@ -68,7 +68,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
     defaultActionDom: ReactNode[],
     count: number,
   ) => ReactNode[];
-  children: ReactNode | ChildrenItemFunction;
+  children?: ReactNode | ChildrenItemFunction;
   itemContainerRender?: (
     doms: ReactNode,
     listMeta: {
