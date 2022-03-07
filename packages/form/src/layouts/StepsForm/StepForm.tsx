@@ -61,7 +61,8 @@ function StepForm<T = Record<string, any>>({
           context?.setLoading(false);
           return;
         }
-        context?.next();
+
+        if (!context?.lastStep) context?.next();
       }}
       layout="vertical"
       {...restProps}
