@@ -9,6 +9,63 @@ group:
 
 # Change Log
 
+## @ant-design/pro-layout@6.34.0
+
+- feat(layout): mix support headerContent render. [d9bffe8](https://github.com/ant-design/pro-components/commit/d9bffe8)
+
+## @ant-design/pro-layout@6.32.10
+
+- fix(layout): change less loader to reference. [6f2f87d](https://github.com/ant-design/pro-components/commit/6f2f87d)
+
+## @ant-design/pro-layout@6.32.5
+
+- fix(layout): SettingDrawer omit url params. [4937fee](https://github.com/ant-design/pro-components/commit/4937fee)
+
+## @ant-design/pro-layout@6.32.3
+
+- fix(layout): PageContainer attr affixProps typing (#4416). [#4416](https://github.com/ant-design/pro-components/pull/#4416) [@sarufarr](https://github.com/sarufarr)
+- fix(layout): fix breadcrumbRender =false no work error. [efa9023](https://github.com/ant-design/pro-components/commit/efa9023)
+- fix(layout): remove default Copyright, fix#3841 (#4409). [#4409](https://github.com/ant-design/pro-components/pull/#4409) [@wangmeijian](https://github.com/wangmeijian)
+
+## @ant-design/pro-layout@6.32.2
+
+- fix(layout): breadcrumbRender is not working in PageContainer's header🐛[BUG] (#4385). [#4385](https://github.com/ant-design/pro-components/pull/#4385) [@2724635499](https://github.com/2724635499)
+
+## @ant-design/pro-layout@6.32.0-beta.2
+
+- fix(layout):should show tabs when tablist is an empty array (#4303). [#4303](https://github.com/ant-design/pro-components/pull/#4303) [@tonny008](https://github.com/tonny008)
+- fix(layout): alway has a Provide (#4261). [#4261](https://github.com/ant-design/pro-components/pull/#4261) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.32.0-beta.1
+
+- fix(layout): remove defaultLinks (#4228). [#4228](https://github.com/ant-design/pro-components/pull/#4228) [@wangmeijian](https://github.com/wangmeijian)
+- feat(layout): settingDrawer use new antd new function (#4042). [#4042](https://github.com/ant-design/pro-components/pull/#4042) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.31.1
+
+- fix(layout): no set topmenu font weight (#4097). [#4097](https://github.com/ant-design/pro-components/pull/#4097) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.30.1
+
+- fix(layout): fix style error. [973fa79](https://github.com/ant-design/pro-components/commit/973fa79)
+
+## @ant-design/pro-layout@6.30.0
+
+- fix(layout): support more token (#4066). [#4066](https://github.com/ant-design/pro-components/pull/#4066) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.28.1
+
+- fix(layout): fix splitMenus no work error. [a5e5856](https://github.com/ant-design/pro-components/commit/a5e5856)
+
+## @ant-design/pro-layout@6.28.0
+
+- fix(layout): Improve performance (#4020). [#4020](https://github.com/ant-design/pro-components/pull/#4020) [@chenshuai2144](https://github.com/chenshuai2144)
+- feat(layout): support remove default title (#4013). [#4013](https://github.com/ant-design/pro-components/pull/#4013) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-layout@6.27.2
+
+- 🐛 fix(layout): breadcrumb render judge error (#3921). [#3921](https://github.com/ant-design/pro-components/pull/#3921) [@DerrickTel](https://github.com/DerrickTel)
+
 ## @ant-design/pro-layout@6.26.5
 
 `2021-10-18`

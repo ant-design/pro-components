@@ -9,6 +9,26 @@ group:
 
 # Change Log
 
+## @ant-design/pro-list@1.21.22
+
+- fix(list): 修复 ProList 传入 grid 属性时不触发 onRow 内配置事件的问题 (#4558). [#4558](https://github.com/ant-design/pro-components/pull/#4558) [@kiner-tang](https://github.com/kiner-tang)
+
+## @ant-design/pro-list@1.21.20
+
+- fix(list): 修复卡片列表 hover 失效问题 (#4511). [#4511](https://github.com/ant-design/pro-components/pull/#4511) [@kiner-tang](https://github.com/kiner-tang)
+
+## @ant-design/pro-list@1.20.0
+
+- feat(list): support list.itemCardProps (#4061). [#4061](https://github.com/ant-design/pro-components/pull/#4061) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-list@1.18.0
+
+- feat(list): card list support rowSelection (#3949). [#3949](https://github.com/ant-design/pro-components/pull/#3949) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-list@1.17.7
+
+- fix(list): fix list style error (#3943). [#3943](https://github.com/ant-design/pro-components/pull/#3943) [@chenshuai2144](https://github.com/chenshuai2144)
+
 ## @ant-design/pro-list@1.16.2
 
 `2021-10-09`
