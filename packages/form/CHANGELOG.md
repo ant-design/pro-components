@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.56.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.55.3...@ant-design/pro-form@1.56.0) (2022-03-07)
+
+### Bug Fixes
+
+- **form:** improve ModalForm and DrawerForm performance ([#4773](https://github.com/ant-design/pro-components/issues/4773)) ([30be82e](https://github.com/ant-design/pro-components/commit/30be82ee8f19164135b999a264469ea8848af574))
+- **form:** 修复类型错误，使用 itemRender，children 应该是非必须 ([#4784](https://github.com/ant-design/pro-components/issues/4784)) ([8b7f847](https://github.com/ant-design/pro-components/commit/8b7f8475efe7412b713c07dad832d720dc2886de))
+- **form:** range props not working because of SliderSingleProps ([#4682](https://github.com/ant-design/pro-components/issues/4682)) ([c0206ed](https://github.com/ant-design/pro-components/commit/c0206ede0fc732071f8ec916ab1cbc4c646c28a5))
+
+### Features
+
+- **form:** add `name` prop to `itemRender` ([#4779](https://github.com/ant-design/pro-components/issues/4779)) ([41b1796](https://github.com/ant-design/pro-components/commit/41b1796f0c1fbffa85dcea1331a0c7c18357a194))
+
 ## [1.55.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.55.2...@ant-design/pro-form@1.55.3) (2022-03-04)
 
 **Note:** Version bump only for package @ant-design/pro-form
