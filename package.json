@@ -113,7 +113,6 @@
     "pify": "^5.0.0",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.0.1",
-    "pro-changelog": "^1.0.0",
     "progress-bar-webpack-plugin": "^2.1.0",
     "query-string": "^6.13.6",
     "rc-resize-observer": "^1.0.0",
