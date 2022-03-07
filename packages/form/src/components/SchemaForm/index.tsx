@@ -159,25 +159,19 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
   /**
    * Append layoutType component specific props
    */
-  const formProps = useMemo(() => {
-    const commonProps = {
-      onValuesChange,
-      ...rest,
-    };
-
+  const specificProps = useMemo(() => {
     if (layoutType === 'StepsForm') {
       return {
-        ...commonProps,
         forceUpdate: forceUpdate,
         columns: columns as ProFormColumnsType<T, ValueType>[][],
       };
     }
 
-    return commonProps;
-  }, [columns, layoutType, onValuesChange, rest]);
+    return {};
+  }, [columns, layoutType]);
 
   return (
-    <Form formRef={formRef} {...formProps}>
+    <Form formRef={formRef} onValuesChange={onValuesChange} {...specificProps} {...rest}>
       {formChildrenDoms}
     </Form>
   );
