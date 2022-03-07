@@ -9,6 +9,15 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.56.0
+
+`2022-03-07`
+
+- fix(form): range props not working because of SliderSingleProps (#4682). [#4682](https://github.com/ant-design/pro-components/pull/#4682) [@xXAvoraXx](https://github.com/xXAvoraXx)
+- fix(form): 修复类型错误，使用 itemRender，children 应该是非必须 (#4784). [#4784](https://github.com/ant-design/pro-components/pull/#4784) [@rawbin-](https://github.com/rawbin-)
+- fix(form): improve ModalForm and DrawerForm performance (#4773). [#4773](https://github.com/ant-design/pro-components/pull/#4773) [@1247748612](https://github.com/1247748612)
+- feat(form): add `name` prop to `itemRender` (#4779). [#4779](https://github.com/ant-design/pro-components/pull/#4779) [@zqran](https://github.com/zqran)
+
 ## @ant-design/pro-form@1.55.2
 
 `2022-03-04`
