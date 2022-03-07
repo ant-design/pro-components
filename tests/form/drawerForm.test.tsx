@@ -465,16 +465,7 @@ describe('DrawerForm', () => {
         initialValues={{
           name: '1234',
         }}
-        trigger={
-          <Button
-            id="new"
-            onClick={() => {
-              console.log('打开');
-            }}
-          >
-            新建
-          </Button>
-        }
+        trigger={<Button id="new">新建</Button>}
       >
         <ProFormText
           name="name"
