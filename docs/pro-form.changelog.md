@@ -171,7 +171,7 @@ group:
 `2022-01-05`
 
 - fix(form): 表单 submitter 增加自动换行属性 (#4406). [#4406](https://github.com/ant-design/pro-components/pull/#4406) [@kibuniverse](https://github.com/kibuniverse)
-- fix(form): support using prefixCls from ConfigProvider in <InlineErrorFormItem /> (#4403). [#4403](https://github.com/ant-design/pro-components/pull/#4403) [@yzwxk](https://github.com/yzwxk)
+- fix(form): support using prefixCls from ConfigProvider in InlineErrorFormItem (#4403). [#4403](https://github.com/ant-design/pro-components/pull/#4403) [@yzwxk](https://github.com/yzwxk)
 - fix(form): 🐛 repeat send request (#4400). [#4400](https://github.com/ant-design/pro-components/pull/#4400) [@1247748612](https://github.com/1247748612)
 - fix(form): render option failed while key is number 0. (#4389). [#4389](https://github.com/ant-design/pro-components/pull/#4389) [@AdoKevin](https://github.com/AdoKevin)
 - fix(form): DateRangePicker in LightFilter format is always set to YYYY-MM-DD (#4374). [#4374](https://github.com/ant-design/pro-components/pull/#4374) [@rojer95](https://github.com/rojer95)
