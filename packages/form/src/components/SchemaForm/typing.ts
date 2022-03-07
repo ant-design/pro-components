@@ -34,16 +34,25 @@ export type ExtraProColumnType = {
   name?: NamePath;
 };
 
-/** ProForm 支持的相关类型 */
-export type ProFormPropsType<T> =
-  | ({ layoutType?: 'Form' } & ProFormProps<T>)
-  | ({ layoutType: 'DrawerForm' } & DrawerFormProps<T>)
-  | ({ layoutType: 'ModalForm' } & ModalFormProps<T>)
-  | ({ layoutType: 'QueryFilter' } & QueryFilterProps<T>)
-  | ({ layoutType: 'LightFilter' } & LightFilterProps<T>)
-  | ({ layoutType: 'StepsForm' } & StepsFormProps<T>)
-  | ({ layoutType: 'StepForm' } & StepFormProps<T>)
-  | { layoutType: 'Embed' };
+/**
+ * ProForm 支持的相关类型
+ */
+export type ProFormPropsType<T, ValueType = ''> =
+  | ((
+      | ({ layoutType?: 'Form' } & ProFormProps<T>)
+      | ({ layoutType: 'DrawerForm' } & DrawerFormProps<T>)
+      | ({ layoutType: 'ModalForm' } & ModalFormProps<T>)
+      | ({ layoutType: 'QueryFilter' } & QueryFilterProps<T>)
+      | ({ layoutType: 'LightFilter' } & LightFilterProps<T>)
+      | ({ layoutType: 'StepForm' } & StepFormProps<T>)
+      | { layoutType: 'Embed' }
+    ) & {
+      columns: ProFormColumnsType<T, ValueType>[];
+    })
+  | ({
+      layoutType: 'StepsForm';
+      columns: ProFormColumnsType<T, ValueType>[][];
+    } & StepsFormProps<T>);
 
 /** ProForm 的特色 layout */
 export type ProFormLayoutType = ProFormPropsType<any>['layoutType'];
@@ -88,7 +97,6 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
       ) => React.ReactNode);
   description?: React.ReactNode;
   steps?: StepFormProps[];
-  columns: ProFormColumnsType<T, ValueType>[] | ProFormColumnsType<T, ValueType>[][];
   type?: any;
   action?: React.MutableRefObject<ProCoreActionType | undefined>;
   /**
@@ -97,7 +105,7 @@ export type FormSchema<T = Record<string, any>, ValueType = 'text'> = {
    */
   shouldUpdate?: boolean | ((newValues: T, oldValues?: T) => boolean);
 } & Omit<FormProps<T>, 'onFinish'> &
-  ProFormPropsType<T> &
+  ProFormPropsType<T, ValueType> &
   CommonFormProps<T>;
 
 export type ProFormRenderValueTypeItem<T = Record<string, any>, ValueType = 'text'> = {
@@ -109,9 +117,7 @@ export type ProFormRenderValueTypeItem<T = Record<string, any>, ValueType = 'tex
 export type ProFormRenderValueTypeHelpers<T = Record<string, any>, ValueType = 'text'> = {
   originItem: ProFormColumnsType<T, ValueType>;
   type: ProSchemaComponentTypes;
-  refMap: {
-    form: FormInstance<any> | undefined;
-  };
+  formRef: React.MutableRefObject<FormInstance<any> | undefined>;
   genItems: (items: ProFormColumnsType<T, ValueType>[]) => React.ReactNode[];
 } & Pick<FormSchema<T, ValueType>, 'action'>;
 
