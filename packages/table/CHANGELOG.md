@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.66.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.66.2...@ant-design/pro-table@2.66.3) (2022-03-07)
+
+### Bug Fixes
+
+- **table:** default close table auto focus first input ([a1fe1cb](https://github.com/ant-design/pro-components/commit/a1fe1cb73fbc5e545484acceac7733c0cc0cad57))
+
 ## [2.66.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.66.1...@ant-design/pro-table@2.66.2) (2022-03-07)
 
 **Note:** Version bump only for package @ant-design/pro-table

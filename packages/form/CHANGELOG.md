@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.56.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.56.0...@ant-design/pro-form@1.56.1) (2022-03-07)
+
+### Bug Fixes
+
+- **form:** FormList add no set key warning ([b677fef](https://github.com/ant-design/pro-components/commit/b677fef0f3b63448b1c29f0a167eef019b4522ed))
+- **form:** FormList min width=100% ([688b46f](https://github.com/ant-design/pro-components/commit/688b46fb783e0f2b49520cde5a94d96e1de4ed0e))
+
 # [1.56.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.55.3...@ant-design/pro-form@1.56.0) (2022-03-07)
 
 ### Bug Fixes
