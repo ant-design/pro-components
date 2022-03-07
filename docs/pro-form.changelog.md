@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.56.1
+
+`2022-03-07`
+
+- fix(form): FormList add no set key warning. [b677fef](https://github.com/ant-design/pro-components/commit/b677fef)
+- fix(form): FormList min width=100%. [688b46f](https://github.com/ant-design/pro-components/commit/688b46f)
+
 ## @ant-design/pro-form@1.56.0
 
 `2022-03-07`

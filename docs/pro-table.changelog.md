@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.66.3
+
+`2022-03-07`
+
+- fix(table): default close table auto focus first input. [a1fe1cb](https://github.com/ant-design/pro-components/commit/a1fe1cb)
+
 ## @ant-design/pro-table@2.66.0
 
 `2022-03-04`
