@@ -122,7 +122,7 @@ describe('ModalForm', () => {
     const wrapper = mount(
       <ModalForm
         width={600}
-        modalProps={{ destroyOnClose: true }}
+        modalProps={{ destroyOnClose: true, forceRender: false }}
         onVisibleChange={(visible) => fn(visible)}
       >
         <ProFormText
@@ -350,6 +350,7 @@ describe('ModalForm', () => {
         modalProps={{
           getContainer: false,
           destroyOnClose: true,
+          forceRender: false,
         }}
         initialValues={{
           name: '1234',

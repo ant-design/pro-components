@@ -33,6 +33,7 @@
     "ie >= 11"
   ],
   "dependencies": {
+    "lodash": "^4.17.21",
     "@ant-design/icons": "^4.2.1",
     "@ant-design/pro-field": "1.32.3",
     "@ant-design/pro-provider": "1.6.0",
