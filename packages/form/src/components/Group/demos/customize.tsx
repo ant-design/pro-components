@@ -69,7 +69,7 @@ const Demo = () => {
             }}
             {...stateValue}
           >
-            <ProForm.Group size={8}>
+            <ProForm.Group key="group" size={8}>
               <ProFormText name="name" label="姓名" />
               <ProFormText name="nickName" label="姓名" />
             </ProForm.Group>

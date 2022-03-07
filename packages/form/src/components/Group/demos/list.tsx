@@ -69,7 +69,7 @@ const Demo = () => {
             },
           ]}
         >
-          <ProFormGroup>
+          <ProFormGroup key="group">
             <ProFormText
               rules={[
                 {

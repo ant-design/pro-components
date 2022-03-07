@@ -173,6 +173,7 @@ const ProFormListItem: React.FC<
     count,
     ...rest
   } = props;
+
   const listContext = useContext(FormListContext);
   const [loadingRemove, setLoadingRemove] = useState(false);
   const [loadingCopy, setLoadingCopy] = useState(false);
@@ -184,10 +185,23 @@ const ProFormListItem: React.FC<
       }
       return childrenItem;
     })
-    .map((childrenItem) => {
+    .map((childrenItem, itemIndex) => {
       if (React.isValidElement(childrenItem)) {
+        const hasKey =
+          !!childrenItem.key ||
+          !!childrenItem?.props?.name ||
+          childrenItem?.type?.toString() === 'Symbol(react.fragment)';
+
+        noteOnce(
+          hasKey,
+          'ProFormList 的 children 不设置 key 可能导致更新不及时或者修改不生效的问题，请设置 key。',
+        );
+        noteOnce(
+          hasKey,
+          "ProFormList's children do not set the key may cause updates not to be timely or the modification does not take effect, please set the key.",
+        );
         return React.cloneElement(childrenItem, {
-          key: childrenItem.key || nanoid(),
+          key: childrenItem.key || childrenItem?.props?.name || itemIndex,
           ...childrenItem?.props,
         });
       }
@@ -290,6 +304,7 @@ const ProFormListItem: React.FC<
       {dom}
     </div>
   );
+
   return (
     <FormListContext.Provider
       key={field.name}
@@ -489,6 +504,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
           {(fields, action, meta) => {
             // 将 action 暴露给外部
             actionRefs.current = action;
+
             return (
               <>
                 <ProFormListContainer

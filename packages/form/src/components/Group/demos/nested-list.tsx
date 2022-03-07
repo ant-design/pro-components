@@ -49,7 +49,7 @@ const Demo = () => {
             tooltipText: '不需要这行了',
           }}
         >
-          <ProFormGroup>
+          <ProFormGroup key="group">
             <ProFormText name="value" label="值" />
             <ProFormText name="label" label="显示名称" />
           </ProFormGroup>

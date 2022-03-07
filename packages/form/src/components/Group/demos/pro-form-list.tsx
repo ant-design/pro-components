@@ -50,7 +50,7 @@ const Demo = () => {
           );
         }}
       >
-        <ProFormGroup>
+        <ProFormGroup key="group">
           <ProFormText name="name" label="姓名" />
           <ProFormText name="age" label="年龄" />
         </ProFormGroup>
