@@ -26,7 +26,7 @@ const FormLayoutType = {
 };
 
 const noop: any = () => {};
-const formInstanceNoop = {
+const formInstanceNoop: any = {
   getFieldValue: noop,
   getFieldsValue: noop,
   resetFields: noop,
