@@ -18,7 +18,7 @@ export type ProFormSliderProps = ProFormFieldItemProps<SliderSingleProps | Slide
  *
  * @param
  */
-const ProFormSlider: React.ForwardRefRenderFunction<any, ProFormSliderProps | SliderRangeProps> = (
+const ProFormSlider: React.ForwardRefRenderFunction<any, ProFormSliderProps> = (
   { fieldProps, min, max, step, marks, vertical, range },
   ref,
 ) => {
