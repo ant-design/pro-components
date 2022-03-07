@@ -74,8 +74,11 @@ const getMds = async (allVersion = false) => {
             console.log(versionPkg + '标签不存在');
           });
 
-        if (!tag.body && tag) {
+        if (tag) {
           release_id = tag.id;
+        }
+
+        if (!tag.body && tag) {
           github.rest.repos
             .updateRelease({
               owner: 'ant-design',
