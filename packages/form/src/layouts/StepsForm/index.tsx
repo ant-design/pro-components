@@ -115,7 +115,9 @@ function StepsForm<T = Record<string, any>>(
   const [loading, setLoading] = useState<boolean>(false);
   const intl = useIntl();
 
-  /** 受控的方式来操作表单 */
+  /**
+   * 受控的方式来操作表单
+   */
   const [step, setStep] = useMergedState<number>(0, {
     value: props.current,
     onChange: props.onCurrentChange,
@@ -281,7 +283,7 @@ function StepsForm<T = Record<string, any>>(
     setStep(step + 1);
   });
 
-  const renderSubmitter = () => {
+  const renderSubmitter = useCallback(() => {
     if (submitter && submitter.render) {
       const submitterProps: any = {
         form: formArrayRef.current[step]?.current,
@@ -296,7 +298,7 @@ function StepsForm<T = Record<string, any>>(
       return null;
     }
     return getActionButton();
-  };
+  }, [getActionButton, onSubmit, prePage, step, submitter]);
 
   const formDom = useMemo(() => {
     return toArray(props.children).map((item, index) => {
@@ -332,19 +334,18 @@ function StepsForm<T = Record<string, any>>(
     });
   }, [formProps, prefixCls, props.children, regForm, step, stepFormRender]);
 
-  const finalStepsDom = useMemo(
-    () =>
-      props.stepsRender
-        ? props.stepsRender(
-            formArray.map((item) => ({
-              key: item,
-              title: formMapRef.current.get(item)?.title,
-            })),
-            stepsDom,
-          )
-        : stepsDom,
-    [formArray, props, stepsDom],
-  );
+  const finalStepsDom = useMemo(() => {
+    if (stepsRender) {
+      return stepsRender(
+        formArray.map((item) => ({
+          key: item,
+          title: formMapRef.current.get(item)?.title,
+        })),
+        stepsDom,
+      );
+    }
+    return stepsDom;
+  }, [formArray, stepsDom, stepsRender]);
 
   const submitterDom = renderSubmitter();
 
