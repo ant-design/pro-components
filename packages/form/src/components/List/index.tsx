@@ -398,6 +398,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       style={{
         width: 'max-content',
         maxWidth: '100%',
+        minWidth: '100%',
       }}
     >
       {creatorButtonProps !== false && creatorButtonProps?.position === 'top' && creatorButton}

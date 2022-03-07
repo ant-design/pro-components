@@ -123,7 +123,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
               class="ant-form-item-control-input-content"
             >
               <div
-                style="max-width: 100%;"
+                style="max-width: 100%; min-width: 100%;"
               >
                 <div
                   class="ant-pro-form-list-item ant-pro-form-list-item-show-label"
@@ -889,7 +889,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            style="max-width: 100%;"
+                            style="max-width: 100%; min-width: 100%;"
                           >
                             <div
                               class="ant-pro-form-list-item"
@@ -1224,7 +1224,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            style="max-width: 100%;"
+                            style="max-width: 100%; min-width: 100%;"
                           >
                             <div
                               class="ant-pro-form-list-item"
@@ -7499,7 +7499,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/base
               class="ant-form-item-control-input-content"
             >
               <div
-                style="max-width: 100%;"
+                style="max-width: 100%; min-width: 100%;"
               >
                 <div
                   class="ant-pro-form-list-item"
@@ -7889,7 +7889,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/coun
               class="ant-form-item-control-input-content"
             >
               <div
-                style="max-width: 100%;"
+                style="max-width: 100%; min-width: 100%;"
               >
                 <div
                   class="ant-pro-form-list-item"
@@ -8120,7 +8120,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/cust
                         class="ant-form-item-control-input-content"
                       >
                         <div
-                          style="max-width: 100%;"
+                          style="max-width: 100%; min-width: 100%;"
                         >
                           <div
                             class="ant-pro-form-list-item"
@@ -9495,7 +9495,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/depe
               class="ant-form-item-control-input-content"
             >
               <div
-                style="max-width: 100%;"
+                style="max-width: 100%; min-width: 100%;"
               >
                 <div
                   class="ant-pro-form-list-item"
@@ -10222,7 +10222,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/list
               class="ant-form-item-control-input-content"
             >
               <div
-                style="max-width: 100%;"
+                style="max-width: 100%; min-width: 100%;"
               >
                 <div
                   class="ant-pro-form-list-item"
@@ -11029,7 +11029,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
               class="ant-form-item-control-input-content"
             >
               <div
-                style="max-width: 100%;"
+                style="max-width: 100%; min-width: 100%;"
               >
                 <div
                   class="ant-pro-card ant-pro-card-border"
@@ -11282,7 +11282,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/nest
                                 class="ant-form-item-control-input-content"
                               >
                                 <div
-                                  style="max-width: 100%;"
+                                  style="max-width: 100%; min-width: 100%;"
                                 >
                                   <div
                                     class="ant-pro-form-list-item"
@@ -11647,7 +11647,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/Group/demos/pro-
               class="ant-form-item-control-input-content"
             >
               <div
-                style="max-width: 100%;"
+                style="max-width: 100%; min-width: 100%;"
               >
                 <div
                   class="ant-pro-card ant-pro-card-border"
@@ -21980,7 +21980,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
               class="ant-form-item-control-input-content"
             >
               <div
-                style="max-width: 100%;"
+                style="max-width: 100%; min-width: 100%;"
               >
                 <div
                   class="ant-pro-form-list-item"
@@ -23260,7 +23260,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
                     class="ant-form-item-control-input-content"
                   >
                     <div
-                      style="max-width: 100%;"
+                      style="max-width: 100%; min-width: 100%;"
                     >
                       <div
                         class="ant-pro-form-list-item"
@@ -37246,7 +37246,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
               class="ant-form-item-control-input-content"
             >
               <div
-                style="max-width: 100%;"
+                style="max-width: 100%; min-width: 100%;"
               >
                 <div
                   class="ant-pro-card ant-pro-card-border"
@@ -37432,7 +37432,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/pro-form-dependency.d
                                 class="ant-form-item-control-input-content"
                               >
                                 <div
-                                  style="max-width: 100%;"
+                                  style="max-width: 100%; min-width: 100%;"
                                 >
                                   <div
                                     class="ant-pro-form-list-item"
