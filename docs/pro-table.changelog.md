@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.66.4
+
+`2022-03-08`
+
+- fix(table): InlineErrorFormItem render Popover to parentElement. [a766602](https://github.com/ant-design/pro-components/commit/a766602)
+- fix(table): fix no fieldProps injected error (#4787). [#4787](https://github.com/ant-design/pro-components/pull/#4787) [@1247748612](https://github.com/1247748612)
+
 ## @ant-design/pro-table@2.66.3
 
 `2022-03-07`

@@ -9,6 +9,13 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.57.0
+
+`2022-03-08`
+
+- feat(form): improve SchemaForm achieve (#4786). [#4786](https://github.com/ant-design/pro-components/pull/#4786) [@1247748612](https://github.com/1247748612)
+- fix(form): switching current on `onFinish` has no effect (#4790). [#4790](https://github.com/ant-design/pro-components/pull/#4790) [@1247748612](https://github.com/1247748612)
+
 ## @ant-design/pro-form@1.56.1
 
 `2022-03-07`
