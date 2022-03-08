@@ -111,7 +111,7 @@ export default () => {
                 dataIndex: valueType || 'text',
                 valueEnum: valueType === 'select' ? valueEnum : undefined,
                 fieldProps:
-                  valueType === 'select'
+                  valueType === 'treeSelect'
                     ? {
                         multiple: true,
                         options: [
