@@ -1,31 +1,37 @@
-﻿/* eslint-disable react/no-array-index-key */
-import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
-import type { FormInstance, FormProps } from 'antd';
-
+﻿import React, { useCallback, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { LabelIconTip, omitUndefined, useLatest, runFunction } from '@ant-design/pro-utils';
 import { renderValueType } from './valueType';
-import type { FormSchema, ProFormColumnsType, ProFormRenderValueTypeHelpers } from './typing';
 import omit from 'omit.js';
-import type { ProFormProps, StepsFormProps } from '../../layouts';
 import { DrawerForm } from '../../layouts/DrawerForm';
 import { QueryFilter } from '../../layouts/QueryFilter';
 import { LightFilter } from '../../layouts/LightFilter';
-import { StepsForm } from '../../layouts/StepsForm';
 import { ModalForm } from '../../layouts/ModalForm';
 import { ProForm } from '../../layouts/ProForm';
+import { StepsForm as ProStepsForm } from '../../layouts/StepsForm';
+import { StepsForm, Embed } from './layoutType';
+import type { FormInstance, FormProps } from 'antd';
+import type { FormSchema, ProFormColumnsType, ProFormRenderValueTypeHelpers } from './typing';
+import type { ProFormProps } from '../../layouts';
 
 export * from './typing';
 
-const FormComments = {
+const FormLayoutType = {
   DrawerForm,
   QueryFilter,
   LightFilter,
-  StepForm: StepsForm.StepForm,
-  StepsForm,
+  StepForm: ProStepsForm.StepForm,
+  StepsForm: StepsForm,
   ModalForm,
+  Embed,
 };
 
 const noop: any = () => {};
+const formInstanceNoop: any = {
+  getFieldValue: noop,
+  getFieldsValue: noop,
+  resetFields: noop,
+  setFieldsValue: noop,
+};
 
 /**
  * 此组件可以根据 Json Schema 来生成相应的表单,大部分配置与 antd 的 table 列配置相同
@@ -34,39 +40,22 @@ const noop: any = () => {};
  */
 
 function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) {
-  const { columns, layoutType = 'Form', steps = [], type = 'form', action, ...restProps } = props;
+  const { columns, layoutType = 'Form', type = 'form', action, ...restProps } = props;
 
-  const Form = (FormComments[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
+  const Form = (FormLayoutType[layoutType] || ProForm) as React.FC<ProFormProps<T>>;
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [_, forceUpdate] = useState<[]>([]);
-  const [columnsChange, forceUpdateColumns] = useState<[]>([]);
-
-  const propsRef = useLatest(props);
-
-  const formRef = useRef<FormInstance | undefined>(props.form);
-  const oldValuesRef = useRef<T>();
-
-  const refMap = useMemo(() => {
-    const obj = { form: formRef.current };
-    Object.defineProperty(obj, 'form', {
-      get: () =>
-        formRef.current ||
-        ({
-          getFieldValue: noop,
-          getFieldsValue: noop,
-          resetFields: noop,
-          setFieldsValue: noop,
-        } as any),
-    });
-    return obj;
-  }, []);
-
-  useImperativeHandle((restProps as ProFormProps<T>).formRef, () => refMap.form);
+  const [, forceUpdate] = useState<[]>([]);
+  const [formDomsDeps, updatedFormDoms] = useState<[]>([]);
 
   const rest = useMemo(() => {
     return omit(restProps, ['shouldUpdate', 'formRef'] as any);
   }, [restProps]);
+
+  const formRef = useRef<FormInstance | undefined>(props.form || formInstanceNoop);
+  const oldValuesRef = useRef<T>();
+  const propsRef = useLatest(props);
+
+  useImperativeHandle((restProps as ProFormProps<T>).formRef, () => formRef.current);
 
   /**
    * 生成子项，方便被 table 接入
@@ -77,10 +66,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     (items: ProFormColumnsType<T, ValueType>[]) => {
       return items
         .filter((originItem) => {
-          if (originItem.hideInForm && type === 'form') {
-            return false;
-          }
-          return true;
+          return !(originItem.hideInForm && type === 'form');
         })
         .sort((a, b) => {
           if (b.order || a.order) {
@@ -118,10 +104,10 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             dependencies: originItem.dependencies,
             proFieldProps: originItem.proFieldProps,
             getFieldProps: originItem.fieldProps
-              ? () => runFunction(originItem.fieldProps, refMap.form, originItem)
+              ? () => runFunction(originItem.fieldProps, formRef.current, originItem)
               : undefined,
             getFormItemProps: originItem.formItemProps
-              ? () => runFunction(originItem.formItemProps, refMap.form, originItem)
+              ? () => runFunction(originItem.formItemProps, formRef.current, originItem)
               : undefined,
             render: originItem.render,
             renderFormItem: originItem.renderFormItem,
@@ -136,7 +122,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             action,
             type,
             originItem,
-            refMap,
+            formRef,
             genItems,
           });
         })
@@ -144,45 +130,8 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
           return Boolean(field);
         });
     },
-    [action, props.dateFormatter, refMap, type],
+    [action, formRef, type],
   );
-
-  /**
-   * fixed StepsForm toggle step causing formRef to update
-   */
-  const onCurrentChange: StepsFormProps<T>['onCurrentChange'] = useCallback(
-    (current: number) => {
-      (propsRef.current as StepsFormProps<T>).onCurrentChange?.(current);
-      forceUpdate([]);
-    },
-    [propsRef],
-  );
-
-  const StepsFormDom = useMemo(() => {
-    if (layoutType !== 'StepsForm') {
-      return;
-    }
-    return (
-      <StepsForm formRef={formRef} {...rest} onCurrentChange={onCurrentChange}>
-        {steps?.map((item, index) => (
-          <BetaSchemaForm<T, ValueType>
-            {...(item as FormSchema<T, ValueType>)}
-            key={index}
-            layoutType="StepForm"
-            columns={columns[index] as ProFormColumnsType<T, ValueType>[]}
-          />
-        ))}
-      </StepsForm>
-    );
-  }, [columns, layoutType, onCurrentChange, rest, steps]);
-
-  const ItemsDom = useMemo(() => {
-    if (layoutType === 'StepsForm') {
-      return;
-    }
-    return genItems(columns as any);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [columns, genItems, layoutType, columnsChange]);
 
   const onValuesChange: FormProps<T>['onValuesChange'] = useCallback(
     (changedValues, values) => {
@@ -191,7 +140,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
         shouldUpdate === true ||
         (typeof shouldUpdate === 'function' && shouldUpdate(values, oldValuesRef.current))
       ) {
-        forceUpdateColumns([]);
+        updatedFormDoms([]);
       }
       oldValuesRef.current = values;
       propsOnValuesChange?.(changedValues, values);
@@ -199,14 +148,31 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
     [propsRef],
   );
 
-  /** 如果是StepsForm */
-  if (layoutType === 'StepsForm') return <>{StepsFormDom}</>;
-  /** 如果是行内模式 */
-  if (layoutType === 'Embed') return <>{ItemsDom}</>;
+  const formChildrenDoms = useMemo(() => {
+    // like StepsForm's columns but not only for StepsForm
+    if (columns.length && Array.isArray(columns[0])) return;
+
+    return genItems(columns as ProFormColumnsType<T, ValueType>[]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [columns, genItems, formDomsDeps]);
+
+  /**
+   * Append layoutType component specific props
+   */
+  const specificProps = useMemo(() => {
+    if (layoutType === 'StepsForm') {
+      return {
+        forceUpdate: forceUpdate,
+        columns: columns as ProFormColumnsType<T, ValueType>[][],
+      };
+    }
+
+    return {};
+  }, [columns, layoutType]);
 
   return (
-    <Form onValuesChange={onValuesChange} formRef={formRef} {...rest}>
-      {ItemsDom}
+    <Form formRef={formRef} onValuesChange={onValuesChange} {...specificProps} {...rest}>
+      {formChildrenDoms}
     </Form>
   );
 }

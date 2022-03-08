@@ -196,7 +196,7 @@ export default () => {
         onFinish={async (values) => {
           console.log(values);
         }}
-        columns={layoutType === 'StepsForm' ? [columns] : columns}
+        columns={(layoutType === 'StepsForm' ? [columns] : columns) as any}
       />
     </>
   );
