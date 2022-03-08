@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.57.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.56.1...@ant-design/pro-form@1.57.0) (2022-03-08)
+
+### Bug Fixes
+
+- **form:** switching current on `onFinish` has no effect ([#4790](https://github.com/ant-design/pro-components/issues/4790)) ([18db280](https://github.com/ant-design/pro-components/commit/18db28080eea705869d911a916c0cebfcc86375e))
+
+### Features
+
+- **form:** improve SchemaForm achieve ([#4786](https://github.com/ant-design/pro-components/issues/4786)) ([b6642d1](https://github.com/ant-design/pro-components/commit/b6642d12eb96b048651a4e4dcbea1dde2b9960ee))
+
 ## [1.56.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-form@1.56.0...@ant-design/pro-form@1.56.1) (2022-03-07)
 
 ### Bug Fixes
