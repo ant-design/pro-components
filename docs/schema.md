@@ -16,7 +16,7 @@ nav:
 | --- | --- | --- |
 | `key` | `React.key` | 确定这个列的唯一值,一般用于 dataIndex 重复的情况 |
 | `dataIndex` | `React.key` \| `React.key[]` | 与实体映射的 key，数组会被转化 `[a,b] => Entity.a.b` |
-| `valueType` | `ProFieldValueType` | 数据的渲渲染方式，我们自带了一部分，你可以可以自定义 valueType |
+| `valueType` | `ProFieldValueType` | 数据的渲渲染方式，我们自带了一部分，你也可以自定义 valueType |
 | `title` | `ReactNode` \|`(props,type,dom)=> ReactNode` | 标题的内容，在 form 中是 label |
 | `tooltip` | `string` | 会在 title 旁边展示一个 icon，鼠标浮动之后展示 |
 | `valueEnum` | `(Entity)=> ValueEnum` \| `ValueEnum` | 支持 object 和 Map，Map 是支持其他基础类型作为 key |
