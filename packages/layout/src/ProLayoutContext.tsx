@@ -276,6 +276,7 @@ export const getLayoutDesignToken: (
     ...finalDesignTokens,
     header: {
       ...menuToken,
+      headerBgColor: 'rgba(240, 242, 245, 0.4)',
       headerTitleColor: finalDesignTokens.headingColor,
       rightActionsItemTextColor: finalDesignTokens.textColorSecondary,
       rightActionsItemHoverBgColor: 'rgba(0, 0, 0, 0.03)',
