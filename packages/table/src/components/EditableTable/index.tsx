@@ -129,8 +129,15 @@ function EditableTable<
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, props.controlled]);
 
-  const { record, position, creatorButtonText, newRecordType, parentKey, ...restButtonProps } =
-    recordCreatorProps || {};
+  const {
+    record,
+    position,
+    creatorButtonText,
+    newRecordType,
+    parentKey,
+    style,
+    ...restButtonProps
+  } = recordCreatorProps || {};
   const isTop = position === 'top';
   const creatorButtonDom = useMemo(() => {
     if (maxLength && maxLength <= value?.length) {
@@ -146,12 +153,13 @@ function EditableTable<
         >
           <Button
             type="dashed"
+            icon={<PlusOutlined />}
             style={{
               display: 'block',
               margin: '10px 0',
               width: '100%',
+              ...style,
             }}
-            icon={<PlusOutlined />}
             {...restButtonProps}
           >
             {creatorButtonText || '添加一行数据'}
