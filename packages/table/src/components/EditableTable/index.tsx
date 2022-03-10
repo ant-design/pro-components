@@ -153,13 +153,13 @@ function EditableTable<
         >
           <Button
             type="dashed"
-            icon={<PlusOutlined />}
             style={{
               display: 'block',
               margin: '10px 0',
               width: '100%',
               ...style,
             }}
+            icon={<PlusOutlined />}
             {...restButtonProps}
           >
             {creatorButtonText || '添加一行数据'}
