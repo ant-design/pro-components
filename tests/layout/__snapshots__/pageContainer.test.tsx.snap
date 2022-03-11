@@ -93,7 +93,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-pro-footer-bar ant-design-pro-layout-mmeoki"
+    class="ant-pro-footer-bar ant-design-pro-layout-fj3pfe"
   >
     <div
       class="ant-pro-footer-bar-left ant-design-pro-layout-8fxooz"
@@ -323,10 +323,10 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-jtnvgi"
+        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-1288oym"
       >
         <div
-          class="ant-pro-top-nav-header light ant-design-pro-layout-b489cw"
+          class="ant-pro-top-nav-header light ant-design-pro-layout-1pa0pj2"
         >
           <div
             class="ant-pro-top-nav-header-main ant-design-pro-layout-17ldh9g"
@@ -501,7 +501,7 @@ exports[`PageContainer 🐲 FooterToolbar should know width 1`] = `
                 class="ant-pro-page-container-children-content ant-design-pro-layout-1df632t"
               >
                 <div
-                  class="ant-pro-footer-bar ant-design-pro-layout-mmeoki"
+                  class="ant-pro-footer-bar ant-design-pro-layout-fj3pfe"
                   style="width: 100%;"
                 >
                   <div
@@ -610,7 +610,7 @@ Array [
     class="ant-pro-page-container ant-pro-page-container-ghost ant-pro-page-container-with-footer"
   />,
   <div
-    class="ant-pro-footer-bar ant-design-pro-layout-mmeoki"
+    class="ant-pro-footer-bar ant-design-pro-layout-fj3pfe"
   >
     <div
       class="ant-pro-footer-bar-left ant-design-pro-layout-8fxooz"
@@ -647,10 +647,10 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
       style="position: relative;"
     >
       <header
-        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-jtnvgi"
+        class="ant-layout-header ant-pro-top-menu ant-pro-header ant-design-pro-layout-1288oym"
       >
         <div
-          class="ant-pro-top-nav-header light ant-design-pro-layout-b489cw"
+          class="ant-pro-top-nav-header light ant-design-pro-layout-1pa0pj2"
         >
           <div
             class="ant-pro-top-nav-header-main ant-design-pro-layout-17ldh9g"
@@ -832,7 +832,7 @@ exports[`PageContainer 🐲 footer should know width 1`] = `
           </div>
         </div>
         <div
-          class="ant-pro-footer-bar ant-design-pro-layout-mmeoki"
+          class="ant-pro-footer-bar ant-design-pro-layout-fj3pfe"
           style="width: 100%;"
         >
           <div
@@ -1165,7 +1165,7 @@ exports[`PageContainer 💄 config is null 1`] = `
 
 exports[`PageContainer 🔥 footer bar support extra 1`] = `
 <div
-  class="qixian_footer ant-pro-footer-bar ant-design-pro-layout-mmeoki"
+  class="qixian_footer ant-pro-footer-bar ant-design-pro-layout-fj3pfe"
 >
   <div
     class="ant-pro-footer-bar-left ant-design-pro-layout-8fxooz"
@@ -1189,7 +1189,7 @@ exports[`PageContainer 🔥 footer bar support extra 1`] = `
 
 exports[`PageContainer 🔥 footer bar support renderContent 1`] = `
 <div
-  class="qixian_footer ant-pro-footer-bar ant-design-pro-layout-mmeoki"
+  class="qixian_footer ant-pro-footer-bar ant-design-pro-layout-fj3pfe"
 >
   home_toolbar
 </div>
@@ -1242,7 +1242,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-pro-footer-bar ant-design-pro-layout-mmeoki"
+    class="ant-pro-footer-bar ant-design-pro-layout-fj3pfe"
   >
     <div
       class="ant-pro-footer-bar-left ant-design-pro-layout-8fxooz"

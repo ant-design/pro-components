@@ -23,11 +23,15 @@ const ProLayoutFixedHeaderCss = css`
 const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => css`
   z-index: 9;
   width: 100%;
-  background-color: transparent;
   padding: 0 8px;
   backdrop-filter: blur(20px) saturate(150%);
   border-bottom: 1px solid ${designToken.borderColorSplit};
   transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  background-color: ${designToken.layoutBgColor};
+  @supports (backdrop-filter: blur(20px) saturate(150%)) {
+    background-color: transparent;
+    backdrop-filter: blur(20px) saturate(150%);
+  }
 `;
 
 export type HeaderViewProps = GlobalHeaderProps & {

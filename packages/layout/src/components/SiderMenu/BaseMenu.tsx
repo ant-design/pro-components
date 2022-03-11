@@ -748,6 +748,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       _internalRenderSubMenuItem={(dom, _, stateProps) => {
         return React.cloneElement(dom, {
           ...dom.props,
+          originalTitle: undefined,
           className: cx(
             `${antPrefixClassName}-pro-menu-submenu`,
             stateProps?.selected && `${antPrefixClassName}-pro-menu-submenu-selected`,
@@ -764,12 +765,27 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           ),
         });
       }}
-      _internalRenderMenuItem={(dom, _, stateProps) => {
-        console.log(dom, _);
+      _internalRenderMenuItem={(dom, itemProps, stateProps) => {
         return (
-          <Tooltip title="todo ..." placement="right">
+          <Tooltip
+            visible={collapsed ? undefined : false}
+            title={
+              <div
+                className={css`
+                  color: rgba(255, 255, 255, 0.85);
+                  a {
+                    color: rgba(255, 255, 255, 0.85);
+                  }
+                `}
+              >
+                {itemProps.children}
+              </div>
+            }
+            placement="right"
+          >
             {React.cloneElement(dom, {
               ...dom.props,
+              originalTitle: undefined,
               className: cx(
                 `${antPrefixClassName}-pro-menu-item`,
                 stateProps?.selected && `${antPrefixClassName}-pro-menu-item-selected`,
