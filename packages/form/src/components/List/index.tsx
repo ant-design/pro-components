@@ -13,7 +13,6 @@ import { useEffect, useState } from 'react';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import './index.less';
 import { noteOnce } from 'rc-util/lib/warning';
-import type { StoreValue } from 'rc-field-form/es/interface';
 
 type IconConfig = {
   Icon?: React.FC<any>;
@@ -43,11 +42,11 @@ type ChildrenItemFunction = (
 
 type FormListActionGuard = {
   beforeAddRow?: (
-    defaultValue?: StoreValue,
-    insertIndex?: number,
-    count?: number,
+    ...params: [...Parameters<FormListOperation['add']>, number]
   ) => boolean | Promise<boolean>;
-  beforeRemoveRow?: (index: number | number[], count?: number) => boolean | Promise<boolean>;
+  beforeRemoveRow?: (
+    ...params: [...Parameters<FormListOperation['remove']>, number]
+  ) => boolean | Promise<boolean>;
 };
 
 export type ProFormListProps = Omit<FormListProps, 'children'> & {
