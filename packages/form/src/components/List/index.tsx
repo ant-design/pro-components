@@ -27,14 +27,6 @@ const FormListContext = React.createContext<
   | Record<string, any>
 >({});
 
-// type ChildrenFunction = (
-//   fields: FormListFieldData[],
-//   operation: FormListOperation,
-//   meta: {
-//     errors: React.ReactNode[];
-//   },
-// ) => React.ReactNode;
-
 type ChildrenItemFunction = (
   field: FormListFieldData,
   index: number,
@@ -175,8 +167,17 @@ const ProFormListItem: React.FC<
   } = props;
 
   const listContext = useContext(FormListContext);
+
+  const unmountedRef = useRef(false);
+
   const [loadingRemove, setLoadingRemove] = useState(false);
   const [loadingCopy, setLoadingCopy] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      unmountedRef.current = true;
+    };
+  }, []);
 
   const childrenArray = listToArray(children)
     .map((childrenItem) => {
@@ -256,13 +257,15 @@ const ProFormListItem: React.FC<
             onClick={async () => {
               setLoadingRemove(true);
               await action.remove(field.name);
-              setLoadingRemove(false);
+              if (!unmountedRef.current) {
+                setLoadingRemove(false);
+              }
             }}
           />
         </Spin>
       </Tooltip>
     );
-  }, [deleteIconProps, min, count, loadingRemove, prefixCls, action, field.name]);
+  }, [deleteIconProps, min, count, loadingRemove, prefixCls, setLoadingRemove, action, field.name]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
     () => [copyIcon, deleteIcon].filter(Boolean),
