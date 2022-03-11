@@ -121,7 +121,6 @@ const { Sider } = Layout;
 const CollapsedIcon: React.FC<any> = (props) => {
   const { isMobile, collapsed, ...rest } = props;
   const designToken = useContext(ProLayoutContext);
-  // @todo 全部收起的时候，。hover要全部展示
   return (
     <div
       {...rest}
