@@ -44,9 +44,6 @@ export type GlobalHeaderProps = {
       title?: React.ReactNode;
     }
   >;
-  headerContentRender?: WithFalse<
-    (props: HeaderViewProps, defaultDom: React.ReactNode) => React.ReactNode
-  >;
 } & Partial<PureSettings>;
 
 const renderLogo = (

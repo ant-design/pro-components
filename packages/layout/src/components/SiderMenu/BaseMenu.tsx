@@ -633,7 +633,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     menuDesignToken.menuItemSelectedBgColor,
     menuDesignToken.menuSelectedTextColor,
     menuDesignToken.menuTextColor,
-    menuDesignToken.menuTextColorSecondary,
     mode,
   ]);
 
