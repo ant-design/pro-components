@@ -594,14 +594,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           display: none;
         }
       `,
-      selectedSubItem: css`
-        .${antPrefixClassName}-menu-submenu-title{
-          color: ${menuDesignToken.menuSelectedTextColor};
-          .anticon {
-            color: ${menuDesignToken.menuTextColorSecondary};
-          }
-        }
-      `,
       openItem: css`
         .${antPrefixClassName}-menu-submenu-arrow {
           transform: rotate(0.75turn);
@@ -748,7 +740,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       _internalRenderSubMenuItem={(dom, _, stateProps) => {
         return React.cloneElement(dom, {
           ...dom.props,
-          originalTitle: undefined,
           className: cx(
             `${antPrefixClassName}-pro-menu-submenu`,
             stateProps?.selected && `${antPrefixClassName}-pro-menu-submenu-selected`,
@@ -760,8 +751,8 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             mode !== 'horizontal'
               ? menuItemCssMap.verticalSubItem
               : menuItemCssMap.horizontalSubMenuItem,
-            stateProps?.selected ? menuItemCssMap.selectedSubItem : null,
-            stateProps?.open && menuItemCssMap.openItem,
+            stateProps?.selected ? menuItemCssMap.selectedItem : null,
+            stateProps?.open ? menuItemCssMap.openItem : null,
           ),
         });
       }}

@@ -4131,7 +4131,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/AlwaysDefaultOpen
                   </span>
                 </li>
                 <li
-                  class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-8rrfu2"
+                  class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-17nyv2s"
                   role="none"
                 >
                   <div
@@ -4595,7 +4595,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/BreadcrumbsRepeat
                   </span>
                 </li>
                 <li
-                  class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-8rrfu2"
+                  class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-17nyv2s"
                   role="none"
                 >
                   <div
@@ -5008,7 +5008,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/DefaultOpenAllMen
                   </span>
                 </li>
                 <li
-                  class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-8rrfu2"
+                  class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-17nyv2s"
                   role="none"
                 >
                   <div
@@ -6442,7 +6442,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/MultipleMenuOnePa
                 tabindex="0"
               >
                 <li
-                  class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-8rrfu2"
+                  class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-17nyv2s"
                   role="none"
                 >
                   <div
@@ -8186,7 +8186,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
               tabindex="0"
             >
               <li
-                class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-8rrfu2"
+                class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-17nyv2s"
                 role="none"
               >
                 <div
@@ -8242,7 +8242,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/antd@4MenuIconFor
                   id="rc-menu-uuid-test-/8df8bfdcc1ac18663f1991991ea0a32839cd657dd0af0e3f34abb3f49ddc00aa-popup"
                 >
                   <li
-                    class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-8rrfu2"
+                    class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-17nyv2s"
                     role="none"
                   >
                     <div
@@ -9848,7 +9848,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/base.tsx correctl
                     </li>
                     <li
                       aria-hidden="true"
-                      class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-design-pro-layout-eu1gom"
+                      class="ant-menu-overflow-item ant-menu-overflow-item-rest ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-design-pro-layout-1xmkzvh"
                       role="none"
                       style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
                     >
@@ -23667,7 +23667,7 @@ exports[`layout demos 📸 renders ./packages/layout/src/demos/top-breadcrumb.ts
                   </span>
                 </li>
                 <li
-                  class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-8rrfu2"
+                  class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-pro-menu-submenu-open ant-design-pro-layout-17nyv2s"
                   role="none"
                 >
                   <div
