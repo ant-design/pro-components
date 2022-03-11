@@ -775,6 +775,10 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
                   color: rgba(255, 255, 255, 0.85);
                   a {
                     color: rgba(255, 255, 255, 0.85);
+
+                    .${antPrefixClassName}-pro-menu-item-title {
+                      display: inline-block;
+                    }
                   }
                 `}
               >

@@ -461,7 +461,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
       props?.menu?.hideMenuWhenCollapsed &&
       collapsed &&
       css`
-        left: -${collapsedWidth}px;
+        left: -${collapsedWidth - 12}px;
         position: absolute;
       `
     );
