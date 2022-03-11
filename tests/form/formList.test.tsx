@@ -766,12 +766,8 @@ describe('ProForm List', () => {
         <ProFormList
           actionGuard={{
             beforeRemoveRow: async (index) => {
-              return new Promise((resolve) => {
-                fnRemove(index);
-                setTimeout(() => {
-                  resolve(index === 0 ? false : true);
-                }, 300);
-              });
+              fnRemove(index);
+              return true;
             },
           }}
           name="users"
@@ -791,7 +787,7 @@ describe('ProForm List', () => {
       html.find('.action-remove').first().simulate('click');
     });
 
-    await waitForComponentToPaint(html, 400);
+    await waitForComponentToPaint(html, 100);
     expect(fnRemove).toBeCalledWith(0);
     expect(html.find('input.ant-input').length).toBe(0);
 
