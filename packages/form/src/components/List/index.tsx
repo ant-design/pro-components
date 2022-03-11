@@ -257,7 +257,7 @@ const ProFormListItem: React.FC<
             onClick={async () => {
               setLoadingRemove(true);
               await action.remove(field.name);
-              if (!unmountedRef) {
+              if (!unmountedRef.current) {
                 setLoadingRemove(false);
               }
             }}

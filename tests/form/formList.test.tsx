@@ -755,8 +755,6 @@ describe('ProForm List', () => {
       expect(fnRemove).toBeCalledWith(0);
       expect(html.find('input.ant-input').length).toBe(2);
     });
-
-    html.unmount();
   });
 
   it('⛲  ProForm.List warning after remove', async () => {
@@ -768,8 +766,12 @@ describe('ProForm List', () => {
         <ProFormList
           actionGuard={{
             beforeRemoveRow: async (index) => {
-              fnRemove(index);
-              return true;
+              return new Promise((resolve) => {
+                fnRemove(index);
+                setTimeout(() => {
+                  resolve(index === 0 ? false : true);
+                }, 300);
+              });
             },
           }}
           name="users"
@@ -789,7 +791,7 @@ describe('ProForm List', () => {
       html.find('.action-remove').first().simulate('click');
     });
 
-    await waitForComponentToPaint(html, 100);
+    await waitForComponentToPaint(html, 400);
     expect(fnRemove).toBeCalledWith(0);
     expect(html.find('input.ant-input').length).toBe(0);
 
