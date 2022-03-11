@@ -726,7 +726,7 @@ describe('ProForm List', () => {
 
     // 复制按钮
     await act(async () => {
-      html.find('.action-copy').at(0).simulate('click');
+      html.find('.action-copy').first().simulate('click');
       await waitForComponentToPaint(html, 1000);
       expect(fnAdd).toHaveBeenLastCalledWith('1111', 2);
       const input = html.find('input.ant-input');
@@ -736,8 +736,7 @@ describe('ProForm List', () => {
 
     // 删除按钮
     await act(async () => {
-      const remove = html.find('.action-remove');
-      remove.at(remove.length - 1).simulate('click');
+      html.find('.action-remove').last().simulate('click');
       await waitForComponentToPaint(html, 1000);
       expect(fnRemove).toBeCalledWith(2);
       expect(html.find('input.ant-input').length).toBe(2);
@@ -745,7 +744,7 @@ describe('ProForm List', () => {
 
     // 删除按钮不能删除的项目
     await act(async () => {
-      html.find('.action-remove').at(0).simulate('click');
+      html.find('.action-remove').first().simulate('click');
       await waitForComponentToPaint(html, 1000);
       expect(fnRemove).toBeCalledWith(0);
       expect(html.find('input.ant-input').length).toBe(2);
