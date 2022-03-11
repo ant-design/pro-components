@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.32.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.32.3...@ant-design/pro-field@1.32.4) (2022-03-08)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.32.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.32.2...@ant-design/pro-field@1.32.3) (2022-03-04)
+
+**Note:** Version bump only for package @ant-design/pro-field
+
+## [1.32.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.32.0...@ant-design/pro-field@1.32.2) (2022-03-04)
+
+### Bug Fixes
+
+- **form:** 🐛 Select search result label containing `#` do not display ([#4754](https://github.com/ant-design/pro-components/issues/4754)) ([69bf8d6](https://github.com/ant-design/pro-components/commit/69bf8d634337900022100a406c70303a316dbb1a))
+
 ## [1.32.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-field@1.32.0...@ant-design/pro-field@1.32.1) (2022-03-02)
 
 **Note:** Version bump only for package @ant-design/pro-field

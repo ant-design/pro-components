@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.66.4](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.66.3...@ant-design/pro-table@2.66.4) (2022-03-08)
+
+### Bug Fixes
+
+- **table:** fix no fieldProps injected error ([#4787](https://github.com/ant-design/pro-components/issues/4787)) ([c4e835d](https://github.com/ant-design/pro-components/commit/c4e835dd60e56a5ca0ee2399f03c7c0c1c63e971))
+
+## [2.66.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.66.2...@ant-design/pro-table@2.66.3) (2022-03-07)
+
+### Bug Fixes
+
+- **table:** default close table auto focus first input ([a1fe1cb](https://github.com/ant-design/pro-components/commit/a1fe1cb73fbc5e545484acceac7733c0cc0cad57))
+
+## [2.66.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.66.1...@ant-design/pro-table@2.66.2) (2022-03-07)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+## [2.66.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.66.0...@ant-design/pro-table@2.66.1) (2022-03-04)
+
+**Note:** Version bump only for package @ant-design/pro-table
+
+# [2.66.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.64.1...@ant-design/pro-table@2.66.0) (2022-03-04)
+
+### Bug Fixes
+
+- **table:** fix DragSortTable render is cache error ([d5c716a](https://github.com/ant-design/pro-components/commit/d5c716a640cb517ac5ada6cfb6525e87e72b0f70))
+- **table:** ProTable 默认表头可滚动，表格滚动在 antd 中 ([#4729](https://github.com/ant-design/pro-components/issues/4729)) ([8629397](https://github.com/ant-design/pro-components/commit/8629397fb3de0d6148c40eeedddae97dca2cf0e0))
+- **Table:** preserve columnState when deselecting ([#4761](https://github.com/ant-design/pro-components/issues/4761)) ([4398a1b](https://github.com/ant-design/pro-components/commit/4398a1bcad33664eedfc240a6c79a010bcd89c84))
+
+### Features
+
+- **table:** support antd Table extra column ([#9604](https://github.com/ant-design/pro-components/issues/9604)) ([#4704](https://github.com/ant-design/pro-components/issues/4704)) ([8a7426e](https://github.com/ant-design/pro-components/commit/8a7426e177cb62a4786e4f5d734ba13d4d64eada))
+- **table:** support ErrorBoundary ([#4738](https://github.com/ant-design/pro-components/issues/4738)) ([66f815e](https://github.com/ant-design/pro-components/commit/66f815ef13a0a7e42ee7f2376740634bce1bf513))
+
 # [2.65.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.64.1...@ant-design/pro-table@2.65.0) (2022-03-02)
 
 ### Bug Fixes

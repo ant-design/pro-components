@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.34.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.0...@ant-design/pro-layout@6.34.1) (2022-03-08)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+# [6.34.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.33.0...@ant-design/pro-layout@6.34.0) (2022-03-04)
+
+### Bug Fixes
+
+- fix test error ([dcf76eb](https://github.com/ant-design/pro-components/commit/dcf76eb470192e65e9ac1381babdc25d6d917b21))
+- **PageContainer:** fix the logic of `WaterMark` props ([#4733](https://github.com/ant-design/pro-components/issues/4733)) ([b47446e](https://github.com/ant-design/pro-components/commit/b47446e475df95a89a42222ab1d82ac2559f454a))
+
+### Features
+
+- **layout:** mix support headerContent render ([d9bffe8](https://github.com/ant-design/pro-components/commit/d9bffe8075696640f3cf8c4b250d6906a08313e9))
+
 ## [6.33.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.33.0...@ant-design/pro-layout@6.33.1) (2022-03-02)
 
 ### Bug Fixes

@@ -10,7 +10,6 @@ import type {
   ProFieldRequestData,
 } from '@ant-design/pro-utils';
 import { pickProProps, omitUndefined } from '@ant-design/pro-utils';
-
 import ConfigContext, { useIntl } from '@ant-design/pro-provider';
 import FieldPercent from './components/Percent';
 import FieldIndexColumn from './components/IndexColumn';

@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.10.52](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.51...@ant-design/pro-descriptions@1.10.52) (2022-03-08)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.51](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.50...@ant-design/pro-descriptions@1.10.51) (2022-03-07)
+
+### Bug Fixes
+
+- **form:** FormList add no set key warning ([b677fef](https://github.com/ant-design/pro-components/commit/b677fef0f3b63448b1c29f0a167eef019b4522ed))
+
+## [1.10.50](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.49...@ant-design/pro-descriptions@1.10.50) (2022-03-07)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.49](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.48...@ant-design/pro-descriptions@1.10.49) (2022-03-04)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
+## [1.10.48](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.46...@ant-design/pro-descriptions@1.10.48) (2022-03-04)
+
+**Note:** Version bump only for package @ant-design/pro-descriptions
+
 ## [1.10.47](https://github.com/ant-design/pro-components/compare/@ant-design/pro-descriptions@1.10.46...@ant-design/pro-descriptions@1.10.47) (2022-03-02)
 
 **Note:** Version bump only for package @ant-design/pro-descriptions

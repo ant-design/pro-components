@@ -6,7 +6,7 @@ import omit from 'omit.js';
 
 export const field: ProSchemaRenderValueTypeFunction = (
   item,
-  { action, refMap, type, originItem },
+  { action, formRef, type, originItem },
 ) => {
   /** 公用的 类型 props */
   const formFieldProps: Omit<ProFormFieldProps, 'fieldProps' | 'formItemProps'> = {
@@ -28,7 +28,7 @@ export const field: ProSchemaRenderValueTypeFunction = (
     return <ProFormField {...formFieldProps} ignoreFormItem={true} />;
   };
 
-  const renderFormItem: any = item?.renderFormItem
+  const renderFormItem = item?.renderFormItem
     ? (_: any, config: any) => {
         const renderConfig = omitUndefined({ ...config, onChange: undefined });
         return item?.renderFormItem?.(
@@ -44,23 +44,14 @@ export const field: ProSchemaRenderValueTypeFunction = (
             defaultRender,
             type,
           },
-          refMap.form!,
+          formRef.current!,
         );
       }
     : undefined;
 
   if (item?.renderFormItem) {
     const dom = renderFormItem?.(null, {});
-    if (dom) {
-      return (
-        <ProFormField
-          {...formFieldProps}
-          key={`${item.key}-${item.index}`}
-          renderFormItem={renderFormItem}
-        />
-      );
-    }
-    return dom;
+    if (!dom) return dom;
   }
 
   return (

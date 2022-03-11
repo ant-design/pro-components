@@ -188,9 +188,9 @@ const TopNavHeader: React.FC<TopNavHeaderProps> = (props) => {
     rightContentRender,
     className: propsClassName,
     style,
+    headerContentRender,
     layout,
     actionsRender,
-    headerContentRender,
   } = props;
   const designToken = useContext(ProLayoutContext);
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
