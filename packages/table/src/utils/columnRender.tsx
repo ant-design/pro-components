@@ -146,8 +146,6 @@ export function columnRender<T>({
       return (
         <OptionsCell record={rowData} form={editableForm}>
           {(inform) => {
-            console.log('inform: ', inform);
-
             return editableUtils.actionRender(
               {
                 ...rowData,
