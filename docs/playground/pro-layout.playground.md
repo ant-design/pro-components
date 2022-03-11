@@ -15,4 +15,4 @@ group:
 
 ## 水印自定义
 
-<code src="../../packages/layout/src/components/WaterMark/demos/custom.tsx" background="#f0f2f5"/>
+<code src="../../packages/layout/src/components/WaterMark/demos/custom.tsx" background="#f7f8fa"/>

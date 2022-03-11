@@ -23,7 +23,7 @@ const ProLayoutFixedHeaderCss = css`
 const getProLayoutHeaderCss = (designToken: LayoutDesignToken) => css`
   z-index: 9;
   width: 100%;
-  background-color: ${designToken.header.headerBgColor};
+  background-color: transparent;
   padding: 0 8px;
   backdrop-filter: blur(20px) saturate(150%);
   border-bottom: 1px solid ${designToken.borderColorSplit};
@@ -89,7 +89,7 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
         &-item {
           padding: 0 8px;
           &:hover {
-            color: ${designToken.textColor};
+            color: ${designToken.colorText};
           }
         }
       }

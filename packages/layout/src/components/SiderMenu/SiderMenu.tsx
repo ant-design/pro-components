@@ -106,7 +106,7 @@ export const siderTitleViewCss = (designToken: LayoutDesignToken) => css`
   h1 {
     display: inline-block;
     height: 22px;
-    margin: 0 0 0 12px;
+    margin: 0 0 0 6px;
     color: ${designToken.sider.menuTitleTextColor};
     font-weight: 600;
     font-size: 16px;
@@ -121,26 +121,31 @@ const { Sider } = Layout;
 const CollapsedIcon: React.FC<any> = (props) => {
   const { isMobile, collapsed, ...rest } = props;
   const designToken = useContext(ProLayoutContext);
+  // @todo 全部收起的时候，。hover要全部展示
   return (
     <div
       {...rest}
       className={cx(
         props.className,
         defaultIconCss(designToken),
-        css({
-          boxShadow:
-            '0 4px 16px -4px rgba(0,0,0,0.05), 0 2px 8px -2px rgba(25,15,15,0.07), 0 1px 2px 0 rgba(0,0,0,0.08)',
-        }),
+        css(`
+          box-shadow: 0 2px 8px -2px rgba(0,0,0,0.05), 0 1px 4px -1px rgba(25,15,15,0.07), 0 0 1px 0 rgba(0,0,0,0.08);
+          &:hover {
+            box-shadow: 0 4px 16px -4px rgba(0,0,0,0.05), 0 2px 8px -2px rgba(25,15,15,0.07), 0 1px 2px 0 rgba(0,0,0,0.08);
+          }
+        `),
         !isMobile &&
-          css({
-            transform: !collapsed ? 'rotate(90deg)' : 'rotate(-90deg)',
-          }),
+          css(`
+        > svg {
+          transform: ${!collapsed ? 'rotate(90deg)' : 'rotate(-90deg)'};
+        }
+          `),
         isMobile &&
-          css({
-            right: collapsed ? '-18px' : '-12px',
-            top: '72px',
-            transform: collapsed ? 'rotate(-90deg) translate(8px, 0px);' : 'rotate(90deg) ',
-          }),
+          css(`  > svg {
+            right: ${collapsed ? '-18px' : '-12px'};
+            top: 72px;
+            transform: ${collapsed ? 'rotate(-90deg) translate(8px, 0px)' : 'rotate(90deg)'};
+          `),
       )}
     >
       <ArrowSvgIcon />
@@ -348,7 +353,7 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
           className={cx([
             `${baseClassName}-actions-list`,
             css`
-              color: ${designToken.sider.menuTextColor};
+              color: ${designToken.sider.menuTextColorSecondary};
               animation: ${proLayoutTitleHide} 0.3s;
             `,
             collapsed &&
@@ -559,8 +564,9 @@ const SiderMenu: React.FC<SiderMenuProps & PrivateSiderMenuProps> = (props) => {
             `${baseClassName}-footer`,
             collapsed && `${baseClassName}-footer-collapsed`,
             css`
-              color: ${designToken.sider.menuTextColorSecondary};
+              color: ${designToken.colorTextDisable};
               animation: ${proLayoutTitleHide} 0.35s;
+              padding-bottom: 16px;
             `,
             collapsed &&
               css`

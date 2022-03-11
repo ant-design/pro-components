@@ -39,7 +39,7 @@ const BlockCheckbox: React.FC<BlockCheckboxProps> = ({
               height: 36px;
               margin-right: 16px;
               overflow: hidden;
-              background-color: #f0f2f5;
+              background-color: #f7f8fa;
               border-radius: 4px;
               box-shadow: 0 1px 2.5px 0 rgba(0, 0, 0, 0.18);
               cursor: pointer;

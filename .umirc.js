@@ -125,6 +125,11 @@ export default {
   theme: {
     '@s-site-menu-width': '258px',
     '@root-entry-name': 'variable',
+    '@border-radius-base': '4px',
+    '@primary-color': '#1677FF',
+    // '@error-color': '#ff4d4',
+    // '@info-color': '#52c41a',
+    // '@warning-color': '#faad14',
   },
   extraBabelPlugins: ['@emotion'],
   ignoreMomentLocale: true,
@@ -211,7 +216,8 @@ export default {
       },
     ],
   },
-  ssr: undefined,
+  ssr: isDeploy ? {} : undefined,
   webpack5: {},
+  exportStatic: {},
   mfsu: !isDeploy ? {} : undefined,
 };

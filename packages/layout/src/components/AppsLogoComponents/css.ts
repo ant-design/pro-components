@@ -45,7 +45,7 @@ export const getAppContentLisItem = (designToken: LayoutDesignToken) => css`
     }
     & > div {
       margin-left: 14px;
-      color: ${designToken.headingColor};
+      color: ${designToken.colorHeading};
       font-size: 14px;
       line-height: 22px;
       white-space: nowrap;
@@ -53,7 +53,7 @@ export const getAppContentLisItem = (designToken: LayoutDesignToken) => css`
     }
 
     & > div > span {
-      color: ${designToken.textColorSecondary};
+      color: ${designToken.colorTextSecondary};
       font-size: 12px;
       line-height: 20px;
     }

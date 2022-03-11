@@ -444,7 +444,7 @@ Token 是一种设计系统的基本元素，可以使用 Token 快速的修改�
 
 | token                     | 说明                            | 默认值                |
 | ------------------------- | ------------------------------- | --------------------- |
-| layoutBgColor             | layout 的背景颜色               | `#f0f2f5`             |
+| layoutBgColor             | layout 的背景颜色               | `#f7f8fa`             |
 | appListIconTextColor      | 跨站点应用的图标颜色            | `#666`                |
 | appListIconHoverTextColor | 跨站点应用的图标 hover 颜色     | `rgba(0, 0, 0, 0.65)` |
 | appListIconHoverTextColor | 跨站点应用的图标 hover 背景颜色 | `rgba(0, 0, 0, 0.04)` |

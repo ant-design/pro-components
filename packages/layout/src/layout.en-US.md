@@ -425,7 +425,7 @@ The default token part comes from antd and may be changed, but here's the layout
 
 | token | Description | The default value is |
 | --- | --- | --- |
-| layoutBgColor | Layout background color | `#f0f2f5` |
+| layoutBgColor | Layout background color | `#f7f8fa` |
 | appListIconTextColor | The icon color applied across sites is | `#666` |
 | appListIconHoverTextColor | Icons applied across sites hover color | `rgba(0, 0, 0, 0.65)` |
 | appListIconHoverTextColor | Icons for cross-site apps hover background color | `rgba(0, 0, 0, 0.04)` |

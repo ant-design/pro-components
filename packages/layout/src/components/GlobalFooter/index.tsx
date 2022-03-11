@@ -51,13 +51,13 @@ const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalF
             css`
               margin-bottom: 8px;
               a {
-                color: ${designToken.textColorSecondary};
+                color: ${designToken.colorTextSecondary};
                 transition: all 0.3s;
                 &:not(:last-child) {
                   margin-right: 40px;
                 }
                 &:hover {
-                  color: ${designToken.textColor};
+                  color: ${designToken.colorText};
                 }
               }
             `,
@@ -82,7 +82,7 @@ const GlobalFooter = ({ className, prefixCls, links, copyright, style }: GlobalF
             `${baseClassName}-copyright`,
             css`
               font-size: 14px;
-              color: ${designToken.textColorSecondary};
+              color: ${designToken.colorTextSecondary};
             `,
           )}
         >

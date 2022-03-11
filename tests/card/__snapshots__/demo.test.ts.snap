@@ -967,7 +967,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
 exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/group.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    style="padding: 24px; background-color: rgb(240, 242, 245);"
+    style="padding: 24px; background-color: rgb(247, 248, 250);"
   >
     <div
       class="ant-pro-checkcard-group"
@@ -1817,7 +1817,7 @@ exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/
 exports[`card demos 📸 renders ./packages/card/src/components/CheckCard/demos/list.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    style="padding: 24px; background-color: rgb(240, 242, 245);"
+    style="padding: 24px; background-color: rgb(247, 248, 250);"
   >
     <div
       class="ant-pro-checkcard-group"

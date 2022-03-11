@@ -122,7 +122,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
             h1 {
               height: 32px;
               margin: 0 0 0 8px;
-              color: ${designToken.headingColor};
+              color: ${designToken.colorHeading};
               font-weight: 600;
               font-size: 18px;
               line-height: 32px;
@@ -201,7 +201,7 @@ const GlobalHeader: React.FC<GlobalHeaderProps & PrivateSiderMenuProps> = (props
                   h1 {
                     height: 32px;
                     margin: 0 0 0 8px;
-                    color: ${designToken.headingColor};
+                    color: ${designToken.colorHeading};
                     font-weight: 600;
                     font-size: 18px;
                     line-height: 32px;

@@ -98,7 +98,7 @@ const FooterToolbar: React.FC<FooterToolbarProps> = (props) => {
           padding: 0 24px;
           line-height: 64px;
           background-color: ${designToken.layoutBgColor};
-          border-top: 1px solid ${designToken.borderColorBase};
+          border-top: 1px solid ${designToken.borderColorSplit};
           transition: width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
           @supports (backdrop-filter: blur(20px) saturate(150%)) {
             background-color: rgba(240, 242, 245, 0.4);

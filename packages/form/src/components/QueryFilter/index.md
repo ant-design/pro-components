@@ -28,7 +28,7 @@ nav:
 
 ### 查询筛选-搜索
 
-<code src="./demos/search-filter.tsx" background="#f0f2f5" height="274px" title="查询筛选-搜索" />
+<code src="./demos/search-filter.tsx" background="#f7f8fa" height="274px" title="查询筛选-搜索" />
 
 ### 轻量筛选
 

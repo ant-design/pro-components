@@ -25,7 +25,7 @@ QueryFilter and LightFilter solve the problem of using the form with other compo
 
 ### query-filter-search
 
-<code src="./demos/search-filter.tsx" background="#f0f2f5" height="274px"/>
+<code src="./demos/search-filter.tsx" background="#f7f8fa" height="274px"/>
 
 ### Lightweight filtering
 

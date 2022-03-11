@@ -41,7 +41,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                   style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-fd1sqo"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-1hs9yxk"
                   >
                     <span
                       aria-label="check"
@@ -156,7 +156,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                   style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-q4zenb"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1t3ehi9"
                   >
                     <span
                       aria-label="check"
@@ -180,7 +180,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-9zfwmz"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1hy2hgu"
                   >
                     <span
                       aria-label="check"
@@ -204,7 +204,7 @@ exports[`settingDrawer.test 🌺 base user 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1g6trkn"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1h0229g"
                   >
                     <span
                       aria-label="check"
@@ -744,7 +744,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                   style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-fd1sqo"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-1hs9yxk"
                   >
                     <span
                       aria-label="check"
@@ -786,7 +786,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                   style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-q4zenb"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1t3ehi9"
                   >
                     <span
                       aria-label="check"
@@ -810,7 +810,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-9zfwmz"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1hy2hgu"
                   >
                     <span
                       aria-label="check"
@@ -834,7 +834,7 @@ exports[`settingDrawer.test 🌺 hideColors = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1g6trkn"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1h0229g"
                   >
                     <span
                       aria-label="check"
@@ -1374,7 +1374,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                   style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-fd1sqo"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-1hs9yxk"
                   >
                     <span
                       aria-label="check"
@@ -1489,7 +1489,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                   style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-q4zenb"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1t3ehi9"
                   >
                     <span
                       aria-label="check"
@@ -1513,7 +1513,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-9zfwmz"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1hy2hgu"
                   >
                     <span
                       aria-label="check"
@@ -1537,7 +1537,7 @@ exports[`settingDrawer.test 🌺 hideCopyButton = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1g6trkn"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1h0229g"
                   >
                     <span
                       aria-label="check"
@@ -2049,7 +2049,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                   style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-fd1sqo"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-1hs9yxk"
                   >
                     <span
                       aria-label="check"
@@ -2164,7 +2164,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                   style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-q4zenb"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1t3ehi9"
                   >
                     <span
                       aria-label="check"
@@ -2188,7 +2188,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-9zfwmz"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1hy2hgu"
                   >
                     <span
                       aria-label="check"
@@ -2212,7 +2212,7 @@ exports[`settingDrawer.test 🌺 hideHintAlert = true 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1g6trkn"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1h0229g"
                   >
                     <span
                       aria-label="check"
@@ -2717,7 +2717,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                   style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-fd1sqo"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-light ant-pro-setting-drawer-block-checkbox-theme-item ant-design-pro-layout-1hs9yxk"
                   >
                     <span
                       aria-label="check"
@@ -2832,7 +2832,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                   style="display:flex;min-height:42px"
                 >
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-q4zenb"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-side ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1t3ehi9"
                   >
                     <span
                       aria-label="check"
@@ -2856,7 +2856,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-9zfwmz"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-top ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1hy2hgu"
                   >
                     <span
                       aria-label="check"
@@ -2880,7 +2880,7 @@ exports[`settingDrawer.test 🌺 settings = undefined 1`] = `
                     </span>
                   </div>
                   <div
-                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1g6trkn"
+                    class="ant-pro-setting-drawer-block-checkbox-item ant-pro-setting-drawer-block-checkbox-item-mix ant-pro-setting-drawer-block-checkbox-layout-item ant-design-pro-layout-1h0229g"
                   >
                     <span
                       aria-label="check"

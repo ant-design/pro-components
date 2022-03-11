@@ -1,5 +1,5 @@
 import Icon, { createFromIconfontCN } from '@ant-design/icons';
-import { Menu, Skeleton, ConfigProvider } from 'antd';
+import { Menu, Skeleton, ConfigProvider, Tooltip } from 'antd';
 import React, { useEffect, useState, useRef, useMemo, useContext } from 'react';
 import { isUrl, isImg, useMountMergeState } from '@ant-design/pro-utils';
 
@@ -75,7 +75,7 @@ const MenuDivider: React.FC<{
       key={index}
       className={`${prefixCls}-menu-item-divider`}
       style={{
-        padding: collapsed ? '4px' : '16px 0px',
+        padding: collapsed ? '4px' : '16px 16px',
       }}
     >
       <Menu.Divider
@@ -462,6 +462,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       ? menuDesignToken.menuItemHoverBgColor
       : menuDesignToken.menuItemCollapsedHoverBgColor;
 
+    // 顶部 选中之后要有背景色，文件颜色也要变深
     const itemSelectedColor = !collapsed
       ? menuDesignToken.menuItemSelectedBgColor
       : menuDesignToken.menuItemCollapsedSelectedBgColor;
@@ -620,7 +621,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           align-items: center;
         }
         .${antPrefixClassName}-menu-submenu-title:hover {
-          color:${designToken.textColor};
+          color:${designToken.colorText};
           background-color: ${itemHoverColor};
           border-radius: ${designToken.borderRadiusBase};
         }
@@ -633,7 +634,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     antPrefixClassName,
     collapsed,
     designToken.borderRadiusBase,
-    designToken.textColor,
+    designToken.colorText,
     menuDesignToken.menuItemCollapsedHoverBgColor,
     menuDesignToken.menuItemCollapsedSelectedBgColor,
     menuDesignToken.menuItemHoverBgColor,
@@ -665,7 +666,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
     }
 
     .${antPrefixClassName}-menu-root {
-      padding: 6px;
+      padding: 8px;
     }
 
     .${antPrefixClassName}-menu-sub {
@@ -764,24 +765,29 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         });
       }}
       _internalRenderMenuItem={(dom, _, stateProps) => {
-        return React.cloneElement(dom, {
-          ...dom.props,
-          className: cx(
-            `${antPrefixClassName}-pro-menu-item`,
-            stateProps?.selected && `${antPrefixClassName}-pro-menu-item-selected`,
-            // 展开的样式
-            menuItemCssMap.menuItem,
-            // 收起的样式
-            collapsed && menuItemCssMap.collapsedItem,
-            /**
-             * 收起时展示 title
-             */
-            collapsed && menu?.collapsedShowTitle && menuItemCssMap.collapsedItemShowTitle,
-            // 顶部菜单和水平菜单需要不同的 css
-            mode !== 'horizontal' ? menuItemCssMap.verticalItem : menuItemCssMap.horizontalItem,
-            stateProps?.selected ? menuItemCssMap.selectedItem : null,
-          ),
-        });
+        console.log(dom, _);
+        return (
+          <Tooltip title="todo ..." placement="right">
+            {React.cloneElement(dom, {
+              ...dom.props,
+              className: cx(
+                `${antPrefixClassName}-pro-menu-item`,
+                stateProps?.selected && `${antPrefixClassName}-pro-menu-item-selected`,
+                // 展开的样式
+                menuItemCssMap.menuItem,
+                // 收起的样式
+                collapsed && menuItemCssMap.collapsedItem,
+                /**
+                 * 收起时展示 title
+                 */
+                collapsed && menu?.collapsedShowTitle && menuItemCssMap.collapsedItemShowTitle,
+                // 顶部菜单和水平菜单需要不同的 css
+                mode !== 'horizontal' ? menuItemCssMap.verticalItem : menuItemCssMap.horizontalItem,
+                stateProps?.selected ? menuItemCssMap.selectedItem : null,
+              ),
+            })}
+          </Tooltip>
+        );
       }}
       onOpenChange={setOpenKeys}
       _internalDisableMenuItemTitleTooltip={true}

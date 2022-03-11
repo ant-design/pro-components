@@ -578,8 +578,8 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                 flex-direction: column;
                 width: 100%;
                 min-height: 100%;
-                background-color: ${designToken.layoutBgColor};
-                . ${antdPrefixCls}-layout {
+                background-color: transparent;
+                .${antdPrefixCls}-layout {
                   background: transparent;
                 }
               `,
@@ -596,6 +596,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
                   z-index: 0;
                   height: 100%;
                   width: 100%;
+                  background: ${designToken.layoutBg};
                 `}
               >
                 {bgImgStyleList}

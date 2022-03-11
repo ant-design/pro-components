@@ -30,15 +30,19 @@ export type BaseDesignToken = {
   /**
    * 正文色
    */
-  textColor: string;
+  colorText: string;
   /**
    * 次级色
    */
-  textColorSecondary: string;
+  colorTextSecondary: string;
+  /**
+   * 禁用的颜色
+   */
+  colorTextDisable: string;
   /**
    * 标题色
    */
-  headingColor: string;
+  colorHeading: string;
 
   /**
    * 边框基本色
@@ -90,15 +94,20 @@ export const baseDesignTokens: BaseDesignToken = {
   /**
    * 正文色
    */
-  textColor: 'rgba(0, 0, 0, 0.65)',
+  colorText: 'rgba(0, 0, 0, 0.65)',
   /**
    * 标题色
    */
-  headingColor: 'rgba(0, 0, 0, 0.85)',
+  colorHeading: 'rgba(0, 0, 0, 0.85)',
   /**
    * 次级色
    */
-  textColorSecondary: 'rgba(0, 0, 0, 0.45)',
+  colorTextSecondary: 'rgba(0, 0, 0, 0.45)',
+
+  /**
+   * 禁用的文本颜色
+   */
+  colorTextDisable: 'rgba(0, 0, 0, 0.25)',
 
   /**
    * 边框基本色
@@ -159,6 +168,10 @@ type BaseLayoutDesignToken = {
    * layout 的背景颜色
    */
   layoutBgColor: string;
+  /**
+   * layout 的背景
+   */
+  layoutBg: string;
   /**
    * 跨站点应用的图标颜色
    */
@@ -259,26 +272,27 @@ export const getLayoutDesignToken: (
 ) => LayoutDesignToken = (designTokens) => {
   const finalDesignTokens = { ...baseDesignTokens, ...designTokens };
   const menuToken = {
-    menuTextColor: finalDesignTokens.textColor,
-    menuTextColorSecondary: finalDesignTokens.textColorSecondary,
-    menuSelectedTextColor: 'rgb(0,0,0)',
+    menuTextColor: finalDesignTokens.colorText,
+    menuTextColorSecondary: finalDesignTokens.colorTextSecondary,
+    menuSelectedTextColor: 'rgb(0,0,0,0.85)',
     menuItemHoverBgColor: 'rgba(90, 75, 75, 0.03)',
     menuItemSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
-    menuItemCollapsedHoverBgColor: 'rgba(0, 145, 255, 0.1)',
-    menuItemCollapsedSelectedBgColor: 'rgba(0, 145, 255, 0.08)',
+    menuItemCollapsedHoverBgColor: 'rgba(90, 75, 75, 0.03)',
+    menuItemCollapsedSelectedBgColor: 'rgba(0, 0, 0, 0.04)',
   };
   return {
     ...designTokens,
-    layoutBgColor: '#f0f2f5',
+    layoutBgColor: '#f7f8fa',
+    layoutBg: 'linear-gradient(#fff, #f7f8fa 28%)',
     appListIconTextColor: '#666',
-    appListIconHoverTextColor: finalDesignTokens.textColor,
+    appListIconHoverTextColor: finalDesignTokens.colorText,
     appListIconHoverBgColor: menuToken.menuItemSelectedBgColor,
     ...finalDesignTokens,
     header: {
       ...menuToken,
       headerBgColor: 'rgba(240, 242, 245, 0.4)',
-      headerTitleColor: finalDesignTokens.headingColor,
-      rightActionsItemTextColor: finalDesignTokens.textColorSecondary,
+      headerTitleColor: finalDesignTokens.colorHeading,
+      rightActionsItemTextColor: finalDesignTokens.colorTextSecondary,
       rightActionsItemHoverBgColor: 'rgba(0, 0, 0, 0.03)',
       ...finalDesignTokens.header,
     },
@@ -286,7 +300,7 @@ export const getLayoutDesignToken: (
       ...menuToken,
       menuBackgroundColor: 'transparent',
       menuItemDividerColor: finalDesignTokens.borderColorSplit,
-      menuTitleTextColor: finalDesignTokens.headingColor,
+      menuTitleTextColor: finalDesignTokens.colorHeading,
       menuSubArrowColor: 'rgba(0, 0, 0, 0.25)',
       collapsedButtonTextColor: menuToken?.menuTextColorSecondary,
       collapsedButtonHoverTextColor: menuToken?.menuTextColor,
@@ -296,7 +310,7 @@ export const getLayoutDesignToken: (
     pageContainer: {
       pageContainerBgColor: 'transparent',
       pageContainerFixedBgColor: '#fff',
-      pageContainerContentMargin: '24px 24px 0',
+      pageContainerContentMargin: '0px 40px 0px 40px',
       ...finalDesignTokens.pageContainer,
     },
   } as LayoutDesignToken;

@@ -32357,7 +32357,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/labelInValue.tsx corr
 exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx correctly 1`] = `
 <DocumentFragment>
   <div
-    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-hixu3c"
+    class="ant-design-pro ant-pro-basicLayout screen-md ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-mix ant-design-pro-layout-1a98z39"
   >
     <section
       class="ant-layout ant-layout-has-sider"
@@ -32377,14 +32377,14 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             style="flex: 1; overflow-y: auto; overflow-x: hidden;"
           >
             <ul
-              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-1bq3y2v ant-menu-inline-collapsed"
+              class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-pro-sider-menu ant-design-pro-layout-130rg7b ant-menu-inline-collapsed"
               data-menu-list="true"
               role="menu"
               style="width: 100%;"
               tabindex="0"
             >
               <li
-                class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-design-pro-layout-6ewq21"
+                class="ant-pro-menu-submenu ant-pro-menu-submenu-selected ant-design-pro-layout-kks18a"
                 role="none"
               >
                 <div
@@ -32441,7 +32441,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             />
           </div>
           <div
-            class="ant-pro-sider-collapsed-button ant-design-pro-layout-u0m9km"
+            class="ant-pro-sider-collapsed-button ant-design-pro-layout-tjz3ly"
           >
             <svg
               aria-hidden="true"
@@ -32466,7 +32466,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
           style="height: 56px; line-height: 56px; background: transparent;"
         />
         <header
-          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-6eqk8q"
+          class="ant-layout-header ant-pro-fixed-header ant-pro-header ant-design-pro-layout-3xkzjg"
         >
           <div
             class="ant-pro-global-header ant-pro-global-header-layout-mix ant-design-pro-layout-1n57u1k"
@@ -32618,7 +32618,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
             class="ant-pro-page-container ant-pro-page-container-ghost"
           >
             <div
-              class="ant-pro-page-container-warp ant-design-pro-layout-e2nh6s"
+              class="ant-pro-page-container-warp ant-design-pro-layout-1wi90fl"
             >
               <div
                 class="ant-page-header has-breadcrumb ant-page-header-ghost"
@@ -32676,13 +32676,13 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
               </div>
             </div>
             <div
-              class="ant-pro-grid-content ant-design-pro-layout-18ckwwo"
+              class="ant-pro-grid-content ant-design-pro-layout-1jhi6fd"
             >
               <div
                 class="ant-pro-grid-content-children"
               >
                 <div
-                  class="ant-pro-page-container-children-content ant-design-pro-layout-en409b"
+                  class="ant-pro-page-container-children-content ant-design-pro-layout-1df632t"
                 >
                   <div
                     class="ant-card ant-card-bordered"
@@ -33993,7 +33993,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/layout-base.tsx corre
                           </div>
                         </div>
                         <div
-                          class="ant-pro-footer-bar ant-design-pro-layout-70pyg"
+                          class="ant-pro-footer-bar ant-design-pro-layout-mmeoki"
                           style="width: calc(100% - 60px);"
                         >
                           <div

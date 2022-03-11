@@ -315,6 +315,13 @@ const ProPageHeader: React.FC<PageContainerProps & { prefixedClassName: string }
           .${antdPrefixCls}-tabs-nav {
             margin: 0;
           }
+          .${antdPrefixCls}-page-header{
+            padding-left: 40px;
+            padding-right: 40px;
+          }
+          .${antdPrefixCls}-page-header-heading-extra > * {
+            margin-left: 8px;
+          }
         `,
       )}
     >

@@ -41,7 +41,7 @@ nav:
 
 这里给出一些通用配置项。如需进一步配置请联系我们。
 
-<code src="./demos/custom.tsx" background="#f0f2f5"/>
+<code src="./demos/custom.tsx" background="#f7f8fa"/>
 
 ## API
 

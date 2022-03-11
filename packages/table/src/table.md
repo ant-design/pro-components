@@ -168,7 +168,7 @@ renderFormItem: (_, { type, defaultRender, formItemProps, fieldProps, ...rest },
 
 有些业务有自己的定制逻辑，可以不完全遵循 ProTable 的设计规则，但可以利用 ProTable 的 API 实现。如通过 `cardProps` 配置卡片属性，通过 `headTitle` 配置行动点在左侧。
 
-<code src="./demos/card-title.tsx" background="#f0f2f5" title="卡片表格" desc="使用卡片标题，行动点在左侧。" />
+<code src="./demos/card-title.tsx" background="#f7f8fa" title="卡片表格" desc="使用卡片标题，行动点在左侧。" />
 
 ### 国际化相关的配置
 
@@ -508,15 +508,15 @@ Form 的列是根据 `valueType` 来生成不同的类型,详细的值类型请�
 
 #### 代码演示
 
-<code src="./demos/ListToolBar/basic.tsx" background="#f0f2f5" title="列表工具栏-基本使用" />
+<code src="./demos/ListToolBar/basic.tsx" background="#f7f8fa" title="列表工具栏-基本使用" />
 
-<code src="./demos/ListToolBar/no-title.tsx" background="#f0f2f5" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。" />
+<code src="./demos/ListToolBar/no-title.tsx" background="#f7f8fa" title="无标题" desc="列表工具栏-没有标题的情况下搜索框会前置。" />
 
-<code src="./demos/ListToolBar/multipleLine.tsx" background="#f0f2f5" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。" />
+<code src="./demos/ListToolBar/multipleLine.tsx" background="#f7f8fa" title="双行布局" desc="列表工具栏-双行的情况下会有双行的布局形式。" />
 
-<code src="./demos/ListToolBar/tabs.tsx" background="#f0f2f5"  title="带标签" desc="列表工具栏-标签需配合 `multipleLine` 为 `true` 时使用。" />
+<code src="./demos/ListToolBar/tabs.tsx" background="#f7f8fa"  title="带标签" desc="列表工具栏-标签需配合 `multipleLine` 为 `true` 时使用。" />
 
-<code src="./demos/ListToolBar/menu.tsx" background="#f0f2f5" title="列表工具栏-标题下拉菜单"/>
+<code src="./demos/ListToolBar/menu.tsx" background="#f7f8fa" title="列表工具栏-标题下拉菜单"/>
 
 #### ListToolBarProps
 

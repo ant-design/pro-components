@@ -17,6 +17,7 @@ export type PureSettings = {
   headerTheme?: MenuTheme;
   /** @name nav menu position: `side` or `top` */
   headerHeight?: number;
+  //@todo 增加一个新的layout
   /** @name customize header height */
   layout?: 'side' | 'top' | 'mix';
   /** @name layout of content: `Fluid` or `Fixed`, only works when layout is top */
