@@ -128,7 +128,7 @@ export default () => {
       title: '操作',
       valueType: 'option',
       width: 200,
-      render: (text, record) => [
+      render: (text, record, _t, action) => [
         <a
           key="delete"
           onClick={() => {
@@ -136,6 +136,25 @@ export default () => {
           }}
         >
           删除
+        </a>,
+        <a
+          key="add"
+          onClick={() => {
+            const recordKey = (Math.random() * 1000000).toFixed(0);
+            action?.addEditRecord(
+              {
+                id: recordKey,
+              },
+              {
+                position: 'bottom',
+                newRecordType: 'dataSource',
+                recordKey,
+                parentKey: record.id,
+              },
+            );
+          }}
+        >
+          添加子项
         </a>,
       ],
     },

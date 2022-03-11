@@ -207,10 +207,28 @@ function editableRowByKey<RecordType>(
   const fill = (map: Map<string, RecordType & { map_row_parentKey?: string }>) => {
     const kvArrayMap = new Map<string, RecordType[]>();
     const kvSource: RecordType[] = [];
+    function getRowValue(value: RecordType): RecordType {
+      // @ts-ignore
+      const { map_row_key, ...rest } = value;
+      if (kvArrayMap.has(map_row_key)) {
+        const item = {
+          ...rest,
+          [childrenColumnName]: kvArrayMap.get(map_row_key)?.map((kv) => getRowValue(kv)),
+        };
+        // @ts-ignore
+        return item as RecordType;
+      } else {
+        return rest as RecordType;
+      }
+    }
+
     map.forEach((value) => {
       if (value.map_row_parentKey) {
-        // @ts-ignore
-        const { map_row_parentKey, map_row_key, ...reset } = value;
+        const { map_row_parentKey, ...reset } = value;
+        const {
+          // @ts-ignore
+          map_row_key,
+        } = reset;
         if (kvArrayMap.has(map_row_key)) {
           reset[childrenColumnName] = kvArrayMap.get(map_row_key);
         }
@@ -220,19 +238,11 @@ function editableRowByKey<RecordType>(
         ]);
       }
     });
+
     map.forEach((value) => {
       if (!value.map_row_parentKey) {
-        // @ts-ignore
-        const { map_row_key, ...rest } = value;
-        if (kvArrayMap.has(map_row_key)) {
-          const item = {
-            ...rest,
-            [childrenColumnName]: kvArrayMap.get(map_row_key),
-          };
-          kvSource.push(item as RecordType);
-          return;
-        }
-        kvSource.push(rest as RecordType);
+        let rowValue = getRowValue(value);
+        kvSource.push(rowValue as RecordType);
       }
     });
     return kvSource;
@@ -640,6 +650,7 @@ function useEditableArray<RecordType>(
         getRowKey: props.getRowKey,
         row: {
           ...row,
+          map_row_key: recordKey,
           map_row_parentKey: options?.parentKey
             ? recordKeyToString(options?.parentKey)?.toString()
             : undefined,
