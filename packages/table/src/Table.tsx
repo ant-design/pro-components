@@ -802,23 +802,17 @@ const ProviderWarp = <
   props: ProTableProps<DataType, Params, ValueType>,
 ) => {
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
-  const ErrorComponent = props.ErrorBoundary || ErrorBoundary;
+  const ErrorComponent =
+    props.ErrorBoundary === false ? React.Fragment : props.ErrorBoundary || ErrorBoundary;
   return (
     <Container.Provider initialState={props}>
       <ConfigProviderWrap>
-        {props.ErrorBoundary === false ? (
+        <ErrorComponent>
           <ProTable<DataType, Params, ValueType>
             defaultClassName={getPrefixCls('pro-table')}
             {...props}
           />
-        ) : (
-          <ErrorComponent>
-            <ProTable<DataType, Params, ValueType>
-              defaultClassName={getPrefixCls('pro-table')}
-              {...props}
-            />
-          </ErrorComponent>
-        )}
+        </ErrorComponent>
       </ConfigProviderWrap>
     </Container.Provider>
   );
