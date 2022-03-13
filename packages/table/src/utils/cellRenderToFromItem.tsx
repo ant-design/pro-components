@@ -47,7 +47,7 @@ type RenderToFromItemProps<T> = {
 
 const CellRenderFromItem = <T,>(props: any) => {
   /**
-   * memo cannot use generic type, so wrap it
+   * memo cannot use generics type, so wrap it
    */
   const Component = useMemo(
     () =>
