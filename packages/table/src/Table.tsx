@@ -237,9 +237,11 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
             dateFormatter={props.dateFormatter}
             contentRender={(items: React.ReactNode) => {
               if (counter.editableForm) return items;
+              if (props.loading === false) return;
+              const loadingProps = props.loading === true ? {} : props.loading;
               return (
                 <div style={{ paddingTop: 100, textAlign: 'center' }}>
-                  <Spin size="large" />
+                  <Spin size="large" {...loadingProps} />
                 </div>
               );
             }}
@@ -258,7 +260,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       </>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [alertDom, !!props.editable, tableDom, toolbarDom]);
+  }, [alertDom, props.loading, !!props.editable, tableDom, toolbarDom]);
 
   /** Table 区域的 dom，为了方便 render */
   const tableAreaDom =
