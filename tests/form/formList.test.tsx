@@ -686,12 +686,10 @@ describe('ProForm List', () => {
             beforeAddRow: async (defaultValue, insertIndex) => {
               return new Promise((resolve) => {
                 fnAdd(defaultValue?.name, insertIndex);
-                console.log(defaultValue?.name, insertIndex);
                 setTimeout(() => resolve(true), 1000);
               });
             },
             beforeRemoveRow: async (index) => {
-              console.log('--->', index);
               fnRemove(index);
               return new Promise((resolve) => {
                 if (index === 0) {
@@ -717,41 +715,37 @@ describe('ProForm List', () => {
 
     await waitForComponentToPaint(html);
     expect(html.find('input.ant-input').length).toBe(1);
+
     // 新增按钮
     await act(async () => {
       html.find('.ant-btn.ant-pro-form-list-creator-button-bottom').simulate('click');
-      await waitTime(1200);
-      await waitForComponentToPaint(html);
-      expect(fnAdd).toBeCalledWith(undefined, 1);
+      await waitForComponentToPaint(html, 1000);
+      expect(fnAdd).toHaveBeenLastCalledWith(undefined, 1);
       expect(html.find('input.ant-input').length).toBe(2);
     });
+
     // 复制按钮
     await act(async () => {
-      html.find('.action-copy').at(0).simulate('click');
-      await waitTime(1200);
-      await waitForComponentToPaint(html);
-      expect(fnAdd).toBeCalledWith('1111', undefined);
-      expect(html.find('input.ant-input').length).toBe(3);
-      expect((html.find('input.ant-input').at(2).getDOMNode() as HTMLInputElement).value).toBe(
-        '1111',
-      );
+      html.find('.action-copy').first().simulate('click');
+      await waitForComponentToPaint(html, 1000);
+      expect(fnAdd).toHaveBeenLastCalledWith('1111', 2);
+      const input = html.find('input.ant-input');
+      expect(input.length).toBe(3);
+      expect((input.at(2).getDOMNode() as HTMLInputElement).value).toBe('1111');
     });
+
     // 删除按钮
     await act(async () => {
-      html
-        .find('.action-remove')
-        .at(html.find('.action-remove').length - 1)
-        .simulate('click');
-      await waitTime(1200);
-      await waitForComponentToPaint(html);
+      html.find('.action-remove').last().simulate('click');
+      await waitForComponentToPaint(html, 1000);
       expect(fnRemove).toBeCalledWith(2);
       expect(html.find('input.ant-input').length).toBe(2);
     });
+
     // 删除按钮不能删除的项目
     await act(async () => {
-      html.find('.action-remove').at(0).simulate('click');
-      await waitTime(1200);
-      await waitForComponentToPaint(html);
+      html.find('.action-remove').first().simulate('click');
+      await waitForComponentToPaint(html, 1000);
       expect(fnRemove).toBeCalledWith(0);
       expect(html.find('input.ant-input').length).toBe(2);
     });
