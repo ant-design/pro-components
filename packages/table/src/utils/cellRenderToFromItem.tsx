@@ -174,6 +174,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
 
             return <InlineItem>{renderDom}</InlineItem>;
           }, [
+            key,
             InlineItem,
             columnProps,
             counter?.editableForm,
