@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.35.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.35.2...@ant-design/pro-utils@1.35.3) (2022-03-08)
+
+### Bug Fixes
+
+- **table:** InlineErrorFormItem render Popover to parentElement ([a766602](https://github.com/ant-design/pro-components/commit/a7666022ce164a654b6354fa77092a8b2578d00b))
+
 ## [1.35.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.35.0...@ant-design/pro-utils@1.35.2) (2022-03-04)
 
 ### Bug Fixes

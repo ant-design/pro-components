@@ -756,6 +756,52 @@ describe('ProForm List', () => {
       expect(html.find('input.ant-input').length).toBe(2);
     });
   });
+
+  it('⛲  ProForm.List warning after remove', async () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const fnRemove = jest.fn();
+    const html = mount(
+      <ProForm>
+        <ProFormList
+          actionGuard={{
+            beforeRemoveRow: async (index) => {
+              fnRemove(index);
+              return true;
+            },
+          }}
+          name="users"
+          label="用户信息"
+          initialValue={[
+            {
+              name: '1111',
+            },
+          ]}
+        >
+          <ProFormText name="name" label="姓名" />
+        </ProFormList>
+      </ProForm>,
+    );
+
+    act(() => {
+      html.find('.action-remove').first().simulate('click');
+    });
+
+    await waitForComponentToPaint(html, 100);
+    expect(fnRemove).toBeCalledWith(0);
+    expect(html.find('input.ant-input').length).toBe(0);
+
+    act(() => {
+      html.unmount();
+    });
+
+    await waitForComponentToPaint(html, 100);
+
+    expect(errorSpy).not.toHaveBeenCalled();
+
+    errorSpy.mockRestore();
+  });
+
   it('⛲  ProForm.List hide action btn when over limit', async () => {
     const html = mount(
       <ProForm>

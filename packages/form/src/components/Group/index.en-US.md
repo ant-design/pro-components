@@ -51,6 +51,7 @@ ProFormList is basically the same as the [Form.List](https://ant.design/componen
   }}
 >
   <ProFormSelect
+    key="useMode"
     options={[
       {
         value: 'chapter',

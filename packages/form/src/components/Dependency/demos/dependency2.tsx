@@ -43,7 +43,7 @@ const Demo = () => {
         <ProFormText name={['c', 'c', 'a']} label="c.c.a" />
         <ProFormGroup title="c.d">
           <ProFormList name={['c', 'd']}>
-            <ProFormGroup>
+            <ProFormGroup key="group">
               <ProFormText name="a" label="a" />
               <ProFormText name="b" label="b" />
               <ProFormDependency name={depName3}>
@@ -65,7 +65,7 @@ const Demo = () => {
         </ProFormGroup>
         <ProFormGroup title="c.e">
           <ProFormList name={['c', 'e']}>
-            <ProFormGroup>
+            <ProFormGroup key="group">
               <ProFormText name="a" label="a" />
               <ProFormText name="b" label="b" />
               <ProFormDependency name={depName2} ignoreFormListField>

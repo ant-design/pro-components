@@ -4,7 +4,11 @@ import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
 import type { NamePath } from 'antd/lib/form/interface';
 import type { Moment } from 'moment';
 import type { ReactNode } from 'react';
-import type { ProFieldValueType, ValueTypeWithFieldProps } from './types';
+import type {
+  ProFieldValueType,
+  ProFieldValueTypeWithFieldProps,
+  ValueTypeWithFieldProps,
+} from './types';
 import type { UseEditableUtilType } from './useEditableArray';
 
 export type PageInfo = {
@@ -13,7 +17,7 @@ export type PageInfo = {
   current: number;
 };
 
-export { ProFieldValueType } from './types';
+export type { ProFieldValueType, ProFieldValueTypeWithFieldProps };
 
 export type RequestOptionsType = {
   label?: React.ReactNode;
@@ -70,7 +74,6 @@ export type SearchTransformKeyFn = (
   field: string,
   object: any,
 ) => string | Record<string, any>;
-
 export type SearchConvertKeyFn = (value: any, field: NamePath) => string | Record<string, any>;
 
 export type ProTableEditableFnType<T> = (_: any, record: T, index: number) => boolean;

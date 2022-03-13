@@ -9,6 +9,74 @@ group:
 
 # Change Log
 
+## @ant-design/pro-field@1.32.0
+
+`2022-02-24`
+
+- feat(field): add pt-BR support to number format (#4700). [#4700](https://github.com/ant-design/pro-components/pull/#4700) [@phelipealves](https://github.com/phelipealves)
+
+## @ant-design/pro-field@1.31.15
+
+`2022-02-14`
+
+- fix(field): setting debounceTime results in repeated requests (#4609). [#4609](https://github.com/ant-design/pro-components/pull/#4609) [@1247748612](https://github.com/1247748612)
+
+## @ant-design/pro-field@1.31.14
+
+`2022-02-11`
+
+- fix(field): use loadData error, improve huge data render performance (#4605). [#4605](https://github.com/ant-design/pro-components/pull/#4605) [@1247748612](https://github.com/1247748612)
+
+## @ant-design/pro-field@1.31.11
+
+`2022-01-25`
+
+- fix(field): Switch checked 为 false 不生效问题 (#4527). [#4527](https://github.com/ant-design/pro-components/pull/#4527) [@rojer95](https://github.com/rojer95)
+
+## @ant-design/pro-field@1.31.0
+
+`2021-12-22`
+
+- feat(field): add DigitRange component (#4133). [#4133](https://github.com/ant-design/pro-components/pull/#4133) [@Renderz](https://github.com/Renderz)
+
+## @ant-design/pro-field@1.30.1
+
+`2021-12-20`
+
+- fix(field): Cascader support loading icon (#4319). [#4319](https://github.com/ant-design/pro-components/pull/#4319) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-field@1.30.0
+
+`2021-12-20`
+
+- fix(field): fix money no work error (#4311). [#4311](https://github.com/ant-design/pro-components/pull/#4311) [@chenshuai2144](https://github.com/chenshuai2144)
+
+## @ant-design/pro-field@1.29.1
+
+`2021-12-17`
+
+- fix(field): timeRange 解析时间不填入 format 是会直接 Invalid date (#4278). [#4278](https://github.com/ant-design/pro-components/pull/#4278) [@rojer95](https://github.com/rojer95)
+
+## @ant-design/pro-field@1.28.0
+
+`2021-11-30`
+
+- 🐛 fix(field): RangePicker format support funtion (#4113). [#4113](https://github.com/ant-design/pro-components/pull/#4113) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-field@1.26.3
+
+`2021-11-22`
+
+- 🐛 fix(field): DatePicker ellipsis can't work when mode is read (#4046). [#4046](https://github.com/ant-design/pro-components/pull/#4046) [@DerrickTel](https://github.com/DerrickTel)
+
+## @ant-design/pro-field@1.25.0
+
+`2021-11-12`
+
+- 🐛 fix(field): Money precision can't work (#4021). [#4021](https://github.com/ant-design/pro-components/pull/#4021) [@DerrickTel](https://github.com/DerrickTel)
+- fix(field): fromNow should show time (#3958). [#3958](https://github.com/ant-design/pro-components/pull/#3958) [@kaoding](https://github.com/kaoding)
+- feat(field): select request 添加防抖动属性 (#3987). [#3987](https://github.com/ant-design/pro-components/pull/#3987) [@No3ming](https://github.com/No3ming)
+
 ## @ant-design/pro-field@1.22.6
 
 `2021-10-08`

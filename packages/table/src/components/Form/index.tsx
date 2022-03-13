@@ -171,6 +171,7 @@ class FormSearch<T, U> extends React.Component<BaseFormProps<T, U>> {
         dateFormatter={dateFormatter}
         search={search}
         form={{
+          autoFocusFirstInput: false,
           ...form,
           extraUrlParams: {
             ...pageInfo,

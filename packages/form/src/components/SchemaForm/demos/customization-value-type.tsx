@@ -4,6 +4,15 @@ import { BetaSchemaForm } from '@ant-design/pro-form';
 import ProProvider from '@ant-design/pro-provider';
 import { Input, Space, Tag } from 'antd';
 
+declare module '@ant-design/pro-utils' {
+  interface ProFieldValueTypeWithFieldProps {
+    tags: Record<string, any>;
+    link: {
+      customField: string;
+    };
+  }
+}
+
 const valueEnum = {
   0: 'close',
   1: 'running',
@@ -74,7 +83,7 @@ const TagList: React.FC<{
   );
 };
 
-const columns: ProFormColumnsType<TableListItem, 'link' | 'tags'>[] = [
+const columns: ProFormColumnsType<TableListItem>[] = [
   {
     title: '标签',
     valueType: 'group',
@@ -141,7 +150,7 @@ export default () => {
         },
       }}
     >
-      <BetaSchemaForm<TableListItem, 'link' | 'tags'>
+      <BetaSchemaForm<TableListItem>
         initialValues={{
           key: 1,
           name: `TradeCode 1`,

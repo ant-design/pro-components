@@ -37,6 +37,7 @@ ProFormList 与 [Form.List](https://ant.design/components/form-cn/#Form.List) AP
   }}
 >
   <ProFormSelect
+    key="useMode"
     options={[
       {
         value: 'chapter',

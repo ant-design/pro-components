@@ -27,14 +27,6 @@ const FormListContext = React.createContext<
   | Record<string, any>
 >({});
 
-// type ChildrenFunction = (
-//   fields: FormListFieldData[],
-//   operation: FormListOperation,
-//   meta: {
-//     errors: React.ReactNode[];
-//   },
-// ) => React.ReactNode;
-
 type ChildrenItemFunction = (
   field: FormListFieldData,
   index: number,
@@ -68,7 +60,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
     defaultActionDom: ReactNode[],
     count: number,
   ) => ReactNode[];
-  children: ReactNode | ChildrenItemFunction;
+  children?: ReactNode | ChildrenItemFunction;
   itemContainerRender?: (
     doms: ReactNode,
     listMeta: {
@@ -86,6 +78,7 @@ export type ProFormListProps = Omit<FormListProps, 'children'> & {
   itemRender?: (
     doms: { listDom: ReactNode; action: ReactNode },
     listMeta: {
+      name: FormListProps['name'];
       field: FormListFieldData;
       fields: FormListFieldData[];
       index: number;
@@ -172,9 +165,19 @@ const ProFormListItem: React.FC<
     count,
     ...rest
   } = props;
+
   const listContext = useContext(FormListContext);
+
+  const unmountedRef = useRef(false);
+
   const [loadingRemove, setLoadingRemove] = useState(false);
   const [loadingCopy, setLoadingCopy] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      unmountedRef.current = true;
+    };
+  }, []);
 
   const childrenArray = listToArray(children)
     .map((childrenItem) => {
@@ -183,10 +186,23 @@ const ProFormListItem: React.FC<
       }
       return childrenItem;
     })
-    .map((childrenItem) => {
+    .map((childrenItem, itemIndex) => {
       if (React.isValidElement(childrenItem)) {
+        const hasKey =
+          !!childrenItem.key ||
+          !!childrenItem?.props?.name ||
+          childrenItem?.type?.toString() === 'Symbol(react.fragment)';
+
+        noteOnce(
+          hasKey,
+          'ProFormList 的 children 不设置 key 可能导致更新不及时或者修改不生效的问题，请设置 key。',
+        );
+        noteOnce(
+          hasKey,
+          "ProFormList's children do not set the key may cause updates not to be timely or the modification does not take effect, please set the key.",
+        );
         return React.cloneElement(childrenItem, {
-          key: childrenItem.key || nanoid(),
+          key: childrenItem.key || childrenItem?.props?.name || itemIndex,
           ...childrenItem?.props,
         });
       }
@@ -241,13 +257,15 @@ const ProFormListItem: React.FC<
             onClick={async () => {
               setLoadingRemove(true);
               await action.remove(field.name);
-              setLoadingRemove(false);
+              if (!unmountedRef.current) {
+                setLoadingRemove(false);
+              }
             }}
           />
         </Spin>
       </Tooltip>
     );
-  }, [deleteIconProps, min, count, loadingRemove, prefixCls, action, field.name]);
+  }, [deleteIconProps, min, count, loadingRemove, prefixCls, setLoadingRemove, action, field.name]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
     () => [copyIcon, deleteIcon].filter(Boolean),
@@ -259,6 +277,7 @@ const ProFormListItem: React.FC<
   const dom = actions.length > 0 ? <div className={`${prefixCls}-action`}>{actions}</div> : null;
 
   const options = {
+    name: rest.name,
     field,
     index,
     record: formInstance?.getFieldValue?.(
@@ -288,6 +307,7 @@ const ProFormListItem: React.FC<
       {dom}
     </div>
   );
+
   return (
     <FormListContext.Provider
       key={field.name}
@@ -396,6 +416,7 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
       style={{
         width: 'max-content',
         maxWidth: '100%',
+        minWidth: '100%',
       }}
     >
       {creatorButtonProps !== false && creatorButtonProps?.position === 'top' && creatorButton}
@@ -486,6 +507,7 @@ const ProFormList: React.FC<ProFormListProps> = ({
           {(fields, action, meta) => {
             // 将 action 暴露给外部
             actionRefs.current = action;
+
             return (
               <>
                 <ProFormListContainer

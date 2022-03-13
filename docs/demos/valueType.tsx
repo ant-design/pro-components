@@ -109,9 +109,11 @@ export default () => {
                 valueType,
                 title: '编辑器',
                 dataIndex: valueType || 'text',
-                valueEnum: valueType === 'select' ? valueEnum : undefined,
+                valueEnum: ['select', 'checkbox', 'radio', 'radioButton'].includes(valueType)
+                  ? valueEnum
+                  : undefined,
                 fieldProps:
-                  valueType === 'select'
+                  valueType === 'treeSelect'
                     ? {
                         multiple: true,
                         options: [

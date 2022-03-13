@@ -39,6 +39,7 @@ import useLatest from './hooks/useLatest';
 /** Type */
 import type {
   ProSchema,
+  ProFieldValueTypeWithFieldProps,
   ProSchemaValueEnumMap,
   ProSchemaValueEnumObj,
   ProSchemaComponentTypes,
@@ -79,6 +80,7 @@ export type {
   SearchConvertKeyFn,
   RequestOptionsType,
   ProSchema,
+  ProFieldValueTypeWithFieldProps,
   ProSchemaValueType,
   ProCoreActionType,
   ProSchemaComponentTypes,
