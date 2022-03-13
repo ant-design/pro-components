@@ -155,6 +155,7 @@ export default () => {
               }
             : false
         }
+        loading={false}
         toolBarRender={() => [
           <ProFormRadio.Group
             key="render"
