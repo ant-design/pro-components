@@ -1,5 +1,4 @@
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import type { FormInstance, FormItemProps } from 'antd';
 import type { useContainer } from '../container';
 import type { ProFormFieldProps } from '@ant-design/pro-form';
 import { ProFormField, ProFormDependency } from '@ant-design/pro-form';
@@ -40,6 +39,9 @@ type RenderToFromItemProps<T> = {
   // 行的唯一 key
   recordKey?: React.Key;
   mode: 'edit' | 'read';
+  /**
+   * If there is, use EditableTable in the Form
+   */
   prefixName?: string;
   counter: ReturnType<typeof useContainer>;
   proFieldProps: ProFormFieldProps;
@@ -80,16 +82,12 @@ const CellRenderFromItem = <T,>(props: any) => {
 
           const getFormItemProps = useCallback(
             () =>
-              getFieldPropsOrFormItemProps(
-                columnProps?.formItemProps,
-                counter.editableForm as FormInstance,
-                {
-                  rowKey: rowName,
-                  rowIndex: index,
-                  ...columnProps,
-                  isEditable: true,
-                },
-              ) as FormItemProps,
+              getFieldPropsOrFormItemProps(columnProps?.formItemProps, counter.editableForm, {
+                rowKey: rowName,
+                rowIndex: index,
+                ...columnProps,
+                isEditable: true,
+              }),
             [columnProps, counter.editableForm, index, rowName],
           );
 
@@ -106,7 +104,6 @@ const CellRenderFromItem = <T,>(props: any) => {
 
           const initialValue = useMemo(() => {
             const _value = formItemProps?.initialValue ?? columnProps?.initialValue;
-            // using EditableTable in Form
             if (prefixName) return _value;
             return text ?? _value;
           }, [columnProps?.initialValue, formItemProps?.initialValue, prefixName, text]);
@@ -128,8 +125,6 @@ const CellRenderFromItem = <T,>(props: any) => {
           );
 
           const generateFormItem = () => {
-            /** 获取 formItemProps Props */
-
             const inputDom = (
               <ProFormField
                 cacheForSwr
@@ -149,7 +144,7 @@ const CellRenderFromItem = <T,>(props: any) => {
             if (!columnProps?.renderFormItem) {
               return <InlineItem>{inputDom}</InlineItem>;
             }
-            /** RenderFormItem 需要被自定义的时候执行，defaultRender 比较麻烦所以这里多包一点 */
+
             const renderDom = columnProps.renderFormItem?.(
               {
                 ...columnProps,
