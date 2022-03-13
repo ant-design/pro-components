@@ -86,7 +86,7 @@ class OptionsCell extends React.Component<{
   render() {
     if (this.props.form) return <Space>{this.props.children(this.props.form)}</Space>;
     return (
-      <ProForm.Item>
+      <ProForm.Item noStyle shouldUpdate={true}>
         {(form) => {
           return <Space>{this.props.children(form as ProFormInstance<any>)}</Space>;
         }}
@@ -145,15 +145,15 @@ export function columnRender<T>({
     if (columnProps.valueType === 'option') {
       return (
         <OptionsCell record={rowData} form={editableForm}>
-          {(inform) =>
-            editableUtils.actionRender(
+          {(inform) => {
+            return editableUtils.actionRender(
               {
                 ...rowData,
                 index: columnProps.index || index,
               },
               inform!,
-            )
-          }
+            );
+          }}
         </OptionsCell>
       );
     }
