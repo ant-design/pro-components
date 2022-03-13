@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import type { useContainer } from '../container';
 import type { ProFormFieldProps } from '@ant-design/pro-form';
@@ -26,7 +27,7 @@ export const spellNamePath = (...rest: any[]): React.Key[] => {
     .flat(1);
 };
 
-type RenderToFromItemProps<T> = {
+type CellRenderFromItemProps<T> = {
   text: string | number | React.ReactText[];
   valueType: ProColumnType['valueType'];
   index: number;
@@ -47,13 +48,13 @@ type RenderToFromItemProps<T> = {
   proFieldProps: ProFormFieldProps;
 };
 
-const CellRenderFromItem = <T,>(props: any) => {
+const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
   /**
    * memo cannot use generics type, so wrap it
    */
   const Component = useMemo(
     () =>
-      memo<RenderToFromItemProps<T>>(
+      memo<CellRenderFromItemProps<T>>(
         ({
           columnProps,
           prefixName,
@@ -64,6 +65,7 @@ const CellRenderFromItem = <T,>(props: any) => {
           recordKey,
           proFieldProps,
         }) => {
+          const key = recordKey || index;
           const [name, setName] = useState<React.Key[]>([]);
 
           const rowName = useMemo(() => {
@@ -73,25 +75,31 @@ const CellRenderFromItem = <T,>(props: any) => {
           useEffect(() => {
             const value = spellNamePath(
               prefixName,
-              prefixName ? index : recordKey ?? index,
+              prefixName ? index : key,
               columnProps?.key ?? columnProps?.dataIndex ?? index,
             );
 
             setName(value);
-          }, [columnProps?.dataIndex, columnProps?.key, index, recordKey, prefixName]);
+          }, [columnProps?.dataIndex, columnProps?.key, index, recordKey, prefixName, key]);
 
-          const getFormItemProps = useCallback(
+          const needProps = useMemo(
             () =>
-              getFieldPropsOrFormItemProps(columnProps?.formItemProps, counter.editableForm, {
-                rowKey: rowName,
-                rowIndex: index,
-                ...columnProps,
-                isEditable: true,
-              }),
-            [columnProps, counter.editableForm, index, rowName],
+              [
+                counter?.editableForm,
+                {
+                  ...columnProps,
+                  rowKey: rowName,
+                  rowIndex: index,
+                  isEditable: true,
+                },
+              ] as const,
+            [columnProps, counter?.editableForm, index, rowName],
           );
 
-          const formItemProps = useMemo(() => getFormItemProps(), [getFormItemProps]);
+          const formItemProps = useMemo(
+            () => getFieldPropsOrFormItemProps(columnProps?.formItemProps, ...needProps),
+            [columnProps?.formItemProps, needProps],
+          );
 
           const messageVariables = useMemo(
             () => ({
@@ -111,7 +119,7 @@ const CellRenderFromItem = <T,>(props: any) => {
           const InlineItem = useCallback<React.FC>(
             ({ children }) => (
               <InlineErrorFormItem
-                key={recordKey || index}
+                key={key}
                 errorType="popover"
                 name={name}
                 {...formItemProps}
@@ -121,19 +129,18 @@ const CellRenderFromItem = <T,>(props: any) => {
                 {children}
               </InlineErrorFormItem>
             ),
-            [recordKey, index, name, formItemProps, messageVariables, initialValue],
+            [key, name, formItemProps, messageVariables, initialValue],
           );
 
-          const generateFormItem = () => {
+          const generateFormItem = useCallback(() => {
             const inputDom = (
               <ProFormField
                 cacheForSwr
-                key={recordKey || index}
+                key={key}
                 name={name}
-                // @ts-ignore
-                proFormFieldKey={recordKey || index}
+                proFormFieldKey={key}
                 ignoreFormItem
-                fieldProps={getFormItemProps()}
+                fieldProps={getFieldPropsOrFormItemProps(columnProps?.fieldProps, ...needProps)}
                 {...proFieldProps}
               />
             );
@@ -148,7 +155,7 @@ const CellRenderFromItem = <T,>(props: any) => {
             const renderDom = columnProps.renderFormItem?.(
               {
                 ...columnProps,
-                index: index,
+                index,
                 isEditable: true,
                 type: 'table',
               },
@@ -158,7 +165,7 @@ const CellRenderFromItem = <T,>(props: any) => {
                 recordKey,
                 record: {
                   ...rowData,
-                  ...counter?.editableForm?.getFieldValue([recordKey || index]),
+                  ...counter?.editableForm?.getFieldValue([key]),
                 },
                 isEditable: true,
               },
@@ -166,7 +173,17 @@ const CellRenderFromItem = <T,>(props: any) => {
             );
 
             return <InlineItem>{renderDom}</InlineItem>;
-          };
+          }, [
+            InlineItem,
+            columnProps,
+            counter?.editableForm,
+            index,
+            name,
+            needProps,
+            proFieldProps,
+            recordKey,
+            rowData,
+          ]);
 
           if (name.length === 0) {
             return null;
@@ -204,7 +221,7 @@ const CellRenderFromItem = <T,>(props: any) => {
  * @param text
  * @param valueType
  */
-function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactNode {
+function cellRenderToFromItem<T>(config: CellRenderFromItemProps<T>): React.ReactNode {
   const { text, valueType, rowData, columnProps } = config;
 
   // 如果 valueType === text ，没必要多走一次 render
