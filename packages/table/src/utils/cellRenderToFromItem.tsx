@@ -55,16 +55,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
   const Component = useMemo(
     () =>
       memo<CellRenderFromItemProps<T>>(
-        ({
-          columnProps,
-          prefixName,
-          text,
-          counter,
-          rowData = {} as any,
-          index,
-          recordKey,
-          proFieldProps,
-        }) => {
+        ({ columnProps, prefixName, text, counter, rowData, index, recordKey, proFieldProps }) => {
           const key = recordKey || index;
           const [name, setName] = useState<React.Key[]>([]);
 
