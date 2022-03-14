@@ -7,6 +7,7 @@ import React, {
   useState,
 } from 'react';
 import type { StepsProps, FormInstance } from 'antd';
+import { Col, Row } from 'antd';
 import { Form, Steps, ConfigProvider, Button, Space } from 'antd';
 import toArray from 'rc-util/lib/Children/toArray';
 import type { FormProviderProps } from 'antd/lib/form/context';
@@ -16,10 +17,10 @@ import { ConfigProviderWrap, useIntl } from '@ant-design/pro-provider';
 import { merge, useRefFunction } from '@ant-design/pro-utils';
 
 import type { StepFormProps } from './StepForm';
-import StepForm from './StepForm';
 import './index.less';
 import type { ProFormProps } from '../ProForm';
 import type { SubmitterProps } from '../../components';
+import StepForm from './StepForm';
 
 type StepsFormProps<T = Record<string, any>> = {
   /**
@@ -84,6 +85,52 @@ export const StepsFormProvide = React.createContext<
     }
   | undefined
 >(undefined);
+
+interface LayoutRenderDom {
+  stepsDom: React.ReactElement;
+  formDom: React.ReactElement;
+}
+
+const StepsLayoutStrategy: Record<string, (dom: LayoutRenderDom) => React.ReactNode> = {
+  horizontal({ stepsDom, formDom }) {
+    return (
+      <>
+        <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
+          <Col span={24}>{stepsDom}</Col>
+        </Row>
+        <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
+          <Col span={24}>{formDom}</Col>
+        </Row>
+      </>
+    );
+  },
+  vertical({ stepsDom, formDom }) {
+    return (
+      <Row align="stretch" wrap={true} gutter={{ xs: 8, sm: 16, md: 24 }}>
+        <Col xxl={4} xl={6} lg={7} md={8} sm={10} xs={12}>
+          {React.cloneElement(stepsDom, {
+            style: {
+              height: '100%',
+            },
+          })}
+        </Col>
+        <Col>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              width: '100%',
+              height: '100%',
+            }}
+          >
+            {formDom}
+          </div>
+        </Col>
+      </Row>
+    );
+  },
+};
+
 function StepsForm<T = Record<string, any>>(
   props: StepsFormProps<T> & {
     children: any;
@@ -122,6 +169,10 @@ function StepsForm<T = Record<string, any>>(
     value: props.current,
     onChange: props.onCurrentChange,
   });
+
+  const layoutRender = useMemo(() => {
+    return StepsLayoutStrategy[stepsProps?.direction || 'horizontal'];
+  }, [stepsProps?.direction]);
 
   const lastStep = useMemo(() => step === formArray.length - 1, [formArray.length, step]);
 
@@ -267,23 +318,24 @@ function StepsForm<T = Record<string, any>>(
     );
   }, [intl, loading, onSubmit, submitter]);
 
-  const getActionButton = useRefFunction(() => {
-    const index = step || 0;
-    if (index < 1) {
-      return [next] as JSX.Element[];
-    }
-    if (index + 1 === formArray.length) {
-      return [pre, submit] as JSX.Element[];
-    }
-    return [pre, next] as JSX.Element[];
-  });
-
   const nextPage = useRefFunction(() => {
     if (step > formArray.length - 2) return;
     setStep(step + 1);
   });
 
-  const renderSubmitter = useCallback(() => {
+  const submitterDom = useMemo(() => {
+    let buttons: (React.ReactElement | false)[] = [];
+    const index = step || 0;
+    if (index < 1) {
+      buttons.push(next);
+    } else if (index + 1 === formArray.length) {
+      buttons.push(pre, submit);
+    } else {
+      buttons.push(pre, next);
+    }
+
+    buttons = buttons.filter(React.isValidElement);
+
     if (submitter && submitter.render) {
       const submitterProps: any = {
         form: formArrayRef.current[step]?.current,
@@ -292,13 +344,13 @@ function StepsForm<T = Record<string, any>>(
         onPre: prePage,
       };
 
-      return submitter.render(submitterProps, getActionButton()) as React.ReactNode;
+      return submitter.render(submitterProps, buttons as React.ReactElement[]) as React.ReactNode;
     }
     if (submitter && submitter?.render === false) {
       return null;
     }
-    return getActionButton();
-  }, [getActionButton, onSubmit, prePage, step, submitter]);
+    return buttons as React.ReactElement[];
+  }, [formArray.length, next, onSubmit, pre, prePage, step, submit, submitter]);
 
   const formDom = useMemo(() => {
     return toArray(props.children).map((item, index) => {
@@ -342,12 +394,33 @@ function StepsForm<T = Record<string, any>>(
           title: formMapRef.current.get(item)?.title,
         })),
         stepsDom,
-      );
+      ) as React.ReactElement;
     }
     return stepsDom;
   }, [formArray, stepsDom, stepsRender]);
 
-  const submitterDom = renderSubmitter();
+  const formContainer = useMemo(
+    () => (
+      <div className={`${prefixCls}-container`} style={containerStyle}>
+        {formDom}
+        {stepsFormRender ? null : <Space>{submitterDom}</Space>}
+      </div>
+    ),
+    [containerStyle, formDom, prefixCls, stepsFormRender, submitterDom],
+  );
+
+  const stepsFormDom = useMemo(() => {
+    const doms = {
+      stepsDom: finalStepsDom,
+      formDom: formContainer,
+    };
+
+    if (stepsFormRender) {
+      return stepsFormRender(layoutRender(doms), submitterDom);
+    }
+
+    return layoutRender(doms);
+  }, [finalStepsDom, formContainer, layoutRender, stepsFormRender, submitterDom]);
 
   return (
     <div className={prefixCls}>
@@ -365,25 +438,7 @@ function StepsForm<T = Record<string, any>>(
             onFormFinish,
           }}
         >
-          {stepsFormRender ? (
-            stepsFormRender(
-              <>
-                {finalStepsDom}
-                <div className={`${prefixCls}-container`} style={containerStyle}>
-                  {formDom}
-                </div>
-              </>,
-              submitterDom,
-            )
-          ) : (
-            <>
-              {finalStepsDom}
-              <div className={`${prefixCls}-container`} style={containerStyle}>
-                {formDom}
-                <Space>{renderSubmitter()}</Space>
-              </div>
-            </>
-          )}
+          {stepsFormDom}
         </StepsFormProvide.Provider>
       </Form.Provider>
     </div>
