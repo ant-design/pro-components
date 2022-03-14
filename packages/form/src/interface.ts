@@ -10,6 +10,7 @@ import type {
   SearchConvertKeyFn,
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
+import type { ColProps } from 'antd/lib/grid/col';
 
 export type ProFormItemCreateConfig = {
   /** 自定义类型 */
@@ -121,6 +122,10 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
    * @type xl=552px 适用于长文本录入，如长链接、描述、备注等，通常搭配自适应多行输入框或定高文本域使用。
    */
   width?: number | 'sm' | 'md' | 'xl' | 'xs' | 'lg';
+  /**
+   * only works when grid is enabled
+   */
+  colProps?: ColProps;
   /** 设置到 ProField 上面的 Props，内部属性 */
   proFieldProps?: ProFieldProps;
 

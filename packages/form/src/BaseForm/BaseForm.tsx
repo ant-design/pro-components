@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useCallback,
 } from 'react';
-import type { FormProps, FormItemProps, FormInstance } from 'antd';
+import type { FormProps, FormItemProps, FormInstance, RowProps } from 'antd';
 import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
@@ -105,6 +105,17 @@ export type CommonFormProps<
 
   /** 自动选中第一项 */
   autoFocusFirstInput?: boolean;
+
+  /**
+   * open grid layout
+   * @default false
+   */
+  grid?: boolean;
+  /**
+   * only works when grid is enabled
+   * @default gutter: 8
+   */
+  rowProps?: RowProps;
 };
 
 export type BaseFormProps<T = Record<string, any>> = {
@@ -166,6 +177,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     omitNil = true,
     isKeyPressSubmit,
     autoFocusFirstInput = true,
+    grid,
     ...rest
   } = props;
   const [inlineForm] = Form.useForm(form);
@@ -380,6 +392,7 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
     // 增加国际化的能力，与 table 组件可以统一
     <FieldContext.Provider
       value={{
+        grid,
         formRef,
         fieldProps,
         formItemProps,
