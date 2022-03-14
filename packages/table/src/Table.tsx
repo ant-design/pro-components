@@ -213,6 +213,12 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
       )
     : baseTableDom;
 
+  useEffect(() => {
+    if (props.name) {
+      counter.setEditorTableForm(props.editable!.form!);
+    }
+  }, [counter, props.editable, props.name]);
+
   const tableContentDom = useMemo(() => {
     if (props.editable && !props.name) {
       return (
