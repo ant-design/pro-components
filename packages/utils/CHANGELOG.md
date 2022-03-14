@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.36.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.35.3...@ant-design/pro-utils@1.36.0) (2022-03-14)
+
+### Bug Fixes
+
+- **utils:** genNanoid support ie11 ([ed2b3cf](https://github.com/ant-design/pro-components/commit/ed2b3cf55ab08ccf32cfefc65f33e0970cfdd3fb))
+
+### Features
+
+- **utils:** 🎸 improve type and support external override type ([#4806](https://github.com/ant-design/pro-components/issues/4806)) ([13b590a](https://github.com/ant-design/pro-components/commit/13b590acaa69315dbecb22267411e8a275da8648))
+
 ## [1.35.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-utils@1.35.2...@ant-design/pro-utils@1.35.3) (2022-03-08)
 
 ### Bug Fixes
