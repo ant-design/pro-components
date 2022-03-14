@@ -4178,29 +4178,29 @@
     jest-worker "24.9.0"
     prettier "2.2.1"
 
-"@umijs/doctor-darwin-x64@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.npmmirror.com/@umijs/doctor-darwin-x64/-/doctor-darwin-x64-0.0.10.tgz#9cbc585e7473bb22c6706e818348057b288fe505"
-  integrity sha512-QEmo0OgoJWCBdgrHxsprE1i4pW3xLBfpOSkHgq/12FSalb1MsgFNNqE4p873x2VZ/GQZTlUC9FPCZzjMNj/fjQ==
+"@umijs/doctor-darwin-x64@0.0.11":
+  version "0.0.11"
+  resolved "https://registry.npmmirror.com/@umijs/doctor-darwin-x64/-/doctor-darwin-x64-0.0.11.tgz#c7873561ef3a76f15cf53f8652c6e7f84a3c6ccd"
+  integrity sha512-YRQ55v4rJzk6yJlpbnA8+ZLh/ueM4jdwJZ3jN0iH3R7Y2fg+Gh4PE+7/k7kXZclWwx61a0lfUbxcXryf+/iZ8Q==
 
-"@umijs/doctor-linux-x64-gnu@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.npmmirror.com/@umijs/doctor-linux-x64-gnu/-/doctor-linux-x64-gnu-0.0.10.tgz#cad40fcbb12cc2332945ca62ede98694421eddc2"
-  integrity sha512-aRYXN3fDCrrzs2Wh/zJ/iT/gQvAmtB5APqK9dHZ/0gRvzYCr8ZdnSrzBPjmPqqnKYkTN3njEZxAQ9nMgl8FtBA==
+"@umijs/doctor-linux-x64-gnu@0.0.11":
+  version "0.0.11"
+  resolved "https://registry.npmmirror.com/@umijs/doctor-linux-x64-gnu/-/doctor-linux-x64-gnu-0.0.11.tgz#2357b6b3d5ca5511955470365ae0578584d6e8e4"
+  integrity sha512-0qTYQIe+uXRNvKqfXLmZt8/3Bs9fHQB5uMUeRIp8HGI5x3Ds1DaOfNR1UJRt7lcrEJ67rWa3sceuvyz7PUV6QA==
 
-"@umijs/doctor-win32-x64-msvc@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.npmmirror.com/@umijs/doctor-win32-x64-msvc/-/doctor-win32-x64-msvc-0.0.10.tgz#f82c14a0f64f3ad7fb887567af786001fada37b7"
-  integrity sha512-w3cmrqt5iWxLJzgcDGNuhU2W9fZPi1xLP4YR84wAZesHa3GDZdr/NT66T0YN19OZhAhiVE1OB5U5nipN52nG/w==
+"@umijs/doctor-win32-x64-msvc@0.0.11":
+  version "0.0.11"
+  resolved "https://registry.npmmirror.com/@umijs/doctor-win32-x64-msvc/-/doctor-win32-x64-msvc-0.0.11.tgz#ef76154a29c0926e0544d9e87b5dbc7c5dda7643"
+  integrity sha512-FXPdqw9L1TzskbeQmxVeM63s4B+zOBjcCnYHMfjgOiw8JccvTc9dZJ4Pk3NaUguhuXhZYUsQK285TqoJlZi+0A==
 
-"@umijs/doctor@0.0.10":
-  version "0.0.10"
-  resolved "https://registry.npmmirror.com/@umijs/doctor/-/doctor-0.0.10.tgz#574003bbc2f83ec56034c02b7fe1842ad302420a"
-  integrity sha512-Rx7wpUO8gBYQ+fLU/d/M4WdiMpANy0wHy/fDPaVZ/gHWYoLjHOszI9WIwxFt5TfghcRWhzA40rUtWOVQN5sOWw==
+"@umijs/doctor@0.0.11":
+  version "0.0.11"
+  resolved "https://registry.npmmirror.com/@umijs/doctor/-/doctor-0.0.11.tgz#e39b57c5867061a3b568ad5c39416819ca5058b2"
+  integrity sha512-0kyPJrS/83Gjmz6Irxn0fJWJnuh6apOg6kOi3rGq4oZWkfwJVD2uvNz4IviiI21+z8HB+JUK3HaJjTZMQ6d++A==
   optionalDependencies:
-    "@umijs/doctor-darwin-x64" "0.0.10"
-    "@umijs/doctor-linux-x64-gnu" "0.0.10"
-    "@umijs/doctor-win32-x64-msvc" "0.0.10"
+    "@umijs/doctor-darwin-x64" "0.0.11"
+    "@umijs/doctor-linux-x64-gnu" "0.0.11"
+    "@umijs/doctor-win32-x64-msvc" "0.0.11"
 
 "@umijs/fabric@^2.6.2":
   version "2.10.1"
