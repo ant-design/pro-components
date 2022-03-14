@@ -136,7 +136,7 @@ export function columnRender<T>({
   if (mode === 'edit') {
     if (columnProps.valueType === 'option') {
       return (
-        <OptionsCell record={rowData} form={editableForm}>
+        <OptionsCell record={rowData} form={editableForm!}>
           {(inform) => {
             return editableUtils.actionRender(
               {
