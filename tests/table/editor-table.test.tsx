@@ -726,6 +726,59 @@ describe('EditorProTable', () => {
     );
   });
 
+  it('📝 EditableProTable ensures that xxxProps are functions also executed', async () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const formItemPropsFn = jest.fn();
+    const fieldPropsFn = jest.fn();
+
+    const currentlyColumns: ProColumns<DataSourceType>[] = [
+      {
+        dataIndex: 'index',
+        valueType: 'indexBorder',
+        width: 48,
+        renderFormItem: () => <InputNumber />,
+      },
+      {
+        title: '标题',
+        dataIndex: 'title',
+        formItemProps: formItemPropsFn,
+        fieldProps: fieldPropsFn,
+      },
+    ];
+
+    const wrapper = mount(
+      <ProForm
+        initialValues={{
+          table: [
+            {
+              id: '624748504',
+              title: '🐛 [BUG]yarn install命令 antd2.4.5会报错',
+            },
+          ],
+        }}
+      >
+        <EditableProTable<DataSourceType>
+          rowKey="id"
+          controlled
+          name="table"
+          editable={{
+            editableKeys: ['624748504'],
+          }}
+          columns={currentlyColumns}
+        />
+      </ProForm>,
+    );
+    await waitForComponentToPaint(wrapper, 100);
+
+    expect(formItemPropsFn).toBeCalled();
+    expect(fieldPropsFn).toBeCalled();
+
+    expect(errorSpy).not.toBeCalled();
+
+    errorSpy.mockRestore();
+  });
+
   it('📝 EditableProTable support recordCreatorProps.position', async () => {
     const wrapper = mount(
       <EditableProTable<DataSourceType>

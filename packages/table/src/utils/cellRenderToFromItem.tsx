@@ -1,6 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import type { useContainer } from '../container';
 import type { ProFormFieldProps } from '@ant-design/pro-form';
 import { ProFormField, ProFormDependency } from '@ant-design/pro-form';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
@@ -9,6 +7,7 @@ import { isDeepEqualReact } from '@ant-design/pro-utils';
 import { runFunction } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
 import type { ProColumnType } from '../index';
+import type { useContainer } from '../container';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
@@ -56,6 +55,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
     () =>
       memo<CellRenderFromItemProps<T>>(
         ({ columnProps, prefixName, text, counter, rowData, index, recordKey, proFieldProps }) => {
+          const { editableForm } = counter;
           const key = recordKey || index;
           const [name, setName] = useState<React.Key[]>([]);
 
@@ -76,7 +76,7 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
           const needProps = useMemo(
             () =>
               [
-                counter?.editableForm,
+                editableForm,
                 {
                   ...columnProps,
                   rowKey: rowName,
@@ -84,47 +84,34 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
                   isEditable: true,
                 },
               ] as const,
-            [columnProps, counter?.editableForm, index, rowName],
+            [columnProps, editableForm, index, rowName],
           );
 
-          const formItemProps = useMemo(
-            () => getFieldPropsOrFormItemProps(columnProps?.formItemProps, ...needProps),
-            [columnProps?.formItemProps, needProps],
-          );
-
-          const messageVariables = useMemo(
-            () => ({
-              label: (columnProps?.title as string) || '此项',
-              type: (columnProps?.valueType as string) || '文本',
-              ...formItemProps?.messageVariables,
-            }),
-            [columnProps?.title, columnProps?.valueType, formItemProps?.messageVariables],
-          );
-
-          const initialValue = useMemo(() => {
-            const _value = formItemProps?.initialValue ?? columnProps?.initialValue;
-            if (prefixName) return _value;
-            return text ?? _value;
-          }, [columnProps?.initialValue, formItemProps?.initialValue, prefixName, text]);
-
-          const InlineItem = useCallback<React.FC>(
-            ({ children }) => (
-              <InlineErrorFormItem
-                key={key}
-                errorType="popover"
-                name={name}
-                {...formItemProps}
-                messageVariables={messageVariables}
-                initialValue={initialValue}
-              >
+          const InlineItem = useCallback<React.FC<any>>(
+            ({ children, ...restProps }) => (
+              <InlineErrorFormItem key={key} errorType="popover" name={name} {...restProps}>
                 {children}
               </InlineErrorFormItem>
             ),
-            [key, name, formItemProps, messageVariables, initialValue],
+            [key, name],
           );
 
           const generateFormItem = useCallback(() => {
-            const inputDom = (
+            const formItemProps =
+              getFieldPropsOrFormItemProps(columnProps?.formItemProps, ...needProps) || {};
+
+            formItemProps.messageVariables = {
+              label: (columnProps?.title as string) || '此项',
+              type: (columnProps?.valueType as string) || '文本',
+              ...formItemProps?.messageVariables,
+            };
+
+            formItemProps.initialValue =
+              (prefixName ? null : text) ??
+              formItemProps?.initialValue ??
+              columnProps?.initialValue;
+
+            let fieldDom: React.ReactNode = (
               <ProFormField
                 cacheForSwr
                 key={key}
@@ -139,42 +126,42 @@ const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
             /**
              * 如果没有自定义直接返回
              */
-            if (!columnProps?.renderFormItem) {
-              return <InlineItem>{inputDom}</InlineItem>;
+            if (columnProps?.renderFormItem) {
+              fieldDom = columnProps.renderFormItem(
+                {
+                  ...columnProps,
+                  index,
+                  isEditable: true,
+                  type: 'table',
+                },
+                {
+                  defaultRender: () => <InlineItem {...formItemProps}>{fieldDom}</InlineItem>,
+                  type: 'form',
+                  recordKey,
+                  record: {
+                    ...rowData,
+                    ...editableForm?.getFieldValue([key]),
+                  },
+                  isEditable: true,
+                },
+                editableForm as any,
+              );
             }
 
-            const renderDom = columnProps.renderFormItem?.(
-              {
-                ...columnProps,
-                index,
-                isEditable: true,
-                type: 'table',
-              },
-              {
-                defaultRender: () => <InlineItem>{inputDom}</InlineItem>,
-                type: 'form',
-                recordKey,
-                record: {
-                  ...rowData,
-                  ...counter?.editableForm?.getFieldValue([key]),
-                },
-                isEditable: true,
-              },
-              counter?.editableForm as any,
-            );
-
-            return <InlineItem>{renderDom}</InlineItem>;
+            return <InlineItem {...formItemProps}>{fieldDom}</InlineItem>;
           }, [
-            key,
-            InlineItem,
             columnProps,
-            counter?.editableForm,
-            index,
-            name,
             needProps,
+            prefixName,
+            text,
+            key,
+            name,
             proFieldProps,
+            index,
             recordKey,
             rowData,
+            editableForm,
+            InlineItem,
           ]);
 
           if (name.length === 0) {
