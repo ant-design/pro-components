@@ -4,6 +4,9 @@ exports[`BasicLayout base use 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
 >
+  <div
+    class="ant-design-pro-layout-d08s5k"
+  />
   <section
     class="ant-layout"
     style="min-height:100%"
@@ -165,7 +168,7 @@ exports[`BasicLayout base use 1`] = `
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
+              class="ant-pro-menu-submenu ant-design-pro-layout-1ctwodb"
               role="none"
             >
               <div
@@ -180,7 +183,7 @@ exports[`BasicLayout base use 1`] = `
                   class="ant-menu-title-content"
                 >
                   <span
-                    class="ant-pro-menu-item"
+                    class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
                     title="welcome"
                   >
                     welcome
@@ -257,6 +260,9 @@ exports[`BasicLayout content is text 1`] = `
 <div
   class="ant-design-pro ant-pro-basicLayout ant-pro-basicLayout-fix-siderbar ant-pro-basicLayout-side ant-design-pro-layout-1a98z39"
 >
+  <div
+    class="ant-design-pro-layout-d08s5k"
+  />
   <section
     class="ant-layout"
     style="min-height:100%"
@@ -418,7 +424,7 @@ exports[`BasicLayout content is text 1`] = `
             tabindex="0"
           >
             <li
-              class="ant-pro-menu-submenu ant-design-pro-layout-wxcs7t"
+              class="ant-pro-menu-submenu ant-design-pro-layout-1ctwodb"
               role="none"
             >
               <div
@@ -433,7 +439,7 @@ exports[`BasicLayout content is text 1`] = `
                   class="ant-menu-title-content"
                 >
                   <span
-                    class="ant-pro-menu-item"
+                    class="ant-pro-menu-item ant-design-pro-layout-ytfc15"
                     title="welcome"
                   >
                     welcome

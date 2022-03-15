@@ -155,25 +155,24 @@ class MenuUtil {
 
   /** Get SubMenu or Item */
   getSubMenuOrItem = (item: MenuDataItem, level: number): React.ReactNode => {
+    const { subMenuItemRender, prefixCls, menu, iconPrefixes, layout } = this.props;
+
+    const itemCss = cx(
+      `${prefixCls}-menu-item`,
+      css(`
+       display: flex;
+       align-items: center;
+      `),
+    );
     if (Array.isArray(item.routes) && item && item.routes.length > 0) {
       const name = this.getIntlName(item);
-      const { subMenuItemRender, prefixCls, menu, iconPrefixes, layout } = this.props;
       const isGroup = menu?.type === 'group' && layout !== 'top';
       /** Menu 第一级可以有icon，或者 isGroup 时第二级别也要有 */
       const hasIcon = level === 0 || (isGroup && level === 1);
       //  get defaultTitle by menuItemRender
       const iconDom = getIcon(item.icon, iconPrefixes);
       const defaultTitle = item.icon ? (
-        <span
-          className={cx(
-            `${prefixCls}-menu-item`,
-            css(`
-             display: flex;
-             align-items: center;
-            `),
-          )}
-          title={name}
-        >
+        <span className={itemCss} title={name}>
           {hasIcon && iconDom}
           <span
             className={genMenuItemCss(prefixCls, {
@@ -186,7 +185,7 @@ class MenuUtil {
           </span>
         </span>
       ) : (
-        <span className={`${prefixCls}-menu-item`} title={name}>
+        <span className={itemCss} title={name}>
           {name}
         </span>
       );
@@ -194,7 +193,7 @@ class MenuUtil {
       /** 如果是 Group 是不需要展示 icon 的 */
       const subMenuTitle =
         isGroup && level === 0 ? (
-          <span className={`${prefixCls}-menu-item`} title={name}>
+          <span className={itemCss} title={name}>
             {name}
           </span>
         ) : (
@@ -489,18 +488,20 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         .${antPrefixClassName}-menu-title-content {
           display: flex;
           width: 100%;
+          height: 100%;
           color: ${menuDesignToken.menuTextColor};
           font-size: 14px;
           line-height: 40px;
           transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-        }
-        a {
-          width: 100%;
-          height: 100%;
-          color: ${menuDesignToken.menuTextColor};
-          .anticon {
+
+          > * {
+            width: 100%;
+            height: 100%;
             color: ${menuDesignToken.menuTextColor};
-            opacity: 0.69;
+            .anticon {
+              color: ${menuDesignToken.menuTextColor};
+              opacity: 0.69;
+            }
           }
         }
       `,
@@ -522,7 +523,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           align-items: center;
           justify-content: center;
           width: 100%;
-          height: 100%;
           padding-top: 6px;
           padding-bottom: 6px;
           color: ${menuDesignToken.menuTextColor};
@@ -550,10 +550,12 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       selectedItem: css`
         background-color: ${itemSelectedColor};
         border-radius: ${designToken.borderRadiusBase};
-        a {
-          color: ${menuDesignToken.menuSelectedTextColor};
-          .anticon {
+        .${antPrefixClassName}-menu-title-content {
+          > * {
             color: ${menuDesignToken.menuSelectedTextColor};
+            .anticon {
+              color: ${menuDesignToken.menuSelectedTextColor};
+            }
           }
         }
       `,
@@ -576,12 +578,25 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           line-height: 40px;
           .anticon {
             color: ${menuDesignToken.menuTextColor};
+            opacity: 0.69;
           }
         }
         .${antPrefixClassName}-menu-submenu-arrow {
           color: rgba(0, 0, 0, 0.25);
           transform: rotate(1.25turn);
           transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+      `,
+      selectedSubMenuItem: css`
+        .${antPrefixClassName}-menu-submenu-title {
+          background-color: ${itemSelectedColor};
+          border-radius: ${designToken.borderRadiusBase};
+          > * {
+            color: ${menuDesignToken.menuSelectedTextColor};
+            .anticon {
+              color: ${menuDesignToken.menuSelectedTextColor};
+            }
+          }
         }
       `,
       collapsedSubMenuItem: css`
@@ -592,6 +607,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         .${antPrefixClassName}-menu-title-content {
           ${mode !== 'horizontal' ? 'width: 100%;' : ''}
           display: flex;
+          height: 100%;
           align-items: center;
           justify-content: center;
           font-size: 16px;
@@ -759,7 +775,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
             mode !== 'horizontal'
               ? menuItemCssMap.verticalSubItem
               : menuItemCssMap.horizontalSubMenuItem,
-            stateProps?.selected ? menuItemCssMap.selectedItem : null,
+            stateProps?.selected ? menuItemCssMap.selectedSubMenuItem : null,
             stateProps?.open ? menuItemCssMap.openItem : null,
           ),
         });
@@ -767,13 +783,12 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       _internalRenderMenuItem={(dom, itemProps, stateProps) => {
         return (
           <Tooltip
-            mouseEnterDelay={300}
             visible={collapsed ? undefined : false}
             title={
               <div
                 className={css`
                   color: rgba(255, 255, 255, 0.85);
-                  a {
+                  * {
                     color: rgba(255, 255, 255, 0.85);
                     .${antPrefixClassName}-pro-menu-item-title {
                       display: inline-block;
@@ -788,7 +803,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
           >
             {React.cloneElement(dom, {
               ...dom.props,
-              originalTitle: undefined,
               className: cx(
                 `${antPrefixClassName}-pro-menu-item`,
                 stateProps?.selected && `${antPrefixClassName}-pro-menu-item-selected`,
