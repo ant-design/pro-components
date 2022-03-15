@@ -155,6 +155,9 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
             ...style,
           }),
         )}
+        style={{
+          background: `${designToken.header.headerBgColor}`,
+        }}
       >
         {renderContent()}
       </Header>
