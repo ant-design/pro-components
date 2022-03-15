@@ -336,7 +336,26 @@ function createField<P extends ProFormFieldItemProps = any>(
       rest.lightProps,
     ]);
 
-    return contextValue.grid ? <Col {...colProps}>{FormItem}</Col> : FormItem;
+    const defaultColProps = useMemo(() => {
+      /**
+       * `xs` takes precedence over `span`
+       * avoid `span` doesn't work
+       */
+      if (contextValue.grid && colProps?.span === undefined) {
+        return {
+          xs: 24,
+        };
+      }
+      return {};
+    }, [colProps?.span, contextValue.grid]);
+
+    return contextValue.grid ? (
+      <Col {...defaultColProps} {...colProps}>
+        {FormItem}
+      </Col>
+    ) : (
+      FormItem
+    );
   };
 
   const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
