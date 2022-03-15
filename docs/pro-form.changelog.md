@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-form@1.58.1
+
+`2022-03-15`
+
+- fix(form): fix ProFormDependency no rendeer transform error. [5b163eb](https://github.com/ant-design/pro-components/commit/5b163eb)
+
 ## @ant-design/pro-form@1.58.0
 
 `2022-03-14`

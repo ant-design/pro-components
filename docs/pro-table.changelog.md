@@ -9,6 +9,12 @@ group:
 
 # Change Log
 
+## @ant-design/pro-table@2.67.1
+
+`2022-03-15`
+
+- fix(table): fix table has name, add new line will error. [74f83df](https://github.com/ant-design/pro-components/commit/74f83df)
+
 ## @ant-design/pro-table@2.67.0
 
 `2022-03-14`
