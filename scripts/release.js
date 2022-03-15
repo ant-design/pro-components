@@ -143,8 +143,8 @@ async function release() {
         `[${index + 1}/${pkgs.length}] Publish package ${name} ${isNext ? 'with next tag' : ''}`,
       );
       // 默认设置为 tag 检查通过之后在设置为 latest
-      const cliArgs = isNext ? ['publish', '--tag', 'next'] : ['publish', '--tag', 'tag'];
-      const { stdout } = execa.sync('npm', cliArgs, {
+      const cliArgs = isNext ? ['publish', '--tag', 'next'] : ['publish', '--tag', 'beta'];
+      const { stdout } = execa('npm', cliArgs, {
         cwd: pkgPath,
       });
       console.log(stdout);
