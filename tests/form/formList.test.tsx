@@ -612,7 +612,21 @@ describe('ProForm List', () => {
       JSON.stringify(_.pick(initialValues, namePaths2PropertyPaths(depName2)), null, 2),
     );
     expect(html.find('code.case3').text()).toBe(
-      JSON.stringify({ a: initialValues.c.d[0].a, b: initialValues.c.d[0].b, c: {} }, null, 2),
+      JSON.stringify(
+        {
+          c: {
+            d: [
+              {
+                c: {},
+              },
+            ],
+          },
+          a: 6,
+          b: 7,
+        },
+        null,
+        2,
+      ),
     );
   });
 

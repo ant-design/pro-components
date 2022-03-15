@@ -5,11 +5,12 @@ import set from 'rc-util/lib/utils/set';
 import get from 'rc-util/lib/utils/get';
 import { useContext, useMemo } from 'react';
 import { FormListContext } from '../List';
-import { ProFormContext, isDeepEqualReact } from '@ant-design/pro-utils';
+import { ProFormContext, isDeepEqualReact, merge } from '@ant-design/pro-utils';
+import type { ProFormInstance } from '../../BaseForm';
 
 declare type RenderChildren<Values = any> = (
   values: Record<string, any>,
-  form: FormInstance<Values>,
+  form: ProFormInstance<Values>,
 ) => React.ReactNode;
 
 export type ProFormDependencyProps = Omit<
@@ -72,10 +73,24 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
           const pathToGet = flattenNames[i],
             pathToSet = names[i];
 
-          const value = context.getFieldFormatValue?.(pathToGet) ?? form.getFieldValue(pathToGet);
-          values = set(values, Array.isArray(pathToSet) ? pathToSet : [pathToSet], value, false);
+          const finalName = [pathToSet].flat(1);
+          let value = context.getFieldFormatValueObject?.(pathToGet);
+
+          console.log(value, finalName, pathToGet);
+          if (value && Object.keys(value).length) {
+            // transform 会生成多余的value，这里需要注入一下
+            values = merge({}, values, value);
+            if (get(value, pathToGet)) {
+              values = set(values, finalName, get(value, pathToGet), false);
+            }
+          } else {
+            value = form.getFieldValue?.(pathToGet);
+            if (value) {
+              values = set(values, finalName, value, false);
+            }
+          }
         }
-        return children?.(values, form);
+        return children?.(values, { ...form, ...context });
       }}
     </Form.Item>
   );

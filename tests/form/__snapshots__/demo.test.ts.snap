@@ -1067,9 +1067,15 @@ exports[`form demos 📸 renders ./packages/form/src/components/Dependency/demos
                                               <pre>
                                                 <code>
                                                   {
+  "c": {
+    "d": [
+      {
+        "c": {}
+      }
+    ]
+  },
   "a": 6,
-  "b": 7,
-  "c": {}
+  "b": 7
 }
                                                 </code>
                                               </pre>
