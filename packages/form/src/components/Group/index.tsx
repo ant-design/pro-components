@@ -78,14 +78,10 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
                 return null;
               }
               if (index === 0 && React.isValidElement(element) && autoFocus) {
-                return (
-                  <WrapperCol {...colProps}>
-                    {React.cloneElement(element, {
-                      ...(element.props as any),
-                      autoFocus,
-                    })}
-                  </WrapperCol>
-                );
+                return React.cloneElement(element, {
+                  ...(element.props as any),
+                  autoFocus,
+                });
               }
               return element;
             })
@@ -93,7 +89,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
         </>
       </WrapperRow>
     );
-  }, [WrapperRow, rowProps, children, autoFocus, WrapperCol, colProps]);
+  }, [WrapperRow, rowProps, children, autoFocus]);
 
   const groupDom = useMemo(
     () => (
@@ -170,7 +166,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     ],
   );
 
-  return <WrapperCol>{groupDom}</WrapperCol>;
+  return <WrapperCol {...colProps}>{groupDom}</WrapperCol>;
 });
 
 Group.displayName = 'ProForm-Group';
