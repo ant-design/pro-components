@@ -10,6 +10,7 @@ export const group: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {
         key={item.key}
         label={item.label}
         colProps={item.colProps}
+        rowProps={item.rowProps}
         {...item.getFieldProps?.()}
       >
         {genItems(item.columns)}

@@ -100,6 +100,7 @@ function BetaSchemaForm<T, ValueType = 'text'>(props: FormSchema<T, ValueType>) 
             readonly: originItem.readonly,
             colSize: originItem.colSize,
             colProps: originItem.colProps,
+            rowProps: originItem.rowProps,
             className: originItem.className,
             tooltip: originItem.tooltip || originItem.tip,
             dependencies: originItem.dependencies,
