@@ -18759,7 +18759,6 @@ exports[`form demos 📸 renders ./packages/form/src/components/QueryFilter/demo
               <div
                 class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                 id="freq"
-                style="width: 100%;"
               >
                 <label
                   class="ant-radio-wrapper"
@@ -33190,7 +33189,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
         </div>
       </div>
       <div
-        class="ant-col ant-col-24"
+        class="ant-col ant-col-xs-24"
         style="padding-left: 8px; padding-right: 8px;"
       >
         <div

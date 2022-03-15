@@ -87,25 +87,15 @@ export default () => {
         label="grid开关"
         name="grid"
       />
-      <ProFormText
-        colProps={{ span: 24 }}
-        name="name"
-        label="标题"
-        tooltip="最长为 24 位"
-        placeholder="请输入名称"
-      />
-      <ProFormText colProps={{ xl: 8, md: 12, xs: 24 }} name="company" label="姓名" />
-      <ProFormDigit colProps={{ xl: 8, md: 12, xs: 24 }} name="phone" label="电话" />
-      <ProFormText colProps={{ xl: 8, md: 12, xs: 24 }} name="email" label="邮箱" />
+      <ProFormText name="name" label="标题" tooltip="最长为 24 位" placeholder="请输入名称" />
+      <ProFormText colProps={{ md: 12, xl: 8 }} name="company" label="姓名" />
+      <ProFormDigit colProps={{ md: 12, xl: 8 }} name="phone" label="电话" />
+      <ProFormText colProps={{ md: 12, xl: 8 }} name="email" label="邮箱" />
       <ProFormTextArea colProps={{ span: 24 }} name="address" label="详细的工作地址或家庭住址" />
-      <ProFormDatePicker colProps={{ xl: 8, md: 12, xs: 24 }} label="入职日期" name="date" />
-      <ProFormDateRangePicker
-        colProps={{ xl: 8, md: 12, xs: 24 }}
-        label="工作周期"
-        name="dateRange"
-      />
+      <ProFormDatePicker colProps={{ xl: 8, md: 12 }} label="入职日期" name="date" />
+      <ProFormDateRangePicker colProps={{ xl: 8, md: 12 }} label="工作周期" name="dateRange" />
       <ProFormSelect
-        colProps={{ xl: 8, md: 12, xs: 24 }}
+        colProps={{ xl: 8, md: 12 }}
         label="职位"
         name="level"
         valueEnum={{

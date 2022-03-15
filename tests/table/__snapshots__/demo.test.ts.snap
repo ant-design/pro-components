@@ -54358,7 +54358,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                     <div
                       class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                       id="status"
-                      style="width: 100%;"
                     >
                       <label
                         class="ant-radio-wrapper"
@@ -54472,7 +54471,6 @@ exports[`table demos 📸 renders ./packages/table/src/demos/valueType_select.ts
                     <div
                       class="ant-radio-group ant-radio-group-outline ant-pro-field-radio-horizontal"
                       id="status"
-                      style="width: 100%;"
                     >
                       <label
                         class="ant-radio-button-wrapper"

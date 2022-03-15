@@ -124,6 +124,10 @@ export type ProFormFieldItemProps<T = Record<string, any>> = {
   width?: number | 'sm' | 'md' | 'xl' | 'xs' | 'lg';
   /**
    * only works when grid is enabled
+   *
+   * When passing the `span` attribute, the default value is empty
+   * @default
+   * { xs: 24 }
    */
   colProps?: ColProps;
   /** 设置到 ProField 上面的 Props，内部属性 */
