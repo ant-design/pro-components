@@ -1,6 +1,6 @@
 {
   "name": "@ant-design/pro-form",
-  "version": "1.58.0",
+  "version": "1.58.1",
   "description": "@ant-design/pro-form",
   "keywords": [
     "antd",
@@ -34,9 +34,9 @@
   ],
   "dependencies": {
     "@ant-design/icons": "^4.2.1",
-    "@ant-design/pro-field": "1.32.5",
+    "@ant-design/pro-field": "1.32.6",
     "@ant-design/pro-provider": "1.6.0",
-    "@ant-design/pro-utils": "1.36.0",
+    "@ant-design/pro-utils": "1.36.1",
     "@babel/runtime": "^7.16.3",
     "@umijs/use-params": "^1.0.9",
     "classnames": "^2.2.6",
