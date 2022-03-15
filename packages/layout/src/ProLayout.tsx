@@ -585,23 +585,21 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
               `,
             )}
           >
-            {bgImgStyleList && (
-              <div
-                className={css`
-                  pointer-events: none;
-                  position: fixed;
-                  overflow: hidden;
-                  top: 0;
-                  left: 0;
-                  z-index: 0;
-                  height: 100%;
-                  width: 100%;
-                  background: ${designToken.layoutBg};
-                `}
-              >
-                {bgImgStyleList}
-              </div>
-            )}
+            <div
+              className={css`
+                pointer-events: none;
+                position: fixed;
+                overflow: hidden;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                height: 100%;
+                width: 100%;
+                background: ${designToken.layoutBg};
+              `}
+            >
+              {bgImgStyleList}
+            </div>
             <Layout
               style={{
                 minHeight: '100%',

@@ -164,7 +164,16 @@ class MenuUtil {
       //  get defaultTitle by menuItemRender
       const iconDom = getIcon(item.icon, iconPrefixes);
       const defaultTitle = item.icon ? (
-        <span className={`${prefixCls}-menu-item`} title={name}>
+        <span
+          className={cx(
+            `${prefixCls}-menu-item`,
+            css(`
+             display: flex;
+             align-items: center;
+            `),
+          )}
+          title={name}
+        >
           {hasIcon && iconDom}
           <span
             className={genMenuItemCss(prefixCls, {
@@ -758,6 +767,7 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
       _internalRenderMenuItem={(dom, itemProps, stateProps) => {
         return (
           <Tooltip
+            mouseEnterDelay={300}
             visible={collapsed ? undefined : false}
             title={
               <div
@@ -765,7 +775,6 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
                   color: rgba(255, 255, 255, 0.85);
                   a {
                     color: rgba(255, 255, 255, 0.85);
-
                     .${antPrefixClassName}-pro-menu-item-title {
                       display: inline-block;
                     }
