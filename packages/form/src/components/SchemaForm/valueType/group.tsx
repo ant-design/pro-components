@@ -6,7 +6,12 @@ export const group: ProSchemaRenderValueTypeFunction = (item, { genItems }) => {
     if (!item.columns || !Array.isArray(item.columns)) return null;
 
     return (
-      <ProFormGroup key={item.key} label={item.label} {...item.getFieldProps?.()}>
+      <ProFormGroup
+        key={item.key}
+        label={item.label}
+        colProps={item.colProps}
+        {...item.getFieldProps?.()}
+      >
         {genItems(item.columns)}
       </ProFormGroup>
     );

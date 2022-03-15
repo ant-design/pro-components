@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { Space, ConfigProvider } from 'antd';
 import { RightOutlined } from '@ant-design/icons';
 import FieldContext from '../../FieldContext';
@@ -6,9 +6,10 @@ import type { GroupProps } from '../../interface';
 import './index.less';
 import { LabelIconTip, useMountMergeState } from '@ant-design/pro-utils';
 import classNames from 'classnames';
+import { useGridHelpers } from '../../helpers';
 
 const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
-  const { groupProps } = React.useContext(FieldContext);
+  const { groupProps, grid } = React.useContext(FieldContext);
   const {
     children,
     collapsible,
@@ -25,15 +26,21 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     spaceProps,
     extra,
     autoFocus,
+    colProps,
+    rowProps,
   } = {
     ...groupProps,
     ...props,
   };
+
   const [collapsed, setCollapsed] = useMountMergeState(() => defaultCollapsed || false, {
     value: props.collapsed,
     onChange: props.onCollapse,
   });
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
+
+  const { WrapperCol, WrapperRow } = useGridHelpers(grid);
+
   const className = getPrefixCls('pro-form-group');
 
   const collapsibleButton = collapsible && (
@@ -61,80 +68,109 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     />
   );
   const titleDom = titleRender ? titleRender(label, props) : label;
-  const hiddenChildren: React.ReactNode[] = [];
-  const renderChild = React.Children.toArray(children).map((element, index) => {
-    if (React.isValidElement(element) && element?.props?.hidden) {
-      hiddenChildren.push(element);
-      return null;
-    }
-    if (index === 0 && React.isValidElement(element) && autoFocus) {
-      return React.cloneElement(element, {
-        ...(element.props as any),
-        autoFocus,
-      });
-    }
-    return element;
-  });
+  const childrenDoms = useMemo(() => {
+    return (
+      <WrapperRow {...rowProps}>
+        <>
+          {React.Children.toArray(children)
+            .map((element, index) => {
+              if (React.isValidElement(element) && element?.props?.hidden) {
+                return null;
+              }
+              if (index === 0 && React.isValidElement(element) && autoFocus) {
+                return (
+                  <WrapperCol {...colProps}>
+                    {React.cloneElement(element, {
+                      ...(element.props as any),
+                      autoFocus,
+                    })}
+                  </WrapperCol>
+                );
+              }
+              return element;
+            })
+            .filter(Boolean)}
+        </>
+      </WrapperRow>
+    );
+  }, [WrapperRow, rowProps, children, autoFocus, WrapperCol, colProps]);
 
-  return (
-    <div
-      className={classNames(className, {
-        [`${className}-twoLine`]: labelLayout === 'twoLine',
-      })}
-      style={style}
-      ref={ref}
-    >
-      {hiddenChildren.length > 0 && (
-        <div
-          style={{
-            display: 'none',
-          }}
-        >
-          {hiddenChildren}
-        </div>
-      )}
-      {(title || tooltip || extra) && (
-        <div
-          className={`${className}-title`}
-          style={titleStyle}
-          onClick={() => {
-            setCollapsed(!collapsed);
-          }}
-        >
-          {extra ? (
-            <div
-              style={{
-                display: 'flex',
-                width: '100%',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-              }}
-            >
-              {titleDom}
-              <span onClick={(e) => e.stopPropagation()}>{extra}</span>
-            </div>
-          ) : (
-            titleDom
-          )}
-        </div>
-      )}
-      {collapsible && collapsed ? null : (
-        <Space
-          {...spaceProps}
-          className={`${className}-container`}
-          size={size}
-          align={align}
-          direction={direction}
-          style={{
-            rowGap: 0,
-            ...spaceProps?.style,
-          }}
-        >
-          {renderChild}
-        </Space>
-      )}
-    </div>
+  const groupDom = useMemo(
+    () => (
+      <div
+        className={classNames(className, {
+          [`${className}-twoLine`]: labelLayout === 'twoLine',
+        })}
+        style={style}
+        ref={ref}
+      >
+        {(title || tooltip || extra) && (
+          <div
+            className={`${className}-title`}
+            style={titleStyle}
+            onClick={() => {
+              setCollapsed(!collapsed);
+            }}
+          >
+            {extra ? (
+              <div
+                style={{
+                  display: 'flex',
+                  width: '100%',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
+                }}
+              >
+                {titleDom}
+                <span onClick={(e) => e.stopPropagation()}>{extra}</span>
+              </div>
+            ) : (
+              titleDom
+            )}
+          </div>
+        )}
+        {collapsible && collapsed ? null : grid ? (
+          <>{childrenDoms}</>
+        ) : (
+          <Space
+            {...spaceProps}
+            className={`${className}-container`}
+            size={size}
+            align={align}
+            direction={direction}
+            style={{
+              rowGap: 0,
+              ...spaceProps?.style,
+            }}
+          >
+            {childrenDoms}
+          </Space>
+        )}
+      </div>
+    ),
+    [
+      align,
+      childrenDoms,
+      className,
+      collapsed,
+      collapsible,
+      direction,
+      extra,
+      grid,
+      labelLayout,
+      ref,
+      setCollapsed,
+      size,
+      spaceProps,
+      style,
+      title,
+      titleDom,
+      titleStyle,
+      tooltip,
+    ],
   );
+
+  return <WrapperCol>{groupDom}</WrapperCol>;
 });
 
 Group.displayName = 'ProForm-Group';
