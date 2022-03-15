@@ -5,6 +5,7 @@ import toArray from 'rc-util/lib/Children/toArray';
 import type { GroupProps } from 'antd/lib/input';
 import { createField } from '../../BaseForm/createField';
 import { useRefFunction } from '@ant-design/pro-utils';
+import { useGridHelpers } from '../../helpers';
 
 export type ProFormFieldSetProps<T = any> = {
   value?: T[];
@@ -36,6 +37,7 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   fieldProps,
   space,
   type = 'space',
+  ...rest
 }) => {
   /**
    * 使用方法的饮用防止闭包
@@ -89,9 +91,14 @@ const FieldSet: React.FC<ProFormFieldSetProps> = ({
   });
   const Components = FieldSetType[type] as React.FC<SpaceProps>;
 
+  const { WrapperRow, grid } = useGridHelpers(rest);
+
   /** Input.Group 需要配置 compact */
   const typeProps = { ...(type === 'group' ? { compact: true } : {}) };
-  return (
+
+  return grid ? (
+    <WrapperRow>{list}</WrapperRow>
+  ) : (
     <Components {...typeProps} {...(space as SpaceProps)} align="start">
       {list}
     </Components>

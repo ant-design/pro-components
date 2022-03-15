@@ -26,8 +26,6 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     spaceProps,
     extra,
     autoFocus,
-    colProps,
-    rowProps,
   } = {
     ...groupProps,
     ...props,
@@ -39,7 +37,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   });
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
-  const { WrapperCol, WrapperRow } = useGridHelpers(grid);
+  const { WrapperCol, WrapperRow } = useGridHelpers(props);
 
   const className = getPrefixCls('pro-form-group');
 
@@ -70,7 +68,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   const titleDom = titleRender ? titleRender(label, props) : label;
   const childrenDoms = useMemo(() => {
     return (
-      <WrapperRow {...rowProps}>
+      <WrapperRow>
         <>
           {React.Children.toArray(children)
             .map((element, index) => {
@@ -89,7 +87,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
         </>
       </WrapperRow>
     );
-  }, [WrapperRow, rowProps, children, autoFocus]);
+  }, [WrapperRow, children, autoFocus]);
 
   const groupDom = useMemo(
     () => (
@@ -166,7 +164,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     ],
   );
 
-  return <WrapperCol {...colProps}>{groupDom}</WrapperCol>;
+  return <WrapperCol>{groupDom}</WrapperCol>;
 });
 
 Group.displayName = 'ProForm-Group';

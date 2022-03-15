@@ -1,6 +1,8 @@
 import type { RowProps, ColProps } from 'antd';
 import { Row, Col } from 'antd';
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
+import FieldContext from '../FieldContext';
+import type { ProFormGridConfig } from '../interface';
 
 export interface GridHelpers {
   WrapperRow: React.FC<RowProps>;
@@ -8,11 +10,15 @@ export interface GridHelpers {
   grid: boolean;
 }
 
-export const gridHelpers: (grid?: boolean) => GridHelpers = (grid) => ({
+export const gridHelpers: (config: ProFormGridConfig) => GridHelpers = ({
+  grid,
+  rowProps,
+  colProps,
+}) => ({
   grid: !!grid,
   WrapperRow({ children, ...props }) {
     return grid ? (
-      <Row gutter={8} {...props}>
+      <Row gutter={8} {...rowProps} {...props}>
         {children}
       </Row>
     ) : (
@@ -38,13 +44,42 @@ export const gridHelpers: (grid?: boolean) => GridHelpers = (grid) => ({
     }
 
     return (
-      <Col {...defaultColProps} {...props}>
+      <Col {...defaultColProps} {...colProps} {...props}>
         {children}
       </Col>
     );
   },
 });
 
-export const useGridHelpers = (grid: boolean | undefined) => {
-  return useMemo(() => gridHelpers(grid), [grid]);
+export const useGridHelpers = (
+  ...props: [(ProFormGridConfig | boolean)?] | [boolean, ProFormGridConfig?]
+) => {
+  const config = useMemo(() => {
+    const prop = props[0];
+    if (props.length === 2) {
+      return {
+        grid: prop,
+        ...props[1],
+      };
+    } else {
+      if (typeof prop === 'object') {
+        return prop;
+      }
+      return {
+        grid: prop,
+      };
+    }
+  }, [props]);
+
+  const { grid } = useContext(FieldContext);
+
+  return useMemo(
+    () =>
+      gridHelpers({
+        grid: !!(grid || config.grid),
+        rowProps: config?.rowProps,
+        colProps: config?.colProps,
+      }),
+    [config?.colProps, config.grid, config?.rowProps, grid],
+  );
 };

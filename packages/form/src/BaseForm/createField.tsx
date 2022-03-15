@@ -90,7 +90,6 @@ function createField<P extends ProFormFieldItemProps = any>(
       filedConfig,
       cacheForSwr,
       proFieldProps,
-      colProps,
       ...rest
     } = { ...defaultProps, ...props };
 
@@ -336,9 +335,9 @@ function createField<P extends ProFormFieldItemProps = any>(
       rest.lightProps,
     ]);
 
-    const { WrapperCol } = useGridHelpers(contextValue.grid);
+    const { WrapperCol } = useGridHelpers(rest);
 
-    return contextValue.grid ? <WrapperCol {...colProps}>{FormItem}</WrapperCol> : FormItem;
+    return <WrapperCol>{FormItem}</WrapperCol>;
   };
 
   const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {
