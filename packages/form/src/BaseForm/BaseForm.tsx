@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useCallback,
 } from 'react';
-import type { FormProps, FormItemProps, FormInstance, RowProps } from 'antd';
+import type { FormProps, FormItemProps, FormInstance } from 'antd';
 import { Spin } from 'antd';
 import { ConfigProvider } from 'antd';
 import { Form } from 'antd';
@@ -35,7 +35,7 @@ import namePathSet from 'rc-util/lib/utils/set';
 import FieldContext from '../FieldContext';
 import type { SubmitterProps } from '../components';
 import { Submitter } from '../components';
-import type { GroupProps, FieldProps } from '../interface';
+import type { GroupProps, FieldProps, ProFormGridConfig } from '../interface';
 import { noteOnce } from 'rc-util/lib/warning';
 import get from 'rc-util/lib/utils/get';
 
@@ -105,18 +105,7 @@ export type CommonFormProps<
 
   /** 自动选中第一项 */
   autoFocusFirstInput?: boolean;
-
-  /**
-   * open grid layout
-   * @default false
-   */
-  grid?: boolean;
-  /**
-   * only works when grid is enabled
-   * @default gutter: 8
-   */
-  rowProps?: RowProps;
-};
+} & Pick<ProFormGridConfig, 'grid' | 'rowProps'>;
 
 export type BaseFormProps<T = Record<string, any>> = {
   contentRender?: (

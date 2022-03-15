@@ -13,7 +13,7 @@ import type { ExtendsProps, ProFormFieldItemProps, ProFormItemCreateConfig } fro
 import { ProFormItem, ProFormDependency } from '../components';
 import { FieldContext as RcFieldContext } from 'rc-field-form';
 import type { FormItemProps } from 'antd';
-import { Col } from 'antd';
+import { useGridHelpers } from '../helpers';
 
 export const TYPE = Symbol('ProFormComponent');
 
@@ -336,26 +336,9 @@ function createField<P extends ProFormFieldItemProps = any>(
       rest.lightProps,
     ]);
 
-    const defaultColProps = useMemo(() => {
-      /**
-       * `xs` takes precedence over `span`
-       * avoid `span` doesn't work
-       */
-      if (contextValue.grid && colProps?.span === undefined) {
-        return {
-          xs: 24,
-        };
-      }
-      return {};
-    }, [colProps?.span, contextValue.grid]);
+    const { WrapperCol } = useGridHelpers(contextValue.grid);
 
-    return contextValue.grid ? (
-      <Col {...defaultColProps} {...colProps}>
-        {FormItem}
-      </Col>
-    ) : (
-      FormItem
-    );
+    return contextValue.grid ? <WrapperCol {...colProps}>{FormItem}</WrapperCol> : FormItem;
   };
 
   const DependencyWrapper: React.FC<P & ExtendsProps & FunctionFieldProps> = (props) => {

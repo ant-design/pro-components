@@ -1,4 +1,4 @@
-import type { FormItemProps, SpaceProps } from 'antd';
+import type { FormItemProps, RowProps, SpaceProps } from 'antd';
 import type { ProFormItemProps } from './components';
 import type { ProFormInstance } from './BaseForm';
 import type { LabelTooltipType } from 'antd/lib/form/FormItemLabel';
@@ -11,6 +11,28 @@ import type {
   SearchTransformKeyFn,
 } from '@ant-design/pro-utils';
 import type { ColProps } from 'antd/lib/grid/col';
+
+export interface ProFormGridConfig {
+  /**
+   * open grid layout
+   * @default false
+   */
+  grid?: boolean;
+  /**
+   * only works when grid is enabled
+   *
+   * When passing the `span` attribute, the default value is empty
+   * @default
+   * { xs: 24 }
+   */
+  colProps?: ColProps;
+  /**
+   * only works when grid is enabled
+   * @default
+   * { gutter: 8 }
+   */
+  rowProps?: RowProps;
+}
 
 export type ProFormItemCreateConfig = {
   /** 自定义类型 */
@@ -92,7 +114,7 @@ export type GroupProps = {
   onCollapse?: (collapsed: boolean) => void;
   /** 自定选中一个input，只能有一个生效 */
   autoFocus?: boolean;
-};
+} & ProFormGridConfig;
 
 export type FieldProps = {
   style?: React.CSSProperties;
