@@ -149,15 +149,13 @@ const DefaultHeader: React.FC<HeaderViewProps & PrivateSiderMenuProps> = (props)
           css({
             height: headerHeight,
             lineHeight: `${headerHeight}px`,
+            backgroundColor: `${designToken.header.headerBgColor} !important`,
             width: '100%',
             zIndex: layout === 'mix' ? 100 : 19,
             right,
             ...style,
           }),
         )}
-        style={{
-          background: `${designToken.header.headerBgColor}`,
-        }}
       >
         {renderContent()}
       </Header>
