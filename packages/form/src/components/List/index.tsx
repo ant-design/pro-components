@@ -165,7 +165,6 @@ const ProFormListItem: React.FC<
     min,
     max,
     count,
-    rowProps,
     ...rest
   } = props;
 
