@@ -1223,7 +1223,7 @@ exports[`BasicLayout 🥩 mix layout hideInMenu render right 1`] = `
                 class="ant-menu-title-content"
               >
                 <span
-                  class="ant-pro-menu-item"
+                  class="ant-pro-menu-item ant-design-pro-layout-70qvj9"
                 >
                   <span
                     class="ant-pro-menu-item-title"

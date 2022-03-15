@@ -275,7 +275,15 @@ class MenuUtil {
     const hasIcon = level === 0 || (isGroup && level === 1);
     const icon = !hasIcon ? null : getIcon(item.icon, iconPrefixes);
     let defaultItem = (
-      <span className={`${prefixCls}-menu-item`}>
+      <span
+        className={cx(
+          `${prefixCls}-menu-item`,
+          css({
+            display: 'flex',
+            alignItems: 'center',
+          }),
+        )}
+      >
         {icon}
         <span
           className={genMenuItemCss(prefixCls, {
@@ -781,8 +789,14 @@ const BaseMenu: React.FC<BaseMenuProps & PrivateSiderMenuProps> = (props) => {
         });
       }}
       _internalRenderMenuItem={(dom, itemProps, stateProps) => {
+        const visibleProps = collapsed
+          ? {}
+          : {
+              visible: false,
+            };
         return (
           <Tooltip
+            {...visibleProps}
             visible={collapsed ? undefined : false}
             title={
               <div
