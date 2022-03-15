@@ -89,6 +89,12 @@ ProForm 是基于 antd Form 的可降级封装，与 antd 功能完全对齐，�
 
 <code src="./demos/form-layout.tsx" title="标签与表单项布局" />
 
+### 栅格化布局
+
+同时支持在 `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`, `QueryFilter`, `LightFilter` 中使用,
+
+<code src="./demos/form-layout-grid.tsx" title="栅格化布局" />
+
 ### 登录
 
 <code src="./demos/login-form.tsx" height="300px" title="登录" />
@@ -145,6 +151,8 @@ ProForm 是 antd Form 的再封装，如果你想要自定义表单元素，ProF
 | request | 发起网络请求的参数,返回值会覆盖给 initialValues | `(params)=>Promise<data>` | - |
 | isKeyPressSubmit | 是否使用回车提交 | `boolean` | - |
 | autoFocusFirstInput | 自动 focus 表单第一个输入框 | `boolean` | - |
+| grid | 开启栅格化模式模式 | `boolean` | - |
+| rowProps | 开启栅格化模式时传递给 Row | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
 | [(...)](https://ant.design/components/form-cn/) | 注意 `LightFilter` 和 `QueryFilter` 仅支持除 `wrapperCol` \| `labelCol` \| `layout` 外的其他 antd `Form` 组件参数 | - | - |
 
 ### ProForm.Group

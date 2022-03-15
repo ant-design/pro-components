@@ -31,6 +31,7 @@ nav:
 | `hideInTable` | `boolean` | 在 Table 中隐藏 |
 | `hideInSearch` | `boolean` | 在 Table 的查询表单中隐藏 |
 | `hideInDescriptions` | `boolean` | 在 descriptions 中隐藏 |
+| `colProps` | [ColProps](https://ant.design/components/grid/#Col) | 在开启 grid 模式时传递给 Col |
 
 ## TypeScript 定义
 
