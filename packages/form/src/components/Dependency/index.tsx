@@ -75,8 +75,6 @@ const ProFormDependency: React.FC<ProFormDependencyProps> = ({
 
           const finalName = [pathToSet].flat(1);
           let value = context.getFieldFormatValueObject?.(pathToGet);
-
-          console.log(value, finalName, pathToGet);
           if (value && Object.keys(value).length) {
             // transform 会生成多余的value，这里需要注入一下
             values = merge({}, values, value);
