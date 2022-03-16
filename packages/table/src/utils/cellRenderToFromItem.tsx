@@ -1,23 +1,18 @@
-import React from 'react';
-import { Form } from 'antd';
-import type { FormInstance, FormItemProps } from 'antd';
-import type { useContainer } from '../container';
+import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import type { ProFormFieldProps } from '@ant-design/pro-form';
-import { ProFormField } from '@ant-design/pro-form';
+import { ProFormField, ProFormDependency } from '@ant-design/pro-form';
 import type { ProFieldEmptyText } from '@ant-design/pro-field';
 import type { ProFieldValueType, ProSchemaComponentTypes } from '@ant-design/pro-utils';
-import { runFunction, isDeepEqualReact } from '@ant-design/pro-utils';
+import { isDeepEqualReact } from '@ant-design/pro-utils';
+import { runFunction } from '@ant-design/pro-utils';
 import { getFieldPropsOrFormItemProps, InlineErrorFormItem } from '@ant-design/pro-utils';
 import type { ProColumnType } from '../index';
-import get from 'rc-util/lib/utils/get';
+import type { useContainer } from '../container';
 
 const SHOW_EMPTY_TEXT_LIST = ['', null, undefined];
 
 /**
  * 拼接用于编辑的 key
- *
- * @param base 基本的 key
- * @param dataIndex 需要拼接的key
  */
 export const spellNamePath = (...rest: any[]): React.Key[] => {
   return rest
@@ -31,7 +26,7 @@ export const spellNamePath = (...rest: any[]): React.Key[] => {
     .flat(1);
 };
 
-type RenderToFromItemProps<T> = {
+type CellRenderFromItemProps<T> = {
   text: string | number | React.ReactText[];
   valueType: ProColumnType['valueType'];
   index: number;
@@ -44,202 +39,160 @@ type RenderToFromItemProps<T> = {
   // 行的唯一 key
   recordKey?: React.Key;
   mode: 'edit' | 'read';
+  /**
+   * If there is, use EditableTable in the Form
+   */
   prefixName?: string;
   counter: ReturnType<typeof useContainer>;
+  proFieldProps: ProFormFieldProps;
 };
 
-class CellRenderFromItem<T> extends React.Component<
-  {
-    config: RenderToFromItemProps<T>;
-    proFieldProps: ProFormFieldProps;
-  },
-  {
-    name: React.Key[];
-    rowName: React.Key[];
-  }
-> {
-  state = {
-    name: [],
-    rowName: [],
-  };
-  functionKeys = ['onChange', 'counter', 'render', 'tableColumn'];
-  componentDidMount() {
-    const { config } = this.props;
-    const { columnProps, prefixName } = config;
-    const name = spellNamePath(
-      prefixName,
-      prefixName ? config.index : config.recordKey ?? config.index,
-      columnProps?.key ?? columnProps?.dataIndex ?? config.index,
-    );
-    this.setState({
-      name,
-      rowName: name.slice(0, -1),
-    });
-  }
-  componentDidUpdate() {
-    const { config } = this.props;
-    const { columnProps, prefixName } = config;
-    const name = spellNamePath(
-      prefixName,
-      prefixName ? config.index : config.recordKey ?? config.index,
-      columnProps?.key ?? columnProps?.dataIndex ?? config.index,
-    );
+const CellRenderFromItem = <T,>(props: CellRenderFromItemProps<T>) => {
+  /**
+   * memo cannot use generics type, so wrap it
+   */
+  const Component = useMemo(
+    () =>
+      memo<CellRenderFromItemProps<T>>(
+        ({ columnProps, prefixName, text, counter, rowData, index, recordKey, proFieldProps }) => {
+          const { editableForm } = counter;
+          const key = recordKey || index;
+          const [name, setName] = useState<React.Key[]>([]);
 
-    if (name.toString() !== this.state.name.toString()) {
-      this.setState({
-        name,
-        rowName: name.slice(0, -1),
-      });
-    }
-  }
-  generateFormItem = () => {
-    const { config, proFieldProps } = this.props;
-    const { text, columnProps, counter, rowData = {} } = config;
+          const rowName = useMemo(() => {
+            return name.slice(0, -1);
+          }, [name]);
 
-    /** 获取 formItemProps Props */
-    const formItemProps = getFieldPropsOrFormItemProps(
-      columnProps?.formItemProps,
-      counter.editableForm as FormInstance,
-      {
-        rowKey: this.state.rowName,
-        rowIndex: config.index,
-        ...columnProps,
-        isEditable: true,
-      },
-    ) as FormItemProps;
+          useEffect(() => {
+            const value = spellNamePath(
+              prefixName,
+              prefixName ? index : key,
+              columnProps?.key ?? columnProps?.dataIndex ?? index,
+            );
 
-    const messageVariables = {
-      label: (columnProps?.title as string) || '此项',
-      type: (columnProps?.valueType as string) || '文本',
-      ...formItemProps?.messageVariables,
-    };
-    const inputDom = (
-      <ProFormField
-        cacheForSwr
-        key={config.recordKey || config.index}
-        name={this.state.name}
-        // @ts-ignore
-        proFormFieldKey={config.recordKey || config.index}
-        ignoreFormItem
-        fieldProps={getFieldPropsOrFormItemProps(
-          columnProps?.fieldProps,
-          counter?.editableForm as FormInstance,
-          {
-            ...columnProps,
-            rowKey: this.state.rowName,
-            rowIndex: config.index,
-            isEditable: true,
-          },
-        )}
-        {...proFieldProps}
-      />
-    );
+            setName(value);
+          }, [columnProps?.dataIndex, columnProps?.key, index, recordKey, prefixName, key]);
 
-    /** 如果没有自定义直接返回 */
-    if (!columnProps?.renderFormItem) {
-      const dom = (
-        <InlineErrorFormItem
-          key={config.recordKey || config.index}
-          errorType="popover"
-          name={this.state.name}
-          {...formItemProps}
-          messageVariables={messageVariables}
-          initialValue={text ?? formItemProps?.initialValue ?? columnProps?.initialValue}
-        >
-          {inputDom}
-        </InlineErrorFormItem>
-      );
-      return dom;
-    }
-    /** RenderFormItem 需要被自定义的时候执行，defaultRender 比较麻烦所以这里多包一点 */
-    const renderDom = columnProps.renderFormItem?.(
-      {
-        ...columnProps,
-        index: config.index,
-        isEditable: true,
-        type: 'table',
-      },
-      {
-        ...(columnProps.fieldProps as any),
-        defaultRender: () => {
-          return (
-            <InlineErrorFormItem
-              key={config.recordKey || config.index}
-              errorType="popover"
-              name={this.state.name}
-              {...formItemProps}
-              messageVariables={messageVariables}
-              initialValue={text ?? formItemProps?.initialValue ?? columnProps?.initialValue}
-            >
-              {inputDom}
-            </InlineErrorFormItem>
+          const needProps = useMemo(
+            () =>
+              [
+                editableForm,
+                {
+                  ...columnProps,
+                  rowKey: rowName,
+                  rowIndex: index,
+                  isEditable: true,
+                },
+              ] as const,
+            [columnProps, editableForm, index, rowName],
           );
+
+          const InlineItem = useCallback<React.FC<any>>(
+            ({ children, ...restProps }) => (
+              <InlineErrorFormItem key={key} errorType="popover" name={name} {...restProps}>
+                {children}
+              </InlineErrorFormItem>
+            ),
+            [key, name],
+          );
+
+          const generateFormItem = useCallback(() => {
+            const formItemProps =
+              getFieldPropsOrFormItemProps(columnProps?.formItemProps, ...needProps) || {};
+
+            formItemProps.messageVariables = {
+              label: (columnProps?.title as string) || '此项',
+              type: (columnProps?.valueType as string) || '文本',
+              ...formItemProps?.messageVariables,
+            };
+
+            formItemProps.initialValue =
+              (prefixName ? null : text) ??
+              formItemProps?.initialValue ??
+              columnProps?.initialValue;
+
+            let fieldDom: React.ReactNode = (
+              <ProFormField
+                cacheForSwr
+                key={key}
+                name={name}
+                proFormFieldKey={key}
+                ignoreFormItem
+                fieldProps={getFieldPropsOrFormItemProps(columnProps?.fieldProps, ...needProps)}
+                {...proFieldProps}
+              />
+            );
+
+            /**
+             * 如果没有自定义直接返回
+             */
+            if (columnProps?.renderFormItem) {
+              fieldDom = columnProps.renderFormItem(
+                {
+                  ...columnProps,
+                  index,
+                  isEditable: true,
+                  type: 'table',
+                },
+                {
+                  defaultRender: () => <InlineItem {...formItemProps}>{fieldDom}</InlineItem>,
+                  type: 'form',
+                  recordKey,
+                  record: {
+                    ...rowData,
+                    ...editableForm?.getFieldValue([key]),
+                  },
+                  isEditable: true,
+                },
+                editableForm as any,
+              );
+            }
+
+            return <InlineItem {...formItemProps}>{fieldDom}</InlineItem>;
+          }, [
+            columnProps,
+            needProps,
+            prefixName,
+            text,
+            key,
+            name,
+            proFieldProps,
+            index,
+            recordKey,
+            rowData,
+            editableForm,
+            InlineItem,
+          ]);
+
+          if (name.length === 0) {
+            return null;
+          }
+
+          if (
+            typeof columnProps?.renderFormItem === 'function' ||
+            typeof columnProps?.fieldProps === 'function' ||
+            typeof columnProps?.formItemProps === 'function'
+          ) {
+            return (
+              <ProFormDependency name={[rowName]}>{() => generateFormItem()}</ProFormDependency>
+            );
+          }
+          return generateFormItem();
         },
-        type: 'form',
-        recordKey: config.recordKey,
-        record: {
-          ...rowData,
-          ...counter?.editableForm?.getFieldValue([config.recordKey || config.index]),
+        (nextProps, preProps) => {
+          return isDeepEqualReact(nextProps, preProps, [
+            'onChange',
+            'counter',
+            'render',
+            'tableColumn',
+          ]);
         },
-        isEditable: true,
-      },
-      counter?.editableForm as any,
-    );
+      ),
+    [],
+  );
 
-    return (
-      <InlineErrorFormItem
-        errorType="popover"
-        key={config.recordKey || config.index}
-        name={this.state.name}
-        {...formItemProps}
-        initialValue={text ?? formItemProps?.initialValue ?? columnProps?.initialValue}
-        messageVariables={messageVariables}
-      >
-        {renderDom}
-      </InlineErrorFormItem>
-    );
-  };
-
-  shouldComponentUpdate(
-    nextProps: {
-      config: RenderToFromItemProps<T>;
-      proFieldProps: ProFormFieldProps;
-    },
-    nextState: any,
-  ) {
-    return (
-      !isDeepEqualReact(nextProps.proFieldProps, this.props.proFieldProps, this.functionKeys) ||
-      !isDeepEqualReact(nextProps.config, this.props.config, this.functionKeys) ||
-      !isDeepEqualReact(nextState, this.state)
-    );
-  }
-
-  render(): React.ReactNode {
-    if (this.state.name.length === 0) {
-      return null;
-    }
-    const { config } = this.props;
-    const { columnProps } = config;
-    if (
-      typeof columnProps?.renderFormItem === 'function' ||
-      typeof columnProps?.fieldProps === 'function' ||
-      typeof columnProps?.formItemProps === 'function'
-    ) {
-      return (
-        <Form.Item
-          key={config.recordKey || config.index}
-          shouldUpdate={(pre, next) => {
-            return isDeepEqualReact(get(pre, this.state.rowName), get(next, this.state.rowName));
-          }}
-          noStyle
-        >
-          {() => this.generateFormItem()}
-        </Form.Item>
-      );
-    }
-    return this.generateFormItem();
-  }
-}
+  return <Component {...props} />;
+};
 
 /**
  * 根据不同的类型来转化数值
@@ -247,7 +200,7 @@ class CellRenderFromItem<T> extends React.Component<
  * @param text
  * @param valueType
  */
-function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactNode {
+function cellRenderToFromItem<T>(config: CellRenderFromItemProps<T>): React.ReactNode {
   const { text, valueType, rowData, columnProps } = config;
 
   // 如果 valueType === text ，没必要多走一次 render
@@ -300,9 +253,7 @@ function cellRenderToFromItem<T>(config: RenderToFromItemProps<T>): React.ReactN
       />
     );
   }
-  return (
-    <CellRenderFromItem key={config.recordKey} config={config} proFieldProps={proFieldProps} />
-  );
+  return <CellRenderFromItem<T> key={config.recordKey} {...config} proFieldProps={proFieldProps} />;
 }
 
 export default cellRenderToFromItem;

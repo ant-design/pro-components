@@ -16,6 +16,7 @@ import type {
   SearchTransformKeyFn,
   ProRequestData,
 } from '@ant-design/pro-utils';
+import set from 'rc-util/lib/utils/set';
 import {
   conversionMomentValue,
   transformKeySubmitValue,
@@ -36,6 +37,7 @@ import type { SubmitterProps } from '../components';
 import { Submitter } from '../components';
 import type { GroupProps, FieldProps } from '../interface';
 import { noteOnce } from 'rc-util/lib/warning';
+import get from 'rc-util/lib/utils/get';
 
 export type CommonFormProps<
   T extends Record<string, any> = Record<string, any>,
@@ -203,7 +205,15 @@ function BaseFormComponents<T = Record<string, any>>(props: BaseFormProps<T>) {
       },
       /** 获取格式化之后的单个数据 */
       getFieldFormatValue: (nameList?: NamePath) => {
-        return transformKey(formRef.current?.getFieldValue(nameList!), omitNil, nameList);
+        const value = formRef.current?.getFieldValue(nameList!);
+        const obj = nameList ? set({}, nameList as string[], value) : value;
+        return get(transformKey(obj, omitNil, nameList), nameList as string[]);
+      },
+      /** 获取格式化之后的单个数据列表 */
+      getFieldFormatValueObject: (nameList?: NamePath) => {
+        const value = formRef.current?.getFieldValue(nameList!);
+        const obj = nameList ? set({}, nameList as string[], value) : value;
+        return transformKey(obj, omitNil, nameList);
       },
       /** 校验字段后返回格式化之后的所有数据 */
       validateFieldsReturnFormatValue: async (nameList?: NamePath[]) => {

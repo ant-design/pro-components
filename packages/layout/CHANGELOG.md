@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [6.34.3](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.2...@ant-design/pro-layout@6.34.3) (2022-03-15)
+
+**Note:** Version bump only for package @ant-design/pro-layout
+
+## [6.34.2](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.1...@ant-design/pro-layout@6.34.2) (2022-03-14)
+
+### Bug Fixes
+
+- **layout:** 完善 GlobalHeader RTL 支持 ([#4816](https://github.com/ant-design/pro-components/issues/4816)) ([3607a1b](https://github.com/ant-design/pro-components/commit/3607a1b2c70e458318a15adb22757c7716661a46))
+
 ## [6.34.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-layout@6.34.0...@ant-design/pro-layout@6.34.1) (2022-03-08)
 
 **Note:** Version bump only for package @ant-design/pro-layout

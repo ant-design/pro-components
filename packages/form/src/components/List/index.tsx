@@ -13,7 +13,6 @@ import { useEffect, useState } from 'react';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import './index.less';
 import { noteOnce } from 'rc-util/lib/warning';
-import type { StoreValue } from 'rc-field-form/es/interface';
 
 type IconConfig = {
   Icon?: React.FC<any>;
@@ -27,14 +26,6 @@ const FormListContext = React.createContext<
   | Record<string, any>
 >({});
 
-// type ChildrenFunction = (
-//   fields: FormListFieldData[],
-//   operation: FormListOperation,
-//   meta: {
-//     errors: React.ReactNode[];
-//   },
-// ) => React.ReactNode;
-
 type ChildrenItemFunction = (
   field: FormListFieldData,
   index: number,
@@ -43,11 +34,11 @@ type ChildrenItemFunction = (
 
 type FormListActionGuard = {
   beforeAddRow?: (
-    defaultValue?: StoreValue,
-    insertIndex?: number,
-    count?: number,
+    ...params: [...Parameters<FormListOperation['add']>, number]
   ) => boolean | Promise<boolean>;
-  beforeRemoveRow?: (index: number | number[], count?: number) => boolean | Promise<boolean>;
+  beforeRemoveRow?: (
+    ...params: [...Parameters<FormListOperation['remove']>, number]
+  ) => boolean | Promise<boolean>;
 };
 
 export type ProFormListProps = Omit<FormListProps, 'children'> & {
@@ -175,8 +166,17 @@ const ProFormListItem: React.FC<
   } = props;
 
   const listContext = useContext(FormListContext);
+
+  const unmountedRef = useRef(false);
+
   const [loadingRemove, setLoadingRemove] = useState(false);
   const [loadingCopy, setLoadingCopy] = useState(false);
+
+  useEffect(() => {
+    return () => {
+      unmountedRef.current = true;
+    };
+  }, []);
 
   const childrenArray = listToArray(children)
     .map((childrenItem) => {
@@ -256,13 +256,15 @@ const ProFormListItem: React.FC<
             onClick={async () => {
               setLoadingRemove(true);
               await action.remove(field.name);
-              setLoadingRemove(false);
+              if (!unmountedRef.current) {
+                setLoadingRemove(false);
+              }
             }}
           />
         </Spin>
       </Tooltip>
     );
-  }, [deleteIconProps, min, count, loadingRemove, prefixCls, action, field.name]);
+  }, [deleteIconProps, min, count, loadingRemove, prefixCls, setLoadingRemove, action, field.name]);
 
   const defaultActionDom: React.ReactNode[] = useMemo(
     () => [copyIcon, deleteIcon].filter(Boolean),
@@ -353,32 +355,17 @@ const ProFormListContainer: React.FC<ProFormListItemProps> = (props) => {
   const wrapperAction = useMemo(() => {
     const wrapAction = { ...action };
     const count = uuidFields.length;
-    Object.keys(action).forEach((key) => {
-      switch (key) {
-        case 'add':
-          wrapAction.add = async (defaultValue?: StoreValue, insertIndex?: number) => {
-            if (!actionGuard?.beforeAddRow) {
-              action.add(defaultValue, insertIndex);
-              return;
-            }
-            const needAdd = await actionGuard.beforeAddRow?.(defaultValue, insertIndex, count);
-            if (!needAdd) return;
-            action.add(defaultValue, insertIndex);
-          };
-          break;
-        case 'remove':
-          wrapAction.remove = async (idx: number | number[]) => {
-            if (!actionGuard?.beforeRemoveRow) {
-              action.remove(idx);
-              return;
-            }
-            const needRemove = await actionGuard.beforeRemoveRow?.(idx, count);
-            if (!needRemove) return;
-            action.remove(idx);
-          };
-          break;
-      }
-    });
+
+    if (actionGuard?.beforeAddRow) {
+      wrapAction.add = async (...rest) =>
+        (await actionGuard.beforeAddRow!(...rest, count)) && action.add(...rest);
+    }
+
+    if (actionGuard?.beforeRemoveRow) {
+      wrapAction.remove = async (...rest) =>
+        (await actionGuard.beforeRemoveRow!(...rest, count)) && action.remove(...rest);
+    }
+
     return wrapAction;
   }, [action, actionGuard, uuidFields]);
 

@@ -36,9 +36,6 @@ describe('DrawerForm', () => {
     const wrapper = mount(
       <DrawerForm
         width={600}
-        drawerProps={{
-          forceRender: false,
-        }}
         trigger={<Button id="new">新建</Button>}
         onVisibleChange={(visible) => fn(visible)}
       >
@@ -113,7 +110,7 @@ describe('DrawerForm', () => {
     const wrapper = mount(
       <DrawerForm
         width={600}
-        drawerProps={{ destroyOnClose: true, forceRender: false }}
+        drawerProps={{ destroyOnClose: true }}
         onVisibleChange={(visible) => fn(visible)}
       >
         <ProFormText
@@ -460,7 +457,6 @@ describe('DrawerForm', () => {
       <DrawerForm
         drawerProps={{
           destroyOnClose: true,
-          forceRender: false,
         }}
         initialValues={{
           name: '1234',
@@ -524,7 +520,6 @@ describe('DrawerForm', () => {
       <ModalForm
         modalProps={{
           destroyOnClose: true,
-          forceRender: false,
         }}
         trigger={
           <Button id="new" type="primary">
@@ -543,7 +538,6 @@ describe('DrawerForm', () => {
       <DrawerForm
         drawerProps={{
           destroyOnClose: true,
-          forceRender: false,
         }}
         trigger={
           <Button id="new" type="primary">
@@ -566,7 +560,6 @@ describe('DrawerForm', () => {
         formRef={ref}
         drawerProps={{
           destroyOnClose: true,
-          forceRender: false,
         }}
         trigger={
           <Button id="new" type="primary">
@@ -600,7 +593,6 @@ describe('DrawerForm', () => {
         formRef={ref}
         modalProps={{
           destroyOnClose: true,
-          forceRender: false,
         }}
         trigger={
           <Button id="new" type="primary">
