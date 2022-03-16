@@ -150,9 +150,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
         getRowKey: getRowKey,
         row: {
           ...row,
-          map_row_parentKey: newLineOptions?.parentKey
-            ? recordKeyToString(newLineOptions?.parentKey)?.toString()
-            : undefined,
+          map_row_parentKey: recordKeyToString(newLineOptions?.parentKey)?.toString(),
         },
         key: newLineOptions?.recordKey,
         childrenColumnName: props.expandable?.childrenColumnName || 'children',
