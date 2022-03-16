@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.68.0](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.67.1...@ant-design/pro-table@2.68.0) (2022-03-16)
+
+### Features
+
+- **table:** `newRecordType: cache` support parentKey ([#4861](https://github.com/ant-design/pro-components/issues/4861)) ([dfed128](https://github.com/ant-design/pro-components/commit/dfed128c33c3116e44d5315ffa334854ce055f95))
+
 ## [2.67.1](https://github.com/ant-design/pro-components/compare/@ant-design/pro-table@2.67.0...@ant-design/pro-table@2.67.1) (2022-03-15)
 
 **Note:** Version bump only for package @ant-design/pro-table
