@@ -831,6 +831,19 @@ describe('Field', () => {
 
     html = render(
       <Field
+        text="100"
+        valueType={{
+          type: 'percent',
+          showSymbol: true,
+          precision: 0,
+        }}
+        mode="read"
+      />,
+    );
+    expect(html.text()).toBe('+ 100%');
+
+    html = render(
+      <Field
         text={-100}
         valueType={{
           type: 'percent',
