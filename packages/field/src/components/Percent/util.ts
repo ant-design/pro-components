@@ -19,5 +19,7 @@ export function getColorByRealValue(realValue: number /** ,color: string */) {
 
 /** 获取到最后展示的数字 */
 export function getRealTextWithPrecision(realValue: number, precision: number = 2) {
-  return precision && precision > 0 ? realValue.toFixed(precision) : realValue;
+  return new Intl.NumberFormat(undefined, {
+    maximumFractionDigits: precision,
+  }).format(realValue);
 }
