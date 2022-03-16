@@ -532,7 +532,7 @@ const BaseProLayout: React.FC<ProLayoutProps> = (props) => {
     return css`
       margin: 0 !important;
       .${antdPrefixCls}-pro-page-container {
-        margin: 0;
+        margin: unset !important;
       }
     `;
   }, [antdPrefixCls, disableContentMargin]);
