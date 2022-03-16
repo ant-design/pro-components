@@ -72,6 +72,12 @@ ProForm is the best choice when you want to implement a form quickly but don't w
 
 <code src="./demos/base.tsx" height="548px"/>
 
+### Grid mode
+
+supported in `ProForm`, `SchemaForm`, `ModalForm`, `DrawerForm`, `StepsForm`
+
+<code src="./demos/form-layout-grid.tsx" title="Grid layout" />
+
 ### Form's layout toggle
 
 <code src="./demos/layout-change.tsx" height="548px"/>
@@ -120,6 +126,8 @@ ProForm is a repackaging of antd Form, if you want to customize form elements, P
 | request | The parameters of the initiating network request, the return value will be overwritten to initialValues | `(params)=>Promise<data>` | - |
 | isKeyPressSubmit | Whether to use carriage return to submit | `boolean` | - |
 | autoFocusFirstInput | The first input box of the auto focus form | `boolean` | - |
+| grid | Enable grid mode, default width 100%, use `colProps` to control width | `boolean` | - |
+| rowProps | Passed to `Row` when `grid` mode is enabled | [RowProps](https://ant.design/components/grid/#Row) | { gutter: 8 } |
 | string | [(...)](https://ant.design/components/form/) | support other antd `Form` component parameters besides `wrapperCol` \| `labelCol` \| `layout` | - |
 
 ### ProForm.Group

@@ -62,6 +62,8 @@ The most important thing about the SchemaForm form is the type definition of the
 | `hideInTable` | `boolean` | Hide in Table |
 | `hideInSearch` | `boolean` | Hide in the query form of Table |
 | `columns` | `ProFormColumnsType[] \| (values) => ProFormColumnsType[]` | nested，when valueType is dependency ，please use `(values) => ProFormColumnsType[]`, other valueType use `ProFormColumnsType[]` |
+| `rowProps` | Passed to `Row` when `grid` mode is enabled, Applies only to `ProFormGroup`, `ProFormList`, `ProFormFieldSet` | [RowProps](https://ant.design/components/grid/#Row) |
+| `colProps` | Passed to `Col` when `grid` mode is enabled | [ColProps](https://ant.design/components/grid/#Col) |
 
 ## Code example
 
