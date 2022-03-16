@@ -328,6 +328,50 @@ describe('EditorProTable', () => {
     wrapper.unmount();
   });
 
+  it('📝 EditableProTable add support parentKey when newRecordType = cache', async () => {
+    const fn = jest.fn();
+    const wrapper = mount(
+      <EditableProTable<DataSourceType>
+        rowKey="id"
+        recordCreatorProps={{
+          newRecordType: 'cache',
+          record: () => ({
+            id: 555,
+          }),
+          parentKey: () => 624748504,
+          id: 'add_new',
+        }}
+        columns={columns}
+        defaultValue={defaultData}
+        onChange={(list) => fn(list.length)}
+        expandable={{
+          defaultExpandAllRows: true,
+        }}
+      />,
+    );
+    await waitForComponentToPaint(wrapper, 1000);
+    act(() => {
+      wrapper.find('button#add_new').at(0).simulate('click');
+    });
+    await waitForComponentToPaint(wrapper, 2000);
+
+    expect(fn).not.toBeCalled();
+    act(() => {
+      wrapper
+        .find('.ant-table-tbody tr.ant-table-row')
+        .at(1)
+        .find(`td .ant-input`)
+        .at(0)
+        .simulate('change', {
+          target: {
+            value: 'zqran',
+          },
+        });
+    });
+
+    wrapper.unmount();
+  });
+
   it('📝 EditableProTable support maxLength', async () => {
     const wrapper = mount(
       <EditableProTable<DataSourceType>
