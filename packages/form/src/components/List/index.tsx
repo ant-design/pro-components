@@ -13,7 +13,6 @@ import { useEffect, useState } from 'react';
 import React, { useContext, useImperativeHandle, useMemo, useRef } from 'react';
 import './index.less';
 import { noteOnce } from 'rc-util/lib/warning';
-import FieldContext from '../../FieldContext';
 import { useGridHelpers } from '../../helpers';
 import type { ProFormGridConfig } from '../../interface';
 

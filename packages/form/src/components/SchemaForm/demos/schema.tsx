@@ -274,7 +274,6 @@ export default () => {
             title: 'ProComponent',
           },
         ]}
-        // grid
         rowProps={{
           gutter: [16, 16],
         }}
