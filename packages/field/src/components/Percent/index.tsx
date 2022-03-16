@@ -37,9 +37,6 @@ const FieldPercent: ProFieldFC<PercentPropInt> = (
   },
   ref,
 ) => {
-  // 过滤precision小于0和undefined的情况，非法值使用默认值2
-  precision = Number(precision) >= 0 ? precision : 2;
-
   const realValue = useMemo(
     () =>
       typeof text === 'string' && (text as string).includes('%')

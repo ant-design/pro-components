@@ -866,7 +866,7 @@ describe('Field', () => {
         mode="read"
       />,
     );
-    expect(html.text()).toBe('+ 100.00%');
+    expect(html.text()).toBe('+ 100%');
 
     html = render(
       <Field
