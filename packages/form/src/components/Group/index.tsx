@@ -9,7 +9,7 @@ import classNames from 'classnames';
 import { useGridHelpers } from '../../helpers';
 
 const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
-  const { groupProps, grid } = React.useContext(FieldContext);
+  const { groupProps } = React.useContext(FieldContext);
   const {
     children,
     collapsible,
@@ -37,7 +37,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
   });
   const { getPrefixCls } = useContext(ConfigProvider.ConfigContext);
 
-  const { WrapperCol, WrapperRow } = useGridHelpers(props);
+  const { grid, WrapperCol, WrapperRow } = useGridHelpers(props);
 
   const className = getPrefixCls('pro-form-group');
 
@@ -66,31 +66,38 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
     />
   );
   const titleDom = titleRender ? titleRender(label, props) : label;
-  const childrenDoms = useMemo(() => {
-    return (
-      <WrapperRow>
-        <>
-          {React.Children.toArray(children)
-            .map((element, index) => {
-              if (React.isValidElement(element) && element?.props?.hidden) {
-                return null;
-              }
-              if (index === 0 && React.isValidElement(element) && autoFocus) {
-                return React.cloneElement(element, {
-                  ...(element.props as any),
-                  autoFocus,
-                });
-              }
-              return element;
-            })
-            .filter(Boolean)}
-        </>
-      </WrapperRow>
-    );
+  const [childrenDoms, hiddenDoms] = useMemo(() => {
+    const hiddenChildren: React.ReactNode[] = [];
+    const childrenList = React.Children.toArray(children).map((element, index) => {
+      if (React.isValidElement(element) && element?.props?.hidden) {
+        hiddenChildren.push(element);
+        return null;
+      }
+      if (index === 0 && React.isValidElement(element) && autoFocus) {
+        return React.cloneElement(element, {
+          ...(element.props as any),
+          autoFocus,
+        });
+      }
+      return element;
+    });
+
+    return [
+      <WrapperRow key="children">{childrenList}</WrapperRow>,
+      hiddenChildren.length > 0 ? (
+        <div
+          style={{
+            display: 'none',
+          }}
+        >
+          {hiddenChildren}
+        </div>
+      ) : null,
+    ];
   }, [WrapperRow, children, autoFocus]);
 
-  const groupDom = useMemo(
-    () => (
+  return (
+    <WrapperCol>
       <div
         className={classNames(className, {
           [`${className}-twoLine`]: labelLayout === 'twoLine',
@@ -98,6 +105,7 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
         style={style}
         ref={ref}
       >
+        {hiddenDoms}
         {(title || tooltip || extra) && (
           <div
             className={`${className}-title`}
@@ -137,34 +145,12 @@ const Group: React.FC<GroupProps> = React.forwardRef((props, ref: any) => {
               ...spaceProps?.style,
             }}
           >
-            {childrenDoms}
+            {childrenDoms.props.children}
           </Space>
         )}
       </div>
-    ),
-    [
-      align,
-      childrenDoms,
-      className,
-      collapsed,
-      collapsible,
-      direction,
-      extra,
-      grid,
-      labelLayout,
-      ref,
-      setCollapsed,
-      size,
-      spaceProps,
-      style,
-      title,
-      titleDom,
-      titleStyle,
-      tooltip,
-    ],
+    </WrapperCol>
   );
-
-  return <WrapperCol>{groupDom}</WrapperCol>;
 });
 
 Group.displayName = 'ProForm-Group';

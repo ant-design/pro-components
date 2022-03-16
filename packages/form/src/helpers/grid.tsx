@@ -22,7 +22,7 @@ export const gridHelpers: (config: ProFormGridConfig) => GridHelpers = ({
         {children}
       </Row>
     ) : (
-      <>{children}</>
+      (children as any)
     );
   },
   WrapperCol({ children, ...props }) {
@@ -40,7 +40,7 @@ export const gridHelpers: (config: ProFormGridConfig) => GridHelpers = ({
     }, [props?.span]);
 
     if (!grid) {
-      return <>{children}</>;
+      return children as any;
     }
 
     return (
