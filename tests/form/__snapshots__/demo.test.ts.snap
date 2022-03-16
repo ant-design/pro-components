@@ -22821,7 +22821,7 @@ exports[`form demos 📸 renders ./packages/form/src/components/SchemaForm/demos
         </div>
       </div>
       <div
-        class="ant-col ant-col-24 ant-col-xs-24"
+        class="ant-col ant-col-24"
         style="padding: 8px 8px 8px 8px;"
       >
         <div
@@ -33376,7 +33376,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
       style="margin-left: -8px; margin-right: -8px;"
     >
       <div
-        class="ant-col ant-col-20 ant-col-xs-24"
+        class="ant-col ant-col-20"
         style="padding-left: 8px; padding-right: 8px;"
       >
         <div
@@ -33469,7 +33469,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
         </div>
       </div>
       <div
-        class="ant-col ant-col-4 ant-col-xs-24"
+        class="ant-col ant-col-4"
         style="padding-left: 8px; padding-right: 8px;"
       >
         <div
@@ -33851,7 +33851,7 @@ exports[`form demos 📸 renders ./packages/form/src/demos/form-layout-grid.tsx 
         </div>
       </div>
       <div
-        class="ant-col ant-col-24 ant-col-xs-24"
+        class="ant-col ant-col-24"
         style="padding-left: 8px; padding-right: 8px;"
       >
         <div

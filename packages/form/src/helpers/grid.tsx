@@ -25,7 +25,8 @@ export const gridHelpers: (config: ProFormGridConfig) => GridHelpers = ({
       (children as any)
     );
   },
-  WrapperCol({ children, ...props }) {
+  WrapperCol({ children, ...rest }) {
+    const props = { ...colProps, ...rest };
     const defaultColProps = useMemo(() => {
       /**
        * `xs` takes precedence over `span`
@@ -44,29 +45,21 @@ export const gridHelpers: (config: ProFormGridConfig) => GridHelpers = ({
     }
 
     return (
-      <Col {...defaultColProps} {...colProps} {...props}>
+      <Col {...defaultColProps} {...props}>
         {children}
       </Col>
     );
   },
 });
 
-export const useGridHelpers = (
-  ...props: [(ProFormGridConfig | boolean)?] | [boolean, ProFormGridConfig?]
-) => {
+export const useGridHelpers = (props?: ProFormGridConfig | boolean) => {
   const config = useMemo(() => {
-    const prop = props[0];
-    if (props.length === 2) {
-      return {
-        grid: prop,
-        ...props[1],
-      };
-    } else {
-      if (typeof prop === 'object') {
-        return prop;
+    {
+      if (typeof props === 'object') {
+        return props;
       }
       return {
-        grid: prop,
+        grid: props,
       };
     }
   }, [props]);
