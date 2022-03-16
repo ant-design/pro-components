@@ -27,6 +27,8 @@ import {
   useEditableArray,
   ErrorBoundary,
   useDeepCompareEffectDebounce,
+  editableRowByKey,
+  recordKeyToString,
 } from '@ant-design/pro-utils';
 
 import useFetchData from './useFetchData';
@@ -67,6 +69,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     onFilterChange: (sort: any) => void;
     editableUtils: any;
     rootRef: React.RefObject<HTMLDivElement>;
+    getRowKey: GetRowKey<any>;
   },
 ) {
   const {
@@ -94,6 +97,7 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     cardBordered,
     editableUtils,
     rootRef,
+    getRowKey,
     ...rest
   } = props;
   const counter = Container.useContainer();
@@ -138,8 +142,23 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
    *
    * @returns
    */
-  const editableDataSource = (): T[] => {
+  const editableDataSource = (dataSource: any[]): T[] => {
     const { options: newLineOptions, defaultValue: row } = editableUtils.newLineRecord || {};
+    if (newLineOptions?.parentKey) {
+      const actionProps = {
+        data: dataSource,
+        getRowKey: getRowKey,
+        row: {
+          ...row,
+          map_row_parentKey: recordKeyToString(newLineOptions?.parentKey)?.toString(),
+        },
+        key: newLineOptions?.recordKey,
+        childrenColumnName: props.expandable?.childrenColumnName || 'children',
+      };
+
+      return editableRowByKey(actionProps, newLineOptions.position === 'top' ? 'top' : 'update');
+    }
+
     if (newLineOptions?.position === 'top') {
       return [row, ...action.dataSource];
     }
@@ -164,7 +183,9 @@ function TableRender<T extends Record<string, any>, U, ValueType>(
     style: tableStyle,
     columns: columns.map((item) => (item.isExtraColumns ? item.extraColumn : item)),
     loading: action.loading,
-    dataSource: editableUtils.newLineRecord ? editableDataSource() : action.dataSource,
+    dataSource: editableUtils.newLineRecord
+      ? editableDataSource(action.dataSource)
+      : action.dataSource,
     pagination,
     onChange: (
       changePagination: TablePaginationConfig,
@@ -793,6 +814,7 @@ const ProTable = <T extends Record<string, any>, U extends ParamsType, ValueType
       onSortChange={setProSort}
       onFilterChange={setProFilter}
       editableUtils={editableUtils}
+      getRowKey={getRowKey}
     />
   );
 };
