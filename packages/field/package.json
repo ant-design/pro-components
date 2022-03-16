@@ -32,7 +32,7 @@
     "@ant-design/pro-provider": "1.6.1",
     "@ant-design/pro-utils": "1.37.0",
     "@babel/runtime": "^7.16.3",
-    "@chenshuai2144/sketch-color": "1.0.6",
+    "@chenshuai2144/sketch-color": "^1.0.8",
     "classnames": "^2.2.6",
     "lodash.tonumber": "^4.0.3",
     "moment": "^2.27.0",
